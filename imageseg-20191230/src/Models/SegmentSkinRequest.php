@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SegmentSkinRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/imageseg/SegmentSkin/SegmentSkin2.jpg
      *
      * @var string

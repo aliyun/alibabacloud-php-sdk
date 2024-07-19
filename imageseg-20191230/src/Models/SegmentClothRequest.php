@@ -14,11 +14,18 @@ class SegmentClothRequest extends Model
     public $clothClass;
 
     /**
+     * @description This parameter is required.
+     *
      * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/imageseg/SegmentCloth/SegmentCloth1.jpg
      *
      * @var string
      */
     public $imageURL;
+
+    /**
+     * @var int
+     */
+    public $outMode;
 
     /**
      * @var string
@@ -27,6 +34,7 @@ class SegmentClothRequest extends Model
     protected $_name = [
         'clothClass' => 'ClothClass',
         'imageURL'   => 'ImageURL',
+        'outMode'    => 'OutMode',
         'returnForm' => 'ReturnForm',
     ];
 
@@ -42,6 +50,9 @@ class SegmentClothRequest extends Model
         }
         if (null !== $this->imageURL) {
             $res['ImageURL'] = $this->imageURL;
+        }
+        if (null !== $this->outMode) {
+            $res['OutMode'] = $this->outMode;
         }
         if (null !== $this->returnForm) {
             $res['ReturnForm'] = $this->returnForm;
@@ -65,6 +76,9 @@ class SegmentClothRequest extends Model
         }
         if (isset($map['ImageURL'])) {
             $model->imageURL = $map['ImageURL'];
+        }
+        if (isset($map['OutMode'])) {
+            $model->outMode = $map['OutMode'];
         }
         if (isset($map['ReturnForm'])) {
             $model->returnForm = $map['ReturnForm'];

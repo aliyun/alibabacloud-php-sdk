@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SegmentFoodRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/imageseg/SegmentFood/SegmentFood5.jpg
      *
      * @var string

@@ -104,10 +104,10 @@ class Imageseg extends OpenApiClient
     }
 
     /**
-     * @param ChangeSkyRequest $request
-     * @param RuntimeOptions   $runtime
+     * @param ChangeSkyRequest $request ChangeSkyRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ChangeSkyResponse
+     * @return ChangeSkyResponse ChangeSkyResponse
      */
     public function changeSkyWithOptions($request, $runtime)
     {
@@ -138,9 +138,9 @@ class Imageseg extends OpenApiClient
     }
 
     /**
-     * @param ChangeSkyRequest $request
+     * @param ChangeSkyRequest $request ChangeSkyRequest
      *
-     * @return ChangeSkyResponse
+     * @return ChangeSkyResponse ChangeSkyResponse
      */
     public function changeSky($request)
     {
@@ -163,7 +163,7 @@ class Imageseg extends OpenApiClient
         $securityToken        = $this->_credential->getSecurityToken();
         $credentialType       = $this->_credential->getType();
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (Utils::isUnset($openPlatformEndpoint)) {
+        if (Utils::empty_($openPlatformEndpoint)) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
         if (Utils::isUnset($credentialType)) {
@@ -185,12 +185,13 @@ class Imageseg extends OpenApiClient
         ]);
         $authResponse = new AuthorizeFileUploadResponse([]);
         $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeyId'     => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
             'type'            => 'access_key',
             'protocol'        => $this->_protocol,
             'regionId'        => $this->_regionId,
         ]);
-        $ossClient     = null;
+        $ossClient     = new OSS($ossConfig);
         $fileObj       = new FileField([]);
         $ossHeader     = new header([]);
         $uploadRequest = new PostObjectRequest([]);
@@ -253,10 +254,10 @@ class Imageseg extends OpenApiClient
     }
 
     /**
-     * @param GetAsyncJobResultRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param GetAsyncJobResultRequest $request GetAsyncJobResultRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetAsyncJobResultResponse
+     * @return GetAsyncJobResultResponse GetAsyncJobResultResponse
      */
     public function getAsyncJobResultWithOptions($request, $runtime)
     {
@@ -284,9 +285,9 @@ class Imageseg extends OpenApiClient
     }
 
     /**
-     * @param GetAsyncJobResultRequest $request
+     * @param GetAsyncJobResultRequest $request GetAsyncJobResultRequest
      *
-     * @return GetAsyncJobResultResponse
+     * @return GetAsyncJobResultResponse GetAsyncJobResultResponse
      */
     public function getAsyncJobResult($request)
     {
@@ -296,10 +297,10 @@ class Imageseg extends OpenApiClient
     }
 
     /**
-     * @param ParseFaceRequest $request
-     * @param RuntimeOptions   $runtime
+     * @param ParseFaceRequest $request ParseFaceRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ParseFaceResponse
+     * @return ParseFaceResponse ParseFaceResponse
      */
     public function parseFaceWithOptions($request, $runtime)
     {
@@ -327,9 +328,9 @@ class Imageseg extends OpenApiClient
     }
 
     /**
-     * @param ParseFaceRequest $request
+     * @param ParseFaceRequest $request ParseFaceRequest
      *
-     * @return ParseFaceResponse
+     * @return ParseFaceResponse ParseFaceResponse
      */
     public function parseFace($request)
     {
@@ -352,7 +353,7 @@ class Imageseg extends OpenApiClient
         $securityToken        = $this->_credential->getSecurityToken();
         $credentialType       = $this->_credential->getType();
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (Utils::isUnset($openPlatformEndpoint)) {
+        if (Utils::empty_($openPlatformEndpoint)) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
         if (Utils::isUnset($credentialType)) {
@@ -374,12 +375,13 @@ class Imageseg extends OpenApiClient
         ]);
         $authResponse = new AuthorizeFileUploadResponse([]);
         $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeyId'     => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
             'type'            => 'access_key',
             'protocol'        => $this->_protocol,
             'regionId'        => $this->_regionId,
         ]);
-        $ossClient     = null;
+        $ossClient     = new OSS($ossConfig);
         $fileObj       = new FileField([]);
         $ossHeader     = new header([]);
         $uploadRequest = new PostObjectRequest([]);
@@ -417,10 +419,10 @@ class Imageseg extends OpenApiClient
     }
 
     /**
-     * @param RefineMaskRequest $request
-     * @param RuntimeOptions    $runtime
+     * @param RefineMaskRequest $request RefineMaskRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return RefineMaskResponse
+     * @return RefineMaskResponse RefineMaskResponse
      */
     public function refineMaskWithOptions($request, $runtime)
     {
@@ -451,9 +453,9 @@ class Imageseg extends OpenApiClient
     }
 
     /**
-     * @param RefineMaskRequest $request
+     * @param RefineMaskRequest $request RefineMaskRequest
      *
-     * @return RefineMaskResponse
+     * @return RefineMaskResponse RefineMaskResponse
      */
     public function refineMask($request)
     {
@@ -476,7 +478,7 @@ class Imageseg extends OpenApiClient
         $securityToken        = $this->_credential->getSecurityToken();
         $credentialType       = $this->_credential->getType();
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (Utils::isUnset($openPlatformEndpoint)) {
+        if (Utils::empty_($openPlatformEndpoint)) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
         if (Utils::isUnset($credentialType)) {
@@ -498,12 +500,13 @@ class Imageseg extends OpenApiClient
         ]);
         $authResponse = new AuthorizeFileUploadResponse([]);
         $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeyId'     => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
             'type'            => 'access_key',
             'protocol'        => $this->_protocol,
             'regionId'        => $this->_regionId,
         ]);
-        $ossClient     = null;
+        $ossClient     = new OSS($ossConfig);
         $fileObj       = new FileField([]);
         $ossHeader     = new header([]);
         $uploadRequest = new PostObjectRequest([]);
@@ -566,10 +569,10 @@ class Imageseg extends OpenApiClient
     }
 
     /**
-     * @param SegmentBodyRequest $request
-     * @param RuntimeOptions     $runtime
+     * @param SegmentBodyRequest $request SegmentBodyRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return SegmentBodyResponse
+     * @return SegmentBodyResponse SegmentBodyResponse
      */
     public function segmentBodyWithOptions($request, $runtime)
     {
@@ -600,9 +603,9 @@ class Imageseg extends OpenApiClient
     }
 
     /**
-     * @param SegmentBodyRequest $request
+     * @param SegmentBodyRequest $request SegmentBodyRequest
      *
-     * @return SegmentBodyResponse
+     * @return SegmentBodyResponse SegmentBodyResponse
      */
     public function segmentBody($request)
     {
@@ -625,7 +628,7 @@ class Imageseg extends OpenApiClient
         $securityToken        = $this->_credential->getSecurityToken();
         $credentialType       = $this->_credential->getType();
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (Utils::isUnset($openPlatformEndpoint)) {
+        if (Utils::empty_($openPlatformEndpoint)) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
         if (Utils::isUnset($credentialType)) {
@@ -647,12 +650,13 @@ class Imageseg extends OpenApiClient
         ]);
         $authResponse = new AuthorizeFileUploadResponse([]);
         $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeyId'     => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
             'type'            => 'access_key',
             'protocol'        => $this->_protocol,
             'regionId'        => $this->_regionId,
         ]);
-        $ossClient     = null;
+        $ossClient     = new OSS($ossConfig);
         $fileObj       = new FileField([]);
         $ossHeader     = new header([]);
         $uploadRequest = new PostObjectRequest([]);
@@ -690,10 +694,10 @@ class Imageseg extends OpenApiClient
     }
 
     /**
-     * @param SegmentClothRequest $request
-     * @param RuntimeOptions      $runtime
+     * @param SegmentClothRequest $request SegmentClothRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return SegmentClothResponse
+     * @return SegmentClothResponse SegmentClothResponse
      */
     public function segmentClothWithOptions($request, $runtime)
     {
@@ -704,6 +708,9 @@ class Imageseg extends OpenApiClient
         }
         if (!Utils::isUnset($request->imageURL)) {
             $query['ImageURL'] = $request->imageURL;
+        }
+        if (!Utils::isUnset($request->outMode)) {
+            $query['OutMode'] = $request->outMode;
         }
         if (!Utils::isUnset($request->returnForm)) {
             $query['ReturnForm'] = $request->returnForm;
@@ -727,9 +734,9 @@ class Imageseg extends OpenApiClient
     }
 
     /**
-     * @param SegmentClothRequest $request
+     * @param SegmentClothRequest $request SegmentClothRequest
      *
-     * @return SegmentClothResponse
+     * @return SegmentClothResponse SegmentClothResponse
      */
     public function segmentCloth($request)
     {
@@ -752,7 +759,7 @@ class Imageseg extends OpenApiClient
         $securityToken        = $this->_credential->getSecurityToken();
         $credentialType       = $this->_credential->getType();
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (Utils::isUnset($openPlatformEndpoint)) {
+        if (Utils::empty_($openPlatformEndpoint)) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
         if (Utils::isUnset($credentialType)) {
@@ -774,12 +781,13 @@ class Imageseg extends OpenApiClient
         ]);
         $authResponse = new AuthorizeFileUploadResponse([]);
         $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeyId'     => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
             'type'            => 'access_key',
             'protocol'        => $this->_protocol,
             'regionId'        => $this->_regionId,
         ]);
-        $ossClient     = null;
+        $ossClient     = new OSS($ossConfig);
         $fileObj       = new FileField([]);
         $ossHeader     = new header([]);
         $uploadRequest = new PostObjectRequest([]);
@@ -817,10 +825,10 @@ class Imageseg extends OpenApiClient
     }
 
     /**
-     * @param SegmentCommodityRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param SegmentCommodityRequest $request SegmentCommodityRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return SegmentCommodityResponse
+     * @return SegmentCommodityResponse SegmentCommodityResponse
      */
     public function segmentCommodityWithOptions($request, $runtime)
     {
@@ -851,9 +859,9 @@ class Imageseg extends OpenApiClient
     }
 
     /**
-     * @param SegmentCommodityRequest $request
+     * @param SegmentCommodityRequest $request SegmentCommodityRequest
      *
-     * @return SegmentCommodityResponse
+     * @return SegmentCommodityResponse SegmentCommodityResponse
      */
     public function segmentCommodity($request)
     {
@@ -876,7 +884,7 @@ class Imageseg extends OpenApiClient
         $securityToken        = $this->_credential->getSecurityToken();
         $credentialType       = $this->_credential->getType();
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (Utils::isUnset($openPlatformEndpoint)) {
+        if (Utils::empty_($openPlatformEndpoint)) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
         if (Utils::isUnset($credentialType)) {
@@ -898,12 +906,13 @@ class Imageseg extends OpenApiClient
         ]);
         $authResponse = new AuthorizeFileUploadResponse([]);
         $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeyId'     => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
             'type'            => 'access_key',
             'protocol'        => $this->_protocol,
             'regionId'        => $this->_regionId,
         ]);
-        $ossClient     = null;
+        $ossClient     = new OSS($ossConfig);
         $fileObj       = new FileField([]);
         $ossHeader     = new header([]);
         $uploadRequest = new PostObjectRequest([]);
@@ -941,10 +950,10 @@ class Imageseg extends OpenApiClient
     }
 
     /**
-     * @param SegmentCommonImageRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param SegmentCommonImageRequest $request SegmentCommonImageRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return SegmentCommonImageResponse
+     * @return SegmentCommonImageResponse SegmentCommonImageResponse
      */
     public function segmentCommonImageWithOptions($request, $runtime)
     {
@@ -975,9 +984,9 @@ class Imageseg extends OpenApiClient
     }
 
     /**
-     * @param SegmentCommonImageRequest $request
+     * @param SegmentCommonImageRequest $request SegmentCommonImageRequest
      *
-     * @return SegmentCommonImageResponse
+     * @return SegmentCommonImageResponse SegmentCommonImageResponse
      */
     public function segmentCommonImage($request)
     {
@@ -1000,7 +1009,7 @@ class Imageseg extends OpenApiClient
         $securityToken        = $this->_credential->getSecurityToken();
         $credentialType       = $this->_credential->getType();
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (Utils::isUnset($openPlatformEndpoint)) {
+        if (Utils::empty_($openPlatformEndpoint)) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
         if (Utils::isUnset($credentialType)) {
@@ -1022,12 +1031,13 @@ class Imageseg extends OpenApiClient
         ]);
         $authResponse = new AuthorizeFileUploadResponse([]);
         $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeyId'     => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
             'type'            => 'access_key',
             'protocol'        => $this->_protocol,
             'regionId'        => $this->_regionId,
         ]);
-        $ossClient     = null;
+        $ossClient     = new OSS($ossConfig);
         $fileObj       = new FileField([]);
         $ossHeader     = new header([]);
         $uploadRequest = new PostObjectRequest([]);
@@ -1065,10 +1075,10 @@ class Imageseg extends OpenApiClient
     }
 
     /**
-     * @param SegmentFoodRequest $request
-     * @param RuntimeOptions     $runtime
+     * @param SegmentFoodRequest $request SegmentFoodRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return SegmentFoodResponse
+     * @return SegmentFoodResponse SegmentFoodResponse
      */
     public function segmentFoodWithOptions($request, $runtime)
     {
@@ -1099,9 +1109,9 @@ class Imageseg extends OpenApiClient
     }
 
     /**
-     * @param SegmentFoodRequest $request
+     * @param SegmentFoodRequest $request SegmentFoodRequest
      *
-     * @return SegmentFoodResponse
+     * @return SegmentFoodResponse SegmentFoodResponse
      */
     public function segmentFood($request)
     {
@@ -1124,7 +1134,7 @@ class Imageseg extends OpenApiClient
         $securityToken        = $this->_credential->getSecurityToken();
         $credentialType       = $this->_credential->getType();
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (Utils::isUnset($openPlatformEndpoint)) {
+        if (Utils::empty_($openPlatformEndpoint)) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
         if (Utils::isUnset($credentialType)) {
@@ -1146,12 +1156,13 @@ class Imageseg extends OpenApiClient
         ]);
         $authResponse = new AuthorizeFileUploadResponse([]);
         $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeyId'     => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
             'type'            => 'access_key',
             'protocol'        => $this->_protocol,
             'regionId'        => $this->_regionId,
         ]);
-        $ossClient     = null;
+        $ossClient     = new OSS($ossConfig);
         $fileObj       = new FileField([]);
         $ossHeader     = new header([]);
         $uploadRequest = new PostObjectRequest([]);
@@ -1189,10 +1200,10 @@ class Imageseg extends OpenApiClient
     }
 
     /**
-     * @param SegmentHDBodyRequest $request
-     * @param RuntimeOptions       $runtime
+     * @param SegmentHDBodyRequest $request SegmentHDBodyRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return SegmentHDBodyResponse
+     * @return SegmentHDBodyResponse SegmentHDBodyResponse
      */
     public function segmentHDBodyWithOptions($request, $runtime)
     {
@@ -1220,9 +1231,9 @@ class Imageseg extends OpenApiClient
     }
 
     /**
-     * @param SegmentHDBodyRequest $request
+     * @param SegmentHDBodyRequest $request SegmentHDBodyRequest
      *
-     * @return SegmentHDBodyResponse
+     * @return SegmentHDBodyResponse SegmentHDBodyResponse
      */
     public function segmentHDBody($request)
     {
@@ -1245,7 +1256,7 @@ class Imageseg extends OpenApiClient
         $securityToken        = $this->_credential->getSecurityToken();
         $credentialType       = $this->_credential->getType();
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (Utils::isUnset($openPlatformEndpoint)) {
+        if (Utils::empty_($openPlatformEndpoint)) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
         if (Utils::isUnset($credentialType)) {
@@ -1267,12 +1278,13 @@ class Imageseg extends OpenApiClient
         ]);
         $authResponse = new AuthorizeFileUploadResponse([]);
         $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeyId'     => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
             'type'            => 'access_key',
             'protocol'        => $this->_protocol,
             'regionId'        => $this->_regionId,
         ]);
-        $ossClient     = null;
+        $ossClient     = new OSS($ossConfig);
         $fileObj       = new FileField([]);
         $ossHeader     = new header([]);
         $uploadRequest = new PostObjectRequest([]);
@@ -1310,10 +1322,10 @@ class Imageseg extends OpenApiClient
     }
 
     /**
-     * @param SegmentHDCommonImageRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param SegmentHDCommonImageRequest $request SegmentHDCommonImageRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return SegmentHDCommonImageResponse
+     * @return SegmentHDCommonImageResponse SegmentHDCommonImageResponse
      */
     public function segmentHDCommonImageWithOptions($request, $runtime)
     {
@@ -1341,9 +1353,9 @@ class Imageseg extends OpenApiClient
     }
 
     /**
-     * @param SegmentHDCommonImageRequest $request
+     * @param SegmentHDCommonImageRequest $request SegmentHDCommonImageRequest
      *
-     * @return SegmentHDCommonImageResponse
+     * @return SegmentHDCommonImageResponse SegmentHDCommonImageResponse
      */
     public function segmentHDCommonImage($request)
     {
@@ -1366,7 +1378,7 @@ class Imageseg extends OpenApiClient
         $securityToken        = $this->_credential->getSecurityToken();
         $credentialType       = $this->_credential->getType();
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (Utils::isUnset($openPlatformEndpoint)) {
+        if (Utils::empty_($openPlatformEndpoint)) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
         if (Utils::isUnset($credentialType)) {
@@ -1388,12 +1400,13 @@ class Imageseg extends OpenApiClient
         ]);
         $authResponse = new AuthorizeFileUploadResponse([]);
         $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeyId'     => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
             'type'            => 'access_key',
             'protocol'        => $this->_protocol,
             'regionId'        => $this->_regionId,
         ]);
-        $ossClient     = null;
+        $ossClient     = new OSS($ossConfig);
         $fileObj       = new FileField([]);
         $ossHeader     = new header([]);
         $uploadRequest = new PostObjectRequest([]);
@@ -1431,10 +1444,10 @@ class Imageseg extends OpenApiClient
     }
 
     /**
-     * @param SegmentHDSkyRequest $request
-     * @param RuntimeOptions      $runtime
+     * @param SegmentHDSkyRequest $request SegmentHDSkyRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return SegmentHDSkyResponse
+     * @return SegmentHDSkyResponse SegmentHDSkyResponse
      */
     public function segmentHDSkyWithOptions($request, $runtime)
     {
@@ -1462,9 +1475,9 @@ class Imageseg extends OpenApiClient
     }
 
     /**
-     * @param SegmentHDSkyRequest $request
+     * @param SegmentHDSkyRequest $request SegmentHDSkyRequest
      *
-     * @return SegmentHDSkyResponse
+     * @return SegmentHDSkyResponse SegmentHDSkyResponse
      */
     public function segmentHDSky($request)
     {
@@ -1487,7 +1500,7 @@ class Imageseg extends OpenApiClient
         $securityToken        = $this->_credential->getSecurityToken();
         $credentialType       = $this->_credential->getType();
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (Utils::isUnset($openPlatformEndpoint)) {
+        if (Utils::empty_($openPlatformEndpoint)) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
         if (Utils::isUnset($credentialType)) {
@@ -1509,12 +1522,13 @@ class Imageseg extends OpenApiClient
         ]);
         $authResponse = new AuthorizeFileUploadResponse([]);
         $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeyId'     => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
             'type'            => 'access_key',
             'protocol'        => $this->_protocol,
             'regionId'        => $this->_regionId,
         ]);
-        $ossClient     = null;
+        $ossClient     = new OSS($ossConfig);
         $fileObj       = new FileField([]);
         $ossHeader     = new header([]);
         $uploadRequest = new PostObjectRequest([]);
@@ -1552,10 +1566,10 @@ class Imageseg extends OpenApiClient
     }
 
     /**
-     * @param SegmentHairRequest $request
-     * @param RuntimeOptions     $runtime
+     * @param SegmentHairRequest $request SegmentHairRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return SegmentHairResponse
+     * @return SegmentHairResponse SegmentHairResponse
      */
     public function segmentHairWithOptions($request, $runtime)
     {
@@ -1583,9 +1597,9 @@ class Imageseg extends OpenApiClient
     }
 
     /**
-     * @param SegmentHairRequest $request
+     * @param SegmentHairRequest $request SegmentHairRequest
      *
-     * @return SegmentHairResponse
+     * @return SegmentHairResponse SegmentHairResponse
      */
     public function segmentHair($request)
     {
@@ -1608,7 +1622,7 @@ class Imageseg extends OpenApiClient
         $securityToken        = $this->_credential->getSecurityToken();
         $credentialType       = $this->_credential->getType();
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (Utils::isUnset($openPlatformEndpoint)) {
+        if (Utils::empty_($openPlatformEndpoint)) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
         if (Utils::isUnset($credentialType)) {
@@ -1630,12 +1644,13 @@ class Imageseg extends OpenApiClient
         ]);
         $authResponse = new AuthorizeFileUploadResponse([]);
         $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeyId'     => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
             'type'            => 'access_key',
             'protocol'        => $this->_protocol,
             'regionId'        => $this->_regionId,
         ]);
-        $ossClient     = null;
+        $ossClient     = new OSS($ossConfig);
         $fileObj       = new FileField([]);
         $ossHeader     = new header([]);
         $uploadRequest = new PostObjectRequest([]);
@@ -1673,10 +1688,10 @@ class Imageseg extends OpenApiClient
     }
 
     /**
-     * @param SegmentHeadRequest $request
-     * @param RuntimeOptions     $runtime
+     * @param SegmentHeadRequest $request SegmentHeadRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return SegmentHeadResponse
+     * @return SegmentHeadResponse SegmentHeadResponse
      */
     public function segmentHeadWithOptions($request, $runtime)
     {
@@ -1707,9 +1722,9 @@ class Imageseg extends OpenApiClient
     }
 
     /**
-     * @param SegmentHeadRequest $request
+     * @param SegmentHeadRequest $request SegmentHeadRequest
      *
-     * @return SegmentHeadResponse
+     * @return SegmentHeadResponse SegmentHeadResponse
      */
     public function segmentHead($request)
     {
@@ -1732,7 +1747,7 @@ class Imageseg extends OpenApiClient
         $securityToken        = $this->_credential->getSecurityToken();
         $credentialType       = $this->_credential->getType();
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (Utils::isUnset($openPlatformEndpoint)) {
+        if (Utils::empty_($openPlatformEndpoint)) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
         if (Utils::isUnset($credentialType)) {
@@ -1754,12 +1769,13 @@ class Imageseg extends OpenApiClient
         ]);
         $authResponse = new AuthorizeFileUploadResponse([]);
         $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeyId'     => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
             'type'            => 'access_key',
             'protocol'        => $this->_protocol,
             'regionId'        => $this->_regionId,
         ]);
-        $ossClient     = null;
+        $ossClient     = new OSS($ossConfig);
         $fileObj       = new FileField([]);
         $ossHeader     = new header([]);
         $uploadRequest = new PostObjectRequest([]);
@@ -1797,10 +1813,10 @@ class Imageseg extends OpenApiClient
     }
 
     /**
-     * @param SegmentSceneRequest $request
-     * @param RuntimeOptions      $runtime
+     * @param SegmentSceneRequest $request SegmentSceneRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return SegmentSceneResponse
+     * @return SegmentSceneResponse SegmentSceneResponse
      */
     public function segmentSceneWithOptions($request, $runtime)
     {
@@ -1828,9 +1844,9 @@ class Imageseg extends OpenApiClient
     }
 
     /**
-     * @param SegmentSceneRequest $request
+     * @param SegmentSceneRequest $request SegmentSceneRequest
      *
-     * @return SegmentSceneResponse
+     * @return SegmentSceneResponse SegmentSceneResponse
      */
     public function segmentScene($request)
     {
@@ -1853,7 +1869,7 @@ class Imageseg extends OpenApiClient
         $securityToken        = $this->_credential->getSecurityToken();
         $credentialType       = $this->_credential->getType();
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (Utils::isUnset($openPlatformEndpoint)) {
+        if (Utils::empty_($openPlatformEndpoint)) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
         if (Utils::isUnset($credentialType)) {
@@ -1875,12 +1891,13 @@ class Imageseg extends OpenApiClient
         ]);
         $authResponse = new AuthorizeFileUploadResponse([]);
         $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeyId'     => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
             'type'            => 'access_key',
             'protocol'        => $this->_protocol,
             'regionId'        => $this->_regionId,
         ]);
-        $ossClient     = null;
+        $ossClient     = new OSS($ossConfig);
         $fileObj       = new FileField([]);
         $ossHeader     = new header([]);
         $uploadRequest = new PostObjectRequest([]);
@@ -1918,10 +1935,10 @@ class Imageseg extends OpenApiClient
     }
 
     /**
-     * @param SegmentSkinRequest $request
-     * @param RuntimeOptions     $runtime
+     * @param SegmentSkinRequest $request SegmentSkinRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return SegmentSkinResponse
+     * @return SegmentSkinResponse SegmentSkinResponse
      */
     public function segmentSkinWithOptions($request, $runtime)
     {
@@ -1949,9 +1966,9 @@ class Imageseg extends OpenApiClient
     }
 
     /**
-     * @param SegmentSkinRequest $request
+     * @param SegmentSkinRequest $request SegmentSkinRequest
      *
-     * @return SegmentSkinResponse
+     * @return SegmentSkinResponse SegmentSkinResponse
      */
     public function segmentSkin($request)
     {
@@ -1974,7 +1991,7 @@ class Imageseg extends OpenApiClient
         $securityToken        = $this->_credential->getSecurityToken();
         $credentialType       = $this->_credential->getType();
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (Utils::isUnset($openPlatformEndpoint)) {
+        if (Utils::empty_($openPlatformEndpoint)) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
         if (Utils::isUnset($credentialType)) {
@@ -1996,12 +2013,13 @@ class Imageseg extends OpenApiClient
         ]);
         $authResponse = new AuthorizeFileUploadResponse([]);
         $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeyId'     => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
             'type'            => 'access_key',
             'protocol'        => $this->_protocol,
             'regionId'        => $this->_regionId,
         ]);
-        $ossClient     = null;
+        $ossClient     = new OSS($ossConfig);
         $fileObj       = new FileField([]);
         $ossHeader     = new header([]);
         $uploadRequest = new PostObjectRequest([]);
@@ -2039,10 +2057,10 @@ class Imageseg extends OpenApiClient
     }
 
     /**
-     * @param SegmentSkyRequest $request
-     * @param RuntimeOptions    $runtime
+     * @param SegmentSkyRequest $request SegmentSkyRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return SegmentSkyResponse
+     * @return SegmentSkyResponse SegmentSkyResponse
      */
     public function segmentSkyWithOptions($request, $runtime)
     {
@@ -2070,9 +2088,9 @@ class Imageseg extends OpenApiClient
     }
 
     /**
-     * @param SegmentSkyRequest $request
+     * @param SegmentSkyRequest $request SegmentSkyRequest
      *
-     * @return SegmentSkyResponse
+     * @return SegmentSkyResponse SegmentSkyResponse
      */
     public function segmentSky($request)
     {
@@ -2095,7 +2113,7 @@ class Imageseg extends OpenApiClient
         $securityToken        = $this->_credential->getSecurityToken();
         $credentialType       = $this->_credential->getType();
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (Utils::isUnset($openPlatformEndpoint)) {
+        if (Utils::empty_($openPlatformEndpoint)) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
         if (Utils::isUnset($credentialType)) {
@@ -2117,12 +2135,13 @@ class Imageseg extends OpenApiClient
         ]);
         $authResponse = new AuthorizeFileUploadResponse([]);
         $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeyId'     => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
             'type'            => 'access_key',
             'protocol'        => $this->_protocol,
             'regionId'        => $this->_regionId,
         ]);
-        $ossClient     = null;
+        $ossClient     = new OSS($ossConfig);
         $fileObj       = new FileField([]);
         $ossHeader     = new header([]);
         $uploadRequest = new PostObjectRequest([]);

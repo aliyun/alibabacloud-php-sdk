@@ -10,6 +10,8 @@ use GuzzleHttp\Psr7\Stream;
 class SegmentSceneAdvanceRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/imageseg/SegmentScene/SegmentScene1.jpg
      *
      * @var Stream
