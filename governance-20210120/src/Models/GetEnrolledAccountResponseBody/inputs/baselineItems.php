@@ -11,7 +11,7 @@ class baselineItems extends Model
     /**
      * @description The configurations of the baseline item.
      *
-     * @example {\"Contacts\":[{\"Name\":\"governance\",\"Email\":\"wibud****@gmail.com\",\"Mobile\":\"1234\",\"Position\":\"Other\"}]}
+     * @example {\\"Contacts\\":[{\\"Name\\":\\"governance\\",\\"Email\\":\\"wibud****@gmail.com\\",\\"Mobile\\":\\"1234\\",\\"Position\\":\\"Other\\"}]}
      *
      * @var string
      */
@@ -27,7 +27,10 @@ class baselineItems extends Model
     public $name;
 
     /**
-     * @description Indicates whether to skip the baseline item.
+     * @description Indicates whether baseline item is skipped. Valid values:
+     *
+     *   false
+     *   true
      *
      * @example false
      *

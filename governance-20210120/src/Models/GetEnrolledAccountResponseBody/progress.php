@@ -18,12 +18,12 @@ class progress extends Model
     public $name;
 
     /**
-     * @description The status of applying the account baseline to the account. Valid values:
+     * @description The status of applying the baseline to the account. Valid values:
      *
-     *   Pending: The account is waiting to be created.
-     *   Running: The account baseline is being applied to the account.
-     *   Finished: The account baseline is applied to the account.
-     *   Failed: The account baseline failed to be applied to the account.
+     *   Pending: The baseline is pending to be applied to the account.
+     *   Running: The baseline is being applied to the account.
+     *   Finished: : The baseline is applied to the account.
+     *   Failed: : The baseline fails to be applied to the account.
      *
      * @example Running
      *

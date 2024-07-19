@@ -22,7 +22,7 @@ class GetEnrolledAccountResponseBody extends Model
     public $accountUid;
 
     /**
-     * @description The ID of the baseline that was applied to the account.
+     * @description The ID of the baseline that is implemented.
      *
      * @example afb-bp1adadfadsf***
      *
@@ -31,12 +31,14 @@ class GetEnrolledAccountResponseBody extends Model
     public $baselineId;
 
     /**
+     * @description An array that contains baseline items.
+     *
      * @var baselineItems[]
      */
     public $baselineItems;
 
     /**
-     * @description The time at which the account was created.
+     * @description The time when the account was created.
      *
      * @example 2021-11-01T02:38:27Z
      *
@@ -54,8 +56,9 @@ class GetEnrolledAccountResponseBody extends Model
     public $displayName;
 
     /**
-     * @description The error message returned.
+     * @description The error message.
      *
+     * >  This parameter is returned if the value of `Status` is `Failed` or `ScheduleFailed`.
      * @var errorInfo
      */
     public $errorInfo;
@@ -70,7 +73,10 @@ class GetEnrolledAccountResponseBody extends Model
     public $folderId;
 
     /**
-     * @description Indicates whether the account was initialized.
+     * @description Indicates whether the initialization is complete. Valid values:
+     *
+     *   false
+     *   true
      *
      * @example true
      *
@@ -79,14 +85,14 @@ class GetEnrolledAccountResponseBody extends Model
     public $initialized;
 
     /**
-     * @description The input parameters that are used when you enrolled the account.
+     * @description The input parameters that are used when the account was registered.
      *
      * @var inputs
      */
     public $inputs;
 
     /**
-     * @description The ID of the master account to which the account belongs.
+     * @description The ID of the management account of the resource directory to which the account belongs.
      *
      * @example 19534534552*****
      *
@@ -95,7 +101,7 @@ class GetEnrolledAccountResponseBody extends Model
     public $masterAccountUid;
 
     /**
-     * @description The ID of the billing account.
+     * @description The ID of the settlement account.
      *
      * @example 19534534552*****
      *
@@ -104,7 +110,7 @@ class GetEnrolledAccountResponseBody extends Model
     public $payerAccountUid;
 
     /**
-     * @description The progress of applying the account baseline to the account.
+     * @description The progress of the applying the baseline to the account.
      *
      * @var progress[]
      */
@@ -120,14 +126,14 @@ class GetEnrolledAccountResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The creation status of the account. Valid values:
+     * @description The status of the account. Valid values:
      *
-     *   Pending: The account is waiting to be created.
+     *   Pending: The account is pending to be created.
      *   Running: The account is being created.
      *   Finished: The account is created.
-     *   Failed: The account failed to be created.
+     *   Failed: The account fails to be created.
      *   Scheduling: The account is being scheduled.
-     *   ScheduleFailed: The account failed to be scheduled.
+     *   ScheduleFailed: The account fails to be scheduled.
      *
      * @example Finished
      *

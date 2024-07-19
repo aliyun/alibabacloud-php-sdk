@@ -56,9 +56,11 @@ class Governance extends OpenApiClient
     }
 
     /**
-     * You can call this API operation to create a new account or manage an existing account and apply the account baseline to the account.
-     *   * Accounts are created in asynchronous mode. After you create an account, you can apply the account baseline to the account. You can call the [GetEnrolledAccount API](~~GetEnrolledAccount~~) operation to view the details about the account to obtain the result of applying the account baseline to the account.
-     *   *
+     * @summary Enrolls an account. You can create a new account or manage an existing account in the account factory.
+     *  *
+     * @description You can call this API operation to create a new account or manage an existing account and apply the account baseline to the account.
+     * Accounts are created in asynchronous mode. After you create an account, you can apply the account baseline to the account. You can call the [GetEnrolledAccount API](~~GetEnrolledAccount~~) operation to view the details about the account to obtain the result of applying the account baseline to the account.
+     *  *
      * @param EnrollAccountRequest $request EnrollAccountRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -114,9 +116,11 @@ class Governance extends OpenApiClient
     }
 
     /**
-     * You can call this API operation to create a new account or manage an existing account and apply the account baseline to the account.
-     *   * Accounts are created in asynchronous mode. After you create an account, you can apply the account baseline to the account. You can call the [GetEnrolledAccount API](~~GetEnrolledAccount~~) operation to view the details about the account to obtain the result of applying the account baseline to the account.
-     *   *
+     * @summary Enrolls an account. You can create a new account or manage an existing account in the account factory.
+     *  *
+     * @description You can call this API operation to create a new account or manage an existing account and apply the account baseline to the account.
+     * Accounts are created in asynchronous mode. After you create an account, you can apply the account baseline to the account. You can call the [GetEnrolledAccount API](~~GetEnrolledAccount~~) operation to view the details about the account to obtain the result of applying the account baseline to the account.
+     *  *
      * @param EnrollAccountRequest $request EnrollAccountRequest
      *
      * @return EnrollAccountResponse EnrollAccountResponse
@@ -129,10 +133,12 @@ class Governance extends OpenApiClient
     }
 
     /**
-     * @param GetAccountFactoryBaselineRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Obtains the details of an account factory baseline.
+     *  *
+     * @param GetAccountFactoryBaselineRequest $request GetAccountFactoryBaselineRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetAccountFactoryBaselineResponse
+     * @return GetAccountFactoryBaselineResponse GetAccountFactoryBaselineResponse
      */
     public function getAccountFactoryBaselineWithOptions($request, $runtime)
     {
@@ -163,9 +169,11 @@ class Governance extends OpenApiClient
     }
 
     /**
-     * @param GetAccountFactoryBaselineRequest $request
+     * @summary Obtains the details of an account factory baseline.
+     *  *
+     * @param GetAccountFactoryBaselineRequest $request GetAccountFactoryBaselineRequest
      *
-     * @return GetAccountFactoryBaselineResponse
+     * @return GetAccountFactoryBaselineResponse GetAccountFactoryBaselineResponse
      */
     public function getAccountFactoryBaseline($request)
     {
@@ -175,10 +183,12 @@ class Governance extends OpenApiClient
     }
 
     /**
-     * @param GetEnrolledAccountRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Queries the details about an account that is enrolled in the account factory.
+     *  *
+     * @param GetEnrolledAccountRequest $request GetEnrolledAccountRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetEnrolledAccountResponse
+     * @return GetEnrolledAccountResponse GetEnrolledAccountResponse
      */
     public function getEnrolledAccountWithOptions($request, $runtime)
     {
@@ -209,9 +219,11 @@ class Governance extends OpenApiClient
     }
 
     /**
-     * @param GetEnrolledAccountRequest $request
+     * @summary Queries the details about an account that is enrolled in the account factory.
+     *  *
+     * @param GetEnrolledAccountRequest $request GetEnrolledAccountRequest
      *
-     * @return GetEnrolledAccountResponse
+     * @return GetEnrolledAccountResponse GetEnrolledAccountResponse
      */
     public function getEnrolledAccount($request)
     {
@@ -221,10 +233,12 @@ class Governance extends OpenApiClient
     }
 
     /**
-     * @param ListAccountFactoryBaselinesRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Obtains a list of baselines in the account factory.
+     *  *
+     * @param ListAccountFactoryBaselinesRequest $request ListAccountFactoryBaselinesRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListAccountFactoryBaselinesResponse
+     * @return ListAccountFactoryBaselinesResponse ListAccountFactoryBaselinesResponse
      */
     public function listAccountFactoryBaselinesWithOptions($request, $runtime)
     {
@@ -258,9 +272,11 @@ class Governance extends OpenApiClient
     }
 
     /**
-     * @param ListAccountFactoryBaselinesRequest $request
+     * @summary Obtains a list of baselines in the account factory.
+     *  *
+     * @param ListAccountFactoryBaselinesRequest $request ListAccountFactoryBaselinesRequest
      *
-     * @return ListAccountFactoryBaselinesResponse
+     * @return ListAccountFactoryBaselinesResponse ListAccountFactoryBaselinesResponse
      */
     public function listAccountFactoryBaselines($request)
     {
@@ -270,10 +286,12 @@ class Governance extends OpenApiClient
     }
 
     /**
-     * @param ListEnrolledAccountsRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Queries a list of accounts that are enrolled in the account factory.
+     *  *
+     * @param ListEnrolledAccountsRequest $request ListEnrolledAccountsRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListEnrolledAccountsResponse
+     * @return ListEnrolledAccountsResponse ListEnrolledAccountsResponse
      */
     public function listEnrolledAccountsWithOptions($request, $runtime)
     {
@@ -307,9 +325,11 @@ class Governance extends OpenApiClient
     }
 
     /**
-     * @param ListEnrolledAccountsRequest $request
+     * @summary Queries a list of accounts that are enrolled in the account factory.
+     *  *
+     * @param ListEnrolledAccountsRequest $request ListEnrolledAccountsRequest
      *
-     * @return ListEnrolledAccountsResponse
+     * @return ListEnrolledAccountsResponse ListEnrolledAccountsResponse
      */
     public function listEnrolledAccounts($request)
     {

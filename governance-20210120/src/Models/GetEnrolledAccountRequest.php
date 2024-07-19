@@ -11,6 +11,7 @@ class GetEnrolledAccountRequest extends Model
     /**
      * @description The account ID.
      *
+     * This parameter is required.
      * @example 19534534552****
      *
      * @var int

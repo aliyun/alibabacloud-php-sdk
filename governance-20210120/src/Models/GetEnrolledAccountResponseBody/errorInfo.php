@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class errorInfo extends Model
 {
     /**
-     * @description The error code returned.
+     * @description The error code.
      *
      * @example CompliancePackExists
      *
@@ -18,7 +18,7 @@ class errorInfo extends Model
     public $code;
 
     /**
-     * @description The error message returned.
+     * @description The error message.
      *
      * @example The compliance pack already exists.
      *
@@ -27,9 +27,9 @@ class errorInfo extends Model
     public $message;
 
     /**
-     * @description The suggestions that are used to resolve the issue.
+     * @description The recommended solution.
      *
-     * @example https://next.api.aliyun.com/troubleshoot?q=CompliancePackExists\\u0026product=Config
+     * @example https://next.api.aliyun.com/troubleshoot?q=CompliancePackExists\\\\u0026product=Config
      *
      * @var string
      */

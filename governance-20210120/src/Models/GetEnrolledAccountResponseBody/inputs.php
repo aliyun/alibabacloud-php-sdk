@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class inputs extends Model
 {
     /**
-     * @description The prefix for the account name of the member.
+     * @description The prefix of the account name.
      *
      * @example test-account
      *
@@ -28,7 +28,7 @@ class inputs extends Model
     public $accountUid;
 
     /**
-     * @description An array that contains baseline items.
+     * @description The baseline items.
      *
      * @var baselineItems[]
      */
@@ -53,7 +53,7 @@ class inputs extends Model
     public $folderId;
 
     /**
-     * @description The ID of the billing account.
+     * @description The ID of the settlement account.
      *
      * @example 19534534552*****
      *
