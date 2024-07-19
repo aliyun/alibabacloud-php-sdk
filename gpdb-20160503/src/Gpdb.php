@@ -47,6 +47,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateNamespaceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateNamespaceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateSampleDataRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateSampleDataResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateSecretRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateSecretResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateServiceLinkedRoleRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateServiceLinkedRoleResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateStreamingDataServiceRequest;
@@ -82,6 +84,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteJDBCDataSourceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteJDBCDataSourceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteNamespaceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteNamespaceResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteSecretRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteSecretResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteStreamingDataServiceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteStreamingDataServiceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteStreamingDataSourceRequest;
@@ -205,6 +209,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeStreamingJobRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeStreamingJobResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeSupportFeaturesRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeSupportFeaturesResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeTableRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeTableResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeTagsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeTagsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeUserEncryptionKeyListRequest;
@@ -221,6 +227,11 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\DownloadSQLLogsRecordsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DownloadSQLLogsRecordsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\EnableDBResourceGroupRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\EnableDBResourceGroupResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ExecuteStatementRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ExecuteStatementResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ExecuteStatementShrinkRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\GetSecretValueRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\GetSecretValueResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\GetUploadDocumentJobRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\GetUploadDocumentJobResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\GetUpsertCollectionDataJobRequest;
@@ -233,6 +244,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\InitVectorDatabaseRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\InitVectorDatabaseResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListCollectionsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListCollectionsResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListDatabasesRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListDatabasesResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListDocumentCollectionsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListDocumentCollectionsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListDocumentsRequest;
@@ -245,12 +258,18 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListInstanceExtensionsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListInstanceExtensionsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListNamespacesRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListNamespacesResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListSchemasRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListSchemasResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListSecretsRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListSecretsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListStreamingDataServicesRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListStreamingDataServicesResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListStreamingDataSourcesRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListStreamingDataSourcesResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListStreamingJobsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListStreamingJobsResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListTablesRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListTablesResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyAccountDescriptionRequest;
@@ -1861,6 +1880,74 @@ class Gpdb extends OpenApiClient
     }
 
     /**
+     * @summary 创建实例的用户凭证
+     *  *
+     * @param CreateSecretRequest $request CreateSecretRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateSecretResponse CreateSecretResponse
+     */
+    public function createSecretWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->password)) {
+            $query['Password'] = $request->password;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->secretName)) {
+            $query['SecretName'] = $request->secretName;
+        }
+        if (!Utils::isUnset($request->testConnection)) {
+            $query['TestConnection'] = $request->testConnection;
+        }
+        if (!Utils::isUnset($request->username)) {
+            $query['Username'] = $request->username;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateSecret',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateSecretResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建实例的用户凭证
+     *  *
+     * @param CreateSecretRequest $request CreateSecretRequest
+     *
+     * @return CreateSecretResponse CreateSecretResponse
+     */
+    public function createSecret($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createSecretWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Creates a service-linked role.
      *  *
      * @param CreateServiceLinkedRoleRequest $request CreateServiceLinkedRoleRequest
@@ -2950,6 +3037,65 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteNamespaceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 删除实例的用户凭证
+     *  *
+     * @param DeleteSecretRequest $request DeleteSecretRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteSecretResponse DeleteSecretResponse
+     */
+    public function deleteSecretWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->secretArn)) {
+            $query['SecretArn'] = $request->secretArn;
+        }
+        if (!Utils::isUnset($request->secretName)) {
+            $query['SecretName'] = $request->secretName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteSecret',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteSecretResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除实例的用户凭证
+     *  *
+     * @param DeleteSecretRequest $request DeleteSecretRequest
+     *
+     * @return DeleteSecretResponse DeleteSecretResponse
+     */
+    public function deleteSecret($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteSecretWithOptions($request, $runtime);
     }
 
     /**
@@ -6710,6 +6856,71 @@ class Gpdb extends OpenApiClient
     }
 
     /**
+     * @summary 查看所有的schema
+     *  *
+     * @param DescribeTableRequest $request DescribeTableRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeTableResponse DescribeTableResponse
+     */
+    public function describeTableWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->database)) {
+            $query['Database'] = $request->database;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->schema)) {
+            $query['Schema'] = $request->schema;
+        }
+        if (!Utils::isUnset($request->secretArn)) {
+            $query['SecretArn'] = $request->secretArn;
+        }
+        if (!Utils::isUnset($request->table)) {
+            $query['Table'] = $request->table;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeTable',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeTableResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查看所有的schema
+     *  *
+     * @param DescribeTableRequest $request DescribeTableRequest
+     *
+     * @return DescribeTableResponse DescribeTableResponse
+     */
+    public function describeTable($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeTableWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries a list of tags for AnalyticDB for PostgreSQL instances.
      *  *
      * @param DescribeTagsRequest $request DescribeTagsRequest
@@ -7257,6 +7468,149 @@ class Gpdb extends OpenApiClient
     }
 
     /**
+     * @summary 运行SQL语句
+     *  *
+     * @param ExecuteStatementRequest $tmpReq  ExecuteStatementRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ExecuteStatementResponse ExecuteStatementResponse
+     */
+    public function executeStatementWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ExecuteStatementShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->parameters)) {
+            $request->parametersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->parameters, 'Parameters', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->sqls)) {
+            $request->sqlsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sqls, 'Sqls', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->database)) {
+            $query['Database'] = $request->database;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->runType)) {
+            $query['RunType'] = $request->runType;
+        }
+        if (!Utils::isUnset($request->secretArn)) {
+            $query['SecretArn'] = $request->secretArn;
+        }
+        if (!Utils::isUnset($request->statementName)) {
+            $query['StatementName'] = $request->statementName;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->parametersShrink)) {
+            $body['Parameters'] = $request->parametersShrink;
+        }
+        if (!Utils::isUnset($request->sql)) {
+            $body['Sql'] = $request->sql;
+        }
+        if (!Utils::isUnset($request->sqlsShrink)) {
+            $body['Sqls'] = $request->sqlsShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ExecuteStatement',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ExecuteStatementResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 运行SQL语句
+     *  *
+     * @param ExecuteStatementRequest $request ExecuteStatementRequest
+     *
+     * @return ExecuteStatementResponse ExecuteStatementResponse
+     */
+    public function executeStatement($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->executeStatementWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查看实例的用户凭证里数据
+     *  *
+     * @param GetSecretValueRequest $request GetSecretValueRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetSecretValueResponse GetSecretValueResponse
+     */
+    public function getSecretValueWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->secretArn)) {
+            $query['SecretArn'] = $request->secretArn;
+        }
+        if (!Utils::isUnset($request->secretName)) {
+            $query['SecretName'] = $request->secretName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetSecretValue',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetSecretValueResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查看实例的用户凭证里数据
+     *  *
+     * @param GetSecretValueRequest $request GetSecretValueRequest
+     *
+     * @return GetSecretValueResponse GetSecretValueResponse
+     */
+    public function getSecretValue($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSecretValueWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries the progress and result of an asynchronous document upload job based on the job ID.
      *  *
      * @description This operation is related to the UploadDocumentAsync operation. You can call the UploadDocumentAsync operation to create an upload job and obtain the job ID, and then call the GetUploadDocumentJob operation to query the execution information of the job.
@@ -7647,6 +8001,71 @@ class Gpdb extends OpenApiClient
     }
 
     /**
+     * @summary 查看所有库
+     *  *
+     * @param ListDatabasesRequest $request ListDatabasesRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListDatabasesResponse ListDatabasesResponse
+     */
+    public function listDatabasesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->database)) {
+            $query['Database'] = $request->database;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->secretArn)) {
+            $query['SecretArn'] = $request->secretArn;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDatabases',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDatabasesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查看所有库
+     *  *
+     * @param ListDatabasesRequest $request ListDatabasesRequest
+     *
+     * @return ListDatabasesResponse ListDatabasesResponse
+     */
+    public function listDatabases($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDatabasesWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries a list of document collections.
      *  *
      * @param ListDocumentCollectionsRequest $request ListDocumentCollectionsRequest
@@ -8007,6 +8426,127 @@ class Gpdb extends OpenApiClient
     }
 
     /**
+     * @summary 查看所有的schema
+     *  *
+     * @param ListSchemasRequest $request ListSchemasRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListSchemasResponse ListSchemasResponse
+     */
+    public function listSchemasWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->database)) {
+            $query['Database'] = $request->database;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->schemaPattern)) {
+            $query['SchemaPattern'] = $request->schemaPattern;
+        }
+        if (!Utils::isUnset($request->secretArn)) {
+            $query['SecretArn'] = $request->secretArn;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListSchemas',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListSchemasResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查看所有的schema
+     *  *
+     * @param ListSchemasRequest $request ListSchemasRequest
+     *
+     * @return ListSchemasResponse ListSchemasResponse
+     */
+    public function listSchemas($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listSchemasWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询实例的用户凭证列表
+     *  *
+     * @param ListSecretsRequest $request ListSecretsRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListSecretsResponse ListSecretsResponse
+     */
+    public function listSecretsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListSecrets',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListSecretsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询实例的用户凭证列表
+     *  *
+     * @param ListSecretsRequest $request ListSecretsRequest
+     *
+     * @return ListSecretsResponse ListSecretsResponse
+     */
+    public function listSecrets($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listSecretsWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries the information about real-time data services.
      *  *
      * @param ListStreamingDataServicesRequest $request ListStreamingDataServicesRequest
@@ -8172,6 +8712,77 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listStreamingJobsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查看所有表
+     *  *
+     * @param ListTablesRequest $request ListTablesRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListTablesResponse ListTablesResponse
+     */
+    public function listTablesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->database)) {
+            $query['Database'] = $request->database;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->schema)) {
+            $query['Schema'] = $request->schema;
+        }
+        if (!Utils::isUnset($request->secretArn)) {
+            $query['SecretArn'] = $request->secretArn;
+        }
+        if (!Utils::isUnset($request->tablePattern)) {
+            $query['TablePattern'] = $request->tablePattern;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTables',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListTablesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查看所有表
+     *  *
+     * @param ListTablesRequest $request ListTablesRequest
+     *
+     * @return ListTablesResponse ListTablesResponse
+     */
+    public function listTables($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTablesWithOptions($request, $runtime);
     }
 
     /**
