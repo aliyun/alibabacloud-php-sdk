@@ -6,17 +6,23 @@ namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ModifyDBInstanceAutoUpgradeResponseBody extends Model
+class ModifyActiveOperationTasksResponseBody extends Model
 {
     /**
-     * @description ID of the request.
+     * @example 11111,22222
      *
-     * @example 2FF6158E-3394-4A90-B634-79C49184****
+     * @var string
+     */
+    public $ids;
+
+    /**
+     * @example E278D833-BB4B-50BF-8646-7BC1BAB2373B
      *
      * @var string
      */
     public $requestId;
     protected $_name = [
+        'ids'       => 'Ids',
         'requestId' => 'RequestId',
     ];
 
@@ -27,6 +33,9 @@ class ModifyDBInstanceAutoUpgradeResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ids) {
+            $res['Ids'] = $this->ids;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -37,11 +46,14 @@ class ModifyDBInstanceAutoUpgradeResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ModifyDBInstanceAutoUpgradeResponseBody
+     * @return ModifyActiveOperationTasksResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Ids'])) {
+            $model->ids = $map['Ids'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

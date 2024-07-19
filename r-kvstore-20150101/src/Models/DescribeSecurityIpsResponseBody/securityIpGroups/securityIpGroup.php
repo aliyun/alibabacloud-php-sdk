@@ -30,8 +30,6 @@ class securityIpGroup extends Model
     /**
      * @description The IP addresses in the whitelist. A maximum of 1,000 IP addresses can be specified in a whitelist.
      *
-     * @example 100.100.202.***\/24,10.10.10.***
-     *
      * @var string
      */
     public $securityIpList;

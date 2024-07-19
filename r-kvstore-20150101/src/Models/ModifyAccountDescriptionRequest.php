@@ -66,6 +66,11 @@ class ModifyAccountDescriptionRequest extends Model
      * @var string
      */
     public $securityToken;
+
+    /**
+     * @var string
+     */
+    public $sourceBiz;
     protected $_name = [
         'accountDescription'   => 'AccountDescription',
         'accountName'          => 'AccountName',
@@ -75,6 +80,7 @@ class ModifyAccountDescriptionRequest extends Model
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'securityToken'        => 'SecurityToken',
+        'sourceBiz'            => 'SourceBiz',
     ];
 
     public function validate()
@@ -107,6 +113,9 @@ class ModifyAccountDescriptionRequest extends Model
         }
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
+        }
+        if (null !== $this->sourceBiz) {
+            $res['SourceBiz'] = $this->sourceBiz;
         }
 
         return $res;
@@ -143,6 +152,9 @@ class ModifyAccountDescriptionRequest extends Model
         }
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
+        }
+        if (isset($map['SourceBiz'])) {
+            $model->sourceBiz = $map['SourceBiz'];
         }
 
         return $model;

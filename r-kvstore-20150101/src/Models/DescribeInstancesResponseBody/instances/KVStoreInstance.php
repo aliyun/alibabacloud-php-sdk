@@ -63,6 +63,11 @@ class KVStoreInstance extends Model
     public $cloudType;
 
     /**
+     * @var string
+     */
+    public $computingType;
+
+    /**
      * @description The parameter configurations of the instance. For more information, see [Modify parameters of an instance](https://help.aliyun.com/document_detail/43885.html).
      *
      * @example {\\"maxmemory-policy\\":\\"volatile-lfu\\",\\"EvictionPolicy\\":\\"volatile-lru\\",\\"hash-max-ziplist-entries\\":512,\\"zset-max-ziplist-entries\\":128,\\"zset-max-ziplist-value\\":64,\\"set-max-intset-entries\\":512,\\"hash-max-ziplist-value\\":64,\\"#no_loose_disabled-commands\\":\\"flushall,flushdb\\",\\"lazyfree-lazy-eviction\\":\\"yes\\"}
@@ -417,6 +422,7 @@ class KVStoreInstance extends Model
         'capacity'            => 'Capacity',
         'chargeType'          => 'ChargeType',
         'cloudType'           => 'CloudType',
+        'computingType'       => 'ComputingType',
         'config'              => 'Config',
         'connectionDomain'    => 'ConnectionDomain',
         'connectionMode'      => 'ConnectionMode',
@@ -474,6 +480,9 @@ class KVStoreInstance extends Model
         }
         if (null !== $this->cloudType) {
             $res['CloudType'] = $this->cloudType;
+        }
+        if (null !== $this->computingType) {
+            $res['ComputingType'] = $this->computingType;
         }
         if (null !== $this->config) {
             $res['Config'] = $this->config;
@@ -603,6 +612,9 @@ class KVStoreInstance extends Model
         }
         if (isset($map['CloudType'])) {
             $model->cloudType = $map['CloudType'];
+        }
+        if (isset($map['ComputingType'])) {
+            $model->computingType = $map['ComputingType'];
         }
         if (isset($map['Config'])) {
             $model->config = $map['Config'];

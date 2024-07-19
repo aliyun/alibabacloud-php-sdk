@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBInstanceAutoUpgradeRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The instance ID. You can call the DescribeDBInstances operation to obtain the ID.
      *
+     * This parameter is required.
      * @example r-bp1zxszhcgatnx****
      *
      * @var string
@@ -43,8 +44,12 @@ class ModifyDBInstanceAutoUpgradeRequest extends Model
     public $securityToken;
 
     /**
-     * @description This parameter is required.
+     * @description Specifies whether to enable automatic minor version update. Valid values:
      *
+     *   **1**: enables automatic minor version update.
+     *   **0**: disables automatic minor version update.
+     *
+     * This parameter is required.
      * @example 0
      *
      * @var string

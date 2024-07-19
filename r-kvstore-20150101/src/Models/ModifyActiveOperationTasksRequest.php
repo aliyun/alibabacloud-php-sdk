@@ -6,19 +6,23 @@ namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateGlobalDistributeCacheRequest extends Model
+class ModifyActiveOperationTasksRequest extends Model
 {
     /**
-     * @description The time when you want to restart the instance. Default value: Immediately. Valid values:
+     * @description This parameter is required.
      *
-     *   **Immediately**: immediately restarts the instance.
-     *   **MaintainTime**: restarts the instance during the maintenance window.
-     *
-     * @example Immediately
+     * @example 1111721,1111718
      *
      * @var string
      */
-    public $effectiveTime;
+    public $ids;
+
+    /**
+     * @example 0
+     *
+     * @var int
+     */
+    public $immediateStart;
 
     /**
      * @var string
@@ -29,16 +33,6 @@ class CreateGlobalDistributeCacheRequest extends Model
      * @var int
      */
     public $ownerId;
-
-    /**
-     * @description The ID of the resource group.
-     *
-     * >  You do not need to specify system parameters.
-     * @example rg-acfmyiu4ekp****
-     *
-     * @var string
-     */
-    public $resourceGroupId;
 
     /**
      * @var string
@@ -56,23 +50,22 @@ class CreateGlobalDistributeCacheRequest extends Model
     public $securityToken;
 
     /**
-     * @description The ID of the existing instance.
+     * @description This parameter is required.
      *
-     * This parameter is required.
-     * @example r-bp1zxszhcgatnx****
+     * @example 2019-10-17T18:50:00Z
      *
      * @var string
      */
-    public $seedSubInstanceId;
+    public $switchTime;
     protected $_name = [
-        'effectiveTime'        => 'EffectiveTime',
+        'ids'                  => 'Ids',
+        'immediateStart'       => 'ImmediateStart',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
-        'resourceGroupId'      => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'securityToken'        => 'SecurityToken',
-        'seedSubInstanceId'    => 'SeedSubInstanceId',
+        'switchTime'           => 'SwitchTime',
     ];
 
     public function validate()
@@ -82,17 +75,17 @@ class CreateGlobalDistributeCacheRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->effectiveTime) {
-            $res['EffectiveTime'] = $this->effectiveTime;
+        if (null !== $this->ids) {
+            $res['Ids'] = $this->ids;
+        }
+        if (null !== $this->immediateStart) {
+            $res['ImmediateStart'] = $this->immediateStart;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -103,8 +96,8 @@ class CreateGlobalDistributeCacheRequest extends Model
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
-        if (null !== $this->seedSubInstanceId) {
-            $res['SeedSubInstanceId'] = $this->seedSubInstanceId;
+        if (null !== $this->switchTime) {
+            $res['SwitchTime'] = $this->switchTime;
         }
 
         return $res;
@@ -113,22 +106,22 @@ class CreateGlobalDistributeCacheRequest extends Model
     /**
      * @param array $map
      *
-     * @return CreateGlobalDistributeCacheRequest
+     * @return ModifyActiveOperationTasksRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['EffectiveTime'])) {
-            $model->effectiveTime = $map['EffectiveTime'];
+        if (isset($map['Ids'])) {
+            $model->ids = $map['Ids'];
+        }
+        if (isset($map['ImmediateStart'])) {
+            $model->immediateStart = $map['ImmediateStart'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
@@ -139,8 +132,8 @@ class CreateGlobalDistributeCacheRequest extends Model
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }
-        if (isset($map['SeedSubInstanceId'])) {
-            $model->seedSubInstanceId = $map['SeedSubInstanceId'];
+        if (isset($map['SwitchTime'])) {
+            $model->switchTime = $map['SwitchTime'];
         }
 
         return $model;

@@ -104,7 +104,7 @@ class ModifyInstanceSpecRequest extends Model
     public $instanceId;
 
     /**
-     * @description The major version to which you want to upgrade. When you change the configurations of an instance, you can upgrade the major version of the instance by setting this parameter. Valid values: **4.0** and **5.0**.
+     * @description The major version to which you want to upgrade the instance. When you change the configurations of an instance, you can upgrade the major version of the instance by setting this parameter. Valid values: **2.8**, **4.0**, and **5.0**. We recommend that you upgrade the major version to 5.0.
      *
      * @example 5.0
      *
@@ -113,6 +113,14 @@ class ModifyInstanceSpecRequest extends Model
     public $majorVersion;
 
     /**
+     * @description The node type. Valid values:
+     *
+     *   **MASTER_SLAVE**: high availability (master-replica)
+     *   **STAND_ALONE**: standalone
+     *   **double**: master-replica
+     *   **single**: standalone
+     *
+     * >  For cloud-native instances, set this parameter to **MASTER_SLAVE** or **STAND_ALONE**. For classic instances, set this parameter to **double** or **single**.
      * @example MASTER_SLAVE
      *
      * @var string
@@ -125,8 +133,12 @@ class ModifyInstanceSpecRequest extends Model
      *   **UPGRADE**: upgrades the configurations of a subscription instance.
      *   **DOWNGRADE**: downgrades the configurations of a subscription instance.
      *
-     * > *   To downgrade a subscription instance, you must set this parameter to **DOWNGRADE**.
-     * > *   If the price of an instance increases after its configurations are changed, the instance is upgraded. If the price decreases, the instance is downgraded. For example, the price of an 8 GB read/write splitting instance with five read replicas is higher than that of a 16 GB cluster instance. If you want to change a 16 GB cluster instance to an 8 GB read/write splitting instance with five read replicas, you must upgrade the instance.
+     * >
+     *
+     *   To downgrade a subscription instance, you must set this parameter to **DOWNGRADE**.
+     *
+     *   If the price of an instance increases after its configurations are changed, the instance is upgraded. If the price decreases, the instance is downgraded. For example, the price of an 8 GB read/write splitting instance with five read replicas is higher than that of a 16 GB cluster instance. If you want to change a 16 GB cluster instance to an 8 GB read/write splitting instance with five read replicas, you must upgrade the instance.
+     *
      * @example DOWNGRADE
      *
      * @var string
