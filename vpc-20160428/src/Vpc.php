@@ -4934,6 +4934,9 @@ class Vpc extends OpenApiClient
         if (!Utils::isUnset($request->description)) {
             $query['Description'] = $request->description;
         }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
         if (!Utils::isUnset($request->jobDuration)) {
             $query['JobDuration'] = $request->jobDuration;
         }
@@ -20653,7 +20656,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @summary 查询IP地址池功能的开通状态。
+     * @summary Queries whether the IP address pool feature is enabled.
      *  *
      * @param GetPublicIpAddressPoolServiceStatusRequest $request GetPublicIpAddressPoolServiceStatusRequest
      * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
@@ -20704,7 +20707,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @summary 查询IP地址池功能的开通状态。
+     * @summary Queries whether the IP address pool feature is enabled.
      *  *
      * @param GetPublicIpAddressPoolServiceStatusRequest $request GetPublicIpAddressPoolServiceStatusRequest
      *
@@ -22271,7 +22274,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about the available IP address pools.
+     * @summary Queries available IP address pools.
      *  *
      * @param ListPublicIpAddressPoolsRequest $request ListPublicIpAddressPoolsRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -22346,7 +22349,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about the available IP address pools.
+     * @summary Queries available IP address pools.
      *  *
      * @param ListPublicIpAddressPoolsRequest $request ListPublicIpAddressPoolsRequest
      *
@@ -30533,6 +30536,9 @@ class Vpc extends OpenApiClient
         }
         if (!Utils::isUnset($request->description)) {
             $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
         }
         if (!Utils::isUnset($request->jobDuration)) {
             $query['JobDuration'] = $request->jobDuration;

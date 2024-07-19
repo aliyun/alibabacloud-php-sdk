@@ -23,6 +23,11 @@ class UpdateFailoverTestJobRequest extends Model
     public $description;
 
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @example 60
      *
      * @var int
@@ -74,6 +79,7 @@ class UpdateFailoverTestJobRequest extends Model
     protected $_name = [
         'clientToken'          => 'ClientToken',
         'description'          => 'Description',
+        'dryRun'               => 'DryRun',
         'jobDuration'          => 'JobDuration',
         'jobId'                => 'JobId',
         'name'                 => 'Name',
@@ -96,6 +102,9 @@ class UpdateFailoverTestJobRequest extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
         if (null !== $this->jobDuration) {
             $res['JobDuration'] = $this->jobDuration;
@@ -138,6 +147,9 @@ class UpdateFailoverTestJobRequest extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
         if (isset($map['JobDuration'])) {
             $model->jobDuration = $map['JobDuration'];

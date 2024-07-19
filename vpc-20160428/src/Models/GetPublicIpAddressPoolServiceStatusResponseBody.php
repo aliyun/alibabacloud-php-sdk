@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetPublicIpAddressPoolServiceStatusResponseBody extends Model
 {
     /**
+     * @description Indicates whether the IP address pool feature is enabled. Valid values:
+     *
+     *   **true**
+     *   **false** You can call OpenPublicIpAddressPoolService to enable the IP address pool feature.
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +21,8 @@ class GetPublicIpAddressPoolServiceStatusResponseBody extends Model
     public $enabled;
 
     /**
+     * @description The request ID.
+     *
      * @example 54B48E3D-DF70-471B-AA93-06F82A1B457
      *
      * @var string

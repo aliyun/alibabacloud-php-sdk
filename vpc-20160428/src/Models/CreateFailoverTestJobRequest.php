@@ -23,6 +23,11 @@ class CreateFailoverTestJobRequest extends Model
     public $description;
 
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @description This parameter is required.
      *
      * @example 60
@@ -87,6 +92,7 @@ class CreateFailoverTestJobRequest extends Model
     protected $_name = [
         'clientToken'          => 'ClientToken',
         'description'          => 'Description',
+        'dryRun'               => 'DryRun',
         'jobDuration'          => 'JobDuration',
         'jobType'              => 'JobType',
         'name'                 => 'Name',
@@ -110,6 +116,9 @@ class CreateFailoverTestJobRequest extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
         if (null !== $this->jobDuration) {
             $res['JobDuration'] = $this->jobDuration;
@@ -155,6 +164,9 @@ class CreateFailoverTestJobRequest extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
         if (isset($map['JobDuration'])) {
             $model->jobDuration = $map['JobDuration'];

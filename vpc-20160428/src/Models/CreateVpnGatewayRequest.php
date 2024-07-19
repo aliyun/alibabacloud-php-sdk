@@ -9,12 +9,12 @@ use AlibabaCloud\Tea\Model;
 class CreateVpnGatewayRequest extends Model
 {
     /**
-     * @description Specifies whether to enable automatic payment for the VPN gateway. Valid values:
+     * @description Specifies whether to enable automatic payment. Valid values:
      *
      *   **true**
      *   **false** (default)
      *
-     * >  We recommend that you enable automatic payment. If you disable automatic payment, you must manually pay the bill for creating the VPN gateway.
+     * > To create a VPN gateway, we recommend that you enable automatic payment. If you disable automatic payment, you must manually pay the bill to create the VPN gateway.
      * @example false
      *
      * @var bool
@@ -61,7 +61,7 @@ class CreateVpnGatewayRequest extends Model
     public $disasterRecoveryVSwitchId;
 
     /**
-     * @description Specifies whether to enable the IPsec-VPN feature. Valid values:
+     * @description Specifies whether to enable IPsec-VPN for the VPN gateway. Valid values:
      *
      *   **true** (default)
      *   **false**
@@ -73,7 +73,7 @@ class CreateVpnGatewayRequest extends Model
     public $enableIpsec;
 
     /**
-     * @description Specifies whether to enable the SSL-VPN feature for the VPN gateway. Valid values:
+     * @description Specifies whether to enable SSL-VPN. Valid values:
      *
      *   **true**
      *   **false** (default)

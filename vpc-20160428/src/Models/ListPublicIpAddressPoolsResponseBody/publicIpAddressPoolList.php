@@ -22,6 +22,13 @@ class publicIpAddressPoolList extends Model
     public $bizType;
 
     /**
+     * @description The status of the IP address pool.
+     *
+     *   **Normal**
+     *   **FinancialLocked**
+     *
+     * @example Normal
+     *
      * @var string
      */
     public $businessStatus;

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class routeEntries extends Model
 {
     /**
-     * @description The description of the custom route entry. You can specify up to 50 descriptions.
+     * @description The description of the custom route. You can specify at most 50 descriptions.
      *
      * The description must be 1 to 256 characters in length and cannot start with `http://` or `https://`.
      * @example test
@@ -19,10 +19,10 @@ class routeEntries extends Model
     public $description;
 
     /**
-     * @description The destination CIDR block of the custom route entry. Both IPv4 and IPv6 CIDR blocks are supported. You can specify up to 50 destination CIDR blocks. Make sure that the destination CIDR block meets the following requirements:
+     * @description The destination CIDR block of the custom route. IPv4 CIDR blocks, IPv6 CIDR blocks, and prefix lists are supported. You can enter up to 50 destination CIDR blocks. Make sure that the following requirements are met:
      *
-     *   The destination CIDR block is not 100.64.0.0/10 or a subset of 100.64.0.0/10.
-     *   The destination CIDR block of the custom route entry is different from the destination CIDR blocks of other route entries in the same route table.
+     *   The destination CIDR block cannot point to 100.64.0.0/10 or belong to 100.64.0.0/10.
+     *   The destination CIDR block of each route in the route table is unique.
      *
      * This parameter is required.
      * @example 192.168.0.0/24
@@ -32,7 +32,7 @@ class routeEntries extends Model
     public $dstCidrBlock;
 
     /**
-     * @description The IP version. You can specify up to 50 IP versions. Valid values:
+     * @description The IP version. Valid values: You can specify at most 50 IP versions. Valid values:
      *
      *   **4**: IPv4
      *   **6**: IPv6
@@ -44,7 +44,7 @@ class routeEntries extends Model
     public $ipVersion;
 
     /**
-     * @description The name of the custom route entry that you want to add. You can specify up to 50 names.
+     * @description The name of the custom route that you want to add. You can specify at most 50 names.
      *
      * The name must be 1 to 128 characters in length and cannot start with `http://` or `https://`.
      * @example test
@@ -54,7 +54,7 @@ class routeEntries extends Model
     public $name;
 
     /**
-     * @description The next hop ID of the custom route entry. You can specify up to 50 next hop IDs.
+     * @description The ID of the next hop for the custom route. You can specify at most 50 instance IDs.
      *
      * This parameter is required.
      * @example i-j6c2fp57q8rr4jlu****
@@ -64,17 +64,21 @@ class routeEntries extends Model
     public $nextHop;
 
     /**
-     * @description The type of next hop. You can specify up to 50 next hop types. Valid values:
+     * @description The type of next hop. You can specify at most 50 next hop types. Valid values:
      *
-     *   **Instance** (default): an Elastic Compute Service (ECS) instance
-     *   **HaVip**: a high-availability virtual IP address (HAVIP).
-     *   **RouterInterface**: a router interface.
-     *   **NetworkInterface**: an elastic network interface (ENI).
-     *   **VpnGateway**: a VPN gateway.
-     *   **IPv6Gateway**: an IPv6 gateway.
-     *   **NatGateway**: a NAT gateway.
-     *   **Attachment**: a transit router.
-     *   **VpcPeer**: a VPC peering connection.
+     *   **Instance**: Elastic Compute Service (ECS) instance. This is the default value.
+     *   **HaVip**: high-availability virtual IP address (HAVIP).
+     *   **RouterInterface**: router interface.
+     *   **NetworkInterface**: elastic network interface (ENI).
+     *   **VpnGateway**: VPN gateway.
+     *   **IPv6Gateway**: IPv6 gateway.
+     *   **NatGateway**: NAT gateway.
+     *   **Attachment**: transit router.
+     *   **VpcPeer**: VPC peering connection.
+     *   **Ipv4Gateway**: IPv4 gateway.
+     *   **GatewayEndpoint**: gateway endpoint.
+     *   **CenBasic**: CEN does not support transfer routers.
+     *   **Ecr**: Express Connect Router (ECR).
      *
      * This parameter is required.
      * @example RouterInterface
@@ -84,7 +88,7 @@ class routeEntries extends Model
     public $nextHopType;
 
     /**
-     * @description The ID of the route table to which you want to add a custom route entry. You can specify up to 50 route table IDs.
+     * @description The ID of the route table to which you want to add custom route s. You can specify at most 50 route table IDs.
      *
      * This parameter is required.
      * @example vtb-bp145q7glnuzd****

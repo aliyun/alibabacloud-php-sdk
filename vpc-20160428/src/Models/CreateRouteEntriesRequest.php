@@ -40,7 +40,7 @@ class CreateRouteEntriesRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The route entries.
+     * @description The routes.
      *
      * This parameter is required.
      * @var routeEntries[]

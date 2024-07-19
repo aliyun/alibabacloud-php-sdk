@@ -72,6 +72,9 @@ class CreateRouteEntryRequest extends Model
      *   **NatGateway**: a NAT gateway.
      *   **Attachment**: a transit router.
      *   **VpcPeer**: a VPC peering connection.
+     *   **Ipv4Gateway**: an IPv4 gateway.
+     *   **GatewayEndpoint**: a gateway endpoint.
+     *   **Ecr**: a Express Connect Router (ECR).
      *
      * @example RouterInterface
      *

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetPublicIpAddressPoolServiceStatusRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
+     *
+     * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
      * @example 123e4567-e89b-12d3-a456-426655442455
      *
      * @var string
@@ -26,8 +31,9 @@ class GetPublicIpAddressPoolServiceStatusRequest extends Model
     public $ownerId;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID of the IP address pool.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
