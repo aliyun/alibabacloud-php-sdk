@@ -3227,6 +3227,12 @@ class Ecd extends OpenApiClient
         if (!Utils::isUnset($request->clipboard)) {
             $query['Clipboard'] = $request->clipboard;
         }
+        if (!Utils::isUnset($request->deviceRedirects)) {
+            $query['DeviceRedirects'] = $request->deviceRedirects;
+        }
+        if (!Utils::isUnset($request->deviceRules)) {
+            $query['DeviceRules'] = $request->deviceRules;
+        }
         if (!Utils::isUnset($request->domainList)) {
             $query['DomainList'] = $request->domainList;
         }
@@ -4695,6 +4701,9 @@ class Ecd extends OpenApiClient
         if (!Utils::isUnset($request->gpuCount)) {
             $query['GpuCount'] = $request->gpuCount;
         }
+        if (!Utils::isUnset($request->gpuDriverType)) {
+            $query['GpuDriverType'] = $request->gpuDriverType;
+        }
         if (!Utils::isUnset($request->imageId)) {
             $query['ImageId'] = $request->imageId;
         }
@@ -5711,6 +5720,9 @@ class Ecd extends OpenApiClient
         }
         if (!Utils::isUnset($request->gpuCount)) {
             $query['GpuCount'] = $request->gpuCount;
+        }
+        if (!Utils::isUnset($request->gpuDriverType)) {
+            $query['GpuDriverType'] = $request->gpuDriverType;
         }
         if (!Utils::isUnset($request->instanceTypeFamily)) {
             $query['InstanceTypeFamily'] = $request->instanceTypeFamily;
@@ -11674,6 +11686,12 @@ class Ecd extends OpenApiClient
         }
         if (!Utils::isUnset($request->clipboard)) {
             $query['Clipboard'] = $request->clipboard;
+        }
+        if (!Utils::isUnset($request->deviceRedirects)) {
+            $query['DeviceRedirects'] = $request->deviceRedirects;
+        }
+        if (!Utils::isUnset($request->deviceRules)) {
+            $query['DeviceRules'] = $request->deviceRules;
         }
         if (!Utils::isUnset($request->domainList)) {
             $query['DomainList'] = $request->domainList;

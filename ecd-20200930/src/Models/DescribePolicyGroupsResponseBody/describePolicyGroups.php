@@ -7,6 +7,8 @@ namespace AlibabaCloud\SDK\Ecd\V20200930\Models\DescribePolicyGroupsResponseBody
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribePolicyGroupsResponseBody\describePolicyGroups\authorizeAccessPolicyRules;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribePolicyGroupsResponseBody\describePolicyGroups\authorizeSecurityPolicyRules;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribePolicyGroupsResponseBody\describePolicyGroups\clientTypes;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribePolicyGroupsResponseBody\describePolicyGroups\deviceRedirects;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribePolicyGroupsResponseBody\describePolicyGroups\deviceRules;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribePolicyGroupsResponseBody\describePolicyGroups\domainResolveRule;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribePolicyGroupsResponseBody\describePolicyGroups\netRedirectRule;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribePolicyGroupsResponseBody\describePolicyGroups\usbSupplyRedirectRule;
@@ -143,6 +145,16 @@ class describePolicyGroups extends Model
      * @var int
      */
     public $cpuSingleRateLimit;
+
+    /**
+     * @var deviceRedirects[]
+     */
+    public $deviceRedirects;
+
+    /**
+     * @var deviceRules[]
+     */
+    public $deviceRules;
 
     /**
      * @var string
@@ -827,6 +839,8 @@ class describePolicyGroups extends Model
         'cpuRateLimit'                  => 'CpuRateLimit',
         'cpuSampleDuration'             => 'CpuSampleDuration',
         'cpuSingleRateLimit'            => 'CpuSingleRateLimit',
+        'deviceRedirects'               => 'DeviceRedirects',
+        'deviceRules'                   => 'DeviceRules',
         'displayMode'                   => 'DisplayMode',
         'domainList'                    => 'DomainList',
         'domainResolveRule'             => 'DomainResolveRule',
@@ -963,6 +977,24 @@ class describePolicyGroups extends Model
         }
         if (null !== $this->cpuSingleRateLimit) {
             $res['CpuSingleRateLimit'] = $this->cpuSingleRateLimit;
+        }
+        if (null !== $this->deviceRedirects) {
+            $res['DeviceRedirects'] = [];
+            if (null !== $this->deviceRedirects && \is_array($this->deviceRedirects)) {
+                $n = 0;
+                foreach ($this->deviceRedirects as $item) {
+                    $res['DeviceRedirects'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->deviceRules) {
+            $res['DeviceRules'] = [];
+            if (null !== $this->deviceRules && \is_array($this->deviceRules)) {
+                $n = 0;
+                foreach ($this->deviceRules as $item) {
+                    $res['DeviceRules'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->displayMode) {
             $res['DisplayMode'] = $this->displayMode;
@@ -1259,6 +1291,24 @@ class describePolicyGroups extends Model
         }
         if (isset($map['CpuSingleRateLimit'])) {
             $model->cpuSingleRateLimit = $map['CpuSingleRateLimit'];
+        }
+        if (isset($map['DeviceRedirects'])) {
+            if (!empty($map['DeviceRedirects'])) {
+                $model->deviceRedirects = [];
+                $n                      = 0;
+                foreach ($map['DeviceRedirects'] as $item) {
+                    $model->deviceRedirects[$n++] = null !== $item ? deviceRedirects::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['DeviceRules'])) {
+            if (!empty($map['DeviceRules'])) {
+                $model->deviceRules = [];
+                $n                  = 0;
+                foreach ($map['DeviceRules'] as $item) {
+                    $model->deviceRules[$n++] = null !== $item ? deviceRules::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['DisplayMode'])) {
             $model->displayMode = $map['DisplayMode'];

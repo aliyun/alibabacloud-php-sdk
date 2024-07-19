@@ -105,6 +105,11 @@ class DescribeBundlesRequest extends Model
     public $gpuCount;
 
     /**
+     * @var string
+     */
+    public $gpuDriverType;
+
+    /**
      * @description The image ID.
      *
      * @var string[]
@@ -238,6 +243,7 @@ class DescribeBundlesRequest extends Model
         'fotaChannel'             => 'FotaChannel',
         'fromDesktopGroup'        => 'FromDesktopGroup',
         'gpuCount'                => 'GpuCount',
+        'gpuDriverType'           => 'GpuDriverType',
         'imageId'                 => 'ImageId',
         'maxResults'              => 'MaxResults',
         'memorySize'              => 'MemorySize',
@@ -282,6 +288,9 @@ class DescribeBundlesRequest extends Model
         }
         if (null !== $this->gpuCount) {
             $res['GpuCount'] = $this->gpuCount;
+        }
+        if (null !== $this->gpuDriverType) {
+            $res['GpuDriverType'] = $this->gpuDriverType;
         }
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
@@ -356,6 +365,9 @@ class DescribeBundlesRequest extends Model
         }
         if (isset($map['GpuCount'])) {
             $model->gpuCount = $map['GpuCount'];
+        }
+        if (isset($map['GpuDriverType'])) {
+            $model->gpuDriverType = $map['GpuDriverType'];
         }
         if (isset($map['ImageId'])) {
             if (!empty($map['ImageId'])) {

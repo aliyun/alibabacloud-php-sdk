@@ -144,6 +144,11 @@ class DescribeDesktopTypesRequest extends Model
     public $gpuCount;
 
     /**
+     * @var string
+     */
+    public $gpuDriverType;
+
+    /**
      * @description The name of the instance family.
      *
      * Valid values:
@@ -215,6 +220,7 @@ class DescribeDesktopTypesRequest extends Model
         'desktopIdForModify'      => 'DesktopIdForModify',
         'desktopTypeId'           => 'DesktopTypeId',
         'gpuCount'                => 'GpuCount',
+        'gpuDriverType'           => 'GpuDriverType',
         'instanceTypeFamily'      => 'InstanceTypeFamily',
         'memorySize'              => 'MemorySize',
         'orderType'               => 'OrderType',
@@ -245,6 +251,9 @@ class DescribeDesktopTypesRequest extends Model
         }
         if (null !== $this->gpuCount) {
             $res['GpuCount'] = $this->gpuCount;
+        }
+        if (null !== $this->gpuDriverType) {
+            $res['GpuDriverType'] = $this->gpuDriverType;
         }
         if (null !== $this->instanceTypeFamily) {
             $res['InstanceTypeFamily'] = $this->instanceTypeFamily;
@@ -287,6 +296,9 @@ class DescribeDesktopTypesRequest extends Model
         }
         if (isset($map['GpuCount'])) {
             $model->gpuCount = $map['GpuCount'];
+        }
+        if (isset($map['GpuDriverType'])) {
+            $model->gpuDriverType = $map['GpuDriverType'];
         }
         if (isset($map['InstanceTypeFamily'])) {
             $model->instanceTypeFamily = $map['InstanceTypeFamily'];

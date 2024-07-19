@@ -7,6 +7,8 @@ namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyPolicyGroupRequest\authorizeAccessPolicyRule;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyPolicyGroupRequest\authorizeSecurityPolicyRule;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyPolicyGroupRequest\clientType;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyPolicyGroupRequest\deviceRedirects;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyPolicyGroupRequest\deviceRules;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyPolicyGroupRequest\domainResolveRule;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyPolicyGroupRequest\revokeAccessPolicyRule;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyPolicyGroupRequest\revokeSecurityPolicyRule;
@@ -84,6 +86,16 @@ class ModifyPolicyGroupRequest extends Model
      * @var string
      */
     public $clipboard;
+
+    /**
+     * @var deviceRedirects[]
+     */
+    public $deviceRedirects;
+
+    /**
+     * @var deviceRules[]
+     */
+    public $deviceRules;
 
     /**
      * @description The domain blacklist or whitelist. Wildcard domains are supported. Separate domain names with commas (,). Valid values:
@@ -607,6 +619,8 @@ class ModifyPolicyGroupRequest extends Model
         'cameraRedirect'                => 'CameraRedirect',
         'clientType'                    => 'ClientType',
         'clipboard'                     => 'Clipboard',
+        'deviceRedirects'               => 'DeviceRedirects',
+        'deviceRules'                   => 'DeviceRules',
         'domainList'                    => 'DomainList',
         'domainResolveRule'             => 'DomainResolveRule',
         'domainResolveRuleType'         => 'DomainResolveRuleType',
@@ -704,6 +718,24 @@ class ModifyPolicyGroupRequest extends Model
         }
         if (null !== $this->clipboard) {
             $res['Clipboard'] = $this->clipboard;
+        }
+        if (null !== $this->deviceRedirects) {
+            $res['DeviceRedirects'] = [];
+            if (null !== $this->deviceRedirects && \is_array($this->deviceRedirects)) {
+                $n = 0;
+                foreach ($this->deviceRedirects as $item) {
+                    $res['DeviceRedirects'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->deviceRules) {
+            $res['DeviceRules'] = [];
+            if (null !== $this->deviceRules && \is_array($this->deviceRules)) {
+                $n = 0;
+                foreach ($this->deviceRules as $item) {
+                    $res['DeviceRules'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->domainList) {
             $res['DomainList'] = $this->domainList;
@@ -929,6 +961,24 @@ class ModifyPolicyGroupRequest extends Model
         }
         if (isset($map['Clipboard'])) {
             $model->clipboard = $map['Clipboard'];
+        }
+        if (isset($map['DeviceRedirects'])) {
+            if (!empty($map['DeviceRedirects'])) {
+                $model->deviceRedirects = [];
+                $n                      = 0;
+                foreach ($map['DeviceRedirects'] as $item) {
+                    $model->deviceRedirects[$n++] = null !== $item ? deviceRedirects::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['DeviceRules'])) {
+            if (!empty($map['DeviceRules'])) {
+                $model->deviceRules = [];
+                $n                  = 0;
+                foreach ($map['DeviceRules'] as $item) {
+                    $model->deviceRules[$n++] = null !== $item ? deviceRules::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['DomainList'])) {
             $model->domainList = $map['DomainList'];
