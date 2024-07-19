@@ -259,6 +259,8 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\ListDocumentsResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListDocumentsShrinkRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListDoNotCallNumbersRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListDoNotCallNumbersResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListGroupChatMessagesRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListGroupChatMessagesResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListHistoricalAgentReportRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListHistoricalAgentReportResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListHistoricalAgentSkillGroupReportRequest;
@@ -7188,6 +7190,65 @@ class CCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listDocumentsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary ListGroupChatMessages
+     *  *
+     * @param ListGroupChatMessagesRequest $request ListGroupChatMessagesRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListGroupChatMessagesResponse ListGroupChatMessagesResponse
+     */
+    public function listGroupChatMessagesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        if (!Utils::isUnset($request->nextPageToken)) {
+            $query['NextPageToken'] = $request->nextPageToken;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->sortOrder)) {
+            $query['SortOrder'] = $request->sortOrder;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListGroupChatMessages',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListGroupChatMessagesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary ListGroupChatMessages
+     *  *
+     * @param ListGroupChatMessagesRequest $request ListGroupChatMessagesRequest
+     *
+     * @return ListGroupChatMessagesResponse ListGroupChatMessagesResponse
+     */
+    public function listGroupChatMessages($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listGroupChatMessagesWithOptions($request, $runtime);
     }
 
     /**
