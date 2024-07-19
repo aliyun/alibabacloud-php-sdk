@@ -16,11 +16,6 @@ class Application extends Model
     /**
      * @var string
      */
-    public $applicationID;
-
-    /**
-     * @var string
-     */
     public $applicationId;
 
     /**
@@ -269,7 +264,6 @@ class Application extends Model
     public $vpcConfig;
     protected $_name = [
         'requestId'               => 'RequestId',
-        'applicationID'           => 'applicationID',
         'applicationId'           => 'applicationId',
         'applicationName'         => 'applicationName',
         'args'                    => 'args',
@@ -331,9 +325,6 @@ class Application extends Model
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->applicationID) {
-            $res['applicationID'] = $this->applicationID;
         }
         if (null !== $this->applicationId) {
             $res['applicationId'] = $this->applicationId;
@@ -499,9 +490,6 @@ class Application extends Model
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['applicationID'])) {
-            $model->applicationID = $map['applicationID'];
         }
         if (isset($map['applicationId'])) {
             $model->applicationId = $map['applicationId'];

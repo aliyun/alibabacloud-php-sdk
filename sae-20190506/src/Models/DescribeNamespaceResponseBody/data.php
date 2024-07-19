@@ -9,10 +9,10 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description Indicates whether the SAE built-in registry is enabled.
-     * Valid values:
-     * true
-     * false
+     * @description Indicates whether the SAE built-in registry is enabled. Valid values:
+     *
+     *   **true**
+     *   **false**
      *
      * @example true
      *

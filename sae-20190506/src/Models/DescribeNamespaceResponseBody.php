@@ -24,7 +24,7 @@ class DescribeNamespaceResponseBody extends Model
     public $code;
 
     /**
-     * @description The information of the namespace.
+     * @description The information about the namespace.
      *
      * @var data
      */
