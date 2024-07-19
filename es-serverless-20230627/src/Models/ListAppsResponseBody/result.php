@@ -25,6 +25,11 @@ class result extends Model
     public $appName;
 
     /**
+     * @var string
+     */
+    public $appType;
+
+    /**
      * @description 代表创建时间的资源属性字段
      *
      * @example 2022-12-27T07:09:11.000Z
@@ -88,6 +93,7 @@ class result extends Model
     protected $_name = [
         'appId'        => 'appId',
         'appName'      => 'appName',
+        'appType'      => 'appType',
         'createTime'   => 'createTime',
         'description'  => 'description',
         'instanceId'   => 'instanceId',
@@ -110,6 +116,9 @@ class result extends Model
         }
         if (null !== $this->appName) {
             $res['appName'] = $this->appName;
+        }
+        if (null !== $this->appType) {
+            $res['appType'] = $this->appType;
         }
         if (null !== $this->createTime) {
             $res['createTime'] = $this->createTime;
@@ -152,6 +161,9 @@ class result extends Model
         }
         if (isset($map['appName'])) {
             $model->appName = $map['appName'];
+        }
+        if (isset($map['appType'])) {
+            $model->appType = $map['appType'];
         }
         if (isset($map['createTime'])) {
             $model->createTime = $map['createTime'];
