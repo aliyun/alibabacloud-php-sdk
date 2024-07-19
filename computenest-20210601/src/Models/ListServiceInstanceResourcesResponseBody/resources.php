@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class resources extends Model
 {
     /**
+     * @description The time when the resource was created.
+     *
      * @example 2022-01-01T12:00:00
      *
      * @var string
@@ -16,6 +18,8 @@ class resources extends Model
     public $createTime;
 
     /**
+     * @description The time when the resource expires.
+     *
      * @example 2022-03-01T12:00:00
      *
      * @var string
@@ -23,6 +27,11 @@ class resources extends Model
     public $expireTime;
 
     /**
+     * @description The billing method. Valid values:
+     *
+     *   Subscription
+     *   PayAsYouGo
+     *
      * @example Subscription
      *
      * @var string
@@ -30,6 +39,8 @@ class resources extends Model
     public $payType;
 
     /**
+     * @description The code of the cloud service.
+     *
      * @example rds
      *
      * @var string
@@ -37,6 +48,8 @@ class resources extends Model
     public $productCode;
 
     /**
+     * @description The type of the cloud service.
+     *
      * @example RDS
      *
      * @var string
@@ -44,6 +57,12 @@ class resources extends Model
     public $productType;
 
     /**
+     * @description The renewal state. Valid values:
+     *
+     *   AutoRenewal
+     *   ManualRenewal
+     *   NotRenewal
+     *
      * @example AutoRenewal
      *
      * @var string
@@ -51,6 +70,8 @@ class resources extends Model
     public $renewStatus;
 
     /**
+     * @description The renewal period.
+     *
      * @example 1
      *
      * @var int
@@ -58,6 +79,11 @@ class resources extends Model
     public $renewalPeriod;
 
     /**
+     * @description The unit of the renewal period. Valid values:
+     *
+     *   Month
+     *   Year
+     *
      * @example Month
      *
      * @var string
@@ -65,6 +91,8 @@ class resources extends Model
     public $renewalPeriodUnit;
 
     /**
+     * @description The ARN of the resource.
+     *
      * @example arn:acs:sag:cn-hangzhou:130920852836****:ccn/ccn-b3qf0q439sq2de****
      *
      * @var string
@@ -72,6 +100,15 @@ class resources extends Model
     public $resourceARN;
 
     /**
+     * @description The state of the resource. Valid values:
+     *
+     *   running
+     *   waiting
+     *   terminated
+     *
+     * >  This parameter is returned only for containers.
+     * @example running
+     *
      * @var string
      */
     public $status;

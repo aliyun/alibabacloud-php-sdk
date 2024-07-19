@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class commodity extends Model
 {
     /**
+     * @description Specifies whether to automatically complete the payment. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool

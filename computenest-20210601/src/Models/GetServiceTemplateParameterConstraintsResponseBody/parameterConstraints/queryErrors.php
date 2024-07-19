@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class queryErrors extends Model
 {
     /**
+     * @description The error message.
+     *
+     * @example record not exist
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The resource name.
+     *
+     * @example MyECS
+     *
      * @var string
      */
     public $resourceName;
 
     /**
+     * @description The resource type.
+     *
+     * @example ALIYUN::ECS::InstanceGroup
+     *
      * @var string
      */
     public $resourceType;

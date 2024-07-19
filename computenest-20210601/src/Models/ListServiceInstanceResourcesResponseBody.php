@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListServiceInstanceResourcesResponseBody extends Model
 {
     /**
+     * @description The number of entries per page. Valid values: 1 to 100. Default value: 20.
+     *
      * @example 20
      *
      * @var int
@@ -17,6 +19,8 @@ class ListServiceInstanceResourcesResponseBody extends Model
     public $maxResults;
 
     /**
+     * @description A pagination token.
+     *
      * @example AAAAAc3HCuYhJi/wvpk4xOr0VLbAx7BkQzyYC+ONO+WudHGKEdB0uWSY7AGnM3qCgm/Ynge7zU6NWdbj0Tegyajyqyc=
      *
      * @var string
@@ -24,6 +28,8 @@ class ListServiceInstanceResourcesResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The request ID.
+     *
      * @example B288A0BE-D927-4888-B0F7-B35EF84B6E6F
      *
      * @var string
@@ -31,6 +37,8 @@ class ListServiceInstanceResourcesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The resources.
+     *
      * @var resources[]
      */
     public $resources;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class operationMetadata extends Model
 {
     /**
+     * @description The operation end time.
+     *
      * @example 2022-01-28T06:48:56Z
      *
      * @var string
@@ -16,6 +18,8 @@ class operationMetadata extends Model
     public $endTime;
 
     /**
+     * @description The additional information.
+     *
      * @example ```json
      * "username": "admin",
      * "password": "******",
@@ -26,6 +30,8 @@ class operationMetadata extends Model
     public $extraInfo;
 
     /**
+     * @description Imported resource.
+     *
      * @example {   "RegionId": "cn-hangzhou",   "Type": "ResourceIds",   "ResourceIds": {     "ALIYUN::ECS::INSTANCE": ["i-xxx", "i-yyy"],     "ALIYUN::RDS::INSTANCE": ["rm-xxx", "rm-yyy"],     "ALIYUN::VPC::VPC": ["vpc-xxx", "vpc-yyy"],     "ALIYUN::SLB::INSTANCE": ["lb-xxx", "lb-yyy"]   } }
      *
      * @var string
@@ -33,6 +39,8 @@ class operationMetadata extends Model
     public $resources;
 
     /**
+     * @description The ID of the service instance.
+     *
      * @example si-d6ab3a63ccbb4b17****
      *
      * @var string
@@ -40,6 +48,8 @@ class operationMetadata extends Model
     public $serviceInstanceId;
 
     /**
+     * @description The operation start time.
+     *
      * @example 2021-12-29T06:48:56Z
      *
      * @var string

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateServiceInstanceSpecShrinkRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     *
      * @example 123e4567-e89b-12d3-a456-42665544****
      *
      * @var string
@@ -17,11 +19,18 @@ class UpdateServiceInstanceSpecShrinkRequest extends Model
     public $clientToken;
 
     /**
+     * @description The information about the order placed in Alibaba Cloud Marketplace. You do not need to specify this parameter if the service is not published in Alibaba Cloud Marketplace or uses the pay-as-you-go billing method.
+     *
      * @var commodity
      */
     public $commodity;
 
     /**
+     * @description Specifies whether to perform only a dry run for the request to check information such as the permissions and instance status. Valid values:
+     *
+     *   **true: performs a dry run for the request, but does not create a service instance.**
+     *   **false: performs a dry run for the request, and creates a service instance if the request passes the dry run.**
+     *
      * @example true
      *
      * @var bool
@@ -29,6 +38,11 @@ class UpdateServiceInstanceSpecShrinkRequest extends Model
     public $dryRun;
 
     /**
+     * @description Specifies whether to enable Prometheus on the customer side. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -36,11 +50,17 @@ class UpdateServiceInstanceSpecShrinkRequest extends Model
     public $enableUserPrometheus;
 
     /**
+     * @description The name of the configuration update operation.
+     *
+     * @example package modify
+     *
      * @var string
      */
     public $operationName;
 
     /**
+     * @description The configuration parameters of the service instance.
+     *
      * @example {
      * }
      * @var string
@@ -48,13 +68,18 @@ class UpdateServiceInstanceSpecShrinkRequest extends Model
     public $parametersShrink;
 
     /**
+     * @description The name of the specification package.
+     *
+     * @example package One
+     *
      * @var string
      */
     public $predefinedParametersName;
 
     /**
-     * @description This parameter is required.
+     * @description The service instance ID.
      *
+     * This parameter is required.
      * @example si-d6ab3a63ccbb4b17****
      *
      * @var string

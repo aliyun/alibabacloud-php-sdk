@@ -15,8 +15,16 @@ use AlibabaCloud\SDK\ComputeNest\V20210601\Models\CreateServiceInstanceResponse;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\CreateServiceInstanceShrinkRequest;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\DeleteServiceInstancesRequest;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\DeleteServiceInstancesResponse;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\GenerateServicePolicyRequest;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\GenerateServicePolicyResponse;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetServiceEstimateCostRequest;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetServiceEstimateCostResponse;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetServiceEstimateCostShrinkRequest;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetServiceInstanceRequest;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetServiceInstanceResponse;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetServiceProvisionsRequest;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetServiceProvisionsResponse;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetServiceProvisionsShrinkRequest;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetServiceTemplateParameterConstraintsRequest;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetServiceTemplateParameterConstraintsResponse;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListServiceInstanceLogsRequest;
@@ -25,12 +33,20 @@ use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListServiceInstanceResourcesRe
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListServiceInstanceResourcesResponse;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListServiceInstancesRequest;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListServiceInstancesResponse;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListTagKeysRequest;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListTagKeysResponse;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListTagValuesRequest;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListTagValuesResponse;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\RestartServiceInstanceRequest;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\RestartServiceInstanceResponse;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\StartServiceInstanceRequest;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\StartServiceInstanceResponse;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\StopServiceInstanceRequest;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\StopServiceInstanceResponse;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\TagResourcesRequest;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\TagResourcesResponse;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\UnTagResourcesRequest;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\UnTagResourcesResponse;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\UpdateServiceInstanceSpecRequest;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\UpdateServiceInstanceSpecResponse;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\UpdateServiceInstanceSpecShrinkRequest;
@@ -74,7 +90,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * @summary 资源组转组
+     * @summary Changes the resource group to which a cloud resource belongs.
      *  *
      * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -116,7 +132,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * @summary 资源组转组
+     * @summary Changes the resource group to which a cloud resource belongs.
      *  *
      * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
      *
@@ -130,7 +146,9 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * @summary 继续部署服务实例
+     * @summary Continues to deploy a service instance after the service instance failed to be deployed.
+     *  *
+     * @description This operation is available only for service instances that belong to private services deployed by using Resource Orchestration Service (ROS).
      *  *
      * @param ContinueDeployServiceInstanceRequest $request ContinueDeployServiceInstanceRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
@@ -178,7 +196,9 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * @summary 继续部署服务实例
+     * @summary Continues to deploy a service instance after the service instance failed to be deployed.
+     *  *
+     * @description This operation is available only for service instances that belong to private services deployed by using Resource Orchestration Service (ROS).
      *  *
      * @param ContinueDeployServiceInstanceRequest $request ContinueDeployServiceInstanceRequest
      *
@@ -192,6 +212,8 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
+     * @summary Creates and deploys a service instance.
+     *  *
      * @param CreateServiceInstanceRequest $tmpReq  CreateServiceInstanceRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -282,6 +304,8 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
+     * @summary Creates and deploys a service instance.
+     *  *
      * @param CreateServiceInstanceRequest $request CreateServiceInstanceRequest
      *
      * @return CreateServiceInstanceResponse CreateServiceInstanceResponse
@@ -294,7 +318,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * @summary 删除服务实例
+     * @summary Delete service instances.
      *  *
      * @param DeleteServiceInstancesRequest $request DeleteServiceInstancesRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -333,7 +357,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * @summary 删除服务实例
+     * @summary Delete service instances.
      *  *
      * @param DeleteServiceInstancesRequest $request DeleteServiceInstancesRequest
      *
@@ -347,7 +371,154 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * @summary 查询服务实例详情
+     * @summary 生成并校验服务创建stack所需要的权限
+     *  *
+     * @param GenerateServicePolicyRequest $request GenerateServicePolicyRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GenerateServicePolicyResponse GenerateServicePolicyResponse
+     */
+    public function generateServicePolicyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->operationTypes)) {
+            $query['OperationTypes'] = $request->operationTypes;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->serviceId)) {
+            $query['ServiceId'] = $request->serviceId;
+        }
+        if (!Utils::isUnset($request->serviceVersion)) {
+            $query['ServiceVersion'] = $request->serviceVersion;
+        }
+        if (!Utils::isUnset($request->templateName)) {
+            $query['TemplateName'] = $request->templateName;
+        }
+        if (!Utils::isUnset($request->trialType)) {
+            $query['TrialType'] = $request->trialType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GenerateServicePolicy',
+            'version'     => '2021-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GenerateServicePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 生成并校验服务创建stack所需要的权限
+     *  *
+     * @param GenerateServicePolicyRequest $request GenerateServicePolicyRequest
+     *
+     * @return GenerateServicePolicyResponse GenerateServicePolicyResponse
+     */
+    public function generateServicePolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->generateServicePolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 计算巢服务部署询价
+     *  *
+     * @param GetServiceEstimateCostRequest $tmpReq  GetServiceEstimateCostRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetServiceEstimateCostResponse GetServiceEstimateCostResponse
+     */
+    public function getServiceEstimateCostWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new GetServiceEstimateCostShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->commodity)) {
+            $request->commodityShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->commodity, 'Commodity', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->parameters)) {
+            $request->parametersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->parameters, 'Parameters', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->commodityShrink)) {
+            $query['Commodity'] = $request->commodityShrink;
+        }
+        if (!Utils::isUnset($request->operationName)) {
+            $query['OperationName'] = $request->operationName;
+        }
+        if (!Utils::isUnset($request->parametersShrink)) {
+            $query['Parameters'] = $request->parametersShrink;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->serviceId)) {
+            $query['ServiceId'] = $request->serviceId;
+        }
+        if (!Utils::isUnset($request->serviceInstanceId)) {
+            $query['ServiceInstanceId'] = $request->serviceInstanceId;
+        }
+        if (!Utils::isUnset($request->serviceVersion)) {
+            $query['ServiceVersion'] = $request->serviceVersion;
+        }
+        if (!Utils::isUnset($request->specificationName)) {
+            $query['SpecificationName'] = $request->specificationName;
+        }
+        if (!Utils::isUnset($request->templateName)) {
+            $query['TemplateName'] = $request->templateName;
+        }
+        if (!Utils::isUnset($request->trialType)) {
+            $query['TrialType'] = $request->trialType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetServiceEstimateCost',
+            'version'     => '2021-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetServiceEstimateCostResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 计算巢服务部署询价
+     *  *
+     * @param GetServiceEstimateCostRequest $request GetServiceEstimateCostRequest
+     *
+     * @return GetServiceEstimateCostResponse GetServiceEstimateCostResponse
+     */
+    public function getServiceEstimateCost($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getServiceEstimateCostWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries the information about a service instance.
      *  *
      * @param GetServiceInstanceRequest $request GetServiceInstanceRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -386,7 +557,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * @summary 查询服务实例详情
+     * @summary Queries the information about a service instance.
      *  *
      * @param GetServiceInstanceRequest $request GetServiceInstanceRequest
      *
@@ -400,7 +571,74 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * @summary 获取ROS参数限制
+     * @summary 计算巢查询服务是否开通
+     *  *
+     * @param GetServiceProvisionsRequest $tmpReq  GetServiceProvisionsRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetServiceProvisionsResponse GetServiceProvisionsResponse
+     */
+    public function getServiceProvisionsWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new GetServiceProvisionsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->parameters)) {
+            $request->parametersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->parameters, 'Parameters', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->parametersShrink)) {
+            $query['Parameters'] = $request->parametersShrink;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->serviceId)) {
+            $query['ServiceId'] = $request->serviceId;
+        }
+        if (!Utils::isUnset($request->serviceVersion)) {
+            $query['ServiceVersion'] = $request->serviceVersion;
+        }
+        if (!Utils::isUnset($request->templateName)) {
+            $query['TemplateName'] = $request->templateName;
+        }
+        if (!Utils::isUnset($request->trialType)) {
+            $query['TrialType'] = $request->trialType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetServiceProvisions',
+            'version'     => '2021-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetServiceProvisionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 计算巢查询服务是否开通
+     *  *
+     * @param GetServiceProvisionsRequest $request GetServiceProvisionsRequest
+     *
+     * @return GetServiceProvisionsResponse GetServiceProvisionsResponse
+     */
+    public function getServiceProvisions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getServiceProvisionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries the constraints on the parameters in an Resource Orchestration Service (ROS) template.
      *  *
      * @param GetServiceTemplateParameterConstraintsRequest $request GetServiceTemplateParameterConstraintsRequest
      * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
@@ -463,7 +701,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * @summary 获取ROS参数限制
+     * @summary Queries the constraints on the parameters in an Resource Orchestration Service (ROS) template.
      *  *
      * @param GetServiceTemplateParameterConstraintsRequest $request GetServiceTemplateParameterConstraintsRequest
      *
@@ -477,7 +715,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * @summary 查询服务实例部署升级以及应用日志
+     * @summary Queries the deployment and upgrade logs of a service instance.
      *  *
      * @param ListServiceInstanceLogsRequest $request ListServiceInstanceLogsRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -525,7 +763,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * @summary 查询服务实例部署升级以及应用日志
+     * @summary Queries the deployment and upgrade logs of a service instance.
      *  *
      * @param ListServiceInstanceLogsRequest $request ListServiceInstanceLogsRequest
      *
@@ -539,7 +777,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * @summary 展示实例资源
+     * @summary Queries the resources contained in a service instance.
      *  *
      * @param ListServiceInstanceResourcesRequest $request ListServiceInstanceResourcesRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
@@ -599,7 +837,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * @summary 展示实例资源
+     * @summary Queries the resources contained in a service instance.
      *  *
      * @param ListServiceInstanceResourcesRequest $request ListServiceInstanceResourcesRequest
      *
@@ -613,6 +851,8 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
+     * @summary {}
+     *  *
      * @param ListServiceInstancesRequest $request ListServiceInstancesRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -659,6 +899,8 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
+     * @summary {}
+     *  *
      * @param ListServiceInstancesRequest $request ListServiceInstancesRequest
      *
      * @return ListServiceInstancesResponse ListServiceInstancesResponse
@@ -671,7 +913,108 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * @summary 重启服务实例
+     * @param ListTagKeysRequest $request ListTagKeysRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListTagKeysResponse ListTagKeysResponse
+     */
+    public function listTagKeysWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTagKeys',
+            'version'     => '2021-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListTagKeysResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListTagKeysRequest $request ListTagKeysRequest
+     *
+     * @return ListTagKeysResponse ListTagKeysResponse
+     */
+    public function listTagKeys($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTagKeysWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListTagValuesRequest $request ListTagValuesRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListTagValuesResponse ListTagValuesResponse
+     */
+    public function listTagValuesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->key)) {
+            $query['Key'] = $request->key;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTagValues',
+            'version'     => '2021-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListTagValuesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListTagValuesRequest $request ListTagValuesRequest
+     *
+     * @return ListTagValuesResponse ListTagValuesResponse
+     */
+    public function listTagValues($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTagValuesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary When the service instance is Deployed, call the RestartServiceInstance interface to restart the service instance.
      *  *
      * @param RestartServiceInstanceRequest $request RestartServiceInstanceRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -710,7 +1053,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * @summary 重启服务实例
+     * @summary When the service instance is Deployed, call the RestartServiceInstance interface to restart the service instance.
      *  *
      * @param RestartServiceInstanceRequest $request RestartServiceInstanceRequest
      *
@@ -724,7 +1067,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * @summary 启动服务实例
+     * @summary When the service instance status is Stopped (Stopped) or StartFailed (Startup failed), the StartServiceInstance interface is invoked to start the service instance.
      *  *
      * @param StartServiceInstanceRequest $request StartServiceInstanceRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -763,7 +1106,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * @summary 启动服务实例
+     * @summary When the service instance status is Stopped (Stopped) or StartFailed (Startup failed), the StartServiceInstance interface is invoked to start the service instance.
      *  *
      * @param StartServiceInstanceRequest $request StartServiceInstanceRequest
      *
@@ -777,7 +1120,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * @summary 停止服务实例
+     * @summary When the service instance is Deployed and StopFailed, call the StopServiceInstance interface to stop the service instance.
      *  *
      * @param StopServiceInstanceRequest $request StopServiceInstanceRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -816,7 +1159,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * @summary 停止服务实例
+     * @summary When the service instance is Deployed and StopFailed, call the StopServiceInstance interface to stop the service instance.
      *  *
      * @param StopServiceInstanceRequest $request StopServiceInstanceRequest
      *
@@ -827,6 +1170,113 @@ class ComputeNest extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->stopServiceInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param TagResourcesRequest $request TagResourcesRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return TagResourcesResponse TagResourcesResponse
+     */
+    public function tagResourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'TagResources',
+            'version'     => '2021-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param TagResourcesRequest $request TagResourcesRequest
+     *
+     * @return TagResourcesResponse TagResourcesResponse
+     */
+    public function tagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->tagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UnTagResourcesRequest $request UnTagResourcesRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UnTagResourcesResponse UnTagResourcesResponse
+     */
+    public function unTagResourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->all)) {
+            $query['All'] = $request->all;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tagKey)) {
+            $query['TagKey'] = $request->tagKey;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UnTagResources',
+            'version'     => '2021-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UnTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UnTagResourcesRequest $request UnTagResourcesRequest
+     *
+     * @return UnTagResourcesResponse UnTagResourcesResponse
+     */
+    public function unTagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->unTagResourcesWithOptions($request, $runtime);
     }
 
     /**

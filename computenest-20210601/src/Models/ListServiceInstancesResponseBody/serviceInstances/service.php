@@ -11,11 +11,21 @@ use AlibabaCloud\Tea\Model;
 class service extends Model
 {
     /**
+     * @description The commodity details.
+     *
      * @var commodity
      */
     public $commodity;
 
     /**
+     * @description The deployment type of the service. Valid values:
+     *
+     *   ros: The service is deployed by using Resource Orchestration Service (ROS).
+     *   terraform: The service is deployed by using Terraform.
+     *   ack: The service is deployed by using Alibaba Cloud Container Service for Kubernetes (ACK).
+     *   spi: The service is deployed by calling the Service Provider Interface (SPI).
+     *   operation: The service is deployed by using a hosted O\\&M service.
+     *
      * @example ros
      *
      * @var string
@@ -23,6 +33,8 @@ class service extends Model
     public $deployType;
 
     /**
+     * @description The time when the service was published.
+     *
      * @example 2021-05-21T00:00:00Z
      *
      * @var string
@@ -30,6 +42,8 @@ class service extends Model
     public $publishTime;
 
     /**
+     * @description The service ID.
+     *
      * @example service-0e6fca6a51a54420****
      *
      * @var string
@@ -37,11 +51,19 @@ class service extends Model
     public $serviceId;
 
     /**
+     * @description The information about the service.
+     *
      * @var serviceInfos[]
      */
     public $serviceInfos;
 
     /**
+     * @description The type of the service. Valid values:
+     *
+     *   private: The service is a private service and is deployed within the account of a customer.
+     *   managed: The service is a fully managed service and is deployed within the account of a service provider.
+     *   operation: The service is a hosted O\\&M service.
+     *
      * @example private
      *
      * @var string
@@ -49,6 +71,8 @@ class service extends Model
     public $serviceType;
 
     /**
+     * @description The service state.
+     *
      * @example Online
      *
      * @var string
@@ -56,11 +80,17 @@ class service extends Model
     public $status;
 
     /**
+     * @description The name of the service provider.
+     *
+     * @example Alibaba Cloud
+     *
      * @var string
      */
     public $supplierName;
 
     /**
+     * @description The URL of the service provider.
+     *
      * @example http://example.com
      *
      * @var string
@@ -68,6 +98,8 @@ class service extends Model
     public $supplierUrl;
 
     /**
+     * @description The service version.
+     *
      * @example 1.0
      *
      * @var string
@@ -75,6 +107,10 @@ class service extends Model
     public $version;
 
     /**
+     * @description The custom version name defined by the service provider.
+     *
+     * @example 1.1.0
+     *
      * @var string
      */
     public $versionName;

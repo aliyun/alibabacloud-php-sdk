@@ -11,11 +11,22 @@ use AlibabaCloud\Tea\Model;
 class serviceInstances extends Model
 {
     /**
+     * @description The business state of the service instance. Valid values:
+     *
+     *   Normal
+     *   Renewing
+     *   RenewFailed
+     *   Expired
+     *
+     * @example Normal
+     *
      * @var string
      */
     public $bizStatus;
 
     /**
+     * @description The time when the service instance was created.
+     *
      * @example 2021-05-20T00:00:00Z
      *
      * @var string
@@ -23,6 +34,11 @@ class serviceInstances extends Model
     public $createTime;
 
     /**
+     * @description Indicates whether the service instance supports the hosted O\\&M feature. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool
@@ -30,6 +46,8 @@ class serviceInstances extends Model
     public $enableInstanceOps;
 
     /**
+     * @description The time when the service instance expires.
+     *
      * @example 2022-01-01T12:00:00
      *
      * @var string
@@ -37,6 +55,8 @@ class serviceInstances extends Model
     public $endTime;
 
     /**
+     * @description The ID of the Alibaba Cloud Marketplace instance.
+     *
      * @example 5827****
      *
      * @var string
@@ -44,6 +64,8 @@ class serviceInstances extends Model
     public $marketInstanceId;
 
     /**
+     * @description The name of the service instance.
+     *
      * @example TestName
      *
      * @var string
@@ -51,6 +73,8 @@ class serviceInstances extends Model
     public $name;
 
     /**
+     * @description The ID of the managed service instance.
+     *
      * @example si-d6ab3a63ccbb4b17****
      *
      * @var string
@@ -58,6 +82,8 @@ class serviceInstances extends Model
     public $operatedServiceInstanceId;
 
     /**
+     * @description The end of the time range during which hosted O\\&M is implemented.
+     *
      * @example 2022-01-28T06:48:56Z
      *
      * @var string
@@ -65,6 +91,8 @@ class serviceInstances extends Model
     public $operationEndTime;
 
     /**
+     * @description The beginning of the time range during which hosted O\\&M is implemented.
+     *
      * @example 2021-12-29T06:48:56Z
      *
      * @var string
@@ -72,11 +100,17 @@ class serviceInstances extends Model
     public $operationStartTime;
 
     /**
+     * @description The order ID.
+     *
+     * @example 2306175xxxxxxxx
+     *
      * @var string
      */
     public $orderId;
 
     /**
+     * @description The information returned after the service instance is created.
+     *
      * @example {"managementUrl": "http://xx.xx"}
      *
      * @var string
@@ -84,6 +118,8 @@ class serviceInstances extends Model
     public $outputs;
 
     /**
+     * @description The parameters of the service instance.
+     *
      * @example {"param":"value"}
      *
      * @var string
@@ -91,6 +127,13 @@ class serviceInstances extends Model
     public $parameters;
 
     /**
+     * @description The billing method. Valid values:
+     *
+     *   Permanent: Once you purchase the service, you can use it permanently.
+     *   Subscription: You purchase the service from Alibaba Cloud Marketplace and are charged for the service on a subscription basis.
+     *   PayAsYouGo: You purchase the service from Alibaba Cloud Marketplace and are charged for the service on a pay-as-you-go basis.
+     *   CustomFixTime: You are charged for the service based on a custom duration fixed by the service provider.
+     *
      * @example Subscription
      *
      * @var string
@@ -98,6 +141,8 @@ class serviceInstances extends Model
     public $payType;
 
     /**
+     * @description The deployment progress of the service instance, in percentage.
+     *
      * @example 90
      *
      * @var int
@@ -105,6 +150,8 @@ class serviceInstances extends Model
     public $progress;
 
     /**
+     * @description The resource group ID.
+     *
      * @example rg-aekz6scpcxxxxxx
      *
      * @var string
@@ -112,6 +159,8 @@ class serviceInstances extends Model
     public $resourceGroupId;
 
     /**
+     * @description The resources.
+     *
      * @example [{"StackId": "stack-xxx"}]
      *
      * @var string
@@ -119,11 +168,15 @@ class serviceInstances extends Model
     public $resources;
 
     /**
+     * @description The services.
+     *
      * @var service
      */
     public $service;
 
     /**
+     * @description The service instance ID.
+     *
      * @example si-d6ab3a63ccbb4b17****
      *
      * @var string
@@ -131,6 +184,13 @@ class serviceInstances extends Model
     public $serviceInstanceId;
 
     /**
+     * @description The type of the service. Valid values:
+     *
+     *   private: The service is a private service and is deployed within the account of a customer.
+     *   managed: The service is a fully managed service and is deployed within the account of a service provider.
+     *   operation: The service is a hosted O\\&M service.
+     *   poc: The service is a trial service.
+     *
      * @example private
      *
      * @var string
@@ -138,6 +198,8 @@ class serviceInstances extends Model
     public $serviceType;
 
     /**
+     * @description The source from which the service instance is created.
+     *
      * @example Supplier
      *
      * @var string
@@ -145,6 +207,17 @@ class serviceInstances extends Model
     public $source;
 
     /**
+     * @description The state of the service instance. Valid values:
+     *
+     *   Created
+     *   Deploying
+     *   DeployedFailed
+     *   Deployed
+     *   Upgrading
+     *   Deleting
+     *   Deleted
+     *   DeletedFailed
+     *
      * @example Deployed
      *
      * @var string
@@ -152,6 +225,8 @@ class serviceInstances extends Model
     public $status;
 
     /**
+     * @description The description of the deployment of the service instance.
+     *
      * @example deploy successfully
      *
      * @var string
@@ -159,16 +234,24 @@ class serviceInstances extends Model
     public $statusDetail;
 
     /**
+     * @description The custom tags.
+     *
      * @var tags[]
      */
     public $tags;
 
     /**
+     * @description The template name.
+     *
+     * @example 模板1
+     *
      * @var string
      */
     public $templateName;
 
     /**
+     * @description The time when the service instance was updated.
+     *
      * @example 2021-05-20T00:00:00Z
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetServiceInstanceRequest extends Model
 {
     /**
+     * @description The MarketInstance ID.
+     *
      * @example 704***59
      *
      * @var string
@@ -16,8 +18,9 @@ class GetServiceInstanceRequest extends Model
     public $marketInstanceId;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -25,6 +28,9 @@ class GetServiceInstanceRequest extends Model
     public $regionId;
 
     /**
+     * @description The service instance ID.
+     *
+     * >  You must specify either `ServiceInstanceId` or `MarketInstanceId`. Otherwise, the operation fails.
      * @example si-d6ab3a63ccbb4b17****
      *
      * @var string

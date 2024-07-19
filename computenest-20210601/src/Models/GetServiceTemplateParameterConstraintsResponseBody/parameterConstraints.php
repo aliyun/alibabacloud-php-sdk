@@ -11,16 +11,27 @@ use AlibabaCloud\Tea\Model;
 class parameterConstraints extends Model
 {
     /**
+     * @description The valid values of the parameter.
+     *
      * @var string[]
      */
     public $allowedValues;
 
     /**
+     * @description The names of the associated parameters.
+     *
      * @var string[]
      */
     public $associationParameterNames;
 
     /**
+     * @description The behavior of the parameter. Valid values:
+     *
+     *   NoLimit: No limit is imposed on the value of this parameter.
+     *   NotSupport: The value of this parameter cannot be queried.
+     *   QueryError: This parameter failed to be queried.
+     *
+     * >  If AllowedValues is not returned, Behavior and BehaviorReason are returned, which indicate the behavior of the parameter and the reason for the behavior.
      * @example NoLimit
      *
      * @var string
@@ -28,6 +39,8 @@ class parameterConstraints extends Model
     public $behavior;
 
     /**
+     * @description The reason why the behavior of the parameter is returned.
+     *
      * @example No resource property refer to the parameter
      *
      * @var string
@@ -35,11 +48,15 @@ class parameterConstraints extends Model
     public $behaviorReason;
 
     /**
+     * @description The original constraint information.
+     *
      * @var originalConstraints[]
      */
     public $originalConstraints;
 
     /**
+     * @description The name of the parameter.
+     *
      * @example ZoneInfo
      *
      * @var string
@@ -47,11 +64,15 @@ class parameterConstraints extends Model
     public $parameterKey;
 
     /**
+     * @description The error details that are returned if the request fails.
+     *
      * @var queryErrors[]
      */
     public $queryErrors;
 
     /**
+     * @description The data type of the parameter.
+     *
      * @example String
      *
      * @var string

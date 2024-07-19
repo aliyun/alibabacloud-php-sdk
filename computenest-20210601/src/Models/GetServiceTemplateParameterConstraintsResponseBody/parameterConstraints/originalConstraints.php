@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class originalConstraints extends Model
 {
     /**
+     * @description The valid values of the parameter.
+     *
      * @var string[]
      */
     public $allowedValues;
 
     /**
+     * @description The property name.
+     *
      * @example ZoneId
      *
      * @var string
@@ -21,6 +25,8 @@ class originalConstraints extends Model
     public $propertyName;
 
     /**
+     * @description The name of the resource that is defined in the template.
+     *
      * @example MyECS
      *
      * @var string
@@ -28,6 +34,8 @@ class originalConstraints extends Model
     public $resourceName;
 
     /**
+     * @description The resource type.
+     *
      * @example ALIYUN::ECS::InstanceGroup
      *
      * @var string

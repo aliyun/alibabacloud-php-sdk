@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class parameters extends Model
 {
     /**
+     * @description The name of the parameter. If you do not specify Parameters, the parameters and values in the template are used.
+     *
+     * >  Parameters is an optional parameter. ParameterKey is required if you specify Parameters.
      * @example InstanceType
      *
      * @var string
@@ -16,6 +19,9 @@ class parameters extends Model
     public $parameterKey;
 
     /**
+     * @description The parameter value that is defined in the template.
+     *
+     * >  Parameters is an optional parameter. ParameterValue is required if you specify Parameters.
      * @example cn-hangzhou-j
      *
      * @var string

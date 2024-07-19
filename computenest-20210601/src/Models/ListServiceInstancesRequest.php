@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class ListServiceInstancesRequest extends Model
 {
     /**
+     * @description The filter.
+     *
      * @var filter[]
      */
     public $filter;
 
     /**
+     * @description The number of entries page. Valid values: 1 to 100. Default value: 20.
+     *
      * @example 20
      *
      * @var int
@@ -23,6 +27,8 @@ class ListServiceInstancesRequest extends Model
     public $maxResults;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+     *
      * @example BBBAAfu+XtuBE55iRLHEYYuojI4=
      *
      * @var string
@@ -30,8 +36,9 @@ class ListServiceInstancesRequest extends Model
     public $nextToken;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -39,6 +46,8 @@ class ListServiceInstancesRequest extends Model
     public $regionId;
 
     /**
+     * @description The resource group ID.
+     *
      * @example rg-bp67acfmxazb4p****
      *
      * @var string
@@ -46,6 +55,8 @@ class ListServiceInstancesRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description The tag key and value.
+     *
      * @var tag[]
      */
     public $tag;

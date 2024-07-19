@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class StartServiceInstanceRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
      * @example 123e4567-e89b-12d3-a456-42665544****
      *
      * @var string
@@ -16,8 +19,9 @@ class StartServiceInstanceRequest extends Model
     public $clientToken;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID where the service instance resides.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -25,8 +29,9 @@ class StartServiceInstanceRequest extends Model
     public $regionId;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the service instance.
      *
+     * This parameter is required.
      * @example si-d6ab3a63ccbb4b17****
      *
      * @var string

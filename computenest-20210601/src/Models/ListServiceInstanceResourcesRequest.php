@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListServiceInstanceResourcesRequest extends Model
 {
     /**
+     * @description End time of resource usage.
+     * <notice>Note: Only supports querying service instances on private deployments.
      * @example 2022-03-01T12:00:00
      *
      * @var string
@@ -17,6 +19,8 @@ class ListServiceInstanceResourcesRequest extends Model
     public $expireTimeEnd;
 
     /**
+     * @description Start time of resource usage.
+     * <notice>Note: Only supports querying service instances on private deployments.
      * @example 2022-01-01T12:00:00
      *
      * @var string
@@ -24,6 +28,8 @@ class ListServiceInstanceResourcesRequest extends Model
     public $expireTimeStart;
 
     /**
+     * @description The number of entries per page. Valid values: 1 to 100. Default value: 20.
+     *
      * @example 20
      *
      * @var int
@@ -31,6 +37,11 @@ class ListServiceInstanceResourcesRequest extends Model
     public $maxResults;
 
     /**
+     * @description The token that determines the start point of the next query. Valid values:
+     *
+     *   If **NextToken** is not returned, it indicates that no additional results exist.
+     *   If **NextToken** was returned in the previous query, specify the value to obtain the next set of results.
+     *
      * @example AAAAAc3HCuYhJi/wvpk4xOr0VLbAx7BkQzyYC+ONO+WudHGKEdB0uWSY7AGnM3qCgm/Ynge7zU6NWdbj0Tegyajyqyc=
      *
      * @var string
@@ -38,6 +49,11 @@ class ListServiceInstanceResourcesRequest extends Model
     public $nextToken;
 
     /**
+     * @description The billing method of the read-only instance. Valid values:
+     *
+     *   **Postpaid**: pay-as-you-go
+     *   **Prepaid**: subscription
+     *
      * @example Subscription
      *
      * @var string
@@ -45,6 +61,11 @@ class ListServiceInstanceResourcesRequest extends Model
     public $payType;
 
     /**
+     * @description The region ID. Valid values:
+     *
+     *   cn-hangzhou: China (Hangzhou).
+     *   ap-southeast-1: Singapore.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -52,13 +73,16 @@ class ListServiceInstanceResourcesRequest extends Model
     public $regionId;
 
     /**
+     * @description The Alibaba Cloud Resource Name (ARN) of a resource.
+     *
      * @var string[]
      */
     public $resourceARN;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the service instance.
      *
+     * This parameter is required.
      * @example si-d8a0cc2a1ee04dce****
      *
      * @var string
@@ -66,11 +90,17 @@ class ListServiceInstanceResourcesRequest extends Model
     public $serviceInstanceId;
 
     /**
+     * @description Service Instance resource type，include AliyunResource and ContainerResource.
+     *
+     * @example AliyunResource
+     *
      * @var string
      */
     public $serviceInstanceResourceType;
 
     /**
+     * @description The tag key and value.
+     *
      * @var tag[]
      */
     public $tag;

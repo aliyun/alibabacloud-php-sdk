@@ -9,16 +9,32 @@ use AlibabaCloud\Tea\Model;
 class commodity extends Model
 {
     /**
+     * @description Specifies whether to automatically complete the payment. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example false
+     *
      * @var bool
      */
     public $autoPay;
 
     /**
+     * @description Specifies whether to enable auto-renewal for the instance. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example false
+     *
      * @var bool
      */
     public $autoRenew;
 
     /**
+     * @description The subscription duration.
+     *
      * @example 1
      *
      * @var int
@@ -26,6 +42,12 @@ class commodity extends Model
     public $payPeriod;
 
     /**
+     * @description The unit of the subscription duration. Valid values:
+     *
+     *   Year
+     *   Month
+     *   Day
+     *
      * @example Year
      *
      * @var string

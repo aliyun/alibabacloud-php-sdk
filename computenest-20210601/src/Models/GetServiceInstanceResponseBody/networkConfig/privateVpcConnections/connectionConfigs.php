@@ -9,12 +9,16 @@ use AlibabaCloud\Tea\Model;
 class connectionConfigs extends Model
 {
     /**
+     * @description The bandwidth limit for the private connection established based on the private network interconnection mode of Compute Nest.
+     *
+     * @example 1536Mbps
+     *
      * @var int
      */
     public $connectBandwidth;
 
     /**
-     * @description 域名名称。
+     * @description The domain name.
      *
      * @example ie-569a9be34f5534f6bc6559b5c1xxxxxx.service-51f80502802e48xxxxxx.cn-hangzhou.computenest.aliyuncs.com
      *
@@ -23,11 +27,21 @@ class connectionConfigs extends Model
     public $domainName;
 
     /**
+     * @description The IP addresses of the endpoints of the private connections.
+     *
      * @var string[]
      */
     public $endpointIps;
 
     /**
+     * @description The state of the ingress endpoint. Valid values:
+     *
+     *   Ready: The ingress endpoint is connected.
+     *   Pending: The ingress endpoint is being connected.
+     *   Failed: The ingress endpoint fails to be connected.
+     *   Deleted: The ingress endpoint is deleted.
+     *   Deleting: The ingress endpoint is being deleted.
+     *
      * @example Ready
      *
      * @var string
@@ -35,6 +49,14 @@ class connectionConfigs extends Model
     public $ingressEndpointStatus;
 
     /**
+     * @description The state of the network service. Valid values:
+     *
+     *   Ready: The network service is connected.
+     *   Pending: The network service is being connected.
+     *   Failed: The network service fails to be connected.
+     *   Deleted: The network service is deleted.
+     *   Deleting: The network service is being deleted.
+     *
      * @example Ready
      *
      * @var string
@@ -42,6 +64,8 @@ class connectionConfigs extends Model
     public $networkServiceStatus;
 
     /**
+     * @description The region ID of the VPC to which the endpoint of the private connection established based on the private network interconnection mode of Compute Nest belongs.
+     *
      * @example cn-beijing
      *
      * @var string
@@ -49,16 +73,22 @@ class connectionConfigs extends Model
     public $regionId;
 
     /**
+     * @description The names of the security groups.
+     *
      * @var string[]
      */
     public $securityGroups;
 
     /**
+     * @description The names of the vSwitches.
+     *
      * @var string[]
      */
     public $vSwitches;
 
     /**
+     * @description The ID of the virtual private cloud (VPC).
+     *
      * @example vpc-bp1vwnn14rqpyiczj****
      *
      * @var string

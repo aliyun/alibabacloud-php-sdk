@@ -12,6 +12,8 @@ use AlibabaCloud\Tea\Model;
 class CreateServiceInstanceRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     *
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -19,12 +21,14 @@ class CreateServiceInstanceRequest extends Model
     public $clientToken;
 
     /**
+     * @description The information about the order placed in Alibaba Cloud Marketplace. You do not need to specify this parameter if the service is not published in Alibaba Cloud Marketplace or uses the pay-as-you-go billing method.
+     *
      * @var commodity
      */
     public $commodity;
 
     /**
-     * @description 接收告警的云监控联系人组。
+     * @description The alert contact group.
      *
      * @example 云账号报警联系人
      *
@@ -33,6 +37,11 @@ class CreateServiceInstanceRequest extends Model
     public $contactGroup;
 
     /**
+     * @description Specifies whether to perform a dry run. Valid values:
+     *
+     *   **true**: performs a dry run. The system checks the required parameters, request syntax, and limits.
+     *   **false** (default): sends the request.
+     *
      * @example false
      *
      * @var bool
@@ -40,6 +49,8 @@ class CreateServiceInstanceRequest extends Model
     public $dryRun;
 
     /**
+     * @description Indicates whether the service instance supports the operation feature.
+     *
      * @example true
      *
      * @var bool
@@ -47,6 +58,8 @@ class CreateServiceInstanceRequest extends Model
     public $enableInstanceOps;
 
     /**
+     * @description Whether to enable Prometheus monitoring.
+     *
      * @example true
      *
      * @var bool
@@ -54,9 +67,8 @@ class CreateServiceInstanceRequest extends Model
     public $enableUserPrometheus;
 
     /**
-     * @description 服务实例名称。格式要求如下：
+     * @description The serviceInstance name.
      *
-     * - 必须以数字或英文字母开头，可包含数字、英文字母、短划线（-）和下划线（_）。
      * @example TestName
      *
      * @var string
@@ -64,11 +76,16 @@ class CreateServiceInstanceRequest extends Model
     public $name;
 
     /**
+     * @description The operation metadata.
+     *
      * @var operationMetadata
      */
     public $operationMetadata;
 
     /**
+     * @description The parameters that the customer specifies to deploy the service instance.
+     *
+     * >  If region information is required to create a service instance, you must specify the region ID in the value of Parameters.
      * @example {"NodeCount": 3, "SystemDiskSize": 40, "InstancePassword": "******"}
      *
      * @var mixed[]
@@ -76,8 +93,12 @@ class CreateServiceInstanceRequest extends Model
     public $parameters;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID. Valid values:
      *
+     *   cn-hangzhou: China (Hangzhou).
+     *   ap-southeast-1: Singapore.
+     *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -85,11 +106,15 @@ class CreateServiceInstanceRequest extends Model
     public $regionId;
 
     /**
+     * @description Whether the resource pays automatically.Valid values:
+     * - false
      * @var bool
      */
     public $resourceAutoPay;
 
     /**
+     * @description The resource group ID.
+     *
      * @example rg-bp67acfmxazb4p****
      *
      * @var string
@@ -97,8 +122,9 @@ class CreateServiceInstanceRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description This parameter is required.
+     * @description The service ID.
      *
+     * This parameter is required.
      * @example service-0e6fca6a51a54420****
      *
      * @var string
@@ -106,6 +132,8 @@ class CreateServiceInstanceRequest extends Model
     public $serviceId;
 
     /**
+     * @description The service version.
+     *
      * @example 1
      *
      * @var string
@@ -113,6 +141,8 @@ class CreateServiceInstanceRequest extends Model
     public $serviceVersion;
 
     /**
+     * @description Specification code.
+     *
      * @example yuncode5425200001
      *
      * @var string
@@ -120,7 +150,7 @@ class CreateServiceInstanceRequest extends Model
     public $specificationCode;
 
     /**
-     * @description 套餐规格名称。
+     * @description The package name.
      *
      * @example 套餐一
      *
@@ -129,21 +159,24 @@ class CreateServiceInstanceRequest extends Model
     public $specificationName;
 
     /**
-     * @description 用户自定义标签。
+     * @description The tags.
      *
      * @var tag[]
      */
     public $tag;
 
     /**
+     * @description The name of the template.
+     *
+     * @example 模板1
+     *
      * @var string
      */
     public $templateName;
 
     /**
-     * @description 使用类型。可选值：
-     *
-     * - NotTrial：不支持试用。
+     * @description The trial type of serviceInstance.
+     * - Deployed
      * @example Trial
      *
      * @var string
