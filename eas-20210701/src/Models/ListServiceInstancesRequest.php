@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListServiceInstancesRequest extends Model
 {
     /**
+     * @description The keyword used to query instances. Instances can be queried based on instance name, instance IP address, IP address of the server where the instance resides, and instance type.
+     *
      * @example 10.118.xx.xx
      *
      * @var string
@@ -16,6 +18,8 @@ class ListServiceInstancesRequest extends Model
     public $filter;
 
     /**
+     * @description The IP address of the server where the instance resides.
+     *
      * @example 10.224.xx.xx
      *
      * @var string
@@ -23,6 +27,8 @@ class ListServiceInstancesRequest extends Model
     public $hostIP;
 
     /**
+     * @description The IP address of the instance.
+     *
      * @example 10.224.xx.xx
      *
      * @var string
@@ -30,6 +36,8 @@ class ListServiceInstancesRequest extends Model
     public $instanceIP;
 
     /**
+     * @description The instance name.
+     *
      * @example foo-bdc5xxxx-8l7rk
      *
      * @var string
@@ -37,6 +45,8 @@ class ListServiceInstancesRequest extends Model
     public $instanceName;
 
     /**
+     * @description The instance state.
+     *
      * @example Running
      *
      * @var string
@@ -44,6 +54,8 @@ class ListServiceInstancesRequest extends Model
     public $instanceStatus;
 
     /**
+     * @description The instance type.
+     *
      * @example ecs.c7.large
      *
      * @var string
@@ -51,6 +63,8 @@ class ListServiceInstancesRequest extends Model
     public $instanceType;
 
     /**
+     * @description Specifies whether the instance is a preemptible instance.
+     *
      * @example false
      *
      * @var bool
@@ -62,13 +76,13 @@ class ListServiceInstancesRequest extends Model
      *
      * Valid values:
      *
-     *   asc: The instances are sorted in ascending order.
+     *   asc
      *
-     * <!-- -->
+     * The instances are sorted in ascending order.
      *
      *   desc
      *
-     * <!-- -->
+     * The instances are sorted in descending order.
      * @example desc
      *
      * @var string
@@ -76,6 +90,8 @@ class ListServiceInstancesRequest extends Model
     public $order;
 
     /**
+     * @description The page number. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -83,6 +99,8 @@ class ListServiceInstancesRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Default value: 100.
+     *
      * @example 20
      *
      * @var int
@@ -90,6 +108,17 @@ class ListServiceInstancesRequest extends Model
     public $pageSize;
 
     /**
+     * @description The type of the resource group to which the instance belongs.
+     *
+     * Valid values:
+     *
+     *   PublicResource
+     *
+     * <!-- -->
+     *
+     *   DedicatedResource
+     *
+     * <!-- -->
      * @example PublicResource
      *
      * @var string
@@ -97,6 +126,25 @@ class ListServiceInstancesRequest extends Model
     public $resourceType;
 
     /**
+     * @description The service role.
+     *
+     * Valid values:
+     *
+     *   DataSet
+     *
+     * .
+     *
+     *   SDProxy
+     *
+     * .
+     *
+     *   Standard
+     *
+     * .
+     *
+     *   Queue
+     *
+     * .
      * @example Queue
      *
      * @var string
@@ -104,6 +152,11 @@ class ListServiceInstancesRequest extends Model
     public $role;
 
     /**
+     * @description The field that you use to sort the query results.
+     *
+     *   Set the value to StartTime.
+     *
+     * .
      * @example StartTime
      *
      * @var string

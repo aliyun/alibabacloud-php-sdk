@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeGatewayResponseBody extends Model
 {
     /**
+     * @description The UID of the account that is used to create the private gateway.
+     *
      * @example 20123*******
      *
      * @var string
@@ -18,7 +20,7 @@ class DescribeGatewayResponseBody extends Model
     public $callerUid;
 
     /**
-     * @description 网关创建时间
+     * @description The time when the private gateway was created. The time is displayed in UTC.
      *
      * @example 2020-05-19T14:19:42Z
      *
@@ -27,6 +29,8 @@ class DescribeGatewayResponseBody extends Model
     public $createTime;
 
     /**
+     * @description The ID of the self-managed cluster.
+     *
      * @example c935eadf284c14c2da57a2a13ad6******
      *
      * @var string
@@ -34,7 +38,7 @@ class DescribeGatewayResponseBody extends Model
     public $externalClusterId;
 
     /**
-     * @description 网关ID
+     * @description The ID of the private gateway.
      *
      * @example gw-1uhcqmsc7x22******
      *
@@ -43,6 +47,8 @@ class DescribeGatewayResponseBody extends Model
     public $gatewayId;
 
     /**
+     * @description The private gateway alias.
+     *
      * @example mygateway1
      *
      * @var string
@@ -50,7 +56,7 @@ class DescribeGatewayResponseBody extends Model
     public $gatewayName;
 
     /**
-     * @description 网关创建的实例种类
+     * @description The instance type used for the private gateway.
      *
      * @example ecs.c6.4xlarge
      *
@@ -66,7 +72,7 @@ class DescribeGatewayResponseBody extends Model
     public $internetAclPolicyList;
 
     /**
-     * @description 网关内部域名
+     * @description The public endpoint.
      *
      * @example gw-1uhcqmsc7x22******-1801786532******.cn-hangzhou.pai-eas.aliyuncs.com
      *
@@ -75,6 +81,8 @@ class DescribeGatewayResponseBody extends Model
     public $internetDomain;
 
     /**
+     * @description Indicates whether Internet access is enabled.
+     *
      * @example true
      *
      * @var bool
@@ -82,7 +90,7 @@ class DescribeGatewayResponseBody extends Model
     public $internetEnabled;
 
     /**
-     * @description 网关外部域名
+     * @description The internal endpoint.
      *
      * @example gw-1uhcqmsc7x22******-1801786532******-vpc.cn-hangzhou.pai-eas.aliyuncs.com
      *
@@ -91,6 +99,8 @@ class DescribeGatewayResponseBody extends Model
     public $intranetDomain;
 
     /**
+     * @description Indicates whether internal network access is enabled.
+     *
      * @example true
      *
      * @var bool
@@ -98,12 +108,14 @@ class DescribeGatewayResponseBody extends Model
     public $intranetEnabled;
 
     /**
+     * @description The internal endpoints.
+     *
      * @var intranetLinkedVpcList[]
      */
     public $intranetLinkedVpcList;
 
     /**
-     * @description 创建网关的用户ID
+     * @description The user ID (UID) of the Alibaba Cloud account that is used to create the private gateway.
      *
      * @example 11234*******
      *
@@ -112,8 +124,9 @@ class DescribeGatewayResponseBody extends Model
     public $parentUid;
 
     /**
-     * @description 网关所在地域
+     * @description The region ID of the private gateway.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -121,6 +134,8 @@ class DescribeGatewayResponseBody extends Model
     public $region;
 
     /**
+     * @description The request ID.
+     *
      * @example 40325405-579C-4D82****
      *
      * @var string
@@ -128,7 +143,7 @@ class DescribeGatewayResponseBody extends Model
     public $requestId;
 
     /**
-     * @description 网关现在的状态
+     * @description The state of the private gateway.
      *
      * @example PrivateGatewayRunning
      *
@@ -137,7 +152,7 @@ class DescribeGatewayResponseBody extends Model
     public $status;
 
     /**
-     * @description 网关最后一次的更新时间
+     * @description The time when the private gateway was updated. The time is displayed in UTC.
      *
      * @example 2021-02-24T11:52:17Z
      *

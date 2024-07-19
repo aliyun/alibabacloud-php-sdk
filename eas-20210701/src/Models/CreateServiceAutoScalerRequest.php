@@ -18,8 +18,9 @@ class CreateServiceAutoScalerRequest extends Model
     public $behavior;
 
     /**
-     * @description The maximum number of instances. The value must be greater than that of the min parameter.
+     * @description The maximum number of instances in the service. The value of max must be greater than the value of min.
      *
+     * This parameter is required.
      * @example 8
      *
      * @var int
@@ -27,8 +28,9 @@ class CreateServiceAutoScalerRequest extends Model
     public $max;
 
     /**
-     * @description The minimum number of instances. The value must be greater than 0.
+     * @description The minimum number of instances in the service.
      *
+     * This parameter is required.
      * @example 2
      *
      * @var int
@@ -36,8 +38,9 @@ class CreateServiceAutoScalerRequest extends Model
     public $min;
 
     /**
-     * @description The Autoscaler strategies.
+     * @description The service for which the metric is specified. If you do not set this parameter, the current service is specified by default.
      *
+     * This parameter is required.
      * @var scaleStrategies[]
      */
     public $scaleStrategies;

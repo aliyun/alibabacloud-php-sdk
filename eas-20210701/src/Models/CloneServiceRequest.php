@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CloneServiceRequest extends Model
 {
     /**
+     * @description The request body. For more information, see [CreateService](https://help.aliyun.com/document_detail/412086.html).
+     *
      * @example {   "name": "foo",   "model_path": "http://path/to/model.tar.gz",   "processor": "tensorflow_cpu",   "metadata": {     "instance": 2,     "memory": 7000,     "cpu": 4   } }
      *
      * @var string

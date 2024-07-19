@@ -18,7 +18,7 @@ class intranetLinkedVpcList extends Model
     public $ip;
 
     /**
-     * @description The ID of the security group.
+     * @description The security group ID.
      *
      * @example sg-2ze4pgstgszvgq******
      *
@@ -27,17 +27,11 @@ class intranetLinkedVpcList extends Model
     public $securityGroupId;
 
     /**
-     * @description The state of the private gateway.
-     *
-     * Valid values:
+     * @description The state of the private gateway. Valid values:
      *
      *   Creating
-     *
-     * <!-- -->
-     *
      *   Running
      *
-     * <!-- -->
      * @example Running
      *
      * @var string

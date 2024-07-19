@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class scaleJobs extends Model
 {
     /**
+     * @description The name of the CronHPA job.
+     *
      * @example scale-job-1
      *
      * @var string
@@ -16,6 +18,9 @@ class scaleJobs extends Model
     public $name;
 
     /**
+     * @description The cron expression that is used to configure the execution time of the CronHPA job. For more information about how to configure cron expressions, see **Description of special characters** in this topic.
+     *
+     * This parameter is required.
      * @example 0 18 * * * *
      *
      * @var string
@@ -23,6 +28,9 @@ class scaleJobs extends Model
     public $schedule;
 
     /**
+     * @description The number of instances that you want to configure for the CronHPA job.
+     *
+     * This parameter is required.
      * @example 1
      *
      * @var int

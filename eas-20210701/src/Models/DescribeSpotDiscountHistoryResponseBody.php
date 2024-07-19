@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeSpotDiscountHistoryResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 40325405-579C-4D82***
      *
      * @var string
@@ -17,6 +19,8 @@ class DescribeSpotDiscountHistoryResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The discount for the preemptible instance.
+     *
      * @var spotDiscounts[]
      */
     public $spotDiscounts;

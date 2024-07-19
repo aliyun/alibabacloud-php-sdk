@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListServiceVersionsResponseBody extends Model
 {
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -17,6 +19,8 @@ class ListServiceVersionsResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 10
      *
      * @var int
@@ -24,6 +28,8 @@ class ListServiceVersionsResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
      * @example E089D584-B6F4-50C4-9902-DA2295B7****
      *
      * @var string
@@ -31,6 +37,8 @@ class ListServiceVersionsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 166
      *
      * @var int
@@ -38,7 +46,7 @@ class ListServiceVersionsResponseBody extends Model
     public $totalCount;
 
     /**
-     * @description The versions of the service.
+     * @description The historical versions of the service.
      *
      * @var versions[]
      */

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateServiceMirrorResponseBody extends Model
 {
     /**
+     * @description The returned message.
+     *
      * @example Traffic mirroring is updating for service [foo] in region [cn-shanghia], ratio [70%]
      *
      * @var string
@@ -16,6 +18,8 @@ class UpdateServiceMirrorResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 40325405-579C-4D82***
      *
      * @var string

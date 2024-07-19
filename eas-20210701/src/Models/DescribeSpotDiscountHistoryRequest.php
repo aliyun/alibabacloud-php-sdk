@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeSpotDiscountHistoryRequest extends Model
 {
     /**
+     * @description The type of the Elastic Compute Service (ECS) instance.
+     *
+     * This parameter is required.
      * @example ecs.c6.4xlarge
      *
      * @var string
@@ -16,6 +19,8 @@ class DescribeSpotDiscountHistoryRequest extends Model
     public $instanceType;
 
     /**
+     * @description Specifies whether the preemptible instance has a protection period. During the 1-hour protection period of the preemptible instance, the preemptible instance will not be released.
+     *
      * @example false
      *
      * @var bool

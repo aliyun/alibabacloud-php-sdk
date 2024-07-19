@@ -18,7 +18,7 @@ class internetAclPolicyList extends Model
     public $comment;
 
     /**
-     * @description The accessible CIDR block.
+     * @description The Classless Inter-Domain Routing (CIDR) block that is allowed to access the private gateway.
      *
      * @example 192.168.1.1/32
      *

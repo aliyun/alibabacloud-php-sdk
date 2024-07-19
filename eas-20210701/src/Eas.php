@@ -185,13 +185,15 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Clones a service.
+     *  *
      * @param string              $ClusterId
      * @param string              $ServiceName
-     * @param CloneServiceRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @param CloneServiceRequest $request     CloneServiceRequest
+     * @param string[]            $headers     map
+     * @param RuntimeOptions      $runtime     runtime options for this request RuntimeOptions
      *
-     * @return CloneServiceResponse
+     * @return CloneServiceResponse CloneServiceResponse
      */
     public function cloneServiceWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime)
     {
@@ -216,11 +218,13 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Clones a service.
+     *  *
      * @param string              $ClusterId
      * @param string              $ServiceName
-     * @param CloneServiceRequest $request
+     * @param CloneServiceRequest $request     CloneServiceRequest
      *
-     * @return CloneServiceResponse
+     * @return CloneServiceResponse CloneServiceResponse
      */
     public function cloneService($ClusterId, $ServiceName, $request)
     {
@@ -231,12 +235,14 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Commits the Worker0 container in the custom container service and deploys the container as a new image.
+     *  *
      * @param string         $ClusterId
      * @param string         $ServiceName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers     map
+     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
      *
-     * @return CommitServiceResponse
+     * @return CommitServiceResponse CommitServiceResponse
      */
     public function commitServiceWithOptions($ClusterId, $ServiceName, $headers, $runtime)
     {
@@ -259,10 +265,12 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Commits the Worker0 container in the custom container service and deploys the container as a new image.
+     *  *
      * @param string $ClusterId
      * @param string $ServiceName
      *
-     * @return CommitServiceResponse
+     * @return CommitServiceResponse CommitServiceResponse
      */
     public function commitService($ClusterId, $ServiceName)
     {
@@ -273,11 +281,13 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @param CreateAppServiceRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @summary Creates an application service.
+     *  *
+     * @param CreateAppServiceRequest $request CreateAppServiceRequest
+     * @param string[]                $headers map
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateAppServiceResponse
+     * @return CreateAppServiceResponse CreateAppServiceResponse
      */
     public function createAppServiceWithOptions($request, $headers, $runtime)
     {
@@ -329,9 +339,11 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @param CreateAppServiceRequest $request
+     * @summary Creates an application service.
+     *  *
+     * @param CreateAppServiceRequest $request CreateAppServiceRequest
      *
-     * @return CreateAppServiceResponse
+     * @return CreateAppServiceResponse CreateAppServiceResponse
      */
     public function createAppService($request)
     {
@@ -342,11 +354,13 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @param CreateBenchmarkTaskRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @summary Creates a stress testing task.
+     *  *
+     * @param CreateBenchmarkTaskRequest $request CreateBenchmarkTaskRequest
+     * @param string[]                   $headers map
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateBenchmarkTaskResponse
+     * @return CreateBenchmarkTaskResponse CreateBenchmarkTaskResponse
      */
     public function createBenchmarkTaskWithOptions($request, $headers, $runtime)
     {
@@ -371,9 +385,11 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @param CreateBenchmarkTaskRequest $request
+     * @summary Creates a stress testing task.
+     *  *
+     * @param CreateBenchmarkTaskRequest $request CreateBenchmarkTaskRequest
      *
-     * @return CreateBenchmarkTaskResponse
+     * @return CreateBenchmarkTaskResponse CreateBenchmarkTaskResponse
      */
     public function createBenchmarkTask($request)
     {
@@ -384,11 +400,13 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @param CreateGatewayRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @summary Creates a private gateway. You can create a private gateway only in a self-managed resource group.
+     *  *
+     * @param CreateGatewayRequest $request CreateGatewayRequest
+     * @param string[]             $headers map
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateGatewayResponse
+     * @return CreateGatewayResponse CreateGatewayResponse
      */
     public function createGatewayWithOptions($request, $headers, $runtime)
     {
@@ -431,9 +449,11 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @param CreateGatewayRequest $request
+     * @summary Creates a private gateway. You can create a private gateway only in a self-managed resource group.
+     *  *
+     * @param CreateGatewayRequest $request CreateGatewayRequest
      *
-     * @return CreateGatewayResponse
+     * @return CreateGatewayResponse CreateGatewayResponse
      */
     public function createGateway($request)
     {
@@ -444,13 +464,15 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Creates an internal endpoint of a private gateway.
+     *  *
      * @param string                                $ClusterId
      * @param string                                $GatewayId
-     * @param CreateGatewayIntranetLinkedVpcRequest $request
-     * @param string[]                              $headers
-     * @param RuntimeOptions                        $runtime
+     * @param CreateGatewayIntranetLinkedVpcRequest $request   CreateGatewayIntranetLinkedVpcRequest
+     * @param string[]                              $headers   map
+     * @param RuntimeOptions                        $runtime   runtime options for this request RuntimeOptions
      *
-     * @return CreateGatewayIntranetLinkedVpcResponse
+     * @return CreateGatewayIntranetLinkedVpcResponse CreateGatewayIntranetLinkedVpcResponse
      */
     public function createGatewayIntranetLinkedVpcWithOptions($ClusterId, $GatewayId, $request, $headers, $runtime)
     {
@@ -482,11 +504,13 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Creates an internal endpoint of a private gateway.
+     *  *
      * @param string                                $ClusterId
      * @param string                                $GatewayId
-     * @param CreateGatewayIntranetLinkedVpcRequest $request
+     * @param CreateGatewayIntranetLinkedVpcRequest $request   CreateGatewayIntranetLinkedVpcRequest
      *
-     * @return CreateGatewayIntranetLinkedVpcResponse
+     * @return CreateGatewayIntranetLinkedVpcResponse CreateGatewayIntranetLinkedVpcResponse
      */
     public function createGatewayIntranetLinkedVpc($ClusterId, $GatewayId, $request)
     {
@@ -497,8 +521,10 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * **Before you call this operation, make sure that you are familiar with the [billing](~~144261~~) of Elastic Algorithm Service (EAS).
-     *   *
+     * @summary Creates a resource group.
+     *  *
+     * @description **Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS).
+     *  *
      * @param CreateResourceRequest $request CreateResourceRequest
      * @param string[]              $headers map
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -553,8 +579,10 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * **Before you call this operation, make sure that you are familiar with the [billing](~~144261~~) of Elastic Algorithm Service (EAS).
-     *   *
+     * @summary Creates a resource group.
+     *  *
+     * @description **Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS).
+     *  *
      * @param CreateResourceRequest $request CreateResourceRequest
      *
      * @return CreateResourceResponse CreateResourceResponse
@@ -568,13 +596,15 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Creates instances in a dedicated resource group.
+     *  *
      * @param string                         $ClusterId
      * @param string                         $ResourceId
-     * @param CreateResourceInstancesRequest $request
-     * @param string[]                       $headers
-     * @param RuntimeOptions                 $runtime
+     * @param CreateResourceInstancesRequest $request    CreateResourceInstancesRequest
+     * @param string[]                       $headers    map
+     * @param RuntimeOptions                 $runtime    runtime options for this request RuntimeOptions
      *
-     * @return CreateResourceInstancesResponse
+     * @return CreateResourceInstancesResponse CreateResourceInstancesResponse
      */
     public function createResourceInstancesWithOptions($ClusterId, $ResourceId, $request, $headers, $runtime)
     {
@@ -621,11 +651,13 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Creates instances in a dedicated resource group.
+     *  *
      * @param string                         $ClusterId
      * @param string                         $ResourceId
-     * @param CreateResourceInstancesRequest $request
+     * @param CreateResourceInstancesRequest $request    CreateResourceInstancesRequest
      *
-     * @return CreateResourceInstancesResponse
+     * @return CreateResourceInstancesResponse CreateResourceInstancesResponse
      */
     public function createResourceInstances($ClusterId, $ResourceId, $request)
     {
@@ -636,13 +668,15 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Enables the LogShipper feature of Log Service for a resource group.
+     *  *
      * @param string                   $ClusterId
      * @param string                   $ResourceId
-     * @param CreateResourceLogRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @param CreateResourceLogRequest $request    CreateResourceLogRequest
+     * @param string[]                 $headers    map
+     * @param RuntimeOptions           $runtime    runtime options for this request RuntimeOptions
      *
-     * @return CreateResourceLogResponse
+     * @return CreateResourceLogResponse CreateResourceLogResponse
      */
     public function createResourceLogWithOptions($ClusterId, $ResourceId, $request, $headers, $runtime)
     {
@@ -674,11 +708,13 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Enables the LogShipper feature of Log Service for a resource group.
+     *  *
      * @param string                   $ClusterId
      * @param string                   $ResourceId
-     * @param CreateResourceLogRequest $request
+     * @param CreateResourceLogRequest $request    CreateResourceLogRequest
      *
-     * @return CreateResourceLogResponse
+     * @return CreateResourceLogResponse CreateResourceLogResponse
      */
     public function createResourceLog($ClusterId, $ResourceId, $request)
     {
@@ -689,11 +725,15 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @param CreateServiceRequest $tmpReq
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @summary Creates a model service in Elastic Algorithm Service (EAS).
+     *  *
+     * @description **Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS).
+     *  *
+     * @param CreateServiceRequest $tmpReq  CreateServiceRequest
+     * @param string[]             $headers map
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateServiceResponse
+     * @return CreateServiceResponse CreateServiceResponse
      */
     public function createServiceWithOptions($tmpReq, $headers, $runtime)
     {
@@ -734,9 +774,13 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @param CreateServiceRequest $request
+     * @summary Creates a model service in Elastic Algorithm Service (EAS).
+     *  *
+     * @description **Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS).
+     *  *
+     * @param CreateServiceRequest $request CreateServiceRequest
      *
-     * @return CreateServiceResponse
+     * @return CreateServiceResponse CreateServiceResponse
      */
     public function createService($request)
     {
@@ -747,13 +791,15 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Enables the Autoscaler feature and creates an Autoscaler controller for a service.
+     *  *
      * @param string                         $ClusterId
      * @param string                         $ServiceName
-     * @param CreateServiceAutoScalerRequest $request
-     * @param string[]                       $headers
-     * @param RuntimeOptions                 $runtime
+     * @param CreateServiceAutoScalerRequest $request     CreateServiceAutoScalerRequest
+     * @param string[]                       $headers     map
+     * @param RuntimeOptions                 $runtime     runtime options for this request RuntimeOptions
      *
-     * @return CreateServiceAutoScalerResponse
+     * @return CreateServiceAutoScalerResponse CreateServiceAutoScalerResponse
      */
     public function createServiceAutoScalerWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime)
     {
@@ -791,11 +837,13 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Enables the Autoscaler feature and creates an Autoscaler controller for a service.
+     *  *
      * @param string                         $ClusterId
      * @param string                         $ServiceName
-     * @param CreateServiceAutoScalerRequest $request
+     * @param CreateServiceAutoScalerRequest $request     CreateServiceAutoScalerRequest
      *
-     * @return CreateServiceAutoScalerResponse
+     * @return CreateServiceAutoScalerResponse CreateServiceAutoScalerResponse
      */
     public function createServiceAutoScaler($ClusterId, $ServiceName, $request)
     {
@@ -806,13 +854,15 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Enables the Cron Horizontal Pod Autoscaler (CronHPA) feature for a service.
+     *  *
      * @param string                         $ClusterId
      * @param string                         $ServiceName
-     * @param CreateServiceCronScalerRequest $request
-     * @param string[]                       $headers
-     * @param RuntimeOptions                 $runtime
+     * @param CreateServiceCronScalerRequest $request     CreateServiceCronScalerRequest
+     * @param string[]                       $headers     map
+     * @param RuntimeOptions                 $runtime     runtime options for this request RuntimeOptions
      *
-     * @return CreateServiceCronScalerResponse
+     * @return CreateServiceCronScalerResponse CreateServiceCronScalerResponse
      */
     public function createServiceCronScalerWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime)
     {
@@ -844,11 +894,13 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Enables the Cron Horizontal Pod Autoscaler (CronHPA) feature for a service.
+     *  *
      * @param string                         $ClusterId
      * @param string                         $ServiceName
-     * @param CreateServiceCronScalerRequest $request
+     * @param CreateServiceCronScalerRequest $request     CreateServiceCronScalerRequest
      *
-     * @return CreateServiceCronScalerResponse
+     * @return CreateServiceCronScalerResponse CreateServiceCronScalerResponse
      */
     public function createServiceCronScaler($ClusterId, $ServiceName, $request)
     {
@@ -859,13 +911,15 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Enables the traffic mirroring feature for a service. After the feature is enabled, requests received by the service can be mirrored to another service.
+     *  *
      * @param string                     $ClusterId
      * @param string                     $ServiceName
-     * @param CreateServiceMirrorRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @param CreateServiceMirrorRequest $request     CreateServiceMirrorRequest
+     * @param string[]                   $headers     map
+     * @param RuntimeOptions             $runtime     runtime options for this request RuntimeOptions
      *
-     * @return CreateServiceMirrorResponse
+     * @return CreateServiceMirrorResponse CreateServiceMirrorResponse
      */
     public function createServiceMirrorWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime)
     {
@@ -897,11 +951,13 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Enables the traffic mirroring feature for a service. After the feature is enabled, requests received by the service can be mirrored to another service.
+     *  *
      * @param string                     $ClusterId
      * @param string                     $ServiceName
-     * @param CreateServiceMirrorRequest $request
+     * @param CreateServiceMirrorRequest $request     CreateServiceMirrorRequest
      *
-     * @return CreateServiceMirrorResponse
+     * @return CreateServiceMirrorResponse CreateServiceMirrorResponse
      */
     public function createServiceMirror($ClusterId, $ServiceName, $request)
     {
@@ -912,12 +968,14 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Deletes a stress testing task.
+     *  *
      * @param string         $ClusterId
      * @param string         $TaskName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers   map
+     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
      *
-     * @return DeleteBenchmarkTaskResponse
+     * @return DeleteBenchmarkTaskResponse DeleteBenchmarkTaskResponse
      */
     public function deleteBenchmarkTaskWithOptions($ClusterId, $TaskName, $headers, $runtime)
     {
@@ -940,10 +998,12 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Deletes a stress testing task.
+     *  *
      * @param string $ClusterId
      * @param string $TaskName
      *
-     * @return DeleteBenchmarkTaskResponse
+     * @return DeleteBenchmarkTaskResponse DeleteBenchmarkTaskResponse
      */
     public function deleteBenchmarkTask($ClusterId, $TaskName)
     {
@@ -954,12 +1014,14 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Deletes a private gateway.
+     *  *
      * @param string         $ClusterId
      * @param string         $GatewayId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers   map
+     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
      *
-     * @return DeleteGatewayResponse
+     * @return DeleteGatewayResponse DeleteGatewayResponse
      */
     public function deleteGatewayWithOptions($ClusterId, $GatewayId, $headers, $runtime)
     {
@@ -982,10 +1044,12 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Deletes a private gateway.
+     *  *
      * @param string $ClusterId
      * @param string $GatewayId
      *
-     * @return DeleteGatewayResponse
+     * @return DeleteGatewayResponse DeleteGatewayResponse
      */
     public function deleteGateway($ClusterId, $GatewayId)
     {
@@ -996,13 +1060,15 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary 删除网关内网访问端点
+     *  *
      * @param string                                $ClusterId
      * @param string                                $GatewayId
-     * @param DeleteGatewayIntranetLinkedVpcRequest $request
-     * @param string[]                              $headers
-     * @param RuntimeOptions                        $runtime
+     * @param DeleteGatewayIntranetLinkedVpcRequest $request   DeleteGatewayIntranetLinkedVpcRequest
+     * @param string[]                              $headers   map
+     * @param RuntimeOptions                        $runtime   runtime options for this request RuntimeOptions
      *
-     * @return DeleteGatewayIntranetLinkedVpcResponse
+     * @return DeleteGatewayIntranetLinkedVpcResponse DeleteGatewayIntranetLinkedVpcResponse
      */
     public function deleteGatewayIntranetLinkedVpcWithOptions($ClusterId, $GatewayId, $request, $headers, $runtime)
     {
@@ -1034,11 +1100,13 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary 删除网关内网访问端点
+     *  *
      * @param string                                $ClusterId
      * @param string                                $GatewayId
-     * @param DeleteGatewayIntranetLinkedVpcRequest $request
+     * @param DeleteGatewayIntranetLinkedVpcRequest $request   DeleteGatewayIntranetLinkedVpcRequest
      *
-     * @return DeleteGatewayIntranetLinkedVpcResponse
+     * @return DeleteGatewayIntranetLinkedVpcResponse DeleteGatewayIntranetLinkedVpcResponse
      */
     public function deleteGatewayIntranetLinkedVpc($ClusterId, $GatewayId, $request)
     {
@@ -1049,12 +1117,14 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Deletes a resource group that contains no resources or instances.
+     *  *
      * @param string         $ClusterId
      * @param string         $ResourceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DeleteResourceResponse
+     * @return DeleteResourceResponse DeleteResourceResponse
      */
     public function deleteResourceWithOptions($ClusterId, $ResourceId, $headers, $runtime)
     {
@@ -1077,10 +1147,12 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Deletes a resource group that contains no resources or instances.
+     *  *
      * @param string $ClusterId
      * @param string $ResourceId
      *
-     * @return DeleteResourceResponse
+     * @return DeleteResourceResponse DeleteResourceResponse
      */
     public function deleteResource($ClusterId, $ResourceId)
     {
@@ -1091,12 +1163,14 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Disables the virtual private cloud (VPC) direct connection feature for a dedicated resource group.
+     *  *
      * @param string         $ClusterId
      * @param string         $ResourceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DeleteResourceDLinkResponse
+     * @return DeleteResourceDLinkResponse DeleteResourceDLinkResponse
      */
     public function deleteResourceDLinkWithOptions($ClusterId, $ResourceId, $headers, $runtime)
     {
@@ -1119,10 +1193,12 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Disables the virtual private cloud (VPC) direct connection feature for a dedicated resource group.
+     *  *
      * @param string $ClusterId
      * @param string $ResourceId
      *
-     * @return DeleteResourceDLinkResponse
+     * @return DeleteResourceDLinkResponse DeleteResourceDLinkResponse
      */
     public function deleteResourceDLink($ClusterId, $ResourceId)
     {
@@ -1133,13 +1209,15 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Deletes instances in a dedicated resource group. You can delete only pay-as-you-go instances as a regular user.
+     *  *
      * @param string                         $ClusterId
      * @param string                         $ResourceId
-     * @param DeleteResourceInstancesRequest $request
-     * @param string[]                       $headers
-     * @param RuntimeOptions                 $runtime
+     * @param DeleteResourceInstancesRequest $request    DeleteResourceInstancesRequest
+     * @param string[]                       $headers    map
+     * @param RuntimeOptions                 $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DeleteResourceInstancesResponse
+     * @return DeleteResourceInstancesResponse DeleteResourceInstancesResponse
      */
     public function deleteResourceInstancesWithOptions($ClusterId, $ResourceId, $request, $headers, $runtime)
     {
@@ -1171,11 +1249,13 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Deletes instances in a dedicated resource group. You can delete only pay-as-you-go instances as a regular user.
+     *  *
      * @param string                         $ClusterId
      * @param string                         $ResourceId
-     * @param DeleteResourceInstancesRequest $request
+     * @param DeleteResourceInstancesRequest $request    DeleteResourceInstancesRequest
      *
-     * @return DeleteResourceInstancesResponse
+     * @return DeleteResourceInstancesResponse DeleteResourceInstancesResponse
      */
     public function deleteResourceInstances($ClusterId, $ResourceId, $request)
     {
@@ -1186,12 +1266,14 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Disables the LogShipper feature of Log Service for a dedicated resource group.
+     *  *
      * @param string         $ClusterId
      * @param string         $ResourceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DeleteResourceLogResponse
+     * @return DeleteResourceLogResponse DeleteResourceLogResponse
      */
     public function deleteResourceLogWithOptions($ClusterId, $ResourceId, $headers, $runtime)
     {
@@ -1214,10 +1296,12 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Disables the LogShipper feature of Log Service for a dedicated resource group.
+     *  *
      * @param string $ClusterId
      * @param string $ResourceId
      *
-     * @return DeleteResourceLogResponse
+     * @return DeleteResourceLogResponse DeleteResourceLogResponse
      */
     public function deleteResourceLog($ClusterId, $ResourceId)
     {
@@ -1228,12 +1312,14 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Deletes a service.
+     *  *
      * @param string         $ClusterId
      * @param string         $ServiceName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers     map
+     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
      *
-     * @return DeleteServiceResponse
+     * @return DeleteServiceResponse DeleteServiceResponse
      */
     public function deleteServiceWithOptions($ClusterId, $ServiceName, $headers, $runtime)
     {
@@ -1256,10 +1342,12 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Deletes a service.
+     *  *
      * @param string $ClusterId
      * @param string $ServiceName
      *
-     * @return DeleteServiceResponse
+     * @return DeleteServiceResponse DeleteServiceResponse
      */
     public function deleteService($ClusterId, $ServiceName)
     {
@@ -1270,12 +1358,14 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Deletes the existing Autoscaler controller and disables the Autoscaler feature for a service.
+     *  *
      * @param string         $ClusterId
      * @param string         $ServiceName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers     map
+     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
      *
-     * @return DeleteServiceAutoScalerResponse
+     * @return DeleteServiceAutoScalerResponse DeleteServiceAutoScalerResponse
      */
     public function deleteServiceAutoScalerWithOptions($ClusterId, $ServiceName, $headers, $runtime)
     {
@@ -1298,10 +1388,12 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Deletes the existing Autoscaler controller and disables the Autoscaler feature for a service.
+     *  *
      * @param string $ClusterId
      * @param string $ServiceName
      *
-     * @return DeleteServiceAutoScalerResponse
+     * @return DeleteServiceAutoScalerResponse DeleteServiceAutoScalerResponse
      */
     public function deleteServiceAutoScaler($ClusterId, $ServiceName)
     {
@@ -1312,12 +1404,14 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Disables the Cronscaler feature for a service.
+     *  *
      * @param string         $ClusterId
      * @param string         $ServiceName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers     map
+     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
      *
-     * @return DeleteServiceCronScalerResponse
+     * @return DeleteServiceCronScalerResponse DeleteServiceCronScalerResponse
      */
     public function deleteServiceCronScalerWithOptions($ClusterId, $ServiceName, $headers, $runtime)
     {
@@ -1340,10 +1434,12 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Disables the Cronscaler feature for a service.
+     *  *
      * @param string $ClusterId
      * @param string $ServiceName
      *
-     * @return DeleteServiceCronScalerResponse
+     * @return DeleteServiceCronScalerResponse DeleteServiceCronScalerResponse
      */
     public function deleteServiceCronScaler($ClusterId, $ServiceName)
     {
@@ -1354,13 +1450,15 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Restarts the instances of a service.
+     *  *
      * @param string                        $ClusterId
      * @param string                        $ServiceName
-     * @param DeleteServiceInstancesRequest $request
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
+     * @param DeleteServiceInstancesRequest $request     DeleteServiceInstancesRequest
+     * @param string[]                      $headers     map
+     * @param RuntimeOptions                $runtime     runtime options for this request RuntimeOptions
      *
-     * @return DeleteServiceInstancesResponse
+     * @return DeleteServiceInstancesResponse DeleteServiceInstancesResponse
      */
     public function deleteServiceInstancesWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime)
     {
@@ -1395,11 +1493,13 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Restarts the instances of a service.
+     *  *
      * @param string                        $ClusterId
      * @param string                        $ServiceName
-     * @param DeleteServiceInstancesRequest $request
+     * @param DeleteServiceInstancesRequest $request     DeleteServiceInstancesRequest
      *
-     * @return DeleteServiceInstancesResponse
+     * @return DeleteServiceInstancesResponse DeleteServiceInstancesResponse
      */
     public function deleteServiceInstances($ClusterId, $ServiceName, $request)
     {
@@ -1410,13 +1510,15 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Deletes existing service tags.
+     *  *
      * @param string                    $ClusterId
      * @param string                    $ServiceName
-     * @param DeleteServiceLabelRequest $tmpReq
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @param DeleteServiceLabelRequest $tmpReq      DeleteServiceLabelRequest
+     * @param string[]                  $headers     map
+     * @param RuntimeOptions            $runtime     runtime options for this request RuntimeOptions
      *
-     * @return DeleteServiceLabelResponse
+     * @return DeleteServiceLabelResponse DeleteServiceLabelResponse
      */
     public function deleteServiceLabelWithOptions($ClusterId, $ServiceName, $tmpReq, $headers, $runtime)
     {
@@ -1450,11 +1552,13 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Deletes existing service tags.
+     *  *
      * @param string                    $ClusterId
      * @param string                    $ServiceName
-     * @param DeleteServiceLabelRequest $request
+     * @param DeleteServiceLabelRequest $request     DeleteServiceLabelRequest
      *
-     * @return DeleteServiceLabelResponse
+     * @return DeleteServiceLabelResponse DeleteServiceLabelResponse
      */
     public function deleteServiceLabel($ClusterId, $ServiceName, $request)
     {
@@ -1465,12 +1569,14 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Disables the traffic mirroring feature for a service.
+     *  *
      * @param string         $ClusterId
      * @param string         $ServiceName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers     map
+     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
      *
-     * @return DeleteServiceMirrorResponse
+     * @return DeleteServiceMirrorResponse DeleteServiceMirrorResponse
      */
     public function deleteServiceMirrorWithOptions($ClusterId, $ServiceName, $headers, $runtime)
     {
@@ -1493,10 +1599,12 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Disables the traffic mirroring feature for a service.
+     *  *
      * @param string $ClusterId
      * @param string $ServiceName
      *
-     * @return DeleteServiceMirrorResponse
+     * @return DeleteServiceMirrorResponse DeleteServiceMirrorResponse
      */
     public function deleteServiceMirror($ClusterId, $ServiceName)
     {
@@ -1507,12 +1615,14 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Queries details about the configurations of a stress testing task.
+     *  *
      * @param string         $ClusterId
      * @param string         $TaskName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers   map
+     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
      *
-     * @return DescribeBenchmarkTaskResponse
+     * @return DescribeBenchmarkTaskResponse DescribeBenchmarkTaskResponse
      */
     public function describeBenchmarkTaskWithOptions($ClusterId, $TaskName, $headers, $runtime)
     {
@@ -1535,10 +1645,12 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Queries details about the configurations of a stress testing task.
+     *  *
      * @param string $ClusterId
      * @param string $TaskName
      *
-     * @return DescribeBenchmarkTaskResponse
+     * @return DescribeBenchmarkTaskResponse DescribeBenchmarkTaskResponse
      */
     public function describeBenchmarkTask($ClusterId, $TaskName)
     {
@@ -1549,13 +1661,15 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Queries the report of a stress testing task.
+     *  *
      * @param string                             $ClusterId
      * @param string                             $TaskName
-     * @param DescribeBenchmarkTaskReportRequest $request
-     * @param string[]                           $headers
-     * @param RuntimeOptions                     $runtime
+     * @param DescribeBenchmarkTaskReportRequest $request   DescribeBenchmarkTaskReportRequest
+     * @param string[]                           $headers   map
+     * @param RuntimeOptions                     $runtime   runtime options for this request RuntimeOptions
      *
-     * @return DescribeBenchmarkTaskReportResponse
+     * @return DescribeBenchmarkTaskReportResponse DescribeBenchmarkTaskReportResponse
      */
     public function describeBenchmarkTaskReportWithOptions($ClusterId, $TaskName, $request, $headers, $runtime)
     {
@@ -1584,11 +1698,13 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Queries the report of a stress testing task.
+     *  *
      * @param string                             $ClusterId
      * @param string                             $TaskName
-     * @param DescribeBenchmarkTaskReportRequest $request
+     * @param DescribeBenchmarkTaskReportRequest $request   DescribeBenchmarkTaskReportRequest
      *
-     * @return DescribeBenchmarkTaskReportResponse
+     * @return DescribeBenchmarkTaskReportResponse DescribeBenchmarkTaskReportResponse
      */
     public function describeBenchmarkTaskReport($ClusterId, $TaskName, $request)
     {
@@ -1599,12 +1715,14 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Queries the details of a private gateway.
+     *  *
      * @param string         $ClusterId
      * @param string         $GatewayId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers   map
+     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
      *
-     * @return DescribeGatewayResponse
+     * @return DescribeGatewayResponse DescribeGatewayResponse
      */
     public function describeGatewayWithOptions($ClusterId, $GatewayId, $headers, $runtime)
     {
@@ -1627,10 +1745,12 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Queries the details of a private gateway.
+     *  *
      * @param string $ClusterId
      * @param string $GatewayId
      *
-     * @return DescribeGatewayResponse
+     * @return DescribeGatewayResponse DescribeGatewayResponse
      */
     public function describeGateway($ClusterId, $GatewayId)
     {
@@ -1641,12 +1761,14 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Queries the information about a service group.
+     *  *
      * @param string         $ClusterId
      * @param string         $GroupName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers   map
+     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
      *
-     * @return DescribeGroupResponse
+     * @return DescribeGroupResponse DescribeGroupResponse
      */
     public function describeGroupWithOptions($ClusterId, $GroupName, $headers, $runtime)
     {
@@ -1669,10 +1791,12 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Queries the information about a service group.
+     *  *
      * @param string $ClusterId
      * @param string $GroupName
      *
-     * @return DescribeGroupResponse
+     * @return DescribeGroupResponse DescribeGroupResponse
      */
     public function describeGroup($ClusterId, $GroupName)
     {
@@ -1683,12 +1807,14 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Queries the information about a resource group.
+     *  *
      * @param string         $ClusterId
      * @param string         $ResourceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DescribeResourceResponse
+     * @return DescribeResourceResponse DescribeResourceResponse
      */
     public function describeResourceWithOptions($ClusterId, $ResourceId, $headers, $runtime)
     {
@@ -1711,10 +1837,12 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Queries the information about a resource group.
+     *  *
      * @param string $ClusterId
      * @param string $ResourceId
      *
-     * @return DescribeResourceResponse
+     * @return DescribeResourceResponse DescribeResourceResponse
      */
     public function describeResource($ClusterId, $ResourceId)
     {
@@ -1725,12 +1853,14 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Queries detailed configurations about a virtual private cloud (VPC) direct connection of a dedicated resource group.
+     *  *
      * @param string         $ClusterId
      * @param string         $ResourceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DescribeResourceDLinkResponse
+     * @return DescribeResourceDLinkResponse DescribeResourceDLinkResponse
      */
     public function describeResourceDLinkWithOptions($ClusterId, $ResourceId, $headers, $runtime)
     {
@@ -1753,10 +1883,12 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Queries detailed configurations about a virtual private cloud (VPC) direct connection of a dedicated resource group.
+     *  *
      * @param string $ClusterId
      * @param string $ResourceId
      *
-     * @return DescribeResourceDLinkResponse
+     * @return DescribeResourceDLinkResponse DescribeResourceDLinkResponse
      */
     public function describeResourceDLink($ClusterId, $ResourceId)
     {
@@ -1767,12 +1899,14 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Queries the details about the LogShipper configurations of Log Service for a dedicated resource group.
+     *  *
      * @param string         $ClusterId
      * @param string         $ResourceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DescribeResourceLogResponse
+     * @return DescribeResourceLogResponse DescribeResourceLogResponse
      */
     public function describeResourceLogWithOptions($ClusterId, $ResourceId, $headers, $runtime)
     {
@@ -1795,10 +1929,12 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Queries the details about the LogShipper configurations of Log Service for a dedicated resource group.
+     *  *
      * @param string $ClusterId
      * @param string $ResourceId
      *
-     * @return DescribeResourceLogResponse
+     * @return DescribeResourceLogResponse DescribeResourceLogResponse
      */
     public function describeResourceLog($ClusterId, $ResourceId)
     {
@@ -1809,12 +1945,14 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Queries the details about a service.
+     *  *
      * @param string         $ClusterId
      * @param string         $ServiceName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers     map
+     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
      *
-     * @return DescribeServiceResponse
+     * @return DescribeServiceResponse DescribeServiceResponse
      */
     public function describeServiceWithOptions($ClusterId, $ServiceName, $headers, $runtime)
     {
@@ -1837,10 +1975,12 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Queries the details about a service.
+     *  *
      * @param string $ClusterId
      * @param string $ServiceName
      *
-     * @return DescribeServiceResponse
+     * @return DescribeServiceResponse DescribeServiceResponse
      */
     public function describeService($ClusterId, $ServiceName)
     {
@@ -1851,12 +1991,14 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Queries information about the Autoscaler configurations of a service.
+     *  *
      * @param string         $ClusterId
      * @param string         $ServiceName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers     map
+     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
      *
-     * @return DescribeServiceAutoScalerResponse
+     * @return DescribeServiceAutoScalerResponse DescribeServiceAutoScalerResponse
      */
     public function describeServiceAutoScalerWithOptions($ClusterId, $ServiceName, $headers, $runtime)
     {
@@ -1879,10 +2021,12 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Queries information about the Autoscaler configurations of a service.
+     *  *
      * @param string $ClusterId
      * @param string $ServiceName
      *
-     * @return DescribeServiceAutoScalerResponse
+     * @return DescribeServiceAutoScalerResponse DescribeServiceAutoScalerResponse
      */
     public function describeServiceAutoScaler($ClusterId, $ServiceName)
     {
@@ -1893,12 +2037,14 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Queries the Cron Horizontal Pod Autoscaler (CronHPA) configurations of a service.
+     *  *
      * @param string         $ClusterId
      * @param string         $ServiceName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers     map
+     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
      *
-     * @return DescribeServiceCronScalerResponse
+     * @return DescribeServiceCronScalerResponse DescribeServiceCronScalerResponse
      */
     public function describeServiceCronScalerWithOptions($ClusterId, $ServiceName, $headers, $runtime)
     {
@@ -1921,10 +2067,12 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Queries the Cron Horizontal Pod Autoscaler (CronHPA) configurations of a service.
+     *  *
      * @param string $ClusterId
      * @param string $ServiceName
      *
-     * @return DescribeServiceCronScalerResponse
+     * @return DescribeServiceCronScalerResponse DescribeServiceCronScalerResponse
      */
     public function describeServiceCronScaler($ClusterId, $ServiceName)
     {
@@ -1935,12 +2083,14 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Queries the diagnostics details of a service.
+     *  *
      * @param string         $ClusterId
      * @param string         $ServiceName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers     map
+     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
      *
-     * @return DescribeServiceDiagnosisResponse
+     * @return DescribeServiceDiagnosisResponse DescribeServiceDiagnosisResponse
      */
     public function describeServiceDiagnosisWithOptions($ClusterId, $ServiceName, $headers, $runtime)
     {
@@ -1963,10 +2113,12 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Queries the diagnostics details of a service.
+     *  *
      * @param string $ClusterId
      * @param string $ServiceName
      *
-     * @return DescribeServiceDiagnosisResponse
+     * @return DescribeServiceDiagnosisResponse DescribeServiceDiagnosisResponse
      */
     public function describeServiceDiagnosis($ClusterId, $ServiceName)
     {
@@ -1977,13 +2129,15 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Queries information about recent service deployment events.
+     *  *
      * @param string                      $ClusterId
      * @param string                      $ServiceName
-     * @param DescribeServiceEventRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @param DescribeServiceEventRequest $request     DescribeServiceEventRequest
+     * @param string[]                    $headers     map
+     * @param RuntimeOptions              $runtime     runtime options for this request RuntimeOptions
      *
-     * @return DescribeServiceEventResponse
+     * @return DescribeServiceEventResponse DescribeServiceEventResponse
      */
     public function describeServiceEventWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime)
     {
@@ -2027,11 +2181,13 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Queries information about recent service deployment events.
+     *  *
      * @param string                      $ClusterId
      * @param string                      $ServiceName
-     * @param DescribeServiceEventRequest $request
+     * @param DescribeServiceEventRequest $request     DescribeServiceEventRequest
      *
-     * @return DescribeServiceEventResponse
+     * @return DescribeServiceEventResponse DescribeServiceEventResponse
      */
     public function describeServiceEvent($ClusterId, $ServiceName, $request)
     {
@@ -2042,13 +2198,15 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Queries the diagnostics details of an instance that runs Elastic Algorithm Service (EAS).
+     *  *
      * @param string         $ClusterId
      * @param string         $ServiceName
      * @param string         $InstanceName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers      map
+     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
      *
-     * @return DescribeServiceInstanceDiagnosisResponse
+     * @return DescribeServiceInstanceDiagnosisResponse DescribeServiceInstanceDiagnosisResponse
      */
     public function describeServiceInstanceDiagnosisWithOptions($ClusterId, $ServiceName, $InstanceName, $headers, $runtime)
     {
@@ -2071,11 +2229,13 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Queries the diagnostics details of an instance that runs Elastic Algorithm Service (EAS).
+     *  *
      * @param string $ClusterId
      * @param string $ServiceName
      * @param string $InstanceName
      *
-     * @return DescribeServiceInstanceDiagnosisResponse
+     * @return DescribeServiceInstanceDiagnosisResponse DescribeServiceInstanceDiagnosisResponse
      */
     public function describeServiceInstanceDiagnosis($ClusterId, $ServiceName, $InstanceName)
     {
@@ -2086,13 +2246,15 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Queries the information about the logs of a service.
+     *  *
      * @param string                    $ClusterId
      * @param string                    $ServiceName
-     * @param DescribeServiceLogRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @param DescribeServiceLogRequest $request     DescribeServiceLogRequest
+     * @param string[]                  $headers     map
+     * @param RuntimeOptions            $runtime     runtime options for this request RuntimeOptions
      *
-     * @return DescribeServiceLogResponse
+     * @return DescribeServiceLogResponse DescribeServiceLogResponse
      */
     public function describeServiceLogWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime)
     {
@@ -2145,11 +2307,13 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Queries the information about the logs of a service.
+     *  *
      * @param string                    $ClusterId
      * @param string                    $ServiceName
-     * @param DescribeServiceLogRequest $request
+     * @param DescribeServiceLogRequest $request     DescribeServiceLogRequest
      *
-     * @return DescribeServiceLogResponse
+     * @return DescribeServiceLogResponse DescribeServiceLogResponse
      */
     public function describeServiceLog($ClusterId, $ServiceName, $request)
     {
@@ -2160,12 +2324,14 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Queries details about the traffic mirroring settings of a service.
+     *  *
      * @param string         $ClusterId
      * @param string         $ServiceName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers     map
+     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
      *
-     * @return DescribeServiceMirrorResponse
+     * @return DescribeServiceMirrorResponse DescribeServiceMirrorResponse
      */
     public function describeServiceMirrorWithOptions($ClusterId, $ServiceName, $headers, $runtime)
     {
@@ -2188,10 +2354,12 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Queries details about the traffic mirroring settings of a service.
+     *  *
      * @param string $ClusterId
      * @param string $ServiceName
      *
-     * @return DescribeServiceMirrorResponse
+     * @return DescribeServiceMirrorResponse DescribeServiceMirrorResponse
      */
     public function describeServiceMirror($ClusterId, $ServiceName)
     {
@@ -2202,11 +2370,13 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @param DescribeSpotDiscountHistoryRequest $request
-     * @param string[]                           $headers
-     * @param RuntimeOptions                     $runtime
+     * @summary Queries the historical prices of preemptible instances. For more information about preemptible instances, see Create and use preemptible instances.
+     *  *
+     * @param DescribeSpotDiscountHistoryRequest $request DescribeSpotDiscountHistoryRequest
+     * @param string[]                           $headers map
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSpotDiscountHistoryResponse
+     * @return DescribeSpotDiscountHistoryResponse DescribeSpotDiscountHistoryResponse
      */
     public function describeSpotDiscountHistoryWithOptions($request, $headers, $runtime)
     {
@@ -2238,9 +2408,11 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @param DescribeSpotDiscountHistoryRequest $request
+     * @summary Queries the historical prices of preemptible instances. For more information about preemptible instances, see Create and use preemptible instances.
+     *  *
+     * @param DescribeSpotDiscountHistoryRequest $request DescribeSpotDiscountHistoryRequest
      *
-     * @return DescribeSpotDiscountHistoryResponse
+     * @return DescribeSpotDiscountHistoryResponse DescribeSpotDiscountHistoryResponse
      */
     public function describeSpotDiscountHistory($request)
     {
@@ -2251,13 +2423,15 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Switches a container service to development mode or exits development mode.
+     *  *
      * @param string                $ClusterId
      * @param string                $ServiceName
-     * @param DevelopServiceRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @param DevelopServiceRequest $request     DevelopServiceRequest
+     * @param string[]              $headers     map
+     * @param RuntimeOptions        $runtime     runtime options for this request RuntimeOptions
      *
-     * @return DevelopServiceResponse
+     * @return DevelopServiceResponse DevelopServiceResponse
      */
     public function developServiceWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime)
     {
@@ -2286,11 +2460,13 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Switches a container service to development mode or exits development mode.
+     *  *
      * @param string                $ClusterId
      * @param string                $ServiceName
-     * @param DevelopServiceRequest $request
+     * @param DevelopServiceRequest $request     DevelopServiceRequest
      *
-     * @return DevelopServiceResponse
+     * @return DevelopServiceResponse DevelopServiceResponse
      */
     public function developService($ClusterId, $ServiceName, $request)
     {
@@ -2301,11 +2477,13 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @param ListBenchmarkTaskRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @summary Queries a list of stress testing tasks that are created by the current user.
+     *  *
+     * @param ListBenchmarkTaskRequest $request ListBenchmarkTaskRequest
+     * @param string[]                 $headers map
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListBenchmarkTaskResponse
+     * @return ListBenchmarkTaskResponse ListBenchmarkTaskResponse
      */
     public function listBenchmarkTaskWithOptions($request, $headers, $runtime)
     {
@@ -2343,9 +2521,11 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @param ListBenchmarkTaskRequest $request
+     * @summary Queries a list of stress testing tasks that are created by the current user.
+     *  *
+     * @param ListBenchmarkTaskRequest $request ListBenchmarkTaskRequest
      *
-     * @return ListBenchmarkTaskResponse
+     * @return ListBenchmarkTaskResponse ListBenchmarkTaskResponse
      */
     public function listBenchmarkTask($request)
     {
@@ -2356,12 +2536,14 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Queries a list of the internal endpoints of a private gateway.
+     *  *
      * @param string         $ClusterId
      * @param string         $GatewayId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers   map
+     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
      *
-     * @return ListGatewayIntranetLinkedVpcResponse
+     * @return ListGatewayIntranetLinkedVpcResponse ListGatewayIntranetLinkedVpcResponse
      */
     public function listGatewayIntranetLinkedVpcWithOptions($ClusterId, $GatewayId, $headers, $runtime)
     {
@@ -2384,10 +2566,12 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Queries a list of the internal endpoints of a private gateway.
+     *  *
      * @param string $ClusterId
      * @param string $GatewayId
      *
-     * @return ListGatewayIntranetLinkedVpcResponse
+     * @return ListGatewayIntranetLinkedVpcResponse ListGatewayIntranetLinkedVpcResponse
      */
     public function listGatewayIntranetLinkedVpc($ClusterId, $GatewayId)
     {
@@ -2398,11 +2582,13 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @param ListGroupsRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
+     * @summary Queries created service groups.
+     *  *
+     * @param ListGroupsRequest $request ListGroupsRequest
+     * @param string[]          $headers map
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListGroupsResponse
+     * @return ListGroupsResponse ListGroupsResponse
      */
     public function listGroupsWithOptions($request, $headers, $runtime)
     {
@@ -2440,9 +2626,11 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @param ListGroupsRequest $request
+     * @summary Queries created service groups.
+     *  *
+     * @param ListGroupsRequest $request ListGroupsRequest
      *
-     * @return ListGroupsResponse
+     * @return ListGroupsResponse ListGroupsResponse
      */
     public function listGroups($request)
     {
@@ -2453,14 +2641,16 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Queries a list of workers in a resource group.
+     *  *
      * @param string                            $ClusterId
      * @param string                            $ResourceId
      * @param string                            $InstanceName
-     * @param ListResourceInstanceWorkerRequest $request
-     * @param string[]                          $headers
-     * @param RuntimeOptions                    $runtime
+     * @param ListResourceInstanceWorkerRequest $request      ListResourceInstanceWorkerRequest
+     * @param string[]                          $headers      map
+     * @param RuntimeOptions                    $runtime      runtime options for this request RuntimeOptions
      *
-     * @return ListResourceInstanceWorkerResponse
+     * @return ListResourceInstanceWorkerResponse ListResourceInstanceWorkerResponse
      */
     public function listResourceInstanceWorkerWithOptions($ClusterId, $ResourceId, $InstanceName, $request, $headers, $runtime)
     {
@@ -2492,12 +2682,14 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Queries a list of workers in a resource group.
+     *  *
      * @param string                            $ClusterId
      * @param string                            $ResourceId
      * @param string                            $InstanceName
-     * @param ListResourceInstanceWorkerRequest $request
+     * @param ListResourceInstanceWorkerRequest $request      ListResourceInstanceWorkerRequest
      *
-     * @return ListResourceInstanceWorkerResponse
+     * @return ListResourceInstanceWorkerResponse ListResourceInstanceWorkerResponse
      */
     public function listResourceInstanceWorker($ClusterId, $ResourceId, $InstanceName, $request)
     {
@@ -2508,13 +2700,15 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Queries a list of instances in a dedicated resource group.
+     *  *
      * @param string                       $ClusterId
      * @param string                       $ResourceId
-     * @param ListResourceInstancesRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @param ListResourceInstancesRequest $request    ListResourceInstancesRequest
+     * @param string[]                     $headers    map
+     * @param RuntimeOptions               $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListResourceInstancesResponse
+     * @return ListResourceInstancesResponse ListResourceInstancesResponse
      */
     public function listResourceInstancesWithOptions($ClusterId, $ResourceId, $request, $headers, $runtime)
     {
@@ -2570,11 +2764,13 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Queries a list of instances in a dedicated resource group.
+     *  *
      * @param string                       $ClusterId
      * @param string                       $ResourceId
-     * @param ListResourceInstancesRequest $request
+     * @param ListResourceInstancesRequest $request    ListResourceInstancesRequest
      *
-     * @return ListResourceInstancesResponse
+     * @return ListResourceInstancesResponse ListResourceInstancesResponse
      */
     public function listResourceInstances($ClusterId, $ResourceId, $request)
     {
@@ -2585,13 +2781,15 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Queries a list of services that are deployed in the dedicated resource group.
+     *  *
      * @param string                      $ClusterId
      * @param string                      $ResourceId
-     * @param ListResourceServicesRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @param ListResourceServicesRequest $request    ListResourceServicesRequest
+     * @param string[]                    $headers    map
+     * @param RuntimeOptions              $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListResourceServicesResponse
+     * @return ListResourceServicesResponse ListResourceServicesResponse
      */
     public function listResourceServicesWithOptions($ClusterId, $ResourceId, $request, $headers, $runtime)
     {
@@ -2623,11 +2821,13 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Queries a list of services that are deployed in the dedicated resource group.
+     *  *
      * @param string                      $ClusterId
      * @param string                      $ResourceId
-     * @param ListResourceServicesRequest $request
+     * @param ListResourceServicesRequest $request    ListResourceServicesRequest
      *
-     * @return ListResourceServicesResponse
+     * @return ListResourceServicesResponse ListResourceServicesResponse
      */
     public function listResourceServices($ClusterId, $ResourceId, $request)
     {
@@ -2638,11 +2838,13 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @param ListResourcesRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @summary Queries a list of dedicated resource groups for the current user.
+     *  *
+     * @param ListResourcesRequest $request ListResourcesRequest
+     * @param string[]             $headers map
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListResourcesResponse
+     * @return ListResourcesResponse ListResourcesResponse
      */
     public function listResourcesWithOptions($request, $headers, $runtime)
     {
@@ -2683,9 +2885,11 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @param ListResourcesRequest $request
+     * @summary Queries a list of dedicated resource groups for the current user.
+     *  *
+     * @param ListResourcesRequest $request ListResourcesRequest
      *
-     * @return ListResourcesResponse
+     * @return ListResourcesResponse ListResourcesResponse
      */
     public function listResources($request)
     {
@@ -2696,13 +2900,15 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Queries the containers of a service.
+     *  *
      * @param string         $ClusterId
      * @param string         $ServiceName
      * @param string         $InstanceName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers      map
+     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
      *
-     * @return ListServiceContainersResponse
+     * @return ListServiceContainersResponse ListServiceContainersResponse
      */
     public function listServiceContainersWithOptions($ClusterId, $ServiceName, $InstanceName, $headers, $runtime)
     {
@@ -2725,11 +2931,13 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Queries the containers of a service.
+     *  *
      * @param string $ClusterId
      * @param string $ServiceName
      * @param string $InstanceName
      *
-     * @return ListServiceContainersResponse
+     * @return ListServiceContainersResponse ListServiceContainersResponse
      */
     public function listServiceContainers($ClusterId, $ServiceName, $InstanceName)
     {
@@ -2740,13 +2948,15 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Queries instances of a service.
+     *  *
      * @param string                      $ClusterId
      * @param string                      $ServiceName
-     * @param ListServiceInstancesRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @param ListServiceInstancesRequest $request     ListServiceInstancesRequest
+     * @param string[]                    $headers     map
+     * @param RuntimeOptions              $runtime     runtime options for this request RuntimeOptions
      *
-     * @return ListServiceInstancesResponse
+     * @return ListServiceInstancesResponse ListServiceInstancesResponse
      */
     public function listServiceInstancesWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime)
     {
@@ -2811,11 +3021,13 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Queries instances of a service.
+     *  *
      * @param string                      $ClusterId
      * @param string                      $ServiceName
-     * @param ListServiceInstancesRequest $request
+     * @param ListServiceInstancesRequest $request     ListServiceInstancesRequest
      *
-     * @return ListServiceInstancesResponse
+     * @return ListServiceInstancesResponse ListServiceInstancesResponse
      */
     public function listServiceInstances($ClusterId, $ServiceName, $request)
     {
@@ -2826,13 +3038,15 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Queries the information about the historical versions of a service.
+     *  *
      * @param string                     $ClusterId
      * @param string                     $ServiceName
-     * @param ListServiceVersionsRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @param ListServiceVersionsRequest $request     ListServiceVersionsRequest
+     * @param string[]                   $headers     map
+     * @param RuntimeOptions             $runtime     runtime options for this request RuntimeOptions
      *
-     * @return ListServiceVersionsResponse
+     * @return ListServiceVersionsResponse ListServiceVersionsResponse
      */
     public function listServiceVersionsWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime)
     {
@@ -2864,11 +3078,13 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Queries the information about the historical versions of a service.
+     *  *
      * @param string                     $ClusterId
      * @param string                     $ServiceName
-     * @param ListServiceVersionsRequest $request
+     * @param ListServiceVersionsRequest $request     ListServiceVersionsRequest
      *
-     * @return ListServiceVersionsResponse
+     * @return ListServiceVersionsResponse ListServiceVersionsResponse
      */
     public function listServiceVersions($ClusterId, $ServiceName, $request)
     {
@@ -2879,11 +3095,13 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @param ListServicesRequest $tmpReq
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @summary Queries a list of services that are created by the current user.
+     *  *
+     * @param ListServicesRequest $tmpReq  ListServicesRequest
+     * @param string[]            $headers map
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListServicesResponse
+     * @return ListServicesResponse ListServicesResponse
      */
     public function listServicesWithOptions($tmpReq, $headers, $runtime)
     {
@@ -2959,9 +3177,11 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @param ListServicesRequest $request
+     * @summary Queries a list of services that are created by the current user.
+     *  *
+     * @param ListServicesRequest $request ListServicesRequest
      *
-     * @return ListServicesResponse
+     * @return ListServicesResponse ListServicesResponse
      */
     public function listServices($request)
     {
@@ -2972,13 +3192,15 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Performs canary release or blue-green release of a service.
+     *  *
      * @param string                $ClusterId
      * @param string                $ServiceName
-     * @param ReleaseServiceRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @param ReleaseServiceRequest $request     ReleaseServiceRequest
+     * @param string[]              $headers     map
+     * @param RuntimeOptions        $runtime     runtime options for this request RuntimeOptions
      *
-     * @return ReleaseServiceResponse
+     * @return ReleaseServiceResponse ReleaseServiceResponse
      */
     public function releaseServiceWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime)
     {
@@ -3010,11 +3232,13 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Performs canary release or blue-green release of a service.
+     *  *
      * @param string                $ClusterId
      * @param string                $ServiceName
-     * @param ReleaseServiceRequest $request
+     * @param ReleaseServiceRequest $request     ReleaseServiceRequest
      *
-     * @return ReleaseServiceResponse
+     * @return ReleaseServiceResponse ReleaseServiceResponse
      */
     public function releaseService($ClusterId, $ServiceName, $request)
     {
@@ -3025,12 +3249,14 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Restarts a service.
+     *  *
      * @param string         $ClusterId
      * @param string         $ServiceName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers     map
+     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
      *
-     * @return RestartServiceResponse
+     * @return RestartServiceResponse RestartServiceResponse
      */
     public function restartServiceWithOptions($ClusterId, $ServiceName, $headers, $runtime)
     {
@@ -3053,10 +3279,12 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Restarts a service.
+     *  *
      * @param string $ClusterId
      * @param string $ServiceName
      *
-     * @return RestartServiceResponse
+     * @return RestartServiceResponse RestartServiceResponse
      */
     public function restartService($ClusterId, $ServiceName)
     {
@@ -3067,12 +3295,14 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Starts a stress testing task.
+     *  *
      * @param string         $ClusterId
      * @param string         $TaskName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers   map
+     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
      *
-     * @return StartBenchmarkTaskResponse
+     * @return StartBenchmarkTaskResponse StartBenchmarkTaskResponse
      */
     public function startBenchmarkTaskWithOptions($ClusterId, $TaskName, $headers, $runtime)
     {
@@ -3095,10 +3325,12 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Starts a stress testing task.
+     *  *
      * @param string $ClusterId
      * @param string $TaskName
      *
-     * @return StartBenchmarkTaskResponse
+     * @return StartBenchmarkTaskResponse StartBenchmarkTaskResponse
      */
     public function startBenchmarkTask($ClusterId, $TaskName)
     {
@@ -3109,12 +3341,14 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Starts a service.
+     *  *
      * @param string         $ClusterId
      * @param string         $ServiceName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers     map
+     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
      *
-     * @return StartServiceResponse
+     * @return StartServiceResponse StartServiceResponse
      */
     public function startServiceWithOptions($ClusterId, $ServiceName, $headers, $runtime)
     {
@@ -3137,10 +3371,12 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Starts a service.
+     *  *
      * @param string $ClusterId
      * @param string $ServiceName
      *
-     * @return StartServiceResponse
+     * @return StartServiceResponse StartServiceResponse
      */
     public function startService($ClusterId, $ServiceName)
     {
@@ -3151,12 +3387,14 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Stops a stress testing task.
+     *  *
      * @param string         $ClusterId
      * @param string         $TaskName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers   map
+     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
      *
-     * @return StopBenchmarkTaskResponse
+     * @return StopBenchmarkTaskResponse StopBenchmarkTaskResponse
      */
     public function stopBenchmarkTaskWithOptions($ClusterId, $TaskName, $headers, $runtime)
     {
@@ -3179,10 +3417,12 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Stops a stress testing task.
+     *  *
      * @param string $ClusterId
      * @param string $TaskName
      *
-     * @return StopBenchmarkTaskResponse
+     * @return StopBenchmarkTaskResponse StopBenchmarkTaskResponse
      */
     public function stopBenchmarkTask($ClusterId, $TaskName)
     {
@@ -3193,12 +3433,14 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Stops a running service.
+     *  *
      * @param string         $ClusterId
      * @param string         $ServiceName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers     map
+     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
      *
-     * @return StopServiceResponse
+     * @return StopServiceResponse StopServiceResponse
      */
     public function stopServiceWithOptions($ClusterId, $ServiceName, $headers, $runtime)
     {
@@ -3221,10 +3463,12 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Stops a running service.
+     *  *
      * @param string $ClusterId
      * @param string $ServiceName
      *
-     * @return StopServiceResponse
+     * @return StopServiceResponse StopServiceResponse
      */
     public function stopService($ClusterId, $ServiceName)
     {
@@ -3235,13 +3479,15 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Updates an application service.
+     *  *
      * @param string                  $ClusterId
      * @param string                  $ServiceName
-     * @param UpdateAppServiceRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @param UpdateAppServiceRequest $request     UpdateAppServiceRequest
+     * @param string[]                $headers     map
+     * @param RuntimeOptions          $runtime     runtime options for this request RuntimeOptions
      *
-     * @return UpdateAppServiceResponse
+     * @return UpdateAppServiceResponse UpdateAppServiceResponse
      */
     public function updateAppServiceWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime)
     {
@@ -3290,11 +3536,13 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Updates an application service.
+     *  *
      * @param string                  $ClusterId
      * @param string                  $ServiceName
-     * @param UpdateAppServiceRequest $request
+     * @param UpdateAppServiceRequest $request     UpdateAppServiceRequest
      *
-     * @return UpdateAppServiceResponse
+     * @return UpdateAppServiceResponse UpdateAppServiceResponse
      */
     public function updateAppService($ClusterId, $ServiceName, $request)
     {
@@ -3305,13 +3553,15 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Updates a stress testing task.
+     *  *
      * @param string                     $ClusterId
      * @param string                     $TaskName
-     * @param UpdateBenchmarkTaskRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @param UpdateBenchmarkTaskRequest $request   UpdateBenchmarkTaskRequest
+     * @param string[]                   $headers   map
+     * @param RuntimeOptions             $runtime   runtime options for this request RuntimeOptions
      *
-     * @return UpdateBenchmarkTaskResponse
+     * @return UpdateBenchmarkTaskResponse UpdateBenchmarkTaskResponse
      */
     public function updateBenchmarkTaskWithOptions($ClusterId, $TaskName, $request, $headers, $runtime)
     {
@@ -3336,11 +3586,13 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Updates a stress testing task.
+     *  *
      * @param string                     $ClusterId
      * @param string                     $TaskName
-     * @param UpdateBenchmarkTaskRequest $request
+     * @param UpdateBenchmarkTaskRequest $request   UpdateBenchmarkTaskRequest
      *
-     * @return UpdateBenchmarkTaskResponse
+     * @return UpdateBenchmarkTaskResponse UpdateBenchmarkTaskResponse
      */
     public function updateBenchmarkTask($ClusterId, $TaskName, $request)
     {
@@ -3351,13 +3603,15 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Update a private gateway.
+     *  *
      * @param string               $GatewayId
      * @param string               $ClusterId
-     * @param UpdateGatewayRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @param UpdateGatewayRequest $request   UpdateGatewayRequest
+     * @param string[]             $headers   map
+     * @param RuntimeOptions       $runtime   runtime options for this request RuntimeOptions
      *
-     * @return UpdateGatewayResponse
+     * @return UpdateGatewayResponse UpdateGatewayResponse
      */
     public function updateGatewayWithOptions($GatewayId, $ClusterId, $request, $headers, $runtime)
     {
@@ -3395,11 +3649,13 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Update a private gateway.
+     *  *
      * @param string               $GatewayId
      * @param string               $ClusterId
-     * @param UpdateGatewayRequest $request
+     * @param UpdateGatewayRequest $request   UpdateGatewayRequest
      *
-     * @return UpdateGatewayResponse
+     * @return UpdateGatewayResponse UpdateGatewayResponse
      */
     public function updateGateway($GatewayId, $ClusterId, $request)
     {
@@ -3410,13 +3666,15 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Updates the information about a dedicated resource group. Only the name of a dedicated resource group can be updated.
+     *  *
      * @param string                $ClusterId
      * @param string                $ResourceId
-     * @param UpdateResourceRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @param UpdateResourceRequest $request    UpdateResourceRequest
+     * @param string[]              $headers    map
+     * @param RuntimeOptions        $runtime    runtime options for this request RuntimeOptions
      *
-     * @return UpdateResourceResponse
+     * @return UpdateResourceResponse UpdateResourceResponse
      */
     public function updateResourceWithOptions($ClusterId, $ResourceId, $request, $headers, $runtime)
     {
@@ -3448,11 +3706,13 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Updates the information about a dedicated resource group. Only the name of a dedicated resource group can be updated.
+     *  *
      * @param string                $ClusterId
      * @param string                $ResourceId
-     * @param UpdateResourceRequest $request
+     * @param UpdateResourceRequest $request    UpdateResourceRequest
      *
-     * @return UpdateResourceResponse
+     * @return UpdateResourceResponse UpdateResourceResponse
      */
     public function updateResource($ClusterId, $ResourceId, $request)
     {
@@ -3463,13 +3723,15 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Updates the configurations of a virtual private cloud (VPC) direct connection for a dedicated resource group.
+     *  *
      * @param string                     $ClusterId
      * @param string                     $ResourceId
-     * @param UpdateResourceDLinkRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @param UpdateResourceDLinkRequest $request    UpdateResourceDLinkRequest
+     * @param string[]                   $headers    map
+     * @param RuntimeOptions             $runtime    runtime options for this request RuntimeOptions
      *
-     * @return UpdateResourceDLinkResponse
+     * @return UpdateResourceDLinkResponse UpdateResourceDLinkResponse
      */
     public function updateResourceDLinkWithOptions($ClusterId, $ResourceId, $request, $headers, $runtime)
     {
@@ -3507,11 +3769,13 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Updates the configurations of a virtual private cloud (VPC) direct connection for a dedicated resource group.
+     *  *
      * @param string                     $ClusterId
      * @param string                     $ResourceId
-     * @param UpdateResourceDLinkRequest $request
+     * @param UpdateResourceDLinkRequest $request    UpdateResourceDLinkRequest
      *
-     * @return UpdateResourceDLinkResponse
+     * @return UpdateResourceDLinkResponse UpdateResourceDLinkResponse
      */
     public function updateResourceDLink($ClusterId, $ResourceId, $request)
     {
@@ -3522,14 +3786,16 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Updates the service scheduling status of an instance in a dedicated resource group.
+     *  *
      * @param string                        $ClusterId
      * @param string                        $ResourceId
      * @param string                        $InstanceId
-     * @param UpdateResourceInstanceRequest $request
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
+     * @param UpdateResourceInstanceRequest $request    UpdateResourceInstanceRequest
+     * @param string[]                      $headers    map
+     * @param RuntimeOptions                $runtime    runtime options for this request RuntimeOptions
      *
-     * @return UpdateResourceInstanceResponse
+     * @return UpdateResourceInstanceResponse UpdateResourceInstanceResponse
      */
     public function updateResourceInstanceWithOptions($ClusterId, $ResourceId, $InstanceId, $request, $headers, $runtime)
     {
@@ -3558,12 +3824,14 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Updates the service scheduling status of an instance in a dedicated resource group.
+     *  *
      * @param string                        $ClusterId
      * @param string                        $ResourceId
      * @param string                        $InstanceId
-     * @param UpdateResourceInstanceRequest $request
+     * @param UpdateResourceInstanceRequest $request    UpdateResourceInstanceRequest
      *
-     * @return UpdateResourceInstanceResponse
+     * @return UpdateResourceInstanceResponse UpdateResourceInstanceResponse
      */
     public function updateResourceInstance($ClusterId, $ResourceId, $InstanceId, $request)
     {
@@ -3574,13 +3842,15 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Updates a model or processor of a service. If only the metadata.instance field is updated, manual scaling can be performed.
+     *  *
      * @param string               $ClusterId
      * @param string               $ServiceName
-     * @param UpdateServiceRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @param UpdateServiceRequest $request     UpdateServiceRequest
+     * @param string[]             $headers     map
+     * @param RuntimeOptions       $runtime     runtime options for this request RuntimeOptions
      *
-     * @return UpdateServiceResponse
+     * @return UpdateServiceResponse UpdateServiceResponse
      */
     public function updateServiceWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime)
     {
@@ -3610,11 +3880,13 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Updates a model or processor of a service. If only the metadata.instance field is updated, manual scaling can be performed.
+     *  *
      * @param string               $ClusterId
      * @param string               $ServiceName
-     * @param UpdateServiceRequest $request
+     * @param UpdateServiceRequest $request     UpdateServiceRequest
      *
-     * @return UpdateServiceResponse
+     * @return UpdateServiceResponse UpdateServiceResponse
      */
     public function updateService($ClusterId, $ServiceName, $request)
     {
@@ -3625,13 +3897,15 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Updates the Autoscaler configurations of a service.
+     *  *
      * @param string                         $ClusterId
      * @param string                         $ServiceName
-     * @param UpdateServiceAutoScalerRequest $request
-     * @param string[]                       $headers
-     * @param RuntimeOptions                 $runtime
+     * @param UpdateServiceAutoScalerRequest $request     UpdateServiceAutoScalerRequest
+     * @param string[]                       $headers     map
+     * @param RuntimeOptions                 $runtime     runtime options for this request RuntimeOptions
      *
-     * @return UpdateServiceAutoScalerResponse
+     * @return UpdateServiceAutoScalerResponse UpdateServiceAutoScalerResponse
      */
     public function updateServiceAutoScalerWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime)
     {
@@ -3669,11 +3943,13 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Updates the Autoscaler configurations of a service.
+     *  *
      * @param string                         $ClusterId
      * @param string                         $ServiceName
-     * @param UpdateServiceAutoScalerRequest $request
+     * @param UpdateServiceAutoScalerRequest $request     UpdateServiceAutoScalerRequest
      *
-     * @return UpdateServiceAutoScalerResponse
+     * @return UpdateServiceAutoScalerResponse UpdateServiceAutoScalerResponse
      */
     public function updateServiceAutoScaler($ClusterId, $ServiceName, $request)
     {
@@ -3684,13 +3960,15 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Updates the Cron Horizontal Pod Autoscaler (CronHPA) settings of a service.
+     *  *
      * @param string                         $ClusterId
      * @param string                         $ServiceName
-     * @param UpdateServiceCronScalerRequest $request
-     * @param string[]                       $headers
-     * @param RuntimeOptions                 $runtime
+     * @param UpdateServiceCronScalerRequest $request     UpdateServiceCronScalerRequest
+     * @param string[]                       $headers     map
+     * @param RuntimeOptions                 $runtime     runtime options for this request RuntimeOptions
      *
-     * @return UpdateServiceCronScalerResponse
+     * @return UpdateServiceCronScalerResponse UpdateServiceCronScalerResponse
      */
     public function updateServiceCronScalerWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime)
     {
@@ -3722,11 +4000,13 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Updates the Cron Horizontal Pod Autoscaler (CronHPA) settings of a service.
+     *  *
      * @param string                         $ClusterId
      * @param string                         $ServiceName
-     * @param UpdateServiceCronScalerRequest $request
+     * @param UpdateServiceCronScalerRequest $request     UpdateServiceCronScalerRequest
      *
-     * @return UpdateServiceCronScalerResponse
+     * @return UpdateServiceCronScalerResponse UpdateServiceCronScalerResponse
      */
     public function updateServiceCronScaler($ClusterId, $ServiceName, $request)
     {
@@ -3737,14 +4017,16 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Updates attributes of service instances. Only isolation can be performed for service instances.
+     *  *
      * @param string                       $ClusterId
      * @param string                       $ServiceName
      * @param string                       $InstanceName
-     * @param UpdateServiceInstanceRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @param UpdateServiceInstanceRequest $request      UpdateServiceInstanceRequest
+     * @param string[]                     $headers      map
+     * @param RuntimeOptions               $runtime      runtime options for this request RuntimeOptions
      *
-     * @return UpdateServiceInstanceResponse
+     * @return UpdateServiceInstanceResponse UpdateServiceInstanceResponse
      */
     public function updateServiceInstanceWithOptions($ClusterId, $ServiceName, $InstanceName, $request, $headers, $runtime)
     {
@@ -3773,12 +4055,14 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Updates attributes of service instances. Only isolation can be performed for service instances.
+     *  *
      * @param string                       $ClusterId
      * @param string                       $ServiceName
      * @param string                       $InstanceName
-     * @param UpdateServiceInstanceRequest $request
+     * @param UpdateServiceInstanceRequest $request      UpdateServiceInstanceRequest
      *
-     * @return UpdateServiceInstanceResponse
+     * @return UpdateServiceInstanceResponse UpdateServiceInstanceResponse
      */
     public function updateServiceInstance($ClusterId, $ServiceName, $InstanceName, $request)
     {
@@ -3789,13 +4073,15 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Adds service tags or updates existing service tags.
+     *  *
      * @param string                    $ClusterId
      * @param string                    $ServiceName
-     * @param UpdateServiceLabelRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @param UpdateServiceLabelRequest $request     UpdateServiceLabelRequest
+     * @param string[]                  $headers     map
+     * @param RuntimeOptions            $runtime     runtime options for this request RuntimeOptions
      *
-     * @return UpdateServiceLabelResponse
+     * @return UpdateServiceLabelResponse UpdateServiceLabelResponse
      */
     public function updateServiceLabelWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime)
     {
@@ -3824,11 +4110,13 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Adds service tags or updates existing service tags.
+     *  *
      * @param string                    $ClusterId
      * @param string                    $ServiceName
-     * @param UpdateServiceLabelRequest $request
+     * @param UpdateServiceLabelRequest $request     UpdateServiceLabelRequest
      *
-     * @return UpdateServiceLabelResponse
+     * @return UpdateServiceLabelResponse UpdateServiceLabelResponse
      */
     public function updateServiceLabel($ClusterId, $ServiceName, $request)
     {
@@ -3839,13 +4127,15 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Updates the traffic mirroring configurations of a service.
+     *  *
      * @param string                     $ClusterId
      * @param string                     $ServiceName
-     * @param UpdateServiceMirrorRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @param UpdateServiceMirrorRequest $request     UpdateServiceMirrorRequest
+     * @param string[]                   $headers     map
+     * @param RuntimeOptions             $runtime     runtime options for this request RuntimeOptions
      *
-     * @return UpdateServiceMirrorResponse
+     * @return UpdateServiceMirrorResponse UpdateServiceMirrorResponse
      */
     public function updateServiceMirrorWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime)
     {
@@ -3877,11 +4167,13 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Updates the traffic mirroring configurations of a service.
+     *  *
      * @param string                     $ClusterId
      * @param string                     $ServiceName
-     * @param UpdateServiceMirrorRequest $request
+     * @param UpdateServiceMirrorRequest $request     UpdateServiceMirrorRequest
      *
-     * @return UpdateServiceMirrorResponse
+     * @return UpdateServiceMirrorResponse UpdateServiceMirrorResponse
      */
     public function updateServiceMirror($ClusterId, $ServiceName, $request)
     {
@@ -3892,13 +4184,15 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Updates the safety lock of a service to minimize misoperations on the service.
+     *  *
      * @param string                         $ClusterId
      * @param string                         $ServiceName
-     * @param UpdateServiceSafetyLockRequest $request
-     * @param string[]                       $headers
-     * @param RuntimeOptions                 $runtime
+     * @param UpdateServiceSafetyLockRequest $request     UpdateServiceSafetyLockRequest
+     * @param string[]                       $headers     map
+     * @param RuntimeOptions                 $runtime     runtime options for this request RuntimeOptions
      *
-     * @return UpdateServiceSafetyLockResponse
+     * @return UpdateServiceSafetyLockResponse UpdateServiceSafetyLockResponse
      */
     public function updateServiceSafetyLockWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime)
     {
@@ -3927,11 +4221,13 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Updates the safety lock of a service to minimize misoperations on the service.
+     *  *
      * @param string                         $ClusterId
      * @param string                         $ServiceName
-     * @param UpdateServiceSafetyLockRequest $request
+     * @param UpdateServiceSafetyLockRequest $request     UpdateServiceSafetyLockRequest
      *
-     * @return UpdateServiceSafetyLockResponse
+     * @return UpdateServiceSafetyLockResponse UpdateServiceSafetyLockResponse
      */
     public function updateServiceSafetyLock($ClusterId, $ServiceName, $request)
     {
@@ -3942,13 +4238,15 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Updates the version of a service or rolls back the service to a specific version.
+     *  *
      * @param string                      $ClusterId
      * @param string                      $ServiceName
-     * @param UpdateServiceVersionRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @param UpdateServiceVersionRequest $request     UpdateServiceVersionRequest
+     * @param string[]                    $headers     map
+     * @param RuntimeOptions              $runtime     runtime options for this request RuntimeOptions
      *
-     * @return UpdateServiceVersionResponse
+     * @return UpdateServiceVersionResponse UpdateServiceVersionResponse
      */
     public function updateServiceVersionWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime)
     {
@@ -3977,11 +4275,13 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Updates the version of a service or rolls back the service to a specific version.
+     *  *
      * @param string                      $ClusterId
      * @param string                      $ServiceName
-     * @param UpdateServiceVersionRequest $request
+     * @param UpdateServiceVersionRequest $request     UpdateServiceVersionRequest
      *
-     * @return UpdateServiceVersionResponse
+     * @return UpdateServiceVersionResponse UpdateServiceVersionResponse
      */
     public function updateServiceVersion($ClusterId, $ServiceName, $request)
     {

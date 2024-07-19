@@ -10,11 +10,16 @@ use AlibabaCloud\Tea\Model;
 class CreateServiceCronScalerRequest extends Model
 {
     /**
+     * @description The points in time that are excluded when you schedule a CronHPA job. The points in time must be specified by using a cron expression.
+     *
      * @var string[]
      */
     public $excludeDates;
 
     /**
+     * @description The description of the CronHPA job.
+     *
+     * This parameter is required.
      * @var scaleJobs[]
      */
     public $scaleJobs;

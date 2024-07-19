@@ -18,7 +18,7 @@ class onZero extends Model
     public $scaleDownGracePeriodSeconds;
 
     /**
-     * @description The number of instances that you want to create at a time if the number of instances is scaled out from 0. Default value: 1.
+     * @description The number of instances that you want to create at a time if the number of instances is 0. Default value: 1.
      *
      * @example 1
      *

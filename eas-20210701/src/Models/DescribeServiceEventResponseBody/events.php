@@ -9,13 +9,17 @@ use AlibabaCloud\Tea\Model;
 class events extends Model
 {
     /**
-     * @example {\"versionId\":1,\"message\":\"Stage scale complete\",\"availableInstance\":1,\"unavailableInstance\":0}
+     * @description The returned message. The message is formatted and returned in the JSON format.
+     *
+     * @example {\\"versionId\\":1,\\"message\\":\\"Stage scale complete\\",\\"availableInstance\\":1,\\"unavailableInstance\\":0}
      *
      * @var string
      */
     public $message;
 
     /**
+     * @description The cause of the event. The information about the change in the service status is returned.
+     *
      * @example Updating
      *
      * @var string
@@ -23,6 +27,8 @@ class events extends Model
     public $reason;
 
     /**
+     * @description The time when the event occurred. The time must be in UTC.
+     *
      * @example 2022-04-09 06:30:00
      *
      * @var string
@@ -30,6 +36,11 @@ class events extends Model
     public $time;
 
     /**
+     * @description The event type. Valid values:
+     *
+     *   Normal
+     *   Warning
+     *
      * @example Normal
      *
      * @var string

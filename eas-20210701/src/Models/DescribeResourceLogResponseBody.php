@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeResourceLogResponseBody extends Model
 {
     /**
+     * @description The Logstore of Log Service.
+     *
      * @example access_log
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeResourceLogResponseBody extends Model
     public $logStore;
 
     /**
+     * @description The returned message.
+     *
      * @example Network interfaces are updating
      *
      * @var string
@@ -23,6 +27,8 @@ class DescribeResourceLogResponseBody extends Model
     public $message;
 
     /**
+     * @description The Log Service project that is associated with the resource group.
+     *
      * @example eas-r-asdasdasd-sls
      *
      * @var string
@@ -30,6 +36,8 @@ class DescribeResourceLogResponseBody extends Model
     public $projectName;
 
     /**
+     * @description The request ID.
+     *
      * @example 40325405-579C-4D82****
      *
      * @var string
@@ -37,6 +45,8 @@ class DescribeResourceLogResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The state of the resource group.
+     *
      * @example ResourceReady
      *
      * @var string

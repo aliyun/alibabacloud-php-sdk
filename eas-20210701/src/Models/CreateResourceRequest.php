@@ -10,8 +10,9 @@ use AlibabaCloud\Tea\Model;
 class CreateResourceRequest extends Model
 {
     /**
-     * @description Specifies whether to enable auto-renewal. Valid values: false (default)
+     * @description Specifies whether to enable auto-renewal. Valid values:
      *
+     *   false (default)
      *   true
      *
      * @example false
@@ -21,11 +22,12 @@ class CreateResourceRequest extends Model
     public $autoRenewal;
 
     /**
-     * @description The billing method of the instance. Valid values:
+     * @description The billing method. Valid values:
      *
      *   PrePaid: the subscription billing method.
      *   PostPaid: the pay-as-you-go billing method.
      *
+     * >  This parameter is required when the ResourceType parameter is set to Dedicated.
      * @example PostPaid
      *
      * @var string
@@ -35,6 +37,7 @@ class CreateResourceRequest extends Model
     /**
      * @description The number of ECS instances.
      *
+     * >  This parameter is required when the ResourceType parameter is set to Dedicated.
      * @example 5
      *
      * @var int
@@ -44,6 +47,7 @@ class CreateResourceRequest extends Model
     /**
      * @description The type of the Elastic Compute Service (ECS) instance.
      *
+     * >  This parameter is required when the ResourceType parameter is set to Dedicated.
      * @example ecs.c6.8xlarge
      *
      * @var string
@@ -51,6 +55,12 @@ class CreateResourceRequest extends Model
     public $ecsInstanceType;
 
     /**
+     * @description The type of the resource group. Valid values:
+     *
+     *   Dedicated: the dedicated resource group.
+     *   SelfManaged: the self-managed resource group.
+     *
+     * >  If you use a self-managed resource group, you must configure a whitelist.
      * @example Dedicated
      *
      * @var string
@@ -58,6 +68,8 @@ class CreateResourceRequest extends Model
     public $resourceType;
 
     /**
+     * @description The configurations of the self-managed resource group.
+     *
      * @var selfManagedResourceOptions
      */
     public $selfManagedResourceOptions;
@@ -72,7 +84,7 @@ class CreateResourceRequest extends Model
     public $systemDiskSize;
 
     /**
-     * @description The zone to which the instance belongs.
+     * @description The ID of the zone in which the instance resides.
      *
      * @example cn-shanghai-f
      *

@@ -9,6 +9,14 @@ use AlibabaCloud\Tea\Model;
 class nodeTolerations extends Model
 {
     /**
+     * @description The result.
+     *
+     * Valid values:
+     *
+     *   PreferNoSchedule
+     *   NoSchedule
+     *   NoExecute
+     *
      * @example NoSchedule
      *
      * @var string
@@ -16,6 +24,8 @@ class nodeTolerations extends Model
     public $effect;
 
     /**
+     * @description The key name.
+     *
      * @example key1
      *
      * @var string
@@ -23,6 +33,13 @@ class nodeTolerations extends Model
     public $key;
 
     /**
+     * @description The relationship between key names and key values.
+     *
+     * Valid values:
+     *
+     *   Equal
+     *   Exists
+     *
      * @example Equal
      *
      * @var string
@@ -30,6 +47,8 @@ class nodeTolerations extends Model
     public $operator;
 
     /**
+     * @description The key value.
+     *
      * @example value1
      *
      * @var string

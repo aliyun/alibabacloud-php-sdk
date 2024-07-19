@@ -10,7 +10,6 @@ class nodeTolerations extends Model
 {
     /**
      * @description The effect.
-     *
      * - NoExecute
      * @example NoSchedule
      *
@@ -19,7 +18,7 @@ class nodeTolerations extends Model
     public $effect;
 
     /**
-     * @description The name of the key.
+     * @description The key name.
      *
      * @example key1
      *
@@ -37,7 +36,7 @@ class nodeTolerations extends Model
     public $operator;
 
     /**
-     * @description The name of the value.
+     * @description The key value.
      *
      * @example value1
      *

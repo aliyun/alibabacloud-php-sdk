@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteServiceResponseBody extends Model
 {
     /**
+     * @description The returned message.
+     *
      * @example Service [foo] in region [cn-shanghai] is terminating
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteServiceResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 40325405-579C-4D82****
      *
      * @var string

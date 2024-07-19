@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeServiceInstanceDiagnosisResponseBody extends Model
 {
     /**
+     * @description The diagnostics information.
+     *
      * @var diagnosis
      */
     public $diagnosis;
 
     /**
+     * @description The request ID.
+     *
      * @example 40325405-579C-4D82***
      *
      * @var string

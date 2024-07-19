@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class selfManagedResourceOptions extends Model
 {
     /**
+     * @description The ID of the self-managed cluster.
+     *
      * @example cf0386f250f2545689ca7fdd1cd******
      *
      * @var string
@@ -17,16 +19,22 @@ class selfManagedResourceOptions extends Model
     public $externalClusterId;
 
     /**
+     * @description The tag key-value pairs for nodes.
+     *
      * @var string[]
      */
     public $nodeMatchLabels;
 
     /**
+     * @description Tolerations for nodes.
+     *
      * @var nodeTolerations[]
      */
     public $nodeTolerations;
 
     /**
+     * @description The name of the RAM user to which the permissions on Elastic Algorithm Service of Platform for AI (PAI-EAS) are granted.
+     *
      * @example clusterrole
      *
      * @var string

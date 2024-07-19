@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class scaleDown extends Model
 {
     /**
+     * @description The time window that is required before the scale-in operation is performed. Default value: 300. The scale-in operation can be performed only if the specified metric drops below the threshold in the specified time window.
+     *
      * @example 300
      *
      * @var int

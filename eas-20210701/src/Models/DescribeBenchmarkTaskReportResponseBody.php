@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeBenchmarkTaskReportResponseBody extends Model
 {
     /**
+     * @description If the value of ReportType is set to RAW, the details about the stress testing report are returned.
+     *
      * @example {
      * }
      * @var mixed
@@ -16,6 +18,8 @@ class DescribeBenchmarkTaskReportResponseBody extends Model
     public $data;
 
     /**
+     * @description If the value of ReportType is set to Report, the URL of the stress testing report is returned.
+     *
      * @example http://eas-benchmark.oss-cn-chengdu.aliyuncs.com/summary/benchmark-larec-test-015d-10007.html
      *
      * @var string
@@ -23,6 +27,8 @@ class DescribeBenchmarkTaskReportResponseBody extends Model
     public $reportUrl;
 
     /**
+     * @description The request ID.
+     *
      * @example 40325405-579C-4D82********
      *
      * @var string

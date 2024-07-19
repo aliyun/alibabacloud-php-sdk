@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ReleaseServiceRequest extends Model
 {
     /**
+     * @description The traffic state. Valid values:
+     *
+     *   standalone: independent traffic.
+     *   grouping: grouped traffic.
+     *
      * @example grouping
      *
      * @var string
@@ -16,6 +21,8 @@ class ReleaseServiceRequest extends Model
     public $trafficState;
 
     /**
+     * @description The weight of the canary release. Valid values: 0 to 100.
+     *
      * @example 100
      *
      * @var int

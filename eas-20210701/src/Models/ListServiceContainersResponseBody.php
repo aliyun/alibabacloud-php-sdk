@@ -16,6 +16,8 @@ class ListServiceContainersResponseBody extends Model
     public $containers;
 
     /**
+     * @description The request ID.
+     *
      * @example 40325405-579C-4D82****
      *
      * @var string
@@ -23,6 +25,8 @@ class ListServiceContainersResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The service name.
+     *
      * @example foo
      *
      * @var string

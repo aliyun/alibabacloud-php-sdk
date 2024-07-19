@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class UpdateResourceInstanceRequest extends Model
 {
     /**
+     * @description The operation that updates the scheduling state of the instance in a dedicated resource group. Valid values:
+     *
+     *   Uncordon: allows scheduling the service to this instance.
+     *   Cordon: prohibits scheduling the service to this instance.
+     *   Drain: evicts the service that has been scheduled to this instance.
+     *
+     * This parameter is required.
      * @example Cordon
      *
      * @var string

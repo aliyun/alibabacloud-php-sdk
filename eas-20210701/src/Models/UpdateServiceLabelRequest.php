@@ -11,6 +11,7 @@ class UpdateServiceLabelRequest extends Model
     /**
      * @description The custom service tags.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $labels;

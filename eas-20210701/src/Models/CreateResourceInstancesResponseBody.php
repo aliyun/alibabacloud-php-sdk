@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateResourceInstancesResponseBody extends Model
 {
     /**
+     * @description The instance IDs.
+     *
      * @var string[]
      */
     public $instanceIds;
 
     /**
+     * @description The returned message.
+     *
      * @example Create 5 new ecs instance(s) in resource [eas-r-asdasdasd] successfully
      *
      * @var string
@@ -21,6 +25,8 @@ class CreateResourceInstancesResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 40325405-579C-4D82****
      *
      * @var string

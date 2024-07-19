@@ -77,6 +77,11 @@ class Resource extends Model
      * @var string
      */
     public $updateTime;
+
+    /**
+     * @var string
+     */
+    public $vendor;
     protected $_name = [
         'clusterId'             => 'ClusterId',
         'cpuCount'              => 'CpuCount',
@@ -92,6 +97,7 @@ class Resource extends Model
         'resourceType'          => 'ResourceType',
         'status'                => 'Status',
         'updateTime'            => 'UpdateTime',
+        'vendor'                => 'Vendor',
     ];
 
     public function validate()
@@ -142,6 +148,9 @@ class Resource extends Model
         }
         if (null !== $this->updateTime) {
             $res['UpdateTime'] = $this->updateTime;
+        }
+        if (null !== $this->vendor) {
+            $res['Vendor'] = $this->vendor;
         }
 
         return $res;
@@ -196,6 +205,9 @@ class Resource extends Model
         }
         if (isset($map['UpdateTime'])) {
             $model->updateTime = $map['UpdateTime'];
+        }
+        if (isset($map['Vendor'])) {
+            $model->vendor = $map['Vendor'];
         }
 
         return $model;

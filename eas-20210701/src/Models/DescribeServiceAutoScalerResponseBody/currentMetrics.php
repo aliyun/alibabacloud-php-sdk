@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class currentMetrics extends Model
 {
     /**
+     * @description The metric name. Valid values:
+     *
+     *   QPS
+     *   CPU
+     *
      * @example qps
      *
      * @var string
@@ -16,6 +21,8 @@ class currentMetrics extends Model
     public $metricName;
 
     /**
+     * @description The service for which the metric is specified.
+     *
      * @example demo_svc
      *
      * @var string
@@ -23,6 +30,8 @@ class currentMetrics extends Model
     public $service;
 
     /**
+     * @description The metric value.
+     *
      * @example 10
      *
      * @var float

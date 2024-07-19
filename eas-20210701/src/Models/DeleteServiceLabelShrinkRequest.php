@@ -11,6 +11,7 @@ class DeleteServiceLabelShrinkRequest extends Model
     /**
      * @description The service tags that you want to delete.
      *
+     * This parameter is required.
      * @var string
      */
     public $keysShrink;

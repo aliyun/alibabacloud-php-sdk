@@ -9,8 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListServicesRequest extends Model
 {
     /**
-     * @description {
-     * }
+     * @description The field that is used for fuzzy matches. The system performs fuzzy matches only by service name.
+     *
      * @example foo
      *
      * @var string
@@ -18,6 +18,8 @@ class ListServicesRequest extends Model
     public $filter;
 
     /**
+     * @description The name of the service group. For more information about how to query the name of a service group, see [ListServices](https://help.aliyun.com/document_detail/412109.html).
+     *
      * @example foo
      *
      * @var string
@@ -25,11 +27,18 @@ class ListServicesRequest extends Model
     public $groupName;
 
     /**
+     * @description The tag that is used to filter services.
+     *
      * @var string[]
      */
     public $label;
 
     /**
+     * @description The sorting order. Valid values:
+     *
+     *   desc (default): The query results are sorted in descending order.
+     *   asc: The query results are sorted in ascending order.
+     *
      * @example asc
      *
      * @var string
@@ -37,7 +46,7 @@ class ListServicesRequest extends Model
     public $order;
 
     /**
-     * @description 376577
+     * @description The page number. Default value: 1.
      *
      * @example 1
      *
@@ -46,6 +55,8 @@ class ListServicesRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Default value: 100.
+     *
      * @example 100
      *
      * @var int
@@ -53,6 +64,8 @@ class ListServicesRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the primary service that corresponds to the Band member service.
+     *
      * @example eas-m-ijafy3c8cxxxx
      *
      * @var string
@@ -60,6 +73,8 @@ class ListServicesRequest extends Model
     public $parentServiceUid;
 
     /**
+     * @description The quota ID.
+     *
      * @example quota12345
      *
      * @var string
@@ -67,6 +82,8 @@ class ListServicesRequest extends Model
     public $quotaId;
 
     /**
+     * @description The name or ID of the resource group to which the service belongs.
+     *
      * @example eas-r-hd0qwy8cxxxx
      *
      * @var string
@@ -74,6 +91,8 @@ class ListServicesRequest extends Model
     public $resourceName;
 
     /**
+     * @description The service name.
+     *
      * @example echo_test
      *
      * @var string
@@ -81,6 +100,81 @@ class ListServicesRequest extends Model
     public $serviceName;
 
     /**
+     * @description The service state.
+     *
+     * Valid values:
+     *
+     *   Creating
+     *
+     * <!-- -->
+     *
+     *   Stopped
+     *
+     * <!-- -->
+     *
+     *   Failed
+     *
+     * <!-- -->
+     *
+     *   Complete
+     *
+     * <!-- -->
+     *
+     *   Cloning
+     *
+     * <!-- -->
+     *
+     *   Stopping
+     *
+     * <!-- -->
+     *
+     *   Updating
+     *
+     * <!-- -->
+     *
+     *   Waiting
+     *
+     * <!-- -->
+     *
+     *   HotUpdate
+     *
+     * <!-- -->
+     *
+     *   Committing
+     *
+     * <!-- -->
+     *
+     *   Starting
+     *
+     * <!-- -->
+     *
+     *   DeleteFailed
+     *
+     * <!-- -->
+     *
+     *   Running
+     *
+     * <!-- -->
+     *
+     *   Developing
+     *
+     * <!-- -->
+     *
+     *   Scaling
+     *
+     * <!-- -->
+     *
+     *   Deleted
+     *
+     * <!-- -->
+     *
+     *   Pending
+     *
+     * <!-- -->
+     *
+     *   Deleting
+     *
+     * <!-- -->
      * @example Running
      *
      * @var string
@@ -88,6 +182,30 @@ class ListServicesRequest extends Model
     public $serviceStatus;
 
     /**
+     * @description The service type. Valid values:
+     *
+     *   Async
+     *   Standard
+     *   Offline Task
+     *   Proxima
+     *
+     * Valid values:
+     *
+     *   Async
+     *
+     * <!-- -->
+     *
+     *   Standard
+     *
+     * <!-- -->
+     *
+     *   OfflineTask
+     *
+     * <!-- -->
+     *
+     *   Proxima
+     *
+     * <!-- -->
      * @example Standard
      *
      * @var string
@@ -95,6 +213,8 @@ class ListServicesRequest extends Model
     public $serviceType;
 
     /**
+     * @description The user ID (UID) of the service.
+     *
      * @example eas-m-c9iw3yitxxxx
      *
      * @var string
@@ -102,6 +222,8 @@ class ListServicesRequest extends Model
     public $serviceUid;
 
     /**
+     * @description The sort field. By default, the query results are sorted by the timestamp type in descending order.
+     *
      * @example CreateTime
      *
      * @var string
@@ -109,6 +231,8 @@ class ListServicesRequest extends Model
     public $sort;
 
     /**
+     * @description The workspace ID.
+     *
      * @example 123456
      *
      * @var string

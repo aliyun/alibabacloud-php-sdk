@@ -37,7 +37,7 @@ class ListBenchmarkTaskResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The time when the stress testing task was updated.
+     * @description The stress testing tasks.
      *
      * @var tasks[]
      */

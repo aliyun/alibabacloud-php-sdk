@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class spotDiscounts extends Model
 {
     /**
+     * @description The type of the ECS instance.
+     *
      * @example ecs.c7.large
      *
      * @var string
@@ -16,6 +18,8 @@ class spotDiscounts extends Model
     public $instanceType;
 
     /**
+     * @description The discount for the preemptible instance. For example, 0.1 represents a 90% discount.
+     *
      * @example 0.1
      *
      * @var string
@@ -23,6 +27,8 @@ class spotDiscounts extends Model
     public $spotDiscount;
 
     /**
+     * @description The time when the discount is available. The time must be in UTC.
+     *
      * @example 2024-04-10T10:00:00Z
      *
      * @var string
@@ -30,6 +36,8 @@ class spotDiscounts extends Model
     public $timestamp;
 
     /**
+     * @description The zone ID.
+     *
      * @example cn-hangzhou-i
      *
      * @var string

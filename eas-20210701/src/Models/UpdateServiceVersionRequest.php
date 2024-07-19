@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class UpdateServiceVersionRequest extends Model
 {
     /**
+     * @description The destination version of the service. The value must be of the INT type. The value must be greater than 0 and smaller than the current version of the service.
+     *
+     * This parameter is required.
      * @example 1
      *
      * @var int

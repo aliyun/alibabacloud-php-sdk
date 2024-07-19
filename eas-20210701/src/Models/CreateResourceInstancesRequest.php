@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CreateResourceInstancesRequest extends Model
 {
     /**
+     * @description Specifies whether to enable auto-renewal. Valid values:
+     *
+     *   false (default)
+     *   true
+     *
      * @example false
      *
      * @var bool
@@ -16,6 +21,12 @@ class CreateResourceInstancesRequest extends Model
     public $autoRenewal;
 
     /**
+     * @description The billing method of the instance. Valid values:
+     *
+     *   PrePaid: subscription.
+     *   PostPaid: pay-as-you-go.
+     *
+     * This parameter is required.
      * @example PrePaid
      *
      * @var string
@@ -23,6 +34,9 @@ class CreateResourceInstancesRequest extends Model
     public $chargeType;
 
     /**
+     * @description The number of instances that you want to create. Valid values: 1 to 100.
+     *
+     * This parameter is required.
      * @example 5
      *
      * @var int
@@ -30,6 +44,9 @@ class CreateResourceInstancesRequest extends Model
     public $ecsInstanceCount;
 
     /**
+     * @description The type of the Elastic Compute Service (ECS) instance.
+     *
+     * This parameter is required.
      * @example ecs.s6-c1m2.xlarge
      *
      * @var string
@@ -37,6 +54,8 @@ class CreateResourceInstancesRequest extends Model
     public $ecsInstanceType;
 
     /**
+     * @description The size of the system disk. Unit: GiB. Valid values: 200 to 2000. Default value: 200.
+     *
      * @example 200
      *
      * @var int
@@ -44,6 +63,8 @@ class CreateResourceInstancesRequest extends Model
     public $systemDiskSize;
 
     /**
+     * @description The user-defined information. This parameter is not in use.
+     *
      * @example x112223333
      *
      * @var string
@@ -51,6 +72,8 @@ class CreateResourceInstancesRequest extends Model
     public $userData;
 
     /**
+     * @description The zone to which the instance belongs.
+     *
      * @example cn-shanghai-f
      *
      * @var string

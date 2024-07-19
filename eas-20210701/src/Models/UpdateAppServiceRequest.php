@@ -68,16 +68,16 @@ class UpdateAppServiceRequest extends Model
     /**
      * @description The service specifications. Valid values:
      *
-     *   llama\_7b_fp16
-     *   llama\_7b_int8
-     *   llama\_13b_fp16
-     *   llama\_7b_int8
-     *   chatglm\_6b_fp16
-     *   chatglm\_6b_int8
-     *   chatglm2\_6b_fp16
-     *   baichuan\_7b_int8
-     *   baichuan\_13b_fp16
-     *   baichuan\_7b_fp16
+     *   llama_7b_fp16
+     *   llama_7b_int8
+     *   llama_13b_fp16
+     *   llama_7b_int8
+     *   chatglm_6b_fp16
+     *   chatglm_6b_int8
+     *   chatglm2_6b_fp16
+     *   baichuan_7b_int8
+     *   baichuan_13b_fp16
+     *   baichuan_7b_fp16
      *
      * @example llama_7b_fp16
      *

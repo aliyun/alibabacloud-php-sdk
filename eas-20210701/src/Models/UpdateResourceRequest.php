@@ -19,7 +19,7 @@ class UpdateResourceRequest extends Model
     public $resourceName;
 
     /**
-     * @description The configurable options for self managed resource group.
+     * @description The configuration items of the self-managed resource group.
      *
      * @var selfManagedResourceOptions
      */

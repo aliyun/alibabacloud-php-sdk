@@ -31,7 +31,7 @@ class versions extends Model
     public $imageAvailable;
 
     /**
-     * @description The ID of the image.
+     * @description The image ID.
      *
      * @example 4
      *
@@ -58,11 +58,11 @@ class versions extends Model
     public $serviceConfig;
 
     /**
-     * @description Indicates whether EAS is enabled. Valid values:
+     * @description Indicates whether Elastic Algorithm service (EAS) is activated. Valid values:
      *
-     *   true: EAS is enabled.
-     *   false: EAS is not enabled.
-     *   unknown: The enabling status of EAS is unknown.
+     *   true: EAS is activated.
+     *   false: EAS is not activated.
+     *   unknown: The activation of EAS is unknown.
      *
      * @example true
      *

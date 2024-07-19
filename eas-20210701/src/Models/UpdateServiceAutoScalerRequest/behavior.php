@@ -12,16 +12,22 @@ use AlibabaCloud\Tea\Model;
 class behavior extends Model
 {
     /**
+     * @description The operation that reduces the number of instances to 0.
+     *
      * @var onZero
      */
     public $onZero;
 
     /**
+     * @description The scale-in operation.
+     *
      * @var scaleDown
      */
     public $scaleDown;
 
     /**
+     * @description The scale-out operation.
+     *
      * @var scaleUp
      */
     public $scaleUp;

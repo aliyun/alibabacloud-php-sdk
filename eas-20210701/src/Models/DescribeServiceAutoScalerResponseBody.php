@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeServiceAutoScalerResponseBody extends Model
 {
     /**
+     * @description The additional information about the Autoscaler policy, such as the interval of triggering Autoscaler.
+     *
      * @example {
      * }
      * @var mixed[]
@@ -18,11 +20,15 @@ class DescribeServiceAutoScalerResponseBody extends Model
     public $behavior;
 
     /**
+     * @description The metrics.
+     *
      * @var currentMetrics[]
      */
     public $currentMetrics;
 
     /**
+     * @description The maximum number of instances in the service.
+     *
      * @example 8
      *
      * @var int
@@ -30,6 +36,8 @@ class DescribeServiceAutoScalerResponseBody extends Model
     public $maxReplica;
 
     /**
+     * @description The minimum number of instances in the service.
+     *
      * @example 3
      *
      * @var int
@@ -37,6 +45,8 @@ class DescribeServiceAutoScalerResponseBody extends Model
     public $minReplica;
 
     /**
+     * @description The request ID.
+     *
      * @example 40325405-579C-4D82****
      *
      * @var string
@@ -44,11 +54,15 @@ class DescribeServiceAutoScalerResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The auto scaling policies.
+     *
      * @var scaleStrategies[]
      */
     public $scaleStrategies;
 
     /**
+     * @description The service name.
+     *
      * @example foo
      *
      * @var string

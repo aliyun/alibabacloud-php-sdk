@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListBenchmarkTaskRequest extends Model
 {
     /**
-     * @description The keyword used to query required stress testing tasks. If this parameter is specified, the system returns stress testing tasks based on the names of the stress testing tasks in the matched Elastic Algorithm service (EAS).
+     * @description The keyword used to query required stress testing tasks. If this parameter is specified, the system returns stress testing tasks based on the names of the stress testing tasks in the matched Elastic Algorithm Service (EAS).
      *
      * @example test_bench
      *
@@ -36,7 +36,7 @@ class ListBenchmarkTaskRequest extends Model
     public $pageSize;
 
     /**
-     * @description The name of the EAS service that corresponds to the stress testing task. For more information about how to query the service name, see [ListServices](~~412109~~).
+     * @description The name of the EAS service that corresponds to the stress testing task. For more information about how to query the service name, see [ListServices](https://help.aliyun.com/document_detail/412109.html).
      *
      * @example test_bench_srv
      *

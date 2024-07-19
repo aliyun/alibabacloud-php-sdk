@@ -20,6 +20,7 @@ class UpdateResourceDLinkRequest extends Model
     /**
      * @description The ID of the security group to which the Elastic Compute Service (ECS) instance belongs.
      *
+     * This parameter is required.
      * @example sg-bp149cedsfx2rfspd2d
      *
      * @var string
@@ -29,6 +30,7 @@ class UpdateResourceDLinkRequest extends Model
     /**
      * @description The ID of the peer primary vSwitch. After this parameter is specified, an elastic network interface (ENI) is created in the VSwitch.
      *
+     * This parameter is required.
      * @example vpc-uf66uio7md****
      *
      * @var string

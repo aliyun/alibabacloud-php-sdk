@@ -11,8 +11,8 @@ class DevelopServiceRequest extends Model
     /**
      * @description Specifies whether to exit development mode. Valid values:
      *
-     *   true
-     *   false (default)
+     *   true: exits development mode.
+     *   false (default): enters development mode.
      *
      * @example true
      *

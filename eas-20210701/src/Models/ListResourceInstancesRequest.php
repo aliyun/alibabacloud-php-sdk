@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListResourceInstancesRequest extends Model
 {
     /**
+     * @description The billing method of the instance. Valid values:
+     *
+     *   PrePaid: subscription.
+     *   PostPaid: pay-as-you-go.
+     *
      * @example PrePaid
      *
      * @var string
@@ -16,6 +21,8 @@ class ListResourceInstancesRequest extends Model
     public $chargeType;
 
     /**
+     * @description The keyword used to query instances. Instances can be queried by instance ID or instance IP address.
+     *
      * @example 10.224.xx.xx
      *
      * @var string
@@ -23,6 +30,8 @@ class ListResourceInstancesRequest extends Model
     public $filter;
 
     /**
+     * @description The IP address of the instance.
+     *
      * @example 10.224.xx.xx
      *
      * @var string
@@ -30,6 +39,8 @@ class ListResourceInstancesRequest extends Model
     public $instanceIP;
 
     /**
+     * @description The instance ID. For more information about how to query the instance ID, see [ListResourceInstances](https://help.aliyun.com/document_detail/412129.html).
+     *
      * @example i-bp1jd6x3uotsv****
      *
      * @var string
@@ -37,6 +48,8 @@ class ListResourceInstancesRequest extends Model
     public $instanceId;
 
     /**
+     * @description The instance name.
+     *
      * @example e-xxxx***
      *
      * @var string
@@ -44,6 +57,41 @@ class ListResourceInstancesRequest extends Model
     public $instanceName;
 
     /**
+     * @description The instance state.
+     *
+     * Valid values:
+     *
+     *   Ready-SchedulingDisabled
+     *
+     * .
+     *
+     *   Ready
+     *
+     * .
+     *
+     *   NotReady
+     *
+     * <!-- -->
+     *
+     *   Stopped
+     *
+     * <!-- -->
+     *
+     *   NotReady-SchedulingDisabled
+     *
+     * .
+     *
+     *   Attaching
+     *
+     * .
+     *
+     *   Deleting
+     *
+     * <!-- -->
+     *
+     *   CreateFailed: The instance failed to be created.
+     *
+     * <!-- -->
      * @example Ready
      *
      * @var string
@@ -51,6 +99,17 @@ class ListResourceInstancesRequest extends Model
     public $instanceStatus;
 
     /**
+     * @description The sorting order.
+     *
+     * Valid values:
+     *
+     *   asc: The instances are sorted in ascending order.
+     *
+     * <!-- -->
+     *
+     *   desc
+     *
+     * <!-- -->
      * @example desc
      *
      * @var string
@@ -58,6 +117,8 @@ class ListResourceInstancesRequest extends Model
     public $order;
 
     /**
+     * @description The page number. Pages start from page 1. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -65,6 +126,8 @@ class ListResourceInstancesRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Default value: 100.
+     *
      * @example 20
      *
      * @var int
@@ -72,6 +135,29 @@ class ListResourceInstancesRequest extends Model
     public $pageSize;
 
     /**
+     * @description The field that you use to sort the query results.
+     *
+     * Valid values:
+     *
+     *   CreateTime
+     *
+     * <!-- -->
+     *
+     *   MemoryUsed
+     *
+     * .
+     *
+     *   GpuUsed
+     *
+     * <!-- -->
+     *
+     *   ExpireTime: The instances are sorted based on the time when the instances expired.
+     *
+     * <!-- -->
+     *
+     *   CpuUsed
+     *
+     * <!-- -->
      * @example CreateTime
      *
      * @var string

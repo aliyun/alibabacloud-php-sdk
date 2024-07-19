@@ -47,6 +47,7 @@ class CreateGatewayRequest extends Model
     /**
      * @description The instance type used for the private gateway.
      *
+     * This parameter is required.
      * @example ecs.c6.4xlarge
      *
      * @var string

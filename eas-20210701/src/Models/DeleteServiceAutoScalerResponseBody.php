@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteServiceAutoScalerResponseBody extends Model
 {
     /**
+     * @description The returned message.
+     *
      * @example Autoscaler for service [foo] deleted successfully
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteServiceAutoScalerResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 40325405-579C-4D82****
      *
      * @var string

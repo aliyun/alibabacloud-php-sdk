@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class selfManagedResourceOptions extends Model
 {
     /**
-     * @description The key-value pairs for matched nodes.
+     * @description Tag tag key-value pairs for nodes.
      *
      * @var string[]
      */

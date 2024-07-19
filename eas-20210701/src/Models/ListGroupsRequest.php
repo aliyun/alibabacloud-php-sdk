@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListGroupsRequest extends Model
 {
     /**
+     * @description The name of the filter that is used to filter out unwanted service groups. Fuzzy match is supported.
+     *
      * @example foo
      *
      * @var string
@@ -16,6 +18,8 @@ class ListGroupsRequest extends Model
     public $filter;
 
     /**
+     * @description The page number. Default value: 1.
+     *
      * @example 1
      *
      * @var string
@@ -23,6 +27,8 @@ class ListGroupsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Default value: 100.
+     *
      * @example 20
      *
      * @var string
@@ -30,6 +36,10 @@ class ListGroupsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The workspace ID.
+     *
+     * @example 123***
+     *
      * @var string
      */
     public $workspaceId;

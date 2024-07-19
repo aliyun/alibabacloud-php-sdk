@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class scaleJobs extends Model
 {
     /**
+     * @description The time when the most recent CronHPA job was created. The time is displayed in UTC.
+     *
      * @example 2020-06-24T02:11:30Z
      *
      * @var string
@@ -16,6 +18,8 @@ class scaleJobs extends Model
     public $createTime;
 
     /**
+     * @description The time when the most recent CronHPA job ran. The time is displayed in UTC.
+     *
      * @example 2022-02-24T06:31:00Z
      *
      * @var string
@@ -23,6 +27,8 @@ class scaleJobs extends Model
     public $lastProbeTime;
 
     /**
+     * @description The returned message.
+     *
      * @example "cron hpa job scale-jobs-0 executed successfully. current replicas:3, desired replicas:2."
      *
      * @var string
@@ -30,6 +36,8 @@ class scaleJobs extends Model
     public $message;
 
     /**
+     * @description The name of the CronHPA job.
+     *
      * @example scale-job-1
      *
      * @var string
@@ -37,6 +45,8 @@ class scaleJobs extends Model
     public $name;
 
     /**
+     * @description The cron expression that is used to configure the execution time of the CronHPA job.
+     *
      * @example 0 18 * * * *
      *
      * @var string
@@ -44,6 +54,8 @@ class scaleJobs extends Model
     public $schedule;
 
     /**
+     * @description The status of the most recent CronHPA job.
+     *
      * @example Succeed
      *
      * @var string
@@ -51,6 +63,8 @@ class scaleJobs extends Model
     public $state;
 
     /**
+     * @description The number of instances that you expect to configure for the CronHPA job.
+     *
      * @example 1
      *
      * @var int

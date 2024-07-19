@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class tasks extends Model
 {
     /**
+     * @description The number of instances that are available for stress testing.
+     *
      * @example 2
      *
      * @var int
@@ -16,6 +18,8 @@ class tasks extends Model
     public $availableAgent;
 
     /**
+     * @description The time when the stress testing task was created.
+     *
      * @example 2020-12-04T02:43:15Z
      *
      * @var string
@@ -23,6 +27,8 @@ class tasks extends Model
     public $createTime;
 
     /**
+     * @description The returned message.
+     *
      * @example Benchmark task [benchmark-larec-test-1076] is Running
      *
      * @var string
@@ -30,6 +36,8 @@ class tasks extends Model
     public $message;
 
     /**
+     * @description The region ID of the stress testing task.
+     *
      * @example cn-shanghai
      *
      * @var string
@@ -37,6 +45,8 @@ class tasks extends Model
     public $region;
 
     /**
+     * @description The name of the service on which you want to perform a stress testing.
+     *
      * @example test_quota
      *
      * @var string
@@ -44,6 +54,45 @@ class tasks extends Model
     public $serviceName;
 
     /**
+     * @description The state of the stress testing task.
+     *
+     * Valid values:
+     *
+     *   Creating
+     *
+     * <!-- -->
+     *
+     *   Starting
+     *
+     * <!-- -->
+     *
+     *   DeleteFailed
+     *
+     * <!-- -->
+     *
+     *   Running
+     *
+     * <!-- -->
+     *
+     *   Stopping
+     *
+     * <!-- -->
+     *
+     *   Error
+     *
+     * <!-- -->
+     *
+     *   Updating
+     *
+     * <!-- -->
+     *
+     *   Deleting
+     *
+     * <!-- -->
+     *
+     *   CreateFailed
+     *
+     * <!-- -->
      * @example Running
      *
      * @var string
@@ -51,6 +100,8 @@ class tasks extends Model
     public $status;
 
     /**
+     * @description The ID of the stress testing task.
+     *
      * @example eas-b-gv4y86uvgt****i
      *
      * @var string
@@ -58,6 +109,8 @@ class tasks extends Model
     public $taskId;
 
     /**
+     * @description The name of the stress testing task.
+     *
      * @example benchmark-larec-test-1076
      *
      * @var string
@@ -65,6 +118,8 @@ class tasks extends Model
     public $taskName;
 
     /**
+     * @description The time when the stress testing task was updated.
+     *
      * @example 2020-06-24T03:11:30Z
      *
      * @var string

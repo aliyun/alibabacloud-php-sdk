@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeBenchmarkTaskReportRequest extends Model
 {
     /**
+     * @description The report type of the stress testing task. Valid values: RAW and Report.
+     *
      * @example report
      *
      * @var string

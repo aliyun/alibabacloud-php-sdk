@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeServiceLogRequest extends Model
 {
     /**
+     * @description The name of the container that runs the service.
+     *
      * @example worker0
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeServiceLogRequest extends Model
     public $containerName;
 
     /**
+     * @description The end of the time range to query. The time must be in UTC.
+     *
      * @example 2006-01-02 15:04:05
      *
      * @var string
@@ -23,6 +27,8 @@ class DescribeServiceLogRequest extends Model
     public $endTime;
 
     /**
+     * @description The name of the instance that runs the service. For more information about how to query the instance name, see [ListServiceInstances](https://help.aliyun.com/document_detail/412108.html).
+     *
      * @example echo-da290ac8-7fckm
      *
      * @var string
@@ -30,6 +36,8 @@ class DescribeServiceLogRequest extends Model
     public $instanceName;
 
     /**
+     * @description The IP address of the instance whose logs you want to query. For more information about how to query the IP address of an instance, see [ListServiceInstances](https://help.aliyun.com/document_detail/412108.html).
+     *
      * @example 10.0.0.1
      *
      * @var string
@@ -37,6 +45,8 @@ class DescribeServiceLogRequest extends Model
     public $ip;
 
     /**
+     * @description The keyword that you use to query the logs of the service.
+     *
      * @example key
      *
      * @var string
@@ -44,6 +54,8 @@ class DescribeServiceLogRequest extends Model
     public $keyword;
 
     /**
+     * @description The page number. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -51,6 +63,8 @@ class DescribeServiceLogRequest extends Model
     public $pageNum;
 
     /**
+     * @description The number of entries per page. Default value: 500.
+     *
      * @example 500
      *
      * @var int
@@ -58,6 +72,17 @@ class DescribeServiceLogRequest extends Model
     public $pageSize;
 
     /**
+     * @description Specifies whether to query the logs that are generated before the instance last restarts. This parameter is available only if the instance restarts.
+     *
+     * Valid values:
+     *
+     *   true
+     *
+     * <!-- -->
+     *
+     *   false
+     *
+     * <!-- -->
      * @example true
      *
      * @var bool
@@ -65,6 +90,8 @@ class DescribeServiceLogRequest extends Model
     public $previous;
 
     /**
+     * @description The beginning of the time range to query. The time must be in Coordinated Universal Time (UTC).
+     *
      * @example 2006-01-02 15:04:05
      *
      * @var string

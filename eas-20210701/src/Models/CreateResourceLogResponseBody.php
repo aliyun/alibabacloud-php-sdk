@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateResourceLogResponseBody extends Model
 {
     /**
+     * @description The returned message.
+     *
      * @example Resource [eas-r-asdasdasd] is deleted.
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateResourceLogResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 40325405-579C-4D82****
      *
      * @var string

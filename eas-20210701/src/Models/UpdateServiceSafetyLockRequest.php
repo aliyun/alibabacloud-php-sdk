@@ -12,22 +12,10 @@ class UpdateServiceSafetyLockRequest extends Model
      * @description The lock scope. Valid values:
      *
      *   all: locks all operations.
-     *   dangerous: locks high-risk operations such as delete and stop operations.
+     *   dangerous: locks dangerous operations such as delete and stop operations.
      *   none: locks no operations.
      *
-     * Enumerated values:
-     *
-     *   all
-     *
-     * <!-- -->
-     *
-     *   dangerous
-     *
-     * <!-- -->
-     *
-     *   none
-     *
-     * <!-- -->
+     * This parameter is required.
      * @example dangerous
      *
      * @var string

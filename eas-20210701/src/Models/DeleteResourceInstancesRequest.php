@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteResourceInstancesRequest extends Model
 {
     /**
+     * @description Specifies whether to delete all the instances that fail to be created. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +21,8 @@ class DeleteResourceInstancesRequest extends Model
     public $allFailed;
 
     /**
+     * @description The instances. Separate multiple instances with commas (,), such as `instanceId1,instanceId2`. For more information about how to query the instances, see [ListResourceInstances](https://help.aliyun.com/document_detail/412129.html).
+     *
      * @example eas-i-xxxxxxx,eas-i-xxxxxxx
      *
      * @var string

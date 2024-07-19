@@ -9,12 +9,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeResourceDLinkResponseBody extends Model
 {
     /**
+     * @description The IDs of the secondary vSwitches that are directly connected.
+     *
      * @var string[]
      */
     public $auxVSwitchList;
 
     /**
-     * @description The CIDR blocks of the clients that you want to connect to. The CIDR blocks are added to the back-to-origin route of the server.
+     * @description The CIDR blocks of the clients that you want to connect to. After this parameter is specified, the CIDR blocks are added to the back-to-origin route of the server. Either this parameter or the VSwitchIdList parameter can be used to determine CIDR blocks.
      *
      * @example 72.16.0.0/16
      *
@@ -23,6 +25,8 @@ class DescribeResourceDLinkResponseBody extends Model
     public $destinationCIDRs;
 
     /**
+     * @description The request ID.
+     *
      * @example 40325405-579C-4D82****
      *
      * @var string
@@ -30,6 +34,8 @@ class DescribeResourceDLinkResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the security group that is directly connected.
+     *
      * @example sg-bp1j1z7297hcink9d****
      *
      * @var string
@@ -37,6 +43,8 @@ class DescribeResourceDLinkResponseBody extends Model
     public $securityGroupId;
 
     /**
+     * @description The ID of the primary vSwitch that is directly connected.
+     *
      * @example vsw-8vbqn2at0kljjxxxx****
      *
      * @var string
@@ -44,6 +52,8 @@ class DescribeResourceDLinkResponseBody extends Model
     public $vSwitchId;
 
     /**
+     * @description The ID of the VPC that is directly connected.
+     *
      * @example vpc-uf66uio7md****
      *
      * @var string

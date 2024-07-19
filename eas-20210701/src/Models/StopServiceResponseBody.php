@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class StopServiceResponseBody extends Model
 {
     /**
+     * @description The returned message.
+     *
      * @example Succeed to auto scale service [foo]
      *
      * @var string
@@ -16,6 +18,8 @@ class StopServiceResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 40325405-579C-4D82****
      *
      * @var string

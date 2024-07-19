@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteServiceCronScalerResponseBody extends Model
 {
     /**
+     * @description The returned message.
+     *
      * @example Cronscaler for service [foo] deleted successfully
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteServiceCronScalerResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 40325405-579C-4D82****
      *
      * @var string

@@ -16,6 +16,20 @@ class Instance extends Model
     public $currentAmount;
 
     /**
+     * @example 192.168.1.100
+     *
+     * @var string
+     */
+    public $externalIP;
+
+    /**
+     * @example 8080
+     *
+     * @var int
+     */
+    public $externalInstancePort;
+
+    /**
      * @var string
      */
     public $hostIP;
@@ -101,9 +115,16 @@ class Instance extends Model
     public $role;
 
     /**
+     * @deprecated
+     *
      * @var string
      */
     public $startAt;
+
+    /**
+     * @var string
+     */
+    public $startTime;
 
     /**
      * @var string
@@ -128,28 +149,39 @@ class Instance extends Model
      * @var int
      */
     public $totalProcesses;
+
+    /**
+     * @example cn-shanghai-a
+     *
+     * @var string
+     */
+    public $zone;
     protected $_name = [
-        'currentAmount'    => 'CurrentAmount',
-        'hostIP'           => 'HostIP',
-        'hostName'         => 'HostName',
-        'innerIP'          => 'InnerIP',
-        'instanceName'     => 'InstanceName',
-        'instancePort'     => 'InstancePort',
-        'isSpot'           => 'IsSpot',
-        'isolated'         => 'Isolated',
-        'lastState'        => 'LastState',
-        'namespace'        => 'Namespace',
-        'originalAmount'   => 'OriginalAmount',
-        'readyProcesses'   => 'ReadyProcesses',
-        'reason'           => 'Reason',
-        'resourceType'     => 'ResourceType',
-        'restartCount'     => 'RestartCount',
-        'role'             => 'Role',
-        'startAt'          => 'StartAt',
-        'status'           => 'Status',
-        'tenantHostIP'     => 'TenantHostIP',
-        'tenantInstanceIP' => 'TenantInstanceIP',
-        'totalProcesses'   => 'TotalProcesses',
+        'currentAmount'        => 'CurrentAmount',
+        'externalIP'           => 'ExternalIP',
+        'externalInstancePort' => 'ExternalInstancePort',
+        'hostIP'               => 'HostIP',
+        'hostName'             => 'HostName',
+        'innerIP'              => 'InnerIP',
+        'instanceName'         => 'InstanceName',
+        'instancePort'         => 'InstancePort',
+        'isSpot'               => 'IsSpot',
+        'isolated'             => 'Isolated',
+        'lastState'            => 'LastState',
+        'namespace'            => 'Namespace',
+        'originalAmount'       => 'OriginalAmount',
+        'readyProcesses'       => 'ReadyProcesses',
+        'reason'               => 'Reason',
+        'resourceType'         => 'ResourceType',
+        'restartCount'         => 'RestartCount',
+        'role'                 => 'Role',
+        'startAt'              => 'StartAt',
+        'startTime'            => 'StartTime',
+        'status'               => 'Status',
+        'tenantHostIP'         => 'TenantHostIP',
+        'tenantInstanceIP'     => 'TenantInstanceIP',
+        'totalProcesses'       => 'TotalProcesses',
+        'zone'                 => 'Zone',
     ];
 
     public function validate()
@@ -161,6 +193,12 @@ class Instance extends Model
         $res = [];
         if (null !== $this->currentAmount) {
             $res['CurrentAmount'] = $this->currentAmount;
+        }
+        if (null !== $this->externalIP) {
+            $res['ExternalIP'] = $this->externalIP;
+        }
+        if (null !== $this->externalInstancePort) {
+            $res['ExternalInstancePort'] = $this->externalInstancePort;
         }
         if (null !== $this->hostIP) {
             $res['HostIP'] = $this->hostIP;
@@ -210,6 +248,9 @@ class Instance extends Model
         if (null !== $this->startAt) {
             $res['StartAt'] = $this->startAt;
         }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
+        }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -221,6 +262,9 @@ class Instance extends Model
         }
         if (null !== $this->totalProcesses) {
             $res['TotalProcesses'] = $this->totalProcesses;
+        }
+        if (null !== $this->zone) {
+            $res['Zone'] = $this->zone;
         }
 
         return $res;
@@ -236,6 +280,12 @@ class Instance extends Model
         $model = new self();
         if (isset($map['CurrentAmount'])) {
             $model->currentAmount = $map['CurrentAmount'];
+        }
+        if (isset($map['ExternalIP'])) {
+            $model->externalIP = $map['ExternalIP'];
+        }
+        if (isset($map['ExternalInstancePort'])) {
+            $model->externalInstancePort = $map['ExternalInstancePort'];
         }
         if (isset($map['HostIP'])) {
             $model->hostIP = $map['HostIP'];
@@ -287,6 +337,9 @@ class Instance extends Model
         if (isset($map['StartAt'])) {
             $model->startAt = $map['StartAt'];
         }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
+        }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
@@ -298,6 +351,9 @@ class Instance extends Model
         }
         if (isset($map['TotalProcesses'])) {
             $model->totalProcesses = $map['TotalProcesses'];
+        }
+        if (isset($map['Zone'])) {
+            $model->zone = $map['Zone'];
         }
 
         return $model;

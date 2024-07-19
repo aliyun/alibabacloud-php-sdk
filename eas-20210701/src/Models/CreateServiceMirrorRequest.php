@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateServiceMirrorRequest extends Model
 {
     /**
+     * @description The percentage of the traffic that is mirrored to the destination service. Valid values: 0 to 100.
+     *
      * @example 30
      *
      * @var int
@@ -16,6 +18,8 @@ class CreateServiceMirrorRequest extends Model
     public $ratio;
 
     /**
+     * @description The instances.
+     *
      * @var string[]
      */
     public $target;

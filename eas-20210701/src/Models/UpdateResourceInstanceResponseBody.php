@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateResourceInstanceResponseBody extends Model
 {
     /**
+     * @description The instance ID.
+     *
      * @example eas-i-asdasdasd
      *
      * @var string
@@ -16,6 +18,8 @@ class UpdateResourceInstanceResponseBody extends Model
     public $instanceId;
 
     /**
+     * @description The request ID.
+     *
      * @example 40325405-579C-4D82****
      *
      * @var string
@@ -23,6 +27,8 @@ class UpdateResourceInstanceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example eas-r-asdasdasd
      *
      * @var string

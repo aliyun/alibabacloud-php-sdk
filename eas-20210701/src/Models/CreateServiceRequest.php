@@ -27,11 +27,15 @@ class CreateServiceRequest extends Model
     public $develop;
 
     /**
+     * @description The custom label.
+     *
      * @var string[]
      */
     public $labels;
 
     /**
+     * @description The workspace ID.
+     *
      * @example 123456
      *
      * @var string
@@ -39,7 +43,19 @@ class CreateServiceRequest extends Model
     public $workspaceId;
 
     /**
-     * @example {
+     * @description The request body. For more information about the key request parameters, see **Table 1. Request body parameters** and **Table 2. Metadata parameters**. For more information about all related parameters, see [Parameters of model services](https://help.aliyun.com/document_detail/450525.html).
+     *
+     * @example Service deployment by using an image:
+     * {
+     * "image": "****",
+     * "script": "**** --listen=0.0.0.0 --server_port=8000 --headless",
+     * {
+     * "image": "****",
+     * "script": "**** --listen=0.0.0.0 --server_port=8000 --headless",
+     * "processor_type": "python",
+     * "processor_path": "oss://****",
+     * "processor_entry": "a.py",
+     * "model_path": "oss://****"
      * }
      * @var string
      */

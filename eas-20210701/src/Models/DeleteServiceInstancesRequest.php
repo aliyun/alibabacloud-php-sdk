@@ -18,6 +18,9 @@ class DeleteServiceInstancesRequest extends Model
     public $container;
 
     /**
+     * @description The instances that you want to restart. Separate multiple instance names with commas (,). For more information about how to query the instance name, see [ListServiceInstances](https://help.aliyun.com/document_detail/412108.html).
+     *
+     * This parameter is required.
      * @example foo-rdsbxxxx,foo-rdsaxxxx
      *
      * @var string

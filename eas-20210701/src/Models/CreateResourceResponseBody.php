@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateResourceResponseBody extends Model
 {
     /**
+     * @description The ID of the cluster to which the resource group belongs.
+     *
      * @example cn-shanghai
      *
      * @var string
@@ -16,11 +18,15 @@ class CreateResourceResponseBody extends Model
     public $clusterId;
 
     /**
+     * @description The instance IDs.
+     *
      * @var string[]
      */
     public $instanceIds;
 
     /**
+     * @description The user ID (UID) of the resource group owner.
+     *
      * @example 14401087478****
      *
      * @var string
@@ -28,6 +34,8 @@ class CreateResourceResponseBody extends Model
     public $ownerUid;
 
     /**
+     * @description The request ID.
+     *
      * @example 40325405-579C-4D82****
      *
      * @var string
@@ -35,6 +43,8 @@ class CreateResourceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example eas-r-h7lcw24dyqztwxxxxxx
      *
      * @var string
@@ -42,6 +52,8 @@ class CreateResourceResponseBody extends Model
     public $resourceId;
 
     /**
+     * @description The name of the resource group.
+     *
      * @example MyResource
      *
      * @var string

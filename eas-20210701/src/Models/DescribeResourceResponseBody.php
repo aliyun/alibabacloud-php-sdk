@@ -126,9 +126,11 @@ class DescribeResourceResponseBody extends Model
     public $resourceName;
 
     /**
-     * @description The type of the resource. Valid values:
+     * @description The type of the resource group. Valid values:
      *
-     * - SelfManaged
+     *   Dedicated: the dedicated resource group.
+     *   SelfManaged: the self-managed resource group.
+     *
      * @example Dedicated
      *
      * @var string

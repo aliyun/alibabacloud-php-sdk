@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ListGroupsResponseBody extends Model
 {
     /**
+     * @description The service groups.
+     *
      * @var Group[]
      */
     public $groups;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -21,6 +25,8 @@ class ListGroupsResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 20
      *
      * @var int
@@ -28,6 +34,8 @@ class ListGroupsResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
      * @example 40325405-579C-4D82****
      *
      * @var string
@@ -35,6 +43,8 @@ class ListGroupsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 5
      *
      * @var int

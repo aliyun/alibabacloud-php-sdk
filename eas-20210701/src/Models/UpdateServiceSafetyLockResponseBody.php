@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateServiceSafetyLockResponseBody extends Model
 {
     /**
+     * @description The returned message.
+     *
      * @example service safety lock updated to dangerous
      *
      * @var string
@@ -16,6 +18,8 @@ class UpdateServiceSafetyLockResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example E089D584-B6F4-50C4-9902-DA2295B7****
      *
      * @var string

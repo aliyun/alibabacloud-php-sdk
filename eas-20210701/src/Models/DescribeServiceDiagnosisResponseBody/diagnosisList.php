@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class diagnosisList extends Model
 {
     /**
+     * @description The suggestions about how to handle the errors.
+     *
      * @var string[]
      */
     public $advices;
 
     /**
+     * @description The causes of the errors.
+     *
      * @var string[]
      */
     public $causes;
 
     /**
+     * @description The error message.
+     *
      * @example Container worker0 failed to pull image.
      *
      * @var string

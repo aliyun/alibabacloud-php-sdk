@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CloneServiceResponseBody extends Model
 {
     /**
+     * @description The public endpoint of the service.
+     *
      * @example http://10123*****.cn-shanghai.aliyuncs.com/api/predict/echo
      *
      * @var string
@@ -16,6 +18,8 @@ class CloneServiceResponseBody extends Model
     public $internetEndpoint;
 
     /**
+     * @description The private endpoint of the service.
+     *
      * @example http://10123*****.vpc.cn-shanghai.aliyuncs.com/api/predict/echo
      *
      * @var string
@@ -32,6 +36,8 @@ class CloneServiceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The service ID.
+     *
      * @example eas-m-r9knx7n9guf2p*****
      *
      * @var string
@@ -39,6 +45,8 @@ class CloneServiceResponseBody extends Model
     public $serviceId;
 
     /**
+     * @description The service name.
+     *
      * @example foo
      *
      * @var string
@@ -46,6 +54,8 @@ class CloneServiceResponseBody extends Model
     public $serviceName;
 
     /**
+     * @description The service status.
+     *
      * @example Creating
      *
      * @var string

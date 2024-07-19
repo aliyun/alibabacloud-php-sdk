@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class scaleStrategies extends Model
 {
     /**
+     * @description The metric name. Valid values:
+     *
+     *   QPS: the queries per second (QPS) for an individual instance.
+     *   CPU: the CPU utilization.
+     *
      * @example QPS
      *
      * @var string
@@ -16,6 +21,8 @@ class scaleStrategies extends Model
     public $metricName;
 
     /**
+     * @description The service for which the metric is specified. If you do not set this parameter, the current service is specified by default.
+     *
      * @example demo_svc
      *
      * @var string
@@ -23,6 +30,11 @@ class scaleStrategies extends Model
     public $service;
 
     /**
+     * @description The threshold of the metric that triggers auto scaling.
+     *
+     *   If you set metricName to QPS, scale-out is triggered when the average QPS for a single instance is greater than this threshold.
+     *   If you set metricName to CPU, scale-out is triggered when the average CPU utilization for a single instance is greater than this threshold.
+     *
      * @example 10
      *
      * @var float

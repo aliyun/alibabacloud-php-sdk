@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ReleaseServiceResponseBody extends Model
 {
     /**
+     * @description The returned message.
+     *
      * @example Releasing service [foo] in region [cn-shanghai] with weight [40], service status: [Running]
      *
      * @var string
@@ -16,6 +18,8 @@ class ReleaseServiceResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 40325405-579C-4D82****
      *
      * @var string

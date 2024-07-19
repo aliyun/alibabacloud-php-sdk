@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeServiceEventRequest extends Model
 {
     /**
+     * @description The end of the time range to query. By default, the current point in time is the end of the time range to query.
+     *
      * @example 2006-01-02 15:04:05
      *
      * @var string
@@ -16,6 +18,11 @@ class DescribeServiceEventRequest extends Model
     public $endTime;
 
     /**
+     * @description The event type. Valid values:
+     *
+     *   Normal
+     *   Warning
+     *
      * @example Normal
      *
      * @var string
@@ -23,6 +30,8 @@ class DescribeServiceEventRequest extends Model
     public $eventType;
 
     /**
+     * @description The instance name. For more information about how to obtain the instance name, see [ListServiceInstances](https://help.aliyun.com/document_detail/412108.html).
+     *
      * @example echo-test-784xxxx85d-hhnd8
      *
      * @var string
@@ -30,6 +39,8 @@ class DescribeServiceEventRequest extends Model
     public $instanceName;
 
     /**
+     * @description The page number. Default value: 1.
+     *
      * @example 1
      *
      * @var string
@@ -37,6 +48,8 @@ class DescribeServiceEventRequest extends Model
     public $pageNum;
 
     /**
+     * @description The number of entries per page. Default value: 100.
+     *
      * @example 20
      *
      * @var string
@@ -44,6 +57,8 @@ class DescribeServiceEventRequest extends Model
     public $pageSize;
 
     /**
+     * @description The beginning of the time range to query. The time must be in UTC. The default value is seven days ago.
+     *
      * @example 2006-01-02 15:04:05
      *
      * @var string

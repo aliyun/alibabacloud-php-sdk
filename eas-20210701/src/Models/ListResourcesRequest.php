@@ -27,7 +27,7 @@ class ListResourcesRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the resource group. You can call the [CreateResource](~~412111~~) operation to query the ID of the resource group.
+     * @description The ID of the resource group. You can call the [CreateResource](https://help.aliyun.com/document_detail/412111.html) operation to query the ID of the resource group.
      *
      * @example eas-r-h7lcw24dyqztwxxxxxx
      *
@@ -36,7 +36,7 @@ class ListResourcesRequest extends Model
     public $resourceId;
 
     /**
-     * @description The name of the resource group. You can call the [CreateResource](~~412111~~) operation to query the name of the resource group.
+     * @description The name of the resource group. You can call the [CreateResource](https://help.aliyun.com/document_detail/412111.html) operation to query the name of the resource group.
      *
      * @example MyResource
      *
@@ -45,6 +45,11 @@ class ListResourcesRequest extends Model
     public $resourceName;
 
     /**
+     * @description The type of the resource group. Valid values:
+     *
+     *   Dedicated: the dedicated resource group.
+     *   SelfManaged: the self-managed resource group.
+     *
      * @example Dedicated
      *
      * @var string

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeServiceEventResponseBody extends Model
 {
     /**
+     * @description The events.
+     *
      * @var events[]
      */
     public $events;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class DescribeServiceEventResponseBody extends Model
     public $pageNum;
 
     /**
+     * @description The request ID.
+     *
      * @example 3D491C94-6239-5318-B4B4-799D859***
      *
      * @var string
@@ -29,6 +35,8 @@ class DescribeServiceEventResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 29
      *
      * @var int
@@ -36,6 +44,8 @@ class DescribeServiceEventResponseBody extends Model
     public $totalCount;
 
     /**
+     * @description The total number of pages returned.
+     *
      * @example 12
      *
      * @var int
