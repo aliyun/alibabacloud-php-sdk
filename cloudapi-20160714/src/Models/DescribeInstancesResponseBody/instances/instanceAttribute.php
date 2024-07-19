@@ -13,6 +13,8 @@ use AlibabaCloud\Tea\Model;
 class instanceAttribute extends Model
 {
     /**
+     * @description The ACL ID.
+     *
      * @example acl-uf6f9zfxfxtp5j9ng3yv4
      *
      * @var string
@@ -20,6 +22,8 @@ class instanceAttribute extends Model
     public $aclId;
 
     /**
+     * @description The name of the access control list (ACL).
+     *
      * @example test
      *
      * @var string
@@ -27,6 +31,11 @@ class instanceAttribute extends Model
     public $aclName;
 
     /**
+     * @description Indicates whether the ACL is enabled. Valid values:
+     *
+     *   **on**
+     *   **off**
+     *
      * @example on
      *
      * @var string
@@ -34,6 +43,11 @@ class instanceAttribute extends Model
     public $aclStatus;
 
     /**
+     * @description The ACL type. Valid values:
+     *
+     *   black: blacklist
+     *   white: whitelist
+     *
      * @example white
      *
      * @var string
@@ -41,6 +55,8 @@ class instanceAttribute extends Model
     public $aclType;
 
     /**
+     * @description The egress IP address.
+     *
      * @example 10.0.0.1
      *
      * @var string
@@ -48,12 +64,16 @@ class instanceAttribute extends Model
     public $classicEgressAddress;
 
     /**
+     * @description The internal CIDR block of the user\\"s VPC that can be accessed if the instance is a VPC integration instance.
+     *
+     * @example [\\"172.16.0.0/24\\",\\"172.16.1.0/24\\"]
+     *
      * @var string
      */
     public $connectCidrBlocks;
 
     /**
-     * @description VPC融合类型专享实例联通的用户VPC ID
+     * @description The ID of the user\\"s VPC if the instance is a VPC integration instance.
      *
      * @example vpc-m5eo7khlb4h4f8y9egsdg
      *
@@ -62,6 +82,8 @@ class instanceAttribute extends Model
     public $connectVpcId;
 
     /**
+     * @description The time when the instance was created.
+     *
      * @example 2021-10-22 15:36:53.0
      *
      * @var string
@@ -69,8 +91,11 @@ class instanceAttribute extends Model
     public $createdTime;
 
     /**
-     * @description 专享实例类型
-     * - normal：传统类型专享实例
+     * @description The type of the dedicated instance. Valid values:
+     *
+     *   vpc_connect: VPC integration instance
+     *   normal: conventional dedicated instance
+     *
      * @example vpc_connect
      *
      * @var string
@@ -78,6 +103,8 @@ class instanceAttribute extends Model
     public $dedicatedInstanceType;
 
     /**
+     * @description Indicates whether outbound IPv6 traffic is supported.
+     *
      * @example true
      *
      * @var bool
@@ -85,6 +112,8 @@ class instanceAttribute extends Model
     public $egressIpv6Enable;
 
     /**
+     * @description The time when the instance expires.
+     *
      * @example 1659801600000
      *
      * @var string
@@ -92,6 +121,8 @@ class instanceAttribute extends Model
     public $expiredTime;
 
     /**
+     * @description The HTTPS security policy.
+     *
      * @example HTTPS2_TLS1_2
      *
      * @var string
@@ -99,6 +130,8 @@ class instanceAttribute extends Model
     public $httpsPolicies;
 
     /**
+     * @description The ID of the IPv6 ACL.
+     *
      * @example acl-124resFfs235
      *
      * @var string
@@ -106,6 +139,8 @@ class instanceAttribute extends Model
     public $IPV6AclId;
 
     /**
+     * @description The name of the IPv6 ACL.
+     *
      * @example testIPV6
      *
      * @var string
@@ -113,6 +148,11 @@ class instanceAttribute extends Model
     public $IPV6AclName;
 
     /**
+     * @description Indicates whether the IPv6 ACL is enabled. Valid values:
+     *
+     *   **on**
+     *   **off**
+     *
      * @example on
      *
      * @var string
@@ -120,6 +160,11 @@ class instanceAttribute extends Model
     public $IPV6AclStatus;
 
     /**
+     * @description The type of the IPv6 ACL. Valid values:
+     *
+     *   black: blacklist
+     *   white: whitelist
+     *
      * @example black
      *
      * @var string
@@ -127,6 +172,11 @@ class instanceAttribute extends Model
     public $IPV6AclType;
 
     /**
+     * @description The billing method of the instance. Valid values:
+     *
+     *   PrePaid: subscription
+     *   PayAsYouGo: pay-as-you-go
+     *
      * @example PrePaid
      *
      * @var string
@@ -134,8 +184,11 @@ class instanceAttribute extends Model
     public $instanceChargeType;
 
     /**
-     * @description 专享实例所在网段
-     * - 192.168.0.0/16
+     * @description The CIDR block of the dedicated instance.
+     *
+     *   172.16.0.0/12
+     *   192.168.0.0/16
+     *
      * @example 192.168.0.0/16
      *
      * @var string
@@ -143,11 +196,17 @@ class instanceAttribute extends Model
     public $instanceCidrBlock;
 
     /**
+     * @description The ID of the cluster to which the dedicated instance cluster belongs.
+     *
+     * @example apigateway-cluster-sh-1523cafbgffd
+     *
      * @var string
      */
     public $instanceClusterId;
 
     /**
+     * @description The instance ID.
+     *
      * @example api-shared-vpc-020
      *
      * @var string
@@ -155,6 +214,8 @@ class instanceAttribute extends Model
     public $instanceId;
 
     /**
+     * @description The instance name.
+     *
      * @example test
      *
      * @var string
@@ -162,6 +223,8 @@ class instanceAttribute extends Model
     public $instanceName;
 
     /**
+     * @description The requests per second (RPS) limit on the instance.
+     *
      * @example 500
      *
      * @var int
@@ -169,6 +232,8 @@ class instanceAttribute extends Model
     public $instanceRpsLimit;
 
     /**
+     * @description The instance specification.
+     *
      * @example api.s1.small
      *
      * @var string
@@ -176,11 +241,18 @@ class instanceAttribute extends Model
     public $instanceSpec;
 
     /**
+     * @description The instance specification details.
+     *
      * @var instanceSpecAttributes
      */
     public $instanceSpecAttributes;
 
     /**
+     * @description The instance type. Valid values:
+     *
+     *   VPC_SHARED: shared instance (VPC)
+     *   VPC_DEDICATED: dedicated instance (VPC)
+     *
      * @example VPC_SHARED
      *
      * @var string
@@ -188,6 +260,8 @@ class instanceAttribute extends Model
     public $instanceType;
 
     /**
+     * @description The outbound public IP address.
+     *
      * @example 47.241.89.244
      *
      * @var string
@@ -195,22 +269,34 @@ class instanceAttribute extends Model
     public $internetEgressAddress;
 
     /**
+     * @description The internal CIDR block that is allowed to access the API Gateway instance.
+     *
+     * @example [\\"172.36.0.0/16\\",\\"172.31.16.0/20\\"]
+     *
      * @var string
      */
     public $intranetSegments;
 
     /**
+     * @description The end time of the maintenance window. The time is in the *HH:mm*Z format. The time is displayed in UTC.
+     *
+     * @example 01:00Z
+     *
      * @var string
      */
     public $maintainEndTime;
 
     /**
+     * @description The start time of the maintenance window. The time is in the *HH:mm*Z format. The time is displayed in UTC.
+     *
+     * @example 22:00Z
+     *
      * @var string
      */
     public $maintainStartTime;
 
     /**
-     * @description VPC融合类型专享实例连通的用户VPC内的网络信息
+     * @description The network information of the user\\"s VPC if the instance is a VPC integration instance.
      *
      * @var networkInterfaceAttributes
      */
@@ -222,6 +308,8 @@ class instanceAttribute extends Model
     public $privateDnsList;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-beijing
      *
      * @var string
@@ -229,6 +317,8 @@ class instanceAttribute extends Model
     public $regionId;
 
     /**
+     * @description The instance status.
+     *
      * @example RUNNING
      *
      * @var string
@@ -236,6 +326,8 @@ class instanceAttribute extends Model
     public $status;
 
     /**
+     * @description Indicates whether IPv6 traffic is supported.
+     *
      * @example true
      *
      * @var bool
@@ -248,6 +340,8 @@ class instanceAttribute extends Model
     public $tags;
 
     /**
+     * @description The user VPC ID.
+     *
      * @example vpc-t***hx****yu9****t0g4
      *
      * @var string
@@ -255,6 +349,8 @@ class instanceAttribute extends Model
     public $userVpcId;
 
     /**
+     * @description The user vSwitch ID.
+     *
      * @example vsw-t4***eh****d7q****i2f
      *
      * @var string
@@ -262,6 +358,8 @@ class instanceAttribute extends Model
     public $userVswitchId;
 
     /**
+     * @description The VPC egress CIDR block.
+     *
      * @example 100.104.254.0/26
      *
      * @var string
@@ -269,6 +367,8 @@ class instanceAttribute extends Model
     public $vpcEgressAddress;
 
     /**
+     * @description Indicates whether VPC access is enabled.
+     *
      * @example true
      *
      * @var bool
@@ -276,11 +376,17 @@ class instanceAttribute extends Model
     public $vpcIntranetEnable;
 
     /**
+     * @description The ID of the account to which the VPC-based instance belongs.
+     *
+     * @example 1408453217640291****
+     *
      * @var int
      */
     public $vpcOwnerId;
 
     /**
+     * @description Indicates whether virtual private cloud (VPC) Server Load Balancer (SLB) is enabled.
+     *
      * @example true
      *
      * @var bool
@@ -288,6 +394,8 @@ class instanceAttribute extends Model
     public $vpcSlbIntranetEnable;
 
     /**
+     * @description The zone ID.
+     *
      * @example cn-hangzhou-MAZ5(g,h)
      *
      * @var string
@@ -295,6 +403,8 @@ class instanceAttribute extends Model
     public $zoneId;
 
     /**
+     * @description The zone.
+     *
      * @var string
      */
     public $zoneLocalName;

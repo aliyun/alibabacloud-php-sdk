@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class specAttribute extends Model
 {
     /**
+     * @description The variable name.
+     *
      * @var string
      */
     public $localName;
 
     /**
+     * @description The variable value.
+     *
      * @example 2500
      *
      * @var string

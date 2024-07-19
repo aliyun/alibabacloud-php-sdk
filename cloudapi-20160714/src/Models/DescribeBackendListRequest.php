@@ -51,6 +51,8 @@ class DescribeBackendListRequest extends Model
     public $securityToken;
 
     /**
+     * @description The list of the tag.
+     *
      * @var tag[]
      */
     public $tag;

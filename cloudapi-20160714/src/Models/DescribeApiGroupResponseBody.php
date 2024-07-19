@@ -68,7 +68,7 @@ class DescribeApiGroupResponseBody extends Model
     public $createdTime;
 
     /**
-     * @description The custom domain name information.
+     * @description The details about the custom domain name.
      *
      * @var customDomains
      */
@@ -93,6 +93,9 @@ class DescribeApiGroupResponseBody extends Model
     public $customerConfigs;
 
     /**
+     * @description The type of exclusive instance where the group is located
+     *
+     * - Traditional type exclusive instance: normal
      * @example normal
      *
      * @var string
@@ -200,6 +203,8 @@ class DescribeApiGroupResponseBody extends Model
     public $ipv6Status;
 
     /**
+     * @description The reason for the failure of the group migration instance task. When the value of the MigrationStatus parameter is Failed, it is not empty.
+     *
      * @example The current instance conflicts with the target instance.
      *
      * @var string
@@ -207,6 +212,9 @@ class DescribeApiGroupResponseBody extends Model
     public $migrationError;
 
     /**
+     * @description Group migration instance task status
+     *
+     * - Failed
      * @example Fail
      *
      * @var string

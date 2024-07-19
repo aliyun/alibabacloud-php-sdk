@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstancesRequest extends Model
 {
     /**
+     * @description Specifies whether tag authorization is enabled.
+     *
      * @example false
      *
      * @var bool
@@ -17,6 +19,8 @@ class DescribeInstancesRequest extends Model
     public $enableTagAuthorization;
 
     /**
+     * @description The instance ID. If you do not specify this parameter, all instances are returned.
+     *
      * @example api-shared-vpc-001
      *
      * @var string
@@ -24,6 +28,12 @@ class DescribeInstancesRequest extends Model
     public $instanceId;
 
     /**
+     * @description The language in which you want the description of the system policy to be returned. Valid values:
+     *
+     *   en: English
+     *   zh: Chinese
+     *   ja: Japanese
+     *
      * @example zh
      *
      * @var string
@@ -36,6 +46,8 @@ class DescribeInstancesRequest extends Model
     public $securityToken;
 
     /**
+     * @description The tag that is bound to the instance.
+     *
      * @var tag[]
      */
     public $tag;

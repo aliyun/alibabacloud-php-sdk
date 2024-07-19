@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class apiResult extends Model
 {
     /**
+     * @description The API ID.
+     *
      * @example c5a0c2900ff746b789c007545be22fb8
      *
      * @var string
@@ -16,6 +18,8 @@ class apiResult extends Model
     public $apiId;
 
     /**
+     * @description The API name.
+     *
      * @example GetByCreatorIdUsingGET
      *
      * @var string
@@ -23,11 +27,17 @@ class apiResult extends Model
     public $apiName;
 
     /**
+     * @description The API description.
+     *
+     * @example release data api 411055691505041
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The cause of the failure if the API fails to be imported.
+     *
      * @example Internal Error
      *
      * @var string
@@ -35,6 +45,8 @@ class apiResult extends Model
     public $errorMessage;
 
     /**
+     * @description The API group ID.
+     *
      * @example 736508d885074167ba8fbce3bc95ea0b
      *
      * @var string
@@ -42,6 +54,8 @@ class apiResult extends Model
     public $groupId;
 
     /**
+     * @description The HTTP request HTTP method of the API.
+     *
      * @example GET
      *
      * @var string
@@ -49,6 +63,8 @@ class apiResult extends Model
     public $method;
 
     /**
+     * @description The request path of the API.
+     *
      * @example /creator/getByCreatorId
      *
      * @var string
@@ -56,6 +72,14 @@ class apiResult extends Model
     public $path;
 
     /**
+     * @description The execution status of the subtask. Valid values:
+     *
+     *   RUNNING
+     *   WAIT
+     *   OVER
+     *   FAIL
+     *   CANCEL
+     *
      * @example WAIT
      *
      * @var string

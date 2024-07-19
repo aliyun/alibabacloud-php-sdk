@@ -295,6 +295,9 @@ use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DryRunSwaggerResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DryRunSwaggerShrinkRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\EnableInstanceAccessControlRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\EnableInstanceAccessControlResponse;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ExportOASRequest;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ExportOASResponse;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ExportOASShrinkRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ImportOASRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ImportOASResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ImportSwaggerRequest;
@@ -1510,7 +1513,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * @summary 创建后端服务
+     * @summary Creates a backend service in API Gateway.
      *  *
      * @param CreateBackendRequest $request CreateBackendRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -1561,7 +1564,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * @summary 创建后端服务
+     * @summary Creates a backend service in API Gateway.
      *  *
      * @param CreateBackendRequest $request CreateBackendRequest
      *
@@ -7452,7 +7455,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * @summary 查询实例信息
+     * @summary Queries the details of instances in a region. The instances include shared instances and dedicated instances.
      *  *
      * @param DescribeInstancesRequest $request DescribeInstancesRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -7497,7 +7500,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * @summary 查询实例信息
+     * @summary Queries the details of instances in a region. The instances include shared instances and dedicated instances.
      *  *
      * @param DescribeInstancesRequest $request DescribeInstancesRequest
      *
@@ -9223,6 +9226,79 @@ class CloudAPI extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->enableInstanceAccessControlWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 导出OAS
+     *  *
+     * @param ExportOASRequest $tmpReq  ExportOASRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ExportOASResponse ExportOASResponse
+     */
+    public function exportOASWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ExportOASShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->apiIdList)) {
+            $request->apiIdListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->apiIdList, 'ApiIdList', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->apiIdListShrink)) {
+            $query['ApiIdList'] = $request->apiIdListShrink;
+        }
+        if (!Utils::isUnset($request->dataFormat)) {
+            $query['DataFormat'] = $request->dataFormat;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->oasVersion)) {
+            $query['OasVersion'] = $request->oasVersion;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
+        }
+        if (!Utils::isUnset($request->withXExtensions)) {
+            $query['WithXExtensions'] = $request->withXExtensions;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ExportOAS',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ExportOASResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 导出OAS
+     *  *
+     * @param ExportOASRequest $request ExportOASRequest
+     *
+     * @return ExportOASResponse ExportOASResponse
+     */
+    public function exportOAS($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->exportOASWithOptions($request, $runtime);
     }
 
     /**

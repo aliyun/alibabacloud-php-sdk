@@ -10,8 +10,9 @@ use AlibabaCloud\Tea\Model;
 class CreateBackendRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The name of the backend service.
      *
+     * This parameter is required.
      * @example testBackendService
      *
      * @var string
@@ -19,8 +20,9 @@ class CreateBackendRequest extends Model
     public $backendName;
 
     /**
-     * @description This parameter is required.
+     * @description The type of the backend service.
      *
+     * This parameter is required.
      * @example HTTP
      *
      * @var string
@@ -28,6 +30,8 @@ class CreateBackendRequest extends Model
     public $backendType;
 
     /**
+     * @description Specifies to create a EventBridge service-linked role.
+     *
      * @example true
      *
      * @var bool
@@ -35,11 +39,19 @@ class CreateBackendRequest extends Model
     public $createEventBridgeServiceLinkedRole;
 
     /**
+     * @description Specifies to create a service-linked role.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $createSlr;
 
     /**
+     * @description The description.
+     *
+     * @example release data api 411055691504981
+     *
      * @var string
      */
     public $description;
@@ -50,6 +62,8 @@ class CreateBackendRequest extends Model
     public $securityToken;
 
     /**
+     * @description The tag of objects that match the rule. You can specify multiple tags.
+     *
      * @var tag[]
      */
     public $tag;

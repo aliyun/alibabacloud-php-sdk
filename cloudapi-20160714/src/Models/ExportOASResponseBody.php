@@ -6,27 +6,23 @@ namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateBackendResponseBody extends Model
+class ExportOASResponseBody extends Model
 {
     /**
-     * @description The ID of the backend service.
-     *
-     * @example 0d105f80a8f340408bd34954d4e4ff22
+     * @example UEsDBBQACAAIAABc8FgAAAAAAAAAAAAAAAA...
      *
      * @var string
      */
-    public $backendId;
+    public $data;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 66D84355-164D-53ED-81FF-03DCF181DE24
+     * @example CEF72CEB-54B6-4AE8-B225-F876xxxxxxxx
      *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'backendId' => 'BackendId',
+        'data'      => 'Data',
         'requestId' => 'RequestId',
     ];
 
@@ -37,8 +33,8 @@ class CreateBackendResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->backendId) {
-            $res['BackendId'] = $this->backendId;
+        if (null !== $this->data) {
+            $res['Data'] = $this->data;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -50,13 +46,13 @@ class CreateBackendResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return CreateBackendResponseBody
+     * @return ExportOASResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['BackendId'])) {
-            $model->backendId = $map['BackendId'];
+        if (isset($map['Data'])) {
+            $model->data = $map['Data'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

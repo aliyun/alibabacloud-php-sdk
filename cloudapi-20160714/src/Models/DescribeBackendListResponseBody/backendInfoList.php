@@ -64,6 +64,8 @@ class backendInfoList extends Model
     public $modifiedTime;
 
     /**
+     * @description The list of tags.
+     *
      * @var tags[]
      */
     public $tags;
