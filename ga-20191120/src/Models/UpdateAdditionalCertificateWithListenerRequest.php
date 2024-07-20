@@ -11,6 +11,7 @@ class UpdateAdditionalCertificateWithListenerRequest extends Model
     /**
      * @description The ID of the GA instance.
      *
+     * This parameter is required.
      * @example ga-bp1odcab8tmno0hdq****
      *
      * @var string
@@ -20,6 +21,7 @@ class UpdateAdditionalCertificateWithListenerRequest extends Model
     /**
      * @description The ID of the replacement certificate.
      *
+     * This parameter is required.
      * @example 6092**-cn-hangzhou
      *
      * @var string
@@ -29,9 +31,9 @@ class UpdateAdditionalCertificateWithListenerRequest extends Model
     /**
      * @description The client token that is used to ensure the idempotence of the request.
      *
-     * You can use the client to generate the value, but you must make sure that the value is unique among different requests. The client token can contain only ASCII characters.
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
      *
-     * > If you do not specify this parameter, the system automatically uses the value of **RequestId** as the value of **ClientToken**. The value of **RequestId** for each API request may be different.
+     * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -41,6 +43,7 @@ class UpdateAdditionalCertificateWithListenerRequest extends Model
     /**
      * @description The domain name associated with the additional certificate that you want to replace.
      *
+     * This parameter is required.
      * @example example.com
      *
      * @var string
@@ -62,6 +65,7 @@ class UpdateAdditionalCertificateWithListenerRequest extends Model
     /**
      * @description The ID of the listener. Only HTTPS listeners are supported.
      *
+     * This parameter is required.
      * @example lsr-bp1bpn0kn908w4nbw****
      *
      * @var string
@@ -71,6 +75,7 @@ class UpdateAdditionalCertificateWithListenerRequest extends Model
     /**
      * @description The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

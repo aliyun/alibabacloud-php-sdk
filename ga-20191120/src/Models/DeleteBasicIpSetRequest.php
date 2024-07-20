@@ -23,6 +23,7 @@ class DeleteBasicIpSetRequest extends Model
     /**
      * @description The ID of the acceleration region of the basic GA instance.
      *
+     * This parameter is required.
      * @example ips-bp11r5jb8ogp122xl****
      *
      * @var string

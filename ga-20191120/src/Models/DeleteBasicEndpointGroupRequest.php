@@ -23,6 +23,7 @@ class DeleteBasicEndpointGroupRequest extends Model
     /**
      * @description The ID of the endpoint group that is associated with the basic GA instance.
      *
+     * This parameter is required.
      * @example epg-bp1dmlohjjz4kqaun****
      *
      * @var string

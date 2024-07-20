@@ -11,7 +11,7 @@ class CreateBasicIpSetRequest extends Model
     /**
      * @description The ID of the acceleration region.
      *
-     * You can call the [ListAvailableBusiRegions](~~261190~~) operation to query the most recent acceleration region list.
+     * This parameter is required.
      * @example cn-shanghai
      *
      * @var string
@@ -21,6 +21,7 @@ class CreateBasicIpSetRequest extends Model
     /**
      * @description The ID of the basic GA instance.
      *
+     * This parameter is required.
      * @example ga-bp17frjjh0udz4qz****
      *
      * @var string
@@ -81,6 +82,7 @@ class CreateBasicIpSetRequest extends Model
     /**
      * @description The region ID of the basic GA instance. Set the value to **cn-hangzhou**.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

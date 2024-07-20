@@ -62,6 +62,8 @@ class CreateBandwidthPackageRequest extends Model
      * @description The bandwidth of the bandwidth plan. Unit: Mbit/s.
      *
      * Valid values: **2** to **2000**.
+     *
+     * This parameter is required.
      * @example 2
      *
      * @var int
@@ -188,6 +190,7 @@ class CreateBandwidthPackageRequest extends Model
     /**
      * @description The ID of the region where the GA instance is deployed. **cn-hangzhou** is returned.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -217,6 +220,8 @@ class CreateBandwidthPackageRequest extends Model
      *   **CrossDomain**: a cross-region acceleration bandwidth plan
      *
      * If you call this operation on the Alibaba Cloud China site, only **Basic** is supported.
+     *
+     * This parameter is required.
      * @example Basic
      *
      * @var string

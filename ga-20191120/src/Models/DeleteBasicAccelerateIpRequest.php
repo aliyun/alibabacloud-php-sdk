@@ -11,6 +11,7 @@ class DeleteBasicAccelerateIpRequest extends Model
     /**
      * @description The ID of the accelerated IP address that you want to delete.
      *
+     * This parameter is required.
      * @example gaip-bp1****
      *
      * @var string
@@ -32,6 +33,7 @@ class DeleteBasicAccelerateIpRequest extends Model
     /**
      * @description The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

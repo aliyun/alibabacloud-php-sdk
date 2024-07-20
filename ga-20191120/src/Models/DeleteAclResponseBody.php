@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteAclResponseBody extends Model
 {
     /**
-     * @description The ID of the network ACL.
+     * @description The ID of the ACL.
      *
      * @example nacl-hp34s2h0xx1ht4nwo****
      *
@@ -18,7 +18,7 @@ class DeleteAclResponseBody extends Model
     public $aclId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 365F4154-92F6-4AE4-92F8-7FF34B540710
      *

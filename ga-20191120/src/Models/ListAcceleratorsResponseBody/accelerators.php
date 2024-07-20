@@ -238,7 +238,7 @@ class accelerators extends Model
      *   **100**: Super Large Ⅰ.
      *   **200**: Super Large Ⅱ.
      *
-     * Different specifications provide different capabilities. For more information, see [Instance specifications](~~153127~~).
+     * Different specifications provide different capabilities. For more information, see [Instance specifications](https://help.aliyun.com/document_detail/153127.html).
      * @example 1
      *
      * @var string

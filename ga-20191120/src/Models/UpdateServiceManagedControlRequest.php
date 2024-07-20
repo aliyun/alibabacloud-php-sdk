@@ -23,6 +23,7 @@ class UpdateServiceManagedControlRequest extends Model
     /**
      * @description The region ID of the GA instance. Set the value to cn-hangzhou.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -32,6 +33,7 @@ class UpdateServiceManagedControlRequest extends Model
     /**
      * @description The ID of the resource whose control mode you want to change.
      *
+     * This parameter is required.
      * @example ga-bp149u6o36qt1as9b****
      *
      * @var string
@@ -42,6 +44,8 @@ class UpdateServiceManagedControlRequest extends Model
      * @description The type of the resource whose control mode you want to change.
      *
      * Set the value to **Accelerator**, which specifies a standard GA instance.
+     *
+     * This parameter is required.
      * @example Accelerator
      *
      * @var string

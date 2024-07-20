@@ -32,6 +32,7 @@ class DeleteEndpointGroupRequest extends Model
     /**
      * @description The ID of the endpoint group that you want to delete.
      *
+     * This parameter is required.
      * @example epg-bp1dmlohjjz4kqaun****
      *
      * @var string

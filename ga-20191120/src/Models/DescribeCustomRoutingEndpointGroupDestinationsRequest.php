@@ -11,6 +11,7 @@ class DescribeCustomRoutingEndpointGroupDestinationsRequest extends Model
     /**
      * @description The ID of the endpoint group mapping configuration.
      *
+     * This parameter is required.
      * @example dst-123abc****
      *
      * @var string
@@ -29,6 +30,7 @@ class DescribeCustomRoutingEndpointGroupDestinationsRequest extends Model
     /**
      * @description The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

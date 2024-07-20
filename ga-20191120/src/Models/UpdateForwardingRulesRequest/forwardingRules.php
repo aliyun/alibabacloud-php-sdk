@@ -13,6 +13,7 @@ class forwardingRules extends Model
     /**
      * @description The forwarding rule ID.
      *
+     * This parameter is required.
      * @example frule-bp1dii16gu9qdvb34****
      *
      * @var string
@@ -22,7 +23,7 @@ class forwardingRules extends Model
     /**
      * @description The forwarding rule name.
      *
-     * The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). The name must start with a letter.
+     * The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The name must start with a letter.
      * @example test
      *
      * @var string
@@ -32,6 +33,7 @@ class forwardingRules extends Model
     /**
      * @description The priority of the forwarding rule. Valid values: **1** to **10000**. A smaller value specifies a higher priority.
      *
+     * This parameter is required.
      * @example 1000
      *
      * @var int
@@ -41,6 +43,7 @@ class forwardingRules extends Model
     /**
      * @description The configurations of the forwarding actions.
      *
+     * This parameter is required.
      * @var ruleActions[]
      */
     public $ruleActions;
@@ -48,6 +51,7 @@ class forwardingRules extends Model
     /**
      * @description The forwarding conditions.
      *
+     * This parameter is required.
      * @var ruleConditions[]
      */
     public $ruleConditions;

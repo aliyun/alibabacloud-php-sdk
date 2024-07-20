@@ -11,6 +11,7 @@ class AttachLogStoreToEndpointGroupRequest extends Model
     /**
      * @description The ID of the GA instance.
      *
+     * This parameter is required.
      * @example ga-bp1odcab8tmno0hdq****
      *
      * @var string
@@ -32,6 +33,7 @@ class AttachLogStoreToEndpointGroupRequest extends Model
     /**
      * @description The IDs of the endpoint groups.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $endpointGroupIds;
@@ -39,6 +41,7 @@ class AttachLogStoreToEndpointGroupRequest extends Model
     /**
      * @description The ID of the listener.
      *
+     * This parameter is required.
      * @example lsr-bp1bpn0kn908w4nbw****
      *
      * @var string
@@ -48,6 +51,7 @@ class AttachLogStoreToEndpointGroupRequest extends Model
     /**
      * @description The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -57,6 +61,7 @@ class AttachLogStoreToEndpointGroupRequest extends Model
     /**
      * @description The name of the Logstore.
      *
+     * This parameter is required.
      * @example lsn-01
      *
      * @var string
@@ -66,6 +71,7 @@ class AttachLogStoreToEndpointGroupRequest extends Model
     /**
      * @description The name of the Log Service project.
      *
+     * This parameter is required.
      * @example pn-01
      *
      * @var string
@@ -75,6 +81,7 @@ class AttachLogStoreToEndpointGroupRequest extends Model
     /**
      * @description The region ID of the Log Service project.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

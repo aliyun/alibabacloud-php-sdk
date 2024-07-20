@@ -10,8 +10,9 @@ use AlibabaCloud\Tea\Model;
 class AddEntriesToAclRequest extends Model
 {
     /**
-     * @description The IP addresses or CIDR blocks that you want to add to the ACL. You can add at most 20 entries in each request.
+     * @description The entries (IP addresses or CIDR blocks) that you want to add to the ACL.
      *
+     * This parameter is required.
      * @var aclEntries[]
      */
     public $aclEntries;
@@ -19,6 +20,7 @@ class AddEntriesToAclRequest extends Model
     /**
      * @description The ACL ID.
      *
+     * This parameter is required.
      * @example nacl-hp34s2h0xx1ht4nwo****
      *
      * @var string
@@ -52,6 +54,7 @@ class AddEntriesToAclRequest extends Model
     /**
      * @description The region ID of the GA instance. Set the value to **cn-hangzhou**.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

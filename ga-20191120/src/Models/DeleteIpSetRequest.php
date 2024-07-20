@@ -32,7 +32,7 @@ class DeleteIpSetRequest extends Model
     /**
      * @description The ID of the acceleration region that you want to delete.
      *
-     * You can call the [ListIpSets](~~2253273~~) operation to query the IDs of acceleration regions of a specified GA instance.
+     * This parameter is required.
      * @example ips-bp11r5jb8ogp122xl****
      *
      * @var string
@@ -40,7 +40,7 @@ class DeleteIpSetRequest extends Model
     public $ipSetId;
 
     /**
-     * @description The region ID of the GA instance. Set the value to **cn-hangzhou**.
+     * @description The ID of the region where the Global Accelerator (GA) instance is deployed. Set the value to **cn-hangzhou**.
      *
      * @example cn-hangzhou
      *

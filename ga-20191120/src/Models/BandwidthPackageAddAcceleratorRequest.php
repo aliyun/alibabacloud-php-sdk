@@ -11,6 +11,7 @@ class BandwidthPackageAddAcceleratorRequest extends Model
     /**
      * @description The GA instance ID.
      *
+     * This parameter is required.
      * @example ga-bp1qe94o52ot4pkfn****
      *
      * @var string
@@ -20,6 +21,7 @@ class BandwidthPackageAddAcceleratorRequest extends Model
     /**
      * @description The bandwidth plan ID.
      *
+     * This parameter is required.
      * @example gbwp-bp1sgzldyj6b4q7cx****
      *
      * @var string
@@ -29,6 +31,7 @@ class BandwidthPackageAddAcceleratorRequest extends Model
     /**
      * @description The region ID of the GA instance. Set the value to **cn-hangzhou**.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

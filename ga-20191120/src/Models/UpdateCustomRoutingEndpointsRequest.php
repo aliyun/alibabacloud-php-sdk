@@ -24,6 +24,7 @@ class UpdateCustomRoutingEndpointsRequest extends Model
     /**
      * @description The configurations of the endpoint.
      *
+     * This parameter is required.
      * @var endpointConfigurations[]
      */
     public $endpointConfigurations;
@@ -31,6 +32,7 @@ class UpdateCustomRoutingEndpointsRequest extends Model
     /**
      * @description The ID of the endpoint group to which the endpoints that you want to modify belong.
      *
+     * This parameter is required.
      * @example epg-bp1bpn0kn908w4nb****
      *
      * @var string
@@ -40,6 +42,7 @@ class UpdateCustomRoutingEndpointsRequest extends Model
     /**
      * @description The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

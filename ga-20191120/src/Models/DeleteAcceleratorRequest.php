@@ -11,6 +11,7 @@ class DeleteAcceleratorRequest extends Model
     /**
      * @description The ID of the GA instance that you want to delete.
      *
+     * This parameter is required.
      * @example ga-bp1odcab8tmno0hdq****
      *
      * @var string
@@ -20,6 +21,7 @@ class DeleteAcceleratorRequest extends Model
     /**
      * @description The ID of the region where your GA instance is deployed. Set the value to **cn-hangzhou**.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

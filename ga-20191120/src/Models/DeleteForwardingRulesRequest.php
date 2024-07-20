@@ -11,6 +11,7 @@ class DeleteForwardingRulesRequest extends Model
     /**
      * @description The GA instance ID.
      *
+     * This parameter is required.
      * @example ga-bp17frjjh0udz4q****
      *
      * @var string
@@ -32,6 +33,7 @@ class DeleteForwardingRulesRequest extends Model
     /**
      * @description The forwarding rules.
      *
+     * This parameter is required.
      * @example frule-bp19a3t3yzr21q3****
      *
      * @var string[]
@@ -41,6 +43,7 @@ class DeleteForwardingRulesRequest extends Model
     /**
      * @description The listener ID.
      *
+     * This parameter is required.
      * @example lsr-bp1s0vzbi5bxlx5****
      *
      * @var string
@@ -50,6 +53,7 @@ class DeleteForwardingRulesRequest extends Model
     /**
      * @description The region ID of the GA instance. Set the value to **cn-hangzhou**.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

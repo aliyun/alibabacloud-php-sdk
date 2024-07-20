@@ -23,6 +23,7 @@ class GetBasicEndpointGroupRequest extends Model
     /**
      * @description The ID of the endpoint group.
      *
+     * This parameter is required.
      * @example epg-bp1dmlohjjz4kqaun****
      *
      * @var string
@@ -32,6 +33,7 @@ class GetBasicEndpointGroupRequest extends Model
     /**
      * @description The ID of the region where the basic GA instance is deployed. Set the value to **cn-hangzhou**.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

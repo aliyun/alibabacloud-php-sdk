@@ -21,6 +21,7 @@ class DescribeCommodityRequest extends Model
      *   **ga_pluspre_public_intl**: GA instance.
      *   **ga_bwppreintl_public_intl:** basic bandwidth plan.
      *
+     * This parameter is required.
      * @example ga_gapluspre_public_cn
      *
      * @var string
@@ -34,6 +35,7 @@ class DescribeCommodityRequest extends Model
      *   **RENEW**: renewal order.
      *   **UPGRADE**: upgrade order.
      *
+     * This parameter is required.
      * @example BUY
      *
      * @var string
@@ -43,6 +45,7 @@ class DescribeCommodityRequest extends Model
     /**
      * @description The ID of the region where the Global Accelerator (GA) instance is deployed. Set the value to **cn-hangzhou**.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

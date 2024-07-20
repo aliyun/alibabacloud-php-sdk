@@ -42,6 +42,7 @@ class UpdateBasicEndpointGroupRequest extends Model
     /**
      * @description The ID of the endpoint group.
      *
+     * This parameter is required.
      * @example epg-bp1dmlohjjz4kqaun****
      *
      * @var string
@@ -78,7 +79,7 @@ class UpdateBasicEndpointGroupRequest extends Model
     /**
      * @description The name of the endpoint group.
      *
-     * The name must be 1 to 128 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). It must start with a letter.
+     * The name must be 1 to 128 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). It must start with a letter.
      * @example group1
      *
      * @var string
@@ -88,6 +89,7 @@ class UpdateBasicEndpointGroupRequest extends Model
     /**
      * @description The ID of the region where the basic GA instance is deployed. Set the value to **cn-hangzhou**.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

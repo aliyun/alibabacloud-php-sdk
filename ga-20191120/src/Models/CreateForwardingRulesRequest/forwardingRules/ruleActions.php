@@ -15,11 +15,15 @@ class ruleActions extends Model
     public $forwardGroupConfig;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $order;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $ruleActionType;

@@ -11,6 +11,7 @@ class DeleteIpSetsRequest extends Model
     /**
      * @description The IDs of the acceleration regions that you want to delete.
      *
+     * This parameter is required.
      * @example ips-bp11c9mpphtb1xkds****
      *
      * @var string[]
@@ -20,6 +21,7 @@ class DeleteIpSetsRequest extends Model
     /**
      * @description The region ID of the GA instance. Set the value to **cn-hangzhou**.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

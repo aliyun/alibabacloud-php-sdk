@@ -24,6 +24,7 @@ class TagResourcesRequest extends Model
     /**
      * @description The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -39,7 +40,7 @@ class TagResourcesRequest extends Model
      *   If you set **ResourceType** to **acl**, set the value of ResourceId to the ID of an ACL.
      *   If you set **ResourceType** to **endpointgroup**, set the value of ResourceId to the ID of an endpoint group.
      *
-     * This parameter is required. You can enter up to 50 GA resource IDs.
+     * This parameter is required.
      * @var string[]
      */
     public $resourceId;
@@ -53,6 +54,7 @@ class TagResourcesRequest extends Model
      *   **acl:** an ACL.
      *   **endpointgroup:** an endpoint group of a standard GA instance. You cannot call the TagResources operation to add tags to an endpoint group of a basic GA instance.
      *
+     * This parameter is required.
      * @example accelerator
      *
      * @var string
@@ -62,7 +64,7 @@ class TagResourcesRequest extends Model
     /**
      * @description The tags of GA resources.
      *
-     * You can specify up to 20 tags.
+     * This parameter is required.
      * @var tag[]
      */
     public $tag;

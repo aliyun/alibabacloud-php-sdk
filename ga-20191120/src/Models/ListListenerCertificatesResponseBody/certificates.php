@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class certificates extends Model
 {
     /**
-     * @description The ID of the certificate.
+     * @description The certificate ID.
      *
      * @example 6092**-cn-hangzhou
      *
@@ -28,10 +28,10 @@ class certificates extends Model
     public $domain;
 
     /**
-     * @description Indicates whether the certificate is a default one:
+     * @description Indicates whether the certificate is a default one.
      *
-     *   **true**: a default certificate
-     *   **false**: an additional certificate
+     *   **true**
+     *   **false**
      *
      * @example true
      *
@@ -40,9 +40,9 @@ class certificates extends Model
     public $isDefault;
 
     /**
-     * @description The state of the certificate.
+     * @description The status of the certificate.
      *
-     *   **active**: The certificate is associated with a listener and takes effect.
+     *   **active**: The certificate is associated with a listener and in effect.
      *   **updating**: The additional certificate is being replaced.
      *
      * @example active

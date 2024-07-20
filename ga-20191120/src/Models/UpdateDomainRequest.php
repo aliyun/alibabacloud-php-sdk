@@ -11,7 +11,7 @@ class UpdateDomainRequest extends Model
     /**
      * @description The new accelerated domain name.
      *
-     * Only primary domain names are supported, such as `example.net`.
+     * This parameter is required.
      * @example example.net
      *
      * @var string
@@ -30,6 +30,7 @@ class UpdateDomainRequest extends Model
     /**
      * @description The accelerated domain name to be modified.
      *
+     * This parameter is required.
      * @example example.com
      *
      * @var string

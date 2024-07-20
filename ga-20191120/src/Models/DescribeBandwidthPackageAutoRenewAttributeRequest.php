@@ -11,6 +11,7 @@ class DescribeBandwidthPackageAutoRenewAttributeRequest extends Model
     /**
      * @description The ID of the bandwidth plan.
      *
+     * This parameter is required.
      * @example gbwp-bp1iquvlp8khla5emb3ia
      *
      * @var string
@@ -20,6 +21,7 @@ class DescribeBandwidthPackageAutoRenewAttributeRequest extends Model
     /**
      * @description The ID of the region where the Global Accelerator (GA) instance is deployed. Set the value to cn-hangzhou.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

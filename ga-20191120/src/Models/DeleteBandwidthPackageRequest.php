@@ -11,6 +11,7 @@ class DeleteBandwidthPackageRequest extends Model
     /**
      * @description The bandwidth plan ID.
      *
+     * This parameter is required.
      * @example gbwp-bp1sgzldyj6b4q7cx****
      *
      * @var string
@@ -32,6 +33,7 @@ class DeleteBandwidthPackageRequest extends Model
     /**
      * @description The region ID of the GA instance. Set the value to **cn-hangzhou**.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

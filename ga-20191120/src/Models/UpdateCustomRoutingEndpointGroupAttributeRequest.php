@@ -33,6 +33,7 @@ class UpdateCustomRoutingEndpointGroupAttributeRequest extends Model
     /**
      * @description The endpoint group ID.
      *
+     * This parameter is required.
      * @example epg-bp1dmlohjjz4kqaun****
      *
      * @var string
@@ -42,7 +43,7 @@ class UpdateCustomRoutingEndpointGroupAttributeRequest extends Model
     /**
      * @description The endpoint group name.
      *
-     * The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (\_), and hyphens (-). The name must start with a letter.
+     * The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (_), and hyphens (-). The name must start with a letter.
      * @example group1
      *
      * @var string
@@ -52,6 +53,7 @@ class UpdateCustomRoutingEndpointGroupAttributeRequest extends Model
     /**
      * @description The region ID of the Global Accelerator (GA) instance. Set the value to **cn-hangzhou**.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

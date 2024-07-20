@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetBasicAccelerateIpResponseBody extends Model
 {
     /**
-     * @description The accelerated IP address.
+     * @description The accelerated IP address of the basic GA instance.
      *
      * @example 116.132.XX.XX
      *
@@ -45,7 +45,7 @@ class GetBasicAccelerateIpResponseBody extends Model
     public $ipSetId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 04F0F334-1335-436C-A1D7-6C044FE73368
      *
@@ -59,10 +59,10 @@ class GetBasicAccelerateIpResponseBody extends Model
      *   **active**: The accelerated IP address is available.
      *   **binding**: The accelerated IP address is being associated.
      *   **bound**: The accelerated IP address is associated.
-     *   **unbinding**: The basic GA instance is being disassociated.
-     *   **deleting**: The accelerated IP address is being deleted.
+     *   **unbinding**: The accelerated IP address is being disassociated.
+     *   **deleting**: The GA instance is being deleted.
      *
-     * >  This parameter is not returned when the queried accelerated IP address is being created.
+     * >  If the accelerated IP address is being created, this parameter is not returned.
      * @example active
      *
      * @var string

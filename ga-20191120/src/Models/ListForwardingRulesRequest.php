@@ -11,6 +11,7 @@ class ListForwardingRulesRequest extends Model
     /**
      * @description The ID of the GA instance.
      *
+     * This parameter is required.
      * @example ga-bp17frjjh0udz4qzk****
      *
      * @var string
@@ -41,6 +42,7 @@ class ListForwardingRulesRequest extends Model
     /**
      * @description The ID of the listener.
      *
+     * This parameter is required.
      * @example lsr-bp1s0vzbi5bxlx5pw****
      *
      * @var string
@@ -50,6 +52,7 @@ class ListForwardingRulesRequest extends Model
     /**
      * @description The number of entries to return on each page. Valid values: **1** to **100**. Default value: **20**.
      *
+     * This parameter is required.
      * @example 20
      *
      * @var int
@@ -71,6 +74,7 @@ class ListForwardingRulesRequest extends Model
     /**
      * @description The ID of the region where the Global Accelerator (GA) instance is deployed. Set the value to **cn-hangzhou**.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

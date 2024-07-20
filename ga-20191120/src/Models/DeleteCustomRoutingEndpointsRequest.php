@@ -23,6 +23,7 @@ class DeleteCustomRoutingEndpointsRequest extends Model
     /**
      * @description The ID of the endpoint group to which the endpoint that you want to delete belongs.
      *
+     * This parameter is required.
      * @example epg-bp1bpn0kn908w4nb****
      *
      * @var string
@@ -32,7 +33,7 @@ class DeleteCustomRoutingEndpointsRequest extends Model
     /**
      * @description The IDs of endpoints to be deleted.
      *
-     * You can specify at most 10 endpoint IDs.
+     * This parameter is required.
      * @var string[]
      */
     public $endpointIds;
@@ -40,6 +41,7 @@ class DeleteCustomRoutingEndpointsRequest extends Model
     /**
      * @description The region ID of the GA instance. Set the value to **cn-hangzhou**.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

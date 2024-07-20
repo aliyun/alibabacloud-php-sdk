@@ -11,7 +11,7 @@ class DescribeIpSetRequest extends Model
     /**
      * @description The ID of the acceleration region.
      *
-     * You can call the [ListIpSets](~~2253273~~) operation to query the IDs of acceleration regions of a specific GA instance.
+     * This parameter is required.
      * @example ips-bp11ilwqjdkjeg9r7****
      *
      * @var string
@@ -21,6 +21,7 @@ class DescribeIpSetRequest extends Model
     /**
      * @description The ID of the region where the Global Accelerator (GA) instance is deployed. Set the value to **cn-hangzhou**.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

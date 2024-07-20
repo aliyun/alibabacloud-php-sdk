@@ -11,6 +11,7 @@ class DescribeListenerRequest extends Model
     /**
      * @description The ID of the listener that you want to query.
      *
+     * This parameter is required.
      * @example lsr-bp1bpn0kn908w4nbw****
      *
      * @var string
@@ -20,6 +21,7 @@ class DescribeListenerRequest extends Model
     /**
      * @description The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

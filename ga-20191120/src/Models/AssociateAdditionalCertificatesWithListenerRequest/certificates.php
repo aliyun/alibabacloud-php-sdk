@@ -11,7 +11,7 @@ class certificates extends Model
     /**
      * @description The domain name that is specified by the certificate. You can associate each domain name with only one additional certificate.
      *
-     * You can specify up to 10 domain names in each request.
+     * This parameter is required.
      * @example example.com
      *
      * @var string
@@ -21,7 +21,7 @@ class certificates extends Model
     /**
      * @description The ID of the certificate. Only server certificates are supported.
      *
-     * You can specify up to 10 certificate IDs in each request.
+     * This parameter is required.
      * @example 6092**-cn-hangzhou
      *
      * @var string

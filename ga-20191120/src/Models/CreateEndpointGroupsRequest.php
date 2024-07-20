@@ -12,6 +12,7 @@ class CreateEndpointGroupsRequest extends Model
     /**
      * @description The ID of the GA instance.
      *
+     * This parameter is required.
      * @example ga-bp1odcab8tmno0hdq****
      *
      * @var string
@@ -43,6 +44,8 @@ class CreateEndpointGroupsRequest extends Model
     public $dryRun;
 
     /**
+     * @description This parameter is required.
+     *
      * @var endpointGroupConfigurations[]
      */
     public $endpointGroupConfigurations;
@@ -51,6 +54,8 @@ class CreateEndpointGroupsRequest extends Model
      * @description The ID of the listener.
      *
      * >  If the listener protocol is **HTTP** or **HTTPS**, you can call the **CreateEndpointGroups** operation to create only one endpoint group.
+     *
+     * This parameter is required.
      * @example lsr-bp1bpn0kn908w4nbw****
      *
      * @var string
@@ -60,6 +65,7 @@ class CreateEndpointGroupsRequest extends Model
     /**
      * @description The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

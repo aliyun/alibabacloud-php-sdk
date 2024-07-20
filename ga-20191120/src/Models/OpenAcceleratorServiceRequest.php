@@ -21,6 +21,7 @@ class OpenAcceleratorServiceRequest extends Model
     /**
      * @description The region where the GA instance is deployed. Set the value to **cn-hangzhou**.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

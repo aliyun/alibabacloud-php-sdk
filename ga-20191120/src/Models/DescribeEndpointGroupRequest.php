@@ -11,6 +11,7 @@ class DescribeEndpointGroupRequest extends Model
     /**
      * @description The ID of the endpoint group that you want to query.
      *
+     * This parameter is required.
      * @example epg-bp14sz7ftcwwjgrdm****
      *
      * @var string
@@ -20,6 +21,7 @@ class DescribeEndpointGroupRequest extends Model
     /**
      * @description The ID of the region where your Global Accelerator (GA) instance is deployed. Set the value to **cn-hangzhou**.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

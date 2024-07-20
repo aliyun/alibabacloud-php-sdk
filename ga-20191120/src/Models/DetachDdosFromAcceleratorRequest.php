@@ -11,6 +11,7 @@ class DetachDdosFromAcceleratorRequest extends Model
     /**
      * @description The ID of the GA instance.
      *
+     * This parameter is required.
      * @example ga-bp1odcab8tmno0hdq****
      *
      * @var string

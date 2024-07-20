@@ -11,6 +11,7 @@ class ListListenerCertificatesRequest extends Model
     /**
      * @description The ID of the GA instance.
      *
+     * This parameter is required.
      * @example ga-bp1odcab8tmno0hdq****
      *
      * @var string
@@ -20,6 +21,7 @@ class ListListenerCertificatesRequest extends Model
     /**
      * @description The ID of the listener.
      *
+     * This parameter is required.
      * @example lsr-bp1bpn0kn908w4nbw****
      *
      * @var string
@@ -27,9 +29,8 @@ class ListListenerCertificatesRequest extends Model
     public $listenerId;
 
     /**
-     * @description The number of entries to return.
+     * @description The maximum number of entries to return. Valid values: **1** to **50**. Default value: **20**.
      *
-     * Valid values: **1** to **50**. Default value: **20**.
      * @example 50
      *
      * @var int
@@ -37,10 +38,10 @@ class ListListenerCertificatesRequest extends Model
     public $maxResults;
 
     /**
-     * @description The token that determines the start point of the next query. Valid values:
+     * @description The pagination token that is used in the next request to retrieve a new page of results. Valid values:
      *
-     *   If this is your first and only query, ignore this parameter.
-     *   If a next query is to be performed, set the value to the NextToken value returned in the last call to the ListListenerCertificates operation.
+     *   You do not need to specify this parameter for the first request.
+     *   You must specify the token that is obtained from the previous query as the value of NextToken.
      *
      * @example caeba0bbb2be03f84eb48b699f0a4883
      *
@@ -49,8 +50,9 @@ class ListListenerCertificatesRequest extends Model
     public $nextToken;
 
     /**
-     * @description The ID of the region where the Global Accelerator (GA) instance is deployed. Set the value to **cn-hangzhou**.
+     * @description The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -60,10 +62,10 @@ class ListListenerCertificatesRequest extends Model
     /**
      * @description The type of the certificate. Valid values:
      *
-     *   **default**: a default certificate
-     *   **additional**: an additional certificate
+     *   **default**
+     *   **additional**
      *
-     * If you do not set this parameter, default and additional certificates are returned by default.
+     * If you do not specify this parameter, default and additional certificates are returned by default.
      * @example default
      *
      * @var string

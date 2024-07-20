@@ -38,6 +38,8 @@ class endpointGroupConfigurations extends Model
     public $endpointGroupName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $endpointGroupRegion;
@@ -46,6 +48,11 @@ class endpointGroupConfigurations extends Model
      * @var string
      */
     public $endpointGroupType;
+
+    /**
+     * @var string
+     */
+    public $endpointProtocolVersion;
 
     /**
      * @var string
@@ -109,6 +116,7 @@ class endpointGroupConfigurations extends Model
         'endpointGroupName'                       => 'EndpointGroupName',
         'endpointGroupRegion'                     => 'EndpointGroupRegion',
         'endpointGroupType'                       => 'EndpointGroupType',
+        'endpointProtocolVersion'                 => 'EndpointProtocolVersion',
         'endpointRequestProtocol'                 => 'EndpointRequestProtocol',
         'healthCheckEnabled'                      => 'HealthCheckEnabled',
         'healthCheckIntervalSeconds'              => 'HealthCheckIntervalSeconds',
@@ -155,6 +163,9 @@ class endpointGroupConfigurations extends Model
         }
         if (null !== $this->endpointGroupType) {
             $res['EndpointGroupType'] = $this->endpointGroupType;
+        }
+        if (null !== $this->endpointProtocolVersion) {
+            $res['EndpointProtocolVersion'] = $this->endpointProtocolVersion;
         }
         if (null !== $this->endpointRequestProtocol) {
             $res['EndpointRequestProtocol'] = $this->endpointRequestProtocol;
@@ -245,6 +256,9 @@ class endpointGroupConfigurations extends Model
         }
         if (isset($map['EndpointGroupType'])) {
             $model->endpointGroupType = $map['EndpointGroupType'];
+        }
+        if (isset($map['EndpointProtocolVersion'])) {
+            $model->endpointProtocolVersion = $map['EndpointProtocolVersion'];
         }
         if (isset($map['EndpointRequestProtocol'])) {
             $model->endpointRequestProtocol = $map['EndpointRequestProtocol'];

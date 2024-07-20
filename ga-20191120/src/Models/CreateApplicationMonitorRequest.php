@@ -11,6 +11,7 @@ class CreateApplicationMonitorRequest extends Model
     /**
      * @description The ID of the GA instance on which you want to perform the origin probing task.
      *
+     * This parameter is required.
      * @example ga-bp1odcab8tmno0hdq****
      *
      * @var string
@@ -20,6 +21,7 @@ class CreateApplicationMonitorRequest extends Model
     /**
      * @description The URL or IP address that you want to probe.
      *
+     * This parameter is required.
      * @example https://www.aliyun.com
      *
      * @var string
@@ -75,6 +77,7 @@ class CreateApplicationMonitorRequest extends Model
     /**
      * @description The ID of the listener on which you want to perform the origin probing task.
      *
+     * This parameter is required.
      * @example lsr-bp1bpn0kn908w4nbw****
      *
      * @var string
@@ -93,6 +96,7 @@ class CreateApplicationMonitorRequest extends Model
     /**
      * @description The region ID of the GA instance. Set the value to **cn-hangzhou**.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -114,7 +118,7 @@ class CreateApplicationMonitorRequest extends Model
     /**
      * @description The name of the origin probing task.
      *
-     * The name must be 1 to 128 characters in length and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). The name must start with a letter.
+     * This parameter is required.
      * @example task1
      *
      * @var string

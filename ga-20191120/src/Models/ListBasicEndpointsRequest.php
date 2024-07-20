@@ -23,6 +23,7 @@ class ListBasicEndpointsRequest extends Model
     /**
      * @description The ID of the endpoint group to which the endpoint that you want to query belongs.
      *
+     * This parameter is required.
      * @example epg-bp1dmlohjjz4kqaun****
      *
      * @var string
@@ -64,7 +65,7 @@ class ListBasicEndpointsRequest extends Model
     /**
      * @description The name of the endpoint that you want to query.
      *
-     * The name must be 1 to 128 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). It must start with a letter.
+     * The name must be 1 to 128 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). It must start with a letter.
      * @example ep01
      *
      * @var string
@@ -86,6 +87,7 @@ class ListBasicEndpointsRequest extends Model
     /**
      * @description The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

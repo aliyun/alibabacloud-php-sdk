@@ -41,9 +41,9 @@ class UpdateListenerRequest extends Model
     /**
      * @description The client token that is used to ensure the idempotence of the request.
      *
-     * You can use the client to generate the value, but you must make sure that the value is unique among different requests. The ClientToken value can contain only ASCII characters.
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
      *
-     * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** for each API request may be different.
+     * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -51,8 +51,9 @@ class UpdateListenerRequest extends Model
     public $clientToken;
 
     /**
-     * @description The description of the listener. The description can be at most 200 characters in length.
+     * @description The description of the listener.
      *
+     * The description can be up to 200 characters in length and cannot start with `http://` or `https://`.
      * @example Listener
      *
      * @var string
@@ -89,6 +90,7 @@ class UpdateListenerRequest extends Model
     /**
      * @description The ID of the listener.
      *
+     * This parameter is required.
      * @example lsr-bp1bpn0kn908w4nbw****
      *
      * @var string
@@ -98,7 +100,7 @@ class UpdateListenerRequest extends Model
     /**
      * @description The name of the listener.
      *
-     * The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (\_), and hyphens (-). The name must start with a letter.
+     * The name must be 1 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The name must start with a letter.
      * @example Listener
      *
      * @var string
@@ -110,7 +112,7 @@ class UpdateListenerRequest extends Model
      *
      * Valid values: **1** to **65499**.
      *
-     * The maximum number of ports that can be configured varies based on the routing type and protocol of the listener. For more information, see [Listener overview](~~153216~~).
+     * The maximum number of ports that can be configured varies based on the routing type and protocol of the listener. For more information, see [Listener overview](https://help.aliyun.com/document_detail/153216.html).
      * @var portRanges[]
      */
     public $portRanges;
@@ -135,7 +137,7 @@ class UpdateListenerRequest extends Model
      *   **true**: enables client IP preservation. After client IP addresses are reserved, you can view client IP addresses on the endpoints.
      *   **false** (default): disables client IP preservation.
      *
-     * > This parameter will be deprecated in the API operations that are used to configure listeners. We recommend that you set this parameter when you call API operations to configure endpoint groups. For more information about the **ProxyProtocol** parameter, see [CreateEndpointGroup](~~153259~~) and [UpdateEndpointGroup](~~153262~~).
+     * > This parameter will be deprecated in the API operations that are used to configure listeners. We recommend that you set this parameter when you call API operations to configure endpoint groups. For more information about the **ProxyProtocol** parameter, see [CreateEndpointGroup](https://help.aliyun.com/document_detail/153259.html) and [UpdateEndpointGroup](https://help.aliyun.com/document_detail/153262.html).
      * @example false
      *
      * @var string
@@ -164,30 +166,30 @@ class UpdateListenerRequest extends Model
     /**
      * @description The ID of the security policy. Valid values:
      *
-     *   **tls_cipher_policy\_1\_0**
+     *   **tls_cipher_policy_1_0**
      *
      *   Supported Transport Layer Security (TLS) versions: TLS 1.0, TLS 1.1, and TLS 1.2
      *   Supported cipher suites: ECDHE-RSA-AES128-GCM-SHA256, ECDHE-RSA-AES256-GCM-SHA384, ECDHE-RSA-AES128-SHA256, ECDHE-RSA-AES256-SHA384, AES128-GCM-SHA256, AES256-GCM-SHA384, AES128-SHA256, AES256-SHA256, ECDHE-RSA-AES128-SHA, ECDHE-RSA-AES256-SHA, AES128-SHA, AES256-SHA, and DES-CBC3-SHA
      *
-     *   **tls_cipher_policy\_1\_1**
+     *   **tls_cipher_policy_1_1**
      *
      *   Supported TLS versions: TLS 1.1 and TLS 1.2
      *   Supported cipher suites: ECDHE-RSA-AES128-GCM-SHA256, ECDHE-RSA-AES256-GCM-SHA384, ECDHE-RSA-AES128-SHA256, ECDHE-RSA-AES256-SHA384, AES128-GCM-SHA256, AES256-GCM-SHA384, AES128-SHA256, AES256-SHA256, ECDHE-RSA-AES128-SHA, ECDHE-RSA-AES256-SHA, AES128-SHA, AES256-SHA, and DES-CBC3-SHA
      *
-     *   **tls_cipher_policy\_1\_2**
+     *   **tls_cipher_policy_1_2**
      *
      *   Supported TLS version: TLS 1.2
      *   Supported cipher suites: ECDHE-RSA-AES128-GCM-SHA256, ECDHE-RSA-AES256-GCM-SHA384, ECDHE-RSA-AES128-SHA256, ECDHE-RSA-AES256-SHA384, AES128-GCM-SHA256, AES256-GCM-SHA384, AES128-SHA256, AES256-SHA256, ECDHE-RSA-AES128-SHA, ECDHE-RSA-AES256-SHA, AES128-SHA, AES256-SHA, and DES-CBC3-SHA
      *
-     *   **tls_cipher_policy\_1\_2\_strict**
+     *   **tls_cipher_policy_1_2_strict**
      *
      *   Supported TLS version: TLS 1.2
      *   Supported cipher suites: ECDHE-RSA-AES128-GCM-SHA256, ECDHE-RSA-AES256-GCM-SHA384, ECDHE-RSA-AES128-SHA256, ECDHE-RSA-AES256-SHA384, ECDHE-RSA-AES128-SHA, and ECDHE-RSA-AES256-SHA
      *
-     *   **tls_cipher_policy\_1\_2\_strict_with\_1\_3**
+     *   **tls_cipher_policy_1_2_strict_with_1_3**
      *
      *   Supported TLS versions: TLS 1.2 and TLS 1.3
-     *   Supported cipher suites: TLS_AES\_128\_GCM_SHA256, TLS_AES\_256\_GCM_SHA384, TLS_CHACHA20\_POLY1305\_SHA256, TLS_AES\_128\_CCM_SHA256, TLS_AES\_128\_CCM\_8\_SHA256, ECDHE-ECDSA-AES128-GCM-SHA256, ECDHE-ECDSA-AES256-GCM-SHA384, ECDHE-ECDSA-AES128-SHA256, ECDHE-ECDSA-AES256-SHA384, ECDHE-RSA-AES128-GCM-SHA256, ECDHE-RSA-AES256-GCM-SHA384, ECDHE-RSA-AES128-SHA256, ECDHE-RSA-AES256-SHA384, ECDHE-ECDSA-AES128-SHA, ECDHE-ECDSA-AES256-SHA, ECDHE-RSA-AES128-SHA, and ECDHE-RSA-AES256-SHA
+     *   Supported cipher suites: TLS_AES_128_GCM_SHA256, TLS_AES_256_GCM_SHA384, TLS_CHACHA20_POLY1305_SHA256, TLS_AES_128_CCM_SHA256, TLS_AES_128_CCM_8_SHA256, ECDHE-ECDSA-AES128-GCM-SHA256, ECDHE-ECDSA-AES256-GCM-SHA384, ECDHE-ECDSA-AES128-SHA256, ECDHE-ECDSA-AES256-SHA384, ECDHE-RSA-AES128-GCM-SHA256, ECDHE-RSA-AES256-GCM-SHA384, ECDHE-RSA-AES128-SHA256, ECDHE-RSA-AES256-SHA384, ECDHE-ECDSA-AES128-SHA, ECDHE-ECDSA-AES256-SHA, ECDHE-RSA-AES128-SHA, and ECDHE-RSA-AES256-SHA
      *
      * > This parameter is available only when you create an HTTPS listener.
      * @example tls_cipher_policy_1_0

@@ -23,6 +23,7 @@ class DeleteBasicEndpointRequest extends Model
     /**
      * @description The ID of the endpoint group to which the endpoint to be deleted belongs.
      *
+     * This parameter is required.
      * @example epg-bp1dmlohjjz4kqaun****
      *
      * @var string
@@ -32,6 +33,7 @@ class DeleteBasicEndpointRequest extends Model
     /**
      * @description The ID of the endpoint that you want to delete.
      *
+     * This parameter is required.
      * @example ep-bp14sz7ftcwwjgrdm****
      *
      * @var string
@@ -41,6 +43,7 @@ class DeleteBasicEndpointRequest extends Model
     /**
      * @description The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

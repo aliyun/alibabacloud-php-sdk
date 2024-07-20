@@ -12,6 +12,7 @@ class CreateBasicEndpointsRequest extends Model
     /**
      * @description The ID of the basic GA instance.
      *
+     * This parameter is required.
      * @example ga-bp17frjjh0udz4qz****
      *
      * @var string
@@ -33,6 +34,7 @@ class CreateBasicEndpointsRequest extends Model
     /**
      * @description The ID of the endpoint group.
      *
+     * This parameter is required.
      * @example epg-bp1dmlohjjz4kqaun****
      *
      * @var string
@@ -42,6 +44,7 @@ class CreateBasicEndpointsRequest extends Model
     /**
      * @description The endpoints.
      *
+     * This parameter is required.
      * @var endpoints[]
      */
     public $endpoints;
@@ -49,6 +52,7 @@ class CreateBasicEndpointsRequest extends Model
     /**
      * @description The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

@@ -23,7 +23,7 @@ class GetBasicIpSetRequest extends Model
     /**
      * @description The ID of the acceleration region.
      *
-     * You can call the [GetBasicAccelerator](~~2253380~~) operation to query the region ID.
+     * This parameter is required.
      * @example ips-bp11r5jb8ogp122xl****
      *
      * @var string
@@ -33,6 +33,7 @@ class GetBasicIpSetRequest extends Model
     /**
      * @description The ID of the region where the basic GA instance is deployed. Set the value to **cn-hangzhou**.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

@@ -23,7 +23,7 @@ class DeleteCustomRoutingEndpointTrafficPoliciesRequest extends Model
     /**
      * @description The ID of the endpoint for which you want to delete traffic destinations.
      *
-     * >  This parameter is required.
+     * This parameter is required.
      * @example ep-2zewuzypq5e6r3pfh****
      *
      * @var string
@@ -33,7 +33,7 @@ class DeleteCustomRoutingEndpointTrafficPoliciesRequest extends Model
     /**
      * @description The IDs of the traffic destinations.
      *
-     * You can specify the IDs of up to 9,000 traffic destinations.
+     * This parameter is required.
      * @var string[]
      */
     public $policyIds;
@@ -41,6 +41,7 @@ class DeleteCustomRoutingEndpointTrafficPoliciesRequest extends Model
     /**
      * @description The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

@@ -35,7 +35,7 @@ class DeleteEndpointGroupsRequest extends Model
     /**
      * @description The IDs of endpoint groups.
      *
-     * You can specify up to 10 endpoint group IDs in each request.
+     * This parameter is required.
      * @var string[]
      */
     public $endpointGroupIds;
@@ -43,6 +43,7 @@ class DeleteEndpointGroupsRequest extends Model
     /**
      * @description The region ID of the GA instance. Set the value to **cn-hangzhou**.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

@@ -12,6 +12,8 @@ class serverGroupTuples extends Model
      * @description The ID of an endpoint group.
      *
      * >  We recommend that you use **RuleActionType** and **RuleActionValue** rather than this parameter to configure forwarding actions.
+     *
+     * This parameter is required.
      * @example epg-bp1ieei9664r5nv****
      *
      * @var string

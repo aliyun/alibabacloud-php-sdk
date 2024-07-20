@@ -12,6 +12,7 @@ class CreateBasicAccelerateIpEndpointRelationsRequest extends Model
     /**
      * @description A list of accelerated IP addresses and the endpoints with which the accelerated IP addresses are associated.
      *
+     * This parameter is required.
      * @var accelerateIpEndpointRelations[]
      */
     public $accelerateIpEndpointRelations;
@@ -19,6 +20,7 @@ class CreateBasicAccelerateIpEndpointRelationsRequest extends Model
     /**
      * @description The ID of the basic GA instance.
      *
+     * This parameter is required.
      * @example ga-bp17frjjh0udz4qz****
      *
      * @var string
@@ -40,6 +42,7 @@ class CreateBasicAccelerateIpEndpointRelationsRequest extends Model
     /**
      * @description The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

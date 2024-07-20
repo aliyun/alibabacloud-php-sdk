@@ -11,6 +11,7 @@ class DescribeLogStoreOfEndpointGroupRequest extends Model
     /**
      * @description The ID of the GA instance.
      *
+     * This parameter is required.
      * @example ga-xxxxxxxxxxxxx
      *
      * @var string
@@ -20,6 +21,7 @@ class DescribeLogStoreOfEndpointGroupRequest extends Model
     /**
      * @description The ID of the endpoint group.
      *
+     * This parameter is required.
      * @example epg-xxxxxxxxxxxxxxx
      *
      * @var string
@@ -29,6 +31,7 @@ class DescribeLogStoreOfEndpointGroupRequest extends Model
     /**
      * @description The ID of the listener.
      *
+     * This parameter is required.
      * @example lsr-xxxxxxxxxxxxxxx
      *
      * @var string
@@ -38,6 +41,7 @@ class DescribeLogStoreOfEndpointGroupRequest extends Model
     /**
      * @description The region where the GA instance is deployed. Set the value to **cn-hangzhou**.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

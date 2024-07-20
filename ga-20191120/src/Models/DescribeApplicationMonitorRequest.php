@@ -32,6 +32,7 @@ class DescribeApplicationMonitorRequest extends Model
     /**
      * @description The ID of the origin probing task.
      *
+     * This parameter is required.
      * @example sm-bp1fpdjfju9k8yr1y****
      *
      * @var string

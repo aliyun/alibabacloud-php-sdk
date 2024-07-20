@@ -12,6 +12,7 @@ class CreateCustomRoutingEndpointGroupsRequest extends Model
     /**
      * @description The ID of the GA instance.
      *
+     * This parameter is required.
      * @example ga-bp1odcab8tmno0hdq****
      *
      * @var string
@@ -45,7 +46,7 @@ class CreateCustomRoutingEndpointGroupsRequest extends Model
     /**
      * @description The information about the endpoint groups.
      *
-     * You can specify at most five endpoint groups.
+     * This parameter is required.
      * @var endpointGroupConfigurations[]
      */
     public $endpointGroupConfigurations;
@@ -53,6 +54,7 @@ class CreateCustomRoutingEndpointGroupsRequest extends Model
     /**
      * @description The ID of the custom routing listener.
      *
+     * This parameter is required.
      * @example lsr-bp1bpn0kn908w4nbw****
      *
      * @var string
@@ -62,6 +64,7 @@ class CreateCustomRoutingEndpointGroupsRequest extends Model
     /**
      * @description The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

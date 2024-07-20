@@ -46,6 +46,7 @@ class UpdateBandwidthPackagaAutoRenewAttributeRequest extends Model
     /**
      * @description The ID of the bandwidth plan.
      *
+     * This parameter is required.
      * @example gbwp-bp1sgzldyj6b4q7cx****
      *
      * @var string
@@ -55,7 +56,7 @@ class UpdateBandwidthPackagaAutoRenewAttributeRequest extends Model
     /**
      * @description The name of the bandwidth plan.
      *
-     * The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). The name must start with a letter.
+     * The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The name must start with a letter.
      * @example test
      *
      * @var string

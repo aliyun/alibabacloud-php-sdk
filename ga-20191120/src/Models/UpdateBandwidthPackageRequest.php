@@ -46,6 +46,7 @@ class UpdateBandwidthPackageRequest extends Model
     /**
      * @description The ID of the bandwidth plan that you want to modify.
      *
+     * This parameter is required.
      * @example gbwp-bp1sgzldyj6b4q7cx****
      *
      * @var string
@@ -77,7 +78,7 @@ class UpdateBandwidthPackageRequest extends Model
     public $description;
 
     /**
-     * @description The name of the bandwidth plan. The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). The name must start with a letter.
+     * @description The name of the bandwidth plan. The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The name must start with a letter.
      *
      * @example testName
      *
@@ -88,6 +89,7 @@ class UpdateBandwidthPackageRequest extends Model
     /**
      * @description The region ID of the GA instance. Set the value to **cn-hangzhou**.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

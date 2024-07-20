@@ -11,6 +11,7 @@ class destinationConfigurations extends Model
     /**
      * @description The ID of the mapping configuration of the endpoint group.
      *
+     * This parameter is required.
      * @example dst-abc123****
      *
      * @var string

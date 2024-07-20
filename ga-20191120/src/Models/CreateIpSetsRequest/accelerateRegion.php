@@ -11,7 +11,7 @@ class accelerateRegion extends Model
     /**
      * @description The ID of the acceleration region.
      *
-     * The number of regions that you can add varies based on the specification of the GA instance. For more information, see [Overview](~~153127~~).
+     * This parameter is required.
      * @example cn-huhehaote
      *
      * @var string

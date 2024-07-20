@@ -32,6 +32,7 @@ class EnableApplicationMonitorRequest extends Model
     /**
      * @description The ID of the origin probing task that you want to enable.
      *
+     * This parameter is required.
      * @example sm-bp1fpdjfju9k8yr1y****
      *
      * @var string

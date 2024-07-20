@@ -11,6 +11,7 @@ class UpdateBasicAcceleratorRequest extends Model
     /**
      * @description The ID of the basic GA instance.
      *
+     * This parameter is required.
      * @example ga-bp17frjjh0udz4qz****
      *
      * @var string
@@ -42,7 +43,7 @@ class UpdateBasicAcceleratorRequest extends Model
     /**
      * @description The name of the basic GA instance.
      *
-     * The name must be 1 to 128 characters in length and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). The name must start with a letter.
+     * The name must be 1 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The name must start with a letter.
      * @example BasicAccelerator
      *
      * @var string

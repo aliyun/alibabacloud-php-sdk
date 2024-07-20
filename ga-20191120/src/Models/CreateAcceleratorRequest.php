@@ -130,7 +130,7 @@ class CreateAcceleratorRequest extends Model
     /**
      * @description The name of the GA instance.
      *
-     * The name must be 2 to 128 characters in length and can contain digits, underscores (\_), and hyphens (-). It must start with a letter.
+     * The name must be 2 to 128 characters in length and can contain digits, underscores (_), and hyphens (-). It must start with a letter.
      * @example test
      *
      * @var string
@@ -162,6 +162,7 @@ class CreateAcceleratorRequest extends Model
     /**
      * @description The ID of the region in which to create the GA instance. Set the value to **cn-hangzhou**.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -197,7 +198,7 @@ class CreateAcceleratorRequest extends Model
      *   **100:** Super Large Ⅰ
      *   **200:** Super Large Ⅱ
      *
-     * Each instance type provides different capabilities. For more information, see [Instance specifications](~~153127~~).
+     * Each instance type provides different capabilities. For more information, see [Instance specifications](https://help.aliyun.com/document_detail/153127.html).
      * @example 1
      *
      * @var string

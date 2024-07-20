@@ -11,6 +11,7 @@ class DeleteBasicAcceleratorRequest extends Model
     /**
      * @description The ID of the basic GA instance.
      *
+     * This parameter is required.
      * @example ga-bp17frjjh0udz4qz****
      *
      * @var string
@@ -20,6 +21,7 @@ class DeleteBasicAcceleratorRequest extends Model
     /**
      * @description The ID of the region to which the basic GA instance belongs. Set the value to **cn-hangzhou**.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

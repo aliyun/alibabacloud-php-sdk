@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class policies extends Model
 {
     /**
-     * @description The ID of the GA instance with which the endpoint is associated.
+     * @description The ID of the GA instance to which the endpoint belongs.
      *
      * @example ga-bp1odcab8tmno0hdq****
      *
@@ -20,7 +20,7 @@ class policies extends Model
     public $acceleratorId;
 
     /**
-     * @description The IP address of the traffic destination.
+     * @description The IP addresses of the traffic policies.
      *
      * @example 10.0.XX.XX
      *
@@ -38,7 +38,7 @@ class policies extends Model
     public $endpointGroupId;
 
     /**
-     * @description The ID of the endpoint to which the traffic destination belongs.
+     * @description The ID of the endpoint to which the traffic policy belongs.
      *
      * @example ep-bp14sz7ftcwwjgrdm****
      *
@@ -47,7 +47,7 @@ class policies extends Model
     public $endpointId;
 
     /**
-     * @description The ID of the custom routing listener with which the endpoint is associated.
+     * @description The ID of the custom routing listener to which the endpoint belongs.
      *
      * @example lsr-bp1bpn0kn908w4nbw****
      *
@@ -56,7 +56,7 @@ class policies extends Model
     public $listenerId;
 
     /**
-     * @description The traffic policy ID.
+     * @description The ID of the traffic policy.
      *
      * @example ply-bp1dmlohjjz4kqaun****
      *
@@ -72,9 +72,9 @@ class policies extends Model
     public $portRanges;
 
     /**
-     * @description The ID of the service that manages the GA instance.
+     * @description The ID of the service that manages the instance.
      *
-     * >  This parameter takes effect only if **ServiceManaged** is set to **True**.
+     * >  This parameter is returned only if the value of **ServiceManaged** is **true**.
      * @example ALB
      *
      * @var string
@@ -82,7 +82,7 @@ class policies extends Model
     public $serviceId;
 
     /**
-     * @description Indicates whether the GA instance is managed. Valid values:
+     * @description Indicates whether the instance is managed. Valid values:
      *
      *   **true**: The GA instance is managed.
      *   **false**: The GA instance is not managed.
@@ -94,12 +94,10 @@ class policies extends Model
     public $serviceManaged;
 
     /**
-     * @description The actions that you can perform on the managed instance.
+     * @description The actions that users can perform on the managed instance.
      *
-     * >  This parameter takes effect only if **ServiceManaged** is set to **True**.
-     *
-     *   You can perform only specific actions on a managed instance.
-     *
+     * > *   This parameter is returned only if the value of **ServiceManaged** is **true**.
+     * >*   Users can perform only specific actions on a managed instance.
      * @var serviceManagedInfos[]
      */
     public $serviceManagedInfos;

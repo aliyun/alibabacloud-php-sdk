@@ -12,6 +12,7 @@ class ListEndpointGroupsRequest extends Model
     /**
      * @description The ID of the GA instance.
      *
+     * This parameter is required.
      * @example ga-bp1odcab8tmno0hdq****
      *
      * @var string
@@ -42,8 +43,8 @@ class ListEndpointGroupsRequest extends Model
     /**
      * @description The type of the endpoint group. Valid values:
      *
-     *   **default**: a default endpoint group
-     *   **virtual**: a virtual endpoint group
+     *   **default**
+     *   **virtual**
      *   If you leave this parameter empty, all default and virtual endpoint groups are queried.
      *
      * @example virtual
@@ -62,7 +63,7 @@ class ListEndpointGroupsRequest extends Model
     public $listenerId;
 
     /**
-     * @description The number of the page to return. Default value: **1**.
+     * @description The page number. Default value: **1**.
      *
      * @example 1
      *
@@ -71,7 +72,7 @@ class ListEndpointGroupsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Maximum value: **50**. Default value: **10**.
+     * @description The number of entries per page. Maximum value: **50**. Default value: **10**.
      *
      * @example 10
      *
@@ -82,6 +83,7 @@ class ListEndpointGroupsRequest extends Model
     /**
      * @description The ID of the region where the Global Accelerator (GA) instance is deployed. Set the value to **cn-hangzhou**.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

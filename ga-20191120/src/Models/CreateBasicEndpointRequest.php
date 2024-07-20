@@ -11,6 +11,7 @@ class CreateBasicEndpointRequest extends Model
     /**
      * @description The ID of the basic GA instance.
      *
+     * This parameter is required.
      * @example ga-bp17frjjh0udz4qz****
      *
      * @var string
@@ -32,6 +33,7 @@ class CreateBasicEndpointRequest extends Model
     /**
      * @description The address of the endpoint.
      *
+     * This parameter is required.
      * @example eni-bp1a05txelswuj8g****
      *
      * @var string
@@ -41,6 +43,7 @@ class CreateBasicEndpointRequest extends Model
     /**
      * @description The ID of the endpoint group.
      *
+     * This parameter is required.
      * @example epg-bp1dmlohjjz4kqaun****
      *
      * @var string
@@ -83,6 +86,7 @@ class CreateBasicEndpointRequest extends Model
      *   **ECS**: Elastic Compute Service (ECS)
      *   **NLB**: Network Load Balancer (NLB)
      *
+     * This parameter is required.
      * @example ENI
      *
      * @var string
@@ -102,7 +106,7 @@ class CreateBasicEndpointRequest extends Model
     /**
      * @description The name of the endpoint that is associated with the basic GA instance.
      *
-     * The name must be 1 to 128 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). It must start with a letter.
+     * The name must be 1 to 128 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). It must start with a letter.
      * @example ep01
      *
      * @var string
@@ -112,6 +116,7 @@ class CreateBasicEndpointRequest extends Model
     /**
      * @description The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

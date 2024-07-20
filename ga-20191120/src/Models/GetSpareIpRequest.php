@@ -11,6 +11,7 @@ class GetSpareIpRequest extends Model
     /**
      * @description The GA instance ID.
      *
+     * This parameter is required.
      * @example ga-bp1odcab8tmno0hdq****
      *
      * @var string
@@ -42,6 +43,7 @@ class GetSpareIpRequest extends Model
     /**
      * @description The region ID of the GA instance. Set the value to **cn-hangzhou**.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -51,6 +53,7 @@ class GetSpareIpRequest extends Model
     /**
      * @description The secondary IP address that is associated with the CNAME. If the acceleration area becomes unavailable, GA redirects traffic to the secondary IP address.
      *
+     * This parameter is required.
      * @example 47.100.XX.XX
      *
      * @var string

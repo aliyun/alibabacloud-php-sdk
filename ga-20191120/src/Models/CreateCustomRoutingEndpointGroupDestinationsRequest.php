@@ -24,7 +24,7 @@ class CreateCustomRoutingEndpointGroupDestinationsRequest extends Model
     /**
      * @description The mapping configuration of the endpoint group.
      *
-     * You can specify up to 20 mappings in each call.
+     * This parameter is required.
      * @var destinationConfigurations[]
      */
     public $destinationConfigurations;
@@ -41,7 +41,7 @@ class CreateCustomRoutingEndpointGroupDestinationsRequest extends Model
     /**
      * @description The mappings of the endpoint group.
      *
-     * You can specify up to 20 mappings in each call.
+     * This parameter is required.
      * @example epg-bp14sz7ftcwwjgrdm****
      *
      * @var string
@@ -54,6 +54,8 @@ class CreateCustomRoutingEndpointGroupDestinationsRequest extends Model
      * You can use the client to generate the token, but you must make sure that the token is unique among all requests. The token can contain only ASCII characters.
      *
      * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+     *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

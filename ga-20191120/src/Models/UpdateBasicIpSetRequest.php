@@ -11,7 +11,7 @@ class UpdateBasicIpSetRequest extends Model
     /**
      * @description The bandwidth of the acceleration region. Unit: Mbit/s.
      *
-     * The minimum bandwidth is 2 Mbit/s.
+     * This parameter is required.
      * @example 2
      *
      * @var int
@@ -33,6 +33,7 @@ class UpdateBasicIpSetRequest extends Model
     /**
      * @description The ID of the acceleration region of the basic GA instance.
      *
+     * This parameter is required.
      * @example ips-bp11r5jb8ogp122xl****
      *
      * @var string
@@ -42,6 +43,7 @@ class UpdateBasicIpSetRequest extends Model
     /**
      * @description The ID of the region where the basic GA instance is deployed. Set the value to **cn-hangzhou**.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

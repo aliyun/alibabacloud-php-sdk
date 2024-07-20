@@ -35,6 +35,7 @@ class endpointConfigurations extends Model
     /**
      * @description Enter the IP address, domain name, or instance ID based on the value of the Type parameter.
      *
+     * This parameter is required.
      * @example 120.1.XX.XX
      *
      * @var string
@@ -74,7 +75,7 @@ class endpointConfigurations extends Model
      *
      *   If you set this parameter to **NLB** and the AliyunServiceRoleForGaNlb service-linked role does not exist, the system automatically creates the role.
      *
-     * For more information, see [Service-linked roles](~~178360~~).
+     * This parameter is required.
      * @example Ip
      *
      * @var string
@@ -86,7 +87,7 @@ class endpointConfigurations extends Model
      *
      * Valid values: **0** to **255**.
      *
-     * >  If you set the weight of an endpoint to 0, GA stops distributing traffic to the endpoint. Proceed with caution.
+     * This parameter is required.
      * @example 20
      *
      * @var int

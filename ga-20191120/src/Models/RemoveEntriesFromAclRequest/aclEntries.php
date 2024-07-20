@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class aclEntries extends Model
 {
     /**
-     * @description The IP address (192.168.XX.XX) or CIDR block (10.0.XX.XX/24) that you want to delete from the ACL. You can delete up to 20 entries in each request.
+     * @description The IP address (192.168.XX.XX) or CIDR block (10.0.XX.XX/24) that you want to delete from the ACL. You can delete a maximum of 50 entries at a time.
      *
-     * > This parameter is required.
+     * >  This parameter is required.
      * @example 10.0.XX.XX/24
      *
      * @var string

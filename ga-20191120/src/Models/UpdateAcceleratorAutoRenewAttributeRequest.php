@@ -11,6 +11,7 @@ class UpdateAcceleratorAutoRenewAttributeRequest extends Model
     /**
      * @description The ID of the GA instance.
      *
+     * This parameter is required.
      * @example ga-bp17frjjh0udz4qz****
      *
      * @var string
@@ -57,7 +58,7 @@ class UpdateAcceleratorAutoRenewAttributeRequest extends Model
     /**
      * @description The name of the GA instance.
      *
-     * The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (\_), and hyphens (-). The name must start with a letter.
+     * The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (_), and hyphens (-). The name must start with a letter.
      * @example test
      *
      * @var string

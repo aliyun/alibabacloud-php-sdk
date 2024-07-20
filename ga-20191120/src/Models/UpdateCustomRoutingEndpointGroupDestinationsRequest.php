@@ -24,7 +24,7 @@ class UpdateCustomRoutingEndpointGroupDestinationsRequest extends Model
     /**
      * @description The mapping configurations of endpoint group.
      *
-     * You can specify at most 20 mapping configurations, which include port ranges and protocol types.
+     * This parameter is required.
      * @var destinationConfigurations[]
      */
     public $destinationConfigurations;
@@ -44,6 +44,7 @@ class UpdateCustomRoutingEndpointGroupDestinationsRequest extends Model
     /**
      * @description The ID of the endpoint group.
      *
+     * This parameter is required.
      * @example epg-bp1dmlohjjz4kqaun****
      *
      * @var string
@@ -53,6 +54,7 @@ class UpdateCustomRoutingEndpointGroupDestinationsRequest extends Model
     /**
      * @description The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

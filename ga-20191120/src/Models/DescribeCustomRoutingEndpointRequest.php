@@ -20,6 +20,7 @@ class DescribeCustomRoutingEndpointRequest extends Model
     /**
      * @description The ID of the endpoint.
      *
+     * This parameter is required.
      * @example ep-bp1dmlohjjz4kqaun****
      *
      * @var string
@@ -29,6 +30,7 @@ class DescribeCustomRoutingEndpointRequest extends Model
     /**
      * @description The ID of the region where the Global Accelerator (GA) instance is deployed. Set the value to **cn-hangzhou**.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

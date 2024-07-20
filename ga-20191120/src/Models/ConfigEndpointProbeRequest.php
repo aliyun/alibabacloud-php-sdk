@@ -26,6 +26,7 @@ class ConfigEndpointProbeRequest extends Model
      *   **true**
      *   **false** (default)
      *
+     * This parameter is required.
      * @example true
      *
      * @var string
@@ -35,6 +36,7 @@ class ConfigEndpointProbeRequest extends Model
     /**
      * @description The endpoint.
      *
+     * This parameter is required.
      * @example 127.0.XX.XX
      *
      * @var string
@@ -44,6 +46,7 @@ class ConfigEndpointProbeRequest extends Model
     /**
      * @description The endpoint group ID.
      *
+     * This parameter is required.
      * @example epg-bp1dmlohjjz4kqaun****
      *
      * @var string
@@ -58,6 +61,7 @@ class ConfigEndpointProbeRequest extends Model
      *   **EIP:** an Alibaba Cloud elastic IP address (EIP).
      *   **PublicIp:** an Alibaba Cloud public IP address.
      *
+     * This parameter is required.
      * @example Ip
      *
      * @var string
@@ -88,6 +92,7 @@ class ConfigEndpointProbeRequest extends Model
     /**
      * @description The region ID of the GA instance. Set the value to **cn-hangzhou**.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

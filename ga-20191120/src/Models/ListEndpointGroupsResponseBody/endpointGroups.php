@@ -82,6 +82,11 @@ class endpointGroups extends Model
     public $endpointGroupUnconfirmedIpList;
 
     /**
+     * @var string
+     */
+    public $endpointProtocolVersion;
+
+    /**
      * @description The protocol that is used by the backend server.
      *
      *   **HTTP**
@@ -259,6 +264,7 @@ class endpointGroups extends Model
         'endpointGroupRegion'            => 'EndpointGroupRegion',
         'endpointGroupType'              => 'EndpointGroupType',
         'endpointGroupUnconfirmedIpList' => 'EndpointGroupUnconfirmedIpList',
+        'endpointProtocolVersion'        => 'EndpointProtocolVersion',
         'endpointRequestProtocol'        => 'EndpointRequestProtocol',
         'forwardingRuleIds'              => 'ForwardingRuleIds',
         'healthCheckEnabled'             => 'HealthCheckEnabled',
@@ -314,6 +320,9 @@ class endpointGroups extends Model
         }
         if (null !== $this->endpointGroupUnconfirmedIpList) {
             $res['EndpointGroupUnconfirmedIpList'] = $this->endpointGroupUnconfirmedIpList;
+        }
+        if (null !== $this->endpointProtocolVersion) {
+            $res['EndpointProtocolVersion'] = $this->endpointProtocolVersion;
         }
         if (null !== $this->endpointRequestProtocol) {
             $res['EndpointRequestProtocol'] = $this->endpointRequestProtocol;
@@ -429,6 +438,9 @@ class endpointGroups extends Model
             if (!empty($map['EndpointGroupUnconfirmedIpList'])) {
                 $model->endpointGroupUnconfirmedIpList = $map['EndpointGroupUnconfirmedIpList'];
             }
+        }
+        if (isset($map['EndpointProtocolVersion'])) {
+            $model->endpointProtocolVersion = $map['EndpointProtocolVersion'];
         }
         if (isset($map['EndpointRequestProtocol'])) {
             $model->endpointRequestProtocol = $map['EndpointRequestProtocol'];

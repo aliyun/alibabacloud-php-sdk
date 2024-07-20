@@ -14,6 +14,7 @@ class CreateEndpointGroupRequest extends Model
     /**
      * @description The ID of the GA instance.
      *
+     * This parameter is required.
      * @example ga-bp1odcab8tmno0hdq****
      *
      * @var string
@@ -52,6 +53,7 @@ class CreateEndpointGroupRequest extends Model
     /**
      * @description The ID of the region in which to create the endpoint group.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -70,6 +72,11 @@ class CreateEndpointGroupRequest extends Model
      * @var string
      */
     public $endpointGroupType;
+
+    /**
+     * @var string
+     */
+    public $endpointProtocolVersion;
 
     /**
      * @description The protocol that is used by the backend service. Default value: HTTP. Valid values:
@@ -140,6 +147,7 @@ class CreateEndpointGroupRequest extends Model
     /**
      * @description The ID of the listener.
      *
+     * This parameter is required.
      * @example lsr-bp1bpn0kn908w4nbw****
      *
      * @var string
@@ -149,7 +157,7 @@ class CreateEndpointGroupRequest extends Model
     /**
      * @description The name of the endpoint group.
      *
-     * The name must be 1 to 128 characters in length and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). The name must start with a letter.
+     * The name must be 1 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The name must start with a letter.
      * @example group1
      *
      * @var string
@@ -166,6 +174,7 @@ class CreateEndpointGroupRequest extends Model
     /**
      * @description The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -205,6 +214,7 @@ class CreateEndpointGroupRequest extends Model
         'endpointConfigurations'     => 'EndpointConfigurations',
         'endpointGroupRegion'        => 'EndpointGroupRegion',
         'endpointGroupType'          => 'EndpointGroupType',
+        'endpointProtocolVersion'    => 'EndpointProtocolVersion',
         'endpointRequestProtocol'    => 'EndpointRequestProtocol',
         'healthCheckEnabled'         => 'HealthCheckEnabled',
         'healthCheckIntervalSeconds' => 'HealthCheckIntervalSeconds',
@@ -250,6 +260,9 @@ class CreateEndpointGroupRequest extends Model
         }
         if (null !== $this->endpointGroupType) {
             $res['EndpointGroupType'] = $this->endpointGroupType;
+        }
+        if (null !== $this->endpointProtocolVersion) {
+            $res['EndpointProtocolVersion'] = $this->endpointProtocolVersion;
         }
         if (null !== $this->endpointRequestProtocol) {
             $res['EndpointRequestProtocol'] = $this->endpointRequestProtocol;
@@ -337,6 +350,9 @@ class CreateEndpointGroupRequest extends Model
         }
         if (isset($map['EndpointGroupType'])) {
             $model->endpointGroupType = $map['EndpointGroupType'];
+        }
+        if (isset($map['EndpointProtocolVersion'])) {
+            $model->endpointProtocolVersion = $map['EndpointProtocolVersion'];
         }
         if (isset($map['EndpointRequestProtocol'])) {
             $model->endpointRequestProtocol = $map['EndpointRequestProtocol'];

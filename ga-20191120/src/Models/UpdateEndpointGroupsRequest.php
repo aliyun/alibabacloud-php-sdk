@@ -36,6 +36,7 @@ class UpdateEndpointGroupsRequest extends Model
     /**
      * @description The configurations of the endpoint group.
      *
+     * This parameter is required.
      * @var endpointGroupConfigurations[]
      */
     public $endpointGroupConfigurations;
@@ -43,6 +44,7 @@ class UpdateEndpointGroupsRequest extends Model
     /**
      * @description The listener ID.
      *
+     * This parameter is required.
      * @example lsr-bp1bpn0kn908w4nbw****
      *
      * @var string
@@ -52,6 +54,7 @@ class UpdateEndpointGroupsRequest extends Model
     /**
      * @description The region ID of the GA instance. Set the value to **cn-hangzhou**.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

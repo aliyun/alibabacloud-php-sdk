@@ -12,6 +12,7 @@ class CreateIpSetsRequest extends Model
     /**
      * @description The information about the acceleration regions.
      *
+     * This parameter is required.
      * @var accelerateRegion[]
      */
     public $accelerateRegion;
@@ -19,6 +20,7 @@ class CreateIpSetsRequest extends Model
     /**
      * @description The GA instance ID.
      *
+     * This parameter is required.
      * @example ga-bp1yeeq8yfoyszmqy****
      *
      * @var string
@@ -40,6 +42,7 @@ class CreateIpSetsRequest extends Model
     /**
      * @description The region ID of the GA instance. Set the value to **cn-hangzhou**.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

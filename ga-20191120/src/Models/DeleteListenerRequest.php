@@ -32,6 +32,7 @@ class DeleteListenerRequest extends Model
     /**
      * @description The ID of the listener that you want to delete.
      *
+     * This parameter is required.
      * @example lsr-bp1bpn0kn908w4nbw****
      *
      * @var string

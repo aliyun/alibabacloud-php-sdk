@@ -11,6 +11,7 @@ class CreateBasicEndpointGroupRequest extends Model
     /**
      * @description The ID of the basic GA instance.
      *
+     * This parameter is required.
      * @example ga-bp17frjjh0udz4qz****
      *
      * @var string
@@ -51,7 +52,7 @@ class CreateBasicEndpointGroupRequest extends Model
     /**
      * @description The ID of the region to which the endpoint group belongs.
      *
-     * You can call the [ListAvailableBusiRegions](~~2253223~~) operation to query the region ID.
+     * This parameter is required.
      * @example cn-shanghai
      *
      * @var string
@@ -88,7 +89,7 @@ class CreateBasicEndpointGroupRequest extends Model
     /**
      * @description The name of the endpoint group.
      *
-     * The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (\_), and hyphens (-). The name must start with a letter.
+     * The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (_), and hyphens (-). The name must start with a letter.
      * @example group1
      *
      * @var string
@@ -98,6 +99,7 @@ class CreateBasicEndpointGroupRequest extends Model
     /**
      * @description The region ID of the GA instance. Set the value to **cn-hangzhou**.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

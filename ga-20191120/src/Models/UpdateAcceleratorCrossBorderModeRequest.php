@@ -11,7 +11,7 @@ class UpdateAcceleratorCrossBorderModeRequest extends Model
     /**
      * @description The GA instance ID.
      *
-     * > The bandwidth metering method of the GA instance must be pay-by-data-transfer.
+     * This parameter is required.
      * @example ga-bp1odcab8tmno0hdq****
      *
      * @var string
@@ -36,6 +36,7 @@ class UpdateAcceleratorCrossBorderModeRequest extends Model
      *   **bgpPro**: BGP (Multi-ISP) Pro. BGP (Multi-ISP) Pro lines are used for cross-border acceleration. You do not need to complete real-name verification.
      *   **private**: cross-border Express Connect circuit. Cross-border Express Connect circuits provide better acceleration performance but require real-name verification.
      *
+     * This parameter is required.
      * @example bgpPro
      *
      * @var string

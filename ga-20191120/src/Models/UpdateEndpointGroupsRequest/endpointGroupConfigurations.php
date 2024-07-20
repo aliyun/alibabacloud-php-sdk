@@ -54,6 +54,7 @@ class endpointGroupConfigurations extends Model
     /**
      * @description The ID of the endpoint.
      *
+     * This parameter is required.
      * @example ep-bp1d2utp8qqe2a44t****
      *
      * @var string
@@ -63,12 +64,17 @@ class endpointGroupConfigurations extends Model
     /**
      * @description The name of the endpoint group.
      *
-     * The name must be 2 to 128 characters in length and can contain letters, digits, underscores (\_), and hyphens (-). The name must start with a letter.
+     * The name must be 2 to 128 characters in length and can contain letters, digits, underscores (_), and hyphens (-). The name must start with a letter.
      * @example group1
      *
      * @var string
      */
     public $endpointGroupName;
+
+    /**
+     * @var string
+     */
+    public $endpointProtocolVersion;
 
     /**
      * @description The protocol that is used by the backend service. Valid values:
@@ -170,6 +176,7 @@ class endpointGroupConfigurations extends Model
         'endpointGroupDescription'                => 'EndpointGroupDescription',
         'endpointGroupId'                         => 'EndpointGroupId',
         'endpointGroupName'                       => 'EndpointGroupName',
+        'endpointProtocolVersion'                 => 'EndpointProtocolVersion',
         'endpointRequestProtocol'                 => 'EndpointRequestProtocol',
         'healthCheckEnabled'                      => 'HealthCheckEnabled',
         'healthCheckIntervalSeconds'              => 'HealthCheckIntervalSeconds',
@@ -211,6 +218,9 @@ class endpointGroupConfigurations extends Model
         }
         if (null !== $this->endpointGroupName) {
             $res['EndpointGroupName'] = $this->endpointGroupName;
+        }
+        if (null !== $this->endpointProtocolVersion) {
+            $res['EndpointProtocolVersion'] = $this->endpointProtocolVersion;
         }
         if (null !== $this->endpointRequestProtocol) {
             $res['EndpointRequestProtocol'] = $this->endpointRequestProtocol;
@@ -280,6 +290,9 @@ class endpointGroupConfigurations extends Model
         }
         if (isset($map['EndpointGroupName'])) {
             $model->endpointGroupName = $map['EndpointGroupName'];
+        }
+        if (isset($map['EndpointProtocolVersion'])) {
+            $model->endpointProtocolVersion = $map['EndpointProtocolVersion'];
         }
         if (isset($map['EndpointRequestProtocol'])) {
             $model->endpointRequestProtocol = $map['EndpointRequestProtocol'];

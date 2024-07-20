@@ -19,6 +19,7 @@ class DeleteDomainAcceleratorRelationRequest extends Model
     /**
      * @description The accelerated domain name to be disassociated.
      *
+     * This parameter is required.
      * @example www.example.com
      *
      * @var string

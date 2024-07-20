@@ -11,7 +11,7 @@ class DeleteBasicAccelerateIpEndpointRelationRequest extends Model
     /**
      * @description The ID of the accelerated IP address.
      *
-     * You can call the [ListBasicAccelerateIps](~~2253393~~) operation to query the ID of the accelerated IP address.
+     * This parameter is required.
      * @example gaip-bp1****
      *
      * @var string
@@ -21,6 +21,7 @@ class DeleteBasicAccelerateIpEndpointRelationRequest extends Model
     /**
      * @description The ID of the basic GA instance.
      *
+     * This parameter is required.
      * @example ga-bp17frjjh0udz4qz****
      *
      * @var string
@@ -42,7 +43,7 @@ class DeleteBasicAccelerateIpEndpointRelationRequest extends Model
     /**
      * @description The ID of the endpoint.
      *
-     * You can call the [ListBasicEndpoints](~~2253406~~) operation to query the ID of the endpoint.
+     * This parameter is required.
      * @example ep-bp14sz7ftcwwjgrdm****
      *
      * @var string
@@ -52,6 +53,7 @@ class DeleteBasicAccelerateIpEndpointRelationRequest extends Model
     /**
      * @description The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

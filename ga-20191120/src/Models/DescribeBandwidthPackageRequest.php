@@ -11,6 +11,7 @@ class DescribeBandwidthPackageRequest extends Model
     /**
      * @description The ID of the bandwidth plan that you want to query.
      *
+     * This parameter is required.
      * @example gbwp-bp1sgzldyj6b4q7cx****
      *
      * @var string
@@ -20,6 +21,7 @@ class DescribeBandwidthPackageRequest extends Model
     /**
      * @description The ID of the region where the Global Accelerator (GA) instance is deployed. Set the value to **cn-hangzhou**.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

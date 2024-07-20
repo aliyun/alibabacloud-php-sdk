@@ -20,6 +20,7 @@ class DescribeCustomRoutingEndPointTrafficPolicyRequest extends Model
     /**
      * @description The ID of the region where the Global Accelerator (GA) instance is deployed. Set the value to **cn-hangzhou**.
      *
+     * This parameter is required.
      * @example ply-bptest2****
      *
      * @var string
@@ -29,6 +30,7 @@ class DescribeCustomRoutingEndPointTrafficPolicyRequest extends Model
     /**
      * @description The operation that you want to perform. Set the value to **DescribeCustomRoutingEndPointTrafficPolicy**.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

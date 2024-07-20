@@ -23,6 +23,7 @@ class ReplaceBandwidthPackageRequest extends Model
      *   Only a bandwidth plan that is not associated with a GA instance can be specified.
      *   If you want to replace a basic bandwidth plan, make sure that the bandwidth provided by the replacement bandwidth plan is not less than the total bandwidth allocated to the acceleration area.
      *
+     * This parameter is required.
      * @example gbwp-bp176neb61yhcymow****
      *
      * @var string
@@ -32,6 +33,7 @@ class ReplaceBandwidthPackageRequest extends Model
     /**
      * @description The region ID of the GA instance. Set the value to **cn-hangzhou**.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -41,6 +43,7 @@ class ReplaceBandwidthPackageRequest extends Model
     /**
      * @description The ID of the bandwidth plan that you want to replace.
      *
+     * This parameter is required.
      * @example gbwp-o978hgeb61yhcymow****
      *
      * @var string

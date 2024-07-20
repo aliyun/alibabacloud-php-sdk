@@ -11,6 +11,7 @@ class GetIpsetsBandwidthLimitRequest extends Model
     /**
      * @description The ID of the GA instance to be queried.
      *
+     * This parameter is required.
      * @example ga-bp17frjjh0udz4qz****
      *
      * @var string
@@ -20,6 +21,7 @@ class GetIpsetsBandwidthLimitRequest extends Model
     /**
      * @description The ID of the region where the Global Accelerator (GA) instance is deployed. Set the value to **cn-hangzhou**.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

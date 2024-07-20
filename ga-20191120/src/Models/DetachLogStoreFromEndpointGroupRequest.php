@@ -11,6 +11,7 @@ class DetachLogStoreFromEndpointGroupRequest extends Model
     /**
      * @description The ID of the GA instance.
      *
+     * This parameter is required.
      * @example ga-bp1odcab8tmno0hdq****
      *
      * @var string
@@ -32,6 +33,7 @@ class DetachLogStoreFromEndpointGroupRequest extends Model
     /**
      * @description The IDs of endpoint groups.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $endpointGroupIds;
@@ -39,6 +41,7 @@ class DetachLogStoreFromEndpointGroupRequest extends Model
     /**
      * @description The ID of the listener.
      *
+     * This parameter is required.
      * @example lsr-bp1bpn0kn908w4nbw****
      *
      * @var string
@@ -48,6 +51,7 @@ class DetachLogStoreFromEndpointGroupRequest extends Model
     /**
      * @description The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

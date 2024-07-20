@@ -21,7 +21,7 @@ class DetectApplicationMonitorRequest extends Model
     public $clientToken;
 
     /**
-     * @description The region ID of the Global Accelerator (GA) instance. Set the value to **cn-hangzhou**.
+     * @description The region where the GA instance is deployed. Set the value to **cn-hangzhou**.
      *
      * @example cn-hangzhou
      *
@@ -32,6 +32,7 @@ class DetectApplicationMonitorRequest extends Model
     /**
      * @description The ID of the origin probing task for which you want to enable the diagnostic feature.
      *
+     * This parameter is required.
      * @example 2c8dbdf9-a3ab-46a1-85a4-f094965e****
      *
      * @var string

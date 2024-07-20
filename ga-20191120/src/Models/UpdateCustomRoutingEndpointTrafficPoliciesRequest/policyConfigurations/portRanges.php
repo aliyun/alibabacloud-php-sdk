@@ -9,11 +9,11 @@ use AlibabaCloud\Tea\Model;
 class portRanges extends Model
 {
     /**
-     * @description The first port of the destination port range. The specified port must fall within the port range of the specified endpoint group.
+     * @description The first port of the destination port range. The value of this parameter must fall within the port range of the backend service.
      *
-     * This parameter takes effect only when **TrafficToEndpointPolicy** is set to **AllowCustom**. You can call the [DescribeCustomRoutingEndpoint](~~449386~~) operation to query the access policy of traffic for the specified endpoint.
+     * This parameter takes effect only when you set the **TrafficToEndpointPolicy** parameter to **AllowCustom**. You can call the [DescribeCustomRoutingEndpoint](https://help.aliyun.com/document_detail/449386.html) operation to query the traffic policy of an endpoint.
      *
-     * You can specify port ranges for up to 500 destinations for each endpoint and specify up to 10 start ports for each destination.
+     * You can specify a maximum of 500 port ranges for each endpoint and a maximum of 10 port ranges for each traffic policy.
      * @example 80
      *
      * @var int
@@ -21,11 +21,11 @@ class portRanges extends Model
     public $fromPort;
 
     /**
-     * @description The last port of the destination port range. The specified port must fall within the port range of the specified endpoint group.
+     * @description The last port of the destination port range. The value of this parameter must fall within the port range of the backend service.
      *
-     * This parameter takes effect only when **TrafficToEndpointPolicy** is set to **AllowCustom**. You can call the [DescribeCustomRoutingEndpoint](~~449386~~) operation to query the traffic policy for the specified endpoint.
+     * This parameter takes effect only when you set the **TrafficToEndpointPolicy** parameter to **AllowCustom**. You can call the [DescribeCustomRoutingEndpoint](https://help.aliyun.com/document_detail/449386.html) operation to query the traffic policy of an endpoint.
      *
-     * You can specify port ranges for up to 500 destinations in each endpoint and specify up to 10 last ports for each destination.
+     * You can specify a maximum of 500 port ranges for each endpoint and a maximum of 10 port ranges for each traffic policy.
      * @example 80
      *
      * @var int

@@ -12,6 +12,7 @@ class AssociateAdditionalCertificatesWithListenerRequest extends Model
     /**
      * @description The GA instance ID.
      *
+     * This parameter is required.
      * @example ga-bp1odcab8tmno0hdq****
      *
      * @var string
@@ -21,7 +22,7 @@ class AssociateAdditionalCertificatesWithListenerRequest extends Model
     /**
      * @description The additional certificates.
      *
-     * You can specify up to 10 certificates in each request.
+     * This parameter is required.
      * @var certificates[]
      */
     public $certificates;
@@ -41,6 +42,7 @@ class AssociateAdditionalCertificatesWithListenerRequest extends Model
     /**
      * @description The listener ID. Only HTTPS listeners are supported.
      *
+     * This parameter is required.
      * @example lsr-bp1bpn0kn908w4nbw****
      *
      * @var string
@@ -50,6 +52,7 @@ class AssociateAdditionalCertificatesWithListenerRequest extends Model
     /**
      * @description The region ID of the GA instance. Set the value to **cn-hangzhou**.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

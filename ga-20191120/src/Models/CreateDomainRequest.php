@@ -11,7 +11,7 @@ class CreateDomainRequest extends Model
     /**
      * @description The ID of the GA instance.
      *
-     * You can enter up to 50 IDs.
+     * This parameter is required.
      * @var string[]
      */
     public $acceleratorIds;
@@ -20,6 +20,8 @@ class CreateDomainRequest extends Model
      * @description The accelerated domain name to be added.
      *
      * Wildcard domain names are supported. A wildcard domain name must start with `*.`, such as `*.example.com`.
+     *
+     * This parameter is required.
      * @example www.example.com
      *
      * @var string

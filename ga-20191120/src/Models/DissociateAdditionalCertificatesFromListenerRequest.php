@@ -11,6 +11,7 @@ class DissociateAdditionalCertificatesFromListenerRequest extends Model
     /**
      * @description The ID of the GA instance.
      *
+     * This parameter is required.
      * @example ga-bp1odcab8tmno0hdq****
      *
      * @var string
@@ -32,7 +33,7 @@ class DissociateAdditionalCertificatesFromListenerRequest extends Model
     /**
      * @description The domain name associated with the additional certificate.
      *
-     * You can specify up to 10 domain names in each request.
+     * This parameter is required.
      * @var string[]
      */
     public $domains;
@@ -40,6 +41,7 @@ class DissociateAdditionalCertificatesFromListenerRequest extends Model
     /**
      * @description The ID of the listener.
      *
+     * This parameter is required.
      * @example lsr-bp1bpn0kn908w4nbw****
      *
      * @var string
@@ -49,6 +51,7 @@ class DissociateAdditionalCertificatesFromListenerRequest extends Model
     /**
      * @description The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListListenerCertificatesResponseBody extends Model
 {
     /**
-     * @description Details about the certificates.
+     * @description The certificates.
      *
      * @var certificates[]
      */
@@ -26,10 +26,10 @@ class ListListenerCertificatesResponseBody extends Model
     public $maxResults;
 
     /**
-     * @description The token that determines the start point of the next query. Valid values:
+     * @description The pagination token that is used in the next request to retrieve a new page of results. Valid values:
      *
-     *   If **NextToken** is not returned, it indicates that no additional results exist.
-     *   If **NextToken** is returned, the value is the token that is used for the next query.
+     *   If **NextToken** is empty, no next page exists.
+     *   If a value of **NextToken** is returned, the value indicates the token that is used for the next query.
      *
      * @example caeba0bbb2be03f84eb48b699f0a4883
      *
@@ -38,7 +38,7 @@ class ListListenerCertificatesResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 6FEA0CF3-D3B9-43E5-A304-D217037876A8
      *
@@ -47,7 +47,7 @@ class ListListenerCertificatesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The total number of entries returned.
+     * @description The number of entries returned.
      *
      * @example 1
      *

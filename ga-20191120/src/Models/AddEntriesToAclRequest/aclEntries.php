@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class aclEntries extends Model
 {
     /**
-     * @description The IP address (192.168.XX.XX) or CIDR block (10.0.XX.XX/24) that you want to add to the ACL. You can add at most 20 entries in each request.
+     * @description The IP address (192.168.XX.XX) or CIDR block (10.0.XX.XX/24) that you want to add to the ACL. You can add a maximum of 50 entries at a time.
      *
-     * > This parameter is required.
+     * >  This parameter is required.
      * @example 10.0.XX.XX/24
      *
      * @var string
@@ -21,7 +21,7 @@ class aclEntries extends Model
     /**
      * @description The description of the entry.
      *
-     * The description must be 1 to 256 characters in length, and can contain letters, digits, hyphens (-), forward slashes (/), periods (.), and underscores (\_).
+     * The description must be 1 to 256 characters in length, and can contain letters, digits, hyphens (-), forward slashes (/), periods (.), and underscores (_).
      * @example test-entry
      *
      * @var string

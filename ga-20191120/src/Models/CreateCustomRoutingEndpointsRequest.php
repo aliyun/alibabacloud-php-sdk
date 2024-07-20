@@ -24,7 +24,7 @@ class CreateCustomRoutingEndpointsRequest extends Model
     /**
      * @description The information about the endpoints.
      *
-     * You can specify information for up to 20 endpoints.
+     * This parameter is required.
      * @var endpointConfigurations[]
      */
     public $endpointConfigurations;
@@ -32,6 +32,7 @@ class CreateCustomRoutingEndpointsRequest extends Model
     /**
      * @description The ID of the endpoint group in which to create endpoints.
      *
+     * This parameter is required.
      * @example epg-bp1bpn0kn908w4nb****
      *
      * @var string
@@ -41,6 +42,7 @@ class CreateCustomRoutingEndpointsRequest extends Model
     /**
      * @description The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

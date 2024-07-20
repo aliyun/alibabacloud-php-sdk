@@ -13,7 +13,7 @@ class destinationConfigurations extends Model
      *
      * Valid values: **1** to **65499**. The value of **FromPort** must be equal to or smaller than the value of **ToPort**.
      *
-     * You can specify up to 20 last ports in each call.
+     * This parameter is required.
      * @example 80
      *
      * @var int
@@ -27,7 +27,7 @@ class destinationConfigurations extends Model
      *   **UDP**
      *   **TCP+UDP: the TCP and UDP protocols.**
      *
-     * You can specify up to four backend service protocols for each endpoint group mapping.
+     * This parameter is required.
      * @var string[]
      */
     public $protocols;
@@ -35,6 +35,7 @@ class destinationConfigurations extends Model
     /**
      * @description The response parameters.
      *
+     * This parameter is required.
      * @example 80
      *
      * @var int

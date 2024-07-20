@@ -11,6 +11,7 @@ class UpdateAcceleratorRequest extends Model
     /**
      * @description The ID of the GA instance.
      *
+     * This parameter is required.
      * @example ga-bp1odcab8tmno0hdq****
      *
      * @var string
@@ -67,7 +68,7 @@ class UpdateAcceleratorRequest extends Model
     /**
      * @description The name of the GA instance.
      *
-     * The name must be 1 to 128 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). The name must start with a letter.
+     * The name must be 1 to 128 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The name must start with a letter.
      * @example Accelerator
      *
      * @var string
@@ -103,7 +104,7 @@ class UpdateAcceleratorRequest extends Model
      *   **100**: Super Large Ⅰ
      *   **200**: Super Large Ⅱ
      *
-     * Different specifications provide different capabilities. For more information, see [Instance specifications](~~153127~~).
+     * Different specifications provide different capabilities. For more information, see [Instance specifications](https://help.aliyun.com/document_detail/153127.html).
      * @example 1
      *
      * @var string

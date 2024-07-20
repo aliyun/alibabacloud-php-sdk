@@ -11,7 +11,7 @@ class ipSets extends Model
     /**
      * @description The new bandwidth that you want to allocate to the acceleration regions. Unit: Mbit/s.
      *
-     * You must allocate at least 2 Mbit/s of bandwidth to each acceleration region. You can specify the bandwidth for up to 100 acceleration regions.
+     * This parameter is required.
      * @example 4
      *
      * @var int
@@ -21,7 +21,7 @@ class ipSets extends Model
     /**
      * @description The IDs of the acceleration regions that you want to modify.
      *
-     * You can specify the IDs of up to 100 acceleration regions.
+     * This parameter is required.
      * @example ips-bp11c9mpphtb1xkds****
      *
      * @var string

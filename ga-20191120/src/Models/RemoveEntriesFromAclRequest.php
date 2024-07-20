@@ -10,8 +10,9 @@ use AlibabaCloud\Tea\Model;
 class RemoveEntriesFromAclRequest extends Model
 {
     /**
-     * @description The IP addresses or CIDR blocks that you want to delete from the ACL. You can delete up to 20 entries in each request.
+     * @description The entries (IP addresses or CIDR blocks) that you want to delete from the ACL. You can delete a maximum of 20 entries at a time.
      *
+     * This parameter is required.
      * @var aclEntries[]
      */
     public $aclEntries;
@@ -19,6 +20,7 @@ class RemoveEntriesFromAclRequest extends Model
     /**
      * @description The ACL ID.
      *
+     * This parameter is required.
      * @example nacl-hp34s2h0xx1ht4nwo****
      *
      * @var string
@@ -30,7 +32,7 @@ class RemoveEntriesFromAclRequest extends Model
      *
      * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
      *
-     * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+     * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
      * @example 593B0448-D13E-4C56-AC0D-FDF0FDE0E9A3
      *
      * @var string
@@ -52,6 +54,7 @@ class RemoveEntriesFromAclRequest extends Model
     /**
      * @description The region ID of the GA instance. Set the value to **cn-hangzhou**.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

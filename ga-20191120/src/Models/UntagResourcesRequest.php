@@ -35,6 +35,7 @@ class UntagResourcesRequest extends Model
     /**
      * @description The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -50,7 +51,7 @@ class UntagResourcesRequest extends Model
      *   If you set **ResourceType** to **acl**, set the value of ResourceId to the ID of an ACL.
      *   If you set **ResourceType** to **endpointgroup**, set the value of ResourceId to the ID of an endpoint group.
      *
-     * You can specify up to 50 GA resource IDs.
+     * This parameter is required.
      * @var string[]
      */
     public $resourceId;
@@ -64,6 +65,7 @@ class UntagResourcesRequest extends Model
      *   **acl**: an access control list (ACL).
      *   **endpointgroup**: an endpoint group
      *
+     * This parameter is required.
      * @example accelerator
      *
      * @var string

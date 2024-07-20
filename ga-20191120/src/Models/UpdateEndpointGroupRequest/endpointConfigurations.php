@@ -35,6 +35,7 @@ class endpointConfigurations extends Model
     /**
      * @description The IP address or domain name of the endpoint.
      *
+     * This parameter is required.
      * @example 120.XX.XX.21
      *
      * @var string
@@ -68,7 +69,7 @@ class endpointConfigurations extends Model
      * > *   If you set this parameter to **ALB** and the service-linked role AliyunServiceRoleForGaAlb does not exist, the system automatically creates the service-linked role.
      * > *   If you set this parameter to **OSS** and the service-linked role AliyunServiceRoleForGaOss does not exist, the system automatically creates the service-linked role.
      *
-     * For more information, see [Service-linked roles](~~178360~~).
+     * This parameter is required.
      * @example Ip
      *
      * @var string
@@ -80,7 +81,7 @@ class endpointConfigurations extends Model
      *
      * Valid values: **0** to **255**.
      *
-     * >  If the weight of an endpoint is set to 0, GA stops distributing network traffic to the endpoint. Proceed with caution.
+     * This parameter is required.
      * @example 20
      *
      * @var int

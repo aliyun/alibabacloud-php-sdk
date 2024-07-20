@@ -39,7 +39,7 @@ class endpointGroupConfigurations extends Model
     /**
      * @description The ID of the region in which the endpoint group resides.
      *
-     * You can specify at most five region IDs.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

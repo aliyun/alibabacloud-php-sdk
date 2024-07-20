@@ -11,6 +11,7 @@ class GetHealthStatusRequest extends Model
     /**
      * @description The ID of the GA instance that you want to query.
      *
+     * This parameter is required.
      * @example ga-bp1odcab8tmno0hdq****
      *
      * @var string
@@ -44,6 +45,7 @@ class GetHealthStatusRequest extends Model
     /**
      * @description The ID of the listener.
      *
+     * This parameter is required.
      * @example lsr-bp1bpn0kn908w4nbw****
      *
      * @var string
@@ -53,6 +55,7 @@ class GetHealthStatusRequest extends Model
     /**
      * @description The ID of the region where the Global Accelerator (GA) instance is deployed. Set the value to **cn-hangzhou**.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

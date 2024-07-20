@@ -103,6 +103,7 @@ class UpdateApplicationMonitorRequest extends Model
     /**
      * @description The ID of the origin probing task that you want to modify.
      *
+     * This parameter is required.
      * @example sm-bp1fpdjfju9k8yr1y****
      *
      * @var string
@@ -112,7 +113,7 @@ class UpdateApplicationMonitorRequest extends Model
     /**
      * @description The name of the origin probing task.
      *
-     * The name must be 1 to 128 characters in length and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). The name must start with a letter.
+     * The name must be 1 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The name must start with a letter.
      * @example task1
      *
      * @var string

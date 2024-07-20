@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
-     * @description The tag key of the network ACL. The tag key cannot be an empty string.
+     * @description The tag key of the ACL. The value of this parameter cannot be an empty string.
      *
-     * You can specify up to 20 tag keys.
+     * You can specify a maximum of 20 tag keys.
      * @example tag-key
      *
      * @var string
@@ -19,9 +19,9 @@ class tag extends Model
     public $key;
 
     /**
-     * @description The tag value of the network ACL. The tag value can be an empty string.
+     * @description The tag value of the ACL. The tag value can be an empty string.
      *
-     * You can specify up to 20 tag values.
+     * You can specify a maximum of 20 tag values.
      * @example tag-value
      *
      * @var string

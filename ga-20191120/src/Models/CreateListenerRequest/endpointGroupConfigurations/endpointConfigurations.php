@@ -47,7 +47,7 @@ class endpointConfigurations extends Model
      * >*   If you set this parameter to **ECS** or **SLB** and the service-linked role AliyunServiceRoleForGaVpcEndpoint does not exist, the system automatically creates the service-linked role.
      * >*   If you set this parameter to **ALB** and the service-linked role AliyunServiceRoleForGaAlb does not exist, the system automatically creates the service-linked role.
      * >*   If you set this parameter to **OSS** and the service-linked role AliyunServiceRoleForGaOss does not exist, the system automatically creates the service-linked role.
-     * > For more information, see [Service linked roles](~~178360~~).
+     * > For more information, see [Service linked roles](https://help.aliyun.com/document_detail/178360.html).
      * @example Ip
      *
      * @var string

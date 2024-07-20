@@ -11,6 +11,7 @@ class ListCustomRoutingPortMappingsByDestinationRequest extends Model
     /**
      * @description The service IP address of the backend instance.
      *
+     * This parameter is required.
      * @example 10.0.XX.XX
      *
      * @var string
@@ -20,6 +21,7 @@ class ListCustomRoutingPortMappingsByDestinationRequest extends Model
     /**
      * @description The ID of the endpoint to which the backend instance belongs.
      *
+     * This parameter is required.
      * @example ep-bp16jdc00bhe97sr5****
      *
      * @var string
@@ -47,6 +49,7 @@ class ListCustomRoutingPortMappingsByDestinationRequest extends Model
     /**
      * @description The ID of the region where the Global Accelerator (GA) instance is deployed. Set the value to **cn-hangzhou**.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

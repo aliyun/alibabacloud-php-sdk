@@ -11,6 +11,7 @@ class ListApplicationMonitorDetectResultRequest extends Model
     /**
      * @description The beginning of the time range to query. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
+     * This parameter is required.
      * @example 1638288000
      *
      * @var int
@@ -20,6 +21,7 @@ class ListApplicationMonitorDetectResultRequest extends Model
     /**
      * @description The end of the time range to query. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
+     * This parameter is required.
      * @example 1640164683
      *
      * @var int

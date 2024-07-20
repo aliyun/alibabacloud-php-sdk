@@ -73,7 +73,7 @@ class endpoints extends Model
     /**
      * @description The name of the endpoint.
      *
-     * The name must be 1 to 128 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). It must start with a letter.
+     * The name must be 1 to 128 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). It must start with a letter.
      * @example ep01
      *
      * @var string

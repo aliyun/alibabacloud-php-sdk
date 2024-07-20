@@ -11,6 +11,7 @@ class UpdateDomainStateRequest extends Model
     /**
      * @description The accelerated domain name whose ICP filing status you want to update.
      *
+     * This parameter is required.
      * @example www.example.com
      *
      * @var string

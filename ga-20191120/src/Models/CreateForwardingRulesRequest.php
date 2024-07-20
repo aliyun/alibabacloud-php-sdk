@@ -12,6 +12,7 @@ class CreateForwardingRulesRequest extends Model
     /**
      * @description The ID of the GA instance.
      *
+     * This parameter is required.
      * @example ga-bp17frjjh0udz4q****
      *
      * @var string
@@ -31,6 +32,8 @@ class CreateForwardingRulesRequest extends Model
     public $clientToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @var forwardingRules[]
      */
     public $forwardingRules;
@@ -38,6 +41,7 @@ class CreateForwardingRulesRequest extends Model
     /**
      * @description The ID of the listener.
      *
+     * This parameter is required.
      * @example lsr-bp1s0vzbi5bxlx5****
      *
      * @var string
@@ -47,6 +51,7 @@ class CreateForwardingRulesRequest extends Model
     /**
      * @description The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

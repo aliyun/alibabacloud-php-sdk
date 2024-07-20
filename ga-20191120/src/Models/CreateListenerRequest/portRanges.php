@@ -13,7 +13,7 @@ class portRanges extends Model
      *
      * Valid values: **1** to **65499**. The value of **FromPort** must be smaller than or equal to the value of **ToPort**.
      *
-     * > You can configure only one listener port for an HTTP or HTTPS listener. In this case, the first port is the same as the last port.
+     * This parameter is required.
      * @example 20
      *
      * @var int
@@ -25,7 +25,7 @@ class portRanges extends Model
      *
      * Valid values: **1** to **65499**. The value of **FromPort** must be smaller than or equal to the value of **ToPort**.
      *
-     * > You can configure only one listener port for an HTTP or HTTPS listener. In this case, the first port is the same as the last port.
+     * This parameter is required.
      * @example 20
      *
      * @var int

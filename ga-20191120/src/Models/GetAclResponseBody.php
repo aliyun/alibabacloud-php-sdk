@@ -83,7 +83,7 @@ class GetAclResponseBody extends Model
     public $resourceGroupId;
 
     /**
-     * @description The tags of the ACL.
+     * @description The tag of the ACL.
      *
      * @var tags[]
      */

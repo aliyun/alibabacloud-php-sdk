@@ -23,6 +23,7 @@ class ChangeResourceGroupRequest extends Model
     /**
      * @description The ID of the new resource group.
      *
+     * This parameter is required.
      * @example rg-aekzrnd67gq****
      *
      * @var string
@@ -32,6 +33,7 @@ class ChangeResourceGroupRequest extends Model
     /**
      * @description The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -46,6 +48,7 @@ class ChangeResourceGroupRequest extends Model
      *   If you set **ResourceType** to **bandwidthpackage**, set the value of ResourceId to the ID of a bandwidth plan.
      *   If you set **ResourceType** to **acl**, set the value of ResourceId to the ID of an access control list (ACL).
      *
+     * This parameter is required.
      * @example ga-bp149u6o36qt1as9b****
      *
      * @var string
@@ -60,6 +63,7 @@ class ChangeResourceGroupRequest extends Model
      *   **bandwidthpackage:** a bandwidth plan.
      *   **acl:** an ACL.
      *
+     * This parameter is required.
      * @example accelerator
      *
      * @var string

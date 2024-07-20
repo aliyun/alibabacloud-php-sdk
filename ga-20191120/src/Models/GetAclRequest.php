@@ -11,6 +11,7 @@ class GetAclRequest extends Model
     /**
      * @description The ID of the region where the Global Accelerator (GA) instance is deployed. Set the value to **cn-hangzhou**.
      *
+     * This parameter is required.
      * @example nacl-hp34s2h0xx1ht4nwo****
      *
      * @var string
@@ -20,6 +21,7 @@ class GetAclRequest extends Model
     /**
      * @description The operation that you want to perform. Set the value to **GetAcl**.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

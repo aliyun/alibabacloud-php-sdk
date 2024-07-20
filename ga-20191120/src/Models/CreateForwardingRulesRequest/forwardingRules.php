@@ -21,11 +21,15 @@ class forwardingRules extends Model
     public $priority;
 
     /**
+     * @description This parameter is required.
+     *
      * @var ruleActions[]
      */
     public $ruleActions;
 
     /**
+     * @description This parameter is required.
+     *
      * @var ruleConditions[]
      */
     public $ruleConditions;

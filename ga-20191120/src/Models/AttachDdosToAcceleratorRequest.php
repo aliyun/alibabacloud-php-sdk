@@ -11,6 +11,7 @@ class AttachDdosToAcceleratorRequest extends Model
     /**
      * @description The ID of the GA instance with which the Anti-DDoS Pro/Premium instance is associated.
      *
+     * This parameter is required.
      * @example ga-bp1odcab8tmno0hdq****
      *
      * @var string
@@ -20,6 +21,7 @@ class AttachDdosToAcceleratorRequest extends Model
     /**
      * @description The ID of the Anti-DDoS Pro/Premium instance to be associated with the GA instance.
      *
+     * This parameter is required.
      * @example ddoscoo-cn-zz11vq7j****
      *
      * @var string
@@ -32,6 +34,7 @@ class AttachDdosToAcceleratorRequest extends Model
      *   **cn-hangzhou**: regions in the Chinese mainland
      *   **ap-southeast-1**: regions outside the Chinese mainland
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

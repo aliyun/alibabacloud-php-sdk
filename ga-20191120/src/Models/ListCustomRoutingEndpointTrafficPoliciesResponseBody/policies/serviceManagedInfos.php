@@ -35,7 +35,7 @@ class serviceManagedInfos extends Model
      *   **EndpointGroupDestination**: protocol mapping of an endpoint group associated with a custom routing listener.
      *   **EndpointPolicy**: traffic policy of an endpoint associated with a custom routing listener.
      *
-     * >  This parameter takes effect only if **Action** is set to **CreateChild**.
+     * >  This parameter is returned only if the value of **Action** is **CreateChild**.
      * @example Listener
      *
      * @var string
@@ -45,8 +45,8 @@ class serviceManagedInfos extends Model
     /**
      * @description Indicates whether the specified actions are managed. Valid values:
      *
-     *   **true**: The specified actions are managed, and you cannot perform the specified actions on the managed instance.
-     *   **false**: The specified actions are not managed, and you can perform the specified actions on the managed instance.
+     *   **true**: The specified actions are managed, and users cannot perform the specified actions on the managed instance.
+     *   **false**: The specified actions are not managed, and users can perform the specified actions on the managed instance.
      *
      * @example false
      *

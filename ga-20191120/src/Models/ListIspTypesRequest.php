@@ -32,6 +32,7 @@ class ListIspTypesRequest extends Model
     /**
      * @description The ID of the acceleration region to be queried.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

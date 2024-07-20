@@ -11,7 +11,7 @@ class UpdateIpSetRequest extends Model
     /**
      * @description The new bandwidth that you want to allocate to the acceleration region. Unit: Mbit/s.
      *
-     * You must allocate at least 2 Mbit/s of bandwidth to each acceleration region.
+     * This parameter is required.
      * @example 3
      *
      * @var int
@@ -33,6 +33,7 @@ class UpdateIpSetRequest extends Model
     /**
      * @description The ID of the acceleration region that you want to modify.
      *
+     * This parameter is required.
      * @example ips-bp11r5jb8ogp122xl****
      *
      * @var string
@@ -42,6 +43,7 @@ class UpdateIpSetRequest extends Model
     /**
      * @description The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

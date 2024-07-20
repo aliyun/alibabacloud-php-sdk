@@ -11,6 +11,7 @@ class UpdateAcceleratorCrossBorderStatusRequest extends Model
     /**
      * @description The ID of the GA instance.
      *
+     * This parameter is required.
      * @example ga-bp1odcab8tmno0hdq****
      *
      * @var string
@@ -34,6 +35,8 @@ class UpdateAcceleratorCrossBorderStatusRequest extends Model
      *
      * - **true**
      * - **false**
+     *
+     * This parameter is required.
      * @example true
      *
      * @var bool

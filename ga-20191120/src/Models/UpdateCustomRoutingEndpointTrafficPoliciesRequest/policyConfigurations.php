@@ -10,11 +10,11 @@ use AlibabaCloud\Tea\Model;
 class policyConfigurations extends Model
 {
     /**
-     * @description The IP address of the destination to which traffic is allowed.
+     * @description The IP address of the destination which to allow traffic.
      *
-     * This parameter takes effect only when **TrafficToEndpointPolicy** is set to **AllowCustom**. You can call the [DescribeCustomRoutingEndpoint](~~449386~~) operation to query the traffic policy for the specified endpoint.
+     * This parameter takes effect only when you set the **TrafficToEndpointPolicy** parameter to **AllowCustom**. You can call the [DescribeCustomRoutingEndpoint](https://help.aliyun.com/document_detail/449386.html) operation to query the traffic policy of an endpoint.
      *
-     * You can specify up to 500 destination IP addresses for each endpoint.
+     * >  This parameter is required.
      * @example 10.0.XX.XX
      *
      * @var string
@@ -22,8 +22,9 @@ class policyConfigurations extends Model
     public $address;
 
     /**
-     * @description The ID of the traffic policy to modify.
+     * @description The ID of the traffic policy that you want to modify.
      *
+     * >  This parameter is required.
      * @example ply-bptest2****
      *
      * @var string
@@ -31,13 +32,13 @@ class policyConfigurations extends Model
     public $policyId;
 
     /**
-     * @description The port range of the destination to which traffic is allowed. The value of this parameter must fall within the port range of the backend service.
+     * @description The port range of the destination to which traffic is forwarded. The value of this parameter must fall within the port range of the endpoint group.
      *
-     * If you do not specify array, traffic is forwarded to all ports.
+     * If you do not specify object, traffic is forwarded to all ports.
      *
-     * This parameter takes effect only when **TrafficToEndpointPolicy** is set to **AllowCustom**. You can call the [DescribeCustomRoutingEndpoint](~~449386~~) operation to query the traffic policy for the specified endpoint.
+     * This parameter takes effect only when you set the **TrafficToEndpointPolicy** parameter to **AllowCustom**. You can call the [DescribeCustomRoutingEndpoint](https://help.aliyun.com/document_detail/449386.html) operation to query the traffic policy of an endpoint.
      *
-     * You can specify port ranges for up to 500 traffic destinations in each endpoint and specify up to 10 port ranges for each traffic destination.
+     * You can specify a maximum of 500 port ranges for each endpoint and a maximum of 10 port ranges for each traffic policy.
      * @var portRanges[]
      */
     public $portRanges;

@@ -11,6 +11,7 @@ class ListCustomRoutingEndpointGroupDestinationsRequest extends Model
     /**
      * @description The ID of the GA instance.
      *
+     * This parameter is required.
      * @example ga-bp1odcab8tmno0hdq****
      *
      * @var string
@@ -78,6 +79,7 @@ class ListCustomRoutingEndpointGroupDestinationsRequest extends Model
     /**
      * @description The region ID of the GA instance. Set the value to **cn-hangzhou**.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

@@ -23,6 +23,7 @@ class UpdateBasicEndpointRequest extends Model
     /**
      * @description The ID of the endpoint group to which the endpoint that you want to modify belongs.
      *
+     * This parameter is required.
      * @example epg-bp1dmlohjjz4kqaun****
      *
      * @var string
@@ -32,6 +33,7 @@ class UpdateBasicEndpointRequest extends Model
     /**
      * @description The ID of the endpoint that you want to modify.
      *
+     * This parameter is required.
      * @example ep-bp14sz7ftcwwjgrdm****
      *
      * @var string
@@ -41,7 +43,7 @@ class UpdateBasicEndpointRequest extends Model
     /**
      * @description The name of the endpoint that is associated with the basic GA instance.
      *
-     * The name must be 1 to 128 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). It must start with a letter.
+     * This parameter is required.
      * @example ep01
      *
      * @var string
@@ -51,6 +53,7 @@ class UpdateBasicEndpointRequest extends Model
     /**
      * @description The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

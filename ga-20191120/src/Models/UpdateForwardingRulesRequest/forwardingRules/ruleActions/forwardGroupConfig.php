@@ -13,6 +13,8 @@ class forwardGroupConfig extends Model
      * @description The configuration of an endpoint group.
      *
      * >  We recommend that you use **RuleActionType** and **RuleActionValue** rather than this parameter to configure forwarding actions.
+     *
+     * This parameter is required.
      * @var serverGroupTuples[]
      */
     public $serverGroupTuples;
