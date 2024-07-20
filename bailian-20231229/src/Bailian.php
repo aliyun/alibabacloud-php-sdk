@@ -13,6 +13,7 @@ use AlibabaCloud\SDK\Bailian\V20231229\Models\ApplyFileUploadLeaseResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\CreateIndexRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\CreateIndexResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\CreateIndexShrinkRequest;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\DeleteFileResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\DeleteIndexDocumentRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\DeleteIndexDocumentResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\DeleteIndexDocumentShrinkRequest;
@@ -298,6 +299,52 @@ class Bailian extends OpenApiClient
         $headers = [];
 
         return $this->createIndexWithOptions($WorkspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 删除文档
+     *  *
+     * @param string         $FileId
+     * @param string         $WorkspaceId
+     * @param string[]       $headers     map
+     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return DeleteFileResponse DeleteFileResponse
+     */
+    public function deleteFileWithOptions($FileId, $WorkspaceId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteFile',
+            'version'     => '2023-12-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($WorkspaceId) . '/datacenter/file/' . OpenApiUtilClient::getEncodeParam($FileId) . '/',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteFileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除文档
+     *  *
+     * @param string $FileId
+     * @param string $WorkspaceId
+     *
+     * @return DeleteFileResponse DeleteFileResponse
+     */
+    public function deleteFile($FileId, $WorkspaceId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteFileWithOptions($FileId, $WorkspaceId, $headers, $runtime);
     }
 
     /**
