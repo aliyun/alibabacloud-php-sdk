@@ -239,6 +239,8 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\DisconnectDesktopSessionsRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DisconnectDesktopSessionsResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DissociateNetworkPackageRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DissociateNetworkPackageResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DownloadCdsFileRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DownloadCdsFileResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ExportClientEventsRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ExportClientEventsResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ExportDesktopGroupInfoRequest;
@@ -8263,6 +8265,65 @@ class Ecd extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->dissociateNetworkPackageWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary CDS文件下载
+     *  *
+     * @param DownloadCdsFileRequest $request DownloadCdsFileRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DownloadCdsFileResponse DownloadCdsFileResponse
+     */
+    public function downloadCdsFileWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->cdsId)) {
+            $query['CdsId'] = $request->cdsId;
+        }
+        if (!Utils::isUnset($request->endUserId)) {
+            $query['EndUserId'] = $request->endUserId;
+        }
+        if (!Utils::isUnset($request->fileId)) {
+            $query['FileId'] = $request->fileId;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DownloadCdsFile',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DownloadCdsFileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary CDS文件下载
+     *  *
+     * @param DownloadCdsFileRequest $request DownloadCdsFileRequest
+     *
+     * @return DownloadCdsFileResponse DownloadCdsFileResponse
+     */
+    public function downloadCdsFile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->downloadCdsFileWithOptions($request, $runtime);
     }
 
     /**
