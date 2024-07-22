@@ -56,6 +56,8 @@ use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListArtifactVersionsRe
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServiceCategoriesResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServiceInstancesRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServiceInstancesResponse;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServiceSharedAccountsRequest;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServiceSharedAccountsResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServicesRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServicesResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServiceUsagesRequest;
@@ -70,6 +72,8 @@ use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\RejectServiceUsageRequ
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\RejectServiceUsageResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ReleaseArtifactRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ReleaseArtifactResponse;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\RemoveServiceSharedAccountsRequest;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\RemoveServiceSharedAccountsResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\RestartServiceInstanceRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\RestartServiceInstanceResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\StartServiceInstanceRequest;
@@ -1603,6 +1607,64 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
+     * @param ListServiceSharedAccountsRequest $request ListServiceSharedAccountsRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListServiceSharedAccountsResponse ListServiceSharedAccountsResponse
+     */
+    public function listServiceSharedAccountsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->filter)) {
+            $query['Filter'] = $request->filter;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->permission)) {
+            $query['Permission'] = $request->permission;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->serviceId)) {
+            $query['ServiceId'] = $request->serviceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListServiceSharedAccounts',
+            'version'     => '2021-05-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListServiceSharedAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListServiceSharedAccountsRequest $request ListServiceSharedAccountsRequest
+     *
+     * @return ListServiceSharedAccountsResponse ListServiceSharedAccountsResponse
+     */
+    public function listServiceSharedAccounts($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listServiceSharedAccountsWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries the applications for using a service.
      *  *
      * @param ListServiceUsagesRequest $request ListServiceUsagesRequest
@@ -1983,6 +2045,61 @@ class ComputeNestSupplier extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->releaseArtifactWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RemoveServiceSharedAccountsRequest $request RemoveServiceSharedAccountsRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return RemoveServiceSharedAccountsResponse RemoveServiceSharedAccountsResponse
+     */
+    public function removeServiceSharedAccountsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->serviceId)) {
+            $query['ServiceId'] = $request->serviceId;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        if (!Utils::isUnset($request->userAliUids)) {
+            $query['UserAliUids'] = $request->userAliUids;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RemoveServiceSharedAccounts',
+            'version'     => '2021-05-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RemoveServiceSharedAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RemoveServiceSharedAccountsRequest $request RemoveServiceSharedAccountsRequest
+     *
+     * @return RemoveServiceSharedAccountsResponse RemoveServiceSharedAccountsResponse
+     */
+    public function removeServiceSharedAccounts($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->removeServiceSharedAccountsWithOptions($request, $runtime);
     }
 
     /**
