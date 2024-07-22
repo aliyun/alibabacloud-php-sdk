@@ -6,6 +6,8 @@ namespace AlibabaCloud\SDK\ComputeNest\V20210601;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\CancelServiceUsageRequest;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\CancelServiceUsageResponse;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ChangeResourceGroupRequest;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ChangeResourceGroupResponse;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ContinueDeployServiceInstanceRequest;
@@ -13,6 +15,9 @@ use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ContinueDeployServiceInstanceR
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\CreateServiceInstanceRequest;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\CreateServiceInstanceResponse;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\CreateServiceInstanceShrinkRequest;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\CreateServiceUsageRequest;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\CreateServiceUsageResponse;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\CreateServiceUsageShrinkRequest;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\DeleteServiceInstancesRequest;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\DeleteServiceInstancesResponse;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\GenerateServicePolicyRequest;
@@ -27,12 +32,15 @@ use AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetServiceProvisionsResponse;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetServiceProvisionsShrinkRequest;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetServiceTemplateParameterConstraintsRequest;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetServiceTemplateParameterConstraintsResponse;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListServiceCategoriesResponse;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListServiceInstanceLogsRequest;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListServiceInstanceLogsResponse;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListServiceInstanceResourcesRequest;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListServiceInstanceResourcesResponse;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListServiceInstancesRequest;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListServiceInstancesResponse;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListServiceUsagesRequest;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListServiceUsagesResponse;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListTagKeysRequest;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListTagKeysResponse;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListTagValuesRequest;
@@ -50,6 +58,9 @@ use AlibabaCloud\SDK\ComputeNest\V20210601\Models\UnTagResourcesResponse;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\UpdateServiceInstanceSpecRequest;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\UpdateServiceInstanceSpecResponse;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\UpdateServiceInstanceSpecShrinkRequest;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\UpdateServiceUsageRequest;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\UpdateServiceUsageResponse;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\UpdateServiceUsageShrinkRequest;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -87,6 +98,59 @@ class ComputeNest extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @summary 用户取消服务使用请求
+     *  *
+     * @param CancelServiceUsageRequest $request CancelServiceUsageRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CancelServiceUsageResponse CancelServiceUsageResponse
+     */
+    public function cancelServiceUsageWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->needDelete)) {
+            $query['NeedDelete'] = $request->needDelete;
+        }
+        if (!Utils::isUnset($request->serviceId)) {
+            $query['ServiceId'] = $request->serviceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CancelServiceUsage',
+            'version'     => '2021-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CancelServiceUsageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 用户取消服务使用请求
+     *  *
+     * @param CancelServiceUsageRequest $request CancelServiceUsageRequest
+     *
+     * @return CancelServiceUsageResponse CancelServiceUsageResponse
+     */
+    public function cancelServiceUsage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cancelServiceUsageWithOptions($request, $runtime);
     }
 
     /**
@@ -315,6 +379,64 @@ class ComputeNest extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createServiceInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 用户创建服务使用请求
+     *  *
+     * @param CreateServiceUsageRequest $tmpReq  CreateServiceUsageRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateServiceUsageResponse CreateServiceUsageResponse
+     */
+    public function createServiceUsageWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateServiceUsageShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->userInformation)) {
+            $request->userInformationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInformation, 'UserInformation', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->serviceId)) {
+            $query['ServiceId'] = $request->serviceId;
+        }
+        if (!Utils::isUnset($request->userInformationShrink)) {
+            $query['UserInformation'] = $request->userInformationShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateServiceUsage',
+            'version'     => '2021-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateServiceUsageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 用户创建服务使用请求
+     *  *
+     * @param CreateServiceUsageRequest $request CreateServiceUsageRequest
+     *
+     * @return CreateServiceUsageResponse CreateServiceUsageResponse
+     */
+    public function createServiceUsage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createServiceUsageWithOptions($request, $runtime);
     }
 
     /**
@@ -715,6 +837,43 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
+     * @summary 查询服务类别
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListServiceCategoriesResponse ListServiceCategoriesResponse
+     */
+    public function listServiceCategoriesWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'ListServiceCategories',
+            'version'     => '2021-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListServiceCategoriesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询服务类别
+     *  *
+     * @return ListServiceCategoriesResponse ListServiceCategoriesResponse
+     */
+    public function listServiceCategories()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listServiceCategoriesWithOptions($runtime);
+    }
+
+    /**
      * @summary Queries the deployment and upgrade logs of a service instance.
      *  *
      * @param ListServiceInstanceLogsRequest $request ListServiceInstanceLogsRequest
@@ -910,6 +1069,59 @@ class ComputeNest extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listServiceInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 用户查询服务使用申请接口
+     *  *
+     * @param ListServiceUsagesRequest $request ListServiceUsagesRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListServiceUsagesResponse ListServiceUsagesResponse
+     */
+    public function listServiceUsagesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->filter)) {
+            $query['Filter'] = $request->filter;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListServiceUsages',
+            'version'     => '2021-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListServiceUsagesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 用户查询服务使用申请接口
+     *  *
+     * @param ListServiceUsagesRequest $request ListServiceUsagesRequest
+     *
+     * @return ListServiceUsagesResponse ListServiceUsagesResponse
+     */
+    public function listServiceUsages($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listServiceUsagesWithOptions($request, $runtime);
     }
 
     /**
@@ -1346,5 +1558,63 @@ class ComputeNest extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateServiceInstanceSpecWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 用户更新服务使用请求
+     *  *
+     * @param UpdateServiceUsageRequest $tmpReq  UpdateServiceUsageRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateServiceUsageResponse UpdateServiceUsageResponse
+     */
+    public function updateServiceUsageWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateServiceUsageShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->userInformation)) {
+            $request->userInformationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInformation, 'UserInformation', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->serviceId)) {
+            $query['ServiceId'] = $request->serviceId;
+        }
+        if (!Utils::isUnset($request->userInformationShrink)) {
+            $query['UserInformation'] = $request->userInformationShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateServiceUsage',
+            'version'     => '2021-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateServiceUsageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 用户更新服务使用请求
+     *  *
+     * @param UpdateServiceUsageRequest $request UpdateServiceUsageRequest
+     *
+     * @return UpdateServiceUsageResponse UpdateServiceUsageResponse
+     */
+    public function updateServiceUsage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateServiceUsageWithOptions($request, $runtime);
     }
 }
