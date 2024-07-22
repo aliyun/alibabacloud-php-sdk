@@ -247,6 +247,11 @@ class CreateDesktopsRequest extends Model
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $snapshotPolicyId;
+
+    /**
      * @description The tags that you want to add to the cloud desktop.
      *
      * @var tag[]
@@ -335,6 +340,7 @@ class CreateDesktopsRequest extends Model
         'policyGroupId'           => 'PolicyGroupId',
         'promotionId'             => 'PromotionId',
         'regionId'                => 'RegionId',
+        'snapshotPolicyId'        => 'SnapshotPolicyId',
         'tag'                     => 'Tag',
         'userAssignMode'          => 'UserAssignMode',
         'userCommands'            => 'UserCommands',
@@ -425,6 +431,9 @@ class CreateDesktopsRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->snapshotPolicyId) {
+            $res['SnapshotPolicyId'] = $this->snapshotPolicyId;
         }
         if (null !== $this->tag) {
             $res['Tag'] = [];
@@ -547,6 +556,9 @@ class CreateDesktopsRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['SnapshotPolicyId'])) {
+            $model->snapshotPolicyId = $map['SnapshotPolicyId'];
         }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {

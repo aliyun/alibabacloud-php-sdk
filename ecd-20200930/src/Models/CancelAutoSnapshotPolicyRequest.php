@@ -19,7 +19,6 @@ class CancelAutoSnapshotPolicyRequest extends Model
     /**
      * @description The ID of the automatic snapshot policy.
      *
-     * This parameter is required.
      * @example sp-78lhzpe7kjfnd****
      *
      * @var string

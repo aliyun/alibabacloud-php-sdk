@@ -2883,6 +2883,9 @@ class Ecd extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->snapshotPolicyId)) {
+            $query['SnapshotPolicyId'] = $request->snapshotPolicyId;
+        }
         if (!Utils::isUnset($request->tag)) {
             $query['Tag'] = $request->tag;
         }
