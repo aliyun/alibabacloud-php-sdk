@@ -11,8 +11,6 @@ class result extends Model
     /**
      * @description The path of the driver file.
      *
-     * @example /ssd/1/share/ls-cn-oew1qbgl****\/logstash/current/config/custom/mysql-connector-java-5.1.35.jar
-     *
      * @var string
      */
     public $filePath;
