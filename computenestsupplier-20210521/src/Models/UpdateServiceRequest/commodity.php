@@ -13,26 +13,38 @@ use AlibabaCloud\Tea\Model;
 class commodity extends Model
 {
     /**
+     * @description This parameter is not publicly accessible.
+     *
      * @var componentsMappings[]
      */
     public $componentsMappings;
 
     /**
+     * @description Metering Item Configuration Information (Cloud Marketplace - Pay-As-You-Go Use)
+     *
      * @var meteringEntityExtraInfos[]
      */
     public $meteringEntityExtraInfos;
 
     /**
+     * @description Product Specifications and Template/specification mapping Relationships (Cloud Marketplace - Pay-As-You-Go Use)
+     *
      * @var meteringEntityMappings[]
      */
     public $meteringEntityMappings;
 
     /**
+     * @description Saas boost config information
+     *
+     * @example {}
+     *
      * @var string
      */
     public $saasBoostConfig;
 
     /**
+     * @description Product Specifications and Template/specification mapping Relationships (Cloud Marketplace - Subscription/Permanent Use)
+     *
      * @var specificationMappings[]
      */
     public $specificationMappings;

@@ -39,6 +39,8 @@ class UpdateServiceShrinkRequest extends Model
     public $clientToken;
 
     /**
+     * @description Bind Commodity Information
+     *
      * @var string
      */
     public $commodityShrink;

@@ -41,6 +41,8 @@ class UpdateServiceRequest extends Model
     public $clientToken;
 
     /**
+     * @description Bind Commodity Information
+     *
      * @var commodity
      */
     public $commodity;

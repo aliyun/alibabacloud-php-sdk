@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class componentsMappings extends Model
 {
     /**
+     * @description This parameter is not publicly accessible.
+     *
+     * @example This parameter is not publicly accessible.
+     *
      * @var string
      */
     public $mappings;
 
     /**
+     * @description This parameter is not publicly accessible.
+     *
+     * @example This parameter is not publicly accessible.
+     *
      * @var string
      */
     public $templateName;

@@ -9,21 +9,42 @@ use AlibabaCloud\Tea\Model;
 class meteringEntityExtraInfos extends Model
 {
     /**
+     * @description The ID of the entity.
+     *
+     * @example cmgj0006xxxx-Memory-1
+     *
      * @var string
      */
     public $entityId;
 
     /**
+     * @description Metric Name, filled in when Type is ComputeNestBill or ComputeNestPrometheus
+     *
+     * @example VirtualCpu/ecs.InstanceType
+     *
      * @var string
      */
     public $metricName;
 
     /**
+     * @description Custom prometheus query
+     *
+     * @example avg_over_time(sum(rate(container_cpu_usage_seconds_total{namespace=~"ALIYUN::StackName"}[2m]))[1h:10s])
+     *
      * @var string
      */
     public $promql;
 
     /**
+     * @description Type, value：
+     *
+     * **Custom**
+     * **ComputeNestBill**
+     * **ComputeNestPrometheus**
+     * **ComputeNestTime**
+     *
+     * @example Custom
+     *
      * @var string
      */
     public $type;

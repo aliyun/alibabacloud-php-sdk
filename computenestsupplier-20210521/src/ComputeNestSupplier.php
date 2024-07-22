@@ -8,6 +8,8 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\AddServiceSharedAccountsRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\AddServiceSharedAccountsResponse;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ApproveServiceUsageRequest;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ApproveServiceUsageResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ContinueDeployServiceInstanceRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ContinueDeployServiceInstanceResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\CreateArtifactRequest;
@@ -18,6 +20,8 @@ use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\CreateServiceInstanceR
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\CreateServiceInstanceShrinkRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\CreateServiceRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\CreateServiceResponse;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\CreateServiceUsageRequest;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\CreateServiceUsageResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\DeleteArtifactRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\DeleteArtifactResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\DeleteServiceInstancesRequest;
@@ -49,6 +53,7 @@ use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListArtifactsRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListArtifactsResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListArtifactVersionsRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListArtifactVersionsResponse;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServiceCategoriesResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServiceInstancesRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServiceInstancesResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServicesRequest;
@@ -61,6 +66,8 @@ use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\PushMeteringDataReques
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\PushMeteringDataResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\RegisterServiceRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\RegisterServiceResponse;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\RejectServiceUsageRequest;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\RejectServiceUsageResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ReleaseArtifactRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ReleaseArtifactResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\RestartServiceInstanceRequest;
@@ -180,6 +187,68 @@ class ComputeNestSupplier extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addServiceSharedAccountsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 商家通过服务使用请求
+     *  *
+     * @param ApproveServiceUsageRequest $request ApproveServiceUsageRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ApproveServiceUsageResponse ApproveServiceUsageResponse
+     */
+    public function approveServiceUsageWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->comments)) {
+            $query['Comments'] = $request->comments;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->serviceId)) {
+            $query['ServiceId'] = $request->serviceId;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        if (!Utils::isUnset($request->userAliUid)) {
+            $query['UserAliUid'] = $request->userAliUid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ApproveServiceUsage',
+            'version'     => '2021-05-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ApproveServiceUsageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 商家通过服务使用请求
+     *  *
+     * @param ApproveServiceUsageRequest $request ApproveServiceUsageRequest
+     *
+     * @return ApproveServiceUsageResponse ApproveServiceUsageResponse
+     */
+    public function approveServiceUsage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->approveServiceUsageWithOptions($request, $runtime);
     }
 
     /**
@@ -525,6 +594,59 @@ class ComputeNestSupplier extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createServiceInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 创建代销申请
+     *  *
+     * @param CreateServiceUsageRequest $request CreateServiceUsageRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateServiceUsageResponse CreateServiceUsageResponse
+     */
+    public function createServiceUsageWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->serviceId)) {
+            $query['ServiceId'] = $request->serviceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateServiceUsage',
+            'version'     => '2021-05-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateServiceUsageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建代销申请
+     *  *
+     * @param CreateServiceUsageRequest $request CreateServiceUsageRequest
+     *
+     * @return CreateServiceUsageResponse CreateServiceUsageResponse
+     */
+    public function createServiceUsage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createServiceUsageWithOptions($request, $runtime);
     }
 
     /**
@@ -1379,6 +1501,43 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
+     * @summary 查询服务分类
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListServiceCategoriesResponse ListServiceCategoriesResponse
+     */
+    public function listServiceCategoriesWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'ListServiceCategories',
+            'version'     => '2021-05-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListServiceCategoriesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询服务分类
+     *  *
+     * @return ListServiceCategoriesResponse ListServiceCategoriesResponse
+     */
+    public function listServiceCategories()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listServiceCategoriesWithOptions($runtime);
+    }
+
+    /**
      * @summary Queries a list of service instances.
      *  *
      * @param ListServiceInstancesRequest $request ListServiceInstancesRequest
@@ -1718,6 +1877,65 @@ class ComputeNestSupplier extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->registerServiceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 商家拒绝服务使用请求
+     *  *
+     * @param RejectServiceUsageRequest $request RejectServiceUsageRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return RejectServiceUsageResponse RejectServiceUsageResponse
+     */
+    public function rejectServiceUsageWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->comments)) {
+            $query['Comments'] = $request->comments;
+        }
+        if (!Utils::isUnset($request->serviceId)) {
+            $query['ServiceId'] = $request->serviceId;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        if (!Utils::isUnset($request->userAliUid)) {
+            $query['UserAliUid'] = $request->userAliUid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RejectServiceUsage',
+            'version'     => '2021-05-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RejectServiceUsageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 商家拒绝服务使用请求
+     *  *
+     * @param RejectServiceUsageRequest $request RejectServiceUsageRequest
+     *
+     * @return RejectServiceUsageResponse RejectServiceUsageResponse
+     */
+    public function rejectServiceUsage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->rejectServiceUsageWithOptions($request, $runtime);
     }
 
     /**

@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class specificationMappings extends Model
 {
     /**
+     * @description Specification code.
+     *
+     * @example yuncode5767800001
+     *
      * @var string
      */
     public $specificationCode;
 
     /**
+     * @description The package name.
+     *
+     * @example packageOne
+     *
      * @var string
      */
     public $specificationName;
 
     /**
+     * @description The template name.
+     *
+     * @example TemplaceName
+     *
      * @var string
      */
     public $templateName;
