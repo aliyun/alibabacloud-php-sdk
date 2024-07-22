@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateLoadBalancerResponseBody extends Model
 {
     /**
-     * @description The ID of the ALB instance.
+     * @description The ALB instance ID.
      *
      * @example alb-o9ulmq5hgn68jk****
      *

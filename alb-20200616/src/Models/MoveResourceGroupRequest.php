@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class MoveResourceGroupRequest extends Model
 {
     /**
-     * @description The ID of the resource group to which you want to move the resource.
+     * @description The ID of the resource group to which you want to transfer the cloud resource.
      *
      * This parameter is required.
      * @example rg-9gLOoK****

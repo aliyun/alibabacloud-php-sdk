@@ -33,8 +33,6 @@ class servers extends Model
      *   **true**
      *   **false**
      *
-     * Regions that support the remote IP address feature: China (Hangzhou), China (Shenzhen), China (Qingdao), China (Beijing), China (Zhangjiakou), China (Ulanqab), China (Shanghai), China (Chengdu), China (Guangzhou), China (Hong Kong), US (Virginia), Japan (Tokyo), UK (London), US (Silicon Valley), Germany (Frankfurt), Indonesia (Jakarta), Singapore, Malaysia (Kuala Lumpur), Australia (Sydney), and India (Mumbai).
-     *
      * > If **ServerType** is set to **Ip**, this parameter is available.
      * @example false
      *

@@ -9,12 +9,16 @@ use AlibabaCloud\Tea\Model;
 class zoneMappings extends Model
 {
     /**
+     * @description The private IPv4 address. You must specify at least two zones. You can specify at most 10 zones.
+     *
+     * @example 192.168.10.1
+     *
      * @var string
      */
     public $intranetAddress;
 
     /**
-     * @description The ID of the vSwitch in the zone. By default, you can specify only one vSwitch (subnet) for each zone of an ALB instance. You can specify up to 10 zone IDs.
+     * @description The ID of the vSwitch in the zone. By default, each zone contains one vSwitch and one subnet. You can specify at least 10 zones.
      *
      * This parameter is required.
      * @example vsw-bp1rmcrwg3erh1fh8****
@@ -24,7 +28,7 @@ class zoneMappings extends Model
     public $vSwitchId;
 
     /**
-     * @description The name of the zone. You can call the [DescribeZones](https://help.aliyun.com/document_detail/189196.html) operation to query the zones. You can specify up to 10 zone IDs.
+     * @description The zone name. You can call the [DescribeZones](https://help.aliyun.com/document_detail/189196.html) operation to query the most recent zone list. You can specify at least 10 zones.
      *
      * This parameter is required.
      * @example cn-hangzhou-a

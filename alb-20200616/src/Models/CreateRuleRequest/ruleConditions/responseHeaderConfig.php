@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class responseHeaderConfig extends Model
 {
     /**
+     * @example test
+     *
      * @var string
      */
     public $key;

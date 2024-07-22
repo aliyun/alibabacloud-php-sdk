@@ -15,7 +15,7 @@ use AlibabaCloud\Tea\Model;
 class loadBalancers extends Model
 {
     /**
-     * @description The configuration of the access log.
+     * @description The configurations of access logs.
      *
      * @var accessLogConfig
      */
@@ -24,7 +24,7 @@ class loadBalancers extends Model
     /**
      * @description The mode in which IP addresses are allocated. Valid values:
      *
-     *   **Fixed**: allocates a static IP address to the ALB instance.
+     *   **Fixed**: The ALB instance uses a static IP address.
      *   **Dynamic**: dynamically allocates an IP address to each zone of the ALB instance.
      *
      * @example Fixed
@@ -48,8 +48,8 @@ class loadBalancers extends Model
     /**
      * @description The type of IP address that the ALB instance uses to provide services. Valid values:
      *
-     *   **Internet**: The ALB instance uses a public IP address. The domain name of the ALB instance is resolved to the public IP address. Therefore, the ALB instance can be accessed over the Internet.
-     *   **Intranet**: The ALB instance uses a private IP address. The domain name of the ALB instance is resolved to the private IP address. In this case, the ALB instance can be accessed over the VPC where the ALB instance is deployed.
+     *   **Internet**: The ALB instance is assigned a public IP address. The domain name is resolved to the public IP address. The ALB instance is accessible over the Internet.
+     *   **Intranet**: The ALB instance is assigned only a private IP address. The domain name is resolved to the private IP address. The ALB instance is accessible only within the VPC of the ALB instance.
      *
      * @example Intranet
      *
@@ -58,7 +58,7 @@ class loadBalancers extends Model
     public $addressType;
 
     /**
-     * @description The ID of the EIP bandwidth plan that is associated with the NLB instance if the NLB instance uses a public IP address.
+     * @description The ID of the Internet Shared Bandwidth instance that is associated with the Internet-facing ALB instance.
      *
      * @example cbwp-bp1vevu8h3ieh****
      *
@@ -76,7 +76,7 @@ class loadBalancers extends Model
     public $createTime;
 
     /**
-     * @description The domain name of the ALB instance.
+     * @description The domain name.
      *
      * @example alb-95qnr2itwu9orb****.cn-hangzhou.alb.aliyuncs.com
      *
@@ -85,17 +85,17 @@ class loadBalancers extends Model
     public $DNSName;
 
     /**
-     * @description The configuration of deletion protection.
+     * @description The configuration of the deletion protection feature.
      *
      * @var deletionProtectionConfig
      */
     public $deletionProtectionConfig;
 
     /**
-     * @description The type of IPv6 address that is used by the ALB instance. Valid values:
+     * @description The type of IPv6 address used by the ALB instance. Valid values:
      *
-     *   **Internet**: The ALB instance uses a public IP address. The domain name of the ALB instance is resolved to the public IP address. Therefore, the ALB instance can be accessed over the Internet.
-     *   **Intranet**: The ALB instance uses a private IP address. The domain name of the ALB instance is resolved to the private IP address. Therefore, the ALB instance can be accessed over the VPC in which the ALB instance is deployed.
+     *   **Internet** The ALB instance is assigned a public IP address. The domain name is resolved to the public IP address. The ALB instance is accessible over the Internet.
+     *   **Intranet** The ALB instance is assigned only a private IP address. The domain name is resolved to the private IP address. The ALB instance is accessible only within the VPC of the ALB instance.
      *
      * @example Intranet
      *
@@ -104,14 +104,14 @@ class loadBalancers extends Model
     public $ipv6AddressType;
 
     /**
-     * @description The configuration of the billing method.
+     * @description The billing information about the ALB instance.
      *
      * @var loadBalancerBillingConfig
      */
     public $loadBalancerBillingConfig;
 
     /**
-     * @description The business status of the ALB instance. Valid values:
+     * @description The status of the ALB instance. Valid values:
      *
      *   **Abnormal**
      *   **Normal**
@@ -123,11 +123,11 @@ class loadBalancers extends Model
     public $loadBalancerBussinessStatus;
 
     /**
-     * @description The edition of the ALB instance. Different editions have different limits and support different billing methods. Valid values:
+     * @description The edition of the ALB instance. The features and billing rules vary based on the edition. Valid values:
      *
-     *   **Basic**: basic
-     *   **Standard**: standard
-     *   **StandardWithWaf**: WAF-enabled
+     *   **Basic**
+     *   **Standard**
+     *   **StandardWithWaf**
      *
      * @example Standard
      *
@@ -145,7 +145,7 @@ class loadBalancers extends Model
     public $loadBalancerId;
 
     /**
-     * @description The name of the NLB instance.
+     * @description The name of the ALB instance.
      *
      * @example alb-instance-test
      *
@@ -163,7 +163,7 @@ class loadBalancers extends Model
     /**
      * @description The status of the ALB instance. Valid values:
      *
-     *   **Inactive**: The ALB instance is disabled. The listeners do not forward traffic.
+     *   **Inactive**: The ALB instance is disabled. ALB instances in the Inactive state do not forward traffic.
      *   **Active**: The ALB instance is running.
      *   **Provisioning**: The ALB instance is being created.
      *   **Configuring**: The ALB instance is being modified.
@@ -176,7 +176,7 @@ class loadBalancers extends Model
     public $loadBalancerStatus;
 
     /**
-     * @description The configuration read-only mode.
+     * @description The configuration of modification protection.
      *
      * @var modificationProtectionConfig
      */
@@ -192,14 +192,14 @@ class loadBalancers extends Model
     public $resourceGroupId;
 
     /**
-     * @description The tags that are added to the instance.
+     * @description The information about the tags.
      *
      * @var tags[]
      */
     public $tags;
 
     /**
-     * @description The ID of the VPC to which the ALB instance belongs.
+     * @description The ID of the VPC in which the ALB instance is deployed.
      *
      * @example vpc-bp1b49rqrybk45nio****
      *

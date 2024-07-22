@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListAclEntriesRequest extends Model
 {
     /**
-     * @description The ACL ID.
+     * @description The ID of the ACL.
      *
      * This parameter is required.
      * @example nacl-hp34s2h0xx1ht4nwo****

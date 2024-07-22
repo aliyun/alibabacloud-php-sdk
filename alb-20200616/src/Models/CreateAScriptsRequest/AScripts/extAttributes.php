@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class extAttributes extends Model
 {
     /**
+     * @description The attribute name.
+     *
+     * Set the value to **EsDebug**, which specifies that if requests carry the _es_dbg parameter and the value is the specified key, the debugging header is enabled to output the execution result.
+     * @example EsDebug
+     *
      * @var string
      */
     public $attributeKey;
 
     /**
+     * @description The attribute value, which must be 1 to 128 characters in length, and can contain letters or digits.
+     *
+     * @example test123
+     *
      * @var string
      */
     public $attributeValue;

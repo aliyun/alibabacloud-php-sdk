@@ -11,12 +11,14 @@ class loadBalancerOperationLocks extends Model
     /**
      * @description The reason why the ALB instance is locked. This parameter is valid only if **LoadBalancerBussinessStatus** is set to **Abnormal**.
      *
+     * @example nolock
+     *
      * @var string
      */
     public $lockReason;
 
     /**
-     * @description The type of the lock. Valid values:
+     * @description The lock type. Valid values:
      *
      *   **SecurityLocked**: The ALB instance is locked due to security reasons.
      *   **RelatedResourceLocked**: The ALB instance is locked due to other resources that are associated with the ALB instance.

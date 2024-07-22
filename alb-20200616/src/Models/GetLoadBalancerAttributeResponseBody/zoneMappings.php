@@ -17,6 +17,11 @@ class zoneMappings extends Model
     public $loadBalancerAddresses;
 
     /**
+     * @var string
+     */
+    public $status;
+
+    /**
      * @description The vSwitch in the zone. You can specify only one vSwitch (subnet) in each zone of an ALB instance.
      *
      * @example vsw-bp12mw1f8k3jgy****
@@ -36,6 +41,7 @@ class zoneMappings extends Model
     public $zoneId;
     protected $_name = [
         'loadBalancerAddresses' => 'LoadBalancerAddresses',
+        'status'                => 'Status',
         'vSwitchId'             => 'VSwitchId',
         'zoneId'                => 'ZoneId',
     ];
@@ -55,6 +61,9 @@ class zoneMappings extends Model
                     $res['LoadBalancerAddresses'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
@@ -82,6 +91,9 @@ class zoneMappings extends Model
                     $model->loadBalancerAddresses[$n++] = null !== $item ? loadBalancerAddresses::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];

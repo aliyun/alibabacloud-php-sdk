@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListLoadBalancersResponseBody extends Model
 {
     /**
-     * @description The list of ALB instances.
+     * @description A list of ALB instances.
      *
      * @var loadBalancers[]
      */

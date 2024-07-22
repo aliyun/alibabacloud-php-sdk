@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class AScripts extends Model
 {
     /**
-     * @description The AScript rule ID.
+     * @description The rule ID.
      *
      * This parameter is required.
      * @example as-mhqxcanmivn4g5****
@@ -22,7 +22,7 @@ class AScripts extends Model
     /**
      * @description The name of the AScript rule.
      *
-     * The name must be 2 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The name must start with a letter.
+     * The name must be 2 to 128 character in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). It must start with a letter.
      * @example Group1
      *
      * @var string
@@ -42,11 +42,20 @@ class AScripts extends Model
     public $enabled;
 
     /**
+     * @description Specifies whether to enable the extended attributes of the Ascript rule. Valid values:
+     *
+     *   true
+     *   false (false)
+     *
+     * @example true
+     *
      * @var bool
      */
     public $extAttributeEnabled;
 
     /**
+     * @description The extended attribute.
+     *
      * @var extAttributes[]
      */
     public $extAttributes;

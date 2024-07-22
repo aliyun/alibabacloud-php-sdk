@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class redirectConfig extends Model
 {
     /**
-     * @description The hostname to which requests are forwarded.
+     * @description The hostname to which requests are redirected.
      *
-     * Take note of the following rules when you specify a hostname:
+     * The hostname must meet the following requirements:
      *
      *   The hostname must be 3 to 128 characters in length, and can contain lowercase letters, digits, and the following special characters: - . \\* = ~ _ + \\ ^ ! $ & | ( ) [ ] ?.
      *   The hostname must contain at least one period (.) but cannot start or end with a period (.).
@@ -25,7 +25,7 @@ class redirectConfig extends Model
     public $host;
 
     /**
-     * @description The redirect type. Valid values: **301**, **302**, **303**, **307**, and **308**.
+     * @description The HTTP status code that indicates the redirect type. Valid values: **301**, **302**, **303**, **307**, and **308**.
      *
      * @example 301
      *
@@ -36,12 +36,12 @@ class redirectConfig extends Model
     /**
      * @description The path to which requests are redirected.
      *
-     *   **${path}** (default): You can reference \\*\\*${host}**, **${protocol}** and **${port}\\*\\*. Each variable can be used only once. You can specify one or more of the preceding variables in each request. You can also combine them with a custom value.
+     *   **${path}** (default): You can reference \\*\\*${host}**, **${protocol}** and **${port}\\*\\*. Each variable can be used only once. The preceding variables can be used at the same time or combined with a custom value.
      *
-     *   A custom value that meets the following requirements:
+     *   The path must meet the following requirements:
      *
-     *   The custom value must be 1 to 128 characters in length. You can use asterisks (\\*) and question marks (?) as wildcards.
-     *   The custom value can contain letters, digits, and the following special characters: `$ - _ . + / & ~ @ : \\" * ?`. The custom value must start with a forward slash (/) and cannot contain the following characters: `" % # ; ! ( ) [ ] ^ , "`.
+     *   The path must be 1 to 128 characters in length. You can use asterisks (\\*) and question marks (?) as wildcard characters.
+     *   The path can contain letters, digits, and the following special characters: `$ - _ . + / & ~ @ : \\" * ?`. It must start with a forward slash (/) and cannot contain the following characters: `" % # ; ! ( ) [ ] ^ , "`.
      *
      * @example /test
      *
@@ -60,11 +60,11 @@ class redirectConfig extends Model
     public $port;
 
     /**
-     * @description The redirect protocol.
+     * @description The protocol of the destination to which requests are forwarded. Valid values:
      *
      * Valid values: **HTTP** and **HTTPS**.
      *
-     * > HTTPS listeners support only HTTP to HTTPS redirection.
+     * >  HTTPS listeners supports only HTTPS redirects.
      * @example HTTP
      *
      * @var string
@@ -72,7 +72,7 @@ class redirectConfig extends Model
     public $protocol;
 
     /**
-     * @description The query string to which requests are forwarded.
+     * @description The query string to which requests are redirected.
      *
      * The query string must be 1 to 128 characters in length, and can contain printable characters, excluding uppercase letters and the following special characters: `# [ ] { } \\ | < > &`.
      * @example quert

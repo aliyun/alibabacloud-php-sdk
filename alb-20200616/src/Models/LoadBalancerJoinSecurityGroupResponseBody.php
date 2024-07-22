@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class LoadBalancerJoinSecurityGroupResponseBody extends Model
 {
     /**
+     * @description The ID of the asynchronous task.
+     *
      * @example 8fe81f25-79a0-4fa0-9036-f2601fda****
      *
      * @var string
@@ -16,6 +18,8 @@ class LoadBalancerJoinSecurityGroupResponseBody extends Model
     public $jobId;
 
     /**
+     * @description The request ID.
+     *
      * @example D3B9AE45-F5DB-58E3-A4B5-EE58F1EC****
      *
      * @var string

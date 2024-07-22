@@ -28,7 +28,7 @@ class stickySessionConfig extends Model
     public $cookieTimeout;
 
     /**
-     * @description Indicates whether session persistence is enabled. Valid value:
+     * @description Indicates whether session persistence is enabled. Valid values:
      *
      *   **true**
      *   **false**
@@ -40,7 +40,7 @@ class stickySessionConfig extends Model
     public $stickySessionEnabled;
 
     /**
-     * @description The method that is used to handle the cookie. Valid value:
+     * @description The method that is used to handle the cookie. Valid values:
      *
      *   **insert**: inserts the cookie. The first time a client accesses ALB, ALB inserts the SERVERID cookie into the HTTP or HTTPS response packet. Subsequent requests from the client that carry this cookie are forwarded to the same backend server as the first request.
      *   **Server**: rewrites the cookie. ALB rewrites the custom cookies in requests from a client. Subsequent requests from the client that carry the new cookie are forwarded to the same backend server as the first request.

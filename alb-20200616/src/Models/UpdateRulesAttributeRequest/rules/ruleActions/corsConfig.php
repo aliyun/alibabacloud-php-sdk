@@ -21,21 +21,24 @@ class corsConfig extends Model
     public $allowCredentials;
 
     /**
-     * @description The allowed headers for CORS requests.
+     * @description The trusted headers of CORS requests.
      *
      * @var string[]
      */
     public $allowHeaders;
 
     /**
-     * @description The allowed HTTP methods for CORS requests.
+     * @description The trusted HTTP methods of CORS requests.
      *
      * @var string[]
      */
     public $allowMethods;
 
     /**
-     * @description The allowed origins of CORS requests.
+     * @description The trusted origins. You can specify one or more values, or only an asterisk (`*`).
+     *
+     *   The value must start with `http://` or `https://`, and be followed by a valid domain name, including top-level wildcard domain names. Example: `http://*.test.abc.example.com`.
+     *   You can specify ports for a single value. Valid values: **1** to **65535**.
      *
      * @var string[]
      */
@@ -49,7 +52,7 @@ class corsConfig extends Model
     public $exposeHeaders;
 
     /**
-     * @description The maximum cache time of preflight requests in the browser. Unit: seconds.
+     * @description The maximum cache time of dry runs in the browser. Unit: seconds.
      *
      * Valid values: **-1** to **172800**.
      * @example 1000

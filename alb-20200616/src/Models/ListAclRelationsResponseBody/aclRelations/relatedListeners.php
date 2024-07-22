@@ -36,7 +36,7 @@ class relatedListeners extends Model
     public $listenerProtocol;
 
     /**
-     * @description The ID of the Server Load Balancer (SLB) instance.
+     * @description The ID of the SLB instance.
      *
      * @example lb-bp1b6c719dfa08ex****
      *
@@ -45,7 +45,7 @@ class relatedListeners extends Model
     public $loadBalancerId;
 
     /**
-     * @description The association status between the ACL and the listener. Valid values:
+     * @description The association status between the ACL and the listener.
      *
      *   **Associating**
      *   **Associated**

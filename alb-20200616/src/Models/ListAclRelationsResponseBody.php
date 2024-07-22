@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListAclRelationsResponseBody extends Model
 {
     /**
-     * @description The ACLs and the associated listeners.
+     * @description The relations between the specified ACL and the listeners.
      *
      * @var aclRelations[]
      */

@@ -44,7 +44,7 @@ class UpdateLoadBalancerZonesRequest extends Model
     public $loadBalancerId;
 
     /**
-     * @description The zones and the vSwitches. You must specify at least two zones. The specified zones overwrite the existing configurations.
+     * @description The zones and the vSwitches. You must specify at least two zones. The specified zones and vSwitches overwrite the existing configurations.
      *
      * This parameter is required.
      * @var zoneMappings[]

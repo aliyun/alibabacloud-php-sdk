@@ -50,6 +50,11 @@ class loadBalancerAddresses extends Model
     public $intranetAddress;
 
     /**
+     * @var string
+     */
+    public $intranetAddressHcStatus;
+
+    /**
      * @description An IPv6 address.
      *
      * This parameter takes effect only when **AddressIPVersion** is set to **DualStack**. The network type is determined by the value of **Ipv6AddressType**.
@@ -58,12 +63,19 @@ class loadBalancerAddresses extends Model
      * @var string
      */
     public $ipv6Address;
+
+    /**
+     * @var string
+     */
+    public $ipv6AddressHcStatus;
     protected $_name = [
-        'address'         => 'Address',
-        'allocationId'    => 'AllocationId',
-        'eipType'         => 'EipType',
-        'intranetAddress' => 'IntranetAddress',
-        'ipv6Address'     => 'Ipv6Address',
+        'address'                 => 'Address',
+        'allocationId'            => 'AllocationId',
+        'eipType'                 => 'EipType',
+        'intranetAddress'         => 'IntranetAddress',
+        'intranetAddressHcStatus' => 'IntranetAddressHcStatus',
+        'ipv6Address'             => 'Ipv6Address',
+        'ipv6AddressHcStatus'     => 'Ipv6AddressHcStatus',
     ];
 
     public function validate()
@@ -85,8 +97,14 @@ class loadBalancerAddresses extends Model
         if (null !== $this->intranetAddress) {
             $res['IntranetAddress'] = $this->intranetAddress;
         }
+        if (null !== $this->intranetAddressHcStatus) {
+            $res['IntranetAddressHcStatus'] = $this->intranetAddressHcStatus;
+        }
         if (null !== $this->ipv6Address) {
             $res['Ipv6Address'] = $this->ipv6Address;
+        }
+        if (null !== $this->ipv6AddressHcStatus) {
+            $res['Ipv6AddressHcStatus'] = $this->ipv6AddressHcStatus;
         }
 
         return $res;
@@ -112,8 +130,14 @@ class loadBalancerAddresses extends Model
         if (isset($map['IntranetAddress'])) {
             $model->intranetAddress = $map['IntranetAddress'];
         }
+        if (isset($map['IntranetAddressHcStatus'])) {
+            $model->intranetAddressHcStatus = $map['IntranetAddressHcStatus'];
+        }
         if (isset($map['Ipv6Address'])) {
             $model->ipv6Address = $map['Ipv6Address'];
+        }
+        if (isset($map['Ipv6AddressHcStatus'])) {
+            $model->ipv6AddressHcStatus = $map['Ipv6AddressHcStatus'];
         }
 
         return $model;

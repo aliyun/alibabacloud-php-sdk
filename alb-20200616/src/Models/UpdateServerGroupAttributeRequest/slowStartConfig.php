@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class slowStartConfig extends Model
 {
     /**
+     * @description The duration of a slow start.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $slowStartDuration;
 
     /**
+     * @description Indicates whether slow starts are enabled. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example false
+     *
      * @var bool
      */
     public $slowStartEnabled;

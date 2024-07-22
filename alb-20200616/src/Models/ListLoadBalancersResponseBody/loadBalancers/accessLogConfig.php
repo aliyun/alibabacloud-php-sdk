@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class accessLogConfig extends Model
 {
     /**
-     * @description The log project.
+     * @description The Simple Log Service project.
      *
      * @example sls-setter
      *

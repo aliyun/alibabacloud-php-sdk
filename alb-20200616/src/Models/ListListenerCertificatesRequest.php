@@ -33,7 +33,7 @@ class ListListenerCertificatesRequest extends Model
     public $listenerId;
 
     /**
-     * @description The maximum number of entries to return. Valid values: **1 to 100**. If you do not specify this parameter, the default value **20** is used.
+     * @description The maximum number of entries to return. Valid values: **1 to 100**. Default value: **20**.
      *
      * @example 50
      *

@@ -18,85 +18,80 @@ use AlibabaCloud\Tea\Model;
 class ruleConditions extends Model
 {
     /**
-     * @description The match conditions for cookies. You can add up to 20 match conditions.
+     * @description The configuration of the cookie. You can specify at most 20 conditions.
      *
      * @var cookieConfig
      */
     public $cookieConfig;
 
     /**
-     * @description The match conditions for HTTP headers. You can specify up to 20 match conditions.
+     * @description The configuration of the HTTP header. You can specify at most 20 HTTP headers.
      *
      * @var headerConfig
      */
     public $headerConfig;
 
     /**
-     * @description The match conditions for hostnames. You can specify up to 20 match conditions.
+     * @description The match conditions for hostnames. You can specify at most 20 conditions.
      *
      * @var hostConfig
      */
     public $hostConfig;
 
     /**
-     * @description The match conditions for HTTP request methods. Valid values of N: **1** to **20**.
+     * @description The configuration of the HTTP request method. Valid values of N: **1** to **20**.
      *
      * @var methodConfig
      */
     public $methodConfig;
 
     /**
-     * @description The match conditions for query strings. You can specify up to 20 match conditions.
+     * @description The match conditions for query strings. You can specify at most 20 conditions.
      *
      * @var pathConfig
      */
     public $pathConfig;
 
     /**
-     * @description The match conditions for query strings. You can specify up to 20 match conditions.
+     * @description The match conditions for query strings. You can specify at most 20 conditions.
      *
      * @var queryStringConfig
      */
     public $queryStringConfig;
 
     /**
-     * @description The configuration of the HTTP response header. You can specify the configurations of up to 20 HTTP response header.
+     * @description The HTTP response headers. You can specify at most 20 HTTP response headers.
      *
      * @var responseHeaderConfig
      */
     public $responseHeaderConfig;
 
     /**
-     * @description The match conditions for response status codes. This parameter is required and takes effect when **Type** is set to **ResponseStatusCode**. You can specify up to 20 match conditions.
+     * @description The match conditions for response status codes. This parameter is required and valid when **Type** is set to **ResponseStatusCode**. You can specify at most 20 conditions.
      *
      * @var responseStatusCodeConfig
      */
     public $responseStatusCodeConfig;
 
     /**
-     * @description The configuration of the source IP addresses based on which user traffic is matched. You can specify up to 20 configuration records.
+     * @description Traffic matching based on source IP addresses. You can specify at most 20 match conditions based on IP addresses.
      *
      * @var sourceIpConfig
      */
     public $sourceIpConfig;
 
     /**
-     * @description The type of action specified in the forwarding rule. You can specify up to 11 types of actions. Valid values:
+     * @description The type of the forwarding rule. You can specify at most seven types of forwarding rule. Valid values:
      *
-     *   **ForwardGroup**: forwards a request to multiple vServer groups.
-     *   **Redirect**: redirects a request.
-     *   **FixedResponse**: returns a custom response.
-     *   **Rewrite**: rewrites a request.
-     *   **InsertHeader**: inserts a header.
-     *   **RemoveHeaderConfig**: deletes a header.
-     *   **TrafficLimitConfig**: throttles network traffic.
-     *   **TrafficMirrorConfig**: mirrors traffic.
-     *   **CorsConfig**: forwards requests based on CORS.
-     *
-     * The following action types are supported:
-     *
-     *   **FinalType**: the last action to be performed in a forwarding rule. Each forwarding rule can contain only one FinalType action. You can specify a **ForwardGroup**, **Redirect**, or **FixedResponse** action as the FinalType action.
-     *   **ExtType**: the action or the actions to be performed before the **FinalType** action. A forwarding rule can contain one or more **ExtType** actions. To specify an ExtType action, you must specify a **FinalType** action. You can specify multiple **InsertHeader** actions or one **Rewrite** action.
+     *   **Host**: Responses are forwarded based on hosts.
+     *   **Path**: Responses are forwarded based on URLs.
+     *   **Header**: Responses are forwarded based on HTTP headers.
+     *   **QueryString**: Responses are forwarded based on query strings.
+     *   **Method**: Responses are forwarded based on request methods.
+     *   **Cookie**: Responses are forwarded based on cookies.
+     *   **SourceIp**: Responses are forwarded based on source IP addresses.
+     *   **ResponseHeader**: Responses are forwarded based on HTTP response headers.
+     *   **ResponseStatusCode**: Response are forwarded based on response status codes.
      *
      * @example ForwardGroup
      *

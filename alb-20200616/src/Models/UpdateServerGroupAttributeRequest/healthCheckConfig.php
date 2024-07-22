@@ -9,20 +9,20 @@ use AlibabaCloud\Tea\Model;
 class healthCheckConfig extends Model
 {
     /**
-     * @description The HTTP status codes that are used to determine whether the backend server passes the health check.
+     * @description The HTTP status codes that indicate healthy backend servers.
      *
      * @var string[]
      */
     public $healthCheckCodes;
 
     /**
-     * @description The port that you want to use for health checks on backend servers.
+     * @description The backend port that is used for health checks.
      *
      * Valid values: **0** to **65535**.
      *
-     * If you set the value to **0**, the ports of backend servers are used for health checks.
+     * If you set the value to **0**, the backend port is used for health checks.
      *
-     * > This parameter takes effect when the **HealthCheckEnabled** parameter is set to **true**.
+     * >  This parameter takes effect only if you set **HealthCheckEnabled** to **true**.
      * @example 80
      *
      * @var int
@@ -32,7 +32,7 @@ class healthCheckConfig extends Model
     /**
      * @description Specifies whether to enable the health check feature. Valid values:
      *
-     *   **true** (default)
+     *   **true**
      *   **false**
      *
      * @example true
@@ -46,11 +46,11 @@ class healthCheckConfig extends Model
      *
      *   The domain name must be 1 to 80 characters in length.
      *   The domain name can contain lowercase letters, digits, hyphens (-), and periods (.).
-     *   It must contain at least one period (.) but cannot start or end with a period (.).
+     *   The domain name must contain at least one period (.) but cannot start or end with a period (.).
      *   The rightmost field of the domain name can contain only letters and cannot contain digits or hyphens (-).
      *   Other fields cannot start or end with a hyphen (-).
      *
-     * > This parameter takes effect when the **HealthCheckEnabled** parameter is set to true and the **HealthCheckProtocol** parameter is set to **HTTP**.
+     * >  This parameter takes effect only if you set **HealthCheckEnabled** to true and **HealthCheckProtocol** to **HTTP** or **HTTPS**.
      * @example example.com
      *
      * @var string
@@ -58,12 +58,12 @@ class healthCheckConfig extends Model
     public $healthCheckHost;
 
     /**
-     * @description The version of HTTP that is used for health checks. Valid values:
+     * @description The HTTP version for health checks. Valid values:
      *
      *   **HTTP1.0**
      *   **HTTP1.1**
      *
-     * > This parameter takes effect when the **HealthCheckEnabled** parameter is set to true and the **HealthCheckProtocol** parameter is set to **HTTP**.
+     * >  This parameter takes effect only if you set **HealthCheckEnabled** to true and **HealthCheckProtocol** to **HTTP** or **HTTPS**.
      * @example HTTP1.1
      *
      * @var string
@@ -75,7 +75,7 @@ class healthCheckConfig extends Model
      *
      * Valid values: **1** to **50**.
      *
-     * > This parameter takes effect when the **HealthCheckEnabled** parameter is set to **true**.
+     * >  This parameter takes effect only if you set **HealthCheckEnabled** to **true**.
      * @example 5
      *
      * @var int
@@ -83,13 +83,13 @@ class healthCheckConfig extends Model
     public $healthCheckInterval;
 
     /**
-     * @description The method that you want to use for the health check. Valid values:
+     * @description The HTTP method that is used for health checks. Valid values:
      *
      *   **GET**: If the length of a response exceeds 8 KB, the response is truncated. However, the health check result is not affected.
-     *   **POST**: gRPC health checks automatically use the POST method.
-     *   **HEAD**: HTTP health checks automatically use the HEAD method.
+     *   **POST**: gRPC health checks use the POST method by default.
+     *   **HEAD**: HTTP and HTTPS health checks use the HEAD method by default.
      *
-     * > This parameter takes effect when the **HealthCheckEnabled** parameter is set to true and the **HealthCheckProtocol** parameter is set to **HTTP** or **gRPC**.
+     * >  This parameter takes effect only if you set **HealthCheckEnabled** to true and **HealthCheckProtocol** to **HTTP**, **HTTPS**, or **gRPC**.
      * @example HEAD
      *
      * @var string
@@ -97,11 +97,11 @@ class healthCheckConfig extends Model
     public $healthCheckMethod;
 
     /**
-     * @description The path that is used for health checks.
+     * @description The URL that is used for health checks.
      *
-     * The path must be 1 to 80 characters in length and can contain only letters, digits, and the following special characters: `- / . % ? # & =`. It can also contain the following extended characters: `_ ; ~ ! ( ) * [ ] @ $ ^ : \\" , +`. The path must start with a forward slash (`/`).
+     * The URL must be 1 to 80 characters in length, and can contain letters, digits, and the following special characters: `- / . % ? # & =`. It can also contain the following extended characters: `_ ; ~ ! ( ) * [ ] @ $ ^ : \\" , +`. The URL must start with a forward slash (`/`).
      *
-     * > This parameter takes effect when the **HealthCheckEnabled** parameter is set to **true** and the **HealthCheckProtocol** parameter is set to **HTTP**.
+     * >  This parameter takes effect only if you set **HealthCheckEnabled** to **true** and **HealthCheckProtocol** to **HTTP** or **HTTPS**.
      * @example /test/index.html
      *
      * @var string
@@ -109,11 +109,12 @@ class healthCheckConfig extends Model
     public $healthCheckPath;
 
     /**
-     * @description The protocol that you want to use for health checks. Valid values:
+     * @description The protocol that is used for health checks. Valid values:
      *
-     *   **HTTP**: To perform HTTP health checks, ALB sends HEAD or GET requests to a backend server to check whether the backend server is healthy.
-     *   **TCP**: To perform TCP health checks, ALB sends SYN packets to a backend server to check whether the port of the backend server is available to receive requests.
-     *   **gRPC**: To perform gRPC health checks, ALB sends POST or GET requests to a backend server to check whether the backend server is healthy.
+     *   **HTTP**: HTTP health checks simulate browser behaviors by sending HEAD or GET requests to probe the availability of backend servers.
+     *   **HTTPS**: HTTPS health checks simulate browser behaviors by sending HEAD or GET requests to probe the availability of backend servers. HTTPS supports encryption and provides higher security than HTTP.
+     *   **TCP**: TCP health checks send TCP SYN packets to a backend server to check whether the port of the backend server is reachable.
+     *   **gRPC**: gRPC health checks send POST or GET requests to a backend server to check whether the backend server is healthy.
      *
      * @example HTTP
      *
@@ -122,15 +123,15 @@ class healthCheckConfig extends Model
     public $healthCheckProtocol;
 
     /**
-     * @description Specify the timeout period of a health check response. If a backend server, such as an Elastic Compute Service (ECS) instance, does not return a health check response within the specified timeout period, the server fails the health check. Unit: seconds.
+     * @description The timeout period of a health check response. If a backend ECS instance does not respond within the specified timeout period, the ECS instance fails the health check. Unit: seconds.
      *
      * Valid values: **1** to **300**.
      *
      * >
      *
-     *   If the value of the **HealthCheckTimeout** parameter is smaller than that of the **HealthCheckInterval** parameter, the timeout period specified by the **HealthCheckTimeout** parameter is ignored and the value of the **HealthCheckInterval** parameter is used as the timeout period.
+     *   If the value of **HealthCHeckTimeout** is smaller than the value of **HealthCheckInterval**, **HealthCHeckTimeout** becomes invalid. The timeout period is specified by the value of **HealthCheckInterval**.
      *
-     *   This parameter takes effect when the **HealthCheckEnabled** parameter is set to **true**.
+     *   This parameter takes effect only if you set **HealthCheckEnabled** to **true**.
      *
      * @example 3
      *
@@ -139,7 +140,7 @@ class healthCheckConfig extends Model
     public $healthCheckTimeout;
 
     /**
-     * @description The number of times that an unhealthy backend server must consecutively pass health checks before it can be declared healthy (from **fail** to **success**).
+     * @description The number of times that an unhealthy backend server must consecutively pass health checks before it can be declared healthy. In this case, the health check status of the backend server changes from **fail** to **success**.
      *
      * Valid values: **2** to **10**.
      * @example 4
@@ -149,7 +150,7 @@ class healthCheckConfig extends Model
     public $healthyThreshold;
 
     /**
-     * @description The number of times that a healthy backend server must consecutively fail health checks before it is declared unhealthy. In this case, the health status is changed from **success** to **fail**.
+     * @description The number of times that a healthy backend server must consecutively fail health checks before it can be declared unhealthy. In this case, the health check status of the backend server changes from **success** to **fail**.
      *
      * Valid values: **2** to **10**.
      * @example 4

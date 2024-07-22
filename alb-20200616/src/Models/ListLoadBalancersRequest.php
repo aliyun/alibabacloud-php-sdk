@@ -10,6 +10,13 @@ use AlibabaCloud\Tea\Model;
 class ListLoadBalancersRequest extends Model
 {
     /**
+     * @description The IP version. Valid values:
+     *
+     *   **IPv4**
+     *   **DualStack**
+     *
+     * @example IPv4
+     *
      * @var string
      */
     public $addressIpVersion;
@@ -27,11 +34,22 @@ class ListLoadBalancersRequest extends Model
     public $addressType;
 
     /**
+     * @description The domain name.
+     *
+     * @example alb-95qnr2itwu9orb****.cn-hangzhou.alb.aliyuncs.com
+     *
      * @var string
      */
     public $DNSName;
 
     /**
+     * @description The type of IPv6 address that is used by the ALB instance. Valid values:
+     *
+     *   **Internet**: The ALB instance uses a public IP address. The domain name of the ALB instance is resolved to the public IP address. Therefore, the ALB instance can be accessed over the Internet.
+     *   **Intranet**: The ALB instance uses a private IP address. The domain name of the ALB instance is resolved to the private IP address. Therefore, the ALB instance can be accessed over the VPC in which the ALB instance is deployed.
+     *
+     * @example Intranet
+     *
      * @var string
      */
     public $ipv6AddressType;

@@ -9,11 +9,11 @@ use AlibabaCloud\Tea\Model;
 class stickySessionConfig extends Model
 {
     /**
-     * @description The cookie to be configured on the server.
+     * @description The cookie that you want to configure for the server.
      *
-     * The cookie must be 1 to 200 characters in length and can contain only ASCII characters and digits. It cannot contain commas (,), semicolons (;), or space characters. It cannot start with a dollar sign ($).
+     * The cookie must be 1 to 200 characters in length, and can contain only ASCII letters and digits. It cannot contain commas (,), semicolons (;), or space characters. It cannot start with a dollar sign ($).
      *
-     * > This parameter takes effect when the **StickySessionEnabled** parameter is set to **true** and the **StickySessionType** parameter is set to **Server**.
+     * >  This parameter takes effect only when **StickySessionEnabled** is set to **true** and **StickySessionType** is set to **server**.
      * @example B490B5EBF6F3CD402E515D22BCDA****
      *
      * @var string
@@ -21,13 +21,13 @@ class stickySessionConfig extends Model
     public $cookie;
 
     /**
-     * @description The timeout period of a cookie. Unit: seconds.
+     * @description The maximum amount of time to wait before the session cookie expires. Unit: seconds.
      *
      * Valid values: **1** to **86400**.
      *
      * Default value: **1000**.
      *
-     * > This parameter takes effect only when the **StickySessionEnabled** parameter is set to **true** and the **StickySessionType** parameter is set to **Insert**.
+     * >  This parameter takes effect only when **StickySessionEnabled** is set to **true** and **StickySessionType** is set to **Insert**.
      * @example 1000
      *
      * @var int
@@ -38,9 +38,9 @@ class stickySessionConfig extends Model
      * @description Specifies whether to enable session persistence. Valid values:
      *
      *   **true**
-     *   **false** (default)
+     *   **false**
      *
-     * > This parameter takes effect when the **ServerGroupType** parameter is set to **Instance** or **Ip**.
+     * >  This parameter takes effect when the **ServerGroupType** parameter is set to **Instance** or **Ip**.
      * @example false
      *
      * @var bool
@@ -48,17 +48,12 @@ class stickySessionConfig extends Model
     public $stickySessionEnabled;
 
     /**
-     * @description The method that is used to handle a cookie. Valid values:
+     * @description The method that is used to handle cookies. Valid values:
      *
-     *   **Insert** (default): inserts a cookie.
+     *   **Insert** (default value): inserts a cookie. The first time a client accesses SLB, SLB inserts the SERVERID cookie into the HTTP or HTTPS response packet. Subsequent requests from the client that carry this cookie are forwarded to the same backend server as the first request.
+     *   **Server**: rewrites a cookie. SLB rewrites the custom cookies in requests from a client. Subsequent requests from the client that carry the new cookie are forwarded to the same backend server as the first request.
      *
-     * ALB inserts a session cookie (SERVERID) into the first HTTP or HTTPS response that is sent to a client. Subsequent requests to ALB carry this cookie, and ALB determines the destination servers of the requests based on the cookies.
-     *
-     *   **Server**: rewrites a cookie.
-     *
-     * When ALB detects a user-defined cookie, it overwrites the original cookie with the user-defined cookie. Subsequent requests to ALB carry this user-defined cookie, and ALB determines the destination servers of the requests based on the cookies.
-     *
-     * > This parameter takes effect when the **StickySessionEnabled** parameter is set to **true**.
+     * >  This parameter takes effect when the **StickySessionEnabled** parameter is set to **true**.
      * @example Insert
      *
      * @var string

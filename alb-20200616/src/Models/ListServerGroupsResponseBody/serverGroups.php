@@ -15,7 +15,7 @@ use AlibabaCloud\Tea\Model;
 class serverGroups extends Model
 {
     /**
-     * @description Indicates whether configuration management is enabled. Valid value:
+     * @description Indicates whether configuration management is enabled. Valid values:
      *
      *   **true**
      *   **false**
@@ -29,11 +29,14 @@ class serverGroups extends Model
     /**
      * @description The configurations of connection draining.
      *
-     * After connection draining is enabled, ALB maintains data transmission for a period of time after the backend server is removed or declared unhealthy.
+     * >
      *
-     * > *   By default, connection draining is disabled. To enable connection draining, contact your account manager.
-     * >*   Basic ALB instances do not support connection draining. Standard and WAF-enabled ALB instances support connection draining.
-     * >*   Server groups of the instance and IP types support connection draining. Server groups of the Function Compute type do not support connection draining.
+     *   By default, connection draining is disabled. To enable connection draining, contact your account manager.
+     *
+     *   Basic ALB instances do not support connection draining. Standard and WAF-enabled ALB instances support connection draining.
+     *
+     *   Server groups of the instance and IP types support connection draining. Server groups of the Function Compute type do not support connection draining.
+     *
      * @var connectionDrainConfig
      */
     public $connectionDrainConfig;
@@ -55,7 +58,7 @@ class serverGroups extends Model
     public $healthCheckConfig;
 
     /**
-     * @description Indicates whether IPv6 is supported. Valid value:
+     * @description Indicates whether IPv6 is supported. Valid values:
      *
      *   **true**
      *   **false**
@@ -67,7 +70,7 @@ class serverGroups extends Model
     public $ipv6Enabled;
 
     /**
-     * @description The backend protocol. Valid value:
+     * @description The backend protocol. Valid values:
      *
      *   **HTTP**: allows you to associate HTTPS, HTTP, or QUIC listeners with backend servers.
      *   **HTTPS**: allows you to associate HTTPS listeners with backend servers.
@@ -87,7 +90,7 @@ class serverGroups extends Model
     public $relatedLoadBalancerIds;
 
     /**
-     * @description The ID of the resource group.
+     * @description The ID of the resource group to which the instance belongs.
      *
      * @example rg-atstuj3rtop****
      *
@@ -96,10 +99,10 @@ class serverGroups extends Model
     public $resourceGroupId;
 
     /**
-     * @description The scheduling algorithm. Valid value:
+     * @description The scheduling algorithm. Valid values:
      *
-     *   **Wrr**: Backend servers with higher weights receive more requests than backend servers with lower weights.
-     *   **Wlc**: Requests are distributed based on the weight and load of each backend server. The load refers to the number of connections on a backend server. If multiple backend servers have the same weight, requests are forwarded to the backend server with the least number of connections.
+     *   **Wrr**: weighted round-robin. Backend servers with higher weights receive more requests than backend servers with lower weights.
+     *   **Wlc**: weighted least connections. Requests are distributed based on the weight and load of each backend server. The load refers to the number of connections on a backend server. If multiple backend servers have the same weight, requests are forwarded to the backend server with the least number of connections.
      *   **Sch**: consistent hashing. Requests that have the same hash factors are distributed to the same backend server. If you do not specify the UchConfig parameter, the source IP address is used as the hash factor by default. Requests that are from the same IP address are distributed to the same backend server. If you specify the UchConfig parameter, the URL string is used as the hash factor. Requests that have the same URL string are distributed to the same backend server.
      *
      * @example Wrr
@@ -136,7 +139,7 @@ class serverGroups extends Model
     public $serverGroupName;
 
     /**
-     * @description The status of the server group. Valid value:
+     * @description The status of the server group. Valid values:
      *
      *   **Creating**.
      *   **Available**
@@ -149,9 +152,9 @@ class serverGroups extends Model
     public $serverGroupStatus;
 
     /**
-     * @description The server group type. Valid value:
+     * @description The server group type. Valid values:
      *
-     *   **Instance**: instances, including Elastic Compute Service (ECS) instances, elastic network interfaces (ENIs), and elastic container instances.
+     *   **Instance**: instances, including ECS instances, ENIs, and elastic container instances.
      *   **Ip**: IP addresses.
      *   **Fc**: Function Compute
      *
@@ -173,11 +176,14 @@ class serverGroups extends Model
     /**
      * @description The configurations of slow starts.
      *
-     * After slow starts are enabled, ALB prefetches data to newly added backend servers. Requests distributed to the backend servers gradually increase.
+     * >
      *
-     * > *   Basic ALB instances do not support slow starts. Standard and WAF-enabled ALB instances support slow starts.
-     * >*   Server groups of the instance and IP types support slow starts. Server groups of the Function Compute type do not support slow starts.
-     * >*   Slow start is supported only by the weighted round-robin scheduling algorithm.
+     *   Basic ALB instances do not support slow starts. Standard and WAF-enabled ALB instances support slow starts.
+     *
+     *   Server groups of the instance and IP types support slow starts. Server groups of the Function Compute type do not support slow starts.
+     *
+     *   Slow start is supported only by the weighted round-robin scheduling algorithm.
+     *
      * @var slowStartConfig
      */
     public $slowStartConfig;
@@ -204,7 +210,7 @@ class serverGroups extends Model
     public $uchConfig;
 
     /**
-     * @description Indicates whether persistent TCP connections are enabled. Valid value:
+     * @description Indicates whether persistent TCP connections are enabled. Valid values:
      *
      *   **true**
      *   **false**

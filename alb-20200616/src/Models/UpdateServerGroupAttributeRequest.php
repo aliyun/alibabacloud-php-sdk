@@ -24,6 +24,13 @@ class UpdateServerGroupAttributeRequest extends Model
     public $clientToken;
 
     /**
+     * @description The configurations of connection draining.
+     *
+     * After connection draining is enabled, ALB maintains data transmission for a period of time after the backend server is removed or declared unhealthy.
+     *
+     * > *   By default, connection draining is disabled. To enable connection draining, contact your account manager.
+     * >*   Basic ALB instances do not support connection draining. Standard and WAF-enabled ALB instances support connection draining.
+     * >*   Server groups of the instance and IP types support connection draining. Server groups of the Function Compute type do not support connection draining.
      * @var connectionDrainConfig
      */
     public $connectionDrainConfig;
@@ -90,6 +97,13 @@ class UpdateServerGroupAttributeRequest extends Model
     public $serviceName;
 
     /**
+     * @description The configurations of slow starts.
+     *
+     * After slow starts are enabled, ALB prefetches data to newly added backend servers. Requests distributed to the backend servers gradually increase.
+     *
+     * > *   Basic ALB instances do not support slow starts. Standard and WAF-enabled ALB instances support slow starts.
+     * >*   Server groups of the instance and IP types support slow starts. Server groups of the Function Compute type do not support slow starts.
+     * >*   Slow start is supported only by the weighted round-robin scheduling algorithm.
      * @var slowStartConfig
      */
     public $slowStartConfig;
@@ -102,7 +116,7 @@ class UpdateServerGroupAttributeRequest extends Model
     public $stickySessionConfig;
 
     /**
-     * @description The setting of consistent hashing based on URLs.
+     * @description The configurations of consistent hashing based on URLs.
      *
      * @var uchConfig
      */

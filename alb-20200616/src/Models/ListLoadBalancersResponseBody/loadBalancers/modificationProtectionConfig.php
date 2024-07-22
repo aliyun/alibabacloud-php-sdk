@@ -9,11 +9,13 @@ use AlibabaCloud\Tea\Model;
 class modificationProtectionConfig extends Model
 {
     /**
-     * @description The reason why deletion protection is enabled.
+     * @description The reason why the configuration read-only mode is enabled.
      *
-     * It must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). It must start with a letter.
+     * The reason must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-).
      *
-     * This parameter takes effect only when **ModificationProtectionStatus** is set to **ConsoleProtection**.
+     * This parameter is available only if the **ModificationProtectionStatus** parameter is set to **ConsoleProtection**.
+     * @example Test Reason
+     *
      * @var string
      */
     public $reason;
@@ -21,10 +23,10 @@ class modificationProtectionConfig extends Model
     /**
      * @description Indicates whether the configuration read-only mode is enabled for the ALB instance. Valid values:
      *
-     *   **NonProtection**: The configuration read-only mode is disabled. In this case, you cannot specify ModificationProtectionReason. If you specify ModificationProtectionReason, the value of the parameter is cleared.
-     *   **ConsoleProtection**: The configuration read-only mode is enabled. In this case, you can specify ModificationProtectionReason.
+     *   **NonProtection**: Modification protection is disabled. In this case, you cannot set the ModificationProtectionReason parameter. If the ModificationProtectionReason parameter is specified, the value is cleared.
+     *   **ConsoleProtection**: Modification protection is enabled. In this case, you can set the ModificationProtectionReason parameter.
      *
-     * > If you set this parameter to **ConsoleProtection**, you cannot use the ALB console to modify instance configurations. However, you can call API operations to modify instance configurations.
+     * >  If the value is **ConsoleProtection**, modification protection is enabled. You cannot modify the configurations of the ALB instance in the ALB console. However, you can call API operations to modify the configurations of the ALB instance.
      * @example ConsoleProtection
      *
      * @var string

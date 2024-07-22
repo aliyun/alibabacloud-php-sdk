@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class connectionDrainConfig extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $connectionDrainEnabled;
 
     /**
+     * @example 300
+     *
      * @var int
      */
     public $connectionDrainTimeout;

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class securityPolicies extends Model
 {
     /**
-     * @description The supported encryption algorithms.
+     * @description The supported cipher suite.
      *
      * @var string[]
      */
@@ -25,7 +25,7 @@ class securityPolicies extends Model
     public $securityPolicyId;
 
     /**
-     * @description The TLS versions that are supported.
+     * @description The supported TLS protocol versions.
      *
      * @var string[]
      */

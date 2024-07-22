@@ -25,28 +25,28 @@ class ruleActions extends Model
     public $corsConfig;
 
     /**
-     * @description The configuration of the action to return a custom response. You can specify the configurations of up to 20 actions to return a custom response.
+     * @description The configuration of the action to return a custom response. You can specify at most 20 custom responses.
      *
      * @var fixedResponseConfig
      */
     public $fixedResponseConfig;
 
     /**
-     * @description The configuration of the action to forward requests to server groups. You can specify the configurations of up to 20 actions to forward requests to server groups.
+     * @description The configuration of the action to forward requests to server groups. You can specify at most 20 actions.
      *
      * @var forwardGroupConfig
      */
     public $forwardGroupConfig;
 
     /**
-     * @description The configuration of the action to insert a header. You can specify the configurations of up to 20 actions to insert a header.
+     * @description The configuration of the action to insert a header. You can specify at most 20 actions.
      *
      * @var insertHeaderConfig
      */
     public $insertHeaderConfig;
 
     /**
-     * @description The priority of the action. Valid values: **1** to **50000**. A lower value specifies a higher priority. The actions of a forwarding rule are applied in descending order of priority. This parameter cannot be left empty. The priority of each action within a forwarding rule must be unique. You can specify priorities for up to 20 actions.
+     * @description The priority of the action. Valid values: **1** to **50000**. A lower value indicates a higher priority. The actions of a forwarding rule are applied in descending order of priority. This parameter cannot be left empty. The priority of each action within a forwarding rule must be unique. You can specify at most 20 forwarding rule priorities.
      *
      * This parameter is required.
      * @example 1
@@ -56,50 +56,57 @@ class ruleActions extends Model
     public $order;
 
     /**
-     * @description The configuration of the redirect action. You can specify the configurations of up to 20 redirect actions.
+     * @description The configuration of the redirect action. You can specify at most 20 redirect actions.
      *
      * @var redirectConfig
      */
     public $redirectConfig;
 
     /**
-     * @description The action to remove an HTTP header. You can specify the configurations of up to 20 actions to remove an HTTP header.
+     * @description The configuration of the HTTP header to be removed. You can remove at most 20 HTTP headers.
      *
      * @var removeHeaderConfig
      */
     public $removeHeaderConfig;
 
     /**
-     * @description The configuration of the rewrite action. You can specify the configurations of up to 20 rewrite actions.
+     * @description The configuration of the rewrite action. You can specify at most 20 actions.
      *
      * @var rewriteConfig
      */
     public $rewriteConfig;
 
     /**
-     * @description The configuration of traffic throttling. You can add up to 20 configuration records.
+     * @description The configuration of traffic throttling. You can specify at most 20 throttling actions.
      *
      * @var trafficLimitConfig
      */
     public $trafficLimitConfig;
 
     /**
-     * @description The configuration of traffic mirroring. You can add up to 20 configuration records.
+     * @description The configuration of traffic mirroring. You can specify at most 20 traffic mirroring configurations.
      *
      * @var trafficMirrorConfig
      */
     public $trafficMirrorConfig;
 
     /**
-     * @description The type of the forwarding rule. You can specify up to seven types. Valid values:
+     * @description The type of action. You can specify at most 11 types of action. Valid values:
      *
-     *   **Host**: Requests are distributed based on hosts.
-     *   **Path**: Requests are distributed based on paths.
-     *   **Header**: Requests are distributed based on HTTP headers.
-     *   **QueryString**: Requests are distributed based on query strings.
-     *   **Method**: Requests are distributed based on request methods.
-     *   **Cookie**: Requests are distributed based on cookies.
-     *   **SourceIp**: Requests are distributed based on source IP addresses.
+     *   **ForwardGroup**: forwards a request to multiple vServer groups.
+     *   **Redirect**: redirects requests.
+     *   **FixedResponse**: returns a fixed response.
+     *   **Rewrite**: rewrites requests.
+     *   **InsertHeader**: inserts a header.
+     *   **RemoveHeaderConfig**: deletes a header.
+     *   **TrafficLimit**: throttles traffic.
+     *   **TrafficMirror**: mirrors network traffic.
+     *   **Cors**: enables cross-origin resource sharing (CORS).
+     *
+     * The preceding actions can be classified into two types:
+     *
+     *   **FinalType**: Each forwarding rule can contain only one FinalType action, which is performed at the end. You can specify only one of **ForwardGroup**, **Redirect**, and **FixedResponse**.
+     *   **ExtType**: Each forwarding rule can contain one or more **ExtType** actions, which are performed before the **FinalType** action. If you want to specify an ExtType action, you must also specify a **FinalType** action. You can specify multiple **InsertHeader** actions or one **Rewrite** action.
      *
      * This parameter is required.
      * @example Host

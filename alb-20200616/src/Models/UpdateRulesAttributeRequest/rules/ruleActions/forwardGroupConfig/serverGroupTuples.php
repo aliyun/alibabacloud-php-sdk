@@ -20,8 +20,8 @@ class serverGroupTuples extends Model
     /**
      * @description The weight of the server group. A larger value specifies a higher weight. A server group with a higher weight receives more requests. Valid values: **0** to **100**.
      *
-     *   If only one destination server group exists and you do not specify a weight, the default value **100** is used.
-     *   If more than one destination server group exists, you must specify weights.
+     *   If the number of destination server groups is 1, the default weight of the server group is **100**, unless you specify a weight.
+     *   If the number of destination server groups is larger than 1, you must specify a weight.
      *
      * @example 30
      *

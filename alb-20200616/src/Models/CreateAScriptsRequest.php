@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class CreateAScriptsRequest extends Model
 {
     /**
-     * @description The AScript rules.
+     * @description The information about the AScript rules.
      *
      * @var AScripts[]
      */

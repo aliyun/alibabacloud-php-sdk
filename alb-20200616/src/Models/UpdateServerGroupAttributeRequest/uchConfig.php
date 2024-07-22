@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class uchConfig extends Model
 {
     /**
-     * @description The type of the parameter.
+     * @description The type of the parameter. Only query strings are supported.
      *
      * This parameter is required.
      * @example QueryString
@@ -19,7 +19,7 @@ class uchConfig extends Model
     public $type;
 
     /**
-     * @description The setting of consistent hashing.
+     * @description The value of the parameter used for consistent hashing.
      *
      * This parameter is required.
      * @example abc

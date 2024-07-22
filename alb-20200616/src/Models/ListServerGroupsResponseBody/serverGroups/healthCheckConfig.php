@@ -54,7 +54,7 @@ class healthCheckConfig extends Model
     public $healthCheckHost;
 
     /**
-     * @description The HTTP version for health checks.
+     * @description The HTTP version that is used for health checks.
      *
      * Valid values: **HTTP1.0** and **HTTP1.1**.
      *
@@ -75,7 +75,7 @@ class healthCheckConfig extends Model
     public $healthCheckInterval;
 
     /**
-     * @description The HTTP method that is used for health checks. Valid value:
+     * @description The HTTP method that is used for health checks. Valid values:
      *
      *   **GET**: If the length of a response exceeds 8 KB, the response is truncated. However, the health check result is not affected.
      *   **POST**: gRPC health checks use the POST method by default.
@@ -99,7 +99,7 @@ class healthCheckConfig extends Model
     public $healthCheckPath;
 
     /**
-     * @description The protocol that you want to use for health checks. Valid value:
+     * @description The protocol that is used for health checks. Valid values:
      *
      *   **HTTP**: HTTP health checks simulate browser behaviors by sending HEAD or GET requests to probe the availability of backend servers.
      *   **HTTPS**: HTTPS health checks simulate browser behaviors by sending HEAD or GET requests to probe the availability of backend servers. HTTPS supports encryption and provides higher security than HTTP.

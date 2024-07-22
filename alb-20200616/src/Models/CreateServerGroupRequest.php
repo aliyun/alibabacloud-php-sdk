@@ -19,7 +19,7 @@ class CreateServerGroupRequest extends Model
      *
      * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
      *
-     * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+     * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
      * @example 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
      *
      * @var string
@@ -128,7 +128,7 @@ class CreateServerGroupRequest extends Model
     /**
      * @description The configuration of session persistence.
      *
-     * > This parameter takes effect when the **ServerGroupType** parameter is set to **Instance** or **Ip**.
+     * >  This parameter takes effect when the **ServerGroupType** parameter is set to **Instance** or **Ip**.
      * @var stickySessionConfig
      */
     public $stickySessionConfig;
@@ -150,14 +150,16 @@ class CreateServerGroupRequest extends Model
     /**
      * @description Specifies whether to enable persistent TCP connections.
      *
+     * @example false
+     *
      * @var bool
      */
     public $upstreamKeepaliveEnabled;
 
     /**
-     * @description The ID of the virtual private cloud (VPC). You can add only backend servers that are deployed in the specified VPC to the server group.
+     * @description The ID of the virtual private cloud (VPC). You can add only servers that are deployed in the specified VPC to the server group.
      *
-     * > This parameter takes effect when the **ServerGroupType** parameter is set to **Instance** or **Ip**.
+     * >  This parameter takes effect when the **ServerGroupType** parameter is set to **Instance** or **Ip**.
      * @example vpc-bp15zckdt37pq72zv****
      *
      * @var string

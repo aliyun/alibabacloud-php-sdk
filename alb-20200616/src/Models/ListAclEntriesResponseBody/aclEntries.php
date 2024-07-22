@@ -18,7 +18,7 @@ class aclEntries extends Model
     public $description;
 
     /**
-     * @description The CIDR block of the ACL entry.
+     * @description The CIDR block for the ACL entry.
      *
      * @example 10.0.1.1/24
      *
@@ -29,9 +29,9 @@ class aclEntries extends Model
     /**
      * @description The status of the ACL entry. Valid values:
      *
-     *   **Adding**
-     *   **Available**
-     *   **Removing**
+     *   **Adding**: The ACL entry is being added.
+     *   **Available**: The ACL entry is added and available.
+     *   **Removing**: The ACL entry is being removed.
      *
      * @example Available
      *

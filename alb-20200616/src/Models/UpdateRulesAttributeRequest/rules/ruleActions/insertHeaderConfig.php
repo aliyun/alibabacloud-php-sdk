@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class insertHeaderConfig extends Model
 {
     /**
-     * @description Specifies whether to overwrite the request header. Valid values:
+     * @description Specifies whether to overwrite the header in the request. Valid values:
      *
      *   **true**
      *   **false** (default)
@@ -21,9 +21,9 @@ class insertHeaderConfig extends Model
     public $coverEnabled;
 
     /**
-     * @description The key of the header to be inserted. The key must be 1 to 40 characters in length, and can contain letters, digits, underscores (_), and hyphens (-). The key specified in `InsertHeader` must be unique.
+     * @description The key of the header. The header key must be 1 to 40 characters in length, and can contain lowercase letters, digits, underscores (_), and hyphens (-). The key specified in `InsertHeader` must be unique.
      *
-     * > You cannot use the following header keys (case-insensitive): `slb-id`, `slb-ip`, `x-forwarded-for`, `x-forwarded-proto`, `x-forwarded-eip`, `x-forwarded-port`, `x-forwarded-client-srcport`, `connection`, `upgrade`, `content-length`, `transfer-encoding`, `keep-alive`, `te, host`, `cookie`, `remoteip`, and `authority`.
+     * >  The following header keys are not supported: `slb-id`, `slb-ip`, `x-forwarded-for`, `x-forwarded-proto`, `x-forwarded-eip`, `x-forwarded-port`, `x-forwarded-client-srcport`, `connection`, `upgrade`, `content-length`, `transfer-encoding`, `keep-alive`, `te, host`, `cookie`, `remoteip`, and `authority`. Header keys are not case-sensitive.
      * @example test
      *
      * @var string
@@ -31,19 +31,19 @@ class insertHeaderConfig extends Model
     public $key;
 
     /**
-     * @description The value of the header to be inserted.
+     * @description The value of the header.
      *
-     *   If **ValueType** is set to **SystemDefined**, you can specify one of the following header values:
+     *   If **ValueType** is set to **SystemDefined**, you can set the Value parameter to one of the following values:
      *
      *   **ClientSrcPort**: the client port.
-     *   **ClientSrcIp**: the client IP address.
+     *   **ClientSrcIp**: the IP address of the client.
      *   **Protocol**: the request protocol (HTTP or HTTPS).
-     *   **SLBId**: the ALB instance ID.
-     *   **SLBPort**: the listener port.
+     *   **SLBId**: the ID of the ALB instance.
+     *   **SLBPort**: the listener port of the ALB instance.
      *
-     *   If **ValueType** is set to **UserDefined**, you can specify a custom header value. The header value must be 1 to 128 characters in length, and can contain printable characters whose ASCII values are `greater than or equal to 32 and lower than 127`. You can use asterisks (\\*) and question marks (?) as wildcards. The value cannot start or end with a space character.
+     *   If **ValueType** is set to **UserDefined**, you can specify a custom header value. The header value must be 1 to 128 characters in length, and can contain wildcard characters, such as asterisks (\\*) and question marks (?), and printable characters whose ASCII values are `larger than or equal to 32 and smaller than 127`. The header value cannot start or end with a space character.
      *
-     *   If **ValueType** is set to **ReferenceHeader**, you can reference one of the request headers. The header value must be 1 to 128 characters in length, and can contain lowercase letters, digits, underscores (_), and hyphens (-).
+     *   If **ValueType** is set to **ReferenceHeader**, you can reference a value from request headers. The value must be 1 to 128 characters in length, and can contain lowercase letters, digits, hyphens (-), and underscores (_).
      *
      * @example UserDefined
      *
@@ -52,9 +52,9 @@ class insertHeaderConfig extends Model
     public $value;
 
     /**
-     * @description The type of the header. Valid values:
+     * @description The type of header. Valid values:
      *
-     *   **UserDefined**: a user-defined header
+     *   **UserDefined**: a user-defined header.
      *   **ReferenceHeader**: a header that is referenced from a request header.
      *   **SystemDefined**: a system-defined header.
      *

@@ -119,7 +119,7 @@ class listeners extends Model
     public $loadBalancerId;
 
     /**
-     * @description The configuration of logs.
+     * @description The logging configurations.
      *
      * @var logConfig
      */
@@ -153,7 +153,7 @@ class listeners extends Model
     public $securityPolicyId;
 
     /**
-     * @description The tags of the dataset.
+     * @description The tags.
      *
      * @var tags[]
      */

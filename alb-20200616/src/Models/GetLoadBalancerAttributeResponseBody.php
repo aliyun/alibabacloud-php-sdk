@@ -217,6 +217,8 @@ class GetLoadBalancerAttributeResponseBody extends Model
     public $resourceGroupId;
 
     /**
+     * @description The IDs of the security groups to which the ALB instance is added.
+     *
      * @var string[]
      */
     public $securityGroupIds;

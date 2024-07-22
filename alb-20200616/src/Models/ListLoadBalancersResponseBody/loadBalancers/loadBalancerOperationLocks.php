@@ -9,7 +9,9 @@ use AlibabaCloud\Tea\Model;
 class loadBalancerOperationLocks extends Model
 {
     /**
-     * @description The reason why the ALB instance is locked. This parameter is available only when **LoadBalancerBussinessStatus** is set to **Abnormal**.
+     * @description The reason why the ALB instance is locked. This parameter is valid only if **LoadBalancerBussinessStatus** is set to **Abnormal**.
+     *
+     * @example Test LockReason
      *
      * @var string
      */
@@ -18,8 +20,8 @@ class loadBalancerOperationLocks extends Model
     /**
      * @description The lock type. Valid values:
      *
-     *   **SecurityLocked**: The ALB instance is locked due to security reasons.
-     *   **RelatedResourceLocked**: The ALB instance is locked due to association issues.
+     *   **SecurityLocked**: The ALB instance is locked due to security risks.
+     *   **RelatedResourceLocked**: The ALB instance is locked due to other resources associated with the ALB instance.
      *   **FinancialLocked**: The ALB instance is locked due to overdue payments.
      *   **ResidualLocked**: The ALB instance is locked because the associated resources have overdue payments and the resources are released.
      *

@@ -32,6 +32,11 @@ class AScripts extends Model
     public $enabled;
 
     /**
+     * @description Specifies whether to enable the extended attributes of the AScript rule. Valid values:
+     *
+     *   true
+     *   false (default)
+     *
      * @example true
      *
      * @var bool
@@ -39,6 +44,8 @@ class AScripts extends Model
     public $extAttributeEnabled;
 
     /**
+     * @description The extended attributes.
+     *
      * @var extAttributes[]
      */
     public $extAttributes;
