@@ -24,6 +24,8 @@ class AuditTTSVoiceRequest extends Model
     public $engine;
 
     /**
+     * @description This parameter is required.
+     *
      * @example af81a389-91f0-4157-8d82-720edd02b66a
      *
      * @var string
@@ -41,6 +43,8 @@ class AuditTTSVoiceRequest extends Model
     public $secretKey;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 100
      *
      * @var string
@@ -48,11 +52,15 @@ class AuditTTSVoiceRequest extends Model
     public $speechRate;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $text;
 
     /**
+     * @description This parameter is required.
+     *
      * @example aixia
      *
      * @var string
@@ -60,6 +68,8 @@ class AuditTTSVoiceRequest extends Model
     public $voice;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 10
      *
      * @var string

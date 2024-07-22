@@ -11,6 +11,11 @@ class DescribeTTSConfigResponseBody extends Model
     /**
      * @var string
      */
+    public $aliCustomizedVoice;
+
+    /**
+     * @var string
+     */
     public $appKey;
 
     /**
@@ -61,15 +66,16 @@ class DescribeTTSConfigResponseBody extends Model
      */
     public $volume;
     protected $_name = [
-        'appKey'         => 'AppKey',
-        'engine'         => 'Engine',
-        'engineXunfei'   => 'EngineXunfei',
-        'nlsServiceType' => 'NlsServiceType',
-        'pitchRate'      => 'PitchRate',
-        'requestId'      => 'RequestId',
-        'speechRate'     => 'SpeechRate',
-        'voice'          => 'Voice',
-        'volume'         => 'Volume',
+        'aliCustomizedVoice' => 'AliCustomizedVoice',
+        'appKey'             => 'AppKey',
+        'engine'             => 'Engine',
+        'engineXunfei'       => 'EngineXunfei',
+        'nlsServiceType'     => 'NlsServiceType',
+        'pitchRate'          => 'PitchRate',
+        'requestId'          => 'RequestId',
+        'speechRate'         => 'SpeechRate',
+        'voice'              => 'Voice',
+        'volume'             => 'Volume',
     ];
 
     public function validate()
@@ -79,6 +85,9 @@ class DescribeTTSConfigResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->aliCustomizedVoice) {
+            $res['AliCustomizedVoice'] = $this->aliCustomizedVoice;
+        }
         if (null !== $this->appKey) {
             $res['AppKey'] = $this->appKey;
         }
@@ -118,6 +127,9 @@ class DescribeTTSConfigResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AliCustomizedVoice'])) {
+            $model->aliCustomizedVoice = $map['AliCustomizedVoice'];
+        }
         if (isset($map['AppKey'])) {
             $model->appKey = $map['AppKey'];
         }

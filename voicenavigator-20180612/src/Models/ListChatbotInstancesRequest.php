@@ -26,6 +26,8 @@ class ListChatbotInstancesRequest extends Model
     public $nluServiceType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int

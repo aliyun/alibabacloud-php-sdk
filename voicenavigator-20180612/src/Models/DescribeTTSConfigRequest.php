@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeTTSConfigRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example dc437bba-5a25-4bbc-b4c2-f268864bebb5
      *
      * @var string

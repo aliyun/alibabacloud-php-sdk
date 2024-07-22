@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SilenceTimeoutRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 0099b75d-60fd-4c63-8541-7fbba0ae6bb0
      *
      * @var string
@@ -23,6 +25,8 @@ class SilenceTimeoutRequest extends Model
     public $initialContext;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 0099b75d-60fd-4c63-8541-7fbba0ae6bb0
      *
      * @var string

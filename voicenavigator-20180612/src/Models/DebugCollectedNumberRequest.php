@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DebugCollectedNumberRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 7cefbff0-8d50-4d6f-b93c-73cee23c1555
      *
      * @var string
@@ -16,6 +18,8 @@ class DebugCollectedNumberRequest extends Model
     public $conversationId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 7cefbff0-8d50-4d6f-b93c-73cee23c1555
      *
      * @var string

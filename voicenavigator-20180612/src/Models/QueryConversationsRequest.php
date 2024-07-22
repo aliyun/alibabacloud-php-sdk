@@ -30,6 +30,8 @@ class QueryConversationsRequest extends Model
     public $callingNumber;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 12f407b22cbe4890ac595f09985848d5
      *
      * @var string
@@ -37,6 +39,8 @@ class QueryConversationsRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -44,6 +48,8 @@ class QueryConversationsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 10
      *
      * @var int

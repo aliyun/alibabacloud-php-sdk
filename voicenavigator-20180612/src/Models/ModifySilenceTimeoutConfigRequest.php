@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifySilenceTimeoutConfigRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example TransferToAgent
      *
      * @var string
@@ -23,11 +25,15 @@ class ModifySilenceTimeoutConfigRequest extends Model
     public $finalActionParams;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $finalPrompt;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 12f407b22cbe4890ac595f09985848d5
      *
      * @var string
@@ -42,11 +48,15 @@ class ModifySilenceTimeoutConfigRequest extends Model
     public $intentTrigger;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $prompt;
 
     /**
+     * @description This parameter is required.
+     *
      * @example chatbotIntent
      *
      * @var string
@@ -54,6 +64,8 @@ class ModifySilenceTimeoutConfigRequest extends Model
     public $sourceType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 3
      *
      * @var int
@@ -61,6 +73,8 @@ class ModifySilenceTimeoutConfigRequest extends Model
     public $threshold;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 20
      *
      * @var int

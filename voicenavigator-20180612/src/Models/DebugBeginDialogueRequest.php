@@ -16,6 +16,8 @@ class DebugBeginDialogueRequest extends Model
     public $calledNumber;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 135815*****
      *
      * @var string
@@ -23,6 +25,8 @@ class DebugBeginDialogueRequest extends Model
     public $callingNumber;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 8a503680-815d-473e-a9b0-e010f47a64d2
      *
      * @var string
@@ -37,6 +41,8 @@ class DebugBeginDialogueRequest extends Model
     public $initialContext;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 8a503680-815d-473e-a9b0-e010f47a64d2
      *
      * @var string

@@ -16,7 +16,7 @@ class DialogueResponseBody extends Model
     public $action;
 
     /**
-     * @example {\"duration\":2420,\"endTime\":1651717326805,\"hangUpDirection\":\"client\",\"hasLastPlaybackCompleted\":true,\"startTime\":1651717324385}
+     * @example {\\"duration\\":2420,\\"endTime\\":1651717326805,\\"hangUpDirection\\":\\"client\\",\\"hasLastPlaybackCompleted\\":true,\\"startTime\\":1651717324385}
      *
      * @var string
      */

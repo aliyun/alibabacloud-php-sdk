@@ -23,6 +23,8 @@ class ExportStatisticalDataRequest extends Model
     public $beginTimeRightRange;
 
     /**
+     * @description This parameter is required.
+     *
      * @example statistical
      *
      * @var string
@@ -30,6 +32,8 @@ class ExportStatisticalDataRequest extends Model
     public $exportType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 29b52d70-d9fe-4fe0-8476-8aaacbcfdc84
      *
      * @var string
@@ -37,6 +41,8 @@ class ExportStatisticalDataRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Hour
      *
      * @var string

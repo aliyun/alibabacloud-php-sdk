@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListDownloadTasksRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class ListDownloadTasksRequest extends Model
     public $pageNumber;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 5
      *
      * @var int

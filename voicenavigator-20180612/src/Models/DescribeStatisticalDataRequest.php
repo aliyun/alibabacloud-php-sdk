@@ -23,6 +23,8 @@ class DescribeStatisticalDataRequest extends Model
     public $beginTimeRightRange;
 
     /**
+     * @description This parameter is required.
+     *
      * @example c28fc549-d88f-4f6e-85ad-a0806e5e39c0
      *
      * @var string
@@ -30,6 +32,8 @@ class DescribeStatisticalDataRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Day/Hour
      *
      * @var string

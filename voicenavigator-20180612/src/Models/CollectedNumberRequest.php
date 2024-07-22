@@ -14,6 +14,8 @@ class CollectedNumberRequest extends Model
     public $additionalContext;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 0099b75d-60fd-4c63-8541-7fbba0ae6bb0
      *
      * @var string
@@ -21,6 +23,8 @@ class CollectedNumberRequest extends Model
     public $conversationId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 0099b75d-60fd-4c63-8541-7fbba0ae6bb0
      *
      * @var string

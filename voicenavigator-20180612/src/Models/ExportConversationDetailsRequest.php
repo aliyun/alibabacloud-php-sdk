@@ -30,6 +30,8 @@ class ExportConversationDetailsRequest extends Model
     public $callingNumber;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 6c01a99f-1b72-4f75-a8bd-3875766bd19d
      *
      * @var string

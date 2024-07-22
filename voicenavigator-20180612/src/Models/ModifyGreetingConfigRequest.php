@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ModifyGreetingConfigRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $greetingWords;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 12f407b22cbe4890ac595f09985848d5
      *
      * @var string
@@ -26,6 +30,8 @@ class ModifyGreetingConfigRequest extends Model
     public $intentTrigger;
 
     /**
+     * @description This parameter is required.
+     *
      * @example chatbotIntent
      *
      * @var string

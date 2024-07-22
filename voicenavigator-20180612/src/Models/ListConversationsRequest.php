@@ -30,6 +30,8 @@ class ListConversationsRequest extends Model
     public $callingNumber;
 
     /**
+     * @description This parameter is required.
+     *
      * @example da37319b-6c83-4268-9f19-814aed62e401
      *
      * @var string
@@ -44,6 +46,8 @@ class ListConversationsRequest extends Model
     public $isSandBox;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -51,6 +55,8 @@ class ListConversationsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 10
      *
      * @var int

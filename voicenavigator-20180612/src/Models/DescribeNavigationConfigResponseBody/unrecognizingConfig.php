@@ -16,7 +16,7 @@ class unrecognizingConfig extends Model
     public $finalAction;
 
     /**
-     * @example { \"skillGroupId\": \"fallbackSkillGroup\" }
+     * @example { \\"skillGroupId\\": \\"fallbackSkillGroup\\" }
      *
      * @var string
      */

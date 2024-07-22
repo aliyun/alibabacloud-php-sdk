@@ -16,7 +16,7 @@ class CollectedNumberResponseBody extends Model
     public $action;
 
     /**
-     * @example {\"duration\":31340,\"endTime\":1638243934786,\"hangUpDirection\":\"ivr\",\"startTime\":1638243903446}
+     * @example {\\"duration\\":31340,\\"endTime\\":1638243934786,\\"hangUpDirection\\":\\"ivr\\",\\"startTime\\":1638243903446}
      *
      * @var string
      */

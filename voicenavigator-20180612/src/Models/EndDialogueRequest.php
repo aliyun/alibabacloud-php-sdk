@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class EndDialogueRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 8fb819b5-d032-48a9-ae5e-cff041b83596
      *
      * @var string
@@ -16,13 +18,15 @@ class EndDialogueRequest extends Model
     public $conversationId;
 
     /**
-     * @example {\"duration\":40,\"endTime\":1645082505345,\"hangUpDirection\":\"ivr\",\"hasLastPlaybackCompleted\":true,\"startTime\":1645082505305}
+     * @example {\\"duration\\":40,\\"endTime\\":1645082505345,\\"hangUpDirection\\":\\"ivr\\",\\"hasLastPlaybackCompleted\\":true,\\"startTime\\":1645082505305}
      *
      * @var string
      */
     public $hangUpParams;
 
     /**
+     * @description This parameter is required.
+     *
      * @example e48e45dd-e47a-4744-a063-f08cbebb1c5a
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SaveRecordingRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 390515b5-6115-4ccf-83e2-52d5bfaf2ddf
      *
      * @var string
@@ -16,6 +18,8 @@ class SaveRecordingRequest extends Model
     public $conversationId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 10
      *
      * @var string
@@ -23,6 +27,8 @@ class SaveRecordingRequest extends Model
     public $duration;
 
     /**
+     * @description This parameter is required.
+     *
      * @example e6bef0db439d4048bfcf45322491becf.wav
      *
      * @var string
@@ -30,6 +36,8 @@ class SaveRecordingRequest extends Model
     public $fileName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example oss://test/record/
      *
      * @var string
@@ -37,6 +45,8 @@ class SaveRecordingRequest extends Model
     public $filePath;
 
     /**
+     * @description This parameter is required.
+     *
      * @example af81a389-91f0-4157-8d82-720edd02b66a
      *
      * @var string
@@ -51,6 +61,8 @@ class SaveRecordingRequest extends Model
     public $instanceOwnerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1582267398628
      *
      * @var int
@@ -58,6 +70,8 @@ class SaveRecordingRequest extends Model
     public $startTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Source
      *
      * @var string

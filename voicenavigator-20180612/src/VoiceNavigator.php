@@ -128,10 +128,10 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param AssociateChatbotInstanceRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @param AssociateChatbotInstanceRequest $request AssociateChatbotInstanceRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return AssociateChatbotInstanceResponse
+     * @return AssociateChatbotInstanceResponse AssociateChatbotInstanceResponse
      */
     public function associateChatbotInstanceWithOptions($request, $runtime)
     {
@@ -174,9 +174,9 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param AssociateChatbotInstanceRequest $request
+     * @param AssociateChatbotInstanceRequest $request AssociateChatbotInstanceRequest
      *
-     * @return AssociateChatbotInstanceResponse
+     * @return AssociateChatbotInstanceResponse AssociateChatbotInstanceResponse
      */
     public function associateChatbotInstance($request)
     {
@@ -186,10 +186,10 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param AuditTTSVoiceRequest $request
-     * @param RuntimeOptions       $runtime
+     * @param AuditTTSVoiceRequest $request AuditTTSVoiceRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return AuditTTSVoiceResponse
+     * @return AuditTTSVoiceResponse AuditTTSVoiceResponse
      */
     public function auditTTSVoiceWithOptions($request, $runtime)
     {
@@ -244,9 +244,9 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param AuditTTSVoiceRequest $request
+     * @param AuditTTSVoiceRequest $request AuditTTSVoiceRequest
      *
-     * @return AuditTTSVoiceResponse
+     * @return AuditTTSVoiceResponse AuditTTSVoiceResponse
      */
     public function auditTTSVoice($request)
     {
@@ -256,10 +256,10 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param BeginDialogueRequest $request
-     * @param RuntimeOptions       $runtime
+     * @param BeginDialogueRequest $request BeginDialogueRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return BeginDialogueResponse
+     * @return BeginDialogueResponse BeginDialogueResponse
      */
     public function beginDialogueWithOptions($request, $runtime)
     {
@@ -302,9 +302,9 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param BeginDialogueRequest $request
+     * @param BeginDialogueRequest $request BeginDialogueRequest
      *
-     * @return BeginDialogueResponse
+     * @return BeginDialogueResponse BeginDialogueResponse
      */
     public function beginDialogue($request)
     {
@@ -314,10 +314,10 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param CollectedNumberRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param CollectedNumberRequest $request CollectedNumberRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return CollectedNumberResponse
+     * @return CollectedNumberResponse CollectedNumberResponse
      */
     public function collectedNumberWithOptions($request, $runtime)
     {
@@ -357,9 +357,9 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param CollectedNumberRequest $request
+     * @param CollectedNumberRequest $request CollectedNumberRequest
      *
-     * @return CollectedNumberResponse
+     * @return CollectedNumberResponse CollectedNumberResponse
      */
     public function collectedNumber($request)
     {
@@ -369,10 +369,10 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param CreateDownloadUrlRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param CreateDownloadUrlRequest $request CreateDownloadUrlRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateDownloadUrlResponse
+     * @return CreateDownloadUrlResponse CreateDownloadUrlResponse
      */
     public function createDownloadUrlWithOptions($request, $runtime)
     {
@@ -397,9 +397,9 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param CreateDownloadUrlRequest $request
+     * @param CreateDownloadUrlRequest $request CreateDownloadUrlRequest
      *
-     * @return CreateDownloadUrlResponse
+     * @return CreateDownloadUrlResponse CreateDownloadUrlResponse
      */
     public function createDownloadUrl($request)
     {
@@ -409,10 +409,10 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param CreateInstanceRequest $request
-     * @param RuntimeOptions        $runtime
+     * @param CreateInstanceRequest $request CreateInstanceRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateInstanceResponse
+     * @return CreateInstanceResponse CreateInstanceResponse
      */
     public function createInstanceWithOptions($request, $runtime)
     {
@@ -455,9 +455,9 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param CreateInstanceRequest $request
+     * @param CreateInstanceRequest $request CreateInstanceRequest
      *
-     * @return CreateInstanceResponse
+     * @return CreateInstanceResponse CreateInstanceResponse
      */
     public function createInstance($request)
     {
@@ -467,10 +467,10 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param DebugBeginDialogueRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param DebugBeginDialogueRequest $request DebugBeginDialogueRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DebugBeginDialogueResponse
+     * @return DebugBeginDialogueResponse DebugBeginDialogueResponse
      */
     public function debugBeginDialogueWithOptions($request, $runtime)
     {
@@ -510,9 +510,9 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param DebugBeginDialogueRequest $request
+     * @param DebugBeginDialogueRequest $request DebugBeginDialogueRequest
      *
-     * @return DebugBeginDialogueResponse
+     * @return DebugBeginDialogueResponse DebugBeginDialogueResponse
      */
     public function debugBeginDialogue($request)
     {
@@ -522,10 +522,10 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param DebugCollectedNumberRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param DebugCollectedNumberRequest $request DebugCollectedNumberRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DebugCollectedNumberResponse
+     * @return DebugCollectedNumberResponse DebugCollectedNumberResponse
      */
     public function debugCollectedNumberWithOptions($request, $runtime)
     {
@@ -559,9 +559,9 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param DebugCollectedNumberRequest $request
+     * @param DebugCollectedNumberRequest $request DebugCollectedNumberRequest
      *
-     * @return DebugCollectedNumberResponse
+     * @return DebugCollectedNumberResponse DebugCollectedNumberResponse
      */
     public function debugCollectedNumber($request)
     {
@@ -571,10 +571,10 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param DebugDialogueRequest $request
-     * @param RuntimeOptions       $runtime
+     * @param DebugDialogueRequest $request DebugDialogueRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DebugDialogueResponse
+     * @return DebugDialogueResponse DebugDialogueResponse
      */
     public function debugDialogueWithOptions($request, $runtime)
     {
@@ -611,9 +611,9 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param DebugDialogueRequest $request
+     * @param DebugDialogueRequest $request DebugDialogueRequest
      *
-     * @return DebugDialogueResponse
+     * @return DebugDialogueResponse DebugDialogueResponse
      */
     public function debugDialogue($request)
     {
@@ -623,10 +623,10 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param DeleteInstanceRequest $request
-     * @param RuntimeOptions        $runtime
+     * @param DeleteInstanceRequest $request DeleteInstanceRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteInstanceResponse
+     * @return DeleteInstanceResponse DeleteInstanceResponse
      */
     public function deleteInstanceWithOptions($request, $runtime)
     {
@@ -654,9 +654,9 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param DeleteInstanceRequest $request
+     * @param DeleteInstanceRequest $request DeleteInstanceRequest
      *
-     * @return DeleteInstanceResponse
+     * @return DeleteInstanceResponse DeleteInstanceResponse
      */
     public function deleteInstance($request)
     {
@@ -666,10 +666,10 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param DescribeConversationRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param DescribeConversationRequest $request DescribeConversationRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeConversationResponse
+     * @return DescribeConversationResponse DescribeConversationResponse
      */
     public function describeConversationWithOptions($request, $runtime)
     {
@@ -694,9 +694,9 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param DescribeConversationRequest $request
+     * @param DescribeConversationRequest $request DescribeConversationRequest
      *
-     * @return DescribeConversationResponse
+     * @return DescribeConversationResponse DescribeConversationResponse
      */
     public function describeConversation($request)
     {
@@ -706,10 +706,10 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param DescribeConversationContextRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @param DescribeConversationContextRequest $request DescribeConversationContextRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeConversationContextResponse
+     * @return DescribeConversationContextResponse DescribeConversationContextResponse
      */
     public function describeConversationContextWithOptions($request, $runtime)
     {
@@ -734,9 +734,9 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param DescribeConversationContextRequest $request
+     * @param DescribeConversationContextRequest $request DescribeConversationContextRequest
      *
-     * @return DescribeConversationContextResponse
+     * @return DescribeConversationContextResponse DescribeConversationContextResponse
      */
     public function describeConversationContext($request)
     {
@@ -746,10 +746,10 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param DescribeExportProgressRequest $request
-     * @param RuntimeOptions                $runtime
+     * @param DescribeExportProgressRequest $request DescribeExportProgressRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeExportProgressResponse
+     * @return DescribeExportProgressResponse DescribeExportProgressResponse
      */
     public function describeExportProgressWithOptions($request, $runtime)
     {
@@ -774,9 +774,9 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param DescribeExportProgressRequest $request
+     * @param DescribeExportProgressRequest $request DescribeExportProgressRequest
      *
-     * @return DescribeExportProgressResponse
+     * @return DescribeExportProgressResponse DescribeExportProgressResponse
      */
     public function describeExportProgress($request)
     {
@@ -786,10 +786,10 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param DescribeInstanceRequest $request DescribeInstanceRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeInstanceResponse
+     * @return DescribeInstanceResponse DescribeInstanceResponse
      */
     public function describeInstanceWithOptions($request, $runtime)
     {
@@ -814,9 +814,9 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceRequest $request
+     * @param DescribeInstanceRequest $request DescribeInstanceRequest
      *
-     * @return DescribeInstanceResponse
+     * @return DescribeInstanceResponse DescribeInstanceResponse
      */
     public function describeInstance($request)
     {
@@ -826,10 +826,10 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param DescribeNavigationConfigRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @param DescribeNavigationConfigRequest $request DescribeNavigationConfigRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeNavigationConfigResponse
+     * @return DescribeNavigationConfigResponse DescribeNavigationConfigResponse
      */
     public function describeNavigationConfigWithOptions($request, $runtime)
     {
@@ -854,9 +854,9 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param DescribeNavigationConfigRequest $request
+     * @param DescribeNavigationConfigRequest $request DescribeNavigationConfigRequest
      *
-     * @return DescribeNavigationConfigResponse
+     * @return DescribeNavigationConfigResponse DescribeNavigationConfigResponse
      */
     public function describeNavigationConfig($request)
     {
@@ -866,10 +866,10 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param DescribeRecordingRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param DescribeRecordingRequest $request DescribeRecordingRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRecordingResponse
+     * @return DescribeRecordingResponse DescribeRecordingResponse
      */
     public function describeRecordingWithOptions($request, $runtime)
     {
@@ -894,9 +894,9 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param DescribeRecordingRequest $request
+     * @param DescribeRecordingRequest $request DescribeRecordingRequest
      *
-     * @return DescribeRecordingResponse
+     * @return DescribeRecordingResponse DescribeRecordingResponse
      */
     public function describeRecording($request)
     {
@@ -906,10 +906,10 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param DescribeStatisticalDataRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @param DescribeStatisticalDataRequest $request DescribeStatisticalDataRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeStatisticalDataResponse
+     * @return DescribeStatisticalDataResponse DescribeStatisticalDataResponse
      */
     public function describeStatisticalDataWithOptions($request, $runtime)
     {
@@ -934,9 +934,9 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param DescribeStatisticalDataRequest $request
+     * @param DescribeStatisticalDataRequest $request DescribeStatisticalDataRequest
      *
-     * @return DescribeStatisticalDataResponse
+     * @return DescribeStatisticalDataResponse DescribeStatisticalDataResponse
      */
     public function describeStatisticalData($request)
     {
@@ -946,10 +946,10 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param DescribeTTSConfigRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param DescribeTTSConfigRequest $request DescribeTTSConfigRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeTTSConfigResponse
+     * @return DescribeTTSConfigResponse DescribeTTSConfigResponse
      */
     public function describeTTSConfigWithOptions($request, $runtime)
     {
@@ -974,9 +974,9 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param DescribeTTSConfigRequest $request
+     * @param DescribeTTSConfigRequest $request DescribeTTSConfigRequest
      *
-     * @return DescribeTTSConfigResponse
+     * @return DescribeTTSConfigResponse DescribeTTSConfigResponse
      */
     public function describeTTSConfig($request)
     {
@@ -986,10 +986,10 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param DialogueRequest $request
-     * @param RuntimeOptions  $runtime
+     * @param DialogueRequest $request DialogueRequest
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DialogueResponse
+     * @return DialogueResponse DialogueResponse
      */
     public function dialogueWithOptions($request, $runtime)
     {
@@ -1038,9 +1038,9 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param DialogueRequest $request
+     * @param DialogueRequest $request DialogueRequest
      *
-     * @return DialogueResponse
+     * @return DialogueResponse DialogueResponse
      */
     public function dialogue($request)
     {
@@ -1050,10 +1050,10 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param DisableInstanceRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param DisableInstanceRequest $request DisableInstanceRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DisableInstanceResponse
+     * @return DisableInstanceResponse DisableInstanceResponse
      */
     public function disableInstanceWithOptions($request, $runtime)
     {
@@ -1081,9 +1081,9 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param DisableInstanceRequest $request
+     * @param DisableInstanceRequest $request DisableInstanceRequest
      *
-     * @return DisableInstanceResponse
+     * @return DisableInstanceResponse DisableInstanceResponse
      */
     public function disableInstance($request)
     {
@@ -1093,10 +1093,10 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param EnableInstanceRequest $request
-     * @param RuntimeOptions        $runtime
+     * @param EnableInstanceRequest $request EnableInstanceRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return EnableInstanceResponse
+     * @return EnableInstanceResponse EnableInstanceResponse
      */
     public function enableInstanceWithOptions($request, $runtime)
     {
@@ -1124,9 +1124,9 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param EnableInstanceRequest $request
+     * @param EnableInstanceRequest $request EnableInstanceRequest
      *
-     * @return EnableInstanceResponse
+     * @return EnableInstanceResponse EnableInstanceResponse
      */
     public function enableInstance($request)
     {
@@ -1136,10 +1136,10 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param EndDialogueRequest $request
-     * @param RuntimeOptions     $runtime
+     * @param EndDialogueRequest $request EndDialogueRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return EndDialogueResponse
+     * @return EndDialogueResponse EndDialogueResponse
      */
     public function endDialogueWithOptions($request, $runtime)
     {
@@ -1176,9 +1176,9 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param EndDialogueRequest $request
+     * @param EndDialogueRequest $request EndDialogueRequest
      *
-     * @return EndDialogueResponse
+     * @return EndDialogueResponse EndDialogueResponse
      */
     public function endDialogue($request)
     {
@@ -1188,10 +1188,10 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param ExportConversationDetailsRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @param ExportConversationDetailsRequest $request ExportConversationDetailsRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ExportConversationDetailsResponse
+     * @return ExportConversationDetailsResponse ExportConversationDetailsResponse
      */
     public function exportConversationDetailsWithOptions($request, $runtime)
     {
@@ -1240,9 +1240,9 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param ExportConversationDetailsRequest $request
+     * @param ExportConversationDetailsRequest $request ExportConversationDetailsRequest
      *
-     * @return ExportConversationDetailsResponse
+     * @return ExportConversationDetailsResponse ExportConversationDetailsResponse
      */
     public function exportConversationDetails($request)
     {
@@ -1252,10 +1252,10 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param ExportStatisticalDataRequest $request
-     * @param RuntimeOptions               $runtime
+     * @param ExportStatisticalDataRequest $request ExportStatisticalDataRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ExportStatisticalDataResponse
+     * @return ExportStatisticalDataResponse ExportStatisticalDataResponse
      */
     public function exportStatisticalDataWithOptions($request, $runtime)
     {
@@ -1295,9 +1295,9 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param ExportStatisticalDataRequest $request
+     * @param ExportStatisticalDataRequest $request ExportStatisticalDataRequest
      *
-     * @return ExportStatisticalDataResponse
+     * @return ExportStatisticalDataResponse ExportStatisticalDataResponse
      */
     public function exportStatisticalData($request)
     {
@@ -1307,10 +1307,10 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param GenerateUploadUrlRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param GenerateUploadUrlRequest $request GenerateUploadUrlRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return GenerateUploadUrlResponse
+     * @return GenerateUploadUrlResponse GenerateUploadUrlResponse
      */
     public function generateUploadUrlWithOptions($request, $runtime)
     {
@@ -1407,9 +1407,9 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param GenerateUploadUrlRequest $request
+     * @param GenerateUploadUrlRequest $request GenerateUploadUrlRequest
      *
-     * @return GenerateUploadUrlResponse
+     * @return GenerateUploadUrlResponse GenerateUploadUrlResponse
      */
     public function generateUploadUrl($request)
     {
@@ -1419,10 +1419,10 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param GetAsrConfigRequest $request
-     * @param RuntimeOptions      $runtime
+     * @param GetAsrConfigRequest $request GetAsrConfigRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetAsrConfigResponse
+     * @return GetAsrConfigResponse GetAsrConfigResponse
      */
     public function getAsrConfigWithOptions($request, $runtime)
     {
@@ -1453,9 +1453,9 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param GetAsrConfigRequest $request
+     * @param GetAsrConfigRequest $request GetAsrConfigRequest
      *
-     * @return GetAsrConfigResponse
+     * @return GetAsrConfigResponse GetAsrConfigResponse
      */
     public function getAsrConfig($request)
     {
@@ -1465,10 +1465,10 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param GetRealTimeConcurrencyRequest $request
-     * @param RuntimeOptions                $runtime
+     * @param GetRealTimeConcurrencyRequest $request GetRealTimeConcurrencyRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetRealTimeConcurrencyResponse
+     * @return GetRealTimeConcurrencyResponse GetRealTimeConcurrencyResponse
      */
     public function getRealTimeConcurrencyWithOptions($request, $runtime)
     {
@@ -1493,9 +1493,9 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param GetRealTimeConcurrencyRequest $request
+     * @param GetRealTimeConcurrencyRequest $request GetRealTimeConcurrencyRequest
      *
-     * @return GetRealTimeConcurrencyResponse
+     * @return GetRealTimeConcurrencyResponse GetRealTimeConcurrencyResponse
      */
     public function getRealTimeConcurrency($request)
     {
@@ -1505,10 +1505,10 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param ListChatbotInstancesRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param ListChatbotInstancesRequest $request ListChatbotInstancesRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListChatbotInstancesResponse
+     * @return ListChatbotInstancesResponse ListChatbotInstancesResponse
      */
     public function listChatbotInstancesWithOptions($request, $runtime)
     {
@@ -1533,9 +1533,9 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param ListChatbotInstancesRequest $request
+     * @param ListChatbotInstancesRequest $request ListChatbotInstancesRequest
      *
-     * @return ListChatbotInstancesResponse
+     * @return ListChatbotInstancesResponse ListChatbotInstancesResponse
      */
     public function listChatbotInstances($request)
     {
@@ -1545,10 +1545,10 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param ListConversationDetailsRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @param ListConversationDetailsRequest $request ListConversationDetailsRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListConversationDetailsResponse
+     * @return ListConversationDetailsResponse ListConversationDetailsResponse
      */
     public function listConversationDetailsWithOptions($request, $runtime)
     {
@@ -1573,9 +1573,9 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param ListConversationDetailsRequest $request
+     * @param ListConversationDetailsRequest $request ListConversationDetailsRequest
      *
-     * @return ListConversationDetailsResponse
+     * @return ListConversationDetailsResponse ListConversationDetailsResponse
      */
     public function listConversationDetails($request)
     {
@@ -1585,10 +1585,10 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param ListConversationsRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param ListConversationsRequest $request ListConversationsRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListConversationsResponse
+     * @return ListConversationsResponse ListConversationsResponse
      */
     public function listConversationsWithOptions($request, $runtime)
     {
@@ -1613,9 +1613,9 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param ListConversationsRequest $request
+     * @param ListConversationsRequest $request ListConversationsRequest
      *
-     * @return ListConversationsResponse
+     * @return ListConversationsResponse ListConversationsResponse
      */
     public function listConversations($request)
     {
@@ -1625,10 +1625,10 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param ListDownloadTasksRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param ListDownloadTasksRequest $request ListDownloadTasksRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListDownloadTasksResponse
+     * @return ListDownloadTasksResponse ListDownloadTasksResponse
      */
     public function listDownloadTasksWithOptions($request, $runtime)
     {
@@ -1653,9 +1653,9 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param ListDownloadTasksRequest $request
+     * @param ListDownloadTasksRequest $request ListDownloadTasksRequest
      *
-     * @return ListDownloadTasksResponse
+     * @return ListDownloadTasksResponse ListDownloadTasksResponse
      */
     public function listDownloadTasks($request)
     {
@@ -1665,10 +1665,10 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param ListInstancesRequest $request
-     * @param RuntimeOptions       $runtime
+     * @param ListInstancesRequest $request ListInstancesRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListInstancesResponse
+     * @return ListInstancesResponse ListInstancesResponse
      */
     public function listInstancesWithOptions($request, $runtime)
     {
@@ -1693,9 +1693,9 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param ListInstancesRequest $request
+     * @param ListInstancesRequest $request ListInstancesRequest
      *
-     * @return ListInstancesResponse
+     * @return ListInstancesResponse ListInstancesResponse
      */
     public function listInstances($request)
     {
@@ -1705,10 +1705,10 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param ModifyAsrConfigRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param ModifyAsrConfigRequest $request ModifyAsrConfigRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyAsrConfigResponse
+     * @return ModifyAsrConfigResponse ModifyAsrConfigResponse
      */
     public function modifyAsrConfigWithOptions($request, $runtime)
     {
@@ -1751,9 +1751,9 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param ModifyAsrConfigRequest $request
+     * @param ModifyAsrConfigRequest $request ModifyAsrConfigRequest
      *
-     * @return ModifyAsrConfigResponse
+     * @return ModifyAsrConfigResponse ModifyAsrConfigResponse
      */
     public function modifyAsrConfig($request)
     {
@@ -1763,10 +1763,10 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param ModifyGreetingConfigRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param ModifyGreetingConfigRequest $request ModifyGreetingConfigRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyGreetingConfigResponse
+     * @return ModifyGreetingConfigResponse ModifyGreetingConfigResponse
      */
     public function modifyGreetingConfigWithOptions($request, $runtime)
     {
@@ -1803,9 +1803,9 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param ModifyGreetingConfigRequest $request
+     * @param ModifyGreetingConfigRequest $request ModifyGreetingConfigRequest
      *
-     * @return ModifyGreetingConfigResponse
+     * @return ModifyGreetingConfigResponse ModifyGreetingConfigResponse
      */
     public function modifyGreetingConfig($request)
     {
@@ -1815,10 +1815,10 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param ModifyInstanceRequest $request
-     * @param RuntimeOptions        $runtime
+     * @param ModifyInstanceRequest $request ModifyInstanceRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyInstanceResponse
+     * @return ModifyInstanceResponse ModifyInstanceResponse
      */
     public function modifyInstanceWithOptions($request, $runtime)
     {
@@ -1855,9 +1855,9 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param ModifyInstanceRequest $request
+     * @param ModifyInstanceRequest $request ModifyInstanceRequest
      *
-     * @return ModifyInstanceResponse
+     * @return ModifyInstanceResponse ModifyInstanceResponse
      */
     public function modifyInstance($request)
     {
@@ -1867,10 +1867,10 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param ModifySilenceTimeoutConfigRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @param ModifySilenceTimeoutConfigRequest $request ModifySilenceTimeoutConfigRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifySilenceTimeoutConfigResponse
+     * @return ModifySilenceTimeoutConfigResponse ModifySilenceTimeoutConfigResponse
      */
     public function modifySilenceTimeoutConfigWithOptions($request, $runtime)
     {
@@ -1922,9 +1922,9 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param ModifySilenceTimeoutConfigRequest $request
+     * @param ModifySilenceTimeoutConfigRequest $request ModifySilenceTimeoutConfigRequest
      *
-     * @return ModifySilenceTimeoutConfigResponse
+     * @return ModifySilenceTimeoutConfigResponse ModifySilenceTimeoutConfigResponse
      */
     public function modifySilenceTimeoutConfig($request)
     {
@@ -1934,15 +1934,18 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param ModifyTTSConfigRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param ModifyTTSConfigRequest $request ModifyTTSConfigRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyTTSConfigResponse
+     * @return ModifyTTSConfigResponse ModifyTTSConfigResponse
      */
     public function modifyTTSConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->aliCustomizedVoice)) {
+            $query['AliCustomizedVoice'] = $request->aliCustomizedVoice;
+        }
         if (!Utils::isUnset($request->appKey)) {
             $query['AppKey'] = $request->appKey;
         }
@@ -1986,9 +1989,9 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param ModifyTTSConfigRequest $request
+     * @param ModifyTTSConfigRequest $request ModifyTTSConfigRequest
      *
-     * @return ModifyTTSConfigResponse
+     * @return ModifyTTSConfigResponse ModifyTTSConfigResponse
      */
     public function modifyTTSConfig($request)
     {
@@ -1998,10 +2001,10 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param ModifyUnrecognizingConfigRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @param ModifyUnrecognizingConfigRequest $request ModifyUnrecognizingConfigRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyUnrecognizingConfigResponse
+     * @return ModifyUnrecognizingConfigResponse ModifyUnrecognizingConfigResponse
      */
     public function modifyUnrecognizingConfigWithOptions($request, $runtime)
     {
@@ -2044,9 +2047,9 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param ModifyUnrecognizingConfigRequest $request
+     * @param ModifyUnrecognizingConfigRequest $request ModifyUnrecognizingConfigRequest
      *
-     * @return ModifyUnrecognizingConfigResponse
+     * @return ModifyUnrecognizingConfigResponse ModifyUnrecognizingConfigResponse
      */
     public function modifyUnrecognizingConfig($request)
     {
@@ -2056,10 +2059,10 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param QueryConversationsRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param QueryConversationsRequest $request QueryConversationsRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryConversationsResponse
+     * @return QueryConversationsResponse QueryConversationsResponse
      */
     public function queryConversationsWithOptions($request, $runtime)
     {
@@ -2084,9 +2087,9 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param QueryConversationsRequest $request
+     * @param QueryConversationsRequest $request QueryConversationsRequest
      *
-     * @return QueryConversationsResponse
+     * @return QueryConversationsResponse QueryConversationsResponse
      */
     public function queryConversations($request)
     {
@@ -2096,10 +2099,10 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param SaveRecordingRequest $request
-     * @param RuntimeOptions       $runtime
+     * @param SaveRecordingRequest $request SaveRecordingRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return SaveRecordingResponse
+     * @return SaveRecordingResponse SaveRecordingResponse
      */
     public function saveRecordingWithOptions($request, $runtime)
     {
@@ -2151,9 +2154,9 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param SaveRecordingRequest $request
+     * @param SaveRecordingRequest $request SaveRecordingRequest
      *
-     * @return SaveRecordingResponse
+     * @return SaveRecordingResponse SaveRecordingResponse
      */
     public function saveRecording($request)
     {
@@ -2163,10 +2166,10 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param SilenceTimeoutRequest $request
-     * @param RuntimeOptions        $runtime
+     * @param SilenceTimeoutRequest $request SilenceTimeoutRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return SilenceTimeoutResponse
+     * @return SilenceTimeoutResponse SilenceTimeoutResponse
      */
     public function silenceTimeoutWithOptions($request, $runtime)
     {
@@ -2203,9 +2206,9 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param SilenceTimeoutRequest $request
+     * @param SilenceTimeoutRequest $request SilenceTimeoutRequest
      *
-     * @return SilenceTimeoutResponse
+     * @return SilenceTimeoutResponse SilenceTimeoutResponse
      */
     public function silenceTimeout($request)
     {

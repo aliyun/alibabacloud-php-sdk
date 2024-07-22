@@ -30,6 +30,8 @@ class DialogueRequest extends Model
     public $callingNumber;
 
     /**
+     * @description This parameter is required.
+     *
      * @example da37319b-6c83-4268-9f19-814aed62e401
      *
      * @var string
@@ -42,6 +44,8 @@ class DialogueRequest extends Model
     public $emotion;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 21e0b2a3-168d-4ba7-9009-afc42666eb54
      *
      * @var string
@@ -56,6 +60,8 @@ class DialogueRequest extends Model
     public $instanceOwnerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $utterance;

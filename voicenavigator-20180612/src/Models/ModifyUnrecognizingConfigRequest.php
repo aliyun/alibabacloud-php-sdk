@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyUnrecognizingConfigRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example TransferToAgent
      *
      * @var string
@@ -23,11 +25,15 @@ class ModifyUnrecognizingConfigRequest extends Model
     public $finalActionParams;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $finalPrompt;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 12f407b22cbe4890ac595f09985848d5
      *
      * @var string
@@ -35,11 +41,15 @@ class ModifyUnrecognizingConfigRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $prompt;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 3
      *
      * @var int

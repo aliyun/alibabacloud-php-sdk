@@ -11,6 +11,11 @@ class ModifyTTSConfigRequest extends Model
     /**
      * @var string
      */
+    public $aliCustomizedVoice;
+
+    /**
+     * @var string
+     */
     public $appKey;
 
     /**
@@ -24,6 +29,8 @@ class ModifyTTSConfigRequest extends Model
     public $engineXunfei;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 12f407b22cbe4890ac595f09985848d5
      *
      * @var string
@@ -56,14 +63,15 @@ class ModifyTTSConfigRequest extends Model
      */
     public $volume;
     protected $_name = [
-        'appKey'         => 'AppKey',
-        'engine'         => 'Engine',
-        'engineXunfei'   => 'EngineXunfei',
-        'instanceId'     => 'InstanceId',
-        'nlsServiceType' => 'NlsServiceType',
-        'speechRate'     => 'SpeechRate',
-        'voice'          => 'Voice',
-        'volume'         => 'Volume',
+        'aliCustomizedVoice' => 'AliCustomizedVoice',
+        'appKey'             => 'AppKey',
+        'engine'             => 'Engine',
+        'engineXunfei'       => 'EngineXunfei',
+        'instanceId'         => 'InstanceId',
+        'nlsServiceType'     => 'NlsServiceType',
+        'speechRate'         => 'SpeechRate',
+        'voice'              => 'Voice',
+        'volume'             => 'Volume',
     ];
 
     public function validate()
@@ -73,6 +81,9 @@ class ModifyTTSConfigRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->aliCustomizedVoice) {
+            $res['AliCustomizedVoice'] = $this->aliCustomizedVoice;
+        }
         if (null !== $this->appKey) {
             $res['AppKey'] = $this->appKey;
         }
@@ -109,6 +120,9 @@ class ModifyTTSConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AliCustomizedVoice'])) {
+            $model->aliCustomizedVoice = $map['AliCustomizedVoice'];
+        }
         if (isset($map['AppKey'])) {
             $model->appKey = $map['AppKey'];
         }
