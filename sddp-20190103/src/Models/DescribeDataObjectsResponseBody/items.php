@@ -99,6 +99,11 @@ class items extends Model
     public $productId;
 
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @example cn-hangzhou
      *
      * @var string
@@ -138,6 +143,7 @@ class items extends Model
         'path'                => 'Path',
         'productCode'         => 'ProductCode',
         'productId'           => 'ProductId',
+        'regionId'            => 'RegionId',
         'regionName'          => 'RegionName',
         'ruleList'            => 'RuleList',
         'sensitiveCount'      => 'SensitiveCount',
@@ -198,6 +204,9 @@ class items extends Model
         }
         if (null !== $this->productId) {
             $res['ProductId'] = $this->productId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->regionName) {
             $res['RegionName'] = $this->regionName;
@@ -278,6 +287,9 @@ class items extends Model
         }
         if (isset($map['ProductId'])) {
             $model->productId = $map['ProductId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['RegionName'])) {
             $model->regionName = $map['RegionName'];
