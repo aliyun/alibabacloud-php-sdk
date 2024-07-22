@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RefreshLoginTokenRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example f4a0dc8e-1702-4728-9a60-95b27a35****
      *
      * @var string
@@ -37,6 +39,8 @@ class RefreshLoginTokenRequest extends Model
     public $loginIdentifier;
 
     /**
+     * @description This parameter is required.
+     *
      * @example v1046341d8d4e2f05c4aa168196009613594aaf451499bfc75e54699efa7230bc968e1debb1fa4063b01e5d327b467****
      *
      * @var string
@@ -51,6 +55,13 @@ class RefreshLoginTokenRequest extends Model
     public $officeSiteId;
 
     /**
+     * @var string
+     */
+    public $profileRegion;
+
+    /**
+     * @description This parameter is required.
+     *
      * @example 6442b2fd-ed3e-423a-8e6e-352d26a4****
      *
      * @var string
@@ -70,6 +81,7 @@ class RefreshLoginTokenRequest extends Model
         'loginIdentifier' => 'LoginIdentifier',
         'loginToken'      => 'LoginToken',
         'officeSiteId'    => 'OfficeSiteId',
+        'profileRegion'   => 'ProfileRegion',
         'sessionId'       => 'SessionId',
         'uuid'            => 'Uuid',
     ];
@@ -98,6 +110,9 @@ class RefreshLoginTokenRequest extends Model
         }
         if (null !== $this->officeSiteId) {
             $res['OfficeSiteId'] = $this->officeSiteId;
+        }
+        if (null !== $this->profileRegion) {
+            $res['ProfileRegion'] = $this->profileRegion;
         }
         if (null !== $this->sessionId) {
             $res['SessionId'] = $this->sessionId;
@@ -134,6 +149,9 @@ class RefreshLoginTokenRequest extends Model
         }
         if (isset($map['OfficeSiteId'])) {
             $model->officeSiteId = $map['OfficeSiteId'];
+        }
+        if (isset($map['ProfileRegion'])) {
+            $model->profileRegion = $map['ProfileRegion'];
         }
         if (isset($map['SessionId'])) {
             $model->sessionId = $map['SessionId'];
