@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RenewAppInstanceGroupRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example aig-9ciijz60n4xsv****
      *
      * @var string
@@ -23,6 +25,8 @@ class RenewAppInstanceGroupRequest extends Model
     public $autoPay;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -30,11 +34,15 @@ class RenewAppInstanceGroupRequest extends Model
     public $period;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $periodUnit;
 
     /**
+     * @description This parameter is required.
+     *
      * @example CloudApp
      *
      * @var string

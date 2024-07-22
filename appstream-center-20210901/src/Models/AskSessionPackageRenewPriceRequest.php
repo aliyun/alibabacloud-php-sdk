@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AskSessionPackageRenewPriceRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class AskSessionPackageRenewPriceRequest extends Model
     public $period;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Month
      *
      * @var string
@@ -23,6 +27,8 @@ class AskSessionPackageRenewPriceRequest extends Model
     public $periodUnit;
 
     /**
+     * @description This parameter is required.
+     *
      * @example tp-***********
      *
      * @var string

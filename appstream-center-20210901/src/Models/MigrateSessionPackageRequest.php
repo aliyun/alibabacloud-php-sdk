@@ -16,6 +16,8 @@ class MigrateSessionPackageRequest extends Model
     public $destProjectId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example tp-xxxxxxxxxxxxxxxxx
      *
      * @var string

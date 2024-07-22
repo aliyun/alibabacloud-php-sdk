@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateAccessPageRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $accessPageName;
@@ -28,6 +30,8 @@ class CreateAccessPageRequest extends Model
     public $effectTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @example p-065zdecaer07h****
      *
      * @var string

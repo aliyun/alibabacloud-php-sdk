@@ -29,6 +29,8 @@ class AskSessionPackagePriceRequest extends Model
     public $periodUnit;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -43,6 +45,8 @@ class AskSessionPackagePriceRequest extends Model
     public $sessionPackageType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example appstreaming.general.entry
      *
      * @var string
@@ -50,6 +54,8 @@ class AskSessionPackagePriceRequest extends Model
     public $sessionSpec;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Windows
      *
      * @var string

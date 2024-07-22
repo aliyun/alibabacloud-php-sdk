@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateImageFromAppInstanceGroupRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example test_name
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateImageFromAppInstanceGroupRequest extends Model
     public $appCenterImageName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example aig-9ciijz60n4xsv****
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateImageFromAppInstanceGroupRequest extends Model
     public $appInstanceGroupId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example CloudApp
      *
      * @var string

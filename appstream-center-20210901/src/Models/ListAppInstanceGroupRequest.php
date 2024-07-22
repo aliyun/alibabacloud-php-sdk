@@ -54,11 +54,22 @@ class ListAppInstanceGroupRequest extends Model
     public $pageSize;
 
     /**
+     * @description This parameter is required.
+     *
      * @example CloudApp
      *
      * @var string
      */
     public $productType;
+
+    /**
+     * @example cn-hangzhou
+     *
+     * @deprecated
+     *
+     * @var string
+     */
+    public $regionId;
 
     /**
      * @var string[]
@@ -73,6 +84,7 @@ class ListAppInstanceGroupRequest extends Model
         'pageNumber'           => 'PageNumber',
         'pageSize'             => 'PageSize',
         'productType'          => 'ProductType',
+        'regionId'             => 'RegionId',
         'status'               => 'Status',
     ];
 
@@ -106,6 +118,9 @@ class ListAppInstanceGroupRequest extends Model
         }
         if (null !== $this->productType) {
             $res['ProductType'] = $this->productType;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -145,6 +160,9 @@ class ListAppInstanceGroupRequest extends Model
         }
         if (isset($map['ProductType'])) {
             $model->productType = $map['ProductType'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['Status'])) {
             if (!empty($map['Status'])) {

@@ -6,18 +6,14 @@ namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetOtaTaskByTaskIdRequest extends Model
+class ListRegionsRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example ota-be7jzm29wrrz5****
-     *
      * @var string
      */
-    public $taskId;
+    public $productType;
     protected $_name = [
-        'taskId' => 'TaskId',
+        'productType' => 'ProductType',
     ];
 
     public function validate()
@@ -27,8 +23,8 @@ class GetOtaTaskByTaskIdRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->taskId) {
-            $res['TaskId'] = $this->taskId;
+        if (null !== $this->productType) {
+            $res['ProductType'] = $this->productType;
         }
 
         return $res;
@@ -37,13 +33,13 @@ class GetOtaTaskByTaskIdRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetOtaTaskByTaskIdRequest
+     * @return ListRegionsRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TaskId'])) {
-            $model->taskId = $map['TaskId'];
+        if (isset($map['ProductType'])) {
+            $model->productType = $map['ProductType'];
         }
 
         return $model;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CancelOtaTaskRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example aig-53fvrq1oanz6c****
      *
      * @var string
@@ -16,6 +18,8 @@ class CancelOtaTaskRequest extends Model
     public $appInstanceGroupId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ota-be7jzm29wrrz5****
      *
      * @var string

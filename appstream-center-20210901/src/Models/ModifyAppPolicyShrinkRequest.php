@@ -6,16 +6,16 @@ namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class LogOffAllSessionsInAppInstanceGroupRequest extends Model
+class ModifyAppPolicyShrinkRequest extends Model
 {
     /**
      * @description This parameter is required.
      *
-     * @example aig-9ciijz60n4xsv****
+     * @example pg-ee2znjktwgxu2****
      *
      * @var string
      */
-    public $appInstanceGroupId;
+    public $appPolicyId;
 
     /**
      * @description This parameter is required.
@@ -25,9 +25,15 @@ class LogOffAllSessionsInAppInstanceGroupRequest extends Model
      * @var string
      */
     public $productType;
+
+    /**
+     * @var string
+     */
+    public $videoPolicyShrink;
     protected $_name = [
-        'appInstanceGroupId' => 'AppInstanceGroupId',
-        'productType'        => 'ProductType',
+        'appPolicyId'       => 'AppPolicyId',
+        'productType'       => 'ProductType',
+        'videoPolicyShrink' => 'VideoPolicy',
     ];
 
     public function validate()
@@ -37,11 +43,14 @@ class LogOffAllSessionsInAppInstanceGroupRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->appInstanceGroupId) {
-            $res['AppInstanceGroupId'] = $this->appInstanceGroupId;
+        if (null !== $this->appPolicyId) {
+            $res['AppPolicyId'] = $this->appPolicyId;
         }
         if (null !== $this->productType) {
             $res['ProductType'] = $this->productType;
+        }
+        if (null !== $this->videoPolicyShrink) {
+            $res['VideoPolicy'] = $this->videoPolicyShrink;
         }
 
         return $res;
@@ -50,16 +59,19 @@ class LogOffAllSessionsInAppInstanceGroupRequest extends Model
     /**
      * @param array $map
      *
-     * @return LogOffAllSessionsInAppInstanceGroupRequest
+     * @return ModifyAppPolicyShrinkRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AppInstanceGroupId'])) {
-            $model->appInstanceGroupId = $map['AppInstanceGroupId'];
+        if (isset($map['AppPolicyId'])) {
+            $model->appPolicyId = $map['AppPolicyId'];
         }
         if (isset($map['ProductType'])) {
             $model->productType = $map['ProductType'];
+        }
+        if (isset($map['VideoPolicy'])) {
+            $model->videoPolicyShrink = $map['VideoPolicy'];
         }
 
         return $model;

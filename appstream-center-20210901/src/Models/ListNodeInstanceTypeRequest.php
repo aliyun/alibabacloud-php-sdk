@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListNodeInstanceTypeRequest extends Model
 {
     /**
-     * @description 资源所属的地域ID。关于支持的地域详情，请参见[使用限制](~~426036~~)。
+     * @description 资源所属的地域ID。关于支持的地域详情，请参见[使用限制](https://help.aliyun.com/document_detail/426036.html)。
      *
      * @example cn-hangzhou
      *
@@ -43,6 +43,8 @@ class ListNodeInstanceTypeRequest extends Model
     public $osType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -50,6 +52,8 @@ class ListNodeInstanceTypeRequest extends Model
     public $pageNumber;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 10
      *
      * @var int
@@ -57,6 +61,8 @@ class ListNodeInstanceTypeRequest extends Model
     public $pageSize;
 
     /**
+     * @description This parameter is required.
+     *
      * @example CloudApp
      *
      * @var string

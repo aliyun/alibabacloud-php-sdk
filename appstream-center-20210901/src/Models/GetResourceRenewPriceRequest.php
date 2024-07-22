@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetResourceRenewPriceRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example aig-9ciijz60n4xsv****
      *
      * @var string
@@ -16,6 +18,8 @@ class GetResourceRenewPriceRequest extends Model
     public $appInstanceGroupId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +27,8 @@ class GetResourceRenewPriceRequest extends Model
     public $period;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Week
      *
      * @var string
@@ -30,6 +36,8 @@ class GetResourceRenewPriceRequest extends Model
     public $periodUnit;
 
     /**
+     * @description This parameter is required.
+     *
      * @example CloudApp
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteAppInstancesRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example aig-9ciijz60n4xsv****
      *
      * @var string
@@ -16,11 +18,15 @@ class DeleteAppInstancesRequest extends Model
     public $appInstanceGroupId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $appInstanceIds;
 
     /**
+     * @description This parameter is required.
+     *
      * @example CloudApp
      *
      * @var string

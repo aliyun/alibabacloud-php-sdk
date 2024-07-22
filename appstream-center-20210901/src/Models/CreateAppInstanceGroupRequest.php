@@ -9,12 +9,16 @@ use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateAppInstanceGroupRequ
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateAppInstanceGroupRequest\runtimePolicy;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateAppInstanceGroupRequest\securityPolicy;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateAppInstanceGroupRequest\storagePolicy;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateAppInstanceGroupRequest\userDefinePolicy;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateAppInstanceGroupRequest\userInfo;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateAppInstanceGroupRequest\videoPolicy;
 use AlibabaCloud\Tea\Model;
 
 class CreateAppInstanceGroupRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example img-8z4nztpaqvay4****
      *
      * @var string
@@ -22,6 +26,8 @@ class CreateAppInstanceGroupRequest extends Model
     public $appCenterImageId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $appInstanceGroupName;
@@ -41,6 +47,8 @@ class CreateAppInstanceGroupRequest extends Model
     public $autoRenew;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -48,6 +56,8 @@ class CreateAppInstanceGroupRequest extends Model
     public $bizRegionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Node
      *
      * @var string
@@ -55,6 +65,8 @@ class CreateAppInstanceGroupRequest extends Model
     public $chargeResourceMode;
 
     /**
+     * @description This parameter is required.
+     *
      * @example PrePaid
      *
      * @var string
@@ -72,6 +84,8 @@ class CreateAppInstanceGroupRequest extends Model
     public $nodePool;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -79,6 +93,8 @@ class CreateAppInstanceGroupRequest extends Model
     public $period;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $periodUnit;
@@ -91,6 +107,8 @@ class CreateAppInstanceGroupRequest extends Model
     public $preOpenAppId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example CloudApp
      *
      * @var string
@@ -115,6 +133,8 @@ class CreateAppInstanceGroupRequest extends Model
     public $securityPolicy;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 15
      *
      * @var int
@@ -127,6 +147,11 @@ class CreateAppInstanceGroupRequest extends Model
     public $storagePolicy;
 
     /**
+     * @var userDefinePolicy
+     */
+    public $userDefinePolicy;
+
+    /**
      * @var userInfo
      */
     public $userInfo;
@@ -135,6 +160,11 @@ class CreateAppInstanceGroupRequest extends Model
      * @var string[]
      */
     public $users;
+
+    /**
+     * @var videoPolicy
+     */
+    public $videoPolicy;
     protected $_name = [
         'appCenterImageId'     => 'AppCenterImageId',
         'appInstanceGroupName' => 'AppInstanceGroupName',
@@ -154,8 +184,10 @@ class CreateAppInstanceGroupRequest extends Model
         'securityPolicy'       => 'SecurityPolicy',
         'sessionTimeout'       => 'SessionTimeout',
         'storagePolicy'        => 'StoragePolicy',
+        'userDefinePolicy'     => 'UserDefinePolicy',
         'userInfo'             => 'UserInfo',
         'users'                => 'Users',
+        'videoPolicy'          => 'VideoPolicy',
     ];
 
     public function validate()
@@ -219,11 +251,17 @@ class CreateAppInstanceGroupRequest extends Model
         if (null !== $this->storagePolicy) {
             $res['StoragePolicy'] = null !== $this->storagePolicy ? $this->storagePolicy->toMap() : null;
         }
+        if (null !== $this->userDefinePolicy) {
+            $res['UserDefinePolicy'] = null !== $this->userDefinePolicy ? $this->userDefinePolicy->toMap() : null;
+        }
         if (null !== $this->userInfo) {
             $res['UserInfo'] = null !== $this->userInfo ? $this->userInfo->toMap() : null;
         }
         if (null !== $this->users) {
             $res['Users'] = $this->users;
+        }
+        if (null !== $this->videoPolicy) {
+            $res['VideoPolicy'] = null !== $this->videoPolicy ? $this->videoPolicy->toMap() : null;
         }
 
         return $res;
@@ -291,6 +329,9 @@ class CreateAppInstanceGroupRequest extends Model
         if (isset($map['StoragePolicy'])) {
             $model->storagePolicy = storagePolicy::fromMap($map['StoragePolicy']);
         }
+        if (isset($map['UserDefinePolicy'])) {
+            $model->userDefinePolicy = userDefinePolicy::fromMap($map['UserDefinePolicy']);
+        }
         if (isset($map['UserInfo'])) {
             $model->userInfo = userInfo::fromMap($map['UserInfo']);
         }
@@ -298,6 +339,9 @@ class CreateAppInstanceGroupRequest extends Model
             if (!empty($map['Users'])) {
                 $model->users = $map['Users'];
             }
+        }
+        if (isset($map['VideoPolicy'])) {
+            $model->videoPolicy = videoPolicy::fromMap($map['VideoPolicy']);
         }
 
         return $model;

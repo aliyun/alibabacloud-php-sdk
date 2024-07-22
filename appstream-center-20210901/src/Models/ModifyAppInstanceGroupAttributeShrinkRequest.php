@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyAppInstanceGroupAttributeShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example aig-9ciijz60n4xsv****
      *
      * @var string
@@ -41,6 +43,8 @@ class ModifyAppInstanceGroupAttributeShrinkRequest extends Model
     public $preOpenMode;
 
     /**
+     * @description This parameter is required.
+     *
      * @example CloudApp
      *
      * @var string

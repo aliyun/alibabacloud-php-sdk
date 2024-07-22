@@ -67,6 +67,7 @@ use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListOtaTaskRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListOtaTaskResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListProjectsRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListProjectsResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListRegionsRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListRegionsResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListSessionPackagesRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListSessionPackagesResponse;
@@ -78,6 +79,9 @@ use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\MigrateSessionPackageRespo
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ModifyAppInstanceGroupAttributeRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ModifyAppInstanceGroupAttributeResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ModifyAppInstanceGroupAttributeShrinkRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ModifyAppPolicyRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ModifyAppPolicyResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ModifyAppPolicyShrinkRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ModifyNodePoolAttributeRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ModifyNodePoolAttributeResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ModifyNodePoolAttributeShrinkRequest;
@@ -140,10 +144,12 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param AccessPageGetAclRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary 获取访问管理页配置
+     *  *
+     * @param AccessPageGetAclRequest $request AccessPageGetAclRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return AccessPageGetAclResponse
+     * @return AccessPageGetAclResponse AccessPageGetAclResponse
      */
     public function accessPageGetAclWithOptions($request, $runtime)
     {
@@ -171,9 +177,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param AccessPageGetAclRequest $request
+     * @summary 获取访问管理页配置
+     *  *
+     * @param AccessPageGetAclRequest $request AccessPageGetAclRequest
      *
-     * @return AccessPageGetAclResponse
+     * @return AccessPageGetAclResponse AccessPageGetAclResponse
      */
     public function accessPageGetAcl($request)
     {
@@ -183,10 +191,12 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param AccessPageSetAclRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary 更新访问管理
+     *  *
+     * @param AccessPageSetAclRequest $request AccessPageSetAclRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return AccessPageSetAclResponse
+     * @return AccessPageSetAclResponse AccessPageSetAclResponse
      */
     public function accessPageSetAclWithOptions($request, $runtime)
     {
@@ -226,9 +236,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param AccessPageSetAclRequest $request
+     * @summary 更新访问管理
+     *  *
+     * @param AccessPageSetAclRequest $request AccessPageSetAclRequest
      *
-     * @return AccessPageSetAclResponse
+     * @return AccessPageSetAclResponse AccessPageSetAclResponse
      */
     public function accessPageSetAcl($request)
     {
@@ -238,10 +250,12 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param ApproveOtaTaskRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary 同意Ota升级
+     *  *
+     * @param ApproveOtaTaskRequest $request ApproveOtaTaskRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ApproveOtaTaskResponse
+     * @return ApproveOtaTaskResponse ApproveOtaTaskResponse
      */
     public function approveOtaTaskWithOptions($request, $runtime)
     {
@@ -281,9 +295,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param ApproveOtaTaskRequest $request
+     * @summary 同意Ota升级
+     *  *
+     * @param ApproveOtaTaskRequest $request ApproveOtaTaskRequest
      *
-     * @return ApproveOtaTaskResponse
+     * @return ApproveOtaTaskResponse ApproveOtaTaskResponse
      */
     public function approveOtaTask($request)
     {
@@ -293,10 +309,12 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param AskSessionPackagePriceRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary 会话包收费查询
+     *  *
+     * @param AskSessionPackagePriceRequest $request AskSessionPackagePriceRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return AskSessionPackagePriceResponse
+     * @return AskSessionPackagePriceResponse AskSessionPackagePriceResponse
      */
     public function askSessionPackagePriceWithOptions($request, $runtime)
     {
@@ -345,9 +363,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param AskSessionPackagePriceRequest $request
+     * @summary 会话包收费查询
+     *  *
+     * @param AskSessionPackagePriceRequest $request AskSessionPackagePriceRequest
      *
-     * @return AskSessionPackagePriceResponse
+     * @return AskSessionPackagePriceResponse AskSessionPackagePriceResponse
      */
     public function askSessionPackagePrice($request)
     {
@@ -357,10 +377,12 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param AskSessionPackageRenewPriceRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary 会话包续费询价
+     *  *
+     * @param AskSessionPackageRenewPriceRequest $request AskSessionPackageRenewPriceRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return AskSessionPackageRenewPriceResponse
+     * @return AskSessionPackageRenewPriceResponse AskSessionPackageRenewPriceResponse
      */
     public function askSessionPackageRenewPriceWithOptions($request, $runtime)
     {
@@ -394,9 +416,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param AskSessionPackageRenewPriceRequest $request
+     * @summary 会话包续费询价
+     *  *
+     * @param AskSessionPackageRenewPriceRequest $request AskSessionPackageRenewPriceRequest
      *
-     * @return AskSessionPackageRenewPriceResponse
+     * @return AskSessionPackageRenewPriceResponse AskSessionPackageRenewPriceResponse
      */
     public function askSessionPackageRenewPrice($request)
     {
@@ -406,10 +430,12 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param AuthorizeInstanceGroupRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary 授权用户
+     *  *
+     * @param AuthorizeInstanceGroupRequest $request AuthorizeInstanceGroupRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return AuthorizeInstanceGroupResponse
+     * @return AuthorizeInstanceGroupResponse AuthorizeInstanceGroupResponse
      */
     public function authorizeInstanceGroupWithOptions($request, $runtime)
     {
@@ -446,9 +472,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param AuthorizeInstanceGroupRequest $request
+     * @summary 授权用户
+     *  *
+     * @param AuthorizeInstanceGroupRequest $request AuthorizeInstanceGroupRequest
      *
-     * @return AuthorizeInstanceGroupResponse
+     * @return AuthorizeInstanceGroupResponse AuthorizeInstanceGroupResponse
      */
     public function authorizeInstanceGroup($request)
     {
@@ -458,15 +486,20 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param BuySessionPackageRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary 配置会话包
+     *  *
+     * @param BuySessionPackageRequest $request BuySessionPackageRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return BuySessionPackageResponse
+     * @return BuySessionPackageResponse BuySessionPackageResponse
      */
     public function buySessionPackageWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->autoPay)) {
+            $query['AutoPay'] = $request->autoPay;
+        }
         if (!Utils::isUnset($request->chargeType)) {
             $query['ChargeType'] = $request->chargeType;
         }
@@ -516,9 +549,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param BuySessionPackageRequest $request
+     * @summary 配置会话包
+     *  *
+     * @param BuySessionPackageRequest $request BuySessionPackageRequest
      *
-     * @return BuySessionPackageResponse
+     * @return BuySessionPackageResponse BuySessionPackageResponse
      */
     public function buySessionPackage($request)
     {
@@ -528,10 +563,12 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param CancelOtaTaskRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary 取消Ota升级
+     *  *
+     * @param CancelOtaTaskRequest $request CancelOtaTaskRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return CancelOtaTaskResponse
+     * @return CancelOtaTaskResponse CancelOtaTaskResponse
      */
     public function cancelOtaTaskWithOptions($request, $runtime)
     {
@@ -562,9 +599,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param CancelOtaTaskRequest $request
+     * @summary 取消Ota升级
+     *  *
+     * @param CancelOtaTaskRequest $request CancelOtaTaskRequest
      *
-     * @return CancelOtaTaskResponse
+     * @return CancelOtaTaskResponse CancelOtaTaskResponse
      */
     public function cancelOtaTask($request)
     {
@@ -574,10 +613,12 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param CreateAccessPageRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary 创建访问页面
+     *  *
+     * @param CreateAccessPageRequest $request CreateAccessPageRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateAccessPageResponse
+     * @return CreateAccessPageResponse CreateAccessPageResponse
      */
     public function createAccessPageWithOptions($request, $runtime)
     {
@@ -620,9 +661,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param CreateAccessPageRequest $request
+     * @summary 创建访问页面
+     *  *
+     * @param CreateAccessPageRequest $request CreateAccessPageRequest
      *
-     * @return CreateAccessPageResponse
+     * @return CreateAccessPageResponse CreateAccessPageResponse
      */
     public function createAccessPage($request)
     {
@@ -632,10 +675,12 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param CreateAppInstanceGroupRequest $tmpReq
-     * @param RuntimeOptions                $runtime
+     * @summary 创建云应用交付组
+     *  *
+     * @param CreateAppInstanceGroupRequest $tmpReq  CreateAppInstanceGroupRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateAppInstanceGroupResponse
+     * @return CreateAppInstanceGroupResponse CreateAppInstanceGroupResponse
      */
     public function createAppInstanceGroupWithOptions($tmpReq, $runtime)
     {
@@ -657,8 +702,18 @@ class Appstreamcenter extends OpenApiClient
         if (!Utils::isUnset($tmpReq->storagePolicy)) {
             $request->storagePolicyShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->storagePolicy, 'StoragePolicy', 'json');
         }
+        if (!Utils::isUnset($tmpReq->userDefinePolicy)) {
+            $request->userDefinePolicyShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userDefinePolicy, 'UserDefinePolicy', 'json');
+        }
         if (!Utils::isUnset($tmpReq->userInfo)) {
             $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->videoPolicy)) {
+            $request->videoPolicyShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->videoPolicy, 'VideoPolicy', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->userDefinePolicyShrink)) {
+            $query['UserDefinePolicy'] = $request->userDefinePolicyShrink;
         }
         $body = [];
         if (!Utils::isUnset($request->appCenterImageId)) {
@@ -721,8 +776,12 @@ class Appstreamcenter extends OpenApiClient
         if (!Utils::isUnset($request->users)) {
             $body['Users'] = $request->users;
         }
+        if (!Utils::isUnset($request->videoPolicyShrink)) {
+            $body['VideoPolicy'] = $request->videoPolicyShrink;
+        }
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateAppInstanceGroup',
@@ -740,9 +799,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param CreateAppInstanceGroupRequest $request
+     * @summary 创建云应用交付组
+     *  *
+     * @param CreateAppInstanceGroupRequest $request CreateAppInstanceGroupRequest
      *
-     * @return CreateAppInstanceGroupResponse
+     * @return CreateAppInstanceGroupResponse CreateAppInstanceGroupResponse
      */
     public function createAppInstanceGroup($request)
     {
@@ -752,10 +813,12 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param CreateImageFromAppInstanceGroupRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @summary CreateImageFromAppInstanceGroup
+     *  *
+     * @param CreateImageFromAppInstanceGroupRequest $request CreateImageFromAppInstanceGroupRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateImageFromAppInstanceGroupResponse
+     * @return CreateImageFromAppInstanceGroupResponse CreateImageFromAppInstanceGroupResponse
      */
     public function createImageFromAppInstanceGroupWithOptions($request, $runtime)
     {
@@ -789,9 +852,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param CreateImageFromAppInstanceGroupRequest $request
+     * @summary CreateImageFromAppInstanceGroup
+     *  *
+     * @param CreateImageFromAppInstanceGroupRequest $request CreateImageFromAppInstanceGroupRequest
      *
-     * @return CreateImageFromAppInstanceGroupResponse
+     * @return CreateImageFromAppInstanceGroupResponse CreateImageFromAppInstanceGroupResponse
      */
     public function createImageFromAppInstanceGroup($request)
     {
@@ -801,10 +866,12 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param CreateProjectRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary 创建项目
+     *  *
+     * @param CreateProjectRequest $request CreateProjectRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateProjectResponse
+     * @return CreateProjectResponse CreateProjectResponse
      */
     public function createProjectWithOptions($request, $runtime)
     {
@@ -868,9 +935,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param CreateProjectRequest $request
+     * @summary 创建项目
+     *  *
+     * @param CreateProjectRequest $request CreateProjectRequest
      *
-     * @return CreateProjectResponse
+     * @return CreateProjectResponse CreateProjectResponse
      */
     public function createProject($request)
     {
@@ -880,10 +949,12 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param DeleteAccessPageRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary 删除访问页面
+     *  *
+     * @param DeleteAccessPageRequest $request DeleteAccessPageRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteAccessPageResponse
+     * @return DeleteAccessPageResponse DeleteAccessPageResponse
      */
     public function deleteAccessPageWithOptions($request, $runtime)
     {
@@ -911,9 +982,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param DeleteAccessPageRequest $request
+     * @summary 删除访问页面
+     *  *
+     * @param DeleteAccessPageRequest $request DeleteAccessPageRequest
      *
-     * @return DeleteAccessPageResponse
+     * @return DeleteAccessPageResponse DeleteAccessPageResponse
      */
     public function deleteAccessPage($request)
     {
@@ -923,10 +996,12 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param DeleteAppInstanceGroupRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary 实例组释放接口
+     *  *
+     * @param DeleteAppInstanceGroupRequest $request DeleteAppInstanceGroupRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteAppInstanceGroupResponse
+     * @return DeleteAppInstanceGroupResponse DeleteAppInstanceGroupResponse
      */
     public function deleteAppInstanceGroupWithOptions($request, $runtime)
     {
@@ -957,9 +1032,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param DeleteAppInstanceGroupRequest $request
+     * @summary 实例组释放接口
+     *  *
+     * @param DeleteAppInstanceGroupRequest $request DeleteAppInstanceGroupRequest
      *
-     * @return DeleteAppInstanceGroupResponse
+     * @return DeleteAppInstanceGroupResponse DeleteAppInstanceGroupResponse
      */
     public function deleteAppInstanceGroup($request)
     {
@@ -969,10 +1046,12 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param DeleteAppInstancesRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary 删除实例
+     *  *
+     * @param DeleteAppInstancesRequest $request DeleteAppInstancesRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteAppInstancesResponse
+     * @return DeleteAppInstancesResponse DeleteAppInstancesResponse
      */
     public function deleteAppInstancesWithOptions($request, $runtime)
     {
@@ -1006,9 +1085,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param DeleteAppInstancesRequest $request
+     * @summary 删除实例
+     *  *
+     * @param DeleteAppInstancesRequest $request DeleteAppInstancesRequest
      *
-     * @return DeleteAppInstancesResponse
+     * @return DeleteAppInstancesResponse DeleteAppInstancesResponse
      */
     public function deleteAppInstances($request)
     {
@@ -1018,10 +1099,12 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param DeleteProjectRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary 删除项目
+     *  *
+     * @param DeleteProjectRequest $request DeleteProjectRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteProjectResponse
+     * @return DeleteProjectResponse DeleteProjectResponse
      */
     public function deleteProjectWithOptions($request, $runtime)
     {
@@ -1049,9 +1132,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param DeleteProjectRequest $request
+     * @summary 删除项目
+     *  *
+     * @param DeleteProjectRequest $request DeleteProjectRequest
      *
-     * @return DeleteProjectResponse
+     * @return DeleteProjectResponse DeleteProjectResponse
      */
     public function deleteProject($request)
     {
@@ -1061,10 +1146,12 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param GetAccessPageSessionRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary 访客进入访问页面的匿名api
+     *  *
+     * @param GetAccessPageSessionRequest $request GetAccessPageSessionRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetAccessPageSessionResponse
+     * @return GetAccessPageSessionResponse GetAccessPageSessionResponse
      */
     public function getAccessPageSessionWithOptions($request, $runtime)
     {
@@ -1098,9 +1185,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param GetAccessPageSessionRequest $request
+     * @summary 访客进入访问页面的匿名api
+     *  *
+     * @param GetAccessPageSessionRequest $request GetAccessPageSessionRequest
      *
-     * @return GetAccessPageSessionResponse
+     * @return GetAccessPageSessionResponse GetAccessPageSessionResponse
      */
     public function getAccessPageSession($request)
     {
@@ -1110,10 +1199,12 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param GetAppInstanceGroupRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary 获取交付组详情
+     *  *
+     * @param GetAppInstanceGroupRequest $request GetAppInstanceGroupRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetAppInstanceGroupResponse
+     * @return GetAppInstanceGroupResponse GetAppInstanceGroupResponse
      */
     public function getAppInstanceGroupWithOptions($request, $runtime)
     {
@@ -1144,9 +1235,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param GetAppInstanceGroupRequest $request
+     * @summary 获取交付组详情
+     *  *
+     * @param GetAppInstanceGroupRequest $request GetAppInstanceGroupRequest
      *
-     * @return GetAppInstanceGroupResponse
+     * @return GetAppInstanceGroupResponse GetAppInstanceGroupResponse
      */
     public function getAppInstanceGroup($request)
     {
@@ -1156,10 +1249,12 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param GetConnectionTicketRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary 获取连接ticket，Open API
+     *  *
+     * @param GetConnectionTicketRequest $request GetConnectionTicketRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetConnectionTicketResponse
+     * @return GetConnectionTicketResponse GetConnectionTicketResponse
      */
     public function getConnectionTicketWithOptions($request, $runtime)
     {
@@ -1214,9 +1309,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param GetConnectionTicketRequest $request
+     * @summary 获取连接ticket，Open API
+     *  *
+     * @param GetConnectionTicketRequest $request GetConnectionTicketRequest
      *
-     * @return GetConnectionTicketResponse
+     * @return GetConnectionTicketResponse GetConnectionTicketResponse
      */
     public function getConnectionTicket($request)
     {
@@ -1226,10 +1323,12 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param GetDebugAppInstanceRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary GetDebugAppInstance
+     *  *
+     * @param GetDebugAppInstanceRequest $request GetDebugAppInstanceRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetDebugAppInstanceResponse
+     * @return GetDebugAppInstanceResponse GetDebugAppInstanceResponse
      */
     public function getDebugAppInstanceWithOptions($request, $runtime)
     {
@@ -1260,9 +1359,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param GetDebugAppInstanceRequest $request
+     * @summary GetDebugAppInstance
+     *  *
+     * @param GetDebugAppInstanceRequest $request GetDebugAppInstanceRequest
      *
-     * @return GetDebugAppInstanceResponse
+     * @return GetDebugAppInstanceResponse GetDebugAppInstanceResponse
      */
     public function getDebugAppInstance($request)
     {
@@ -1272,10 +1373,12 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param GetOtaTaskByTaskIdRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary 获取ota任务明细
+     *  *
+     * @param GetOtaTaskByTaskIdRequest $request GetOtaTaskByTaskIdRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetOtaTaskByTaskIdResponse
+     * @return GetOtaTaskByTaskIdResponse GetOtaTaskByTaskIdResponse
      */
     public function getOtaTaskByTaskIdWithOptions($request, $runtime)
     {
@@ -1303,9 +1406,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param GetOtaTaskByTaskIdRequest $request
+     * @summary 获取ota任务明细
+     *  *
+     * @param GetOtaTaskByTaskIdRequest $request GetOtaTaskByTaskIdRequest
      *
-     * @return GetOtaTaskByTaskIdResponse
+     * @return GetOtaTaskByTaskIdResponse GetOtaTaskByTaskIdResponse
      */
     public function getOtaTaskByTaskId($request)
     {
@@ -1315,10 +1420,12 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param GetProjectPoliciesRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary 获取策略配置
+     *  *
+     * @param GetProjectPoliciesRequest $request GetProjectPoliciesRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetProjectPoliciesResponse
+     * @return GetProjectPoliciesResponse GetProjectPoliciesResponse
      */
     public function getProjectPoliciesWithOptions($request, $runtime)
     {
@@ -1346,9 +1453,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param GetProjectPoliciesRequest $request
+     * @summary 获取策略配置
+     *  *
+     * @param GetProjectPoliciesRequest $request GetProjectPoliciesRequest
      *
-     * @return GetProjectPoliciesResponse
+     * @return GetProjectPoliciesResponse GetProjectPoliciesResponse
      */
     public function getProjectPolicies($request)
     {
@@ -1358,10 +1467,12 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param GetResourcePriceRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary 云应用资源询价接口
+     *  *
+     * @param GetResourcePriceRequest $request GetResourcePriceRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetResourcePriceResponse
+     * @return GetResourcePriceResponse GetResourcePriceResponse
      */
     public function getResourcePriceWithOptions($request, $runtime)
     {
@@ -1410,9 +1521,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param GetResourcePriceRequest $request
+     * @summary 云应用资源询价接口
+     *  *
+     * @param GetResourcePriceRequest $request GetResourcePriceRequest
      *
-     * @return GetResourcePriceResponse
+     * @return GetResourcePriceResponse GetResourcePriceResponse
      */
     public function getResourcePrice($request)
     {
@@ -1422,10 +1535,12 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param GetResourceRenewPriceRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary 云应用资源询价接口
+     *  *
+     * @param GetResourceRenewPriceRequest $request GetResourceRenewPriceRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetResourceRenewPriceResponse
+     * @return GetResourceRenewPriceResponse GetResourceRenewPriceResponse
      */
     public function getResourceRenewPriceWithOptions($request, $runtime)
     {
@@ -1462,9 +1577,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param GetResourceRenewPriceRequest $request
+     * @summary 云应用资源询价接口
+     *  *
+     * @param GetResourceRenewPriceRequest $request GetResourceRenewPriceRequest
      *
-     * @return GetResourceRenewPriceResponse
+     * @return GetResourceRenewPriceResponse GetResourceRenewPriceResponse
      */
     public function getResourceRenewPrice($request)
     {
@@ -1474,10 +1591,12 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param ListAccessPagesRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary 访问页面分页查询
+     *  *
+     * @param ListAccessPagesRequest $request ListAccessPagesRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListAccessPagesResponse
+     * @return ListAccessPagesResponse ListAccessPagesResponse
      */
     public function listAccessPagesWithOptions($request, $runtime)
     {
@@ -1520,9 +1639,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param ListAccessPagesRequest $request
+     * @summary 访问页面分页查询
+     *  *
+     * @param ListAccessPagesRequest $request ListAccessPagesRequest
      *
-     * @return ListAccessPagesResponse
+     * @return ListAccessPagesResponse ListAccessPagesResponse
      */
     public function listAccessPages($request)
     {
@@ -1532,10 +1653,12 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param ListAppInstanceGroupRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary 列表展示云应用交付组
+     *  *
+     * @param ListAppInstanceGroupRequest $request ListAppInstanceGroupRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListAppInstanceGroupResponse
+     * @return ListAppInstanceGroupResponse ListAppInstanceGroupResponse
      */
     public function listAppInstanceGroupWithOptions($request, $runtime)
     {
@@ -1565,6 +1688,9 @@ class Appstreamcenter extends OpenApiClient
         if (!Utils::isUnset($request->productType)) {
             $query['ProductType'] = $request->productType;
         }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         $body = [];
         if (!Utils::isUnset($request->status)) {
             $body['Status'] = $request->status;
@@ -1589,9 +1715,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param ListAppInstanceGroupRequest $request
+     * @summary 列表展示云应用交付组
+     *  *
+     * @param ListAppInstanceGroupRequest $request ListAppInstanceGroupRequest
      *
-     * @return ListAppInstanceGroupResponse
+     * @return ListAppInstanceGroupResponse ListAppInstanceGroupResponse
      */
     public function listAppInstanceGroup($request)
     {
@@ -1601,10 +1729,12 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param ListAppInstancesRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary 查询交付组内实例列表
+     *  *
+     * @param ListAppInstancesRequest $request ListAppInstancesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListAppInstancesResponse
+     * @return ListAppInstancesResponse ListAppInstancesResponse
      */
     public function listAppInstancesWithOptions($request, $runtime)
     {
@@ -1652,9 +1782,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param ListAppInstancesRequest $request
+     * @summary 查询交付组内实例列表
+     *  *
+     * @param ListAppInstancesRequest $request ListAppInstancesRequest
      *
-     * @return ListAppInstancesResponse
+     * @return ListAppInstancesResponse ListAppInstancesResponse
      */
     public function listAppInstances($request)
     {
@@ -1664,10 +1796,12 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param ListNodeInstanceTypeRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary 获取资源规格
+     *  *
+     * @param ListNodeInstanceTypeRequest $request ListNodeInstanceTypeRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListNodeInstanceTypeResponse
+     * @return ListNodeInstanceTypeResponse ListNodeInstanceTypeResponse
      */
     public function listNodeInstanceTypeWithOptions($request, $runtime)
     {
@@ -1713,9 +1847,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param ListNodeInstanceTypeRequest $request
+     * @summary 获取资源规格
+     *  *
+     * @param ListNodeInstanceTypeRequest $request ListNodeInstanceTypeRequest
      *
-     * @return ListNodeInstanceTypeResponse
+     * @return ListNodeInstanceTypeResponse ListNodeInstanceTypeResponse
      */
     public function listNodeInstanceType($request)
     {
@@ -1725,10 +1861,12 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param ListOtaTaskRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary 升级历史记录
+     *  *
+     * @param ListOtaTaskRequest $request ListOtaTaskRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListOtaTaskResponse
+     * @return ListOtaTaskResponse ListOtaTaskResponse
      */
     public function listOtaTaskWithOptions($request, $runtime)
     {
@@ -1765,9 +1903,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param ListOtaTaskRequest $request
+     * @summary 升级历史记录
+     *  *
+     * @param ListOtaTaskRequest $request ListOtaTaskRequest
      *
-     * @return ListOtaTaskResponse
+     * @return ListOtaTaskResponse ListOtaTaskResponse
      */
     public function listOtaTask($request)
     {
@@ -1777,10 +1917,12 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param ListProjectsRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary 获取项目列表
+     *  *
+     * @param ListProjectsRequest $request ListProjectsRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListProjectsResponse
+     * @return ListProjectsResponse ListProjectsResponse
      */
     public function listProjectsWithOptions($request, $runtime)
     {
@@ -1823,9 +1965,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param ListProjectsRequest $request
+     * @summary 获取项目列表
+     *  *
+     * @param ListProjectsRequest $request ListProjectsRequest
      *
-     * @return ListProjectsResponse
+     * @return ListProjectsResponse ListProjectsResponse
      */
     public function listProjects($request)
     {
@@ -1835,13 +1979,23 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary 云应用支持的地域列表
+     *  *
+     * @param ListRegionsRequest $request ListRegionsRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListRegionsResponse
+     * @return ListRegionsResponse ListRegionsResponse
      */
-    public function listRegionsWithOptions($runtime)
+    public function listRegionsWithOptions($request, $runtime)
     {
-        $req    = new OpenApiRequest([]);
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->productType)) {
+            $query['ProductType'] = $request->productType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
         $params = new Params([
             'action'      => 'ListRegions',
             'version'     => '2021-09-01',
@@ -1858,20 +2012,26 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @return ListRegionsResponse
+     * @summary 云应用支持的地域列表
+     *  *
+     * @param ListRegionsRequest $request ListRegionsRequest
+     *
+     * @return ListRegionsResponse ListRegionsResponse
      */
-    public function listRegions()
+    public function listRegions($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->listRegionsWithOptions($runtime);
+        return $this->listRegionsWithOptions($request, $runtime);
     }
 
     /**
-     * @param ListSessionPackagesRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary 项目的会话包列表
+     *  *
+     * @param ListSessionPackagesRequest $request ListSessionPackagesRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListSessionPackagesResponse
+     * @return ListSessionPackagesResponse ListSessionPackagesResponse
      */
     public function listSessionPackagesWithOptions($request, $runtime)
     {
@@ -1917,9 +2077,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param ListSessionPackagesRequest $request
+     * @summary 项目的会话包列表
+     *  *
+     * @param ListSessionPackagesRequest $request ListSessionPackagesRequest
      *
-     * @return ListSessionPackagesResponse
+     * @return ListSessionPackagesResponse ListSessionPackagesResponse
      */
     public function listSessionPackages($request)
     {
@@ -1929,9 +2091,9 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTenantConfigResponse
+     * @return ListTenantConfigResponse ListTenantConfigResponse
      */
     public function listTenantConfigWithOptions($runtime)
     {
@@ -1952,7 +2114,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @return ListTenantConfigResponse
+     * @return ListTenantConfigResponse ListTenantConfigResponse
      */
     public function listTenantConfig()
     {
@@ -1962,10 +2124,12 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param LogOffAllSessionsInAppInstanceGroupRequest $request
-     * @param RuntimeOptions                             $runtime
+     * @summary 注销交付下所有会话
+     *  *
+     * @param LogOffAllSessionsInAppInstanceGroupRequest $request LogOffAllSessionsInAppInstanceGroupRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
-     * @return LogOffAllSessionsInAppInstanceGroupResponse
+     * @return LogOffAllSessionsInAppInstanceGroupResponse LogOffAllSessionsInAppInstanceGroupResponse
      */
     public function logOffAllSessionsInAppInstanceGroupWithOptions($request, $runtime)
     {
@@ -1996,9 +2160,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param LogOffAllSessionsInAppInstanceGroupRequest $request
+     * @summary 注销交付下所有会话
+     *  *
+     * @param LogOffAllSessionsInAppInstanceGroupRequest $request LogOffAllSessionsInAppInstanceGroupRequest
      *
-     * @return LogOffAllSessionsInAppInstanceGroupResponse
+     * @return LogOffAllSessionsInAppInstanceGroupResponse LogOffAllSessionsInAppInstanceGroupResponse
      */
     public function logOffAllSessionsInAppInstanceGroup($request)
     {
@@ -2008,10 +2174,12 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param MigrateSessionPackageRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary 会话包 迁移/分配
+     *  *
+     * @param MigrateSessionPackageRequest $request MigrateSessionPackageRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return MigrateSessionPackageResponse
+     * @return MigrateSessionPackageResponse MigrateSessionPackageResponse
      */
     public function migrateSessionPackageWithOptions($request, $runtime)
     {
@@ -2045,9 +2213,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param MigrateSessionPackageRequest $request
+     * @summary 会话包 迁移/分配
+     *  *
+     * @param MigrateSessionPackageRequest $request MigrateSessionPackageRequest
      *
-     * @return MigrateSessionPackageResponse
+     * @return MigrateSessionPackageResponse MigrateSessionPackageResponse
      */
     public function migrateSessionPackage($request)
     {
@@ -2057,10 +2227,12 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param ModifyAppInstanceGroupAttributeRequest $tmpReq
-     * @param RuntimeOptions                         $runtime
+     * @summary 修改云应用交付组
+     *  *
+     * @param ModifyAppInstanceGroupAttributeRequest $tmpReq  ModifyAppInstanceGroupAttributeRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyAppInstanceGroupAttributeResponse
+     * @return ModifyAppInstanceGroupAttributeResponse ModifyAppInstanceGroupAttributeResponse
      */
     public function modifyAppInstanceGroupAttributeWithOptions($tmpReq, $runtime)
     {
@@ -2131,9 +2303,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param ModifyAppInstanceGroupAttributeRequest $request
+     * @summary 修改云应用交付组
+     *  *
+     * @param ModifyAppInstanceGroupAttributeRequest $request ModifyAppInstanceGroupAttributeRequest
      *
-     * @return ModifyAppInstanceGroupAttributeResponse
+     * @return ModifyAppInstanceGroupAttributeResponse ModifyAppInstanceGroupAttributeResponse
      */
     public function modifyAppInstanceGroupAttribute($request)
     {
@@ -2143,10 +2317,68 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param ModifyNodePoolAttributeRequest $tmpReq
-     * @param RuntimeOptions                 $runtime
+     * @summary 修改策略信息
+     *  *
+     * @param ModifyAppPolicyRequest $tmpReq  ModifyAppPolicyRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyNodePoolAttributeResponse
+     * @return ModifyAppPolicyResponse ModifyAppPolicyResponse
+     */
+    public function modifyAppPolicyWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ModifyAppPolicyShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->videoPolicy)) {
+            $request->videoPolicyShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->videoPolicy, 'VideoPolicy', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->appPolicyId)) {
+            $query['AppPolicyId'] = $request->appPolicyId;
+        }
+        if (!Utils::isUnset($request->productType)) {
+            $query['ProductType'] = $request->productType;
+        }
+        if (!Utils::isUnset($request->videoPolicyShrink)) {
+            $query['VideoPolicy'] = $request->videoPolicyShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyAppPolicy',
+            'version'     => '2021-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyAppPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 修改策略信息
+     *  *
+     * @param ModifyAppPolicyRequest $request ModifyAppPolicyRequest
+     *
+     * @return ModifyAppPolicyResponse ModifyAppPolicyResponse
+     */
+    public function modifyAppPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyAppPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyNodePoolAttributeRequest $tmpReq  ModifyNodePoolAttributeRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyNodePoolAttributeResponse ModifyNodePoolAttributeResponse
      */
     public function modifyNodePoolAttributeWithOptions($tmpReq, $runtime)
     {
@@ -2191,9 +2423,9 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param ModifyNodePoolAttributeRequest $request
+     * @param ModifyNodePoolAttributeRequest $request ModifyNodePoolAttributeRequest
      *
-     * @return ModifyNodePoolAttributeResponse
+     * @return ModifyNodePoolAttributeResponse ModifyNodePoolAttributeResponse
      */
     public function modifyNodePoolAttribute($request)
     {
@@ -2203,10 +2435,12 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param ModifyProjectPolicyRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary 修改项目策略
+     *  *
+     * @param ModifyProjectPolicyRequest $request ModifyProjectPolicyRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyProjectPolicyResponse
+     * @return ModifyProjectPolicyResponse ModifyProjectPolicyResponse
      */
     public function modifyProjectPolicyWithOptions($request, $runtime)
     {
@@ -2258,9 +2492,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param ModifyProjectPolicyRequest $request
+     * @summary 修改项目策略
+     *  *
+     * @param ModifyProjectPolicyRequest $request ModifyProjectPolicyRequest
      *
-     * @return ModifyProjectPolicyResponse
+     * @return ModifyProjectPolicyResponse ModifyProjectPolicyResponse
      */
     public function modifyProjectPolicy($request)
     {
@@ -2270,10 +2506,10 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param ModifyTenantConfigRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param ModifyTenantConfigRequest $request ModifyTenantConfigRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyTenantConfigResponse
+     * @return ModifyTenantConfigResponse ModifyTenantConfigResponse
      */
     public function modifyTenantConfigWithOptions($request, $runtime)
     {
@@ -2301,9 +2537,9 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param ModifyTenantConfigRequest $request
+     * @param ModifyTenantConfigRequest $request ModifyTenantConfigRequest
      *
-     * @return ModifyTenantConfigResponse
+     * @return ModifyTenantConfigResponse ModifyTenantConfigResponse
      */
     public function modifyTenantConfig($request)
     {
@@ -2313,10 +2549,12 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param PageListAppInstanceGroupUserRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary 获取授权用户列表
+     *  *
+     * @param PageListAppInstanceGroupUserRequest $request PageListAppInstanceGroupUserRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return PageListAppInstanceGroupUserResponse
+     * @return PageListAppInstanceGroupUserResponse PageListAppInstanceGroupUserResponse
      */
     public function pageListAppInstanceGroupUserWithOptions($request, $runtime)
     {
@@ -2353,9 +2591,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param PageListAppInstanceGroupUserRequest $request
+     * @summary 获取授权用户列表
+     *  *
+     * @param PageListAppInstanceGroupUserRequest $request PageListAppInstanceGroupUserRequest
      *
-     * @return PageListAppInstanceGroupUserResponse
+     * @return PageListAppInstanceGroupUserResponse PageListAppInstanceGroupUserResponse
      */
     public function pageListAppInstanceGroupUser($request)
     {
@@ -2365,10 +2605,12 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param RefreshAccessUrlRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary 刷新访问url
+     *  *
+     * @param RefreshAccessUrlRequest $request RefreshAccessUrlRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return RefreshAccessUrlResponse
+     * @return RefreshAccessUrlResponse RefreshAccessUrlResponse
      */
     public function refreshAccessUrlWithOptions($request, $runtime)
     {
@@ -2396,9 +2638,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param RefreshAccessUrlRequest $request
+     * @summary 刷新访问url
+     *  *
+     * @param RefreshAccessUrlRequest $request RefreshAccessUrlRequest
      *
-     * @return RefreshAccessUrlResponse
+     * @return RefreshAccessUrlResponse RefreshAccessUrlResponse
      */
     public function refreshAccessUrl($request)
     {
@@ -2408,10 +2652,12 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param RenewAppInstanceGroupRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary 资源续费接口
+     *  *
+     * @param RenewAppInstanceGroupRequest $request RenewAppInstanceGroupRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return RenewAppInstanceGroupResponse
+     * @return RenewAppInstanceGroupResponse RenewAppInstanceGroupResponse
      */
     public function renewAppInstanceGroupWithOptions($request, $runtime)
     {
@@ -2454,9 +2700,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param RenewAppInstanceGroupRequest $request
+     * @summary 资源续费接口
+     *  *
+     * @param RenewAppInstanceGroupRequest $request RenewAppInstanceGroupRequest
      *
-     * @return RenewAppInstanceGroupResponse
+     * @return RenewAppInstanceGroupResponse RenewAppInstanceGroupResponse
      */
     public function renewAppInstanceGroup($request)
     {
@@ -2466,10 +2714,12 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param RenewSessionPackageRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary 会话包续费
+     *  *
+     * @param RenewSessionPackageRequest $request RenewSessionPackageRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return RenewSessionPackageResponse
+     * @return RenewSessionPackageResponse RenewSessionPackageResponse
      */
     public function renewSessionPackageWithOptions($request, $runtime)
     {
@@ -2503,9 +2753,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param RenewSessionPackageRequest $request
+     * @summary 会话包续费
+     *  *
+     * @param RenewSessionPackageRequest $request RenewSessionPackageRequest
      *
-     * @return RenewSessionPackageResponse
+     * @return RenewSessionPackageResponse RenewSessionPackageResponse
      */
     public function renewSessionPackage($request)
     {
@@ -2515,10 +2767,12 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param UnbindRequest  $request
-     * @param RuntimeOptions $runtime
+     * @summary 解除用户绑定
+     *  *
+     * @param UnbindRequest  $request UnbindRequest
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return UnbindResponse
+     * @return UnbindResponse UnbindResponse
      */
     public function unbindWithOptions($request, $runtime)
     {
@@ -2558,9 +2812,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param UnbindRequest $request
+     * @summary 解除用户绑定
+     *  *
+     * @param UnbindRequest $request UnbindRequest
      *
-     * @return UnbindResponse
+     * @return UnbindResponse UnbindResponse
      */
     public function unbind($request)
     {
@@ -2570,10 +2826,12 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param UpdateAccessPageStateRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary 更新访问页面状态
+     *  *
+     * @param UpdateAccessPageStateRequest $request UpdateAccessPageStateRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateAccessPageStateResponse
+     * @return UpdateAccessPageStateResponse UpdateAccessPageStateResponse
      */
     public function updateAccessPageStateWithOptions($request, $runtime)
     {
@@ -2604,9 +2862,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param UpdateAccessPageStateRequest $request
+     * @summary 更新访问页面状态
+     *  *
+     * @param UpdateAccessPageStateRequest $request UpdateAccessPageStateRequest
      *
-     * @return UpdateAccessPageStateResponse
+     * @return UpdateAccessPageStateResponse UpdateAccessPageStateResponse
      */
     public function updateAccessPageState($request)
     {
@@ -2616,10 +2876,12 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param UpdateAppInstanceGroupImageRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary 更新镜像
+     *  *
+     * @param UpdateAppInstanceGroupImageRequest $request UpdateAppInstanceGroupImageRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateAppInstanceGroupImageResponse
+     * @return UpdateAppInstanceGroupImageResponse UpdateAppInstanceGroupImageResponse
      */
     public function updateAppInstanceGroupImageWithOptions($request, $runtime)
     {
@@ -2656,9 +2918,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param UpdateAppInstanceGroupImageRequest $request
+     * @summary 更新镜像
+     *  *
+     * @param UpdateAppInstanceGroupImageRequest $request UpdateAppInstanceGroupImageRequest
      *
-     * @return UpdateAppInstanceGroupImageResponse
+     * @return UpdateAppInstanceGroupImageResponse UpdateAppInstanceGroupImageResponse
      */
     public function updateAppInstanceGroupImage($request)
     {

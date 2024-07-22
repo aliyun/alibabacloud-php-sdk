@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListAppInstancesRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example aig-4p5f8tj16yb8b****
      *
      * @var string

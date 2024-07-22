@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UnbindRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example aig-9ciijz60n4xsv****
      *
      * @var string
@@ -28,6 +30,8 @@ class UnbindRequest extends Model
     public $appInstancePersistentId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example alice
      *
      * @var string
@@ -35,6 +39,8 @@ class UnbindRequest extends Model
     public $endUserId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example CloudApp
      *
      * @var string

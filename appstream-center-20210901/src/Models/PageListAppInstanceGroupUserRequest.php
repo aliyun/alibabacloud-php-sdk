@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class PageListAppInstanceGroupUserRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example aig-9ciijz60n4xsv****
      *
      * @var string
@@ -30,6 +32,8 @@ class PageListAppInstanceGroupUserRequest extends Model
     public $pageSize;
 
     /**
+     * @description This parameter is required.
+     *
      * @example CloudApp
      *
      * @var string

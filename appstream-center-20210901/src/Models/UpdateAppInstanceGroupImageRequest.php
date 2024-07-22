@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateAppInstanceGroupImageRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example img-8z4nztpaqvay4****
      *
      * @var string
@@ -16,6 +18,8 @@ class UpdateAppInstanceGroupImageRequest extends Model
     public $appCenterImageId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example aig-9ciijz60n4xsv****
      *
      * @var string
@@ -23,6 +27,8 @@ class UpdateAppInstanceGroupImageRequest extends Model
     public $appInstanceGroupId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -30,6 +36,8 @@ class UpdateAppInstanceGroupImageRequest extends Model
     public $bizRegionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example CloudApp
      *
      * @var string

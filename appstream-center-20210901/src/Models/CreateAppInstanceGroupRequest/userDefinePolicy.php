@@ -2,22 +2,18 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models;
+namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateAppInstanceGroupRequest;
 
 use AlibabaCloud\Tea\Model;
 
-class GetOtaTaskByTaskIdRequest extends Model
+class userDefinePolicy extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example ota-be7jzm29wrrz5****
-     *
      * @var string
      */
-    public $taskId;
+    public $customConfig;
     protected $_name = [
-        'taskId' => 'TaskId',
+        'customConfig' => 'CustomConfig',
     ];
 
     public function validate()
@@ -27,8 +23,8 @@ class GetOtaTaskByTaskIdRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->taskId) {
-            $res['TaskId'] = $this->taskId;
+        if (null !== $this->customConfig) {
+            $res['CustomConfig'] = $this->customConfig;
         }
 
         return $res;
@@ -37,13 +33,13 @@ class GetOtaTaskByTaskIdRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetOtaTaskByTaskIdRequest
+     * @return userDefinePolicy
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TaskId'])) {
-            $model->taskId = $map['TaskId'];
+        if (isset($map['CustomConfig'])) {
+            $model->customConfig = $map['CustomConfig'];
         }
 
         return $model;

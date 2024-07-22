@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ApproveOtaTaskRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example aig-9ciijz60n4xsv****
      *
      * @var string
@@ -16,6 +18,8 @@ class ApproveOtaTaskRequest extends Model
     public $appInstanceGroupId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -23,6 +27,8 @@ class ApproveOtaTaskRequest extends Model
     public $bizRegionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Fota
      *
      * @var string
@@ -30,6 +36,9 @@ class ApproveOtaTaskRequest extends Model
     public $otaType;
 
     /**
+     * @description This parameter is required.
+     *
+     * Use the UTC time format: yyyy-MM-ddTHH:mmZ
      * @example 2022-08-04T14:36:00+08:00
      *
      * @var string
@@ -37,6 +46,8 @@ class ApproveOtaTaskRequest extends Model
     public $startTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ota-be7jzm29wrrz5****
      *
      * @var string

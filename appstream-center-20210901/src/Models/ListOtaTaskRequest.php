@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListOtaTaskRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example aig-53fvrq1oanz6c****
      *
      * @var string
@@ -16,6 +18,8 @@ class ListOtaTaskRequest extends Model
     public $appInstanceGroupId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Fota
      *
      * @var string
@@ -23,6 +27,8 @@ class ListOtaTaskRequest extends Model
     public $otaType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -30,6 +36,8 @@ class ListOtaTaskRequest extends Model
     public $pageNumber;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 10
      *
      * @var int

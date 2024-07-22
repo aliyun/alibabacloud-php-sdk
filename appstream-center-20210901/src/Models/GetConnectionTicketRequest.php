@@ -54,6 +54,8 @@ class GetConnectionTicketRequest extends Model
     public $bizRegionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example alice
      *
      * @var string
@@ -61,6 +63,8 @@ class GetConnectionTicketRequest extends Model
     public $endUserId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example CloudApp
      *
      * @var string

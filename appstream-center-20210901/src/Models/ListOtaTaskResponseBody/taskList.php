@@ -30,6 +30,8 @@ class taskList extends Model
     public $taskId;
 
     /**
+     * @description Use the UTC time format: yyyy-MM-ddTHH:mmZ
+     *
      * @example 2022-08-04T14:36:00+08:00
      *
      * @var string

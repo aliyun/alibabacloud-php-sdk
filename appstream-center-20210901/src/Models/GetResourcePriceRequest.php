@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetResourcePriceRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +25,8 @@ class GetResourcePriceRequest extends Model
     public $appInstanceType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -30,6 +34,8 @@ class GetResourcePriceRequest extends Model
     public $bizRegionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example PrePaid
      *
      * @var string
@@ -44,6 +50,8 @@ class GetResourcePriceRequest extends Model
     public $nodeInstanceType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -51,11 +59,15 @@ class GetResourcePriceRequest extends Model
     public $period;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $periodUnit;
 
     /**
+     * @description This parameter is required.
+     *
      * @example CloudApp
      *
      * @var string

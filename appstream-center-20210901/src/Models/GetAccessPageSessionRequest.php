@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetAccessPageSessionRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example a-062wec3cwmayw****
      *
      * @var string
@@ -16,6 +18,8 @@ class GetAccessPageSessionRequest extends Model
     public $accessPageId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 8141B1A674D48ACB8E5D2D6CE53FDB2F3CF8710A5F8F78578D5254BC6F******
      *
      * @var string

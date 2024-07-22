@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetProjectPoliciesResponse extends Model
+class ModifyAppPolicyResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class GetProjectPoliciesResponse extends Model
     public $statusCode;
 
     /**
-     * @var GetProjectPoliciesResponseBody
+     * @var ModifyAppPolicyResponseBody
      */
     public $body;
     protected $_name = [
@@ -51,7 +51,7 @@ class GetProjectPoliciesResponse extends Model
     /**
      * @param array $map
      *
-     * @return GetProjectPoliciesResponse
+     * @return ModifyAppPolicyResponse
      */
     public static function fromMap($map = [])
     {
@@ -63,7 +63,7 @@ class GetProjectPoliciesResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = GetProjectPoliciesResponseBody::fromMap($map['body']);
+            $model->body = ModifyAppPolicyResponseBody::fromMap($map['body']);
         }
 
         return $model;

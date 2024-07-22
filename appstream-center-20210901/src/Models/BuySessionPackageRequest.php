@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class BuySessionPackageRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $autoPay;
+
+    /**
      * @var string
      */
     public $chargeType;
@@ -36,6 +41,8 @@ class BuySessionPackageRequest extends Model
     public $projectId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -55,6 +62,8 @@ class BuySessionPackageRequest extends Model
     public $sessionPackageType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example appstreaming.general.entry
      *
      * @var string
@@ -62,12 +71,15 @@ class BuySessionPackageRequest extends Model
     public $sessionSpec;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Windows
      *
      * @var string
      */
     public $sessionType;
     protected $_name = [
+        'autoPay'            => 'AutoPay',
         'chargeType'         => 'ChargeType',
         'maxSessions'        => 'MaxSessions',
         'period'             => 'Period',
@@ -87,6 +99,9 @@ class BuySessionPackageRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->autoPay) {
+            $res['AutoPay'] = $this->autoPay;
+        }
         if (null !== $this->chargeType) {
             $res['ChargeType'] = $this->chargeType;
         }
@@ -129,6 +144,9 @@ class BuySessionPackageRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AutoPay'])) {
+            $model->autoPay = $map['AutoPay'];
+        }
         if (isset($map['ChargeType'])) {
             $model->chargeType = $map['ChargeType'];
         }

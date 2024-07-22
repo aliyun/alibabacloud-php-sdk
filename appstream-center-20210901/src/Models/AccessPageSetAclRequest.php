@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AccessPageSetAclRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example FREE_ACCESS
      *
      * @var string
@@ -16,6 +18,8 @@ class AccessPageSetAclRequest extends Model
     public $accessMode;
 
     /**
+     * @description This parameter is required.
+     *
      * @example a-062wec3cwmayw****
      *
      * @var string
@@ -30,6 +34,8 @@ class AccessPageSetAclRequest extends Model
     public $accessPageName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 7
      *
      * @var int

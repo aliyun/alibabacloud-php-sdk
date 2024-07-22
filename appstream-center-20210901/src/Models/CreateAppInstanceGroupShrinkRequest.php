@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateAppInstanceGroupShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example img-8z4nztpaqvay4****
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateAppInstanceGroupShrinkRequest extends Model
     public $appCenterImageId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $appInstanceGroupName;
@@ -35,6 +39,8 @@ class CreateAppInstanceGroupShrinkRequest extends Model
     public $autoRenew;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -42,6 +48,8 @@ class CreateAppInstanceGroupShrinkRequest extends Model
     public $bizRegionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Node
      *
      * @var string
@@ -49,6 +57,8 @@ class CreateAppInstanceGroupShrinkRequest extends Model
     public $chargeResourceMode;
 
     /**
+     * @description This parameter is required.
+     *
      * @example PrePaid
      *
      * @var string
@@ -66,6 +76,8 @@ class CreateAppInstanceGroupShrinkRequest extends Model
     public $nodePoolShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -73,6 +85,8 @@ class CreateAppInstanceGroupShrinkRequest extends Model
     public $period;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $periodUnit;
@@ -85,6 +99,8 @@ class CreateAppInstanceGroupShrinkRequest extends Model
     public $preOpenAppId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example CloudApp
      *
      * @var string
@@ -109,6 +125,8 @@ class CreateAppInstanceGroupShrinkRequest extends Model
     public $securityPolicyShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 15
      *
      * @var int
@@ -123,33 +141,45 @@ class CreateAppInstanceGroupShrinkRequest extends Model
     /**
      * @var string
      */
+    public $userDefinePolicyShrink;
+
+    /**
+     * @var string
+     */
     public $userInfoShrink;
 
     /**
      * @var string[]
      */
     public $users;
+
+    /**
+     * @var string
+     */
+    public $videoPolicyShrink;
     protected $_name = [
-        'appCenterImageId'     => 'AppCenterImageId',
-        'appInstanceGroupName' => 'AppInstanceGroupName',
-        'autoPay'              => 'AutoPay',
-        'autoRenew'            => 'AutoRenew',
-        'bizRegionId'          => 'BizRegionId',
-        'chargeResourceMode'   => 'ChargeResourceMode',
-        'chargeType'           => 'ChargeType',
-        'networkShrink'        => 'Network',
-        'nodePoolShrink'       => 'NodePool',
-        'period'               => 'Period',
-        'periodUnit'           => 'PeriodUnit',
-        'preOpenAppId'         => 'PreOpenAppId',
-        'productType'          => 'ProductType',
-        'promotionId'          => 'PromotionId',
-        'runtimePolicyShrink'  => 'RuntimePolicy',
-        'securityPolicyShrink' => 'SecurityPolicy',
-        'sessionTimeout'       => 'SessionTimeout',
-        'storagePolicyShrink'  => 'StoragePolicy',
-        'userInfoShrink'       => 'UserInfo',
-        'users'                => 'Users',
+        'appCenterImageId'       => 'AppCenterImageId',
+        'appInstanceGroupName'   => 'AppInstanceGroupName',
+        'autoPay'                => 'AutoPay',
+        'autoRenew'              => 'AutoRenew',
+        'bizRegionId'            => 'BizRegionId',
+        'chargeResourceMode'     => 'ChargeResourceMode',
+        'chargeType'             => 'ChargeType',
+        'networkShrink'          => 'Network',
+        'nodePoolShrink'         => 'NodePool',
+        'period'                 => 'Period',
+        'periodUnit'             => 'PeriodUnit',
+        'preOpenAppId'           => 'PreOpenAppId',
+        'productType'            => 'ProductType',
+        'promotionId'            => 'PromotionId',
+        'runtimePolicyShrink'    => 'RuntimePolicy',
+        'securityPolicyShrink'   => 'SecurityPolicy',
+        'sessionTimeout'         => 'SessionTimeout',
+        'storagePolicyShrink'    => 'StoragePolicy',
+        'userDefinePolicyShrink' => 'UserDefinePolicy',
+        'userInfoShrink'         => 'UserInfo',
+        'users'                  => 'Users',
+        'videoPolicyShrink'      => 'VideoPolicy',
     ];
 
     public function validate()
@@ -213,11 +243,17 @@ class CreateAppInstanceGroupShrinkRequest extends Model
         if (null !== $this->storagePolicyShrink) {
             $res['StoragePolicy'] = $this->storagePolicyShrink;
         }
+        if (null !== $this->userDefinePolicyShrink) {
+            $res['UserDefinePolicy'] = $this->userDefinePolicyShrink;
+        }
         if (null !== $this->userInfoShrink) {
             $res['UserInfo'] = $this->userInfoShrink;
         }
         if (null !== $this->users) {
             $res['Users'] = $this->users;
+        }
+        if (null !== $this->videoPolicyShrink) {
+            $res['VideoPolicy'] = $this->videoPolicyShrink;
         }
 
         return $res;
@@ -285,6 +321,9 @@ class CreateAppInstanceGroupShrinkRequest extends Model
         if (isset($map['StoragePolicy'])) {
             $model->storagePolicyShrink = $map['StoragePolicy'];
         }
+        if (isset($map['UserDefinePolicy'])) {
+            $model->userDefinePolicyShrink = $map['UserDefinePolicy'];
+        }
         if (isset($map['UserInfo'])) {
             $model->userInfoShrink = $map['UserInfo'];
         }
@@ -292,6 +331,9 @@ class CreateAppInstanceGroupShrinkRequest extends Model
             if (!empty($map['Users'])) {
                 $model->users = $map['Users'];
             }
+        }
+        if (isset($map['VideoPolicy'])) {
+            $model->videoPolicyShrink = $map['VideoPolicy'];
         }
 
         return $model;
