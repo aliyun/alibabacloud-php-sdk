@@ -767,6 +767,9 @@ class Bailian extends OpenApiClient
         if (!Utils::isUnset($tmpReq->rewrite)) {
             $request->rewriteShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->rewrite, 'Rewrite', 'json');
         }
+        if (!Utils::isUnset($tmpReq->searchFilters)) {
+            $request->searchFiltersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->searchFilters, 'SearchFilters', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->denseSimilarityTopK)) {
             $query['DenseSimilarityTopK'] = $request->denseSimilarityTopK;
@@ -797,6 +800,9 @@ class Bailian extends OpenApiClient
         }
         if (!Utils::isUnset($request->saveRetrieverHistory)) {
             $query['SaveRetrieverHistory'] = $request->saveRetrieverHistory;
+        }
+        if (!Utils::isUnset($request->searchFiltersShrink)) {
+            $query['SearchFilters'] = $request->searchFiltersShrink;
         }
         if (!Utils::isUnset($request->sparseSimilarityTopK)) {
             $query['SparseSimilarityTopK'] = $request->sparseSimilarityTopK;

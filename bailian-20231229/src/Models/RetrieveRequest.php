@@ -77,6 +77,11 @@ class RetrieveRequest extends Model
     public $saveRetrieverHistory;
 
     /**
+     * @var string[][]
+     */
+    public $searchFilters;
+
+    /**
      * @example 100
      *
      * @var int
@@ -93,6 +98,7 @@ class RetrieveRequest extends Model
         'rerankTopN'           => 'RerankTopN',
         'rewrite'              => 'Rewrite',
         'saveRetrieverHistory' => 'SaveRetrieverHistory',
+        'searchFilters'        => 'SearchFilters',
         'sparseSimilarityTopK' => 'SparseSimilarityTopK',
     ];
 
@@ -144,6 +150,9 @@ class RetrieveRequest extends Model
         }
         if (null !== $this->saveRetrieverHistory) {
             $res['SaveRetrieverHistory'] = $this->saveRetrieverHistory;
+        }
+        if (null !== $this->searchFilters) {
+            $res['SearchFilters'] = $this->searchFilters;
         }
         if (null !== $this->sparseSimilarityTopK) {
             $res['SparseSimilarityTopK'] = $this->sparseSimilarityTopK;
@@ -201,6 +210,11 @@ class RetrieveRequest extends Model
         }
         if (isset($map['SaveRetrieverHistory'])) {
             $model->saveRetrieverHistory = $map['SaveRetrieverHistory'];
+        }
+        if (isset($map['SearchFilters'])) {
+            if (!empty($map['SearchFilters'])) {
+                $model->searchFilters = $map['SearchFilters'];
+            }
         }
         if (isset($map['SparseSimilarityTopK'])) {
             $model->sparseSimilarityTopK = $map['SparseSimilarityTopK'];
