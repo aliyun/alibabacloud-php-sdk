@@ -44,7 +44,7 @@ class parameterDefinition extends Model
     public $possibleValues;
 
     /**
-     * @description Indicates whether the custom parameter is required.
+     * @description Indicates whether the custom parameter is required. Valid values:
      *
      *   true
      *   false

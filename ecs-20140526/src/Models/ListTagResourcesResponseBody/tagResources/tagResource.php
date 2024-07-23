@@ -18,7 +18,7 @@ class tagResource extends Model
     public $resourceId;
 
     /**
-     * @description The type of a resource. Valid values:
+     * @description The resource type. Valid values:
      *
      *   instance: ECS instance
      *   disk: disk
@@ -37,6 +37,8 @@ class tagResource extends Model
      *   capacityreservation: capacity reservation
      *   command: Cloud Assistant command
      *   invocation: Cloud Assistant command execution result
+     *   activation: activation code for a Cloud Assistant managed instance
+     *   managedinstance: Cloud Assistant managed instance
      *
      * @example instance
      *
@@ -45,7 +47,7 @@ class tagResource extends Model
     public $resourceType;
 
     /**
-     * @description The key of the tag.
+     * @description The tag key of the resource.
      *
      * @example TestKey
      *
@@ -54,7 +56,7 @@ class tagResource extends Model
     public $tagKey;
 
     /**
-     * @description The value of the tag.
+     * @description The tag value of the resource.
      *
      * @example TestValue
      *

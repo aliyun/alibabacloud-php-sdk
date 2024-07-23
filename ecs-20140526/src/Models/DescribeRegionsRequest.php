@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeRegionsRequest extends Model
 {
     /**
-     * @description The natural language that is used to filter responses. For more information, visit [RFC 7231](https://tools.ietf.org/html/rfc7231). Valid values:
+     * @description The natural language that is used to filter responses. For more information, see [RFC 7231](https://tools.ietf.org/html/rfc7231). Valid values:
      *
      *   zh-CN: Chinese
      *   en-US: English
@@ -23,9 +23,9 @@ class DescribeRegionsRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @description The billing method of the instance. For more information, see [Billing overview](https://help.aliyun.com/document_detail/25398.html). Valid values:
+     * @description The billing method of instances. For more information, see [Billing overview](https://help.aliyun.com/document_detail/25398.html). Valid values:
      *
-     *   PrePaid: subscription. If this parameter is set to PrePaid, make sure that you have sufficient balance or credits in your account. Otherwise, the InvalidPayMethod error code is returned.
+     *   PrePaid: subscription. If you set this parameter to PrePaid, make sure that you have sufficient balance or credits in your account. Otherwise, the InvalidPayMethod error code is returned.
      *   PostPaid: pay-as-you-go.
      *
      * Default value: PostPaid.
@@ -56,7 +56,7 @@ class DescribeRegionsRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The type of the resource. Valid values:
+     * @description The resource type. Valid value:
      *
      *   instance: Elastic Compute Service (ECS) instance
      *   disk: disk

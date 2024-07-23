@@ -19,7 +19,7 @@ class networkInterface extends Model
     public $description;
 
     /**
-     * @description The instance type.
+     * @description The instance type of the instance.
      *
      * @example ecs.s2.xlarge
      *
@@ -37,12 +37,11 @@ class networkInterface extends Model
     public $networkInterfaceName;
 
     /**
-     * @description The communication mode of the ENI. Valid values:
+     * @description The communication mode of the primary ENI. Valid values:
      *
-     *   Standard: The TCP communication mode is used.
-     *   HighPerformance: Elastic RDMA Interface (ERI) is enabled and the remote direct memory access (RDMA) communication mode is used.
+     *   Standard: uses the TCP communication mode.
+     *   HighPerformance: uses the remote direct memory access (RDMA) communication mode with Elastic RDMA Interface (ERI) enabled.
      *
-     * > This parameter can have a value of HighPerformance only when the ENI is attached to a c7re RDMA-enhanced instance that resides in Beijing Zone K.
      * @example Standard
      *
      * @var string
@@ -59,9 +58,9 @@ class networkInterface extends Model
     public $primaryIpAddress;
 
     /**
-     * @description The ID of the security group to which to assign the ENI. The security group and the ENI must belong to the same VPC.
+     * @description The ID of the security group to which to assign the secondary ENI. The security group and the ENI must belong to the same VPC.
      *
-     * > You must specify `SecurityGroupId` or `SecurityGroupIds.N` but not both.
+     * >  SecurityGroupId and SecurityGroupIds are mutually exclusive in the response.
      * @example sg-bp67acfmxazb4p****
      *
      * @var string
@@ -69,15 +68,15 @@ class networkInterface extends Model
     public $securityGroupId;
 
     /**
-     * @description The ID of security group *N* with which you want to associate the ECS instance. Valid values of *N* vary based on the maximum number of security groups with which the instance can be associated. For more information, see the "Security group limits" section in the [Limits](https://help.aliyun.com/document_detail/25412.html) topic.
+     * @description The IDs of the security groups to which to assign the secondary ENI.
      *
-     * >  You cannot specify the **SecurityGroupId** and **SecurityGroupIds.N** parameters at the same time.
+     * >  SecurityGroupId and SecurityGroupIds are mutually exclusive in the response.
      * @var securityGroupIds
      */
     public $securityGroupIds;
 
     /**
-     * @description The ID of the vSwitch to which to connect the secondary ENI.
+     * @description The ID of the vSwitch to which to connect the ENI.
      *
      * @example vsw-bp67acfmxazb4p****
      *

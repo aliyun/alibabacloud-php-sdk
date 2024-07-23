@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class CreateKeyPairRequest extends Model
 {
     /**
-     * @description The name of the key pair. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (_), and hyphens (-).
+     * @description The name of the key pair. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (_), and hyphens (-).
      *
      * This parameter is required.
      * @example testKeyPairName
@@ -35,7 +35,7 @@ class CreateKeyPairRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the enterprise resource group to which the SSH key pair belongs.
+     * @description The ID of the resource group to which to add the key pair.
      *
      * @example rg-bp67acfmxazb4p****
      *
@@ -54,7 +54,7 @@ class CreateKeyPairRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The tags.
+     * @description The tags of the key pair.
      *
      * @var tag[]
      */

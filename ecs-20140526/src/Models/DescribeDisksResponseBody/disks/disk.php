@@ -14,7 +14,7 @@ use AlibabaCloud\Tea\Model;
 class disk extends Model
 {
     /**
-     * @description The time when the cloud disk was last attached. The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mmZ format. The time is displayed in UTC.
+     * @description The time when the disk was last attached. The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mmZ format. The time is displayed in UTC.
      *
      * @example 2021-06-07T06:08:56Z
      *
@@ -23,7 +23,7 @@ class disk extends Model
     public $attachedTime;
 
     /**
-     * @description The attachment information about the cloud disk. The value is an array that contains a list of `Attachment` objects. The value is not returned when you query Shared Block Storage devices.
+     * @description The attachment information of the disk. The value is an array that consists of the `Attachment` values. This value is not returned when you query Shared Block Storage devices.
      *
      * @var attachments
      */
@@ -53,7 +53,7 @@ class disk extends Model
      *   true
      *   false
      *
-     * This parameter is available only if you set `DiskCategory` to `cloud_auto`. For more information, see [ESSD AutoPL disks](https://help.aliyun.com/document_detail/368372.html).
+     * This parameter is available only if you set `Category` to `cloud_auto`. For more information, see [ESSD AutoPL disks](https://help.aliyun.com/document_detail/368372.html).
      * @example false
      *
      * @var bool
@@ -71,6 +71,8 @@ class disk extends Model
      *   local_ssd_pro: I/O-intensive local disk
      *   local_hdd_pro: throughput-intensive local disk
      *   cloud_essd_entry: ESSD Entry disk
+     *   elastic_ephemeral_disk_standard: standard elastic ephemeral disk
+     *   elastic_ephemeral_disk_premium: premium static ephemeral disk
      *   ephemeral: retired local disk
      *   ephemeral_ssd: retired local SSD
      *
@@ -95,7 +97,7 @@ class disk extends Model
      *   true: The automatic snapshots of the cloud disk are deleted when the disk is released.
      *   false: The automatic snapshots of the cloud disk are retained when the disk is released.
      *
-     * Snapshots that were created in the Elastic Compute Service (ECS) console or by calling the [CreateSnapshot](https://help.aliyun.com/document_detail/25524.html) operation are retained and not affected by this parameter.
+     * Snapshots that were created in the ECS console or by calling the [CreateSnapshot](https://help.aliyun.com/document_detail/25524.html) operation are retained and not affected by this parameter.
      * @example false
      *
      * @var bool
@@ -103,10 +105,10 @@ class disk extends Model
     public $deleteAutoSnapshot;
 
     /**
-     * @description Indicates whether the cloud disk is released when the instance to which the disk is attached is released. Valid values:
+     * @description Indicates whether the disk is released when the instance to which the disk is attached is released. Valid values:
      *
-     *   true: The disk is released when the instance to which the disk is attached is released.
-     *   false: The disk is retained when the instance to which the disk is attached is released.
+     *   true: The disk is released when the associated instance is released.
+     *   false: The disk is retained when the associated instance is released.
      *
      * @example true
      *
@@ -124,7 +126,7 @@ class disk extends Model
     public $description;
 
     /**
-     * @description The time when the cloud disk was last detached.
+     * @description The time when the disk was last detached.
      *
      * @example 2021-06-07T21:01:22Z
      *
@@ -136,7 +138,7 @@ class disk extends Model
      * @description The device name of the disk on the instance to which the disk is attached. Example: /dev/xvdb. Take note of the following items:
      *
      *   This parameter has a value only when the `Status` value is `In_use` or `Detaching`.
-     *   This parameter is empty for disks that have the multi-attach feature enabled. You can query the attachment information of the disk based on the returned list of `Attachment` objects.
+     *   This parameter is empty for cloud disks for which the multi-attach feature is enabled. You can query the attachment information of the cloud disk based on the returned list of `Attachment` objects.
      *
      * >  This parameter will be removed in the future. We recommend that you use other parameters to ensure future compatibility.
      * @example /dev/xvdb
@@ -176,7 +178,7 @@ class disk extends Model
     public $diskName;
 
     /**
-     * @description Indicates whether the automatic snapshot policy feature is enabled for the cloud disk.
+     * @description Indicates whether the automatic snapshot policy feature is enabled for the disk.
      *
      * @example false
      *
@@ -203,7 +205,7 @@ class disk extends Model
     public $encrypted;
 
     /**
-     * @description The time when the subscription cloud disk expires.
+     * @description The time when the subscription disk expires.
      *
      * @example 2021-07-07T16:00Z
      *
@@ -251,7 +253,7 @@ class disk extends Model
      * @description The ID of the instance to which the disk is attached. Take note of the following items:
      *
      *   This parameter has a value only when the `Status` value is `In_use` or `Detaching`.
-     *   This parameter is empty for disks that have the multi-attach feature enabled. You can query the attachment information of the disk based on the returned list of `Attachment` objects.
+     *   This parameter is empty for cloud disks for which the multi-attach feature is enabled. You can query the attachment information of the cloud disk based on the returned `Attachment` objects.
      *
      * @example i-bp67acfmxazb4q****
      *
@@ -260,7 +262,7 @@ class disk extends Model
     public $instanceId;
 
     /**
-     * @description The ID of the Key Management Service (KMS) key that is used for the cloud disk.
+     * @description The ID of the KMS key that is used for the cloud disk.
      *
      * @example 0e478b7a-4262-4802-b8cb-00d3fb408***
      *
@@ -315,6 +317,8 @@ class disk extends Model
     public $performanceLevel;
 
     /**
+     * @description The locations in which data is stored.
+     *
      * @var placement
      */
     public $placement;
@@ -340,7 +344,7 @@ class disk extends Model
     /**
      * @description The provisioned read/write IOPS of the ESSD AutoPL disk. Valid values: 0 to min{50,000, 1,000 × *Capacity - Baseline IOPS}. Baseline IOPS = min{1,800 + 50 × *Capacity, 50,000}
      *
-     * This parameter is available only if you set `DiskCategory` to `cloud_auto`. For more information, see [ESSD AutoPL disks](https://help.aliyun.com/document_detail/368372.html).
+     * This parameter is available only if you set `Category` to `cloud_auto`. For more information, see [ESSD AutoPL disks](https://help.aliyun.com/document_detail/368372.html).
      * @example 40000
      *
      * @var int
@@ -348,7 +352,7 @@ class disk extends Model
     public $provisionedIops;
 
     /**
-     * @description The region ID of the disk.
+     * @description The ID of the region to which the disk belongs.
      *
      * @example cn-hangzhou
      *
@@ -386,7 +390,7 @@ class disk extends Model
     /**
      * @description The ID of the snapshot that was used to create the cloud disk.
      *
-     * This parameter is empty unless the cloud disk was created from a snapshot. The value of this parameter remains unchanged throughout the lifecycle of the disk.
+     * This parameter is empty unless the cloud disk was created from a snapshot. The value of this parameter remains unchanged throughout the lifecycle of the cloud disk.
      * @example s-bp67acfmxazb4p****
      *
      * @var string
@@ -394,7 +398,7 @@ class disk extends Model
     public $sourceSnapshotId;
 
     /**
-     * @description The state of the cloud disk. Valid values:
+     * @description The status of the disk. Valid values:
      *
      *   In_use
      *   Available
@@ -483,7 +487,7 @@ class disk extends Model
     public $type;
 
     /**
-     * @description The zone ID of the disk.
+     * @description The ID of the zone to which the disk belongs.
      *
      * @example cn-hangzhou-i
      *

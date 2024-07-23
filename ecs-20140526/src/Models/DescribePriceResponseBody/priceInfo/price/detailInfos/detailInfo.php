@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribePriceResponseBody\priceInfo\price\detailInfos;
 
-use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribePriceResponseBody\priceInfo\price\detailInfos\resourcePriceModel\subRules;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribePriceResponseBody\priceInfo\price\detailInfos\detailInfo\subRules;
 use AlibabaCloud\Tea\Model;
 
-class resourcePriceModel extends Model
+class detailInfo extends Model
 {
     /**
      * @description The discount.
@@ -28,7 +28,13 @@ class resourcePriceModel extends Model
     public $originalPrice;
 
     /**
-     * @description The resource name.
+     * @description The resource name. Valid values:
+     *
+     *   InstanceType
+     *   bandwidth
+     *   image
+     *   SystemDisk
+     *   DataDisk
      *
      * @example instance
      *
@@ -88,7 +94,7 @@ class resourcePriceModel extends Model
     /**
      * @param array $map
      *
-     * @return resourcePriceModel
+     * @return detailInfo
      */
     public static function fromMap($map = [])
     {

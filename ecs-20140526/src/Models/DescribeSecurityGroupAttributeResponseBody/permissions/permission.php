@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class permission extends Model
 {
     /**
-     * @description The time at which the security group rule was created. The time is displayed in UTC.
+     * @description The time when the security group rule was created. The time is displayed in UTC.
      *
      * @example 2018-12-12T07:28:38Z
      *
@@ -54,7 +54,7 @@ class permission extends Model
     public $destGroupName;
 
     /**
-     * @description The Alibaba Cloud account that manages the destination security group.
+     * @description The ID of the Alibaba Cloud account to which the destination security group belongs.
      *
      * @example 1234567890
      *
@@ -189,7 +189,7 @@ class permission extends Model
     public $sourceGroupName;
 
     /**
-     * @description The Alibaba Cloud account that manages the source security group.
+     * @description The ID of the Alibaba Cloud account to which the source security group belongs.
      *
      * @example 1234567890
      *

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class schedulerOptions extends Model
 {
     /**
-     * @description 专有宿主机ID。您可以通过[DescribeDedicatedHosts ](https://help.aliyun.com/document_detail/134242.html)查询专有宿主机ID列表。
+     * @description This parameter takes effect only when ResourceType is set to instance.
      *
+     * The ID of the dedicated host. You can call the [DescribeDedicatedHosts](https://help.aliyun.com/document_detail/134242.html) operation to query the dedicated host list.
      * @example dh-bp67acfmxazb4p****
      *
      * @var string

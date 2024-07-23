@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribePriceResponseBody extends Model
 {
     /**
-     * @description Details about the prices and promotion rules.
+     * @description The information about the prices and promotion rules.
      *
      * @var priceInfo
      */

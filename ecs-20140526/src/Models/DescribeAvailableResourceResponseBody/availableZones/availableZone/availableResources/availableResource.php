@@ -10,22 +10,22 @@ use AlibabaCloud\Tea\Model;
 class availableResource extends Model
 {
     /**
-     * @description Details about the resources.
+     * @description The information about the resources.
      *
      * @var supportedResources
      */
     public $supportedResources;
 
     /**
-     * @description The type of a resource. Valid values:
+     * @description The resource type. Valid values:
      *
-     *   Zone: zone.
-     *   IoOptimized: I/O optimized resource.
-     *   InstanceType: instance type.
-     *   SystemDisk: system disk.
-     *   DataDisk: data disk.
-     *   Network: network type.
-     *   ddh: dedicated host.
+     *   Zone: zone
+     *   IoOptimized: I/O optimized resource
+     *   InstanceType: instance type
+     *   SystemDisk: system disk
+     *   DataDisk: data disk
+     *   Network: network type
+     *   ddh: dedicated host
      *
      * @example InstanceType
      *

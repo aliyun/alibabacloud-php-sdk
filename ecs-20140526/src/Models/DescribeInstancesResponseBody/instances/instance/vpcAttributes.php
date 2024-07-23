@@ -26,7 +26,7 @@ class vpcAttributes extends Model
     public $privateIpAddress;
 
     /**
-     * @description The ID of the vSwitch.
+     * @description The ID of the vSwitch to which the instance is connected.
      *
      * @example vsw-2zeh0r1pabwtg6wcs****
      *

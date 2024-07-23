@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateNetworkInterfaceRequest\connectionTrackingConfiguration;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateNetworkInterfaceRequest\enhancedNetwork;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateNetworkInterfaceRequest\networkInterfaceTrafficConfig;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateNetworkInterfaceRequest\tag;
 use AlibabaCloud\Tea\Model;
@@ -30,6 +31,8 @@ class CreateNetworkInterfaceRequest extends Model
     public $clientToken;
 
     /**
+     * @description This parameter is not publicly available.
+     *
      * @var connectionTrackingConfiguration
      */
     public $connectionTrackingConfiguration;
@@ -55,6 +58,13 @@ class CreateNetworkInterfaceRequest extends Model
      * @var string
      */
     public $description;
+
+    /**
+     * @description This parameter is not publicly available.
+     *
+     * @var enhancedNetwork
+     */
+    public $enhancedNetwork;
 
     /**
      * @description The type of the ENI. Valid values:
@@ -128,9 +138,9 @@ class CreateNetworkInterfaceRequest extends Model
     public $ipv6PrefixCount;
 
     /**
-     * @description The name of the ENI. The name must be 2 to 128 characters in length, and can contain letters, digits, colons (:), underscores (_), and hyphens (-). It must start with a letter and cannot start with `http://` or `https://`.
+     * @description The name of the ENI. The name must be 2 to 128 characters in length and can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
      *
-     * This parameter is empty by default.
+     * This parameter is left empty by default.
      * @example testNetworkInterfaceName
      *
      * @var string
@@ -138,6 +148,8 @@ class CreateNetworkInterfaceRequest extends Model
     public $networkInterfaceName;
 
     /**
+     * @description The communication settings of the ENI.
+     *
      * @var networkInterfaceTrafficConfig
      */
     public $networkInterfaceTrafficConfig;
@@ -205,7 +217,7 @@ class CreateNetworkInterfaceRequest extends Model
     public $queuePairNumber;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+     * @description The region in which to create the ENI. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
      * This parameter is required.
      * @example cn-hangzhou
@@ -267,11 +279,9 @@ class CreateNetworkInterfaceRequest extends Model
     public $securityGroupId;
 
     /**
-     * @description The ID of security group N to which to assign the ENI. The security group and the ENI must belong to the same VPC. The valid values of N are determined based on the maximum number of security groups to which an ENI can be assigned. For more information, see [Limits](https://help.aliyun.com/document_detail/25412.html).
+     * @description The IDs of security groups to which to assign the ENI. The security groups and the ENI must belong to the same VPC. The valid values of N are determined based on the maximum number of security groups to which an ENI can be assigned. For more information, see [Limits](https://help.aliyun.com/document_detail/25412.html).
      *
-     **
-     *
-     * You must specify **SecurityGroupId** or SecurityGroupIds.N but not both.````
+     * >  You must specify `SecurityGroupId` or `SecurityGroupIds.N` but not both.
      * @example sg-bp1fg655nh68xyz9i****
      *
      * @var string[]
@@ -323,6 +333,7 @@ class CreateNetworkInterfaceRequest extends Model
         'connectionTrackingConfiguration' => 'ConnectionTrackingConfiguration',
         'deleteOnRelease'                 => 'DeleteOnRelease',
         'description'                     => 'Description',
+        'enhancedNetwork'                 => 'EnhancedNetwork',
         'instanceType'                    => 'InstanceType',
         'ipv4Prefix'                      => 'Ipv4Prefix',
         'ipv4PrefixCount'                 => 'Ipv4PrefixCount',
@@ -374,6 +385,9 @@ class CreateNetworkInterfaceRequest extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->enhancedNetwork) {
+            $res['EnhancedNetwork'] = null !== $this->enhancedNetwork ? $this->enhancedNetwork->toMap() : null;
         }
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
@@ -491,6 +505,9 @@ class CreateNetworkInterfaceRequest extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['EnhancedNetwork'])) {
+            $model->enhancedNetwork = enhancedNetwork::fromMap($map['EnhancedNetwork']);
         }
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];

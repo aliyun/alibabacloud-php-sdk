@@ -36,7 +36,7 @@ class instance extends Model
     /**
      * @description The ID of the cluster to which the instance belongs.
      *
-     * >  This parameter will be removed in the future. To ensure future compatibility, we recommend that you use other parameters.
+     * >  This parameter will be removed in the future. We recommend that you use other parameters to ensure future compatibility.
      * @example c-bp67acfmxazb4p****
      *
      * @var string
@@ -60,7 +60,7 @@ class instance extends Model
     public $cpuOptions;
 
     /**
-     * @description The time when the instance was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC. For more information, see [ISO 8601](https://help.aliyun.com/document_detail/25696.html).
+     * @description The time when the instance was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format. The time is displayed in UTC. For more information, see [ISO 8601](https://help.aliyun.com/document_detail/25696.html).
      *
      * @example 2017-12-10T04:04Z
      *
@@ -95,10 +95,10 @@ class instance extends Model
     public $dedicatedInstanceAttribute;
 
     /**
-     * @description Indicates whether release protection was enabled for the instance. This parameter determines whether you can use the ECS console or call the DeleteInstance operation to release the instance.
+     * @description Indicates whether release protection is enabled for the instance. This parameter determines whether you can use the ECS console or call the DeleteInstance operation to release the instance. Valid values:
      *
-     *   true: Release protection was enabled for the instance.
-     *   false: Release protection was disabled for the instance.
+     *   true: Release protection is enabled for the instance.
+     *   false: Release protection is disabled for the instance.
      *
      * >  This parameter is applicable only to pay-as-you-go instances. The release protection feature can protect instances against manual releases, but not against automatic releases.
      * @example false
@@ -117,7 +117,7 @@ class instance extends Model
     public $deploymentSetGroupNo;
 
     /**
-     * @description The ID of the deployment set.
+     * @description The ID of the deployment set to which the instance belongs.
      *
      * @example ds-bp67acfmxazb4p****
      *
@@ -161,7 +161,7 @@ class instance extends Model
     public $eipAddress;
 
     /**
-     * @description The expiration time of the instance. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC. For more information, see [ISO 8601](https://help.aliyun.com/document_detail/25696.html).
+     * @description The expiration time of the instance. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format. The time is displayed in UTC. For more information, see [ISO 8601](https://help.aliyun.com/document_detail/25696.html).
      *
      * @example 2017-12-10T04:04Z
      *
@@ -257,7 +257,7 @@ class instance extends Model
     public $instanceChargeType;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example i-bp67acfmxazb4p****
      *
@@ -266,7 +266,7 @@ class instance extends Model
     public $instanceId;
 
     /**
-     * @description The name of the instance.
+     * @description The instance name.
      *
      * @example InstanceNameTest
      *
@@ -287,7 +287,7 @@ class instance extends Model
     public $instanceNetworkType;
 
     /**
-     * @description The instance type.
+     * @description The instance type of the instance.
      *
      * @example ecs.g5.large
      *
@@ -296,7 +296,7 @@ class instance extends Model
     public $instanceType;
 
     /**
-     * @description The instance family.
+     * @description The instance family of the instance.
      *
      * @example ecs.g5
      *
@@ -307,8 +307,8 @@ class instance extends Model
     /**
      * @description The billing method for network usage. Valid values:
      *
-     *   PayByBandwidth
-     *   PayByTraffic
+     *   PayByBandwidth: pay-by-bandwidth
+     *   PayByTraffic: pay-by-traffic
      *
      * @example PayByTraffic
      *
@@ -335,7 +335,7 @@ class instance extends Model
     public $internetMaxBandwidthOut;
 
     /**
-     * @description Indicates whether the instance is an I/O optimized instance.
+     * @description Indicates whether the instance is an I/O optimized instance. Valid values:
      *
      *   true
      *   false
@@ -365,7 +365,7 @@ class instance extends Model
     public $localStorageAmount;
 
     /**
-     * @description The capacity of local disks attached to the instance. Unit: GiB
+     * @description The capacity of local disks attached to the instance. Unit: GiB.
      *
      * @example 1000
      *
@@ -390,7 +390,7 @@ class instance extends Model
     public $metadataOptions;
 
     /**
-     * @description The ENIs bound to the instance.
+     * @description The ENIs attached to the instance.
      *
      * @var networkInterfaces
      */
@@ -417,8 +417,8 @@ class instance extends Model
     /**
      * @description The type of the operating system of the instance. Valid values:
      *
-     *   windows
-     *   linux
+     *   windows: Windows operating systems
+     *   linux: Linux operating systems
      *
      * @example linux
      *
@@ -537,7 +537,7 @@ class instance extends Model
      * @description The bidding policy for the pay-as-you-go instance. Valid values:
      *
      *   NoSpot: The instance is a regular pay-as-you-go instance.
-     *   SpotWithPriceLimit: The instance is a preemptible instance for which you can specify the maximum hourly price.
+     *   SpotWithPriceLimit: The instance is a preemptible instance with a user-defined maximum hourly price.
      *   SpotAsPriceGo: The instance is a preemptible instance for which the market price is automatically used as the bid price. The market price can be up to the pay-as-you-go price.
      *
      * @example NoSpot
@@ -547,7 +547,7 @@ class instance extends Model
     public $spotStrategy;
 
     /**
-     * @description The time when the instance was last started. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC. For more information, see [ISO 8601](https://help.aliyun.com/document_detail/25696.html).
+     * @description The time when the instance was last started. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format. The time is displayed in UTC. For more information, see [ISO 8601](https://help.aliyun.com/document_detail/25696.html).
      *
      * @example 2017-12-10T04:04Z
      *
@@ -556,7 +556,7 @@ class instance extends Model
     public $startTime;
 
     /**
-     * @description The state of the instance.
+     * @description The status of the instance.
      *
      * @example Running
      *
@@ -587,7 +587,7 @@ class instance extends Model
     /**
      * @description The virtual LAN (VLAN) ID of the instance.
      *
-     * >  This parameter will be removed in the future. To ensure future compatibility, we recommend that you use other parameters.
+     * >  This parameter will be removed in the future. We recommend that you use other parameters to ensure future compatibility.
      * @example 10
      *
      * @var string

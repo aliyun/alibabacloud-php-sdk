@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeCloudAssistantStatusResponseBody extends Model
 {
     /**
-     * @description Details about the installation status of Cloud Assistant Agent on the instances.
+     * @description Details about the installation status of Cloud Assistant on the instances.
      *
      * @var instanceCloudAssistantStatusSet
      */

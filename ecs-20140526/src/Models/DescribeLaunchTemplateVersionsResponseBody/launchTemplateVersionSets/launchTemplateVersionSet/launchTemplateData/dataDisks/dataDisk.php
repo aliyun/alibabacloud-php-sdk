@@ -18,10 +18,10 @@ class dataDisk extends Model
     public $autoSnapshotPolicyId;
 
     /**
-     * @description Indicates whether to enable the performance burst feature. Valid values:
+     * @description Indicates whether the performance burst feature is enabled. Valid values:
      *
-     *   true: enables the performance burst feature.
-     *   false: does not enable the performance burst feature.
+     *   true
+     *   false
      *
      * @example true
      *
@@ -59,7 +59,7 @@ class dataDisk extends Model
     /**
      * @description The device name of the data disk.
      *
-     * >  This parameter will be removed in the future. We recommend that you use other parameters to ensure future compatibility.
+     * >  This parameter will be removed in the future. To ensure future compatibility, we recommend that you do not use this parameter.
      * @example /dev/xvda
      *
      * @var string
@@ -76,7 +76,7 @@ class dataDisk extends Model
     public $diskName;
 
     /**
-     * @description Indicates whether to encrypt the data disk.
+     * @description Indicates whether the data disk is encrypted.
      *
      * @example false
      *
@@ -85,7 +85,7 @@ class dataDisk extends Model
     public $encrypted;
 
     /**
-     * @description The performance level of ESSD to use as the data disk. This parameter is returned only when tne value of `Category` is cloud_essd. Valid values:
+     * @description The performance level of the ESSD to use as a data disk. This parameter is returned only when the value of `Category` is cloud_essd. Valid values:
      *
      *   PL0: A single ESSD can deliver up to 10,000 random read/write IOPS.
      *   PL1: A single ESSD can deliver up to 50,000 random read/write IOPS.
@@ -99,9 +99,9 @@ class dataDisk extends Model
     public $performanceLevel;
 
     /**
-     * @description The provisioned read/write IOPS of the ESSD AutoPL disk. Valid values: 0 to min{50,000, 1,000 × Capacity - Baseline IOPS}
+     * @description The provisioned read/write IOPS of the ESSD AutoPL disk. Valid values: 0 to min{50,000, 1,000 × Capacity - Baseline IOPS}.
      *
-     * >  This parameter is available only if the corresponding disk category parameter is set to cloud_auto. For more information, see [ESSD AutoPL disks](https://help.aliyun.com/document_detail/368372.html) and [Modify the performance configurations of an ESSD AutoPL disk](https://help.aliyun.com/document_detail/413275.html).
+     * >  This parameter is available only if you set DataDisk.N.Category to cloud_auto. For more information, see [ESSD AutoPL disks](https://help.aliyun.com/document_detail/368372.html) and [Modify the performance configurations of an ESSD AutoPL disk](https://help.aliyun.com/document_detail/413275.html).
      * @example 50000
      *
      * @var int

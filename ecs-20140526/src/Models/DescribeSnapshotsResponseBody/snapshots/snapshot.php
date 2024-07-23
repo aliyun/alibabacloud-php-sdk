@@ -24,7 +24,7 @@ class snapshot extends Model
     /**
      * @description The category of the snapshot.
      *
-     * >  This parameter will be removed in the future. To ensure future compatibility, we recommend that you use `InstantAccess`.
+     * >  This parameter will be removed in the future. We recommend that you use `InstantAccess` to ensure future compatibility.
      * @example standard
      *
      * @var string
@@ -73,7 +73,7 @@ class snapshot extends Model
     /**
      * @description Indicates the validity period of the instant access feature. When the specified period expires, the instant access feature is automatically disabled.
      *
-     * >  This parameter is deprecated. The normal snapshots of ESSDs are upgraded to support the instant access feature by default. No additional configurations are required to enable the feature and you are not charged for the feature. For more information, see [Use the instant access feature](https://help.aliyun.com/document_detail/193667.html).
+     * >  This parameter is no longer used. The normal snapshots of ESSDs are upgraded to support the instant access feature by default. No additional configurations are required to enable the feature and you are not charged for the feature. For more information, see [Use the instant access feature](https://help.aliyun.com/document_detail/193667.html).
      * @example 30
      *
      * @var int
@@ -90,7 +90,7 @@ class snapshot extends Model
     public $KMSKeyId;
 
     /**
-     * @description The time when the snapshot was last changed. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     * @description The time when the snapshot was last modified. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
      *
      * @example 2020-08-25T14:18:09Z
      *
@@ -162,6 +162,10 @@ class snapshot extends Model
     public $snapshotId;
 
     /**
+     * @description The ID of the snapshot chain that is associated with the snapshot.
+     *
+     * @example sl-bp1grgphbcc9brb5****
+     *
      * @var string
      */
     public $snapshotLinkId;
@@ -248,7 +252,7 @@ class snapshot extends Model
     /**
      * @description The category of the source disk.
      *
-     * >  This parameter will be removed in the future. To ensure future compatibility, we recommend that you use other parameters.
+     * >  This parameter will be removed in the future. We recommend that you use other parameters to ensure future compatibility.
      * @example disk
      *
      * @var string
@@ -256,7 +260,7 @@ class snapshot extends Model
     public $sourceStorageType;
 
     /**
-     * @description The state of the snapshot. Valid values:
+     * @description The status of the snapshot. Valid values:
      *
      *   progressing
      *   accomplished
@@ -276,7 +280,7 @@ class snapshot extends Model
     public $tags;
 
     /**
-     * @description Indicates whether the snapshot has been used to create images or disks. Valid values:
+     * @description Indicates whether the snapshot was used to create images or disks. Valid values:
      *
      *   image
      *   disk

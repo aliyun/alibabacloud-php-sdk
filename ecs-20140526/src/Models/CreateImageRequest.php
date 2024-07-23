@@ -27,10 +27,11 @@ class CreateImageRequest extends Model
     /**
      * @description The boot mode of the image. Valid values:
      *
-     *   BIOS
-     *   UEFI
+     *   BIOS: Basic Input/Output System (BIOS)
+     *   UEFI: Unified Extensible Firmware Interface (UEFI)
+     *   UEFI-Preferred: BIOS and UEFI
      *
-     * > You must be familiar with the boot modes supported by the specified image. When you use this parameter to change the boot mode of the image, specify a boot mode supported by the image to ensure that instances that use this image can be started as expected.
+     * >  For information about the UEFI-Preferred boot mode, see [Best practices for ECS instance boot modes](https://help.aliyun.com/document_detail/2244655.html).
      * @example BIOS
      *
      * @var string

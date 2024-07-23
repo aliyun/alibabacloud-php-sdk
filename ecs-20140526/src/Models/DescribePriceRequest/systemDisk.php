@@ -9,20 +9,21 @@ use AlibabaCloud\Tea\Model;
 class systemDisk extends Model
 {
     /**
-     * @description The type of the system disk. Valid values:
+     * @description The category of the system disk. Valid values:
      *
      *   cloud: basic disk
      *   cloud_efficiency: ultra disk
      *   cloud_ssd: standard SSD
      *   ephemeral_ssd: local SSD
-     *   cloud_essd: enhanced SSD (ESSD)
+     *   cloud_essd: Enterprise SSD (ESSD)
+     *   cloud_auto: ESSD AutoPL disk
      *
-     * Description of the default values:
+     * Default value:
      *
-     *   When the InstanceType parameter is set to a retired instance type and `IoOptimized` is set to `none`, the default value of this parameter is `cloud`.
-     *   In other cases, the default value of this parameter is `cloud_efficiency`.
+     *   When InstanceType is set to a retired instance type and `IoOptimized` is set to `none`, the default value is `cloud`.
+     *   In other cases, the default value is `cloud_efficiency`.
      *
-     * > If you want to query the prices of system disks, you must also specify `ImageId`.
+     * >  If you want to query the price of a system disk, you must also specify `ImageId`.
      * @example cloud_ssd
      *
      * @var string
@@ -40,9 +41,22 @@ class systemDisk extends Model
     public $performanceLevel;
 
     /**
-     * @description The size of the system disk. Unit: GiB. Valid values: 20 to 500.
+     * @description The size of the system disk. Unit: GiB. Valid values:
      *
-     * Default value: 20 or the image size, whichever is greater.
+     *   Basic disk (cloud): 20 to 500.
+     *
+     *   ESSD (cloud_essd): Valid values vary based on the SystemDisk.PerformanceLevel value.
+     *
+     *   Valid values when SystemDisk.PerformanceLevel is set to PL0: 1 to 2048.
+     *   Valid values when SystemDisk.PerformanceLevel is set to PL1: 20 to 2048.
+     *   Valid values when SystemDisk.PerformanceLevel is set to PL2: 461 to 2048.
+     *   Valid values when SystemDisk.PerformanceLevel is set to PL3: 1261 to 2048.
+     *
+     *   ESSD AutoPL disk (cloud_auto): 1 to 2048.
+     *
+     *   Other disk categories: 20 to 2048.
+     *
+     * Default value: 20 or the size of the image specified by ImageId, whichever is greater.
      * @example 80
      *
      * @var int

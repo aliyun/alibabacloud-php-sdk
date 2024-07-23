@@ -68,8 +68,8 @@ class valueItem extends Model
      *   max-spot-instance-vcpu-count
      *   used-postpaid-instance-vcpu-count
      *   used-spot-instance-vcpu-count
-     *   max-postpaid-yundisk-capacity
-     *   used-postpaid-yundisk-capacity
+     *   max-postpaid-yundisk-capacity(This value is deprecated)
+     *   used-postpaid-yundisk-capacity(This value is deprecated)
      *   max-dedicated-hosts
      *   max-axt-command-count
      *   max-axt-invocation-daily

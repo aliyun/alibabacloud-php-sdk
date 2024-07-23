@@ -59,7 +59,7 @@ class ListTagResourcesRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The type of the resource. Valid values:
+     * @description The resource type. Valid values:
      *
      *   instance: ECS instance
      *   disk: disk
@@ -67,7 +67,7 @@ class ListTagResourcesRequest extends Model
      *   image: image
      *   securitygroup: security group
      *   volume: storage volume
-     *   eni: ENI
+     *   eni: elastic network interface (ENI)
      *   ddh: dedicated host
      *   ddhcluster: dedicated host cluster
      *   keypair: SSH key pair
@@ -77,7 +77,9 @@ class ListTagResourcesRequest extends Model
      *   elasticityassurance: elasticity assurance
      *   capacityreservation: capacity reservation
      *   command: Cloud Assistant command
-     *   invocation: Cloud Assistant command execution result
+     *   invocation: Cloud Assistant command execution result or file delivery result
+     *   activation: activation code for a Cloud Assistant managed instance
+     *   managedinstance: Cloud Assistant managed instance
      *
      * This parameter is required.
      * @example instance

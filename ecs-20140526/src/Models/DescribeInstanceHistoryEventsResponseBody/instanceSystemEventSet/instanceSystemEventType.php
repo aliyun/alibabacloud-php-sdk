@@ -12,7 +12,7 @@ use AlibabaCloud\Tea\Model;
 class instanceSystemEventType extends Model
 {
     /**
-     * @description The lifecycle state of the system event.
+     * @description The lifecycle status of the system event.
      *
      * @var eventCycleStatus
      */

@@ -682,8 +682,6 @@ use AlibabaCloud\SDK\Ecs\V20140526\Models\RunInstancesRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\RunInstancesResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\SendFileRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\SendFileResponse;
-use AlibabaCloud\SDK\Ecs\V20140526\Models\StartElasticityAssuranceRequest;
-use AlibabaCloud\SDK\Ecs\V20140526\Models\StartElasticityAssuranceResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\StartImagePipelineExecutionRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\StartImagePipelineExecutionResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\StartInstanceRequest;
@@ -1202,7 +1200,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI AllocateEipAddress is deprecated
+     * @deprecated openAPI AllocateEipAddress is deprecated, please use Vpc::2016-04-28::AllocateEipAddress instead
      *  *
      * @description > This operation has been upgraded. We recommend that you do not use it. For information about the new version of this operation, see [AllocateEipAddress](https://help.aliyun.com/document_detail/120192.html).
      *  *
@@ -1266,7 +1264,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI AllocateEipAddress is deprecated
+     * @deprecated openAPI AllocateEipAddress is deprecated, please use Vpc::2016-04-28::AllocateEipAddress instead
      *  *
      * @description > This operation has been upgraded. We recommend that you do not use it. For information about the new version of this operation, see [AllocateEipAddress](https://help.aliyun.com/document_detail/120192.html).
      *  *
@@ -1287,12 +1285,12 @@ class Ecs extends OpenApiClient
      * @summary Assigns a public IP address to an Elastic Compute Service (ECS) instance.
      *  *
      * @description Take note of the following items:
-     * *   The instance to which you want to assign a public IP address must be in the **Running** or **Stopped** state.````
+     * *   The instance to which you want to assign a public IP address must be in the **Running** (`Running`) or **Stopped** (`Stopped`) state.
      * *   If `OperationLocks` in the response of the DescribeInstances operation contains `"LockReason" : "security"` for an instance, the instance is [locked for security reasons](https://help.aliyun.com/document_detail/25695.html) and cannot be assigned a public IP address.
-     * *   You can assign only one public IP address to an instance. If the instance already has a public IP address, the `AllocatedAlready` error is returned.
-     * *   After you assign a public IP address to an instance, you must restart the instance ([RebootInstance](https://help.aliyun.com/document_detail/25502.html)) or start the instance ([StartInstance](https://help.aliyun.com/document_detail/25500.html)) to make the public IP address take effect.
-     * If an instance resides in a virtual private cloud (VPC), you can assign a public IP address to the instance or associate an elastic IP address (EIP) with the instance. For more information, see [AssociateEipAddress](https://help.aliyun.com/document_detail/36017.html).
-     * > After you associate an EIP with an instance that resides in a VPC, you cannot assign a public IP address to the instance.
+     * *   You can assign only one public IP address to an instance. If the instance already has a public IP address, the `AllocatedAlready` error code is returned.
+     * *   After you assign a public IP address to an instance, you must restart the instance ([RebootInstance](https://help.aliyun.com/document_detail/25502.html)) or start the instance ([StartInstance](https://help.aliyun.com/document_detail/25500.html)) for the public IP address to take effect.
+     * If an instance resides in a virtual private cloud (VPC), you can assign a public IP address to the instance or associate an elastic IP address (EIP) with the instance. For more information, see [AssociateEipAddress](https://help.aliyun.com/document_detail/2518064.html).
+     * >  After you associate an EIP with an instance that resides in a VPC, you cannot assign a public IP address to the instance.
      *  *
      * @param AllocatePublicIpAddressRequest $request AllocatePublicIpAddressRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -1346,12 +1344,12 @@ class Ecs extends OpenApiClient
      * @summary Assigns a public IP address to an Elastic Compute Service (ECS) instance.
      *  *
      * @description Take note of the following items:
-     * *   The instance to which you want to assign a public IP address must be in the **Running** or **Stopped** state.````
+     * *   The instance to which you want to assign a public IP address must be in the **Running** (`Running`) or **Stopped** (`Stopped`) state.
      * *   If `OperationLocks` in the response of the DescribeInstances operation contains `"LockReason" : "security"` for an instance, the instance is [locked for security reasons](https://help.aliyun.com/document_detail/25695.html) and cannot be assigned a public IP address.
-     * *   You can assign only one public IP address to an instance. If the instance already has a public IP address, the `AllocatedAlready` error is returned.
-     * *   After you assign a public IP address to an instance, you must restart the instance ([RebootInstance](https://help.aliyun.com/document_detail/25502.html)) or start the instance ([StartInstance](https://help.aliyun.com/document_detail/25500.html)) to make the public IP address take effect.
-     * If an instance resides in a virtual private cloud (VPC), you can assign a public IP address to the instance or associate an elastic IP address (EIP) with the instance. For more information, see [AssociateEipAddress](https://help.aliyun.com/document_detail/36017.html).
-     * > After you associate an EIP with an instance that resides in a VPC, you cannot assign a public IP address to the instance.
+     * *   You can assign only one public IP address to an instance. If the instance already has a public IP address, the `AllocatedAlready` error code is returned.
+     * *   After you assign a public IP address to an instance, you must restart the instance ([RebootInstance](https://help.aliyun.com/document_detail/25502.html)) or start the instance ([StartInstance](https://help.aliyun.com/document_detail/25500.html)) for the public IP address to take effect.
+     * If an instance resides in a virtual private cloud (VPC), you can assign a public IP address to the instance or associate an elastic IP address (EIP) with the instance. For more information, see [AssociateEipAddress](https://help.aliyun.com/document_detail/2518064.html).
+     * >  After you associate an EIP with an instance that resides in a VPC, you cannot assign a public IP address to the instance.
      *  *
      * @param AllocatePublicIpAddressRequest $request AllocatePublicIpAddressRequest
      *
@@ -1843,17 +1841,20 @@ class Ecs extends OpenApiClient
     /**
      * @summary Attaches a pay-as-you-go data disk or a system disk to an Elastic Compute Service (ECS) instance. The instance and the disk must reside in the same zone.
      *  *
-     * @description When you call this operation, take note of the following items:
-     * *   The disk that you want to attach must be in the **Available** state.``
-     * *   When the disk is attached as a data disk, take note of the following items:
-     *     *   The instance must be in the **Running** or **Stopped** state.````
+     * @description ## [](#)Usage notes
+     * Take note of the following items:
+     * *   The disk must be in the **Unattached** (`Available`) state.
+     * *   When you attach the disk as a data disk to an ECS instance, take note of the following items:
+     *     *   The ECS instance must be in the **Running** (`Running`) or **Stopped** (`Stopped`) state.
      *     *   If the disk was separately purchased, the billing method of the disk must be pay-as-you-go.
-     *     *   If the disk is a system disk detached from an instance, no limits apply to the billing method of the disk.
-     * *   When the disk is attached as a system disk, take note of the following items:
-     *     *   The instance must be the original instance from which the system disk was detached.
-     *     *   The instance must be in the **Stopped** state.``
-     *     *   The logon credentials must be configured.
-     * *   If the response contains `{"OperationLocks": {"LockReason" : "security"}}` when you query the information of the instance, the instance is locked for security reasons and all operations are prohibited on the instance.
+     *     *   If the disk is a system disk that was detached from an ECS instance, no limits apply to the billing method of the disk.
+     *     *   If the disk is an elastic ephemeral disk that was detached from an ECS instance, the disk can be attached only to the instance.
+     * *   When you attach the disk as the system disk to an ECS instance, take note of the following items:
+     *     *   The ECS instance must be the original instance from which the system disk was detached.
+     *     *   The ECS instance must be in the **Stopped** (`Stopped`) state.
+     *     *   Logon credentials must be configured.
+     *     *   The disk cannot be an elastic ephemeral disk.
+     * *   If the response contains `{"OperationLocks": {"LockReason" : "security"}}` when you query information about an ECS instance, the instance is locked for security reasons and no operations are allowed on the instance.
      *  *
      * @param AttachDiskRequest $request AttachDiskRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
@@ -1921,17 +1922,20 @@ class Ecs extends OpenApiClient
     /**
      * @summary Attaches a pay-as-you-go data disk or a system disk to an Elastic Compute Service (ECS) instance. The instance and the disk must reside in the same zone.
      *  *
-     * @description When you call this operation, take note of the following items:
-     * *   The disk that you want to attach must be in the **Available** state.``
-     * *   When the disk is attached as a data disk, take note of the following items:
-     *     *   The instance must be in the **Running** or **Stopped** state.````
+     * @description ## [](#)Usage notes
+     * Take note of the following items:
+     * *   The disk must be in the **Unattached** (`Available`) state.
+     * *   When you attach the disk as a data disk to an ECS instance, take note of the following items:
+     *     *   The ECS instance must be in the **Running** (`Running`) or **Stopped** (`Stopped`) state.
      *     *   If the disk was separately purchased, the billing method of the disk must be pay-as-you-go.
-     *     *   If the disk is a system disk detached from an instance, no limits apply to the billing method of the disk.
-     * *   When the disk is attached as a system disk, take note of the following items:
-     *     *   The instance must be the original instance from which the system disk was detached.
-     *     *   The instance must be in the **Stopped** state.``
-     *     *   The logon credentials must be configured.
-     * *   If the response contains `{"OperationLocks": {"LockReason" : "security"}}` when you query the information of the instance, the instance is locked for security reasons and all operations are prohibited on the instance.
+     *     *   If the disk is a system disk that was detached from an ECS instance, no limits apply to the billing method of the disk.
+     *     *   If the disk is an elastic ephemeral disk that was detached from an ECS instance, the disk can be attached only to the instance.
+     * *   When you attach the disk as the system disk to an ECS instance, take note of the following items:
+     *     *   The ECS instance must be the original instance from which the system disk was detached.
+     *     *   The ECS instance must be in the **Stopped** (`Stopped`) state.
+     *     *   Logon credentials must be configured.
+     *     *   The disk cannot be an elastic ephemeral disk.
+     * *   If the response contains `{"OperationLocks": {"LockReason" : "security"}}` when you query information about an ECS instance, the instance is locked for security reasons and no operations are allowed on the instance.
      *  *
      * @param AttachDiskRequest $request AttachDiskRequest
      *
@@ -3263,6 +3267,9 @@ class Ecs extends OpenApiClient
         if (!Utils::isUnset($request->arn)) {
             $query['Arn'] = $request->arn;
         }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
         if (!Utils::isUnset($request->destinationRegionId)) {
             $query['DestinationRegionId'] = $request->destinationRegionId;
         }
@@ -3821,7 +3828,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Creates a Cloud Assistant command.
+     * @summary Creates a Cloud Assistant command, which can be a Shell, PowerShell, or batch command. You can specify parameters, such as Name, Type, and CommandContent, in the request.
      *  *
      * @description ## [](#)Usage notes
      * *   You can create commands of the following types:
@@ -3914,7 +3921,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Creates a Cloud Assistant command.
+     * @summary Creates a Cloud Assistant command, which can be a Shell, PowerShell, or batch command. You can specify parameters, such as Name, Type, and CommandContent, in the request.
      *  *
      * @description ## [](#)Usage notes
      * *   You can create commands of the following types:
@@ -3943,7 +3950,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary You can call this operation to create a dedicated host cluster.
+     * @summary Creates a dedicated host cluster.
      *  *
      * @param CreateDedicatedHostClusterRequest $request CreateDedicatedHostClusterRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -4006,7 +4013,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary You can call this operation to create a dedicated host cluster.
+     * @summary Creates a dedicated host cluster.
      *  *
      * @param CreateDedicatedHostClusterRequest $request CreateDedicatedHostClusterRequest
      *
@@ -4331,12 +4338,14 @@ class Ecs extends OpenApiClient
     /**
      * @summary Creates a pay-as-you-go or subscription data disk.
      *  *
-     * @description *   When you create a disk, you can enable the multi-attach (`MultiAttach`) feature for the disk. Before you enable the multi-attach feature, we recommend that you familiarize yourself with the multi-attach feature and its limits. For more information, see [NVMe protocol](https://help.aliyun.com/document_detail/256487.html) and [Use the multi-attach feature](https://help.aliyun.com/document_detail/262105.html).
-     * *   You can create a basic disk, an ultra disk, a standard SSD, or an enhanced SSD (ESSD).
-     * *   When you create disks, you may be charged for the resources used. We recommend that you familiarize yourself with the Elastic Compute Service (ECS) billing methods before you proceed. For more information, see [Billing overview](https://help.aliyun.com/document_detail/25398.html).
-     * *   By default, `DeleteAutoSnapshot` is set to `true` when a disk is created. This indicates that when the disk is released, the automatic snapshots of the disk are also deleted. You can call the [ModifyDiskAttribute](https://help.aliyun.com/document_detail/25517.html) operation to modify the parameter value.
-     * *   If you do not configure the performance level when you create an ESSD, the performance level for the ESSD is PL1 by default. You can call the [ModifyDiskSpec](https://help.aliyun.com/document_detail/123780.html) operation to modify the performance level of the ESSD.
-     * *   By default, for a disk that is created by calling this operation, the `Portable` attribute is set to `true` and the billing method is pay-as-you-go.
+     * @description ## [](#)Usage notes
+     * *   You can enable the multi-attach (`MultiAttach`) feature when you create a disk. Before you enable the multi-attach feature, we recommend that you familiarize yourself with the feature and its limits. For more information, see [NVMe disks](https://help.aliyun.com/document_detail/256487.html) and [Enable multi-attach](https://help.aliyun.com/document_detail/262105.html).
+     * *   You can create disks of the following disk categories: basic disks, ultra disks, standard SSDs, Enterprise SSDs (ESSDs), ESSD Entry disks, ESSD AutoPL disks, standard elastic ephemeral disks, and premium elastic ephemeral disks.
+     * *   Before you can create a disk, you must complete real-name verification. Complete real-name verification on the [Real-name Verification](https://account.console.aliyun.com/#/auth/home) page in the Alibaba Cloud Management Console.
+     * *   When you create disks, you may be charged for the resources used. We recommend that you familiarize yourself with the billing methods of Elastic Compute Service (ECS) resources before you create a disk. For more information, see [Billing overview](https://help.aliyun.com/document_detail/25398.html).
+     * *   By default, `DeleteAutoSnapshot` is set to `true` when a disk is created. This indicates that the automatic snapshots of the disk are deleted when the disk is released. You can call the [ModifyDiskAttribute](https://help.aliyun.com/document_detail/25517.html) operation to change the parameter value.
+     * *   If you do not specify a performance level when you create an ESSD, the performance level of the ESSD is automatically set to PL1. To change the performance level of the ESSD, you can call the [ModifyDiskSpec](https://help.aliyun.com/document_detail/123780.html) operation.
+     * *   By default, `Portable` is set to `true` and the billing method is pay-as-you-go for a disk that is created by calling the CreateDisk operation.
      *  *
      * @param CreateDiskRequest $request CreateDiskRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
@@ -4449,12 +4458,14 @@ class Ecs extends OpenApiClient
     /**
      * @summary Creates a pay-as-you-go or subscription data disk.
      *  *
-     * @description *   When you create a disk, you can enable the multi-attach (`MultiAttach`) feature for the disk. Before you enable the multi-attach feature, we recommend that you familiarize yourself with the multi-attach feature and its limits. For more information, see [NVMe protocol](https://help.aliyun.com/document_detail/256487.html) and [Use the multi-attach feature](https://help.aliyun.com/document_detail/262105.html).
-     * *   You can create a basic disk, an ultra disk, a standard SSD, or an enhanced SSD (ESSD).
-     * *   When you create disks, you may be charged for the resources used. We recommend that you familiarize yourself with the Elastic Compute Service (ECS) billing methods before you proceed. For more information, see [Billing overview](https://help.aliyun.com/document_detail/25398.html).
-     * *   By default, `DeleteAutoSnapshot` is set to `true` when a disk is created. This indicates that when the disk is released, the automatic snapshots of the disk are also deleted. You can call the [ModifyDiskAttribute](https://help.aliyun.com/document_detail/25517.html) operation to modify the parameter value.
-     * *   If you do not configure the performance level when you create an ESSD, the performance level for the ESSD is PL1 by default. You can call the [ModifyDiskSpec](https://help.aliyun.com/document_detail/123780.html) operation to modify the performance level of the ESSD.
-     * *   By default, for a disk that is created by calling this operation, the `Portable` attribute is set to `true` and the billing method is pay-as-you-go.
+     * @description ## [](#)Usage notes
+     * *   You can enable the multi-attach (`MultiAttach`) feature when you create a disk. Before you enable the multi-attach feature, we recommend that you familiarize yourself with the feature and its limits. For more information, see [NVMe disks](https://help.aliyun.com/document_detail/256487.html) and [Enable multi-attach](https://help.aliyun.com/document_detail/262105.html).
+     * *   You can create disks of the following disk categories: basic disks, ultra disks, standard SSDs, Enterprise SSDs (ESSDs), ESSD Entry disks, ESSD AutoPL disks, standard elastic ephemeral disks, and premium elastic ephemeral disks.
+     * *   Before you can create a disk, you must complete real-name verification. Complete real-name verification on the [Real-name Verification](https://account.console.aliyun.com/#/auth/home) page in the Alibaba Cloud Management Console.
+     * *   When you create disks, you may be charged for the resources used. We recommend that you familiarize yourself with the billing methods of Elastic Compute Service (ECS) resources before you create a disk. For more information, see [Billing overview](https://help.aliyun.com/document_detail/25398.html).
+     * *   By default, `DeleteAutoSnapshot` is set to `true` when a disk is created. This indicates that the automatic snapshots of the disk are deleted when the disk is released. You can call the [ModifyDiskAttribute](https://help.aliyun.com/document_detail/25517.html) operation to change the parameter value.
+     * *   If you do not specify a performance level when you create an ESSD, the performance level of the ESSD is automatically set to PL1. To change the performance level of the ESSD, you can call the [ModifyDiskSpec](https://help.aliyun.com/document_detail/123780.html) operation.
+     * *   By default, `Portable` is set to `true` and the billing method is pay-as-you-go for a disk that is created by calling the CreateDisk operation.
      *  *
      * @param CreateDiskRequest $request CreateDiskRequest
      *
@@ -5475,11 +5486,10 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Creates an SSH key pair. The system stores the public key and returns the unencrypted private key. The private key is encoded with PEM in the PKCS#8 format. You are responsible for storing the private key and ensuring its confidentiality.
+     * @summary Creates an SSH key pair. The system stores the public key and returns the unencrypted private key. The private key is encoded with PEM in the PKCS#8 format. You must properly store the private key and ensure its confidentiality.
      *  *
-     * @description ## Description
-     * In addition to calling CreateKeyPair, you can create a key pair by using a third-party key pair generation tool and call the [ImportKeyPair](https://help.aliyun.com/document_detail/51774.html) operation to upload the key pair to an Alibaba Cloud region.
-     * A maximum of 500 key pairs can be created in each region. For more information, see [Limits](https://help.aliyun.com/document_detail/25412.html).
+     * @description In addition to calling the CreateKeyPair operation to create a key pair, you can use a third-party tool to create a key pair and then call the [ImportKeyPair](https://help.aliyun.com/document_detail/51774.html) operation to upload the key pair to an Alibaba Cloud region.
+     * Up to 500 key pairs can be created in each region. For more information, see the "SSH key pair limits" section in [Limits](https://help.aliyun.com/document_detail/25412.html).
      *  *
      * @param CreateKeyPairRequest $request CreateKeyPairRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -5530,11 +5540,10 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Creates an SSH key pair. The system stores the public key and returns the unencrypted private key. The private key is encoded with PEM in the PKCS#8 format. You are responsible for storing the private key and ensuring its confidentiality.
+     * @summary Creates an SSH key pair. The system stores the public key and returns the unencrypted private key. The private key is encoded with PEM in the PKCS#8 format. You must properly store the private key and ensure its confidentiality.
      *  *
-     * @description ## Description
-     * In addition to calling CreateKeyPair, you can create a key pair by using a third-party key pair generation tool and call the [ImportKeyPair](https://help.aliyun.com/document_detail/51774.html) operation to upload the key pair to an Alibaba Cloud region.
-     * A maximum of 500 key pairs can be created in each region. For more information, see [Limits](https://help.aliyun.com/document_detail/25412.html).
+     * @description In addition to calling the CreateKeyPair operation to create a key pair, you can use a third-party tool to create a key pair and then call the [ImportKeyPair](https://help.aliyun.com/document_detail/51774.html) operation to upload the key pair to an Alibaba Cloud region.
+     * Up to 500 key pairs can be created in each region. For more information, see the "SSH key pair limits" section in [Limits](https://help.aliyun.com/document_detail/25412.html).
      *  *
      * @param CreateKeyPairRequest $request CreateKeyPairRequest
      *
@@ -5569,6 +5578,12 @@ class Ecs extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->autoReleaseTime)) {
             $query['AutoReleaseTime'] = $request->autoReleaseTime;
+        }
+        if (!Utils::isUnset($request->autoRenew)) {
+            $query['AutoRenew'] = $request->autoRenew;
+        }
+        if (!Utils::isUnset($request->autoRenewPeriod)) {
+            $query['AutoRenewPeriod'] = $request->autoRenewPeriod;
         }
         if (!Utils::isUnset($request->creditSpecification)) {
             $query['CreditSpecification'] = $request->creditSpecification;
@@ -5644,6 +5659,9 @@ class Ecs extends OpenApiClient
         }
         if (!Utils::isUnset($request->period)) {
             $query['Period'] = $request->period;
+        }
+        if (!Utils::isUnset($request->periodUnit)) {
+            $query['PeriodUnit'] = $request->periodUnit;
         }
         if (!Utils::isUnset($request->privateIpAddress)) {
             $query['PrivateIpAddress'] = $request->privateIpAddress;
@@ -5769,6 +5787,12 @@ class Ecs extends OpenApiClient
         if (!Utils::isUnset($request->autoReleaseTime)) {
             $query['AutoReleaseTime'] = $request->autoReleaseTime;
         }
+        if (!Utils::isUnset($request->autoRenew)) {
+            $query['AutoRenew'] = $request->autoRenew;
+        }
+        if (!Utils::isUnset($request->autoRenewPeriod)) {
+            $query['AutoRenewPeriod'] = $request->autoRenewPeriod;
+        }
         if (!Utils::isUnset($request->creditSpecification)) {
             $query['CreditSpecification'] = $request->creditSpecification;
         }
@@ -5846,6 +5870,9 @@ class Ecs extends OpenApiClient
         }
         if (!Utils::isUnset($request->period)) {
             $query['Period'] = $request->period;
+        }
+        if (!Utils::isUnset($request->periodUnit)) {
+            $query['PeriodUnit'] = $request->periodUnit;
         }
         if (!Utils::isUnset($request->privateIpAddress)) {
             $query['PrivateIpAddress'] = $request->privateIpAddress;
@@ -6057,6 +6084,9 @@ class Ecs extends OpenApiClient
         }
         if (!Utils::isUnset($request->description)) {
             $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->enhancedNetwork)) {
+            $query['EnhancedNetwork'] = $request->enhancedNetwork;
         }
         if (!Utils::isUnset($request->instanceType)) {
             $query['InstanceType'] = $request->instanceType;
@@ -7038,7 +7068,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Creates a snapshot-consistent group for the cloud disks of an Elastic Compute Service (ECS) instance. A snapshot-consistent group contains snapshots of one or more cloud disks.
+     * @summary Creates a snapshot-consistent group for the disks of an Elastic Compute Service (ECS) instance. A snapshot-consistent group contains snapshots of one or more disks.
      *  *
      * @description ## [](#)Usage notes
      * You can specify `InstanceId` to create a snapshot-consistent group for disks on a specific (ECS instance. You can also specify `DiskId.N` to create a snapshot-consistent group for multiple disks on multiple ECS instances within the same zone.
@@ -7062,6 +7092,9 @@ class Ecs extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
         if (!Utils::isUnset($request->description)) {
             $query['Description'] = $request->description;
         }
@@ -7126,7 +7159,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Creates a snapshot-consistent group for the cloud disks of an Elastic Compute Service (ECS) instance. A snapshot-consistent group contains snapshots of one or more cloud disks.
+     * @summary Creates a snapshot-consistent group for the disks of an Elastic Compute Service (ECS) instance. A snapshot-consistent group contains snapshots of one or more disks.
      *  *
      * @description ## [](#)Usage notes
      * You can specify `InstanceId` to create a snapshot-consistent group for disks on a specific (ECS instance. You can also specify `DiskId.N` to create a snapshot-consistent group for multiple disks on multiple ECS instances within the same zone.
@@ -8030,7 +8063,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary You can call this operation to delete a deployment set.
+     * @summary Deletes a deployment set in a region. Make sure that no instances exist in the deployment set that you want to delete. If instances exist in the deployment set, move the instances to a different deployment set or release the instances before you delete the deployment set.
      *  *
      * @param DeleteDeploymentSetRequest $request DeleteDeploymentSetRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -8078,7 +8111,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary You can call this operation to delete a deployment set.
+     * @summary Deletes a deployment set in a region. Make sure that no instances exist in the deployment set that you want to delete. If instances exist in the deployment set, move the instances to a different deployment set or release the instances before you delete the deployment set.
      *  *
      * @param DeleteDeploymentSetRequest $request DeleteDeploymentSetRequest
      *
@@ -8921,7 +8954,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a launch template.
+     * @summary Deletes a launch template. You can use the LaunchTemplateId or LaunchTemplateName parameter to specify the launch template that you want to delete from the specified region.
      *  *
      * @param DeleteLaunchTemplateRequest $request DeleteLaunchTemplateRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -8972,7 +9005,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a launch template.
+     * @summary Deletes a launch template. You can use the LaunchTemplateId or LaunchTemplateName parameter to specify the launch template that you want to delete from the specified region.
      *  *
      * @param DeleteLaunchTemplateRequest $request DeleteLaunchTemplateRequest
      *
@@ -9120,7 +9153,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an elastic network interface (ENI).
+     * @summary Deletes an elastic network interface (ENI) in a region. DeleteNetworkInterface is an asynchronous operation.
      *  *
      * @description Take note of the following items:
      * *   The ENI to be deleted must be in the Available state.
@@ -9183,7 +9216,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an elastic network interface (ENI).
+     * @summary Deletes an elastic network interface (ENI) in a region. DeleteNetworkInterface is an asynchronous operation.
      *  *
      * @description Take note of the following items:
      * *   The ENI to be deleted must be in the Available state.
@@ -10647,16 +10680,19 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Queries the availability of resources in a zone. You can call this operation before you create or modify instances to ensure that sufficient resources are available.
+     * @summary Queries resources in a zone. You can query the resources available in a zone before you create Elastic Compute Service (ECS) instances by calling the RunInstances operation or before you change instance types by calling the ModifyInstanceSpec operation.
      *  *
-     * @description The value of the `DestinationResource` parameter determines whether you need to specify additional parameters. The following sequence provides the order by which resources are filtered. You cannot query a higher order resource by specifying a lower order resource.
+     * @description ## [](#)Usage notes
+     * The value of `DestinationResource` determines whether you need to specify additional parameters. When you select a value in the following chain for DestinationResource, the more to the right the selected value is ordered, the more parameters you must specify.
      * *   Sequence: `Zone > IoOptimized > InstanceType = Network = ddh > SystemDisk > DataDisk`
      * *   Examples:
-     *     *   If you set `DestinationResource` to `DataDisk`, you must specify the `InstanceType` parameter or set the `ResourceType` parameter to `disk`.
-     *     *   If you set `DestinationResource` to `SystemDisk`, you must specify the `InstanceType` parameter.
-     *     *   If you set `DestinationResource` to `InstanceType`, you must specify the `IoOptimized` and `InstanceType` parameters.
-     *     *   If you want to query available ecs.g5.large resources in all zones of the China (Hangzhou) region, you must set RegionId to cn-hangzhou, DestinationResource to InstanceType, IoOptimized to optimized, and InstanceType to ecs.g5.large.``
-     *     *   If you want to query the zones where ecs.g5.large resources are available in the China (Hangzhou) region, you must set RegionId to cn-hangzhou, DestinationResource to Zone, IoOptimized to optimized, and InstanceType to ecs.g5.large.``
+     *     *   If you set `DestinationResource` to `DataDisk`, take note of the following items:
+     *         *   If you set `ResourceType` to `disk` to query the categories of data disks that are not attached to ECS instances, you do not need to specify `InstanceType`.
+     *         *   If you set `ResourceType` to `instance` to query the categories of data disks that are purchased together with ECS instances, you must specify `InstanceType` and `SystemDiskCategory` due to instance type-specific limits on system disks and data disks.
+     *     *   If you set `DestinationResource` to `SystemDisk` and `ResourceType` to `instance`, you must specify `InstanceType` due to instance type-specific limits on system disks.
+     *     *   If you set `DestinationResource` to `InstanceType`, we recommend that you specify `IoOptimized` and `InstanceType`.
+     *     *   If you want to query the available ecs.g5.large resources in all zones of the China (Hangzhou) region, set `RegionId to cn-hangzhou, DestinationResource to InstanceType, IoOptimized to optimized, and InstanceType to ecs.g5.large`.
+     *     *   If you want to query the zones where ecs.g5.large resources are available in the China (Hangzhou) region, set `RegionId to cn-hangzhou, DestinationResource to Zone, IoOptimized to optimized, and InstanceType to ecs.g5.large`.
      *  *
      * @param DescribeAvailableResourceRequest $request DescribeAvailableResourceRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -10746,16 +10782,19 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Queries the availability of resources in a zone. You can call this operation before you create or modify instances to ensure that sufficient resources are available.
+     * @summary Queries resources in a zone. You can query the resources available in a zone before you create Elastic Compute Service (ECS) instances by calling the RunInstances operation or before you change instance types by calling the ModifyInstanceSpec operation.
      *  *
-     * @description The value of the `DestinationResource` parameter determines whether you need to specify additional parameters. The following sequence provides the order by which resources are filtered. You cannot query a higher order resource by specifying a lower order resource.
+     * @description ## [](#)Usage notes
+     * The value of `DestinationResource` determines whether you need to specify additional parameters. When you select a value in the following chain for DestinationResource, the more to the right the selected value is ordered, the more parameters you must specify.
      * *   Sequence: `Zone > IoOptimized > InstanceType = Network = ddh > SystemDisk > DataDisk`
      * *   Examples:
-     *     *   If you set `DestinationResource` to `DataDisk`, you must specify the `InstanceType` parameter or set the `ResourceType` parameter to `disk`.
-     *     *   If you set `DestinationResource` to `SystemDisk`, you must specify the `InstanceType` parameter.
-     *     *   If you set `DestinationResource` to `InstanceType`, you must specify the `IoOptimized` and `InstanceType` parameters.
-     *     *   If you want to query available ecs.g5.large resources in all zones of the China (Hangzhou) region, you must set RegionId to cn-hangzhou, DestinationResource to InstanceType, IoOptimized to optimized, and InstanceType to ecs.g5.large.``
-     *     *   If you want to query the zones where ecs.g5.large resources are available in the China (Hangzhou) region, you must set RegionId to cn-hangzhou, DestinationResource to Zone, IoOptimized to optimized, and InstanceType to ecs.g5.large.``
+     *     *   If you set `DestinationResource` to `DataDisk`, take note of the following items:
+     *         *   If you set `ResourceType` to `disk` to query the categories of data disks that are not attached to ECS instances, you do not need to specify `InstanceType`.
+     *         *   If you set `ResourceType` to `instance` to query the categories of data disks that are purchased together with ECS instances, you must specify `InstanceType` and `SystemDiskCategory` due to instance type-specific limits on system disks and data disks.
+     *     *   If you set `DestinationResource` to `SystemDisk` and `ResourceType` to `instance`, you must specify `InstanceType` due to instance type-specific limits on system disks.
+     *     *   If you set `DestinationResource` to `InstanceType`, we recommend that you specify `IoOptimized` and `InstanceType`.
+     *     *   If you want to query the available ecs.g5.large resources in all zones of the China (Hangzhou) region, set `RegionId to cn-hangzhou, DestinationResource to InstanceType, IoOptimized to optimized, and InstanceType to ecs.g5.large`.
+     *     *   If you want to query the zones where ecs.g5.large resources are available in the China (Hangzhou) region, set `RegionId to cn-hangzhou, DestinationResource to Zone, IoOptimized to optimized, and InstanceType to ecs.g5.large`.
      *  *
      * @param DescribeAvailableResourceRequest $request DescribeAvailableResourceRequest
      *
@@ -11215,12 +11254,13 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Queries whether Cloud Assistant Agent is installed on Elastic Compute Service (ECS) instances. If Cloud Assistant Agent is installed, the system queries the total number of Cloud Assistant commands that have been run, the number of Cloud Assistant commands that are being run, and the time when Cloud Assistant commands were last run.
+     * @summary Queries whether Cloud Assistant Agent is installed on instances. If Cloud Assistant Agent is installed, the system queries the total number of Cloud Assistant commands that have been run, the number of Cloud Assistant commands that are being run, and the time when Cloud Assistant commands were last run.
      *  *
-     * @description - Before you run commands on or send files to instances, especially new instances, we recommend that you query the status of Cloud Assistant on the instances by calling this operation and checking the return value of CloudAssistantStatus. Run commands on or send files to the instances only when the return value is true.
-     * - You can use one of the following methods to check the responses:
-     *   - Method 1: When you call the DescribeCloudAssistantStatus operation to retrieve the first page of results during a paged query, use MaxResults to specify the maximum number of entries to return in the call. The return value of NextToken is a pagination token, which you can use in the next request to retrieve a new page of results. When you call the DescribeCloudAssistantStatus operation to retrieve a new page of results, set NextToken to the NextToken value returned in the previous call and set MaxResults to specify the maximum number of entries to return in this call.
-     *   - Method 2: Use PageSize to specify the number of entries to return on each page and then use PageNumber to specify the number of the page to return. You can use only one of the preceding methods. If you specify MaxResults or NextToken, the PageSize and PageNumber request parameters do not take effect and the TotalCount response parameter is invalid.
+     * @description ## [](#)Usage notes
+     * *   Before you run commands on or send files to instances, especially new instances, we recommend that you query the status of Cloud Assistant on the instances by calling this operation and checking the return value of CloudAssistantStatus. Run commands on or send files to the instances only when the return value is true.
+     * *   You can use one of the following methods to check the responses:
+     *     *   Method 1: During a paged query, when you call the DescribeCloudAssistantStatus operation to retrieve the first page of results, set `MaxResults` to specify the maximum number of entries to return in the call. The return value of `NextToken` is a pagination token, which can be used in the next request to retrieve a new page of results. When you call the DescribeCloudAssistantStatus operation to retrieve a new page of results, set `NextToken` to the `NextToken` value returned in the previous call and set `MaxResults` to specify the maximum number of entries to return in this call.
+     *     *   Method 2: Use `PageSize` to specify the number of entries to return on each page and then use `PageNumber` to specify the number of the page to return. You can use only one of the preceding methods. If you specify `MaxResults` or `NextToken`, the `PageSize` and `PageNumber` request parameters do not take effect and the `TotalCount` response parameter is invalid.
      *  *
      * @param DescribeCloudAssistantStatusRequest $request DescribeCloudAssistantStatusRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
@@ -11286,12 +11326,13 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Queries whether Cloud Assistant Agent is installed on Elastic Compute Service (ECS) instances. If Cloud Assistant Agent is installed, the system queries the total number of Cloud Assistant commands that have been run, the number of Cloud Assistant commands that are being run, and the time when Cloud Assistant commands were last run.
+     * @summary Queries whether Cloud Assistant Agent is installed on instances. If Cloud Assistant Agent is installed, the system queries the total number of Cloud Assistant commands that have been run, the number of Cloud Assistant commands that are being run, and the time when Cloud Assistant commands were last run.
      *  *
-     * @description - Before you run commands on or send files to instances, especially new instances, we recommend that you query the status of Cloud Assistant on the instances by calling this operation and checking the return value of CloudAssistantStatus. Run commands on or send files to the instances only when the return value is true.
-     * - You can use one of the following methods to check the responses:
-     *   - Method 1: When you call the DescribeCloudAssistantStatus operation to retrieve the first page of results during a paged query, use MaxResults to specify the maximum number of entries to return in the call. The return value of NextToken is a pagination token, which you can use in the next request to retrieve a new page of results. When you call the DescribeCloudAssistantStatus operation to retrieve a new page of results, set NextToken to the NextToken value returned in the previous call and set MaxResults to specify the maximum number of entries to return in this call.
-     *   - Method 2: Use PageSize to specify the number of entries to return on each page and then use PageNumber to specify the number of the page to return. You can use only one of the preceding methods. If you specify MaxResults or NextToken, the PageSize and PageNumber request parameters do not take effect and the TotalCount response parameter is invalid.
+     * @description ## [](#)Usage notes
+     * *   Before you run commands on or send files to instances, especially new instances, we recommend that you query the status of Cloud Assistant on the instances by calling this operation and checking the return value of CloudAssistantStatus. Run commands on or send files to the instances only when the return value is true.
+     * *   You can use one of the following methods to check the responses:
+     *     *   Method 1: During a paged query, when you call the DescribeCloudAssistantStatus operation to retrieve the first page of results, set `MaxResults` to specify the maximum number of entries to return in the call. The return value of `NextToken` is a pagination token, which can be used in the next request to retrieve a new page of results. When you call the DescribeCloudAssistantStatus operation to retrieve a new page of results, set `NextToken` to the `NextToken` value returned in the previous call and set `MaxResults` to specify the maximum number of entries to return in this call.
+     *     *   Method 2: Use `PageSize` to specify the number of entries to return on each page and then use `PageNumber` to specify the number of the page to return. You can use only one of the preceding methods. If you specify `MaxResults` or `NextToken`, the `PageSize` and `PageNumber` request parameters do not take effect and the `TotalCount` response parameter is invalid.
      *  *
      * @param DescribeCloudAssistantStatusRequest $request DescribeCloudAssistantStatusRequest
      *
@@ -11370,10 +11411,11 @@ class Ecs extends OpenApiClient
     /**
      * @summary Queries the Cloud Assistant commands that you created or the common Cloud Assistant commands that Alibaba Cloud provides.
      *  *
-     * @description If you specify only the `Action` and `RegionId` parameters, all the available commands (`CommandId`) that you created in the specified region are queried by default.
-     * You can use one of the following methods to check the responses:
-     * - Method 1: During a paged query, when you call the DescribeCommands operation to retrieve the first page of results, set MaxResults to specify the maximum number of entries to return in the call. The return value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results. When you call the DescribeCommands operation to retrieve a new page of results, set NextToken to the NextToken value returned in the previous call and set MaxResults to specify the maximum number of entries to return in this call.
-     * - Method 2: Use PageSize to specify the number of entries to return on each page and then use PageNumber to specify the number of the page to return. You can use only one of the preceding methods. If you specify MaxResults or NextToken, the PageSize and PageNumber request parameters do not take effect and the TotalCount response parameter is invalid.
+     * @description ## [](#)Usage notes
+     * *   If you specify only `Action` and `RegionId`, all available commands (`CommandId`) that you created in the specified region are queried by default.
+     * *   You can use one of the following methods to check the responses:
+     *     *   Method 1: During a paged query, when you call the DescribeCommands operation to retrieve the first page of results, set `MaxResults` to specify the maximum number of entries to return in the call. The return value of `NextToken` is a pagination token, which can be used in the next request to retrieve a new page of results. When you call the DescribeCommands operation to retrieve a new page of results, set `NextToken` to the `NextToken` value returned in the previous call and set `MaxResults` to specify the maximum number of entries to return in this call.
+     *     *   Method 2: Use `PageSize` to specify the number of entries to return on each page and then use `PageNumber` to specify the number of the page to return. You can use only one of the preceding methods. If you specify `MaxResults` or `NextToken`, the `PageSize` and `PageNumber` request parameters do not take effect and the `TotalCount` response parameter is invalid.
      *  *
      * @param DescribeCommandsRequest $request DescribeCommandsRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -11462,10 +11504,11 @@ class Ecs extends OpenApiClient
     /**
      * @summary Queries the Cloud Assistant commands that you created or the common Cloud Assistant commands that Alibaba Cloud provides.
      *  *
-     * @description If you specify only the `Action` and `RegionId` parameters, all the available commands (`CommandId`) that you created in the specified region are queried by default.
-     * You can use one of the following methods to check the responses:
-     * - Method 1: During a paged query, when you call the DescribeCommands operation to retrieve the first page of results, set MaxResults to specify the maximum number of entries to return in the call. The return value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results. When you call the DescribeCommands operation to retrieve a new page of results, set NextToken to the NextToken value returned in the previous call and set MaxResults to specify the maximum number of entries to return in this call.
-     * - Method 2: Use PageSize to specify the number of entries to return on each page and then use PageNumber to specify the number of the page to return. You can use only one of the preceding methods. If you specify MaxResults or NextToken, the PageSize and PageNumber request parameters do not take effect and the TotalCount response parameter is invalid.
+     * @description ## [](#)Usage notes
+     * *   If you specify only `Action` and `RegionId`, all available commands (`CommandId`) that you created in the specified region are queried by default.
+     * *   You can use one of the following methods to check the responses:
+     *     *   Method 1: During a paged query, when you call the DescribeCommands operation to retrieve the first page of results, set `MaxResults` to specify the maximum number of entries to return in the call. The return value of `NextToken` is a pagination token, which can be used in the next request to retrieve a new page of results. When you call the DescribeCommands operation to retrieve a new page of results, set `NextToken` to the `NextToken` value returned in the previous call and set `MaxResults` to specify the maximum number of entries to return in this call.
+     *     *   Method 2: Use `PageSize` to specify the number of entries to return on each page and then use `PageNumber` to specify the number of the page to return. You can use only one of the preceding methods. If you specify `MaxResults` or `NextToken`, the `PageSize` and `PageNumber` request parameters do not take effect and the `TotalCount` response parameter is invalid.
      *  *
      * @param DescribeCommandsRequest $request DescribeCommandsRequest
      *
@@ -12312,9 +12355,9 @@ class Ecs extends OpenApiClient
      * @description ## [](#)Usage notes
      * You can query the following monitoring data of a disk: the read IOPS, write IOPS, read bandwidth (byte/s), write bandwidth (byte/s), read latency (microseconds), and write latency (microseconds).
      * Take note of the following items:
-     * *   You can query the monitoring data only of the disks that are in the In Use (`In_Use`) state. For more information, see [Disk states](https://help.aliyun.com/document_detail/25689.html).
+     * *   You can query the monitoring data only of the disks that are in the In Use (`In_use`) state. For more information, see [Disk states](https://help.aliyun.com/document_detail/25689.html).
      *     **
-     *     **Note** Some information may be missing from the monitoring data of a disk because the disk is not in the In Use (`In_Use`) state and the system cannot obtain the relevant information.
+     *     **Note** Some information may be missing from the monitoring data of a disk because the disk is not in the In Use (`In_use`) state and the system cannot obtain the relevant information.
      * *   Up to 400 monitoring data entries can be returned at a time. Make sure that the `TotalCount` value does not exceed 400. The value is calculated by using the following formula: `TotalCount = (EndTime - StartTime)/Period`. If the TotalCount value is greater than 400, the `InvalidParameter.TooManyDataQueried` error is returned.
      * *   You can query the monitoring data in the last 30 days. If the value of `StartTime` is more than 30 days earlier than the current time, an error is returned.
      *  *
@@ -12375,9 +12418,9 @@ class Ecs extends OpenApiClient
      * @description ## [](#)Usage notes
      * You can query the following monitoring data of a disk: the read IOPS, write IOPS, read bandwidth (byte/s), write bandwidth (byte/s), read latency (microseconds), and write latency (microseconds).
      * Take note of the following items:
-     * *   You can query the monitoring data only of the disks that are in the In Use (`In_Use`) state. For more information, see [Disk states](https://help.aliyun.com/document_detail/25689.html).
+     * *   You can query the monitoring data only of the disks that are in the In Use (`In_use`) state. For more information, see [Disk states](https://help.aliyun.com/document_detail/25689.html).
      *     **
-     *     **Note** Some information may be missing from the monitoring data of a disk because the disk is not in the In Use (`In_Use`) state and the system cannot obtain the relevant information.
+     *     **Note** Some information may be missing from the monitoring data of a disk because the disk is not in the In Use (`In_use`) state and the system cannot obtain the relevant information.
      * *   Up to 400 monitoring data entries can be returned at a time. Make sure that the `TotalCount` value does not exceed 400. The value is calculated by using the following formula: `TotalCount = (EndTime - StartTime)/Period`. If the TotalCount value is greater than 400, the `InvalidParameter.TooManyDataQueried` error is returned.
      * *   You can query the monitoring data in the last 30 days. If the value of `StartTime` is more than 30 days earlier than the current time, an error is returned.
      *  *
@@ -12393,7 +12436,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Queries one or more block storage devices that you created, including cloud disks and local disks.
+     * @summary Queries block storage devices that you created, including cloud disks, local disks, and elastic ephemeral disks.
      *  *
      * @description ### [](#)Usage notes
      * *   You can specify multiple request parameters such as `RegionId`, `ZoneId`, `DiskIds`, and `InstanceId` as filters. The specified parameters are evaluated by using the "AND" operator. If you specify more than one filter, the records that match all filters are returned.
@@ -12535,7 +12578,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Queries one or more block storage devices that you created, including cloud disks and local disks.
+     * @summary Queries block storage devices that you created, including cloud disks, local disks, and elastic ephemeral disks.
      *  *
      * @description ### [](#)Usage notes
      * *   You can specify multiple request parameters such as `RegionId`, `ZoneId`, `DiskIds`, and `InstanceId` as filters. The specified parameters are evaluated by using the "AND" operator. If you specify more than one filter, the records that match all filters are returned.
@@ -14105,7 +14148,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Queries historical system events that are inactive.
+     * @summary Queries the system events of Elastic Compute Service (ECS) instances. By default, non-active system events are queried.
      *  *
      * @description *   You can query system events that were completed within the last 30 days. No limits apply to the time range for querying uncompleted system events.
      * *   You can also specify InstanceEventCycleStatus to query the system events that are in the Scheduled, Executing, or Inquiring state.
@@ -14201,7 +14244,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Queries historical system events that are inactive.
+     * @summary Queries the system events of Elastic Compute Service (ECS) instances. By default, non-active system events are queried.
      *  *
      * @description *   You can query system events that were completed within the last 30 days. No limits apply to the time range for querying uncompleted system events.
      * *   You can also specify InstanceEventCycleStatus to query the system events that are in the Scheduled, Executing, or Inquiring state.
@@ -15306,11 +15349,20 @@ class Ecs extends OpenApiClient
      * @summary Queries the execution results of one or more Cloud Assistant commands on Elastic Compute Service (ECS) instances.
      *  *
      * @description ## [](#)Usage notes
-     * *   After you run a command, the command may fail to run or may return unexpected results. You can call this operation to query the execution results of a command.
+     * *   After you run a command, the command may fail to run or may return unexpected results. You can call this operation to query the execution results.
      * *   You can query information about command executions within the last four weeks. Up to 100,000 pieces of execution information can be retained.
+     * *   You can [subscribe to Cloud Assistant task status events](https://help.aliyun.com/document_detail/2669130.html) to obtain command execution results from the events. This helps you reduce the number of times to poll API operations and improve efficiency.
      * *   You can use one of the following methods to check the responses:
      *     *   Method 1: During a paged query, when you call the DescribeInvocationResults operation to retrieve the first page of results, set `MaxResults` to specify the maximum number of entries to return in the call. The return value of `NextToken` is a pagination token, which can be used in the next request to retrieve a new page of results. When you call the DescribeInvocationResults operation to retrieve a new page of results, set `NextToken` to the `NextToken` value returned in the previous call and set `MaxResults` to specify the maximum number of entries to return in this call.
-     *     *   Method 2: Use `PageSize` to specify the number of entries to return on each page and then use `PageNumber` to specify the number of the page to return. You can use only one of the preceding methods. If you specify `MaxResults` or `NextToken`, the `PageSize` and `PageNumber` request parameters do not take effect and the `TotalCount` response parameter is invalid.
+     *     *   Method 2: Use `PageSize` to specify the number of entries per page, and then use `PageNumber` to specify the page number. You can use only one of the preceding methods. If you specify `MaxResults` or `NextToken`, the `PageSize` and `PageNumber` request parameters do not take effect and the `TotalCount` response parameter is invalid.
+     * *   Comparison between the `DescribeInvocations` and `DescribeInvocationResults` operations:
+     *     *   Scenario in which the `RunCommand` or `InvokeCommand` operation is called to run a Cloud Assistant command on multiple instances:
+     *         *   The `DescribeInvocations` operation queries the execution status of the command on each instance and the overall execution status of the command on all instances.
+     *         *   The `DescribeInvocationResults` operation queries only the execution status of the command on each instance.
+     *     *   Scenario in which the `RunCommand` or `InvokeCommand` operation is called to run a Cloud Assistant command on a single instance:
+     *         *   The `DescribeInvocations` operation is equivalent to the `DescribeInvocationResults` operation.
+     *     *   If you want to query the status of each execution for a scheduled (recurring) task or a task that is automatically executed on instance startup (`RepeatMode is set to Period or EveryReboot`), you can call only the `DescribeInvocationResults` operation and must set `IncludeHistory` to true. The `DescribeInvocations` operation queries only the most recent execution status of the command.
+     *     *   If you want to view the command content and parameters, you can call only the `DescribeInvocations` operation and check the `CommandContent` value in the response.
      *  *
      * @param DescribeInvocationResultsRequest $request DescribeInvocationResultsRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -15397,11 +15449,20 @@ class Ecs extends OpenApiClient
      * @summary Queries the execution results of one or more Cloud Assistant commands on Elastic Compute Service (ECS) instances.
      *  *
      * @description ## [](#)Usage notes
-     * *   After you run a command, the command may fail to run or may return unexpected results. You can call this operation to query the execution results of a command.
+     * *   After you run a command, the command may fail to run or may return unexpected results. You can call this operation to query the execution results.
      * *   You can query information about command executions within the last four weeks. Up to 100,000 pieces of execution information can be retained.
+     * *   You can [subscribe to Cloud Assistant task status events](https://help.aliyun.com/document_detail/2669130.html) to obtain command execution results from the events. This helps you reduce the number of times to poll API operations and improve efficiency.
      * *   You can use one of the following methods to check the responses:
      *     *   Method 1: During a paged query, when you call the DescribeInvocationResults operation to retrieve the first page of results, set `MaxResults` to specify the maximum number of entries to return in the call. The return value of `NextToken` is a pagination token, which can be used in the next request to retrieve a new page of results. When you call the DescribeInvocationResults operation to retrieve a new page of results, set `NextToken` to the `NextToken` value returned in the previous call and set `MaxResults` to specify the maximum number of entries to return in this call.
-     *     *   Method 2: Use `PageSize` to specify the number of entries to return on each page and then use `PageNumber` to specify the number of the page to return. You can use only one of the preceding methods. If you specify `MaxResults` or `NextToken`, the `PageSize` and `PageNumber` request parameters do not take effect and the `TotalCount` response parameter is invalid.
+     *     *   Method 2: Use `PageSize` to specify the number of entries per page, and then use `PageNumber` to specify the page number. You can use only one of the preceding methods. If you specify `MaxResults` or `NextToken`, the `PageSize` and `PageNumber` request parameters do not take effect and the `TotalCount` response parameter is invalid.
+     * *   Comparison between the `DescribeInvocations` and `DescribeInvocationResults` operations:
+     *     *   Scenario in which the `RunCommand` or `InvokeCommand` operation is called to run a Cloud Assistant command on multiple instances:
+     *         *   The `DescribeInvocations` operation queries the execution status of the command on each instance and the overall execution status of the command on all instances.
+     *         *   The `DescribeInvocationResults` operation queries only the execution status of the command on each instance.
+     *     *   Scenario in which the `RunCommand` or `InvokeCommand` operation is called to run a Cloud Assistant command on a single instance:
+     *         *   The `DescribeInvocations` operation is equivalent to the `DescribeInvocationResults` operation.
+     *     *   If you want to query the status of each execution for a scheduled (recurring) task or a task that is automatically executed on instance startup (`RepeatMode is set to Period or EveryReboot`), you can call only the `DescribeInvocationResults` operation and must set `IncludeHistory` to true. The `DescribeInvocations` operation queries only the most recent execution status of the command.
+     *     *   If you want to view the command content and parameters, you can call only the `DescribeInvocations` operation and check the `CommandContent` value in the response.
      *  *
      * @param DescribeInvocationResultsRequest $request DescribeInvocationResultsRequest
      *
@@ -15418,11 +15479,20 @@ class Ecs extends OpenApiClient
      * @summary Queries the execution list and states of Cloud Assistant commands.
      *  *
      * @description ## [](#)Usage notes
-     * *   After you run a command, the command may not succeed or return the expected results. You can call this operation to query the execution results.
+     * *   After you run a command, the command may fail to run or may return unexpected results. You can call this operation to query the execution results.
      * *   You can query information about command executions within the last four weeks. Up to 100,000 pieces of execution information can be retained.
+     * *   You can [subscribe to Cloud Assistant task status events](https://help.aliyun.com/document_detail/2669130.html) to obtain command execution results from the events. This helps you reduce the number of times to poll API operations and improve efficiency.
      * *   You can use one of the following methods to check the responses:
      *     *   Method 1: During a paged query, when you call the DescribeInvocations operation to retrieve the first page of results, use `MaxResults` to specify the maximum number of entries to return in the call. The return value of `NextToken` is a pagination token, which you can use in the next request to retrieve a new page of results. When you call the DescribeInvocations operation to retrieve a new page of results, set `NextToken` to the `NextToken` value returned in the previous call and set `MaxResults` to specify the maximum number of entries to return in this call.
-     *     *   Method 2: Use `PageSize` to specify the number of entries to return on each page, and then use `PageNumber` to specify the number of the page to return. You can use only one of the preceding methods. If you specify `MaxResults` or `NextToken`, the `PageSize` and `PageNumber` request parameters do not take effect and the `TotalCount` response parameter is invalid.
+     *     *   Method 2: Use `PageSize` to specify the number of entries per page, and then use `PageNumber` to specify the page number. You can use only one of the preceding methods. If you specify `MaxResults` or `NextToken`, the `PageSize` and `PageNumber` request parameters do not take effect and the `TotalCount` response parameter is invalid.
+     * *   Comparison between the `DescribeInvocations` and `DescribeInvocationResults` operations:
+     *     *   Scenario in which the `RunCommand` or `InvokeCommand` operation is called to run a Cloud Assistant command on multiple instances:
+     *         *   The `DescribeInvocations` operation queries the execution status of the command on each instance and the overall execution status of the command on all instances.
+     *         *   The `DescribeInvocationResults` operation queries only the execution status of the command on each instance.
+     *     *   Scenario in which the `RunCommand` or `InvokeCommand` operation is called to run a Cloud Assistant command on a single instance:
+     *         *   The `DescribeInvocations` operation is equivalent to the `DescribeInvocationResults` operation.
+     *     *   If you want to query the status of each execution for a scheduled (recurring) task or a task that is automatically executed on instance startup (`RepeatMode is set to Period or EveryReboot`), you can call only the `DescribeInvocationResults` operation and must set `IncludeHistory` to true. The `DescribeInvocations` operation queries only the most recent execution status of the command.
+     *     *   If you want to view the command content and parameters, you can call only the `DescribeInvocations` operation and check the `CommandContent` value in the response.
      *  *
      * @param DescribeInvocationsRequest $request DescribeInvocationsRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -15521,11 +15591,20 @@ class Ecs extends OpenApiClient
      * @summary Queries the execution list and states of Cloud Assistant commands.
      *  *
      * @description ## [](#)Usage notes
-     * *   After you run a command, the command may not succeed or return the expected results. You can call this operation to query the execution results.
+     * *   After you run a command, the command may fail to run or may return unexpected results. You can call this operation to query the execution results.
      * *   You can query information about command executions within the last four weeks. Up to 100,000 pieces of execution information can be retained.
+     * *   You can [subscribe to Cloud Assistant task status events](https://help.aliyun.com/document_detail/2669130.html) to obtain command execution results from the events. This helps you reduce the number of times to poll API operations and improve efficiency.
      * *   You can use one of the following methods to check the responses:
      *     *   Method 1: During a paged query, when you call the DescribeInvocations operation to retrieve the first page of results, use `MaxResults` to specify the maximum number of entries to return in the call. The return value of `NextToken` is a pagination token, which you can use in the next request to retrieve a new page of results. When you call the DescribeInvocations operation to retrieve a new page of results, set `NextToken` to the `NextToken` value returned in the previous call and set `MaxResults` to specify the maximum number of entries to return in this call.
-     *     *   Method 2: Use `PageSize` to specify the number of entries to return on each page, and then use `PageNumber` to specify the number of the page to return. You can use only one of the preceding methods. If you specify `MaxResults` or `NextToken`, the `PageSize` and `PageNumber` request parameters do not take effect and the `TotalCount` response parameter is invalid.
+     *     *   Method 2: Use `PageSize` to specify the number of entries per page, and then use `PageNumber` to specify the page number. You can use only one of the preceding methods. If you specify `MaxResults` or `NextToken`, the `PageSize` and `PageNumber` request parameters do not take effect and the `TotalCount` response parameter is invalid.
+     * *   Comparison between the `DescribeInvocations` and `DescribeInvocationResults` operations:
+     *     *   Scenario in which the `RunCommand` or `InvokeCommand` operation is called to run a Cloud Assistant command on multiple instances:
+     *         *   The `DescribeInvocations` operation queries the execution status of the command on each instance and the overall execution status of the command on all instances.
+     *         *   The `DescribeInvocationResults` operation queries only the execution status of the command on each instance.
+     *     *   Scenario in which the `RunCommand` or `InvokeCommand` operation is called to run a Cloud Assistant command on a single instance:
+     *         *   The `DescribeInvocations` operation is equivalent to the `DescribeInvocationResults` operation.
+     *     *   If you want to query the status of each execution for a scheduled (recurring) task or a task that is automatically executed on instance startup (`RepeatMode is set to Period or EveryReboot`), you can call only the `DescribeInvocationResults` operation and must set `IncludeHistory` to true. The `DescribeInvocations` operation queries only the most recent execution status of the command.
+     *     *   If you want to view the command content and parameters, you can call only the `DescribeInvocations` operation and check the `CommandContent` value in the response.
      *  *
      * @param DescribeInvocationsRequest $request DescribeInvocationsRequest
      *
@@ -15848,11 +15927,12 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of managed instances.
+     * @summary Queries managed instances.
      *  *
-     * @description You can use one of the following methods to check the responses:
-     * - Method 1: When you call the DescribeInstances operation to retrieve the first page of results during a paged query, use MaxResults to specify the maximum number of entries to return in the call. The return value of NextToken is a pagination token, which you can use in the next request to retrieve a new page of results. When you call the DescribeInstances operation to retrieve a new page of results, set NextToken to the NextToken value returned in the previous call and use MaxResults to specify the maximum number of entries to return in the call.
-     * - Method 2: Use PageSize to specify the number of entries to return on each page, and then use PageNumber to specify the number of the page to return. You can use only one of the preceding methods. If you specify MaxResults or NextToken, the PageSize and PageNumber request parameters do not take effect and the TotalCount response parameter is invalid.
+     * @description ## [](#)Usage notes
+     * You can use one of the following methods to check the responses:
+     * *   Method 1: During a paged query, when you call the DescribeManagedInstances operation to retrieve the first page of results, set `MaxResults` to specify the maximum number of entries to return in the call. The return value of `NextToken` is a pagination token, which can be used in the next request to retrieve a new page of results. When you call the DescribeManagedInstances operation to retrieve a new page of results, set `NextToken` to the `NextToken` value returned in the previous call and set `MaxResults` to specify the maximum number of entries to return in this call.
+     * *   Method 2: Use `PageSize` to specify the number of entries to return on each page and then use `PageNumber` to specify the number of the page to return. You can use only one of the preceding methods. If you specify `MaxResults` or `NextToken`, the `PageSize` and `PageNumber` request parameters do not take effect and the `TotalCount` response parameter is invalid.
      *  *
      * @param DescribeManagedInstancesRequest $request DescribeManagedInstancesRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -15933,11 +16013,12 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of managed instances.
+     * @summary Queries managed instances.
      *  *
-     * @description You can use one of the following methods to check the responses:
-     * - Method 1: When you call the DescribeInstances operation to retrieve the first page of results during a paged query, use MaxResults to specify the maximum number of entries to return in the call. The return value of NextToken is a pagination token, which you can use in the next request to retrieve a new page of results. When you call the DescribeInstances operation to retrieve a new page of results, set NextToken to the NextToken value returned in the previous call and use MaxResults to specify the maximum number of entries to return in the call.
-     * - Method 2: Use PageSize to specify the number of entries to return on each page, and then use PageNumber to specify the number of the page to return. You can use only one of the preceding methods. If you specify MaxResults or NextToken, the PageSize and PageNumber request parameters do not take effect and the TotalCount response parameter is invalid.
+     * @description ## [](#)Usage notes
+     * You can use one of the following methods to check the responses:
+     * *   Method 1: During a paged query, when you call the DescribeManagedInstances operation to retrieve the first page of results, set `MaxResults` to specify the maximum number of entries to return in the call. The return value of `NextToken` is a pagination token, which can be used in the next request to retrieve a new page of results. When you call the DescribeManagedInstances operation to retrieve a new page of results, set `NextToken` to the `NextToken` value returned in the previous call and set `MaxResults` to specify the maximum number of entries to return in this call.
+     * *   Method 2: Use `PageSize` to specify the number of entries to return on each page and then use `PageNumber` to specify the number of the page to return. You can use only one of the preceding methods. If you specify `MaxResults` or `NextToken`, the `PageSize` and `PageNumber` request parameters do not take effect and the `TotalCount` response parameter is invalid.
      *  *
      * @param DescribeManagedInstancesRequest $request DescribeManagedInstancesRequest
      *
@@ -16678,15 +16759,16 @@ class Ecs extends OpenApiClient
     /**
      * @summary Queries the most recent prices of Elastic Compute Resource (ECS) resources.
      *  *
-     * @description *   The required parameters vary based on the type of resource whose prices you want to query.
+     * @description # [](#)Usage notes
+     * *   The required parameters vary based on the types of resources whose prices you want to query.
      *     *   When `ResourceType` is set to instance, you must specify `InstanceType`.
-     *     *   When `ResourceType` is set to disk, you must specify `DataDisk.1.Category` and `DataDisk.1.Size`. When `ResourceType` is set to disk, only pay-as-you-go prices of cloud disks are returned. In this case, `PriceUnit` can be set only to `Hour`.
+     *     *   When `ResourceType` is set to disk, you must specify both `DataDisk.1.Category` and `DataDisk.1.Size`. When `ResourceType` is set to disk, only pay-as-you-go prices of cloud disks are returned. In this scenario, `PriceUnit` can be set only to `Hour`.
      *     *   When `ResourceType` is set to ddh, you must specify `DedicatedHostType`.
      *     *   When `ResourceType` is set to ElasticityAssurance, you must specify `InstanceType`.
      *     *   When `ResourceType` is set to CapacityReservation, you must specify `InstanceType`.
-     * *   When `ResourceType` is set to bandwidth, only the pay-by-traffic (`PayByTraffic`) prices of network usage is returned.
+     * *   When `ResourceType` is set to bandwidth, only the pay-by-traffic (`PayByTraffic`) price for network usage is returned.
      * *   When `ResourceType` is set to instance, the prices of up to four data disks can be queried.
-     * *   By default, `ChargeType` is set to `PostPaid`. You can specify `PriceUnit` to query the prices of ECS resources that have different billing cycles.
+     * *   By default, `ChargeType` is set to `PostPaid`. You can specify `PriceUnit` to query prices of ECS resources that have different billing cycles.
      *  *
      * @param DescribePriceRequest $request DescribePriceRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -16811,15 +16893,16 @@ class Ecs extends OpenApiClient
     /**
      * @summary Queries the most recent prices of Elastic Compute Resource (ECS) resources.
      *  *
-     * @description *   The required parameters vary based on the type of resource whose prices you want to query.
+     * @description # [](#)Usage notes
+     * *   The required parameters vary based on the types of resources whose prices you want to query.
      *     *   When `ResourceType` is set to instance, you must specify `InstanceType`.
-     *     *   When `ResourceType` is set to disk, you must specify `DataDisk.1.Category` and `DataDisk.1.Size`. When `ResourceType` is set to disk, only pay-as-you-go prices of cloud disks are returned. In this case, `PriceUnit` can be set only to `Hour`.
+     *     *   When `ResourceType` is set to disk, you must specify both `DataDisk.1.Category` and `DataDisk.1.Size`. When `ResourceType` is set to disk, only pay-as-you-go prices of cloud disks are returned. In this scenario, `PriceUnit` can be set only to `Hour`.
      *     *   When `ResourceType` is set to ddh, you must specify `DedicatedHostType`.
      *     *   When `ResourceType` is set to ElasticityAssurance, you must specify `InstanceType`.
      *     *   When `ResourceType` is set to CapacityReservation, you must specify `InstanceType`.
-     * *   When `ResourceType` is set to bandwidth, only the pay-by-traffic (`PayByTraffic`) prices of network usage is returned.
+     * *   When `ResourceType` is set to bandwidth, only the pay-by-traffic (`PayByTraffic`) price for network usage is returned.
      * *   When `ResourceType` is set to instance, the prices of up to four data disks can be queried.
-     * *   By default, `ChargeType` is set to `PostPaid`. You can specify `PriceUnit` to query the prices of ECS resources that have different billing cycles.
+     * *   By default, `ChargeType` is set to `PostPaid`. You can specify `PriceUnit` to query prices of ECS resources that have different billing cycles.
      *  *
      * @param DescribePriceRequest $request DescribePriceRequest
      *
@@ -17253,7 +17336,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary You can call this operation to retrieve resources based on tags. You can also retrieve resources based on their types.
+     * @summary Queries resources by tag or resource type.
      *  *
      * @param DescribeResourceByTagsRequest $request DescribeResourceByTagsRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -17307,7 +17390,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary You can call this operation to retrieve resources based on tags. You can also retrieve resources based on their types.
+     * @summary Queries resources by tag or resource type.
      *  *
      * @param DescribeResourceByTagsRequest $request DescribeResourceByTagsRequest
      *
@@ -17963,12 +18046,12 @@ class Ecs extends OpenApiClient
     /**
      * @summary Queries the files sent by Cloud Assistant and their status.
      *  *
-     * @description ## Usage notes
-     * *   When you send a file, the file may fail to be sent to specified Elastic Compute Service (ECS) instances. You can call this operation to check the file sending results.
+     * @description ## [](#)Usage notes:
+     * *   When you send a file, the file may fail to be sent to specific Elastic Compute Service (ECS) instances. You can call this operation to check the file sending results.
      * *   You can call this operation to query the file sending records within the last six weeks.
-     * - You can use one of the following methods to check the responses:
-     *   - Method 1: During a paged query, when you call the DescribeSendFileResults operation to retrieve the first page of results, set MaxResults to specify the maximum number of entries to return in the call. The return value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results. When you call the DescribeSendFileResults operation to retrieve a new page of results, set NextToken to the NextToken value returned in the previous call and set MaxResults to specify the maximum number of entries to return in this call.
-     *   - Method 2: Use PageSize to specify the number of entries to return on each page and then use PageNumber to specify the number of the page to return. You can use only one of the preceding methods. If you specify MaxResults or NextToken, the PageSize and PageNumber request parameters do not take effect and the TotalCount response parameter is invalid.
+     * *   You can use one of the following methods to check the responses:
+     *     *   Method 1: During a paged query, when you call the DescribeSendFileResults operation to retrieve the first page of results, set `MaxResults` to specify the maximum number of entries to return in the call. The return value of `NextToken` is a pagination token, which can be used in the next request to retrieve a new page of results. When you call the DescribeSendFileResults operation to retrieve a new page of results, set `NextToken` to the `NextToken` value returned in the previous call and set `MaxResults` to specify the maximum number of entries to return in this call.
+     *     *   Method 2: Use `PageSize` to specify the number of entries to return on each page and then use `PageNumber` to specify the number of the page to return. You can use only one of the preceding methods. If you specify `MaxResults` or `NextToken`, the `PageSize` and `PageNumber` request parameters do not take effect and the `TotalCount` response parameter is invalid.
      *  *
      * @param DescribeSendFileResultsRequest $request DescribeSendFileResultsRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -18048,12 +18131,12 @@ class Ecs extends OpenApiClient
     /**
      * @summary Queries the files sent by Cloud Assistant and their status.
      *  *
-     * @description ## Usage notes
-     * *   When you send a file, the file may fail to be sent to specified Elastic Compute Service (ECS) instances. You can call this operation to check the file sending results.
+     * @description ## [](#)Usage notes:
+     * *   When you send a file, the file may fail to be sent to specific Elastic Compute Service (ECS) instances. You can call this operation to check the file sending results.
      * *   You can call this operation to query the file sending records within the last six weeks.
-     * - You can use one of the following methods to check the responses:
-     *   - Method 1: During a paged query, when you call the DescribeSendFileResults operation to retrieve the first page of results, set MaxResults to specify the maximum number of entries to return in the call. The return value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results. When you call the DescribeSendFileResults operation to retrieve a new page of results, set NextToken to the NextToken value returned in the previous call and set MaxResults to specify the maximum number of entries to return in this call.
-     *   - Method 2: Use PageSize to specify the number of entries to return on each page and then use PageNumber to specify the number of the page to return. You can use only one of the preceding methods. If you specify MaxResults or NextToken, the PageSize and PageNumber request parameters do not take effect and the TotalCount response parameter is invalid.
+     * *   You can use one of the following methods to check the responses:
+     *     *   Method 1: During a paged query, when you call the DescribeSendFileResults operation to retrieve the first page of results, set `MaxResults` to specify the maximum number of entries to return in the call. The return value of `NextToken` is a pagination token, which can be used in the next request to retrieve a new page of results. When you call the DescribeSendFileResults operation to retrieve a new page of results, set `NextToken` to the `NextToken` value returned in the previous call and set `MaxResults` to specify the maximum number of entries to return in this call.
+     *     *   Method 2: Use `PageSize` to specify the number of entries to return on each page and then use `PageNumber` to specify the number of the page to return. You can use only one of the preceding methods. If you specify `MaxResults` or `NextToken`, the `PageSize` and `PageNumber` request parameters do not take effect and the `TotalCount` response parameter is invalid.
      *  *
      * @param DescribeSendFileResultsRequest $request DescribeSendFileResultsRequest
      *
@@ -19962,12 +20045,13 @@ class Ecs extends OpenApiClient
     /**
      * @summary Detaches a pay-as-you-go data disk or a system disk from an Elastic Compute Service (ECS) instance.
      *  *
-     * @description When you call this operation, take note of the following items:
-     * *   The disk that you want to detach must be in the `In_Use` state.
-     * *   The instance from which you want to detach a pay-as-you-go data disk must be in the **Running** or **Stopped** state.````
+     * @description Take note of the following items:
+     * *   The disk that you want to detach must be attached to an ECS instance and in the In Use (`In_use`) state.
+     * *   The instance from which you want to detach a data disk must be in the **Running** (`Running`) or **Stopped** (`Stopped`) state.
      * *   The instance from which you want to detach a system disk must be in the **Stopped** state.``
-     * *   If the `OperationLocks` parameter in the response contains `"LockReason" : "security"`, the instance is locked for security reasons and no operations are allowed on the instance.
-     * *   DetachDisk is an asynchronous operation. After you call the operation, a disk is detached from an instance in approximately 1 minute.
+     * *   If the `OperationLocks` parameter in the response contains `"LockReason" : "security"` when you query the instance information, the instance is locked for security reasons and all operations are prohibited on the instance.
+     * *   DetachDisk is an asynchronous operation. After you call the operation to detach a disk from an ECS instance, the disk is detached in approximately 1 minute.
+     * *   If you want to attach an elastic ephemeral disk that you detached from an instance, you can attach the disk only to the instance.
      *  *
      * @param DetachDiskRequest $request DetachDiskRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
@@ -20020,12 +20104,13 @@ class Ecs extends OpenApiClient
     /**
      * @summary Detaches a pay-as-you-go data disk or a system disk from an Elastic Compute Service (ECS) instance.
      *  *
-     * @description When you call this operation, take note of the following items:
-     * *   The disk that you want to detach must be in the `In_Use` state.
-     * *   The instance from which you want to detach a pay-as-you-go data disk must be in the **Running** or **Stopped** state.````
+     * @description Take note of the following items:
+     * *   The disk that you want to detach must be attached to an ECS instance and in the In Use (`In_use`) state.
+     * *   The instance from which you want to detach a data disk must be in the **Running** (`Running`) or **Stopped** (`Stopped`) state.
      * *   The instance from which you want to detach a system disk must be in the **Stopped** state.``
-     * *   If the `OperationLocks` parameter in the response contains `"LockReason" : "security"`, the instance is locked for security reasons and no operations are allowed on the instance.
-     * *   DetachDisk is an asynchronous operation. After you call the operation, a disk is detached from an instance in approximately 1 minute.
+     * *   If the `OperationLocks` parameter in the response contains `"LockReason" : "security"` when you query the instance information, the instance is locked for security reasons and all operations are prohibited on the instance.
+     * *   DetachDisk is an asynchronous operation. After you call the operation to detach a disk from an ECS instance, the disk is detached in approximately 1 minute.
+     * *   If you want to attach an elastic ephemeral disk that you detached from an instance, you can attach the disk only to the instance.
      *  *
      * @param DetachDiskRequest $request DetachDiskRequest
      *
@@ -20616,10 +20701,10 @@ class Ecs extends OpenApiClient
      *  *
      * @description ## [](#)Usage notes
      * Before you export images, take note of the following items:
-     * *   Make sure that you are familiar with the prerequisites and precautions. For more information, see [Export a custom image](https://help.aliyun.com/document_detail/58181.html).
-     * *   The `ImageFormat` parameter is available only for the following regions: India (Mumbai), Japan (Tokyo), Australia (Sydney), Indonesia (Jakarta), Germany (Frankfurt), UAE (Dubai), US (Virginia), UK (London), Singapore, Malaysia (Kuala Lumpur), and US (Silicon Valley). By default, custom images are exported in the RAW format in regions where ImageFormat is unsupported.
-     * *   Use Resource Access Management (RAM) to grant Elastic Compute Service (ECS) the permissions to write data to OSS. To complete the authorization, perform the following operations:
-     *     *   Create a role named `AliyunECSImageExportDefaultRole`, and attach the following policy to the role:
+     * *   Make sure that you are familiar with the prerequisites and considerations. For more information, see [Export a custom image](https://help.aliyun.com/document_detail/58181.html).
+     * *   The `ImageFormat` parameter is available only for the following regions: India (Mumbai) Closing Down, Japan (Tokyo), Australia (Sydney), Indonesia (Jakarta), Germany (Frankfurt), UAE (Dubai), US (Virginia), UK (London), Singapore, Malaysia (Kuala Lumpur), and US (Silicon Valley). Alibaba Cloud services will be discontinued in the India (Mumbai) region. By default, custom images are exported in the RAW format in regions where the ImageFormat parameter is unsupported.
+     * *   Use Resource Access Management (RAM) to authorize Elastic Compute Service (ECS) to write data to OSS. To complete the authorization, perform the following operations:
+     *     *   Create a role named `AliyunECSImageExportDefaultRole` and attach the following policy to the role:
      *                {
      *                  "Statement": [
      *                    {
@@ -20634,7 +20719,7 @@ class Ecs extends OpenApiClient
      *                  ],
      *                  "Version": "1"
      *                }
-     *     *   Attach the `AliyunECSImageExportRolePolicy` system policy to the `AliyunECSImageExportDefaultRole` role. This policy is the default policy that grants ECS the permissions to export images. For more information, go to the [Cloud Resource Access Authorization](https://ram.console.aliyun.com/?spm=5176.2020520101.0.0.64c64df5dfpmdY#/role/authorize?request=%7B%22Requests%22:%20%7B%22request1%22:%20%7B%22RoleName%22:%20%22AliyunECSImageImportDefaultRole%22,%20%22TemplateId%22:%20%22ECSImportRole%22%7D,%20%22request2%22:%20%7B%22RoleName%22:%20%22AliyunECSImageExportDefaultRole%22,%20%22TemplateId%22:%20%22ECSExportRole%22%7D%7D,%20%22ReturnUrl%22:%20%22https:%2F%2Fecs.console.aliyun.com%2F%22,%20%22Service%22:%20%22ECS%22%7D) page. You can also create a custom policy that contains the following content and attach the policy to the role:
+     *     *   Attach the `AliyunECSImageExportRolePolicy` system policy, which is the default policy that grants ECS the permissions to export images, to the `AliyunECSImageExportDefaultRole` role. For more information, go to the [Cloud Resource Access Authorization](https://ram.console.aliyun.com/?spm=5176.2020520101.0.0.64c64df5dfpmdY#/role/authorize?request=%7B%22Requests%22:%20%7B%22request1%22:%20%7B%22RoleName%22:%20%22AliyunECSImageImportDefaultRole%22,%20%22TemplateId%22:%20%22ECSImportRole%22%7D,%20%22request2%22:%20%7B%22RoleName%22:%20%22AliyunECSImageExportDefaultRole%22,%20%22TemplateId%22:%20%22ECSExportRole%22%7D%7D,%20%22ReturnUrl%22:%20%22https:%2F%2Fecs.console.aliyun.com%2F%22,%20%22Service%22:%20%22ECS%22%7D) page. You can also create a custom policy that contains the following content and attach the policy to the role:
      *                  {
      *                    "Version": "1",
      *                    "Statement": [
@@ -20716,10 +20801,10 @@ class Ecs extends OpenApiClient
      *  *
      * @description ## [](#)Usage notes
      * Before you export images, take note of the following items:
-     * *   Make sure that you are familiar with the prerequisites and precautions. For more information, see [Export a custom image](https://help.aliyun.com/document_detail/58181.html).
-     * *   The `ImageFormat` parameter is available only for the following regions: India (Mumbai), Japan (Tokyo), Australia (Sydney), Indonesia (Jakarta), Germany (Frankfurt), UAE (Dubai), US (Virginia), UK (London), Singapore, Malaysia (Kuala Lumpur), and US (Silicon Valley). By default, custom images are exported in the RAW format in regions where ImageFormat is unsupported.
-     * *   Use Resource Access Management (RAM) to grant Elastic Compute Service (ECS) the permissions to write data to OSS. To complete the authorization, perform the following operations:
-     *     *   Create a role named `AliyunECSImageExportDefaultRole`, and attach the following policy to the role:
+     * *   Make sure that you are familiar with the prerequisites and considerations. For more information, see [Export a custom image](https://help.aliyun.com/document_detail/58181.html).
+     * *   The `ImageFormat` parameter is available only for the following regions: India (Mumbai) Closing Down, Japan (Tokyo), Australia (Sydney), Indonesia (Jakarta), Germany (Frankfurt), UAE (Dubai), US (Virginia), UK (London), Singapore, Malaysia (Kuala Lumpur), and US (Silicon Valley). Alibaba Cloud services will be discontinued in the India (Mumbai) region. By default, custom images are exported in the RAW format in regions where the ImageFormat parameter is unsupported.
+     * *   Use Resource Access Management (RAM) to authorize Elastic Compute Service (ECS) to write data to OSS. To complete the authorization, perform the following operations:
+     *     *   Create a role named `AliyunECSImageExportDefaultRole` and attach the following policy to the role:
      *                {
      *                  "Statement": [
      *                    {
@@ -20734,7 +20819,7 @@ class Ecs extends OpenApiClient
      *                  ],
      *                  "Version": "1"
      *                }
-     *     *   Attach the `AliyunECSImageExportRolePolicy` system policy to the `AliyunECSImageExportDefaultRole` role. This policy is the default policy that grants ECS the permissions to export images. For more information, go to the [Cloud Resource Access Authorization](https://ram.console.aliyun.com/?spm=5176.2020520101.0.0.64c64df5dfpmdY#/role/authorize?request=%7B%22Requests%22:%20%7B%22request1%22:%20%7B%22RoleName%22:%20%22AliyunECSImageImportDefaultRole%22,%20%22TemplateId%22:%20%22ECSImportRole%22%7D,%20%22request2%22:%20%7B%22RoleName%22:%20%22AliyunECSImageExportDefaultRole%22,%20%22TemplateId%22:%20%22ECSExportRole%22%7D%7D,%20%22ReturnUrl%22:%20%22https:%2F%2Fecs.console.aliyun.com%2F%22,%20%22Service%22:%20%22ECS%22%7D) page. You can also create a custom policy that contains the following content and attach the policy to the role:
+     *     *   Attach the `AliyunECSImageExportRolePolicy` system policy, which is the default policy that grants ECS the permissions to export images, to the `AliyunECSImageExportDefaultRole` role. For more information, go to the [Cloud Resource Access Authorization](https://ram.console.aliyun.com/?spm=5176.2020520101.0.0.64c64df5dfpmdY#/role/authorize?request=%7B%22Requests%22:%20%7B%22request1%22:%20%7B%22RoleName%22:%20%22AliyunECSImageImportDefaultRole%22,%20%22TemplateId%22:%20%22ECSImportRole%22%7D,%20%22request2%22:%20%7B%22RoleName%22:%20%22AliyunECSImageExportDefaultRole%22,%20%22TemplateId%22:%20%22ECSExportRole%22%7D%7D,%20%22ReturnUrl%22:%20%22https:%2F%2Fecs.console.aliyun.com%2F%22,%20%22Service%22:%20%22ECS%22%7D) page. You can also create a custom policy that contains the following content and attach the policy to the role:
      *                  {
      *                    "Version": "1",
      *                    "Statement": [
@@ -21921,13 +22006,14 @@ class Ecs extends OpenApiClient
     /**
      * @summary Queries the tags that are added to one or more Elastic Compute Service (ECS) resources.
      *  *
-     * @description You must specify at least one of the following parameters or parameter pairs in a request to determine a query object:
+     * @description ## [](#)Usage notes
+     * Specify at least one of the following parameters or parameter pairs in a request to determine a query object:
      * *   `ResourceId.N`
      * *   `Tag.N` parameter pair (`Tag.N.Key` and `Tag.N.Value`)
      * *   `TagFilter.N`
-     * If one of the following sets of request parameters is specified as filter conditions, only ECS resources that meet all of the specified filter conditions are returned:
-     * *   Set 1: `Tag.N.Key, Tag.N.Value`, and `ResourceId.N`
-     * *   Set 2: `TagFilter.N.TagKey, TagFilter.N.TagValues.N`, and `ResourceId.N`
+     * If one of the following sets of request parameters is specified as filter conditions, only ECS resources that meet all the specified filter conditions are returned:
+     * *   Set 1: `Tag.N.Key, Tag.N.Value` and `ResourceId.N`
+     * *   Set 2: `TagFilter.N.TagKey, TagFilter.N.TagValues.N` and `ResourceId.N`
      *  *
      * @param ListTagResourcesRequest $request ListTagResourcesRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -21992,13 +22078,14 @@ class Ecs extends OpenApiClient
     /**
      * @summary Queries the tags that are added to one or more Elastic Compute Service (ECS) resources.
      *  *
-     * @description You must specify at least one of the following parameters or parameter pairs in a request to determine a query object:
+     * @description ## [](#)Usage notes
+     * Specify at least one of the following parameters or parameter pairs in a request to determine a query object:
      * *   `ResourceId.N`
      * *   `Tag.N` parameter pair (`Tag.N.Key` and `Tag.N.Value`)
      * *   `TagFilter.N`
-     * If one of the following sets of request parameters is specified as filter conditions, only ECS resources that meet all of the specified filter conditions are returned:
-     * *   Set 1: `Tag.N.Key, Tag.N.Value`, and `ResourceId.N`
-     * *   Set 2: `TagFilter.N.TagKey, TagFilter.N.TagValues.N`, and `ResourceId.N`
+     * If one of the following sets of request parameters is specified as filter conditions, only ECS resources that meet all the specified filter conditions are returned:
+     * *   Set 1: `Tag.N.Key, Tag.N.Value` and `ResourceId.N`
+     * *   Set 2: `TagFilter.N.TagKey, TagFilter.N.TagValues.N` and `ResourceId.N`
      *  *
      * @param ListTagResourcesRequest $request ListTagResourcesRequest
      *
@@ -22593,11 +22680,11 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Modifies some properties of a dedicated host, such as the name, description, and instance migration policy that is applied when the dedicated host fails.
+     * @summary Modifies the information about a dedicated host, such as the name, description, and instance migration policy that is applied when the dedicated host fails.
      *  *
-     * @description ## Description
-     * *   All the Elastic Compute Service (ECS) instances that are hosted on a dedicated host must be in the Stopped (`Stopped`) state before you can modify the CPU overcommit ratio of the dedicated host.
-     * *   Modifications to the CPU overcommit ratio of a dedicated host do not affect the operation of the dedicated host. After the CPU overcommit ratio is modified, the number of allocated vCPUs on the dedicated host cannot exceed the new total number of vCPUs. Otherwise, ECS instances that use the excess vCPUs cannot start.
+     * @description ## [](#)Usage notes
+     * *   All Elastic Compute Service (ECS) instances that are hosted on a dedicated host must be in the Stopped (`Stopped`) state before you can modify the CPU overcommit ratio of the dedicated host.
+     * *   Changes to the CPU overcommit ratio of a dedicated host do not affect the running status of the dedicated host. After the CPU overcommit ratio is changed, the number of allocated vCPUs on the dedicated host cannot exceed the new total number of vCPUs. Otherwise, ECS instances that use the excess vCPUs cannot start.
      *  *
      * @param ModifyDedicatedHostAttributeRequest $request ModifyDedicatedHostAttributeRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
@@ -22666,11 +22753,11 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Modifies some properties of a dedicated host, such as the name, description, and instance migration policy that is applied when the dedicated host fails.
+     * @summary Modifies the information about a dedicated host, such as the name, description, and instance migration policy that is applied when the dedicated host fails.
      *  *
-     * @description ## Description
-     * *   All the Elastic Compute Service (ECS) instances that are hosted on a dedicated host must be in the Stopped (`Stopped`) state before you can modify the CPU overcommit ratio of the dedicated host.
-     * *   Modifications to the CPU overcommit ratio of a dedicated host do not affect the operation of the dedicated host. After the CPU overcommit ratio is modified, the number of allocated vCPUs on the dedicated host cannot exceed the new total number of vCPUs. Otherwise, ECS instances that use the excess vCPUs cannot start.
+     * @description ## [](#)Usage notes
+     * *   All Elastic Compute Service (ECS) instances that are hosted on a dedicated host must be in the Stopped (`Stopped`) state before you can modify the CPU overcommit ratio of the dedicated host.
+     * *   Changes to the CPU overcommit ratio of a dedicated host do not affect the running status of the dedicated host. After the CPU overcommit ratio is changed, the number of allocated vCPUs on the dedicated host cannot exceed the new total number of vCPUs. Otherwise, ECS instances that use the excess vCPUs cannot start.
      *  *
      * @param ModifyDedicatedHostAttributeRequest $request ModifyDedicatedHostAttributeRequest
      *
@@ -24301,26 +24388,24 @@ class Ecs extends OpenApiClient
      * @summary Modifies the attributes of an Elastic Compute Service (ECS) instance, such as the password, name, description, hostname, security groups, maximum transmission unit (MTU), and user data. If the instance is a burstable instance, you can also change the performance mode of the instance.
      *  *
      * @description ## [](#)Usage notes
-     * If the response contains `{"OperationLocks": {"LockReason" : "security"}}` when you query the information of an instance, the instance is locked for security reasons. No operations are allowed on the instance.
+     * If the response contains `{"OperationLocks": {"LockReason" : "security"}}` when you query the information of the instance, the instance is locked for security reasons and no operations are allowed on the instance.
      * Take note of the following items:
      * *   If you change the hostname (`HostName`), restart the instance in the ECS console or by calling the [RebootInstance](https://help.aliyun.com/document_detail/25502.html) operation for the new hostname to take effect. For information about how to restart an instance in the ECS console, see [Restart an instance](https://help.aliyun.com/document_detail/25440.html). The new hostname may not take effect if you restart the instance from within the operating system.
      * *   If you reset the password (`Password`), take note of the following items:
      *     *   The instance cannot be in the **Starting** (`Starting`) state.
      *     *   After you reset the password, restart the instance in the ECS console or by calling the [RebootInstance](https://help.aliyun.com/document_detail/25502.html) operation for the new password to take effect. For information about how to restart an instance in the ECS console, see [Restart an instance](https://help.aliyun.com/document_detail/25440.html). The new password does not take effect if you restart the instance from within the operating system.
-     * *   If you modify user data (`UserData`), take note of the following items:
-     *     *   The instance must be in the **Stopped** (`Stopped`) state.
-     *     *   The instance must meet the limits for user data. For more information, see [Instance user data](https://help.aliyun.com/document_detail/49121.html).
+     * *   If you modify user data (`UserData`), take note of the following items: The instance must meet the limits for user data. For more information, see [Instance user data](https://help.aliyun.com/document_detail/49121.html).
      *     **
      *     **Note** After you restart the instance, the new user data is displayed but not run as scripts.
      * *   If you change the security groups (`SecurityGroupIds.N`), take note of the following items:
-     *     *   You can move an instance to a security group of a different type. If you want to move an instance to a security group of a different type, you must familiarize yourself with the differences between the rule configurations of the two security group types to prevent impacts on the instance network.
+     *     *   You can move the instance to a security group of a different type. If you want to move the instance to a security group of a different type, you must familiarize yourself with the differences between the rule configurations of the two security group types to prevent impacts on the instance network.
      *     *   Security groups of instances in the classic network cannot be changed. For more information, see the description of `SecurityGroupIds.N`.
      * *   If you change the number of queues supported by the primary elastic network interface (ENI) (`NetworkInterfaceQueueNumber`), take note of the following items:
      *     *   The instance must be in the Stopped (`Stopped`) state.
      *     *   The value of this parameter cannot exceed the maximum number of queues allowed per ENI.
      *     *   The total number of queues for all ENIs on the instance cannot exceed the queue quota for the instance type. To query the maximum number of queues per ENI and the queue quota for an instance type, you can call the [DescribeInstanceTypes](https://help.aliyun.com/document_detail/25620.html) operation and view the values of the `MaximumQueueNumberPerEni` and `TotalEniQueueQuantity` response parameters.
      *     *   If you set this parameter to -1, the value is reset to the default value for the instance type. To query the default number of queues supported per primary ENI for an instance type, you can call the [DescribeInstanceTypes](https://help.aliyun.com/document_detail/25620.html) operation and view the value of the `PrimaryEniQueueNumber` response parameter.
-     * *   If you enable or disable the Jumbo Frames feature (`EnableJumboFrame`), take note of the following items: For more information, see [MTUs](https://help.aliyun.com/document_detail/200512.html).
+     * *   If you enable or disable the Jumbo Frames feature (`EnableJumboFrame`), take note of the following items. For more information, see [MTUs](https://help.aliyun.com/document_detail/200512.html).
      *     *   The instance must be in the Running (`Running`) or Stopped (`Stopped`) state.
      *     *   The instance must reside in a virtual private cloud (VPC).
      *     *   After the Jumbo Frames feature is enabled, the MTU value of the instance is set to 8500. After the Jumbo Frames feature is disabled, the MTU value of the instance is set to 1500.
@@ -24410,26 +24495,24 @@ class Ecs extends OpenApiClient
      * @summary Modifies the attributes of an Elastic Compute Service (ECS) instance, such as the password, name, description, hostname, security groups, maximum transmission unit (MTU), and user data. If the instance is a burstable instance, you can also change the performance mode of the instance.
      *  *
      * @description ## [](#)Usage notes
-     * If the response contains `{"OperationLocks": {"LockReason" : "security"}}` when you query the information of an instance, the instance is locked for security reasons. No operations are allowed on the instance.
+     * If the response contains `{"OperationLocks": {"LockReason" : "security"}}` when you query the information of the instance, the instance is locked for security reasons and no operations are allowed on the instance.
      * Take note of the following items:
      * *   If you change the hostname (`HostName`), restart the instance in the ECS console or by calling the [RebootInstance](https://help.aliyun.com/document_detail/25502.html) operation for the new hostname to take effect. For information about how to restart an instance in the ECS console, see [Restart an instance](https://help.aliyun.com/document_detail/25440.html). The new hostname may not take effect if you restart the instance from within the operating system.
      * *   If you reset the password (`Password`), take note of the following items:
      *     *   The instance cannot be in the **Starting** (`Starting`) state.
      *     *   After you reset the password, restart the instance in the ECS console or by calling the [RebootInstance](https://help.aliyun.com/document_detail/25502.html) operation for the new password to take effect. For information about how to restart an instance in the ECS console, see [Restart an instance](https://help.aliyun.com/document_detail/25440.html). The new password does not take effect if you restart the instance from within the operating system.
-     * *   If you modify user data (`UserData`), take note of the following items:
-     *     *   The instance must be in the **Stopped** (`Stopped`) state.
-     *     *   The instance must meet the limits for user data. For more information, see [Instance user data](https://help.aliyun.com/document_detail/49121.html).
+     * *   If you modify user data (`UserData`), take note of the following items: The instance must meet the limits for user data. For more information, see [Instance user data](https://help.aliyun.com/document_detail/49121.html).
      *     **
      *     **Note** After you restart the instance, the new user data is displayed but not run as scripts.
      * *   If you change the security groups (`SecurityGroupIds.N`), take note of the following items:
-     *     *   You can move an instance to a security group of a different type. If you want to move an instance to a security group of a different type, you must familiarize yourself with the differences between the rule configurations of the two security group types to prevent impacts on the instance network.
+     *     *   You can move the instance to a security group of a different type. If you want to move the instance to a security group of a different type, you must familiarize yourself with the differences between the rule configurations of the two security group types to prevent impacts on the instance network.
      *     *   Security groups of instances in the classic network cannot be changed. For more information, see the description of `SecurityGroupIds.N`.
      * *   If you change the number of queues supported by the primary elastic network interface (ENI) (`NetworkInterfaceQueueNumber`), take note of the following items:
      *     *   The instance must be in the Stopped (`Stopped`) state.
      *     *   The value of this parameter cannot exceed the maximum number of queues allowed per ENI.
      *     *   The total number of queues for all ENIs on the instance cannot exceed the queue quota for the instance type. To query the maximum number of queues per ENI and the queue quota for an instance type, you can call the [DescribeInstanceTypes](https://help.aliyun.com/document_detail/25620.html) operation and view the values of the `MaximumQueueNumberPerEni` and `TotalEniQueueQuantity` response parameters.
      *     *   If you set this parameter to -1, the value is reset to the default value for the instance type. To query the default number of queues supported per primary ENI for an instance type, you can call the [DescribeInstanceTypes](https://help.aliyun.com/document_detail/25620.html) operation and view the value of the `PrimaryEniQueueNumber` response parameter.
-     * *   If you enable or disable the Jumbo Frames feature (`EnableJumboFrame`), take note of the following items: For more information, see [MTUs](https://help.aliyun.com/document_detail/200512.html).
+     * *   If you enable or disable the Jumbo Frames feature (`EnableJumboFrame`), take note of the following items. For more information, see [MTUs](https://help.aliyun.com/document_detail/200512.html).
      *     *   The instance must be in the Running (`Running`) or Stopped (`Stopped`) state.
      *     *   The instance must reside in a virtual private cloud (VPC).
      *     *   After the Jumbo Frames feature is enabled, the MTU value of the instance is set to 8500. After the Jumbo Frames feature is disabled, the MTU value of the instance is set to 1500.
@@ -24593,7 +24676,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Changes the billing method of one or more Elastic Compute Service (ECS) instances. You can change the billing methods of ECS instances between pay-as-you-go and subscription, or change the billing method of all data disks that are attached to an ECS instance from pay-as-you-go to subscription.
+     * @summary Changes the billing method of one or more Elastic Compute Service (ECS) instances. You can change the billing methods of ECS instances between pay-as-you-go and subscription or change the billing method of all disks that are attached to an ECS instance from pay-as-you-go to subscription.
      *  *
      * @description Before you call this operation, make sure that you are familiar with the billing methods and pricing of Elastic Compute Service (ECS). For more information, see the [Elastic Compute Service](https://www.alibabacloud.com/product/ecs#pricing) product page.
      * Take note of the following items:
@@ -24677,7 +24760,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Changes the billing method of one or more Elastic Compute Service (ECS) instances. You can change the billing methods of ECS instances between pay-as-you-go and subscription, or change the billing method of all data disks that are attached to an ECS instance from pay-as-you-go to subscription.
+     * @summary Changes the billing method of one or more Elastic Compute Service (ECS) instances. You can change the billing methods of ECS instances between pay-as-you-go and subscription or change the billing method of all disks that are attached to an ECS instance from pay-as-you-go to subscription.
      *  *
      * @description Before you call this operation, make sure that you are familiar with the billing methods and pricing of Elastic Compute Service (ECS). For more information, see the [Elastic Compute Service](https://www.alibabacloud.com/product/ecs#pricing) product page.
      * Take note of the following items:
@@ -25673,6 +25756,9 @@ class Ecs extends OpenApiClient
         if (!Utils::isUnset($request->description)) {
             $query['Description'] = $request->description;
         }
+        if (!Utils::isUnset($request->enhancedNetwork)) {
+            $query['EnhancedNetwork'] = $request->enhancedNetwork;
+        }
         if (!Utils::isUnset($request->networkInterfaceId)) {
             $query['NetworkInterfaceId'] = $request->networkInterfaceId;
         }
@@ -25846,11 +25932,12 @@ class Ecs extends OpenApiClient
     /**
      * @summary Modifies the name, description, or entries of a specific prefix list.
      *  *
-     * @description *   The specified CIDR block must be valid. For example, 10.0.0.0/8 is a valid CIDR block while 10.0.0.1/8 is not. For more information, see the [What is CIDR?](https://help.aliyun.com/document_detail/40637.html#section-jua-0tj-q5m) section in the "Network FAQ" topic.
+     * @description ## [](#)Usage notes
+     * *   The specified CIDR block must be valid. For example, 10.0.0.0/8 is a valid CIDR block while 10.0.0.1/8 is not. For more information, see the [What is CIDR?](~~40637#section-jua-0tj-q5m~~) section in the "Network FAQ" topic.
      * *   When you add or delete an entry, you cannot specify duplicate CIDR blocks. Examples:
      *     *   For IPv4 CIDR blocks, you cannot specify the 10.0.0.0/8 CIDR block in two entries. You cannot specify the 10.0.0.1/32 CIDR block in one entry and the 10.0.0.1 CIDR block in another entry. The two CIDR blocks are the same.
      *     *   For IPv6 CIDR blocks, you cannot specify the 2001:fd01:0:0:0:0:0:0/32 CIDR block in one entry and the 2001:fd01::/32 CIDR block in another entry. The two CIDR blocks are the same.
-     * *   The CIDR block in an entry to be added cannot the same as that in an entry to be deleted. For example, when you add an entry in which the 10.0.0.0/8 CIDR block is specified, make sure the 10.0.0.0/8 CIDR block is not specified in an entry to be deleted.
+     * *   The CIDR block in an entry to be added cannot the same as that in an entry to be deleted. For example, when you add an entry in which the 10.0.0.0/8 CIDR block is specified, make sure that the 10.0.0.0/8 CIDR block is not specified in an entry to be deleted.
      * *   If you want to modify the description of an entry, you must specify the CIDR block (`AddEntry.N.Cidr`) and new description (`AddEntry.N.Description`) for the entry.
      *  *
      * @param ModifyPrefixListRequest $request ModifyPrefixListRequest
@@ -25916,11 +26003,12 @@ class Ecs extends OpenApiClient
     /**
      * @summary Modifies the name, description, or entries of a specific prefix list.
      *  *
-     * @description *   The specified CIDR block must be valid. For example, 10.0.0.0/8 is a valid CIDR block while 10.0.0.1/8 is not. For more information, see the [What is CIDR?](https://help.aliyun.com/document_detail/40637.html#section-jua-0tj-q5m) section in the "Network FAQ" topic.
+     * @description ## [](#)Usage notes
+     * *   The specified CIDR block must be valid. For example, 10.0.0.0/8 is a valid CIDR block while 10.0.0.1/8 is not. For more information, see the [What is CIDR?](~~40637#section-jua-0tj-q5m~~) section in the "Network FAQ" topic.
      * *   When you add or delete an entry, you cannot specify duplicate CIDR blocks. Examples:
      *     *   For IPv4 CIDR blocks, you cannot specify the 10.0.0.0/8 CIDR block in two entries. You cannot specify the 10.0.0.1/32 CIDR block in one entry and the 10.0.0.1 CIDR block in another entry. The two CIDR blocks are the same.
      *     *   For IPv6 CIDR blocks, you cannot specify the 2001:fd01:0:0:0:0:0:0/32 CIDR block in one entry and the 2001:fd01::/32 CIDR block in another entry. The two CIDR blocks are the same.
-     * *   The CIDR block in an entry to be added cannot the same as that in an entry to be deleted. For example, when you add an entry in which the 10.0.0.0/8 CIDR block is specified, make sure the 10.0.0.0/8 CIDR block is not specified in an entry to be deleted.
+     * *   The CIDR block in an entry to be added cannot the same as that in an entry to be deleted. For example, when you add an entry in which the 10.0.0.0/8 CIDR block is specified, make sure that the 10.0.0.0/8 CIDR block is not specified in an entry to be deleted.
      * *   If you want to modify the description of an entry, you must specify the CIDR block (`AddEntry.N.Cidr`) and new description (`AddEntry.N.Description`) for the entry.
      *  *
      * @param ModifyPrefixListRequest $request ModifyPrefixListRequest
@@ -27789,14 +27877,15 @@ class Ecs extends OpenApiClient
     /**
      * @summary Re-initializes a disk to the state that it was in when it was created.
      *  *
-     * @description When you call this operation, take note of the following points:
+     * @description ## [](#)Usage notes
+     * Take note of the following items:
      * *   The disk that you want to re-initialize must be in the **In Use** (In_use) state and the instance to which the disk is attached must be in the **Stopped** (Stopped) state.
-     * *   If the instance has never been started since it was created, the disks attached to it cannot be re-initialized.
+     * *   If an instance has never been started since it was created, the disks attached to it cannot be re-initialized.
      * *   If a local snapshot has been created for a disk, the disk cannot be re-initialized.
-     * *   When a system disk is re-initialized, it is restored to the state of the image from which it was created. If the source image is deleted, the system disk cannot be re-initialized.
-     * *   When a separately created data disk is re-initialized, it is restored to an empty data disk.
-     * *   When a data disk that was created from a snapshot is re-initialized, the disk is restored to the state of the snapshot.
-     * > If the source snapshot is deleted, the disk cannot be re-initialized and an error is returned.
+     * *   If a system disk is re-initialized, the disk is restored to the state of the image from which it was created. If the image has been deleted, the disk cannot be re-initialized.
+     * *   If a separately created data disk is re-initialized, the disk is restored to an empty data disk.
+     * *   If a data disk that was created from a snapshot is re-initialized, the disk is restored to the state of the snapshot.
+     * >  If the source snapshot is deleted, the disk cannot be re-initialized and an error is returned.
      *  *
      * @param ReInitDiskRequest $request ReInitDiskRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
@@ -27855,14 +27944,15 @@ class Ecs extends OpenApiClient
     /**
      * @summary Re-initializes a disk to the state that it was in when it was created.
      *  *
-     * @description When you call this operation, take note of the following points:
+     * @description ## [](#)Usage notes
+     * Take note of the following items:
      * *   The disk that you want to re-initialize must be in the **In Use** (In_use) state and the instance to which the disk is attached must be in the **Stopped** (Stopped) state.
-     * *   If the instance has never been started since it was created, the disks attached to it cannot be re-initialized.
+     * *   If an instance has never been started since it was created, the disks attached to it cannot be re-initialized.
      * *   If a local snapshot has been created for a disk, the disk cannot be re-initialized.
-     * *   When a system disk is re-initialized, it is restored to the state of the image from which it was created. If the source image is deleted, the system disk cannot be re-initialized.
-     * *   When a separately created data disk is re-initialized, it is restored to an empty data disk.
-     * *   When a data disk that was created from a snapshot is re-initialized, the disk is restored to the state of the snapshot.
-     * > If the source snapshot is deleted, the disk cannot be re-initialized and an error is returned.
+     * *   If a system disk is re-initialized, the disk is restored to the state of the image from which it was created. If the image has been deleted, the disk cannot be re-initialized.
+     * *   If a separately created data disk is re-initialized, the disk is restored to an empty data disk.
+     * *   If a data disk that was created from a snapshot is re-initialized, the disk is restored to the state of the snapshot.
+     * >  If the source snapshot is deleted, the disk cannot be re-initialized and an error is returned.
      *  *
      * @param ReInitDiskRequest $request ReInitDiskRequest
      *
@@ -27951,12 +28041,13 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Restarts Elastic Compute Service (ECS) instances. After this API operation is called, the ECS instances enter the Stopping state and then the Running state.
+     * @summary Restarts Elastic Compute Service (ECS) instances that are in the Running state. After you call this API operation, the instances enter the Stopping state and then the Running state.
      *  *
-     * @description *   The ECS instances must be in the `Running` state.****
-     * *   You can use the `BatchOptimization` parameter to specify the batch operation mode and restart multiple instances at a time.
-     * *   Instances can be forcefully restarted. A forced restart (`ForceReboot`) is equivalent to powering off a traditional server and then restarting the server. If data in the instance operating system is not written to block storage devices when the operation is called, the data may be lost.
-     * *   If OperationLocks in the response of the DescribeInstances operation contains `"LockReason" : "security"` for an instance, the instance is locked for security reasons and all operations are prohibited on it.
+     * @description ## [](#)Usage notes
+     * *   The ECS instances to be restarted must be in the **Running** (`Running`) state.
+     * *   You can use `BatchOptimization` to specify the batch operation mode and restart multiple instances at a time.
+     * *   Instances can be forcefully restarted. A forced restart (`ForceReboot`) is equivalent to powering off a traditional server and then starting the server. If data in the instance operating system is not written to block storage devices when the operation is called, the data is lost.
+     * *   If the response contains `{"OperationLocks": {"LockReason" : "security"}}` when you query the information of the instance, the instance is locked for security reasons and all operations are prohibited on it.
      *  *
      * @param RebootInstancesRequest $request RebootInstancesRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -28013,12 +28104,13 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Restarts Elastic Compute Service (ECS) instances. After this API operation is called, the ECS instances enter the Stopping state and then the Running state.
+     * @summary Restarts Elastic Compute Service (ECS) instances that are in the Running state. After you call this API operation, the instances enter the Stopping state and then the Running state.
      *  *
-     * @description *   The ECS instances must be in the `Running` state.****
-     * *   You can use the `BatchOptimization` parameter to specify the batch operation mode and restart multiple instances at a time.
-     * *   Instances can be forcefully restarted. A forced restart (`ForceReboot`) is equivalent to powering off a traditional server and then restarting the server. If data in the instance operating system is not written to block storage devices when the operation is called, the data may be lost.
-     * *   If OperationLocks in the response of the DescribeInstances operation contains `"LockReason" : "security"` for an instance, the instance is locked for security reasons and all operations are prohibited on it.
+     * @description ## [](#)Usage notes
+     * *   The ECS instances to be restarted must be in the **Running** (`Running`) state.
+     * *   You can use `BatchOptimization` to specify the batch operation mode and restart multiple instances at a time.
+     * *   Instances can be forcefully restarted. A forced restart (`ForceReboot`) is equivalent to powering off a traditional server and then starting the server. If data in the instance operating system is not written to block storage devices when the operation is called, the data is lost.
+     * *   If the response contains `{"OperationLocks": {"LockReason" : "security"}}` when you query the information of the instance, the instance is locked for security reasons and all operations are prohibited on it.
      *  *
      * @param RebootInstancesRequest $request RebootInstancesRequest
      *
@@ -29279,11 +29371,11 @@ class Ecs extends OpenApiClient
      *  *
      * @description ## [](#)Usage notes
      * >  Before you call this operation to resize a disk, you must check the partition format of the disk. A master boot record (MBR) disk cannot be resized to a size that is larger than 2 TiB. If you resize an MBR disk to a size that is larger than 2 TiB, data may be lost. If you want to resize an MBR disk to a size that is larger than 2 TiB, we recommend that you perform the following steps: Create another data disk that is larger than 2 TiB in size, partition and format the new data disk to GUID partition table (GPT), and then copy data from the MBR disk to the new GPT data disk. For more information, see [Step 1: Resize a disk to extend its capacity](https://help.aliyun.com/document_detail/44986.html).
-     * *   You can resize the following categories of disks: basic disks (`cloud`), ultra disks (`cloud_efficiency`), SSDs (`cloud_ssd`), enhanced SSDs (ESSDs)(`cloud_essd`), and ESSD AutoPL disks (cloud_auto).
-     * *   A disk cannot be resized when a snapshot is being created for the disk.
+     * *   You can resize disks of the following disk categories: basic disks (`cloud`), ultra disks (`cloud_efficiency`), standard SSDs (`cloud_ssd`), Enterprise SSDs (ESSDs) (`cloud_essd`), ESSD AutoPL disks (cloud_auto), standard elastic ephemeral disks (elastic_ephemeral_disk_standard), and premium elastic ephemeral disks (elastic_ephemeral_disk_premium).
+     * *   You cannot resize a disk when a snapshot is being created for the disk.
      * *   The Elastic Compute Service (ECS) instance to which the disk is attached must be in the **Running** (`Running`) or **Stopped** (`Stopped`) state.
-     * *   After you resize a disk, the partitions and file systems of the disk are not changed. You must allocate the storage space on the disk after the disk is resized.
-     * *   Disks for which the multi-attach feature is enabled support online resizing and offline resizing. Before you resize the disks offline, make sure that the instances to which the disks are attached are in the **Stopped** (`Stopped`) state.
+     * *   After you resize a disk, the partitions and file systems of the disk are not changed. You must allocate the increased storage space on the disk after the disk is resized.
+     * *   Disks for which the multi-attach feature is enabled support online and offline resizing. Before you resize the disks offline, make sure that the instances to which the disks are attached are in the **Stopped** (`Stopped`) state.
      *  *
      * @param ResizeDiskRequest $request ResizeDiskRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
@@ -29341,11 +29433,11 @@ class Ecs extends OpenApiClient
      *  *
      * @description ## [](#)Usage notes
      * >  Before you call this operation to resize a disk, you must check the partition format of the disk. A master boot record (MBR) disk cannot be resized to a size that is larger than 2 TiB. If you resize an MBR disk to a size that is larger than 2 TiB, data may be lost. If you want to resize an MBR disk to a size that is larger than 2 TiB, we recommend that you perform the following steps: Create another data disk that is larger than 2 TiB in size, partition and format the new data disk to GUID partition table (GPT), and then copy data from the MBR disk to the new GPT data disk. For more information, see [Step 1: Resize a disk to extend its capacity](https://help.aliyun.com/document_detail/44986.html).
-     * *   You can resize the following categories of disks: basic disks (`cloud`), ultra disks (`cloud_efficiency`), SSDs (`cloud_ssd`), enhanced SSDs (ESSDs)(`cloud_essd`), and ESSD AutoPL disks (cloud_auto).
-     * *   A disk cannot be resized when a snapshot is being created for the disk.
+     * *   You can resize disks of the following disk categories: basic disks (`cloud`), ultra disks (`cloud_efficiency`), standard SSDs (`cloud_ssd`), Enterprise SSDs (ESSDs) (`cloud_essd`), ESSD AutoPL disks (cloud_auto), standard elastic ephemeral disks (elastic_ephemeral_disk_standard), and premium elastic ephemeral disks (elastic_ephemeral_disk_premium).
+     * *   You cannot resize a disk when a snapshot is being created for the disk.
      * *   The Elastic Compute Service (ECS) instance to which the disk is attached must be in the **Running** (`Running`) or **Stopped** (`Stopped`) state.
-     * *   After you resize a disk, the partitions and file systems of the disk are not changed. You must allocate the storage space on the disk after the disk is resized.
-     * *   Disks for which the multi-attach feature is enabled support online resizing and offline resizing. Before you resize the disks offline, make sure that the instances to which the disks are attached are in the **Stopped** (`Stopped`) state.
+     * *   After you resize a disk, the partitions and file systems of the disk are not changed. You must allocate the increased storage space on the disk after the disk is resized.
+     * *   Disks for which the multi-attach feature is enabled support online and offline resizing. Before you resize the disks offline, make sure that the instances to which the disks are attached are in the **Stopped** (`Stopped`) state.
      *  *
      * @param ResizeDiskRequest $request ResizeDiskRequest
      *
@@ -30561,72 +30653,6 @@ class Ecs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->sendFileWithOptions($request, $runtime);
-    }
-
-    /**
-     * @deprecated OpenAPI StartElasticityAssurance is deprecated
-     *  *
-     * Deprecated
-     *
-     * @param StartElasticityAssuranceRequest $request StartElasticityAssuranceRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
-     *
-     * @return StartElasticityAssuranceResponse StartElasticityAssuranceResponse
-     */
-    public function startElasticityAssuranceWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->privatePoolOptions)) {
-            $query['PrivatePoolOptions'] = $request->privatePoolOptions;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'StartElasticityAssurance',
-            'version'     => '2014-05-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return StartElasticityAssuranceResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @deprecated OpenAPI StartElasticityAssurance is deprecated
-     *  *
-     * Deprecated
-     *
-     * @param StartElasticityAssuranceRequest $request StartElasticityAssuranceRequest
-     *
-     * @return StartElasticityAssuranceResponse StartElasticityAssuranceResponse
-     */
-    public function startElasticityAssurance($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->startElasticityAssuranceWithOptions($request, $runtime);
     }
 
     /**

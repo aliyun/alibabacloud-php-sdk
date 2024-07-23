@@ -20,10 +20,10 @@ class invocation extends Model
     public $content;
 
     /**
-     * @description The content type of the file. Valid values:
+     * @description The type of the file content. Valid values:
      *
-     *   PlainText
-     *   Base64
+     *   PlainText: The file content is not encoded.
+     *   Base64: The file content is encoded in Base64.
      *
      * @example PlainText
      *
@@ -50,7 +50,7 @@ class invocation extends Model
     public $description;
 
     /**
-     * @description The user group of the file.
+     * @description The group of the file.
      *
      * @example test
      *
@@ -77,19 +77,23 @@ class invocation extends Model
     public $fileOwner;
 
     /**
-     * @description The overall sending state of the file. The overall sending state of the file depends on its sending state on all the destination instances. Valid values:
+     * @description The overall sending status of the file. The overall sending status of the file varies based on the sending status of the file on all destination instances. Valid values:
      *
-     *   Pending: The file is being verified or sent.
+     *   Pending: The file is being verified or sent. If the sending state of the file on at least one instance is Pending, the overall sending state of the file is Pending.
+     *
+     *   Running: The file is being sent to the instances. If the sending state of the file on at least one instance is Running, the overall sending state of the file is Running.
+     *
+     *   Success: If the sending state of the file on all instances is Success, the overall sending state of the file is Success.
+     *
+     *   If the sending state of the file on all instances is Failed, the overall sending state of the file is Failed. If the sending state of the file on one or more instances is one of the following values, the overall sending state of the file is Failed:
+     *
      *   Invalid: The file is invalid.
-     *   Running: The file is being sent to the instances.
-     *   Aborted: The file failed to be sent to the instances. To send a file to an instance, make sure that the instance is in the Running state and the file can be sent within 1 minute.
-     *   Success: The file is sent.
+     *   Aborted: The file failed to be sent to the instances.
      *   Failed: The file failed to be created on the instances.
-     *   Error: An error occurs and interrupts the file sending task.
-     *   Timeout: The file sending task times out.
-     *   Cancelled: The file sending task is canceled.
-     *   Stopping: The file sending task is being stopped.
-     *   Terminated: The file sending task is terminated.
+     *   Timeout: The file sending task timed out.
+     *   Error: An error occurred and interrupted the file sending task.
+     *
+     *   PartialFailed: The file sending task was completed on some instances but failed on other instances. If the sending state of the file is Success on some instances and is Failed on other instances, the overall sending state of the file is PartialFailed.
      *
      * @example Success
      *
@@ -148,7 +152,7 @@ class invocation extends Model
     public $targetDir;
 
     /**
-     * @description The number of instances to which the file was sent.
+     * @description The number of the destination instances.
      *
      * @example 1
      *

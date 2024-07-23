@@ -106,8 +106,6 @@ class ModifyInvocationAttributeShrinkRequest extends Model
      *
      **Note** The minimum interval must be 10 seconds or longer and cannot be shorter than the timeout period of scheduled executions.
      *
-     * @example 0 *\/20 * * * *
-     *
      * @var string
      */
     public $frequency;

@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class CreateDedicatedHostClusterRequest extends Model
 {
     /**
-     * @description The name of the dedicated host cluster. The name must be 2 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-). It must start with a letter. It cannot contain `http://` or `https://`.
+     * @description The name of the dedicated host cluster. The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The name must start with a letter. The name cannot contain `http://` or `https://`.
      *
-     * This parameter is empty by default.
+     * This parameter is left empty by default.
      * @example myDDHCluster
      *
      * @var string
@@ -20,9 +20,9 @@ class CreateDedicatedHostClusterRequest extends Model
     public $dedicatedHostClusterName;
 
     /**
-     * @description The description of the dedicated host cluster. The description must be 2 to 256 characters in length. It cannot start with `http://` or `https://`.
+     * @description The description of the dedicated host cluster. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
      *
-     * This parameter is empty by default.
+     * This parameter is left empty by default.
      * @example This-is-my-DDHCluster
      *
      * @var string
@@ -30,12 +30,12 @@ class CreateDedicatedHostClusterRequest extends Model
     public $description;
 
     /**
-     * @description Specifies whether to check the validity of the request without actually making the request. Valid values:
+     * @description Specifies whether to perform only a dry run, without performing the actual request. Valid values:
      *
-     *   true: The validity of the request is checked but the request is not made. Check items include whether your AccessKey pair is valid, whether RAM users are authorized, and whether the required parameters are specified. If the check fails, the corresponding error is returned. If the check succeeds, the `DryRunOperation` error code is returned.
-     *   false: The validity of the request is checked. If the check succeeds, a 2XX HTTP status code is returned and the request is made.
+     *   true: performs only a dry run. The system checks the request for potential issues, including invalid AccessKey pairs, unauthorized RAM users, and missing parameter values. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+     *   false: performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
      *
-     * Default value: false
+     * Default value: false.
      * @example false
      *
      * @var bool
@@ -82,7 +82,7 @@ class CreateDedicatedHostClusterRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The tags of the resource. You can enter most at 20 tags for the resource.
+     * @description The tags to add to the dedicated host cluster.
      *
      * @var tag[]
      */

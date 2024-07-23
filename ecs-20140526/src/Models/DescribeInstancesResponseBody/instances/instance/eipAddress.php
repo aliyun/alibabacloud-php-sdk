@@ -27,7 +27,7 @@ class eipAddress extends Model
     public $bandwidth;
 
     /**
-     * @description The billing method of the EIP. Valid values:
+     * @description The metering method of the EIP. Valid values:
      *
      *   PayByBandwidth
      *   PayByTraffic

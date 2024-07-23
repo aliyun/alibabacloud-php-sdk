@@ -11,9 +11,9 @@ class DescribeSecurityGroupAttributeRequest extends Model
     /**
      * @description The direction in which the security group rule is applied. Valid values:
      *
-     *   egress: outbound.
-     *   ingress: inbound.
-     *   all: outbound and inbound.
+     *   egress: outbound
+     *   ingress: inbound
+     *   all: outbound and inbound
      *
      * Default value: all.
      * @example all
@@ -23,11 +23,23 @@ class DescribeSecurityGroupAttributeRequest extends Model
     public $direction;
 
     /**
+     * @description The maximum number of entries per page.
+     *
+     *   Minimum value: 10.
+     *   Maximum value: 1000.
+     *
+     * Default value: 500.
+     * @example 500
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+     *
+     * @example AAAAAdDWBF2****
+     *
      * @var string
      */
     public $nextToken;

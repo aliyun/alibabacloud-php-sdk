@@ -20,8 +20,8 @@ class dataDisk extends Model
     /**
      * @description Specifies whether to enable the performance burst feature for data disk N. Valid values:
      *
-     *   true
-     *   false
+     *   true: enables the performance burst feature for the data disk.
+     *   false: disables the performance burst feature for the data disk.
      *
      * >  This parameter is available only if you set DataDisk.N.Category to cloud_auto. For more information, see [ESSD AutoPL disks](https://help.aliyun.com/document_detail/368372.html).
      * @example false
@@ -33,12 +33,25 @@ class dataDisk extends Model
     /**
      * @description The category of data disk N. Valid values:
      *
-     *   cloud_efficiency: utra disk
-     *   cloud_ssd: standard SSD
-     *   cloud_essd: ESSD
-     *   cloud: basic disk
-     *   cloud_auto: ESSD AutoPL disk
-     *   cloud_essd_entry: ESSD Entry disk
+     *   cloud_efficiency: ultra disk.
+     *
+     *   cloud_ssd: standard SSD.
+     *
+     *   cloud_essd: ESSD.
+     *
+     *   cloud: basic disk.
+     *
+     *   cloud_auto: ESSD AutoPL disk.
+     *
+     *   cloud_essd_entry: ESSD Entry disk.
+     *
+     **
+     *
+     **Note** This parameter can be set to `cloud_essd_entry` only when `InstanceType` is set to `ecs.u1` or `ecs.e`.
+     *
+     *   elastic_ephemeral_disk_standard: standard elastic ephemeral disk.
+     *
+     *   elastic_ephemeral_disk_premium: premium elastic ephemeral disk.
      *
      * For I/O optimized instances, the default value is cloud_efficiency. For non-I/O optimized instances, the default value is cloud.
      * @example cloud_ssd
@@ -50,8 +63,8 @@ class dataDisk extends Model
     /**
      * @description Specifies whether to release data disk N when the instance is released. Valid values:
      *
-     *   true
-     *   false
+     *   true: releases data disk N when the instance is released.
+     *   false: does not release data disk N when the instance is released.
      *
      * Default value: true.
      * @example true
@@ -83,7 +96,7 @@ class dataDisk extends Model
     public $device;
 
     /**
-     * @description The name of data disk N. The name must be 2 to 128 characters in length and support Unicode characters under the Decimal Number category and the categories whose names contain Letter. The name can contain colons (:), underscores (_), periods (.), and hyphens (-).
+     * @description The name of data disk N. The name must be 2 to 128 characters in length and can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
      *
      * @example cloud_ssdData
      *
@@ -103,8 +116,8 @@ class dataDisk extends Model
     /**
      * @description Specifies whether to encrypt data disk N. Valid values:
      *
-     *   true
-     *   false
+     *   true: encrypts data disk N.
+     *   false: does not encrypt data disk N.
      *
      * Default value: false.
      * @example false
@@ -130,7 +143,7 @@ class dataDisk extends Model
      *   PL2: A single ESSD can deliver up to 100,000 random read/write IOPS.
      *   PL3: A single ESSD can deliver up to 1,000,000 random read/write IOPS.
      *
-     * For information about ESSD performance levels, see [ESSDs](https://help.aliyun.com/document_detail/122389.html).
+     * For more information about ESSD performance levels, see [ESSDs](https://help.aliyun.com/document_detail/122389.html).
      * @example PL1
      *
      * @var string
@@ -154,7 +167,7 @@ class dataDisk extends Model
      *
      *   Valid values when DataDisk.N.Category is set to cloud_ssd: 20 to 32768.
      *
-     *   Valid values when DataDisk.N.Category is set to cloud_essd: vary based on the `DataDisk.N.PerformanceLevel` value.
+     *   Valid values when DataDisk.N.Category is set to cloud_essd: vary based on the value of `DataDisk.N.PerformanceLevel`.
      *
      *   Valid values when DataDisk.N.PerformanceLevel is set to PL0: 1 to 32768.
      *   Valid values when DataDisk.N.PerformanceLevel is set to PL1: 20 to 32768.
@@ -167,7 +180,7 @@ class dataDisk extends Model
      *
      *   Valid values when DataDisk.N.Category is set to cloud_essd_entry: 10 to 32768.
      *
-     * >  The value of this parameter must be greater than or equal to the size of the snapshot specified by `SnapshotId`.
+     * >  The value of this parameter must be greater than or equal to the size of the snapshot specified by `DataDisk.N.SnapshotId`.
      * @example 2000
      *
      * @var int
@@ -177,7 +190,7 @@ class dataDisk extends Model
     /**
      * @description The ID of the snapshot to use to create data disk N. Valid values of N: 1 to 16.
      *
-     * When `DataDisk.N.SnapshotId` is specified, `DataDisk.N.Size` is ignored. The data disk is created with the size of the specified snapshot. Use snapshots created on or after July 15, 2013. Otherwise, an error is returned and your request is rejected.
+     * If `DataDisk.N.SnapshotId` is specified, `DataDisk.N.Size` is ignored. The data disk is created based on the size of the specified snapshot. Use snapshots created after July 15, 2013. Otherwise, an error is returned and your request is rejected.
      * @example s-bp17441ohwka0yuh****
      *
      * @var string
@@ -185,7 +198,7 @@ class dataDisk extends Model
     public $snapshotId;
 
     /**
-     * @description The ID of the dedicated block storage cluster to which data disk N belongs. If you want to use a disk in a dedicated block storage cluster as data disk N when you create the instance, you must specify this parameter.
+     * @description The ID of the dedicated block storage cluster to which data disk N belongs. If you want to use a disk in a dedicated block storage cluster as data disk N when you create the instance, specify this parameter.
      *
      * @example dbsc-j5e1sf2vaf5he8m2****
      *

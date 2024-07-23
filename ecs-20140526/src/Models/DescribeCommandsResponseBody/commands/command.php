@@ -21,10 +21,10 @@ class command extends Model
     public $category;
 
     /**
-     * @description The Base64-encoded command content.
+     * @description The content of the command, which is Base64-encoded.
      *
-     *   If you set ContentEncoding to PlainText, the original command content is returned.
-     *   If you set ContentEncoding to Base64, the Base64-encoded command content is returned.
+     *   If ContentEncoding is set to PlainText in the request, the original command content is returned.
+     *   If ContentEncoding is set to Base64 in the request, the Base64-encoded command content is returned.
      *
      * @example Y2QgL3Jvb3Q=
      *
@@ -33,7 +33,7 @@ class command extends Model
     public $commandContent;
 
     /**
-     * @description The ID of the command.
+     * @description The command ID.
      *
      * @example c-hz01272yr52****
      *
@@ -103,7 +103,7 @@ class command extends Model
     public $parameterDefinitions;
 
     /**
-     * @description The list of custom parameter names that are parsed from the command content specified when the command was being created. If the custom parameter feature is disabled, an empty list is returned.
+     * @description The custom parameter names that are parsed from the command content specified when the command was created. If the custom parameter feature is disabled, an empty list is returned.
      *
      * @var parameterNames
      */

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class invokeInstance extends Model
 {
     /**
-     * @description The time when the file sending task was created.
+     * @description The creation time of the file sending task.
      *
      * @example 2019-12-20T06:15:54Z
      *
@@ -31,7 +31,7 @@ class invokeInstance extends Model
      *   ClientNeedUpgrade: Cloud Assistant Agent needs to be upgraded.
      *   DeliveryTimeout: The file sending task timed out.
      *   FileCreateFail: The file failed to be created.
-     *   FileAlreadyExists: A file with the same name already exists in the specified directory.
+     *   FileAlreadyExists: A file with the same name exists in the specified directory.
      *   FileContentInvalid: The file content is invalid.
      *   FileNameInvalid: The file name is invalid.
      *   FilePathInvalid: The specified directory is invalid.
@@ -84,7 +84,7 @@ class invokeInstance extends Model
     public $finishTime;
 
     /**
-     * @description The ID of the instance
+     * @description The ID of the instance.
      *
      * @example i-uf614fhehhz****
      *
@@ -93,7 +93,16 @@ class invokeInstance extends Model
     public $instanceId;
 
     /**
-     * @description The state of the file sending task.
+     * @description The status of the file sending task. Valid values:
+     *
+     *   Pending: The file is being verified or sent.
+     *   Invalid: The file is invalid.
+     *   Running: The file is being sent to the instance.
+     *   Aborted: The file failed to be sent to the instance.
+     *   Success: The file is sent.
+     *   Failed: The file failed to be created on the instance.
+     *   Error: An error occurred and interrupted the file sending task.
+     *   Timeout: The file sending task timed out.
      *
      * @example Success
      *
@@ -111,7 +120,7 @@ class invokeInstance extends Model
     public $startTime;
 
     /**
-     * @description The time when the task status was updated.
+     * @description The time when the task status was last updated.
      *
      * @example 2019-12-20T06:15:54Z
      *

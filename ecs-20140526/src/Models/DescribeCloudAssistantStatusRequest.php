@@ -18,7 +18,7 @@ class DescribeCloudAssistantStatusRequest extends Model
     public $instanceId;
 
     /**
-     * @description The maximum number of entries per page. If you specify InstanceId, this parameter does not take effect.
+     * @description The maximum number of entries per page. If you specify **InstanceId**, this parameter does not take effect.
      *
      * Default value: 10.
      * @example 10

@@ -32,8 +32,11 @@ class DescribeCommandsRequest extends Model
     public $contentEncoding;
 
     /**
-     * @description The description of the common command. This parameter takes effect and fuzzy search is supported by default only when `Provider` is specified.
+     * @description The description of the command.
      *
+     * If you specify `Provider`, fuzzy search is supported by default.
+     *
+     * If you do not specify `Provider`, prefix-based fuzzy search is supported. For example, if you specify `test*`, all commands whose descriptions start with `test` are queried.
      * @example testDescription
      *
      * @var string
@@ -64,8 +67,11 @@ class DescribeCommandsRequest extends Model
     public $maxResults;
 
     /**
-     * @description The name of the command. If you specify `Provider`, fuzzy search is supported by default.
+     * @description The name of the command.
      *
+     * If you specify `Provider`, fuzzy search is supported by default.
+     *
+     * If you do not specify `Provider`, prefix-based fuzzy search is supported. For example, if you specify `command*`, all commands whose names start with `command` are queried.
      * @example testName
      *
      * @var string
@@ -73,7 +79,7 @@ class DescribeCommandsRequest extends Model
     public $name;
 
     /**
-     * @description The pagination token that is used in the next request to retrieve a new page of results. You must specify the token that is obtained from the previous query as the value of NextToken.
+     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
      *
      * @example AAAAAdDWBF2
      *

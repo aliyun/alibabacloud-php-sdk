@@ -19,9 +19,14 @@ class DescribeSendFileResultsRequest extends Model
     public $instanceId;
 
     /**
-     * @description The overall sending state of the file. The overall sending state of the file depends on its sending state on all the destination instances. Valid values:
+     * @description The overall sending status of the file. The overall sending status of the file varies based on the sending status of the file on all destination instances. Valid values:
      *
-     * - Terminated: The file sending task is terminated.
+     *   Pending: The file is being verified or sent. If the sending state of the file on at least one instance is Pending, the overall sending state of the file is Pending.
+     *   Running: The file is being sent to the instances. If the sending state of the file on at least one instance is Running, the overall sending state of the file is Running.
+     *   Success: The file is sent. If the sending state of the file on all instances is Success, the overall sending state of the file is Success.
+     *   Failed: The file fails to be sent. If the sending state of the file on all instances is Failed, the overall sending state of the file is Failed.
+     *   PartialFailed: The file sending task succeeds on some instances and fails on other instances. If the sending state of the file is Success on some instances and is Failed on other instances, the overall sending state of the file is PartialFailed.
+     *
      * @example Success
      *
      * @var string
@@ -125,7 +130,7 @@ class DescribeSendFileResultsRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The tags list.
+     * @description The tags of the file sending task.
      *
      * @var tag[]
      */

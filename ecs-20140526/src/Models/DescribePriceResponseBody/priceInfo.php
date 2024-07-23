@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribePriceResponseBody;
 
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribePriceResponseBody\priceInfo\price;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribePriceResponseBody\priceInfo\relatedPrice;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribePriceResponseBody\priceInfo\rules;
 use AlibabaCloud\Tea\Model;
 
@@ -18,14 +19,22 @@ class priceInfo extends Model
     public $price;
 
     /**
-     * @description Details about the promotion rules.
+     * @description The related price.
+     *
+     * @var relatedPrice
+     */
+    public $relatedPrice;
+
+    /**
+     * @description The information about the promotion rules.
      *
      * @var rules
      */
     public $rules;
     protected $_name = [
-        'price' => 'Price',
-        'rules' => 'Rules',
+        'price'        => 'Price',
+        'relatedPrice' => 'RelatedPrice',
+        'rules'        => 'Rules',
     ];
 
     public function validate()
@@ -37,6 +46,9 @@ class priceInfo extends Model
         $res = [];
         if (null !== $this->price) {
             $res['Price'] = null !== $this->price ? $this->price->toMap() : null;
+        }
+        if (null !== $this->relatedPrice) {
+            $res['RelatedPrice'] = null !== $this->relatedPrice ? $this->relatedPrice->toMap() : null;
         }
         if (null !== $this->rules) {
             $res['Rules'] = null !== $this->rules ? $this->rules->toMap() : null;
@@ -55,6 +67,9 @@ class priceInfo extends Model
         $model = new self();
         if (isset($map['Price'])) {
             $model->price = price::fromMap($map['Price']);
+        }
+        if (isset($map['RelatedPrice'])) {
+            $model->relatedPrice = relatedPrice::fromMap($map['RelatedPrice']);
         }
         if (isset($map['Rules'])) {
             $model->rules = rules::fromMap($map['Rules']);

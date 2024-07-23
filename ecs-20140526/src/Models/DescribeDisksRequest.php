@@ -40,11 +40,13 @@ class DescribeDisksRequest extends Model
      *   cloud: basic disk
      *   cloud_efficiency: ultra disk
      *   cloud_ssd: standard SSD
-     *   cloud_essd: enhanced SSD (ESSD)
+     *   cloud_essd: Enterprise SSD (ESSD)
      *   cloud_auto: ESSD AutoPL disk
      *   local_ssd_pro: I/O-intensive local disk
      *   local_hdd_pro: throughput-intensive local disk
      *   cloud_essd_entry: ESSD Entry disk
+     *   elastic_ephemeral_disk_standard: standard elastic ephemeral disk
+     *   elastic_ephemeral_disk_premium: premium elastic ephemeral disk
      *   ephemeral: retired local disk
      *   ephemeral_ssd: retired local SSD
      *
@@ -69,12 +71,12 @@ class DescribeDisksRequest extends Model
     public $deleteAutoSnapshot;
 
     /**
-     * @description Specifies whether to release the cloud disk when its associated instance is released. Valid values:
+     * @description Specifies whether the disk is released when the associated instance is released. Valid values:
      *
-     *   true: The cloud disk is released when its associated instance is released.
-     *   false: The cloud disk is not released but is retained as a pay-as-you-go data disk after its associated instance is released.
+     *   true: The disk is released when the associated instance is released.
+     *   false: The disk is retained as a pay-as-you-go data disk when the associated instance is released.
      *
-     * Default value: false
+     * Default value: false.
      * @example false
      *
      * @var bool
@@ -82,7 +84,7 @@ class DescribeDisksRequest extends Model
     public $deleteWithInstance;
 
     /**
-     * @description The disk billing method. Valid values:
+     * @description The billing method of the disk. Valid values:
      *
      *   PrePaid: subscription
      *   PostPaid: pay-as-you-go
@@ -94,7 +96,7 @@ class DescribeDisksRequest extends Model
     public $diskChargeType;
 
     /**
-     * @description The of disk IDs. The value is a JSON array that consists of up to 100 disk IDs. Separate the disk IDs with commas (,).
+     * @description The IDs of cloud disks, local disks, or elastic ephemeral disks. The value is a JSON array that consists of up to 100 disk IDs. Separate the disk IDs with commas (,).
      *
      * @example ["d-bp67acfmxazb4p****", "d-bp67acfmxazb4g****", … "d-bp67acfmxazb4d****"]
      *
@@ -103,7 +105,7 @@ class DescribeDisksRequest extends Model
     public $diskIds;
 
     /**
-     * @description The cloud disk or local disk name.
+     * @description The name of the disk. The name must be 2 to 128 characters in length and can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
      *
      * @example testDiskName
      *
@@ -112,13 +114,13 @@ class DescribeDisksRequest extends Model
     public $diskName;
 
     /**
-     * @description The disk type. Valid values:
+     * @description The type of the disk. Valid values:
      *
      *   all: system disk and data disk
      *   system: system disk
      *   data: data disk
      *
-     * Default value: all.
+     * >  Elastic ephemeral disks cannot be used as system disks.
      * @example all
      *
      * @var string
@@ -187,7 +189,7 @@ class DescribeDisksRequest extends Model
     public $encrypted;
 
     /**
-     * @description The ID of the instance to which the cloud disk or local disk is attached.
+     * @description The ID of the Elastic Compute Service (ECS) instance to which the disk is attached.
      *
      * @example i-bp67acfmxazb4q****
      *
@@ -210,7 +212,7 @@ class DescribeDisksRequest extends Model
      *   financial: The disk is locked due to overdue payments.
      *   security: The disk is locked due to security reasons.
      *   recycling: The preemptible instance is locked and pending release.
-     *   dedicatedhostfinancial: The ECS instance is locked due to overdue payments of the dedicated host.
+     *   dedicatedhostfinancial: The instance is locked due to overdue payments for the dedicated host.
      *
      * @example recycling
      *
@@ -267,7 +269,7 @@ class DescribeDisksRequest extends Model
     public $ownerId;
 
     /**
-     * @description The page number to return.
+     * @description The page number.
      *
      * Default value: 1.
      * @example 1
@@ -290,9 +292,9 @@ class DescribeDisksRequest extends Model
      * @description Specifies whether the disk is removable. Valid values:
      *
      *   true: The disk is removable. A removable disk can independently exist and can be attached to or detached from an instance within the same zone.
-     *   false: The disk is not removable. A disk that is not removable cannot independently exist nor can it be attached to or detached from an instance within the same zone.
+     *   false: The disk is not removable. A disk that is not removable cannot independently exist or be attached to or detached from an instance within the same zone.
      *
-     * The `Portable` attribute of the following disks is `false`, and these disks share the same lifecycle with their associated instances:
+     * The `Portable` attribute of the following types of disks is `false`, and these types of disks share the same lifecycle with their associated instances:
      *
      *   Local disks
      *   Local SSDs
@@ -315,9 +317,9 @@ class DescribeDisksRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group to which the disk belongs. If you specify this parameter to query resources, up to 1,000 resources that belong to the specified resource group can be returned.
+     * @description The ID of the resource group to which the disk belongs. If this parameter is specified to query resources, up to 1,000 resources that belong to the specified resource group can be displayed in the response.
      *
-     * > Resources in the default resource group are displayed in the response regardless of whether you specify this parameter.
+     * >  Resources in the default resource group are displayed in the response regardless of the value specified for this parameter.
      * @example rg-bp67acfmxazb4p****
      *
      * @var string
@@ -344,7 +346,7 @@ class DescribeDisksRequest extends Model
     public $snapshotId;
 
     /**
-     * @description The state of the cloud disk. For more information, see [Disk states](https://help.aliyun.com/document_detail/25689.html). Valid values:
+     * @description The status of the disk. For more information, see [Disk states](https://help.aliyun.com/document_detail/25689.html). Valid values:
      *
      *   In_use
      *   Available

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class connectionTrackingConfiguration extends Model
 {
     /**
+     * @description This parameter is not publicly available.
+     *
      * @var int
      */
     public $tcpClosedAndTimeWaitTimeout;
 
     /**
+     * @description This parameter is not publicly available.
+     *
      * @var int
      */
     public $tcpEstablishedTimeout;
 
     /**
+     * @description This parameter is not publicly available.
+     *
      * @var int
      */
     public $udpTimeout;

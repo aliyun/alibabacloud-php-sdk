@@ -56,7 +56,7 @@ class DescribeManagedInstancesRequest extends Model
     public $maxResults;
 
     /**
-     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+     * @description The pagination token that is used in the next request to retrieve a new page of results. You must specify the token that is obtained from the previous query as the value of NextToken.
      *
      * @example AAAAAdDWBF2****
      *
@@ -69,6 +69,7 @@ class DescribeManagedInstancesRequest extends Model
      *
      *   windows
      *   linux
+     *   FreeBSD
      *
      * @example windows
      *
@@ -107,7 +108,7 @@ class DescribeManagedInstancesRequest extends Model
     public $pageSize;
 
     /**
-     * @description The region ID of the managed instance. Supported regions: China (Qingdao), China (Beijing), China (Zhangjiakou), China (Hohhot), China (Hangzhou), China (Shanghai), China (Shenzhen), China (Heyuan), and China (Hong Kong).
+     * @description The region ID. Supported regions: China (Qingdao), China (Beijing), China (Zhangjiakou), China (Hohhot), China (Ulanqab), China (Hangzhou), China (Shanghai), China (Shenzhen), China (Heyuan), China (Guangzhou), China (Chengdu), China (Hong Kong), Singapore, Japan (Tokyo), US (Silicon Valley), and US (Virginia).
      *
      * This parameter is required.
      * @example cn-hangzhou

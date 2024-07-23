@@ -28,10 +28,33 @@ class launchTemplateData extends Model
     public $autoReleaseTime;
 
     /**
+     * @description Indicates whether auto-renewal is enabled for the instance. This parameter is valid only if `InstanceChargeType` is set to `PrePaid`. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * Default value: false.
+     * @example true
+     *
+     * @var bool
+     */
+    public $autoRenew;
+
+    /**
+     * @description The auto-renewal period of the instance. Valid values:
+     *
+     * Default value: 1.
+     * @example 1
+     *
+     * @var int
+     */
+    public $autoRenewPeriod;
+
+    /**
      * @description The performance mode of the burstable instance. Valid values:
      *
-     *   Standard: standard mode. For more information, see the "Standard mode" section in [Overview](~~59977#section-svb-w9d-dju~~).
-     *   Unlimited: unlimited mode. For more information, see the "Unlimited mode" section in [Overview](~~59977#section-svb-w9d-dju~~).
+     *   Standard: the standard mode. For more information, see the "Standard mode" section in [Overview of burstable instances](https://help.aliyun.com/document_detail/59977.html).
+     *   Unlimited: the unlimited mode. For more information, see the "Unlimited mode" section in [Overview of burstable instances](https://help.aliyun.com/document_detail/59977.html).
      *
      * @example Standard
      *
@@ -47,9 +70,12 @@ class launchTemplateData extends Model
     public $dataDisks;
 
     /**
-     * @description Specifies whether to enable release protection for the instance. This parameter determines whether you can use the ECS console or call the [DeleteInstance](https://help.aliyun.com/document_detail/25507.html) operation to release the instance. Valid values:
+     * @description Indicates whether release protection is enabled for the instance. This parameter indicates whether you can use the ECS console or call the [DeleteInstance](https://help.aliyun.com/document_detail/25507.html) operation to release the instance. Valid values:
      *
-     * >This parameter is applicable only to pay-as-you-go instances. It can protect instances against manual releases, but not against automatic releases.
+     *   true
+     *   false
+     *
+     * >  This parameter is applicable only to pay-as-you-go instances. The release protection feature can protect instances against manual releases, but not against automatic releases.
      * @example false
      *
      * @var bool
@@ -66,7 +92,7 @@ class launchTemplateData extends Model
     public $deploymentSetId;
 
     /**
-     * @description The description of the instance.
+     * @description The description of the system disk.
      *
      * @example testInstanceDescription
      *
@@ -75,7 +101,7 @@ class launchTemplateData extends Model
     public $description;
 
     /**
-     * @description Indicates whether to enable the operating system configuration of the instance.
+     * @description Indicates whether the operating system configuration of the instance is enabled.
      *
      * @example false
      *
@@ -104,10 +130,10 @@ class launchTemplateData extends Model
     /**
      * @description The source of the image. Valid values:
      *
-     *   system: public images provided by Alibaba Cloud
-     *   self: custom images that you create
-     *   others: shared images from other Alibaba Cloud accounts
-     *   marketplace: Alibaba Cloud Marketplace images
+     *   system: public image provided by Alibaba Cloud
+     *   self: custom image that you created
+     *   others: shared image from another Alibaba Cloud account
+     *   marketplace: Alibaba Cloud Marketplace image
      *
      * @example system
      *
@@ -137,7 +163,7 @@ class launchTemplateData extends Model
     public $instanceName;
 
     /**
-     * @description The instance type.
+     * @description The instance type of the instance.
      *
      * @example ecs.g5.large
      *
@@ -219,7 +245,7 @@ class launchTemplateData extends Model
     public $networkType;
 
     /**
-     * @description Indicates whether to use the password preset in the image.
+     * @description Indicates whether the username and password preset in the image are used.
      *
      * @example true
      *
@@ -228,13 +254,23 @@ class launchTemplateData extends Model
     public $passwordInherit;
 
     /**
-     * @description The subscription duration.
+     * @description The subscription duration of the instance.
      *
      * @example 1
      *
      * @var int
      */
     public $period;
+
+    /**
+     * @description The unit of the subscription period. Valid values:
+     *
+     * Month (default)
+     * @example Month
+     *
+     * @var string
+     */
+    public $periodUnit;
 
     /**
      * @description The private IP address to assign to the instance.
@@ -246,7 +282,7 @@ class launchTemplateData extends Model
     public $privateIpAddress;
 
     /**
-     * @description The name of the instance RAM role.
+     * @description The name of the instance Resource Access Management (RAM) role.
      *
      * @example testRamRoleName
      *
@@ -264,7 +300,7 @@ class launchTemplateData extends Model
     public $resourceGroupId;
 
     /**
-     * @description Indicates whether to enable security hardening.
+     * @description Indicates whether Security Hardening is enabled.
      *
      * @example active
      *
@@ -275,7 +311,7 @@ class launchTemplateData extends Model
     /**
      * @description The ID of the security group to which to assign the instance.
      *
-     * >  The `SecurityGroupId` and `SecurityGroupIds` parameters are mutually exclusive in the response.
+     * >  `SecurityGroupId` and `SecurityGroupIds` are mutually exclusive in the response.
      * @example sg-bp67acfmxazb4p****
      *
      * @var string
@@ -283,9 +319,9 @@ class launchTemplateData extends Model
     public $securityGroupId;
 
     /**
-     * @description The IDs of the security groups to which to assign the instance. The valid values of N are based on the maximum number of security groups to which the instance can belong. For more information, see the "Security group limits" section in [Limits](https://help.aliyun.com/document_detail/25412.html).
+     * @description The IDs of the security groups to which to assign the instance.
      *
-     * > You cannot specify both the `SecurityGroupId` and `SecurityGroupIds.N` parameters.
+     * >  `SecurityGroupId` and `SecurityGroupIds` are mutually exclusive in the response.
      * @var securityGroupIds
      */
     public $securityGroupIds;
@@ -293,7 +329,10 @@ class launchTemplateData extends Model
     /**
      * @description The protection period of the preemptible instance. Unit: hours. Valid values:
      *
-     * >This parameter was returned when the SpotStrategy parameter was set to SpotWithPriceLimit or SpotAsPriceGo.
+     *   1: After a preemptible instance is created, Alibaba Cloud ensures that the instance is not automatically released within 1 hour. After the 1-hour protection period ends, the system compares the bid price with the market price and checks the resource inventory to determine whether to retain or release the instance.
+     *   0: After a preemptible instance is created, Alibaba Cloud does not ensure that the instance runs for 1 hour. The system compares the bid price with the market price and checks the resource inventory to determine whether to retain or release the instance.
+     *
+     * >  This parameter is returned when SpotStrategy is set to SpotWithPriceLimit or SpotAsPriceGo.
      * @example 1
      *
      * @var int
@@ -312,9 +351,9 @@ class launchTemplateData extends Model
     /**
      * @description The bidding policy for the pay-as-you-go instance. Valid values:
      *
-     *   NoSpot: The instance is created as a regular pay-as-you-go instance.
-     *   SpotWithPriceLimit: The instance is created as a preemptible instance with a user-defined maximum hourly price.
-     *   SpotAsPriceGo: The instance is created as a preemptible instance for which the market price at the time of purchase is automatically used as the bid price.
+     *   NoSpot: The instance is a regular pay-as-you-go instance.
+     *   SpotWithPriceLimit: The instance is a preemptible instance with a user-defined maximum hourly price.
+     *   SpotAsPriceGo: The instance is a preemptible instance for which the market price at the time of purchase is automatically used as the bid price. The market price can be up to the pay-as-you-go price.
      *
      * @example NoSpot
      *
@@ -357,7 +396,7 @@ class launchTemplateData extends Model
     public $vpcId;
 
     /**
-     * @description The ID of the zone.
+     * @description The zone ID of the instance.
      *
      * @example cn-hangzhou-g
      *
@@ -367,6 +406,8 @@ class launchTemplateData extends Model
     protected $_name = [
         'systemDisk'                  => 'SystemDisk',
         'autoReleaseTime'             => 'AutoReleaseTime',
+        'autoRenew'                   => 'AutoRenew',
+        'autoRenewPeriod'             => 'AutoRenewPeriod',
         'creditSpecification'         => 'CreditSpecification',
         'dataDisks'                   => 'DataDisks',
         'deletionProtection'          => 'DeletionProtection',
@@ -389,6 +430,7 @@ class launchTemplateData extends Model
         'networkType'                 => 'NetworkType',
         'passwordInherit'             => 'PasswordInherit',
         'period'                      => 'Period',
+        'periodUnit'                  => 'PeriodUnit',
         'privateIpAddress'            => 'PrivateIpAddress',
         'ramRoleName'                 => 'RamRoleName',
         'resourceGroupId'             => 'ResourceGroupId',
@@ -417,6 +459,12 @@ class launchTemplateData extends Model
         }
         if (null !== $this->autoReleaseTime) {
             $res['AutoReleaseTime'] = $this->autoReleaseTime;
+        }
+        if (null !== $this->autoRenew) {
+            $res['AutoRenew'] = $this->autoRenew;
+        }
+        if (null !== $this->autoRenewPeriod) {
+            $res['AutoRenewPeriod'] = $this->autoRenewPeriod;
         }
         if (null !== $this->creditSpecification) {
             $res['CreditSpecification'] = $this->creditSpecification;
@@ -484,6 +532,9 @@ class launchTemplateData extends Model
         if (null !== $this->period) {
             $res['Period'] = $this->period;
         }
+        if (null !== $this->periodUnit) {
+            $res['PeriodUnit'] = $this->periodUnit;
+        }
         if (null !== $this->privateIpAddress) {
             $res['PrivateIpAddress'] = $this->privateIpAddress;
         }
@@ -543,6 +594,12 @@ class launchTemplateData extends Model
         }
         if (isset($map['AutoReleaseTime'])) {
             $model->autoReleaseTime = $map['AutoReleaseTime'];
+        }
+        if (isset($map['AutoRenew'])) {
+            $model->autoRenew = $map['AutoRenew'];
+        }
+        if (isset($map['AutoRenewPeriod'])) {
+            $model->autoRenewPeriod = $map['AutoRenewPeriod'];
         }
         if (isset($map['CreditSpecification'])) {
             $model->creditSpecification = $map['CreditSpecification'];
@@ -609,6 +666,9 @@ class launchTemplateData extends Model
         }
         if (isset($map['Period'])) {
             $model->period = $map['Period'];
+        }
+        if (isset($map['PeriodUnit'])) {
+            $model->periodUnit = $map['PeriodUnit'];
         }
         if (isset($map['PrivateIpAddress'])) {
             $model->privateIpAddress = $map['PrivateIpAddress'];

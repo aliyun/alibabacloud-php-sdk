@@ -46,14 +46,14 @@ class invocationResult extends Model
     public $dropped;
 
     /**
-     * @description The error code for the failure to send or run the command. Valid values:
+     * @description The error code returned when the command failed to be sent or run. Valid values:
      *
      *   If this parameter is empty, the command was run as expected.
      *   InstanceNotExists: The specified instance did not exist or was released.
      *   InstanceReleased: The instance was released while the command was being run.
-     *   InstanceNotRunning: The instance was not running when the command started to be run.
-     *   CommandNotApplicable: The command was not applicable to the specified instance.
-     *   AccountNotExists: The specified account did not exist.
+     *   InstanceNotRunning: The instance was not running while the command was being run.
+     *   CommandNotApplicable: The command was inapplicable to the specified instance.
+     *   AccountNotExists: The username specified to run the command did not exist.
      *   DirectoryNotExists: The specified directory did not exist.
      *   BadCronExpression: The specified cron expression for the execution schedule was invalid.
      *   ClientNotRunning: Cloud Assistant Agent was not running.
@@ -65,6 +65,7 @@ class invocationResult extends Model
      *   ExecutionException: An exception occurred while the command was being run.
      *   ExecutionInterrupted: The execution was interrupted.
      *   ExitCodeNonzero: The execution was complete, but the exit code was not 0.
+     *   SecurityGroupRuleDenied: Access to Cloud Assistant was denied by security group rules.
      *
      * @example InstanceNotExists
      *
@@ -113,7 +114,7 @@ class invocationResult extends Model
     public $exitCode;
 
     /**
-     * @description The time when the command task was complete. If the command task times out, the end time is equal to the start time of the command task specified by `StartTime` plus the timeout period specified by `Timeout`.
+     * @description The time when the command task was completed. If the command task times out, the end time is equal to the start time of the command task specified by `StartTime` plus the timeout period specified by `Timeout`.
      *
      * @example 2019-12-20T06:15:56Z
      *
@@ -131,15 +132,15 @@ class invocationResult extends Model
     public $instanceId;
 
     /**
-     * @description The execution state on a single instance. Valid values:
+     * @description The execution status on a single instance. Valid values:
      *
-     *   Pending: The command was being verified or sent.
+     *   Pending: The command is being verified or sent.
      *
-     *   Invalid: The specified command type or parameter was invalid.
+     *   Invalid: The specified command type or parameter is invalid.
      *
      *   Aborted: The command failed to be sent to the instance. To send a command to an instance, make sure that the instance is in the Running state and the command can be sent to the instance within 1 minute.
      *
-     *   Running: The command was being run on the instance.
+     *   Running: The command is being run on the instance.
      *
      *   Success:
      *
@@ -155,16 +156,16 @@ class invocationResult extends Model
      *
      *   Timeout: The execution timed out.
      *
-     *   Cancelled: The execution was canceled, and the command was not run.
+     *   Cancelled: The execution was canceled before it started.
      *
-     *   Stopping: The command task was being stopped.
+     *   Stopping: The command task is being stopped.
      *
      *   Terminated: The execution was terminated before completion.
      *
      *   Scheduled:
      *
      *   One-time task: The execution state can never be Scheduled.
-     *   Scheduled task: The command was waiting to be run.
+     *   Scheduled task: The command is waiting to be run.
      *
      * @example Success
      *
@@ -173,7 +174,7 @@ class invocationResult extends Model
     public $invocationStatus;
 
     /**
-     * @description The ID of the command task.
+     * @description The command task ID.
      *
      * @example t-hz0jdfwd9f****
      *
@@ -182,7 +183,7 @@ class invocationResult extends Model
     public $invokeId;
 
     /**
-     * @description The execution state of the command. Valid values:
+     * @description The execution status of the command. Valid values:
      *
      *   Running:
      *
@@ -206,7 +207,7 @@ class invocationResult extends Model
      *
      *   Stopped: The task was stopped.
      *
-     *   Stopping: The task was being stopped.
+     *   Stopping: The task is being stopped.
      *
      * @example Running
      *
@@ -264,10 +265,10 @@ class invocationResult extends Model
     public $tags;
 
     /**
-     * @description Indicates how the task was stopped. Valid values:
+     * @description Indicates how the command task is stopped when a command execution is manually stopped or times out. Valid values:
      *
-     *   Process: The process of the command was stopped.
-     *   ProcessTree: The process tree was stopped. In this case, the process of the command and all subprocesses of the process were stopped.
+     *   Process: The process of the command is stopped.
+     *   ProcessTree: The process tree of the command is stopped. In this case, the process of the command and all subprocesses are stopped.
      *
      * @example ProcessTree
      *

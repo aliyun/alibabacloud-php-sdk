@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeSendFileResultsResponseBody extends Model
 {
     /**
-     * @description The queried file sending records.
+     * @description The file sending records.
      *
      * @var invocations
      */

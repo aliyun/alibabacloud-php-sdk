@@ -28,7 +28,7 @@ class ListTagResourcesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The details about the resources and tags, such as the resource ID, the resource type, tag keys, and tag values.
+     * @description The information about the resource and its tags, including the resource ID, the resource type, and the keys and values of the tags.
      *
      * @var tagResources
      */

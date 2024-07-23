@@ -70,8 +70,18 @@ class systemDisk extends Model
     /**
      * @description The size of the system disk. Unit: GiB. Valid values:
      *
-     *   Basic disks: 20 to 500.
-     *   Other disks: 20 to 2048.
+     *   Basic disk: 20 to 500.
+     *
+     *   ESSD: Valid values vary based on the performance level of the ESSD.
+     *
+     *   PL0 ESSD: 1 to 2048.
+     *   PL1 ESSD: 20 to 2048.
+     *   PL2 ESSD: 461 to 2048.
+     *   PL3 ESSD: 1261 to 2048.
+     *
+     *   ESSD AutoPL disk: 1 to 2048.
+     *
+     *   Other disk categories: 20 to 2048.
      *
      * Default value: 40 or the image size, whichever is greater.
      * @example 40
@@ -83,10 +93,10 @@ class systemDisk extends Model
     /**
      * @description Specifies whether to enable the performance burst feature for the system disk. Valid values:
      *
-     *   true
-     *   false
+     *   true: enables the performance burst feature for the system disk.
+     *   false: disables the performance burst feature for the system disk.
      *
-     * >  This parameter is available only if you set the `SystemDisk.Category` parameter to `cloud_auto`. For more information, see [ESSD AutoPL disks](https://help.aliyun.com/document_detail/368372.html).
+     * >  This parameter is available only if you set `SystemDisk.Category` to `cloud_auto`. For more information, see [ESSD AutoPL disks](https://help.aliyun.com/document_detail/368372.html).
      * @example false
      *
      * @var bool
@@ -105,8 +115,8 @@ class systemDisk extends Model
     /**
      * @description Specifies whether to encrypt the system disk. Valid values:
      *
-     *   true
-     *   false
+     *   true: encrypts the system disk.
+     *   false: does not encrypt the system disk.
      *
      * >  The system disks of instances cannot be encrypted during instance creation in Hong Kong Zone D or Singapore Zone A.
      * @example false
@@ -127,7 +137,7 @@ class systemDisk extends Model
     /**
      * @description The provisioned read/write IOPS of the ESSD AutoPL disk to use as the system disk. Valid values: 0 to min{50,000, 1,000 × Capacity - Baseline IOPS}.
      *
-     * >  This parameter is available only if you set the `SystemDisk.Category` parameter to `cloud_auto`. For more information, see [ESSD AutoPL disks](https://help.aliyun.com/document_detail/368372.html).
+     * >  This parameter is available only if you set `SystemDisk.Category` to `cloud_auto`. For more information, see [ESSD AutoPL disks](https://help.aliyun.com/document_detail/368372.html).
      * @example 40000
      *
      * @var int
@@ -135,7 +145,7 @@ class systemDisk extends Model
     public $provisionedIops;
 
     /**
-     * @description The ID of the dedicated block storage cluster. If you want to use disks in a dedicated block storage cluster as system disks when you create instances, you need to specify this parameter.
+     * @description The ID of the dedicated block storage cluster to which the system disk belongs. If you want to use disks in a dedicated block storage cluster as system disks when you create instances, specify this parameter.
      *
      * @example dbsc-j5e1sf2vaf5he8m2****
      *

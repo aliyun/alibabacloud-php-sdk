@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
-     * @description The disk tag key. Valid values of N: 1 to 20.
+     * @description The key of tag N of the disk. Valid values of N: 1 to 20.
      *
-     * Up to 1,000 resources that match the specified tags can be returned in the response. To query more than 1,000 resources that match the specified tags, call the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation.
+     * If you specify a single tag to query resources, up to 1,000 resources to which the tag is added are returned. If you specify multiple tags to query resources, up to 1,000 resources to which all specified tags are added are returned. To query more than 1,000 resources that have specified tags added, call the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation.
      * @example TestKey
      *
      * @var string
@@ -19,7 +19,7 @@ class tag extends Model
     public $key;
 
     /**
-     * @description The disk tag value. Valid values of N: 1 to 20.
+     * @description The value of tag N of the disk. Valid values of N: 1 to 20.
      *
      * @example TestValue
      *

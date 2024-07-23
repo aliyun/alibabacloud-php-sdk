@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeResourceByTagsResponseBody extends Model
 {
     /**
-     * @description The page number of the returned page.
+     * @description The page number.
      *
      * @example 1
      *
@@ -19,7 +19,7 @@ class DescribeResourceByTagsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The number of entries per page.
      *
      * @example 50
      *
@@ -28,7 +28,7 @@ class DescribeResourceByTagsResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 1C1E5359-71D7-44D8-8FAA-0327B549157X
      *
@@ -37,7 +37,7 @@ class DescribeResourceByTagsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description An array consisting of Resource data.
+     * @description Details about the resources to which the tags are bound.
      *
      * @var resources
      */

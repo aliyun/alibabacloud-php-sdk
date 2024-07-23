@@ -65,8 +65,9 @@ class DescribePriceRequest extends Model
     public $dedicatedHostType;
 
     /**
-     * @description The image ID. An image contains the runtime environment to load when an instance is started. You can call the [DescribeImages](https://help.aliyun.com/document_detail/25534.html) operation to query the available images. If you do not specify this parameter, the system queries the prices of Linux images.
+     * @description This parameter takes effect only when ResourceType is set to instance.
      *
+     * The image ID. Images contain the runtime environments to load when instances start. You can call the [DescribeImages](https://help.aliyun.com/document_detail/25534.html) operation to query available images. If you do not specify this parameter, the system queries the prices of Linux images.
      * @example centos_7_05_64_20G_alibase_20181212.vhd
      *
      * @var string
@@ -289,7 +290,10 @@ class DescribePriceRequest extends Model
     /**
      * @description The protection period of the preemptible instance. Unit: hours. Default value: 1. Valid values:
      *
-     * >If you set SpotStrategy to SpotWithPriceLimit or SpotAsPriceGo, this parameter takes effect.
+     *   1: After a preemptible instance is created, Alibaba Cloud ensures that the instance is not automatically released within 1 hour. After the 1-hour protection period ends, the system compares the bid price with the market price and checks the resource inventory to determine whether to retain or release the instance.
+     *   0: After a preemptible instance is created, Alibaba Cloud does not ensure that the instance runs for 1 hour. The system compares the bid price with the market price and checks the resource inventory to determine whether to retain or release the instance.
+     *
+     * >  This parameter takes effect only when SpotStrategy is set to SpotWithPriceLimit or SpotAsPriceGo.
      * @example 1
      *
      * @var int
@@ -297,13 +301,13 @@ class DescribePriceRequest extends Model
     public $spotDuration;
 
     /**
-     * @description The preemption policy for the pay-as-you-go instance. Valid values:
+     * @description The bidding policy for the pay-as-you-go instance. Valid values:
      *
-     *   NoSpot: The instance is created as a pay-as-you-go instance.
-     *   SpotWithPriceLimit: The instance is a preemptible instance with a user-defined maximum hourly price.
-     *   SpotAsPriceGo: The instance is a preemptible instance for which the market price is automatically used as the bid price. The market price can be up to the pay-as-you-go price.
+     *   NoSpot: The instance is a regular pay-as-you-go instance.
+     *   SpotWithPriceLimit: The instance is created as a preemptible instance that has a user-defined maximum hourly price.
+     *   SpotAsPriceGo: The instance is created as a preemptible instance whose bid price is based on the market price at the time of purchase. The market price can be up to the pay-as-you-go price.
      *
-     * > This parameter is valid only when `PriceUnit` is set to Hour and `Period` is set to 1. The default value of `PriceUnit` is `Hour` and the default value of `Period` is `1`. Therefore, you do not need to set `PriceUnit` and `Period` when you set SpotStrategy.
+     * >  This parameter takes effect only when `PriceUnit` is set to Hour and `Period` is set to 1. The default value of `PriceUnit` is `Hour` and the default value of `Period` is `1`. Therefore, you do not need to set `PriceUnit` or `Period` when you set SpotStrategy.
      * @example NoSpot
      *
      * @var string

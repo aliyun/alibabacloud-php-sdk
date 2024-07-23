@@ -18,7 +18,7 @@ class resource extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource.
+     * @description The resource ID.
      *
      * @example i-bp16t2cgmiiy7t1c****
      *

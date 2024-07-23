@@ -18,7 +18,7 @@ class CreateKeyPairResponseBody extends Model
     public $keyPairFingerPrint;
 
     /**
-     * @description The ID of the SSH key pair.
+     * @description The ID of the key pair.
      *
      * @example ssh-bp67acfmxazb4p****
      *
@@ -27,7 +27,7 @@ class CreateKeyPairResponseBody extends Model
     public $keyPairId;
 
     /**
-     * @description The name of the SSH key pair.
+     * @description The name of the key pair.
      *
      * @example testKeyPairName
      *
@@ -45,7 +45,7 @@ class CreateKeyPairResponseBody extends Model
     public $privateKeyBody;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
      *

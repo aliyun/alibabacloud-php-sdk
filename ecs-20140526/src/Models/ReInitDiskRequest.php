@@ -71,10 +71,10 @@ class ReInitDiskRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description Specifies whether to use Security Center for free after the system disk is re-initialized. Valid values:
+     * @description Specifies whether to use Security Center free of charge after the system disk is re-initialized. Valid values:
      *
-     *   Active: Security Center is activated for free after the system disk is replaced. This value is applicable to only public images.
-     *   Deactive: Security Center is not activated after the system disk is replaced. This value is applicable to all images.
+     *   Active: uses Security Center free of charge after the system disk is re-initialized. This value is applicable to only public images.
+     *   Deactive: does not use Security Center free of charge after the system disk is re-initialized. This value is applicable to all images.
      *
      * Default value: Deactive.
      * @example Active

@@ -58,7 +58,9 @@ class extendedAttribute extends Model
     /**
      * @description The type of the host. Valid values:
      *
-     * - managehost: physical machine in a smart hosting pool
+     *   ddh: dedicated host
+     *   managehost: physical machine in a smart hosting pool
+     *
      * @example ddh
      *
      * @var string
@@ -66,14 +68,14 @@ class extendedAttribute extends Model
     public $hostType;
 
     /**
-     * @description The information about the inactive disks that have been released and must be cleared.
+     * @description The inactive disks that have been released and whose data must be cleared.
      *
      * @var inactiveDisks
      */
     public $inactiveDisks;
 
     /**
-     * @description The migration solution of the instance. Valid value: MigrationPlan, which indicates that instances can be migrated only by using migration plans.
+     * @description The migration solution of the instance. Valid value: MigrationPlan. Instances can be migrated only by using migration plans.
      *
      * @var migrationOptions
      */
@@ -127,7 +129,9 @@ class extendedAttribute extends Model
     /**
      * @description The response result of the event. Valid values:
      *
-     * - false: The event failed to be handled.
+     *   true: The event was handled.
+     *   false: The event failed to be handled.
+     *
      * @example true
      *
      * @var string

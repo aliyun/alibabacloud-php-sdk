@@ -17,7 +17,7 @@ class DescribeManagedInstancesResponseBody extends Model
     public $instances;
 
     /**
-     * @description The query token returned in the call.
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results.
      *
      * @example AAAAAdDWBF2
      *

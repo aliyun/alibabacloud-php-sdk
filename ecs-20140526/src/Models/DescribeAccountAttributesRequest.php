@@ -25,9 +25,9 @@ class DescribeAccountAttributesRequest extends Model
      *
      *   used-spot-instance-vcpu-count: the number of vCPUs that have been allocated to preemptible instances
      *
-     *   max-postpaid-yundisk-capacity: the maximum capacity of pay-as-you-go data disks
+     *   max-postpaid-yundisk-capacity: the maximum capacity of pay-as-you-go data disks(This value is deprecated)
      *
-     *   used-postpaid-yundisk-capacity: the capacity of pay-as-you-go disks that have been created
+     *   used-postpaid-yundisk-capacity: the capacity of pay-as-you-go disks that have been created(This value is deprecated)
      *
      *   max-dedicated-hosts: the maximum number of dedicated hosts
      *

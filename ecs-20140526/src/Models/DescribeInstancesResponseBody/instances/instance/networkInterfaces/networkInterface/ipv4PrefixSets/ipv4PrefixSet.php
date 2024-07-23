@@ -11,8 +11,6 @@ class ipv4PrefixSet extends Model
     /**
      * @description The IPv4 prefix of the ENI.
      *
-     * @example 47.122.*.*\/19
-     *
      * @var string
      */
     public $ipv4Prefix;

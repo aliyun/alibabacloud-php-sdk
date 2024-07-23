@@ -5,12 +5,15 @@
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyNetworkInterfaceAttributeRequest\connectionTrackingConfiguration;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyNetworkInterfaceAttributeRequest\enhancedNetwork;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyNetworkInterfaceAttributeRequest\networkInterfaceTrafficConfig;
 use AlibabaCloud\Tea\Model;
 
 class ModifyNetworkInterfaceAttributeRequest extends Model
 {
     /**
+     * @description This parameter is unavailable for public use.
+     *
      * @var connectionTrackingConfiguration
      */
     public $connectionTrackingConfiguration;
@@ -38,6 +41,13 @@ class ModifyNetworkInterfaceAttributeRequest extends Model
     public $description;
 
     /**
+     * @description This parameter is unavailable for public use.
+     *
+     * @var enhancedNetwork
+     */
+    public $enhancedNetwork;
+
+    /**
      * @description The ID of the ENI.
      *
      * This parameter is required.
@@ -48,9 +58,9 @@ class ModifyNetworkInterfaceAttributeRequest extends Model
     public $networkInterfaceId;
 
     /**
-     * @description The name of the ENI. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with http:// or https://. The name can contain letters, digits, colons (:), underscores (_), and hyphens (-).
+     * @description The name of the ENI. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
      *
-     * This parameter is empty by default.
+     * This parameter is left empty by default.
      * @example eniTestName
      *
      * @var string
@@ -58,6 +68,8 @@ class ModifyNetworkInterfaceAttributeRequest extends Model
     public $networkInterfaceName;
 
     /**
+     * @description The communication parameters of the ENI.
+     *
      * @var networkInterfaceTrafficConfig
      */
     public $networkInterfaceTrafficConfig;
@@ -146,6 +158,7 @@ class ModifyNetworkInterfaceAttributeRequest extends Model
         'connectionTrackingConfiguration' => 'ConnectionTrackingConfiguration',
         'deleteOnRelease'                 => 'DeleteOnRelease',
         'description'                     => 'Description',
+        'enhancedNetwork'                 => 'EnhancedNetwork',
         'networkInterfaceId'              => 'NetworkInterfaceId',
         'networkInterfaceName'            => 'NetworkInterfaceName',
         'networkInterfaceTrafficConfig'   => 'NetworkInterfaceTrafficConfig',
@@ -175,6 +188,9 @@ class ModifyNetworkInterfaceAttributeRequest extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->enhancedNetwork) {
+            $res['EnhancedNetwork'] = null !== $this->enhancedNetwork ? $this->enhancedNetwork->toMap() : null;
         }
         if (null !== $this->networkInterfaceId) {
             $res['NetworkInterfaceId'] = $this->networkInterfaceId;
@@ -232,6 +248,9 @@ class ModifyNetworkInterfaceAttributeRequest extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['EnhancedNetwork'])) {
+            $model->enhancedNetwork = enhancedNetwork::fromMap($map['EnhancedNetwork']);
         }
         if (isset($map['NetworkInterfaceId'])) {
             $model->networkInterfaceId = $map['NetworkInterfaceId'];

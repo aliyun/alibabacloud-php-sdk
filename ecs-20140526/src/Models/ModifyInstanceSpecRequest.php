@@ -121,6 +121,8 @@ class ModifyInstanceSpecRequest extends Model
     public $internetMaxBandwidthOut;
 
     /**
+     * @description >  This parameter is not publicly available.
+     *
      * @example null
      *
      * @var string

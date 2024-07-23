@@ -92,7 +92,7 @@ class ReplaceSystemDiskRequest extends Model
     public $instanceId;
 
     /**
-     * @description The ID of the KMS key that you want to use for the system disk.
+     * @description The ID of the KMS key to use for the system disk.
      *
      * @example e522b26d-abf6-4e0d-b5da-04b7******3c
      *

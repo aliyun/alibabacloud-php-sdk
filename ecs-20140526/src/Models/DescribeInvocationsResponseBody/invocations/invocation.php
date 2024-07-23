@@ -86,22 +86,20 @@ class invocation extends Model
     public $creationTime;
 
     /**
-     * @description The schedule on which the command was run.
-     *
-     * @example 0 *\/20 * * * *
+     * @description The schedule on which the command is run.
      *
      * @var string
      */
     public $frequency;
 
     /**
-     * @description The overall execution state of the command task. The value of this parameter depends on the execution states of the command task on all the involved instances. Valid values:
+     * @description The overall execution status of the command task. The value of this parameter depends on the execution status of the command task on all the involved instances. Valid values:
      *
-     *   Pending: The command was being verified or sent. When the execution state on at least one instance is Pending, the overall execution state is Pending.
+     *   Pending: The command is being verified or sent. When the execution state on at least one instance is Pending, the overall execution state is Pending.
      *
      *   Scheduled: The command that is set to run on a schedule was sent and waiting to be run. When the execution state on at least one instance is Scheduled, the overall execution state is Scheduled.
      *
-     *   Running: The command was being run on the instances. When the execution state on at least one instance is Running, the overall execution state is Running.
+     *   Running: The command is being run on the instances. When the execution state on at least one instance is Running, the overall execution state is Running.
      *
      *   Success: When the execution state on at least one instance is Success and the execution state on the other instances is Stopped or Success, the overall execution state is Success.
      *
@@ -110,13 +108,13 @@ class invocation extends Model
      *
      *   Failed: When the execution state on all instances is Stopped or Failed, the overall execution state is Failed. When the execution state on an instance is one of the following values, Failed is returned as the overall execution state:
      *
-     *   Invalid: The command was invalid.
+     *   Invalid: The command is invalid.
      *   Aborted: The command failed to be sent.
      *   Failed: The execution was complete, but the exit code was not 0.
      *   Timeout: The execution timed out.
      *   Error: An error occurred while the command was being run.
      *
-     *   Stopping: The command task was being stopped. When the execution state on at least one instance is Stopping, the overall execution state is Stopping.
+     *   Stopping: The command task is being stopped. When the execution state on at least one instance is Stopping, the overall execution state is Stopping.
      *
      *   Stopped: The task was stopped. When the execution state on all instances is Stopped, the overall execution state is Stopped. When the execution state on an instance is one of the following values, Stopped is returned as the overall execution state:
      *
@@ -133,7 +131,7 @@ class invocation extends Model
     public $invocationStatus;
 
     /**
-     * @description The ID of the command task.
+     * @description The command task ID.
      *
      * @example t-hz0jdfwd9f****
      *
@@ -149,9 +147,9 @@ class invocation extends Model
     public $invokeInstances;
 
     /**
-     * @description The overall execution state of the command task.
+     * @description The overall execution status of the command task.
      *
-     * >  We recommend that you ignore this parameter and check the value of `InvocationStatus` in the response to obtain the overall execution state.
+     * >  We recommend that you ignore this parameter and check the value of `InvocationStatus` in the response to obtain the execution status.
      * @example Finished
      *
      * @var string
@@ -189,10 +187,10 @@ class invocation extends Model
     public $tags;
 
     /**
-     * @description Indicates how the task was stopped. Valid values:
+     * @description Indicates how the command task is stopped when a command execution is manually stopped or times out. Valid values:
      *
-     *   Process: The process of the command was stopped.
-     *   ProcessTree: The process tree was stopped. In this case, the process of the command and all subprocesses of the process were stopped.
+     *   Process: The process of the command is stopped.
+     *   ProcessTree: The process tree of the command is stopped. In this case, the process of the command and all subprocesses are stopped.
      *
      * @example ProcessTree
      *

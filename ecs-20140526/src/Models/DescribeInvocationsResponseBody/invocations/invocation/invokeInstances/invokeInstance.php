@@ -33,8 +33,8 @@ class invokeInstance extends Model
      *   InstanceNotExists: The specified instance did not exist or was released.
      *   InstanceReleased: The instance was released while the command was being run.
      *   InstanceNotRunning: The instance was not running when the command started to be run.
-     *   CommandNotApplicable: The command was not applicable to the specified instance.
-     *   AccountNotExists: The specified account did not exist.
+     *   CommandNotApplicable: The command was inapplicable to the specified instance.
+     *   AccountNotExists: The username specified to run the command did not exist.
      *   DirectoryNotExists: The specified directory did not exist.
      *   BadCronExpression: The specified cron expression for the execution schedule was invalid.
      *   ClientNotRunning: Cloud Assistant Agent was not running.
@@ -43,9 +43,10 @@ class invokeInstance extends Model
      *   ClientNeedUpgrade: Cloud Assistant Agent needed to be upgraded.
      *   DeliveryTimeout: The request to send the command timed out.
      *   ExecutionTimeout: The execution timed out.
-     *   ExecutionException: An exception occurred while the command was being run.
+     *   ExecutionException: An exception occurred while the command was being executed.
      *   ExecutionInterrupted: The command task was interrupted.
      *   ExitCodeNonzero: The execution was complete, but the exit code was not 0.
+     *   SecurityGroupRuleDenied: Access to Cloud Assistant was denied by security group rules.
      *
      * @example InstanceNotExists
      *
@@ -94,7 +95,7 @@ class invokeInstance extends Model
     public $exitCode;
 
     /**
-     * @description The time when the execution ended.
+     * @description The time when the command process ended.
      *
      * @example 2019-12-20T06:15:56Z
      *
@@ -112,9 +113,9 @@ class invokeInstance extends Model
     public $instanceId;
 
     /**
-     * @description The execution state on a single instance.
+     * @description The execution status of the command on a single instance.
      *
-     * >  We recommend that you ignore this parameter and check the value of `InvocationStatus` in the response to obtain the execution state.
+     * >  We recommend that you ignore this parameter and check the value of `InvocationStatus` in the response to obtain the execution status.
      * @example Finished
      *
      * @var string
@@ -122,15 +123,15 @@ class invokeInstance extends Model
     public $instanceInvokeStatus;
 
     /**
-     * @description The execution state on a single instance. Valid values:
+     * @description The execution status on a single instance. Valid values:
      *
-     *   Pending: The command was being verified or sent.
+     *   Pending: The command is being verified or sent.
      *
-     *   Invalid: The specified command type or parameter was invalid.
+     *   Invalid: The specified command type or parameter is invalid.
      *
      *   Aborted: The command failed to be sent to the instance. To send a command to an instance, make sure that the instance is in the Running state and the command can be sent to the instance within 1 minute.
      *
-     *   Running: The command was being run on the instance.
+     *   Running: The command is being run on the instance.
      *
      *   Success:
      *
@@ -146,16 +147,16 @@ class invokeInstance extends Model
      *
      *   Timeout: The execution timed out.
      *
-     *   Cancelled: The execution was canceled, and the command was not run.
+     *   Cancelled: The execution was canceled before it started.
      *
-     *   Stopping: The command task was being stopped.
+     *   Stopping: The command task is being stopped.
      *
      *   Terminated: The execution was terminated before completion.
      *
      *   Scheduled:
      *
      *   One-time task: The execution state can never be Scheduled.
-     *   Scheduled task: The command was waiting to be run.
+     *   Scheduled task: The command is waiting to be run.
      *
      * @example Success
      *

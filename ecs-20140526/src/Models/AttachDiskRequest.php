@@ -11,7 +11,7 @@ class AttachDiskRequest extends Model
     /**
      * @description Specifies whether to attach the disk as a system disk.
      *
-     * > If you set `Bootable` to true, the instance must be in the No System Disk state.
+     * >  You can set `Bootable` to true only if the instance does not have a system disk.
      * @example false
      *
      * @var bool
@@ -19,15 +19,16 @@ class AttachDiskRequest extends Model
     public $bootable;
 
     /**
-     * @description Specifies whether to release the disk when the instance is released. Valid values:
+     * @description Specifies whether to release the disk when the instance is released.
      *
      *   true: releases the disk when the instance is released.
-     *   false: does not release the data disk when the instance is released. The disk is retained as a pay-as-you-go data disk.
+     *   false: does not release the disk when the instance is released. The disk is retained as a pay-as-you-go data disk.
      *
      * When you specify this parameter, take note of the following items:
      *
-     *   If `OperationLocks` in the DescribeInstances response contains `"LockReason" : "security"` for the instance to which the disk is attached, the instance is locked for security reasons. Regardless of whether you set `DeleteWithInstance` to `false`, the DeleteWithInstance parameter is ignored, and the disk is released when the instance is released.
-     *   You cannot specify this parameter for disks for which the multi-attach feature is enabled.
+     *   If `OperationLocks` in the DescribeInstances response contains `"LockReason" : "security"` for the instance to which the disk is attached, the instance is locked for security reasons. Regardless of whether you set `DeleteWithInstance` to `false`, the DeleteWithInstance setting is ignored, and the disk is released when the instance is released.
+     *   If you want to attach an `elastic ephemeral disk`, you must set `DeleteWithInstance` to `true`.
+     *   This parameter is unavailable for disks for which the multi-attach feature is enabled.
      *
      * @example false
      *
@@ -38,7 +39,7 @@ class AttachDiskRequest extends Model
     /**
      * @description The device name of the disk.
      *
-     * > This parameter will be removed in the future. We recommend that you use other parameters to ensure compatibility.
+     * >  This parameter will be removed in the future. We recommend that you use other parameters to ensure future compatibility.
      * @example testDeviceName
      *
      * @var string
@@ -46,7 +47,7 @@ class AttachDiskRequest extends Model
     public $device;
 
     /**
-     * @description The ID of the disk. The disk specified by the `DiskId` parameter and the instance specified by the `InstanceId` parameter must reside in the same zone.
+     * @description The ID of the disk. The disk specified by `DiskId` and the instance specified by `InstanceId` must reside in the same zone.
      *
      * This parameter is required.
      * @example d-bp1j4l5axzdy6ftk****
@@ -56,6 +57,14 @@ class AttachDiskRequest extends Model
     public $diskId;
 
     /**
+     * @description Specifies whether to forcefully attach the disk to the instance.
+     *
+     *   true
+     *   false
+     *
+     * Default value: false.
+     * @example false
+     *
      * @var bool
      */
     public $force;

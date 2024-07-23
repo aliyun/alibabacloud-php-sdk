@@ -18,7 +18,7 @@ class cpuOptions extends Model
     public $coreCount;
 
     /**
-     * @description The number of threads allocated. Valid value: 2.
+     * @description >  This parameter is deprecated.
      *
      * @example 2
      *
@@ -38,8 +38,8 @@ class cpuOptions extends Model
     /**
      * @description The CPU topology type of the instance. Valid values:
      *
-     *   ContinuousCoreToHTMapping: Hyper-Threading (HT) continuous mode
-     *   DiscreteCoreToHTMapping: HT discrete mode
+     *   ContinuousCoreToHTMapping: Hyper-Threading (HT) continuous CPU topology
+     *   DiscreteCoreToHTMapping: HT discrete CPU topology
      *
      * @example ContinuousCoreToHTMapping
      *

@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class availableZone extends Model
 {
     /**
-     * @description Details about the resources that can be created in the zone.
+     * @description The resources that are available in the zone.
      *
      * @var availableResources
      */
     public $availableResources;
 
     /**
-     * @description The ID of the region where the instance resides.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *
@@ -26,7 +26,7 @@ class availableZone extends Model
     public $regionId;
 
     /**
-     * @description The state of resources in the zone. Valid values:
+     * @description The status of resources in the zone. Valid values:
      *
      *   Available
      *   SoldOut
@@ -38,12 +38,12 @@ class availableZone extends Model
     public $status;
 
     /**
-     * @description The resource category based on the stock. Valid values:
+     * @description The resource category based on the stock level in the zone. Valid values:
      *
      *   WithStock: Resources are in sufficient stock.
-     *   ClosedWithStock: Resources are insufficient. We recommend that you use other resources that are in sufficient stock.
-     *   WithoutStock: Resources are sold out and will be replenished. We recommend that you use other resources that are in sufficient stock.
-     *   ClosedWithoutStock: Resources are sold out and will not be replenished. We recommend that you use other resources that are in sufficient stock.
+     *   ClosedWithStock: Resources are in insufficient stock. We recommend that you use other resources that are in sufficient stock.
+     *   WithoutStock: Resources are out of stock and will be replenished. We recommend that you use other resources that are in sufficient stock.
+     *   ClosedWithoutStock: Resources are out of stock and will not be replenished. We recommend that you use other resources that are in sufficient stock.
      *
      * @example WithStock
      *
@@ -52,7 +52,7 @@ class availableZone extends Model
     public $statusCategory;
 
     /**
-     * @description The ID of the zone in which the instance resides.
+     * @description The zone ID.
      *
      * @example cn-hangzhou-e
      *

@@ -18,7 +18,7 @@ class CreateDedicatedHostClusterResponseBody extends Model
     public $dedicatedHostClusterId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example E2A664A6-2933-4C64-88AE-5033D003****
      *

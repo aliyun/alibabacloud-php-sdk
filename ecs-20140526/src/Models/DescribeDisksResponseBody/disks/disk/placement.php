@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class placement extends Model
 {
     /**
+     * @description The IDs of the zones in which data is stored.
+     *
+     * @example cn-hangzhou-b
+     * cn-hangzhou-j
      * @var string
      */
     public $zoneIds;

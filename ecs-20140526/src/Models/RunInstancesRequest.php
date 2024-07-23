@@ -64,7 +64,17 @@ class RunInstancesRequest extends Model
     public $affinity;
 
     /**
-     * @description The number of ECS instances that you want to create. Valid values: 1 to 100.
+     * @description The desired number of ECS instances. Valid values: 1 to 100.
+     *
+     * The number of ECS instances that can be created varies based on the Amount and MinAmount values.
+     *
+     *   If you do not specify MinAmount, the RunInstances operation creates ECS instances based on the Amount value. If the available resources are insufficient to create the desired number of ECS instances, the RunInstances operation returns an error response and no ECS instances are created.
+     *
+     *   If you specify MinAmount, take note of the following items:
+     *
+     *   If the available resources are insufficient to create the minimum number of ECS instances, no ECS instances are created and the RunInstances operation returns an error response.
+     *   If the available resources are insufficient to create the desired number of ECS instances but are sufficient to create the minimum number of ECS instances, the RunInstances operation uses the available resources to create ECS instances and returns a success response. In this case, the number of ECS instances that can be created is less than the desired number of ECS instances.
+     *   If the available resources are sufficient to create the desired number of ECS instances, the RunInstances operation uses the available resources to create the desired number of ECS instances and returns a success response.
      *
      * Default value: 1.
      * @example 3
@@ -354,9 +364,9 @@ class RunInstancesRequest extends Model
     public $instanceChargeType;
 
     /**
-     * @description The instance name. The name must be 2 to 128 characters in length and support Unicode characters under the Decimal Number category and the categories whose names contain Letter. The name can contain colons (:), underscores (_), periods (.), and hyphens (-). The default value of this parameter is the `InstanceId` value.
+     * @description The name of the instance. The name must be 2 to 128 characters in length and can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-). The default value of this parameter is the `InstanceId` value.
      *
-     * When you batch create instances, you can batch configure sequential names for the instances. For more information, see [Batch configure sequential names or hostnames for multiple instances](https://help.aliyun.com/document_detail/196048.html).
+     * When you batch create instances, you can batch configure sequential names for the instances. The sequential names can contain brackets ([ ]) and commas (,). For more information, see [Batch configure sequential names or hostnames for multiple instances](https://help.aliyun.com/document_detail/196048.html).
      * @example k8s-node-[1,4]-alibabacloud
      *
      * @var string
@@ -503,10 +513,17 @@ class RunInstancesRequest extends Model
     public $launchTemplateVersion;
 
     /**
-     * @description The minimum number of instances that can be created. Valid values: 1 to 100.
+     * @description The minimum number of ECS instances to be created. Valid values: 1 to 100.
      *
-     *   If the number of instances that available resources are sufficient to create is smaller than the MinAmount value, instances cannot be created.
-     *   If the number of ECS instances that available resources are sufficient to create is greater than or equal to the MinAmount value, instances are created based on the number of available resources.
+     * The number of ECS instances that can be created varies based on the Amount and MinAmount values.
+     *
+     *   If you do not specify MinAmount, the RunInstances operation creates ECS instances based on the Amount value. If the available resources are insufficient to create the desired number of ECS instances, the RunInstances operation returns an error response and no ECS instances are created.
+     *
+     *   If you specify MinAmount, take note of the following items:
+     *
+     *   If the available resources are insufficient to create the minimum number of ECS instances, no ECS instances are created and the RunInstances operation returns an error response.
+     *   If the available resources are insufficient to create the desired number of ECS instances but are sufficient to create the minimum number of ECS instances, the RunInstances operation uses the available resources to create ECS instances and returns a success response. In this case, the number of ECS instances that can be created is less than the desired number of ECS instances.
+     *   If the available resources are sufficient to create the desired number of ECS instances, the RunInstances operation uses the available resources to create the desired number of ECS instances and returns a success response.
      *
      * @example 2
      *
@@ -515,7 +532,7 @@ class RunInstancesRequest extends Model
     public $minAmount;
 
     /**
-     * @description The information of the ENIs.
+     * @description The information of the elastic network interfaces (ENIs).
      *
      * @var networkInterface[]
      */
@@ -670,11 +687,11 @@ class RunInstancesRequest extends Model
     public $securityEnhancementStrategy;
 
     /**
-     * @description The ID of the security group to which you want to assign the instance. Instances in the same security group can communicate with each other. The maximum number of instances that a security group can contain depends on the type of the security group. For more information, see the "Security group limits" section in [Limits](https://help.aliyun.com/document_detail/25412.html#SecurityGroupQuota).
+     * @description The ID of the security group to which you want to assign the instance. Instances in the same security group can communicate with each other. The maximum number of instances allowed in a security group varies based on the type of the security group. For more information, see the "Security group limits" section in [Limits](~~25412#SecurityGroupQuota~~).
      *
-     * If you do not use `LaunchTemplateId` or `LaunchTemplateName` to specify a launch template, you must specify SecurityGroupId. Take note of the following items:
+     * If you do not use `LaunchTemplateId` or `LaunchTemplateName` to specify a launch template, you must specify a security group ID. Take note of the following items:
      *
-     *   You can set `SecurityGroupId` to specify a single security group or set `SecurityGroupIds.N` to specify one or more security groups. However, you cannot specify both `SecurityGroupId` and `SecurityGroupIds.N`.
+     *   You can set `SecurityGroupId` to specify a single security group or set `SecurityGroupIds.N` to specify one or more security groups. However, you cannot specify both `SecurityGroupId` and `SecurityGroupIds.N` in the same request.
      *   If `NetworkInterface.N.InstanceType` is set to `Primary`, you cannot specify `SecurityGroupId` or `SecurityGroupIds.N` but can specify `NetworkInterface.N.SecurityGroupId` or `NetworkInterface.N.SecurityGroupIds.N`.
      *
      * @example sg-bp15ed6xe1yxeycg7****
@@ -684,11 +701,11 @@ class RunInstancesRequest extends Model
     public $securityGroupId;
 
     /**
-     * @description The ID of security group N to which to assign the instance. The valid values of N vary based on the maximum number of security groups to which an instance can belong. For more information, see [Security group limits](https://help.aliyun.com/document_detail/101348.html).
+     * @description The ID of security group N to which to assign the instance. The valid values of N vary based on the maximum number of security groups to which an instance can belong. For more information, see the [Security group limits](https://help.aliyun.com/document_detail/101348.html) section of the "Limits" topic.
      *
      * Take note of the following items:
      *
-     *   You cannot specify both `SecurityGroupId` and `SecurityGroupIds.N`.
+     *   You cannot specify both `SecurityGroupId` and `SecurityGroupIds.N` in the same request.
      *   If `NetworkInterface.N.InstanceType` is set to `Primary`, you cannot specify `SecurityGroupId` or `SecurityGroupIds.N` but can specify `NetworkInterface.N.SecurityGroupId` or `NetworkInterface.N.SecurityGroupIds.N`.
      *
      * @example sg-bp15ed6xe1yxeycg7****
@@ -799,9 +816,9 @@ class RunInstancesRequest extends Model
     public $uniqueSuffix;
 
     /**
-     * @description The user data of the instance. The user data must be encoded in Base64. The raw data can be up to 16 KB in size.
+     * @description The user data of the instance. You must specify Base64-encoded data. The instance user data cannot exceed 32 KB in size before Base64 encoding.
      *
-     * >  If the instance type supports [user data](https://help.aliyun.com/document_detail/49121.html), you can use the UserData parameter to pass in user data. We recommend that you do not pass in confidential information (such as passwords or private keys) in plaintext as user data. This is because the system does not encrypt UserData values when API requests are transmitted. If you must pass in confidential information, we recommend that you encrypt and encode the information in Base64, and then decode and decrypt the information in the same way inside the instance.
+     * >  To ensure security, we recommend that you do not use plaintext to pass in confidential information, such as passwords or private keys, as user data. If you need to pass in confidential information, we recommend that you encrypt and encode the information in Base64 and then decode and decrypt the information in the same manner in the instance.
      * @example ZWNobyBoZWxsbyBlY3Mh
      *
      * @var string

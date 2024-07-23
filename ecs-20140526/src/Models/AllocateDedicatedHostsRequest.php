@@ -125,7 +125,7 @@ class AllocateDedicatedHostsRequest extends Model
     public $dedicatedHostClusterId;
 
     /**
-     * @description The name of the dedicated host. The name must be 2 to 128 characters in length, It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (_), and hyphens (-).
+     * @description The name of the dedicated host. The name must be 2 to 128 characters in length and can contain letters and digits. The name can contain colons (:), underscores (_), periods (.), and hyphens (-).
      *
      * @example myDDH
      *

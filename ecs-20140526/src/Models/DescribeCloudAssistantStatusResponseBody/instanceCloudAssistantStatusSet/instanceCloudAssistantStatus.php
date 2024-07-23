@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class instanceCloudAssistantStatus extends Model
 {
     /**
-     * @description The number of tasks that were being run by Cloud Assistant on the instance.
+     * @description The number of tasks that Cloud Assistant was running on the instance.
      *
      * @example 0
      *
@@ -20,8 +20,8 @@ class instanceCloudAssistantStatus extends Model
     /**
      * @description Indicates whether Cloud Assistant is running on the instance. Valid values:
      *
-     *   true: Heartbeats are detected within 2 minutes.
-     *   false: Heartbeats are not detected within 2 minutes.
+     *   true: Heartbeats are detected in the last 2 minutes.
+     *   false: No heartbeats are detected in the last 2 minutes.
      *
      * @example true
      *
@@ -39,7 +39,7 @@ class instanceCloudAssistantStatus extends Model
     public $cloudAssistantVersion;
 
     /**
-     * @description The instance ID.
+     * @description The ID of the instance.
      *
      * @example i-bp1iudwa5b1tqa****
      *
@@ -48,7 +48,7 @@ class instanceCloudAssistantStatus extends Model
     public $instanceId;
 
     /**
-     * @description The number of tasks that were completed by Cloud Assistant on the instance.
+     * @description The number of tasks that Cloud Assistant completed on the instance.
      *
      * @example 2
      *
@@ -88,9 +88,9 @@ class instanceCloudAssistantStatus extends Model
     public $OSType;
 
     /**
-     * @description Indicates whether Cloud Assistant supports Session Manager on the instance. If Session Manager is not supported, the version of Cloud Assistant is outdated. Update Cloud Assistant Agent to the latest version.
+     * @description Indicates whether Cloud Assistant supports Session Manager on the instance. If Session Manager is not supported, the version of Cloud Assistant Agent is outdated. Update Cloud Assistant Agent to the latest version.
      *
-     * To support Session Manager, the Cloud Assistant version must be no earlier than the following ones:
+     * To support Session Manager, the version of Cloud Assistant Agent cannot be earlier than the following versions:
      *
      *   Linux: 2.2.3.189
      *   Windows: 2.1.3.189

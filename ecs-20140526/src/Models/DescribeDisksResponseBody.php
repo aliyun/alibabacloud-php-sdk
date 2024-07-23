@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDisksResponseBody extends Model
 {
     /**
-     * @description Details about the cloud disks or local disks.
+     * @description The details about the disks.
      *
      * @var disks
      */
@@ -26,7 +26,7 @@ class DescribeDisksResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description The returned page number.
+     * @description The page number.
      *
      * @example 1
      *

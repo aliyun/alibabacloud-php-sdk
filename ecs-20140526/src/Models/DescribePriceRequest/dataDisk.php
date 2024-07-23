@@ -9,13 +9,14 @@ use AlibabaCloud\Tea\Model;
 class dataDisk extends Model
 {
     /**
-     * @description The type of data disk N. Valid values:
+     * @description The category of data disk N. Valid values:
      *
      *   cloud: basic disk
      *   cloud_efficiency: ultra disk
      *   cloud_ssd: standard SSD
      *   ephemeral_ssd: local SSD
      *   cloud_essd: ESSD
+     *   cloud_auto: ESSD AutoPL disk
      *
      * Valid values of N: 1 to 16.
      * @example cloud_ssd
@@ -25,7 +26,7 @@ class dataDisk extends Model
     public $category;
 
     /**
-     * @description The performance level of data disk N when the disk is an ESSD. This parameter is valid only when `DataDisk.N.Category` is set to cloud_essd. Valid values:
+     * @description The performance level of data disk N when the disk is an ESSD. This parameter takes effect only when `DataDisk.N.Category` is set to cloud_essd. Valid values:
      *
      *   PL0
      *   PL1 (default)
@@ -42,18 +43,20 @@ class dataDisk extends Model
     /**
      * @description The size of data disk N. Unit: GiB. Valid values:
      *
-     *   Valid values when Category is set to cloud: 5 to 2000.
+     *   Valid values when DataDisk.N.Category is set to cloud: 5 to 2000.
      *
-     *   Valid values when Category is set to cloud_efficiency: 20 to 32768.
+     *   Valid values when DataDisk.N.Category is set to cloud_efficiency: 20 to 32768.
      *
      *   Valid values when DataDisk.N.Category is set to cloud_ssd: 20 to 32768.
      *
-     *   Valid values when DataDisk.N.Category is set to cloud_essd: depend on the value of `DataDisk.N.PerformanceLevel`.
+     *   Valid values when DataDisk.N.Category is set to cloud_auto: 1 to 32768.
      *
-     *   Valid values when DataDisk.N.PerformanceLevel is set to PL0: 40 to 32768.
+     *   Valid values when DataDisk.N.Category is set to cloud_essd: vary based on the value of `DataDisk.N.PerformanceLevel`.
+     *
+     *   Valid values when DataDisk.N.PerformanceLevel is set to PL0: 1 to 32768.
      *   Valid values when DataDisk.N.PerformanceLevel is set to PL1: 20 to 32768.
      *   Valid values when DataDisk.N.PerformanceLevel is set to PL2: 461 to 32768.
-     *   Valid values when DataDisk.4.PerformanceLevel is set to PL3: 1261 to 32768.
+     *   Valid values when DataDisk.N.PerformanceLevel is set to PL3: 1261 to 32768.
      *
      *   Valid values when DataDisk.N.Category is set to ephemeral_ssd: 5 to 800.
      *

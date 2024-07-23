@@ -8,6 +8,7 @@ use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeNetworkInterfaceAttributeRespo
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeNetworkInterfaceAttributeResponseBody\attachment;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeNetworkInterfaceAttributeResponseBody\bondInterfaceSpecification;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeNetworkInterfaceAttributeResponseBody\connectionTrackingConfiguration;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeNetworkInterfaceAttributeResponseBody\enhancedNetwork;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeNetworkInterfaceAttributeResponseBody\ipv4PrefixSets;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeNetworkInterfaceAttributeResponseBody\ipv6PrefixSets;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeNetworkInterfaceAttributeResponseBody\ipv6Sets;
@@ -42,6 +43,8 @@ class DescribeNetworkInterfaceAttributeResponseBody extends Model
     public $bondInterfaceSpecification;
 
     /**
+     * @description This parameter is not publicly available.
+     *
      * @var connectionTrackingConfiguration
      */
     public $connectionTrackingConfiguration;
@@ -75,6 +78,13 @@ class DescribeNetworkInterfaceAttributeResponseBody extends Model
      * @var string
      */
     public $description;
+
+    /**
+     * @description This parameter is not publicly available.
+     *
+     * @var enhancedNetwork
+     */
+    public $enhancedNetwork;
 
     /**
      * @description The ID of the instance to which the ENI is attached.
@@ -135,6 +145,8 @@ class DescribeNetworkInterfaceAttributeResponseBody extends Model
     public $networkInterfaceName;
 
     /**
+     * @description The communication settings of the ENI.
+     *
      * @var networkInterfaceTrafficConfig
      */
     public $networkInterfaceTrafficConfig;
@@ -338,6 +350,7 @@ class DescribeNetworkInterfaceAttributeResponseBody extends Model
         'creationTime'                    => 'CreationTime',
         'deleteOnRelease'                 => 'DeleteOnRelease',
         'description'                     => 'Description',
+        'enhancedNetwork'                 => 'EnhancedNetwork',
         'instanceId'                      => 'InstanceId',
         'ipv4PrefixSets'                  => 'Ipv4PrefixSets',
         'ipv6PrefixSets'                  => 'Ipv6PrefixSets',
@@ -394,6 +407,9 @@ class DescribeNetworkInterfaceAttributeResponseBody extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->enhancedNetwork) {
+            $res['EnhancedNetwork'] = null !== $this->enhancedNetwork ? $this->enhancedNetwork->toMap() : null;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -508,6 +524,9 @@ class DescribeNetworkInterfaceAttributeResponseBody extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['EnhancedNetwork'])) {
+            $model->enhancedNetwork = enhancedNetwork::fromMap($map['EnhancedNetwork']);
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];

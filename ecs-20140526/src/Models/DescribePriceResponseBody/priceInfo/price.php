@@ -20,9 +20,9 @@ class price extends Model
     public $currency;
 
     /**
-     * @description Details about the price.
+     * @description The information about the price.
      *
-     * > This parameter is in invitational preview and is unavailable for public use.
+     * >  This parameter is returned only when ResourceType is set to instance.
      * @var detailInfos
      */
     public $detailInfos;

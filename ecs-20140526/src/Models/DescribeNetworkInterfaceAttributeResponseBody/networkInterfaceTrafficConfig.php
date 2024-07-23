@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class networkInterfaceTrafficConfig extends Model
 {
     /**
+     * @description The communication mode of the ENI.
+     *
+     * @example HighPerformance
+     *
      * @var string
      */
     public $networkInterfaceTrafficMode;
 
     /**
+     * @description The number of queues supported by the ENI.
+     *
+     * @example 8
+     *
      * @var int
      */
     public $queueNumber;
 
     /**
+     * @description The number of queues supported by the ERI.
+     *
+     * @example 8
+     *
      * @var int
      */
     public $queuePairNumber;

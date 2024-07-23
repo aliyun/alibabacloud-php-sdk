@@ -11,7 +11,7 @@ class tag extends Model
     /**
      * @description The key of tag N of the file sending task. Valid values of N: 1 to 20. The tag key cannot be an empty string.
      *
-     * The tag key can be up to 64 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+     * The tag key can be up to 64 characters in length and cannot contain `http://` or `https://`. The tag key cannot start with `acs:` or `aliyun`.
      * @example TestKey
      *
      * @var string

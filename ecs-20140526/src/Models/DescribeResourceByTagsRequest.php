@@ -15,7 +15,7 @@ class DescribeResourceByTagsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return. Pages start from page 1.
+     * @description The page number. Pages start from page 1.
      *
      * Default value: 1.
      * @example 1
@@ -25,7 +25,7 @@ class DescribeResourceByTagsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Valid values: 1 to 100.
+     * @description The number of entries per page. Valid values: 1 to 100.
      *
      * Default value: 50.
      * @example 50
@@ -57,7 +57,7 @@ class DescribeResourceByTagsRequest extends Model
     /**
      * @description The type of the resource. Valid values:
      *
-     *   instance: ECS instance
+     *   instance: Elastic Compute Service (ECS) instance
      *   disk: disk
      *   snapshot: snapshot
      *   image: image

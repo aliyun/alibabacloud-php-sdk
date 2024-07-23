@@ -27,7 +27,7 @@ class dedicatedHost extends Model
      * @description The policy used to migrate the ECS instances deployed on the dedicated host when the dedicated host fails. Valid values:
      *
      *   Migrate: The instances are migrated to another physical machine. Instances that are not in the Stopped state when the dedicated host fails are restarted.
-     *   Stop: The instances are stopped. If the dedicated host cannot be restored, the instances are migrated to another physical machine and then restarted.
+     *   Stop: The instances are stopped. If the dedicated host cannot be repaired, the instances are migrated to another physical machine and then restarted.
      *
      * If the dedicated host has cloud disks attached, the default value is Migrate. If the dedicated host has local disks attached, the default value is Stop.
      * @example Migrate
@@ -37,10 +37,10 @@ class dedicatedHost extends Model
     public $actionOnMaintenance;
 
     /**
-     * @description Indicates whether the dedicated host was added to the resource pool for automatic deployment. Valid values:
+     * @description Indicates whether the dedicated host is added to the resource pool for automatic deployment. Valid values:
      *
-     *   on: The dedicated host was added to the resource pool for automatic deployment.
-     *   off: The dedicated host was not added to the resource pool for automatic deployment.
+     *   on: The dedicated host is added to the resource pool for automatic deployment.
+     *   off: The dedicated host is not added to the resource pool for automatic deployment.
      *
      * For information about automatic deployment, see the "Automatic deployment" section in [Functions and features](https://help.aliyun.com/document_detail/118938.html).
      * @example on
@@ -84,7 +84,7 @@ class dedicatedHost extends Model
     public $cores;
 
     /**
-     * @description The CPU overcommit ratio.
+     * @description The CPU overcommit ratio.Valid values: 1 to 5.
      *
      * @example 1
      *
@@ -259,11 +259,11 @@ class dedicatedHost extends Model
     public $sockets;
 
     /**
-     * @description The state of the dedicated host. Valid values:
+     * @description The status of the dedicated host. Valid values:
      *
-     *   Available: The dedicated host was running as expected.
-     *   UnderAssessment: The dedicated host was available but had potential risks that may cause the ECS instances on the dedicated host to fail.
-     *   PermanentFailure: The dedicated host had permanent failures and was unavailable.
+     *   Available: The dedicated host is running as expected.
+     *   UnderAssessment: The dedicated host is available but has potential risks that may cause the ECS instances on the dedicated host to fail.
+     *   PermanentFailure: The dedicated host has permanent failures and is unavailable.
      *
      * @example Available
      *

@@ -31,6 +31,29 @@ class CreateLaunchTemplateVersionRequest extends Model
     public $autoReleaseTime;
 
     /**
+     * @description Specifies whether to enable auto-renewal for the instance. This parameter is valid only if `InstanceChargeType` is set to `PrePaid`. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * Default value: false.
+     * @example true
+     *
+     * @var bool
+     */
+    public $autoRenew;
+
+    /**
+     * @description The auto-renewal period of the instance. Valid values:
+     *
+     * Default value: 1.
+     * @example 1
+     *
+     * @var int
+     */
+    public $autoRenewPeriod;
+
+    /**
      * @description The performance mode of the burstable instance. Valid values:
      *
      *   Standard: the standard mode. For more information, see the "Standard mode" section in [Overview of burstable instances](https://help.aliyun.com/document_detail/59977.html).
@@ -134,9 +157,10 @@ class CreateLaunchTemplateVersionRequest extends Model
     public $instanceChargeType;
 
     /**
-     * @description The name of the instance. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (_), and hyphens (-).
+     * @description The instance name. The name must be 2 to 128 characters in length and can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-). The default value of this parameter is the `InstanceId` value.
      *
-     * @example testInstanceName
+     * When you create multiple ECS instances at a time, you can batch configure sequential names for the instances. The instance names can contain square brackets ([]) and commas (,). For more information, see [Batch configure sequential names or hostnames for multiple instances](https://help.aliyun.com/document_detail/196048.html).
+     * @example k8s-node-[1,4]-alibabacloud
      *
      * @var string
      */
@@ -286,6 +310,16 @@ class CreateLaunchTemplateVersionRequest extends Model
      * @var int
      */
     public $period;
+
+    /**
+     * @description The unit of the subscription period. Valid values:
+     *
+     * Month (default)
+     * @example Month
+     *
+     * @var string
+     */
+    public $periodUnit;
 
     /**
      * @description The private IP address to assign to the instance.
@@ -456,6 +490,8 @@ class CreateLaunchTemplateVersionRequest extends Model
     protected $_name = [
         'systemDisk'                  => 'SystemDisk',
         'autoReleaseTime'             => 'AutoReleaseTime',
+        'autoRenew'                   => 'AutoRenew',
+        'autoRenewPeriod'             => 'AutoRenewPeriod',
         'creditSpecification'         => 'CreditSpecification',
         'dataDisk'                    => 'DataDisk',
         'deletionProtection'          => 'DeletionProtection',
@@ -482,6 +518,7 @@ class CreateLaunchTemplateVersionRequest extends Model
         'ownerId'                     => 'OwnerId',
         'passwordInherit'             => 'PasswordInherit',
         'period'                      => 'Period',
+        'periodUnit'                  => 'PeriodUnit',
         'privateIpAddress'            => 'PrivateIpAddress',
         'ramRoleName'                 => 'RamRoleName',
         'regionId'                    => 'RegionId',
@@ -514,6 +551,12 @@ class CreateLaunchTemplateVersionRequest extends Model
         }
         if (null !== $this->autoReleaseTime) {
             $res['AutoReleaseTime'] = $this->autoReleaseTime;
+        }
+        if (null !== $this->autoRenew) {
+            $res['AutoRenew'] = $this->autoRenew;
+        }
+        if (null !== $this->autoRenewPeriod) {
+            $res['AutoRenewPeriod'] = $this->autoRenewPeriod;
         }
         if (null !== $this->creditSpecification) {
             $res['CreditSpecification'] = $this->creditSpecification;
@@ -605,6 +648,9 @@ class CreateLaunchTemplateVersionRequest extends Model
         if (null !== $this->period) {
             $res['Period'] = $this->period;
         }
+        if (null !== $this->periodUnit) {
+            $res['PeriodUnit'] = $this->periodUnit;
+        }
         if (null !== $this->privateIpAddress) {
             $res['PrivateIpAddress'] = $this->privateIpAddress;
         }
@@ -682,6 +728,12 @@ class CreateLaunchTemplateVersionRequest extends Model
         }
         if (isset($map['AutoReleaseTime'])) {
             $model->autoReleaseTime = $map['AutoReleaseTime'];
+        }
+        if (isset($map['AutoRenew'])) {
+            $model->autoRenew = $map['AutoRenew'];
+        }
+        if (isset($map['AutoRenewPeriod'])) {
+            $model->autoRenewPeriod = $map['AutoRenewPeriod'];
         }
         if (isset($map['CreditSpecification'])) {
             $model->creditSpecification = $map['CreditSpecification'];
@@ -772,6 +824,9 @@ class CreateLaunchTemplateVersionRequest extends Model
         }
         if (isset($map['Period'])) {
             $model->period = $map['Period'];
+        }
+        if (isset($map['PeriodUnit'])) {
+            $model->periodUnit = $map['PeriodUnit'];
         }
         if (isset($map['PrivateIpAddress'])) {
             $model->privateIpAddress = $map['PrivateIpAddress'];

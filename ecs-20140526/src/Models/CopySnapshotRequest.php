@@ -18,6 +18,15 @@ class CopySnapshotRequest extends Model
     public $arn;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+     *
+     * @example 123e4567-e89b-12d3-a456-426655440000
+     *
+     * @var string
+     */
+    public $clientToken;
+
+    /**
      * @description The ID of the destination region to which to copy the source snapshot.
      *
      * This parameter is required.
@@ -38,7 +47,7 @@ class CopySnapshotRequest extends Model
     public $destinationSnapshotDescription;
 
     /**
-     * @description The name of the new snapshot. The name must be 2 to 128 characters in length. It must start with a letter and cannot start http:// or https://. The name can contain digits, letters, colons (:), underscores (_), and hyphens (-).
+     * @description The name of the new snapshot. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with http:// or https://. The name can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
      *
      * This parameter is required.
      * @example CopySnapshotDemo
@@ -140,6 +149,7 @@ class CopySnapshotRequest extends Model
     public $tag;
     protected $_name = [
         'arn'                            => 'Arn',
+        'clientToken'                    => 'ClientToken',
         'destinationRegionId'            => 'DestinationRegionId',
         'destinationSnapshotDescription' => 'DestinationSnapshotDescription',
         'destinationSnapshotName'        => 'DestinationSnapshotName',
@@ -171,6 +181,9 @@ class CopySnapshotRequest extends Model
                     $res['Arn'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
         if (null !== $this->destinationRegionId) {
             $res['DestinationRegionId'] = $this->destinationRegionId;
@@ -240,6 +253,9 @@ class CopySnapshotRequest extends Model
                     $model->arn[$n++] = null !== $item ? arn::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
         if (isset($map['DestinationRegionId'])) {
             $model->destinationRegionId = $map['DestinationRegionId'];

@@ -31,6 +31,10 @@ class DescribeSecurityGroupAttributeResponseBody extends Model
     public $innerAccessPolicy;
 
     /**
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results. If the return value of this parameter is empty when you specify `MaxResults` and `NextToken` for a paged query, no more results are to be returned.
+     *
+     * @example AAAAAdDWBF2****
+     *
      * @var string
      */
     public $nextToken;

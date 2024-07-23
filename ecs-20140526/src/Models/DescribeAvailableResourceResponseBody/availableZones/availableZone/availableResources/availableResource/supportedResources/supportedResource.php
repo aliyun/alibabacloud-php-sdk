@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class supportedResource extends Model
 {
     /**
-     * @description The maximum number of available resources of a specific type. No value is returned when the parameter is empty.
+     * @description The maximum disk capacity.
      *
+     * This parameter takes effect only if DestinationResource is set to SystemDisk or DataDisk.
      * @example 2
      *
      * @var int
@@ -18,8 +19,9 @@ class supportedResource extends Model
     public $max;
 
     /**
-     * @description The minimum number of available resources of a specific type. No value is returned when the parameter is empty.
+     * @description The minimum disk capacity.
      *
+     * This parameter takes effect only if DestinationResource is set to SystemDisk or DataDisk.
      * @example 1
      *
      * @var int
@@ -27,7 +29,7 @@ class supportedResource extends Model
     public $min;
 
     /**
-     * @description The state of the resource. Valid values:
+     * @description The status of the resource. Valid values:
      *
      *   Available
      *   SoldOut
@@ -39,12 +41,12 @@ class supportedResource extends Model
     public $status;
 
     /**
-     * @description The resource category based on the stock. Valid values:
+     * @description The resource category based on the stock level. Valid values:
      *
      *   WithStock: Resources are in sufficient stock.
-     *   ClosedWithStock: Resources are insufficient. We recommend that you use other resources that are in sufficient stock.
-     *   WithoutStock: Resources are sold out and will be replenished. We recommend that you use other resources that are in sufficient stock.
-     *   ClosedWithoutStock: Resources are sold out and will not be replenished. We recommend that you use other resources that are in sufficient stock.
+     *   ClosedWithStock: Resources are in insufficient stock. We recommend that you use other resources that are in sufficient stock.
+     *   WithoutStock: Resources are out of stock and will be replenished. We recommend that you use other resources that are in sufficient stock.
+     *   ClosedWithoutStock: Resources are out of stock and will not be replenished. We recommend that you use other resources that are in sufficient stock.
      *
      * @example WithStock
      *
@@ -53,8 +55,9 @@ class supportedResource extends Model
     public $statusCategory;
 
     /**
-     * @description The unit of the resource type. No value is returned when the parameter is empty.
+     * @description The unit of the disk capacity.
      *
+     * This parameter takes effect only if DestinationResource is set to SystemDisk or DataDisk.
      * @example null
      *
      * @var string
@@ -62,7 +65,7 @@ class supportedResource extends Model
     public $unit;
 
     /**
-     * @description The resource type.
+     * @description The resource.
      *
      * @example ecs.d1ne.xlarge
      *

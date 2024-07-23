@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceTypesResponseBody\instanceTypes;
 
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceTypesResponseBody\instanceTypes\instanceType\enhancedNetwork;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceTypesResponseBody\instanceTypes\instanceType\networkCards;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceTypesResponseBody\instanceTypes\instanceType\supportedBootModes;
 use AlibabaCloud\Tea\Model;
@@ -66,6 +67,13 @@ class instanceType extends Model
      * @var int
      */
     public $diskQuantity;
+
+    /**
+     * @description This parameter is unavailable for public use.
+     *
+     * @var enhancedNetwork
+     */
+    public $enhancedNetwork;
 
     /**
      * @description The maximum number of IPv6 addresses per ENI.
@@ -399,6 +407,7 @@ class instanceType extends Model
         'cpuSpeedFrequency'           => 'CpuSpeedFrequency',
         'cpuTurboFrequency'           => 'CpuTurboFrequency',
         'diskQuantity'                => 'DiskQuantity',
+        'enhancedNetwork'             => 'EnhancedNetwork',
         'eniIpv6AddressQuantity'      => 'EniIpv6AddressQuantity',
         'eniPrivateIpAddressQuantity' => 'EniPrivateIpAddressQuantity',
         'eniQuantity'                 => 'EniQuantity',
@@ -458,6 +467,9 @@ class instanceType extends Model
         }
         if (null !== $this->diskQuantity) {
             $res['DiskQuantity'] = $this->diskQuantity;
+        }
+        if (null !== $this->enhancedNetwork) {
+            $res['EnhancedNetwork'] = null !== $this->enhancedNetwork ? $this->enhancedNetwork->toMap() : null;
         }
         if (null !== $this->eniIpv6AddressQuantity) {
             $res['EniIpv6AddressQuantity'] = $this->eniIpv6AddressQuantity;
@@ -587,6 +599,9 @@ class instanceType extends Model
         }
         if (isset($map['DiskQuantity'])) {
             $model->diskQuantity = $map['DiskQuantity'];
+        }
+        if (isset($map['EnhancedNetwork'])) {
+            $model->enhancedNetwork = enhancedNetwork::fromMap($map['EnhancedNetwork']);
         }
         if (isset($map['EniIpv6AddressQuantity'])) {
             $model->eniIpv6AddressQuantity = $map['EniIpv6AddressQuantity'];

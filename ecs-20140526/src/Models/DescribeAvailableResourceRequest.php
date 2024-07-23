@@ -19,13 +19,14 @@ class DescribeAvailableResourceRequest extends Model
     public $cores;
 
     /**
-     * @description The type of the data disk. Valid values:
+     * @description The category of the data disk. Valid values:
      *
-     *   cloud: basic disk.
-     *   cloud_efficiency: ultra disk.
-     *   cloud_ssd: standard SSD.
-     *   ephemeral_ssd: local SSD.
-     *   cloud_essd: ESSD.
+     *   cloud: basic disk
+     *   cloud_efficiency: ultra disk
+     *   cloud_ssd: standard SSD
+     *   ephemeral_ssd: local SSD
+     *   cloud_essd: ESSD
+     *   cloud_auto: ESSD AutoPL disk
      *
      * @example cloud_ssd
      *
@@ -179,7 +180,10 @@ class DescribeAvailableResourceRequest extends Model
     /**
      * @description The protection period of the preemptible instance. Unit: hours. Default value: 1. Valid values:
      *
-     * >If you set SpotStrategy to SpotWithPriceLimit or SpotAsPriceGo, this parameter takes effect.
+     *   1: After a preemptible instance is created, Alibaba Cloud ensures that the instance is not automatically released within 1 hour. After the 1-hour protection period ends, the system compares the bid price with the market price and checks the resource inventory to determine whether to retain or release the instance.
+     *   0: After a preemptible instance is created, Alibaba Cloud does not ensure that the instance runs for 1 hour. The system compares the bid price with the market price and checks the resource inventory to determine whether to retain or release the instance.
+     *
+     * >  This parameter takes effect only if SpotStrategy is set to SpotWithPriceLimit or SpotAsPriceGo.
      * @example 1
      *
      * @var int
@@ -203,13 +207,14 @@ class DescribeAvailableResourceRequest extends Model
     /**
      * @description The category of the system disk. Valid values:
      *
-     *   cloud: basic disk.
-     *   cloud_efficiency: ultra disk.
-     *   cloud_ssd: standard SSD.
-     *   ephemeral_ssd: local SSD.
-     *   cloud_essd: enhanced SSD (ESSD).
+     *   cloud: basic disk
+     *   cloud_efficiency: ultra disk
+     *   cloud_ssd: standard SSD
+     *   ephemeral_ssd: local SSD
+     *   cloud_essd: Enterprise SSD (ESSD)
+     *   cloud_auto: ESSD AutoPL disk
      *
-     * > When the ResourceType parameter is set to instance and the DestinationResource parameter is set to DataDisk, you must set the SystemDiskCategory parameter. If you do not set this parameter, the default value takes effect.
+     * >  This parameter must be specified when ResourceType is set to instance and DestinationResource is set to DataDisk. If you do not specify this parameter, the default value takes effect.
      * @example cloud_ssd
      *
      * @var string

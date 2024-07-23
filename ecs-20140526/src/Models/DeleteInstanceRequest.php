@@ -24,7 +24,7 @@ class DeleteInstanceRequest extends Model
      * @description Specifies whether to forcefully release the instance in the **Running** (`Running`) state. Valid values:
      *
      *   true: forcefully releases the instance in the **Running** (`Running`) state. This operation is equivalent to the power-off operation. Cache data that is not written to persistent storage will be lost.
-     *   false: normally releases the instance. This value is valid only if the instance is in the **Stopped** (`Stopped`) state.
+     *   false: normally releases the instance. This value take effects only if the instance is in the **Stopped** (`Stopped`) state.
      *
      * Default value: false.
      * @example false

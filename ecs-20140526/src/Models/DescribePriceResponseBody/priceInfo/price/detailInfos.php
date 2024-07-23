@@ -4,17 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribePriceResponseBody\priceInfo\price;
 
-use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribePriceResponseBody\priceInfo\price\detailInfos\resourcePriceModel;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribePriceResponseBody\priceInfo\price\detailInfos\detailInfo;
 use AlibabaCloud\Tea\Model;
 
 class detailInfos extends Model
 {
     /**
-     * @var resourcePriceModel[]
+     * @var detailInfo[]
      */
-    public $resourcePriceModel;
+    public $detailInfo;
     protected $_name = [
-        'resourcePriceModel' => 'ResourcePriceModel',
+        'detailInfo' => 'DetailInfo',
     ];
 
     public function validate()
@@ -24,12 +24,12 @@ class detailInfos extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourcePriceModel) {
-            $res['ResourcePriceModel'] = [];
-            if (null !== $this->resourcePriceModel && \is_array($this->resourcePriceModel)) {
+        if (null !== $this->detailInfo) {
+            $res['DetailInfo'] = [];
+            if (null !== $this->detailInfo && \is_array($this->detailInfo)) {
                 $n = 0;
-                foreach ($this->resourcePriceModel as $item) {
-                    $res['ResourcePriceModel'][$n++] = null !== $item ? $item->toMap() : $item;
+                foreach ($this->detailInfo as $item) {
+                    $res['DetailInfo'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -45,12 +45,12 @@ class detailInfos extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourcePriceModel'])) {
-            if (!empty($map['ResourcePriceModel'])) {
-                $model->resourcePriceModel = [];
-                $n                         = 0;
-                foreach ($map['ResourcePriceModel'] as $item) {
-                    $model->resourcePriceModel[$n++] = null !== $item ? resourcePriceModel::fromMap($item) : $item;
+        if (isset($map['DetailInfo'])) {
+            if (!empty($map['DetailInfo'])) {
+                $model->detailInfo = [];
+                $n                 = 0;
+                foreach ($map['DetailInfo'] as $item) {
+                    $model->detailInfo[$n++] = null !== $item ? detailInfo::fromMap($item) : $item;
                 }
             }
         }

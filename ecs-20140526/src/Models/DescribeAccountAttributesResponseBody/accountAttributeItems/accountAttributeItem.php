@@ -19,8 +19,8 @@ class accountAttributeItem extends Model
      *   max-spot-instance-vcpu-count: the maximum number of vCPUs for preemptible instances
      *   used-postpaid-instance-vcpu-count: the number of vCPUs that have been allocated to pay-as-you-go instances
      *   used-spot-instance-vcpu-count: the number of vCPUs that have been allocated to preemptible instances
-     *   max-postpaid-yundisk-capacity: the maximum capacity of pay-as-you-go data disks
-     *   used-postpaid-yundisk-capacity: the capacity of pay-as-you-go disks that have been created
+     *   max-postpaid-yundisk-capacity: the maximum capacity of pay-as-you-go data disks(This value is deprecated)
+     *   used-postpaid-yundisk-capacity: the capacity of pay-as-you-go disks that have been created(This value is deprecated)
      *   max-dedicated-hosts: the maximum number of dedicated hosts
      *   supported-postpaid-instance-types: the instance types of pay-as-you-go I/O optimized instances
      *   max-axt-command-count: the maximum number of Cloud Assistant commands

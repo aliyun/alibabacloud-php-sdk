@@ -30,8 +30,8 @@ class instances extends Model
     /**
      * @description Indicates whether the managed instance is connected. Valid values:
      *
-     *   true: The managed instance is connected and you can manage the instance by using Cloud Assistant.
-     *   false: The managed instance is not connected because the managed instance is down or because Cloud Assistant Agent is not installed correctly.
+     *   true: The managed instance is connected. You can manage the instance by using Cloud Assistant.
+     *   false: The managed instance is not connected. The managed instance may be down or Cloud Assistant Agent may be incorrectly installed.
      *
      * @example true
      *
@@ -94,7 +94,7 @@ class instances extends Model
     public $invocationCount;
 
     /**
-     * @description The time when the Cloud Assistant task was last executed.
+     * @description The time when the last Cloud Assistant task was executed.
      *
      * @example 2021-01-20T09:00:40Z
      *

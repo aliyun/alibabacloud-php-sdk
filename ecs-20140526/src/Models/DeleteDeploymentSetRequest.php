@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteDeploymentSetRequest extends Model
 {
     /**
-     * @description The ID of the deployment set. You cannot delete a deployment set that contains instances.
+     * @description The ID of the deployment set. You cannot delete a deployment set if the deployment set contains instances.
      *
      * This parameter is required.
      * @example ds-bp1g5ahlkal88d7x****
@@ -19,15 +19,11 @@ class DeleteDeploymentSetRequest extends Model
     public $deploymentSetId;
 
     /**
-     * @example ECSforCloud@Alibaba.com
-     *
      * @var string
      */
     public $ownerAccount;
 
     /**
-     * @example 155780923770
-     *
      * @var int
      */
     public $ownerId;
@@ -43,15 +39,11 @@ class DeleteDeploymentSetRequest extends Model
     public $regionId;
 
     /**
-     * @example ECSforCloud
-     *
      * @var string
      */
     public $resourceOwnerAccount;
 
     /**
-     * @example 155780923770
-     *
      * @var int
      */
     public $resourceOwnerId;

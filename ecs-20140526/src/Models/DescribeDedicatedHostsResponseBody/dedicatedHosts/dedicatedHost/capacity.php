@@ -19,7 +19,7 @@ class capacity extends Model
     public $availableLocalStorage;
 
     /**
-     * @description The amount of available memory space. Unit: GiB.
+     * @description The amount of available memory. Unit: GiB.
      *
      * @example 25
      *
@@ -46,7 +46,7 @@ class capacity extends Model
     public $availableVgpus;
 
     /**
-     * @description The category of the local disks.
+     * @description The category of local disks.
      *
      * @example i2
      *
@@ -62,7 +62,7 @@ class capacity extends Model
     public $socketCapacities;
 
     /**
-     * @description The total capacity of the local disks. Unit: GiB.
+     * @description The total capacity of local disks. Unit: GiB.
      *
      * @example 512
      *
@@ -71,7 +71,7 @@ class capacity extends Model
     public $totalLocalStorage;
 
     /**
-     * @description The total capacity of the memory. Unit: GiB.
+     * @description The total amount of memory. Unit: GiB.
      *
      * @example 1024
      *

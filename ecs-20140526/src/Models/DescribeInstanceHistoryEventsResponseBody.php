@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceHistoryEventsResponseBody extends Model
 {
     /**
-     * @description The information about instance system events.
+     * @description Details about the instance system events.
      *
      * @var instanceSystemEventSet
      */
