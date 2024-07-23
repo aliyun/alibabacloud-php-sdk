@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GenerateResourcePlanWithFlinkConfAsyncRequest extends Model
 {
     /**
+     * @description The Flink configuration that is used to generate a resource plan.
+     *
      * @var mixed[]
      */
     public $body;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateMemberRequest extends Model
 {
     /**
+     * @description The permission information about the member.
+     *
      * @var Member
      */
     public $body;

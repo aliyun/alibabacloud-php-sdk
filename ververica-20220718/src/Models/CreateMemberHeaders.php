@@ -11,8 +11,9 @@ class CreateMemberHeaders extends Model
     public $commonHeaders;
 
     /**
-     * @description This parameter is required.
+     * @description The workspace ID.
      *
+     * This parameter is required.
      * @example ca84d539167d4d
      *
      * @var string

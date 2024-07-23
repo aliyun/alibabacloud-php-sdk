@@ -11,8 +11,9 @@ class DeleteMemberHeaders extends Model
     public $commonHeaders;
 
     /**
-     * @description This parameter is required.
+     * @description The workspace ID.
      *
+     * This parameter is required.
      * @example 710d6a64d8c34d
      *
      * @var string

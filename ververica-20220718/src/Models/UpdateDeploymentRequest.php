@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class UpdateDeploymentRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The information about the deployment that you want to update.
      *
+     * This parameter is required.
      * @var Deployment
      */
     public $body;

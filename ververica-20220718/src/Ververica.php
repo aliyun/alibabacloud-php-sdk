@@ -126,7 +126,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * @summary create a deployment
+     * @summary Creates a deployment.
      *  *
      * @param string                  $namespace
      * @param CreateDeploymentRequest $request   CreateDeploymentRequest
@@ -165,7 +165,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * @summary create a deployment
+     * @summary Creates a deployment.
      *  *
      * @param string                  $namespace
      * @param CreateDeploymentRequest $request   CreateDeploymentRequest
@@ -181,7 +181,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * @summary 调用CreateMember创建成员。
+     * @summary Adds a user to a namespace as a member and grants permissions to the user.
      *  *
      * @param string              $namespace
      * @param CreateMemberRequest $request   CreateMemberRequest
@@ -220,7 +220,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * @summary 调用CreateMember创建成员。
+     * @summary Adds a user to a namespace as a member and grants permissions to the user.
      *  *
      * @param string              $namespace
      * @param CreateMemberRequest $request   CreateMemberRequest
@@ -236,7 +236,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * @summary 调用CreateSavepoint触发一次savepoint。
+     * @summary Creates a savepoint.
      *  *
      * @param string                 $namespace
      * @param CreateSavepointRequest $request   CreateSavepointRequest
@@ -285,7 +285,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * @summary 调用CreateSavepoint触发一次savepoint。
+     * @summary Creates a savepoint.
      *  *
      * @param string                 $namespace
      * @param CreateSavepointRequest $request   CreateSavepointRequest
@@ -301,7 +301,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * @summary 调用CreateVariable创建变量。
+     * @summary Creates a variable.
      *  *
      * @param string                $namespace
      * @param CreateVariableRequest $request   CreateVariableRequest
@@ -340,7 +340,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * @summary 调用CreateVariable创建变量。
+     * @summary Creates a variable.
      *  *
      * @param string                $namespace
      * @param CreateVariableRequest $request   CreateVariableRequest
@@ -356,7 +356,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * @summary delete deployment
+     * @summary Deletes a deployment based on the deployment ID.
      *  *
      * @param string                  $namespace
      * @param string                  $deploymentId
@@ -393,7 +393,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * @summary delete deployment
+     * @summary Deletes a deployment based on the deployment ID.
      *  *
      * @param string $namespace
      * @param string $deploymentId
@@ -409,7 +409,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * @summary delete job
+     * @summary Deletes the information about a job that is not in the running state in a deployment.
      *  *
      * @param string           $namespace
      * @param string           $jobId
@@ -446,7 +446,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * @summary delete job
+     * @summary Deletes the information about a job that is not in the running state in a deployment.
      *  *
      * @param string $namespace
      * @param string $jobId
@@ -462,7 +462,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * @summary 调用DeleteMember删除成员。
+     * @summary Revokes the permissions from a member.
      *  *
      * @param string              $namespace
      * @param string              $member
@@ -499,7 +499,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * @summary 调用DeleteMember删除成员。
+     * @summary Revokes the permissions from a member.
      *  *
      * @param string $namespace
      * @param string $member
@@ -515,7 +515,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * @summary 调用DeleteSavepoint删除savepoint。
+     * @summary Deletes a savepoint.
      *  *
      * @param string                 $namespace
      * @param string                 $savepointId
@@ -552,7 +552,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * @summary 调用DeleteSavepoint删除savepoint。
+     * @summary Deletes a savepoint.
      *  *
      * @param string $namespace
      * @param string $savepointId
@@ -568,7 +568,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * @summary deleta variable
+     * @summary Deletes a variable.
      *  *
      * @param string                $namespace
      * @param string                $name
@@ -605,7 +605,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * @summary deleta variable
+     * @summary Deletes a variable.
      *  *
      * @param string $namespace
      * @param string $name
@@ -621,7 +621,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * @summary 调用FlinkApiProxy代理Flink请求。
+     * @summary Provides a Flink request proxy.
      *  *
      * @param FlinkApiProxyRequest $request FlinkApiProxyRequest
      * @param FlinkApiProxyHeaders $headers FlinkApiProxyHeaders
@@ -672,7 +672,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * @summary 调用FlinkApiProxy代理Flink请求。
+     * @summary Provides a Flink request proxy.
      *  *
      * @param FlinkApiProxyRequest $request FlinkApiProxyRequest
      *
@@ -687,7 +687,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * @summary generate resource plan with flink conf async.
+     * @summary Submits a ticket that applies for asynchronous generation of the fine-grained resources. This operation returns the ID of the ticket for you to query the asynchronous generation result.
      *  *
      * @param string                                        $namespace
      * @param string                                        $deploymentId
@@ -727,7 +727,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * @summary generate resource plan with flink conf async.
+     * @summary Submits a ticket that applies for asynchronous generation of the fine-grained resources. This operation returns the ID of the ticket for you to query the asynchronous generation result.
      *  *
      * @param string                                        $namespace
      * @param string                                        $deploymentId
@@ -744,7 +744,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * @summary get a deployment
+     * @summary Obtains the details of a deployment.
      *  *
      * @param string               $namespace
      * @param string               $deploymentId
@@ -781,7 +781,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * @summary get a deployment
+     * @summary Obtains the details of a deployment.
      *  *
      * @param string $namespace
      * @param string $deploymentId
@@ -797,7 +797,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * @summary 获取生成ResourcePlan异步操作的结果。
+     * @summary Obtains the asynchronous generation result of fine-grained resources based on the ID of the ticket that applies for an asynchronous generation.
      *  *
      * @param string                               $namespace
      * @param string                               $ticketId
@@ -834,7 +834,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * @summary 获取生成ResourcePlan异步操作的结果。
+     * @summary Obtains the asynchronous generation result of fine-grained resources based on the ID of the ticket that applies for an asynchronous generation.
      *  *
      * @param string $namespace
      * @param string $ticketId
@@ -850,7 +850,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * @summary get job
+     * @summary Obtains the details of a job.
      *  *
      * @param string         $namespace
      * @param string         $jobId
@@ -887,7 +887,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * @summary get job
+     * @summary Obtains the details of a job.
      *  *
      * @param string $namespace
      * @param string $jobId
@@ -903,7 +903,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * @summary 获取已部署作业的最新启动日志
+     * @summary Obtains the latest startup logs of a job.
      *  *
      * @param string                      $namespace
      * @param string                      $deploymentId
@@ -940,7 +940,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * @summary 获取已部署作业的最新启动日志
+     * @summary Obtains the latest startup logs of a job.
      *  *
      * @param string $namespace
      * @param string $deploymentId
@@ -956,7 +956,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * @summary 调用GetMember获取成员。
+     * @summary Queries the permissions of a member.
      *  *
      * @param string           $namespace
      * @param string           $member
@@ -993,7 +993,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * @summary 调用GetMember获取成员。
+     * @summary Queries the permissions of a member.
      *  *
      * @param string $namespace
      * @param string $member
@@ -1009,7 +1009,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * @summary 调用GetSavepoint获取savepoint信息。
+     * @summary Queries details of a savepoint and checkpoint.
      *  *
      * @param string              $namespace
      * @param string              $savepointId
@@ -1046,7 +1046,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * @summary 调用GetSavepoint获取savepoint信息。
+     * @summary Queries details of a savepoint and checkpoint.
      *  *
      * @param string $namespace
      * @param string $savepointId
@@ -1062,7 +1062,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * @summary list deployment targets
+     * @summary Obtains a list of clusters in which deployments can be deployed. The cluster can be a session cluster or a per-job cluster.
      *  *
      * @param string                       $namespace
      * @param ListDeploymentTargetsRequest $request   ListDeploymentTargetsRequest
@@ -1108,7 +1108,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * @summary list deployment targets
+     * @summary Obtains a list of clusters in which deployments can be deployed. The cluster can be a session cluster or a per-job cluster.
      *  *
      * @param string                       $namespace
      * @param ListDeploymentTargetsRequest $request   ListDeploymentTargetsRequest
@@ -1124,7 +1124,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * @summary list deployments
+     * @summary Obtains information about all deployments.
      *  *
      * @param string                 $namespace
      * @param ListDeploymentsRequest $request   ListDeploymentsRequest
@@ -1191,7 +1191,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * @summary list deployments
+     * @summary Obtains information about all deployments.
      *  *
      * @param string                 $namespace
      * @param ListDeploymentsRequest $request   ListDeploymentsRequest
@@ -1269,7 +1269,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * @summary 获取系统支持的引擎版本信息。
+     * @summary Obtains a list of engine versions that are supported by Realtime Compute for Apache Flink.
      *  *
      * @param ListEngineVersionMetadataHeaders $headers ListEngineVersionMetadataHeaders
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -1304,7 +1304,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * @summary 获取系统支持的引擎版本信息。
+     * @summary Obtains a list of engine versions that are supported by Realtime Compute for Apache Flink.
      *  *
      * @return ListEngineVersionMetadataResponse ListEngineVersionMetadataResponse
      */
@@ -1317,7 +1317,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * @summary list jobs
+     * @summary Queries the information about all jobs in a deployment.
      *  *
      * @param string          $namespace
      * @param ListJobsRequest $request   ListJobsRequest
@@ -1369,7 +1369,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * @summary list jobs
+     * @summary Queries the information about all jobs in a deployment.
      *  *
      * @param string          $namespace
      * @param ListJobsRequest $request   ListJobsRequest
@@ -1385,7 +1385,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * @summary 调用ListMembers接口获取成员列表。
+     * @summary Queries the mappings between the ID and permissions of a member in a specific namespace.
      *  *
      * @param string             $namespace
      * @param ListMembersRequest $request   ListMembersRequest
@@ -1431,7 +1431,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * @summary 调用ListMembers接口获取成员列表。
+     * @summary Queries the mappings between the ID and permissions of a member in a specific namespace.
      *  *
      * @param string             $namespace
      * @param ListMembersRequest $request   ListMembersRequest
@@ -1447,7 +1447,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * @summary 调用ListSavepoints获取满足查询条件的savepoint列表。
+     * @summary Obtains a list of savepoints or checkpoints.
      *  *
      * @param string                $namespace
      * @param ListSavepointsRequest $request   ListSavepointsRequest
@@ -1499,7 +1499,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * @summary 调用ListSavepoints获取满足查询条件的savepoint列表。
+     * @summary Obtains a list of savepoints or checkpoints.
      *  *
      * @param string                $namespace
      * @param ListSavepointsRequest $request   ListSavepointsRequest
@@ -1515,7 +1515,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * @summary list variables
+     * @summary Obtains a list of variables.
      *  *
      * @param string               $namespace
      * @param ListVariablesRequest $request   ListVariablesRequest
@@ -1561,7 +1561,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * @summary list variables
+     * @summary Obtains a list of variables.
      *  *
      * @param string               $namespace
      * @param ListVariablesRequest $request   ListVariablesRequest
@@ -1640,7 +1640,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * @summary 启动作业实例。
+     * @summary Starts a job.
      *  *
      * @param string                    $namespace
      * @param StartJobWithParamsRequest $request   StartJobWithParamsRequest
@@ -1679,7 +1679,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * @summary 启动作业实例。
+     * @summary Starts a job.
      *  *
      * @param string                    $namespace
      * @param StartJobWithParamsRequest $request   StartJobWithParamsRequest
@@ -1695,7 +1695,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * @summary 调用StopJob停止实例。
+     * @summary Stops a job.
      *  *
      * @param string         $namespace
      * @param string         $jobId
@@ -1735,7 +1735,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * @summary 调用StopJob停止实例。
+     * @summary Stops a job.
      *  *
      * @param string         $namespace
      * @param string         $jobId
@@ -1752,7 +1752,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * @summary update a deployment using patch
+     * @summary Updates information about a deployment.
      *  *
      * @param string                  $namespace
      * @param string                  $deploymentId
@@ -1792,7 +1792,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * @summary update a deployment using patch
+     * @summary Updates information about a deployment.
      *  *
      * @param string                  $namespace
      * @param string                  $deploymentId
@@ -1809,7 +1809,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * @summary 调用UpdateMember更新成员。
+     * @summary Updates the permissions of one or more members in a specific namespace.
      *  *
      * @param string              $namespace
      * @param UpdateMemberRequest $request   UpdateMemberRequest
@@ -1848,7 +1848,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * @summary 调用UpdateMember更新成员。
+     * @summary Updates the permissions of one or more members in a specific namespace.
      *  *
      * @param string              $namespace
      * @param UpdateMemberRequest $request   UpdateMemberRequest
@@ -1864,7 +1864,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * @summary 校验sql作业代码
+     * @summary Verifies the code of an SQL deployment.
      *  *
      * @param string                      $namespace
      * @param ValidateSqlStatementRequest $request   ValidateSqlStatementRequest
@@ -1903,7 +1903,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * @summary 校验sql作业代码
+     * @summary Verifies the code of an SQL deployment.
      *  *
      * @param string                      $namespace
      * @param ValidateSqlStatementRequest $request   ValidateSqlStatementRequest

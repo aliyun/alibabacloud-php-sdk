@@ -9,36 +9,67 @@ use AlibabaCloud\Tea\Model;
 class ListDeploymentsRequest extends Model
 {
     /**
+     * @description The ID of the user who creates the deployment.
+     *
+     * @example 183899668*******
+     *
      * @var string
      */
     public $creator;
 
     /**
+     * @description The execution mode of the deployment.
+     *
+     * Valid values:
+     *
+     *   BATCH
+     *   STREAMING
+     *
+     * @example STREAMING
+     *
      * @var string
      */
     public $executionMode;
 
     /**
+     * @description The tag key.
+     *
+     * @example key
+     *
      * @var string
      */
     public $labelKey;
 
     /**
+     * @description The tag value. Separate multiple values with semicolon (;).
+     *
+     * @example value1,value2
+     *
      * @var string
      */
     public $labelValueArray;
 
     /**
+     * @description The ID of the user who modifies the deployment.
+     *
+     * @example 183899668*******
+     *
      * @var string
      */
     public $modifier;
 
     /**
+     * @description The name of the deployment.
+     *
+     * @example vvp_ds_0522
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The page number. Minimum value: 1. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -46,6 +77,8 @@ class ListDeploymentsRequest extends Model
     public $pageIndex;
 
     /**
+     * @description The number of entries per page. Valid values: 1 to 100. Default value: 10.
+     *
      * @example 10
      *
      * @var int
@@ -53,6 +86,18 @@ class ListDeploymentsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The latest status of the deployment.
+     *
+     * Valid values:
+     *
+     *   CANCELLED
+     *   FAILED
+     *   RUNNING
+     *   TRANSITIONING
+     *   FINISHED
+     *
+     * @example RUNNING
+     *
      * @var string
      */
     public $status;

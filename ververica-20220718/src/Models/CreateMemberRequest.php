@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateMemberRequest extends Model
 {
     /**
+     * @description The mappings between the ID and permissions of the member.
+     *
      * @var Member
      */
     public $body;

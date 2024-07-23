@@ -1,3 +1,8 @@
+2024-07-23 Version: 1.3.1
+- Update API CreateDeployment: update response param.
+- Update API CreateVariable: update response param.
+
+
 2024-05-28 Version: 1.3.0
 - Support API GetLatestJobStartLog.
 - Support API ListEditableNamespace.

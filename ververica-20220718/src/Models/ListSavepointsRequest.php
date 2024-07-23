@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListSavepointsRequest extends Model
 {
     /**
+     * @description The deployment ID. This parameter is optional.
+     *
      * @example 88a8fc49-e090-430a-85d8-3ee8c79c****
      *
      * @var string
@@ -16,6 +18,8 @@ class ListSavepointsRequest extends Model
     public $deploymentId;
 
     /**
+     * @description The job ID. This parameter is optional.
+     *
      * @example 99a8fc49-e090-430a-85d8-3ee8c79c****
      *
      * @var string
@@ -23,6 +27,8 @@ class ListSavepointsRequest extends Model
     public $jobId;
 
     /**
+     * @description The page number. Minimum value: 1. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -30,6 +36,8 @@ class ListSavepointsRequest extends Model
     public $pageIndex;
 
     /**
+     * @description The number of entries per page. Valid values: 1 to 100. Default value: 10.
+     *
      * @example 10
      *
      * @var int

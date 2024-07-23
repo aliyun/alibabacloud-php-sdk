@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListMembersRequest extends Model
 {
     /**
+     * @description The page number. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class ListMembersRequest extends Model
     public $pageIndex;
 
     /**
+     * @description The number of entries per page. Default value: 10. Maximum value: 100.
+     *
      * @example 10
      *
      * @var int

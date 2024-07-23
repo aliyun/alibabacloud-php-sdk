@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateVariableRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The parameter that is used to create the variable.
      *
+     * This parameter is required.
      * @var Variable
      */
     public $body;

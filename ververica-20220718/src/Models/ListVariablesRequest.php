@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListVariablesRequest extends Model
 {
     /**
+     * @description The page number. Minimum value: 1. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class ListVariablesRequest extends Model
     public $pageIndex;
 
     /**
+     * @description The number of entries per page. Valid values: 1 to 100. Default value: 10.
+     *
      * @example 10
      *
      * @var int

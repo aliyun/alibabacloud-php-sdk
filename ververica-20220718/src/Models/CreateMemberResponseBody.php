@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class CreateMemberResponseBody extends Model
 {
     /**
+     * @description *   If the value of success was false, a null value was returned.
+     *   If the value of success was true, the authorization information was returned.
+     *
      * @var Member
      */
     public $data;
 
     /**
+     * @description *   If the value of success was false, an error code was returned.
+     *   If the value of success was true, a null value was returned.
+     *
      * @example ""
      *
      * @var string
@@ -21,6 +27,9 @@ class CreateMemberResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description *   If the value of success was false, an error message was returned.
+     *   If the value of success was true, a null value was returned.
+     *
      * @example ""
      *
      * @var string
@@ -28,6 +37,8 @@ class CreateMemberResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The status code returned. The value was fixed to 200. The status code 200 indicates that the request was successful.
+     *
      * @example 200
      *
      * @var int
@@ -35,6 +46,8 @@ class CreateMemberResponseBody extends Model
     public $httpCode;
 
     /**
+     * @description The request ID.
+     *
      * @example F989CA70-2925-5A94-92B7-20F5762B71C8
      *
      * @var string
@@ -42,6 +55,8 @@ class CreateMemberResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
      * @example True
      *
      * @var bool

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateDeploymentRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The content of the deployment.
      *
+     * This parameter is required.
      * @var Deployment
      */
     public $body;

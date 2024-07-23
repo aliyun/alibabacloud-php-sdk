@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ValidateSqlStatementRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The content of the code that you want to verify.
      *
+     * This parameter is required.
      * @var SqlStatementWithContext
      */
     public $body;

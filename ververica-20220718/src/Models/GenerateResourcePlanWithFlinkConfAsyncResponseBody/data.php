@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ID of the ticket for you to query the asynchronous generation result.
+     *
      * @example b3dcdb25-bf36-457d-92ba-a36077e8****
      *
      * @var string
