@@ -44,6 +44,11 @@ class subJobList extends Model
     public $mediaURL;
 
     /**
+     * @var string
+     */
+    public $projectId;
+
+    /**
      * @example Success
      *
      * @var string
@@ -55,6 +60,7 @@ class subJobList extends Model
         'jobId'        => 'JobId',
         'mediaId'      => 'MediaId',
         'mediaURL'     => 'MediaURL',
+        'projectId'    => 'ProjectId',
         'status'       => 'Status',
     ];
 
@@ -79,6 +85,9 @@ class subJobList extends Model
         }
         if (null !== $this->mediaURL) {
             $res['MediaURL'] = $this->mediaURL;
+        }
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -109,6 +118,9 @@ class subJobList extends Model
         }
         if (isset($map['MediaURL'])) {
             $model->mediaURL = $map['MediaURL'];
+        }
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

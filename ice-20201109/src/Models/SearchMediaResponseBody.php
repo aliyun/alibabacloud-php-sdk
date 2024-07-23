@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class SearchMediaResponseBody extends Model
 {
     /**
+     * @description The status code returned.
+     *
      * @example 200
      *
      * @var string
@@ -17,11 +19,15 @@ class SearchMediaResponseBody extends Model
     public $code;
 
     /**
+     * @description The media assets that meet the requirements.
+     *
      * @var mediaInfoList[]
      */
     public $mediaInfoList;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 6F61C357-ACC0-57FB-876E-D58795335E59
      *
      * @var string
@@ -29,11 +35,17 @@ class SearchMediaResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The pagination identifier.
+     *
+     * @example F8C4F642184DBDA5D93907A70AAE****
+     *
      * @var string
      */
     public $scrollToken;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
      * @example True
      *
      * @var string
@@ -41,6 +53,8 @@ class SearchMediaResponseBody extends Model
     public $success;
 
     /**
+     * @description The total number of media assets that meet the conditions.
+     *
      * @example 163
      *
      * @var int

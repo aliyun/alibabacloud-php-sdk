@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SearchMediaRequest extends Model
 {
     /**
+     * @description The ID of the entity.
+     *
      * @example 2d3bf1e35a1e42b5ab338d701efa7603
      *
      * @var string
@@ -16,11 +18,15 @@ class SearchMediaRequest extends Model
     public $entityId;
 
     /**
+     * @description The filter conditions. For more information about the parameter syntax, see [Media asset search protocols](https://help.aliyun.com/document_detail/2584256.html).
+     *
      * @var string
      */
     public $match;
 
     /**
+     * @description The page number. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -28,6 +34,8 @@ class SearchMediaRequest extends Model
     public $pageNo;
 
     /**
+     * @description The number of entries per page. Default value: 10. Maximum value: 50.
+     *
      * @example 20
      *
      * @var int
@@ -35,16 +43,26 @@ class SearchMediaRequest extends Model
     public $pageSize;
 
     /**
+     * @description The pagination identifier. The value can be up to 32 characters in length. The first time you call this operation for each new search, you do not need to specify this parameter. The value of this parameter is returned each time data records that meet the specified filter condition are found. The value is used to record the current position of queried data. Record the returned parameter value and set this parameter according to the following requirements during the next search: If you need to traverse all data that meets the filter criteria, you must set the ScrollToken parameter. If the value of the PageNo parameter exceeds 200, we recommend that you set this parameter to optimize search performance. You can only page backward. You can page a maximum of 1,000 entries in an operation.
+     *
+     * @example F8C4F642184DBDA5D93907A70AAE****
+     *
      * @var string
      */
     public $scrollToken;
 
     /**
+     * @description The search library.
+     *
+     * @example test-1
+     *
      * @var string
      */
     public $searchLibName;
 
     /**
+     * @description The sort field and order. Separate multiple parameters with commas (,).
+     *
      * @example utcCreate:Desc, utcModified:Desc
      *
      * @var string

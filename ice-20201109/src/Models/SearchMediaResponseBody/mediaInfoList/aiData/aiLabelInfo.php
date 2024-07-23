@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class aiLabelInfo extends Model
 {
     /**
+     * @description The category.
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @description The face ID.
+     *
      * @example 5FE19530C7A422197535FE74F5DB2B9F
      *
      * @var string
@@ -22,6 +26,8 @@ class aiLabelInfo extends Model
     public $faceId;
 
     /**
+     * @description The ID of the entity.
+     *
      * @example 10310250338
      *
      * @var string
@@ -29,21 +35,29 @@ class aiLabelInfo extends Model
     public $labelId;
 
     /**
+     * @description The name of the entity.
+     *
      * @var string
      */
     public $labelName;
 
     /**
+     * @description The type of the tag.
+     *
      * @var string
      */
     public $labelType;
 
     /**
+     * @description The clips.
+     *
      * @var occurrences[]
      */
     public $occurrences;
 
     /**
+     * @description The source.
+     *
      * @example vision
      *
      * @var string

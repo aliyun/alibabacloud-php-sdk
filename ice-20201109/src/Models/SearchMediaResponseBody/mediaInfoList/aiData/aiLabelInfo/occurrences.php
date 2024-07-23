@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class occurrences extends Model
 {
     /**
+     * @description The text content.
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @description The fine-grained ID of the entity.
+     *
      * @example 10310250338
      *
      * @var string
@@ -22,11 +26,15 @@ class occurrences extends Model
     public $finegrainId;
 
     /**
+     * @description The fine-grained name of the entity.
+     *
      * @var string
      */
     public $finegrainName;
 
     /**
+     * @description The start time of the clip.
+     *
      * @example 1.4
      *
      * @var float
@@ -34,6 +42,8 @@ class occurrences extends Model
     public $from;
 
     /**
+     * @description The optimal face image encoded in Base64.
+     *
      * @example 99C64F6287
      *
      * @var string
@@ -41,6 +51,8 @@ class occurrences extends Model
     public $image;
 
     /**
+     * @description The score.
+     *
      * @example 0.75287705
      *
      * @var float
@@ -48,6 +60,8 @@ class occurrences extends Model
     public $score;
 
     /**
+     * @description The sequence ID of the vector table.
+     *
      * @example 85010D1
      *
      * @var string
@@ -55,6 +69,8 @@ class occurrences extends Model
     public $tableBatchSeqId;
 
     /**
+     * @description The end time of the clip.
+     *
      * @example 2.5
      *
      * @var float
@@ -62,11 +78,15 @@ class occurrences extends Model
     public $to;
 
     /**
+     * @description The track sequence.
+     *
      * @var tracks[]
      */
     public $tracks;
 
     /**
+     * @description The ID of the clip.
+     *
      * @example 5FE19530C7A422197535FE74F5DB2B9F
      *
      * @var string

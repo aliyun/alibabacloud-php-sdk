@@ -23,7 +23,7 @@ class DBList extends Model
     /**
      * @example Video
      *
-     * @var int
+     * @var string
      */
     public $model;
 

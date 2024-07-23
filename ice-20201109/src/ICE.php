@@ -3534,21 +3534,6 @@ class ICE extends OpenApiClient
         if (!Utils::isUnset($request->jobId)) {
             $query['JobId'] = $request->jobId;
         }
-        if (!Utils::isUnset($request->signature)) {
-            $query['Signature'] = $request->signature;
-        }
-        if (!Utils::isUnset($request->signatureMehtod)) {
-            $query['SignatureMehtod'] = $request->signatureMehtod;
-        }
-        if (!Utils::isUnset($request->signatureNonce)) {
-            $query['SignatureNonce'] = $request->signatureNonce;
-        }
-        if (!Utils::isUnset($request->signatureType)) {
-            $query['SignatureType'] = $request->signatureType;
-        }
-        if (!Utils::isUnset($request->signatureVersion)) {
-            $query['SignatureVersion'] = $request->signatureVersion;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -8008,7 +7993,9 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 媒资搜索
+     * @summary Queries information about media assets based on the request parameters.
+     *  *
+     * @description If you have questions about how to use the media asset search feature in Intelligent Media Services (IMS), contact technical support in the DingTalk group (ID 30415005038).
      *  *
      * @param SearchMediaRequest $request SearchMediaRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
@@ -8059,7 +8046,9 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 媒资搜索
+     * @summary Queries information about media assets based on the request parameters.
+     *  *
+     * @description If you have questions about how to use the media asset search feature in Intelligent Media Services (IMS), contact technical support in the DingTalk group (ID 30415005038).
      *  *
      * @param SearchMediaRequest $request SearchMediaRequest
      *

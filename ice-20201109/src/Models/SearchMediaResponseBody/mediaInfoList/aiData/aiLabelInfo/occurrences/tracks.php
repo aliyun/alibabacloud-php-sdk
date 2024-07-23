@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class tracks extends Model
 {
     /**
+     * @description The coordinates of the bounding box.
+     *
      * @example 468.0;67.0;615.0;267.0
      *
      * @var string
@@ -16,6 +18,8 @@ class tracks extends Model
     public $position;
 
     /**
+     * @description The size of the bounding box.
+     *
      * @example 50.2
      *
      * @var float
@@ -23,6 +27,8 @@ class tracks extends Model
     public $size;
 
     /**
+     * @description The timestamp of the track.
+     *
      * @example 1.4
      *
      * @var float

@@ -9,15 +9,17 @@ use AlibabaCloud\Tea\Model;
 class aiRoughData extends Model
 {
     /**
-     * @description 电视剧
+     * @description The category of the AI job.
      *
-     * @example 视频AI分类
+     * @example TV series
      *
      * @var string
      */
     public $aiCategory;
 
     /**
+     * @description The ID of the AI job.
+     *
      * @example cd35b0b0025f71edbfcb472190a9xxxx
      *
      * @var string
@@ -25,6 +27,8 @@ class aiRoughData extends Model
     public $aiJobId;
 
     /**
+     * @description The results of the AI job.
+     *
      * @example http://xxxx.json
      *
      * @var string
@@ -32,6 +36,8 @@ class aiRoughData extends Model
     public $result;
 
     /**
+     * @description The save type.
+     *
      * @example TEXT
      *
      * @var string
@@ -39,6 +45,8 @@ class aiRoughData extends Model
     public $saveType;
 
     /**
+     * @description The data status.
+     *
      * @example SaveSuccess
      *
      * @var string
