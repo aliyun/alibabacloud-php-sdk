@@ -6,10 +6,14 @@ namespace AlibabaCloud\SDK\PaiRecService\V20221213;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ApplyEngineConfigRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ApplyEngineConfigResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\BackflowFeatureConsistencyCheckJobDataRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\BackflowFeatureConsistencyCheckJobDataResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\CheckInstanceResourcesRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\CheckInstanceResourcesResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\CloneEngineConfigRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\CloneEngineConfigResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\CloneExperimentGroupRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\CloneExperimentGroupResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\CloneExperimentRequest;
@@ -28,6 +32,8 @@ use AlibabaCloud\SDK\PaiRecService\V20221213\Models\CreateCalculationJobsRequest
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\CreateCalculationJobsResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\CreateCrowdRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\CreateCrowdResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\CreateEngineConfigRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\CreateEngineConfigResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\CreateExperimentGroupRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\CreateExperimentGroupResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\CreateExperimentRequest;
@@ -67,6 +73,8 @@ use AlibabaCloud\SDK\PaiRecService\V20221213\Models\DeleteABMetricRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\DeleteABMetricResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\DeleteCrowdRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\DeleteCrowdResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\DeleteEngineConfigRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\DeleteEngineConfigResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\DeleteExperimentGroupRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\DeleteExperimentGroupResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\DeleteExperimentRequest;
@@ -102,6 +110,8 @@ use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetABMetricRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetABMetricResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetCalculationJobRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetCalculationJobResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetEngineConfigRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetEngineConfigResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetExperimentGroupRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetExperimentGroupResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetExperimentRequest;
@@ -141,6 +151,8 @@ use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ListCrowdsRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ListCrowdsResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ListCrowdUsersRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ListCrowdUsersResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ListEngineConfigsRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ListEngineConfigsResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ListExperimentGroupsRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ListExperimentGroupsResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ListExperimentsRequest;
@@ -217,6 +229,8 @@ use AlibabaCloud\SDK\PaiRecService\V20221213\Models\UpdateABMetricRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\UpdateABMetricResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\UpdateCrowdRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\UpdateCrowdResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\UpdateEngineConfigRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\UpdateEngineConfigResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\UpdateExperimentGroupRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\UpdateExperimentGroupResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\UpdateExperimentRequest;
@@ -284,6 +298,58 @@ class PaiRecService extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @summary 应用/发布指定的推荐引擎配置
+     *  *
+     * @param string                   $EngineConfigId
+     * @param ApplyEngineConfigRequest $request        ApplyEngineConfigRequest
+     * @param string[]                 $headers        map
+     * @param RuntimeOptions           $runtime        runtime options for this request RuntimeOptions
+     *
+     * @return ApplyEngineConfigResponse ApplyEngineConfigResponse
+     */
+    public function applyEngineConfigWithOptions($EngineConfigId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ApplyEngineConfig',
+            'version'     => '2022-12-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/engineconfigs/' . OpenApiUtilClient::getEncodeParam($EngineConfigId) . '/action/apply',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ApplyEngineConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 应用/发布指定的推荐引擎配置
+     *  *
+     * @param string                   $EngineConfigId
+     * @param ApplyEngineConfigRequest $request        ApplyEngineConfigRequest
+     *
+     * @return ApplyEngineConfigResponse ApplyEngineConfigResponse
+     */
+    public function applyEngineConfig($EngineConfigId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->applyEngineConfigWithOptions($EngineConfigId, $request, $headers, $runtime);
     }
 
     /**
@@ -416,6 +482,64 @@ class PaiRecService extends OpenApiClient
         $headers = [];
 
         return $this->checkInstanceResourcesWithOptions($InstanceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 克隆指定的推荐引擎配置
+     *  *
+     * @param string                   $EngineConfigId
+     * @param CloneEngineConfigRequest $request        CloneEngineConfigRequest
+     * @param string[]                 $headers        map
+     * @param RuntimeOptions           $runtime        runtime options for this request RuntimeOptions
+     *
+     * @return CloneEngineConfigResponse CloneEngineConfigResponse
+     */
+    public function cloneEngineConfigWithOptions($EngineConfigId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->configValue)) {
+            $body['ConfigValue'] = $request->configValue;
+        }
+        if (!Utils::isUnset($request->environment)) {
+            $body['Environment'] = $request->environment;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CloneEngineConfig',
+            'version'     => '2022-12-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/engineconfigs/' . OpenApiUtilClient::getEncodeParam($EngineConfigId) . '/action/clone',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CloneEngineConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 克隆指定的推荐引擎配置
+     *  *
+     * @param string                   $EngineConfigId
+     * @param CloneEngineConfigRequest $request        CloneEngineConfigRequest
+     *
+     * @return CloneEngineConfigResponse CloneEngineConfigResponse
+     */
+    public function cloneEngineConfig($EngineConfigId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->cloneEngineConfigWithOptions($EngineConfigId, $request, $headers, $runtime);
     }
 
     /**
@@ -963,6 +1087,65 @@ class PaiRecService extends OpenApiClient
         $headers = [];
 
         return $this->createCrowdWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 创建引擎配置
+     *  *
+     * @param CreateEngineConfigRequest $request CreateEngineConfigRequest
+     * @param string[]                  $headers map
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateEngineConfigResponse CreateEngineConfigResponse
+     */
+    public function createEngineConfigWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->configValue)) {
+            $body['ConfigValue'] = $request->configValue;
+        }
+        if (!Utils::isUnset($request->environment)) {
+            $body['Environment'] = $request->environment;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateEngineConfig',
+            'version'     => '2022-12-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/engineconfigs',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateEngineConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建引擎配置
+     *  *
+     * @param CreateEngineConfigRequest $request CreateEngineConfigRequest
+     *
+     * @return CreateEngineConfigResponse CreateEngineConfigResponse
+     */
+    public function createEngineConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createEngineConfigWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2346,6 +2529,58 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 删除指定推荐引擎配置。
+     *  *
+     * @param string                    $EngineConfigId
+     * @param DeleteEngineConfigRequest $request        DeleteEngineConfigRequest
+     * @param string[]                  $headers        map
+     * @param RuntimeOptions            $runtime        runtime options for this request RuntimeOptions
+     *
+     * @return DeleteEngineConfigResponse DeleteEngineConfigResponse
+     */
+    public function deleteEngineConfigWithOptions($EngineConfigId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteEngineConfig',
+            'version'     => '2022-12-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/engineconfigs/' . OpenApiUtilClient::getEncodeParam($EngineConfigId) . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteEngineConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除指定推荐引擎配置。
+     *  *
+     * @param string                    $EngineConfigId
+     * @param DeleteEngineConfigRequest $request        DeleteEngineConfigRequest
+     *
+     * @return DeleteEngineConfigResponse DeleteEngineConfigResponse
+     */
+    public function deleteEngineConfig($EngineConfigId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteEngineConfigWithOptions($EngineConfigId, $request, $headers, $runtime);
+    }
+
+    /**
      * @summary 删除实验。
      *  *
      * @param string                  $ExperimentId
@@ -3277,6 +3512,58 @@ class PaiRecService extends OpenApiClient
         $headers = [];
 
         return $this->getCalculationJobWithOptions($CalculationJobId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 获取引擎配置详细信息。
+     *  *
+     * @param string                 $EngineConfigId
+     * @param GetEngineConfigRequest $request        GetEngineConfigRequest
+     * @param string[]               $headers        map
+     * @param RuntimeOptions         $runtime        runtime options for this request RuntimeOptions
+     *
+     * @return GetEngineConfigResponse GetEngineConfigResponse
+     */
+    public function getEngineConfigWithOptions($EngineConfigId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetEngineConfig',
+            'version'     => '2022-12-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/engineconfigs/' . OpenApiUtilClient::getEncodeParam($EngineConfigId) . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetEngineConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取引擎配置详细信息。
+     *  *
+     * @param string                 $EngineConfigId
+     * @param GetEngineConfigRequest $request        GetEngineConfigRequest
+     *
+     * @return GetEngineConfigResponse GetEngineConfigResponse
+     */
+    public function getEngineConfig($EngineConfigId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getEngineConfigWithOptions($EngineConfigId, $request, $headers, $runtime);
     }
 
     /**
@@ -4411,6 +4698,74 @@ class PaiRecService extends OpenApiClient
         $headers = [];
 
         return $this->listCrowdsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 获取引擎配置列表。
+     *  *
+     * @param ListEngineConfigsRequest $request ListEngineConfigsRequest
+     * @param string[]                 $headers map
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListEngineConfigsResponse ListEngineConfigsResponse
+     */
+    public function listEngineConfigsWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->environment)) {
+            $query['Environment'] = $request->environment;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->version)) {
+            $query['Version'] = $request->version;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListEngineConfigs',
+            'version'     => '2022-12-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/engineconfigs',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListEngineConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取引擎配置列表。
+     *  *
+     * @param ListEngineConfigsRequest $request ListEngineConfigsRequest
+     *
+     * @return ListEngineConfigsResponse ListEngineConfigsResponse
+     */
+    public function listEngineConfigs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listEngineConfigsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -6666,6 +7021,67 @@ class PaiRecService extends OpenApiClient
         $headers = [];
 
         return $this->updateCrowdWithOptions($CrowdId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 更新引擎配置。
+     *  *
+     * @param string                    $EngineConfigId
+     * @param UpdateEngineConfigRequest $request        UpdateEngineConfigRequest
+     * @param string[]                  $headers        map
+     * @param RuntimeOptions            $runtime        runtime options for this request RuntimeOptions
+     *
+     * @return UpdateEngineConfigResponse UpdateEngineConfigResponse
+     */
+    public function updateEngineConfigWithOptions($EngineConfigId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->configValue)) {
+            $body['ConfigValue'] = $request->configValue;
+        }
+        if (!Utils::isUnset($request->environment)) {
+            $body['Environment'] = $request->environment;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateEngineConfig',
+            'version'     => '2022-12-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/engineconfigs/' . OpenApiUtilClient::getEncodeParam($EngineConfigId) . '',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateEngineConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 更新引擎配置。
+     *  *
+     * @param string                    $EngineConfigId
+     * @param UpdateEngineConfigRequest $request        UpdateEngineConfigRequest
+     *
+     * @return UpdateEngineConfigResponse UpdateEngineConfigResponse
+     */
+    public function updateEngineConfig($EngineConfigId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateEngineConfigWithOptions($EngineConfigId, $request, $headers, $runtime);
     }
 
     /**
