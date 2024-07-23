@@ -29,6 +29,8 @@ class data extends Model
     public $bigKeysOfNum;
 
     /**
+     * @description The statistics of the keys that have expired.
+     *
      * @var expiryKeysLevelCount
      */
     public $expiryKeysLevelCount;

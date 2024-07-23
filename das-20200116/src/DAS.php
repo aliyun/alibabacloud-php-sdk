@@ -1353,8 +1353,9 @@ class DAS extends OpenApiClient
      *  *
      * @description Before you call this operation, take note of the following items:
      * *   If you use an Alibaba Cloud SDK or a Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
-     * *   If you use an SDK to call operations of DAS, you must set the region to cn-shanghai.
+     * *   If you use an SDK to call the API operations of DAS, you must set the region ID to cn-shanghai.
      * *   This operation is applicable only to ApsaraDB for Redis.
+     * >  You can call this operation to query the top 500 keys in a cache analysis task.
      *  *
      * @param DescribeCacheAnalysisJobRequest $request DescribeCacheAnalysisJobRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -1394,8 +1395,9 @@ class DAS extends OpenApiClient
      *  *
      * @description Before you call this operation, take note of the following items:
      * *   If you use an Alibaba Cloud SDK or a Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
-     * *   If you use an SDK to call operations of DAS, you must set the region to cn-shanghai.
+     * *   If you use an SDK to call the API operations of DAS, you must set the region ID to cn-shanghai.
      * *   This operation is applicable only to ApsaraDB for Redis.
+     * >  You can call this operation to query the top 500 keys in a cache analysis task.
      *  *
      * @param DescribeCacheAnalysisJobRequest $request DescribeCacheAnalysisJobRequest
      *

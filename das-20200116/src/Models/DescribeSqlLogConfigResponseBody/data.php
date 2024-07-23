@@ -146,6 +146,11 @@ class data extends Model
     public $sqlLogEnable;
 
     /**
+     * @var string
+     */
+    public $sqlLogSource;
+
+    /**
      * @description The state of data migration. Valid values:
      *
      *   **FINISH**: The historical data is migrated.
@@ -166,6 +171,11 @@ class data extends Model
      * @var int
      */
     public $sqlLogVisibleTime;
+
+    /**
+     * @var bool
+     */
+    public $supportMigration;
 
     /**
      * @description The latest version of DAS Enterprise Edition that supports the database instance. Valid values:
@@ -212,8 +222,10 @@ class data extends Model
         'requestStopTime'   => 'RequestStopTime',
         'retention'         => 'Retention',
         'sqlLogEnable'      => 'SqlLogEnable',
+        'sqlLogSource'      => 'SqlLogSource',
         'sqlLogState'       => 'SqlLogState',
         'sqlLogVisibleTime' => 'SqlLogVisibleTime',
+        'supportMigration'  => 'SupportMigration',
         'supportVersion'    => 'SupportVersion',
         'version'           => 'Version',
     ];
@@ -264,11 +276,17 @@ class data extends Model
         if (null !== $this->sqlLogEnable) {
             $res['SqlLogEnable'] = $this->sqlLogEnable;
         }
+        if (null !== $this->sqlLogSource) {
+            $res['SqlLogSource'] = $this->sqlLogSource;
+        }
         if (null !== $this->sqlLogState) {
             $res['SqlLogState'] = $this->sqlLogState;
         }
         if (null !== $this->sqlLogVisibleTime) {
             $res['SqlLogVisibleTime'] = $this->sqlLogVisibleTime;
+        }
+        if (null !== $this->supportMigration) {
+            $res['SupportMigration'] = $this->supportMigration;
         }
         if (null !== $this->supportVersion) {
             $res['SupportVersion'] = $this->supportVersion;
@@ -327,11 +345,17 @@ class data extends Model
         if (isset($map['SqlLogEnable'])) {
             $model->sqlLogEnable = $map['SqlLogEnable'];
         }
+        if (isset($map['SqlLogSource'])) {
+            $model->sqlLogSource = $map['SqlLogSource'];
+        }
         if (isset($map['SqlLogState'])) {
             $model->sqlLogState = $map['SqlLogState'];
         }
         if (isset($map['SqlLogVisibleTime'])) {
             $model->sqlLogVisibleTime = $map['SqlLogVisibleTime'];
+        }
+        if (isset($map['SupportMigration'])) {
+            $model->supportMigration = $map['SupportMigration'];
         }
         if (isset($map['SupportVersion'])) {
             $model->supportVersion = $map['SupportVersion'];

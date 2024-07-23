@@ -27,7 +27,7 @@ class keyInfo extends Model
     public $count;
 
     /**
-     * @description The name of the database.
+     * @description The database name.
      *
      * @example 0
      *
@@ -45,7 +45,7 @@ class keyInfo extends Model
     public $encoding;
 
     /**
-     * @description The expiration period of the key. Unit: milliseconds. A value of 0 indicates that the key does not expire.
+     * @description The time when the key expires. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC. A value of 0 indicates that the key never expires.
      *
      * @example 1596256542547
      *
@@ -54,7 +54,7 @@ class keyInfo extends Model
     public $expirationTimeMillis;
 
     /**
-     * @description The name of the key.
+     * @description The key name.
      *
      * @example task_x****
      *

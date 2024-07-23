@@ -19,7 +19,7 @@ class DescribeCacheAnalysisJobResponseBody extends Model
     public $code;
 
     /**
-     * @description The details of the task.
+     * @description The details of the cache analysis task.
      *
      * @var data
      */
