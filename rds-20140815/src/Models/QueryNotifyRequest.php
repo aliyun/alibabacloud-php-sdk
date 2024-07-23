@@ -19,7 +19,7 @@ class QueryNotifyRequest extends Model
     public $from;
 
     /**
-     * @description The number of the page to return. Valid values: any **non-zero** positive integer.
+     * @description The page number. Pages start from page 1. Default value: 1.****
      *
      * Default value: **1**.
      * @example 1
@@ -29,7 +29,7 @@ class QueryNotifyRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Valid values:
+     * @description The number of entries per page. Valid values:
      *
      *   **30**
      *   **50**

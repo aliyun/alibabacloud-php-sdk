@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DBInstanceParameter extends Model
 {
     /**
+     * @description The default value of the parameter.
+     *
+     * @example 100
+     *
      * @var string
      */
     public $parameterDefaultValue;
@@ -41,6 +45,10 @@ class DBInstanceParameter extends Model
     public $parameterValue;
 
     /**
+     * @description The valid values of the parameter.
+     *
+     * @example 1~100
+     *
      * @var string
      */
     public $parameterValueRange;

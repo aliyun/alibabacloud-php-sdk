@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstanceAttributeResponseBody extends Model
 {
     /**
-     * @description The details of the instance.
+     * @description The details of instances.
      *
      * @var items
      */

@@ -143,6 +143,10 @@ class ModifyDBInstanceSpecRequest extends Model
      *   **Immediate** (default)
      *   **MaintainTime**: The effective time is within the maintenance window. For more information, see ModifyDBInstanceMaintainTime.
      *
+     * <!---->
+     *
+     *   ScheduleTime: The schedule time must be a specific point in time that is 12 hours later than the current time. In this case, EffectiveTime is calculated by using the following formula: EffectiveTime = ScheduleTime + SwitchTime.
+     *
      * @example MaintainTime
      *
      * @var string

@@ -19,7 +19,7 @@ class AttachWhitelistTemplateToInstanceRequest extends Model
     public $insName;
 
     /**
-     * @description The region ID.
+     * @description The region ID. You can call the DescribeRegions operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteDBInstanceSecurityGroupRuleResponseBody extends Model
 {
     /**
+     * @description The status code returned.
+     *
      * @example 200
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteDBInstanceSecurityGroupRuleResponseBody extends Model
     public $code;
 
     /**
+     * @description The information about the status code.
+     *
      * @example successful
      *
      * @var string
@@ -23,6 +27,8 @@ class DeleteDBInstanceSecurityGroupRuleResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 07F6177E-6DE4-408A-BB4F-0723301340F8
      *
      * @var string

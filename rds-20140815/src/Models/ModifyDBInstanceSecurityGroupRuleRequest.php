@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBInstanceSecurityGroupRuleRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the instance. You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/2628785.html) operation to query the IDs of instances.
      *
+     * This parameter is required.
      * @example rm-bp15i4hn07r******
      *
      * @var string
@@ -18,8 +19,9 @@ class ModifyDBInstanceSecurityGroupRuleRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description This parameter is required.
+     * @description The description of the security group rule.
      *
+     * This parameter is required.
      * @example zht_test
      *
      * @var string
@@ -27,8 +29,12 @@ class ModifyDBInstanceSecurityGroupRuleRequest extends Model
     public $description;
 
     /**
-     * @description This parameter is required.
+     * @description The type of the transport layer protocol. Valid values:
      *
+     *   TCP
+     *   UDP
+     *
+     * This parameter is required.
      * @example TCP
      *
      * @var string
@@ -46,8 +52,9 @@ class ModifyDBInstanceSecurityGroupRuleRequest extends Model
     public $ownerId;
 
     /**
-     * @description This parameter is required.
+     * @description The range of destination ports over which TCP and UDP traffic is allowed in the security group rule.
      *
+     * This parameter is required.
      * @example 1/200
      *
      * @var string
@@ -65,8 +72,9 @@ class ModifyDBInstanceSecurityGroupRuleRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the security group rule. You can call the [DescribeDBInstanceSecurityGroupRule](https://help.aliyun.com/document_detail/2834044.html) to obtain the ID of the security group rule.
      *
+     * This parameter is required.
      * @example sgr-2ze17u******
      *
      * @var string
@@ -74,8 +82,9 @@ class ModifyDBInstanceSecurityGroupRuleRequest extends Model
     public $securityGroupRuleId;
 
     /**
-     * @description This parameter is required.
+     * @description The range of source IP addresses. CIDR blocks and IPv4 addresses are supported.
      *
+     * This parameter is required.
      * @example 192.XX.XX.100
      *
      * @var string

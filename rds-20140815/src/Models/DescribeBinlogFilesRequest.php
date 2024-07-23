@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeBinlogFilesRequest extends Model
 {
     /**
-     * @description The instance ID. You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/610396.html) operation to query the ID of the instance.
+     * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
      * This parameter is required.
      * @example rm-uf6wjk5xxxxxxx
@@ -41,7 +41,7 @@ class DescribeBinlogFilesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The page number. Valid values: any non-zero positive integer.
+     * @description The page number. Pages start from 1.
      *
      * Default value: **1**.
      * @example 1
@@ -51,7 +51,7 @@ class DescribeBinlogFilesRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The number of entries per page.
      *
      * Valid values: **30** to **100**.
      *

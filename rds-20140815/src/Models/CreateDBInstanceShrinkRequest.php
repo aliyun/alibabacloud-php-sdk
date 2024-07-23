@@ -174,7 +174,7 @@ class CreateDBInstanceShrinkRequest extends Model
     public $createStrategy;
 
     /**
-     * @description The instance type of the instance. You can specify a standard instance type or an economy instance type. For more information, see [Primary ApsaraDB RDS instance types](https://help.aliyun.com/document_detail/26312.html).
+     * @description The instance type of the instance. You can specify an instance type of the standard or YiTian product type. For more information, see [Primary ApsaraDB RDS instance types](https://help.aliyun.com/document_detail/26312.html).
      *
      * To create a serverless instance, set this parameter to one of the following values:
      *

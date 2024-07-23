@@ -17,6 +17,10 @@ class extra extends Model
     public $DBInstanceIds;
 
     /**
+     * @description The recovery model. Valid values: Simple and Full.
+     *
+     * @example Simple
+     *
      * @var string
      */
     public $recoveryModel;

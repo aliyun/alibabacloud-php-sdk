@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstanceSecurityGroupRuleResponseBody extends Model
 {
     /**
+     * @description The status code returned.
+     *
      * @example 200
      *
      * @var string
@@ -16,11 +18,15 @@ class DescribeDBInstanceSecurityGroupRuleResponseBody extends Model
     public $code;
 
     /**
+     * @description The details of the security group rule.
+     *
      * @var string
      */
     public $data;
 
     /**
+     * @description The information about the status code.
+     *
      * @example successful
      *
      * @var string
@@ -28,6 +34,8 @@ class DescribeDBInstanceSecurityGroupRuleResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 6BFF4136-10B9-130B-BF8E-D3504BCE4F43
      *
      * @var string

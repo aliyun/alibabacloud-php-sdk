@@ -14,7 +14,7 @@ class RenewInstanceRequest extends Model
      *   **True**: enables automatic payment. Make sure that your Alibaba Cloud account has adequate balance.
      *   **False** (default): disables automatic payment. You have to manually pay the order in the console.
      *
-     * >  For more information about how to manually renew an instance in the console, see the following topic:
+     * >  For more information about how to manually pay the order in the console, see the following topics:
      *
      *   [Manually renew an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96050.html)
      *

@@ -54,7 +54,7 @@ class DescribeParametersResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The list of parameters that are in use.
+     * @description The parameters that are in use.
      *
      * @var runningParameters
      */

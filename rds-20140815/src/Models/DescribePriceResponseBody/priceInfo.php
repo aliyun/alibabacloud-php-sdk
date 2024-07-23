@@ -48,7 +48,7 @@ class priceInfo extends Model
      *
      * @example Order Information
      *
-     * @var string
+     * @var mixed
      */
     public $orderLines;
 

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstanceSecurityGroupRuleRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the instance. You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/2628785.html) operation to query the IDs of instances.
      *
+     * This parameter is required.
      * @example rm-2ze202******
      *
      * @var string

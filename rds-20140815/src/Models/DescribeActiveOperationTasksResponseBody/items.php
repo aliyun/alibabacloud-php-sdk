@@ -47,6 +47,8 @@ class items extends Model
     /**
      * @description The level of the task in Chinese.
      *
+     * @example 系统运维
+     *
      * @var string
      */
     public $changeLevelZh;
@@ -125,6 +127,8 @@ class items extends Model
 
     /**
      * @description The impact of the task in Chinese.
+     *
+     * @example 实例闪断
      *
      * @var string
      */
@@ -258,6 +262,8 @@ class items extends Model
 
     /**
      * @description The reason for the task in Chinese.
+     *
+     * @example 小版本升级
      *
      * @var string
      */

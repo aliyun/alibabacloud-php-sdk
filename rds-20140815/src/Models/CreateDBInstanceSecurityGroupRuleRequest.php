@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateDBInstanceSecurityGroupRuleRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the instance. You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/2628785.html) operation to query the IDs of instances.
      *
+     * This parameter is required.
      * @example rm-bp15i4hn07r******
      *
      * @var string
@@ -18,6 +19,8 @@ class CreateDBInstanceSecurityGroupRuleRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @description The description of the security group rule.
+     *
      * @example zht_test
      *
      * @var string
@@ -25,6 +28,11 @@ class CreateDBInstanceSecurityGroupRuleRequest extends Model
     public $description;
 
     /**
+     * @description The type of the transport layer protocol. Valid values:
+     *
+     *   TCP
+     *   UDP
+     *
      * @example TCP
      *
      * @var string
@@ -42,8 +50,9 @@ class CreateDBInstanceSecurityGroupRuleRequest extends Model
     public $ownerId;
 
     /**
-     * @description This parameter is required.
+     * @description The range of destination ports over which TCP and UDP traffic is allowed in the security group rule.
      *
+     * This parameter is required.
      * @example 1/200
      *
      * @var string
@@ -61,6 +70,8 @@ class CreateDBInstanceSecurityGroupRuleRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The range of source IP addresses. CIDR blocks and IPv4 addresses are supported.
+     *
      * @example 192.XX.XX.100
      *
      * @var string

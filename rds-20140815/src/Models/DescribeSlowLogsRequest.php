@@ -48,7 +48,7 @@ class DescribeSlowLogsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The page number. Valid values: any non-zero positive integer.
+     * @description The page number. Pages start from 1.
      *
      * Default value: **1**.
      * @example 1
@@ -58,7 +58,7 @@ class DescribeSlowLogsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Valid values: **30** to **100**. Default value: **30**.
+     * @description The number of entries per page. Valid values: **30** to **100**. Default value: **30**.
      *
      * @example 30
      *

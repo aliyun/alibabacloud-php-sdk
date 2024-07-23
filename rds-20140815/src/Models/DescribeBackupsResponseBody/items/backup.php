@@ -181,11 +181,24 @@ class backup extends Model
     public $encryption;
 
     /**
+     * @description The type of the database engine. Valid values:
+     *
+     *   MySQL
+     *   SQLServer
+     *   PostgreSQL
+     *   MariaDB
+     *
+     * @example MySQL
+     *
      * @var string
      */
     public $engine;
 
     /**
+     * @description The version of the database engine.
+     *
+     * @example 8.0
+     *
      * @var string
      */
     public $engineVersion;
