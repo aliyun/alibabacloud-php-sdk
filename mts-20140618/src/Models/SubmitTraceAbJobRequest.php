@@ -32,7 +32,7 @@ class SubmitTraceAbJobRequest extends Model
     /**
      * @example 2
      *
-     * @var string
+     * @var int
      */
     public $level;
 
