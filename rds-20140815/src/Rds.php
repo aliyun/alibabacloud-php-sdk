@@ -2622,6 +2622,9 @@ class Rds extends OpenApiClient
         if (!Utils::isUnset($request->amount)) {
             $query['Amount'] = $request->amount;
         }
+        if (!Utils::isUnset($request->autoCreateProxy)) {
+            $query['AutoCreateProxy'] = $request->autoCreateProxy;
+        }
         if (!Utils::isUnset($request->autoPay)) {
             $query['AutoPay'] = $request->autoPay;
         }
@@ -4450,6 +4453,9 @@ class Rds extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->autoCreateProxy)) {
+            $query['AutoCreateProxy'] = $request->autoCreateProxy;
+        }
         if (!Utils::isUnset($request->autoPay)) {
             $query['AutoPay'] = $request->autoPay;
         }

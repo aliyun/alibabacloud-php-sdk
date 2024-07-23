@@ -25,6 +25,11 @@ class CreateDBInstanceRequest extends Model
     public $amount;
 
     /**
+     * @var bool
+     */
+    public $autoCreateProxy;
+
+    /**
      * @description Specifies whether to enable the automatic payment feature. Valid values:
      *
      *   **true**: automatically completes the payment. You must make sure that your account balance is sufficient.
@@ -737,6 +742,7 @@ class CreateDBInstanceRequest extends Model
     public $zoneIdSlave2;
     protected $_name = [
         'amount'                         => 'Amount',
+        'autoCreateProxy'                => 'AutoCreateProxy',
         'autoPay'                        => 'AutoPay',
         'autoRenew'                      => 'AutoRenew',
         'babelfishConfig'                => 'BabelfishConfig',
@@ -803,6 +809,9 @@ class CreateDBInstanceRequest extends Model
         $res = [];
         if (null !== $this->amount) {
             $res['Amount'] = $this->amount;
+        }
+        if (null !== $this->autoCreateProxy) {
+            $res['AutoCreateProxy'] = $this->autoCreateProxy;
         }
         if (null !== $this->autoPay) {
             $res['AutoPay'] = $this->autoPay;
@@ -989,6 +998,9 @@ class CreateDBInstanceRequest extends Model
         $model = new self();
         if (isset($map['Amount'])) {
             $model->amount = $map['Amount'];
+        }
+        if (isset($map['AutoCreateProxy'])) {
+            $model->autoCreateProxy = $map['AutoCreateProxy'];
         }
         if (isset($map['AutoPay'])) {
             $model->autoPay = $map['AutoPay'];

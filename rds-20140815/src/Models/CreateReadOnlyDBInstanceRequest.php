@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CreateReadOnlyDBInstanceRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $autoCreateProxy;
+
+    /**
      * @description Specifies whether to enable the automatic payment feature. Valid values:
      *
      * 1.  **true**: enables the feature. Make sure that your account balance is sufficient.
@@ -364,6 +369,7 @@ class CreateReadOnlyDBInstanceRequest extends Model
      */
     public $zoneId;
     protected $_name = [
+        'autoCreateProxy'                => 'AutoCreateProxy',
         'autoPay'                        => 'AutoPay',
         'autoRenew'                      => 'AutoRenew',
         'bpeEnabled'                     => 'BpeEnabled',
@@ -408,6 +414,9 @@ class CreateReadOnlyDBInstanceRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->autoCreateProxy) {
+            $res['AutoCreateProxy'] = $this->autoCreateProxy;
+        }
         if (null !== $this->autoPay) {
             $res['AutoPay'] = $this->autoPay;
         }
@@ -525,6 +534,9 @@ class CreateReadOnlyDBInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AutoCreateProxy'])) {
+            $model->autoCreateProxy = $map['AutoCreateProxy'];
+        }
         if (isset($map['AutoPay'])) {
             $model->autoPay = $map['AutoPay'];
         }
