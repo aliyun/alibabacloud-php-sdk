@@ -9,17 +9,11 @@ use AlibabaCloud\Tea\Model;
 class reviewRightRule extends Model
 {
     /**
-     * @var int
+     * @var \AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultResponseBody\data\resultInfo\reviewHistoryList\reviewHistory\reviewRightRule\reviewRightRule[]
      */
-    public $rid;
-
-    /**
-     * @var string
-     */
-    public $ruleName;
+    public $reviewRightRule;
     protected $_name = [
-        'rid'      => 'Rid',
-        'ruleName' => 'RuleName',
+        'reviewRightRule' => 'ReviewRightRule',
     ];
 
     public function validate()
@@ -29,11 +23,14 @@ class reviewRightRule extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->rid) {
-            $res['Rid'] = $this->rid;
-        }
-        if (null !== $this->ruleName) {
-            $res['RuleName'] = $this->ruleName;
+        if (null !== $this->reviewRightRule) {
+            $res['ReviewRightRule'] = [];
+            if (null !== $this->reviewRightRule && \is_array($this->reviewRightRule)) {
+                $n = 0;
+                foreach ($this->reviewRightRule as $item) {
+                    $res['ReviewRightRule'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -47,11 +44,14 @@ class reviewRightRule extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Rid'])) {
-            $model->rid = $map['Rid'];
-        }
-        if (isset($map['RuleName'])) {
-            $model->ruleName = $map['RuleName'];
+        if (isset($map['ReviewRightRule'])) {
+            if (!empty($map['ReviewRightRule'])) {
+                $model->reviewRightRule = [];
+                $n                      = 0;
+                foreach ($map['ReviewRightRule'] as $item) {
+                    $model->reviewRightRule[$n++] = null !== $item ? \AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultResponseBody\data\resultInfo\reviewHistoryList\reviewHistory\reviewRightRule\reviewRightRule::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;
