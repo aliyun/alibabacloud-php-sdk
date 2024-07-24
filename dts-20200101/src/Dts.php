@@ -87,6 +87,8 @@ use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeDtsEtlJobVersionInfoRequest;
 use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeDtsEtlJobVersionInfoResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeDTSIPRequest;
 use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeDTSIPResponse;
+use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeDtsJobConfigRequest;
+use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeDtsJobConfigResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeDtsJobDetailRequest;
 use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeDtsJobDetailResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeDtsJobsRequest;
@@ -3467,6 +3469,68 @@ class Dts extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDtsEtlJobVersionInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询DTS任务配置
+     *  *
+     * @param DescribeDtsJobConfigRequest $request DescribeDtsJobConfigRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeDtsJobConfigResponse DescribeDtsJobConfigResponse
+     */
+    public function describeDtsJobConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dtsJobId)) {
+            $query['DtsJobId'] = $request->dtsJobId;
+        }
+        if (!Utils::isUnset($request->forAcceleration)) {
+            $query['ForAcceleration'] = $request->forAcceleration;
+        }
+        if (!Utils::isUnset($request->module)) {
+            $query['Module'] = $request->module;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDtsJobConfig',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDtsJobConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询DTS任务配置
+     *  *
+     * @param DescribeDtsJobConfigRequest $request DescribeDtsJobConfigRequest
+     *
+     * @return DescribeDtsJobConfigResponse DescribeDtsJobConfigResponse
+     */
+    public function describeDtsJobConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDtsJobConfigWithOptions($request, $runtime);
     }
 
     /**
