@@ -9,16 +9,33 @@ use AlibabaCloud\Tea\Model;
 class ChatappBindWabaRequest extends Model
 {
     /**
-     * @description The ID of the WhatsApp Business account.
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
+     * @description This parameter is required.
      *
-     * This parameter is required.
-     * @example 2293938222343****
+     * @example 33993***
      *
      * @var string
      */
     public $wabaId;
     protected $_name = [
-        'wabaId' => 'WabaId',
+        'ownerId'              => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
+        'wabaId'               => 'WabaId',
     ];
 
     public function validate()
@@ -28,6 +45,15 @@ class ChatappBindWabaRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
         if (null !== $this->wabaId) {
             $res['WabaId'] = $this->wabaId;
         }
@@ -43,6 +69,15 @@ class ChatappBindWabaRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
         if (isset($map['WabaId'])) {
             $model->wabaId = $map['WabaId'];
         }

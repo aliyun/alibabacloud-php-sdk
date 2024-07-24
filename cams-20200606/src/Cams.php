@@ -186,24 +186,33 @@ class Cams extends OpenApiClient
     public function addChatappPhoneNumberWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
+        $query = [];
         if (!Utils::isUnset($request->cc)) {
-            $body['Cc'] = $request->cc;
+            $query['Cc'] = $request->cc;
         }
         if (!Utils::isUnset($request->custSpaceId)) {
-            $body['CustSpaceId'] = $request->custSpaceId;
+            $query['CustSpaceId'] = $request->custSpaceId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
         if (!Utils::isUnset($request->phoneNumber)) {
-            $body['PhoneNumber'] = $request->phoneNumber;
+            $query['PhoneNumber'] = $request->phoneNumber;
         }
         if (!Utils::isUnset($request->preValidateId)) {
-            $body['PreValidateId'] = $request->preValidateId;
+            $query['PreValidateId'] = $request->preValidateId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
         if (!Utils::isUnset($request->verifiedName)) {
-            $body['VerifiedName'] = $request->verifiedName;
+            $query['VerifiedName'] = $request->verifiedName;
         }
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'AddChatappPhoneNumber',
@@ -412,12 +421,21 @@ class Cams extends OpenApiClient
     public function chatappBindWabaWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
         if (!Utils::isUnset($request->wabaId)) {
-            $body['WabaId'] = $request->wabaId;
+            $query['WabaId'] = $request->wabaId;
         }
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'ChatappBindWaba',
@@ -679,15 +697,24 @@ class Cams extends OpenApiClient
     public function chatappPhoneNumberRegisterWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
+        $query = [];
         if (!Utils::isUnset($request->custSpaceId)) {
-            $body['CustSpaceId'] = $request->custSpaceId;
+            $query['CustSpaceId'] = $request->custSpaceId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
         if (!Utils::isUnset($request->phoneNumber)) {
-            $body['PhoneNumber'] = $request->phoneNumber;
+            $query['PhoneNumber'] = $request->phoneNumber;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'ChatappPhoneNumberRegister',
@@ -737,6 +764,15 @@ class Cams extends OpenApiClient
         if (!Utils::isUnset($request->custSpaceId)) {
             $query['CustSpaceId'] = $request->custSpaceId;
         }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -784,18 +820,27 @@ class Cams extends OpenApiClient
     public function chatappVerifyAndRegisterWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
+        $query = [];
         if (!Utils::isUnset($request->custSpaceId)) {
-            $body['CustSpaceId'] = $request->custSpaceId;
+            $query['CustSpaceId'] = $request->custSpaceId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
         if (!Utils::isUnset($request->phoneNumber)) {
-            $body['PhoneNumber'] = $request->phoneNumber;
+            $query['PhoneNumber'] = $request->phoneNumber;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
         if (!Utils::isUnset($request->verifyCode)) {
-            $body['VerifyCode'] = $request->verifyCode;
+            $query['VerifyCode'] = $request->verifyCode;
         }
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'ChatappVerifyAndRegister',
@@ -1122,6 +1167,15 @@ class Cams extends OpenApiClient
         }
         if (!Utils::isUnset($request->language)) {
             $query['Language'] = $request->language;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
         if (!Utils::isUnset($request->templateCode)) {
             $query['TemplateCode'] = $request->templateCode;
@@ -1651,21 +1705,30 @@ class Cams extends OpenApiClient
     public function getChatappVerifyCodeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
+        $query = [];
         if (!Utils::isUnset($request->custSpaceId)) {
-            $body['CustSpaceId'] = $request->custSpaceId;
+            $query['CustSpaceId'] = $request->custSpaceId;
         }
         if (!Utils::isUnset($request->locale)) {
-            $body['Locale'] = $request->locale;
+            $query['Locale'] = $request->locale;
         }
         if (!Utils::isUnset($request->method)) {
-            $body['Method'] = $request->method;
+            $query['Method'] = $request->method;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
         if (!Utils::isUnset($request->phoneNumber)) {
-            $body['PhoneNumber'] = $request->phoneNumber;
+            $query['PhoneNumber'] = $request->phoneNumber;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetChatappVerifyCode',
@@ -1715,8 +1778,17 @@ class Cams extends OpenApiClient
         if (!Utils::isUnset($request->custSpaceId)) {
             $query['CustSpaceId'] = $request->custSpaceId;
         }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
         if (!Utils::isUnset($request->phoneNumber)) {
             $query['PhoneNumber'] = $request->phoneNumber;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -2838,11 +2910,20 @@ class Cams extends OpenApiClient
         if (!Utils::isUnset($request->email)) {
             $query['Email'] = $request->email;
         }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
         if (!Utils::isUnset($request->phoneNumber)) {
             $query['PhoneNumber'] = $request->phoneNumber;
         }
         if (!Utils::isUnset($request->profilePictureUrl)) {
             $query['ProfilePictureUrl'] = $request->profilePictureUrl;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
         if (!Utils::isUnset($request->vertical)) {
             $query['Vertical'] = $request->vertical;
@@ -3075,8 +3156,17 @@ class Cams extends OpenApiClient
         if (!Utils::isUnset($request->custSpaceId)) {
             $query['CustSpaceId'] = $request->custSpaceId;
         }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
         if (!Utils::isUnset($request->phoneNumber)) {
             $query['PhoneNumber'] = $request->phoneNumber;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -3128,6 +3218,15 @@ class Cams extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->custSpaceId)) {
             $query['CustSpaceId'] = $request->custSpaceId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
         if (!Utils::isUnset($request->wabaId)) {
             $query['WabaId'] = $request->wabaId;
@@ -3566,8 +3665,17 @@ class Cams extends OpenApiClient
         if (!Utils::isUnset($request->custSpaceId)) {
             $query['CustSpaceId'] = $request->custSpaceId;
         }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
         if (!Utils::isUnset($request->phoneNumber)) {
             $query['PhoneNumber'] = $request->phoneNumber;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),

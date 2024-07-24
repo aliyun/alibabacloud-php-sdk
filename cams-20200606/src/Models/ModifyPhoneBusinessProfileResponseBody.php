@@ -39,11 +39,19 @@ class ModifyPhoneBusinessProfileResponseBody extends Model
      * @var string
      */
     public $requestId;
+
+    /**
+     * @example true
+     *
+     * @var bool
+     */
+    public $success;
     protected $_name = [
         'accessDeniedDetail' => 'AccessDeniedDetail',
         'code'               => 'Code',
         'message'            => 'Message',
         'requestId'          => 'RequestId',
+        'success'            => 'Success',
     ];
 
     public function validate()
@@ -64,6 +72,9 @@ class ModifyPhoneBusinessProfileResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -88,6 +99,9 @@ class ModifyPhoneBusinessProfileResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
 
         return $model;

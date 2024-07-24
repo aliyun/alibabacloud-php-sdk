@@ -9,19 +9,17 @@ use AlibabaCloud\Tea\Model;
 class GetChatappVerifyCodeRequest extends Model
 {
     /**
-     * @description The space ID of the user under the independent software vendor (ISV) account.
+     * @description This parameter is required.
      *
-     * This parameter is required.
-     * @example 229393838*****
+     * @example cams-kei****
      *
      * @var string
      */
     public $custSpaceId;
 
     /**
-     * @description The language.
+     * @description This parameter is required.
      *
-     * This parameter is required.
      * @example zh_CN
      *
      * @var string
@@ -29,29 +27,45 @@ class GetChatappVerifyCodeRequest extends Model
     public $locale;
 
     /**
-     * @description The method to obtain the verification code. Valid values: SMS and VOICE.
+     * @description This parameter is required.
      *
-     * This parameter is required.
-     * @example SMS
+     * @example sms
      *
      * @var string
      */
     public $method;
 
     /**
-     * @description The phone number.
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @description This parameter is required.
      *
-     * This parameter is required.
-     * @example 8613800001234
+     * @example 8613800000000
      *
      * @var string
      */
     public $phoneNumber;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
     protected $_name = [
-        'custSpaceId' => 'CustSpaceId',
-        'locale'      => 'Locale',
-        'method'      => 'Method',
-        'phoneNumber' => 'PhoneNumber',
+        'custSpaceId'          => 'CustSpaceId',
+        'locale'               => 'Locale',
+        'method'               => 'Method',
+        'ownerId'              => 'OwnerId',
+        'phoneNumber'          => 'PhoneNumber',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
     ];
 
     public function validate()
@@ -70,8 +84,17 @@ class GetChatappVerifyCodeRequest extends Model
         if (null !== $this->method) {
             $res['Method'] = $this->method;
         }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->phoneNumber) {
             $res['PhoneNumber'] = $this->phoneNumber;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
 
         return $res;
@@ -94,8 +117,17 @@ class GetChatappVerifyCodeRequest extends Model
         if (isset($map['Method'])) {
             $model->method = $map['Method'];
         }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['PhoneNumber'])) {
             $model->phoneNumber = $map['PhoneNumber'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
 
         return $model;

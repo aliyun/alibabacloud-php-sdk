@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AddChatappPhoneNumberRequest extends Model
 {
     /**
-     * @description The country code.
+     * @description This parameter is required.
      *
-     * This parameter is required.
      * @example 86
      *
      * @var string
@@ -19,9 +18,8 @@ class AddChatappPhoneNumberRequest extends Model
     public $cc;
 
     /**
-     * @description The space ID of the user within the independent software vendor (ISV) account.
+     * @description This parameter is required.
      *
-     * This parameter is required.
      * @example 939283893939
      *
      * @var string
@@ -29,9 +27,13 @@ class AddChatappPhoneNumberRequest extends Model
     public $custSpaceId;
 
     /**
-     * @description The phone number without a country code.
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @description This parameter is required.
      *
-     * This parameter is required.
      * @example 13800000000
      *
      * @var string
@@ -39,8 +41,6 @@ class AddChatappPhoneNumberRequest extends Model
     public $phoneNumber;
 
     /**
-     * @description The ID of the pre-registered phone number.
-     *
      * @example 10202020
      *
      * @var string
@@ -48,20 +48,32 @@ class AddChatappPhoneNumberRequest extends Model
     public $preValidateId;
 
     /**
-     * @description The display name of the phone number.
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
+     * @description This parameter is required.
      *
-     * This parameter is required.
      * @example Alibaba
      *
      * @var string
      */
     public $verifiedName;
     protected $_name = [
-        'cc'            => 'Cc',
-        'custSpaceId'   => 'CustSpaceId',
-        'phoneNumber'   => 'PhoneNumber',
-        'preValidateId' => 'PreValidateId',
-        'verifiedName'  => 'VerifiedName',
+        'cc'                   => 'Cc',
+        'custSpaceId'          => 'CustSpaceId',
+        'ownerId'              => 'OwnerId',
+        'phoneNumber'          => 'PhoneNumber',
+        'preValidateId'        => 'PreValidateId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
+        'verifiedName'         => 'VerifiedName',
     ];
 
     public function validate()
@@ -77,11 +89,20 @@ class AddChatappPhoneNumberRequest extends Model
         if (null !== $this->custSpaceId) {
             $res['CustSpaceId'] = $this->custSpaceId;
         }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->phoneNumber) {
             $res['PhoneNumber'] = $this->phoneNumber;
         }
         if (null !== $this->preValidateId) {
             $res['PreValidateId'] = $this->preValidateId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
         if (null !== $this->verifiedName) {
             $res['VerifiedName'] = $this->verifiedName;
@@ -104,11 +125,20 @@ class AddChatappPhoneNumberRequest extends Model
         if (isset($map['CustSpaceId'])) {
             $model->custSpaceId = $map['CustSpaceId'];
         }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['PhoneNumber'])) {
             $model->phoneNumber = $map['PhoneNumber'];
         }
         if (isset($map['PreValidateId'])) {
             $model->preValidateId = $map['PreValidateId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
         if (isset($map['VerifiedName'])) {
             $model->verifiedName = $map['VerifiedName'];

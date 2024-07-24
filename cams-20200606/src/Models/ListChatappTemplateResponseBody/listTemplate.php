@@ -57,6 +57,13 @@ class listTemplate extends Model
     public $language;
 
     /**
+     * @example 1711006633000
+     *
+     * @var int
+     */
+    public $lastUpdateTime;
+
+    /**
      * @description The reason for the review failure.
      *
      * @example None
@@ -92,13 +99,14 @@ class listTemplate extends Model
      */
     public $templateType;
     protected $_name = [
-        'auditStatus'  => 'AuditStatus',
-        'category'     => 'Category',
-        'language'     => 'Language',
-        'reason'       => 'Reason',
-        'templateCode' => 'TemplateCode',
-        'templateName' => 'TemplateName',
-        'templateType' => 'TemplateType',
+        'auditStatus'    => 'AuditStatus',
+        'category'       => 'Category',
+        'language'       => 'Language',
+        'lastUpdateTime' => 'LastUpdateTime',
+        'reason'         => 'Reason',
+        'templateCode'   => 'TemplateCode',
+        'templateName'   => 'TemplateName',
+        'templateType'   => 'TemplateType',
     ];
 
     public function validate()
@@ -116,6 +124,9 @@ class listTemplate extends Model
         }
         if (null !== $this->language) {
             $res['Language'] = $this->language;
+        }
+        if (null !== $this->lastUpdateTime) {
+            $res['LastUpdateTime'] = $this->lastUpdateTime;
         }
         if (null !== $this->reason) {
             $res['Reason'] = $this->reason;
@@ -149,6 +160,9 @@ class listTemplate extends Model
         }
         if (isset($map['Language'])) {
             $model->language = $map['Language'];
+        }
+        if (isset($map['LastUpdateTime'])) {
+            $model->lastUpdateTime = $map['LastUpdateTime'];
         }
         if (isset($map['Reason'])) {
             $model->reason = $map['Reason'];

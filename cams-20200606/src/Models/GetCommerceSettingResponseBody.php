@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class GetCommerceSettingResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $accessDeniedDetail;
+
+    /**
      * @description The response code.
      *
      *   The value OK indicates that the request was successful.
@@ -31,6 +36,8 @@ class GetCommerceSettingResponseBody extends Model
     /**
      * @description The error message.
      *
+     * @example OK
+     *
      * @var string
      */
     public $message;
@@ -43,11 +50,20 @@ class GetCommerceSettingResponseBody extends Model
      * @var string
      */
     public $requestId;
+
+    /**
+     * @example true
+     *
+     * @var bool
+     */
+    public $success;
     protected $_name = [
-        'code'      => 'Code',
-        'data'      => 'Data',
-        'message'   => 'Message',
-        'requestId' => 'RequestId',
+        'accessDeniedDetail' => 'AccessDeniedDetail',
+        'code'               => 'Code',
+        'data'               => 'Data',
+        'message'            => 'Message',
+        'requestId'          => 'RequestId',
+        'success'            => 'Success',
     ];
 
     public function validate()
@@ -57,6 +73,9 @@ class GetCommerceSettingResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accessDeniedDetail) {
+            $res['AccessDeniedDetail'] = $this->accessDeniedDetail;
+        }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
@@ -68,6 +87,9 @@ class GetCommerceSettingResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -81,6 +103,9 @@ class GetCommerceSettingResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccessDeniedDetail'])) {
+            $model->accessDeniedDetail = $map['AccessDeniedDetail'];
+        }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
@@ -92,6 +117,9 @@ class GetCommerceSettingResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
 
         return $model;

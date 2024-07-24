@@ -23,8 +23,6 @@ class DeleteChatappTemplateRequest extends Model
      * >  CustWabaId is an obsolete parameter. Use CustSpaceId instead.
      * @example 65921621816****
      *
-     * @deprecated
-     *
      * @var string
      */
     public $custWabaId;
@@ -46,6 +44,21 @@ class DeleteChatappTemplateRequest extends Model
     public $language;
 
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
      * @description The code of the message template.
      *
      * @example 744c4b5c79c9432497a075bdfca3****
@@ -55,7 +68,7 @@ class DeleteChatappTemplateRequest extends Model
     public $templateCode;
 
     /**
-     * @example test_name
+     * @example test
      *
      * @var string
      */
@@ -68,13 +81,16 @@ class DeleteChatappTemplateRequest extends Model
      */
     public $templateType;
     protected $_name = [
-        'custSpaceId'  => 'CustSpaceId',
-        'custWabaId'   => 'CustWabaId',
-        'isvCode'      => 'IsvCode',
-        'language'     => 'Language',
-        'templateCode' => 'TemplateCode',
-        'templateName' => 'TemplateName',
-        'templateType' => 'TemplateType',
+        'custSpaceId'          => 'CustSpaceId',
+        'custWabaId'           => 'CustWabaId',
+        'isvCode'              => 'IsvCode',
+        'language'             => 'Language',
+        'ownerId'              => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
+        'templateCode'         => 'TemplateCode',
+        'templateName'         => 'TemplateName',
+        'templateType'         => 'TemplateType',
     ];
 
     public function validate()
@@ -95,6 +111,15 @@ class DeleteChatappTemplateRequest extends Model
         }
         if (null !== $this->language) {
             $res['Language'] = $this->language;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
         if (null !== $this->templateCode) {
             $res['TemplateCode'] = $this->templateCode;
@@ -128,6 +153,15 @@ class DeleteChatappTemplateRequest extends Model
         }
         if (isset($map['Language'])) {
             $model->language = $map['Language'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
         if (isset($map['TemplateCode'])) {
             $model->templateCode = $map['TemplateCode'];

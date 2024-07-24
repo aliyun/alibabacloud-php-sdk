@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyPhoneBusinessProfileRequest extends Model
 {
     /**
-     * @example business profile
+     * @example 关于
      *
      * @var string
      */
@@ -53,6 +53,11 @@ class ModifyPhoneBusinessProfileRequest extends Model
     public $email;
 
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @description You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * This parameter is required.
@@ -73,6 +78,16 @@ class ModifyPhoneBusinessProfileRequest extends Model
     public $profilePictureUrl;
 
     /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
      * @description Sichuan
      *
      * @example OTHER
@@ -88,15 +103,18 @@ class ModifyPhoneBusinessProfileRequest extends Model
      */
     public $websites;
     protected $_name = [
-        'about'             => 'About',
-        'address'           => 'Address',
-        'custSpaceId'       => 'CustSpaceId',
-        'description'       => 'Description',
-        'email'             => 'Email',
-        'phoneNumber'       => 'PhoneNumber',
-        'profilePictureUrl' => 'ProfilePictureUrl',
-        'vertical'          => 'Vertical',
-        'websites'          => 'Websites',
+        'about'                => 'About',
+        'address'              => 'Address',
+        'custSpaceId'          => 'CustSpaceId',
+        'description'          => 'Description',
+        'email'                => 'Email',
+        'ownerId'              => 'OwnerId',
+        'phoneNumber'          => 'PhoneNumber',
+        'profilePictureUrl'    => 'ProfilePictureUrl',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
+        'vertical'             => 'Vertical',
+        'websites'             => 'Websites',
     ];
 
     public function validate()
@@ -121,11 +139,20 @@ class ModifyPhoneBusinessProfileRequest extends Model
         if (null !== $this->email) {
             $res['Email'] = $this->email;
         }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->phoneNumber) {
             $res['PhoneNumber'] = $this->phoneNumber;
         }
         if (null !== $this->profilePictureUrl) {
             $res['ProfilePictureUrl'] = $this->profilePictureUrl;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
         if (null !== $this->vertical) {
             $res['Vertical'] = $this->vertical;
@@ -160,11 +187,20 @@ class ModifyPhoneBusinessProfileRequest extends Model
         if (isset($map['Email'])) {
             $model->email = $map['Email'];
         }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['PhoneNumber'])) {
             $model->phoneNumber = $map['PhoneNumber'];
         }
         if (isset($map['ProfilePictureUrl'])) {
             $model->profilePictureUrl = $map['ProfilePictureUrl'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
         if (isset($map['Vertical'])) {
             $model->vertical = $map['Vertical'];
