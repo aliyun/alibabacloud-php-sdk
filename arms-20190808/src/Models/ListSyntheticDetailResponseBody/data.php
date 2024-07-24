@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The list of results.
+     *
      * @var mixed[][]
      */
     public $items;

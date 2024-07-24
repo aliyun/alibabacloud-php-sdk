@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateRumAppRequest extends Model
 {
     /**
+     * @description The name of the application group.
+     *
      * @example default
      *
      * @var string
@@ -17,8 +19,9 @@ class CreateRumAppRequest extends Model
     public $appGroup;
 
     /**
-     * @description This parameter is required.
+     * @description The application name.
      *
+     * This parameter is required.
      * @example test-app
      *
      * @var string
@@ -26,11 +29,26 @@ class CreateRumAppRequest extends Model
     public $appName;
 
     /**
+     * @description The description of the application.
+     *
+     * @example Monitoring description
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The nick name.
+     *
+     * @example test-user
+     *
+     * @var string
+     */
+    public $nickName;
+
+    /**
+     * @description The name of the Android application package. This parameter is required if you create an Android application.
+     *
      * @example com.xxxx.xxxxxx
      *
      * @var string
@@ -38,8 +56,9 @@ class CreateRumAppRequest extends Model
     public $packageName;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -47,6 +66,8 @@ class CreateRumAppRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example rg-acfmxyexli2****
      *
      * @var string
@@ -54,8 +75,9 @@ class CreateRumAppRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description This parameter is required.
+     * @description The application type. Valid values: web, miniapp, ios, and android.
      *
+     * This parameter is required.
      * @example web
      *
      * @var string
@@ -63,6 +85,8 @@ class CreateRumAppRequest extends Model
     public $siteType;
 
     /**
+     * @description The source. This is a reserved parameter.
+     *
      * @example arms
      *
      * @var string
@@ -70,6 +94,8 @@ class CreateRumAppRequest extends Model
     public $source;
 
     /**
+     * @description The list of tags. You can specify a maximum of 20 tags.
+     *
      * @var tag[]
      */
     public $tag;
@@ -77,6 +103,7 @@ class CreateRumAppRequest extends Model
         'appGroup'        => 'AppGroup',
         'appName'         => 'AppName',
         'description'     => 'Description',
+        'nickName'        => 'NickName',
         'packageName'     => 'PackageName',
         'regionId'        => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
@@ -100,6 +127,9 @@ class CreateRumAppRequest extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->nickName) {
+            $res['NickName'] = $this->nickName;
         }
         if (null !== $this->packageName) {
             $res['PackageName'] = $this->packageName;
@@ -145,6 +175,9 @@ class CreateRumAppRequest extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['NickName'])) {
+            $model->nickName = $map['NickName'];
         }
         if (isset($map['PackageName'])) {
             $model->packageName = $map['PackageName'];

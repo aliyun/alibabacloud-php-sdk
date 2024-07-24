@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class AddRecordingRuleResponseBody extends Model
 {
     /**
+     * @description The status code. The status code 200 indicates that the request was successful.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
@@ -23,6 +27,10 @@ class AddRecordingRuleResponseBody extends Model
     public $data;
 
     /**
+     * @description The returned message.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;

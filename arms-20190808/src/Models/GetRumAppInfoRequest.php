@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetRumAppInfoRequest extends Model
 {
     /**
+     * @description The group to which the application belongs.
+     *
      * @example default
      *
      * @var string
@@ -16,6 +18,8 @@ class GetRumAppInfoRequest extends Model
     public $appGroup;
 
     /**
+     * @description The application ID.
+     *
      * @example atc889zkcf@d8deedfa9bf****
      *
      * @var string
@@ -23,8 +27,9 @@ class GetRumAppInfoRequest extends Model
     public $pid;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description Indicates whether a multi-region query is complete. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +21,8 @@ class data extends Model
     public $complete;
 
     /**
+     * @description The returned struct.
+     *
      * @var mixed[][]
      */
     public $items;

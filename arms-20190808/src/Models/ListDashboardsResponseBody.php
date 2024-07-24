@@ -17,7 +17,7 @@ class ListDashboardsResponseBody extends Model
     public $dashboardVos;
 
     /**
-     * @description The environment ID.
+     * @description The ID of the environment instance.
      *
      * @example env-ebd54733482581fc8c4237******
      *
@@ -26,7 +26,7 @@ class ListDashboardsResponseBody extends Model
     public $environmentId;
 
     /**
-     * @description Whether to enable Grafana service.
+     * @description Indicates whether Managed Service for Grafana is activated.
      *
      * @example true
      *

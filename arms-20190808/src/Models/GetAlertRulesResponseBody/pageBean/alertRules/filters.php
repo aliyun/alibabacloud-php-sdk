@@ -18,7 +18,7 @@ class filters extends Model
     public $customSLSFilters;
 
     /**
-     * @description The information of the aggregation dimension.
+     * @description The information about the aggregation dimension.
      *
      * @var string[]
      */

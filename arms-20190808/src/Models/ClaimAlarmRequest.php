@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ClaimAlarmRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The alert ID.
      *
+     * This parameter is required.
      * @example 30
      *
      * @var int
@@ -18,6 +19,8 @@ class ClaimAlarmRequest extends Model
     public $alarmId;
 
     /**
+     * @description The ID of the handler.
+     *
      * @example 2046076
      *
      * @var int
@@ -25,8 +28,9 @@ class ClaimAlarmRequest extends Model
     public $handlerId;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

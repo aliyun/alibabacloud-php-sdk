@@ -19,7 +19,7 @@ class CreateOrUpdateSilencePolicyResponseBody extends Model
     public $requestId;
 
     /**
-     * @description A list of silence policies.
+     * @description The silence policy.
      *
      * @var silencePolicy
      */

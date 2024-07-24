@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteEnvironmentRequest extends Model
 {
     /**
-     * @description cascade delete Prometheus instance.
+     * @description Specifies whether to delete the related Prometheus instance.
      *
      * @example true
      *

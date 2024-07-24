@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteEnvCustomJobRequest extends Model
 {
     /**
-     * @description Custom job name.
+     * @description The name of the custom job.
      *
      * This parameter is required.
      * @example job1
@@ -19,7 +19,7 @@ class DeleteEnvCustomJobRequest extends Model
     public $customJobName;
 
     /**
-     * @description Environment ID.
+     * @description The ID of the environment instance.
      *
      * This parameter is required.
      * @example env-xxx

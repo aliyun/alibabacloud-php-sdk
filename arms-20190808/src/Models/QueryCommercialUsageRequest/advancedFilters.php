@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class advancedFilters extends Model
 {
     /**
+     * @description The key of the filter condition.
+     *
      * @example regionId
      *
      * @var string
@@ -16,6 +18,8 @@ class advancedFilters extends Model
     public $key;
 
     /**
+     * @description The operator. Valid values: eq and in.
+     *
      * @example eq
      *
      * @var string
@@ -23,6 +27,8 @@ class advancedFilters extends Model
     public $opType;
 
     /**
+     * @description The value of the filter condition.
+     *
      * @example cn-hangzhou
      *
      * @var string

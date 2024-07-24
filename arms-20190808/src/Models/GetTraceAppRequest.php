@@ -30,7 +30,7 @@ class GetTraceAppRequest extends Model
     public $regionId;
 
     /**
-     * @description The list of tags.
+     * @description 标签。
      *
      * @var tags[]
      */

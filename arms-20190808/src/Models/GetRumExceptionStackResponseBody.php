@@ -29,6 +29,8 @@ class GetRumExceptionStackResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The error message.
+     *
      * @example Internal error. Please try again. Contact the DingTalk service account if the issue                              persists after multiple retries.
      *
      * @var string

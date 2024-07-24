@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class website extends Model
 {
     /**
-     * @description Specifies whether to automatically scroll up and down the screen to load a page. 0: No. 1: Yes. Default value: 0.
+     * @description Specifies whether to automatically scroll up and down the screen to load a page. Valid values: 0: No. 1: Yes. Default value: 0.
      *
      * @example 0
      *
@@ -18,7 +18,7 @@ class website extends Model
     public $automaticScrolling;
 
     /**
-     * @description Specifies whether to create a custom header. 0: No. 1: The first packet is modified. 2: All packets are modified. Default value: 0.
+     * @description Specifies whether to create a custom header. Valid values: 0: No. 1: The first packet is modified. 2: All packets are modified. Default value: 0.
      *
      * @example 0
      *
@@ -34,9 +34,9 @@ class website extends Model
     public $customHeaderContent;
 
     /**
-     * @description 域名（例如www.aliyun.com）解析时，解析出的IP地址或者CNAME不在DNS劫持白名单内，用户就会访问失败或者返回一个非Aliyun的目标IP；若解析结果中的IP或者CNAME在DNS白名单内，则会被认定为没有发生DNS劫持。
+     * @description If the IP address or CNAME record resolved from a domain name is not included in the DNS whitelist, you cannot access the domain name, or an IP address that belongs to a different domain name is returned. If the IP address or CNAME record is included in the DNS whitelist, DNS hijacking does not occur.
      *
-     * 填写格式：域名:匹配规则。匹配规则支持IP、IP通配符、子网掩码和CNAME，可以填写多个匹配规则，多个匹配规则以竖线（|）隔开。例如：www.aliyun.com:203.0.3.55|203.3.44.67，表示www.aliyun.com域名下除203.0.3.55和203.3.44.67之外的其他IP都是被劫持的。
+     * Format: \\<domain name>:\\<objects>. The objects can be IP addresses, wildcard mask, subnet mask, or CNAME records. Separate multiple objects with vertical bars (|). Example: www.aliyun.com:203.0.3.55|203.3.44.67. It indicates that all IP addresses that belong to the www.aliyun.com domain name except 203.0.3.55 and 203.3.44.67 are hijacked.
      * @example www.aliyun.com:203.0.3.55|203.3.44.67
      *
      * @var string
@@ -44,7 +44,7 @@ class website extends Model
     public $DNSHijackWhitelist;
 
     /**
-     * @description Specifies whether to disable the cache. 0: No. 1: Yes. Default value: 1.
+     * @description Specifies whether to disable the cache. Valid values: 0: No. 1: Yes. Default value: 1.
      *
      * @example 0
      *
@@ -53,7 +53,7 @@ class website extends Model
     public $disableCache;
 
     /**
-     * @description Specifies whether to accept compressed files based on the HTTP Accept-Encoding request header. 0: No. 1: Yes. Default value: 0.
+     * @description Specifies whether to accept compressed files based on the HTTP Accept-Encoding request header. Valid values: 0: No. 1: Yes. Default value: 0.
      *
      * @example 0
      *
@@ -62,7 +62,7 @@ class website extends Model
     public $disableCompression;
 
     /**
-     * @description 在页面加载过程中如果出现元素黑名单中配置的元素，不会请求加载该元素 。
+     * @description The elements not to be loaded in the page loading process.
      *
      * @example a.jpg
      *
@@ -71,7 +71,7 @@ class website extends Model
     public $elementBlacklist;
 
     /**
-     * @description Specifies whether to filter invalid IP addresses.
+     * @description Specifies whether to exclude invalid IP addresses. Valid values:
      *
      *   1: No
      *   0: Yes
@@ -83,7 +83,7 @@ class website extends Model
     public $filterInvalidIP;
 
     /**
-     * @description 识别元素：设置浏览页面元素总个数。
+     * @description The total number of elements on the page.
      *
      * @example 1
      *
@@ -92,7 +92,7 @@ class website extends Model
     public $flowHijackJumpTimes;
 
     /**
-     * @description 劫持标识：设置匹配的关键信息。填写劫持判断关键字或关键元素，允许带星号（*）。
+     * @description The keyword that is used to identify hijacking. Asterisks (\\*) are allowed.
      *
      * @example aliyun
      *
@@ -101,7 +101,7 @@ class website extends Model
     public $flowHijackLogo;
 
     /**
-     * @description Specifies whether to ignore SSL certificate errors during browsing. 0: No. 1: Yes. Default value: 1.
+     * @description Specifies whether to ignore SSL certificate errors during browsing. Valid values: 0: No. 1: Yes. Default value: 1.
      *
      * @example 0
      *
@@ -119,7 +119,7 @@ class website extends Model
     public $monitorTimeout;
 
     /**
-     * @description 监测页面出现了域名设置之外的元素都属于页面被篡改。常见的表现形式为弹出广告、浮动广告、跳转等。
+     * @description Elements that are not included in the whitelist and appear on the page are manipulated. These elements can be pop-up ads, floating ads, and page redirection.
      *
      * @example www.aliyun.com:|/cc/bb/a.gif|/vv/bb/cc.jpg
      *
@@ -128,7 +128,7 @@ class website extends Model
     public $pageTamper;
 
     /**
-     * @description Specifies whether to continue browsing after redirection. 0: No, 1:Yes. Default value: 1.
+     * @description Specifies whether to continue browsing after redirection. Valid values: 0: No. 1:Yes. Default value: 1.
      *
      * @example 0
      *
@@ -146,7 +146,7 @@ class website extends Model
     public $slowElementThreshold;
 
     /**
-     * @description The destination URL.
+     * @description The URL of the website.
      *
      * @example https://********
      *
@@ -155,7 +155,7 @@ class website extends Model
     public $targetUrl;
 
     /**
-     * @description 验证字符串即监测页面源代码中的某个任意字符串。若客户端返回的源码中包含任一黑名单中的字符串则报650验证字符串失败的错误。多个字符串以竖线（|）隔开。
+     * @description An arbitrary string in the source code of the page for verification. If the source code returned by the client contains a string that is in the blacklist, the 650 error code is reported, which indicates that the string fails to be verified. Separate multiple strings with vertical bars (|).
      *
      * @example error
      *
@@ -164,7 +164,7 @@ class website extends Model
     public $verifyStringBlacklist;
 
     /**
-     * @description 验证字符串即监测页面源代码中的某个任意字符串。客户端返回的源码必须包含所有白名单中的字符串，否则报650验证字符串失败的错误。多个字符串以竖线（|）隔开。
+     * @description An arbitrary string in the source code of the page for verification. If the source code returned by the client contains a string that is not in the whitelist, the 650 error code is reported, which indicates that the string fails to be verified. Separate multiple strings with vertical bars (|).
      *
      * @example success
      *

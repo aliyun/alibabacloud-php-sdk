@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetRetcodeDataByQueryRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The beginning of the time range to query. This value is a UNIX timestamp representing the number of seconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
      *
+     * This parameter is required.
      * @example 1668687302
      *
      * @var int
@@ -18,8 +19,11 @@ class GetRetcodeDataByQueryRequest extends Model
     public $from;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the application.
      *
+     * Log on to the **ARMS console**. In the left-side navigation pane, choose **Browser Monitoring** > **Browser Monitoring**. On the Browser Monitoring page, click the name of an application. The URL in the address bar contains the process ID (PID) of the application. The PID is indicated in the pid=xxx format. The PID is usually percent encoded as xxx%40xxx. You must modify this value to remove the percent encoding. For example, if the PID in the URL is eb4zdose6v%409781be0f44d\\*\\*\\*\\*, you must replace %40 with an at sign (@) to obtain eb4zdose6v@9781be0f44d\\*\\*\\*\\*.
+     *
+     * This parameter is required.
      * @example atc889zkcf@d8deedfa9bf****
      *
      * @var string
@@ -27,8 +31,9 @@ class GetRetcodeDataByQueryRequest extends Model
     public $pid;
 
     /**
-     * @description This parameter is required.
+     * @description The query statement that conforms to the query syntax of a Log Service Logstore.
      *
+     * This parameter is required.
      * @example t : pv|select sum(times) as pv , approx_distinct(uid) as uv , (date-date%3600000) as date  group by date
      *
      * @var string
@@ -36,8 +41,9 @@ class GetRetcodeDataByQueryRequest extends Model
     public $query;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -45,8 +51,9 @@ class GetRetcodeDataByQueryRequest extends Model
     public $regionId;
 
     /**
-     * @description This parameter is required.
+     * @description The end of the time range to query. This value is a UNIX timestamp representing the number of seconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
      *
+     * This parameter is required.
      * @example 1668688000
      *
      * @var int

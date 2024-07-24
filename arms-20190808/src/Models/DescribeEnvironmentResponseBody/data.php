@@ -191,7 +191,7 @@ class data extends Model
     public $grafanaFolderUrl;
 
     /**
-     * @description grafana工作区id
+     * @description The ID of the Grafana workspace.
      *
      * @example grafana-cn-27a3m8eem0a
      *
@@ -245,6 +245,13 @@ class data extends Model
     public $resourceGroupId;
 
     /**
+     * @description The security group ID bound to the environment.
+     *
+     * @var string
+     */
+    public $securityGroupId;
+
+    /**
      * @description The tags.
      *
      * @var tags[]
@@ -268,6 +275,13 @@ class data extends Model
      * @var string
      */
     public $vpcId;
+
+    /**
+     * @description The switch ID bound to the environment.
+     *
+     * @var string
+     */
+    public $vswitchId;
     protected $_name = [
         'bindResourceId'            => 'BindResourceId',
         'bindResourceProfile'       => 'BindResourceProfile',
@@ -292,9 +306,11 @@ class data extends Model
         'prometheusInstanceName'    => 'PrometheusInstanceName',
         'regionId'                  => 'RegionId',
         'resourceGroupId'           => 'ResourceGroupId',
+        'securityGroupId'           => 'SecurityGroupId',
         'tags'                      => 'Tags',
         'userId'                    => 'UserId',
         'vpcId'                     => 'VpcId',
+        'vswitchId'                 => 'VswitchId',
     ];
 
     public function validate()
@@ -373,6 +389,9 @@ class data extends Model
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+        if (null !== $this->securityGroupId) {
+            $res['SecurityGroupId'] = $this->securityGroupId;
+        }
         if (null !== $this->tags) {
             $res['Tags'] = [];
             if (null !== $this->tags && \is_array($this->tags)) {
@@ -387,6 +406,9 @@ class data extends Model
         }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
+        }
+        if (null !== $this->vswitchId) {
+            $res['VswitchId'] = $this->vswitchId;
         }
 
         return $res;
@@ -469,6 +491,9 @@ class data extends Model
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
+        if (isset($map['SecurityGroupId'])) {
+            $model->securityGroupId = $map['SecurityGroupId'];
+        }
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
@@ -483,6 +508,9 @@ class data extends Model
         }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
+        }
+        if (isset($map['VswitchId'])) {
+            $model->vswitchId = $map['VswitchId'];
         }
 
         return $model;

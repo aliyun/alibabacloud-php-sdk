@@ -135,7 +135,7 @@ class SearchTracesByPageRequest extends Model
     public $startTime;
 
     /**
-     * @description The tags.
+     * @description The list of tags.
      *
      * @var tags[]
      */

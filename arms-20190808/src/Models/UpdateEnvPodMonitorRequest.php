@@ -9,7 +9,10 @@ use AlibabaCloud\Tea\Model;
 class UpdateEnvPodMonitorRequest extends Model
 {
     /**
-     * @description The language. Valid values: zh and en. Default value: zh.
+     * @description The language. Valid values:
+     *
+     *   zh (default value): Chinese
+     *   en: English
      *
      * @example zh
      *
@@ -18,7 +21,7 @@ class UpdateEnvPodMonitorRequest extends Model
     public $aliyunLang;
 
     /**
-     * @description The YAML configuration string.
+     * @description The YAML configuration file of the ServiceMonitor.
      *
      * This parameter is required.
      * @example Refer to supplementary instructions.
@@ -28,7 +31,7 @@ class UpdateEnvPodMonitorRequest extends Model
     public $configYaml;
 
     /**
-     * @description Specifies whether to perform only a dry run, without performing the actual request.
+     * @description Checks whether the format is valid and whether targets are matched.
      *
      * @example true
      *
@@ -47,7 +50,7 @@ class UpdateEnvPodMonitorRequest extends Model
     public $environmentId;
 
     /**
-     * @description The namespace where the PodMonitor is located.
+     * @description The namespace where the PodMonitor resides.
      *
      * This parameter is required.
      * @example arms-prom

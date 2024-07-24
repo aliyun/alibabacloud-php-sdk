@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListEnvironmentFeaturesRequest extends Model
 {
     /**
+     * @description The language. Valid values: zh and en. Default value: zh.
+     *
      * @var string
      */
     public $aliyunLang;

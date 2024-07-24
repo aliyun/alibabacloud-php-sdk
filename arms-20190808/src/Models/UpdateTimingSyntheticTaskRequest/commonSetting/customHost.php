@@ -17,7 +17,10 @@ class customHost extends Model
     public $hosts;
 
     /**
-     * @description The selection mode. 0: Random. 1: Polling.
+     * @description The selection mode. Valid values:
+     *
+     *   0: random
+     *   1: polling
      *
      * @example 0
      *

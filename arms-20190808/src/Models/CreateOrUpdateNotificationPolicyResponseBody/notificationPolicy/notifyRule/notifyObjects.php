@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class notifyObjects extends Model
 {
     /**
-     * @description 通知对象为联系人时的单独的联系方式
+     * @description The notification methods specified for a contact.
      *
      * @var string[]
      */
@@ -25,7 +25,7 @@ class notifyObjects extends Model
     public $notifyObjectId;
 
     /**
-     * @description The name of the notification contact.
+     * @description The name of the notification object.
      *
      * @example test
      *
@@ -34,9 +34,15 @@ class notifyObjects extends Model
     public $notifyObjectName;
 
     /**
-     * @description The type of the notification contact. Valid values:
+     * @description The type of the notification object. Valid values:
      *
-     * - CONTACT_SCHEDULE: a person on duty based on an established schedule
+     *   CONTACT: individual contact
+     *   CONTACT_GROUP: contact group
+     *   ARMS_CONTACT: individual ARMS contact
+     *   ARMS_CONTACT_GROUP: ARMS contact group
+     *   DING_ROBOT_GROUP: DingTalk, Lark, or WeCom IM chatbot
+     *   CONTACT_SCHEDULE: user on duty defined by a schedule
+     *
      * @example CONTACT
      *
      * @var string

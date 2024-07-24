@@ -16,7 +16,7 @@ use AlibabaCloud\Tea\Model;
 class monitorConf extends Model
 {
     /**
-     * @description The HTTP(S) synthetic test parameters.
+     * @description The parameters of the HTTP(S) synthetic test.
      *
      * @var apiHTTP
      */
@@ -51,7 +51,7 @@ class monitorConf extends Model
     public $netTCP;
 
     /**
-     * @description 流媒体拨测配置。
+     * @description Streaming media dial test configuration.
      *
      * @var stream
      */

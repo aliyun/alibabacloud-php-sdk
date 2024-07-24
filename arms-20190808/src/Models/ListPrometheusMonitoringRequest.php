@@ -29,7 +29,7 @@ class ListPrometheusMonitoringRequest extends Model
     public $regionId;
 
     /**
-     * @description The type of the monitoring configuration. Valid values for a Prometheus instance for Container Service: serviceMonitor, podMonitor, customJob, and probe. Valid values for a Prometheus instance for ECS: customJob and probe.
+     * @description The type of the monitoring configuration. Valid values for a Prometheus instance for Container Service: ServiceMonitor, PodMonitor, CustomJob, and Probe. Valid values for a Prometheus instance for ECS: CustomJob and Probe.
      *
      * @example serviceMonitor
      *

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QueryCommercialUsageResponseBody extends Model
 {
     /**
+     * @description The response status. Valid values: 2XX: The request is successful. 3XX: A redirection message is returned. 4XX: The request is invalid. 5XX: A server error occurs.
+     *
      * @example 200
      *
      * @var string
@@ -17,11 +19,15 @@ class QueryCommercialUsageResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned struct.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The error message returned if the request failed.
+     *
      * @example success
      *
      * @var string
@@ -29,6 +35,8 @@ class QueryCommercialUsageResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 99A663CB-8D7B-4B0D-A006-03C8EE38E7BB
      *
      * @var string
@@ -36,6 +44,11 @@ class QueryCommercialUsageResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

@@ -149,7 +149,7 @@ class fileDownload extends Model
     public $transmissionSize;
 
     /**
-     * @description 验证关键词。
+     * @description Verify keywords.
      *
      * @example success
      *
@@ -158,9 +158,9 @@ class fileDownload extends Model
     public $validateKeywords;
 
     /**
-     * @description 验证方式。
+     * @description Verification method.
      *
-     * - 2：MD5验证
+     * - 2: MD5 verification
      * @example 0
      *
      * @var int
@@ -168,7 +168,7 @@ class fileDownload extends Model
     public $verifyWay;
 
     /**
-     * @description DNS劫持白名单。匹配规则支持IP、IP通配符、子网掩码和CNAME，可以填写多个匹配规则，多个匹配规则以竖线（|）隔开。例如：www.aliyun.com:203.0.3.55|203.3.44.67，表示www.aliyun.com域名下除203.0.3.55和203.3.44.67之外的其他IP都是被劫持的。
+     * @description DNS hijacking whitelist. Matching rules support IP, IP wildcard, subnet mask and CNAME. You can fill in multiple matching rules, and multiple matching rules are separated by vertical bars (|). For example: `www.aliyun.com:203.0.3.55|203.3.44.67`, which means that all IPs except 203.0.3.55 and 203.3.44.67 under the www.aliyun.com domain name are hijacked.
      *
      * @example www.aliyun.com:203.0.3.55|203.3.44.67
      *

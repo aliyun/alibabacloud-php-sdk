@@ -19,8 +19,8 @@ class alertRuleContent extends Model
     /**
      * @description The relationship between multiple alert conditions specified for the Application Monitoring or Browser Monitoring alert rule. Valid values:
      *
-     *   OR: meets any of the specified conditions.
-     *   AND: meets all the specified conditions.
+     *   OR: The alert rule is triggered if one of the conditions is met.
+     *   AND: The alert rule is triggered if all the conditions are met.
      *
      * @example OR
      *

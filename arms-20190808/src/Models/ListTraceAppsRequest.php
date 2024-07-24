@@ -12,9 +12,7 @@ class ListTraceAppsRequest extends Model
     /**
      * @description The type of the application that is associated with the alert rule. Valid values:
      *
-     *   `TRACE`: Application Monitoring
-     *   `EBPF`: Application Monitoring eBPF Edition
-     *
+     * - EBPF: Application Monitoring eBPF Edition
      * @example TRACE
      *
      * @var string
@@ -24,7 +22,7 @@ class ListTraceAppsRequest extends Model
     /**
      * @description The region ID.
      *
-     * @example cn-hangzhou
+     * @example cn-shenzhen
      *
      * @var string
      */

@@ -9,17 +9,16 @@ use AlibabaCloud\Tea\Model;
 class settings extends Model
 {
     /**
-     * @description The values of the settings that you want to modify. For information about the supported settings, see the following items:
+     * @description The key of the settings that you want to modify. For more information about the supported settings, see the following sections.
      *
      *   Trace sampling settings
-     *   Main switch settings
+     *   Agent switch settings
      *   Threshold settings
      *   Advanced settings
      *   Thread settings
      *   Memory snapshot settings
      *   URL convergence settings
      *   Business log association settings
-     *   Business monitoring settings
      *
      * @example sampling.enable
      *
@@ -28,17 +27,16 @@ class settings extends Model
     public $key;
 
     /**
-     * @description The values of the settings that you want to modify. For information about the supported settings, see the following items:
+     * @description The value of the settings that you want to modify. For more information about the supported settings, see the following sections.
      *
      *   Trace sampling settings
-     *   Main switch settings
+     *   Agent switch settings
      *   Threshold settings
      *   Advanced settings
      *   Thread settings
      *   Memory snapshot settings
      *   URL convergence settings
      *   Business log association settings
-     *   Business monitoring settings
      *
      * @example true
      *

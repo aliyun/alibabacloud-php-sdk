@@ -46,6 +46,8 @@ class GetRumExceptionStackRequest extends Model
     public $regionId;
 
     /**
+     * @example source-map
+     *
      * @var string
      */
     public $sourcemapType;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetRumUploadFilesRequest extends Model
 {
     /**
+     * @description The file type. Valid values: source-map: SourceMap files. mapping: symbol table files for Android. dsym: dSYM files for iOS.
+     *
      * @example source-map
      *
      * @var string
@@ -16,6 +18,8 @@ class GetRumUploadFilesRequest extends Model
     public $appType;
 
     /**
+     * @description The application ID.
+     *
      * @example aoxxxxxly@741623b4e91****
      *
      * @var string
@@ -23,8 +27,9 @@ class GetRumUploadFilesRequest extends Model
     public $pid;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

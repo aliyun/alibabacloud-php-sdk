@@ -19,7 +19,7 @@ class UpdatePrometheusMonitoringRequest extends Model
     public $clusterId;
 
     /**
-     * @description The monitoring configuration. Specify a YAML string.
+     * @description The monitoring configuration. The value is a YAML string.
      *
      * This parameter is required.
      * @var string

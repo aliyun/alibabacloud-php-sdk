@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class customVPCSetting extends Model
 {
     /**
+     * @description The region ID.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description Security group ID. This security group is where the dial-up client is located. The security group limits the inbound and outbound rules of the dial-up client in the VPC. You need to set the inbound rules of the security group where your VPC is located to allow the security group where the dial-up client is located to access. Otherwise, the dial-up client cannot smoothly access the resources in your VPC.
+     *
+     * @example sg-xxxxxxx
+     *
      * @var string
      */
     public $secureGroupId;
 
     /**
+     * @description The vSwitch ID.
+     *
+     * @example vsw-bp1i0xezblf1yrz4xxxxx
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @description VPC ID.
+     *
+     * @example vpc-2zexy5nae9q2otaxxxx
+     *
      * @var string
      */
     public $vpcId;

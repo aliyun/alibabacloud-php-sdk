@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class groupRule extends Model
 {
     /**
-     * @description The time interval of grouping. Unit: seconds. Default value: 30.
+     * @description The time interval for grouping. Unit: seconds. Default value: 30.
      *
      * @example 30
      *

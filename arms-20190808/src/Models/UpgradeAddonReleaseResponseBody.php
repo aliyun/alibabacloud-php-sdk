@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpgradeAddonReleaseResponseBody extends Model
 {
     /**
-     * @description The status code. 200 indicates success.
+     * @description The status code. The status code 200 indicates that the request was successful.
      *
      * @example 200
      *
@@ -18,7 +18,7 @@ class UpgradeAddonReleaseResponseBody extends Model
     public $code;
 
     /**
-     * @description Return a message.
+     * @description The returned message.
      *
      * @example success
      *
@@ -27,7 +27,7 @@ class UpgradeAddonReleaseResponseBody extends Model
     public $data;
 
     /**
-     * @description The information returned when the request parameter is incorrect.
+     * @description The error message returned if the request parameters are invalid.
      *
      * @example success
      *
@@ -36,7 +36,7 @@ class UpgradeAddonReleaseResponseBody extends Model
     public $message;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example 27E653FA-5958-45BE-8AA9-14D884DC****
      *
@@ -45,7 +45,7 @@ class UpgradeAddonReleaseResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Whether the call was successful.
+     * @description Indicates whether the request was successful.
      *
      * @example true
      *

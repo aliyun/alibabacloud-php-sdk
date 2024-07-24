@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateMetricDropRequest extends Model
 {
     /**
+     * @description The ID of the Prometheus instance.
+     *
      * @example c3ca36c8e2693403d85c0d9f8bb1d7b6c
      *
      * @var string
@@ -16,6 +18,8 @@ class UpdateMetricDropRequest extends Model
     public $clusterId;
 
     /**
+     * @description The list of discarded metrics. Specify one metric name in each line.
+     *
      * @example apiserver_request_duration_seconds_bucket
      * container_tasks_state
      * @var string
@@ -23,6 +27,8 @@ class UpdateMetricDropRequest extends Model
     public $metricDrop;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string

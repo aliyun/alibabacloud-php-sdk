@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteAddonReleaseRequest extends Model
 {
     /**
+     * @description The name of the add-on.
+     *
      * @var string
      */
     public $addonName;

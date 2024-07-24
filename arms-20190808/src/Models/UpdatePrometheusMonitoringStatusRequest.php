@@ -39,7 +39,7 @@ class UpdatePrometheusMonitoringStatusRequest extends Model
     public $regionId;
 
     /**
-     * @description The status of the monitoring configuration. Valid values: run and stop.
+     * @description The status of the monitoring configuration. Valid values: run and stop. The status of Probe cannot be modified.
      *
      * This parameter is required.
      * @example run

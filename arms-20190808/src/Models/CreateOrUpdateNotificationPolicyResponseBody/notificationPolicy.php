@@ -13,8 +13,6 @@ use AlibabaCloud\Tea\Model;
 class notificationPolicy extends Model
 {
     /**
-     * @description 极简模式
-     *
      * @var bool
      */
     public $directedMode;
@@ -113,6 +111,8 @@ class notificationPolicy extends Model
     public $sendRecoverMessage;
 
     /**
+     * @description Indicates whether the notification policy is enabled. Valid values: enable and disable.
+     *
      * @example enable
      *
      * @var string

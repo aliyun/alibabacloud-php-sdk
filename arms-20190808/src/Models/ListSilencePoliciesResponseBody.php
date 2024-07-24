@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListSilencePoliciesResponseBody extends Model
 {
     /**
-     * @description The objects that were returned.
+     * @description The returned pages.
      *
      * @var pageBean
      */

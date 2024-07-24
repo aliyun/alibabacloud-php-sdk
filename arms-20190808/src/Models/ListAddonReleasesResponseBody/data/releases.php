@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class releases extends Model
 {
     /**
-     * @description Name of Addon.
+     * @description The name of the add-on.
      *
      * @example mysql
      *
@@ -19,7 +19,7 @@ class releases extends Model
     public $addonName;
 
     /**
-     * @description Number of alarm groups.
+     * @description The number of alert rules.
      *
      * @example 1
      *
@@ -28,14 +28,14 @@ class releases extends Model
     public $alertRuleCount;
 
     /**
-     * @description Condition list.
+     * @description The installation phase.
      *
      * @var conditions[]
      */
     public $conditions;
 
     /**
-     * @description Created time.
+     * @description The time when the add-on was created.
      *
      * @example 2023-09-22T16:56:29+08:00
      *
@@ -44,7 +44,7 @@ class releases extends Model
     public $createTime;
 
     /**
-     * @description Number of dashboard.
+     * @description The number of dashboards.
      *
      * @example 1
      *
@@ -53,7 +53,7 @@ class releases extends Model
     public $dashboardCount;
 
     /**
-     * @description Environment instance ID.
+     * @description The environment ID.
      *
      * @example env-xxxx
      *
@@ -62,7 +62,7 @@ class releases extends Model
     public $environmentId;
 
     /**
-     * @description Number of Exporter.
+     * @description The number of exporters.
      *
      * @example 2
      *
@@ -71,7 +71,7 @@ class releases extends Model
     public $exporterCount;
 
     /**
-     * @description Whether there is configuration.
+     * @description Indicates whether the configuration is available.
      *
      * @example true
      *
@@ -80,7 +80,7 @@ class releases extends Model
     public $haveConfig;
 
     /**
-     * @description User ID of the installation.
+     * @description The user ID.
      *
      * @example 1268790592387
      *
@@ -89,7 +89,7 @@ class releases extends Model
     public $installUserId;
 
     /**
-     * @description Language.
+     * @description The language.
      *
      * @example zh
      *
@@ -103,7 +103,7 @@ class releases extends Model
     public $managed;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID.
      *
      * @example cn-heyuan
      *
@@ -112,7 +112,7 @@ class releases extends Model
     public $regionId;
 
     /**
-     * @description Release ID.
+     * @description The release ID after installation.
      *
      * @example be29c093-3fd6-4fb6-9430-797030cc183a
      *
@@ -121,7 +121,7 @@ class releases extends Model
     public $releaseId;
 
     /**
-     * @description Name of Release.
+     * @description The name of the release.
      *
      * @example mysql-1695372983039
      *
@@ -130,7 +130,7 @@ class releases extends Model
     public $releaseName;
 
     /**
-     * @description Scene.
+     * @description The scenario.
      *
      * @example database
      *
@@ -139,7 +139,7 @@ class releases extends Model
     public $scene;
 
     /**
-     * @description Status of Release.
+     * @description The status.
      *
      * @example 0
      *
@@ -148,7 +148,7 @@ class releases extends Model
     public $status;
 
     /**
-     * @description Update time.
+     * @description The time when the add-on was updated.
      *
      * @example 2023-09-22T16:56:29+08:00
      *
@@ -157,7 +157,7 @@ class releases extends Model
     public $updateTime;
 
     /**
-     * @description User ID.
+     * @description The user ID.
      *
      * @example 111
      *
@@ -166,7 +166,7 @@ class releases extends Model
     public $userId;
 
     /**
-     * @description Version of Addon.
+     * @description The version of the add-on.
      *
      * @example 0.0.1
      *

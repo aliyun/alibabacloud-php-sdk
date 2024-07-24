@@ -19,7 +19,7 @@ class retcodeAppDataBean extends Model
     public $appId;
 
     /**
-     * @description PID.
+     * @description The process identifier (PID) of the application.
      *
      * @example aokcdqn3ly@a195c6d6421****
      *
@@ -30,7 +30,6 @@ class retcodeAppDataBean extends Model
     /**
      * @description The ID of the resource group.
      *
-     * If this parameter is left empty, the default resource group is used. You can view the resource group ID on the Resource Group page in the Resource Management console.
      * @example rg-acfmxyexli2****
      *
      * @var string
@@ -38,7 +37,7 @@ class retcodeAppDataBean extends Model
     public $resourceGroupId;
 
     /**
-     * @description The tags.
+     * @description The tags of the task.
      *
      * @var tags
      */

@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class policies extends Model
 {
     /**
-     * @description Default alert status.
+     * @description The default alert status.
      *
      * @example default
      *
@@ -20,7 +20,7 @@ class policies extends Model
     public $alertDefaultStatus;
 
     /**
-     * @description Default install status.
+     * @description The default installation status.
      *
      * @example false
      *
@@ -29,7 +29,7 @@ class policies extends Model
     public $defaultInstall;
 
     /**
-     * @description Whether to enable a service account.
+     * @description Indicates whether a service account is enabled.
      *
      * @example false.
      *
@@ -38,14 +38,14 @@ class policies extends Model
     public $enableServiceAccount;
 
     /**
-     * @description Metric check rule PromQL.
+     * @description The metric check rule.
      *
      * @var metricCheckRule
      */
     public $metricCheckRule;
 
     /**
-     * @description Whether to restart after integration.
+     * @description Indicates whether a restart is required after the installation.
      *
      * @example false
      *
@@ -54,14 +54,14 @@ class policies extends Model
     public $needRestartAfterIntegration;
 
     /**
-     * @description Protocol list.
+     * @description The supported protocols.
      *
      * @var protocols[]
      */
     public $protocols;
 
     /**
-     * @description Target Addon name.
+     * @description The target name of the add-on.
      *
      * @example cloud-rds-mysql
      *

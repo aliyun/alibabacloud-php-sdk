@@ -19,7 +19,7 @@ class GetPrometheusIntegrationResponseBody extends Model
     public $code;
 
     /**
-     * @description The struct returned.
+     * @description The returned struct.
      *
      * @var data
      */
@@ -35,7 +35,7 @@ class GetPrometheusIntegrationResponseBody extends Model
     public $message;
 
     /**
-     * @description Id of the request
+     * @description The ID of the request.
      *
      * @example 9BEF2832-9D95-5E3E-9B10-74887CA17B94
      *

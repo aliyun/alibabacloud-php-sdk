@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class GetExploreUrlResponseBody extends Model
 {
     /**
+     * @description Status code. 200 means success, other status codes are exceptions.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
@@ -23,6 +27,10 @@ class GetExploreUrlResponseBody extends Model
     public $data;
 
     /**
+     * @description The prompt information of the returned result.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
@@ -37,6 +45,10 @@ class GetExploreUrlResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Whether the operation was successful:
+     * - false: the operation failed
+     * @example true
+     *
      * @var bool
      */
     public $success;

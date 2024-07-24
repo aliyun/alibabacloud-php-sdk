@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateRumFileStatusRequest extends Model
 {
     /**
+     * @description The file name.
+     *
      * @example test.js.map
      *
      * @var string
@@ -16,6 +18,8 @@ class UpdateRumFileStatusRequest extends Model
     public $fileName;
 
     /**
+     * @description The application ID.
+     *
      * @example atc8xxxx
      * cf@d8deedfa9bf****
      * @var string
@@ -23,8 +27,9 @@ class UpdateRumFileStatusRequest extends Model
     public $pid;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -32,6 +37,8 @@ class UpdateRumFileStatusRequest extends Model
     public $regionId;
 
     /**
+     * @description The size of the file. Unit: bytes.
+     *
      * @example 20
      *
      * @var string
@@ -39,6 +46,8 @@ class UpdateRumFileStatusRequest extends Model
     public $size;
 
     /**
+     * @description The status of the file. Valid values: SUCCESS and INIT.
+     *
      * @example SUCCESS
      *
      * @var string
@@ -46,6 +55,8 @@ class UpdateRumFileStatusRequest extends Model
     public $status;
 
     /**
+     * @description The unique ID of the file. If you do not set this parameter, the system automatically sets a UUID for you.
+     *
      * @example MS4wLjAtbWFpbi4wZjM0NzRlOSxxxxxx
      *
      * @var string
@@ -53,6 +64,8 @@ class UpdateRumFileStatusRequest extends Model
     public $uuid;
 
     /**
+     * @description The version number of the file.
+     *
      * @example 1.0.0
      *
      * @var string

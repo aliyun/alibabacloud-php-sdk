@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The file name.
+     *
      * @example test.js.map
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $fileName;
 
     /**
+     * @description The time when the file was last modified. The value is a timestamp.
+     *
      * @example 1682863151000
      *
      * @var mixed
@@ -23,6 +27,8 @@ class data extends Model
     public $lastModifiedTime;
 
     /**
+     * @description The size of the file. Unit: bytes.
+     *
      * @example 1000
      *
      * @var string
@@ -30,6 +36,8 @@ class data extends Model
     public $size;
 
     /**
+     * @description The file ID.
+     *
      * @example cxxxerfewrfwerfwerffvrt
      *
      * @var string
@@ -37,6 +45,8 @@ class data extends Model
     public $uuid;
 
     /**
+     * @description The version number of the file.
+     *
      * @example 1.0.0
      *
      * @var string

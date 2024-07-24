@@ -27,7 +27,7 @@ class QueryAppTopologyResponseBody extends Model
     public $data;
 
     /**
-     * @description The returned message.
+     * @description The error message.
      *
      * @example Internal error. Please try again. Contact the DingTalk service account if the issue                              persists after multiple retries.
      *

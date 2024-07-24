@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The name of the component to which the custom job belongs.
+     * @description The name of the add-on to which the custom job belongs.
      *
      * @example mysql
      *
@@ -19,7 +19,7 @@ class data extends Model
     public $addonName;
 
     /**
-     * @description The instance name of the component.
+     * @description The instance name of the add-on.
      *
      * @example mysql1
      *
@@ -28,7 +28,7 @@ class data extends Model
     public $addonReleaseName;
 
     /**
-     * @description The version of the component.
+     * @description The version of the add-on.
      *
      * @example 1.1.0
      *

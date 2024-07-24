@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetAlertRulesResponseBody extends Model
 {
     /**
-     * @description The pages returned.
+     * @description The returned pages.
      *
      * @var pageBean
      */

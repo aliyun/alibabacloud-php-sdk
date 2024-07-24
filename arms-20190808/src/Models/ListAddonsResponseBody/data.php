@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description Ailas of the Addon.
+     * @description The alias of the add-on.
      *
      * @example MySQL
      *
@@ -20,21 +20,21 @@ class data extends Model
     public $alias;
 
     /**
-     * @description Categories list.
+     * @description The tags of the add-on.
      *
      * @var string[]
      */
     public $categories;
 
     /**
-     * @description Dashboard list.
+     * @description The dashboards.
      *
      * @var dashboards[]
      */
     public $dashboards;
 
     /**
-     * @description Description of the Addon.
+     * @description The description of the add-on.
      *
      * @example Monitor database indicators with MySQL Exporter
      *
@@ -43,14 +43,14 @@ class data extends Model
     public $description;
 
     /**
-     * @description Environment list.
+     * @description The supported environments.
      *
      * @var environments[]
      */
     public $environments;
 
     /**
-     * @description Icon address.
+     * @description The URL of the icon.
      *
      * @example http://xxxx
      *
@@ -59,14 +59,14 @@ class data extends Model
     public $icon;
 
     /**
-     * @description Keyword list.
+     * @description The collection of keywords.
      *
      * @var string[]
      */
     public $keywords;
 
     /**
-     * @description Language.
+     * @description The language.
      *
      * @example zh
      *
@@ -75,7 +75,7 @@ class data extends Model
     public $language;
 
     /**
-     * @description Last installation time.
+     * @description The time when the instance was last created.
      *
      * @example 2023-09-22T16:56:29+08:00
      *
@@ -84,7 +84,7 @@ class data extends Model
     public $latestReleaseCreateTime;
 
     /**
-     * @description Name of the Addon.
+     * @description The name of the add-on.
      *
      * @example mysql
      *
@@ -93,7 +93,7 @@ class data extends Model
     public $name;
 
     /**
-     * @description Whether to install it only once.
+     * @description Indicates whether the add-on can be installed only once.
      *
      * @example false
      *
@@ -102,7 +102,7 @@ class data extends Model
     public $once;
 
     /**
-     * @description Scene of the Addon.
+     * @description The scenario.
      *
      * @example database
      *
@@ -111,7 +111,7 @@ class data extends Model
     public $scene;
 
     /**
-     * @description Version of the Addon.
+     * @description The version of the agent.
      *
      * @example 0.0.1
      *
@@ -120,7 +120,7 @@ class data extends Model
     public $version;
 
     /**
-     * @description Weight of the Addon.
+     * @description The weight.
      *
      * @example 857
      *

@@ -9,7 +9,10 @@ use AlibabaCloud\Tea\Model;
 class OpenArmsDefaultSLRResponseBody extends Model
 {
     /**
-     * @description The returned result.
+     * @description Indicates whether the call was successful. Valid values:
+     *
+     *   `true`: The call was successful.
+     *   `false`: The call failed.
      *
      * @example true
      *

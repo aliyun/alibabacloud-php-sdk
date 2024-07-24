@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteRumUploadFileResponseBody extends Model
 {
     /**
+     * @description The HTTP status code. The status code 200 indicates that the request was successful.
+     *
      * @example 200
      *
      * @var int
@@ -16,6 +18,8 @@ class DeleteRumUploadFileResponseBody extends Model
     public $code;
 
     /**
+     * @description Indicates whether the file is deleted. If the file is deleted, "success" is returned.
+     *
      * @example success
      *
      * @var string
@@ -23,6 +27,8 @@ class DeleteRumUploadFileResponseBody extends Model
     public $data;
 
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -30,12 +36,14 @@ class DeleteRumUploadFileResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The error message.
+     *
      * @var string
      */
     public $message;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example 40B10E04-81E8-4643-970D-F1B38F2E****
      *
@@ -44,6 +52,11 @@ class DeleteRumUploadFileResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   `true`
+     *   `false`
+     *
      * @example true
      *
      * @var bool

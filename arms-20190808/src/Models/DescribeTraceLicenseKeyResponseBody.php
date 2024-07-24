@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeTraceLicenseKeyResponseBody extends Model
 {
     /**
+     * @description The license key for the application.
+     *
      * @example b590lhguqs@3a75d95f218****
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeTraceLicenseKeyResponseBody extends Model
     public $licenseKey;
 
     /**
+     * @description The request ID.
+     *
      * @example 29053944-6FE5-4240-8927-10095ECE****
      *
      * @var string

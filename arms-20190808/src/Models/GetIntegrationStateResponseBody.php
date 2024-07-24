@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetIntegrationStateResponseBody extends Model
 {
     /**
-     * @description 状态码。200为成功，其他状态码为异常。
+     * @description Status code. 200 means success, other status codes are exceptions.
      *
      * @example 200
      *
@@ -18,7 +18,7 @@ class GetIntegrationStateResponseBody extends Model
     public $code;
 
     /**
-     * @description 返回结果的提示信息。
+     * @description The prompt information of the returned result.
      *
      * @example success
      *
@@ -27,6 +27,8 @@ class GetIntegrationStateResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 1A9C645C-C83F-4C9D-8CCB-29BEC9E1****
      *
      * @var string
@@ -34,6 +36,11 @@ class GetIntegrationStateResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The integration state of Prometheus dashboards and collection rules. Valid values:
+     *
+     *   `true`: The Prometheus dashboards and collection rules that monitor the software are integrated.
+     *   `false`: The Prometheus dashboards and collection rules that monitor the software are not integrated.
+     *
      * @example true
      *
      * @var bool

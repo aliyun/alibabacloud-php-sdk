@@ -18,9 +18,8 @@ class UploadRequest extends Model
     public $edition;
 
     /**
-     * @description The content of the SourceMap file.
+     * @description The string of the SourceMap file.
      *
-     * This parameter is required.
      * @example test file content
      *
      * @var string

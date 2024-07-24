@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class appList extends Model
 {
     /**
+     * @description The application type. Valid values: web, miniapp, ios, and android.
+     *
      * @example web
      *
      * @var string
@@ -18,6 +20,8 @@ class appList extends Model
     public $appType;
 
     /**
+     * @description The time when the application was created. The value is a timestamp.
+     *
      * @example 1685686960872
      *
      * @var mixed
@@ -25,11 +29,15 @@ class appList extends Model
     public $createTime;
 
     /**
+     * @description The description of the application.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The endpoint that is used to report application data.
+     *
      * @example xxxxxxxx-default-cn.rum.aliyuncs.com
      *
      * @var string
@@ -37,6 +45,8 @@ class appList extends Model
     public $endpoint;
 
     /**
+     * @description Indicates whether the application is subscribed. Valid values: true and false.
+     *
      * @example true
      *
      * @var bool
@@ -44,11 +54,15 @@ class appList extends Model
     public $isSubscription;
 
     /**
+     * @description The application name.
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The alias of the application.
+     *
      * @example Williamtag
      *
      * @var string
@@ -56,6 +70,8 @@ class appList extends Model
     public $nickName;
 
     /**
+     * @description The package name of the Android application.
+     *
      * @example com.zy.yxws
      *
      * @var string
@@ -63,6 +79,8 @@ class appList extends Model
     public $packageName;
 
     /**
+     * @description The application ID.
+     *
      * @example xxxxx@cc08bdxxxx20b15
      *
      * @var string
@@ -70,6 +88,8 @@ class appList extends Model
     public $pid;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -77,6 +97,8 @@ class appList extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example rg-acfmzaq3ypaqkdy
      *
      * @var string
@@ -84,11 +106,15 @@ class appList extends Model
     public $resourceGroupId;
 
     /**
+     * @description Service domain name configuration list. Currently only supports mobile applications.
+     *
      * @var serviceDomainConfigs[]
      */
     public $serviceDomainConfigs;
 
     /**
+     * @description The name of the Simple Log Service Logstore that stores application data.
+     *
      * @example logstore-rum
      *
      * @var string
@@ -96,6 +122,8 @@ class appList extends Model
     public $slsLogstore;
 
     /**
+     * @description The name of the Simple Log Service project that stores application data.
+     *
      * @example proj-xtrace-xxxxxxxba6ef5466b5debf9e2f951-cn-hangzhou
      *
      * @var string
@@ -103,6 +131,8 @@ class appList extends Model
     public $slsProject;
 
     /**
+     * @description The status of the application. Valid values: created, running, and stopped.
+     *
      * @example running
      *
      * @var string
@@ -110,11 +140,15 @@ class appList extends Model
     public $status;
 
     /**
+     * @description The tags.
+     *
      * @var tags[]
      */
     public $tags;
 
     /**
+     * @description The type of the application. Valid value: RUM.
+     *
      * @example RUM
      *
      * @var string

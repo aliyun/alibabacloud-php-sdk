@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ManageRecordingRuleRequest extends Model
 {
     /**
-     * @description The cluster ID.
+     * @description The ID of the cluster.
      *
      * This parameter is required.
      * @example cf09705f5a82f454db0d50420b6b4e904
@@ -19,7 +19,7 @@ class ManageRecordingRuleRequest extends Model
     public $clusterId;
 
     /**
-     * @description The user ID.
+     * @description The ID of the user.
      *
      * This parameter is required.
      * @example 87348589207
@@ -29,7 +29,7 @@ class ManageRecordingRuleRequest extends Model
     public $queryUserId;
 
     /**
-     * @description The region ID.
+     * @description The ID of the region.
      *
      * This parameter is required.
      * @example cn-hangzhou

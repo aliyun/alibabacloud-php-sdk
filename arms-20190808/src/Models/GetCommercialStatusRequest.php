@@ -9,8 +9,19 @@ use AlibabaCloud\Tea\Model;
 class GetCommercialStatusRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The product code.
      *
+     *   arms_app_post
+     *   arms_web_post
+     *   arms_promethues_public_cn
+     *   prometheus_pay_public_cn
+     *   xtrace
+     *   arms_serverless_public_cn
+     *   arms_rumserverless_public_cn
+     *   prometheus_serverless_public_cn
+     *   xtrace_serverless_public_cn
+     *
+     * This parameter is required.
      * @example arms_app_post
      *
      * @var string
@@ -18,6 +29,8 @@ class GetCommercialStatusRequest extends Model
     public $commodityCode;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string

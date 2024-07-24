@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class AddPrometheusInstanceRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The name of the Prometheus instance for Remote Write.
      *
+     * This parameter is required.
      * @example notificationpolicy_test
      *
      * @var string
@@ -18,8 +19,9 @@ class AddPrometheusInstanceRequest extends Model
     public $name;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -27,8 +29,9 @@ class AddPrometheusInstanceRequest extends Model
     public $regionId;
 
     /**
-     * @description This parameter is required.
+     * @description The type of the Prometheus instance. Only Prometheus instances for Remote Write is supported. Set the value to RW.
      *
+     * This parameter is required.
      * @example RW
      *
      * @var string

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetAuthTokenResponseBody extends Model
 {
     /**
-     * @description The status code. The status code 200 indicates that the request was successful.
+     * @description Status code. 200 means success, other status codes are exceptions.
      *
      * @example 200
      *
@@ -27,7 +27,7 @@ class GetAuthTokenResponseBody extends Model
     public $data;
 
     /**
-     * @description The returned message.
+     * @description Additional Information.
      *
      * @example success
      *
@@ -36,7 +36,7 @@ class GetAuthTokenResponseBody extends Model
     public $message;
 
     /**
-     * @description The request ID.
+     * @description The ID of the request.
      *
      * @example 1A9C645C-C83F-4C9D-8CCB-29BEC9E1****
      *
@@ -45,11 +45,8 @@ class GetAuthTokenResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request was successful. Valid values:
-     *
-     *   `true`
-     *   `false`
-     *
+     * @description Whether the query was successful:
+     * - false: Failure
      * @example true
      *
      * @var bool

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class pageBean extends Model
 {
     /**
-     * @description The list of alert rules.
+     * @description The alert rules.
      *
      * @var alertRules[]
      */

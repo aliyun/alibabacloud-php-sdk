@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class fileDownload extends Model
 {
     /**
+     * @description Unit: milliseconds. Minimum value: 1000. Maximum value: 120000. Default value: 5000.
+     *
      * @example 5000
      *
      * @var int
@@ -16,11 +18,19 @@ class fileDownload extends Model
     public $connectionTimeout;
 
     /**
+     * @description The content of the custom request header.
+     *
      * @var string[]
      */
     public $customHeaderContent;
 
     /**
+     * @description The kernel type. Valid values:
+     *
+     *   1: curl
+     *   0: WinInet
+     *
+     * Default value: 1
      * @example 1
      *
      * @var int
@@ -28,6 +38,8 @@ class fileDownload extends Model
     public $downloadKernel;
 
     /**
+     * @description Specifies whether to ignore CA certificate authentication errors. Valid values: 0: no. 1: yes. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -35,6 +47,8 @@ class fileDownload extends Model
     public $ignoreCertificateAuthError;
 
     /**
+     * @description Specifies whether to ignore certificate revocation errors. Valid values: 0: no. 1: yes. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -42,6 +56,8 @@ class fileDownload extends Model
     public $ignoreCertificateCanceledError;
 
     /**
+     * @description Specifies whether to ignore certificate invalidity. Valid values: 0: no. 1: yes. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -49,6 +65,8 @@ class fileDownload extends Model
     public $ignoreCertificateOutOfDateError;
 
     /**
+     * @description Specifies whether to ignore certificate status errors. Valid values: 0: no. 1: yes. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -56,6 +74,8 @@ class fileDownload extends Model
     public $ignoreCertificateStatusError;
 
     /**
+     * @description Specifies whether to ignore certificate incredibility. Valid values: 0: no. 1: yes. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -63,6 +83,8 @@ class fileDownload extends Model
     public $ignoreCertificateUntrustworthyError;
 
     /**
+     * @description Specifies whether to ignore certificate usage errors. Valid values: 0: no. 1: yes. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -70,6 +92,8 @@ class fileDownload extends Model
     public $ignoreCertificateUsingError;
 
     /**
+     * @description Specifies whether to ignore host invalidity. Valid values: 0: no. 1: yes. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -77,6 +101,8 @@ class fileDownload extends Model
     public $ignoreInvalidHostError;
 
     /**
+     * @description The monitoring timeout period. Unit: milliseconds. Minimum value: 1000. Maximum value: 120000. Default value: 60000.
+     *
      * @example 60000
      *
      * @var int
@@ -84,6 +110,13 @@ class fileDownload extends Model
     public $monitorTimeout;
 
     /**
+     * @description The QUIC protocol type. Valid values:
+     *
+     *   1: HTTP/1
+     *   2: HTTP/2
+     *   3: HTTP/3
+     *
+     * Default value: 1
      * @example 1
      *
      * @var int
@@ -91,6 +124,8 @@ class fileDownload extends Model
     public $quickProtocol;
 
     /**
+     * @description Specifies whether to support redirection. Valid values: 0: no. 1: yes. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -98,8 +133,9 @@ class fileDownload extends Model
     public $redirection;
 
     /**
-     * @description This parameter is required.
+     * @description The URL that is used to download the file.
      *
+     * This parameter is required.
      * @example https://img.alicdn.com/tfs/TB13DzOjXP7gK0jSZFjXXc5aXXa-212-48.png
      *
      * @var string
@@ -107,6 +143,8 @@ class fileDownload extends Model
     public $targetUrl;
 
     /**
+     * @description The maximum file size of a single transfer. Unit: KB. Minimum value: 1. Maximum value: 20480. Valid values: 2048.
+     *
      * @example 2048
      *
      * @var int
@@ -114,16 +152,32 @@ class fileDownload extends Model
     public $transmissionSize;
 
     /**
+     * @description The keyword that is used in verification.
+     *
+     * @example aliyun
+     *
      * @var string
      */
     public $validateKeywords;
 
     /**
+     * @description The verification method. Valid values:
+     *
+     *   0: no verification
+     *   1: string verification
+     *   2: MD5 verification
+     *
+     * @example 0
+     *
      * @var int
      */
     public $verifyWay;
 
     /**
+     * @description The whitelisted objects that are used to avoid DNS hijacking. The objects can be IP addresses, wildcard mask, subnet mask, or CNAME records. Separate multiple objects with vertical bars (|). Example: www.aliyun.com:203.0.3.55|203.3.44.67. It indicates that all IP addresses that belong to the www.aliyun.com domain name except 203.0.3.55 and 203.3.44.67 are hijacked.
+     *
+     * @example www.aliyun.com:203.0.3.55|203.3.44.67
+     *
      * @var string
      */
     public $whiteList;

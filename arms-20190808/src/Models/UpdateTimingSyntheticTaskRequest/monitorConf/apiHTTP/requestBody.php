@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class requestBody extends Model
 {
     /**
-     * @description The content of the request body. Format: JSON string. The parameter is required if the type parameter is set to text/plain, application/json, application/xml, or text/html. Format: JSON string.
+     * @description The content of the request body. Format: JSON string. The parameter is required if the type parameter is set to text/plain, application/json, application/xml, or text/html.
      *
      * @example {
      * }

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class pageBean extends Model
 {
     /**
-     * @description The list of information about historical alert events.
+     * @description The queried historical alert events.
      *
      * @var events[]
      */

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpgradeAddonReleaseRequest extends Model
 {
     /**
-     * @description Version of Addon.
+     * @description The version of the add-on.
      *
      * This parameter is required.
      * @example 0.0.2
@@ -19,7 +19,7 @@ class UpgradeAddonReleaseRequest extends Model
     public $addonVersion;
 
     /**
-     * @description Whether to pre-check this request.
+     * @description Specifies whether to perform only a dry run, without performing the actual request.
      *
      * @example false
      *
@@ -28,7 +28,7 @@ class UpgradeAddonReleaseRequest extends Model
     public $dryRun;
 
     /**
-     * @description Environment ID.
+     * @description The environment ID.
      *
      * This parameter is required.
      * @example env-xxx
@@ -38,7 +38,7 @@ class UpgradeAddonReleaseRequest extends Model
     public $environmentId;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *
@@ -47,7 +47,7 @@ class UpgradeAddonReleaseRequest extends Model
     public $regionId;
 
     /**
-     * @description The name of Release.
+     * @description The name of the release.
      *
      * This parameter is required.
      * @example mysql-1695372983039
@@ -57,7 +57,7 @@ class UpgradeAddonReleaseRequest extends Model
     public $releaseName;
 
     /**
-     * @description Metadata information.
+     * @description The metadata information.
      *
      * This parameter is required.
      * @example {"host":"mysql-service.default","port":3306,"username":"root","password":"roots"}

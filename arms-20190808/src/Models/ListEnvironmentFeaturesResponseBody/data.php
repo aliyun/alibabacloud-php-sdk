@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The alias of the feature.
+     *
      * @var string
      */
     public $alias;
 
     /**
+     * @description The feature configuration.
+     *
      * @var string[]
      */
     public $config;
 
     /**
+     * @description The description of the feature.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the environment instance.
+     *
      * @example env-xxxxx
      *
      * @var string
@@ -31,6 +39,8 @@ class data extends Model
     public $environmentId;
 
     /**
+     * @description The URL of the icon.
+     *
      * @example http://xxx
      *
      * @var string
@@ -38,6 +48,11 @@ class data extends Model
     public $icon;
 
     /**
+     * @description The language. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
      * @example zh
      *
      * @var string
@@ -45,6 +60,8 @@ class data extends Model
     public $language;
 
     /**
+     * @description The latest version number.
+     *
      * @example 1.1.17
      *
      * @var string
@@ -57,6 +74,8 @@ class data extends Model
     public $managed;
 
     /**
+     * @description The name of the feature.
+     *
      * @example metric-agent
      *
      * @var string
@@ -64,6 +83,15 @@ class data extends Model
     public $name;
 
     /**
+     * @description The status of the feature. Valid values:
+     *
+     *   Installing: The agent is being installed.
+     *   Success: The agent is installed.
+     *   Failed: The agent failed to be installed.
+     *   UnInstall: The agent is uninstalled.
+     *   Uninstalling: The agent is being uninstalled.
+     *   UnInstallFailed: The agent failed to be uninstalled.
+     *
      * @example Success
      *
      * @var string
@@ -71,6 +99,8 @@ class data extends Model
     public $status;
 
     /**
+     * @description The version of the feature.
+     *
      * @example 1.1.17
      *
      * @var string

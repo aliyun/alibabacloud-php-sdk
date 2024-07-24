@@ -19,7 +19,7 @@ class ListPrometheusIntegrationRequest extends Model
     public $clusterId;
 
     /**
-     * @description The integration type.
+     * @description The integration type. Valid values: kafka, mysql, redis, snmp, emr, nubela, and tidb.
      *
      * This parameter is required.
      * @example kafka, mysql, redis, snmp, emr, nubela, and tidb

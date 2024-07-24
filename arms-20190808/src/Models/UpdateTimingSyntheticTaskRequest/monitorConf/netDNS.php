@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class netDNS extends Model
 {
     /**
-     * @description Specifies whether to use dig to display the data. 0: No. 1: Yes.
+     * @description Specifies whether to use the dig command to display the data. Valid values: 0: No. 1: Yes.
      *
      * @example 0
      *
@@ -18,7 +18,7 @@ class netDNS extends Model
     public $dig;
 
     /**
-     * @description The IP version of the DNS server. 0: IPv4. 1: IPv6. 2: A version is automatically selected. Default value: 0.
+     * @description The IP version of the DNS server. Valid values: 0: IPv4. 1: IPv6. 2: A version is automatically selected. Default value: 0.
      *
      * @example 0
      *
@@ -36,7 +36,7 @@ class netDNS extends Model
     public $nsServer;
 
     /**
-     * @description The DNS query. 0: recursive, 1: iterative. Default value: 0.
+     * @description The DNS query method. Valid values: 0: recursive. 1: iterative. Default value: 0.
      *
      * @example 0
      *
@@ -45,7 +45,7 @@ class netDNS extends Model
     public $queryMethod;
 
     /**
-     * @description The destination domain name.
+     * @description The domain name.
      *
      * @example www.aliyun.com
      *

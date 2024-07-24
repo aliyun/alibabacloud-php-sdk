@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description If the request parameter EncryptYaml is set to true, a Base64-encoded YAML string is returned. Otherwise, a plaintext YAML string is returned.
+     * @description If the **encryptYaml** parameter is set to `true`, a Base64-encoded YAML string is returned. Otherwise, a plaintext YAML string is returned.
      *
      * @example Refer to supplementary instructions.
      *
@@ -45,7 +45,10 @@ class data extends Model
     public $regionId;
 
     /**
-     * @description The status of the custom job. Valid values: run and stop.
+     * @description The status. Valid values:
+     *
+     *   run
+     *   stop
      *
      * @example run
      *

@@ -16,36 +16,50 @@ use AlibabaCloud\Tea\Model;
 class monitorConf extends Model
 {
     /**
+     * @description The parameters of the HTTP(S) synthetic test.
+     *
      * @var apiHTTP
      */
     public $apiHTTP;
 
     /**
+     * @description The parameters of file downloading.
+     *
      * @var fileDownload
      */
     public $fileDownload;
 
     /**
+     * @description The parameters of the DNS synthetic test. This parameter is required if the TaskType parameter is set to 3.
+     *
      * @var netDNS
      */
     public $netDNS;
 
     /**
+     * @description The parameters of the ICMP synthetic test. This parameter is required if the TaskType parameter is set to 1.
+     *
      * @var netICMP
      */
     public $netICMP;
 
     /**
+     * @description The parameters of the TCP synthetic test. This parameter is required if the TaskType parameter is set to 2.
+     *
      * @var netTCP
      */
     public $netTCP;
 
     /**
+     * @description The parameters of the streaming-media synthetic test.
+     *
      * @var stream
      */
     public $stream;
 
     /**
+     * @description The parameters of the website speed measurement.
+     *
      * @var website
      */
     public $website;

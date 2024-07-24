@@ -10,8 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 权限类型：
-     * readWrite、readOnly、httpReadOnly
+     * @description Permission type: read Write, read Only, http Read Only
+     *
      * @example readWrite
      *
      * @var string
@@ -19,7 +19,7 @@ class data extends Model
     public $accessType;
 
     /**
-     * @description The number of days for which data is automatically archived after the storage expires. Valid values: 60, 90, 180, and 365. 0 indicates that the data is not archived.
+     * @description The number of days for which data is automatically archived after the storage duration expires. Valid values: 60, 90, 180, and 365. 0 indicates that the data is not archived.
      *
      * @example 60
      *
@@ -28,7 +28,7 @@ class data extends Model
     public $archiveDuration;
 
     /**
-     * @description Authorization token.
+     * @description The authorization token.
      *
      * @example GciOiJIUzI1NiJ9***
      *
@@ -78,7 +78,7 @@ class data extends Model
     public $grafanaInstanceId;
 
     /**
-     * @description Http API internet address.
+     * @description The public URL for the HTTP API.
      *
      * @example https://cn-beijing.arms.aliyuncs.com:9443/api/v1/prometheus/xxx
      *
@@ -87,7 +87,7 @@ class data extends Model
     public $httpApiInterUrl;
 
     /**
-     * @description Http API intranet address.
+     * @description The internal URL for the HTTP API.
      *
      * @example http://cn-beijing-intranet.arms.aliyuncs.com:9090/api/v1/prometheus/xxx
      *
@@ -108,7 +108,7 @@ class data extends Model
     public $paymentType;
 
     /**
-     * @description Push gateway internet address.
+     * @description The public URL for Pushgateway.
      *
      * @example https://cn-beijing.arms.aliyuncs.com/prometheus/xxx/api/v2
      *
@@ -117,7 +117,7 @@ class data extends Model
     public $pushGatewayInterUrl;
 
     /**
-     * @description Push gateway intranet address.
+     * @description The internal URL for Pushgateway.
      *
      * @example http://cn-beijing-intranet.arms.aliyuncs.com/prometheus/xxx/api/v2
      *
@@ -135,7 +135,7 @@ class data extends Model
     public $regionId;
 
     /**
-     * @description Remote read internet address.
+     * @description The public URL for remote read.
      *
      * @example http://cn-beijing.arms.aliyuncs.com:9090/api/v1/prometheus/xxx/api/v1/read
      *
@@ -144,7 +144,7 @@ class data extends Model
     public $remoteReadInterUrl;
 
     /**
-     * @description Remote read intranet address.
+     * @description The internal URL for remote read.
      *
      * @example http://cn-beijing-intranet.arms.aliyuncs.com:9090/api/v1/prometheus/xxx/api/v1/read
      *
@@ -153,7 +153,7 @@ class data extends Model
     public $remoteReadIntraUrl;
 
     /**
-     * @description Remote write internet address.
+     * @description The public URL for remote write.
      *
      * @example https://cn-beijing.arms.aliyuncs.com/prometheus/xxx/api/v3/write
      *
@@ -162,7 +162,7 @@ class data extends Model
     public $remoteWriteInterUrl;
 
     /**
-     * @description Remote write intranet address.
+     * @description The internal URL for remote write.
      *
      * @example http://cn-beijing-intranet.arms.aliyuncs.com/prometheus/xxx/api/v3/write
      *

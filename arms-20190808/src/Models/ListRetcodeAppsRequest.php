@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListRetcodeAppsRequest extends Model
 {
     /**
-     * @description The ID of the region.
+     * @description The region ID.
      *
      * This parameter is required.
      * @example cn-hangzhou
@@ -29,7 +29,7 @@ class ListRetcodeAppsRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description The tags.
+     * @description The tags that you want to add to the task.
      *
      * @var tags[]
      */

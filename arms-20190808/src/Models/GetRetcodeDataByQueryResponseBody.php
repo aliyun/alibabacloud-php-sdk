@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class GetRetcodeDataByQueryResponseBody extends Model
 {
     /**
+     * @description The HTTP status code returned for the request. Valid values:
+     *
+     *   2XX: The request was successful.
+     *   3XX: A redirection message was returned.
+     *   4XX: The request was invalid.
+     *   5XX: A server error occurred.
+     *
      * @example 200
      *
      * @var string
@@ -16,6 +23,8 @@ class GetRetcodeDataByQueryResponseBody extends Model
     public $code;
 
     /**
+     * @description The Browser Monitoring data returned.
+     *
      * @example {"total":0,"auth":false,"pageSize":20,"completed":true,"page":1,"items":[]}
      *
      * @var string
@@ -23,6 +32,8 @@ class GetRetcodeDataByQueryResponseBody extends Model
     public $data;
 
     /**
+     * @description The error message returned if the call fails.
+     *
      * @example Internal error. Please try again. Contact the DingTalk service account if the issue                              persists after multiple retries.
      *
      * @var string
@@ -30,6 +41,8 @@ class GetRetcodeDataByQueryResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 2A0CEDF1-06FE-44AC-8E21-21A5BE65****
      *
      * @var string
@@ -37,6 +50,11 @@ class GetRetcodeDataByQueryResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

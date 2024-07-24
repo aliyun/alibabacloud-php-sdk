@@ -21,7 +21,7 @@ class CreateRetcodeAppResponseBody extends Model
     /**
      * @description The response parameters.
      *
-     * @example cs80w0n7u3@6455f403dba2f0a
+     * @example bdidt76ehx@d5cf1cd3f7df411
      *
      * @var string
      */
@@ -30,14 +30,14 @@ class CreateRetcodeAppResponseBody extends Model
     /**
      * @description The message returned.
      *
-     * @example message
+     * @example success
      *
      * @var string
      */
     public $message;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example A5EC8221-08F2-4C95-9AF1-49FD998C647A
      *
@@ -46,7 +46,7 @@ class CreateRetcodeAppResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The return detail.
+     * @description The information of the Browser Monitoring task.
      *
      * @var retcodeAppDataBean
      */
@@ -55,9 +55,7 @@ class CreateRetcodeAppResponseBody extends Model
     /**
      * @description Indicates whether the call was successful. Valid values:
      *
-     *   true: The call was successful.
-     *   false: The call failed.
-     *
+     * - false: The call failed.
      * @example True
      *
      * @var bool

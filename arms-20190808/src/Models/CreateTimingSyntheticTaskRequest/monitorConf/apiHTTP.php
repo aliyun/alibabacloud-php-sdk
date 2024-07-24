@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class apiHTTP extends Model
 {
     /**
+     * @description Specifies whether to verify the certificate. Default value: no.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $checkCert;
 
     /**
+     * @description The connection timeout period. Unit: milliseconds. Default value: 5000. Minimum value: 1000. Maximum value: 300000.
+     *
      * @example 5000
      *
      * @var int
@@ -22,6 +28,8 @@ class apiHTTP extends Model
     public $connectTimeout;
 
     /**
+     * @description The request method. Valid values: GET and POST.
+     *
      * @example GET
      *
      * @var string
@@ -29,23 +37,30 @@ class apiHTTP extends Model
     public $method;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $protocolAlpnProtocol;
 
     /**
+     * @description The HTTP request body.
+     *
      * @var requestBody
      */
     public $requestBody;
 
     /**
+     * @description The HTTP request header.
+     *
      * @var string[]
      */
     public $requestHeaders;
 
     /**
-     * @description This parameter is required.
+     * @description The URL or request path for synthetic monitoring.
      *
+     * This parameter is required.
      * @example http://www.demo.com/api/list
      *
      * @var string
@@ -53,6 +68,8 @@ class apiHTTP extends Model
     public $targetUrl;
 
     /**
+     * @description The timeout period. Unit: milliseconds. Default value: 10000. Minimum value: 1000. Maximum value: 300000.
+     *
      * @example 10000
      *
      * @var int

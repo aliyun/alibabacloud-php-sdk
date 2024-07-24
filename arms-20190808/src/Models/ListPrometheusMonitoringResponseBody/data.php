@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description Prometheus Instance ID.
+     * @description The ID of the Prometheus instance.
      *
      * @example c589a1b8db05c4561aefbb898ca8fb1cf
      *

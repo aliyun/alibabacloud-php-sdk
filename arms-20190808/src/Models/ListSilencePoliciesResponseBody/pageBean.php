@@ -19,7 +19,7 @@ class pageBean extends Model
     public $page;
 
     /**
-     * @description An array of silence policy objects.
+     * @description The queried silence policies.
      *
      * @var silencePolicies[]
      */

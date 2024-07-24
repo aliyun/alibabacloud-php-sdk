@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateMetricDropResponseBody extends Model
 {
     /**
+     * @description The response status. Valid values: 2XX: The request is successful. 3XX: A redirection message is returned. 4XX: The request is invalid. 5XX: A server error occurs.
+     *
      * @example 200
      *
      * @var int
@@ -16,6 +18,8 @@ class UpdateMetricDropResponseBody extends Model
     public $code;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
      * @example true
      *
      * @var string
@@ -23,6 +27,8 @@ class UpdateMetricDropResponseBody extends Model
     public $data;
 
     /**
+     * @description The returned message.
+     *
      * @example success
      *
      * @var string
@@ -30,7 +36,7 @@ class UpdateMetricDropResponseBody extends Model
     public $message;
 
     /**
-     * @description Id of the request
+     * @description The ID of the request.
      *
      * @example CCCA4B88-BD7B-5A38-89AF-C09293BD4187
      *
@@ -39,6 +45,11 @@ class UpdateMetricDropResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

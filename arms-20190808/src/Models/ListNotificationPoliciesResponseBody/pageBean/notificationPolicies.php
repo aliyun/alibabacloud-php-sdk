@@ -70,14 +70,14 @@ class notificationPolicies extends Model
     public $name;
 
     /**
-     * @description The notification rules.
+     * @description The notification rule.
      *
      * @var notifyRule
      */
     public $notifyRule;
 
     /**
-     * @description The notification templates.
+     * @description The notification template.
      *
      * @var notifyTemplate
      */
@@ -117,6 +117,8 @@ class notificationPolicies extends Model
     public $sendRecoverMessage;
 
     /**
+     * @description Indicates whether the notification policy is enabled. Valid values: enable and disable.
+     *
      * @example enable
      *
      * @var string

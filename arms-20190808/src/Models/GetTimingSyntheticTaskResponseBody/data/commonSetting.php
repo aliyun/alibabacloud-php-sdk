@@ -19,11 +19,15 @@ class commonSetting extends Model
     public $customHost;
 
     /**
+     * @description The reserved parameters.
+     *
      * @var customPrometheusSetting
      */
     public $customPrometheusSetting;
 
     /**
+     * @description User VPC information. If the dial-up is to the Alibaba Cloud intranet address, you need to configure the VPC information.
+     *
      * @var customVPCSetting
      */
     public $customVPCSetting;
@@ -42,7 +46,7 @@ class commonSetting extends Model
     public $ipType;
 
     /**
-     * @description 是否开启链路追踪。
+     * @description Whether to enable tracing.
      *
      * @example true
      *
@@ -63,9 +67,9 @@ class commonSetting extends Model
     public $monitorSamples;
 
     /**
-     * @description 链路追踪客户端类型：
+     * @description Tracing client type:
      *
-     * - 2：Jaeger
+     * - 2: Jaeger
      * @example 1
      *
      * @var int
@@ -73,7 +77,7 @@ class commonSetting extends Model
     public $traceClientType;
 
     /**
-     * @description 链路数据上报region。
+     * @description Tracing data reporting region.
      *
      * @example cn-hangzhou
      *

@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class GetClusterAllUrlResponseBody extends Model
 {
     /**
+     * @description Status code. 200 means success, other status codes are exceptions.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
@@ -23,6 +27,10 @@ class GetClusterAllUrlResponseBody extends Model
     public $data;
 
     /**
+     * @description The prompt information of the returned result.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
@@ -37,6 +45,10 @@ class GetClusterAllUrlResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Whether the query is successful:
+     * - false: failure
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class sourceMapList extends Model
 {
     /**
+     * @description The ID of the SourceMap file.
+     *
      * @var string
      */
     public $fid;
 
     /**
+     * @description The name of the SourceMap file.
+     *
      * @example test.sourcemap.js
      *
      * @var string
@@ -21,6 +25,8 @@ class sourceMapList extends Model
     public $fileName;
 
     /**
+     * @description The size of the file. Unit: KB.
+     *
      * @example 201223
      *
      * @var string
@@ -28,6 +34,8 @@ class sourceMapList extends Model
     public $size;
 
     /**
+     * @description The timestamp that indicates when the file was uploaded.
+     *
      * @example 1590657842000
      *
      * @var string
@@ -35,6 +43,8 @@ class sourceMapList extends Model
     public $uploadTime;
 
     /**
+     * @description The version of the file.
+     *
      * @example 0.0.0
      *
      * @var string

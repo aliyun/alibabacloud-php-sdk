@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetSourceMapInfoResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example C21AB7CF-B7AF-410F-BD61-82D1567F****
      *
      * @var string
@@ -17,6 +19,8 @@ class GetSourceMapInfoResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The details of the SourceMap file.
+     *
      * @var sourceMapList[]
      */
     public $sourceMapList;

@@ -26,6 +26,8 @@ class ListGrafanaWorkspaceRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example rg-acfmxyexli2****
      *
      * @var string

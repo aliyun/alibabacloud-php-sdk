@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteRumUploadFileRequest extends Model
 {
     /**
+     * @description The file name, with the extension.
+     *
      * @example test.js.map
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteRumUploadFileRequest extends Model
     public $fileName;
 
     /**
+     * @description The application ID.
+     *
      * @example atc889zkcf@d8deedfa9bf****
      *
      * @var string
@@ -23,8 +27,9 @@ class DeleteRumUploadFileRequest extends Model
     public $pid;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -32,6 +37,8 @@ class DeleteRumUploadFileRequest extends Model
     public $regionId;
 
     /**
+     * @description The file ID.
+     *
      * @example MS4wLjAtbWFpbi4wZjM0NzRlOSxxxxxx
      *
      * @var string
@@ -39,6 +46,8 @@ class DeleteRumUploadFileRequest extends Model
     public $uuid;
 
     /**
+     * @description The version number of the file.
+     *
      * @example 1.0.0
      *
      * @var string

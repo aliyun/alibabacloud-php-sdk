@@ -35,7 +35,7 @@ class ListPrometheusIntegrationResponseBody extends Model
     public $message;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example 1F1D8840-5330-5804-A8DB-C3C5C5CED6BB
      *

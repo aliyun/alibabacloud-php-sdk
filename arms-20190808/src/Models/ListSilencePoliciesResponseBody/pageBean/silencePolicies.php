@@ -19,7 +19,7 @@ class silencePolicies extends Model
     public $id;
 
     /**
-     * @description An array of matching rule objects.
+     * @description The matching rules.
      *
      * @var matchingRules[]
      */
@@ -35,6 +35,10 @@ class silencePolicies extends Model
     public $name;
 
     /**
+     * @description Indicates whether the silence policy is enabled. Valid values: enable and disable.
+     *
+     * @example enable
+     *
      * @var string
      */
     public $state;

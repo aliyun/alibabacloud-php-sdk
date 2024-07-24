@@ -10,6 +10,10 @@ use AlibabaCloud\Tea\Model;
 class apiHTTP extends Model
 {
     /**
+     * @description Specifies whether to verify the certificate. Default value: No.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $checkCert;
@@ -36,6 +40,8 @@ class apiHTTP extends Model
     public $method;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $protocolAlpnProtocol;

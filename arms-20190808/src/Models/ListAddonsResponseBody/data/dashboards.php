@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class dashboards extends Model
 {
     /**
-     * @description Description of the dashboard.
+     * @description The description of the dashboard.
      *
      * @example MySQL monitors the market information, monitoring the connection information, usage information and other indicators
      *
@@ -18,7 +18,7 @@ class dashboards extends Model
     public $description;
 
     /**
-     * @description Name of the dashboard.
+     * @description The name of the dashboard.
      *
      * @example mysql-overview
      *
@@ -27,7 +27,7 @@ class dashboards extends Model
     public $name;
 
     /**
-     * @description URL of the dashboard.
+     * @description The URL of the dashboard.
      *
      * @example http://xxxx
      *

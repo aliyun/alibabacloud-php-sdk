@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class netICMP extends Model
 {
     /**
+     * @description The interval at which ICMP packets are sent. Unit: milliseconds. Minimum value: 200. Maximum value: 2000. Default value: 200.
+     *
      * @example 200
      *
      * @var int
@@ -16,6 +18,8 @@ class netICMP extends Model
     public $interval;
 
     /**
+     * @description The number of ICMP packets that are sent. Minimum value: 1. Maximum value: 50. Default value: 4.
+     *
      * @example 4
      *
      * @var int
@@ -23,6 +27,8 @@ class netICMP extends Model
     public $packageNum;
 
     /**
+     * @description The size of each ICMP packet. Unit: bytes. Valid values: 32, 64, 128, 256, 512, 1024, 1080, and 1450.
+     *
      * @example 32
      *
      * @var int
@@ -30,6 +36,8 @@ class netICMP extends Model
     public $packageSize;
 
     /**
+     * @description Specifies whether to split ICMP packets. Default value: true.
+     *
      * @example true
      *
      * @var bool
@@ -37,8 +45,9 @@ class netICMP extends Model
     public $splitPackage;
 
     /**
-     * @description This parameter is required.
+     * @description The destination IP address or domain name.
      *
+     * This parameter is required.
      * @example www.example.com
      *
      * @var string
@@ -46,6 +55,8 @@ class netICMP extends Model
     public $targetUrl;
 
     /**
+     * @description The timeout period for the ICMP synthetic test. Unit: milliseconds. Minimum value: 1000. Maximum value: 300000. Default value: 20000.
+     *
      * @example 20000
      *
      * @var int
@@ -53,6 +64,8 @@ class netICMP extends Model
     public $timeout;
 
     /**
+     * @description Specifies whether to enable the tracert command. Default value: true.
+     *
      * @example true
      *
      * @var bool
@@ -60,6 +73,8 @@ class netICMP extends Model
     public $tracertEnable;
 
     /**
+     * @description The maximum number of hops for the tracert command. Minimum value: 1. Maximum value: 128. Default value: 20.
+     *
      * @example 20
      *
      * @var int
@@ -67,6 +82,8 @@ class netICMP extends Model
     public $tracertNumMax;
 
     /**
+     * @description The timeout period of the tracert command. Unit: milliseconds. Minimum value: 1000. Maximum value: 300000. Default value: 60000.
+     *
      * @example 60000
      *
      * @var int

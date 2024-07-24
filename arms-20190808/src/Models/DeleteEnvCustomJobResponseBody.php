@@ -18,7 +18,7 @@ class DeleteEnvCustomJobResponseBody extends Model
     public $code;
 
     /**
-     * @description The returned result.
+     * @description The result of the operation.
      *
      * @example success
      *
@@ -36,7 +36,7 @@ class DeleteEnvCustomJobResponseBody extends Model
     public $message;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example 2FC13182-B9AF-4E6B-BE51-72669B7C****
      *

@@ -9,16 +9,18 @@ use AlibabaCloud\Tea\Model;
 class stream extends Model
 {
     /**
-     * @description 自定义header，JSON Map格式。
+     * @description The custom header. Format: JSON map.
      *
      * @var string[]
      */
     public $customHeaderContent;
 
     /**
-     * @description 播放器，不传默认12。
+     * @description The player. Default value: 12. Valid values:
      *
-     * - 2：FlashPlayer
+     *   12: VLC
+     *   2: Flash Player
+     *
      * @example 2
      *
      * @var int
@@ -26,9 +28,11 @@ class stream extends Model
     public $playerType;
 
     /**
-     * @description 资源地址类型：
+     * @description The address type of the resource. Valid values:
      *
-     * - 0：页面地址。不传默认0。
+     *   1: resource URL
+     *   0: page URL Default value: 0.
+     *
      * @example 1
      *
      * @var int
@@ -36,7 +40,7 @@ class stream extends Model
     public $streamAddressType;
 
     /**
-     * @description 监测时长，单位秒，最长支持60s，不传默认60。
+     * @description The monitoring duration. Unit: seconds. Maximum and default value: 60.
      *
      * @example 30
      *
@@ -45,7 +49,7 @@ class stream extends Model
     public $streamMonitorTimeout;
 
     /**
-     * @description 音视频标志：0-视频，1-音频。
+     * @description Specifies whether the resource is a video or audio. Valid values: 0: video. 1: audio.
      *
      * @example 0
      *
@@ -54,7 +58,7 @@ class stream extends Model
     public $streamType;
 
     /**
-     * @description 流媒体地址。
+     * @description The resource URL of the streaming media.
      *
      * @example http://www.aliyun.com/stream/test.mp4
      *
@@ -63,7 +67,7 @@ class stream extends Model
     public $targetUrl;
 
     /**
-     * @description DNS劫持白名单。匹配规则支持IP、IP通配符、子网掩码和CNAME，可以填写多个匹配规则，多个匹配规则以竖线（|）隔开。例如：www.aliyun.com:203.0.3.55|203.3.44.67，表示www.aliyun.com域名下除203.0.3.55和203.3.44.67之外的其他IP都是被劫持的。
+     * @description The whitelisted objects that are used to avoid DNS hijacking. The objects can be IP addresses, wildcard mask, subnet mask, or CNAME records. Separate multiple objects with vertical bars (|). Example: www.aliyun.com:203.0.3.55|203.3.44.67. It indicates that all IP addresses that belong to the www.aliyun.com domain name except 203.0.3.55 and 203.3.44.67 are hijacked.
      *
      * @example www.aliyun.com:203.0.3.55|203.3.44.67
      *

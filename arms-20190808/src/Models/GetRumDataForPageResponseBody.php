@@ -29,6 +29,8 @@ class GetRumDataForPageResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The error message.
+     *
      * @example StartTime is mandatory for this action.
      *
      * @var string

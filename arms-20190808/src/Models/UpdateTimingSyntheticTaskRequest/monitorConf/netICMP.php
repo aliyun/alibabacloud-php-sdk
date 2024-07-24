@@ -27,7 +27,7 @@ class netICMP extends Model
     public $packageNum;
 
     /**
-     * @description The size of each ICMP packet. Unit: bytes. Valid values: 32, 64, 128, 256, 512, 1024.
+     * @description The size of each ICMP packet. Unit: bytes. Valid values: 32, 64, 128, 256, 512, 1024, 1080, and 1450.
      *
      * @example 32
      *
@@ -45,7 +45,7 @@ class netICMP extends Model
     public $splitPackage;
 
     /**
-     * @description The destination host IP address or domain name. Port numbers, protocol headers, or request paths are not supported.
+     * @description The IP address or domain name of the destination host. The value cannot contain port numbers, protocol headers, or request paths.
      *
      * @example www.aliyun.com
      *
@@ -54,7 +54,7 @@ class netICMP extends Model
     public $targetUrl;
 
     /**
-     * @description The timeout period for the TCP synthetic test. Unit: milliseconds. Minimum value: 1000. Maximum value: 300000. Default value: 20000.
+     * @description The timeout period for the ICMP synthetic test. Unit: milliseconds. Minimum value: 1000. Maximum value: 300000. Default value: 20000.
      *
      * @example 5000
      *
@@ -72,7 +72,7 @@ class netICMP extends Model
     public $tracertEnable;
 
     /**
-     * @description The maximum number of hops for tracert. Minimum value: 1. Maximum value: 128. Default value: 64.
+     * @description The maximum number of hops for the tracert command. Minimum value: 1. Maximum value: 128. Default value: 20.
      *
      * @example 20
      *
@@ -81,7 +81,7 @@ class netICMP extends Model
     public $tracertNumMax;
 
     /**
-     * @description The timeout period of tracert. Unit: milliseconds. Minimum value: 1000. Maximum value: 300000. Default value: 60000.
+     * @description The timeout period of the tracert command. Unit: milliseconds. Minimum value: 1000. Maximum value: 300000. Default value: 60000.
      *
      * @example 60000
      *

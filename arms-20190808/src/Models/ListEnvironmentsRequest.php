@@ -50,10 +50,15 @@ class ListEnvironmentsRequest extends Model
     public $environmentType;
 
     /**
-     * @description The payable resource plan. Valid values:
+     * @description The payable resource plan.
      *
      *   If the EnvironmentType parameter is set to CS, set the value to CS_Basic or CS_Pro. Default value: CS_Basic.
      *   Otherwise, leave the parameter empty.
+     *
+     * Valid values:
+     *
+     *   CS_Pro: Container Monitoring Pro
+     *   CS_Basic: Container Monitoring Basic
      *
      * @example CS_Pro
      *

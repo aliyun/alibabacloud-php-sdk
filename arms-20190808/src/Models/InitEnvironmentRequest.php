@@ -18,7 +18,7 @@ class InitEnvironmentRequest extends Model
     public $aliyunLang;
 
     /**
-     * @description Whether to create a Token in order to enhance the security of data retrieval.
+     * @description Specifies whether to create a token to improve data security.
      *
      * @example false
      *

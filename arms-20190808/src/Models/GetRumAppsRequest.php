@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetRumAppsRequest extends Model
 {
     /**
+     * @description The group to which the application belongs.
+     *
      * @example default
      *
      * @var string
@@ -17,6 +19,8 @@ class GetRumAppsRequest extends Model
     public $appGroup;
 
     /**
+     * @description The application ID.
+     *
      * @example b590lhguqs@28f515462******
      *
      * @var string
@@ -24,6 +28,8 @@ class GetRumAppsRequest extends Model
     public $appId;
 
     /**
+     * @description The name of the application. You can specify only one application name in each request.
+     *
      * @example test-app
      *
      * @var string
@@ -31,8 +37,9 @@ class GetRumAppsRequest extends Model
     public $appName;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -40,6 +47,8 @@ class GetRumAppsRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example rg-acfmxyexli2****
      *
      * @var string
@@ -47,6 +56,8 @@ class GetRumAppsRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description The tags.
+     *
      * @var tags[]
      */
     public $tags;

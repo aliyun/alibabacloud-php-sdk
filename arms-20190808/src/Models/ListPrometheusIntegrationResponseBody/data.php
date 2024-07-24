@@ -63,7 +63,7 @@ class data extends Model
     public $exporterType;
 
     /**
-     * @description The exporter ID.
+     * @description The ID of the exporter.
      *
      * @example 29374
      *
@@ -81,7 +81,7 @@ class data extends Model
     public $instanceName;
 
     /**
-     * @description The integration type.
+     * @description The integration type. Valid values: kafka, mysql, redis, snmp, emr, nubela, and tidb.
      *
      * @example Kafka, mysql, redis, snmp, emr, nubela, and tidb
      *
@@ -144,7 +144,7 @@ class data extends Model
     public $showLog;
 
     /**
-     * @description The state of the exporter.
+     * @description The status of the exporter.
      *
      * @example installed
      *

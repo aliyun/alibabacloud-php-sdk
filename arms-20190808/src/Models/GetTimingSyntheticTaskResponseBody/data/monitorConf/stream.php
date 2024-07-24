@@ -9,16 +9,16 @@ use AlibabaCloud\Tea\Model;
 class stream extends Model
 {
     /**
-     * @description 自定义header，JSON Map格式。
+     * @description Custom header, JSON Map format.
      *
      * @var string[]
      */
     public $customHeaderContent;
 
     /**
-     * @description 播放器，不传默认12。
+     * @description Player, default is 12 if not specified.
      *
-     * - 2：FlashPlayer
+     * - 2: Flash Player
      * @example 12
      *
      * @var int
@@ -26,9 +26,9 @@ class stream extends Model
     public $playerType;
 
     /**
-     * @description 资源地址类型：
+     * @description Resource address type:
      *
-     * - 0：页面地址。不传默认0。
+     * - 0: Page address. If not passed, the default value is 0.
      * @example 0
      *
      * @var int
@@ -36,7 +36,7 @@ class stream extends Model
     public $streamAddressType;
 
     /**
-     * @description 监测时长，单位秒，最长支持60s，不传默认60。
+     * @description Monitoring duration, in seconds, supports up to 60 seconds. If not specified, the default value is 60 seconds.
      *
      * @example 30
      *
@@ -45,8 +45,9 @@ class stream extends Model
     public $streamMonitorTimeout;
 
     /**
-     * @description 音视频标志：0-视频，1-音频。
+     * @description Audio and video flag:
      *
+     * - 1: audio
      * @example 0
      *
      * @var int
@@ -54,7 +55,7 @@ class stream extends Model
     public $streamType;
 
     /**
-     * @description 流媒体资源地址。
+     * @description Streaming media resource address.
      *
      * @example http://www.aliyun.com/stream/test.mp4
      *
@@ -63,7 +64,7 @@ class stream extends Model
     public $targetUrl;
 
     /**
-     * @description DNS劫持白名单。匹配规则支持IP、IP通配符、子网掩码和CNAME，可以填写多个匹配规则，多个匹配规则以竖线（|）隔开。例如：www.aliyun.com:203.0.3.55|203.3.44.67，表示www.aliyun.com域名下除203.0.3.55和203.3.44.67之外的其他IP都是被劫持的。
+     * @description DNS hijacking whitelist. Matching rules support IP, IP wildcard, subnet mask and CNAME. You can fill in multiple matching rules, and multiple matching rules are separated by vertical bars (|). For example: `www.aliyun.com:203.0.3.55|203.3.44.67`, which means that all IPs except 203.0.3.55 and 203.3.44.67 under the www.aliyun.com domain name are hijacked.
      *
      * @example www.aliyun.com:203.0.3.55|203.3.44.67
      *

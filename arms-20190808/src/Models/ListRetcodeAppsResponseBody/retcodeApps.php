@@ -37,7 +37,7 @@ class retcodeApps extends Model
     public $nickName;
 
     /**
-     * @description The PID of the application.
+     * @description The process identifier (PID) of the application.
      *
      * @example atc889zkcf@d8deedfa9bf****
      *
@@ -71,7 +71,7 @@ class retcodeApps extends Model
     public $retcodeAppType;
 
     /**
-     * @description The tags.
+     * @description The tags of the task.
      *
      * @var tags[]
      */

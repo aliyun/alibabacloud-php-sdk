@@ -19,7 +19,7 @@ class EnableMetricRequest extends Model
     public $clusterId;
 
     /**
-     * @description Enable metric name.
+     * @description The metric name.
      *
      * @example kube_pod_container_status_ready
      *

@@ -28,7 +28,7 @@ class pageBean extends Model
     public $pageSize;
 
     /**
-     * @description The Browser Monitoring tasks that are returned.
+     * @description The browser monitoring tasks that are returned.
      *
      * @var retcodeApps[]
      */

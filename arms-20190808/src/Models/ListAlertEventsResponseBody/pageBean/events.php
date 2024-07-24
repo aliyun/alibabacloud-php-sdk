@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class events extends Model
 {
     /**
-     * @description The list of associated alerts.
+     * @description The associated alerts.
      *
      * @var alarms[]
      */
@@ -27,7 +27,7 @@ class events extends Model
     public $alertName;
 
     /**
-     * @description The list of annotations.
+     * @description The annotations.
      *
      * @example [{\\"Name\\":\\"annotation-a\\",\\"Value\\":\\"annotation a value\\"}]
      *
@@ -45,7 +45,7 @@ class events extends Model
     public $description;
 
     /**
-     * @description The end time of the alert event.
+     * @description The end time.
      *
      * @example 2021-12-20 17:42:16
      *
@@ -90,7 +90,7 @@ class events extends Model
     public $integrationType;
 
     /**
-     * @description The list of tags.
+     * @description The tags.
      *
      * @example [{\\"name\\":\\"severity\\",\\"value\\":\\"error\\"}]
      *
@@ -99,6 +99,8 @@ class events extends Model
     public $labels;
 
     /**
+     * @description The information about the notification policy.
+     *
      * @var notificationPolicies[]
      */
     public $notificationPolicies;
@@ -113,7 +115,7 @@ class events extends Model
     public $receiveTime;
 
     /**
-     * @description The severity level of the alert. Valid value:
+     * @description The severity level of the alert. Valid values:
      *
      *   critical: P1
      *   error: P2
@@ -128,7 +130,7 @@ class events extends Model
     public $severity;
 
     /**
-     * @description The start time of the alert event.
+     * @description The start time.
      *
      * @example 2021-12-20 17:42:16
      *
@@ -150,6 +152,10 @@ class events extends Model
     public $status;
 
     /**
+     * @description The number of times the alert is triggered.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $triggerCount;

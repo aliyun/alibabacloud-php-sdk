@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class InstallCmsExporterRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the cluster.
      *
+     * This parameter is required.
      * @example cc7a37ee31aea4ed1a059eff8034b****
      *
      * @var string
@@ -18,6 +19,8 @@ class InstallCmsExporterRequest extends Model
     public $clusterId;
 
     /**
+     * @description The cloud services that you want to monitor. The CmsArgs parameter is the startup parameter of the cms-exporter collector. Separate multiple cloud services with number signs (`#`).
+     *
      * @example hologres#cen
      *
      * @var string
@@ -25,6 +28,8 @@ class InstallCmsExporterRequest extends Model
     public $cmsArgs;
 
     /**
+     * @description The recently monitored cloud services. Separate multiple cloud services with number signs (`#`).
+     *
      * @example hologres#cen
      *
      * @var string
@@ -32,6 +37,8 @@ class InstallCmsExporterRequest extends Model
     public $directArgs;
 
     /**
+     * @description Specifies whether to collect the aliyun tags attached to each cloud service. Default value: false.
+     *
      * @example false
      *
      * @var bool
@@ -39,8 +46,9 @@ class InstallCmsExporterRequest extends Model
     public $enableTag;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the region.
      *
+     * This parameter is required.
      * @example cn-beijing
      *
      * @var string

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetCloudClusterAllUrlResponseBody extends Model
 {
     /**
-     * @description 状态码。200为成功，其他状态码为异常。
+     * @description The HTTP status code. The status code 200 indicates that the request was successful. Other status codes indicate that the request failed.
      *
      * @example 200
      *
@@ -26,7 +26,7 @@ class GetCloudClusterAllUrlResponseBody extends Model
     public $data;
 
     /**
-     * @description 详细信息。
+     * @description The returned message.
      *
      * @example success
      *
@@ -44,7 +44,7 @@ class GetCloudClusterAllUrlResponseBody extends Model
     public $requestId;
 
     /**
-     * @description 操作是否成功：true：操作成功                                 false：操作失败
+     * @description Indicates whether the request was successful. Valid values: true and false.
      *
      * @example true
      *

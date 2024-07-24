@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListPrometheusRemoteWritesResponseBody extends Model
 {
     /**
-     * @description The status code. The status code 200 indicates that the request was successful. If another status code is returned, the request failed.
+     * @description The HTTP status code that is returned. The HTTP status code 200 indicates that the call was successful. Otherwise, the call fails.
      *
      * @example 200
      *
@@ -41,7 +41,7 @@ class ListPrometheusRemoteWritesResponseBody extends Model
     public $message;
 
     /**
-     * @description The request ID.
+     * @description The ID of the request.
      *
      * @example 9319A57D-2D9E-472A-B69B-CF3CD16D****
      *
@@ -50,7 +50,7 @@ class ListPrometheusRemoteWritesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request was successful. Valid values: true and false.
+     * @description Indicates whether the call was successful. Valid values: true and false.
      *
      * @example true
      *

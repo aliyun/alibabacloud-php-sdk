@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdatePrometheusInstanceResponseBody extends Model
 {
     /**
-     * @description The status code. The status code 200 indicates that the request was successful.
+     * @description The returned status code. The status code 200 indicates that the request was successful. Other status codes indicate that the request failed.
      *
      * @example 200
      *
@@ -18,7 +18,7 @@ class UpdatePrometheusInstanceResponseBody extends Model
     public $code;
 
     /**
-     * @description The returned result.
+     * @description The result of the operation.
      *
      * @example success
      *
@@ -36,7 +36,7 @@ class UpdatePrometheusInstanceResponseBody extends Model
     public $message;
 
     /**
-     * @description Id of the request
+     * @description The ID of the request.
      *
      * @example 6A9AEA84-7186-4D8D-B498-4585C6A2****
      *

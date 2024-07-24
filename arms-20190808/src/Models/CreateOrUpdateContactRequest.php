@@ -31,6 +31,10 @@ class CreateOrUpdateContactRequest extends Model
     public $contactName;
 
     /**
+     * @description The ID of the alert contact that is shown to the enterprise when the contact is mentioned with the at sign (@) by a third-party instant messaging (IM) tool.
+     *
+     * @example A123221
+     *
      * @var string
      */
     public $corpUserId;

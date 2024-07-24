@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The user configurations. This is a reserved parameter.
+     *
      * @var string
      */
     public $config;
 
     /**
+     * @description The QPS limit. Unit: bytes.
+     *
      * @example 100000
      *
      * @var int
@@ -21,6 +25,8 @@ class data extends Model
     public $limit;
 
     /**
+     * @description Indicates whether the request is throttled due to the QPS limit. Valid values: true and false.
+     *
      * @example true
      *
      * @var bool
@@ -28,6 +34,8 @@ class data extends Model
     public $limited;
 
     /**
+     * @description The usage. Unit: bytes.
+     *
      * @example 10000
      *
      * @var int

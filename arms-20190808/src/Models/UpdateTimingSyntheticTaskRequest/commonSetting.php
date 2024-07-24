@@ -12,7 +12,7 @@ use AlibabaCloud\Tea\Model;
 class commonSetting extends Model
 {
     /**
-     * @description The custom host.
+     * @description The custom host settings.
      *
      * @var customHost
      */
@@ -24,6 +24,8 @@ class commonSetting extends Model
     public $customPrometheusSetting;
 
     /**
+     * @description The information about the virtual private cloud (VPC). If the destination URL is an Alibaba Cloud internal endpoint, you need to configure a VPC.
+     *
      * @var customVPCSetting
      */
     public $customVPCSetting;
@@ -42,7 +44,7 @@ class commonSetting extends Model
     public $ipType;
 
     /**
-     * @description 是否开启链路追踪。
+     * @description Specifies whether to enable tracing.
      *
      * @example true
      *
@@ -53,8 +55,8 @@ class commonSetting extends Model
     /**
      * @description Specifies whether to evenly distribute monitoring samples. Valid values:
      *
-     *   0: No
-     *   1: Yes
+     *   0: no.
+     *   1: yes.
      *
      * @example 0
      *
@@ -63,9 +65,12 @@ class commonSetting extends Model
     public $monitorSamples;
 
     /**
-     * @description 链路追踪客户端类型：
+     * @description The type of the client for tracing. Valid values:
      *
-     * - 2：Jaeger
+     *   0: ARMS agent
+     *   1: OpenTelemetry
+     *   2: Jaeger
+     *
      * @example 1
      *
      * @var int
@@ -73,7 +78,7 @@ class commonSetting extends Model
     public $traceClientType;
 
     /**
-     * @description 链路数据上报region。
+     * @description The region to which trace data is reported.
      *
      * @example cn-hangzhou
      *

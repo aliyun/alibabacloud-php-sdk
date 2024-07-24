@@ -18,7 +18,13 @@ class CheckCommercialStatusRequest extends Model
     public $regionId;
 
     /**
-     * @description Sub-services:
+     * @description The ARMS sub-service. Valid values:
+     *
+     *   apm: Application Monitoring
+     *   rum: RUM
+     *   prometheus: Managed Service for Prometheus
+     *   xtrace: Managed Service for OpenTelemetry
+     *
      * This parameter is required.
      * @example apm
      *

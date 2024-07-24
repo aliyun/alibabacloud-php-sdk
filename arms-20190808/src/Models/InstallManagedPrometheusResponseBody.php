@@ -18,7 +18,7 @@ class InstallManagedPrometheusResponseBody extends Model
     public $code;
 
     /**
-     * @description The response content. The status of the Prometheus instance is returned.
+     * @description The response content. In most cases, the installation status of the Prometheus agent is returned.
      *
      * @example success
      *
@@ -27,7 +27,7 @@ class InstallManagedPrometheusResponseBody extends Model
     public $data;
 
     /**
-     * @description The error message returned if the Prometheus instance fails to be created.
+     * @description The error message returned if the Prometheus agent failed to be installed.
      *
      * @example vpcId is blank
      *
@@ -45,7 +45,7 @@ class InstallManagedPrometheusResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the Prometheus instance was created.
+     * @description Indicates whether the Prometheus agent was installed.
      *
      * @example true
      *

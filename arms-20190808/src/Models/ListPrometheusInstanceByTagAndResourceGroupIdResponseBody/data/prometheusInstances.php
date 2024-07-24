@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class prometheusInstances extends Model
 {
     /**
-     * @description Auth Token string.
+     * @description The authorization token.
      *
      * @example ad32dxxxx
      *
@@ -37,13 +37,14 @@ class prometheusInstances extends Model
     public $clusterName;
 
     /**
-     * @description The type of the cluster. Valid values: remote-write: Prometheus instance for remote write.
+     * @description The instance type. Valid values:
      *
-     *   ecs: Prometheus instances for ECS.
-     *   cloud-monitor: Prometheus instance for Alibaba Cloud services in the Chinese mainland.
-     *   cloud-product: Prometheus instance for Alibaba Cloud services outside China.
-     *   global-view: Prometheus instance for GlobalView.
-     *   aliyun-cs: Prometheus instance for Container Service.
+     *   remote-write: Prometheus instance for Remote Write
+     *   ecs: Prometheus instances for ECS
+     *   cloud-monitor: Prometheus instance for Alibaba Cloud services in the Chinese mainland
+     *   cloud-product: Prometheus instance for Alibaba Cloud services outside the Chinese mainland
+     *   global-view: global aggregation instance
+     *   aliyun-cs: Prometheus instance for Container Service
      *
      * @example ecs
      *
@@ -61,7 +62,7 @@ class prometheusInstances extends Model
     public $grafanaInstanceId;
 
     /**
-     * @description HTTP Api internet url.
+     * @description The public URL for the HTTP API.
      *
      * @example http://cn-beijing.arms.aliyuncs.com:9090/api/v1/prometheus/xxx/cn-beijing
      *
@@ -70,7 +71,7 @@ class prometheusInstances extends Model
     public $httpApiInterUrl;
 
     /**
-     * @description HTTP Api intranet url.
+     * @description The internal URL for the HTTP API.
      *
      * @example http://cn-beijing-intranet.arms.aliyuncs.com:9090/api/v1/prometheus/xxx/cn-beijing
      *
@@ -81,8 +82,8 @@ class prometheusInstances extends Model
     /**
      * @description The billing method. Valid values:
      *
-     *   PREPAY: subscription.
-     *   POSTPAY: pay-as-you-go.
+     *   PREPAY: subscription
+     *   POSTPAY: pay-as-you-go
      *
      * @example POSTPAY
      *
@@ -91,7 +92,7 @@ class prometheusInstances extends Model
     public $paymentType;
 
     /**
-     * @description Push Gateway internet url.
+     * @description The public URL for Pushgateway.
      *
      * @example http://cn-beijing.arms.aliyuncs.com/prometheus/xxx/api/v2
      *
@@ -100,7 +101,7 @@ class prometheusInstances extends Model
     public $pushGatewayInterUrl;
 
     /**
-     * @description Push Gateway intranet url.
+     * @description The internal URL for Pushgateway.
      *
      * @example http://cn-beijing-intranet.arms.aliyuncs.com/prometheus/xxx/api/v2
      *
@@ -109,7 +110,7 @@ class prometheusInstances extends Model
     public $pushGatewayIntraUrl;
 
     /**
-     * @description The region ID of the Prometheus instance.
+     * @description The region ID.
      *
      * @example cn-shanghai
      *
@@ -118,7 +119,7 @@ class prometheusInstances extends Model
     public $regionId;
 
     /**
-     * @description Remote Read internet url.
+     * @description The public URL for remote read.
      *
      * @example http://cn-beijing.arms.aliyuncs.com:9090/api/v1/prometheus/xxx/api/v1/read
      *
@@ -127,7 +128,7 @@ class prometheusInstances extends Model
     public $remoteReadInterUrl;
 
     /**
-     * @description Remote Read intranet url.
+     * @description The internal URL for remote read.
      *
      * @example http://cn-beijing-intranet.arms.aliyuncs.com:9090/api/v1/prometheus/xxx/api/v1/read
      *
@@ -136,7 +137,7 @@ class prometheusInstances extends Model
     public $remoteReadIntraUrl;
 
     /**
-     * @description Remote Write internet url.
+     * @description The public URL for remote write.
      *
      * @example http://cn-beijing.arms.aliyuncs.com/prometheus/xxx/api/v3/write
      *
@@ -145,7 +146,7 @@ class prometheusInstances extends Model
     public $remoteWriteInterUrl;
 
     /**
-     * @description Remote Write intranet url.
+     * @description The internal URL for remote write.
      *
      * @example http://cn-beijing-intranet.arms.aliyuncs.com/prometheus/xxx/api/v3/write
      *
@@ -163,7 +164,7 @@ class prometheusInstances extends Model
     public $resourceGroupId;
 
     /**
-     * @description Resource type.
+     * @description The resource type.
      *
      * @example PROMETHEUS
      *
@@ -181,7 +182,7 @@ class prometheusInstances extends Model
     public $securityGroupId;
 
     /**
-     * @description The child instances of the Prometheus instance for GlobalView instance. The value is a JSON string.
+     * @description The child instances of the global aggregation instance. The value is a JSON string.
      *
      * @example [ { "headers": {}, "regionId": "cn-hangzhou", "sourceType": "AlibabaPrometheus", "extras": {}, "clusterId": "c39a1048921e04fceb039db2fb\\*\\*\\*\\*", "sourceName": "arms-luyao-test", "dataSource": "", "userId": "167275301789\\*\\*\\*\\*" }, { "headers": {}, "regionId": "cn-beijing", "sourceType": "AlibabaPrometheus", "extras": {}, "clusterId": "c6b6485496d5b400abde22cb47b5\\*\\*\\*\\*", "sourceName": "agent-321-test", "dataSource": "", "userId": "167275301789\\*\\*\\*\\*" }, { "headers": {}, "regionId": "cn-zhangjiakou", "sourceType": "AlibabaPrometheus", "extras": {}, "clusterId": "c261a4f3200c446659133f1ade78\\*\\*\\*\\*", "sourceName": "zaifeng-cardinality-01", "dataSource": "", "userId": "167275301789\\*\\*\\*\\*" } ]
      *
@@ -190,7 +191,7 @@ class prometheusInstances extends Model
     public $subClustersJson;
 
     /**
-     * @description The tags.
+     * @description The list of tags.
      *
      * @var tags[]
      */

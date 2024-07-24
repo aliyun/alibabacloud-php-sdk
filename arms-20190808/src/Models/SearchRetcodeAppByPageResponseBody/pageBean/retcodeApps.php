@@ -46,7 +46,7 @@ class retcodeApps extends Model
     public $nickName;
 
     /**
-     * @description The PID of the application.
+     * @description The process identifier (PID) of the application.
      *
      * @example eb4zdose6v@9781be0f44d****
      *
@@ -55,7 +55,7 @@ class retcodeApps extends Model
     public $pid;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *
@@ -89,7 +89,7 @@ class retcodeApps extends Model
     public $retcodeAppType;
 
     /**
-     * @description The tags.
+     * @description The tag.
      *
      * @var tags[]
      */
@@ -117,7 +117,7 @@ class retcodeApps extends Model
     public $updateTime;
 
     /**
-     * @description The ID of the user.
+     * @description The user ID.
      *
      * @example 12341234
      *

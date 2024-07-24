@@ -19,7 +19,7 @@ class DescribeEnvPodMonitorRequest extends Model
     public $environmentId;
 
     /**
-     * @description The namespace where the PodMonitor is located.
+     * @description The namespace where the PodMonitor resides.
      *
      * This parameter is required.
      * @example arms-prom

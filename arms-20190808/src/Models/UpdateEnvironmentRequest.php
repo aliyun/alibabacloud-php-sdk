@@ -28,7 +28,7 @@ class UpdateEnvironmentRequest extends Model
     public $environmentId;
 
     /**
-     * @description The environment name.
+     * @description The name of the environment instance.
      *
      * @example env1
      *
@@ -37,9 +37,10 @@ class UpdateEnvironmentRequest extends Model
     public $environmentName;
 
     /**
-     * @description Fee package.
-     * When the EnvironmentType is CS: it can be specified as CS_Basic (default) or CS-Pro.
-     * When the EnvironmentType is a different value, please enter a null value.
+     * @description The payable resource plan. Valid values:
+     *
+     *   If the EnvironmentType parameter is set to CS, set the value to CS_Basic or CS_Pro. Default value: CS_Basic.
+     *   Otherwise, leave the parameter empty.
      *
      * @example CS_Basic
      *

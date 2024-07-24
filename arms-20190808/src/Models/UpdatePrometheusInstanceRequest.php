@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdatePrometheusInstanceRequest extends Model
 {
     /**
-     * @description The number of days for automatic archiving after storage expiration (optional values: 60, 90, 180, 365). 0 means not archive.
+     * @description The number of days for which data is automatically archived after the storage expires. Valid values: 60, 90, 180, and 365. 0 indicates that the data is not archived.
      *
      * @example 90
      *
@@ -28,7 +28,7 @@ class UpdatePrometheusInstanceRequest extends Model
     public $clusterId;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID.
      *
      * This parameter is required.
      * @example cn-hangzhou
@@ -47,7 +47,7 @@ class UpdatePrometheusInstanceRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description Storage duration (days).
+     * @description The data storage duration. Unit: days.
      *
      * @example 90
      *

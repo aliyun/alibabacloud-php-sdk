@@ -18,7 +18,7 @@ class AddPrometheusRemoteWriteResponseBody extends Model
     public $code;
 
     /**
-     * @description The name of the remote write configuration item. If the request fails, an error message is returned.
+     * @description The name of the remote write configuration item that was added, or the exception information.
      *
      * @example 1
      *
@@ -27,7 +27,7 @@ class AddPrometheusRemoteWriteResponseBody extends Model
     public $data;
 
     /**
-     * @description The message returned.
+     * @description The returned message.
      *
      * @example message
      *

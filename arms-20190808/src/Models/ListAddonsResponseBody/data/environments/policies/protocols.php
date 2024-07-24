@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class protocols extends Model
 {
     /**
-     * @description Description of the Protocol.
+     * @description The description of the protocol.
      *
      * @example ARMS
      *
@@ -18,7 +18,7 @@ class protocols extends Model
     public $description;
 
     /**
-     * @description Icon address.
+     * @description The URL of the protocol icon.
      *
      * @example http://xxxxxxx
      *
@@ -27,7 +27,7 @@ class protocols extends Model
     public $icon;
 
     /**
-     * @description Label of the Protocol.
+     * @description The tag of the protocol.
      *
      * @example ARMS
      *
@@ -36,7 +36,7 @@ class protocols extends Model
     public $label;
 
     /**
-     * @description Name of the Protocol.
+     * @description The name of the protocol.
      *
      * @example arms
      *

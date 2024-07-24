@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @description The general settings.
+     *
      * @var commonSetting
      */
     public $commonSetting;

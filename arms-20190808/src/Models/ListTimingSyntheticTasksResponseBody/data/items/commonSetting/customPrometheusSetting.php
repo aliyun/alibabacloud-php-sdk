@@ -9,16 +9,26 @@ use AlibabaCloud\Tea\Model;
 class customPrometheusSetting extends Model
 {
     /**
+     * @description A reserved field.
+     *
+     * @example Reserved field
+     *
      * @var string
      */
     public $prometheusClusterId;
 
     /**
+     * @description A reserved field.
+     *
+     * @example Reserved field
+     *
      * @var string
      */
     public $prometheusClusterRegion;
 
     /**
+     * @description A reserved field.
+     *
      * @var string[]
      */
     public $prometheusLabels;

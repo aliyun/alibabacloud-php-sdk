@@ -94,7 +94,7 @@ class environments extends Model
      * @description The type of the environment instance. Valid values:
      *
      *   CS: Container Service
-     *   ECS: Elastic Compute Service (ECS)
+     *   ECS: Elastic Compute Service
      *   Cloud: cloud service
      *
      * @example CS
@@ -111,9 +111,9 @@ class environments extends Model
     public $features;
 
     /**
-     * @description The payable resource plan. Valid values:
+     * @description The payable resource plan.
      *
-     *   If the EnvironmentType parameter is set to CS, set the value to CS_Basic or CS_Pro. Default value: CS_Basic.
+     *   If the EnvironmentType parameter is set to CS, set the value to CS_Basic or CS_Pro.
      *   Otherwise, leave the parameter empty.
      *
      * @example CS_Pro
@@ -190,7 +190,7 @@ class environments extends Model
     public $prometheusInstanceId;
 
     /**
-     * @description The ID of the region where the Message Queue for RabbitMQ instance resides.
+     * @description The region ID.
      *
      * @example cn-zhangjiakou
      *
@@ -208,7 +208,7 @@ class environments extends Model
     public $releaseCount;
 
     /**
-     * @description The resource group ID.
+     * @description The ID of the resource group.
      *
      * @example rg-acfmvt3xpr5aema
      *
@@ -224,7 +224,7 @@ class environments extends Model
     public $tags;
 
     /**
-     * @description The ID of the user.
+     * @description The user ID.
      *
      * @example 13990957477389
      *

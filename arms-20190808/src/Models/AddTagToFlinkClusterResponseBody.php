@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AddTagToFlinkClusterResponseBody extends Model
 {
     /**
+     * @description The HTTP status code. The status code 200 indicates that the request was successful. Other status codes indicate that the request failed.
+     *
      * @example 200
      *
      * @var int
@@ -16,6 +18,11 @@ class AddTagToFlinkClusterResponseBody extends Model
     public $code;
 
     /**
+     * @description Indicates whether the business logic was executed. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example false
      *
      * @var string
@@ -23,7 +30,7 @@ class AddTagToFlinkClusterResponseBody extends Model
     public $data;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example 2FC13182-B9AF-4E6B-BE51-72669B7C****
      *
@@ -32,6 +39,11 @@ class AddTagToFlinkClusterResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListAddonReleasesRequest extends Model
 {
     /**
-     * @description Name of Addon.
+     * @description The name of the add-on.
      *
      * @example mysql
      *
@@ -18,7 +18,7 @@ class ListAddonReleasesRequest extends Model
     public $addonName;
 
     /**
-     * @description Environment instance ID.
+     * @description The environment ID.
      *
      * This parameter is required.
      * @example env-xxx

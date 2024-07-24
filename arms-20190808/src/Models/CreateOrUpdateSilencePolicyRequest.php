@@ -50,6 +50,8 @@ class CreateOrUpdateSilencePolicyRequest extends Model
     public $regionId;
 
     /**
+     * @description Specifies whether to enable the silence policy. Valid values: enable and disable.
+     *
      * @example enable
      *
      * @var string

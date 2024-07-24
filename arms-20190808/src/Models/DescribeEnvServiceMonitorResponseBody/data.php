@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The YAML configuration string of the ServiceMonitor.
+     * @description The YAML configuration file of the ServiceMonitor.
      *
      * @example Refer to supplementary instructions.
      *
@@ -54,7 +54,10 @@ class data extends Model
     public $serviceMonitorName;
 
     /**
-     * @description The status of the ServiceMonitor. Valid values: run and stop.
+     * @description The status. Valid values:
+     *
+     *   run
+     *   stop
      *
      * @example run
      *

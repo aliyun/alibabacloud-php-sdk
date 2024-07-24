@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListAlertEventsResponseBody extends Model
 {
     /**
-     * @description The struct returned.
+     * @description The returned struct.
      *
      * @var pageBean
      */

@@ -19,7 +19,7 @@ class DescribeEnvCustomJobRequest extends Model
     public $customJobName;
 
     /**
-     * @description Specifies whether to return the encrypted YAML string.
+     * @description Specifies whether to return an encrypted YAML string.
      *
      * @example true
      *

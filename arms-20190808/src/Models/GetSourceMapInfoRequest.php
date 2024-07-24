@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetSourceMapInfoRequest extends Model
 {
     /**
+     * @description The order in which the files are sorted. Valid values:
+     *
+     *   true: ascending order
+     *   false: descending order
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +21,8 @@ class GetSourceMapInfoRequest extends Model
     public $ascendingSequence;
 
     /**
+     * @description The version of the SourceMap file.
+     *
      * @example 0.0.0
      *
      * @var string
@@ -23,13 +30,16 @@ class GetSourceMapInfoRequest extends Model
     public $edition;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the SourceMap file.
      *
+     * This parameter is required.
      * @var string
      */
     public $ID;
 
     /**
+     * @description The keyword in the file name. The files are searched by keyword.
+     *
      * @example test
      *
      * @var string
@@ -37,6 +47,11 @@ class GetSourceMapInfoRequest extends Model
     public $keyword;
 
     /**
+     * @description The criterion by which the files are sorted. Valid values:
+     *
+     *   version: The files are sorted by version.
+     *   uploadTime: The files are sorted by upload time.
+     *
      * @example version
      *
      * @var string
@@ -44,6 +59,8 @@ class GetSourceMapInfoRequest extends Model
     public $orderField;
 
     /**
+     * @description The ID of the region.
+     *
      * @example cn-hangzhou
      *
      * @var string

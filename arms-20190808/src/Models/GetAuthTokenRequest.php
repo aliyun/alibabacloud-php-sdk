@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetAuthTokenRequest extends Model
 {
     /**
-     * @description The ID of the cluster.
+     * @description The ID of the ACK cluster.
      *
      * This parameter is required.
      * @example cc7a37ee31aea4ed1a059eff8034b****
@@ -19,7 +19,7 @@ class GetAuthTokenRequest extends Model
     public $clusterId;
 
     /**
-     * @description The region ID.
+     * @description The ID of the region.
      *
      * This parameter is required.
      * @example cn-hangzhou

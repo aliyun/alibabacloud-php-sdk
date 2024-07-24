@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetRumUploadFilesResponseBody extends Model
 {
     /**
+     * @description The HTTP status code. The status code 200 indicates that the request was successful. Other status codes indicate that the request failed.
+     *
      * @example 200
      *
      * @var int
@@ -17,11 +19,15 @@ class GetRumUploadFilesResponseBody extends Model
     public $code;
 
     /**
+     * @description The queried files.
+     *
      * @var data[]
      */
     public $data;
 
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -29,12 +35,14 @@ class GetRumUploadFilesResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The error message returned if the request failed.
+     *
      * @var string
      */
     public $message;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example 2983BEF7-4A0D-47A2-94A2-8E9C5E63****
      *
@@ -43,6 +51,11 @@ class GetRumUploadFilesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

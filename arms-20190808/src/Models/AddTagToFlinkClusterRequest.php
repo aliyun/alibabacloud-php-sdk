@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class AddTagToFlinkClusterRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the Prometheus instance.
      *
+     * This parameter is required.
      * @example c5defa51f******c92bd2ef5fb093269
      *
      * @var string
@@ -18,8 +19,9 @@ class AddTagToFlinkClusterRequest extends Model
     public $clusterId;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the Flink workspace.
      *
+     * This parameter is required.
      * @example ab18f***93744d
      *
      * @var string
@@ -27,8 +29,9 @@ class AddTagToFlinkClusterRequest extends Model
     public $flinkWorkSpaceId;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the Flink workspace.
      *
+     * This parameter is required.
      * @example flink-demo
      *
      * @var string
@@ -36,8 +39,9 @@ class AddTagToFlinkClusterRequest extends Model
     public $flinkWorkSpaceName;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -45,6 +49,8 @@ class AddTagToFlinkClusterRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example rg-acfmxyexli2****
      *
      * @var string
@@ -52,8 +58,9 @@ class AddTagToFlinkClusterRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the Alibaba Cloud account to which the Flink workspace belongs.
      *
+     * This parameter is required.
      * @example 198608******7619
      *
      * @var string

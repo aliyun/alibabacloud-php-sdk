@@ -10,6 +10,10 @@ use AlibabaCloud\Tea\Model;
 class apiHTTP extends Model
 {
     /**
+     * @description Whether to verify the certificate. The default is no.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $checkCert;
@@ -36,6 +40,11 @@ class apiHTTP extends Model
     public $method;
 
     /**
+     * @description The ALPN protocol version. You can configure this parameter when you perform an HTTPS synthetic test on a WAP mobile client. Valid values:
+     *
+     * 3: disables the ALPN protocol
+     * @example 1
+     *
      * @var int
      */
     public $protocolAlpnProtocol;

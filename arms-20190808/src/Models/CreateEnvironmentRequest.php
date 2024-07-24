@@ -13,14 +13,9 @@ class CreateEnvironmentRequest extends Model
      * @description The language. Default value: zh.
      *
      * Valid values:
+     *   en: English
+     *   zh: Chinese
      *
-     *   en
-     *
-     * .
-     *
-     *   zh
-     *
-     * .
      * @example zh
      *
      * @var string
@@ -50,8 +45,8 @@ class CreateEnvironmentRequest extends Model
     /**
      * @description The subtype of the environment. Valid values:
      *
-     *   CS: ACK
-     *   ECS: ECS
+     *   CS: Container Service for Kubernetes (ACK) or Distributed Cloud Container Platform for Kubernetes (ACK One)
+     *   ECS: Elastic Compute Service (ECS)
      *   Cloud: cloud service
      *
      * This parameter is required.
@@ -88,13 +83,17 @@ class CreateEnvironmentRequest extends Model
     public $feePackage;
 
     /**
-     * @description 环境绑定的grafana工作区id。传空时，表示使用默认的共享grafana。
+     * @description The ID of the Grafana workspace associated with the environment. If this parameter is left empty, the default shared Grafana workspace is used.
      *
      * @var string
      */
     public $grafanaWorkspaceId;
 
     /**
+     * @description Whether to initialize the environment.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $initEnvironment;

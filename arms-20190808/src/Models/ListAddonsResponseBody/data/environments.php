@@ -11,14 +11,14 @@ use AlibabaCloud\Tea\Model;
 class environments extends Model
 {
     /**
-     * @description Dependency list.
+     * @description The dependencies of the environment.
      *
      * @var dependencies
      */
     public $dependencies;
 
     /**
-     * @description Description of environment.
+     * @description The description of the environment.
      *
      * @example The MySQL service is deployed in a Kubernetes cluster.
      *
@@ -27,7 +27,7 @@ class environments extends Model
     public $description;
 
     /**
-     * @description Whether to enable it.
+     * @description Indicates whether the feature is enabled.
      *
      * @example true
      *
@@ -36,7 +36,7 @@ class environments extends Model
     public $enable;
 
     /**
-     * @description Label of the environment.
+     * @description The tag of the environment.
      *
      * @example Container
      *
@@ -45,7 +45,7 @@ class environments extends Model
     public $label;
 
     /**
-     * @description Name of the environment.
+     * @description The name of the environment.
      *
      * @example CS
      *
@@ -54,7 +54,7 @@ class environments extends Model
     public $name;
 
     /**
-     * @description Policies list.
+     * @description The control policies in the environment.
      *
      * @var policies
      */

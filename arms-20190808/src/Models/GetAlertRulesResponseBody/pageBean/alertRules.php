@@ -14,10 +14,10 @@ use AlibabaCloud\Tea\Model;
 class alertRules extends Model
 {
     /**
-     * @description The alert check type of the Prometheus alert rule. Valid values:
+     * @description The alert check type of the Prometheus alert rule.
      *
-     *   STATIC: static threshold value
-     *   CUSTOM: custom PromQL statement
+     *   STATIC: static threshold
+     *   CUSTOM: custom PromQL
      *
      * @example STATIC
      *
@@ -26,7 +26,7 @@ class alertRules extends Model
     public $alertCheckType;
 
     /**
-     * @description The ID of the alert contact group to which the alert rule belongs. Valid values:
+     * @description The alert contact group ID of the Prometheus alert rule.
      *
      *   \\-1: custom PromQL
      *   1: Kubernetes load
@@ -39,7 +39,7 @@ class alertRules extends Model
     public $alertGroup;
 
     /**
-     * @description The ID of the alert rule.
+     * @description The alert rule ID.
      *
      * @example 5730***
      *
@@ -70,7 +70,7 @@ class alertRules extends Model
      *   STOPPED
      *   PAUSED
      *
-     * > The **PAUSED** status indicates that the alert rule is abnormal and is actively paused by the system. The alert rule may be paused because that it is not unique or the associated cluster has been deleted.
+     * >  The PAUSED state indicates that the alert rule is abnormal and has been suspended. This may be because the specified threshold value is excessively large, or the associated cluster has been deleted.
      * @example RUNNING
      *
      * @var string
@@ -78,11 +78,11 @@ class alertRules extends Model
     public $alertStatus;
 
     /**
-     * @description The type of the alert rule.
+     * @description The type of the alert rule. Valid values:
      *
      *   APPLICATION_MONITORING_ALERT_RULE: alert rule for Application Monitoring
      *   BROWSER_MONITORING_ALERT_RULE: alert rule for Browser Monitoring
-     *   PROMETHEUS_MONITORING_ALERT_RULE: alert rule for Managed Service for Prometheus
+     *   PROMETHEUS_MONITORING_ALERT_RULE: Prometheus alert rule
      *
      * @example APPLICATION_MONITORING_ALERT_RULE
      *
@@ -98,10 +98,10 @@ class alertRules extends Model
     public $annotations;
 
     /**
-     * @description Indicates whether the alert rule was applied to new applications that were created in Application Monitoring or Browser Monitoring. Valid values:
+     * @description Indicates whether the alert rule is applied to new applications that are created in Application Monitoring or Browser Monitoring. Valid values:
      *
-     *   `true`
-     *   `false`
+     *   `true`: yes
+     *   `false`: no
      *
      * @example false
      *
@@ -139,7 +139,7 @@ class alertRules extends Model
     /**
      * @description The extended fields.
      *
-     * > For existing Application Monitoring alert rules, the fields contained information such as contacts, alert template, and notification content.
+     * >  For existing Application Monitoring alert rules, the fields contain information such as contacts, alert template, and notification content.
      * @example {\\\\"alarmContext\\\\":\\\\"{\\\\\\\\\\"content\\\\\\\\\\":\\\\\\\\Alert name: $Alert name\\\\\\\\\\\\nFilter condition: $Filter condition\\\\\\\\\\\\nAlert time: $Alert time\\\\\\\\\\\\nAlert content: $Alert content\\\\\\\\\\\\nNote: The alert persists before you receive an email that reminds you to clear the alert. You will be reminded of the alert again 24 hours later. \\\\\\\\\\",\\\\\\\\\\"subTitle\\\\\\\\\\":\\\\\\\\\\"\\\\\\\\\\"}\\\\",\\\\"alertWays\\\\":\\\\"[0,1]\\\\",\\\\"contactGroupIds\\\\":\\\\"381,5075\\\\",\\\\"notice\\\\":\\\\"{\\\\\\\\\\"endTime\\\\\\\\\\":1480607940000,\\\\\\\\\\"noticeEndTime\\\\\\\\\\":1480607940000,\\\\\\\\\\"noticeStartTime\\\\\\\\\\":1480521600000,\\\\\\\\\\"startTime\\\\\\\\\\":1480521600000}\\\\"}
      *
      * @var string
@@ -203,7 +203,7 @@ class alertRules extends Model
     public $notifyStrategy;
 
     /**
-     * @description The process ID (PID) that was associated with the Application Monitoring or Browser Monitoring alert rule.
+     * @description The process ID (PID) of the application to which the Application Monitoring or Browser Monitoring alert rule is applied.
      *
      * @var string[]
      */
@@ -228,7 +228,7 @@ class alertRules extends Model
     public $regionId;
 
     /**
-     * @description The list of tags.
+     * @description The tags of the alert rule.
      *
      * @var tags[]
      */
@@ -244,7 +244,7 @@ class alertRules extends Model
     public $updatedTime;
 
     /**
-     * @description The ID of the Alibaba Cloud account to which the resource belongs.
+     * @description The ID of the Alibaba Cloud account.
      *
      * @example 1131971649******
      *

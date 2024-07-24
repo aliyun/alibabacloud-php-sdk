@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class tags extends Model
 {
     /**
+     * @description The tag key. The tag key can be up to 128 characters in length. It cannot start with aliyun or acs: and cannot contain http:// or https://.
+     *
      * @example tag1
      *
      * @var string
@@ -16,6 +18,8 @@ class tags extends Model
     public $key;
 
     /**
+     * @description The tag value.
+     *
      * @example ok
      *
      * @var string

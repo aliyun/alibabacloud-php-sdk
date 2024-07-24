@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CloseAlarmResponseBody extends Model
 {
     /**
+     * @description The HTTP status code. The status code 200 indicates that the request was successful.
+     *
      * @example 200
      *
      * @var int
@@ -16,6 +18,8 @@ class CloseAlarmResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned message.
+     *
      * @example success
      *
      * @var string
@@ -23,6 +27,8 @@ class CloseAlarmResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 46355DD8-FC56-40C5-BFC6-269DE4F9****
      *
      * @var string
@@ -30,6 +36,11 @@ class CloseAlarmResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   `true`
+     *   `false`
+     *
      * @example true
      *
      * @var bool
@@ -37,6 +48,11 @@ class CloseAlarmResponseBody extends Model
     public $result;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   `true`
+     *   `false`
+     *
      * @example True
      *
      * @var bool

@@ -32,7 +32,7 @@ class alertRuleItems extends Model
     public $metricKey;
 
     /**
-     * @description Indicates the last N minutes.
+     * @description The last N minutes.
      *
      * @example 1
      *
@@ -41,16 +41,16 @@ class alertRuleItems extends Model
     public $n;
 
     /**
-     * @description The comparison operator that was used to compare the metric value with the threshold. Valid values:
+     * @description The operator that is used to compare the metric value with the threshold. Valid values:
      *
      *   CURRENT_GTE: greater than or equal to
      *   CURRENT_LTE: less than or equal to
-     *   PREVIOUS_UP: the increase percentage compared with the last period
-     *   PREVIOUS_DOWN: the decrease percentage compared with the last period
-     *   HOH_UP: the increase percentage compared with the last hour
-     *   HOH_DOWN: the decrease percentage compared with the last hour
-     *   DOD_UP: the increase percentage compared with the last day
-     *   DOD_DOWN: the decrease percentage compared with the last day
+     *   PREVIOUS_UP: increase in percentage compared with the previous period
+     *   PREVIOUS_DOWN: decrease in percentage compared with the previous period
+     *   HOH_UP: increase in percentage compared with the same period in the previous hour
+     *   HOH_DOWN: decrease in percentage compared with the same period in the previous hour
+     *   DOD_UP: increase in percentage compared with the same period in the previous day
+     *   DOD_DOWN: decrease in percentage compared with the same period in the previous day
      *
      * @example CURRENT_GTE
      *

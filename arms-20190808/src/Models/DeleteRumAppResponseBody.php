@@ -23,6 +23,8 @@ class DeleteRumAppResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The error message.
+     *
      * @example success
      *
      * @var string
@@ -46,6 +48,8 @@ class DeleteRumAppResponseBody extends Model
     public $resourceGroupId;
 
     /**
+     * @description Indicates whether the application is deleted.
+     *
      * @example Success to delete app.
      *
      * @var string

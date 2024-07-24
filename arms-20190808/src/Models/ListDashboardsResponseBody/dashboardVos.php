@@ -63,7 +63,7 @@ class dashboardVos extends Model
     public $httpsUrl;
 
     /**
-     * @description The information about the Grafana dashboards.
+     * @description The information about the Grafana dashboard.
      *
      * @var i18nChild
      */
@@ -79,10 +79,10 @@ class dashboardVos extends Model
     public $id;
 
     /**
-     * @description Indicates whether the exporter was provided by ARMS. Valid values:
+     * @description Indicates whether the exporter is provided by Application Real-Time Monitoring Service (ARMS).
      *
-     *   `true`: The exporter is provided by ARMS.
-     *   `false`: The exporter is not provided by ARMS.
+     *   `true:` The exporter is provided by ARMS.
+     *   `false:`: The exporter is not provided by ARMS.
      *
      * @example false
      *
@@ -91,7 +91,7 @@ class dashboardVos extends Model
     public $isArmsExporter;
 
     /**
-     * @description The type of the dashboard. Valid values: BASIC, THIRD, LIMIT, and CUSTOM. BASIC indicates a basic dashboard. THIRD indicates a third-party dashboard. LIMIT indicates a time-limited free dashboard. CUSTOM indicates a custom dashboard.
+     * @description The category of the Grafana dashboard. Valid values: BASIC, THIRD, LIMIT, and CUSTOM.
      *
      * @example BASIC
      *
@@ -118,7 +118,7 @@ class dashboardVos extends Model
     public $name;
 
     /**
-     * @description Indicates whether the Grafana dashboard has a new version that was available for upgrade.
+     * @description Indicates whether the Grafana dashboard has a new version that is available for upgrade.
      *
      * @example false
      *
@@ -134,7 +134,7 @@ class dashboardVos extends Model
     public $tags;
 
     /**
-     * @description The timestamp generated when the Grafana dashboard was created. Unit: seconds
+     * @description The time when the Grafana dashboard was created. The value is a timestamp. Unit: seconds.
      *
      * @example 1590136924
      *
@@ -164,7 +164,7 @@ class dashboardVos extends Model
     public $type;
 
     /**
-     * @description The unique identifier of a dashboard when multiple Grafana dashboards were installed. It is a unique business ID displayed on the page.
+     * @description The unique identifier of the Grafana dashboard.
      *
      * @example 1131971649496228-*****-59
      *

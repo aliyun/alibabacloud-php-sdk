@@ -30,7 +30,7 @@ class customSLSFilters extends Model
     public $opt;
 
     /**
-     * @description Indicates whether this filter condition was displayed on the frontend.
+     * @description Indicates whether this filter condition is displayed on the frontend.
      *
      * @example false
      *
@@ -39,7 +39,7 @@ class customSLSFilters extends Model
     public $show;
 
     /**
-     * @description Indicates the log type of Browser Monitoring. This field was not included in other filter conditions.
+     * @description The log type of Browser Monitoring. This field is not included in other filter conditions.
      *
      * @example null
      *

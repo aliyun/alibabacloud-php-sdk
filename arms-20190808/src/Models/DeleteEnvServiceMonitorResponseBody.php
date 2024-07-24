@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteEnvServiceMonitorResponseBody extends Model
 {
     /**
-     * @description The status code or error code.
+     * @description The HTTP status code. The status code 200 indicates that the request was successful. Other status codes indicate that the request failed.
      *
      * @example 200
      *
@@ -18,7 +18,7 @@ class DeleteEnvServiceMonitorResponseBody extends Model
     public $code;
 
     /**
-     * @description The returned data.
+     * @description The result of the operation.
      *
      * @example success
      *
@@ -36,7 +36,7 @@ class DeleteEnvServiceMonitorResponseBody extends Model
     public $message;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example 78901766-3806-4E96-8E47-CFEF59E4****
      *

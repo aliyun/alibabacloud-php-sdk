@@ -36,7 +36,7 @@ class ManageRecordingRuleResponseBody extends Model
     public $message;
 
     /**
-     * @description The request ID. You can use the ID to troubleshoot issues.
+     * @description The ID of the request. You can use the ID to troubleshoot issues.
      *
      * @example CD782AEC-A676-529F-8F26-0ED0FF0EF1EA
      *

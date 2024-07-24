@@ -4,11 +4,14 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
+use AlibabaCloud\SDK\ARMS\V20190808\Models\CreateRumAppResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
 class CreateRumAppResponseBody extends Model
 {
     /**
+     * @description The HTTP status code. 2XX indicates that the request was successful. 3XX indicates that the request was redirected. 4XX indicates that a request error occurred. 5XX indicates that a server error occurred.
+     *
      * @example 200
      *
      * @var int
@@ -16,13 +19,17 @@ class CreateRumAppResponseBody extends Model
     public $code;
 
     /**
+     * @description The application ID and domain names. This parameter is returned if the application is created. Multiple domain names are separated with commas (,).
+     *
      * @example ggxxxnjuz@xxxx,xxxxxx-default-cn.rum.aliyuncs.com
      *
-     * @var string
+     * @var data
      */
     public $data;
 
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -30,7 +37,7 @@ class CreateRumAppResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description Id of the request
+     * @description The returned message.
      *
      * @example success
      *
@@ -39,7 +46,7 @@ class CreateRumAppResponseBody extends Model
     public $message;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example 1A474FF8-7861-4D00-81B5-5BC3DA4E****
      *
@@ -48,6 +55,8 @@ class CreateRumAppResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example rg-acfmxyexli2****
      *
      * @var string
@@ -55,6 +64,11 @@ class CreateRumAppResponseBody extends Model
     public $resourceGroupId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool
@@ -81,7 +95,7 @@ class CreateRumAppResponseBody extends Model
             $res['Code'] = $this->code;
         }
         if (null !== $this->data) {
-            $res['Data'] = $this->data;
+            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
         }
         if (null !== $this->httpStatusCode) {
             $res['HttpStatusCode'] = $this->httpStatusCode;
@@ -114,7 +128,7 @@ class CreateRumAppResponseBody extends Model
             $model->code = $map['Code'];
         }
         if (isset($map['Data'])) {
-            $model->data = $map['Data'];
+            $model->data = data::fromMap($map['Data']);
         }
         if (isset($map['HttpStatusCode'])) {
             $model->httpStatusCode = $map['HttpStatusCode'];

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateRumFileStatusResponseBody extends Model
 {
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example 626037F5-FDEB-45B0-804C-B3C92797****
      *

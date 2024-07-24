@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class InstallManagedPrometheusRequest extends Model
 {
     /**
-     * @description The ID of the ACK cluster.
+     * @description The ID of the ASK cluster.
      *
      * @example cc7a37ee31aea4ed1a059eff8034b****
      *
@@ -18,7 +18,7 @@ class InstallManagedPrometheusRequest extends Model
     public $clusterId;
 
     /**
-     * @description The name of the ECS instance. If you set the ClusterType parameter to ecs, you must configure this parameter.
+     * @description The name of the cluster. This parameter is required if the ClusterType parameter is set to ecs.
      *
      * @example prd-ecs
      *
@@ -27,23 +27,7 @@ class InstallManagedPrometheusRequest extends Model
     public $clusterName;
 
     /**
-     * @description The cluster type.
-     *
-     * Valid values:
-     *
-     *   ecs
-     *
-     * <!-- -->
-     *
-     *   one
-     *
-     * <!-- -->
-     *
-     *   ask
-     *
-     * <!-- -->
-     *
-     *   pro
+     * @description The type of the cluster. Valid values: ask and ecs.
      *
      * This parameter is required.
      * @example ask
@@ -53,7 +37,7 @@ class InstallManagedPrometheusRequest extends Model
     public $clusterType;
 
     /**
-     * @description The ID of the Grafana workspace used by the ASK cluster or ECS instance. If you set the value to free or leave the parameter empty, a shared Grafana workspace is used.
+     * @description The ID of the Grafana workspace in which the cluster resides. If you set this parameter to free or leave this parameter empty, the cluster is deployed in a shared Grafana workspace.
      *
      * @example grafana-bp1*****
      *
@@ -62,7 +46,7 @@ class InstallManagedPrometheusRequest extends Model
     public $grafanaInstanceId;
 
     /**
-     * @description This parameter is not supported.
+     * @description The parameter is not supported.
      *
      * @example -
      *
@@ -80,7 +64,7 @@ class InstallManagedPrometheusRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group to which the Prometheus instance belongs.
+     * @description Prometheus实例的资源组ID。
      *
      * @example rg-acfmxyexli2****
      *
@@ -89,7 +73,7 @@ class InstallManagedPrometheusRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description The security group of the ASK cluster or ECS instance.
+     * @description The ID of the security group to which the cluster belongs.
      *
      * This parameter is required.
      * @example sg-bp1********
@@ -99,7 +83,7 @@ class InstallManagedPrometheusRequest extends Model
     public $securityGroupId;
 
     /**
-     * @description The vSwitch used by the ASK cluster or ECS instance.
+     * @description The ID of the vSwitch that is used by the cluster.
      *
      * This parameter is required.
      * @example vsw-bp1*********
@@ -109,7 +93,7 @@ class InstallManagedPrometheusRequest extends Model
     public $vSwitchId;
 
     /**
-     * @description The virtual private cloud (VPC) where the ASK cluster or ECS instance resides.
+     * @description The virtual private cloud (VPC) where the cluster resides.
      *
      * This parameter is required.
      * @example vpc-xxxxxx

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class AddIntegrationResponseBody extends Model
 {
     /**
-     * @description 状态码。200为成功，其他状态码为异常。
+     * @description Status code. 200 means success, other status codes are exceptions.
      *
      * @example 200
      *
@@ -18,7 +18,7 @@ class AddIntegrationResponseBody extends Model
     public $code;
 
     /**
-     * @description Indicates whether the integration was successful.
+     * @description Indicates whether the call was successful.
      *
      * @example success
      *
@@ -27,7 +27,7 @@ class AddIntegrationResponseBody extends Model
     public $data;
 
     /**
-     * @description 返回结果的提示信息。
+     * @description The prompt information of the returned result.
      *
      * @example success
      *

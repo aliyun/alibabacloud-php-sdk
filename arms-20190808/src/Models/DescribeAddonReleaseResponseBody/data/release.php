@@ -98,7 +98,7 @@ class release extends Model
     public $language;
 
     /**
-     * @description Whether or not it is a managed component.
+     * @description Indicates whether the component is fully managed.
      *
      * @var bool
      */

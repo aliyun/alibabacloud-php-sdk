@@ -71,10 +71,10 @@ class i18nChild extends Model
     public $id;
 
     /**
-     * @description Indicates whether the exporter was provided by ARMS. Valid values:
+     * @description Indicates whether the exporter is provided by ARMS.
      *
-     *   `true`: The exporter is provided by ARMS.
-     *   `false`: The exporter is not provided by ARMS.
+     *   `true:` The exporter is provided by ARMS.
+     *   `false:`: The exporter is not provided by ARMS.
      *
      * @example false
      *
@@ -110,7 +110,7 @@ class i18nChild extends Model
     public $name;
 
     /**
-     * @description Indicates whether the Grafana dashboard has a new version that was available for upgrade.
+     * @description Indicates whether the Grafana dashboard has a new version that is available for upgrade.
      *
      * @example false
      *
@@ -126,7 +126,7 @@ class i18nChild extends Model
     public $tags;
 
     /**
-     * @description The timestamp when the Grafana dashboard was created.
+     * @description The time when the Grafana dashboard was created. The value is a timestamp.
      *
      * @example 1590136924
      *
@@ -156,7 +156,7 @@ class i18nChild extends Model
     public $type;
 
     /**
-     * @description The unique identifier of a dashboard when multiple Grafana dashboards were installed. It is a unique business ID displayed on the page.
+     * @description The unique identifier of the Grafana dashboard.
      *
      * @example 1131971649496228-*****-59
      *

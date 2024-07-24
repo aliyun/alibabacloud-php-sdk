@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateRumUploadFileUrlRequest extends Model
 {
     /**
+     * @description The application name.
+     *
      * @example test-app
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateRumUploadFileUrlRequest extends Model
     public $appName;
 
     /**
+     * @description The type of the file. You can set this parameter to "application/zip", "text/plain", or an empty string.
+     *
      * @example text/plain
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateRumUploadFileUrlRequest extends Model
     public $contentType;
 
     /**
+     * @description The file name.
+     *
      * @example test.js.map
      *
      * @var string
@@ -30,6 +36,8 @@ class CreateRumUploadFileUrlRequest extends Model
     public $fileName;
 
     /**
+     * @description The application ID.
+     *
      * @example iioe7jcnuk@582846f37******
      *
      * @var string
@@ -37,8 +45,9 @@ class CreateRumUploadFileUrlRequest extends Model
     public $pid;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -46,6 +55,8 @@ class CreateRumUploadFileUrlRequest extends Model
     public $regionId;
 
     /**
+     * @description The file type. Valid values: source-map: SourceMap files. mapping: symbol table files for Android. dsym: dSYM files for iOS.
+     *
      * @example source-map
      *
      * @var string
@@ -53,6 +64,8 @@ class CreateRumUploadFileUrlRequest extends Model
     public $sourcemapType;
 
     /**
+     * @description The file ID.
+     *
      * @example 125bdb39-a415-4503-bd96-e293925fc64c
      *
      * @var string
@@ -60,6 +73,8 @@ class CreateRumUploadFileUrlRequest extends Model
     public $uuid;
 
     /**
+     * @description The version number of the file.
+     *
      * @example 1.0.0
      *
      * @var string

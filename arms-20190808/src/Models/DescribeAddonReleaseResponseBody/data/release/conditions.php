@@ -27,7 +27,7 @@ class conditions extends Model
     public $lastTransitionTime;
 
     /**
-     * @description The detailed information.
+     * @description The returned message.
      *
      * @example xxxx
      *

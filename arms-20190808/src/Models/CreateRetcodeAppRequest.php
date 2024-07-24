@@ -29,7 +29,7 @@ class CreateRetcodeAppRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description The name of the application that is monitored by Browser Monitoring.
+     * @description The name of the application.
      *
      * This parameter is required.
      * @example SdkTest
@@ -39,7 +39,14 @@ class CreateRetcodeAppRequest extends Model
     public $retcodeAppName;
 
     /**
-     * @description The site type.
+     * @description The type of the application. Valid values:
+     *
+     *   `web`: web application
+     *   `weex`: Weex mobile app
+     *   `mini_dd`: DingTalk mini program
+     *   `mini_alipay`: Alipay mini program
+     *   `mini_wx`: WeChat mini program
+     *   `mini_common`: mini program on other platforms
      *
      * This parameter is required.
      * @example mini_dd
@@ -49,7 +56,7 @@ class CreateRetcodeAppRequest extends Model
     public $retcodeAppType;
 
     /**
-     * @description The list of tags.
+     * @description The tags that you want to add to the task.
      *
      * @var tags[]
      */

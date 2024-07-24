@@ -17,6 +17,8 @@ class ListEnvironmentFeaturesResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned struct.
+     *
      * @var data[]
      */
     public $data;

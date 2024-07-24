@@ -9,6 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetTraceAppConfigResponseBody extends Model
 {
     /**
+     * @description The HTTP status code.
+     *
+     * Valid values:
+     *
+     *   2xx: The request was successful.
+     *   3xx: The request was redirected.
+     *   4xx: A request error occurred.
+     *   5xx: A server error occurred.
+     *
      * @example 200
      *
      * @var int
@@ -16,6 +25,8 @@ class GetTraceAppConfigResponseBody extends Model
     public $code;
 
     /**
+     * @description The custom settings of the application, which is a JSON string. For more information, see **Additional description of response parameters**.
+     *
      * @example {"profiler":{"enable":true}}
      *
      * @var string
@@ -23,11 +34,15 @@ class GetTraceAppConfigResponseBody extends Model
     public $data;
 
     /**
+     * @description The returned message.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 78901766-3806-4E96-8E47-CFEF59E4****
      *
      * @var string
@@ -35,6 +50,13 @@ class GetTraceAppConfigResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
+     * Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

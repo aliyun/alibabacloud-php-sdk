@@ -10,6 +10,7 @@ class ListPrometheusInstancesRequest extends Model
 {
     /**
      * @description Optional instance types (if left blank, all types of instances will be queried):
+     *
      * - Edge Kubernetes
      * @example cloud-product-prometheus
      *
@@ -18,7 +19,7 @@ class ListPrometheusInstancesRequest extends Model
     public $clusterType;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID.
      *
      * This parameter is required.
      * @example cn-hangzhou
@@ -28,7 +29,7 @@ class ListPrometheusInstancesRequest extends Model
     public $regionId;
 
     /**
-     * @description Specifies whether to query global aggregation instances. Valid values:
+     * @description Specifies whether to obtain global aggregation instances. Valid values:
      *
      *   true
      *   false

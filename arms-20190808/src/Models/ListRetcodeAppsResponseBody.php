@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListRetcodeAppsResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 99A663CB-8D7B-4B0D-A006-03C8EE38E7BB
      *

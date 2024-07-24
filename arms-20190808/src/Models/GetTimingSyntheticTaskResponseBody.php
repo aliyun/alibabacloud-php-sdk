@@ -19,7 +19,7 @@ class GetTimingSyntheticTaskResponseBody extends Model
     public $code;
 
     /**
-     * @description The struct returned.
+     * @description The returned struct.
      *
      * @var data
      */

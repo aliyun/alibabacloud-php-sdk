@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetCommercialStatusResponseBody extends Model
 {
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example 49C82193-E991-5F6A-AF3E-1664D8D05CA3
      *
@@ -19,6 +19,8 @@ class GetCommercialStatusResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The commercialization status of the service.
+     *
      * @var userAndCommodityStatus
      */
     public $userAndCommodityStatus;

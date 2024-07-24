@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description Release list.
+     * @description The queried add-ons.
      *
      * @var releases[]
      */
     public $releases;
 
     /**
-     * @description The total number of entries returned.
+     * @description The total number of entries.
      *
      * @example 12
      *

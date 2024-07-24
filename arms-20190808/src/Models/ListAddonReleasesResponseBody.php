@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListAddonReleasesResponseBody extends Model
 {
     /**
-     * @description Status code: 200 indicates success.
+     * @description The HTTP status code. The status code 200 indicates that the request was successful.
      *
      * @example 200
      *
@@ -19,7 +19,7 @@ class ListAddonReleasesResponseBody extends Model
     public $code;
 
     /**
-     * @description The returned struct.
+     * @description The result of the operation.
      *
      * @var data
      */
@@ -35,7 +35,7 @@ class ListAddonReleasesResponseBody extends Model
     public $message;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example E9C9DA3D-10FE-472E-9EEF-2D0A3E41****
      *
@@ -44,10 +44,7 @@ class ListAddonReleasesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request was successful.
-     *
-     *   `true`: The request was successful.
-     *   `false`: The request failed.
+     * @description Indicates whether the request was successful. Valid values: true and false.
      *
      * @example true
      *

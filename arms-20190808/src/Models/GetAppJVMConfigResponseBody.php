@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetAppJVMConfigResponseBody extends Model
 {
     /**
-     * @description The status code. The status code 200 indicates that the request was successful. If another status code is returned, the request failed.
+     * @description The response code. Valid values: 2XX: The request is successful. 3XX: A redirection message is returned. 4XX: The request is invalid. 5XX: A server error occurs.
      *
      * @example 200
      *
@@ -19,14 +19,14 @@ class GetAppJVMConfigResponseBody extends Model
     public $code;
 
     /**
-     * @description Java VM info list.
+     * @description The list of JVM information.
      *
      * @var jvmInfoList[]
      */
     public $jvmInfoList;
 
     /**
-     * @description The returned message.
+     * @description The error message returned if the request failed.
      *
      * @example message
      *
@@ -44,10 +44,7 @@ class GetAppJVMConfigResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request was successful. Valid values:
-     *
-     *   `true`
-     *   `false`
+     * @description Indicates whether the request was successful. Valid values: true and false.
      *
      * @example true
      *

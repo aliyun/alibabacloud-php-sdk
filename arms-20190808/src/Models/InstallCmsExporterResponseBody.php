@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class InstallCmsExporterResponseBody extends Model
 {
     /**
+     * @description Indicates whether the call was successful.
+     *
      * @example success
      *
      * @var string
@@ -16,6 +18,8 @@ class InstallCmsExporterResponseBody extends Model
     public $data;
 
     /**
+     * @description The ID of the request. You can use the ID to locate logs and troubleshoot issues.
+     *
      * @example E7A04B0D-E2CA-59BB-8A9D-D5D349C22BF1
      *
      * @var string

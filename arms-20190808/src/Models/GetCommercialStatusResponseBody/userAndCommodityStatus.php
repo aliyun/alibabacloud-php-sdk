@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class userAndCommodityStatus extends Model
 {
     /**
+     * @description Indicates whether you are using the Basic Edition.
+     *
      * @example false
      *
      * @var bool
@@ -16,6 +18,8 @@ class userAndCommodityStatus extends Model
     public $basic;
 
     /**
+     * @description The billing method.
+     *
      * @example usage
      *
      * @var string
@@ -23,6 +27,8 @@ class userAndCommodityStatus extends Model
     public $chargeType;
 
     /**
+     * @description Indicates whether the service is activated.
+     *
      * @example true
      *
      * @var bool
@@ -30,6 +36,8 @@ class userAndCommodityStatus extends Model
     public $enable;
 
     /**
+     * @description The additional information.
+     *
      * @example info
      *
      * @var mixed[]
@@ -37,6 +45,8 @@ class userAndCommodityStatus extends Model
     public $extraInfo;
 
     /**
+     * @description The number of days during which the service is free of charge.
+     *
      * @example 10
      *
      * @var int
@@ -44,6 +54,8 @@ class userAndCommodityStatus extends Model
     public $freeDays;
 
     /**
+     * @description The tags.
+     *
      * @example NEW
      *
      * @var string
@@ -51,6 +63,14 @@ class userAndCommodityStatus extends Model
     public $lable;
 
     /**
+     * @description The commercialization status.
+     *
+     * Valid values:
+     *
+     *   Normal: The service is activated.
+     *   Abnormal: An exception occurs during activation.
+     *   Free: The service is not activated.
+     *
      * @example Normal
      *
      * @var string

@@ -11,6 +11,8 @@ class CreateOrUpdateNotificationPolicyRequest extends Model
     /**
      * @description Specifies whether to enable simple mode.
      *
+     * @example false
+     *
      * @var bool
      */
     public $directedMode;
@@ -142,6 +144,8 @@ class CreateOrUpdateNotificationPolicyRequest extends Model
     public $sendRecoverMessage;
 
     /**
+     * @description Specifies whether to enable the notification policy. Valid values: enable and disable.
+     *
      * @example enable
      *
      * @var string

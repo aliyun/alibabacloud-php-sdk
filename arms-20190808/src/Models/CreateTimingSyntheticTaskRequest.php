@@ -20,6 +20,8 @@ class CreateTimingSyntheticTaskRequest extends Model
     public $availableAssertions;
 
     /**
+     * @description The general settings.
+     *
      * @var commonSetting
      */
     public $commonSetting;
@@ -48,8 +50,9 @@ class CreateTimingSyntheticTaskRequest extends Model
     public $monitorCategory;
 
     /**
-     * @description This parameter is required.
+     * @description The monitoring configurations.
      *
+     * This parameter is required.
      * @var monitorConf
      */
     public $monitorConf;
@@ -62,8 +65,9 @@ class CreateTimingSyntheticTaskRequest extends Model
     public $monitors;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the task.
      *
+     * This parameter is required.
      * @example demo-test
      *
      * @var string
@@ -71,8 +75,9 @@ class CreateTimingSyntheticTaskRequest extends Model
     public $name;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -92,8 +97,9 @@ class CreateTimingSyntheticTaskRequest extends Model
     public $tags;
 
     /**
-     * @description This parameter is required.
+     * @description The type of the task. Valid values:
      *
+     * This parameter is required.
      * @example 4
      *
      * @var int

@@ -14,14 +14,14 @@ class dependencies extends Model
     public $clusterTypes;
 
     /**
-     * @description Name of the Feature.
+     * @description The feature on which the environment depends.
      *
      * @var bool[]
      */
     public $features;
 
     /**
-     * @description Service list.
+     * @description The services.
      *
      * @var string[]
      */

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class jvmInfoList extends Model
 {
     /**
-     * @description Agent version.
+     * @description The version of the agent.
      *
      * @example 1.7.0-SNAPSHOT_3.0.3_3756244
      *
@@ -18,7 +18,7 @@ class jvmInfoList extends Model
     public $agentVersion;
 
     /**
-     * @description The name of the elastic container instance.
+     * @description The hostname.
      *
      * @example host_name
      *
@@ -27,7 +27,7 @@ class jvmInfoList extends Model
     public $hostName;
 
     /**
-     * @description Ip address.
+     * @description The IP address.
      *
      * @example 47.91.59.244
      *
@@ -36,7 +36,7 @@ class jvmInfoList extends Model
     public $ip;
 
     /**
-     * @description The PID.
+     * @description The application ID.
      *
      * @example dsv9zcel92@1455182510c5369
      *
@@ -45,7 +45,7 @@ class jvmInfoList extends Model
     public $pid;
 
     /**
-     * @description Process Id.
+     * @description The process ID.
      *
      * @example 1
      *
@@ -54,7 +54,7 @@ class jvmInfoList extends Model
     public $procId;
 
     /**
-     * @description Java VM config.
+     * @description The VM parameters.
      *
      * @example [-javaagent:/home/admin/.opt/ArmsAgent/arms-bootstrap-1.7.0-SNAPSHOT.jar, -Doneagent.plugin.arms-agent.enabled=true, -Darms.licenseKey=[******], -Darms.agent.env=K8s, -Darms.agent.podinfo.path=/etc/podinfo, -Darms.appName=productservice, -Doneagent.region=cn-hangzhou, -Dproject.name=Product]
      *

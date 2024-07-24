@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateRumAppRequest extends Model
 {
     /**
+     * @description Specifies whether to restart the application the next day. Valid values: true and false.
+     *
      * @example true
      *
      * @var bool
@@ -18,9 +20,18 @@ class UpdateRumAppRequest extends Model
     /**
      * @var string
      */
+    public $bonreeSDKConfigJson;
+
+    /**
+     * @description The description of the application.
+     *
+     * @var string
+     */
     public $description;
 
     /**
+     * @description Specifies whether you want to subscribe to the application. Valid values: true and false.
+     *
      * @example true
      *
      * @var bool
@@ -28,13 +39,16 @@ class UpdateRumAppRequest extends Model
     public $isSubscribe;
 
     /**
+     * @description The alias of the application.
+     *
      * @var string
      */
     public $nickname;
 
     /**
-     * @description This parameter is required.
+     * @description The application ID.
      *
+     * This parameter is required.
      * @example b5xxxxs@d8deedfa9bf****
      *
      * @var string
@@ -42,8 +56,9 @@ class UpdateRumAppRequest extends Model
     public $pid;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -51,6 +66,8 @@ class UpdateRumAppRequest extends Model
     public $regionId;
 
     /**
+     * @description Specifies whether to restart the application. Valid values: true and false.
+     *
      * @example true
      *
      * @var bool
@@ -58,11 +75,17 @@ class UpdateRumAppRequest extends Model
     public $restart;
 
     /**
+     * @description Set the application service domain name, support creation, modification, and deletion of service domain name configuration.
+     *
+     * @example {\\"Op\\":\\"Update\\",\\"Domain\\":\\"example.com\\",\\"Config\\":{\\"Description\\":\\"message\\",\\"Tracing\\":\\"true\\",\\"PropagatorTypes\\":[\\"sw8\\"]}}
+     *
      * @var string
      */
     public $serviceDomainOperationJson;
 
     /**
+     * @description Specifies whether to stop the application. Valid values: true and false.
+     *
      * @example true
      *
      * @var bool
@@ -70,6 +93,7 @@ class UpdateRumAppRequest extends Model
     public $stop;
     protected $_name = [
         'autoRestart'                => 'AutoRestart',
+        'bonreeSDKConfigJson'        => 'BonreeSDKConfigJson',
         'description'                => 'Description',
         'isSubscribe'                => 'IsSubscribe',
         'nickname'                   => 'Nickname',
@@ -89,6 +113,9 @@ class UpdateRumAppRequest extends Model
         $res = [];
         if (null !== $this->autoRestart) {
             $res['AutoRestart'] = $this->autoRestart;
+        }
+        if (null !== $this->bonreeSDKConfigJson) {
+            $res['BonreeSDKConfigJson'] = $this->bonreeSDKConfigJson;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
@@ -128,6 +155,9 @@ class UpdateRumAppRequest extends Model
         $model = new self();
         if (isset($map['AutoRestart'])) {
             $model->autoRestart = $map['AutoRestart'];
+        }
+        if (isset($map['BonreeSDKConfigJson'])) {
+            $model->bonreeSDKConfigJson = $map['BonreeSDKConfigJson'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];

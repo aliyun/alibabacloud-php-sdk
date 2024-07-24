@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteEnvPodMonitorRequest extends Model
 {
     /**
-     * @description Environment instance ID.
+     * @description The ID of the environment instance.
      *
      * This parameter is required.
      * @example env-xxxxxx
@@ -19,7 +19,7 @@ class DeleteEnvPodMonitorRequest extends Model
     public $environmentId;
 
     /**
-     * @description The namespace where podMonitor is located
+     * @description The namespace where the PodMonitor is located.
      *
      * This parameter is required.
      * @example arms-prom
@@ -29,7 +29,7 @@ class DeleteEnvPodMonitorRequest extends Model
     public $namespace;
 
     /**
-     * @description PodMonitor name.
+     * @description The name of the PodMonitor.
      *
      * This parameter is required.
      * @example arms-admin-pm1

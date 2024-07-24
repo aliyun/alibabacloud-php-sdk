@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateGrafanaWorkspaceRequest extends Model
 {
     /**
+     * @description The language. Valid values: zh and en. Default value: zh.
+     *
      * @example zh
      *
      * @var string
@@ -17,6 +19,8 @@ class CreateGrafanaWorkspaceRequest extends Model
     public $aliyunLang;
 
     /**
+     * @description The description of the workspace
+     *
      * @example test
      *
      * @var string
@@ -42,8 +46,9 @@ class CreateGrafanaWorkspaceRequest extends Model
     public $grafanaWorkspaceEdition;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the Grafana workspace.
      *
+     * This parameter is required.
      * @example testgrafana
      *
      * @var string
@@ -51,6 +56,8 @@ class CreateGrafanaWorkspaceRequest extends Model
     public $grafanaWorkspaceName;
 
     /**
+     * @description The password of the workspace. The password must be 8 to 30 characters in length. It must include at least three of the following characters types: uppercase letter, lowercase letter, digit, and special character. Special characters include () \\" ~ ! @ # $ % ^ & \\* - _ + =.
+     *
      * @example Test123456!
      *
      * @var string
@@ -58,8 +65,9 @@ class CreateGrafanaWorkspaceRequest extends Model
     public $password;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -67,6 +75,8 @@ class CreateGrafanaWorkspaceRequest extends Model
     public $regionId;
 
     /**
+     * @description The resource group ID.
+     *
      * @example rg-acfmxyexli2****
      *
      * @var string
@@ -74,6 +84,8 @@ class CreateGrafanaWorkspaceRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description The list of tags.
+     *
      * @var tags[]
      */
     public $tags;

@@ -94,6 +94,7 @@ use AlibabaCloud\SDK\ARMS\V20190808\Models\CreateRetcodeAppRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\CreateRetcodeAppResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\CreateRumAppRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\CreateRumAppResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\CreateRumAppShrinkRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\CreateRumUploadFileUrlRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\CreateRumUploadFileUrlResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\CreateSyntheticTaskRequest;
@@ -208,6 +209,8 @@ use AlibabaCloud\SDK\ARMS\V20190808\Models\DescribeTraceLicenseKeyRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DescribeTraceLicenseKeyResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DescribeWebhookContactsRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DescribeWebhookContactsResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\DoInsightsActionRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\DoInsightsActionResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\EnableMetricRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\EnableMetricResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetAgentDownloadUrlRequest;
@@ -264,10 +267,14 @@ use AlibabaCloud\SDK\ARMS\V20190808\Models\GetRumAppInfoRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetRumAppInfoResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetRumAppsRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetRumAppsResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\GetRumAppsShrinkRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetRumDataForPageRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetRumDataForPageResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetRumExceptionStackRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetRumExceptionStackResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\GetRumOcuStatisticDataRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\GetRumOcuStatisticDataResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\GetRumOcuStatisticDataShrinkRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetRumUploadFilesRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetRumUploadFilesResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetSourceMapInfoRequest;
@@ -700,7 +707,7 @@ class ARMS extends OpenApiClient
     /**
      * @deprecated openAPI AddIntegration is deprecated, please use ARMS::2019-08-08::InstallAddon instead
      *  *
-     * @summary 接入integration
+     * @summary Integrates the dashboard and collection rules of Prometheus Service.
      *  *
      * Deprecated
      *
@@ -743,7 +750,7 @@ class ARMS extends OpenApiClient
     /**
      * @deprecated openAPI AddIntegration is deprecated, please use ARMS::2019-08-08::InstallAddon instead
      *  *
-     * @summary 接入integration
+     * @summary Integrates the dashboard and collection rules of Prometheus Service.
      *  *
      * Deprecated
      *
@@ -983,7 +990,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Adds a remote write configuration item to a Prometheus instance for Container Service or a Prometheus instance for ECS.
+     * @summary Adds a remote write configuration item to a Prometheus instance.
      *  *
      * @param AddPrometheusRemoteWriteRequest $request AddPrometheusRemoteWriteRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -1024,7 +1031,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Adds a remote write configuration item to a Prometheus instance for Container Service or a Prometheus instance for ECS.
+     * @summary Adds a remote write configuration item to a Prometheus instance.
      *  *
      * @param AddPrometheusRemoteWriteRequest $request AddPrometheusRemoteWriteRequest
      *
@@ -1038,7 +1045,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Creates or updates a recording rule.
+     * @summary Creates or updates a recording rule of Managed Service for Prometheus.
      *  *
      * @param AddRecordingRuleRequest $request AddRecordingRuleRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -1077,7 +1084,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Creates or updates a recording rule.
+     * @summary Creates or updates a recording rule of Managed Service for Prometheus.
      *  *
      * @param AddRecordingRuleRequest $request AddRecordingRuleRequest
      *
@@ -1091,7 +1098,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Flink集群打标
+     * @summary Associates a Prometheus instance with the ID and name of a Flink workspace.
      *  *
      * @param AddTagToFlinkClusterRequest $request AddTagToFlinkClusterRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -1139,7 +1146,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Flink集群打标
+     * @summary Associates a Prometheus instance with the ID and name of a Flink workspace.
      *  *
      * @param AddTagToFlinkClusterRequest $request AddTagToFlinkClusterRequest
      *
@@ -1343,7 +1350,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 屏蔽告警通知
+     * @summary Blocks alert notifications in a time period.
      *  *
      * @param BlockAlarmNotificationRequest $request BlockAlarmNotificationRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -1385,7 +1392,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 屏蔽告警通知
+     * @summary Blocks alert notifications in a time period.
      *  *
      * @param BlockAlarmNotificationRequest $request BlockAlarmNotificationRequest
      *
@@ -1399,7 +1406,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 修改告警等级
+     * @summary Modifies the severity level of an alert.
      *  *
      * @param ChangeAlarmSeverityRequest $request ChangeAlarmSeverityRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -1441,7 +1448,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 修改告警等级
+     * @summary Modifies the severity level of an alert.
      *  *
      * @param ChangeAlarmSeverityRequest $request ChangeAlarmSeverityRequest
      *
@@ -1455,7 +1462,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Changes the resource group to which a resource belongs.
+     * @summary Moves a resource to a specific resource group.
      *  *
      * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -1497,7 +1504,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Changes the resource group to which a resource belongs.
+     * @summary Moves a resource to a specific resource group.
      *  *
      * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
      *
@@ -1609,7 +1616,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 认领告警
+     * @summary Claims an alert. This operation can be used together with escalation policies. When multiple handlers are involved in alert management, each handler can call this operation to claim alerts. After an alert is claimed, the alert enters the Being Processed state.
      *  *
      * @param ClaimAlarmRequest $request ClaimAlarmRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
@@ -1648,7 +1655,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 认领告警
+     * @summary Claims an alert. This operation can be used together with escalation policies. When multiple handlers are involved in alert management, each handler can call this operation to claim alerts. After an alert is claimed, the alert enters the Being Processed state.
      *  *
      * @param ClaimAlarmRequest $request ClaimAlarmRequest
      *
@@ -1662,7 +1669,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 关闭告警
+     * @summary Disables an alert. Make sure that the alert is resolved before you disable the alert. If an alert is not resolved, new alerts can be triggered even after the alert is disabled.
      *  *
      * @param CloseAlarmRequest $request CloseAlarmRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
@@ -1704,7 +1711,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 关闭告警
+     * @summary Disables an alert. Make sure that the alert is resolved before you disable the alert. If an alert is not resolved, new alerts can be triggered even after the alert is disabled.
      *  *
      * @param CloseAlarmRequest $request CloseAlarmRequest
      *
@@ -2212,7 +2219,13 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 创建工作区
+     * @summary Creates a workspace in Managed Service for Grafana.
+     *  *
+     * @description Before you call the operation, make sure that you have learned about the billing methods and [pricing](https://www.alibabacloud.com/help/zh/grafana/product-overview/billing-4?spm=a2c4g.11186623.0.0.14c2d253B3SDbt) of Managed Service for Grafana.
+     * >
+     * *   To create workspaces, you must complete real-name verification.
+     * *   Regular users can create workspaces only in Managed Service for Grafana Developer Edition, Pro Edition, and Advanced Edition. `These editions charge fees.`
+     * *   Internal users can create workspaces only in Managed Service for Grafana Beta Edition and Standard Edition. `These editions do not charge fees.`
      *  *
      * @param CreateGrafanaWorkspaceRequest $tmpReq  CreateGrafanaWorkspaceRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -2274,7 +2287,13 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 创建工作区
+     * @summary Creates a workspace in Managed Service for Grafana.
+     *  *
+     * @description Before you call the operation, make sure that you have learned about the billing methods and [pricing](https://www.alibabacloud.com/help/zh/grafana/product-overview/billing-4?spm=a2c4g.11186623.0.0.14c2d253B3SDbt) of Managed Service for Grafana.
+     * >
+     * *   To create workspaces, you must complete real-name verification.
+     * *   Regular users can create workspaces only in Managed Service for Grafana Developer Edition, Pro Edition, and Advanced Edition. `These editions charge fees.`
+     * *   Internal users can create workspaces only in Managed Service for Grafana Beta Edition and Standard Edition. `These editions do not charge fees.`
      *  *
      * @param CreateGrafanaWorkspaceRequest $request CreateGrafanaWorkspaceRequest
      *
@@ -2609,7 +2628,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Creates or modifies an EventBridge integration that is used to push notifications.
+     * @summary Creates or modifies an EventBridge integration.
      *  *
      * @param CreateOrUpdateEventBridgeIntegrationRequest $request CreateOrUpdateEventBridgeIntegrationRequest
      * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
@@ -2666,7 +2685,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Creates or modifies an EventBridge integration that is used to push notifications.
+     * @summary Creates or modifies an EventBridge integration.
      *  *
      * @param CreateOrUpdateEventBridgeIntegrationRequest $request CreateOrUpdateEventBridgeIntegrationRequest
      *
@@ -3253,16 +3272,21 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 创建前端监控应用
+     * @summary Create a Real User Monitoring (RUM) application.
      *  *
-     * @param CreateRumAppRequest $request CreateRumAppRequest
+     * @param CreateRumAppRequest $tmpReq  CreateRumAppRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
      * @return CreateRumAppResponse CreateRumAppResponse
      */
-    public function createRumAppWithOptions($request, $runtime)
+    public function createRumAppWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new CreateRumAppShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->tag)) {
+            $request->tagShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->appGroup)) {
             $query['AppGroup'] = $request->appGroup;
@@ -3272,6 +3296,9 @@ class ARMS extends OpenApiClient
         }
         if (!Utils::isUnset($request->description)) {
             $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->nickName)) {
+            $query['NickName'] = $request->nickName;
         }
         if (!Utils::isUnset($request->packageName)) {
             $query['PackageName'] = $request->packageName;
@@ -3288,8 +3315,8 @@ class ARMS extends OpenApiClient
         if (!Utils::isUnset($request->source)) {
             $query['Source'] = $request->source;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+        if (!Utils::isUnset($request->tagShrink)) {
+            $query['Tag'] = $request->tagShrink;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -3310,7 +3337,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 创建前端监控应用
+     * @summary Create a Real User Monitoring (RUM) application.
      *  *
      * @param CreateRumAppRequest $request CreateRumAppRequest
      *
@@ -3324,7 +3351,9 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 创建前端监控上传oss的URL
+     * @summary Creates a file upload URL to upload SourceMap files, symbol table files, or dSYM files.
+     *  *
+     * @description This operation returns a file upload URL. You can use the file upload URL to upload files. For more information, see [Use a URL to upload files](https://help.aliyun.com/zh/oss/user-guide/upload-a-file-using-a-file-url).
      *  *
      * @param CreateRumUploadFileUrlRequest $request CreateRumUploadFileUrlRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -3378,7 +3407,9 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 创建前端监控上传oss的URL
+     * @summary Creates a file upload URL to upload SourceMap files, symbol table files, or dSYM files.
+     *  *
+     * @description This operation returns a file upload URL. You can use the file upload URL to upload files. For more information, see [Use a URL to upload files](https://help.aliyun.com/zh/oss/user-guide/upload-a-file-using-a-file-url).
      *  *
      * @param CreateRumUploadFileUrlRequest $request CreateRumUploadFileUrlRequest
      *
@@ -3504,7 +3535,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 创建云拨测定时任务
+     * @summary Creates a scheduled synthetic test task.
      *  *
      * @param CreateTimingSyntheticTaskRequest $tmpReq  CreateTimingSyntheticTaskRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -3590,7 +3621,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 创建云拨测定时任务
+     * @summary Creates a scheduled synthetic test task.
      *  *
      * @param CreateTimingSyntheticTaskRequest $request CreateTimingSyntheticTaskRequest
      *
@@ -4226,7 +4257,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Delete custom jobs for the environment.
+     * @summary Deletes a custom job for an environment.
      *  *
      * @param DeleteEnvCustomJobRequest $request DeleteEnvCustomJobRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -4265,7 +4296,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Delete custom jobs for the environment.
+     * @summary Deletes a custom job for an environment.
      *  *
      * @param DeleteEnvCustomJobRequest $request DeleteEnvCustomJobRequest
      *
@@ -4279,7 +4310,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Delete the environment PodMonitor.
+     * @summary Deletes the PodMonitor of an environment.
      *  *
      * @param DeleteEnvPodMonitorRequest $request DeleteEnvPodMonitorRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -4321,7 +4352,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Delete the environment PodMonitor.
+     * @summary Deletes the PodMonitor of an environment.
      *  *
      * @param DeleteEnvPodMonitorRequest $request DeleteEnvPodMonitorRequest
      *
@@ -4335,7 +4366,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Delete the environment ServiceMonitor.
+     * @summary Deletes the ServiceMonitor of an environment.
      *  *
      * @param DeleteEnvServiceMonitorRequest $request DeleteEnvServiceMonitorRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -4377,7 +4408,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Delete the environment ServiceMonitor.
+     * @summary Deletes the ServiceMonitor of an environment.
      *  *
      * @param DeleteEnvServiceMonitorRequest $request DeleteEnvServiceMonitorRequest
      *
@@ -4497,7 +4528,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an EventBridge integration that is used to push notifications.
+     * @summary Deletes an EventBridge integration.
      *  *
      * @param DeleteEventBridgeIntegrationRequest $request DeleteEventBridgeIntegrationRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
@@ -4530,7 +4561,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an EventBridge integration that is used to push notifications.
+     * @summary Deletes an EventBridge integration.
      *  *
      * @param DeleteEventBridgeIntegrationRequest $request DeleteEventBridgeIntegrationRequest
      *
@@ -4601,6 +4632,8 @@ class ARMS extends OpenApiClient
     /**
      * @summary 释放工作区
      *  *
+     * @description >  You can delete workspaces only in Managed Service for Prometheus Beta Edition, which is `free of charge`.
+     *  *
      * @param DeleteGrafanaWorkspaceRequest $request DeleteGrafanaWorkspaceRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -4636,6 +4669,8 @@ class ARMS extends OpenApiClient
 
     /**
      * @summary 释放工作区
+     *  *
+     * @description >  You can delete workspaces only in Managed Service for Prometheus Beta Edition, which is `free of charge`.
      *  *
      * @param DeleteGrafanaWorkspaceRequest $request DeleteGrafanaWorkspaceRequest
      *
@@ -4801,9 +4836,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Indicates whether the notification policy was deleted successfully. Valid values:
-     * *   `true`: The notification policy was deleted successfully.
-     * *   `false`: The notification policy failed to be deleted.
+     * @summary Deletes a notification policy based on its ID.
      *  *
      * @param DeleteNotificationPolicyRequest $request DeleteNotificationPolicyRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -4836,9 +4869,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Indicates whether the notification policy was deleted successfully. Valid values:
-     * *   `true`: The notification policy was deleted successfully.
-     * *   `false`: The notification policy failed to be deleted.
+     * @summary Deletes a notification policy based on its ID.
      *  *
      * @param DeleteNotificationPolicyRequest $request DeleteNotificationPolicyRequest
      *
@@ -5064,7 +5095,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Deletes one or more remote write configuration items from a Prometheus instance for Container Service or a Prometheus instance for ECS.
+     * @summary Deletes remote write configuration items from a Prometheus instance.
      *  *
      * @param DeletePrometheusRemoteWriteRequest $request DeletePrometheusRemoteWriteRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
@@ -5103,7 +5134,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Deletes one or more remote write configuration items from a Prometheus instance for Container Service or a Prometheus instance for ECS.
+     * @summary Deletes remote write configuration items from a Prometheus instance.
      *  *
      * @param DeletePrometheusRemoteWriteRequest $request DeletePrometheusRemoteWriteRequest
      *
@@ -5226,7 +5257,9 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 删除前端监控在oss中的文件
+     * @summary Deletes a file such as a symbol table or SourceMap.
+     *  *
+     * @description Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
      *  *
      * @param DeleteRumUploadFileRequest $request DeleteRumUploadFileRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -5271,7 +5304,9 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 删除前端监控在oss中的文件
+     * @summary Deletes a file such as a symbol table or SourceMap.
+     *  *
+     * @description Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
      *  *
      * @param DeleteRumUploadFileRequest $request DeleteRumUploadFileRequest
      *
@@ -5378,7 +5413,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 删除SourceMap
+     * @summary Delete s SourceMap file that was uploaded to Browser Monitoring.
      *  *
      * @param DeleteSourceMapRequest $tmpReq  DeleteSourceMapRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -5422,7 +5457,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 删除SourceMap
+     * @summary Delete s SourceMap file that was uploaded to Browser Monitoring.
      *  *
      * @param DeleteSourceMapRequest $request DeleteSourceMapRequest
      *
@@ -6157,7 +6192,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of IM chatbots.
+     * @summary Queries instant messaging (IM) chatbots.
      *  *
      * @param DescribeIMRobotsRequest $request DescribeIMRobotsRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -6199,7 +6234,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of IM chatbots.
+     * @summary Queries instant messaging (IM) chatbots.
      *  *
      * @param DescribeIMRobotsRequest $request DescribeIMRobotsRequest
      *
@@ -6263,6 +6298,8 @@ class ARMS extends OpenApiClient
     }
 
     /**
+     * @summary Queries the license key.
+     *  *
      * @param DescribeTraceLicenseKeyRequest $request DescribeTraceLicenseKeyRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -6294,6 +6331,8 @@ class ARMS extends OpenApiClient
     }
 
     /**
+     * @summary Queries the license key.
+     *  *
      * @param DescribeTraceLicenseKeyRequest $request DescribeTraceLicenseKeyRequest
      *
      * @return DescribeTraceLicenseKeyResponse DescribeTraceLicenseKeyResponse
@@ -6350,7 +6389,57 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 开启指标
+     * @summary 执行Insights相关的操作
+     *  *
+     * @param DoInsightsActionRequest $request DoInsightsActionRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DoInsightsActionResponse DoInsightsActionResponse
+     */
+    public function doInsightsActionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->data)) {
+            $body['Data'] = $request->data;
+        }
+        if (!Utils::isUnset($request->module)) {
+            $body['Module'] = $request->module;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DoInsightsAction',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DoInsightsActionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 执行Insights相关的操作
+     *  *
+     * @param DoInsightsActionRequest $request DoInsightsActionRequest
+     *
+     * @return DoInsightsActionResponse DoInsightsActionResponse
+     */
+    public function doInsightsAction($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->doInsightsActionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Enables a discarded metric.
      *  *
      * @param EnableMetricRequest $request EnableMetricRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
@@ -6389,7 +6478,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 开启指标
+     * @summary Enables a discarded metric.
      *  *
      * @param EnableMetricRequest $request EnableMetricRequest
      *
@@ -6586,7 +6675,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 应用各个实例的JVM配置信息
+     * @summary Obtain the JVM configuration information of each instance of the application
      *  *
      * @param GetAppJVMConfigRequest $request GetAppJVMConfigRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -6616,7 +6705,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 应用各个实例的JVM配置信息
+     * @summary Obtain the JVM configuration information of each instance of the application
      *  *
      * @param GetAppJVMConfigRequest $request GetAppJVMConfigRequest
      *
@@ -6630,7 +6719,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Obtains the authentication token for remote read and write over the Internet.
+     * @summary Obtains an authentication token. When you connect a Container Service for Kubernetes (ACK) cluster to Prometheus Service over the Internet, you must use a token for authentication.
      *  *
      * @param GetAuthTokenRequest $request GetAuthTokenRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
@@ -6666,7 +6755,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Obtains the authentication token for remote read and write over the Internet.
+     * @summary Obtains an authentication token. When you connect a Container Service for Kubernetes (ACK) cluster to Prometheus Service over the Internet, you must use a token for authentication.
      *  *
      * @param GetAuthTokenRequest $request GetAuthTokenRequest
      *
@@ -6788,7 +6877,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 获取商业化状态
+     * @summary Queries whether the current account has activated the commercial edition of a service.
      *  *
      * @param GetCommercialStatusRequest $request GetCommercialStatusRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -6824,7 +6913,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 获取商业化状态
+     * @summary Queries whether the current account has activated the commercial edition of a service.
      *  *
      * @param GetCommercialStatusRequest $request GetCommercialStatusRequest
      *
@@ -6894,7 +6983,9 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 获取指定工作区
+     * @summary Queries the information about a Grafana workspace.
+     *  *
+     * @description Note: The list returned by this operation includes the workspaces of Developer Edition, Expert Edition, and Advanced Edition. The list does not include the workspaces of Shared Edition.
      *  *
      * @param GetGrafanaWorkspaceRequest $request GetGrafanaWorkspaceRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -6933,7 +7024,9 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 获取指定工作区
+     * @summary Queries the information about a Grafana workspace.
+     *  *
+     * @description Note: The list returned by this operation includes the workspaces of Developer Edition, Expert Edition, and Advanced Edition. The list does not include the workspaces of Shared Edition.
      *  *
      * @param GetGrafanaWorkspaceRequest $request GetGrafanaWorkspaceRequest
      *
@@ -6949,7 +7042,7 @@ class ARMS extends OpenApiClient
     /**
      * @deprecated openAPI GetIntegrationState is deprecated, please use ARMS::2019-08-08::DescribeAddonRelease instead
      *  *
-     * @summary 获取Prometheus中是否已接入某种Integration类型
+     * @summary Queries the integration state of the dashboards and collection rules of Application Real-Time Monitoring Service (ARMS) Prometheus.
      *  *
      * Deprecated
      *
@@ -6992,7 +7085,7 @@ class ARMS extends OpenApiClient
     /**
      * @deprecated openAPI GetIntegrationState is deprecated, please use ARMS::2019-08-08::DescribeAddonRelease instead
      *  *
-     * @summary 获取Prometheus中是否已接入某种Integration类型
+     * @summary Queries the integration state of the dashboards and collection rules of Application Real-Time Monitoring Service (ARMS) Prometheus.
      *  *
      * Deprecated
      *
@@ -7008,7 +7101,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the status of a Prometheus instance of a serverless Kubernetes (ASK) cluster or Elastic Compute Service (ECS) instance.
+     * @summary Queries the installation status of a Prometheus agent in a serverless Kubernetes (ASK) cluster or an Elastic Compute Service (ECS) cluster.
      *  *
      * @param GetManagedPrometheusStatusRequest $request GetManagedPrometheusStatusRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -7053,7 +7146,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the status of a Prometheus instance of a serverless Kubernetes (ASK) cluster or Elastic Compute Service (ECS) instance.
+     * @summary Queries the installation status of a Prometheus agent in a serverless Kubernetes (ASK) cluster or an Elastic Compute Service (ECS) cluster.
      *  *
      * @param GetManagedPrometheusStatusRequest $request GetManagedPrometheusStatusRequest
      *
@@ -7577,7 +7670,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 传入SLS查询语句，查询出前端监控数据
+     * @summary Queries the Browser Monitoring data based on a query statement of Log Service.
      *  *
      * @param GetRetcodeDataByQueryRequest $request GetRetcodeDataByQueryRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -7622,7 +7715,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 传入SLS查询语句，查询出前端监控数据
+     * @summary Queries the Browser Monitoring data based on a query statement of Log Service.
      *  *
      * @param GetRetcodeDataByQueryRequest $request GetRetcodeDataByQueryRequest
      *
@@ -7733,7 +7826,9 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 获取前端监控单个应用信息
+     * @summary Queries the information about a Real User Monitoring (RUM) application.
+     *  *
+     * @description Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
      *  *
      * @param GetRumAppInfoRequest $request GetRumAppInfoRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -7772,7 +7867,9 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 获取前端监控单个应用信息
+     * @summary Queries the information about a Real User Monitoring (RUM) application.
+     *  *
+     * @description Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
      *  *
      * @param GetRumAppInfoRequest $request GetRumAppInfoRequest
      *
@@ -7786,16 +7883,23 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 获取前端监控应用列表信息
+     * @summary Queries a list of Real User Monitoring (RUM) applications.
      *  *
-     * @param GetRumAppsRequest $request GetRumAppsRequest
+     * @description Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
+     *  *
+     * @param GetRumAppsRequest $tmpReq  GetRumAppsRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
      * @return GetRumAppsResponse GetRumAppsResponse
      */
-    public function getRumAppsWithOptions($request, $runtime)
+    public function getRumAppsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new GetRumAppsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->tags)) {
+            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->appGroup)) {
             $query['AppGroup'] = $request->appGroup;
@@ -7812,8 +7916,8 @@ class ARMS extends OpenApiClient
         if (!Utils::isUnset($request->resourceGroupId)) {
             $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->tags)) {
-            $query['Tags'] = $request->tags;
+        if (!Utils::isUnset($request->tagsShrink)) {
+            $query['Tags'] = $request->tagsShrink;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -7834,7 +7938,9 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 获取前端监控应用列表信息
+     * @summary Queries a list of Real User Monitoring (RUM) applications.
+     *  *
+     * @description Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
      *  *
      * @param GetRumAppsRequest $request GetRumAppsRequest
      *
@@ -7978,7 +8084,61 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 获取前端监控在oss中文件
+     * @summary 获取RUM OCU统计数据
+     *  *
+     * @param GetRumOcuStatisticDataRequest $tmpReq  GetRumOcuStatisticDataRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetRumOcuStatisticDataResponse GetRumOcuStatisticDataResponse
+     */
+    public function getRumOcuStatisticDataWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new GetRumOcuStatisticDataShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->filter)) {
+            $request->filterShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->filter, 'Filter', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->group)) {
+            $request->groupShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->group, 'Group', 'json');
+        }
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetRumOcuStatisticData',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetRumOcuStatisticDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取RUM OCU统计数据
+     *  *
+     * @param GetRumOcuStatisticDataRequest $request GetRumOcuStatisticDataRequest
+     *
+     * @return GetRumOcuStatisticDataResponse GetRumOcuStatisticDataResponse
+     */
+    public function getRumOcuStatisticData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getRumOcuStatisticDataWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries Real User Monitoring (RUM)-related files, such as symbol tables and SourceMap.
+     *  *
+     * @description Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
      *  *
      * @param GetRumUploadFilesRequest $request GetRumUploadFilesRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -8017,7 +8177,9 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 获取前端监控在oss中文件
+     * @summary Queries Real User Monitoring (RUM)-related files, such as symbol tables and SourceMap.
+     *  *
+     * @description Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
      *  *
      * @param GetRumUploadFilesRequest $request GetRumUploadFilesRequest
      *
@@ -8031,7 +8193,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 获取前端监控上传SourceMap的具体信息
+     * @summary Obtains the details of the SourceMap file uploaded in Browser Monitoring.
      *  *
      * @param GetSourceMapInfoRequest $request GetSourceMapInfoRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -8079,7 +8241,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 获取前端监控上传SourceMap的具体信息
+     * @summary Obtains the details of the SourceMap file uploaded in Browser Monitoring.
      *  *
      * @param GetSourceMapInfoRequest $request GetSourceMapInfoRequest
      *
@@ -8529,7 +8691,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 获取应用监控自定义配置
+     * @summary Queries all custom settings of an application monitored by Application Monitoring, such as trace sampling settings and agent switches.
      *  *
      * @param GetTraceAppConfigRequest $request GetTraceAppConfigRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -8562,7 +8724,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 获取应用监控自定义配置
+     * @summary Queries all custom settings of an application monitored by Application Monitoring, such as trace sampling settings and agent switches.
      *  *
      * @param GetTraceAppConfigRequest $request GetTraceAppConfigRequest
      *
@@ -8904,9 +9066,9 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Creates a Prometheus instance to monitor a serverless Kubernetes (ASK) cluster or an Elastic Compute Service (ECS) instance.
+     * @summary Installs a Prometheus agent for serverless Kubernetes (ASK) clusters or Elastic Compute Service (ECS) clusters.
      *  *
-     * @description If you call the operation to monitor an ASK cluster or an ECS instance, a Prometheus agent is installed in the ASK cluster or ECS instance. Make sure that the ASK cluster or ECS instance has no Prometheus agent installed in advance.
+     * @description You can call this operation only if the following conditions are met: The resources that you want to monitor are ASK clusters or ECS clusters. No Prometheus agents are installed in the ASK or ECS clusters. Take note that Prometheus agents can be installed only on the cloud service side, not in user clusters.
      *  *
      * @param InstallManagedPrometheusRequest $request InstallManagedPrometheusRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -8966,9 +9128,9 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Creates a Prometheus instance to monitor a serverless Kubernetes (ASK) cluster or an Elastic Compute Service (ECS) instance.
+     * @summary Installs a Prometheus agent for serverless Kubernetes (ASK) clusters or Elastic Compute Service (ECS) clusters.
      *  *
-     * @description If you call the operation to monitor an ASK cluster or an ECS instance, a Prometheus agent is installed in the ASK cluster or ECS instance. Make sure that the ASK cluster or ECS instance has no Prometheus agent installed in advance.
+     * @description You can call this operation only if the following conditions are met: The resources that you want to monitor are ASK clusters or ECS clusters. No Prometheus agents are installed in the ASK or ECS clusters. Take note that Prometheus agents can be installed only on the cloud service side, not in user clusters.
      *  *
      * @param InstallManagedPrometheusRequest $request InstallManagedPrometheusRequest
      *
@@ -9038,7 +9200,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Query the Addons installed in the environment.
+     * @summary Queries the add-ons installed in an environment.
      *  *
      * @param ListAddonReleasesRequest $request ListAddonReleasesRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -9077,7 +9239,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Query the Addons installed in the environment.
+     * @summary Queries the add-ons installed in an environment.
      *  *
      * @param ListAddonReleasesRequest $request ListAddonReleasesRequest
      *
@@ -9807,7 +9969,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 环境的feature列表
+     * @summary Queries the features in an environment.
      *  *
      * @param ListEnvironmentFeaturesRequest $request ListEnvironmentFeaturesRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -9846,7 +10008,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 环境的feature列表
+     * @summary Queries the features in an environment.
      *  *
      * @param ListEnvironmentFeaturesRequest $request ListEnvironmentFeaturesRequest
      *
@@ -9974,7 +10136,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries EventBridge integrations that are used to push notifications.
+     * @summary Queries an EventBridge integration.
      *  *
      * @param ListEventBridgeIntegrationsRequest $request ListEventBridgeIntegrationsRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
@@ -10004,7 +10166,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries EventBridge integrations that are used to push notifications.
+     * @summary Queries an EventBridge integration.
      *  *
      * @param ListEventBridgeIntegrationsRequest $request ListEventBridgeIntegrationsRequest
      *
@@ -10138,7 +10300,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary ListIntegration
+     * @summary Queries alert integrations.
      *  *
      * @param ListIntegrationRequest $request ListIntegrationRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -10168,7 +10330,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary ListIntegration
+     * @summary Queries alert integrations.
      *  *
      * @param ListIntegrationRequest $request ListIntegrationRequest
      *
@@ -10182,7 +10344,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries notification policies based on specified conditions.
+     * @summary Queries notification policies based on specific conditions.
      *  *
      * @param ListNotificationPoliciesRequest $request ListNotificationPoliciesRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -10233,7 +10395,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries notification policies based on specified conditions.
+     * @summary Queries notification policies based on specific conditions.
      *  *
      * @param ListNotificationPoliciesRequest $request ListNotificationPoliciesRequest
      *
@@ -10506,7 +10668,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries all Prometheus instances in a region.
+     * @summary Obtains all Prometheus instances in a region.
      *  *
      * @param ListPrometheusInstancesRequest $request ListPrometheusInstancesRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -10545,7 +10707,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries all Prometheus instances in a region.
+     * @summary Obtains all Prometheus instances in a region.
      *  *
      * @param ListPrometheusInstancesRequest $request ListPrometheusInstancesRequest
      *
@@ -10665,7 +10827,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the remote write configuration items of a Prometheus instance for Container Service or a Prometheus instance for ECS.
+     * @summary Queries the remote write configuration items of a Prometheus instance.
      *  *
      * @param ListPrometheusRemoteWritesRequest $request ListPrometheusRemoteWritesRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -10701,7 +10863,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the remote write configuration items of a Prometheus instance for Container Service or a Prometheus instance for ECS.
+     * @summary Queries the remote write configuration items of a Prometheus instance.
      *  *
      * @param ListPrometheusRemoteWritesRequest $request ListPrometheusRemoteWritesRequest
      *
@@ -11052,7 +11214,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Obtains the recording rule of a Prometheus instance.
+     * @summary Obtains the recording rule of a cluster monitored by Prometheus Service.
      *  *
      * @param ManageGetRecordingRuleRequest $request ManageGetRecordingRuleRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -11091,7 +11253,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Obtains the recording rule of a Prometheus instance.
+     * @summary Obtains the recording rule of a cluster monitored by Prometheus Service.
      *  *
      * @param ManageGetRecordingRuleRequest $request ManageGetRecordingRuleRequest
      *
@@ -11105,7 +11267,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the recording rule of a Prometheus instance.
+     * @summary Edits the recording rule of a cluster monitored by Prometheus Service.
      *  *
      * @param ManageRecordingRuleRequest $request ManageRecordingRuleRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -11147,7 +11309,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the recording rule of a Prometheus instance.
+     * @summary Edits the recording rule of a cluster monitored by Prometheus Service.
      *  *
      * @param ManageRecordingRuleRequest $request ManageRecordingRuleRequest
      *
@@ -11161,7 +11323,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Assigns the service-linked role AliyunServiceRoleForARMS to Application Real-Time Monitoring Service (ARMS).
+     * @summary Activates the service-linked role AliyunServiceRoleForARMS for Application Real-Time Monitoring Service (ARMS).
      *  *
      * @param OpenArmsDefaultSLRRequest $request OpenArmsDefaultSLRRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -11194,7 +11356,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Assigns the service-linked role AliyunServiceRoleForARMS to Application Real-Time Monitoring Service (ARMS).
+     * @summary Activates the service-linked role AliyunServiceRoleForARMS for Application Real-Time Monitoring Service (ARMS).
      *  *
      * @param OpenArmsDefaultSLRRequest $request OpenArmsDefaultSLRRequest
      *
@@ -11499,6 +11661,8 @@ class ARMS extends OpenApiClient
     }
 
     /**
+     * @summary Queries the amount of data written to Application Monitoring, Managed Service for OpenTelemetry, Managed Service for Prometheus, and Real User Monitoring (RUM).
+     *  *
      * @param QueryCommercialUsageRequest $request QueryCommercialUsageRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -11557,6 +11721,8 @@ class ARMS extends OpenApiClient
     }
 
     /**
+     * @summary Queries the amount of data written to Application Monitoring, Managed Service for OpenTelemetry, Managed Service for Prometheus, and Real User Monitoring (RUM).
+     *  *
      * @param QueryCommercialUsageRequest $request QueryCommercialUsageRequest
      *
      * @return QueryCommercialUsageResponse QueryCommercialUsageResponse
@@ -12463,7 +12629,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries Application Monitoring tasks by page.
+     * @summary Queries application monitoring tasks by page.
      *  *
      * @param SearchTraceAppByPageRequest $request SearchTraceAppByPageRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -12511,7 +12677,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries Application Monitoring tasks by page.
+     * @summary Queries application monitoring tasks by page.
      *  *
      * @param SearchTraceAppByPageRequest $request SearchTraceAppByPageRequest
      *
@@ -13823,7 +13989,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 编辑工作区
+     * @summary Updates the information about a Grafana workspace.
      *  *
      * @param UpdateGrafanaWorkspaceRequest $request UpdateGrafanaWorkspaceRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -13868,7 +14034,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 编辑工作区
+     * @summary Updates the information about a Grafana workspace.
      *  *
      * @param UpdateGrafanaWorkspaceRequest $request UpdateGrafanaWorkspaceRequest
      *
@@ -13882,7 +14048,9 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 升级指定工作区版本
+     * @summary Updates the version of a Grafana workspace.
+     *  *
+     * @description Note: The list returned by this operation includes the workspaces of Developer Edition, Expert Edition, and Advanced Edition. The list does not include the workspaces of Shared Edition.
      *  *
      * @param UpdateGrafanaWorkspaceVersionRequest $request UpdateGrafanaWorkspaceVersionRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
@@ -13924,7 +14092,9 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 升级指定工作区版本
+     * @summary Updates the version of a Grafana workspace.
+     *  *
+     * @description Note: The list returned by this operation includes the workspaces of Developer Edition, Expert Edition, and Advanced Edition. The list does not include the workspaces of Shared Edition.
      *  *
      * @param UpdateGrafanaWorkspaceVersionRequest $request UpdateGrafanaWorkspaceVersionRequest
      *
@@ -14024,7 +14194,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 更新删除的metric
+     * @summary Updates the list of discarded metrics.
      *  *
      * @param UpdateMetricDropRequest $request UpdateMetricDropRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -14063,7 +14233,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 更新删除的metric
+     * @summary Updates the list of discarded metrics.
      *  *
      * @param UpdateMetricDropRequest $request UpdateMetricDropRequest
      *
@@ -14225,7 +14395,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Update Prometheus instance config.
+     * @summary Updates the information about a Prometheus instance.
      *  *
      * @param UpdatePrometheusInstanceRequest $request UpdatePrometheusInstanceRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -14270,7 +14440,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Update Prometheus instance config.
+     * @summary Updates the information about a Prometheus instance.
      *  *
      * @param UpdatePrometheusInstanceRequest $request UpdatePrometheusInstanceRequest
      *
@@ -14521,7 +14691,9 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 更新前端监控应用信息
+     * @summary Updates a Real User Monitoring (RUM) application.
+     *  *
+     * @description Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
      *  *
      * @param UpdateRumAppRequest $request UpdateRumAppRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
@@ -14534,6 +14706,9 @@ class ARMS extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->autoRestart)) {
             $query['AutoRestart'] = $request->autoRestart;
+        }
+        if (!Utils::isUnset($request->bonreeSDKConfigJson)) {
+            $query['BonreeSDKConfigJson'] = $request->bonreeSDKConfigJson;
         }
         if (!Utils::isUnset($request->description)) {
             $query['Description'] = $request->description;
@@ -14578,7 +14753,9 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 更新前端监控应用信息
+     * @summary Updates a Real User Monitoring (RUM) application.
+     *  *
+     * @description Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
      *  *
      * @param UpdateRumAppRequest $request UpdateRumAppRequest
      *
@@ -14592,7 +14769,9 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 更新Sourcemap文件状态
+     * @summary Updates the status of a Real User Monitoring (RUM) file. You can call this operation after the RUM file is uploaded.
+     *  *
+     * @description Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
      *  *
      * @param UpdateRumFileStatusRequest $request UpdateRumFileStatusRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -14643,7 +14822,9 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 更新Sourcemap文件状态
+     * @summary Updates the status of a Real User Monitoring (RUM) file. You can call this operation after the RUM file is uploaded.
+     *  *
+     * @description Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
      *  *
      * @param UpdateRumFileStatusRequest $request UpdateRumFileStatusRequest
      *
@@ -14829,7 +15010,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Update the AddonRelease information.
+     * @summary Updates the release information of an add-on.
      *  *
      * @param UpgradeAddonReleaseRequest $request UpgradeAddonReleaseRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -14877,7 +15058,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Update the AddonRelease information.
+     * @summary Updates the release information of an add-on.
      *  *
      * @param UpgradeAddonReleaseRequest $request UpgradeAddonReleaseRequest
      *

@@ -19,7 +19,7 @@ class ListAddonsResponseBody extends Model
     public $code;
 
     /**
-     * @description The returned struct.
+     * @description The queried add-ons.
      *
      * @var data[]
      */

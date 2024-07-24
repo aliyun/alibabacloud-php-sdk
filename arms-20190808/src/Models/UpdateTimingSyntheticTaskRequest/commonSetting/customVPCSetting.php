@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class customVPCSetting extends Model
 {
     /**
+     * @description The region ID.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the security group to which the client belongs. The security group specifies the inbound and outbound rules of the client for the VPC. You need to allow the security group to which the client belongs to access the security group to which the VPC belongs. Otherwise, the client cannot access resources in the VPC.
+     *
+     * @example sg-xxxxxxxx
+     *
      * @var string
      */
     public $secureGroupId;
 
     /**
+     * @description The vSwitch ID.
+     *
+     * @example vsw-2zevek6r3mpny7wxxxxxv
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @description VPC ID.
+     *
+     * @example vpc-bp15bjtubjytclwxxxxxx
+     *
      * @var string
      */
     public $vpcId;

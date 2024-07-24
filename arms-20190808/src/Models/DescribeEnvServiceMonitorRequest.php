@@ -19,7 +19,7 @@ class DescribeEnvServiceMonitorRequest extends Model
     public $environmentId;
 
     /**
-     * @description The namespace where the ServiceMonitor is located.
+     * @description The namespace where the ServiceMonitor resides.
      *
      * This parameter is required.
      * @example arms-prom

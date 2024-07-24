@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetGrafanaWorkspaceRequest extends Model
 {
     /**
+     * @description The language. Valid values: zh and en. Default value: zh.
+     *
      * @example zh
      *
      * @var string
@@ -16,8 +18,9 @@ class GetGrafanaWorkspaceRequest extends Model
     public $aliyunLang;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the workspace.
      *
+     * This parameter is required.
      * @example grafana-cn-4xl3g******
      *
      * @var string
@@ -25,8 +28,9 @@ class GetGrafanaWorkspaceRequest extends Model
     public $grafanaWorkspaceId;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID. Default value: cn-hangzhou.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

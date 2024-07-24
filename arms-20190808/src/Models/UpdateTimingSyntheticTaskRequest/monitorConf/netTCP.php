@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class netTCP extends Model
 {
     /**
-     * @description The number of TCP connections that are established in a test. Minimum value: 1. Maximum value: 16. Default value: 4.
+     * @description The number of TCP connections that are established. Minimum value: 1. Maximum value: 16. Default value: 4.
      *
      * @example 4
      *
@@ -27,7 +27,7 @@ class netTCP extends Model
     public $interval;
 
     /**
-     * @description The destination host IP address.
+     * @description The IP address of the destination host.
      *
      * @example 127.0.0.1:8888
      *
@@ -54,7 +54,7 @@ class netTCP extends Model
     public $tracertEnable;
 
     /**
-     * @description The maximum number of hops for tracert. Minimum value: 1. Maximum value: 128. Default value: 20.
+     * @description The maximum number of hops for the tracert command. Minimum value: 1. Maximum value: 128. Default value: 20.
      *
      * @example 20
      *
@@ -63,7 +63,7 @@ class netTCP extends Model
     public $tracertNumMax;
 
     /**
-     * @description The timeout period of tracert. Unit: milliseconds. Minimum value: 1000. Maximum value: 300000. Default value: 60000.
+     * @description The timeout period of the tracert command. Unit: milliseconds. Minimum value: 1000. Maximum value: 300000. Default value: 60000.
      *
      * @example 1000
      *

@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class notificationPolicies extends Model
 {
     /**
+     * @description The ID of the notification policy.
+     *
+     * @example 646093
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The name of the notification policy.
+     *
+     * @example P1 alert notification policy
+     *
      * @var string
      */
     public $name;

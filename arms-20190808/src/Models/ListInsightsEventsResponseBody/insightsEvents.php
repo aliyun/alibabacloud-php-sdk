@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class insightsEvents extends Model
 {
     /**
-     * @description The time at which the event occurred. The value is a timestamp.
+     * @description The time when the event occurred. The value is a timestamp.
      *
      * @example 1658890560
      *
@@ -45,7 +45,7 @@ class insightsEvents extends Model
     public $pid;
 
     /**
-     * @description 问题标识。
+     * @description The problem identifier.
      *
      * @example erep3o9zue@01ebe697ab70566|@1499161100890550|@cn-hangzhou|@1701841800000|@1701842040000|@daa6c51a-3c44-4d57-9548-4e212c******
      *

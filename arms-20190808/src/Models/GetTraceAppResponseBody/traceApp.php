@@ -28,6 +28,10 @@ class traceApp extends Model
     public $appName;
 
     /**
+     * @description Cluster ID, used only in K8s scenarios.
+     *
+     * @example c905d1364c2dd4b6284a3f41790c4****
+     *
      * @var string
      */
     public $clusterId;
@@ -49,6 +53,10 @@ class traceApp extends Model
     public $labels;
 
     /**
+     * @description Coding Language.
+     *
+     * @example java
+     *
      * @var string
      */
     public $language;

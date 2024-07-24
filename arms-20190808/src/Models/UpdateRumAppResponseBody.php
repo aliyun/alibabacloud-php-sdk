@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateRumAppResponseBody extends Model
 {
     /**
+     * @description The HTTP status code. The status code 200 indicates that the request was successful.
+     *
      * @example 200
      *
      * @var string
@@ -17,11 +19,15 @@ class UpdateRumAppResponseBody extends Model
     public $code;
 
     /**
+     * @description The details of the returned results.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var string
@@ -29,6 +35,8 @@ class UpdateRumAppResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The error message returned if the request failed.
+     *
      * @example message
      *
      * @var string
@@ -36,7 +44,7 @@ class UpdateRumAppResponseBody extends Model
     public $message;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example E9C9DA3D-10FE-472E-9EEF-2D0A3E41****
      *
@@ -45,6 +53,11 @@ class UpdateRumAppResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   `true`
+     *   `false`
+     *
      * @example true
      *
      * @var string

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteEnvServiceMonitorRequest extends Model
 {
     /**
-     * @description Environment instance ID.
+     * @description The ID of the environment instance.
      *
      * This parameter is required.
      * @example env-xxxxxx
@@ -19,7 +19,7 @@ class DeleteEnvServiceMonitorRequest extends Model
     public $environmentId;
 
     /**
-     * @description The name of the namespace.
+     * @description The namespace where the ServiceMonitor is located.
      *
      * This parameter is required.
      * @example arms-prom
@@ -29,7 +29,7 @@ class DeleteEnvServiceMonitorRequest extends Model
     public $namespace;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID.
      *
      * This parameter is required.
      * @example cn-hangzhou
@@ -39,7 +39,7 @@ class DeleteEnvServiceMonitorRequest extends Model
     public $regionId;
 
     /**
-     * @description ServiceMonitor name.
+     * @description The name of the ServiceMonitor.
      *
      * This parameter is required.
      * @example arms-admin1

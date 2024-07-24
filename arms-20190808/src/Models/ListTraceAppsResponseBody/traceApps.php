@@ -46,7 +46,7 @@ class traceApps extends Model
     public $createTime;
 
     /**
-     * @description The tags of the application.
+     * @description The labels of the application.
      *
      * @var string[]
      */
@@ -110,7 +110,7 @@ class traceApps extends Model
     public $show;
 
     /**
-     * @description The source of the application.
+     * @description The application source.
      *
      * @example ACK
      *

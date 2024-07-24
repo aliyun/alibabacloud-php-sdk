@@ -19,7 +19,7 @@ class ChangeResourceGroupRequest extends Model
     public $newResourceGroupId;
 
     /**
-     * @description The region ID of the resource.
+     * @description The region ID.
      *
      * This parameter is required.
      * @example cn-hangzhou

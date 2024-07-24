@@ -10,18 +10,29 @@ use AlibabaCloud\Tea\Model;
 class QueryCommercialUsageRequest extends Model
 {
     /**
+     * @description The filter conditions.
+     *
      * @var advancedFilters[]
      */
     public $advancedFilters;
 
     /**
+     * @description The dimensions of the metric that you want to query. Valid values:
+     *
+     *   dataType: data type
+     *   productType: product type
+     *   instanceId: instance ID
+     *   instanceName: instance name
+     *   instanceType: instance type
+     *
      * @var string[]
      */
     public $dimensions;
 
     /**
-     * @description This parameter is required.
+     * @description The end of the time range to query. Unit: milliseconds.
      *
+     * This parameter is required.
      * @example 1699286400000
      *
      * @var int
@@ -29,6 +40,8 @@ class QueryCommercialUsageRequest extends Model
     public $endTime;
 
     /**
+     * @description The time interval between data slices. Unit: seconds. Minimum value: 3600.
+     *
      * @example 3600
      *
      * @var int
@@ -36,13 +49,16 @@ class QueryCommercialUsageRequest extends Model
     public $intervalInSec;
 
     /**
+     * @description The measures of the metric that you want to query.
+     *
      * @var string[]
      */
     public $measures;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the metric. Valid value: USAGEFEE.STAT.
      *
+     * This parameter is required.
      * @example USAGEFEE.STAT
      *
      * @var string
@@ -50,6 +66,11 @@ class QueryCommercialUsageRequest extends Model
     public $metric;
 
     /**
+     * @description The order in which data is sorted. Valid value:
+     *
+     *   `ASC`: ascending order
+     *   `DESC`: descending order
+     *
      * @example ASC
      *
      * @var string
@@ -57,6 +78,13 @@ class QueryCommercialUsageRequest extends Model
     public $order;
 
     /**
+     * @description The dimension by which data is sorted.
+     *
+     * Valid value:
+     *
+     *   dataType
+     *
+     * <!-- -->
      * @example dataType
      *
      * @var string
@@ -64,8 +92,12 @@ class QueryCommercialUsageRequest extends Model
     public $orderBy;
 
     /**
-     * @description This parameter is required.
+     * @description The data type. Valid values:
      *
+     *   instantQuery: non-time series
+     *   timeSeriesQuery: time series
+     *
+     * This parameter is required.
      * @example instantQuery
      *
      * @var string
@@ -73,8 +105,9 @@ class QueryCommercialUsageRequest extends Model
     public $queryType;
 
     /**
-     * @description This parameter is required.
+     * @description The start of the time range to query. Unit: milliseconds.
      *
+     * This parameter is required.
      * @example 1699200000000
      *
      * @var int

@@ -54,7 +54,7 @@ class ListTraceAppsResponseBody extends Model
     public $success;
 
     /**
-     * @description The queried application monitoring tasks.
+     * @description The list of Application Monitoring tasks.
      *
      * @var traceApps[]
      */

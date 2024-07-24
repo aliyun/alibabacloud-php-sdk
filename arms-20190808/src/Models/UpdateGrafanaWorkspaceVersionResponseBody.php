@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class UpdateGrafanaWorkspaceVersionResponseBody extends Model
 {
     /**
+     * @description The HTTP status code returned for the request. Valid values:
+     *
+     *   `2XX`: The request is successful.
+     *   `3XX`: A redirection message is returned.
+     *   `4XX`: The request is invalid.
+     *   `5XX`: A server error occurs.
+     *
      * @example 200
      *
      * @var int
@@ -16,6 +23,11 @@ class UpdateGrafanaWorkspaceVersionResponseBody extends Model
     public $code;
 
     /**
+     * @description Indicates whether the update is successful. Valid values:
+     *
+     *   `true`
+     *   `false`
+     *
      * @example true
      *
      * @var bool
@@ -23,6 +35,8 @@ class UpdateGrafanaWorkspaceVersionResponseBody extends Model
     public $data;
 
     /**
+     * @description The error message returned for the request.
+     *
      * @example success
      *
      * @var string
@@ -39,6 +53,11 @@ class UpdateGrafanaWorkspaceVersionResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   `true`
+     *   `false`
+     *
      * @example true
      *
      * @var bool
@@ -46,6 +65,8 @@ class UpdateGrafanaWorkspaceVersionResponseBody extends Model
     public $success;
 
     /**
+     * @description The ID of the trace. The ID is used to query the details of a request.
+     *
      * @example eac0a8048716731735000007137d000b
      *
      * @var string
