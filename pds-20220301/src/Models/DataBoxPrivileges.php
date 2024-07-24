@@ -6,26 +6,26 @@ namespace AlibabaCloud\SDK\Pds\V20220301\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class BenefitMeta extends Model
+class DataBoxPrivileges extends Model
 {
     /**
      * @var string
      */
-    public $config;
+    public $featureAttrId;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $enabled;
+    public $featureId;
 
     /**
      * @var int
      */
     public $quota;
     protected $_name = [
-        'config'  => 'config',
-        'enabled' => 'enabled',
-        'quota'   => 'quota',
+        'featureAttrId' => 'feature_attr_id',
+        'featureId'     => 'feature_id',
+        'quota'         => 'quota',
     ];
 
     public function validate()
@@ -35,11 +35,11 @@ class BenefitMeta extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->config) {
-            $res['config'] = $this->config;
+        if (null !== $this->featureAttrId) {
+            $res['feature_attr_id'] = $this->featureAttrId;
         }
-        if (null !== $this->enabled) {
-            $res['enabled'] = $this->enabled;
+        if (null !== $this->featureId) {
+            $res['feature_id'] = $this->featureId;
         }
         if (null !== $this->quota) {
             $res['quota'] = $this->quota;
@@ -51,16 +51,16 @@ class BenefitMeta extends Model
     /**
      * @param array $map
      *
-     * @return BenefitMeta
+     * @return DataBoxPrivileges
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['config'])) {
-            $model->config = $map['config'];
+        if (isset($map['feature_attr_id'])) {
+            $model->featureAttrId = $map['feature_attr_id'];
         }
-        if (isset($map['enabled'])) {
-            $model->enabled = $map['enabled'];
+        if (isset($map['feature_id'])) {
+            $model->featureId = $map['feature_id'];
         }
         if (isset($map['quota'])) {
             $model->quota = $map['quota'];

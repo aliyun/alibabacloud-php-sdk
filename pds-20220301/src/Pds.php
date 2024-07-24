@@ -2714,6 +2714,9 @@ class Pds extends OpenApiClient
         if (!Utils::isUnset($request->fileName)) {
             $body['file_name'] = $request->fileName;
         }
+        if (!Utils::isUnset($request->responseContentType)) {
+            $body['response_content_type'] = $request->responseContentType;
+        }
         if (!Utils::isUnset($request->shareId)) {
             $body['share_id'] = $request->shareId;
         }
@@ -5797,6 +5800,9 @@ class Pds extends OpenApiClient
         }
         if (!Utils::isUnset($request->query)) {
             $body['query'] = $request->query;
+        }
+        if (!Utils::isUnset($request->recursive)) {
+            $body['recursive'] = $request->recursive;
         }
         if (!Utils::isUnset($request->returnTotalCount)) {
             $body['return_total_count'] = $request->returnTotalCount;

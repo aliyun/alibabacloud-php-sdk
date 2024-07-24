@@ -13,17 +13,17 @@ class UserTag extends Model
      *
      * @var string
      */
-    public $value;
+    public $key;
 
     /**
      * @description This parameter is required.
      *
      * @var string
      */
-    public $key;
+    public $value;
     protected $_name = [
-        'value' => 'Value',
         'key'   => 'key',
+        'value' => 'value',
     ];
 
     public function validate()
@@ -33,11 +33,11 @@ class UserTag extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->value) {
-            $res['Value'] = $this->value;
-        }
         if (null !== $this->key) {
             $res['key'] = $this->key;
+        }
+        if (null !== $this->value) {
+            $res['value'] = $this->value;
         }
 
         return $res;
@@ -51,11 +51,11 @@ class UserTag extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Value'])) {
-            $model->value = $map['Value'];
-        }
         if (isset($map['key'])) {
             $model->key = $map['key'];
+        }
+        if (isset($map['value'])) {
+            $model->value = $map['value'];
         }
 
         return $model;

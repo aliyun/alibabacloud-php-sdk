@@ -81,6 +81,11 @@ class SearchFileRequest extends Model
     public $query;
 
     /**
+     * @var bool
+     */
+    public $recursive;
+
+    /**
      * @description Specifies whether to return the total number of retrieved files.
      *
      * @example true
@@ -95,6 +100,7 @@ class SearchFileRequest extends Model
         'marker'           => 'marker',
         'orderBy'          => 'order_by',
         'query'            => 'query',
+        'recursive'        => 'recursive',
         'returnTotalCount' => 'return_total_count',
     ];
 
@@ -122,6 +128,9 @@ class SearchFileRequest extends Model
         }
         if (null !== $this->query) {
             $res['query'] = $this->query;
+        }
+        if (null !== $this->recursive) {
+            $res['recursive'] = $this->recursive;
         }
         if (null !== $this->returnTotalCount) {
             $res['return_total_count'] = $this->returnTotalCount;
@@ -155,6 +164,9 @@ class SearchFileRequest extends Model
         }
         if (isset($map['query'])) {
             $model->query = $map['query'];
+        }
+        if (isset($map['recursive'])) {
+            $model->recursive = $map['recursive'];
         }
         if (isset($map['return_total_count'])) {
             $model->returnTotalCount = $map['return_total_count'];

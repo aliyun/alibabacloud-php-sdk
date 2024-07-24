@@ -6,20 +6,20 @@ namespace AlibabaCloud\SDK\Pds\V20220301\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ArchiveFilesConfig extends Model
+class KnowledgeFileItem extends Model
 {
     /**
-     * @var bool
+     * @var string
      */
-    public $enable;
+    public $driveId;
 
     /**
      * @var string
      */
-    public $version;
+    public $fileId;
     protected $_name = [
-        'enable'  => 'enable',
-        'version' => 'version',
+        'driveId' => 'drive_id',
+        'fileId'  => 'file_id',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class ArchiveFilesConfig extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->enable) {
-            $res['enable'] = $this->enable;
+        if (null !== $this->driveId) {
+            $res['drive_id'] = $this->driveId;
         }
-        if (null !== $this->version) {
-            $res['version'] = $this->version;
+        if (null !== $this->fileId) {
+            $res['file_id'] = $this->fileId;
         }
 
         return $res;
@@ -42,16 +42,16 @@ class ArchiveFilesConfig extends Model
     /**
      * @param array $map
      *
-     * @return ArchiveFilesConfig
+     * @return KnowledgeFileItem
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['enable'])) {
-            $model->enable = $map['enable'];
+        if (isset($map['drive_id'])) {
+            $model->driveId = $map['drive_id'];
         }
-        if (isset($map['version'])) {
-            $model->version = $map['version'];
+        if (isset($map['file_id'])) {
+            $model->fileId = $map['file_id'];
         }
 
         return $model;

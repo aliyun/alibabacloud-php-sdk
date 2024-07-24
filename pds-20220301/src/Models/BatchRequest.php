@@ -28,34 +28,6 @@ class BatchRequest extends Model
      *   share_link: a share.
      *   async_task: an asynchronous task.
      *
-     * <!---->
-     *
-     *   <!-- -->
-     *
-     * <!-- -->
-     *
-     *   <!-- -->
-     *
-     * <!-- -->
-     *
-     *   <!-- -->
-     *
-     * <!-- -->
-     *
-     *   <!-- -->
-     *
-     * <!-- -->
-     *
-     *   <!-- -->
-     *
-     * <!-- -->
-     *
-     *   <!-- -->
-     *
-     * <!-- -->
-     *
-     *   <!-- -->
-     *
      * This parameter is required.
      * @example file
      *

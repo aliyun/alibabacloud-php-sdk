@@ -46,6 +46,13 @@ class GetDownloadUrlRequest extends Model
     public $fileName;
 
     /**
+     * @example video/mp4
+     *
+     * @var string
+     */
+    public $responseContentType;
+
+    /**
      * @description The share ID. If you want to manage a file by using a sharing link, carry the `x-share-token` header in the request and specify share_id. In this case, `drive_id` is invalid. Otherwise, use an `AccessKey pair` or `access token` for authentication and specify `drive_id`. You must specify at least either `share_id` or `drive_id`.
      *
      * @example 7JQX1FswpQ8
@@ -54,11 +61,12 @@ class GetDownloadUrlRequest extends Model
      */
     public $shareId;
     protected $_name = [
-        'driveId'   => 'drive_id',
-        'expireSec' => 'expire_sec',
-        'fileId'    => 'file_id',
-        'fileName'  => 'file_name',
-        'shareId'   => 'share_id',
+        'driveId'             => 'drive_id',
+        'expireSec'           => 'expire_sec',
+        'fileId'              => 'file_id',
+        'fileName'            => 'file_name',
+        'responseContentType' => 'response_content_type',
+        'shareId'             => 'share_id',
     ];
 
     public function validate()
@@ -79,6 +87,9 @@ class GetDownloadUrlRequest extends Model
         }
         if (null !== $this->fileName) {
             $res['file_name'] = $this->fileName;
+        }
+        if (null !== $this->responseContentType) {
+            $res['response_content_type'] = $this->responseContentType;
         }
         if (null !== $this->shareId) {
             $res['share_id'] = $this->shareId;
@@ -106,6 +117,9 @@ class GetDownloadUrlRequest extends Model
         }
         if (isset($map['file_name'])) {
             $model->fileName = $map['file_name'];
+        }
+        if (isset($map['response_content_type'])) {
+            $model->responseContentType = $map['response_content_type'];
         }
         if (isset($map['share_id'])) {
             $model->shareId = $map['share_id'];
