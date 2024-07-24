@@ -9,13 +9,17 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @example 192.168.1.100:80
+     * @description The address of the client, with the format ip:port.
+     *
+     * @example 192.***.**.100:80
      *
      * @var string
      */
     public $host;
 
     /**
+     * @description The session ID of the proxy service.
+     *
      * @example d2c90ad0-bc54-410f-bb89-2dcf14aa3c6d
      *
      * @var string

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class BatchKillSessionListRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the OceanBase cluster.
      *
+     * This parameter is required.
      * @example ob317v4uif****
      *
      * @var string
@@ -18,8 +19,8 @@ class BatchKillSessionListRequest extends Model
     public $instanceId;
 
     /**
-     * @description This parameter is required.
-     *
+     * @description The list of sessions, which is concatenated with commas.
+     * This parameter is required.
      * @example 342,354,343
      *
      * @var string
@@ -27,8 +28,9 @@ class BatchKillSessionListRequest extends Model
     public $sessionList;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the tenant.
      *
+     * This parameter is required.
      * @example t4louaeei****
      *
      * @var string

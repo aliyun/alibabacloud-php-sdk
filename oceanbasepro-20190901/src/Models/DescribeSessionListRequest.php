@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeSessionListRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the OceanBase cluster.
      *
+     * This parameter is required.
      * @example ob317v4uif****
      *
      * @var string
@@ -18,8 +19,9 @@ class DescribeSessionListRequest extends Model
     public $instanceId;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the tenant.
      *
+     * This parameter is required.
      * @example t4louaeei****
      *
      * @var string

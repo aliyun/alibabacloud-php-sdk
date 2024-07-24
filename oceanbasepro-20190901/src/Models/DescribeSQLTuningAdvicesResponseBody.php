@@ -4,22 +4,18 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models;
 
-use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeSessionListResponseBody\data;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeSQLTuningAdvicesResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class DescribeSessionListResponseBody extends Model
+class DescribeSQLTuningAdvicesResponseBody extends Model
 {
     /**
-     * @description The object information.
-     *
      * @var data[]
      */
     public $data;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
+     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
      *
      * @var string
      */
@@ -55,7 +51,7 @@ class DescribeSessionListResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return DescribeSessionListResponseBody
+     * @return DescribeSQLTuningAdvicesResponseBody
      */
     public static function fromMap($map = [])
     {

@@ -159,6 +159,8 @@ use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeSQLPlansRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeSQLPlansResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeSQLSamplesRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeSQLSamplesResponse;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeSQLTuningAdvicesRequest;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeSQLTuningAdvicesResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeTagValuesRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeTagValuesResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeTenantEncryptionRequest;
@@ -366,7 +368,7 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @summary 异步关闭集群租户的会话信息；关闭oceanbase云服务和业务之间的会话信息
+     * @summary You can call this operation to close sessions between the ApsaraDB for OceanBase and the application in batches. Please note that this operation is executed asynchronously. After calling this operation, you need to verify it by calling DescribeSessionList.
      *  *
      * @param BatchKillSessionListRequest $request BatchKillSessionListRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -405,7 +407,7 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @summary 异步关闭集群租户的会话信息；关闭oceanbase云服务和业务之间的会话信息
+     * @summary You can call this operation to close sessions between the ApsaraDB for OceanBase and the application in batches. Please note that this operation is executed asynchronously. After calling this operation, you need to verify it by calling DescribeSessionList.
      *  *
      * @param BatchKillSessionListRequest $request BatchKillSessionListRequest
      *
@@ -4557,6 +4559,71 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
+     * @summary 获取单个 SQL 的调优建议，包括计划推荐和索引推荐
+     *  *
+     * @param DescribeSQLTuningAdvicesRequest $request DescribeSQLTuningAdvicesRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeSQLTuningAdvicesResponse DescribeSQLTuningAdvicesResponse
+     */
+    public function describeSQLTuningAdvicesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $body['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->dbName)) {
+            $body['DbName'] = $request->dbName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $body['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->sqlId)) {
+            $body['SqlId'] = $request->sqlId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $body['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $body['TenantId'] = $request->tenantId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSQLTuningAdvices',
+            'version'     => '2019-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeSQLTuningAdvicesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取单个 SQL 的调优建议，包括计划推荐和索引推荐
+     *  *
+     * @param DescribeSQLTuningAdvicesRequest $request DescribeSQLTuningAdvicesRequest
+     *
+     * @return DescribeSQLTuningAdvicesResponse DescribeSQLTuningAdvicesResponse
+     */
+    public function describeSQLTuningAdvices($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSQLTuningAdvicesWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 查询采样SQL的原始文本
      *  *
      * @param DescribeSampleSqlRawTextsRequest $request DescribeSampleSqlRawTextsRequest
@@ -4672,7 +4739,7 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @summary 查询集群租户的会话信息；展示oceanbase云服务和业务之间的会话信息
+     * @summary You can call this operation to query sessions between the ApsaraDB for OceanBase and the application.
      *  *
      * @param DescribeSessionListRequest $request DescribeSessionListRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -4708,7 +4775,7 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @summary 查询集群租户的会话信息；展示oceanbase云服务和业务之间的会话信息
+     * @summary You can call this operation to query sessions between the ApsaraDB for OceanBase and the application.
      *  *
      * @param DescribeSessionListRequest $request DescribeSessionListRequest
      *
