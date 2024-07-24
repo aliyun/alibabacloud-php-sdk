@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpgradeAndroidInstanceGroupResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $instanceIds;
+
+    /**
      * @example 223684716098****
      *
      * @var string
@@ -22,8 +27,9 @@ class UpgradeAndroidInstanceGroupResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'orderId'   => 'OrderId',
-        'requestId' => 'RequestId',
+        'instanceIds' => 'InstanceIds',
+        'orderId'     => 'OrderId',
+        'requestId'   => 'RequestId',
     ];
 
     public function validate()
@@ -33,6 +39,9 @@ class UpgradeAndroidInstanceGroupResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->instanceIds) {
+            $res['InstanceIds'] = $this->instanceIds;
+        }
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
         }
@@ -51,6 +60,9 @@ class UpgradeAndroidInstanceGroupResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['InstanceIds'])) {
+            $model->instanceIds = $map['InstanceIds'];
+        }
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
         }

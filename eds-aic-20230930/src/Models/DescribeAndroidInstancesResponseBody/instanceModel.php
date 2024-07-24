@@ -119,6 +119,11 @@ class instanceModel extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $renderingType;
     protected $_name = [
         'androidInstanceGroupId'  => 'AndroidInstanceGroupId',
         'androidInstanceId'       => 'AndroidInstanceId',
@@ -136,6 +141,7 @@ class instanceModel extends Model
         'persistentAppInstanceId' => 'PersistentAppInstanceId',
         'rate'                    => 'Rate',
         'regionId'                => 'RegionId',
+        'renderingType'           => 'RenderingType',
     ];
 
     public function validate()
@@ -192,6 +198,9 @@ class instanceModel extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->renderingType) {
+            $res['RenderingType'] = $this->renderingType;
         }
 
         return $res;
@@ -252,6 +261,9 @@ class instanceModel extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['RenderingType'])) {
+            $model->renderingType = $map['RenderingType'];
         }
 
         return $model;

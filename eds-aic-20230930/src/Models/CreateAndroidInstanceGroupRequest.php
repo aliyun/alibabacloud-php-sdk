@@ -44,6 +44,11 @@ class CreateAndroidInstanceGroupRequest extends Model
     public $chargeType;
 
     /**
+     * @var bool
+     */
+    public $gpuAcceleration;
+
+    /**
      * @description This parameter is required.
      *
      * @example imgc-06zyt9m93zwax****
@@ -115,6 +120,7 @@ class CreateAndroidInstanceGroupRequest extends Model
         'autoRenew'         => 'AutoRenew',
         'bizRegionId'       => 'BizRegionId',
         'chargeType'        => 'ChargeType',
+        'gpuAcceleration'   => 'GpuAcceleration',
         'imageId'           => 'ImageId',
         'instanceGroupName' => 'InstanceGroupName',
         'instanceGroupSpec' => 'InstanceGroupSpec',
@@ -147,6 +153,9 @@ class CreateAndroidInstanceGroupRequest extends Model
         }
         if (null !== $this->chargeType) {
             $res['ChargeType'] = $this->chargeType;
+        }
+        if (null !== $this->gpuAcceleration) {
+            $res['GpuAcceleration'] = $this->gpuAcceleration;
         }
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
@@ -201,6 +210,9 @@ class CreateAndroidInstanceGroupRequest extends Model
         }
         if (isset($map['ChargeType'])) {
             $model->chargeType = $map['ChargeType'];
+        }
+        if (isset($map['GpuAcceleration'])) {
+            $model->gpuAcceleration = $map['GpuAcceleration'];
         }
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];

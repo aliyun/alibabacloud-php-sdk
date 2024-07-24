@@ -387,6 +387,9 @@ class Edsaic extends OpenApiClient
         if (!Utils::isUnset($request->chargeType)) {
             $query['ChargeType'] = $request->chargeType;
         }
+        if (!Utils::isUnset($request->gpuAcceleration)) {
+            $query['GpuAcceleration'] = $request->gpuAcceleration;
+        }
         if (!Utils::isUnset($request->imageId)) {
             $query['ImageId'] = $request->imageId;
         }

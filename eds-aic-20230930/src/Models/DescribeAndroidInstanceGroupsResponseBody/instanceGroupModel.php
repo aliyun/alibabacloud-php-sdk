@@ -149,6 +149,11 @@ class instanceGroupModel extends Model
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $renderingType;
+
+    /**
      * @example 1280
      *
      * @var int
@@ -204,6 +209,7 @@ class instanceGroupModel extends Model
         'officeSiteId'              => 'OfficeSiteId',
         'policyGroupId'             => 'PolicyGroupId',
         'regionId'                  => 'RegionId',
+        'renderingType'             => 'RenderingType',
         'resolutionHeight'          => 'ResolutionHeight',
         'resolutionWidth'           => 'ResolutionWidth',
         'saleMode'                  => 'SaleMode',
@@ -286,6 +292,9 @@ class instanceGroupModel extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->renderingType) {
+            $res['RenderingType'] = $this->renderingType;
         }
         if (null !== $this->resolutionHeight) {
             $res['ResolutionHeight'] = $this->resolutionHeight;
@@ -382,6 +391,9 @@ class instanceGroupModel extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['RenderingType'])) {
+            $model->renderingType = $map['RenderingType'];
         }
         if (isset($map['ResolutionHeight'])) {
             $model->resolutionHeight = $map['ResolutionHeight'];

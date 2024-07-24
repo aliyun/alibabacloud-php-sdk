@@ -76,6 +76,16 @@ class data extends Model
     public $language;
 
     /**
+     * @var string
+     */
+    public $releaseTime;
+
+    /**
+     * @var string
+     */
+    public $renderingType;
+
+    /**
      * @example AVAILABLE
      *
      * @var string
@@ -99,6 +109,8 @@ class data extends Model
         'imageRegionList'          => 'ImageRegionList',
         'imageType'                => 'ImageType',
         'language'                 => 'Language',
+        'releaseTime'              => 'ReleaseTime',
+        'renderingType'            => 'RenderingType',
         'status'                   => 'Status',
         'systemType'               => 'SystemType',
     ];
@@ -144,6 +156,12 @@ class data extends Model
         }
         if (null !== $this->language) {
             $res['Language'] = $this->language;
+        }
+        if (null !== $this->releaseTime) {
+            $res['ReleaseTime'] = $this->releaseTime;
+        }
+        if (null !== $this->renderingType) {
+            $res['RenderingType'] = $this->renderingType;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -194,6 +212,12 @@ class data extends Model
         }
         if (isset($map['Language'])) {
             $model->language = $map['Language'];
+        }
+        if (isset($map['ReleaseTime'])) {
+            $model->releaseTime = $map['ReleaseTime'];
+        }
+        if (isset($map['RenderingType'])) {
+            $model->renderingType = $map['RenderingType'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
