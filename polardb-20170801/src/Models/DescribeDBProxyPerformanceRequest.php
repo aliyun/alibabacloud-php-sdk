@@ -38,6 +38,10 @@ class DescribeDBProxyPerformanceRequest extends Model
     public $endTime;
 
     /**
+     * @description The interval at which performance data is collected. Valid values: 5, 30, 60, 600, 1800, 3600, 86400, in seconds.
+     *
+     * @example 60
+     *
      * @var string
      */
     public $interval;
@@ -63,6 +67,10 @@ class DescribeDBProxyPerformanceRequest extends Model
     public $startTime;
 
     /**
+     * @description Special metric. Set the value to tair, which indicates the PolarTair architecture.
+     *
+     * @example tair
+     *
      * @var string
      */
     public $type;

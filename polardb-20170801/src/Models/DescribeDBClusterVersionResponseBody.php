@@ -115,6 +115,13 @@ class DescribeDBClusterVersionResponseBody extends Model
     public $proxyRevisionVersion;
 
     /**
+     * @description The release status of the PolarProxy version. Valid values:
+     *
+     *   **Stable**: The PolarProxy revision version is stable.
+     *   **Old**: The PolarProxy revision version is outdated. We recommend that you do not update the PolarProxy to this revision version.
+     *   **HighRisk**: The PolarProxy revision version has critical defects. We recommend that you do not update the PolarProxy to this revision version.
+     *   **Beta**: The PolarProxy revision version is a Beta version.
+     *
      * @var proxyRevisionVersionList[]
      */
     public $proxyRevisionVersionList;

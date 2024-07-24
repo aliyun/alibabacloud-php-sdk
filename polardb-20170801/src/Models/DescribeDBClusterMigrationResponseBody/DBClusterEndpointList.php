@@ -30,7 +30,7 @@ class DBClusterEndpointList extends Model
      *
      *   **Cluster**: the default cluster endpoint
      *   **Primary**: the primary endpoint
-     *   **Custom**: the custom cluster endpoint
+     *   **Custom**: the custom endpoint
      *
      * @example Cluster
      *
@@ -39,6 +39,13 @@ class DBClusterEndpointList extends Model
     public $endpointType;
 
     /**
+     * @description The read/write mode. Valid values:
+     *
+     *   ReadWrite: receives and forwards read and write requests (automatic read-write splitting).
+     *   ReadOnly (default): receives and forwards read requests only.
+     *
+     * @example ReadOnly
+     *
      * @var string
      */
     public $readWriteMode;

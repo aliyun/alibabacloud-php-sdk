@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class connections extends Model
 {
     /**
-     * @description The URL of the endpoint.
+     * @description The endpoint URL of the database service.
      *
      * @example abc.polardb.rds.aliyuncs.com
      *
@@ -18,7 +18,7 @@ class connections extends Model
     public $connectionString;
 
     /**
-     * @description The network type of the endpoint.
+     * @description The network type for the database connection.
      *
      * @example Private
      *
@@ -27,7 +27,7 @@ class connections extends Model
     public $netType;
 
     /**
-     * @description The port number of the endpoint.
+     * @description The port number for the database connection.
      *
      * @example 3306
      *

@@ -19,10 +19,10 @@ class DescribeDBClusterParametersRequest extends Model
     public $DBClusterId;
 
     /**
-     * @description The kernel parameter. Valid values:
+     * @description The type of the parameter information to query. Valid values:
      *
-     *   **Normal**: the kernel parameters.
-     *   **MigrationFromRDS**: compares the current parameters with the parameters of the source RDS instance.
+     *   **Normal**: the information about the cluster parameters
+     *   **MigrationFromRDS**: a comparison of parameters between the source RDS instance and the destination PolarDB cluster
      *
      * @example Normal
      *

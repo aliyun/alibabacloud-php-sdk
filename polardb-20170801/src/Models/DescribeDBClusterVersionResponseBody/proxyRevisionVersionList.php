@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class proxyRevisionVersionList extends Model
 {
     /**
+     * @description The release notes for the PolarProxy revision version.
+     *
+     * @example ReleaseNote
+     *
      * @var string
      */
     public $releaseNote;
 
     /**
+     * @description The release type. Valid values:
+     *
+     *   **LTS**: a long-term version
+     *   **BETA**: a preview version
+     *
+     * @example Stable
+     *
      * @var string
      */
     public $releaseType;
 
     /**
+     * @description The PolarProxy revision version code. You can use this code to specify the PolarProxy revision version.
+     *
+     * @example 20230707
+     *
      * @var string
      */
     public $revisionVersionCode;
 
     /**
+     * @description The PolarProxy revision version number.
+     *
+     * @example 2.8.24
+     *
      * @var string
      */
     public $revisionVersionName;

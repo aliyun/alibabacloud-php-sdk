@@ -19,7 +19,7 @@ class DBClusters extends Model
     public $DBClusterDescription;
 
     /**
-     * @description The ID of the cluster in the GDN.
+     * @description The ID of the cluster.
      *
      * @example pc-wz9fb5nn44u1d****
      *
@@ -28,7 +28,7 @@ class DBClusters extends Model
     public $DBClusterId;
 
     /**
-     * @description The status of the cluster in the GDN. For more information, see [Cluster status table](https://help.aliyun.com/document_detail/99286.html).
+     * @description The status of the cluster. For more information, see [Cluster status table](https://help.aliyun.com/document_detail/99286.html).
      *
      * @example Running
      *
@@ -37,7 +37,7 @@ class DBClusters extends Model
     public $DBClusterStatus;
 
     /**
-     * @description The specifications of the node in the cluster.
+     * @description The node specifications of the cluster.
      *
      * @example polar.mysql.x4.large
      *
@@ -46,14 +46,14 @@ class DBClusters extends Model
     public $DBNodeClass;
 
     /**
-     * @description The details of the node.
+     * @description The nodes of the cluster.
      *
      * @var DBNodes[]
      */
     public $DBNodes;
 
     /**
-     * @description The type of the database engine. Only MySQL is supported.
+     * @description The database engine type of the cluster. Only MySQL is supported.
      *
      * @example MySQL
      *
@@ -73,7 +73,7 @@ class DBClusters extends Model
     /**
      * @description The expiration time of the cluster.
      *
-     * > A specific value is returned only for subscription (**Prepaid**) clusters. For pay-as-you-go (**Postpaid**) clusters, an empty string is returned.
+     * >  A specific value is returned only for subscription (**Prepaid**) clusters. No value is returned for pay-as-you-go (**Postpaid**) clusters.
      * @example 2020-11-14T16:00:00Z
      *
      * @var string
@@ -81,12 +81,12 @@ class DBClusters extends Model
     public $expireTime;
 
     /**
-     * @description Indicates whether the cluster is expired. Valid values:
+     * @description Indicates whether the cluster has expired. Valid values:
      *
-     *   **true**
+     *   **true** (default)
      *   **false**
      *
-     * > This parameter is returned only for subscription (**Prepaid**) clusters.
+     * >  This parameter is returned only for subscription (**Prepaid**) clusters.
      * @example false
      *
      * @var string
@@ -96,8 +96,8 @@ class DBClusters extends Model
     /**
      * @description The billing method of the cluster. Valid values:
      *
-     *   **Postpaid**: pay-as-you-go.
-     *   **Prepaid**: subscription.
+     *   **Postpaid**: pay-as-you-go
+     *   **Prepaid**: subscription
      *
      * @example Prepaid
      *
@@ -106,7 +106,7 @@ class DBClusters extends Model
     public $payType;
 
     /**
-     * @description The ID of the region in which the cluster resides.
+     * @description The region ID of the cluster.
      *
      * @example cn-hangzhou
      *
@@ -115,7 +115,7 @@ class DBClusters extends Model
     public $regionId;
 
     /**
-     * @description The latency of cross-region data replication between the primary cluster and secondary clusters. Unit: seconds.
+     * @description The cross-region data replication latency between the primary cluster and secondary clusters. Unit: seconds.
      *
      * @example 1
      *
@@ -127,9 +127,9 @@ class DBClusters extends Model
      * @description The role of the cluster. Valid values:
      *
      *   **Primary**: the primary cluster
-     *   **standby**: the secondary cluster
+     *   **standby**: a secondary cluster
      *
-     * > A GDN consists of one primary cluster and up to four secondary clusters.
+     * >  A GDN consists of one primary cluster and up to four secondary clusters.
      * @example primary
      *
      * @var string
@@ -137,12 +137,17 @@ class DBClusters extends Model
     public $role;
 
     /**
+     * @description Indicates whether the cluster is a serverless cluster. The value is fixed at AgileServerless.
+     *
+     * >  This parameter is returned only for serverless clusters.
+     * @example AgileServerless
+     *
      * @var string
      */
     public $serverlessType;
 
     /**
-     * @description The storage space that is occupied by the cluster. Unit: bytes.
+     * @description The storage usage of the cluster. Unit: bytes.
      *
      * @example 3012558848
      *

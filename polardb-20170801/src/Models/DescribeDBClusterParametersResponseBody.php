@@ -20,7 +20,7 @@ class DescribeDBClusterParametersResponseBody extends Model
     public $DBClusterId;
 
     /**
-     * @description The database engine that the cluster runs. Valid values:
+     * @description The database engine that the clusters runs. Valid values:
      *
      *   **MySQL**
      *   **PostgreSQL**
@@ -35,12 +35,14 @@ class DescribeDBClusterParametersResponseBody extends Model
     /**
      * @description The version of the database engine.
      *
-     * - Valid values for the MySQL database engine:    - **5.6**
+     * - Valid values for the MySQL database engine:
+     * - **5.6**
      * - **5.7**
      * - **8.0**
-     * - Valid value for the PostgreSQL database engine:    - **11**
+     * - Valid value for the PostgreSQL database engine:
+     * - **11**
      * - **14**
-     * - Valid value for the Oracle database engine: **11**
+     * - Valid value for the Oracle database engine:  **11**
      * @example 5.6
      *
      * @var string
@@ -66,7 +68,7 @@ class DescribeDBClusterParametersResponseBody extends Model
     public $parameterNumbers;
 
     /**
-     * @description A comparison between the current parameters of the PolarDB cluster and the parameters of the source RDS instance before migration.
+     * @description A comparison of parameters between the source RDS instance and the destination PolarDB cluster.
      *
      * @var parameters
      */
@@ -82,7 +84,7 @@ class DescribeDBClusterParametersResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The parameters that are in use.
+     * @description The parameters of the PolarDB cluster.
      *
      * @var runningParameters
      */

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class addressItems extends Model
 {
     /**
-     * @description The connection string.
+     * @description The endpoint.
      *
      * @example rm-***********.mysql.rds.aliyuncs.com
      *

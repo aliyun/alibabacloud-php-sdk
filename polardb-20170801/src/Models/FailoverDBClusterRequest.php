@@ -48,6 +48,13 @@ class FailoverDBClusterRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description Specifies whether to fail back to the original primary zone after a failover. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * @example false
+     *
      * @var bool
      */
     public $rollBackForDisaster;

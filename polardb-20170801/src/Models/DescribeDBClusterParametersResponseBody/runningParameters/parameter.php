@@ -49,7 +49,7 @@ class parameter extends Model
     public $factor;
 
     /**
-     * @description Indicates whether a cluster restart is required to allow the parameter modification to take effect. Valid values:
+     * @description Indicates whether a cluster restart is required for the parameter modification to take effect. Valid values:
      *
      *   **false**
      *   **true**
@@ -75,8 +75,8 @@ class parameter extends Model
     /**
      * @description Indicates whether the parameter is a global parameter. Valid values:
      *
-     *   **0**: yes. The modified parameter value is synchronized to other nodes.
-     *   **1**: no. You can customize the nodes to which the modified parameter value can be synchronized.
+     *   **0**: The parameter is a global parameter. The modified parameter value is synchronized to other nodes.
+     *   **1**: The parameter is not a global parameter. You can specify the nodes to which the modified parameter value can be synchronized.
      *
      * @example 0
      *

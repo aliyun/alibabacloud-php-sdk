@@ -36,7 +36,7 @@ class DescribeGlobalDatabaseNetworkResponseBody extends Model
     public $DBClusterId;
 
     /**
-     * @description The clusters that are included in the GDN.
+     * @description The clusters in the GDN.
      *
      * @var DBClusters[]
      */

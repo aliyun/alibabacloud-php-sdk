@@ -97,7 +97,7 @@ class DBCluster extends Model
     public $DBClusterStatus;
 
     /**
-     * @description The node specifications.
+     * @description The specifications of the node.
      *
      * @example polar.mysql.x4.large
      *
@@ -185,6 +185,11 @@ class DBCluster extends Model
     public $expired;
 
     /**
+     * @var string
+     */
+    public $hotStandbyCluster;
+
+    /**
      * @description The lock state of the cluster. Valid values:
      *
      *   **Unlock**: The cluster is unlocked.
@@ -237,7 +242,7 @@ class DBCluster extends Model
     public $remoteMemorySize;
 
     /**
-     * @description The resource group ID.
+     * @description The ID of the resource group.
      *
      * @example rg-************
      *
@@ -246,7 +251,7 @@ class DBCluster extends Model
     public $resourceGroupId;
 
     /**
-     * @description Indicates whether the cluster is a serverless cluster. **AgileServerless** indicates a serverless cluster. No value is returned for a common cluster.
+     * @description Indicates whether the cluster is a serverless cluster. **AgileServerless** indicates the cluster is a serverless cluster. No value is returned for a common cluster.
      *
      * @example AgileServerless
      *
@@ -276,6 +281,10 @@ class DBCluster extends Model
     public $storageSpace;
 
     /**
+     * @description The storage type.
+     *
+     * @example essdautopl
+     *
      * @var string
      */
     public $storageType;
@@ -364,6 +373,7 @@ class DBCluster extends Model
         'engine'               => 'Engine',
         'expireTime'           => 'ExpireTime',
         'expired'              => 'Expired',
+        'hotStandbyCluster'    => 'HotStandbyCluster',
         'lockMode'             => 'LockMode',
         'memorySize'           => 'MemorySize',
         'payType'              => 'PayType',
@@ -440,6 +450,9 @@ class DBCluster extends Model
         }
         if (null !== $this->expired) {
             $res['Expired'] = $this->expired;
+        }
+        if (null !== $this->hotStandbyCluster) {
+            $res['HotStandbyCluster'] = $this->hotStandbyCluster;
         }
         if (null !== $this->lockMode) {
             $res['LockMode'] = $this->lockMode;
@@ -554,6 +567,9 @@ class DBCluster extends Model
         }
         if (isset($map['Expired'])) {
             $model->expired = $map['Expired'];
+        }
+        if (isset($map['HotStandbyCluster'])) {
+            $model->hotStandbyCluster = $map['HotStandbyCluster'];
         }
         if (isset($map['LockMode'])) {
             $model->lockMode = $map['LockMode'];

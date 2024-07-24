@@ -19,9 +19,11 @@ class DescribeDBClusterVersionRequest extends Model
     public $DBClusterId;
 
     /**
-     * @description Specify to return the latest version information or a list of upgradeable versions.Valid values:
+     * @description Specifies whether to query the information about the latest versions or the versions to which the cluster can be updated. Valid values:
      *
-     * - LATEST_VERSION
+     *   LATEST_VERSION: the information about the latest versions.
+     *   AVAILABLE_VERSION: the information about the versions to which the cluster can be updated.
+     *
      * @example LATEST_VERSION
      *
      * @var string

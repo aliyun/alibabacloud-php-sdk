@@ -65,7 +65,7 @@ class DBNode extends Model
     public $imciSwitch;
 
     /**
-     * @description The region ID of the node.
+     * @description The region ID of the cluster.
      *
      * @example cn-hangzhou
      *
@@ -86,7 +86,7 @@ class DBNode extends Model
     public $serverless;
 
     /**
-     * @description The zone ID of node.
+     * @description The zone ID of the cluster.
      *
      * @example cn-hangzhou-i
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DBRevisionVersionList extends Model
 {
     /**
-     * @description The release notes for the revision version.
+     * @description The release notes for the database engine revision version.
      *
      * @example ReleaseNote
      *
@@ -18,11 +18,12 @@ class DBRevisionVersionList extends Model
     public $releaseNote;
 
     /**
-     * @description The release status of the revision version. Valid values:
+     * @description The release status of the database engine revision version. Valid values:
      *
-     *   **Stable**: The revision version is stable.
-     *   **Old**: The revision version is outdated. We recommend that you do not update the cluster to this version.
-     *   **HighRisk**: The revision version has critical defects. We recommend that you do not update the cluster to this version.
+     *   **Stable**: The database engine revision version is stable.
+     *   **Old**: The database engine revision version is outdated. We recommend that you do not update the database engine to this revision version.
+     *   **HighRisk**: The database engine revision version has critical defects. We recommend that you do not update the database engine to this revision version.
+     *   **Beta**: The database engine revision version is a Beta version.
      *
      * @example Stable
      *
@@ -31,7 +32,7 @@ class DBRevisionVersionList extends Model
     public $releaseType;
 
     /**
-     * @description The code of the revision version of the database engine to which the cluster can be upgraded.
+     * @description The code of the database engine revision version. You can use the code to specify the database engine revision version.
      *
      * @example 20230707
      *
@@ -40,7 +41,7 @@ class DBRevisionVersionList extends Model
     public $revisionVersionCode;
 
     /**
-     * @description The revision version of the database engine.
+     * @description The database engine revision version number.
      *
      * @example 8.0.1.1.35.1
      *

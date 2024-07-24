@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class parameters extends Model
 {
     /**
-     * @description Indicates whether the source parameters and current parameters have the same value.
+     * @description Indicates whether the source and current parameters have the same value.
      *
      * @example true
      *
@@ -18,27 +18,55 @@ class parameters extends Model
     public $isEqual;
 
     /**
+     * @description Indicate whether the parameter is a primary parameter of the destination cluster. Valid values:
+     *
+     *   **1**: The parameter is a primary parameter of the destination cluster.
+     *   **0**: The parameter is not a primary parameter of the destination cluster.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $isInstancePolarDBKey;
 
     /**
+     * @description Indicate whether the parameter is a primary parameter of the source instance. Valid values:
+     *
+     *   **1**: The parameter is a primary parameter of the source instance.
+     *   **0**: The parameter is not a primary parameter of the source instance.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $isInstanceRdsKey;
 
     /**
+     * @description Indicate whether the parameter is a primary parameter of the destination cluster. Valid values:
+     *
+     *   **1**: The parameter is a primary parameter of the destination cluster.
+     *   **0**: The parameter is not a primary parameter of the destination cluster.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $isPolarDBKey;
 
     /**
+     * @description Indicate whether the parameter is a primary parameter of the source instance. Valid values:
+     *
+     *   **1**: The parameter is a primary parameter of the source instance.
+     *   **0**: The parameter is not a primary parameter of the source instance.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $isRdsKey;
 
     /**
-     * @description The description of the parameter of the current cluster.
+     * @description The description of the parameter of the destination cluster.
      *
      * @example The server\\"s default character set.
      *
@@ -47,7 +75,7 @@ class parameters extends Model
     public $distParameterDescription;
 
     /**
-     * @description The name of the parameter of the current cluster.
+     * @description The name of the parameter of the destination cluster.
      *
      * @example character_set_server
      *
@@ -56,7 +84,7 @@ class parameters extends Model
     public $distParameterName;
 
     /**
-     * @description The valid values of the parameter of the current cluster.
+     * @description The valid values of the parameter of the destination cluster.
      *
      * @example - utf8
      * - gbk
@@ -65,7 +93,7 @@ class parameters extends Model
     public $distParameterOptional;
 
     /**
-     * @description The value of the parameter of the current cluster.
+     * @description The value of the parameter of the destination cluster.
      *
      * @example utf8
      *

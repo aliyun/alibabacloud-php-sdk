@@ -53,6 +53,10 @@ class ModifyAccountPasswordRequest extends Model
     public $ownerId;
 
     /**
+     * @description The password type.
+     *
+     * @example Tair
+     *
      * @var string
      */
     public $passwordType;
