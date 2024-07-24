@@ -19,6 +19,13 @@ class DescribeClusterNetInfoRequest extends Model
     public $DBClusterId;
 
     /**
+     * @description The database engine of the cluster. Valid values:
+     *
+     *   **AnalyticDB** (default): the AnalyticDB for MySQL engine.
+     *   **Clickhouse**: the wide table engine.
+     *
+     * @example Clickhouse
+     *
      * @var string
      */
     public $engine;

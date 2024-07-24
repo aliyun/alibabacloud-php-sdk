@@ -14,6 +14,8 @@ class CreateAccountRequest extends Model
      *   The description cannot start with `http://` or `https://`.
      *   The description can be up to 256 characters in length.
      *
+     * @example test
+     *
      * @var string
      */
     public $accountDescription;
@@ -71,6 +73,13 @@ class CreateAccountRequest extends Model
     public $DBClusterId;
 
     /**
+     * @description The database engine of the cluster. Valid values:
+     *
+     *   **AnalyticDB** (default): the AnalyticDB for MySQL engine.
+     *   **Clickhouse**: the wide table engine.
+     *
+     * @example Clickhouse
+     *
      * @var string
      */
     public $engine;

@@ -9,11 +9,24 @@ use AlibabaCloud\Tea\Model;
 class ports extends Model
 {
     /**
+     * @description The port.
+     *
+     * @example 3306
+     *
      * @var string
      */
     public $port;
 
     /**
+     * @description The type of the protocol. Valid values:
+     *
+     *   **tcp**
+     *   **http**
+     *   **https**
+     *   **mysql**
+     *
+     * @example mysql
+     *
      * @var string
      */
     public $protocol;

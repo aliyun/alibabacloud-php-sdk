@@ -12,8 +12,8 @@ class address extends Model
     /**
      * @description The endpoint of the cluster.
      *
-     *   If the network type of the cluster is VPC, the VPC endpoint of the cluster is returned.
-     *   If the network type of the cluster is Public, the public endpoint of the cluster is returned.
+     *   If NetType is set to VPC, the VPC endpoint of the cluster is returned.
+     *   If NetType is set to Public, the public endpoint of the cluster is returned.
      *
      * @example amv-wz9dqvn0o7****.ads.aliyuncs.com
      *
@@ -24,8 +24,8 @@ class address extends Model
     /**
      * @description The prefix of the endpoint.
      *
-     *   If the network type of the cluster is VPC, the prefix of the private endpoint is returned.
-     *   If the network type of the cluster is Public, the prefix of the public endpoint is returned.
+     *   If NetType is set to VPC, the prefix of the VPC endpoint is returned.
+     *   If NetType is set to Public, the prefix of the public endpoint is returned.
      *
      * @example amv-wz9dqvn0o7****
      *
@@ -36,8 +36,8 @@ class address extends Model
     /**
      * @description The IP address of the endpoint.
      *
-     *   If the network type of the cluster is VPC, the IP address of the private endpoint is returned.
-     *   If the network type of the cluster is Public, the IP address of the public endpoint is returned.
+     *   If NetType is set to VPC, the private IP address of the cluster is returned.
+     *   If NetType is set to Public, the public IP address of the cluster is returned.
      *
      * @example 192.168.xx.xx
      *
@@ -67,6 +67,8 @@ class address extends Model
     public $port;
 
     /**
+     * @description The ports.
+     *
      * @var ports
      */
     public $ports;
@@ -74,7 +76,7 @@ class address extends Model
     /**
      * @description The VPC ID.
      *
-     * > If NetType is set to Public, an empty string is returned for this parameter.
+     * >  If NetType is set to Public, an empty string is returned.
      * @example vpc-8vbhucmd5b****
      *
      * @var string
@@ -84,7 +86,7 @@ class address extends Model
     /**
      * @description The vSwitch ID of the cluster.
      *
-     * > If NetType is set to Public, an empty string is returned for this parameter.
+     * >  If NetType is set to Public, an empty string is returned.
      * @example vsw-bp1syh8vvw8yec****
      *
      * @var string

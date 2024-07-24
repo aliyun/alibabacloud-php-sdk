@@ -4246,6 +4246,9 @@ class Adb extends OpenApiClient
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
         }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
@@ -7790,6 +7793,10 @@ class Adb extends OpenApiClient
     }
 
     /**
+     * @summary Releases the public endpoint of an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+     *  *
+     * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+     *  *
      * @param ReleaseClusterPublicConnectionRequest $request ReleaseClusterPublicConnectionRequest
      * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
@@ -7824,6 +7831,10 @@ class Adb extends OpenApiClient
     }
 
     /**
+     * @summary Releases the public endpoint of an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+     *  *
+     * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+     *  *
      * @param ReleaseClusterPublicConnectionRequest $request ReleaseClusterPublicConnectionRequest
      *
      * @return ReleaseClusterPublicConnectionResponse ReleaseClusterPublicConnectionResponse

@@ -19,7 +19,7 @@ class DescribeClusterNetInfoResponseBody extends Model
     public $clusterNetworkType;
 
     /**
-     * @description The network information about the cluster.
+     * @description The queried network information about the cluster.
      *
      * @var items
      */

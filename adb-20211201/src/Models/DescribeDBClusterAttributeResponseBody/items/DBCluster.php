@@ -10,11 +10,22 @@ use AlibabaCloud\Tea\Model;
 class DBCluster extends Model
 {
     /**
+     * @description The cache size of the ClickHouse wide table engine. Unit: GB. If a value of -1 is returned, the ClickHouse wide table engine is disabled. If a value other than -1 is returned, this parameter indicates the disk cache size.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $clickhouseEngineCacheSize;
 
     /**
+     * @description Indicates whether the ClickHouse wide table engine is enabled. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example true
+     *
      * @var bool
      */
     public $clickhouseEngineEnabled;
@@ -180,6 +191,11 @@ class DBCluster extends Model
     public $expired;
 
     /**
+     * @description The ID of the key that is used to encrypt disk data.
+     *
+     * >  This parameter is returned only when disk encryption is enabled.
+     * @example e1935511-cf88-1123-a0f8-1be8d251****
+     *
      * @var string
      */
     public $kmsId;
@@ -248,11 +264,22 @@ class DBCluster extends Model
     public $port;
 
     /**
+     * @description A reserved parameter.
+     *
+     * @example N/A
+     *
      * @var string
      */
     public $productForm;
 
     /**
+     * @description The edition of the cluster. Valid values:
+     *
+     *   **BasicVersion**: Basic Edition.
+     *   **EnterpriseVersion**: Enterprise Edition.
+     *
+     * @example BasicVersion
+     *
      * @var string
      */
     public $productVersion;
@@ -276,11 +303,19 @@ class DBCluster extends Model
     public $reservedACU;
 
     /**
+     * @description A reserved parameter.
+     *
+     * @example N/A
+     *
      * @var int
      */
     public $reservedNodeCount;
 
     /**
+     * @description A reserved parameter.
+     *
+     * @example N/A
+     *
      * @var string
      */
     public $reservedNodeSize;
@@ -313,7 +348,7 @@ class DBCluster extends Model
     public $storageResourceTotal;
 
     /**
-     * @description A reserved parameter.
+     * @description Reserved parameters.
      *
      * @var string[]
      */

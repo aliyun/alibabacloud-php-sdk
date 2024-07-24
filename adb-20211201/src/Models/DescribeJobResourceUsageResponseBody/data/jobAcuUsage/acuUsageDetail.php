@@ -27,11 +27,15 @@ class acuUsageDetail extends Model
     public $reservedAcuNumber;
 
     /**
+     * @example 16ACU
+     *
      * @var float
      */
     public $spotAcuNumber;
 
     /**
+     * @example 0.9
+     *
      * @var float
      */
     public $spotAcuPercentage;
