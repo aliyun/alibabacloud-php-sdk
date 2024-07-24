@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class associatedObject extends Model
 {
     /**
+     * @description The Kubernetes object type.
+     *
+     * @example Service
+     *
      * @var string
      */
     public $kind;
 
     /**
+     * @description The namespace in which the Kubernetes object resides.
+     *
+     * @example kube-system
+     *
      * @var string
      */
     public $namespace;
 
     /**
+     * @description The Kubernetes object name.
+     *
+     * @example nginx-ingress-lb
+     *
      * @var string
      */
     public $name;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class states extends Model
 {
     /**
+     * @description The display name of the account.
+     *
      * @example tom
      *
      * @var string
@@ -16,6 +18,8 @@ class states extends Model
     public $accountDisplayName;
 
     /**
+     * @description The ID of an Alibaba Cloud account, RAM user, or RAM role.
+     *
      * @example 22855*****************
      *
      * @var string
@@ -23,6 +27,8 @@ class states extends Model
     public $accountId;
 
     /**
+     * @description The name of the account.
+     *
      * @example tom
      *
      * @var string
@@ -30,6 +36,12 @@ class states extends Model
     public $accountName;
 
     /**
+     * @description The status of the account. Valid values:
+     *
+     *   Active: The account is active.
+     *   InActive: The account is locked.
+     *   Deleted: The account is deleted.
+     *
      * @example Active
      *
      * @var string
@@ -37,6 +49,12 @@ class states extends Model
     public $accountState;
 
     /**
+     * @description The type of the account. Valid values:
+     *
+     *   RootAccount: Alibaba Cloud account.
+     *   RamUser: RAM user.
+     *   RamRole: RAM role.
+     *
      * @example RamUser
      *
      * @var string
@@ -44,6 +62,8 @@ class states extends Model
     public $accountType;
 
     /**
+     * @description Expiration time of the certificate.
+     *
      * @example 2027-07-15T01:32:20Z
      *
      * @var string
@@ -51,6 +71,12 @@ class states extends Model
     public $certExpireTime;
 
     /**
+     * @description The status of the certificate.
+     *
+     *   Unexpired: The certificate is not expired.
+     *   Expired: The certificate is expired.
+     *   Unknown: The status of the certificate is unknown.
+     *
      * @example Expired
      *
      * @var string
@@ -58,6 +84,8 @@ class states extends Model
     public $certState;
 
     /**
+     * @description Indicates whether the certificate can be revoked.
+     *
      * @example true
      *
      * @var bool

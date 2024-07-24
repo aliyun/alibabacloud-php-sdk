@@ -83,8 +83,6 @@ class kubernetesConfig extends Model
     public $taints;
 
     /**
-     * @description 扩容后的节点是否可调度。
-     *
      * @example true
      *
      * @var bool

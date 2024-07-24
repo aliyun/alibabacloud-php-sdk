@@ -39,7 +39,7 @@ class body extends Model
     public $instanceId;
 
     /**
-     * @description The information about the resource. For more information about how to query the source information about a resource, see [ListStackResources](https://help.aliyun.com/document_detail/133836.html).
+     * @description The resource information. For more information about how to query the source information about the resource, see [ListStackResources](https://help.aliyun.com/document_detail/133836.html).
      *
      * @example {\\"Id\\":\\"k8s_master_slb\\",\\"Name\\":\\"k8s_master_slb\\",\\"Type\\":\\"ALIYUN::SLB::LoadBalancer\\",\\"Status\\":\\"CREATE_COMPLETE\\",\\"StatusReason\\":\\"state changed\\",\\"Updated\\":\\"2020-05-21T13:25:02\\",\\"PhysicalId\\":\\"lb-wz9poz4r0ymh8u0uf****\\"}
      *
@@ -59,14 +59,14 @@ class body extends Model
     /**
      * @description The resource status. Valid values:
      *
-     *   `CREATE_COMPLETE`: The resource is created.
-     *   `CREATE_FAILED`: The resource failed to be created.
-     *   `CREATE_IN_PROGRESS`: The resource is being created.
-     *   `DELETE_FAILED`: The resource failed to be deleted.
-     *   `DELETE_IN_PROGRESS`: The resource is being deleted.
-     *   `ROLLBACK_COMPLETE`: The resource is rolled back.
-     *   `ROLLBACK_FAILED`: The resource failed to be rolled back.
-     *   `ROLLBACK_IN_PROGRESS`: The resource is being rolled back.
+     *   `CREATE_COMPLETE`: the resource is created.
+     *   `CREATE_FAILED`: the resource failed to be created.
+     *   `CREATE_IN_PROGRESS`: the resource is being created.
+     *   `DELETE_FAILED`: the resource failed to be deleted.
+     *   `DELETE_IN_PROGRESS`: the resource is being deleted.
+     *   `ROLLBACK_COMPLETE`: the resource is rolled back.
+     *   `ROLLBACK_FAILED`: the resource failed to be rolled back.
+     *   `ROLLBACK_IN_PROGRESS`: the resource is being rolled back.
      *
      * @example CREATE_COMPLETE
      *
@@ -75,10 +75,10 @@ class body extends Model
     public $state;
 
     /**
-     * @description Indicates whether the resource is created by Container Service for Kubernetes (ACK). Valid values:
+     * @description Specifies whether the resource is created by Container Service for Kubernetes (ACK). Valid values:
      *
-     *   1: The resource is created by ACK.
-     *   0: The resource is an existing resource.
+     *   1: the resource is created by ACK.
+     *   0: the resource is an existing resource.
      *
      * @example 1
      *
@@ -87,26 +87,44 @@ class body extends Model
     public $autoCreate;
 
     /**
+     * @description The dependent resources.
+     *
      * @var dependencies[]
      */
     public $dependencies;
 
     /**
+     * @description The Kubernetes object with which the resource is associated.
+     *
      * @var associatedObject
      */
     public $associatedObject;
 
     /**
+     * @description The deletion behavior of the resource when the cluster is deleted.
+     *
      * @var deleteBehavior
      */
     public $deleteBehavior;
 
     /**
+     * @description The type of the resource creator. Valid values:
+     *
+     *   user: the resource is created by the user.
+     *   system: the resource is created by the ACK management system.
+     *   addon: the resource is created by a cluster component.
+     *
+     * @example addon
+     *
      * @var string
      */
     public $creatorType;
 
     /**
+     * @description The additional information about the resource.
+     *
+     * @example {"IP": "xx.xx.xx.xx"}
+     *
      * @var mixed[]
      */
     public $extraInfo;

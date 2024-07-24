@@ -64,8 +64,6 @@ class DescribeClusterNodePoolDetailResponseBody extends Model
     public $maxNodes;
 
     /**
-     * @description 节点配置
-     *
      * @var nodeConfig
      */
     public $nodeConfig;
@@ -78,7 +76,7 @@ class DescribeClusterNodePoolDetailResponseBody extends Model
     public $nodepoolInfo;
 
     /**
-     * @description The configuration of the scaling group.
+     * @description The configurations of the scaling group.
      *
      * @var scalingGroup
      */

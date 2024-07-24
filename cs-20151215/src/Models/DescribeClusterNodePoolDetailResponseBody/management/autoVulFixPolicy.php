@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class autoVulFixPolicy extends Model
 {
     /**
-     * @description 是否允许重启节点。
-     *
      * @example true
      *
      * @var bool
@@ -18,8 +16,6 @@ class autoVulFixPolicy extends Model
     public $restartNode;
 
     /**
-     * @description 允许自动修复的漏洞级别，以逗号分隔。
-     *
      * @example asap,nntf
      *
      * @var string

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListClusterKubeconfigStatesRequest extends Model
 {
     /**
+     * @description The page number.
+     *
+     *   Valid values: ≥ 1.
+     *   Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +21,11 @@ class ListClusterKubeconfigStatesRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
+     *   Valid values: 10 to 50.
+     *   Default value: 10.
+     *
      * @example 10
      *
      * @var int

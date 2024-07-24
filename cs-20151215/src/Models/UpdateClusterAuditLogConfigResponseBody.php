@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateClusterAuditLogConfigResponseBody extends Model
 {
     /**
+     * @description The cluster ID.
+     *
      * @example c93095129fc41463aa455d89444fd****
      *
      * @var string
@@ -16,6 +18,8 @@ class UpdateClusterAuditLogConfigResponseBody extends Model
     public $clusterId;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 48BD70F6-A7E6-543D-9F23-08DEB764C92E
      *
      * @var string
@@ -23,6 +27,8 @@ class UpdateClusterAuditLogConfigResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the task.
+     *
      * @example T-5faa48fb31b6b8078d00****
      *
      * @var string

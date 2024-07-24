@@ -6,26 +6,24 @@ namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CleanUserPermissionsResponseBody extends Model
+class UpgradeClusterAddonsResponseBody extends Model
 {
     /**
-     * @description 请求ID。
-     *
-     * @example 687C5BAA-D103-4993-884B-C35E4314****
-     *
+     * @var string
+     */
+    public $clusterId;
+
+    /**
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 任务ID
-     *
-     * @example clean-user-permissions-2085266204********-6694c16e6ae07***********
-     *
      * @var string
      */
     public $taskId;
     protected $_name = [
+        'clusterId' => 'cluster_id',
         'requestId' => 'request_id',
         'taskId'    => 'task_id',
     ];
@@ -37,6 +35,9 @@ class CleanUserPermissionsResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clusterId) {
+            $res['cluster_id'] = $this->clusterId;
+        }
         if (null !== $this->requestId) {
             $res['request_id'] = $this->requestId;
         }
@@ -50,11 +51,14 @@ class CleanUserPermissionsResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return CleanUserPermissionsResponseBody
+     * @return UpgradeClusterAddonsResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['cluster_id'])) {
+            $model->clusterId = $map['cluster_id'];
+        }
         if (isset($map['request_id'])) {
             $model->requestId = $map['request_id'];
         }

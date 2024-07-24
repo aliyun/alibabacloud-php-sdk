@@ -808,7 +808,12 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @summary 清理某个用户在某个集群的证书以及权限
+     * @summary You can call the CleanClusterUserPermissions operation to delete kubeconfig files that may pose potential risks from a user and revoke Role-Based Access Control (RBAC) permissions on a cluster.
+     *  *
+     * @description >
+     * *   To call this operation, make sure that you have the AliyunCSFullAccess permissions.
+     * *   You cannot revoke the permissions of an Alibaba Cloud account.
+     * *   You cannot revoke the permissions of the account that you use to call this operation.
      *  *
      * @param string                             $ClusterId
      * @param string                             $Uid
@@ -845,7 +850,12 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @summary 清理某个用户在某个集群的证书以及权限
+     * @summary You can call the CleanClusterUserPermissions operation to delete kubeconfig files that may pose potential risks from a user and revoke Role-Based Access Control (RBAC) permissions on a cluster.
+     *  *
+     * @description >
+     * *   To call this operation, make sure that you have the AliyunCSFullAccess permissions.
+     * *   You cannot revoke the permissions of an Alibaba Cloud account.
+     * *   You cannot revoke the permissions of the account that you use to call this operation.
      *  *
      * @param string                             $ClusterId
      * @param string                             $Uid
@@ -862,7 +872,11 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @summary 清除某个用户的证书以及相关RBAC权限
+     * @summary You can call the CleanUserPermissions operation to delete the kubeconfig files of the specified users and revoke the relevant Role-Based Access Control (RBAC) permissions. This API operation is suitable for scenarios where employees have resigned or the accounts of employees are locked.
+     *  *
+     * @description >- To call this operation, make sure that you have the AliyunCSFullAccess permissions.
+     * >- You cannot revoke the permissions of an Alibaba Cloud account.
+     * >- You cannot revoke the permissions of the account that you use to call this operation.
      *  *
      * @param string                      $Uid
      * @param CleanUserPermissionsRequest $tmpReq  CleanUserPermissionsRequest
@@ -906,7 +920,11 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @summary 清除某个用户的证书以及相关RBAC权限
+     * @summary You can call the CleanUserPermissions operation to delete the kubeconfig files of the specified users and revoke the relevant Role-Based Access Control (RBAC) permissions. This API operation is suitable for scenarios where employees have resigned or the accounts of employees are locked.
+     *  *
+     * @description >- To call this operation, make sure that you have the AliyunCSFullAccess permissions.
+     * >- You cannot revoke the permissions of an Alibaba Cloud account.
+     * >- You cannot revoke the permissions of the account that you use to call this operation.
      *  *
      * @param string                      $Uid
      * @param CleanUserPermissionsRequest $request CleanUserPermissionsRequest
@@ -5447,7 +5465,11 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @summary 获取当前集群已下发的用户Kubeconfig的状态列表
+     * @summary You can call the ListClusterKubeconfigStates operation to query the kubeconfig files that are issued to users for the current cluster and the status of the kubeconfig files.
+     *  *
+     * @description >
+     * *   To call this operation, make sure that you have ram:ListUsers and ram:ListRoles permissions.
+     * *   To call this operation, make sure that you have the AliyunCSFullAccess permissions.
      *  *
      * @param string                             $ClusterId
      * @param ListClusterKubeconfigStatesRequest $request   ListClusterKubeconfigStatesRequest
@@ -5486,7 +5508,11 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @summary 获取当前集群已下发的用户Kubeconfig的状态列表
+     * @summary You can call the ListClusterKubeconfigStates operation to query the kubeconfig files that are issued to users for the current cluster and the status of the kubeconfig files.
+     *  *
+     * @description >
+     * *   To call this operation, make sure that you have ram:ListUsers and ram:ListRoles permissions.
+     * *   To call this operation, make sure that you have the AliyunCSFullAccess permissions.
      *  *
      * @param string                             $ClusterId
      * @param ListClusterKubeconfigStatesRequest $request   ListClusterKubeconfigStatesRequest
@@ -5625,7 +5651,9 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @summary 查询单用户所有集群的证书状态
+     * @summary You can call the ListUserKubeConfigStates operation to query the status of the kubeconfig files of all clusters managed by the current user.
+     *  *
+     * @description >  To call this operation, make sure that you have the AliyunCSFullAccess permissions.
      *  *
      * @param string                          $Uid
      * @param ListUserKubeConfigStatesRequest $request ListUserKubeConfigStatesRequest
@@ -5664,7 +5692,9 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @summary 查询单用户所有集群的证书状态
+     * @summary You can call the ListUserKubeConfigStates operation to query the status of the kubeconfig files of all clusters managed by the current user.
+     *  *
+     * @description >  To call this operation, make sure that you have the AliyunCSFullAccess permissions.
      *  *
      * @param string                          $Uid
      * @param ListUserKubeConfigStatesRequest $request ListUserKubeConfigStatesRequest
@@ -7647,7 +7677,9 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @summary 更新集群审计日志配置
+     * @summary You can call the UpdateClusterAuditLogConfig operation to enable or disable the audit log feature in a Container Service for Kubernetes (ACK) cluster and update the audit log configuration. This operation also allows you to record requests to the Kubernetes API and the responses, which can be used to trace cluster operation history and troubleshoot cluster issues.
+     *  *
+     * @description Before you call this operation, ensure that you understand the billing methods and pricing of [Simple Log Service](https://www.aliyun.com/price/product#/sls/detail/sls) (SLS).
      *  *
      * @param string                             $clusterid
      * @param UpdateClusterAuditLogConfigRequest $request   UpdateClusterAuditLogConfigRequest
@@ -7686,7 +7718,9 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @summary 更新集群审计日志配置
+     * @summary You can call the UpdateClusterAuditLogConfig operation to enable or disable the audit log feature in a Container Service for Kubernetes (ACK) cluster and update the audit log configuration. This operation also allows you to record requests to the Kubernetes API and the responses, which can be used to trace cluster operation history and troubleshoot cluster issues.
+     *  *
+     * @description Before you call this operation, ensure that you understand the billing methods and pricing of [Simple Log Service](https://www.aliyun.com/price/product#/sls/detail/sls) (SLS).
      *  *
      * @param string                             $clusterid
      * @param UpdateClusterAuditLogConfigRequest $request   UpdateClusterAuditLogConfigRequest
@@ -8134,7 +8168,7 @@ class CS extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType'    => 'json',
         ]);
 
         return UpgradeClusterAddonsResponse::fromMap($this->callApi($params, $req, $runtime));

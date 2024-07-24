@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class deleteBehavior extends Model
 {
     /**
+     * @description Specifies whether to delete the resource by default when the cluster is deleted.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $deleteByDefault;
 
     /**
+     * @description Specifies whether the default behavior returned in delete_by_default can be changed.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $changeable;

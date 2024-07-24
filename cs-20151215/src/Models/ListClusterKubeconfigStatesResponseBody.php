@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class ListClusterKubeconfigStatesResponseBody extends Model
 {
     /**
+     * @description The pagination information.
+     *
      * @var page
      */
     public $page;
 
     /**
+     * @description The status of the kubeconfig files associated with the cluster.
+     *
      * @var states[]
      */
     public $states;
