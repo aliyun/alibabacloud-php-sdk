@@ -1968,6 +1968,12 @@ class Vpc extends OpenApiClient
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
         }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
         if (!Utils::isUnset($request->internetChargeType)) {
             $query['InternetChargeType'] = $request->internetChargeType;
         }
@@ -11205,6 +11211,12 @@ class Vpc extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
         if (!Utils::isUnset($request->ipv6GatewayId)) {
             $query['Ipv6GatewayId'] = $request->ipv6GatewayId;
         }
@@ -11278,6 +11290,12 @@ class Vpc extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
         if (!Utils::isUnset($request->ipv6AddressId)) {
             $query['Ipv6AddressId'] = $request->ipv6AddressId;
         }
@@ -12777,6 +12795,12 @@ class Vpc extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
         if (!Utils::isUnset($request->ownerAccount)) {
             $query['OwnerAccount'] = $request->ownerAccount;
         }
@@ -13077,6 +13101,9 @@ class Vpc extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
         if (!Utils::isUnset($request->dryRun)) {
             $query['DryRun'] = $request->dryRun;
         }
@@ -16693,6 +16720,9 @@ class Vpc extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->ipVersion)) {
+            $query['IpVersion'] = $request->ipVersion;
+        }
         if (!Utils::isUnset($request->ownerAccount)) {
             $query['OwnerAccount'] = $request->ownerAccount;
         }
@@ -24936,8 +24966,14 @@ class Vpc extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
         if (!Utils::isUnset($request->description)) {
             $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
         }
         if (!Utils::isUnset($request->ipv6AddressId)) {
             $query['Ipv6AddressId'] = $request->ipv6AddressId;
@@ -25007,8 +25043,14 @@ class Vpc extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
         if (!Utils::isUnset($request->description)) {
             $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
         }
         if (!Utils::isUnset($request->ipv6GatewayId)) {
             $query['Ipv6GatewayId'] = $request->ipv6GatewayId;
@@ -25085,6 +25127,12 @@ class Vpc extends OpenApiClient
         }
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
         }
         if (!Utils::isUnset($request->ipv6AddressId)) {
             $query['Ipv6AddressId'] = $request->ipv6AddressId;
@@ -26505,6 +26553,12 @@ class Vpc extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
         if (!Utils::isUnset($request->ownerAccount)) {
             $query['OwnerAccount'] = $request->ownerAccount;
         }

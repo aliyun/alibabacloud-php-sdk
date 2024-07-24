@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ModifyIpv6AddressAttributeRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $clientToken;
+
+    /**
      * @description The description of the IPv6 address.
      *
      * It must be 2 to 256 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). It must start with a letter. The name must start with a letter and cannot start with `http://` or `https://`.
@@ -17,6 +22,11 @@ class ModifyIpv6AddressAttributeRequest extends Model
      * @var string
      */
     public $description;
+
+    /**
+     * @var bool
+     */
+    public $dryRun;
 
     /**
      * @description The ID of the IPv6 address.
@@ -68,7 +78,9 @@ class ModifyIpv6AddressAttributeRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
+        'clientToken'          => 'ClientToken',
         'description'          => 'Description',
+        'dryRun'               => 'DryRun',
         'ipv6AddressId'        => 'Ipv6AddressId',
         'name'                 => 'Name',
         'ownerAccount'         => 'OwnerAccount',
@@ -85,8 +97,14 @@ class ModifyIpv6AddressAttributeRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
         if (null !== $this->ipv6AddressId) {
             $res['Ipv6AddressId'] = $this->ipv6AddressId;
@@ -121,8 +139,14 @@ class ModifyIpv6AddressAttributeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
         if (isset($map['Ipv6AddressId'])) {
             $model->ipv6AddressId = $map['Ipv6AddressId'];

@@ -11,6 +11,11 @@ class DescribePublicIpAddressRequest extends Model
     /**
      * @var string
      */
+    public $ipVersion;
+
+    /**
+     * @var string
+     */
     public $ownerAccount;
 
     /**
@@ -57,6 +62,7 @@ class DescribePublicIpAddressRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
+        'ipVersion'            => 'IpVersion',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'pageNumber'           => 'PageNumber',
@@ -73,6 +79,9 @@ class DescribePublicIpAddressRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ipVersion) {
+            $res['IpVersion'] = $this->ipVersion;
+        }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
@@ -106,6 +115,9 @@ class DescribePublicIpAddressRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['IpVersion'])) {
+            $model->ipVersion = $map['IpVersion'];
+        }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }

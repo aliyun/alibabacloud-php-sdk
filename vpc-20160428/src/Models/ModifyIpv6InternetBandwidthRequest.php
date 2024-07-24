@@ -34,6 +34,11 @@ class ModifyIpv6InternetBandwidthRequest extends Model
     public $clientToken;
 
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @description The ID of the IPv6 address.
      *
      * >  You must specify one of **Ipv6AddressId** and **Ipv6InternetBandwidthId**.
@@ -84,6 +89,7 @@ class ModifyIpv6InternetBandwidthRequest extends Model
     protected $_name = [
         'bandwidth'               => 'Bandwidth',
         'clientToken'             => 'ClientToken',
+        'dryRun'                  => 'DryRun',
         'ipv6AddressId'           => 'Ipv6AddressId',
         'ipv6InternetBandwidthId' => 'Ipv6InternetBandwidthId',
         'ownerAccount'            => 'OwnerAccount',
@@ -105,6 +111,9 @@ class ModifyIpv6InternetBandwidthRequest extends Model
         }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
         if (null !== $this->ipv6AddressId) {
             $res['Ipv6AddressId'] = $this->ipv6AddressId;
@@ -144,6 +153,9 @@ class ModifyIpv6InternetBandwidthRequest extends Model
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
         if (isset($map['Ipv6AddressId'])) {
             $model->ipv6AddressId = $map['Ipv6AddressId'];

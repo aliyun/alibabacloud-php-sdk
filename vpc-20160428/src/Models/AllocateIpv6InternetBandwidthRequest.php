@@ -31,6 +31,11 @@ class AllocateIpv6InternetBandwidthRequest extends Model
     public $clientToken;
 
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @description The metering method of the Internet bandwidth for the IPv6 address. Valid values:
      *
      *   **PayByTraffic**: pay-by-data-transfer
@@ -94,6 +99,7 @@ class AllocateIpv6InternetBandwidthRequest extends Model
     protected $_name = [
         'bandwidth'            => 'Bandwidth',
         'clientToken'          => 'ClientToken',
+        'dryRun'               => 'DryRun',
         'internetChargeType'   => 'InternetChargeType',
         'ipv6AddressId'        => 'Ipv6AddressId',
         'ipv6GatewayId'        => 'Ipv6GatewayId',
@@ -116,6 +122,9 @@ class AllocateIpv6InternetBandwidthRequest extends Model
         }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
         if (null !== $this->internetChargeType) {
             $res['InternetChargeType'] = $this->internetChargeType;
@@ -158,6 +167,9 @@ class AllocateIpv6InternetBandwidthRequest extends Model
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
         if (isset($map['InternetChargeType'])) {
             $model->internetChargeType = $map['InternetChargeType'];

@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class DeleteIpv6InternetBandwidthRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $clientToken;
+
+    /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @description The ID of the IPv6 address.
      *
      * >  You must specify one of **Ipv6AddressId** and **Ipv6InternetBandwidthId**.
@@ -57,6 +67,8 @@ class DeleteIpv6InternetBandwidthRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
+        'clientToken'             => 'ClientToken',
+        'dryRun'                  => 'DryRun',
         'ipv6AddressId'           => 'Ipv6AddressId',
         'ipv6InternetBandwidthId' => 'Ipv6InternetBandwidthId',
         'ownerAccount'            => 'OwnerAccount',
@@ -73,6 +85,12 @@ class DeleteIpv6InternetBandwidthRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
+        }
         if (null !== $this->ipv6AddressId) {
             $res['Ipv6AddressId'] = $this->ipv6AddressId;
         }
@@ -106,6 +124,12 @@ class DeleteIpv6InternetBandwidthRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
+        }
         if (isset($map['Ipv6AddressId'])) {
             $model->ipv6AddressId = $map['Ipv6AddressId'];
         }

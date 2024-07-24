@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteVpcRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $clientToken;
+
+    /**
      * @description Specifies whether to perform a dry run. Valid values:
      *
      * - **true**: performs a dry run. The system checks the required parameters, request syntax, and limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
@@ -72,6 +77,7 @@ class DeleteVpcRequest extends Model
      */
     public $vpcId;
     protected $_name = [
+        'clientToken'          => 'ClientToken',
         'dryRun'               => 'DryRun',
         'forceDelete'          => 'ForceDelete',
         'ownerAccount'         => 'OwnerAccount',
@@ -89,6 +95,9 @@ class DeleteVpcRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
         }
@@ -125,6 +134,9 @@ class DeleteVpcRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
         }

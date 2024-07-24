@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ModifyIpv6GatewayAttributeRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $clientToken;
+
+    /**
      * @description The description of the IPv6 gateway.
      *
      * @example ipv6description
@@ -16,6 +21,11 @@ class ModifyIpv6GatewayAttributeRequest extends Model
      * @var string
      */
     public $description;
+
+    /**
+     * @var bool
+     */
+    public $dryRun;
 
     /**
      * @description The ID of the IPv6 gateway that you want to modify.
@@ -67,7 +77,9 @@ class ModifyIpv6GatewayAttributeRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
+        'clientToken'          => 'ClientToken',
         'description'          => 'Description',
+        'dryRun'               => 'DryRun',
         'ipv6GatewayId'        => 'Ipv6GatewayId',
         'name'                 => 'Name',
         'ownerAccount'         => 'OwnerAccount',
@@ -84,8 +96,14 @@ class ModifyIpv6GatewayAttributeRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
         if (null !== $this->ipv6GatewayId) {
             $res['Ipv6GatewayId'] = $this->ipv6GatewayId;
@@ -120,8 +138,14 @@ class ModifyIpv6GatewayAttributeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
         if (isset($map['Ipv6GatewayId'])) {
             $model->ipv6GatewayId = $map['Ipv6GatewayId'];
