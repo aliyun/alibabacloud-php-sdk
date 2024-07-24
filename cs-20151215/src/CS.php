@@ -138,6 +138,7 @@ use AlibabaCloud\SDK\CS\V20151215\Models\EdgeClusterAddEdgeMachineResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\FixNodePoolVulsRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\FixNodePoolVulsResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\GetClusterAddonInstanceResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\GetClusterAuditProjectResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\GetClusterCheckResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\GetClusterDiagnosisCheckItemsResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\GetClusterDiagnosisResultResponse;
@@ -4941,6 +4942,46 @@ class CS extends OpenApiClient
         $headers = [];
 
         return $this->getClusterAddonInstanceWithOptions($clusterId, $instanceName, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $clusterid
+     * @param string[]       $headers   map
+     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return GetClusterAuditProjectResponse GetClusterAuditProjectResponse
+     */
+    public function getClusterAuditProjectWithOptions($clusterid, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'GetClusterAuditProject',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/clusters/' . OpenApiUtilClient::getEncodeParam($clusterid) . '/audit',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetClusterAuditProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $clusterid
+     *
+     * @return GetClusterAuditProjectResponse GetClusterAuditProjectResponse
+     */
+    public function getClusterAuditProject($clusterid)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getClusterAuditProjectWithOptions($clusterid, $headers, $runtime);
     }
 
     /**
