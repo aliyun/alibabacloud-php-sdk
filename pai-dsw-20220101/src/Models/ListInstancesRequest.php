@@ -23,6 +23,11 @@ class ListInstancesRequest extends Model
     public $accessibility;
 
     /**
+     * @var string
+     */
+    public $createUserId;
+
+    /**
      * @example dsw-730xxxxxxxxxx
      *
      * @var string
@@ -99,6 +104,7 @@ class ListInstancesRequest extends Model
     protected $_name = [
         'acceleratorType' => 'AcceleratorType',
         'accessibility'   => 'Accessibility',
+        'createUserId'    => 'CreateUserId',
         'instanceId'      => 'InstanceId',
         'instanceName'    => 'InstanceName',
         'labels'          => 'Labels',
@@ -124,6 +130,9 @@ class ListInstancesRequest extends Model
         }
         if (null !== $this->accessibility) {
             $res['Accessibility'] = $this->accessibility;
+        }
+        if (null !== $this->createUserId) {
+            $res['CreateUserId'] = $this->createUserId;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -175,6 +184,9 @@ class ListInstancesRequest extends Model
         }
         if (isset($map['Accessibility'])) {
             $model->accessibility = $map['Accessibility'];
+        }
+        if (isset($map['CreateUserId'])) {
+            $model->createUserId = $map['CreateUserId'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];

@@ -1300,6 +1300,9 @@ class Paidsw extends OpenApiClient
         if (!Utils::isUnset($request->accessibility)) {
             $query['Accessibility'] = $request->accessibility;
         }
+        if (!Utils::isUnset($request->createUserId)) {
+            $query['CreateUserId'] = $request->createUserId;
+        }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
