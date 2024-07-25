@@ -12,6 +12,8 @@ use AlibabaCloud\SDK\ROS\V20190910\Models\CancelUpdateStackRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\CancelUpdateStackResponse;
 use AlibabaCloud\SDK\ROS\V20190910\Models\ContinueCreateStackRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\ContinueCreateStackResponse;
+use AlibabaCloud\SDK\ROS\V20190910\Models\CreateAITaskRequest;
+use AlibabaCloud\SDK\ROS\V20190910\Models\CreateAITaskResponse;
 use AlibabaCloud\SDK\ROS\V20190910\Models\CreateChangeSetRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\CreateChangeSetResponse;
 use AlibabaCloud\SDK\ROS\V20190910\Models\CreateDiagnosticRequest;
@@ -61,6 +63,8 @@ use AlibabaCloud\SDK\ROS\V20190910\Models\GenerateTemplateByScratchRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GenerateTemplateByScratchResponse;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GenerateTemplatePolicyRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GenerateTemplatePolicyResponse;
+use AlibabaCloud\SDK\ROS\V20190910\Models\GetAITaskRequest;
+use AlibabaCloud\SDK\ROS\V20190910\Models\GetAITaskResponse;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetChangeSetRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetChangeSetResponse;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetDiagnosticRequest;
@@ -100,6 +104,10 @@ use AlibabaCloud\SDK\ROS\V20190910\Models\GetTemplateScratchRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetTemplateScratchResponse;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetTemplateSummaryRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetTemplateSummaryResponse;
+use AlibabaCloud\SDK\ROS\V20190910\Models\ListAITaskEventsRequest;
+use AlibabaCloud\SDK\ROS\V20190910\Models\ListAITaskEventsResponse;
+use AlibabaCloud\SDK\ROS\V20190910\Models\ListAITasksRequest;
+use AlibabaCloud\SDK\ROS\V20190910\Models\ListAITasksResponse;
 use AlibabaCloud\SDK\ROS\V20190910\Models\ListChangeSetsRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\ListChangeSetsResponse;
 use AlibabaCloud\SDK\ROS\V20190910\Models\ListDiagnosticsRequest;
@@ -412,6 +420,64 @@ class ROS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->continueCreateStackWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 创建AI任务
+     *  *
+     * @param CreateAITaskRequest $request CreateAITaskRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateAITaskResponse CreateAITaskResponse
+     */
+    public function createAITaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->prompt)) {
+            $query['Prompt'] = $request->prompt;
+        }
+        if (!Utils::isUnset($request->taskType)) {
+            $query['TaskType'] = $request->taskType;
+        }
+        if (!Utils::isUnset($request->templateType)) {
+            $query['TemplateType'] = $request->templateType;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->template)) {
+            $body['Template'] = $request->template;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateAITask',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateAITaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建AI任务
+     *  *
+     * @param CreateAITaskRequest $request CreateAITaskRequest
+     *
+     * @return CreateAITaskResponse CreateAITaskResponse
+     */
+    public function createAITask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAITaskWithOptions($request, $runtime);
     }
 
     /**
@@ -2038,6 +2104,56 @@ class ROS extends OpenApiClient
     }
 
     /**
+     * @summary 查询指定AI任务信息
+     *  *
+     * @param GetAITaskRequest $request GetAITaskRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetAITaskResponse GetAITaskResponse
+     */
+    public function getAITaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->outputOption)) {
+            $query['OutputOption'] = $request->outputOption;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAITask',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetAITaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询指定AI任务信息
+     *  *
+     * @param GetAITaskRequest $request GetAITaskRequest
+     *
+     * @return GetAITaskResponse GetAITaskResponse
+     */
+    public function getAITask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAITaskWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries change sets. You can determine whether to query the templates of change sets.
      *  *
      * @description In this example, the details of a change set whose ID is `4c11658d-bd47-4dd0-ba64-727edc62****` is queried. The change set is created in the China (Hangzhou) region.
@@ -3335,6 +3451,115 @@ class ROS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getTemplateSummaryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取指定AITask事件列表
+     *  *
+     * @param ListAITaskEventsRequest $request ListAITaskEventsRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListAITaskEventsResponse ListAITaskEventsResponse
+     */
+    public function listAITaskEventsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAITaskEvents',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListAITaskEventsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取指定AITask事件列表
+     *  *
+     * @param ListAITaskEventsRequest $request ListAITaskEventsRequest
+     *
+     * @return ListAITaskEventsResponse ListAITaskEventsResponse
+     */
+    public function listAITaskEvents($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAITaskEventsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询AI任务列表
+     *  *
+     * @param ListAITasksRequest $request ListAITasksRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListAITasksResponse ListAITasksResponse
+     */
+    public function listAITasksWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        if (!Utils::isUnset($request->taskType)) {
+            $query['TaskType'] = $request->taskType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAITasks',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListAITasksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询AI任务列表
+     *  *
+     * @param ListAITasksRequest $request ListAITasksRequest
+     *
+     * @return ListAITasksResponse ListAITasksResponse
+     */
+    public function listAITasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAITasksWithOptions($request, $runtime);
     }
 
     /**
