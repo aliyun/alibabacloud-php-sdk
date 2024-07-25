@@ -33,6 +33,11 @@ class commodity extends Model
     public $autoRenew;
 
     /**
+     * @var string
+     */
+    public $couponId;
+
+    /**
      * @description The subscription duration.
      *
      * @example 1
@@ -56,6 +61,7 @@ class commodity extends Model
     protected $_name = [
         'autoPay'       => 'AutoPay',
         'autoRenew'     => 'AutoRenew',
+        'couponId'      => 'CouponId',
         'payPeriod'     => 'PayPeriod',
         'payPeriodUnit' => 'PayPeriodUnit',
     ];
@@ -72,6 +78,9 @@ class commodity extends Model
         }
         if (null !== $this->autoRenew) {
             $res['AutoRenew'] = $this->autoRenew;
+        }
+        if (null !== $this->couponId) {
+            $res['CouponId'] = $this->couponId;
         }
         if (null !== $this->payPeriod) {
             $res['PayPeriod'] = $this->payPeriod;
@@ -96,6 +105,9 @@ class commodity extends Model
         }
         if (isset($map['AutoRenew'])) {
             $model->autoRenew = $map['AutoRenew'];
+        }
+        if (isset($map['CouponId'])) {
+            $model->couponId = $map['CouponId'];
         }
         if (isset($map['PayPeriod'])) {
             $model->payPeriod = $map['PayPeriod'];

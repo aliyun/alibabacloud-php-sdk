@@ -4,10 +4,16 @@
 
 namespace AlibabaCloud\SDK\ComputeNest\V20210601\Models;
 
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListServiceInstanceLogsRequest\filter;
 use AlibabaCloud\Tea\Model;
 
 class ListServiceInstanceLogsRequest extends Model
 {
+    /**
+     * @var filter[]
+     */
+    public $filter;
+
     /**
      * @description The log source. Valid values:
      *
@@ -70,6 +76,7 @@ class ListServiceInstanceLogsRequest extends Model
      */
     public $serviceInstanceId;
     protected $_name = [
+        'filter'            => 'Filter',
         'logSource'         => 'LogSource',
         'logstore'          => 'Logstore',
         'maxResults'        => 'MaxResults',
@@ -85,6 +92,15 @@ class ListServiceInstanceLogsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->filter) {
+            $res['Filter'] = [];
+            if (null !== $this->filter && \is_array($this->filter)) {
+                $n = 0;
+                foreach ($this->filter as $item) {
+                    $res['Filter'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->logSource) {
             $res['LogSource'] = $this->logSource;
         }
@@ -115,6 +131,15 @@ class ListServiceInstanceLogsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Filter'])) {
+            if (!empty($map['Filter'])) {
+                $model->filter = [];
+                $n             = 0;
+                foreach ($map['Filter'] as $item) {
+                    $model->filter[$n++] = null !== $item ? filter::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['LogSource'])) {
             $model->logSource = $map['LogSource'];
         }

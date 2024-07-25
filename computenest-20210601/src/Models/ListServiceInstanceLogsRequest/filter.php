@@ -2,31 +2,23 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\ComputeNest\V20210601\Models\TagResourcesRequest;
+namespace AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListServiceInstanceLogsRequest;
 
 use AlibabaCloud\Tea\Model;
 
-class tag extends Model
+class filter extends Model
 {
     /**
-     * @description The tag key.
-     *
-     * @example Key1
-     *
      * @var string
      */
-    public $key;
+    public $name;
 
     /**
-     * @description The tag value.
-     *
-     * @example Value1
-     *
-     * @var string
+     * @var string[]
      */
     public $value;
     protected $_name = [
-        'key'   => 'Key',
+        'name'  => 'Name',
         'value' => 'Value',
     ];
 
@@ -37,8 +29,8 @@ class tag extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->key) {
-            $res['Key'] = $this->key;
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
         if (null !== $this->value) {
             $res['Value'] = $this->value;
@@ -50,16 +42,18 @@ class tag extends Model
     /**
      * @param array $map
      *
-     * @return tag
+     * @return filter
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Key'])) {
-            $model->key = $map['Key'];
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
         if (isset($map['Value'])) {
-            $model->value = $map['Value'];
+            if (!empty($map['Value'])) {
+                $model->value = $map['Value'];
+            }
         }
 
         return $model;

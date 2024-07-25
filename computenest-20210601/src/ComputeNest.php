@@ -885,6 +885,9 @@ class ComputeNest extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->filter)) {
+            $query['Filter'] = $request->filter;
+        }
         if (!Utils::isUnset($request->logSource)) {
             $query['LogSource'] = $request->logSource;
         }

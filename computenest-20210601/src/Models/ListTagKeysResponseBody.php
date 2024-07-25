@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ListTagKeysResponseBody extends Model
 {
     /**
+     * @description Details of the tag keys.
+     *
      * @var string[]
      */
     public $keys;
 
     /**
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+     *
      * @example AAAAAZ9FmxgN6wKfeK/GOKRnnjU=
      *
      * @var string
@@ -21,6 +25,8 @@ class ListTagKeysResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The request ID.
+     *
      * @example 8872ACE6-0297-54A4-8AAD-3A8623EC6C5D
      *
      * @var string

@@ -10,8 +10,9 @@ use AlibabaCloud\Tea\Model;
 class TagResourcesRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -19,15 +20,22 @@ class TagResourcesRequest extends Model
     public $regionId;
 
     /**
-     * @description This parameter is required.
+     * @description The resource IDs. You can specify up to 50 resource IDs.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $resourceId;
 
     /**
-     * @description This parameter is required.
+     * @description The resource type. Valid values:
      *
+     *   service: service
+     *   serviceinstance: service instance
+     *   artifact: artifact
+     *   dataset: dataset
+     *
+     * This parameter is required.
      * @example service
      *
      * @var string
@@ -35,6 +43,8 @@ class TagResourcesRequest extends Model
     public $resourceType;
 
     /**
+     * @description The tag key and value.
+     *
      * @var tag[]
      */
     public $tag;

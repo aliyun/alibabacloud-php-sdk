@@ -13,7 +13,7 @@ class GetServiceEstimateCostResponseBody extends Model
      *
      * @example {\\"cmgj00059839\\": {\\"Result\\": {\\"InquiryType\\": \\"Buy\\", \\"Order\\": {\\"Currency\\": \\"CNY\\", \\"DiscountAmount\\": \\"0.0\\", \\"TradeAmount\\": \\"0.01\\", \\"OriginalAmount\\": \\"0.01\\"}}}}
      *
-     * @var mixed[]
+     * @var CommodityValue[]
      */
     public $commodity;
 
@@ -52,7 +52,12 @@ class GetServiceEstimateCostResponseBody extends Model
     {
         $res = [];
         if (null !== $this->commodity) {
-            $res['Commodity'] = $this->commodity;
+            $res['Commodity'] = [];
+            if (null !== $this->commodity && \is_array($this->commodity)) {
+                foreach ($this->commodity as $key => $val) {
+                    $res['Commodity'][$key] = null !== $val ? $val->toMap() : $val;
+                }
+            }
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;

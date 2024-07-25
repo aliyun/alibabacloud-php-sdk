@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListTagValuesRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The tag key.
      *
+     * This parameter is required.
      * @example ECS
      *
      * @var string
@@ -18,6 +19,8 @@ class ListTagValuesRequest extends Model
     public $key;
 
     /**
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+     *
      * @example AAAAAfmTH5rcd4YFfob4P0uDAAc=
      *
      * @var string
@@ -25,8 +28,9 @@ class ListTagValuesRequest extends Model
     public $nextToken;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -34,8 +38,14 @@ class ListTagValuesRequest extends Model
     public $regionId;
 
     /**
-     * @description This parameter is required.
+     * @description The resource type. Valid values:
      *
+     *   service: service
+     *   serviceinstance: service instance
+     *   artifact: artifact
+     *   dataset: dataset
+     *
+     * This parameter is required.
      * @example service
      *
      * @var string

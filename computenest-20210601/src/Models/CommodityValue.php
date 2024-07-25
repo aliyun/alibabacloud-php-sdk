@@ -4,20 +4,17 @@
 
 namespace AlibabaCloud\SDK\ComputeNest\V20210601\Models;
 
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\CommodityValue\result;
 use AlibabaCloud\Tea\Model;
 
-class TagResourcesResponseBody extends Model
+class CommodityValue extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 06BF8F22-02DC-4750-83DF-3FFC11C065EA
-     *
-     * @var string
+     * @var result
      */
-    public $requestId;
+    public $result;
     protected $_name = [
-        'requestId' => 'RequestId',
+        'result' => 'Result',
     ];
 
     public function validate()
@@ -27,8 +24,8 @@ class TagResourcesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->result) {
+            $res['Result'] = null !== $this->result ? $this->result->toMap() : null;
         }
 
         return $res;
@@ -37,13 +34,13 @@ class TagResourcesResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return TagResourcesResponseBody
+     * @return CommodityValue
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['Result'])) {
+            $model->result = result::fromMap($map['Result']);
         }
 
         return $model;

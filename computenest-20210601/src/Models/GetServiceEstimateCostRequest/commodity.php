@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class commodity extends Model
 {
     /**
+     * @var string
+     */
+    public $couponId;
+
+    /**
      * @description The subscription duration.
      *
      * @example 1
@@ -30,6 +35,7 @@ class commodity extends Model
      */
     public $payPeriodUnit;
     protected $_name = [
+        'couponId'      => 'CouponId',
         'payPeriod'     => 'PayPeriod',
         'payPeriodUnit' => 'PayPeriodUnit',
     ];
@@ -41,6 +47,9 @@ class commodity extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->couponId) {
+            $res['CouponId'] = $this->couponId;
+        }
         if (null !== $this->payPeriod) {
             $res['PayPeriod'] = $this->payPeriod;
         }
@@ -59,6 +68,9 @@ class commodity extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CouponId'])) {
+            $model->couponId = $map['CouponId'];
+        }
         if (isset($map['PayPeriod'])) {
             $model->payPeriod = $map['PayPeriod'];
         }
