@@ -62,6 +62,8 @@ use AlibabaCloud\SDK\Cams\V20200606\Models\GetChatappVerifyCodeRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\GetChatappVerifyCodeResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\GetCommerceSettingRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\GetCommerceSettingResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\GetConversationalAutomationRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\GetConversationalAutomationResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\GetFlowJSONAssestRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\GetFlowJSONAssestResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\GetFlowPreviewUrlRequest;
@@ -81,6 +83,8 @@ use AlibabaCloud\SDK\Cams\V20200606\Models\GetPreValidatePhoneIdRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\GetPreValidatePhoneIdResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\GetWhatsappConnectionCatalogRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\GetWhatsappConnectionCatalogResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\GetWhatsappHealthStatusRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\GetWhatsappHealthStatusResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\IsvGetAppIdRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\IsvGetAppIdResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ListChatappTemplateRequest;
@@ -126,6 +130,9 @@ use AlibabaCloud\SDK\Cams\V20200606\Models\UpdateAccountWebhookRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\UpdateAccountWebhookResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\UpdateCommerceSettingRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\UpdateCommerceSettingResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\UpdateConversationalAutomationRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\UpdateConversationalAutomationResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\UpdateConversationalAutomationShrinkRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\UpdateFlowJSONAssetRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\UpdateFlowJSONAssetResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\UpdatePhoneEncryptionPublicKeyRequest;
@@ -1825,6 +1832,65 @@ class Cams extends OpenApiClient
     }
 
     /**
+     * @summary 获取号码欢迎消息设置信息
+     *  *
+     * @param GetConversationalAutomationRequest $request GetConversationalAutomationRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetConversationalAutomationResponse GetConversationalAutomationResponse
+     */
+    public function getConversationalAutomationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->phoneNumber)) {
+            $query['PhoneNumber'] = $request->phoneNumber;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetConversationalAutomation',
+            'version'     => '2020-06-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetConversationalAutomationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取号码欢迎消息设置信息
+     *  *
+     * @param GetConversationalAutomationRequest $request GetConversationalAutomationRequest
+     *
+     * @return GetConversationalAutomationResponse GetConversationalAutomationResponse
+     */
+    public function getConversationalAutomation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getConversationalAutomationWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries the information about a Flow.
      *  *
      * @description You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
@@ -2319,6 +2385,77 @@ class Cams extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getWhatsappConnectionCatalogWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取whatsapp节点信息发送消息健康度
+     *  *
+     * @param GetWhatsappHealthStatusRequest $request GetWhatsappHealthStatusRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetWhatsappHealthStatusResponse GetWhatsappHealthStatusResponse
+     */
+    public function getWhatsappHealthStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
+        }
+        if (!Utils::isUnset($request->language)) {
+            $query['Language'] = $request->language;
+        }
+        if (!Utils::isUnset($request->nodeType)) {
+            $query['NodeType'] = $request->nodeType;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->phoneNumber)) {
+            $query['PhoneNumber'] = $request->phoneNumber;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->templateCode)) {
+            $query['TemplateCode'] = $request->templateCode;
+        }
+        if (!Utils::isUnset($request->wabaId)) {
+            $query['WabaId'] = $request->wabaId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetWhatsappHealthStatus',
+            'version'     => '2020-06-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetWhatsappHealthStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取whatsapp节点信息发送消息健康度
+     *  *
+     * @param GetWhatsappHealthStatusRequest $request GetWhatsappHealthStatusRequest
+     *
+     * @return GetWhatsappHealthStatusResponse GetWhatsappHealthStatusResponse
+     */
+    public function getWhatsappHealthStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getWhatsappHealthStatusWithOptions($request, $runtime);
     }
 
     /**
@@ -3709,6 +3846,82 @@ class Cams extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateCommerceSettingWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 更新号码欢迎消息、命令等属性
+     *  *
+     * @param UpdateConversationalAutomationRequest $tmpReq  UpdateConversationalAutomationRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateConversationalAutomationResponse UpdateConversationalAutomationResponse
+     */
+    public function updateConversationalAutomationWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateConversationalAutomationShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->commands)) {
+            $request->commandsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->commands, 'Commands', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->prompts)) {
+            $request->promptsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->prompts, 'Prompts', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->commandsShrink)) {
+            $query['Commands'] = $request->commandsShrink;
+        }
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
+        }
+        if (!Utils::isUnset($request->enableWelcomeMessage)) {
+            $query['EnableWelcomeMessage'] = $request->enableWelcomeMessage;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->phoneNumber)) {
+            $query['PhoneNumber'] = $request->phoneNumber;
+        }
+        if (!Utils::isUnset($request->promptsShrink)) {
+            $query['Prompts'] = $request->promptsShrink;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateConversationalAutomation',
+            'version'     => '2020-06-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateConversationalAutomationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 更新号码欢迎消息、命令等属性
+     *  *
+     * @param UpdateConversationalAutomationRequest $request UpdateConversationalAutomationRequest
+     *
+     * @return UpdateConversationalAutomationResponse UpdateConversationalAutomationResponse
+     */
+    public function updateConversationalAutomation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateConversationalAutomationWithOptions($request, $runtime);
     }
 
     /**
