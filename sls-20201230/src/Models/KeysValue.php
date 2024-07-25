@@ -66,6 +66,16 @@ class KeysValue extends Model
      * @var bool
      */
     public $docValue;
+
+    /**
+     * @var string
+     */
+    public $vectorIndex;
+
+    /**
+     * @var string
+     */
+    public $embedding;
     protected $_name = [
         'caseSensitive' => 'caseSensitive',
         'chn'           => 'chn',
@@ -73,6 +83,8 @@ class KeysValue extends Model
         'alias'         => 'alias',
         'token'         => 'token',
         'docValue'      => 'doc_value',
+        'vectorIndex'   => 'vector_index',
+        'embedding'     => 'embedding',
     ];
 
     public function validate()
@@ -99,6 +111,12 @@ class KeysValue extends Model
         }
         if (null !== $this->docValue) {
             $res['doc_value'] = $this->docValue;
+        }
+        if (null !== $this->vectorIndex) {
+            $res['vector_index'] = $this->vectorIndex;
+        }
+        if (null !== $this->embedding) {
+            $res['embedding'] = $this->embedding;
         }
 
         return $res;
@@ -131,6 +149,12 @@ class KeysValue extends Model
         }
         if (isset($map['doc_value'])) {
             $model->docValue = $map['doc_value'];
+        }
+        if (isset($map['vector_index'])) {
+            $model->vectorIndex = $map['vector_index'];
+        }
+        if (isset($map['embedding'])) {
+            $model->embedding = $map['embedding'];
         }
 
         return $model;

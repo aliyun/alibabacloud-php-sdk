@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Sls\V20201230\Models;
 
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListCollectionPoliciesResponseBody\data;
+use AlibabaCloud\SDK\Sls\V20201230\Models\ListCollectionPoliciesResponseBody\statistics;
 use AlibabaCloud\Tea\Model;
 
 class ListCollectionPoliciesResponseBody extends Model
@@ -22,6 +23,11 @@ class ListCollectionPoliciesResponseBody extends Model
     public $data;
 
     /**
+     * @var statistics[]
+     */
+    public $statistics;
+
+    /**
      * @example 1
      *
      * @var int
@@ -30,6 +36,7 @@ class ListCollectionPoliciesResponseBody extends Model
     protected $_name = [
         'currentCount' => 'currentCount',
         'data'         => 'data',
+        'statistics'   => 'statistics',
         'totalCount'   => 'totalCount',
     ];
 
@@ -49,6 +56,15 @@ class ListCollectionPoliciesResponseBody extends Model
                 $n = 0;
                 foreach ($this->data as $item) {
                     $res['data'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->statistics) {
+            $res['statistics'] = [];
+            if (null !== $this->statistics && \is_array($this->statistics)) {
+                $n = 0;
+                foreach ($this->statistics as $item) {
+                    $res['statistics'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -76,6 +92,15 @@ class ListCollectionPoliciesResponseBody extends Model
                 $n           = 0;
                 foreach ($map['data'] as $item) {
                     $model->data[$n++] = null !== $item ? data::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['statistics'])) {
+            if (!empty($map['statistics'])) {
+                $model->statistics = [];
+                $n                 = 0;
+                foreach ($map['statistics'] as $item) {
+                    $model->statistics[$n++] = null !== $item ? statistics::fromMap($item) : $item;
                 }
             }
         }

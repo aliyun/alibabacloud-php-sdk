@@ -9,14 +9,20 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesShrinkRequest extends Model
 {
     /**
-     * @description The IDs of the resources for which you want to query tags. You must specify at least one of resourceId and tags.
+     * @description The IDs of the resources whose tags you want to query. You must specify at least one of resourceId and tags.
      *
      * @var string
      */
     public $resourceIdShrink;
 
     /**
-     * @description The type of the resource. Set the value to project.
+     * @description The type of the resource. Valid values:
+     *
+     *   project
+     *   logstore
+     *   dashboard
+     *   MachineGroup
+     *   LogtailConfig
      *
      * This parameter is required.
      * @example project

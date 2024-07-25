@@ -84,7 +84,6 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteProjectPolicyResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteProjectResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteSavedSearchResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteScheduledSQLResponse;
-use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteShipperResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteStoreViewResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DisableAlertResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DisableScheduledSQLResponse;
@@ -135,8 +134,6 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\GetProjectPolicyResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetProjectResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetSavedSearchResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetScheduledSQLResponse;
-use AlibabaCloud\SDK\Sls\V20201230\Models\GetShipperStatusRequest;
-use AlibabaCloud\SDK\Sls\V20201230\Models\GetShipperStatusResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetSlsServiceResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetSqlInstanceResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetStoreViewIndexResponse;
@@ -151,7 +148,6 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\ListAnnotationLabelsRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListAnnotationLabelsResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListCollectionPoliciesRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListCollectionPoliciesResponse;
-use AlibabaCloud\SDK\Sls\V20201230\Models\ListCollectionPoliciesShrinkRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListConfigRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListConfigResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListConsumerGroupResponse;
@@ -161,8 +157,6 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\ListDomainsRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListDomainsResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListETLsRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListETLsResponse;
-use AlibabaCloud\SDK\Sls\V20201230\Models\ListExternalStoreRequest;
-use AlibabaCloud\SDK\Sls\V20201230\Models\ListExternalStoreResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListLogStoresRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListLogStoresResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListLogtailPipelineConfigRequest;
@@ -184,7 +178,6 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\ListSavedSearchResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListScheduledSQLsRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListScheduledSQLsResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListShardsResponse;
-use AlibabaCloud\SDK\Sls\V20201230\Models\ListShipperResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListStoreViewsRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListStoreViewsResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListTagResourcesRequest;
@@ -273,20 +266,18 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\UpsertCollectionPolicyRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpsertCollectionPolicyResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
-use Darabonba\GatewaySls\Client as DarabonbaGatewaySlsClient;
+use Darabonba\GatewaySls\Client;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class Sls extends OpenApiClient
 {
-    protected $_client;
-
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_client             = new DarabonbaGatewaySlsClient();
-        $this->_spi                = $this->_client;
+        $gatewayClient             = new Client();
+        $this->_spi                = $gatewayClient;
         $this->_signatureAlgorithm = 'v2';
         $this->_endpointRule       = 'central';
     }
@@ -476,7 +467,13 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary 更新指定消费组消费数据时Shard的checkpoint。
+     * @summary Updates the data consumption progress.
+     *  *
+     * @description *   If you do not specify a consumer, you must set **forceSuccess** to **true**. Otherwise, the checkpoint cannot be updated.
+     * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+     * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
+     * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong, the region of the project, and the name of the Logstore to which the logs belong. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html) and [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
      *  *
      * @param string                               $project
      * @param string                               $logstore
@@ -499,11 +496,18 @@ class Sls extends OpenApiClient
         if (!Utils::isUnset($request->forceSuccess)) {
             $query['forceSuccess'] = $request->forceSuccess;
         }
+        $body = [];
+        if (!Utils::isUnset($request->checkpoint)) {
+            $body['checkpoint'] = $request->checkpoint;
+        }
+        if (!Utils::isUnset($request->shard)) {
+            $body['shard'] = $request->shard;
+        }
         $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => Utils::toArray($request->body),
+            'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ConsumerGroupUpdateCheckPoint',
@@ -521,7 +525,13 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary 更新指定消费组消费数据时Shard的checkpoint。
+     * @summary Updates the data consumption progress.
+     *  *
+     * @description *   If you do not specify a consumer, you must set **forceSuccess** to **true**. Otherwise, the checkpoint cannot be updated.
+     * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+     * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
+     * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong, the region of the project, and the name of the Logstore to which the logs belong. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html) and [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
      *  *
      * @param string                               $project
      * @param string                               $logstore
@@ -770,7 +780,7 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Creates a consumer group for a Logstore.
+     * @summary Creates a consumer group for a specified Logstore.
      *  *
      * @description ### Usage notes
      * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
@@ -821,7 +831,7 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Creates a consumer group for a Logstore.
+     * @summary Creates a consumer group for a specified Logstore.
      *  *
      * @description ### Usage notes
      * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
@@ -2305,6 +2315,8 @@ class Sls extends OpenApiClient
     /**
      * @summary 通过调用DeleteCollectionPolicy删除配置的日志采集规则
      *  *
+     * @description You must use the Simple Log Service endpoint for the China (Shanghai) or Singapore region to call the operation.
+     *  *
      * @param string                        $policyName
      * @param DeleteCollectionPolicyRequest $request    DeleteCollectionPolicyRequest
      * @param string[]                      $headers    map
@@ -2335,7 +2347,7 @@ class Sls extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType'    => 'none',
         ]);
 
         return DeleteCollectionPolicyResponse::fromMap($this->execute($params, $req, $runtime));
@@ -2343,6 +2355,8 @@ class Sls extends OpenApiClient
 
     /**
      * @summary 通过调用DeleteCollectionPolicy删除配置的日志采集规则
+     *  *
+     * @description You must use the Simple Log Service endpoint for the China (Shanghai) or Singapore region to call the operation.
      *  *
      * @param string                        $policyName
      * @param DeleteCollectionPolicyRequest $request    DeleteCollectionPolicyRequest
@@ -2959,7 +2973,7 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary 删除OSS投递任务
+     * @summary Deletes an Object Storage Service (OSS) data shipping job.
      *  *
      * @param string         $project
      * @param string         $ossExportName
@@ -2992,7 +3006,7 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary 删除OSS投递任务
+     * @summary Deletes an Object Storage Service (OSS) data shipping job.
      *  *
      * @param string $project
      * @param string $ossExportName
@@ -3307,69 +3321,6 @@ class Sls extends OpenApiClient
         $headers = [];
 
         return $this->deleteScheduledSQLWithOptions($project, $scheduledSQLName, $headers, $runtime);
-    }
-
-    /**
-     * @deprecated OpenAPI DeleteShipper is deprecated
-     *  *
-     * @summary Deletes the log shipping job of a Logstore.
-     *  *
-     * @description Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-     *  *
-     * Deprecated
-     *
-     * @param string         $project
-     * @param string         $logstore
-     * @param string         $shipperName
-     * @param string[]       $headers     map
-     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
-     *
-     * @return DeleteShipperResponse DeleteShipperResponse
-     */
-    public function deleteShipperWithOptions($project, $logstore, $shipperName, $headers, $runtime)
-    {
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $req                = new OpenApiRequest([
-            'hostMap' => $hostMap,
-            'headers' => $headers,
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteShipper',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/logstores/' . $logstore . '/shipper/' . $shipperName . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'none',
-        ]);
-
-        return DeleteShipperResponse::fromMap($this->execute($params, $req, $runtime));
-    }
-
-    /**
-     * @deprecated OpenAPI DeleteShipper is deprecated
-     *  *
-     * @summary Deletes the log shipping job of a Logstore.
-     *  *
-     * @description Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-     *  *
-     * Deprecated
-     *
-     * @param string $project
-     * @param string $logstore
-     * @param string $shipperName
-     *
-     * @return DeleteShipperResponse DeleteShipperResponse
-     */
-    public function deleteShipper($project, $logstore, $shipperName)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->deleteShipperWithOptions($project, $logstore, $shipperName, $headers, $runtime);
     }
 
     /**
@@ -3757,7 +3708,7 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Queries a tag table by using a label id.
+     * @summary Queries a tag table by using a label ID.
      *  *
      * @param string         $labelId
      * @param string[]       $headers map
@@ -3786,7 +3737,7 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Queries a tag table by using a label id.
+     * @summary Queries a tag table by using a label ID.
      *  *
      * @param string $labelId
      *
@@ -5449,8 +5400,11 @@ class Sls extends OpenApiClient
     /**
      * @summary Queries a project policy.
      *  *
-     * @description ### Usage notes
-     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     * @description ### [](#)Usage notes
+     * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+     * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
+     * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html)
      *  *
      * @param string         $project
      * @param string[]       $headers map
@@ -5484,8 +5438,11 @@ class Sls extends OpenApiClient
     /**
      * @summary Queries a project policy.
      *  *
-     * @description ### Usage notes
-     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     * @description ### [](#)Usage notes
+     * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+     * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
+     * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html)
      *  *
      * @param string $project
      *
@@ -5601,89 +5558,6 @@ class Sls extends OpenApiClient
         $headers = [];
 
         return $this->getScheduledSQLWithOptions($project, $scheduledSQLName, $headers, $runtime);
-    }
-
-    /**
-     * @deprecated OpenAPI GetShipperStatus is deprecated
-     *  *
-     * @summary Queries the status of a log shipping job.
-     *  *
-     * @description Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-     *  *
-     * Deprecated
-     *
-     * @param string                  $project
-     * @param string                  $logstore
-     * @param string                  $shipperName
-     * @param GetShipperStatusRequest $request     GetShipperStatusRequest
-     * @param string[]                $headers     map
-     * @param RuntimeOptions          $runtime     runtime options for this request RuntimeOptions
-     *
-     * @return GetShipperStatusResponse GetShipperStatusResponse
-     */
-    public function getShipperStatusWithOptions($project, $logstore, $shipperName, $request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $query              = [];
-        if (!Utils::isUnset($request->from)) {
-            $query['from'] = $request->from;
-        }
-        if (!Utils::isUnset($request->offset)) {
-            $query['offset'] = $request->offset;
-        }
-        if (!Utils::isUnset($request->size)) {
-            $query['size'] = $request->size;
-        }
-        if (!Utils::isUnset($request->status)) {
-            $query['status'] = $request->status;
-        }
-        if (!Utils::isUnset($request->to)) {
-            $query['to'] = $request->to;
-        }
-        $req = new OpenApiRequest([
-            'hostMap' => $hostMap,
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetShipperStatus',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/logstores/' . $logstore . '/shipper/' . $shipperName . '/tasks',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetShipperStatusResponse::fromMap($this->execute($params, $req, $runtime));
-    }
-
-    /**
-     * @deprecated OpenAPI GetShipperStatus is deprecated
-     *  *
-     * @summary Queries the status of a log shipping job.
-     *  *
-     * @description Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-     *  *
-     * Deprecated
-     *
-     * @param string                  $project
-     * @param string                  $logstore
-     * @param string                  $shipperName
-     * @param GetShipperStatusRequest $request     GetShipperStatusRequest
-     *
-     * @return GetShipperStatusResponse GetShipperStatusResponse
-     */
-    public function getShipperStatus($project, $logstore, $shipperName, $request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->getShipperStatusWithOptions($project, $logstore, $shipperName, $request, $headers, $runtime);
     }
 
     /**
@@ -5934,7 +5808,7 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Queries data in a dataset.
+     * @summary Queries data in datasets.
      *  *
      * @param string                    $datasetId
      * @param ListAnnotationDataRequest $request   ListAnnotationDataRequest
@@ -5973,7 +5847,7 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Queries data in a dataset.
+     * @summary Queries data in datasets.
      *  *
      * @param string                    $datasetId
      * @param ListAnnotationDataRequest $request   ListAnnotationDataRequest
@@ -6097,23 +5971,18 @@ class Sls extends OpenApiClient
     /**
      * @summary 通过调用ListCollectionPolicies接口查看配置的日志采集规则
      *  *
-     * @param ListCollectionPoliciesRequest $tmpReq  ListCollectionPoliciesRequest
+     * @param ListCollectionPoliciesRequest $request ListCollectionPoliciesRequest
      * @param string[]                      $headers map
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
      * @return ListCollectionPoliciesResponse ListCollectionPoliciesResponse
      */
-    public function listCollectionPoliciesWithOptions($tmpReq, $headers, $runtime)
+    public function listCollectionPoliciesWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
-        $request = new ListCollectionPoliciesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->attribute)) {
-            $request->attributeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->attribute, 'attribute', 'json');
-        }
+        Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->attributeShrink)) {
-            $query['attribute'] = $request->attributeShrink;
+        if (!Utils::isUnset($request->centralProject)) {
+            $query['centralProject'] = $request->centralProject;
         }
         if (!Utils::isUnset($request->dataCode)) {
             $query['dataCode'] = $request->dataCode;
@@ -6121,17 +5990,17 @@ class Sls extends OpenApiClient
         if (!Utils::isUnset($request->instanceId)) {
             $query['instanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->pageNum)) {
-            $query['pageNum'] = $request->pageNum;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->offset)) {
+            $query['offset'] = $request->offset;
         }
         if (!Utils::isUnset($request->policyName)) {
             $query['policyName'] = $request->policyName;
         }
         if (!Utils::isUnset($request->productCode)) {
             $query['productCode'] = $request->productCode;
+        }
+        if (!Utils::isUnset($request->size)) {
+            $query['size'] = $request->size;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -6494,71 +6363,6 @@ class Sls extends OpenApiClient
         $headers = [];
 
         return $this->listETLsWithOptions($project, $request, $headers, $runtime);
-    }
-
-    /**
-     * @summary Queries a list of external stores.
-     *  *
-     * @description Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-     *  *
-     * @param string                   $project
-     * @param ListExternalStoreRequest $request ListExternalStoreRequest
-     * @param string[]                 $headers map
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
-     *
-     * @return ListExternalStoreResponse ListExternalStoreResponse
-     */
-    public function listExternalStoreWithOptions($project, $request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $query              = [];
-        if (!Utils::isUnset($request->externalStoreName)) {
-            $query['externalStoreName'] = $request->externalStoreName;
-        }
-        if (!Utils::isUnset($request->offset)) {
-            $query['offset'] = $request->offset;
-        }
-        if (!Utils::isUnset($request->sizs)) {
-            $query['sizs'] = $request->sizs;
-        }
-        $req = new OpenApiRequest([
-            'hostMap' => $hostMap,
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListExternalStore',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/externalstores',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return ListExternalStoreResponse::fromMap($this->execute($params, $req, $runtime));
-    }
-
-    /**
-     * @summary Queries a list of external stores.
-     *  *
-     * @description Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-     *  *
-     * @param string                   $project
-     * @param ListExternalStoreRequest $request ListExternalStoreRequest
-     *
-     * @return ListExternalStoreResponse ListExternalStoreResponse
-     */
-    public function listExternalStore($project, $request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->listExternalStoreWithOptions($project, $request, $headers, $runtime);
     }
 
     /**
@@ -7273,67 +7077,6 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI ListShipper is deprecated
-     *  *
-     * @summary Queries a list of log shipping jobs in a Logstore.
-     *  *
-     * @description Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-     *  *
-     * Deprecated
-     *
-     * @param string         $project
-     * @param string         $logstore
-     * @param string[]       $headers  map
-     * @param RuntimeOptions $runtime  runtime options for this request RuntimeOptions
-     *
-     * @return ListShipperResponse ListShipperResponse
-     */
-    public function listShipperWithOptions($project, $logstore, $headers, $runtime)
-    {
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $req                = new OpenApiRequest([
-            'hostMap' => $hostMap,
-            'headers' => $headers,
-        ]);
-        $params = new Params([
-            'action'      => 'ListShipper',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/logstores/' . $logstore . '/shipper',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return ListShipperResponse::fromMap($this->execute($params, $req, $runtime));
-    }
-
-    /**
-     * @deprecated OpenAPI ListShipper is deprecated
-     *  *
-     * @summary Queries a list of log shipping jobs in a Logstore.
-     *  *
-     * @description Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-     *  *
-     * Deprecated
-     *
-     * @param string $project
-     * @param string $logstore
-     *
-     * @return ListShipperResponse ListShipperResponse
-     */
-    public function listShipper($project, $logstore)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->listShipperWithOptions($project, $logstore, $headers, $runtime);
-    }
-
-    /**
      * @summary 查询StoreView列表
      *  *
      * @param string                $project
@@ -7401,7 +7144,16 @@ class Sls extends OpenApiClient
      * @summary Queries a list of tags for one or more resources. You can query tags for resources by resource type or filter resources by tag. Each tag is a key-value pair.
      *  *
      * @description ### Usage notes
-     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+     * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
+     * * The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html)
+     * * For more information, see [Authorization rules](https://help.aliyun.com/document_detail/29049.html). The following types of resources are supported: project, Logstore, dashboard, machine group, and Logtail configuration.
+     * ### Authentication resources
+     * The following table describes the authorization information that is required for this operation. You can add the information to the Action element of a RAM policy statement to grant a RAM user or a RAM role the permissions to call this operation.
+     * |Action|Resource|
+     * |:---|:---|
+     * |`log:ListTagResources`|The resource format varies based on the resource type.\\-`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}`\\-`acs:log:${regionName}:${accountId}:project/${projectName}/logstore/${logstoreName}`\\-`acs:log:${regionName}:${accountId}:project/${projectName}/dashboard/${dashboardName}`\\-`acs:log:${regionName}:${accountId}:project/${projectName}/machinegroup/${machineGroupName}`\\-`acs:log:${regionName}:${accountId}:project/${projectName}/logtailconfig/${logtailConfigName}`|
      *  *
      * @param ListTagResourcesRequest $tmpReq  ListTagResourcesRequest
      * @param string[]                $headers map
@@ -7453,7 +7205,16 @@ class Sls extends OpenApiClient
      * @summary Queries a list of tags for one or more resources. You can query tags for resources by resource type or filter resources by tag. Each tag is a key-value pair.
      *  *
      * @description ### Usage notes
-     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+     * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
+     * * The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html)
+     * * For more information, see [Authorization rules](https://help.aliyun.com/document_detail/29049.html). The following types of resources are supported: project, Logstore, dashboard, machine group, and Logtail configuration.
+     * ### Authentication resources
+     * The following table describes the authorization information that is required for this operation. You can add the information to the Action element of a RAM policy statement to grant a RAM user or a RAM role the permissions to call this operation.
+     * |Action|Resource|
+     * |:---|:---|
+     * |`log:ListTagResources`|The resource format varies based on the resource type.\\-`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}`\\-`acs:log:${regionName}:${accountId}:project/${projectName}/logstore/${logstoreName}`\\-`acs:log:${regionName}:${accountId}:project/${projectName}/dashboard/${dashboardName}`\\-`acs:log:${regionName}:${accountId}:project/${projectName}/machinegroup/${machineGroupName}`\\-`acs:log:${regionName}:${accountId}:project/${projectName}/logtailconfig/${logtailConfigName}`|
      *  *
      * @param ListTagResourcesRequest $request ListTagResourcesRequest
      *
@@ -8455,10 +8216,19 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Creates and adds one or more tags to a specified resource. You can add tags only to projects.
+     * @summary Creates and adds tags to a resource. You can add tags only to projects.
      *  *
      * @description ### Usage notes
-     * Host consists of a project name and a Log Service endpoint. You must specify a project in Host.
+     * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+     * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
+     * * The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html)
+     * * For more information, see [Authorization rules](https://help.aliyun.com/document_detail/29049.html). The following types of resources are supported: project, Logstore, dashboard, machine group, and Logtail configuration.
+     * ### Authentication resources
+     * The following table describes the authorization information that is required for this operation. You can add the information to the Action element of a RAM policy statement to grant a RAM user or a RAM role the permissions to call this operation.
+     * |Action|Resource|
+     * |:---|:---|
+     * |`log:TagResources`|The resource format varies based on the resource type.\\-`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}`\\-`acs:log:${regionName}:${accountId}:project/${projectName}/logstore/${logstoreName}`\\-`acs:log:${regionName}:${accountId}:project/${projectName}/dashboard/${dashboardName}`\\-`acs:log:${regionName}:${accountId}:project/${projectName}/machinegroup/${machineGroupName}`\\-`acs:log:${regionName}:${accountId}:project/${projectName}/logtailconfig/${logtailConfigName}`|
      *  *
      * @param TagResourcesRequest $request TagResourcesRequest
      * @param string[]            $headers map
@@ -8499,10 +8269,19 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Creates and adds one or more tags to a specified resource. You can add tags only to projects.
+     * @summary Creates and adds tags to a resource. You can add tags only to projects.
      *  *
      * @description ### Usage notes
-     * Host consists of a project name and a Log Service endpoint. You must specify a project in Host.
+     * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+     * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
+     * * The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html)
+     * * For more information, see [Authorization rules](https://help.aliyun.com/document_detail/29049.html). The following types of resources are supported: project, Logstore, dashboard, machine group, and Logtail configuration.
+     * ### Authentication resources
+     * The following table describes the authorization information that is required for this operation. You can add the information to the Action element of a RAM policy statement to grant a RAM user or a RAM role the permissions to call this operation.
+     * |Action|Resource|
+     * |:---|:---|
+     * |`log:TagResources`|The resource format varies based on the resource type.\\-`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}`\\-`acs:log:${regionName}:${accountId}:project/${projectName}/logstore/${logstoreName}`\\-`acs:log:${regionName}:${accountId}:project/${projectName}/dashboard/${dashboardName}`\\-`acs:log:${regionName}:${accountId}:project/${projectName}/machinegroup/${machineGroupName}`\\-`acs:log:${regionName}:${accountId}:project/${projectName}/logtailconfig/${logtailConfigName}`|
      *  *
      * @param TagResourcesRequest $request TagResourcesRequest
      *
@@ -8520,7 +8299,15 @@ class Sls extends OpenApiClient
      * @summary Detaches one or more tags from a resource. You can detach tags only from Simple Log Service projects. You can detach multiple or all tags from a Simple Log Service project at a time.
      *  *
      * @description ### Usage notes
-     * Host consists of a project name and a Log Service endpoint. You must specify a project in Host.
+     * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+     * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
+     * * The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html) For more information, see [Authorization rules](https://help.aliyun.com/document_detail/29049.html). The following types of resources are supported: project, Logstore, dashboard, machine group, and Logtail configuration.
+     * ### Authentication resources
+     * The following table describes the authorization information that is required for this operation. You can add the information to the Action element of a RAM policy statement to grant a RAM user or a RAM role the permissions to call this operation.
+     * |Action|Resource|
+     * |:---|:---|
+     * |`log:UntagResources`|The resource format varies based on the resource type.\\-`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}`\\-`acs:log:${regionName}:${accountId}:project/${projectName}/logstore/${logstoreName}`\\-`acs:log:${regionName}:${accountId}:project/${projectName}/dashboard/${dashboardName}`\\-`acs:log:${regionName}:${accountId}:project/${projectName}/machinegroup/${machineGroupName}`\\-`acs:log:${regionName}:${accountId}:project/${projectName}/logtailconfig/${logtailConfigName}`|
      *  *
      * @param UntagResourcesRequest $request UntagResourcesRequest
      * @param string[]              $headers map
@@ -8567,7 +8354,15 @@ class Sls extends OpenApiClient
      * @summary Detaches one or more tags from a resource. You can detach tags only from Simple Log Service projects. You can detach multiple or all tags from a Simple Log Service project at a time.
      *  *
      * @description ### Usage notes
-     * Host consists of a project name and a Log Service endpoint. You must specify a project in Host.
+     * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+     * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
+     * * The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html) For more information, see [Authorization rules](https://help.aliyun.com/document_detail/29049.html). The following types of resources are supported: project, Logstore, dashboard, machine group, and Logtail configuration.
+     * ### Authentication resources
+     * The following table describes the authorization information that is required for this operation. You can add the information to the Action element of a RAM policy statement to grant a RAM user or a RAM role the permissions to call this operation.
+     * |Action|Resource|
+     * |:---|:---|
+     * |`log:UntagResources`|The resource format varies based on the resource type.\\-`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}`\\-`acs:log:${regionName}:${accountId}:project/${projectName}/logstore/${logstoreName}`\\-`acs:log:${regionName}:${accountId}:project/${projectName}/dashboard/${dashboardName}`\\-`acs:log:${regionName}:${accountId}:project/${projectName}/machinegroup/${machineGroupName}`\\-`acs:log:${regionName}:${accountId}:project/${projectName}/logtailconfig/${logtailConfigName}`|
      *  *
      * @param UntagResourcesRequest $request UntagResourcesRequest
      *
@@ -8746,7 +8541,7 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Updates a Logtail configuration.
+     * @summary Modifies a Logtail configuration.
      *  *
      * @description ### [](#)Usage notes
      * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
@@ -8790,7 +8585,7 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Updates a Logtail configuration.
+     * @summary Modifies a Logtail configuration.
      *  *
      * @description ### [](#)Usage notes
      * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
@@ -9200,7 +8995,7 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary 更新LogStore计量模式
+     * @summary Changes the billing mode of a Logstore.
      *  *
      * @param string                            $project
      * @param string                            $logstore
@@ -9240,7 +9035,7 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary 更新LogStore计量模式
+     * @summary Changes the billing mode of a Logstore.
      *  *
      * @param string                            $project
      * @param string                            $logstore
@@ -10232,7 +10027,7 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary 调用UpsertCollectionPolicy接口更新采集策略的属性信息
+     * @summary 调用UpsertCollectionPolicy接口创建或更新日志采集规则
      *  *
      * @param UpsertCollectionPolicyRequest $request UpsertCollectionPolicyRequest
      * @param string[]                      $headers map
@@ -10244,9 +10039,6 @@ class Sls extends OpenApiClient
     {
         Utils::validateModel($request);
         $body = [];
-        if (!Utils::isUnset($request->attribute)) {
-            $body['attribute'] = $request->attribute;
-        }
         if (!Utils::isUnset($request->centralizeConfig)) {
             $body['centralizeConfig'] = $request->centralizeConfig;
         }
@@ -10255,6 +10047,9 @@ class Sls extends OpenApiClient
         }
         if (!Utils::isUnset($request->dataCode)) {
             $body['dataCode'] = $request->dataCode;
+        }
+        if (!Utils::isUnset($request->dataConfig)) {
+            $body['dataConfig'] = $request->dataConfig;
         }
         if (!Utils::isUnset($request->enabled)) {
             $body['enabled'] = $request->enabled;
@@ -10267,6 +10062,9 @@ class Sls extends OpenApiClient
         }
         if (!Utils::isUnset($request->productCode)) {
             $body['productCode'] = $request->productCode;
+        }
+        if (!Utils::isUnset($request->resourceDirectory)) {
+            $body['resourceDirectory'] = $request->resourceDirectory;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -10281,14 +10079,14 @@ class Sls extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType'    => 'none',
         ]);
 
         return UpsertCollectionPolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 调用UpsertCollectionPolicy接口更新采集策略的属性信息
+     * @summary 调用UpsertCollectionPolicy接口创建或更新日志采集规则
      *  *
      * @param UpsertCollectionPolicyRequest $request UpsertCollectionPolicyRequest
      *

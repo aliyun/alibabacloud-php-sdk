@@ -62,6 +62,13 @@ class OSSIngestion extends Model
     public $schedule;
 
     /**
+     * @example c7f01719d9feb105fc9d8df92af62010
+     *
+     * @var string
+     */
+    public $scheduleId;
+
+    /**
      * @example RUNNING
      *
      * @var string
@@ -75,6 +82,7 @@ class OSSIngestion extends Model
         'lastModifiedTime' => 'lastModifiedTime',
         'name'             => 'name',
         'schedule'         => 'schedule',
+        'scheduleId'       => 'scheduleId',
         'status'           => 'status',
     ];
 
@@ -105,6 +113,9 @@ class OSSIngestion extends Model
         }
         if (null !== $this->schedule) {
             $res['schedule'] = null !== $this->schedule ? $this->schedule->toMap() : null;
+        }
+        if (null !== $this->scheduleId) {
+            $res['scheduleId'] = $this->scheduleId;
         }
         if (null !== $this->status) {
             $res['status'] = $this->status;
@@ -141,6 +152,9 @@ class OSSIngestion extends Model
         }
         if (isset($map['schedule'])) {
             $model->schedule = Schedule::fromMap($map['schedule']);
+        }
+        if (isset($map['scheduleId'])) {
+            $model->scheduleId = $map['scheduleId'];
         }
         if (isset($map['status'])) {
             $model->status = $map['status'];

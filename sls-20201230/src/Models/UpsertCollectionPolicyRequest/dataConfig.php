@@ -2,20 +2,18 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Sls\V20201230\Models;
+namespace AlibabaCloud\SDK\Sls\V20201230\Models\UpsertCollectionPolicyRequest;
 
 use AlibabaCloud\Tea\Model;
 
-class DeleteCollectionPolicyResponseBody extends Model
+class dataConfig extends Model
 {
     /**
-     * @example successful
-     *
      * @var string
      */
-    public $message;
+    public $dataRegion;
     protected $_name = [
-        'message' => 'message',
+        'dataRegion' => 'dataRegion',
     ];
 
     public function validate()
@@ -25,8 +23,8 @@ class DeleteCollectionPolicyResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->message) {
-            $res['message'] = $this->message;
+        if (null !== $this->dataRegion) {
+            $res['dataRegion'] = $this->dataRegion;
         }
 
         return $res;
@@ -35,13 +33,13 @@ class DeleteCollectionPolicyResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return DeleteCollectionPolicyResponseBody
+     * @return dataConfig
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['message'])) {
-            $model->message = $map['message'];
+        if (isset($map['dataRegion'])) {
+            $model->dataRegion = $map['dataRegion'];
         }
 
         return $model;

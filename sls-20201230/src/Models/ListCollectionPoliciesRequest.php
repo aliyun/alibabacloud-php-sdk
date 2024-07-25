@@ -4,15 +4,14 @@
 
 namespace AlibabaCloud\SDK\Sls\V20201230\Models;
 
-use AlibabaCloud\SDK\Sls\V20201230\Models\ListCollectionPoliciesRequest\attribute;
 use AlibabaCloud\Tea\Model;
 
 class ListCollectionPoliciesRequest extends Model
 {
     /**
-     * @var attribute
+     * @var string
      */
-    public $attribute;
+    public $centralProject;
 
     /**
      * @example access_log
@@ -29,18 +28,9 @@ class ListCollectionPoliciesRequest extends Model
     public $instanceId;
 
     /**
-     * @example 1
-     *
      * @var int
      */
-    public $pageNum;
-
-    /**
-     * @example 10
-     *
-     * @var int
-     */
-    public $pageSize;
+    public $offset;
 
     /**
      * @example your_log_policy
@@ -55,14 +45,19 @@ class ListCollectionPoliciesRequest extends Model
      * @var string
      */
     public $productCode;
+
+    /**
+     * @var int
+     */
+    public $size;
     protected $_name = [
-        'attribute'   => 'attribute',
-        'dataCode'    => 'dataCode',
-        'instanceId'  => 'instanceId',
-        'pageNum'     => 'pageNum',
-        'pageSize'    => 'pageSize',
-        'policyName'  => 'policyName',
-        'productCode' => 'productCode',
+        'centralProject' => 'centralProject',
+        'dataCode'       => 'dataCode',
+        'instanceId'     => 'instanceId',
+        'offset'         => 'offset',
+        'policyName'     => 'policyName',
+        'productCode'    => 'productCode',
+        'size'           => 'size',
     ];
 
     public function validate()
@@ -72,8 +67,8 @@ class ListCollectionPoliciesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->attribute) {
-            $res['attribute'] = null !== $this->attribute ? $this->attribute->toMap() : null;
+        if (null !== $this->centralProject) {
+            $res['centralProject'] = $this->centralProject;
         }
         if (null !== $this->dataCode) {
             $res['dataCode'] = $this->dataCode;
@@ -81,17 +76,17 @@ class ListCollectionPoliciesRequest extends Model
         if (null !== $this->instanceId) {
             $res['instanceId'] = $this->instanceId;
         }
-        if (null !== $this->pageNum) {
-            $res['pageNum'] = $this->pageNum;
-        }
-        if (null !== $this->pageSize) {
-            $res['pageSize'] = $this->pageSize;
+        if (null !== $this->offset) {
+            $res['offset'] = $this->offset;
         }
         if (null !== $this->policyName) {
             $res['policyName'] = $this->policyName;
         }
         if (null !== $this->productCode) {
             $res['productCode'] = $this->productCode;
+        }
+        if (null !== $this->size) {
+            $res['size'] = $this->size;
         }
 
         return $res;
@@ -105,8 +100,8 @@ class ListCollectionPoliciesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['attribute'])) {
-            $model->attribute = attribute::fromMap($map['attribute']);
+        if (isset($map['centralProject'])) {
+            $model->centralProject = $map['centralProject'];
         }
         if (isset($map['dataCode'])) {
             $model->dataCode = $map['dataCode'];
@@ -114,17 +109,17 @@ class ListCollectionPoliciesRequest extends Model
         if (isset($map['instanceId'])) {
             $model->instanceId = $map['instanceId'];
         }
-        if (isset($map['pageNum'])) {
-            $model->pageNum = $map['pageNum'];
-        }
-        if (isset($map['pageSize'])) {
-            $model->pageSize = $map['pageSize'];
+        if (isset($map['offset'])) {
+            $model->offset = $map['offset'];
         }
         if (isset($map['policyName'])) {
             $model->policyName = $map['policyName'];
         }
         if (isset($map['productCode'])) {
             $model->productCode = $map['productCode'];
+        }
+        if (isset($map['size'])) {
+            $model->size = $map['size'];
         }
 
         return $model;

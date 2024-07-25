@@ -4,18 +4,14 @@
 
 namespace AlibabaCloud\SDK\Sls\V20201230\Models;
 
-use AlibabaCloud\SDK\Sls\V20201230\Models\UpsertCollectionPolicyRequest\attribute;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpsertCollectionPolicyRequest\centralizeConfig;
+use AlibabaCloud\SDK\Sls\V20201230\Models\UpsertCollectionPolicyRequest\dataConfig;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpsertCollectionPolicyRequest\policyConfig;
+use AlibabaCloud\SDK\Sls\V20201230\Models\UpsertCollectionPolicyRequest\resourceDirectory;
 use AlibabaCloud\Tea\Model;
 
 class UpsertCollectionPolicyRequest extends Model
 {
-    /**
-     * @var attribute
-     */
-    public $attribute;
-
     /**
      * @var centralizeConfig
      */
@@ -36,6 +32,11 @@ class UpsertCollectionPolicyRequest extends Model
      * @var string
      */
     public $dataCode;
+
+    /**
+     * @var dataConfig
+     */
+    public $dataConfig;
 
     /**
      * @description This parameter is required.
@@ -70,15 +71,21 @@ class UpsertCollectionPolicyRequest extends Model
      * @var string
      */
     public $productCode;
+
+    /**
+     * @var resourceDirectory
+     */
+    public $resourceDirectory;
     protected $_name = [
-        'attribute'         => 'attribute',
         'centralizeConfig'  => 'centralizeConfig',
         'centralizeEnabled' => 'centralizeEnabled',
         'dataCode'          => 'dataCode',
+        'dataConfig'        => 'dataConfig',
         'enabled'           => 'enabled',
         'policyConfig'      => 'policyConfig',
         'policyName'        => 'policyName',
         'productCode'       => 'productCode',
+        'resourceDirectory' => 'resourceDirectory',
     ];
 
     public function validate()
@@ -88,9 +95,6 @@ class UpsertCollectionPolicyRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->attribute) {
-            $res['attribute'] = null !== $this->attribute ? $this->attribute->toMap() : null;
-        }
         if (null !== $this->centralizeConfig) {
             $res['centralizeConfig'] = null !== $this->centralizeConfig ? $this->centralizeConfig->toMap() : null;
         }
@@ -99,6 +103,9 @@ class UpsertCollectionPolicyRequest extends Model
         }
         if (null !== $this->dataCode) {
             $res['dataCode'] = $this->dataCode;
+        }
+        if (null !== $this->dataConfig) {
+            $res['dataConfig'] = null !== $this->dataConfig ? $this->dataConfig->toMap() : null;
         }
         if (null !== $this->enabled) {
             $res['enabled'] = $this->enabled;
@@ -112,6 +119,9 @@ class UpsertCollectionPolicyRequest extends Model
         if (null !== $this->productCode) {
             $res['productCode'] = $this->productCode;
         }
+        if (null !== $this->resourceDirectory) {
+            $res['resourceDirectory'] = null !== $this->resourceDirectory ? $this->resourceDirectory->toMap() : null;
+        }
 
         return $res;
     }
@@ -124,9 +134,6 @@ class UpsertCollectionPolicyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['attribute'])) {
-            $model->attribute = attribute::fromMap($map['attribute']);
-        }
         if (isset($map['centralizeConfig'])) {
             $model->centralizeConfig = centralizeConfig::fromMap($map['centralizeConfig']);
         }
@@ -135,6 +142,9 @@ class UpsertCollectionPolicyRequest extends Model
         }
         if (isset($map['dataCode'])) {
             $model->dataCode = $map['dataCode'];
+        }
+        if (isset($map['dataConfig'])) {
+            $model->dataConfig = dataConfig::fromMap($map['dataConfig']);
         }
         if (isset($map['enabled'])) {
             $model->enabled = $map['enabled'];
@@ -147,6 +157,9 @@ class UpsertCollectionPolicyRequest extends Model
         }
         if (isset($map['productCode'])) {
             $model->productCode = $map['productCode'];
+        }
+        if (isset($map['resourceDirectory'])) {
+            $model->resourceDirectory = resourceDirectory::fromMap($map['resourceDirectory']);
         }
 
         return $model;

@@ -32,6 +32,13 @@ class ETLConfiguration extends Model
     public $fromTime;
 
     /**
+     * @example SPL
+     *
+     * @var string
+     */
+    public $lang;
+
+    /**
      * @description This parameter is required.
      *
      * @example test-logstore
@@ -84,6 +91,7 @@ class ETLConfiguration extends Model
         'accessKeyId'     => 'accessKeyId',
         'accessKeySecret' => 'accessKeySecret',
         'fromTime'        => 'fromTime',
+        'lang'            => 'lang',
         'logstore'        => 'logstore',
         'parameters'      => 'parameters',
         'roleArn'         => 'roleArn',
@@ -107,6 +115,9 @@ class ETLConfiguration extends Model
         }
         if (null !== $this->fromTime) {
             $res['fromTime'] = $this->fromTime;
+        }
+        if (null !== $this->lang) {
+            $res['lang'] = $this->lang;
         }
         if (null !== $this->logstore) {
             $res['logstore'] = $this->logstore;
@@ -152,6 +163,9 @@ class ETLConfiguration extends Model
         }
         if (isset($map['fromTime'])) {
             $model->fromTime = $map['fromTime'];
+        }
+        if (isset($map['lang'])) {
+            $model->lang = $map['lang'];
         }
         if (isset($map['logstore'])) {
             $model->logstore = $map['logstore'];

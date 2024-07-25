@@ -6,24 +6,20 @@ namespace AlibabaCloud\SDK\Sls\V20201230\Models\GetCollectionPolicyResponseBody\
 
 use AlibabaCloud\Tea\Model;
 
-class attribute extends Model
+class dataConfig extends Model
 {
     /**
-     * @example your-app-name
-     *
      * @var string
      */
-    public $app;
+    public $dataProject;
 
     /**
-     * @example your-policy-group
-     *
      * @var string
      */
-    public $policyGroup;
+    public $dataRegion;
     protected $_name = [
-        'app'         => 'app',
-        'policyGroup' => 'policyGroup',
+        'dataProject' => 'dataProject',
+        'dataRegion'  => 'dataRegion',
     ];
 
     public function validate()
@@ -33,11 +29,11 @@ class attribute extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->app) {
-            $res['app'] = $this->app;
+        if (null !== $this->dataProject) {
+            $res['dataProject'] = $this->dataProject;
         }
-        if (null !== $this->policyGroup) {
-            $res['policyGroup'] = $this->policyGroup;
+        if (null !== $this->dataRegion) {
+            $res['dataRegion'] = $this->dataRegion;
         }
 
         return $res;
@@ -46,16 +42,16 @@ class attribute extends Model
     /**
      * @param array $map
      *
-     * @return attribute
+     * @return dataConfig
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['app'])) {
-            $model->app = $map['app'];
+        if (isset($map['dataProject'])) {
+            $model->dataProject = $map['dataProject'];
         }
-        if (isset($map['policyGroup'])) {
-            $model->policyGroup = $map['policyGroup'];
+        if (isset($map['dataRegion'])) {
+            $model->dataRegion = $map['dataRegion'];
         }
 
         return $model;

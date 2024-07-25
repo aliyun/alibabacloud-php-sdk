@@ -23,6 +23,11 @@ class ETLConfigurationSink extends Model
     public $accessKeySecret;
 
     /**
+     * @var string[]
+     */
+    public $datasets;
+
+    /**
      * @var string
      */
     public $endpoint;
@@ -65,6 +70,7 @@ class ETLConfigurationSink extends Model
     protected $_name = [
         'accessKeyId'     => 'accessKeyId',
         'accessKeySecret' => 'accessKeySecret',
+        'datasets'        => 'datasets',
         'endpoint'        => 'endpoint',
         'logstore'        => 'logstore',
         'name'            => 'name',
@@ -84,6 +90,9 @@ class ETLConfigurationSink extends Model
         }
         if (null !== $this->accessKeySecret) {
             $res['accessKeySecret'] = $this->accessKeySecret;
+        }
+        if (null !== $this->datasets) {
+            $res['datasets'] = $this->datasets;
         }
         if (null !== $this->endpoint) {
             $res['endpoint'] = $this->endpoint;
@@ -117,6 +126,11 @@ class ETLConfigurationSink extends Model
         }
         if (isset($map['accessKeySecret'])) {
             $model->accessKeySecret = $map['accessKeySecret'];
+        }
+        if (isset($map['datasets'])) {
+            if (!empty($map['datasets'])) {
+                $model->datasets = $map['datasets'];
+            }
         }
         if (isset($map['endpoint'])) {
             $model->endpoint = $map['endpoint'];

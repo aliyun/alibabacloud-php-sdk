@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class UpdateLogStoreMeteringModeRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The billing mode. Valid values: ChargeByFunction and ChargeByDataIngest. Default value: ChargeByFunction. The value ChargeByFunction specifies the pay-by-feature billing mode. The value ChargeByDataIngest specifies the pay-by-ingested-data billing mode.
      *
+     * This parameter is required.
      * @example ChargeByFunction
      *
      * @var string

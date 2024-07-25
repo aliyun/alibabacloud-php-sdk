@@ -18,7 +18,13 @@ class TagResourcesRequest extends Model
     public $resourceId;
 
     /**
-     * @description The type of the resource. Set the value to project.
+     * @description The type of the resource. Valid values:
+     *
+     *   project
+     *   logstore
+     *   dashboard
+     *   machinegroup
+     *   logtailconfig
      *
      * This parameter is required.
      * @example project
@@ -28,7 +34,7 @@ class TagResourcesRequest extends Model
     public $resourceType;
 
     /**
-     * @description The tags that you want to add to the resource. Up to 20 tags are supported at a time. Each tag is a key-value pair.
+     * @description The tags that you want to add to the resource. You can specify up to 20 tags in each call. Each tag is a key-value pair.
      *
      * This parameter is required.
      * @var tags[]

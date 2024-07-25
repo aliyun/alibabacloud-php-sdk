@@ -53,6 +53,13 @@ class OSSExport extends Model
     public $name;
 
     /**
+     * @example c7f01719d9feb105fc9d8df92af62010
+     *
+     * @var string
+     */
+    public $scheduleId;
+
+    /**
      * @example RUNNING
      *
      * @var string
@@ -65,6 +72,7 @@ class OSSExport extends Model
         'displayName'      => 'displayName',
         'lastModifiedTime' => 'lastModifiedTime',
         'name'             => 'name',
+        'scheduleId'       => 'scheduleId',
         'status'           => 'status',
     ];
 
@@ -92,6 +100,9 @@ class OSSExport extends Model
         }
         if (null !== $this->name) {
             $res['name'] = $this->name;
+        }
+        if (null !== $this->scheduleId) {
+            $res['scheduleId'] = $this->scheduleId;
         }
         if (null !== $this->status) {
             $res['status'] = $this->status;
@@ -125,6 +136,9 @@ class OSSExport extends Model
         }
         if (isset($map['name'])) {
             $model->name = $map['name'];
+        }
+        if (isset($map['scheduleId'])) {
+            $model->scheduleId = $map['scheduleId'];
         }
         if (isset($map['status'])) {
             $model->status = $map['status'];

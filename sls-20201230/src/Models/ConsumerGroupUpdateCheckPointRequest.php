@@ -4,21 +4,34 @@
 
 namespace AlibabaCloud\SDK\Sls\V20201230\Models;
 
-use AlibabaCloud\SDK\Sls\V20201230\Models\ConsumerGroupUpdateCheckPointRequest\body;
 use AlibabaCloud\Tea\Model;
 
 class ConsumerGroupUpdateCheckPointRequest extends Model
 {
     /**
-     * @description Shard ID。
+     * @description The value of the checkpoint.
      *
-     * @var body[]
+     * This parameter is required.
+     * @example MTUyNDE1NTM3OTM3MzkwODQ5Ng==
+     *
+     * @var string
      */
-    public $body;
+    public $checkpoint;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the shard.
      *
+     * This parameter is required.
+     * @example 0
+     *
+     * @var int
+     */
+    public $shard;
+
+    /**
+     * @description The consumer.
+     *
+     * This parameter is required.
      * @example consumer_1
      *
      * @var string
@@ -26,13 +39,19 @@ class ConsumerGroupUpdateCheckPointRequest extends Model
     public $consumer;
 
     /**
+     * @description Specifies whether to enable forceful updates. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example False
      *
      * @var bool
      */
     public $forceSuccess;
     protected $_name = [
-        'body'         => 'body',
+        'checkpoint'   => 'checkpoint',
+        'shard'        => 'shard',
         'consumer'     => 'consumer',
         'forceSuccess' => 'forceSuccess',
     ];
@@ -44,14 +63,11 @@ class ConsumerGroupUpdateCheckPointRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->body) {
-            $res['body'] = [];
-            if (null !== $this->body && \is_array($this->body)) {
-                $n = 0;
-                foreach ($this->body as $item) {
-                    $res['body'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->checkpoint) {
+            $res['checkpoint'] = $this->checkpoint;
+        }
+        if (null !== $this->shard) {
+            $res['shard'] = $this->shard;
         }
         if (null !== $this->consumer) {
             $res['consumer'] = $this->consumer;
@@ -71,14 +87,11 @@ class ConsumerGroupUpdateCheckPointRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['body'])) {
-            if (!empty($map['body'])) {
-                $model->body = [];
-                $n           = 0;
-                foreach ($map['body'] as $item) {
-                    $model->body[$n++] = null !== $item ? body::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['checkpoint'])) {
+            $model->checkpoint = $map['checkpoint'];
+        }
+        if (isset($map['shard'])) {
+            $model->shard = $map['shard'];
         }
         if (isset($map['consumer'])) {
             $model->consumer = $map['consumer'];

@@ -12,8 +12,8 @@ class tags extends Model
      * @description The key of the tag. The key must meet the following requirements:
      *
      *   The key must be `1 to 128` characters in length.
-     *   The key cannot contain `"http://"` or `"https://"`.
-     *   The key cannot start with `"acs:"` or `"aliyun"`.
+     *   The key cannot contain `http://` or `https://`.
+     *   The key cannot start with `acs:` or `aliyun`.
      *
      * This parameter is required.
      * @example key1
@@ -26,7 +26,7 @@ class tags extends Model
      * @description The value of the tag. The value must meet the following requirements:
      *
      *   The value must be `1 to 128` characters in length.
-     *   The value cannot contain `"http://"` or `"https://"`.
+     *   The value cannot contain `http://` or `https://`.
      *
      * This parameter is required.
      * @example value1
