@@ -91,6 +91,11 @@ class GetDatasetResponseBody extends Model
     /**
      * @var string
      */
+    public $provider;
+
+    /**
+     * @var string
+     */
     public $providerType;
 
     /**
@@ -147,6 +152,7 @@ class GetDatasetResponseBody extends Model
         'options'         => 'Options',
         'ownerId'         => 'OwnerId',
         'property'        => 'Property',
+        'provider'        => 'Provider',
         'providerType'    => 'ProviderType',
         'requestId'       => 'RequestId',
         'sourceId'        => 'SourceId',
@@ -204,6 +210,9 @@ class GetDatasetResponseBody extends Model
         }
         if (null !== $this->property) {
             $res['Property'] = $this->property;
+        }
+        if (null !== $this->provider) {
+            $res['Provider'] = $this->provider;
         }
         if (null !== $this->providerType) {
             $res['ProviderType'] = $this->providerType;
@@ -279,6 +288,9 @@ class GetDatasetResponseBody extends Model
         }
         if (isset($map['Property'])) {
             $model->property = $map['Property'];
+        }
+        if (isset($map['Provider'])) {
+            $model->provider = $map['Provider'];
         }
         if (isset($map['ProviderType'])) {
             $model->providerType = $map['ProviderType'];
