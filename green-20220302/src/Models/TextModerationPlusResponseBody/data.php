@@ -11,21 +11,31 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description Advice
+     *
      * @var advice[]
      */
     public $advice;
 
     /**
+     * @description The moderation results.
+     *
      * @var result[]
      */
     public $result;
 
     /**
+     * @description Risk Level
+     *
+     * @example high
+     *
      * @var string
      */
     public $riskLevel;
 
     /**
+     * @description Score.
+     *
      * @example 1
      *
      * @var float

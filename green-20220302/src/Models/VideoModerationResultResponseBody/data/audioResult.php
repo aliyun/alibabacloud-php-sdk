@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class audioResult extends Model
 {
     /**
+     * @description Summary of voice labels.
+     *
      * @var audioSummarys[]
      */
     public $audioSummarys;
 
     /**
+     * @description The details about the text in the moderated voice. The value is a JSON array that contains one or more elements. Each element corresponds to a text entry.
+     *
      * @var sliceDetails[]
      */
     public $sliceDetails;

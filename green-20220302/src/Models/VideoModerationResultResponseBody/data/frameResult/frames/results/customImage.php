@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class customImage extends Model
 {
     /**
+     * @description The ID of the hit custom image.
+     *
+     * @example 1234
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @description The custom image library ID of the hit.
+     *
+     * @example 12345678
+     *
      * @var string
      */
     public $libId;

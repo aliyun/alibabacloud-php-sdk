@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class logo extends Model
 {
     /**
+     * @description The score of the confidence level. Valid values: 0 to 100. The value is accurate to two decimal places. Some labels do not have scores of confidence levels.
+     *
+     * @example 99.01
+     *
      * @var float
      */
     public $confidence;
 
     /**
+     * @description Logo category.
+     *
+     * @example xx
+     *
      * @var string
      */
     public $label;
 
     /**
+     * @description Logo name.
+     *
+     * @example xx
+     *
      * @var string
      */
     public $name;

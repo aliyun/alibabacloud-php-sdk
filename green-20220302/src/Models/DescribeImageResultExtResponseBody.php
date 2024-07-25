@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeImageResultExtResponseBody extends Model
 {
     /**
+     * @description The returned HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -17,11 +19,15 @@ class DescribeImageResultExtResponseBody extends Model
     public $code;
 
     /**
+     * @description The data returned.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The message that is returned in response to the request.
+     *
      * @example success
      *
      * @var string
@@ -29,6 +35,8 @@ class DescribeImageResultExtResponseBody extends Model
     public $msg;
 
     /**
+     * @description The request ID.
+     *
      * @example 6CF2815C-C8C7-4A01-B52E-FF6E24F53492
      *
      * @var string

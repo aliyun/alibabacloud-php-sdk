@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The score of the confidence level. Valid values: 0 to 100. The value is accurate to two decimal places. Some labels do not have scores of confidence levels.
+     *
      * @example 81.22
      *
      * @var float
@@ -16,6 +18,8 @@ class result extends Model
     public $confidence;
 
     /**
+     * @description The labels returned after the image moderation.
+     *
      * @example violent_explosion
      *
      * @var string

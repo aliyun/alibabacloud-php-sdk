@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class VideoModerationCancelResponseBody extends Model
 {
     /**
+     * @description The returned HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -16,6 +18,8 @@ class VideoModerationCancelResponseBody extends Model
     public $code;
 
     /**
+     * @description The message that is returned in response to the request.
+     *
      * @example OK
      *
      * @var string
@@ -23,7 +27,7 @@ class VideoModerationCancelResponseBody extends Model
     public $message;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example 6CF2815C-****-****-B52E-FF6E2****492
      *

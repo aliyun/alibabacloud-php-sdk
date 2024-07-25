@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeUploadTokenResponseBody extends Model
 {
     /**
+     * @description The returned HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -17,11 +19,15 @@ class DescribeUploadTokenResponseBody extends Model
     public $code;
 
     /**
+     * @description The data returned.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The message that is returned in response to the request.
+     *
      * @example OK
      *
      * @var string
@@ -29,6 +35,8 @@ class DescribeUploadTokenResponseBody extends Model
     public $msg;
 
     /**
+     * @description The request ID.
+     *
      * @example AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
      *
      * @var string

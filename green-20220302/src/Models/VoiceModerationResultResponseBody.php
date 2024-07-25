@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class VoiceModerationResultResponseBody extends Model
 {
     /**
+     * @description The returned HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -17,11 +19,15 @@ class VoiceModerationResultResponseBody extends Model
     public $code;
 
     /**
+     * @description The data returned.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The message that is returned in response to the request.
+     *
      * @example SUCCESS
      *
      * @var string
@@ -29,7 +35,7 @@ class VoiceModerationResultResponseBody extends Model
     public $message;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example 2881AD4F-638B-52A3-BA20-F74C5B1CEAE3
      *

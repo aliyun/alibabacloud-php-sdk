@@ -15,31 +15,43 @@ use AlibabaCloud\Tea\Model;
 class ext extends Model
 {
     /**
+     * @description If a custom image library is hit, information about the hit custom image library is returned.
+     *
      * @var customImage[]
      */
     public $customImage;
 
     /**
+     * @description Logo information.
+     *
      * @var logoData[]
      */
     public $logoData;
 
     /**
+     * @description Returns the text information in the recognized image.
+     *
      * @var ocrResult[]
      */
     public $ocrResult;
 
     /**
+     * @description Person information list.
+     *
      * @var publicFigure[]
      */
     public $publicFigure;
 
     /**
+     * @description The result of image recognition.
+     *
      * @var recognition[]
      */
     public $recognition;
 
     /**
+     * @description Returns the text information in the hit image.
+     *
      * @var textInImage
      */
     public $textInImage;

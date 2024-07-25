@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeUrlModerationResultRequest extends Model
 {
     /**
+     * @description The reqId field returned by the Url Async Moderation API.
+     *
      * @example B0963D30-BAB4-562F-9ED0-7A23AEC51C7C
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The task ID.
+     *
      * @example xxxxx-xxxxx
      *
      * @var string

@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class frameSummarys extends Model
 {
     /**
+     * @description The label against which a captured frame is matched.
+     *
+     * @example violent_armedForces
+     *
      * @var string
      */
     public $label;
 
     /**
+     * @description The number of times that the label is matched.
+     *
+     * @example 8
+     *
      * @var int
      */
     public $labelSum;

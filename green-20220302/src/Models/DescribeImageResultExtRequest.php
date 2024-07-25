@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeImageResultExtRequest extends Model
 {
     /**
+     * @description The content of the information to be obtained. Multiple values are separated by commas.
+     *
      * @example customImage,textInImage
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeImageResultExtRequest extends Model
     public $infoType;
 
     /**
+     * @description The reqId field returned by the Url Async Moderation API.
+     *
      * @example 638EDDC65C82AB39319A9F60
      *
      * @var string

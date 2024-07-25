@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ImageModerationRequest extends Model
 {
     /**
+     * @description The type of the moderation service.
+     *
      * @example baselineCheck
      *
      * @var string
@@ -16,6 +18,8 @@ class ImageModerationRequest extends Model
     public $service;
 
     /**
+     * @description The parameters required by the moderation service. The value is a JSON string.
+     *
      * @example {"imageUrl":"https://www.aliyun.com/test.jpg","dataId":"img1234567"}
      *
      * @var string

@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class frameResult extends Model
 {
     /**
+     * @description The number of captured frames that are returned for the video file.
+     *
      * @example 10
      *
      * @var int
@@ -18,11 +20,15 @@ class frameResult extends Model
     public $frameNum;
 
     /**
+     * @description The summary of the labels against which captured frames are matched.
+     *
      * @var frameSummarys[]
      */
     public $frameSummarys;
 
     /**
+     * @description The information about the frames that match the labels.
+     *
      * @var frames[]
      */
     public $frames;

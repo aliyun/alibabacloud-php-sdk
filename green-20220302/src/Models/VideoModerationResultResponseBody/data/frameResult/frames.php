@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class frames extends Model
 {
     /**
+     * @description The interval between the start of the video file and the captured frame. Unit: seconds.
+     *
      * @example 338
      *
      * @var float
@@ -17,11 +19,15 @@ class frames extends Model
     public $offset;
 
     /**
+     * @description The results of frame moderation parameters such as the label parameter and the confidence parameter.
+     *
      * @var results[]
      */
     public $results;
 
     /**
+     * @description The temporary URL of a captured frame. This URL is valid for 30 minutes.
+     *
      * @example http://xxxx.abc.jpg
      *
      * @var string
@@ -29,6 +35,10 @@ class frames extends Model
     public $tempUrl;
 
     /**
+     * @description The absolute timestamp. Unit: milliseconds.
+     *
+     * @example 1684559739000
+     *
      * @var int
      */
     public $timestamp;

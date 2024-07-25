@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeUrlModerationResultResponseBody extends Model
 {
     /**
+     * @description The returned HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -17,11 +19,15 @@ class DescribeUrlModerationResultResponseBody extends Model
     public $code;
 
     /**
+     * @description The data returned.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The message that is returned in response to the request.
+     *
      * @example success
      *
      * @var string
@@ -29,6 +35,8 @@ class DescribeUrlModerationResultResponseBody extends Model
     public $msg;
 
     /**
+     * @description The request ID.
+     *
      * @example 01F9144A-2088-5D87-935B-2DB865284B1A
      *
      * @var string

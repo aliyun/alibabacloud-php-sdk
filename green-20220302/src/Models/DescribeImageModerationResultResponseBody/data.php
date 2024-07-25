@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ID of the moderated object.
+     *
      * @example 2a5389eb-4ff8-4584-ac99-644e2a539aa1
      *
      * @var string
@@ -17,6 +19,8 @@ class data extends Model
     public $dataId;
 
     /**
+     * @description Image frame information.
+     *
      * @example [{"result":[{"confidence":81.22,"label":"violent_explosion"}]}]
      *
      * @var string
@@ -24,6 +28,8 @@ class data extends Model
     public $frame;
 
     /**
+     * @description Number of result frames
+     *
      * @example 1
      *
      * @var int
@@ -31,16 +37,26 @@ class data extends Model
     public $frameNum;
 
     /**
+     * @description The reqId field returned by the Image Async Moderation API.
+     *
+     * @example B0963D30-BAB4-562F-9ED0-7A23AEC51C7C
+     *
      * @var string
      */
     public $reqId;
 
     /**
+     * @description The results of image moderation parameters such as the label parameter and the confidence parameter.
+     *
      * @var result[]
      */
     public $result;
 
     /**
+     * @description Risk Level.
+     *
+     * @example high
+     *
      * @var string
      */
     public $riskLevel;

@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class ocrResult extends Model
 {
     /**
+     * @description Location information.
+     *
      * @var location
      */
     public $location;
 
     /**
+     * @description The text information in the recognized image.
+     *
+     * @example xx
+     *
      * @var string
      */
     public $text;

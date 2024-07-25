@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class textResult extends Model
 {
     /**
+     * @description Description
+     *
+     * @example This is a title.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The details of the labels.
+     *
      * @example porn
      *
      * @var string
@@ -21,6 +27,8 @@ class textResult extends Model
     public $labels;
 
     /**
+     * @description The risk details that are hit.
+     *
      * @example xxx
      *
      * @var string
@@ -28,6 +36,8 @@ class textResult extends Model
     public $riskTips;
 
     /**
+     * @description The risk words that are hit.
+     *
      * @example xxx
      *
      * @var string
@@ -35,6 +45,8 @@ class textResult extends Model
     public $riskWords;
 
     /**
+     * @description The moderation service.
+     *
      * @example chat_detection
      *
      * @var string
@@ -42,11 +54,17 @@ class textResult extends Model
     public $service;
 
     /**
+     * @description Text content.
+     *
+     * @example This is a text.
+     *
      * @var string
      */
     public $text;
 
     /**
+     * @description Text segmentation information.
+     *
      * @example [0,999]
      *
      * @var string

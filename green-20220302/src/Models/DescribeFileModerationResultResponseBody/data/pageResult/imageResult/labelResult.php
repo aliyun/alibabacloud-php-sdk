@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class labelResult extends Model
 {
     /**
+     * @description Confidence score, 0 to 100, reserved to 2 decimal places.
+     *
      * @example 25.0
      *
      * @var float
@@ -16,6 +18,8 @@ class labelResult extends Model
     public $confidence;
 
     /**
+     * @description The details of the labels.
+     *
      * @example nonlabel
      *
      * @var string

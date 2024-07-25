@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class UrlAsyncModerationRequest extends Model
 {
     /**
+     * @description The type of the moderation service.
+     *
+     * @example url_detection
+     *
      * @var string
      */
     public $service;
 
     /**
+     * @description The parameters required by the moderation service. The value is a JSON string.
+     *
      * @example {
      * "url": "https://help.aliyun.com/",
      * "dataId": "url123******"

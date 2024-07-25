@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class FileModerationRequest extends Model
 {
     /**
+     * @description The type of the moderation service.
+     *
      * @example document_detection
      *
      * @var string
@@ -16,6 +18,8 @@ class FileModerationRequest extends Model
     public $service;
 
     /**
+     * @description The parameters required by the moderation service. The value is a JSON string.
+     *
      * @example {"url":"https://detect-obj.oss-cn-hangzhou.aliyuncs.com/sample/xxxx.pdf"}
      *
      * @var string

@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ID of the moderated object.
+     *
+     * @example 26769ada6e264e7ba9aa048241e12be9
+     *
      * @var string
      */
     public $dataId;
 
     /**
+     * @description The unique ID of the live stream.
+     *
      * @example liveId
      *
      * @var string
@@ -22,11 +28,15 @@ class data extends Model
     public $liveId;
 
     /**
+     * @description The details about the audio segments.
+     *
      * @var sliceDetails[]
      */
     public $sliceDetails;
 
     /**
+     * @description The task ID.
+     *
      * @example kw24ihd0WGkdi5nniVZM@qOj-1x5Ibb
      *
      * @var string
@@ -34,6 +44,10 @@ class data extends Model
     public $taskId;
 
     /**
+     * @description The URL of the moderation object.
+     *
+     * @example https://aliyundoc.com
+     *
      * @var string
      */
     public $url;

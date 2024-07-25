@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class VoiceModerationRequest extends Model
 {
     /**
+     * @description The type of the moderation service.
+     *
      * @example nickname_detection
      *
      * @var string
@@ -16,6 +18,10 @@ class VoiceModerationRequest extends Model
     public $service;
 
     /**
+     * @description The parameters required by the moderation service. The value is a JSON string.
+     *
+     * @example {"url": "http://aliyundoc.com/test.flv", "dataId": "data1234"}
+     *
      * @var string
      */
     public $serviceParameters;

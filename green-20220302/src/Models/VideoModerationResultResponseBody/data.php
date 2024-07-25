@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The voice moderation results. The moderation results contain a structure.
+     *
      * @var audioResult
      */
     public $audioResult;
 
     /**
+     * @description The ID of the moderated object.
+     *
      * @example product_content-2055763
      *
      * @var string
@@ -23,11 +27,15 @@ class data extends Model
     public $dataId;
 
     /**
+     * @description The image moderation results. If the call is successful, the HTTP status code 200 and moderation results are returned. The moderation results contain a structure.
+     *
      * @var frameResult
      */
     public $frameResult;
 
     /**
+     * @description The unique ID of the live stream.
+     *
      * @example liveId
      *
      * @var string
@@ -35,6 +43,10 @@ class data extends Model
     public $liveId;
 
     /**
+     * @description The task ID.
+     *
+     * @example xxxxx-xxxxx
+     *
      * @var string
      */
     public $taskId;

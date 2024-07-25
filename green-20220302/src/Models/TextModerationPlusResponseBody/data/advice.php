@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class advice extends Model
 {
     /**
+     * @description Answer
+     *
      * @example XXX
      *
      * @var string
@@ -16,11 +18,19 @@ class advice extends Model
     public $answer;
 
     /**
+     * @description Hit Label
+     *
+     * @example xxx
+     *
      * @var string
      */
     public $hitLabel;
 
     /**
+     * @description Hit Library Name
+     *
+     * @example xxx
+     *
      * @var string
      */
     public $hitLibName;

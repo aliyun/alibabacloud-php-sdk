@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description Confidence score, 0 to 100, reserved to 2 decimal places.
+     *
      * @example 81.22
      *
      * @var float
@@ -17,11 +19,15 @@ class result extends Model
     public $confidence;
 
     /**
+     * @description Custom keyword hits
+     *
      * @var customizedHit[]
      */
     public $customizedHit;
 
     /**
+     * @description Labels.
+     *
      * @example porn
      *
      * @var string
@@ -29,6 +35,8 @@ class result extends Model
     public $label;
 
     /**
+     * @description Risk words
+     *
      * @example XXX
      *
      * @var string

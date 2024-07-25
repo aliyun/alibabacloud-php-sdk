@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ID of the moderated object.
+     *
      * @example 26769ada6e264e7ba9aa048241e12be9
      *
      * @var string
@@ -17,6 +19,8 @@ class data extends Model
     public $dataId;
 
     /**
+     * @description Optional, document type.
+     *
      * @example doc
      *
      * @var string
@@ -24,11 +28,15 @@ class data extends Model
     public $docType;
 
     /**
+     * @description The pagination information.
+     *
      * @var pageResult[]
      */
     public $pageResult;
 
     /**
+     * @description The URL of the moderation object.
+     *
      * @example https://detect-obj.oss-cn-hangzhou.aliyuncs.com/sample/xxxx.pdf
      *
      * @var string

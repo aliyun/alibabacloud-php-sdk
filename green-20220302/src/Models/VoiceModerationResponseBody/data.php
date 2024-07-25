@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ID of the moderated object.
+     *
+     * @example data1234
+     *
      * @var string
      */
     public $dataId;
 
     /**
+     * @description The task ID.
+     *
      * @example xxxxx-xxxxx
      *
      * @var string

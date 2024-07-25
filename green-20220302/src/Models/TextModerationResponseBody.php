@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class TextModerationResponseBody extends Model
 {
     /**
+     * @description The returned HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -17,11 +19,15 @@ class TextModerationResponseBody extends Model
     public $code;
 
     /**
+     * @description The moderation results.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The message that is returned in response to the request.
+     *
      * @example OK
      *
      * @var string
@@ -29,6 +35,8 @@ class TextModerationResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
      *
      * @var string

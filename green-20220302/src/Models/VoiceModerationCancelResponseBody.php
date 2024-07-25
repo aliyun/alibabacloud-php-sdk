@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class VoiceModerationCancelResponseBody extends Model
 {
     /**
+     * @description The returned HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -16,6 +18,8 @@ class VoiceModerationCancelResponseBody extends Model
     public $code;
 
     /**
+     * @description The message that is returned in response to the request.
+     *
      * @example SUCCESS
      *
      * @var string
@@ -23,7 +27,7 @@ class VoiceModerationCancelResponseBody extends Model
     public $message;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example 4A926AE2-4C96-573F-824F-0532960799F8
      *

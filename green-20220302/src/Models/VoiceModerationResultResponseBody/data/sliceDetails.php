@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class sliceDetails extends Model
 {
     /**
+     * @description The end time of the text after audio-to-text conversion. Unit: seconds.
+     *
      * @example 10
      *
      * @var int
@@ -16,16 +18,26 @@ class sliceDetails extends Model
     public $endTime;
 
     /**
+     * @description The end timestamp of the segment. Unit: milliseconds.
+     *
+     * @example 1678854649720
+     *
      * @var int
      */
     public $endTimestamp;
 
     /**
+     * @description A reserved parameter.
+     *
+     * @example {\\"riskTips\\":\\"sexuality_Suggestive\\",\\"riskWords\\":\\"pxxxxy\\"}
+     *
      * @var string
      */
     public $extend;
 
     /**
+     * @description The details of the labels.
+     *
      * @example sexual_sounds
      *
      * @var string
@@ -33,21 +45,35 @@ class sliceDetails extends Model
     public $labels;
 
     /**
+     * @description Reserved field.
+     *
+     * @example {}
+     *
      * @var mixed[]
      */
     public $originAlgoResult;
 
     /**
+     * @description The risk details that are hit.
+     *
+     * @example sexuality_Suggestive
+     *
      * @var string
      */
     public $riskTips;
 
     /**
+     * @description The risk words that are hit.
+     *
+     * @example AAA,BBB,CCC
+     *
      * @var string
      */
     public $riskWords;
 
     /**
+     * @description Risk score, default range 0-99.
+     *
      * @example 87.01
      *
      * @var float
@@ -55,6 +81,8 @@ class sliceDetails extends Model
     public $score;
 
     /**
+     * @description The start time of the text after audio-to-text conversion. Unit: seconds.
+     *
      * @example 0
      *
      * @var int
@@ -62,16 +90,28 @@ class sliceDetails extends Model
     public $startTime;
 
     /**
+     * @description The start timestamp of the segment. Unit: milliseconds.
+     *
+     * @example 1678854649720
+     *
      * @var int
      */
     public $startTimestamp;
 
     /**
+     * @description The text converted from voice.
+     *
+     * @example Disgusting
+     *
      * @var string
      */
     public $text;
 
     /**
+     * @description The temporary access address of the audio segment. The validity period of the URL is 30 minutes. You must prepare another URL to store the audio segment at the earliest opportunity.
+     *
+     * @example https://aliyundoc.com
+     *
      * @var string
      */
     public $url;

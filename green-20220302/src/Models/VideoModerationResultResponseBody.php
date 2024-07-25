@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class VideoModerationResultResponseBody extends Model
 {
     /**
+     * @description The returned HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -17,11 +19,15 @@ class VideoModerationResultResponseBody extends Model
     public $code;
 
     /**
+     * @description The data returned.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The message that is returned in response to the request.
+     *
      * @example success finished
      *
      * @var string
@@ -29,7 +35,7 @@ class VideoModerationResultResponseBody extends Model
     public $message;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example 6CF2815C-C8C7-4A01-B52E-FF6E24F53492
      *

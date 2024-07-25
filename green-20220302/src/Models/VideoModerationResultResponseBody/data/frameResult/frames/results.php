@@ -12,21 +12,29 @@ use AlibabaCloud\Tea\Model;
 class results extends Model
 {
     /**
+     * @description If a custom image library is hit, information about the hit custom image library is returned.
+     *
      * @var customImage[]
      */
     public $customImage;
 
     /**
+     * @description If the video contains a specific person, the recognized person code is returned.
+     *
      * @var publicFigure[]
      */
     public $publicFigure;
 
     /**
+     * @description The results of frame moderation parameters such as the label parameter and the confidence parameter.
+     *
      * @var result[]
      */
     public $result;
 
     /**
+     * @description The moderation service that is called.
+     *
      * @example tonalityImprove
      *
      * @var string
@@ -34,6 +42,8 @@ class results extends Model
     public $service;
 
     /**
+     * @description Returns the text information in the hit image.
+     *
      * @var mixed[]
      */
     public $textInImage;

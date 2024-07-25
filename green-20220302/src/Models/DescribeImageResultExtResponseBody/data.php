@@ -12,16 +12,22 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description If a custom image library is hit, information about the hit custom image library is returned.
+     *
      * @var customImage[]
      */
     public $customImage;
 
     /**
+     * @description Person information list.
+     *
      * @var publicFigure[]
      */
     public $publicFigure;
 
     /**
+     * @description Returns the text information in the hit image.
+     *
      * @var textInImage
      */
     public $textInImage;

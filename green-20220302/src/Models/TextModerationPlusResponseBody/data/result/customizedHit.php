@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class customizedHit extends Model
 {
     /**
+     * @description Hit keywords, comma separated.
+     *
      * @example xxx
      *
      * @var string
@@ -16,6 +18,10 @@ class customizedHit extends Model
     public $keyWords;
 
     /**
+     * @description Library Name
+     *
+     * @example test
+     *
      * @var string
      */
     public $libName;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class sliceDetails extends Model
 {
     /**
+     * @description The end time of the text after voice-to-text conversion. Unit: seconds.
+     *
      * @example 30
      *
      * @var int
@@ -16,6 +18,8 @@ class sliceDetails extends Model
     public $endTime;
 
     /**
+     * @description The end timestamp of the segment. Unit: milliseconds.
+     *
      * @example 1685245261939
      *
      * @var int
@@ -23,6 +27,8 @@ class sliceDetails extends Model
     public $endTimestamp;
 
     /**
+     * @description A reserved parameter.
+     *
      * @example {\\"consoleProduct\\":\\"slbnext\\"}
      *
      * @var string
@@ -30,6 +36,8 @@ class sliceDetails extends Model
     public $extend;
 
     /**
+     * @description The details of the labels.
+     *
      * @example porn
      *
      * @var string
@@ -37,6 +45,8 @@ class sliceDetails extends Model
     public $labels;
 
     /**
+     * @description Subcategory labels. Multiple labels are separated by commas (,).
+     *
      * @example ""
      *
      * @var string
@@ -44,6 +54,8 @@ class sliceDetails extends Model
     public $riskTips;
 
     /**
+     * @description The risk words that are hit. Multiple words are separated by commas (,).
+     *
      * @example ""
      *
      * @var string
@@ -51,6 +63,8 @@ class sliceDetails extends Model
     public $riskWords;
 
     /**
+     * @description Risk score, default range 0-99.
+     *
      * @example 5
      *
      * @var float
@@ -58,6 +72,8 @@ class sliceDetails extends Model
     public $score;
 
     /**
+     * @description The start time of the text after voice-to-text conversion. Unit: seconds.
+     *
      * @example 0
      *
      * @var int
@@ -65,6 +81,8 @@ class sliceDetails extends Model
     public $startTime;
 
     /**
+     * @description The start timestamp of the segment. Unit: milliseconds.
+     *
      * @example 1659935002123
      *
      * @var int
@@ -72,11 +90,17 @@ class sliceDetails extends Model
     public $startTimestamp;
 
     /**
+     * @description The text converted from voice.
+     *
+     * @example Disgusting
+     *
      * @var string
      */
     public $text;
 
     /**
+     * @description If the moderation object is a voice stream, this parameter indicates the temporary access URL of the voice stream to which the text entry corresponds. The validity period of the URL is 30 minutes. You must prepare another URL to store the audio stream at the earliest opportunity.
+     *
      * @example http://xxxx.abc.img
      *
      * @var string

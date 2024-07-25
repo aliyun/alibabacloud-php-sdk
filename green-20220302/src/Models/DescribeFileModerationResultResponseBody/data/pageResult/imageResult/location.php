@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class location extends Model
 {
     /**
+     * @description The H value of the coordinate point.
+     *
      * @example 44
      *
      * @var int
@@ -16,6 +18,8 @@ class location extends Model
     public $h;
 
     /**
+     * @description The W value of the coordinate point.
+     *
      * @example 33
      *
      * @var int
@@ -23,6 +27,8 @@ class location extends Model
     public $w;
 
     /**
+     * @description The X value of the coordinate point.
+     *
      * @example 11
      *
      * @var int
@@ -30,6 +36,8 @@ class location extends Model
     public $x;
 
     /**
+     * @description The Y value of the coordinate point.
+     *
      * @example 22
      *
      * @var int

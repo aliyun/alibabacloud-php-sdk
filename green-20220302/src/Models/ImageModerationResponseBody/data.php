@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ID of the moderated object.
+     *
      * @example fb5ffab1-993b-449f-b8d6-b97d5e3331f2
      *
      * @var string
@@ -18,16 +20,24 @@ class data extends Model
     public $dataId;
 
     /**
+     * @description Auxiliary reference information.
+     *
      * @var ext
      */
     public $ext;
 
     /**
+     * @description The results of image moderation parameters such as the label parameter and the confidence parameter.
+     *
      * @var result[]
      */
     public $result;
 
     /**
+     * @description Risk Level.
+     *
+     * @example high
+     *
      * @var string
      */
     public $riskLevel;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class TextModerationPlusRequest extends Model
 {
     /**
+     * @description The type of the moderation service.
+     *
      * @example llm_query_moderation
      *
      * @var string
@@ -16,6 +18,10 @@ class TextModerationPlusRequest extends Model
     public $service;
 
     /**
+     * @description The parameters required by the moderation service. The value is a JSON string.
+     *
+     * @example {"content":"Content to be moderated"}
+     *
      * @var string
      */
     public $serviceParameters;

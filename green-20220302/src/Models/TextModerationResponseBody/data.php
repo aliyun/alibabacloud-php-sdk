@@ -9,16 +9,26 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ID of the Alibaba Cloud account.
+     *
+     * @example 123456
+     *
      * @var string
      */
     public $accountId;
 
     /**
+     * @description The device ID.
+     *
+     * @example xxxxxx
+     *
      * @var string
      */
     public $deviceId;
 
     /**
+     * @description Labels.
+     *
      * @example porn
      *
      * @var string
@@ -26,6 +36,10 @@ class data extends Model
     public $labels;
 
     /**
+     * @description The JSON string used to locate the cause.
+     *
+     * @example {\\"detectedLanguage\\":\\"ar\\",\\"riskTips\\":\\"sexuality_Suggestive\\",\\"riskWords\\":\\"pxxxxy\\",\\"translatedContent\\":\\"pxxxxy sxxxx\\"}
+     *
      * @var string
      */
     public $reason;

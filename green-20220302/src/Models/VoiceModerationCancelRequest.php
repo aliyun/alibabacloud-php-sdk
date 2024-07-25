@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class VoiceModerationCancelRequest extends Model
 {
     /**
+     * @description The type of the moderation service.
+     *
      * @example nickname_detection
      *
      * @var string
@@ -16,8 +18,10 @@ class VoiceModerationCancelRequest extends Model
     public $service;
 
     /**
-     * @example {
-     * }
+     * @description The parameters required by the moderation service. The value is a JSON string.
+     *
+     * @example {"taskId":"xxxxx-xxxx"}
+     *
      * @var string
      */
     public $serviceParameters;

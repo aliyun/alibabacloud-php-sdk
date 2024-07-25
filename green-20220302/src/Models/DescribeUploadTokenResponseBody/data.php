@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The AccessKey ID.
+     *
      * @example STS.NUEUjvDqMuvH6oQA1TXxxH4wVR
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $accessKeyId;
 
     /**
+     * @description The AccessKey secret.
+     *
      * @example xxxx
      *
      * @var string
@@ -23,6 +27,8 @@ class data extends Model
     public $accessKeySecret;
 
     /**
+     * @description The bucket name.
+     *
      * @example oss-cip-shanghai
      *
      * @var string
@@ -30,6 +36,8 @@ class data extends Model
     public $bucketName;
 
     /**
+     * @description The time when the file sharing link expires.
+     *
      * @example 1720577200
      *
      * @var int
@@ -37,6 +45,8 @@ class data extends Model
     public $expiration;
 
     /**
+     * @description The file prefix.
+     *
      * @example upload/1xxb89/
      *
      * @var string
@@ -44,6 +54,8 @@ class data extends Model
     public $fileNamePrefix;
 
     /**
+     * @description the oss intranet point.
+     *
      * @example https://oss-cn-shanghai-internal.aliyuncs.com
      *
      * @var string
@@ -51,6 +63,8 @@ class data extends Model
     public $ossInternalEndPoint;
 
     /**
+     * @description the oss internet point.
+     *
      * @example https://oss-cn-shanghai.aliyuncs.com
      *
      * @var string
@@ -58,6 +72,8 @@ class data extends Model
     public $ossInternetEndPoint;
 
     /**
+     * @description The security token.
+     *
      * @example xxxx
      *
      * @var string

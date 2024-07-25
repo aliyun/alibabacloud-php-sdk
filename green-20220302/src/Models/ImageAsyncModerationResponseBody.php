@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ImageAsyncModerationResponseBody extends Model
 {
     /**
+     * @description The returned HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -17,11 +19,15 @@ class ImageAsyncModerationResponseBody extends Model
     public $code;
 
     /**
+     * @description The data returned.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The message that is returned in response to the request.
+     *
      * @example success
      *
      * @var string
@@ -29,6 +35,8 @@ class ImageAsyncModerationResponseBody extends Model
     public $msg;
 
     /**
+     * @description The request ID.
+     *
      * @example 4A926AE2-4C96-573F-824F-0532960799F8
      *
      * @var string

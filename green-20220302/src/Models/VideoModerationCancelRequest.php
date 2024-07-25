@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class VideoModerationCancelRequest extends Model
 {
     /**
+     * @description The type of the moderation service.
+     *
      * @example videoDetection
      *
      * @var string
@@ -16,6 +18,8 @@ class VideoModerationCancelRequest extends Model
     public $service;
 
     /**
+     * @description The parameters required by the moderation service. The value is a JSON string.
+     *
      * @example {\\"taskId\\":\\"vi_s_4O9gp7GfNQdx9GOqdekFmk-1z2RJT\\"}
      *
      * @var string

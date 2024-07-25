@@ -11,21 +11,31 @@ use AlibabaCloud\Tea\Model;
 class imageResult extends Model
 {
     /**
+     * @description Description.
+     *
+     * @example This is a title.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description Label information.
+     *
      * @var labelResult[]
      */
     public $labelResult;
 
     /**
+     * @description Location information.
+     *
      * @var location
      */
     public $location;
 
     /**
+     * @description The moderation service.
+     *
      * @example baselineCheck
      *
      * @var string

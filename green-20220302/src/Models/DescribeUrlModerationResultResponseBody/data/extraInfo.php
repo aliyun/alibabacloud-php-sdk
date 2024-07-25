@@ -9,17 +9,31 @@ use AlibabaCloud\Tea\Model;
 class extraInfo extends Model
 {
     /**
+     * @description ICP record number.
+     *
+     * @example xx
+     *
      * @var string
      */
     public $icpNo;
 
     /**
+     * @description ICP filing type.
+     *
+     * @example xx
+     *
      * @var string
      */
     public $icpType;
+
+    /**
+     * @var string
+     */
+    public $siteType;
     protected $_name = [
-        'icpNo'   => 'IcpNo',
-        'icpType' => 'IcpType',
+        'icpNo'    => 'IcpNo',
+        'icpType'  => 'IcpType',
+        'siteType' => 'SiteType',
     ];
 
     public function validate()
@@ -34,6 +48,9 @@ class extraInfo extends Model
         }
         if (null !== $this->icpType) {
             $res['IcpType'] = $this->icpType;
+        }
+        if (null !== $this->siteType) {
+            $res['SiteType'] = $this->siteType;
         }
 
         return $res;
@@ -52,6 +69,9 @@ class extraInfo extends Model
         }
         if (isset($map['IcpType'])) {
             $model->icpType = $map['IcpType'];
+        }
+        if (isset($map['SiteType'])) {
+            $model->siteType = $map['SiteType'];
         }
 
         return $model;

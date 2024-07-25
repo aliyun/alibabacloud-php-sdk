@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class audioSummarys extends Model
 {
     /**
+     * @description Voice label.
+     *
+     * @example profanity
+     *
      * @var string
      */
     public $label;
 
     /**
+     * @description The number of times that the label is matched.
+     *
+     * @example 8
+     *
      * @var int
      */
     public $labelSum;

@@ -2,44 +2,28 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Green\V20220302\Models\ImageModerationResponseBody\data\ext\textInImage\ocrResult;
+namespace AlibabaCloud\SDK\Green\V20220302\Models\ImageModerationResponseBody\data\ext\publicFigure;
 
 use AlibabaCloud\Tea\Model;
 
 class location extends Model
 {
     /**
-     * @description The height of the text area, in pixels.
-     *
-     * @example 33
-     *
      * @var int
      */
     public $h;
 
     /**
-     * @description The width of the text area, in pixels.
-     *
-     * @example 44
-     *
      * @var int
      */
     public $w;
 
     /**
-     * @description The distance between the upper-left corner of the text area and the y-axis, using the upper-left corner of the image as the coordinate origin, in pixels.
-     *
-     * @example 11
-     *
      * @var int
      */
     public $x;
 
     /**
-     * @description The distance between the upper left corner of the text area and the x-axis, with the upper left corner of the image as the coordinate origin, in pixels.
-     *
-     * @example 22
-     *
      * @var int
      */
     public $y;

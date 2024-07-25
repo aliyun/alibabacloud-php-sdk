@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class recognition extends Model
 {
     /**
+     * @description The category of image recognition.
+     *
+     * @example xx
+     *
      * @var string
      */
     public $classification;
 
     /**
+     * @description The score of the confidence level. Valid values: 0 to 100. The value is accurate to two decimal places. Some labels do not have scores of confidence levels.
+     *
+     * @example 99.01
+     *
      * @var float
      */
     public $confidence;
