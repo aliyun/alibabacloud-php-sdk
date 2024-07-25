@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The local name of the zone.
+     *
      * @example I
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $localName;
 
     /**
+     * @description The zone ID.
+     *
      * @example cn-hangzhou-i
      *
      * @var string

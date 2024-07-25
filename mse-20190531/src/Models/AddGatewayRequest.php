@@ -23,17 +23,13 @@ class AddGatewayRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @description The billing method.
+     * @description The billing method you specify when you purchase an ordinary instance.
      *
      * Valid values:
      *
-     *   PREPAY
+     *   PREPAY: subscription
+     *   POSTPAY: pay-as-you-go
      *
-     * <!-- -->
-     *
-     *   POSTPAY
-     *
-     * <!-- -->
      * @example POSTPAY
      *
      * @var string
@@ -41,6 +37,14 @@ class AddGatewayRequest extends Model
     public $chargeType;
 
     /**
+     * @description The network type of the purchased Classic Load Balancer (CLB) instance that is billed based on LCUs.
+     *
+     *   pubnet: Internet
+     *   privatenet: private network
+     *   privatepubnet: Internet and private network
+     *
+     * @example pubnet
+     *
      * @var string
      */
     public $clbNetworkType;
@@ -82,7 +86,14 @@ class AddGatewayRequest extends Model
     public $enterpriseSecurityGroup;
 
     /**
-     * @description The ID of the secondary vSwitch.
+     * @description The specifications of the Internet-facing Server Load Balancer (SLB) instance. Valid values:
+     *
+     *   slb.s1.small
+     *   slb.s2.smal
+     *   slb.s2.medium
+     *   slb.s3.small
+     *   slb.s3.medium
+     *   slb.s3.large
      *
      * @example slb.s2.small
      *
@@ -93,8 +104,8 @@ class AddGatewayRequest extends Model
     /**
      * @description The MSE instance type. Valid values:
      *
-     *   mse_pro: ordinary instance.
-     *   mse_serverless: serverless instance.
+     *   mse_pro: ordinary instance
+     *   mse_serverless: serverless instance
      *
      * @example mse_pro
      *
@@ -112,11 +123,11 @@ class AddGatewayRequest extends Model
     public $name;
 
     /**
-     * @description The network type of the Network Load Balancer (NLB) instance when the serverless NLB instance is purchased. Valid values:
+     * @description The network type of the Network Load Balancer (NLB) instance you specify when you purchase a serverless instance.
      *
-     *   pubnet
-     *   privatenet
-     *   privatepubnet
+     *   pubnet: Internet
+     *   privatenet: private network
+     *   privatepubnet: Internet and private network
      *
      * @example pubnet
      *
@@ -142,7 +153,7 @@ class AddGatewayRequest extends Model
     public $region;
 
     /**
-     * @description The number of nodes.
+     * @description The number of nodes you specify when you purchase an ordinary instance.
      *
      * @example 2
      *
@@ -188,7 +199,7 @@ class AddGatewayRequest extends Model
     public $slbSpec;
 
     /**
-     * @description The node specifications. Valid values:
+     * @description The node specifications you specify when you purchase an ordinary instance. Valid values:
      *
      *   MSE_GTW_16_32_200_c(16C32G)
      *   MSE_GTW_2_4_200_c(2C4G)

@@ -6,28 +6,24 @@ namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateGatewayFlowRuleResponseBody extends Model
+class CreatePluginConfigResponseBody extends Model
 {
     /**
-     * @description The ID of the rule.
-     *
-     * @example 608
+     * @example 10
      *
      * @var int
      */
-    public $data;
+    public $pluginConfigID;
 
     /**
-     * @description The request ID.
-     *
-     * @example 72FC625E-9629-591B-9C01-3F0BFDAB****
+     * @example 03A3E2F4-6804-5663-9D5D-2EC47A1*****
      *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'data'      => 'Data',
-        'requestId' => 'RequestId',
+        'pluginConfigID' => 'PluginConfigID',
+        'requestId'      => 'RequestId',
     ];
 
     public function validate()
@@ -37,8 +33,8 @@ class CreateGatewayFlowRuleResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->data) {
-            $res['Data'] = $this->data;
+        if (null !== $this->pluginConfigID) {
+            $res['PluginConfigID'] = $this->pluginConfigID;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -50,13 +46,13 @@ class CreateGatewayFlowRuleResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return CreateGatewayFlowRuleResponseBody
+     * @return CreatePluginConfigResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Data'])) {
-            $model->data = $map['Data'];
+        if (isset($map['PluginConfigID'])) {
+            $model->pluginConfigID = $map['PluginConfigID'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListGatewayZoneResponseBody extends Model
 {
     /**
+     * @description The response code. The status code 200 indicates that the request was successful.
+     *
      * @example 200
      *
      * @var int
@@ -17,11 +19,15 @@ class ListGatewayZoneResponseBody extends Model
     public $code;
 
     /**
+     * @description The queried zones.
+     *
      * @var data[]
      */
     public $data;
 
     /**
+     * @description The dynamic part in the error message.
+     *
      * @example code
      *
      * @var string
@@ -29,6 +35,8 @@ class ListGatewayZoneResponseBody extends Model
     public $dynamicCode;
 
     /**
+     * @description The dynamic part in the error message. This parameter is used to replace %s in **ErrMessage**.
+     *
      * @example The specified parameter is invalid.
      *
      * @var string
@@ -36,6 +44,8 @@ class ListGatewayZoneResponseBody extends Model
     public $dynamicMessage;
 
     /**
+     * @description The status code.
+     *
      * @example NO_PERMISSION
      *
      * @var string
@@ -43,6 +53,8 @@ class ListGatewayZoneResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -50,6 +62,8 @@ class ListGatewayZoneResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The message returned.
+     *
      * @example OK
      *
      * @var string
@@ -57,6 +71,8 @@ class ListGatewayZoneResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example EE5C32A1-BC0E-4B79-817C-103E4EDF****
      *
      * @var string
@@ -64,6 +80,11 @@ class ListGatewayZoneResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   `true`: The request was successful.
+     *   `false`: The request failed.
+     *
      * @example true
      *
      * @var bool

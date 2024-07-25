@@ -18,6 +18,8 @@ class listeners extends Model
     public $ip;
 
     /**
+     * @description The label of the listener.
+     *
      * @var string[]
      */
     public $labels;
@@ -41,6 +43,10 @@ class listeners extends Model
     public $status;
 
     /**
+     * @description The current version of the listener. Valid values: gray and normal.
+     *
+     * @example gray
+     *
      * @var string
      */
     public $version;

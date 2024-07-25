@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateGatewayFlowRuleRequest extends Model
 {
     /**
+     * @description The language in which you want to display the results. Valid values: zh and en. zh indicates Chinese, which is the default value. en indicates English.
+     *
      * @example zh
      *
      * @var string
@@ -16,8 +18,9 @@ class CreateGatewayFlowRuleRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @description This parameter is required.
+     * @description The type of the web fallback behavior.
      *
+     * This parameter is required.
      * @example 0
      *
      * @var int
@@ -25,6 +28,9 @@ class CreateGatewayFlowRuleRequest extends Model
     public $behaviorType;
 
     /**
+     * @description The encoding format.
+     *
+     * 1: JSON
      * @example 0
      *
      * @var int
@@ -32,8 +38,9 @@ class CreateGatewayFlowRuleRequest extends Model
     public $bodyEncoding;
 
     /**
-     * @description This parameter is required.
+     * @description Specifies whether to enable the throttling rule.
      *
+     * This parameter is required.
      * @example 0
      *
      * @var int
@@ -41,6 +48,8 @@ class CreateGatewayFlowRuleRequest extends Model
     public $enable;
 
     /**
+     * @description The ID of the gateway.
+     *
      * @example 14407
      *
      * @var int
@@ -48,8 +57,9 @@ class CreateGatewayFlowRuleRequest extends Model
     public $gatewayId;
 
     /**
-     * @description This parameter is required.
+     * @description The unique ID of the gateway.
      *
+     * This parameter is required.
      * @example gw-e2d226bba4b2445c9e29fa7f8216****
      *
      * @var string
@@ -57,6 +67,8 @@ class CreateGatewayFlowRuleRequest extends Model
     public $gatewayUniqueId;
 
     /**
+     * @description The HTTP text to be returned.
+     *
      * @example text
      *
      * @var string
@@ -64,6 +76,8 @@ class CreateGatewayFlowRuleRequest extends Model
     public $responseContentBody;
 
     /**
+     * @description The address to be redirected to.
+     *
      * @example www.******.com
      *
      * @var string
@@ -71,6 +85,8 @@ class CreateGatewayFlowRuleRequest extends Model
     public $responseRedirectUrl;
 
     /**
+     * @description The HTTP status code.
+     *
      * @example 429
      *
      * @var int
@@ -78,8 +94,9 @@ class CreateGatewayFlowRuleRequest extends Model
     public $responseStatusCode;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the route.
      *
+     * This parameter is required.
      * @example 52853
      *
      * @var int
@@ -87,8 +104,9 @@ class CreateGatewayFlowRuleRequest extends Model
     public $routeId;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the routing rule.
      *
+     * This parameter is required.
      * @example routeName
      *
      * @var string
@@ -96,8 +114,9 @@ class CreateGatewayFlowRuleRequest extends Model
     public $routeName;
 
     /**
-     * @description This parameter is required.
+     * @description The overall queries per second (QPS) threshold.
      *
+     * This parameter is required.
      * @example 10
      *
      * @var int

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListGatewayZoneRequest extends Model
 {
     /**
+     * @description The language in which you want to display the results. Valid values: zh and en. zh indicates Chinese, which is the default value. en indicates English.
+     *
      * @example zh
      *
      * @var string

@@ -23,7 +23,7 @@ class GetServiceListenersRequest extends Model
     /**
      * @description The ID of the MSE instance to which the service belongs.
      *
-     * > You must specify InstanceId or ClusterId.
+     * >  You must specify InstanceId or ClusterId.
      * @example mse-09k1q11****
      *
      * @deprecated

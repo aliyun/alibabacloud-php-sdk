@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class EnableProxyProtocolRequest extends Model
+class PreserveHeaderFormatRequest extends Model
 {
     /**
      * @description The language in which you want to display the results. Valid values: zh and en. zh indicates Chinese, which is the default value. en indicates English.
@@ -18,31 +18,31 @@ class EnableProxyProtocolRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @description Specifies whether to use the proxy protocol to preserve client IP addresses. Valid values:
+     * @description The unique ID of the gateway.
+     *
+     * This parameter is required.
+     * @example gw-3f97e2989c344f35ab3fd62b19f1****
+     *
+     * @var string
+     */
+    public $gatewayUniqueId;
+
+    /**
+     * @description Specifies whether the request header is case-sensitive. Valid values:
      *
      *   **true**
-     *   **false** (default)
+     *   **false**
      *
      * This parameter is required.
      * @example true
      *
      * @var bool
      */
-    public $enableProxyProtocol;
-
-    /**
-     * @description The unique ID of the gateway.
-     *
-     * This parameter is required.
-     * @example gw-c9bc5afd61014165bd58f621b491*****
-     *
-     * @var string
-     */
-    public $gatewayUniqueId;
+    public $preserveHeaderFormat;
     protected $_name = [
-        'acceptLanguage'      => 'AcceptLanguage',
-        'enableProxyProtocol' => 'EnableProxyProtocol',
-        'gatewayUniqueId'     => 'GatewayUniqueId',
+        'acceptLanguage'       => 'AcceptLanguage',
+        'gatewayUniqueId'      => 'GatewayUniqueId',
+        'preserveHeaderFormat' => 'PreserveHeaderFormat',
     ];
 
     public function validate()
@@ -55,11 +55,11 @@ class EnableProxyProtocolRequest extends Model
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
         }
-        if (null !== $this->enableProxyProtocol) {
-            $res['EnableProxyProtocol'] = $this->enableProxyProtocol;
-        }
         if (null !== $this->gatewayUniqueId) {
             $res['GatewayUniqueId'] = $this->gatewayUniqueId;
+        }
+        if (null !== $this->preserveHeaderFormat) {
+            $res['PreserveHeaderFormat'] = $this->preserveHeaderFormat;
         }
 
         return $res;
@@ -68,7 +68,7 @@ class EnableProxyProtocolRequest extends Model
     /**
      * @param array $map
      *
-     * @return EnableProxyProtocolRequest
+     * @return PreserveHeaderFormatRequest
      */
     public static function fromMap($map = [])
     {
@@ -76,11 +76,11 @@ class EnableProxyProtocolRequest extends Model
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
         }
-        if (isset($map['EnableProxyProtocol'])) {
-            $model->enableProxyProtocol = $map['EnableProxyProtocol'];
-        }
         if (isset($map['GatewayUniqueId'])) {
             $model->gatewayUniqueId = $map['GatewayUniqueId'];
+        }
+        if (isset($map['PreserveHeaderFormat'])) {
+            $model->preserveHeaderFormat = $map['PreserveHeaderFormat'];
         }
 
         return $model;

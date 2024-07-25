@@ -85,6 +85,9 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\CreateOrUpdateSwimmingLaneGroupShrinkR
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateOrUpdateSwimmingLaneRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateOrUpdateSwimmingLaneResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateOrUpdateSwimmingLaneShrinkRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\CreatePluginConfigRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\CreatePluginConfigResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\CreatePluginConfigShrinkRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateZnodeRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateZnodeResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteAuthResourceRequest;
@@ -136,6 +139,8 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteNacosServiceRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteNacosServiceResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteNamespaceRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteNamespaceResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\DeletePluginConfigRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\DeletePluginConfigResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteSecurityGroupRuleRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteSecurityGroupRuleResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteServiceSourceRequest;
@@ -146,6 +151,8 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteSwimmingLaneRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteSwimmingLaneResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteZnodeRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteZnodeResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\EnableHttp2Request;
+use AlibabaCloud\SDK\Mse\V20190531\Models\EnableHttp2Response;
 use AlibabaCloud\SDK\Mse\V20190531\Models\EnableProxyProtocolRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\EnableProxyProtocolResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ExportNacosConfigRequest;
@@ -329,6 +336,8 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\OfflineGatewayRouteRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\OfflineGatewayRouteResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\OrderClusterHealthCheckRiskNoticeRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\OrderClusterHealthCheckRiskNoticeResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\PreserveHeaderFormatRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\PreserveHeaderFormatResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\PullServicesRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\PullServicesResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\PutClusterHealthCheckTaskRequest;
@@ -2576,7 +2585,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @summary 创建网关路由流控规则
+     * @summary Creates a throttling rule for a gateway.
      *  *
      * @param CreateGatewayFlowRuleRequest $request CreateGatewayFlowRuleRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -2642,7 +2651,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @summary 创建网关路由流控规则
+     * @summary Creates a throttling rule for a gateway.
      *  *
      * @param CreateGatewayFlowRuleRequest $request CreateGatewayFlowRuleRequest
      *
@@ -3306,6 +3315,76 @@ class Mse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createOrUpdateSwimmingLaneGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 创建插件配置
+     *  *
+     * @param CreatePluginConfigRequest $tmpReq  CreatePluginConfigRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreatePluginConfigResponse CreatePluginConfigResponse
+     */
+    public function createPluginConfigWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreatePluginConfigShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->resourceIdList)) {
+            $request->resourceIdListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resourceIdList, 'ResourceIdList', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->config)) {
+            $query['Config'] = $request->config;
+        }
+        if (!Utils::isUnset($request->configLevel)) {
+            $query['ConfigLevel'] = $request->configLevel;
+        }
+        if (!Utils::isUnset($request->enable)) {
+            $query['Enable'] = $request->enable;
+        }
+        if (!Utils::isUnset($request->gatewayUniqueId)) {
+            $query['GatewayUniqueId'] = $request->gatewayUniqueId;
+        }
+        if (!Utils::isUnset($request->pluginId)) {
+            $query['PluginId'] = $request->pluginId;
+        }
+        if (!Utils::isUnset($request->resourceIdListShrink)) {
+            $query['ResourceIdList'] = $request->resourceIdListShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreatePluginConfig',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreatePluginConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建插件配置
+     *  *
+     * @param CreatePluginConfigRequest $request CreatePluginConfigRequest
+     *
+     * @return CreatePluginConfigResponse CreatePluginConfigResponse
+     */
+    public function createPluginConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createPluginConfigWithOptions($request, $runtime);
     }
 
     /**
@@ -4680,6 +4759,59 @@ class Mse extends OpenApiClient
     }
 
     /**
+     * @summary 删除插件配置
+     *  *
+     * @param DeletePluginConfigRequest $request DeletePluginConfigRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeletePluginConfigResponse DeletePluginConfigResponse
+     */
+    public function deletePluginConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->gatewayUniqueId)) {
+            $query['GatewayUniqueId'] = $request->gatewayUniqueId;
+        }
+        if (!Utils::isUnset($request->pluginConfigId)) {
+            $query['PluginConfigId'] = $request->pluginConfigId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeletePluginConfig',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeletePluginConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除插件配置
+     *  *
+     * @param DeletePluginConfigRequest $request DeletePluginConfigRequest
+     *
+     * @return DeletePluginConfigResponse DeletePluginConfigResponse
+     */
+    public function deletePluginConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deletePluginConfigWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Deletes a security group rule from a gateway.
      *  *
      * @param DeleteSecurityGroupRuleRequest $request DeleteSecurityGroupRuleRequest
@@ -4954,7 +5086,60 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @summary Proxy Protocol开关
+     * @summary Enables HTTP/2 for negotiation between the server and client. The modification takes effect in one to two minutes.
+     *  *
+     * @param EnableHttp2Request $request EnableHttp2Request
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return EnableHttp2Response EnableHttp2Response
+     */
+    public function enableHttp2WithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->enableHttp2)) {
+            $query['EnableHttp2'] = $request->enableHttp2;
+        }
+        if (!Utils::isUnset($request->gatewayUniqueId)) {
+            $query['GatewayUniqueId'] = $request->gatewayUniqueId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'EnableHttp2',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return EnableHttp2Response::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Enables HTTP/2 for negotiation between the server and client. The modification takes effect in one to two minutes.
+     *  *
+     * @param EnableHttp2Request $request EnableHttp2Request
+     *
+     * @return EnableHttp2Response EnableHttp2Response
+     */
+    public function enableHttp2($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->enableHttp2WithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Enables the proxy protocol. When an NLB instance is used as an ingress, you cannot obtain the real IP address of the client if you do not enable the proxy protocol. After you enable the proxy protocol, non-proxy requests are not adversely affected.
      *  *
      * @param EnableProxyProtocolRequest $request EnableProxyProtocolRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -4993,7 +5178,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @summary Proxy Protocol开关
+     * @summary Enables the proxy protocol. When an NLB instance is used as an ingress, you cannot obtain the real IP address of the client if you do not enable the proxy protocol. After you enable the proxy protocol, non-proxy requests are not adversely affected.
      *  *
      * @param EnableProxyProtocolRequest $request EnableProxyProtocolRequest
      *
@@ -9020,7 +9205,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @summary 获取网关可用区列表
+     * @summary Obtains a list of zones where a gateway is available.
      *  *
      * @param ListGatewayZoneRequest $request ListGatewayZoneRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -9053,7 +9238,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @summary 获取网关可用区列表
+     * @summary Obtains a list of zones where a gateway is available.
      *  *
      * @param ListGatewayZoneRequest $request ListGatewayZoneRequest
      *
@@ -10299,6 +10484,59 @@ class Mse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->orderClusterHealthCheckRiskNoticeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Specifies whether to convert all letters of a header into lowercase letters. For requests and responses, HTTP/1.1 headers are not case-sensitive. By default, all letters of headers are converted into lowercase letters.
+     *  *
+     * @param PreserveHeaderFormatRequest $request PreserveHeaderFormatRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return PreserveHeaderFormatResponse PreserveHeaderFormatResponse
+     */
+    public function preserveHeaderFormatWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->gatewayUniqueId)) {
+            $query['GatewayUniqueId'] = $request->gatewayUniqueId;
+        }
+        if (!Utils::isUnset($request->preserveHeaderFormat)) {
+            $query['PreserveHeaderFormat'] = $request->preserveHeaderFormat;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'PreserveHeaderFormat',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return PreserveHeaderFormatResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Specifies whether to convert all letters of a header into lowercase letters. For requests and responses, HTTP/1.1 headers are not case-sensitive. By default, all letters of headers are converted into lowercase letters.
+     *  *
+     * @param PreserveHeaderFormatRequest $request PreserveHeaderFormatRequest
+     *
+     * @return PreserveHeaderFormatResponse PreserveHeaderFormatResponse
+     */
+    public function preserveHeaderFormat($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->preserveHeaderFormatWithOptions($request, $runtime);
     }
 
     /**
@@ -13572,7 +13810,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @summary 更新路由waf状态
+     * @summary Updates the WAF status of a route.
      *  *
      * @param UpdateGatewayRouteWafStatusRequest $request UpdateGatewayRouteWafStatusRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
@@ -13614,7 +13852,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @summary 更新路由waf状态
+     * @summary Updates the WAF status of a route.
      *  *
      * @param UpdateGatewayRouteWafStatusRequest $request UpdateGatewayRouteWafStatusRequest
      *

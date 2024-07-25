@@ -44,13 +44,9 @@ class CreateFlowRuleRequest extends Model
      *
      * Valid values:
      *
-     *   0
+     *   0: fast failure
+     *   2: in queue
      *
-     * <!-- -->
-     *
-     *   2
-     *
-     * <!-- -->
      * @example 0
      *
      * @var int

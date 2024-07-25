@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class EnableProxyProtocolResponseBody extends Model
 {
     /**
+     * @description The status code. A value of 200 is returned if the request is successful.
+     *
      * @example 200
      *
      * @var int
@@ -16,6 +18,8 @@ class EnableProxyProtocolResponseBody extends Model
     public $code;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
      * @example true
      *
      * @var bool
@@ -23,6 +27,8 @@ class EnableProxyProtocolResponseBody extends Model
     public $data;
 
     /**
+     * @description The dynamic part in the error message.
+     *
      * @example code
      *
      * @var string
@@ -30,6 +36,9 @@ class EnableProxyProtocolResponseBody extends Model
     public $dynamicCode;
 
     /**
+     * @description The dynamic part in the error message. This parameter is used to replace the **%s** variable in the **ErrMessage** parameter.
+     *
+     * >  For example, if the return value of the **ErrMessage** parameter is **The Value of Input Parameter %s is not valid** and the return value of the **DynamicMessage** parameter is **DtsJobId**, the **DtsJobId** parameter in the request is invalid.
      * @example The specified parameter is invalid.
      *
      * @var string
@@ -37,6 +46,8 @@ class EnableProxyProtocolResponseBody extends Model
     public $dynamicMessage;
 
     /**
+     * @description The status code.
+     *
      * @example Success
      *
      * @var string
@@ -44,6 +55,8 @@ class EnableProxyProtocolResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -51,6 +64,8 @@ class EnableProxyProtocolResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The returned message.
+     *
      * @example OK
      *
      * @var string
@@ -58,6 +73,8 @@ class EnableProxyProtocolResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 316F5F64-F73D-42DC-8632-01E308B6****
      *
      * @var string
@@ -65,6 +82,11 @@ class EnableProxyProtocolResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   `true`: The request was successful.
+     *   `false`: The request failed.
+     *
      * @example true
      *
      * @var bool

@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class EnableProxyProtocolRequest extends Model
+class EnableHttp2Request extends Model
 {
     /**
      * @description The language in which you want to display the results. Valid values: zh and en. zh indicates Chinese, which is the default value. en indicates English.
@@ -18,31 +18,31 @@ class EnableProxyProtocolRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @description Specifies whether to use the proxy protocol to preserve client IP addresses. Valid values:
+     * @description Specifies whether to enable HTTP/2 for negotiation between the server and client. This parameter applies to requests. Valid values:
      *
      *   **true**
-     *   **false** (default)
+     *   **false**
      *
      * This parameter is required.
      * @example true
      *
      * @var bool
      */
-    public $enableProxyProtocol;
+    public $enableHttp2;
 
     /**
      * @description The unique ID of the gateway.
      *
      * This parameter is required.
-     * @example gw-c9bc5afd61014165bd58f621b491*****
+     * @example gw-0adf3ad751284cc69fcf9669fba*****
      *
      * @var string
      */
     public $gatewayUniqueId;
     protected $_name = [
-        'acceptLanguage'      => 'AcceptLanguage',
-        'enableProxyProtocol' => 'EnableProxyProtocol',
-        'gatewayUniqueId'     => 'GatewayUniqueId',
+        'acceptLanguage'  => 'AcceptLanguage',
+        'enableHttp2'     => 'EnableHttp2',
+        'gatewayUniqueId' => 'GatewayUniqueId',
     ];
 
     public function validate()
@@ -55,8 +55,8 @@ class EnableProxyProtocolRequest extends Model
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
         }
-        if (null !== $this->enableProxyProtocol) {
-            $res['EnableProxyProtocol'] = $this->enableProxyProtocol;
+        if (null !== $this->enableHttp2) {
+            $res['EnableHttp2'] = $this->enableHttp2;
         }
         if (null !== $this->gatewayUniqueId) {
             $res['GatewayUniqueId'] = $this->gatewayUniqueId;
@@ -68,7 +68,7 @@ class EnableProxyProtocolRequest extends Model
     /**
      * @param array $map
      *
-     * @return EnableProxyProtocolRequest
+     * @return EnableHttp2Request
      */
     public static function fromMap($map = [])
     {
@@ -76,8 +76,8 @@ class EnableProxyProtocolRequest extends Model
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
         }
-        if (isset($map['EnableProxyProtocol'])) {
-            $model->enableProxyProtocol = $map['EnableProxyProtocol'];
+        if (isset($map['EnableHttp2'])) {
+            $model->enableHttp2 = $map['EnableHttp2'];
         }
         if (isset($map['GatewayUniqueId'])) {
             $model->gatewayUniqueId = $map['GatewayUniqueId'];

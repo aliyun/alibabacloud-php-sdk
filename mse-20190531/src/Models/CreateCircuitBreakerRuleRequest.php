@@ -123,6 +123,18 @@ class CreateCircuitBreakerRuleRequest extends Model
     public $resource;
 
     /**
+     * @description The resource type.
+     *
+     * Valid values:
+     *
+     *   0: custom interface
+     *   1: web
+     *   2: RPC
+     *   3: route
+     *   4: SQL
+     *
+     * @example 0
+     *
      * @var int
      */
     public $resourceType;

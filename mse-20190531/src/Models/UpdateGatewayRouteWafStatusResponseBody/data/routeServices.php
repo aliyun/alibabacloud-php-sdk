@@ -63,9 +63,9 @@ class routeServices extends Model
     public $serviceName;
 
     /**
-     * @description The source type.
+     * @description The source type of the service.
      *
-     * @example K8S
+     * @example K8s
      *
      * @var string
      */
