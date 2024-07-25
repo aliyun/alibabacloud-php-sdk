@@ -195,6 +195,7 @@ use AlibabaCloud\SDK\CS\V20151215\Models\RepairClusterNodePoolResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\ResumeComponentUpgradeResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\ResumeTaskResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\ResumeUpgradeClusterResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\RevokeK8sClusterKubeConfigResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\RunClusterCheckRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\RunClusterCheckResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\ScaleClusterNodePoolRequest;
@@ -6888,6 +6889,50 @@ class CS extends OpenApiClient
         $headers = [];
 
         return $this->resumeUpgradeClusterWithOptions($ClusterId, $headers, $runtime);
+    }
+
+    /**
+     * @summary You can call the RevokeK8sClusterKubeConfig operation to revoke the kubeconfig file that the current Resource Access Management (RAM) user uses to log on to a Kubernetes cluster. The kubeconfig file contains the identity information of the RAM user.
+     *  *
+     * @param string         $ClusterId
+     * @param string[]       $headers   map
+     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return RevokeK8sClusterKubeConfigResponse RevokeK8sClusterKubeConfigResponse
+     */
+    public function revokeK8sClusterKubeConfigWithOptions($ClusterId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'RevokeK8sClusterKubeConfig',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/k8s/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/certs',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return RevokeK8sClusterKubeConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary You can call the RevokeK8sClusterKubeConfig operation to revoke the kubeconfig file that the current Resource Access Management (RAM) user uses to log on to a Kubernetes cluster. The kubeconfig file contains the identity information of the RAM user.
+     *  *
+     * @param string $ClusterId
+     *
+     * @return RevokeK8sClusterKubeConfigResponse RevokeK8sClusterKubeConfigResponse
+     */
+    public function revokeK8sClusterKubeConfig($ClusterId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->revokeK8sClusterKubeConfigWithOptions($ClusterId, $headers, $runtime);
     }
 
     /**
