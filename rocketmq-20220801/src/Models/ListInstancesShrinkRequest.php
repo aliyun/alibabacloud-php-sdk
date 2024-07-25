@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\RocketMQ\V20220801\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListInstancesRequest extends Model
+class ListInstancesShrinkRequest extends Model
 {
     /**
      * @description The filter condition that is used to query instances. If you do not configure this parameter, all instances are queried.
@@ -47,9 +47,9 @@ class ListInstancesRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $seriesCodes;
+    public $seriesCodesShrink;
 
     /**
      * @description The tags that are used to filter instances.
@@ -60,12 +60,12 @@ class ListInstancesRequest extends Model
      */
     public $tags;
     protected $_name = [
-        'filter'          => 'filter',
-        'pageNumber'      => 'pageNumber',
-        'pageSize'        => 'pageSize',
-        'resourceGroupId' => 'resourceGroupId',
-        'seriesCodes'     => 'seriesCodes',
-        'tags'            => 'tags',
+        'filter'            => 'filter',
+        'pageNumber'        => 'pageNumber',
+        'pageSize'          => 'pageSize',
+        'resourceGroupId'   => 'resourceGroupId',
+        'seriesCodesShrink' => 'seriesCodes',
+        'tags'              => 'tags',
     ];
 
     public function validate()
@@ -87,8 +87,8 @@ class ListInstancesRequest extends Model
         if (null !== $this->resourceGroupId) {
             $res['resourceGroupId'] = $this->resourceGroupId;
         }
-        if (null !== $this->seriesCodes) {
-            $res['seriesCodes'] = $this->seriesCodes;
+        if (null !== $this->seriesCodesShrink) {
+            $res['seriesCodes'] = $this->seriesCodesShrink;
         }
         if (null !== $this->tags) {
             $res['tags'] = $this->tags;
@@ -100,7 +100,7 @@ class ListInstancesRequest extends Model
     /**
      * @param array $map
      *
-     * @return ListInstancesRequest
+     * @return ListInstancesShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -118,9 +118,7 @@ class ListInstancesRequest extends Model
             $model->resourceGroupId = $map['resourceGroupId'];
         }
         if (isset($map['seriesCodes'])) {
-            if (!empty($map['seriesCodes'])) {
-                $model->seriesCodes = $map['seriesCodes'];
-            }
+            $model->seriesCodesShrink = $map['seriesCodes'];
         }
         if (isset($map['tags'])) {
             $model->tags = $map['tags'];

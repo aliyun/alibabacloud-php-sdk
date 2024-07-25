@@ -27,6 +27,7 @@ use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListConsumerGroupsResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListConsumerGroupSubscriptionsResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListInstancesRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListInstancesResponse;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListInstancesShrinkRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListRegionsResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListTopicsRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListTopicsResponse;
@@ -855,15 +856,20 @@ class RocketMQ extends OpenApiClient
      *  *
      * @description > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
      *  *
-     * @param ListInstancesRequest $request ListInstancesRequest
+     * @param ListInstancesRequest $tmpReq  ListInstancesRequest
      * @param string[]             $headers map
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
      * @return ListInstancesResponse ListInstancesResponse
      */
-    public function listInstancesWithOptions($request, $headers, $runtime)
+    public function listInstancesWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new ListInstancesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->seriesCodes)) {
+            $request->seriesCodesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->seriesCodes, 'seriesCodes', 'simple');
+        }
         $query = [];
         if (!Utils::isUnset($request->filter)) {
             $query['filter'] = $request->filter;
@@ -876,6 +882,9 @@ class RocketMQ extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceGroupId)) {
             $query['resourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->seriesCodesShrink)) {
+            $query['seriesCodes'] = $request->seriesCodesShrink;
         }
         if (!Utils::isUnset($request->tags)) {
             $query['tags'] = $request->tags;
