@@ -166,11 +166,6 @@ class File extends Model
     /**
      * @var string
      */
-    public $fileStatus;
-
-    /**
-     * @var string
-     */
     public $filename;
 
     /**
@@ -287,6 +282,11 @@ class File extends Model
      * @var string
      */
     public $objectId;
+
+    /**
+     * @var string
+     */
+    public $objectStatus;
 
     /**
      * @var string
@@ -454,7 +454,6 @@ class File extends Model
         'fileCreateTime'                        => 'FileCreateTime',
         'fileHash'                              => 'FileHash',
         'fileModifiedTime'                      => 'FileModifiedTime',
-        'fileStatus'                            => 'FileStatus',
         'filename'                              => 'Filename',
         'formatLongName'                        => 'FormatLongName',
         'formatName'                            => 'FormatName',
@@ -479,6 +478,7 @@ class File extends Model
         'OSSVersionId'                          => 'OSSVersionId',
         'objectACL'                             => 'ObjectACL',
         'objectId'                              => 'ObjectId',
+        'objectStatus'                          => 'ObjectStatus',
         'objectType'                            => 'ObjectType',
         'orientation'                           => 'Orientation',
         'ownerId'                               => 'OwnerId',
@@ -644,9 +644,6 @@ class File extends Model
         if (null !== $this->fileModifiedTime) {
             $res['FileModifiedTime'] = $this->fileModifiedTime;
         }
-        if (null !== $this->fileStatus) {
-            $res['FileStatus'] = $this->fileStatus;
-        }
         if (null !== $this->filename) {
             $res['Filename'] = $this->filename;
         }
@@ -730,6 +727,9 @@ class File extends Model
         }
         if (null !== $this->objectId) {
             $res['ObjectId'] = $this->objectId;
+        }
+        if (null !== $this->objectStatus) {
+            $res['ObjectStatus'] = $this->objectStatus;
         }
         if (null !== $this->objectType) {
             $res['ObjectType'] = $this->objectType;
@@ -971,9 +971,6 @@ class File extends Model
         if (isset($map['FileModifiedTime'])) {
             $model->fileModifiedTime = $map['FileModifiedTime'];
         }
-        if (isset($map['FileStatus'])) {
-            $model->fileStatus = $map['FileStatus'];
-        }
         if (isset($map['Filename'])) {
             $model->filename = $map['Filename'];
         }
@@ -1057,6 +1054,9 @@ class File extends Model
         }
         if (isset($map['ObjectId'])) {
             $model->objectId = $map['ObjectId'];
+        }
+        if (isset($map['ObjectStatus'])) {
+            $model->objectStatus = $map['ObjectStatus'];
         }
         if (isset($map['ObjectType'])) {
             $model->objectType = $map['ObjectType'];
