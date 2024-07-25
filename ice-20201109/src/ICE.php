@@ -350,6 +350,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitLiveSnapshotJobShrinkRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitLiveTranscodeJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitLiveTranscodeJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitLiveTranscodeJobShrinkRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitMediaAiAnalysisJobRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitMediaAiAnalysisJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitMediaCensorJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitMediaCensorJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitMediaCensorJobShrinkRequest;
@@ -9753,6 +9755,56 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->submitLiveTranscodeJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 提交媒资结构化分析任务
+     *  *
+     * @param SubmitMediaAiAnalysisJobRequest $request SubmitMediaAiAnalysisJobRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return SubmitMediaAiAnalysisJobResponse SubmitMediaAiAnalysisJobResponse
+     */
+    public function submitMediaAiAnalysisJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->analysisParams)) {
+            $query['AnalysisParams'] = $request->analysisParams;
+        }
+        if (!Utils::isUnset($request->input)) {
+            $query['Input'] = $request->input;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitMediaAiAnalysisJob',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SubmitMediaAiAnalysisJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 提交媒资结构化分析任务
+     *  *
+     * @param SubmitMediaAiAnalysisJobRequest $request SubmitMediaAiAnalysisJobRequest
+     *
+     * @return SubmitMediaAiAnalysisJobResponse SubmitMediaAiAnalysisJobResponse
+     */
+    public function submitMediaAiAnalysisJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitMediaAiAnalysisJobWithOptions($request, $runtime);
     }
 
     /**
