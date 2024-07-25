@@ -1,0 +1,87 @@
+<?php
+
+// This file is auto-generated, don't edit it. Thanks.
+
+namespace AlibabaCloud\SDK\APIG\V20240327\Models;
+
+use AlibabaCloud\Tea\Model;
+
+class HttpApiInfoByName extends Model
+{
+    /**
+     * @example test-api
+     *
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @example true
+     *
+     * @var bool
+     */
+    public $versionEnabled;
+
+    /**
+     * @var HttpApiApiInfo[]
+     */
+    public $versionedHttpApis;
+    protected $_name = [
+        'name'              => 'name',
+        'versionEnabled'    => 'versionEnabled',
+        'versionedHttpApis' => 'versionedHttpApis',
+    ];
+
+    public function validate()
+    {
+    }
+
+    public function toMap()
+    {
+        $res = [];
+        if (null !== $this->name) {
+            $res['name'] = $this->name;
+        }
+        if (null !== $this->versionEnabled) {
+            $res['versionEnabled'] = $this->versionEnabled;
+        }
+        if (null !== $this->versionedHttpApis) {
+            $res['versionedHttpApis'] = [];
+            if (null !== $this->versionedHttpApis && \is_array($this->versionedHttpApis)) {
+                $n = 0;
+                foreach ($this->versionedHttpApis as $item) {
+                    $res['versionedHttpApis'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+
+        return $res;
+    }
+
+    /**
+     * @param array $map
+     *
+     * @return HttpApiInfoByName
+     */
+    public static function fromMap($map = [])
+    {
+        $model = new self();
+        if (isset($map['name'])) {
+            $model->name = $map['name'];
+        }
+        if (isset($map['versionEnabled'])) {
+            $model->versionEnabled = $map['versionEnabled'];
+        }
+        if (isset($map['versionedHttpApis'])) {
+            if (!empty($map['versionedHttpApis'])) {
+                $model->versionedHttpApis = [];
+                $n                        = 0;
+                foreach ($map['versionedHttpApis'] as $item) {
+                    $model->versionedHttpApis[$n++] = null !== $item ? HttpApiApiInfo::fromMap($item) : $item;
+                }
+            }
+        }
+
+        return $model;
+    }
+}
