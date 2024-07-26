@@ -32,7 +32,7 @@ class TriggerRepositoryMirrorSyncRequest extends Model
     public $organizationId;
 
     /**
-     * @example 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
+     * @example asd12e44827fe2444f952e931e51xxxx
      *
      * @var string
      */

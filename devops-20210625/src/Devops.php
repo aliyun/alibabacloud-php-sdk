@@ -14,6 +14,8 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\AddRepositoryMemberRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\AddRepositoryMemberResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\AddWebhookRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\AddWebhookResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\CancelExecutionReleaseStageRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\CancelExecutionReleaseStageResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CloseMergeRequestRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CloseMergeRequestResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateAppMembersRequest;
@@ -136,6 +138,8 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteWorkitemRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteWorkitemResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\EnableDeployKeyRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\EnableDeployKeyResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ExecuteChangeRequestReleaseStageRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ExecuteChangeRequestReleaseStageResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ExportInsightCustomValueRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ExportInsightCustomValueResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ExportInsightExpectedWorkTimeRequest;
@@ -202,6 +206,8 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\GetProjectMemberRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetProjectMemberResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetPushRuleRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetPushRuleResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\GetReleaseStagePipelineRunRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\GetReleaseStagePipelineRunResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetRepositoryCommitRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetRepositoryCommitResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetRepositoryRequest;
@@ -748,6 +754,64 @@ class Devops extends OpenApiClient
         $headers = [];
 
         return $this->addWebhookWithOptions($repositoryId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 取消执行研发阶段流水线
+     *  *
+     * @param string                             $appName
+     * @param string                             $releaseWorkflowSn
+     * @param string                             $releaseStageSn
+     * @param string                             $executionNumber
+     * @param CancelExecutionReleaseStageRequest $request           CancelExecutionReleaseStageRequest
+     * @param string[]                           $headers           map
+     * @param RuntimeOptions                     $runtime           runtime options for this request RuntimeOptions
+     *
+     * @return CancelExecutionReleaseStageResponse CancelExecutionReleaseStageResponse
+     */
+    public function cancelExecutionReleaseStageWithOptions($appName, $releaseWorkflowSn, $releaseStageSn, $executionNumber, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CancelExecutionReleaseStage',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/appstack/apps/' . OpenApiUtilClient::getEncodeParam($appName) . '/releaseWorkflows/' . OpenApiUtilClient::getEncodeParam($releaseWorkflowSn) . '/releaseStages/' . OpenApiUtilClient::getEncodeParam($releaseStageSn) . '/executions/' . OpenApiUtilClient::getEncodeParam($executionNumber) . '%3Acancel',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CancelExecutionReleaseStageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 取消执行研发阶段流水线
+     *  *
+     * @param string                             $appName
+     * @param string                             $releaseWorkflowSn
+     * @param string                             $releaseStageSn
+     * @param string                             $executionNumber
+     * @param CancelExecutionReleaseStageRequest $request           CancelExecutionReleaseStageRequest
+     *
+     * @return CancelExecutionReleaseStageResponse CancelExecutionReleaseStageResponse
+     */
+    public function cancelExecutionReleaseStage($appName, $releaseWorkflowSn, $releaseStageSn, $executionNumber, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->cancelExecutionReleaseStageWithOptions($appName, $releaseWorkflowSn, $releaseStageSn, $executionNumber, $request, $headers, $runtime);
     }
 
     /**
@@ -4833,6 +4897,67 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 执行研发阶段流水线
+     *  *
+     * @param string                                  $appName
+     * @param string                                  $releaseWorkflowSn
+     * @param string                                  $releaseStageSn
+     * @param ExecuteChangeRequestReleaseStageRequest $request           ExecuteChangeRequestReleaseStageRequest
+     * @param string[]                                $headers           map
+     * @param RuntimeOptions                          $runtime           runtime options for this request RuntimeOptions
+     *
+     * @return ExecuteChangeRequestReleaseStageResponse ExecuteChangeRequestReleaseStageResponse
+     */
+    public function executeChangeRequestReleaseStageWithOptions($appName, $releaseWorkflowSn, $releaseStageSn, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->params)) {
+            $body['params'] = $request->params;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ExecuteChangeRequestReleaseStage',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/appstack/apps/' . OpenApiUtilClient::getEncodeParam($appName) . '/releaseWorkflows/' . OpenApiUtilClient::getEncodeParam($releaseWorkflowSn) . '/releaseStages/' . OpenApiUtilClient::getEncodeParam($releaseStageSn) . '%3Aexecute',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ExecuteChangeRequestReleaseStageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 执行研发阶段流水线
+     *  *
+     * @param string                                  $appName
+     * @param string                                  $releaseWorkflowSn
+     * @param string                                  $releaseStageSn
+     * @param ExecuteChangeRequestReleaseStageRequest $request           ExecuteChangeRequestReleaseStageRequest
+     *
+     * @return ExecuteChangeRequestReleaseStageResponse ExecuteChangeRequestReleaseStageResponse
+     */
+    public function executeChangeRequestReleaseStage($appName, $releaseWorkflowSn, $releaseStageSn, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->executeChangeRequestReleaseStageWithOptions($appName, $releaseWorkflowSn, $releaseStageSn, $request, $headers, $runtime);
+    }
+
+    /**
      * @summary 导出Insight custom_value表
      *  *
      * @param string                          $organizationId
@@ -6921,6 +7046,64 @@ class Devops extends OpenApiClient
         $headers = [];
 
         return $this->getPushRuleWithOptions($repositoryId, $pushRuleId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 获取研发阶段流水线运行实例
+     *  *
+     * @param string                            $appName
+     * @param string                            $releaseWorkflowSn
+     * @param string                            $releaseStageSn
+     * @param string                            $executionNumber
+     * @param GetReleaseStagePipelineRunRequest $request           GetReleaseStagePipelineRunRequest
+     * @param string[]                          $headers           map
+     * @param RuntimeOptions                    $runtime           runtime options for this request RuntimeOptions
+     *
+     * @return GetReleaseStagePipelineRunResponse GetReleaseStagePipelineRunResponse
+     */
+    public function getReleaseStagePipelineRunWithOptions($appName, $releaseWorkflowSn, $releaseStageSn, $executionNumber, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetReleaseStagePipelineRun',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/appstack/apps/' . OpenApiUtilClient::getEncodeParam($appName) . '/releaseWorkflows/' . OpenApiUtilClient::getEncodeParam($releaseWorkflowSn) . '/releaseStages/' . OpenApiUtilClient::getEncodeParam($releaseStageSn) . '/executions/' . OpenApiUtilClient::getEncodeParam($executionNumber) . '%3AgetPipelineRun',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetReleaseStagePipelineRunResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取研发阶段流水线运行实例
+     *  *
+     * @param string                            $appName
+     * @param string                            $releaseWorkflowSn
+     * @param string                            $releaseStageSn
+     * @param string                            $executionNumber
+     * @param GetReleaseStagePipelineRunRequest $request           GetReleaseStagePipelineRunRequest
+     *
+     * @return GetReleaseStagePipelineRunResponse GetReleaseStagePipelineRunResponse
+     */
+    public function getReleaseStagePipelineRun($appName, $releaseWorkflowSn, $releaseStageSn, $executionNumber, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getReleaseStagePipelineRunWithOptions($appName, $releaseWorkflowSn, $releaseStageSn, $executionNumber, $request, $headers, $runtime);
     }
 
     /**
