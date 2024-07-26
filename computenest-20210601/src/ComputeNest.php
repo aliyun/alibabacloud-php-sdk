@@ -39,6 +39,8 @@ use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListServiceInstanceResourcesRe
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListServiceInstanceResourcesResponse;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListServiceInstancesRequest;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListServiceInstancesResponse;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListServiceInstanceUpgradeHistoryRequest;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListServiceInstanceUpgradeHistoryResponse;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListServiceUsagesRequest;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListServiceUsagesResponse;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListTagKeysRequest;
@@ -47,6 +49,8 @@ use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListTagValuesRequest;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListTagValuesResponse;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\RestartServiceInstanceRequest;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\RestartServiceInstanceResponse;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\RollbackServiceInstanceRequest;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\RollbackServiceInstanceResponse;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\StartServiceInstanceRequest;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\StartServiceInstanceResponse;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\StopServiceInstanceRequest;
@@ -55,12 +59,17 @@ use AlibabaCloud\SDK\ComputeNest\V20210601\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\TagResourcesResponse;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\UnTagResourcesRequest;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\UnTagResourcesResponse;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\UpdateServiceInstanceAttributesRequest;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\UpdateServiceInstanceAttributesResponse;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\UpdateServiceInstanceSpecRequest;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\UpdateServiceInstanceSpecResponse;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\UpdateServiceInstanceSpecShrinkRequest;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\UpdateServiceUsageRequest;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\UpdateServiceUsageResponse;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\UpdateServiceUsageShrinkRequest;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\UpgradeServiceInstanceRequest;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\UpgradeServiceInstanceResponse;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\UpgradeServiceInstanceShrinkRequest;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -1013,6 +1022,62 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
+     * @summary 查看服务实例升级历史
+     *  *
+     * @param ListServiceInstanceUpgradeHistoryRequest $request ListServiceInstanceUpgradeHistoryRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListServiceInstanceUpgradeHistoryResponse ListServiceInstanceUpgradeHistoryResponse
+     */
+    public function listServiceInstanceUpgradeHistoryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->serviceInstanceId)) {
+            $query['ServiceInstanceId'] = $request->serviceInstanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListServiceInstanceUpgradeHistory',
+            'version'     => '2021-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListServiceInstanceUpgradeHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查看服务实例升级历史
+     *  *
+     * @param ListServiceInstanceUpgradeHistoryRequest $request ListServiceInstanceUpgradeHistoryRequest
+     *
+     * @return ListServiceInstanceUpgradeHistoryResponse ListServiceInstanceUpgradeHistoryResponse
+     */
+    public function listServiceInstanceUpgradeHistory($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listServiceInstanceUpgradeHistoryWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary {}
      *  *
      * @param ListServiceInstancesRequest $request ListServiceInstancesRequest
@@ -1282,6 +1347,59 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
+     * @summary 回滚服务实例
+     *  *
+     * @param RollbackServiceInstanceRequest $request RollbackServiceInstanceRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return RollbackServiceInstanceResponse RollbackServiceInstanceResponse
+     */
+    public function rollbackServiceInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->serviceInstanceId)) {
+            $query['ServiceInstanceId'] = $request->serviceInstanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RollbackServiceInstance',
+            'version'     => '2021-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RollbackServiceInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 回滚服务实例
+     *  *
+     * @param RollbackServiceInstanceRequest $request RollbackServiceInstanceRequest
+     *
+     * @return RollbackServiceInstanceResponse RollbackServiceInstanceResponse
+     */
+    public function rollbackServiceInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->rollbackServiceInstanceWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary When the service instance status is Stopped (Stopped) or StartFailed (Startup failed), the StartServiceInstance interface is invoked to start the service instance.
      *  *
      * @param StartServiceInstanceRequest $request StartServiceInstanceRequest
@@ -1495,6 +1613,59 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
+     * @summary 更新服务实例属性
+     *  *
+     * @param UpdateServiceInstanceAttributesRequest $request UpdateServiceInstanceAttributesRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateServiceInstanceAttributesResponse UpdateServiceInstanceAttributesResponse
+     */
+    public function updateServiceInstanceAttributesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->enableOperation)) {
+            $query['EnableOperation'] = $request->enableOperation;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->serviceInstanceId)) {
+            $query['ServiceInstanceId'] = $request->serviceInstanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateServiceInstanceAttributes',
+            'version'     => '2021-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateServiceInstanceAttributesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 更新服务实例属性
+     *  *
+     * @param UpdateServiceInstanceAttributesRequest $request UpdateServiceInstanceAttributesRequest
+     *
+     * @return UpdateServiceInstanceAttributesResponse UpdateServiceInstanceAttributesResponse
+     */
+    public function updateServiceInstanceAttributes($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateServiceInstanceAttributesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param UpdateServiceInstanceSpecRequest $tmpReq  UpdateServiceInstanceSpecRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -1619,5 +1790,68 @@ class ComputeNest extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateServiceUsageWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpgradeServiceInstanceRequest $tmpReq  UpgradeServiceInstanceRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpgradeServiceInstanceResponse UpgradeServiceInstanceResponse
+     */
+    public function upgradeServiceInstanceWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpgradeServiceInstanceShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->parameters)) {
+            $request->parametersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->parameters, 'Parameters', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->parametersShrink)) {
+            $query['Parameters'] = $request->parametersShrink;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->serviceInstanceId)) {
+            $query['ServiceInstanceId'] = $request->serviceInstanceId;
+        }
+        if (!Utils::isUnset($request->serviceVersion)) {
+            $query['ServiceVersion'] = $request->serviceVersion;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpgradeServiceInstance',
+            'version'     => '2021-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpgradeServiceInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpgradeServiceInstanceRequest $request UpgradeServiceInstanceRequest
+     *
+     * @return UpgradeServiceInstanceResponse UpgradeServiceInstanceResponse
+     */
+    public function upgradeServiceInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->upgradeServiceInstanceWithOptions($request, $runtime);
     }
 }
