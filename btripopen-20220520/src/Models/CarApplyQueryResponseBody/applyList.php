@@ -53,6 +53,16 @@ class applyList extends Model
     public $itineraryList;
 
     /**
+     * @var int
+     */
+    public $orderId;
+
+    /**
+     * @var string
+     */
+    public $relatedThirdApplyId;
+
+    /**
      * @example 2
      *
      * @var int
@@ -98,21 +108,23 @@ class applyList extends Model
      */
     public $userName;
     protected $_name = [
-        'approverList'     => 'approver_list',
-        'businessType'     => 'business_type',
-        'departId'         => 'depart_id',
-        'departName'       => 'depart_name',
-        'gmtCreate'        => 'gmt_create',
-        'gmtModified'      => 'gmt_modified',
-        'itineraryList'    => 'itinerary_list',
-        'status'           => 'status',
-        'statusDesc'       => 'status_desc',
-        'thirdpartId'      => 'thirdpart_id',
-        'travelerStandard' => 'traveler_standard',
-        'tripCause'        => 'trip_cause',
-        'tripTitle'        => 'trip_title',
-        'userId'           => 'user_id',
-        'userName'         => 'user_name',
+        'approverList'        => 'approver_list',
+        'businessType'        => 'business_type',
+        'departId'            => 'depart_id',
+        'departName'          => 'depart_name',
+        'gmtCreate'           => 'gmt_create',
+        'gmtModified'         => 'gmt_modified',
+        'itineraryList'       => 'itinerary_list',
+        'orderId'             => 'order_id',
+        'relatedThirdApplyId' => 'related_third_apply_id',
+        'status'              => 'status',
+        'statusDesc'          => 'status_desc',
+        'thirdpartId'         => 'thirdpart_id',
+        'travelerStandard'    => 'traveler_standard',
+        'tripCause'           => 'trip_cause',
+        'tripTitle'           => 'trip_title',
+        'userId'              => 'user_id',
+        'userName'            => 'user_name',
     ];
 
     public function validate()
@@ -154,6 +166,12 @@ class applyList extends Model
                     $res['itinerary_list'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->orderId) {
+            $res['order_id'] = $this->orderId;
+        }
+        if (null !== $this->relatedThirdApplyId) {
+            $res['related_third_apply_id'] = $this->relatedThirdApplyId;
         }
         if (null !== $this->status) {
             $res['status'] = $this->status;
@@ -229,6 +247,12 @@ class applyList extends Model
                     $model->itineraryList[$n++] = null !== $item ? itineraryList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['order_id'])) {
+            $model->orderId = $map['order_id'];
+        }
+        if (isset($map['related_third_apply_id'])) {
+            $model->relatedThirdApplyId = $map['related_third_apply_id'];
         }
         if (isset($map['status'])) {
             $model->status = $map['status'];

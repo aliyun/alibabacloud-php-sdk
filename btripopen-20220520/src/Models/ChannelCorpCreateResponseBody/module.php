@@ -38,12 +38,18 @@ class module extends Model
      * @var string
      */
     public $openAgentId;
+
+    /**
+     * @var string
+     */
+    public $userId;
     protected $_name = [
         'administratorName'  => 'administrator_name',
         'administratorPhone' => 'administrator_phone',
         'corpId'             => 'corp_id',
         'corpName'           => 'corp_name',
         'openAgentId'        => 'open_agent_id',
+        'userId'             => 'user_id',
     ];
 
     public function validate()
@@ -67,6 +73,9 @@ class module extends Model
         }
         if (null !== $this->openAgentId) {
             $res['open_agent_id'] = $this->openAgentId;
+        }
+        if (null !== $this->userId) {
+            $res['user_id'] = $this->userId;
         }
 
         return $res;
@@ -94,6 +103,9 @@ class module extends Model
         }
         if (isset($map['open_agent_id'])) {
             $model->openAgentId = $map['open_agent_id'];
+        }
+        if (isset($map['user_id'])) {
+            $model->userId = $map['user_id'];
         }
 
         return $model;

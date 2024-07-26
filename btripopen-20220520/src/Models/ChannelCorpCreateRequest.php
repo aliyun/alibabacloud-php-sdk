@@ -56,6 +56,11 @@ class ChannelCorpCreateRequest extends Model
      * @var string
      */
     public $thirdCorpId;
+
+    /**
+     * @var string
+     */
+    public $userId;
     protected $_name = [
         'administratorName'  => 'administrator_name',
         'administratorPhone' => 'administrator_phone',
@@ -64,6 +69,7 @@ class ChannelCorpCreateRequest extends Model
         'province'           => 'province',
         'scope'              => 'scope',
         'thirdCorpId'        => 'third_corp_id',
+        'userId'             => 'user_id',
     ];
 
     public function validate()
@@ -93,6 +99,9 @@ class ChannelCorpCreateRequest extends Model
         }
         if (null !== $this->thirdCorpId) {
             $res['third_corp_id'] = $this->thirdCorpId;
+        }
+        if (null !== $this->userId) {
+            $res['user_id'] = $this->userId;
         }
 
         return $res;
@@ -126,6 +135,9 @@ class ChannelCorpCreateRequest extends Model
         }
         if (isset($map['third_corp_id'])) {
             $model->thirdCorpId = $map['third_corp_id'];
+        }
+        if (isset($map['user_id'])) {
+            $model->userId = $map['user_id'];
         }
 
         return $model;

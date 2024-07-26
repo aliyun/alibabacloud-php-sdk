@@ -79,6 +79,11 @@ class itinerarySetList extends Model
     public $projectTitle;
 
     /**
+     * @var string[]
+     */
+    public $provinceTravelCityAdcodes;
+
+    /**
      * @example thridpart12138
      *
      * @var string
@@ -99,20 +104,21 @@ class itinerarySetList extends Model
      */
     public $trafficType;
     protected $_name = [
-        'arrDate'                 => 'arr_date',
-        'attribute'               => 'attribute',
-        'cityCodeSet'             => 'city_code_set',
-        'citySet'                 => 'city_set',
-        'costCenterId'            => 'cost_center_id',
-        'depDate'                 => 'dep_date',
-        'invoiceId'               => 'invoice_id',
-        'itineraryId'             => 'itinerary_id',
-        'itineraryTravelStandard' => 'itinerary_travel_standard',
-        'projectCode'             => 'project_code',
-        'projectTitle'            => 'project_title',
-        'thirdPartInvoiceId'      => 'third_part_invoice_id',
-        'thirdpartCostCenterId'   => 'thirdpart_cost_center_id',
-        'trafficType'             => 'traffic_type',
+        'arrDate'                   => 'arr_date',
+        'attribute'                 => 'attribute',
+        'cityCodeSet'               => 'city_code_set',
+        'citySet'                   => 'city_set',
+        'costCenterId'              => 'cost_center_id',
+        'depDate'                   => 'dep_date',
+        'invoiceId'                 => 'invoice_id',
+        'itineraryId'               => 'itinerary_id',
+        'itineraryTravelStandard'   => 'itinerary_travel_standard',
+        'projectCode'               => 'project_code',
+        'projectTitle'              => 'project_title',
+        'provinceTravelCityAdcodes' => 'province_travel_city_adcodes',
+        'thirdPartInvoiceId'        => 'third_part_invoice_id',
+        'thirdpartCostCenterId'     => 'thirdpart_cost_center_id',
+        'trafficType'               => 'traffic_type',
     ];
 
     public function validate()
@@ -154,6 +160,9 @@ class itinerarySetList extends Model
         }
         if (null !== $this->projectTitle) {
             $res['project_title'] = $this->projectTitle;
+        }
+        if (null !== $this->provinceTravelCityAdcodes) {
+            $res['province_travel_city_adcodes'] = $this->provinceTravelCityAdcodes;
         }
         if (null !== $this->thirdPartInvoiceId) {
             $res['third_part_invoice_id'] = $this->thirdPartInvoiceId;
@@ -208,6 +217,11 @@ class itinerarySetList extends Model
         }
         if (isset($map['project_title'])) {
             $model->projectTitle = $map['project_title'];
+        }
+        if (isset($map['province_travel_city_adcodes'])) {
+            if (!empty($map['province_travel_city_adcodes'])) {
+                $model->provinceTravelCityAdcodes = $map['province_travel_city_adcodes'];
+            }
         }
         if (isset($map['third_part_invoice_id'])) {
             $model->thirdPartInvoiceId = $map['third_part_invoice_id'];

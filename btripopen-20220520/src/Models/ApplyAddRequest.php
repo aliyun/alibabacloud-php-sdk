@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models;
 
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyAddRequest\carRule;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyAddRequest\defaultStandard;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyAddRequest\externalTravelerList;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyAddRequest\externalTravelerStandard;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyAddRequest\hotelShare;
@@ -39,6 +40,11 @@ class ApplyAddRequest extends Model
      * @var string
      */
     public $corpName;
+
+    /**
+     * @var defaultStandard
+     */
+    public $defaultStandard;
 
     /**
      * @example departId01
@@ -246,6 +252,7 @@ class ApplyAddRequest extends Model
         'budgetMerge'               => 'budget_merge',
         'carRule'                   => 'car_rule',
         'corpName'                  => 'corp_name',
+        'defaultStandard'           => 'default_standard',
         'departId'                  => 'depart_id',
         'departName'                => 'depart_name',
         'extendField'               => 'extend_field',
@@ -298,6 +305,9 @@ class ApplyAddRequest extends Model
         }
         if (null !== $this->corpName) {
             $res['corp_name'] = $this->corpName;
+        }
+        if (null !== $this->defaultStandard) {
+            $res['default_standard'] = null !== $this->defaultStandard ? $this->defaultStandard->toMap() : null;
         }
         if (null !== $this->departId) {
             $res['depart_id'] = $this->departId;
@@ -448,6 +458,9 @@ class ApplyAddRequest extends Model
         }
         if (isset($map['corp_name'])) {
             $model->corpName = $map['corp_name'];
+        }
+        if (isset($map['default_standard'])) {
+            $model->defaultStandard = defaultStandard::fromMap($map['default_standard']);
         }
         if (isset($map['depart_id'])) {
             $model->departId = $map['depart_id'];

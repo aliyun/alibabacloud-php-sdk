@@ -113,6 +113,11 @@ class itineraryList extends Model
     public $projectTitle;
 
     /**
+     * @var string[]
+     */
+    public $provinceTravelCityAdcodes;
+
+    /**
      * @example thirdpart34711
      *
      * @var string
@@ -144,25 +149,26 @@ class itineraryList extends Model
      */
     public $tripWay;
     protected $_name = [
-        'arrCity'                 => 'arr_city',
-        'arrCityCode'             => 'arr_city_code',
-        'arrDate'                 => 'arr_date',
-        'attribute'               => 'attribute',
-        'costCenterId'            => 'cost_center_id',
-        'depCity'                 => 'dep_city',
-        'depCityCode'             => 'dep_city_code',
-        'depDate'                 => 'dep_date',
-        'invoiceId'               => 'invoice_id',
-        'itineraryId'             => 'itinerary_id',
-        'itineraryTravelStandard' => 'itinerary_travel_standard',
-        'needHotel'               => 'need_hotel',
-        'needTraffic'             => 'need_traffic',
-        'projectCode'             => 'project_code',
-        'projectTitle'            => 'project_title',
-        'thirdPartInvoiceId'      => 'third_part_invoice_id',
-        'thirdpartCostCenterId'   => 'thirdpart_cost_center_id',
-        'trafficType'             => 'traffic_type',
-        'tripWay'                 => 'trip_way',
+        'arrCity'                   => 'arr_city',
+        'arrCityCode'               => 'arr_city_code',
+        'arrDate'                   => 'arr_date',
+        'attribute'                 => 'attribute',
+        'costCenterId'              => 'cost_center_id',
+        'depCity'                   => 'dep_city',
+        'depCityCode'               => 'dep_city_code',
+        'depDate'                   => 'dep_date',
+        'invoiceId'                 => 'invoice_id',
+        'itineraryId'               => 'itinerary_id',
+        'itineraryTravelStandard'   => 'itinerary_travel_standard',
+        'needHotel'                 => 'need_hotel',
+        'needTraffic'               => 'need_traffic',
+        'projectCode'               => 'project_code',
+        'projectTitle'              => 'project_title',
+        'provinceTravelCityAdcodes' => 'province_travel_city_adcodes',
+        'thirdPartInvoiceId'        => 'third_part_invoice_id',
+        'thirdpartCostCenterId'     => 'thirdpart_cost_center_id',
+        'trafficType'               => 'traffic_type',
+        'tripWay'                   => 'trip_way',
     ];
 
     public function validate()
@@ -216,6 +222,9 @@ class itineraryList extends Model
         }
         if (null !== $this->projectTitle) {
             $res['project_title'] = $this->projectTitle;
+        }
+        if (null !== $this->provinceTravelCityAdcodes) {
+            $res['province_travel_city_adcodes'] = $this->provinceTravelCityAdcodes;
         }
         if (null !== $this->thirdPartInvoiceId) {
             $res['third_part_invoice_id'] = $this->thirdPartInvoiceId;
@@ -285,6 +294,11 @@ class itineraryList extends Model
         }
         if (isset($map['project_title'])) {
             $model->projectTitle = $map['project_title'];
+        }
+        if (isset($map['province_travel_city_adcodes'])) {
+            if (!empty($map['province_travel_city_adcodes'])) {
+                $model->provinceTravelCityAdcodes = $map['province_travel_city_adcodes'];
+            }
         }
         if (isset($map['third_part_invoice_id'])) {
             $model->thirdPartInvoiceId = $map['third_part_invoice_id'];

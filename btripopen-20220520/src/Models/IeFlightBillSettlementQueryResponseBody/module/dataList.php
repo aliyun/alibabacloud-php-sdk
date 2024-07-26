@@ -86,6 +86,16 @@ class dataList extends Model
     public $arrCityCode;
 
     /**
+     * @var string
+     */
+    public $arrCountry;
+
+    /**
+     * @var string
+     */
+    public $arrCountryCode;
+
+    /**
      * @example 2021-10-02
      *
      * @var string
@@ -227,6 +237,16 @@ class dataList extends Model
      * @var string
      */
     public $depCityCode;
+
+    /**
+     * @var string
+     */
+    public $depCountry;
+
+    /**
+     * @var string
+     */
+    public $depCountryCode;
 
     /**
      * @var string
@@ -575,6 +595,8 @@ class dataList extends Model
         'arrAirportCode'         => 'arr_airport_code',
         'arrCity'                => 'arr_city',
         'arrCityCode'            => 'arr_city_code',
+        'arrCountry'             => 'arr_country',
+        'arrCountryCode'         => 'arr_country_code',
         'arrDate'                => 'arr_date',
         'arrStation'             => 'arr_station',
         'arrTime'                => 'arr_time',
@@ -598,6 +620,8 @@ class dataList extends Model
         'coupon'                 => 'coupon',
         'depAirportCode'         => 'dep_airport_code',
         'depCityCode'            => 'dep_city_code',
+        'depCountry'             => 'dep_country',
+        'depCountryCode'         => 'dep_country_code',
         'department'             => 'department',
         'departmentId'           => 'department_id',
         'deptCity'               => 'dept_city',
@@ -698,6 +722,12 @@ class dataList extends Model
         if (null !== $this->arrCityCode) {
             $res['arr_city_code'] = $this->arrCityCode;
         }
+        if (null !== $this->arrCountry) {
+            $res['arr_country'] = $this->arrCountry;
+        }
+        if (null !== $this->arrCountryCode) {
+            $res['arr_country_code'] = $this->arrCountryCode;
+        }
         if (null !== $this->arrDate) {
             $res['arr_date'] = $this->arrDate;
         }
@@ -766,6 +796,12 @@ class dataList extends Model
         }
         if (null !== $this->depCityCode) {
             $res['dep_city_code'] = $this->depCityCode;
+        }
+        if (null !== $this->depCountry) {
+            $res['dep_country'] = $this->depCountry;
+        }
+        if (null !== $this->depCountryCode) {
+            $res['dep_country_code'] = $this->depCountryCode;
         }
         if (null !== $this->department) {
             $res['department'] = $this->department;
@@ -974,6 +1010,12 @@ class dataList extends Model
         if (isset($map['arr_city_code'])) {
             $model->arrCityCode = $map['arr_city_code'];
         }
+        if (isset($map['arr_country'])) {
+            $model->arrCountry = $map['arr_country'];
+        }
+        if (isset($map['arr_country_code'])) {
+            $model->arrCountryCode = $map['arr_country_code'];
+        }
         if (isset($map['arr_date'])) {
             $model->arrDate = $map['arr_date'];
         }
@@ -1042,6 +1084,12 @@ class dataList extends Model
         }
         if (isset($map['dep_city_code'])) {
             $model->depCityCode = $map['dep_city_code'];
+        }
+        if (isset($map['dep_country'])) {
+            $model->depCountry = $map['dep_country'];
+        }
+        if (isset($map['dep_country_code'])) {
+            $model->depCountryCode = $map['dep_country_code'];
         }
         if (isset($map['department'])) {
             $model->department = $map['department'];

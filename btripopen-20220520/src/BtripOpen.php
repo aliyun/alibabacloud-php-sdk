@@ -1265,6 +1265,9 @@ class BtripOpen extends OpenApiClient
         if (!Utils::isUnset($tmpReq->carRule)) {
             $request->carRuleShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->carRule, 'car_rule', 'json');
         }
+        if (!Utils::isUnset($tmpReq->defaultStandard)) {
+            $request->defaultStandardShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->defaultStandard, 'default_standard', 'json');
+        }
         if (!Utils::isUnset($tmpReq->externalTravelerList)) {
             $request->externalTravelerListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->externalTravelerList, 'external_traveler_list', 'json');
         }
@@ -1298,6 +1301,9 @@ class BtripOpen extends OpenApiClient
         }
         if (!Utils::isUnset($request->corpName)) {
             $body['corp_name'] = $request->corpName;
+        }
+        if (!Utils::isUnset($request->defaultStandardShrink)) {
+            $body['default_standard'] = $request->defaultStandardShrink;
         }
         if (!Utils::isUnset($request->departId)) {
             $body['depart_id'] = $request->departId;
@@ -1751,6 +1757,9 @@ class BtripOpen extends OpenApiClient
         if (!Utils::isUnset($tmpReq->carRule)) {
             $request->carRuleShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->carRule, 'car_rule', 'json');
         }
+        if (!Utils::isUnset($tmpReq->defaultStandard)) {
+            $request->defaultStandardShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->defaultStandard, 'default_standard', 'json');
+        }
         if (!Utils::isUnset($tmpReq->externalTravelerList)) {
             $request->externalTravelerListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->externalTravelerList, 'external_traveler_list', 'json');
         }
@@ -1784,6 +1793,9 @@ class BtripOpen extends OpenApiClient
         }
         if (!Utils::isUnset($request->corpName)) {
             $body['corp_name'] = $request->corpName;
+        }
+        if (!Utils::isUnset($request->defaultStandardShrink)) {
+            $body['default_standard'] = $request->defaultStandardShrink;
         }
         if (!Utils::isUnset($request->departId)) {
             $body['depart_id'] = $request->departId;
@@ -2734,6 +2746,9 @@ class BtripOpen extends OpenApiClient
         }
         if (!Utils::isUnset($request->thirdCorpId)) {
             $body['third_corp_id'] = $request->thirdCorpId;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $body['user_id'] = $request->userId;
         }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {

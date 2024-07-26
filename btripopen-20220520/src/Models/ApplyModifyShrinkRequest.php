@@ -33,6 +33,11 @@ class ApplyModifyShrinkRequest extends Model
     public $corpName;
 
     /**
+     * @var string
+     */
+    public $defaultStandardShrink;
+
+    /**
      * @example 001
      *
      * @var string
@@ -232,6 +237,7 @@ class ApplyModifyShrinkRequest extends Model
         'budgetMerge'                    => 'budget_merge',
         'carRuleShrink'                  => 'car_rule',
         'corpName'                       => 'corp_name',
+        'defaultStandardShrink'          => 'default_standard',
         'departId'                       => 'depart_id',
         'departName'                     => 'depart_name',
         'extendField'                    => 'extend_field',
@@ -282,6 +288,9 @@ class ApplyModifyShrinkRequest extends Model
         }
         if (null !== $this->corpName) {
             $res['corp_name'] = $this->corpName;
+        }
+        if (null !== $this->defaultStandardShrink) {
+            $res['default_standard'] = $this->defaultStandardShrink;
         }
         if (null !== $this->departId) {
             $res['depart_id'] = $this->departId;
@@ -396,6 +405,9 @@ class ApplyModifyShrinkRequest extends Model
         }
         if (isset($map['corp_name'])) {
             $model->corpName = $map['corp_name'];
+        }
+        if (isset($map['default_standard'])) {
+            $model->defaultStandardShrink = $map['default_standard'];
         }
         if (isset($map['depart_id'])) {
             $model->departId = $map['depart_id'];
