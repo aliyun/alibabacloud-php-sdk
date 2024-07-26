@@ -15,6 +15,8 @@ use AlibabaCloud\SDK\Paidsw\V20220101\Models\CreateInstanceShutdownTimerResponse
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\CreateInstanceSnapshotRequest;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\CreateInstanceSnapshotResponse;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\DeleteIdleInstanceCullerResponse;
+use AlibabaCloud\SDK\Paidsw\V20220101\Models\DeleteInstanceLabelsRequest;
+use AlibabaCloud\SDK\Paidsw\V20220101\Models\DeleteInstanceLabelsResponse;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\DeleteInstanceResponse;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\DeleteInstanceShutdownTimerResponse;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\DeleteInstanceSnapshotResponse;
@@ -47,6 +49,8 @@ use AlibabaCloud\SDK\Paidsw\V20220101\Models\ListInstanceStatisticsResponse;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\StartInstanceResponse;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\StopInstanceRequest;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\StopInstanceResponse;
+use AlibabaCloud\SDK\Paidsw\V20220101\Models\UpdateInstanceLabelsRequest;
+use AlibabaCloud\SDK\Paidsw\V20220101\Models\UpdateInstanceLabelsResponse;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\UpdateInstanceRequest;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\UpdateInstanceResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -450,6 +454,58 @@ class Paidsw extends OpenApiClient
         $headers = [];
 
         return $this->deleteInstanceWithOptions($InstanceId, $headers, $runtime);
+    }
+
+    /**
+     * @summary 删除DSW实例的标签
+     *  *
+     * @param string                      $InstanceId
+     * @param DeleteInstanceLabelsRequest $request    DeleteInstanceLabelsRequest
+     * @param string[]                    $headers    map
+     * @param RuntimeOptions              $runtime    runtime options for this request RuntimeOptions
+     *
+     * @return DeleteInstanceLabelsResponse DeleteInstanceLabelsResponse
+     */
+    public function deleteInstanceLabelsWithOptions($InstanceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->labelKeys)) {
+            $query['LabelKeys'] = $request->labelKeys;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteInstanceLabels',
+            'version'     => '2022-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/labels',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteInstanceLabelsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除DSW实例的标签
+     *  *
+     * @param string                      $InstanceId
+     * @param DeleteInstanceLabelsRequest $request    DeleteInstanceLabelsRequest
+     *
+     * @return DeleteInstanceLabelsResponse DeleteInstanceLabelsResponse
+     */
+    public function deleteInstanceLabels($InstanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteInstanceLabelsWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -1568,5 +1624,57 @@ class Paidsw extends OpenApiClient
         $headers = [];
 
         return $this->updateInstanceWithOptions($InstanceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 修改DSW实例的标签
+     *  *
+     * @param string                      $InstanceId
+     * @param UpdateInstanceLabelsRequest $request    UpdateInstanceLabelsRequest
+     * @param string[]                    $headers    map
+     * @param RuntimeOptions              $runtime    runtime options for this request RuntimeOptions
+     *
+     * @return UpdateInstanceLabelsResponse UpdateInstanceLabelsResponse
+     */
+    public function updateInstanceLabelsWithOptions($InstanceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->labels)) {
+            $body['Labels'] = $request->labels;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateInstanceLabels',
+            'version'     => '2022-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/labels',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateInstanceLabelsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 修改DSW实例的标签
+     *  *
+     * @param string                      $InstanceId
+     * @param UpdateInstanceLabelsRequest $request    UpdateInstanceLabelsRequest
+     *
+     * @return UpdateInstanceLabelsResponse UpdateInstanceLabelsResponse
+     */
+    public function updateInstanceLabels($InstanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateInstanceLabelsWithOptions($InstanceId, $request, $headers, $runtime);
     }
 }
