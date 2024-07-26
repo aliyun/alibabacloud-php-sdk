@@ -28,10 +28,16 @@ class ListHttpApisRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var bool
+     */
+    public $publishedOnly;
     protected $_name = [
-        'keyword'    => 'keyword',
-        'pageNumber' => 'pageNumber',
-        'pageSize'   => 'pageSize',
+        'keyword'       => 'keyword',
+        'pageNumber'    => 'pageNumber',
+        'pageSize'      => 'pageSize',
+        'publishedOnly' => 'publishedOnly',
     ];
 
     public function validate()
@@ -49,6 +55,9 @@ class ListHttpApisRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['pageSize'] = $this->pageSize;
+        }
+        if (null !== $this->publishedOnly) {
+            $res['publishedOnly'] = $this->publishedOnly;
         }
 
         return $res;
@@ -70,6 +79,9 @@ class ListHttpApisRequest extends Model
         }
         if (isset($map['pageSize'])) {
             $model->pageSize = $map['pageSize'];
+        }
+        if (isset($map['publishedOnly'])) {
+            $model->publishedOnly = $map['publishedOnly'];
         }
 
         return $model;

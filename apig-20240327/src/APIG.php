@@ -1770,6 +1770,9 @@ class APIG extends OpenApiClient
         if (!Utils::isUnset($request->pageSize)) {
             $query['pageSize'] = $request->pageSize;
         }
+        if (!Utils::isUnset($request->publishedOnly)) {
+            $query['publishedOnly'] = $request->publishedOnly;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
