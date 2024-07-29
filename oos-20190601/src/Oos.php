@@ -105,6 +105,8 @@ use AlibabaCloud\SDK\Oos\V20190601\Models\ListExecutionsResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\ListExecutionsShrinkRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\ListGitRepositoriesRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\ListGitRepositoriesResponse;
+use AlibabaCloud\SDK\Oos\V20190601\Models\ListInstancePackageStatesRequest;
+use AlibabaCloud\SDK\Oos\V20190601\Models\ListInstancePackageStatesResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\ListInstancePatchesRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\ListInstancePatchesResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\ListInstancePatchStatesRequest;
@@ -172,6 +174,9 @@ use AlibabaCloud\SDK\Oos\V20190601\Models\UpdateApplicationResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\UpdateApplicationShrinkRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\UpdateExecutionRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\UpdateExecutionResponse;
+use AlibabaCloud\SDK\Oos\V20190601\Models\UpdateInstancePackageStateRequest;
+use AlibabaCloud\SDK\Oos\V20190601\Models\UpdateInstancePackageStateResponse;
+use AlibabaCloud\SDK\Oos\V20190601\Models\UpdateInstancePackageStateShrinkRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\UpdateOpsItemRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\UpdateOpsItemResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\UpdateOpsItemShrinkRequest;
@@ -2983,6 +2988,65 @@ class Oos extends OpenApiClient
     }
 
     /**
+     * @summary 列出实例软件包状态
+     *  *
+     * @param ListInstancePackageStatesRequest $request ListInstancePackageStatesRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListInstancePackageStatesResponse ListInstancePackageStatesResponse
+     */
+    public function listInstancePackageStatesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->templateNames)) {
+            $query['TemplateNames'] = $request->templateNames;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListInstancePackageStates',
+            'version'     => '2019-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListInstancePackageStatesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 列出实例软件包状态
+     *  *
+     * @param ListInstancePackageStatesRequest $request ListInstancePackageStatesRequest
+     *
+     * @return ListInstancePackageStatesResponse ListInstancePackageStatesResponse
+     */
+    public function listInstancePackageStates($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listInstancePackageStatesWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries the information about the patches of an instance.
      *  *
      * @param ListInstancePatchStatesRequest $request ListInstancePatchStatesRequest
@@ -4899,6 +4963,73 @@ class Oos extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateExecutionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 更新实例软件包状态
+     *  *
+     * @param UpdateInstancePackageStateRequest $tmpReq  UpdateInstancePackageStateRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateInstancePackageStateResponse UpdateInstancePackageStateResponse
+     */
+    public function updateInstancePackageStateWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateInstancePackageStateShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->parameters)) {
+            $request->parametersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->parameters, 'Parameters', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->configureAction)) {
+            $query['ConfigureAction'] = $request->configureAction;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->parametersShrink)) {
+            $query['Parameters'] = $request->parametersShrink;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->templateName)) {
+            $query['TemplateName'] = $request->templateName;
+        }
+        if (!Utils::isUnset($request->templateVersion)) {
+            $query['TemplateVersion'] = $request->templateVersion;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateInstancePackageState',
+            'version'     => '2019-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateInstancePackageStateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 更新实例软件包状态
+     *  *
+     * @param UpdateInstancePackageStateRequest $request UpdateInstancePackageStateRequest
+     *
+     * @return UpdateInstancePackageStateResponse UpdateInstancePackageStateResponse
+     */
+    public function updateInstancePackageState($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateInstancePackageStateWithOptions($request, $runtime);
     }
 
     /**

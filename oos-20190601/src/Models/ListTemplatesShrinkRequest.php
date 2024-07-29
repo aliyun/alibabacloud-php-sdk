@@ -59,12 +59,16 @@ class ListTemplatesShrinkRequest extends Model
     public $hasTrigger;
 
     /**
+     * @description Specifies whether the template is an example template
+     *
+     * @example false
+     *
      * @var bool
      */
     public $isExample;
 
     /**
-     * @description The template is favorite or not.
+     * @description Specifies whether the template is added to favorites.
      *
      * @example true
      *
@@ -73,7 +77,7 @@ class ListTemplatesShrinkRequest extends Model
     public $isFavorite;
 
     /**
-     * @description The number of entries to return on each page. Valid values: 10 to 100. Default value: 50.
+     * @description The number of entries per page. Valid values: 10 to 100. Default value: 50.
      *
      * @example 50
      *

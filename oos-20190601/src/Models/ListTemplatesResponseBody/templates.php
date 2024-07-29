@@ -18,7 +18,7 @@ class templates extends Model
     public $category;
 
     /**
-     * @description The constraints of template
+     * @description The template constraints.
      *
      * @example {
      * }
@@ -36,7 +36,7 @@ class templates extends Model
     public $createdBy;
 
     /**
-     * @description The time when the template was created.
+     * @description The creation time of the template.
      *
      * @example 2019-05-16T10:26:14Z
      *
@@ -63,7 +63,7 @@ class templates extends Model
     public $hasTrigger;
 
     /**
-     * @description The SHA-256 value of the template content.
+     * @description The SHA256 value of the template content.
      *
      * @example 4bc7d7a21b3e003434b9c223f6e6d2578b5ebfeb5be28c1fcf8a8a1b11907bb4
      *
@@ -72,7 +72,7 @@ class templates extends Model
     public $hash;
 
     /**
-     * @description The template is favorite or not.
+     * @description Indicates whether the template is added to favorites.
      *
      * @example true
      *
@@ -83,7 +83,7 @@ class templates extends Model
     /**
      * @description The popularity of the public template. Valid values: **1-10**. A greater value indicates higher popularity. If **ShareType** is set to **Private**, the value of this parameter is `-1`.
      *
-     * >  This parameter is valid only if the value of **ShareType** is set to **Public**.
+     * >  This parameter is valid only if **ShareType** is set to **Public**.
      * @example 8
      *
      * @var int
@@ -91,7 +91,7 @@ class templates extends Model
     public $popularity;
 
     /**
-     * @description The publisher of template.
+     * @description The user who published the template.
      *
      * @example aliyun
      *
@@ -100,7 +100,7 @@ class templates extends Model
     public $publisher;
 
     /**
-     * @description The resource group ID.
+     * @description The ID of the resource group.
      *
      * @example rg-acfmxsn4m4******
      *
@@ -130,7 +130,7 @@ class templates extends Model
     public $tags;
 
     /**
-     * @description The template format. The system automatically determines whether the format is JSON or YAML.
+     * @description The template format. The system automatically determines whether the format of the template is JSON or YAML.
      *
      * @example JSON
      *
@@ -166,7 +166,7 @@ class templates extends Model
     public $templateType;
 
     /**
-     * @description The template version. The name of the version consists of the letter v and a number. The number starts from 1.
+     * @description The template version. The version contains the letter v and a number. The number starts from 1.
      *
      * @example v1
      *
@@ -177,7 +177,7 @@ class templates extends Model
     /**
      * @description The number of times for which the private template is executed. If **ShareType** is set to **Public**, the value of this parameter is `-1`.
      *
-     * >  This parameter is valid only if the value of **ShareType** is **Private**.
+     * >  This parameter is valid only if **ShareType** is set to **Private**.
      * @example 5
      *
      * @var int
