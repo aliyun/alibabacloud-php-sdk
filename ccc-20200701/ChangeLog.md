@@ -1,3 +1,7 @@
+2024-07-29 Version: 2.25.4
+- Update API ListCallDetailRecords: update response param.
+
+
 2024-07-26 Version: 2.25.3
 - Generated php 2020-07-01 for CCC.
 
