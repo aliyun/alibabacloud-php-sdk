@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\Tingwu\V20230930\Models\CreateTaskRequest;
 use AlibabaCloud\SDK\Tingwu\V20230930\Models\CreateTaskRequest\parameters\customPrompt;
 use AlibabaCloud\SDK\Tingwu\V20230930\Models\CreateTaskRequest\parameters\extraParams;
 use AlibabaCloud\SDK\Tingwu\V20230930\Models\CreateTaskRequest\parameters\meetingAssistance;
+use AlibabaCloud\SDK\Tingwu\V20230930\Models\CreateTaskRequest\parameters\serviceInspection;
 use AlibabaCloud\SDK\Tingwu\V20230930\Models\CreateTaskRequest\parameters\summarization;
 use AlibabaCloud\SDK\Tingwu\V20230930\Models\CreateTaskRequest\parameters\transcoding;
 use AlibabaCloud\SDK\Tingwu\V20230930\Models\CreateTaskRequest\parameters\transcription;
@@ -55,6 +56,16 @@ class parameters extends Model
     public $pptExtractionEnabled;
 
     /**
+     * @var serviceInspection
+     */
+    public $serviceInspection;
+
+    /**
+     * @var bool
+     */
+    public $serviceInspectionEnabled;
+
+    /**
      * @var summarization
      */
     public $summarization;
@@ -100,6 +111,8 @@ class parameters extends Model
         'meetingAssistance'        => 'MeetingAssistance',
         'meetingAssistanceEnabled' => 'MeetingAssistanceEnabled',
         'pptExtractionEnabled'     => 'PptExtractionEnabled',
+        'serviceInspection'        => 'ServiceInspection',
+        'serviceInspectionEnabled' => 'ServiceInspectionEnabled',
         'summarization'            => 'Summarization',
         'summarizationEnabled'     => 'SummarizationEnabled',
         'textPolishEnabled'        => 'TextPolishEnabled',
@@ -136,6 +149,12 @@ class parameters extends Model
         }
         if (null !== $this->pptExtractionEnabled) {
             $res['PptExtractionEnabled'] = $this->pptExtractionEnabled;
+        }
+        if (null !== $this->serviceInspection) {
+            $res['ServiceInspection'] = null !== $this->serviceInspection ? $this->serviceInspection->toMap() : null;
+        }
+        if (null !== $this->serviceInspectionEnabled) {
+            $res['ServiceInspectionEnabled'] = $this->serviceInspectionEnabled;
         }
         if (null !== $this->summarization) {
             $res['Summarization'] = null !== $this->summarization ? $this->summarization->toMap() : null;
@@ -190,6 +209,12 @@ class parameters extends Model
         }
         if (isset($map['PptExtractionEnabled'])) {
             $model->pptExtractionEnabled = $map['PptExtractionEnabled'];
+        }
+        if (isset($map['ServiceInspection'])) {
+            $model->serviceInspection = serviceInspection::fromMap($map['ServiceInspection']);
+        }
+        if (isset($map['ServiceInspectionEnabled'])) {
+            $model->serviceInspectionEnabled = $map['ServiceInspectionEnabled'];
         }
         if (isset($map['Summarization'])) {
             $model->summarization = summarization::fromMap($map['Summarization']);
