@@ -1386,6 +1386,9 @@ class APIG extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->gatewayId)) {
+            $query['gatewayId'] = $request->gatewayId;
+        }
         if (!Utils::isUnset($request->nameLike)) {
             $query['nameLike'] = $request->nameLike;
         }

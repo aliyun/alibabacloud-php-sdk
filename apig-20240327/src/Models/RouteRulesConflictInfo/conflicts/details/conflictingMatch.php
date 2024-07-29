@@ -1,0 +1,61 @@
+<?php
+
+// This file is auto-generated, don't edit it. Thanks.
+
+namespace AlibabaCloud\SDK\APIG\V20240327\Models\RouteRulesConflictInfo\conflicts\details;
+
+use AlibabaCloud\SDK\APIG\V20240327\Models\HttpRouteMatch;
+use AlibabaCloud\SDK\APIG\V20240327\Models\RouteRulesConflictInfo\conflicts\details\conflictingMatch\operationInfo;
+use AlibabaCloud\Tea\Model;
+
+class conflictingMatch extends Model
+{
+    /**
+     * @var HttpRouteMatch
+     */
+    public $match;
+
+    /**
+     * @var operationInfo
+     */
+    public $operationInfo;
+    protected $_name = [
+        'match'         => 'match',
+        'operationInfo' => 'operationInfo',
+    ];
+
+    public function validate()
+    {
+    }
+
+    public function toMap()
+    {
+        $res = [];
+        if (null !== $this->match) {
+            $res['match'] = null !== $this->match ? $this->match->toMap() : null;
+        }
+        if (null !== $this->operationInfo) {
+            $res['operationInfo'] = null !== $this->operationInfo ? $this->operationInfo->toMap() : null;
+        }
+
+        return $res;
+    }
+
+    /**
+     * @param array $map
+     *
+     * @return conflictingMatch
+     */
+    public static function fromMap($map = [])
+    {
+        $model = new self();
+        if (isset($map['match'])) {
+            $model->match = HttpRouteMatch::fromMap($map['match']);
+        }
+        if (isset($map['operationInfo'])) {
+            $model->operationInfo = operationInfo::fromMap($map['operationInfo']);
+        }
+
+        return $model;
+    }
+}

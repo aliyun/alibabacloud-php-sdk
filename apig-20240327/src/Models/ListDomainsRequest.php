@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListDomainsRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $gatewayId;
+
+    /**
      * @example test
      *
      * @var string
@@ -29,6 +34,7 @@ class ListDomainsRequest extends Model
      */
     public $pageSize;
     protected $_name = [
+        'gatewayId'  => 'gatewayId',
         'nameLike'   => 'nameLike',
         'pageNumber' => 'pageNumber',
         'pageSize'   => 'pageSize',
@@ -41,6 +47,9 @@ class ListDomainsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->gatewayId) {
+            $res['gatewayId'] = $this->gatewayId;
+        }
         if (null !== $this->nameLike) {
             $res['nameLike'] = $this->nameLike;
         }
@@ -62,6 +71,9 @@ class ListDomainsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['gatewayId'])) {
+            $model->gatewayId = $map['gatewayId'];
+        }
         if (isset($map['nameLike'])) {
             $model->nameLike = $map['nameLike'];
         }
