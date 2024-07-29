@@ -25,15 +25,21 @@ class CheckResourceStockRequest extends Model
     public $bizRegionId;
 
     /**
+     * @var bool
+     */
+    public $gpuAcceleration;
+
+    /**
      * @example cn-hangzhou-i
      *
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'acpSpecId'   => 'AcpSpecId',
-        'bizRegionId' => 'BizRegionId',
-        'zoneId'      => 'ZoneId',
+        'acpSpecId'       => 'AcpSpecId',
+        'bizRegionId'     => 'BizRegionId',
+        'gpuAcceleration' => 'GpuAcceleration',
+        'zoneId'          => 'ZoneId',
     ];
 
     public function validate()
@@ -48,6 +54,9 @@ class CheckResourceStockRequest extends Model
         }
         if (null !== $this->bizRegionId) {
             $res['BizRegionId'] = $this->bizRegionId;
+        }
+        if (null !== $this->gpuAcceleration) {
+            $res['GpuAcceleration'] = $this->gpuAcceleration;
         }
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
@@ -69,6 +78,9 @@ class CheckResourceStockRequest extends Model
         }
         if (isset($map['BizRegionId'])) {
             $model->bizRegionId = $map['BizRegionId'];
+        }
+        if (isset($map['GpuAcceleration'])) {
+            $model->gpuAcceleration = $map['GpuAcceleration'];
         }
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];

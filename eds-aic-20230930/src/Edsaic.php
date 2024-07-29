@@ -325,6 +325,9 @@ class Edsaic extends OpenApiClient
         if (!Utils::isUnset($request->bizRegionId)) {
             $query['BizRegionId'] = $request->bizRegionId;
         }
+        if (!Utils::isUnset($request->gpuAcceleration)) {
+            $query['GpuAcceleration'] = $request->gpuAcceleration;
+        }
         if (!Utils::isUnset($request->zoneId)) {
             $query['ZoneId'] = $request->zoneId;
         }
