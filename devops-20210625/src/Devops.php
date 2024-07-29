@@ -370,7 +370,11 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\LogVMDeployMachineResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\MergeMergeRequestRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\MergeMergeRequestResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\PassPipelineValidateResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\PassReleaseStagePipelineValidateRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\PassReleaseStagePipelineValidateResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\RefusePipelineValidateResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\RefuseReleaseStagePipelineValidateRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\RefuseReleaseStagePipelineValidateResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ReleaseWorkspaceResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ReopenMergeRequestRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ReopenMergeRequestResponse;
@@ -12451,6 +12455,67 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 通过人工卡点
+     *  *
+     * @param string                                  $appName
+     * @param string                                  $releaseWorkflowSn
+     * @param string                                  $releaseStageSn
+     * @param string                                  $executionNumber
+     * @param PassReleaseStagePipelineValidateRequest $request           PassReleaseStagePipelineValidateRequest
+     * @param string[]                                $headers           map
+     * @param RuntimeOptions                          $runtime           runtime options for this request RuntimeOptions
+     *
+     * @return PassReleaseStagePipelineValidateResponse PassReleaseStagePipelineValidateResponse
+     */
+    public function passReleaseStagePipelineValidateWithOptions($appName, $releaseWorkflowSn, $releaseStageSn, $executionNumber, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->jobId)) {
+            $query['jobId'] = $request->jobId;
+        }
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'PassReleaseStagePipelineValidate',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/appstack/apps/' . OpenApiUtilClient::getEncodeParam($appName) . '/releaseWorkflows/' . OpenApiUtilClient::getEncodeParam($releaseWorkflowSn) . '/releaseStages/' . OpenApiUtilClient::getEncodeParam($releaseStageSn) . '/executions/' . OpenApiUtilClient::getEncodeParam($executionNumber) . '%3ApassPipelineValidate',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return PassReleaseStagePipelineValidateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 通过人工卡点
+     *  *
+     * @param string                                  $appName
+     * @param string                                  $releaseWorkflowSn
+     * @param string                                  $releaseStageSn
+     * @param string                                  $executionNumber
+     * @param PassReleaseStagePipelineValidateRequest $request           PassReleaseStagePipelineValidateRequest
+     *
+     * @return PassReleaseStagePipelineValidateResponse PassReleaseStagePipelineValidateResponse
+     */
+    public function passReleaseStagePipelineValidate($appName, $releaseWorkflowSn, $releaseStageSn, $executionNumber, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->passReleaseStagePipelineValidateWithOptions($appName, $releaseWorkflowSn, $releaseStageSn, $executionNumber, $request, $headers, $runtime);
+    }
+
+    /**
      * @summary 拒绝人工卡点
      *  *
      * @param string         $organizationId
@@ -12498,6 +12563,67 @@ class Devops extends OpenApiClient
         $headers = [];
 
         return $this->refusePipelineValidateWithOptions($organizationId, $pipelineId, $pipelineRunId, $jobId, $headers, $runtime);
+    }
+
+    /**
+     * @summary 拒绝人工卡点
+     *  *
+     * @param string                                    $appName
+     * @param string                                    $releaseWorkflowSn
+     * @param string                                    $releaseStageSn
+     * @param string                                    $executionNumber
+     * @param RefuseReleaseStagePipelineValidateRequest $request           RefuseReleaseStagePipelineValidateRequest
+     * @param string[]                                  $headers           map
+     * @param RuntimeOptions                            $runtime           runtime options for this request RuntimeOptions
+     *
+     * @return RefuseReleaseStagePipelineValidateResponse RefuseReleaseStagePipelineValidateResponse
+     */
+    public function refuseReleaseStagePipelineValidateWithOptions($appName, $releaseWorkflowSn, $releaseStageSn, $executionNumber, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->jobId)) {
+            $query['jobId'] = $request->jobId;
+        }
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RefuseReleaseStagePipelineValidate',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/appstack/apps/' . OpenApiUtilClient::getEncodeParam($appName) . '/releaseWorkflows/' . OpenApiUtilClient::getEncodeParam($releaseWorkflowSn) . '/releaseStages/' . OpenApiUtilClient::getEncodeParam($releaseStageSn) . '/executions/' . OpenApiUtilClient::getEncodeParam($executionNumber) . '%3ArefusePipelineValidate',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return RefuseReleaseStagePipelineValidateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 拒绝人工卡点
+     *  *
+     * @param string                                    $appName
+     * @param string                                    $releaseWorkflowSn
+     * @param string                                    $releaseStageSn
+     * @param string                                    $executionNumber
+     * @param RefuseReleaseStagePipelineValidateRequest $request           RefuseReleaseStagePipelineValidateRequest
+     *
+     * @return RefuseReleaseStagePipelineValidateResponse RefuseReleaseStagePipelineValidateResponse
+     */
+    public function refuseReleaseStagePipelineValidate($appName, $releaseWorkflowSn, $releaseStageSn, $executionNumber, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->refuseReleaseStagePipelineValidateWithOptions($appName, $releaseWorkflowSn, $releaseStageSn, $executionNumber, $request, $headers, $runtime);
     }
 
     /**
