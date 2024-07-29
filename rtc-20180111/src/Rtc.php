@@ -8,6 +8,9 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\AddRecordTemplateRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\AddRecordTemplateResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateAppRecordTemplateRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateAppRecordTemplateResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateAppRecordTemplateShrinkRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateAppStreamingOutTemplateRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateAppStreamingOutTemplateResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateAppStreamingOutTemplateShrinkRequest;
@@ -17,6 +20,9 @@ use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateEventSubscribeRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateEventSubscribeResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateMPULayoutRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateMPULayoutResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteAppRecordTemplateRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteAppRecordTemplateResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteAppRecordTemplateShrinkRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteAppStreamingOutTemplateRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteAppStreamingOutTemplateResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteAppStreamingOutTemplateShrinkRequest;
@@ -30,11 +36,26 @@ use AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteMPULayoutRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteMPULayoutResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteRecordTemplateRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteRecordTemplateResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAllCallbackResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAppCallbackSecretKeyRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAppCallbackSecretKeyResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAppCallStatusRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAppCallStatusResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAppKeyRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAppKeyResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAppLayoutsRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAppLayoutsResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAppLayoutsShrinkRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAppLiveStreamStatusRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAppLiveStreamStatusResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAppRecordingFilesRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAppRecordingFilesResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAppRecordingFilesShrinkRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAppRecordStatusRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAppRecordStatusResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAppRecordTemplatesRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAppRecordTemplatesResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAppRecordTemplatesShrinkRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAppsRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAppsResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAppStreamingOutTemplatesRequest;
@@ -42,6 +63,8 @@ use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAppStreamingOutTemplatesRespon
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAppStreamingOutTemplatesShrinkRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAutoLiveStreamRuleRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAutoLiveStreamRuleResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeCallbacksRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeCallbacksResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeCallListRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeCallListResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeCallRequest;
@@ -58,6 +81,8 @@ use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeChannelParticipantsRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeChannelParticipantsResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeChannelRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeChannelResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeChannelsRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeChannelsResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeChannelTopPubUserListRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeChannelTopPubUserListResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeChannelUserMetricsRequest;
@@ -106,6 +131,10 @@ use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeRtcPeakChannelCntDataRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeRtcPeakChannelCntDataResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeRtcUserCntDataRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeRtcUserCntDataResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeStreamingOutStatusRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeStreamingOutStatusResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeSystemLayoutListRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeSystemLayoutListResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeUsageAreaDistributionStatDataRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeUsageAreaDistributionStatDataResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeUsageDistributionStatDataRequest;
@@ -122,17 +151,32 @@ use AlibabaCloud\SDK\Rtc\V20180111\Models\EnableAutoLiveStreamRuleRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\EnableAutoLiveStreamRuleResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\GetMPUTaskStatusRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\GetMPUTaskStatusResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyAppCallbackStatusRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyAppCallbackStatusResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyAppLiveStreamStatusRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyAppLiveStreamStatusResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyAppRecordStatusRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyAppRecordStatusResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyAppRecordTemplateRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyAppRecordTemplateResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyAppRecordTemplateShrinkRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyAppRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyAppResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyAppStreamingOutTemplateRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyAppStreamingOutTemplateResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyAppStreamingOutTemplateShrinkRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyCallbackMetaRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyCallbackMetaResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyCallbackMetaShrinkRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyMPULayoutRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyMPULayoutResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\RemoveTerminalsRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\RemoveTerminalsResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\RemoveUsersRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\RemoveUsersResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\StartCategoryCallbackRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\StartCategoryCallbackResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\StartCategoryCallbackShrinkRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartCloudRecordRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartCloudRecordResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartMPUTaskRequest;
@@ -141,6 +185,9 @@ use AlibabaCloud\SDK\Rtc\V20180111\Models\StartRecordTaskRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartRecordTaskResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartStreamingOutRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartStreamingOutResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\StopCategoryCallbackRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\StopCategoryCallbackResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\StopCategoryCallbackShrinkRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StopChannelRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StopChannelResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StopCloudRecordRequest;
@@ -298,6 +345,64 @@ class Rtc extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addRecordTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 增加应用录制模版
+     *  *
+     * @param CreateAppRecordTemplateRequest $tmpReq  CreateAppRecordTemplateRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateAppRecordTemplateResponse CreateAppRecordTemplateResponse
+     */
+    public function createAppRecordTemplateWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateAppRecordTemplateShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->recordTemplate)) {
+            $request->recordTemplateShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->recordTemplate, 'RecordTemplate', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->recordTemplateShrink)) {
+            $query['RecordTemplate'] = $request->recordTemplateShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateAppRecordTemplate',
+            'version'     => '2018-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateAppRecordTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 增加应用录制模版
+     *  *
+     * @param CreateAppRecordTemplateRequest $request CreateAppRecordTemplateRequest
+     *
+     * @return CreateAppRecordTemplateResponse CreateAppRecordTemplateResponse
+     */
+    public function createAppRecordTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAppRecordTemplateWithOptions($request, $runtime);
     }
 
     /**
@@ -539,6 +644,64 @@ class Rtc extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createMPULayoutWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 删除应用录制模版
+     *  *
+     * @param DeleteAppRecordTemplateRequest $tmpReq  DeleteAppRecordTemplateRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteAppRecordTemplateResponse DeleteAppRecordTemplateResponse
+     */
+    public function deleteAppRecordTemplateWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DeleteAppRecordTemplateShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->template)) {
+            $request->templateShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->template, 'Template', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->templateShrink)) {
+            $query['Template'] = $request->templateShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteAppRecordTemplate',
+            'version'     => '2018-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteAppRecordTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除应用录制模版
+     *  *
+     * @param DeleteAppRecordTemplateRequest $request DeleteAppRecordTemplateRequest
+     *
+     * @return DeleteAppRecordTemplateResponse DeleteAppRecordTemplateResponse
+     */
+    public function deleteAppRecordTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAppRecordTemplateWithOptions($request, $runtime);
     }
 
     /**
@@ -842,6 +1005,137 @@ class Rtc extends OpenApiClient
     }
 
     /**
+     * @summary 列出系统支持的事件回调
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeAllCallbackResponse DescribeAllCallbackResponse
+     */
+    public function describeAllCallbackWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'DescribeAllCallback',
+            'version'     => '2018-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeAllCallbackResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 列出系统支持的事件回调
+     *  *
+     * @return DescribeAllCallbackResponse DescribeAllCallbackResponse
+     */
+    public function describeAllCallback()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAllCallbackWithOptions($runtime);
+    }
+
+    /**
+     * @summary 查看app回调开关
+     *  *
+     * @param DescribeAppCallStatusRequest $request DescribeAppCallStatusRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeAppCallStatusResponse DescribeAppCallStatusResponse
+     */
+    public function describeAppCallStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAppCallStatus',
+            'version'     => '2018-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeAppCallStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查看app回调开关
+     *  *
+     * @param DescribeAppCallStatusRequest $request DescribeAppCallStatusRequest
+     *
+     * @return DescribeAppCallStatusResponse DescribeAppCallStatusResponse
+     */
+    public function describeAppCallStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAppCallStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取app回调密钥
+     *  *
+     * @param DescribeAppCallbackSecretKeyRequest $request DescribeAppCallbackSecretKeyRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeAppCallbackSecretKeyResponse DescribeAppCallbackSecretKeyResponse
+     */
+    public function describeAppCallbackSecretKeyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAppCallbackSecretKey',
+            'version'     => '2018-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeAppCallbackSecretKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取app回调密钥
+     *  *
+     * @param DescribeAppCallbackSecretKeyRequest $request DescribeAppCallbackSecretKeyRequest
+     *
+     * @return DescribeAppCallbackSecretKeyResponse DescribeAppCallbackSecretKeyResponse
+     */
+    public function describeAppCallbackSecretKey($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAppCallbackSecretKeyWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 查看AppKey
      *  *
      * @param DescribeAppKeyRequest $request DescribeAppKeyRequest
@@ -889,6 +1183,192 @@ class Rtc extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeAppKeyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询app自定义布局
+     *  *
+     * @param DescribeAppLayoutsRequest $tmpReq  DescribeAppLayoutsRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeAppLayoutsResponse DescribeAppLayoutsResponse
+     */
+    public function describeAppLayoutsWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DescribeAppLayoutsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->condition)) {
+            $request->conditionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->condition, 'Condition', 'json');
+        }
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAppLayouts',
+            'version'     => '2018-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeAppLayoutsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询app自定义布局
+     *  *
+     * @param DescribeAppLayoutsRequest $request DescribeAppLayoutsRequest
+     *
+     * @return DescribeAppLayoutsResponse DescribeAppLayoutsResponse
+     */
+    public function describeAppLayouts($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAppLayoutsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查看应用旁路开关
+     *  *
+     * @param DescribeAppLiveStreamStatusRequest $request DescribeAppLiveStreamStatusRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeAppLiveStreamStatusResponse DescribeAppLiveStreamStatusResponse
+     */
+    public function describeAppLiveStreamStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAppLiveStreamStatus',
+            'version'     => '2018-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeAppLiveStreamStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查看应用旁路开关
+     *  *
+     * @param DescribeAppLiveStreamStatusRequest $request DescribeAppLiveStreamStatusRequest
+     *
+     * @return DescribeAppLiveStreamStatusResponse DescribeAppLiveStreamStatusResponse
+     */
+    public function describeAppLiveStreamStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAppLiveStreamStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询应用录制开关
+     *  *
+     * @param DescribeAppRecordStatusRequest $request DescribeAppRecordStatusRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeAppRecordStatusResponse DescribeAppRecordStatusResponse
+     */
+    public function describeAppRecordStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAppRecordStatus',
+            'version'     => '2018-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeAppRecordStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询应用录制开关
+     *  *
+     * @param DescribeAppRecordStatusRequest $request DescribeAppRecordStatusRequest
+     *
+     * @return DescribeAppRecordStatusResponse DescribeAppRecordStatusResponse
+     */
+    public function describeAppRecordStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAppRecordStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 应用录制模版列表
+     *  *
+     * @param DescribeAppRecordTemplatesRequest $tmpReq  DescribeAppRecordTemplatesRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeAppRecordTemplatesResponse DescribeAppRecordTemplatesResponse
+     */
+    public function describeAppRecordTemplatesWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DescribeAppRecordTemplatesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->condition)) {
+            $request->conditionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->condition, 'Condition', 'json');
+        }
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAppRecordTemplates',
+            'version'     => '2018-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeAppRecordTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 应用录制模版列表
+     *  *
+     * @param DescribeAppRecordTemplatesRequest $request DescribeAppRecordTemplatesRequest
+     *
+     * @return DescribeAppRecordTemplatesResponse DescribeAppRecordTemplatesResponse
+     */
+    public function describeAppRecordTemplates($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAppRecordTemplatesWithOptions($request, $runtime);
     }
 
     /**
@@ -1246,6 +1726,53 @@ class Rtc extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeCallListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary app事件回调列表
+     *  *
+     * @param DescribeCallbacksRequest $request DescribeCallbacksRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeCallbacksResponse DescribeCallbacksResponse
+     */
+    public function describeCallbacksWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCallbacks',
+            'version'     => '2018-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeCallbacksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary app事件回调列表
+     *  *
+     * @param DescribeCallbacksRequest $request DescribeCallbacksRequest
+     *
+     * @return DescribeCallbacksResponse DescribeCallbacksResponse
+     */
+    public function describeCallbacks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCallbacksWithOptions($request, $runtime);
     }
 
     /**
@@ -1792,6 +2319,50 @@ class Rtc extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeChannelUsersWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询在线频道列表
+     *  *
+     * @param DescribeChannelsRequest $request DescribeChannelsRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeChannelsResponse DescribeChannelsResponse
+     */
+    public function describeChannelsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeChannels',
+            'version'     => '2018-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeChannelsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询在线频道列表
+     *  *
+     * @param DescribeChannelsRequest $request DescribeChannelsRequest
+     *
+     * @return DescribeChannelsResponse DescribeChannelsResponse
+     */
+    public function describeChannels($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeChannelsWithOptions($request, $runtime);
     }
 
     /**
@@ -2970,6 +3541,112 @@ class Rtc extends OpenApiClient
     }
 
     /**
+     * @summary 查询旁路推流状态
+     *  *
+     * @param DescribeStreamingOutStatusRequest $request DescribeStreamingOutStatusRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeStreamingOutStatusResponse DescribeStreamingOutStatusResponse
+     */
+    public function describeStreamingOutStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->channelId)) {
+            $query['ChannelId'] = $request->channelId;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeStreamingOutStatus',
+            'version'     => '2018-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeStreamingOutStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询旁路推流状态
+     *  *
+     * @param DescribeStreamingOutStatusRequest $request DescribeStreamingOutStatusRequest
+     *
+     * @return DescribeStreamingOutStatusResponse DescribeStreamingOutStatusResponse
+     */
+    public function describeStreamingOutStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeStreamingOutStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 系统内置布局
+     *  *
+     * @param DescribeSystemLayoutListRequest $request DescribeSystemLayoutListRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeSystemLayoutListResponse DescribeSystemLayoutListResponse
+     */
+    public function describeSystemLayoutListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['PageNum'] = $request->pageNum;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSystemLayoutList',
+            'version'     => '2018-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeSystemLayoutListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 系统内置布局
+     *  *
+     * @param DescribeSystemLayoutListRequest $request DescribeSystemLayoutListRequest
+     *
+     * @return DescribeSystemLayoutListResponse DescribeSystemLayoutListResponse
+     */
+    public function describeSystemLayoutList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSystemLayoutListWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 获取用量统计地域分布数据
      *  *
      * @param DescribeUsageAreaDistributionStatDataRequest $request DescribeUsageAreaDistributionStatDataRequest
@@ -3443,6 +4120,211 @@ class Rtc extends OpenApiClient
     }
 
     /**
+     * @summary 更新app回调事件开关
+     *  *
+     * @param ModifyAppCallbackStatusRequest $request ModifyAppCallbackStatusRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyAppCallbackStatusResponse ModifyAppCallbackStatusResponse
+     */
+    public function modifyAppCallbackStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyAppCallbackStatus',
+            'version'     => '2018-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyAppCallbackStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 更新app回调事件开关
+     *  *
+     * @param ModifyAppCallbackStatusRequest $request ModifyAppCallbackStatusRequest
+     *
+     * @return ModifyAppCallbackStatusResponse ModifyAppCallbackStatusResponse
+     */
+    public function modifyAppCallbackStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyAppCallbackStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 修改应用旁路开关
+     *  *
+     * @param ModifyAppLiveStreamStatusRequest $request ModifyAppLiveStreamStatusRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyAppLiveStreamStatusResponse ModifyAppLiveStreamStatusResponse
+     */
+    public function modifyAppLiveStreamStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyAppLiveStreamStatus',
+            'version'     => '2018-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyAppLiveStreamStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 修改应用旁路开关
+     *  *
+     * @param ModifyAppLiveStreamStatusRequest $request ModifyAppLiveStreamStatusRequest
+     *
+     * @return ModifyAppLiveStreamStatusResponse ModifyAppLiveStreamStatusResponse
+     */
+    public function modifyAppLiveStreamStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyAppLiveStreamStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 修改应用录制开关
+     *  *
+     * @param ModifyAppRecordStatusRequest $request ModifyAppRecordStatusRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyAppRecordStatusResponse ModifyAppRecordStatusResponse
+     */
+    public function modifyAppRecordStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyAppRecordStatus',
+            'version'     => '2018-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyAppRecordStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 修改应用录制开关
+     *  *
+     * @param ModifyAppRecordStatusRequest $request ModifyAppRecordStatusRequest
+     *
+     * @return ModifyAppRecordStatusResponse ModifyAppRecordStatusResponse
+     */
+    public function modifyAppRecordStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyAppRecordStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 修改应用录制模版
+     *  *
+     * @param ModifyAppRecordTemplateRequest $tmpReq  ModifyAppRecordTemplateRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyAppRecordTemplateResponse ModifyAppRecordTemplateResponse
+     */
+    public function modifyAppRecordTemplateWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ModifyAppRecordTemplateShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->recordTemplate)) {
+            $request->recordTemplateShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->recordTemplate, 'RecordTemplate', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->recordTemplateShrink)) {
+            $query['RecordTemplate'] = $request->recordTemplateShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyAppRecordTemplate',
+            'version'     => '2018-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyAppRecordTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 修改应用录制模版
+     *  *
+     * @param ModifyAppRecordTemplateRequest $request ModifyAppRecordTemplateRequest
+     *
+     * @return ModifyAppRecordTemplateResponse ModifyAppRecordTemplateResponse
+     */
+    public function modifyAppRecordTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyAppRecordTemplateWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 更新应用推流模版
      *  *
      * @param ModifyAppStreamingOutTemplateRequest $tmpReq  ModifyAppStreamingOutTemplateRequest
@@ -3495,6 +4377,64 @@ class Rtc extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyAppStreamingOutTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 更新app回调
+     *  *
+     * @param ModifyCallbackMetaRequest $tmpReq  ModifyCallbackMetaRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyCallbackMetaResponse ModifyCallbackMetaResponse
+     */
+    public function modifyCallbackMetaWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ModifyCallbackMetaShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->callback)) {
+            $request->callbackShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->callback, 'Callback', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->callbackShrink)) {
+            $query['Callback'] = $request->callbackShrink;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyCallbackMeta',
+            'version'     => '2018-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyCallbackMetaResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 更新app回调
+     *  *
+     * @param ModifyCallbackMetaRequest $request ModifyCallbackMetaRequest
+     *
+     * @return ModifyCallbackMetaResponse ModifyCallbackMetaResponse
+     */
+    public function modifyCallbackMeta($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyCallbackMetaWithOptions($request, $runtime);
     }
 
     /**
@@ -3658,6 +4598,61 @@ class Rtc extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->removeUsersWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 开启某个事件回调
+     *  *
+     * @param StartCategoryCallbackRequest $tmpReq  StartCategoryCallbackRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return StartCategoryCallbackResponse StartCategoryCallbackResponse
+     */
+    public function startCategoryCallbackWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new StartCategoryCallbackShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->callback)) {
+            $request->callbackShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->callback, 'Callback', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->callbackShrink)) {
+            $query['Callback'] = $request->callbackShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StartCategoryCallback',
+            'version'     => '2018-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return StartCategoryCallbackResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 开启某个事件回调
+     *  *
+     * @param StartCategoryCallbackRequest $request StartCategoryCallbackRequest
+     *
+     * @return StartCategoryCallbackResponse StartCategoryCallbackResponse
+     */
+    public function startCategoryCallback($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->startCategoryCallbackWithOptions($request, $runtime);
     }
 
     /**
@@ -4040,6 +5035,61 @@ class Rtc extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->startStreamingOutWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 关闭某个事件回调
+     *  *
+     * @param StopCategoryCallbackRequest $tmpReq  StopCategoryCallbackRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return StopCategoryCallbackResponse StopCategoryCallbackResponse
+     */
+    public function stopCategoryCallbackWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new StopCategoryCallbackShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->callback)) {
+            $request->callbackShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->callback, 'Callback', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->callbackShrink)) {
+            $query['Callback'] = $request->callbackShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StopCategoryCallback',
+            'version'     => '2018-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return StopCategoryCallbackResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 关闭某个事件回调
+     *  *
+     * @param StopCategoryCallbackRequest $request StopCategoryCallbackRequest
+     *
+     * @return StopCategoryCallbackResponse StopCategoryCallbackResponse
+     */
+    public function stopCategoryCallback($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->stopCategoryCallbackWithOptions($request, $runtime);
     }
 
     /**
