@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RollbackCurrentProjectNodeRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 4****89
      *
      * @var string
@@ -16,6 +18,8 @@ class RollbackCurrentProjectNodeRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1925
      *
      * @var int

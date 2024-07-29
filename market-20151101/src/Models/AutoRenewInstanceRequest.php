@@ -19,6 +19,8 @@ class AutoRenewInstanceRequest extends Model
     public $autoRenewDuration;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $orderBizId;
@@ -29,6 +31,8 @@ class AutoRenewInstanceRequest extends Model
     public $ownerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $type;

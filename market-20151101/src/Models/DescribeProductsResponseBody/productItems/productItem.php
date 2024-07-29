@@ -52,7 +52,7 @@ class productItem extends Model
     public $operationSystem;
 
     /**
-     * @example {\"DiscountPrice\": 0.0, \"TradePrice\": 15750.0, \"Currency\": \"CNY\", \"OriginalPrice\": 15750.0, \"RuleIds\": {\"RuleId\": []}, \"Coupons\": {\"Coupon\": []}}
+     * @example {\\"DiscountPrice\\": 0.0, \\"TradePrice\\": 15750.0, \\"Currency\\": \\"CNY\\", \\"OriginalPrice\\": 15750.0, \\"RuleIds\\": {\\"RuleId\\": []}, \\"Coupons\\": {\\"Coupon\\": []}}
      *
      * @var string
      */

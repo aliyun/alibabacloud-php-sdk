@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ResumeProjectRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 4****89
      *
      * @var string
@@ -16,6 +18,8 @@ class ResumeProjectRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1922
      *
      * @var int

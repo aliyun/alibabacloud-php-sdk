@@ -23,6 +23,8 @@ class DescribeInstancesRequest extends Model
     public $exceptCodes;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 10
      *
      * @var int
@@ -30,6 +32,8 @@ class DescribeInstancesRequest extends Model
     public $pageNumber;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int

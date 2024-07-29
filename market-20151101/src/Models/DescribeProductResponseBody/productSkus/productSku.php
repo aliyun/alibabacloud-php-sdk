@@ -25,7 +25,7 @@ class productSku extends Model
     public $code;
 
     /**
-     * @example {\"img_id\":{\"img_version|img_region\":{\"V1.7|cn-shenzhen-st3-a01\":[\"m-wz9ho4hmos0lpxcldqoq\"]}}
+     * @example {\\"img_id\\":{\\"img_version|img_region\\":{\\"V1.7|cn-shenzhen-st3-a01\\":[\\"m-wz9ho4hmos0lpxcldqoq\\"]}}
      *
      * @var string
      */

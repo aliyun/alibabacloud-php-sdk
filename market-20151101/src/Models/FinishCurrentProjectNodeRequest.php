@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class FinishCurrentProjectNodeRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 4****89
      *
      * @var string
@@ -16,6 +18,8 @@ class FinishCurrentProjectNodeRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1924
      *
      * @var int

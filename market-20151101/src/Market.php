@@ -122,10 +122,12 @@ class Market extends OpenApiClient
     }
 
     /**
-     * @param ActivateLicenseRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary 增加STS支持
+     *  *
+     * @param ActivateLicenseRequest $request ActivateLicenseRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ActivateLicenseResponse
+     * @return ActivateLicenseResponse ActivateLicenseResponse
      */
     public function activateLicenseWithOptions($request, $runtime)
     {
@@ -156,9 +158,11 @@ class Market extends OpenApiClient
     }
 
     /**
-     * @param ActivateLicenseRequest $request
+     * @summary 增加STS支持
+     *  *
+     * @param ActivateLicenseRequest $request ActivateLicenseRequest
      *
-     * @return ActivateLicenseResponse
+     * @return ActivateLicenseResponse ActivateLicenseResponse
      */
     public function activateLicense($request)
     {
@@ -168,10 +172,10 @@ class Market extends OpenApiClient
     }
 
     /**
-     * @param AutoRenewInstanceRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param AutoRenewInstanceRequest $request AutoRenewInstanceRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return AutoRenewInstanceResponse
+     * @return AutoRenewInstanceResponse AutoRenewInstanceResponse
      */
     public function autoRenewInstanceWithOptions($request, $runtime)
     {
@@ -211,9 +215,9 @@ class Market extends OpenApiClient
     }
 
     /**
-     * @param AutoRenewInstanceRequest $request
+     * @param AutoRenewInstanceRequest $request AutoRenewInstanceRequest
      *
-     * @return AutoRenewInstanceResponse
+     * @return AutoRenewInstanceResponse AutoRenewInstanceResponse
      */
     public function autoRenewInstance($request)
     {
@@ -223,10 +227,10 @@ class Market extends OpenApiClient
     }
 
     /**
-     * @param CreateOrderRequest $request
-     * @param RuntimeOptions     $runtime
+     * @param CreateOrderRequest $request CreateOrderRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateOrderResponse
+     * @return CreateOrderResponse CreateOrderResponse
      */
     public function createOrderWithOptions($request, $runtime)
     {
@@ -269,9 +273,9 @@ class Market extends OpenApiClient
     }
 
     /**
-     * @param CreateOrderRequest $request
+     * @param CreateOrderRequest $request CreateOrderRequest
      *
-     * @return CreateOrderResponse
+     * @return CreateOrderResponse CreateOrderResponse
      */
     public function createOrder($request)
     {
@@ -281,10 +285,10 @@ class Market extends OpenApiClient
     }
 
     /**
-     * @param CrossAccountVerifyTokenRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @param CrossAccountVerifyTokenRequest $request CrossAccountVerifyTokenRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return CrossAccountVerifyTokenResponse
+     * @return CrossAccountVerifyTokenResponse CrossAccountVerifyTokenResponse
      */
     public function crossAccountVerifyTokenWithOptions($request, $runtime)
     {
@@ -312,9 +316,9 @@ class Market extends OpenApiClient
     }
 
     /**
-     * @param CrossAccountVerifyTokenRequest $request
+     * @param CrossAccountVerifyTokenRequest $request CrossAccountVerifyTokenRequest
      *
-     * @return CrossAccountVerifyTokenResponse
+     * @return CrossAccountVerifyTokenResponse CrossAccountVerifyTokenResponse
      */
     public function crossAccountVerifyToken($request)
     {
@@ -324,10 +328,12 @@ class Market extends OpenApiClient
     }
 
     /**
-     * @param DescribeApiMeteringRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary 查询API用量
+     *  *
+     * @param DescribeApiMeteringRequest $request DescribeApiMeteringRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeApiMeteringResponse
+     * @return DescribeApiMeteringResponse DescribeApiMeteringResponse
      */
     public function describeApiMeteringWithOptions($request, $runtime)
     {
@@ -352,9 +358,11 @@ class Market extends OpenApiClient
     }
 
     /**
-     * @param DescribeApiMeteringRequest $request
+     * @summary 查询API用量
+     *  *
+     * @param DescribeApiMeteringRequest $request DescribeApiMeteringRequest
      *
-     * @return DescribeApiMeteringResponse
+     * @return DescribeApiMeteringResponse DescribeApiMeteringResponse
      */
     public function describeApiMetering($request)
     {
@@ -364,10 +372,10 @@ class Market extends OpenApiClient
     }
 
     /**
-     * @param DescribeCurrentNodeInfoRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @param DescribeCurrentNodeInfoRequest $request DescribeCurrentNodeInfoRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeCurrentNodeInfoResponse
+     * @return DescribeCurrentNodeInfoResponse DescribeCurrentNodeInfoResponse
      */
     public function describeCurrentNodeInfoWithOptions($request, $runtime)
     {
@@ -395,9 +403,9 @@ class Market extends OpenApiClient
     }
 
     /**
-     * @param DescribeCurrentNodeInfoRequest $request
+     * @param DescribeCurrentNodeInfoRequest $request DescribeCurrentNodeInfoRequest
      *
-     * @return DescribeCurrentNodeInfoResponse
+     * @return DescribeCurrentNodeInfoResponse DescribeCurrentNodeInfoResponse
      */
     public function describeCurrentNodeInfo($request)
     {
@@ -407,10 +415,12 @@ class Market extends OpenApiClient
     }
 
     /**
-     * @param DescribeDistributionProductsRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary 分页获取推广商品
+     *  *
+     * @param DescribeDistributionProductsRequest $request DescribeDistributionProductsRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDistributionProductsResponse
+     * @return DescribeDistributionProductsResponse DescribeDistributionProductsResponse
      */
     public function describeDistributionProductsWithOptions($request, $runtime)
     {
@@ -435,9 +445,11 @@ class Market extends OpenApiClient
     }
 
     /**
-     * @param DescribeDistributionProductsRequest $request
+     * @summary 分页获取推广商品
+     *  *
+     * @param DescribeDistributionProductsRequest $request DescribeDistributionProductsRequest
      *
-     * @return DescribeDistributionProductsResponse
+     * @return DescribeDistributionProductsResponse DescribeDistributionProductsResponse
      */
     public function describeDistributionProducts($request)
     {
@@ -447,10 +459,12 @@ class Market extends OpenApiClient
     }
 
     /**
-     * @param DescribeDistributionProductsLinkRequest $tmpReq
-     * @param RuntimeOptions                          $runtime
+     * @summary 获取并生成推广商品-链接
+     *  *
+     * @param DescribeDistributionProductsLinkRequest $tmpReq  DescribeDistributionProductsLinkRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDistributionProductsLinkResponse
+     * @return DescribeDistributionProductsLinkResponse DescribeDistributionProductsLinkResponse
      */
     public function describeDistributionProductsLinkWithOptions($tmpReq, $runtime)
     {
@@ -483,9 +497,11 @@ class Market extends OpenApiClient
     }
 
     /**
-     * @param DescribeDistributionProductsLinkRequest $request
+     * @summary 获取并生成推广商品-链接
+     *  *
+     * @param DescribeDistributionProductsLinkRequest $request DescribeDistributionProductsLinkRequest
      *
-     * @return DescribeDistributionProductsLinkResponse
+     * @return DescribeDistributionProductsLinkResponse DescribeDistributionProductsLinkResponse
      */
     public function describeDistributionProductsLink($request)
     {
@@ -495,10 +511,10 @@ class Market extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param DescribeInstanceRequest $request DescribeInstanceRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeInstanceResponse
+     * @return DescribeInstanceResponse DescribeInstanceResponse
      */
     public function describeInstanceWithOptions($request, $runtime)
     {
@@ -532,9 +548,9 @@ class Market extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceRequest $request
+     * @param DescribeInstanceRequest $request DescribeInstanceRequest
      *
-     * @return DescribeInstanceResponse
+     * @return DescribeInstanceResponse DescribeInstanceResponse
      */
     public function describeInstance($request)
     {
@@ -544,10 +560,10 @@ class Market extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstancesRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param DescribeInstancesRequest $request DescribeInstancesRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeInstancesResponse
+     * @return DescribeInstancesResponse DescribeInstancesResponse
      */
     public function describeInstancesWithOptions($request, $runtime)
     {
@@ -587,9 +603,9 @@ class Market extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstancesRequest $request
+     * @param DescribeInstancesRequest $request DescribeInstancesRequest
      *
-     * @return DescribeInstancesResponse
+     * @return DescribeInstancesResponse DescribeInstancesResponse
      */
     public function describeInstances($request)
     {
@@ -599,10 +615,12 @@ class Market extends OpenApiClient
     }
 
     /**
-     * @param DescribeLicenseRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary 获取License
+     *  *
+     * @param DescribeLicenseRequest $request DescribeLicenseRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeLicenseResponse
+     * @return DescribeLicenseResponse DescribeLicenseResponse
      */
     public function describeLicenseWithOptions($request, $runtime)
     {
@@ -630,9 +648,11 @@ class Market extends OpenApiClient
     }
 
     /**
-     * @param DescribeLicenseRequest $request
+     * @summary 获取License
+     *  *
+     * @param DescribeLicenseRequest $request DescribeLicenseRequest
      *
-     * @return DescribeLicenseResponse
+     * @return DescribeLicenseResponse DescribeLicenseResponse
      */
     public function describeLicense($request)
     {
@@ -642,10 +662,10 @@ class Market extends OpenApiClient
     }
 
     /**
-     * @param DescribeOrderRequest $request
-     * @param RuntimeOptions       $runtime
+     * @param DescribeOrderRequest $request DescribeOrderRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeOrderResponse
+     * @return DescribeOrderResponse DescribeOrderResponse
      */
     public function describeOrderWithOptions($request, $runtime)
     {
@@ -673,9 +693,9 @@ class Market extends OpenApiClient
     }
 
     /**
-     * @param DescribeOrderRequest $request
+     * @param DescribeOrderRequest $request DescribeOrderRequest
      *
-     * @return DescribeOrderResponse
+     * @return DescribeOrderResponse DescribeOrderResponse
      */
     public function describeOrder($request)
     {
@@ -685,10 +705,10 @@ class Market extends OpenApiClient
     }
 
     /**
-     * @param DescribePriceRequest $request
-     * @param RuntimeOptions       $runtime
+     * @param DescribePriceRequest $request DescribePriceRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePriceResponse
+     * @return DescribePriceResponse DescribePriceResponse
      */
     public function describePriceWithOptions($request, $runtime)
     {
@@ -719,9 +739,9 @@ class Market extends OpenApiClient
     }
 
     /**
-     * @param DescribePriceRequest $request
+     * @param DescribePriceRequest $request DescribePriceRequest
      *
-     * @return DescribePriceResponse
+     * @return DescribePriceResponse DescribePriceResponse
      */
     public function describePrice($request)
     {
@@ -731,10 +751,10 @@ class Market extends OpenApiClient
     }
 
     /**
-     * @param DescribeProductRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param DescribeProductRequest $request DescribeProductRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeProductResponse
+     * @return DescribeProductResponse DescribeProductResponse
      */
     public function describeProductWithOptions($request, $runtime)
     {
@@ -768,9 +788,9 @@ class Market extends OpenApiClient
     }
 
     /**
-     * @param DescribeProductRequest $request
+     * @param DescribeProductRequest $request DescribeProductRequest
      *
-     * @return DescribeProductResponse
+     * @return DescribeProductResponse DescribeProductResponse
      */
     public function describeProduct($request)
     {
@@ -780,10 +800,10 @@ class Market extends OpenApiClient
     }
 
     /**
-     * @param DescribeProductsRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param DescribeProductsRequest $request DescribeProductsRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeProductsResponse
+     * @return DescribeProductsResponse DescribeProductsResponse
      */
     public function describeProductsWithOptions($request, $runtime)
     {
@@ -820,9 +840,9 @@ class Market extends OpenApiClient
     }
 
     /**
-     * @param DescribeProductsRequest $request
+     * @param DescribeProductsRequest $request DescribeProductsRequest
      *
-     * @return DescribeProductsResponse
+     * @return DescribeProductsResponse DescribeProductsResponse
      */
     public function describeProducts($request)
     {
@@ -832,10 +852,10 @@ class Market extends OpenApiClient
     }
 
     /**
-     * @param DescribeProjectAttachmentsRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @param DescribeProjectAttachmentsRequest $request DescribeProjectAttachmentsRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeProjectAttachmentsResponse
+     * @return DescribeProjectAttachmentsResponse DescribeProjectAttachmentsResponse
      */
     public function describeProjectAttachmentsWithOptions($request, $runtime)
     {
@@ -863,9 +883,9 @@ class Market extends OpenApiClient
     }
 
     /**
-     * @param DescribeProjectAttachmentsRequest $request
+     * @param DescribeProjectAttachmentsRequest $request DescribeProjectAttachmentsRequest
      *
-     * @return DescribeProjectAttachmentsResponse
+     * @return DescribeProjectAttachmentsResponse DescribeProjectAttachmentsResponse
      */
     public function describeProjectAttachments($request)
     {
@@ -875,10 +895,10 @@ class Market extends OpenApiClient
     }
 
     /**
-     * @param DescribeProjectInfoRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param DescribeProjectInfoRequest $request DescribeProjectInfoRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeProjectInfoResponse
+     * @return DescribeProjectInfoResponse DescribeProjectInfoResponse
      */
     public function describeProjectInfoWithOptions($request, $runtime)
     {
@@ -906,9 +926,9 @@ class Market extends OpenApiClient
     }
 
     /**
-     * @param DescribeProjectInfoRequest $request
+     * @param DescribeProjectInfoRequest $request DescribeProjectInfoRequest
      *
-     * @return DescribeProjectInfoResponse
+     * @return DescribeProjectInfoResponse DescribeProjectInfoResponse
      */
     public function describeProjectInfo($request)
     {
@@ -918,10 +938,10 @@ class Market extends OpenApiClient
     }
 
     /**
-     * @param DescribeProjectMessagesRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @param DescribeProjectMessagesRequest $request DescribeProjectMessagesRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeProjectMessagesResponse
+     * @return DescribeProjectMessagesResponse DescribeProjectMessagesResponse
      */
     public function describeProjectMessagesWithOptions($request, $runtime)
     {
@@ -952,9 +972,9 @@ class Market extends OpenApiClient
     }
 
     /**
-     * @param DescribeProjectMessagesRequest $request
+     * @param DescribeProjectMessagesRequest $request DescribeProjectMessagesRequest
      *
-     * @return DescribeProjectMessagesResponse
+     * @return DescribeProjectMessagesResponse DescribeProjectMessagesResponse
      */
     public function describeProjectMessages($request)
     {
@@ -964,9 +984,8 @@ class Market extends OpenApiClient
     }
 
     /**
-     * **
-     *   * **
-     *   *
+     * @description **
+     *  *
      * @param DescribeProjectNodesRequest $request DescribeProjectNodesRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -998,9 +1017,8 @@ class Market extends OpenApiClient
     }
 
     /**
-     * **
-     *   * **
-     *   *
+     * @description **
+     *  *
      * @param DescribeProjectNodesRequest $request DescribeProjectNodesRequest
      *
      * @return DescribeProjectNodesResponse DescribeProjectNodesResponse
@@ -1013,10 +1031,10 @@ class Market extends OpenApiClient
     }
 
     /**
-     * @param DescribeProjectOperateLogsRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @param DescribeProjectOperateLogsRequest $request DescribeProjectOperateLogsRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeProjectOperateLogsResponse
+     * @return DescribeProjectOperateLogsResponse DescribeProjectOperateLogsResponse
      */
     public function describeProjectOperateLogsWithOptions($request, $runtime)
     {
@@ -1044,9 +1062,9 @@ class Market extends OpenApiClient
     }
 
     /**
-     * @param DescribeProjectOperateLogsRequest $request
+     * @param DescribeProjectOperateLogsRequest $request DescribeProjectOperateLogsRequest
      *
-     * @return DescribeProjectOperateLogsResponse
+     * @return DescribeProjectOperateLogsResponse DescribeProjectOperateLogsResponse
      */
     public function describeProjectOperateLogs($request)
     {
@@ -1056,10 +1074,10 @@ class Market extends OpenApiClient
     }
 
     /**
-     * @param FinishCurrentProjectNodeRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @param FinishCurrentProjectNodeRequest $request FinishCurrentProjectNodeRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return FinishCurrentProjectNodeResponse
+     * @return FinishCurrentProjectNodeResponse FinishCurrentProjectNodeResponse
      */
     public function finishCurrentProjectNodeWithOptions($request, $runtime)
     {
@@ -1096,9 +1114,9 @@ class Market extends OpenApiClient
     }
 
     /**
-     * @param FinishCurrentProjectNodeRequest $request
+     * @param FinishCurrentProjectNodeRequest $request FinishCurrentProjectNodeRequest
      *
-     * @return FinishCurrentProjectNodeResponse
+     * @return FinishCurrentProjectNodeResponse FinishCurrentProjectNodeResponse
      */
     public function finishCurrentProjectNode($request)
     {
@@ -1108,10 +1126,10 @@ class Market extends OpenApiClient
     }
 
     /**
-     * @param PauseProjectRequest $request
-     * @param RuntimeOptions      $runtime
+     * @param PauseProjectRequest $request PauseProjectRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return PauseProjectResponse
+     * @return PauseProjectResponse PauseProjectResponse
      */
     public function pauseProjectWithOptions($request, $runtime)
     {
@@ -1145,9 +1163,9 @@ class Market extends OpenApiClient
     }
 
     /**
-     * @param PauseProjectRequest $request
+     * @param PauseProjectRequest $request PauseProjectRequest
      *
-     * @return PauseProjectResponse
+     * @return PauseProjectResponse PauseProjectResponse
      */
     public function pauseProject($request)
     {
@@ -1157,10 +1175,10 @@ class Market extends OpenApiClient
     }
 
     /**
-     * @param PushMeteringDataRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param PushMeteringDataRequest $request PushMeteringDataRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return PushMeteringDataResponse
+     * @return PushMeteringDataResponse PushMeteringDataResponse
      */
     public function pushMeteringDataWithOptions($request, $runtime)
     {
@@ -1188,9 +1206,9 @@ class Market extends OpenApiClient
     }
 
     /**
-     * @param PushMeteringDataRequest $request
+     * @param PushMeteringDataRequest $request PushMeteringDataRequest
      *
-     * @return PushMeteringDataResponse
+     * @return PushMeteringDataResponse PushMeteringDataResponse
      */
     public function pushMeteringData($request)
     {
@@ -1200,10 +1218,10 @@ class Market extends OpenApiClient
     }
 
     /**
-     * @param ResumeProjectRequest $request
-     * @param RuntimeOptions       $runtime
+     * @param ResumeProjectRequest $request ResumeProjectRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ResumeProjectResponse
+     * @return ResumeProjectResponse ResumeProjectResponse
      */
     public function resumeProjectWithOptions($request, $runtime)
     {
@@ -1237,9 +1255,9 @@ class Market extends OpenApiClient
     }
 
     /**
-     * @param ResumeProjectRequest $request
+     * @param ResumeProjectRequest $request ResumeProjectRequest
      *
-     * @return ResumeProjectResponse
+     * @return ResumeProjectResponse ResumeProjectResponse
      */
     public function resumeProject($request)
     {
@@ -1249,10 +1267,10 @@ class Market extends OpenApiClient
     }
 
     /**
-     * @param RollbackCurrentProjectNodeRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @param RollbackCurrentProjectNodeRequest $request RollbackCurrentProjectNodeRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return RollbackCurrentProjectNodeResponse
+     * @return RollbackCurrentProjectNodeResponse RollbackCurrentProjectNodeResponse
      */
     public function rollbackCurrentProjectNodeWithOptions($request, $runtime)
     {
@@ -1286,9 +1304,9 @@ class Market extends OpenApiClient
     }
 
     /**
-     * @param RollbackCurrentProjectNodeRequest $request
+     * @param RollbackCurrentProjectNodeRequest $request RollbackCurrentProjectNodeRequest
      *
-     * @return RollbackCurrentProjectNodeResponse
+     * @return RollbackCurrentProjectNodeResponse RollbackCurrentProjectNodeResponse
      */
     public function rollbackCurrentProjectNode($request)
     {

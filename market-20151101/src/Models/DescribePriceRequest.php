@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribePriceRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example {"components":{"package_version":"yuncode12928000016"},"duration":1,"pricingCycle":"YEAR","productCode":"cmgj01**28","quantity":1,"skuCode":"prepay"}
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribePriceRequest extends Model
     public $commodity;
 
     /**
+     * @description This parameter is required.
+     *
      * @example INSTANCE_BUY
      *
      * @var string

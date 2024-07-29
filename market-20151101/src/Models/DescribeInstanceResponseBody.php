@@ -11,6 +11,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $activeAddress;
+
+    /**
      * @example {"frontEndUrl":"https://****.aliyundoc.com","password":"Sjtv***","adminUrl":"https://****.aliyundoc.com","username":"aliyun***"}
      *
      * @var string
@@ -84,6 +89,11 @@ class DescribeInstanceResponseBody extends Model
     public $isTrial;
 
     /**
+     * @var string
+     */
+    public $licenseCode;
+
+    /**
      * @var modules
      */
     public $modules;
@@ -138,6 +148,7 @@ class DescribeInstanceResponseBody extends Model
      */
     public $supplierName;
     protected $_name = [
+        'activeAddress'  => 'ActiveAddress',
         'appJson'        => 'AppJson',
         'autoRenewal'    => 'AutoRenewal',
         'beganOn'        => 'BeganOn',
@@ -149,6 +160,7 @@ class DescribeInstanceResponseBody extends Model
         'hostJson'       => 'HostJson',
         'instanceId'     => 'InstanceId',
         'isTrial'        => 'IsTrial',
+        'licenseCode'    => 'LicenseCode',
         'modules'        => 'Modules',
         'orderId'        => 'OrderId',
         'productCode'    => 'ProductCode',
@@ -167,6 +179,9 @@ class DescribeInstanceResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->activeAddress) {
+            $res['ActiveAddress'] = $this->activeAddress;
+        }
         if (null !== $this->appJson) {
             $res['AppJson'] = $this->appJson;
         }
@@ -199,6 +214,9 @@ class DescribeInstanceResponseBody extends Model
         }
         if (null !== $this->isTrial) {
             $res['IsTrial'] = $this->isTrial;
+        }
+        if (null !== $this->licenseCode) {
+            $res['LicenseCode'] = $this->licenseCode;
         }
         if (null !== $this->modules) {
             $res['Modules'] = null !== $this->modules ? $this->modules->toMap() : null;
@@ -239,6 +257,9 @@ class DescribeInstanceResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ActiveAddress'])) {
+            $model->activeAddress = $map['ActiveAddress'];
+        }
         if (isset($map['AppJson'])) {
             $model->appJson = $map['AppJson'];
         }
@@ -271,6 +292,9 @@ class DescribeInstanceResponseBody extends Model
         }
         if (isset($map['IsTrial'])) {
             $model->isTrial = $map['IsTrial'];
+        }
+        if (isset($map['LicenseCode'])) {
+            $model->licenseCode = $map['LicenseCode'];
         }
         if (isset($map['Modules'])) {
             $model->modules = modules::fromMap($map['Modules']);

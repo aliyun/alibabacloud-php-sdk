@@ -16,6 +16,8 @@ class ActivateLicenseRequest extends Model
     public $identification;
 
     /**
+     * @description This parameter is required.
+     *
      * @example APSEDH8TA5CSGK-********_6CNTACBH9EQPOATFXJQL4B2COE7M43VVQ7GUGKAA
      *
      * @var string

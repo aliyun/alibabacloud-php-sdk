@@ -18,6 +18,8 @@ class DescribeProductRequest extends Model
     public $aliUid;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cmjj01**45
      *
      * @var string

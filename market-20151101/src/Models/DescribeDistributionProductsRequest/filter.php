@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class filter extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example supplierName
      *
      * @var string
@@ -16,6 +18,8 @@ class filter extends Model
     public $key;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cmj0000000
      *
      * @var string

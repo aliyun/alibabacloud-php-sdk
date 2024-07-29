@@ -15,6 +15,8 @@ class DescribeDistributionProductsRequest extends Model
     public $filter;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +24,8 @@ class DescribeDistributionProductsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 10
      *
      * @var int

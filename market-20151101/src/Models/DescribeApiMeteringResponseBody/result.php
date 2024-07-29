@@ -28,6 +28,11 @@ class result extends Model
     public $productName;
 
     /**
+     * @var int
+     */
+    public $totalCapacity;
+
+    /**
      * @example 98
      *
      * @var int
@@ -46,12 +51,13 @@ class result extends Model
      */
     public $unit;
     protected $_name = [
-        'aliyunPk'    => 'AliyunPk',
-        'productCode' => 'ProductCode',
-        'productName' => 'ProductName',
-        'totalQuota'  => 'TotalQuota',
-        'totalUsage'  => 'TotalUsage',
-        'unit'        => 'Unit',
+        'aliyunPk'      => 'AliyunPk',
+        'productCode'   => 'ProductCode',
+        'productName'   => 'ProductName',
+        'totalCapacity' => 'TotalCapacity',
+        'totalQuota'    => 'TotalQuota',
+        'totalUsage'    => 'TotalUsage',
+        'unit'          => 'Unit',
     ];
 
     public function validate()
@@ -69,6 +75,9 @@ class result extends Model
         }
         if (null !== $this->productName) {
             $res['ProductName'] = $this->productName;
+        }
+        if (null !== $this->totalCapacity) {
+            $res['TotalCapacity'] = $this->totalCapacity;
         }
         if (null !== $this->totalQuota) {
             $res['TotalQuota'] = $this->totalQuota;
@@ -99,6 +108,9 @@ class result extends Model
         }
         if (isset($map['ProductName'])) {
             $model->productName = $map['ProductName'];
+        }
+        if (isset($map['TotalCapacity'])) {
+            $model->totalCapacity = $map['TotalCapacity'];
         }
         if (isset($map['TotalQuota'])) {
             $model->totalQuota = $map['TotalQuota'];
