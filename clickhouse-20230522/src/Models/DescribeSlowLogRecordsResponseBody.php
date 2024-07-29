@@ -1,0 +1,62 @@
+<?php
+
+// This file is auto-generated, don't edit it. Thanks.
+
+namespace AlibabaCloud\SDK\Clickhouse\V20230522\Models;
+
+use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DescribeSlowLogRecordsResponseBody\data;
+use AlibabaCloud\Tea\Model;
+
+class DescribeSlowLogRecordsResponseBody extends Model
+{
+    /**
+     * @var data
+     */
+    public $data;
+
+    /**
+     * @example DF203CC8-5F68-5E3F-8050-3C77DD65731A
+     *
+     * @var string
+     */
+    public $requestId;
+    protected $_name = [
+        'data'      => 'Data',
+        'requestId' => 'RequestId',
+    ];
+
+    public function validate()
+    {
+    }
+
+    public function toMap()
+    {
+        $res = [];
+        if (null !== $this->data) {
+            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+
+        return $res;
+    }
+
+    /**
+     * @param array $map
+     *
+     * @return DescribeSlowLogRecordsResponseBody
+     */
+    public static function fromMap($map = [])
+    {
+        $model = new self();
+        if (isset($map['Data'])) {
+            $model->data = data::fromMap($map['Data']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+
+        return $model;
+    }
+}
