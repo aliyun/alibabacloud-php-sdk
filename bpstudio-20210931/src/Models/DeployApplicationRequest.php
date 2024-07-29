@@ -11,6 +11,7 @@ class DeployApplicationRequest extends Model
     /**
      * @description The ID of the application.
      *
+     * This parameter is required.
      * @example VVK605ZH00OA4MRT
      *
      * @var string

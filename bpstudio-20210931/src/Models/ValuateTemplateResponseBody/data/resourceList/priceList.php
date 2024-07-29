@@ -20,7 +20,7 @@ class priceList extends Model
     /**
      * @description The error message that is returned.
      *
-     * @example ServiceUnavailable : The request has failed due to a temporary failure of the server.\r\nRequestId : 4AA302DB-3286-5589-8637-FF6D8507B7A9.
+     * @example ServiceUnavailable : The request has failed due to a temporary failure of the server.\\r\\nRequestId : 4AA302DB-3286-5589-8637-FF6D8507B7A9.
      *
      * @var string
      */
@@ -81,7 +81,7 @@ class priceList extends Model
     public $tradePrice;
 
     /**
-     * @description Indicates whether the instance is newly created. Valid values:\
+     * @description Indicates whether the instance is newly created. Valid values:\\
      * 0: The price of the instance is not included.
      * @example "1"
      *

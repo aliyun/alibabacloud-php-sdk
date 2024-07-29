@@ -29,6 +29,7 @@ class GetTemplateRequest extends Model
     /**
      * @description Template ID
      *
+     * This parameter is required.
      * @example XFKR6WYRVS24S07R
      *
      * @var string

@@ -11,6 +11,7 @@ class ValidateApplicationRequest extends Model
     /**
      * @description The ID of the application.
      *
+     * This parameter is required.
      * @example 02S7UU41WKJL7ERR
      *
      * @var string

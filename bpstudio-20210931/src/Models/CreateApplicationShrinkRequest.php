@@ -46,8 +46,9 @@ class CreateApplicationShrinkRequest extends Model
      * @description The name of the application.
      *
      *   The application name must be unique. You can call the [ListApplication](https://www.alibabacloud.com/help/en/bp-studio/latest/api-bpstudio-2021-09-31-listapplication) operation to query the existing applications.
-     *   The application name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http:// or https://`. The name can contain letters, digits, underscores (\_), and hyphens (-).
+     *   The application name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http:// or https://`. The name can contain letters, digits, underscores (_), and hyphens (-).
      *
+     * This parameter is required.
      * @example cadt-application
      *
      * @var string
@@ -66,6 +67,7 @@ class CreateApplicationShrinkRequest extends Model
     /**
      * @description The ID of the template.
      *
+     * This parameter is required.
      * @example 0KSHPM6SJU03TNZP
      *
      * @var string

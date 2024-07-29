@@ -28,7 +28,7 @@ class ExecuteOperationASyncRequest extends Model
      *
      * Example of enumerating more than one set of parameters:
      *
-     *   { "ServiceType": "ecs", "Operation": "modifyInstanceType", "Attributes": "{\\"change_type\\":\\"modify_instance_type\\",\\"instance_type\\":\\"ecs.hfr7.2xlarge\\",\\"instanceId\\":\\"i-xxxxxxxxx\\",\\"regionId\\":\\"cn-beijing\\",\\"appId\\":\\"xxxxxxxxxxxxx\\"}" }
+     *   { "ServiceType": "ecs", "Operation": "modifyInstanceType", "Attributes": "{\\\\"change_type\\\\":\\\\"modify_instance_type\\\\",\\\\"instance_type\\\\":\\\\"ecs.hfr7.2xlarge\\\\",\\\\"instanceId\\\\":\\\\"i-xxxxxxxxx\\\\",\\\\"regionId\\\\":\\\\"cn-beijing\\\\",\\\\"appId\\\\":\\\\"xxxxxxxxxxxxx\\\\"}" }
      *
      * <!-- -->
      * @var mixed[]
@@ -46,7 +46,7 @@ class ExecuteOperationASyncRequest extends Model
 
     /**
      * @description This operation type is the operation type of modifying the product, some operation types are generic, and some are used alone. The following is an example of ECS deployment:
-     * - Paid type for ecs: modifyPayType
+     * This parameter is required.
      * @example queryTopo
      *
      * @var string
@@ -65,6 +65,7 @@ class ExecuteOperationASyncRequest extends Model
     /**
      * @description The type of the service. If you want to perform operations on an Elastic Compute Service (ECS) instance, set ServiceType to ecs.
      *
+     * This parameter is required.
      * @example ACK
      *
      * @var string

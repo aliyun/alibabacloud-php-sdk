@@ -20,6 +20,7 @@ class ValuateTemplateShrinkRequest extends Model
     /**
      * @description The client token that is used to ensure the idempotence of the request.
      *
+     * This parameter is required.
      * @example 1600765710019
      *
      * @var string
@@ -45,6 +46,7 @@ class ValuateTemplateShrinkRequest extends Model
     /**
      * @description The template ID.
      *
+     * This parameter is required.
      * @example 0KSHPM6SJU03TNZP
      *
      * @var string

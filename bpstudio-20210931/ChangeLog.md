@@ -1,3 +1,6 @@
+2024-07-29 Version: 2.1.1
+- Generated php 2021-09-31 for BPStudio.
+
 2024-04-07 Version: 2.1.0
 - Support API ExecuteOperationSync.
 - Update API CreateApplication: update param ClientToken.

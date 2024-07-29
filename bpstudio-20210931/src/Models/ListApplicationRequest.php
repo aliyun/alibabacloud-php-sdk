@@ -20,6 +20,7 @@ class ListApplicationRequest extends Model
     /**
      * @description The pagination size of the resulting value cannot be less than the minimum value of 1 and cannot be greater than the maximum value of 50.
      *
+     * This parameter is required.
      * @example 10
      *
      * @var int
@@ -29,6 +30,7 @@ class ListApplicationRequest extends Model
     /**
      * @description The pagination page number of the resulting value cannot be less than the minimum value of 1 and cannot be greater than the maximum value of 10000.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int

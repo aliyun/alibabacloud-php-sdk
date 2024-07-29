@@ -11,6 +11,7 @@ class ChangeResourceGroupRequest extends Model
     /**
      * @description The ID of the new resource group.
      *
+     * This parameter is required.
      * @example rg-aek2ajbjoloa23q
      *
      * @var string
@@ -20,6 +21,7 @@ class ChangeResourceGroupRequest extends Model
     /**
      * @description The ID of the resource.
      *
+     * This parameter is required.
      * @example P7RMVSVM9LOVYQOM
      *
      * @var string
@@ -29,6 +31,7 @@ class ChangeResourceGroupRequest extends Model
     /**
      * @description The type of the resource for which you want to change the resource group. Valid values: APPLICATION and TEMPLATE.
      *
+     * This parameter is required.
      * @example APPLICATION
      *
      * @var string

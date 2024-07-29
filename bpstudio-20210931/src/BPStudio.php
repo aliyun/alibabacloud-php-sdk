@@ -96,10 +96,12 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * @param AppFailBackRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary 容灾应用切回
+     *  *
+     * @param AppFailBackRequest $request AppFailBackRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return AppFailBackResponse
+     * @return AppFailBackResponse AppFailBackResponse
      */
     public function appFailBackWithOptions($request, $runtime)
     {
@@ -127,9 +129,11 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * @param AppFailBackRequest $request
+     * @summary 容灾应用切回
+     *  *
+     * @param AppFailBackRequest $request AppFailBackRequest
      *
-     * @return AppFailBackResponse
+     * @return AppFailBackResponse AppFailBackResponse
      */
     public function appFailBack($request)
     {
@@ -139,10 +143,12 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * @param AppFailOverRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary 容灾应用切换
+     *  *
+     * @param AppFailOverRequest $request AppFailOverRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return AppFailOverResponse
+     * @return AppFailOverResponse AppFailOverResponse
      */
     public function appFailOverWithOptions($request, $runtime)
     {
@@ -173,9 +179,11 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * @param AppFailOverRequest $request
+     * @summary 容灾应用切换
+     *  *
+     * @param AppFailOverRequest $request AppFailOverRequest
      *
-     * @return AppFailOverResponse
+     * @return AppFailOverResponse AppFailOverResponse
      */
     public function appFailOver($request)
     {
@@ -185,10 +193,12 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * @param ChangeResourceGroupRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Changes the resource group to which an application or template belongs.
+     *  *
+     * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ChangeResourceGroupResponse
+     * @return ChangeResourceGroupResponse ChangeResourceGroupResponse
      */
     public function changeResourceGroupWithOptions($request, $runtime)
     {
@@ -222,9 +232,11 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * @param ChangeResourceGroupRequest $request
+     * @summary Changes the resource group to which an application or template belongs.
+     *  *
+     * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
      *
-     * @return ChangeResourceGroupResponse
+     * @return ChangeResourceGroupResponse ChangeResourceGroupResponse
      */
     public function changeResourceGroup($request)
     {
@@ -234,10 +246,12 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * @param CreateApplicationRequest $tmpReq
-     * @param RuntimeOptions           $runtime
+     * @summary Creates an application based on an official template or private template in Cloud Architect Design Tool (CADT). Before you call this operation, make sure that you understand the billing methods and prices of Alibaba Cloud services to be used in the application.
+     *  *
+     * @param CreateApplicationRequest $tmpReq  CreateApplicationRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateApplicationResponse
+     * @return CreateApplicationResponse CreateApplicationResponse
      */
     public function createApplicationWithOptions($tmpReq, $runtime)
     {
@@ -297,9 +311,11 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * @param CreateApplicationRequest $request
+     * @summary Creates an application based on an official template or private template in Cloud Architect Design Tool (CADT). Before you call this operation, make sure that you understand the billing methods and prices of Alibaba Cloud services to be used in the application.
+     *  *
+     * @param CreateApplicationRequest $request CreateApplicationRequest
      *
-     * @return CreateApplicationResponse
+     * @return CreateApplicationResponse CreateApplicationResponse
      */
     public function createApplication($request)
     {
@@ -309,8 +325,10 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * Before you call this operation to delete an application, make sure that the application is in the `Destroyed_Success` state. Otherwise, the application fails to be deleted.`` You can call the [GetApplication](https://www.alibabacloud.com/help/en/bp-studio/latest/api-bpstudio-2021-09-31-getapplication) operation to query the status of an application.
-     *   *
+     * @summary Deletes an application.
+     *  *
+     * @description Before you call this operation to delete an application, make sure that the application is in the `Destroyed_Success` state. Otherwise, the application fails to be deleted.`` You can call the [GetApplication](https://www.alibabacloud.com/help/en/bp-studio/latest/api-bpstudio-2021-09-31-getapplication) operation to query the status of an application.
+     *  *
      * @param DeleteApplicationRequest $request DeleteApplicationRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -345,8 +363,10 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * Before you call this operation to delete an application, make sure that the application is in the `Destroyed_Success` state. Otherwise, the application fails to be deleted.`` You can call the [GetApplication](https://www.alibabacloud.com/help/en/bp-studio/latest/api-bpstudio-2021-09-31-getapplication) operation to query the status of an application.
-     *   *
+     * @summary Deletes an application.
+     *  *
+     * @description Before you call this operation to delete an application, make sure that the application is in the `Destroyed_Success` state. Otherwise, the application fails to be deleted.`` You can call the [GetApplication](https://www.alibabacloud.com/help/en/bp-studio/latest/api-bpstudio-2021-09-31-getapplication) operation to query the status of an application.
+     *  *
      * @param DeleteApplicationRequest $request DeleteApplicationRequest
      *
      * @return DeleteApplicationResponse DeleteApplicationResponse
@@ -359,10 +379,12 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * @param DeployApplicationRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Deploys an application after the payment.
+     *  *
+     * @param DeployApplicationRequest $request DeployApplicationRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeployApplicationResponse
+     * @return DeployApplicationResponse DeployApplicationResponse
      */
     public function deployApplicationWithOptions($request, $runtime)
     {
@@ -398,9 +420,11 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * @param DeployApplicationRequest $request
+     * @summary Deploys an application after the payment.
+     *  *
+     * @param DeployApplicationRequest $request DeployApplicationRequest
      *
-     * @return DeployApplicationResponse
+     * @return DeployApplicationResponse DeployApplicationResponse
      */
     public function deployApplication($request)
     {
@@ -410,10 +434,12 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * @param ExecuteOperationASyncRequest $tmpReq
-     * @param RuntimeOptions               $runtime
+     * @summary Asynchronous execution of product operation functions.
+     *  *
+     * @param ExecuteOperationASyncRequest $tmpReq  ExecuteOperationASyncRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ExecuteOperationASyncResponse
+     * @return ExecuteOperationASyncResponse ExecuteOperationASyncResponse
      */
     public function executeOperationASyncWithOptions($tmpReq, $runtime)
     {
@@ -461,9 +487,11 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * @param ExecuteOperationASyncRequest $request
+     * @summary Asynchronous execution of product operation functions.
+     *  *
+     * @param ExecuteOperationASyncRequest $request ExecuteOperationASyncRequest
      *
-     * @return ExecuteOperationASyncResponse
+     * @return ExecuteOperationASyncResponse ExecuteOperationASyncResponse
      */
     public function executeOperationASync($request)
     {
@@ -473,10 +501,12 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * @param ExecuteOperationSyncRequest $tmpReq
-     * @param RuntimeOptions              $runtime
+     * @summary 维护应用下资源API（同步操作）
+     *  *
+     * @param ExecuteOperationSyncRequest $tmpReq  ExecuteOperationSyncRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ExecuteOperationSyncResponse
+     * @return ExecuteOperationSyncResponse ExecuteOperationSyncResponse
      */
     public function executeOperationSyncWithOptions($tmpReq, $runtime)
     {
@@ -524,9 +554,11 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * @param ExecuteOperationSyncRequest $request
+     * @summary 维护应用下资源API（同步操作）
+     *  *
+     * @param ExecuteOperationSyncRequest $request ExecuteOperationSyncRequest
      *
-     * @return ExecuteOperationSyncResponse
+     * @return ExecuteOperationSyncResponse ExecuteOperationSyncResponse
      */
     public function executeOperationSync($request)
     {
@@ -536,10 +568,12 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * @param GetApplicationRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary The URL of the application topology image.
+     *  *
+     * @param GetApplicationRequest $request GetApplicationRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetApplicationResponse
+     * @return GetApplicationResponse GetApplicationResponse
      */
     public function getApplicationWithOptions($request, $runtime)
     {
@@ -570,9 +604,11 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * @param GetApplicationRequest $request
+     * @summary The URL of the application topology image.
+     *  *
+     * @param GetApplicationRequest $request GetApplicationRequest
      *
-     * @return GetApplicationResponse
+     * @return GetApplicationResponse GetApplicationResponse
      */
     public function getApplication($request)
     {
@@ -582,10 +618,12 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * @param GetExecuteOperationResultRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Asynchronously queries the result of an operation that is performed on a service instance.
+     *  *
+     * @param GetExecuteOperationResultRequest $request GetExecuteOperationResultRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetExecuteOperationResultResponse
+     * @return GetExecuteOperationResultResponse GetExecuteOperationResultResponse
      */
     public function getExecuteOperationResultWithOptions($request, $runtime)
     {
@@ -616,9 +654,11 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * @param GetExecuteOperationResultRequest $request
+     * @summary Asynchronously queries the result of an operation that is performed on a service instance.
+     *  *
+     * @param GetExecuteOperationResultRequest $request GetExecuteOperationResultRequest
      *
-     * @return GetExecuteOperationResultResponse
+     * @return GetExecuteOperationResultResponse GetExecuteOperationResultResponse
      */
     public function getExecuteOperationResult($request)
     {
@@ -628,10 +668,12 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * @param GetFoTaskStatusRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary 获取容灾切换任务状态
+     *  *
+     * @param GetFoTaskStatusRequest $request GetFoTaskStatusRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetFoTaskStatusResponse
+     * @return GetFoTaskStatusResponse GetFoTaskStatusResponse
      */
     public function getFoTaskStatusWithOptions($request, $runtime)
     {
@@ -659,9 +701,11 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * @param GetFoTaskStatusRequest $request
+     * @summary 获取容灾切换任务状态
+     *  *
+     * @param GetFoTaskStatusRequest $request GetFoTaskStatusRequest
      *
-     * @return GetFoTaskStatusResponse
+     * @return GetFoTaskStatusResponse GetFoTaskStatusResponse
      */
     public function getFoTaskStatus($request)
     {
@@ -671,10 +715,12 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * @param GetPotentialFailZonesRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary 获取容灾服务可切换的可用区列表
+     *  *
+     * @param GetPotentialFailZonesRequest $request GetPotentialFailZonesRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetPotentialFailZonesResponse
+     * @return GetPotentialFailZonesResponse GetPotentialFailZonesResponse
      */
     public function getPotentialFailZonesWithOptions($request, $runtime)
     {
@@ -705,9 +751,11 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * @param GetPotentialFailZonesRequest $request
+     * @summary 获取容灾服务可切换的可用区列表
+     *  *
+     * @param GetPotentialFailZonesRequest $request GetPotentialFailZonesRequest
      *
-     * @return GetPotentialFailZonesResponse
+     * @return GetPotentialFailZonesResponse GetPotentialFailZonesResponse
      */
     public function getPotentialFailZones($request)
     {
@@ -717,10 +765,12 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * @param GetTemplateRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary Get template images and information about architecture diagrams.
+     *  *
+     * @param GetTemplateRequest $request GetTemplateRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetTemplateResponse
+     * @return GetTemplateResponse GetTemplateResponse
      */
     public function getTemplateWithOptions($request, $runtime)
     {
@@ -754,9 +804,11 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * @param GetTemplateRequest $request
+     * @summary Get template images and information about architecture diagrams.
+     *  *
+     * @param GetTemplateRequest $request GetTemplateRequest
      *
-     * @return GetTemplateResponse
+     * @return GetTemplateResponse GetTemplateResponse
      */
     public function getTemplate($request)
     {
@@ -766,9 +818,12 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * @deprecated : GetToken is deprecated, please use BPStudio::2021-09-31::GetApplication instead.
-     *   * ><danger> This API is no longer recommended, and the image related to the Application has included access authorization in the GetApplication property.></danger>
-     *   *
+     * @deprecated openAPI GetToken is deprecated, please use BPStudio::2021-09-31::GetApplication instead
+     *  *
+     * @summary Obtains a temporary token that is used to read the architecture diagram. The validity period of the token is 30 minutes.
+     *  *
+     * @description >Danger:  This API is no longer recommended, and the image related to the Application has included access authorization in the GetApplication property.
+     *  *
      * Deprecated
      *
      * @param GetTokenRequest $request GetTokenRequest
@@ -802,9 +857,12 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * @deprecated : GetToken is deprecated, please use BPStudio::2021-09-31::GetApplication instead.
-     *   * ><danger> This API is no longer recommended, and the image related to the Application has included access authorization in the GetApplication property.></danger>
-     *   *
+     * @deprecated openAPI GetToken is deprecated, please use BPStudio::2021-09-31::GetApplication instead
+     *  *
+     * @summary Obtains a temporary token that is used to read the architecture diagram. The validity period of the token is 30 minutes.
+     *  *
+     * @description >Danger:  This API is no longer recommended, and the image related to the Application has included access authorization in the GetApplication property.
+     *  *
      * Deprecated
      *
      * @param GetTokenRequest $request GetTokenRequest
@@ -819,10 +877,12 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * @param InitAppFailOverRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary 准备应用切换
+     *  *
+     * @param InitAppFailOverRequest $request InitAppFailOverRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return InitAppFailOverResponse
+     * @return InitAppFailOverResponse InitAppFailOverResponse
      */
     public function initAppFailOverWithOptions($request, $runtime)
     {
@@ -850,9 +910,11 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * @param InitAppFailOverRequest $request
+     * @summary 准备应用切换
+     *  *
+     * @param InitAppFailOverRequest $request InitAppFailOverRequest
      *
-     * @return InitAppFailOverResponse
+     * @return InitAppFailOverResponse InitAppFailOverResponse
      */
     public function initAppFailOver($request)
     {
@@ -862,10 +924,12 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * @param ListApplicationRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary This API provides a list of all applications under the current user. The optional keyword parameter defines the keywords contained in the application name.
+     *  *
+     * @param ListApplicationRequest $request ListApplicationRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListApplicationResponse
+     * @return ListApplicationResponse ListApplicationResponse
      */
     public function listApplicationWithOptions($request, $runtime)
     {
@@ -914,9 +978,11 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * @param ListApplicationRequest $request
+     * @summary This API provides a list of all applications under the current user. The optional keyword parameter defines the keywords contained in the application name.
+     *  *
+     * @param ListApplicationRequest $request ListApplicationRequest
      *
-     * @return ListApplicationResponse
+     * @return ListApplicationResponse ListApplicationResponse
      */
     public function listApplication($request)
     {
@@ -926,9 +992,11 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary 获取已经创建的APP
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListFoCreatedAppsResponse
+     * @return ListFoCreatedAppsResponse ListFoCreatedAppsResponse
      */
     public function listFoCreatedAppsWithOptions($runtime)
     {
@@ -949,7 +1017,9 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * @return ListFoCreatedAppsResponse
+     * @summary 获取已经创建的APP
+     *  *
+     * @return ListFoCreatedAppsResponse ListFoCreatedAppsResponse
      */
     public function listFoCreatedApps()
     {
@@ -959,10 +1029,12 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * @param ListTagResourcesRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Queries the tags of one or more applications or templates.
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResourcesWithOptions($request, $runtime)
     {
@@ -1007,9 +1079,11 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * @param ListTagResourcesRequest $request
+     * @summary Queries the tags of one or more applications or templates.
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
      *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResources($request)
     {
@@ -1019,10 +1093,12 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * @param ListTemplateRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Queries templates, including information such as the template name, architecture image URL, and URL of the serialized architecture image file.
+     *  *
+     * @param ListTemplateRequest $request ListTemplateRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTemplateResponse
+     * @return ListTemplateResponse ListTemplateResponse
      */
     public function listTemplateWithOptions($request, $runtime)
     {
@@ -1068,9 +1144,11 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * @param ListTemplateRequest $request
+     * @summary Queries templates, including information such as the template name, architecture image URL, and URL of the serialized architecture image file.
+     *  *
+     * @param ListTemplateRequest $request ListTemplateRequest
      *
-     * @return ListTemplateResponse
+     * @return ListTemplateResponse ListTemplateResponse
      */
     public function listTemplate($request)
     {
@@ -1080,10 +1158,12 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * @param ReleaseApplicationRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Releases the resources of an application.
+     *  *
+     * @param ReleaseApplicationRequest $request ReleaseApplicationRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ReleaseApplicationResponse
+     * @return ReleaseApplicationResponse ReleaseApplicationResponse
      */
     public function releaseApplicationWithOptions($request, $runtime)
     {
@@ -1117,9 +1197,11 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * @param ReleaseApplicationRequest $request
+     * @summary Releases the resources of an application.
+     *  *
+     * @param ReleaseApplicationRequest $request ReleaseApplicationRequest
      *
-     * @return ReleaseApplicationResponse
+     * @return ReleaseApplicationResponse ReleaseApplicationResponse
      */
     public function releaseApplication($request)
     {
@@ -1129,10 +1211,12 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * @param ValidateApplicationRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Verifies the resources of an application. ValidateApplication is an asynchronous operation. You can call the GetApplication operation to query the verification result.
+     *  *
+     * @param ValidateApplicationRequest $request ValidateApplicationRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ValidateApplicationResponse
+     * @return ValidateApplicationResponse ValidateApplicationResponse
      */
     public function validateApplicationWithOptions($request, $runtime)
     {
@@ -1168,9 +1252,11 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * @param ValidateApplicationRequest $request
+     * @summary Verifies the resources of an application. ValidateApplication is an asynchronous operation. You can call the GetApplication operation to query the verification result.
+     *  *
+     * @param ValidateApplicationRequest $request ValidateApplicationRequest
      *
-     * @return ValidateApplicationResponse
+     * @return ValidateApplicationResponse ValidateApplicationResponse
      */
     public function validateApplication($request)
     {
@@ -1180,10 +1266,12 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * @param ValuateApplicationRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Queries the prices of resources of an application. You can call the GetApplication operation to obtain the query results.
+     *  *
+     * @param ValuateApplicationRequest $request ValuateApplicationRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ValuateApplicationResponse
+     * @return ValuateApplicationResponse ValuateApplicationResponse
      */
     public function valuateApplicationWithOptions($request, $runtime)
     {
@@ -1217,9 +1305,11 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * @param ValuateApplicationRequest $request
+     * @summary Queries the prices of resources of an application. You can call the GetApplication operation to obtain the query results.
+     *  *
+     * @param ValuateApplicationRequest $request ValuateApplicationRequest
      *
-     * @return ValuateApplicationResponse
+     * @return ValuateApplicationResponse ValuateApplicationResponse
      */
     public function valuateApplication($request)
     {
@@ -1229,10 +1319,12 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * @param ValuateTemplateRequest $tmpReq
-     * @param RuntimeOptions         $runtime
+     * @summary Queries the price of a template.
+     *  *
+     * @param ValuateTemplateRequest $tmpReq  ValuateTemplateRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ValuateTemplateResponse
+     * @return ValuateTemplateResponse ValuateTemplateResponse
      */
     public function valuateTemplateWithOptions($tmpReq, $runtime)
     {
@@ -1283,9 +1375,11 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * @param ValuateTemplateRequest $request
+     * @summary Queries the price of a template.
+     *  *
+     * @param ValuateTemplateRequest $request ValuateTemplateRequest
      *
-     * @return ValuateTemplateResponse
+     * @return ValuateTemplateResponse ValuateTemplateResponse
      */
     public function valuateTemplate($request)
     {

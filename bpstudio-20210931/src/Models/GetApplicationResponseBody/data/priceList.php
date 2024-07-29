@@ -126,7 +126,7 @@ class priceList extends Model
     public $specification;
 
     /**
-     * @description The creation mode. Valid values:\
+     * @description The creation mode. Valid values:\\
      * 2: imports an instance.
      * @example 1
      *

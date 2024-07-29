@@ -11,6 +11,7 @@ class GetExecuteOperationResultRequest extends Model
     /**
      * @description The ID of the operation.
      *
+     * This parameter is required.
      * @example op_xxxxxxxxxxxxxxxxxxxxxx
      *
      * @var string

@@ -11,6 +11,7 @@ class ReleaseApplicationRequest extends Model
     /**
      * @description The ID of the application.
      *
+     * This parameter is required.
      * @example 7QSXFQW46ZNGOUDM
      *
      * @var string

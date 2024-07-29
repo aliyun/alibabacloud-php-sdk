@@ -20,6 +20,7 @@ class ListTemplateRequest extends Model
     /**
      * @description The number of entries to return on each page.
      *
+     * This parameter is required.
      * @example 10
      *
      * @var int
@@ -29,6 +30,7 @@ class ListTemplateRequest extends Model
     /**
      * @description The number of the page to return.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -71,6 +73,7 @@ class ListTemplateRequest extends Model
     /**
      * @description The type of the templates to be returned. Valid values: public and private
      *
+     * This parameter is required.
      * @example public
      *
      * @var string

@@ -30,6 +30,7 @@ class ListTagResourcesRequest extends Model
     /**
      * @description The ID of the region.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -39,6 +40,7 @@ class ListTagResourcesRequest extends Model
     /**
      * @description The resource IDs. You can specify a maximum number of 50 IDs.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $resourceId;
@@ -46,6 +48,7 @@ class ListTagResourcesRequest extends Model
     /**
      * @description The resource type.
      *
+     * This parameter is required.
      * @example Application
      *
      * @var string

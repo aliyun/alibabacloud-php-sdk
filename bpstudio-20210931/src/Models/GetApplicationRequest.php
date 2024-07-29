@@ -11,6 +11,7 @@ class GetApplicationRequest extends Model
     /**
      * @description The ID of the request.
      *
+     * This parameter is required.
      * @example VVK605ZH00OA4MRT
      *
      * @var string

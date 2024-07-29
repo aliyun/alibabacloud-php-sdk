@@ -28,6 +28,8 @@ class ExecuteOperationSyncShrinkRequest extends Model
     public $clientToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example rename
      *
      * @var string
@@ -42,6 +44,8 @@ class ExecuteOperationSyncShrinkRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example dds
      *
      * @var string

@@ -11,6 +11,7 @@ class ValuateApplicationRequest extends Model
     /**
      * @description The operation that you want to perform. Set the value to ValuateApplication.
      *
+     * This parameter is required.
      * @example 02S7UU41WKJL7ERR
      *
      * @var string
