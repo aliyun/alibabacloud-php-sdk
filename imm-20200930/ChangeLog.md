@@ -3,6 +3,11 @@
 - Update API GetFileMeta: add param WithFields.
 
 
+2024-07-30 Version: 4.5.4
+- Update API BatchGetFileMeta: add param WithFields.
+- Update API GetFileMeta: add param WithFields.
+
+
 2024-07-25 Version: 4.5.3
 - Generated php 2020-09-30 for imm.
 
