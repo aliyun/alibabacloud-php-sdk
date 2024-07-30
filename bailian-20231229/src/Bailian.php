@@ -6,6 +6,8 @@ namespace AlibabaCloud\SDK\Bailian\V20231229;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\AddCategoryRequest;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\AddCategoryResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\AddFileRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\AddFileResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\ApplyFileUploadLeaseRequest;
@@ -13,6 +15,7 @@ use AlibabaCloud\SDK\Bailian\V20231229\Models\ApplyFileUploadLeaseResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\CreateIndexRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\CreateIndexResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\CreateIndexShrinkRequest;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\DeleteCategoryResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\DeleteFileResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\DeleteIndexDocumentRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\DeleteIndexDocumentResponse;
@@ -22,6 +25,8 @@ use AlibabaCloud\SDK\Bailian\V20231229\Models\DeleteIndexResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\DescribeFileResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\GetIndexJobStatusRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\GetIndexJobStatusResponse;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\ListCategoryRequest;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\ListCategoryResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\ListChunksRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\ListChunksResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\ListIndexDocumentsRequest;
@@ -73,6 +78,60 @@ class Bailian extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @param string             $WorkspaceId
+     * @param AddCategoryRequest $request     AddCategoryRequest
+     * @param string[]           $headers     map
+     * @param RuntimeOptions     $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return AddCategoryResponse AddCategoryResponse
+     */
+    public function addCategoryWithOptions($WorkspaceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->categoryName)) {
+            $body['CategoryName'] = $request->categoryName;
+        }
+        if (!Utils::isUnset($request->categoryType)) {
+            $body['CategoryType'] = $request->categoryType;
+        }
+        if (!Utils::isUnset($request->parentCategoryId)) {
+            $body['ParentCategoryId'] = $request->parentCategoryId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'AddCategory',
+            'version'     => '2023-12-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($WorkspaceId) . '/datacenter/category/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string             $WorkspaceId
+     * @param AddCategoryRequest $request     AddCategoryRequest
+     *
+     * @return AddCategoryResponse AddCategoryResponse
+     */
+    public function addCategory($WorkspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->addCategoryWithOptions($WorkspaceId, $request, $headers, $runtime);
     }
 
     /**
@@ -299,6 +358,48 @@ class Bailian extends OpenApiClient
         $headers = [];
 
         return $this->createIndexWithOptions($WorkspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $CategoryId
+     * @param string         $WorkspaceId
+     * @param string[]       $headers     map
+     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return DeleteCategoryResponse DeleteCategoryResponse
+     */
+    public function deleteCategoryWithOptions($CategoryId, $WorkspaceId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteCategory',
+            'version'     => '2023-12-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($WorkspaceId) . '/datacenter/category/' . OpenApiUtilClient::getEncodeParam($CategoryId) . '/',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $CategoryId
+     * @param string $WorkspaceId
+     *
+     * @return DeleteCategoryResponse DeleteCategoryResponse
+     */
+    public function deleteCategory($CategoryId, $WorkspaceId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteCategoryWithOptions($CategoryId, $WorkspaceId, $headers, $runtime);
     }
 
     /**
@@ -558,6 +659,67 @@ class Bailian extends OpenApiClient
         $headers = [];
 
         return $this->getIndexJobStatusWithOptions($WorkspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary ListCategory
+     *  *
+     * @param string              $WorkspaceId
+     * @param ListCategoryRequest $request     ListCategoryRequest
+     * @param string[]            $headers     map
+     * @param RuntimeOptions      $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return ListCategoryResponse ListCategoryResponse
+     */
+    public function listCategoryWithOptions($WorkspaceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->categoryType)) {
+            $body['CategoryType'] = $request->categoryType;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $body['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $body['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->parentCategoryId)) {
+            $body['ParentCategoryId'] = $request->parentCategoryId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListCategory',
+            'version'     => '2023-12-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($WorkspaceId) . '/datacenter/categories',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary ListCategory
+     *  *
+     * @param string              $WorkspaceId
+     * @param ListCategoryRequest $request     ListCategoryRequest
+     *
+     * @return ListCategoryResponse ListCategoryResponse
+     */
+    public function listCategory($WorkspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listCategoryWithOptions($WorkspaceId, $request, $headers, $runtime);
     }
 
     /**
