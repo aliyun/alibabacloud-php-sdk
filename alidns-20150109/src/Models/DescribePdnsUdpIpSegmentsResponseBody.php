@@ -33,12 +33,18 @@ class DescribePdnsUdpIpSegmentsResponseBody extends Model
      * @var int
      */
     public $totalCount;
+
+    /**
+     * @var string
+     */
+    public $totalPages;
     protected $_name = [
         'ipSegments' => 'IpSegments',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
         'requestId'  => 'RequestId',
         'totalCount' => 'TotalCount',
+        'totalPages' => 'TotalPages',
     ];
 
     public function validate()
@@ -68,6 +74,9 @@ class DescribePdnsUdpIpSegmentsResponseBody extends Model
         }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
+        }
+        if (null !== $this->totalPages) {
+            $res['TotalPages'] = $this->totalPages;
         }
 
         return $res;
@@ -101,6 +110,9 @@ class DescribePdnsUdpIpSegmentsResponseBody extends Model
         }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
+        }
+        if (isset($map['TotalPages'])) {
+            $model->totalPages = $map['TotalPages'];
         }
 
         return $model;

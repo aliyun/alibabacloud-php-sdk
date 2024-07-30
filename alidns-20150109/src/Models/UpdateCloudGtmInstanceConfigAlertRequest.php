@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateCloudGtmInstanceConfigAlertRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh-CN: Chinese
+     *   en-US: English
+     *
      * @example zh-CN
      *
      * @var string
@@ -17,16 +22,25 @@ class UpdateCloudGtmInstanceConfigAlertRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @description The alert configurations.
+     *
      * @var alertConfig[]
      */
     public $alertConfig;
 
     /**
+     * @description The alert contact groups.
+     *
      * @var string[]
      */
     public $alertGroup;
 
     /**
+     * @description The alert configuration mode of the instance. Valid values:
+     *
+     *   global: global alert configuration
+     *   instance_config: custom alert configuration
+     *
      * @example global
      *
      * @var string
@@ -34,6 +48,8 @@ class UpdateCloudGtmInstanceConfigAlertRequest extends Model
     public $alertMode;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     *
      * @example 1ae05db4-10e7-11ef-b126-00163e24**22
      *
      * @var string
@@ -41,6 +57,8 @@ class UpdateCloudGtmInstanceConfigAlertRequest extends Model
     public $clientToken;
 
     /**
+     * @description The configuration ID of the access domain name. Two configuration IDs exist when an A record and an AAAA record are configured for the access domain name that is bound to the GTM instance. This ID uniquely identifies a configuration.
+     *
      * @example Config-000**11
      *
      * @var string
@@ -48,6 +66,8 @@ class UpdateCloudGtmInstanceConfigAlertRequest extends Model
     public $configId;
 
     /**
+     * @description The ID of the Global Traffic Manager (GTM) 3.0 instance.
+     *
      * @example gtm-cn-zz11t58**0s
      *
      * @var string

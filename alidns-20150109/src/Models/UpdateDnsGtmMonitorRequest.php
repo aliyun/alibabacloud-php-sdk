@@ -128,7 +128,7 @@ class UpdateDnsGtmMonitorRequest extends Model
     /**
      * @description The health check timeout period. Unit: milliseconds.
      *
-     * @example 30000
+     * @example 3000
      *
      * @var int
      */

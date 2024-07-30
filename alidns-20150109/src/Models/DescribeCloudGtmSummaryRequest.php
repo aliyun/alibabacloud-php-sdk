@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeCloudGtmSummaryRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh-CN: Chinese
+     *   en-US: English
+     *
      * @example en-US
      *
      * @var string

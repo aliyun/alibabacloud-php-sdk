@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeCloudGtmSummaryResponseBody extends Model
 {
     /**
+     * @description The total number of instances within the current account.
+     *
      * @example 10
      *
      * @var int
@@ -16,20 +18,26 @@ class DescribeCloudGtmSummaryResponseBody extends Model
     public $instanceTotalCount;
 
     /**
-     * @example 101
+     * @description The total number of configured health check tasks.
+     *
+     * @example 20
      *
      * @var int
      */
     public $monitorTaskTotalCount;
 
     /**
-     * @example 20
+     * @description The quota on the number of health check tasks.
+     *
+     * @example 101
      *
      * @var int
      */
     public $monitorTaskTotalQuota;
 
     /**
+     * @description The request ID.
+     *
      * @example 199C3699-9A7B-41A1-BB5A-F1E862D3CB38
      *
      * @var string

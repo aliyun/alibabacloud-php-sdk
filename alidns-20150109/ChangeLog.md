@@ -1,3 +1,7 @@
+2024-07-30 Version: 3.4.2
+- Update API DescribePdnsUdpIpSegments: update response param.
+
+
 2024-07-19 Version: 3.4.1
 - Update API DescribePdnsUserInfo: update response param.
 - Update API GetTxtRecordForVerify: update response param.

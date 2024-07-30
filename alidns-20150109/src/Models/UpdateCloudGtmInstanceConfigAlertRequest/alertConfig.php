@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class alertConfig extends Model
 {
     /**
+     * @description Specifies whether to configure DingTalk notifications. Valid values:
+     *
+     *   true: DingTalk notifications are configured. DingTalk notifications are sent when alerts are triggered.
+     *   false: DingTalk notifications are not configured.
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +21,11 @@ class alertConfig extends Model
     public $dingtalkNotice;
 
     /**
+     * @description Specifies whether to configure email notifications. Valid values:
+     *
+     *   true: Email notifications are configured. Emails are sent when alerts are triggered.
+     *   false: Email notifications are not configured.
+     *
      * @example true
      *
      * @var bool
@@ -23,6 +33,13 @@ class alertConfig extends Model
     public $emailNotice;
 
     /**
+     * @description The type of the alert event. Valid values:
+     *
+     *   addr_alert: The address is unavailable.
+     *   addr_resume: The address becomes available.
+     *   addr_pool_unavailable: The address pool is unavailable.
+     *   addr_pool_available: The address pool becomes available.
+     *
      * @example addr_alert
      *
      * @var string
@@ -30,6 +47,12 @@ class alertConfig extends Model
     public $noticeType;
 
     /**
+     * @description Specifies whether to configure text message notifications. Valid values:
+     *
+     *   true: Text message notifications are configured. Text messages are sent when alerts are triggered.
+     *   false: Text message notifications are not configured.
+     *
+     * Only the China site (aliyun.com) supports text message notifications.
      * @example true
      *
      * @var bool
