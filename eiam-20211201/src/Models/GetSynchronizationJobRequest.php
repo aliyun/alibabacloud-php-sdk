@@ -6,20 +6,10 @@ namespace AlibabaCloud\SDK\Eiam\V20211201\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetApplicationProvisioningConfigRequest extends Model
+class GetSynchronizationJobRequest extends Model
 {
     /**
-     * @description The ID of the application.
-     *
-     * This parameter is required.
-     * @example app_mkv7rgt4d7i4u7zqtzev2mxxxx
-     *
-     * @var string
-     */
-    public $applicationId;
-
-    /**
-     * @description The instance ID.
+     * @description IDaaS EIAM实例的ID。
      *
      * This parameter is required.
      * @example idaas_ue2jvisn35ea5lmthk267xxxxx
@@ -27,9 +17,19 @@ class GetApplicationProvisioningConfigRequest extends Model
      * @var string
      */
     public $instanceId;
+
+    /**
+     * @description 同步任务ID
+     *
+     * This parameter is required.
+     * @example sync_0000347vjovtcf41li0fgsd98gn24q9njxxxxx
+     *
+     * @var string
+     */
+    public $synchronizationJobId;
     protected $_name = [
-        'applicationId' => 'ApplicationId',
-        'instanceId'    => 'InstanceId',
+        'instanceId'           => 'InstanceId',
+        'synchronizationJobId' => 'SynchronizationJobId',
     ];
 
     public function validate()
@@ -39,11 +39,11 @@ class GetApplicationProvisioningConfigRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->applicationId) {
-            $res['ApplicationId'] = $this->applicationId;
-        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->synchronizationJobId) {
+            $res['SynchronizationJobId'] = $this->synchronizationJobId;
         }
 
         return $res;
@@ -52,16 +52,16 @@ class GetApplicationProvisioningConfigRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetApplicationProvisioningConfigRequest
+     * @return GetSynchronizationJobRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ApplicationId'])) {
-            $model->applicationId = $map['ApplicationId'];
-        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['SynchronizationJobId'])) {
+            $model->synchronizationJobId = $map['SynchronizationJobId'];
         }
 
         return $model;

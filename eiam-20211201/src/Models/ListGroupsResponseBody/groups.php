@@ -65,7 +65,6 @@ class groups extends Model
     /**
      * @description The source type of the group. Only build_in may be returned, which indicates that the group was created in IDaaS.
      *
-     *
      * @example build_in
      *
      * @var string

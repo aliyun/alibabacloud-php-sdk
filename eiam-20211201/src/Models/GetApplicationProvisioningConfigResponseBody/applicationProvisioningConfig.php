@@ -27,8 +27,11 @@ class applicationProvisioningConfig extends Model
     public $callbackProvisioningConfig;
 
     /**
-     * @description Client-side rendering, Valid values:
-     * - template：template mode.
+     * @description The rendering mode of the account synchronization page. Valid values:
+     *
+     *   standard: standard mode
+     *   template: template mode
+     *
      * @example standard
      *
      * @var string

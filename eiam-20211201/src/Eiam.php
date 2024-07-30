@@ -118,6 +118,8 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\GetPasswordInitializationConfiguratio
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetPasswordInitializationConfigurationResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetRootOrganizationalUnitRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetRootOrganizationalUnitResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\GetSynchronizationJobRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\GetSynchronizationJobResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetUserRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetUserResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListApplicationClientSecretsRequest;
@@ -157,6 +159,8 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\ListOrganizationalUnitsForApplication
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListOrganizationalUnitsRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListOrganizationalUnitsResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListRegionsResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListSynchronizationJobsRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListSynchronizationJobsResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListUsersForApplicationRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListUsersForApplicationResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListUsersForGroupRequest;
@@ -177,6 +181,8 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\RevokeApplicationFromOrganizationalUn
 use AlibabaCloud\SDK\Eiam\V20211201\Models\RevokeApplicationFromOrganizationalUnitsResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\RevokeApplicationFromUsersRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\RevokeApplicationFromUsersResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\RunSynchronizationJobRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\RunSynchronizationJobResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\SetApplicationGrantScopeRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\SetApplicationGrantScopeResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\SetApplicationProvisioningConfigRequest;
@@ -2436,7 +2442,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Queries the configuration of the account synchronization feature for an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
+     * @summary Queries the configuration of the account synchronization feature for an application in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
      *  *
      * @param GetApplicationProvisioningConfigRequest $request GetApplicationProvisioningConfigRequest
      * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
@@ -2472,7 +2478,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Queries the configuration of the account synchronization feature for an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
+     * @summary Queries the configuration of the account synchronization feature for an application in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
      *  *
      * @param GetApplicationProvisioningConfigRequest $request GetApplicationProvisioningConfigRequest
      *
@@ -3162,6 +3168,56 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getRootOrganizationalUnitWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询同步任务
+     *  *
+     * @param GetSynchronizationJobRequest $request GetSynchronizationJobRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetSynchronizationJobResponse GetSynchronizationJobResponse
+     */
+    public function getSynchronizationJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->synchronizationJobId)) {
+            $query['SynchronizationJobId'] = $request->synchronizationJobId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetSynchronizationJob',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetSynchronizationJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询同步任务
+     *  *
+     * @param GetSynchronizationJobRequest $request GetSynchronizationJobRequest
+     *
+     * @return GetSynchronizationJobResponse GetSynchronizationJobResponse
+     */
+    public function getSynchronizationJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSynchronizationJobWithOptions($request, $runtime);
     }
 
     /**
@@ -4285,6 +4341,83 @@ class Eiam extends OpenApiClient
     }
 
     /**
+     * @summary 查询同步任务
+     *  *
+     * @param ListSynchronizationJobsRequest $request ListSynchronizationJobsRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListSynchronizationJobsResponse ListSynchronizationJobsResponse
+     */
+    public function listSynchronizationJobsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->direction)) {
+            $query['Direction'] = $request->direction;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->targetIds)) {
+            $query['TargetIds'] = $request->targetIds;
+        }
+        if (!Utils::isUnset($request->targetType)) {
+            $query['TargetType'] = $request->targetType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListSynchronizationJobs',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListSynchronizationJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询同步任务
+     *  *
+     * @param ListSynchronizationJobsRequest $request ListSynchronizationJobsRequest
+     *
+     * @return ListSynchronizationJobsResponse ListSynchronizationJobsResponse
+     */
+    public function listSynchronizationJobs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listSynchronizationJobsWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries the details of accounts in Identity as a Service (IDaaS) Employee IAM (EIAM) by page.
      *  *
      * @param ListUsersRequest $request ListUsersRequest
@@ -4860,6 +4993,59 @@ class Eiam extends OpenApiClient
     }
 
     /**
+     * @summary 运行同步任务
+     *  *
+     * @param RunSynchronizationJobRequest $request RunSynchronizationJobRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return RunSynchronizationJobResponse RunSynchronizationJobResponse
+     */
+    public function runSynchronizationJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->targetId)) {
+            $query['TargetId'] = $request->targetId;
+        }
+        if (!Utils::isUnset($request->targetType)) {
+            $query['TargetType'] = $request->targetType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RunSynchronizationJob',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RunSynchronizationJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 运行同步任务
+     *  *
+     * @param RunSynchronizationJobRequest $request RunSynchronizationJobRequest
+     *
+     * @return RunSynchronizationJobResponse RunSynchronizationJobResponse
+     */
+    public function runSynchronizationJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->runSynchronizationJobWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Configures the permissions of the Developer API feature of an Employee Identity and Access Management (EIAM) application.
      *  *
      * @param SetApplicationGrantScopeRequest $request SetApplicationGrantScopeRequest
@@ -4913,7 +5099,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Configures the account synchronization feature for an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
+     * @summary Configures the account synchronization feature for an application in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
      *  *
      * @param SetApplicationProvisioningConfigRequest $request SetApplicationProvisioningConfigRequest
      * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
@@ -4961,7 +5147,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Configures the account synchronization feature for an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
+     * @summary Configures the account synchronization feature for an application in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
      *  *
      * @param SetApplicationProvisioningConfigRequest $request SetApplicationProvisioningConfigRequest
      *
