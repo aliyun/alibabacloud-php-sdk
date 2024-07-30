@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBClusterServerlessConfResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $agileScaleMax;
+
+    /**
      * @description Indicates whether the no-activity suspension feature is enabled. Default value: false. Valid values:
      *
      *   **true**
@@ -112,7 +117,13 @@ class DescribeDBClusterServerlessConfResponseBody extends Model
      * @var string
      */
     public $switchs;
+
+    /**
+     * @var string
+     */
+    public $traditionalScaleMaxThreshold;
     protected $_name = [
+        'agileScaleMax'                     => 'AgileScaleMax',
         'allowShutDown'                     => 'AllowShutDown',
         'DBClusterId'                       => 'DBClusterId',
         'requestId'                         => 'RequestId',
@@ -127,6 +138,7 @@ class DescribeDBClusterServerlessConfResponseBody extends Model
         'serverlessRuleCpuShrinkThreshold'  => 'ServerlessRuleCpuShrinkThreshold',
         'serverlessRuleMode'                => 'ServerlessRuleMode',
         'switchs'                           => 'Switchs',
+        'traditionalScaleMaxThreshold'      => 'TraditionalScaleMaxThreshold',
     ];
 
     public function validate()
@@ -136,6 +148,9 @@ class DescribeDBClusterServerlessConfResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->agileScaleMax) {
+            $res['AgileScaleMax'] = $this->agileScaleMax;
+        }
         if (null !== $this->allowShutDown) {
             $res['AllowShutDown'] = $this->allowShutDown;
         }
@@ -178,6 +193,9 @@ class DescribeDBClusterServerlessConfResponseBody extends Model
         if (null !== $this->switchs) {
             $res['Switchs'] = $this->switchs;
         }
+        if (null !== $this->traditionalScaleMaxThreshold) {
+            $res['TraditionalScaleMaxThreshold'] = $this->traditionalScaleMaxThreshold;
+        }
 
         return $res;
     }
@@ -190,6 +208,9 @@ class DescribeDBClusterServerlessConfResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AgileScaleMax'])) {
+            $model->agileScaleMax = $map['AgileScaleMax'];
+        }
         if (isset($map['AllowShutDown'])) {
             $model->allowShutDown = $map['AllowShutDown'];
         }
@@ -231,6 +252,9 @@ class DescribeDBClusterServerlessConfResponseBody extends Model
         }
         if (isset($map['Switchs'])) {
             $model->switchs = $map['Switchs'];
+        }
+        if (isset($map['TraditionalScaleMaxThreshold'])) {
+            $model->traditionalScaleMaxThreshold = $map['TraditionalScaleMaxThreshold'];
         }
 
         return $model;

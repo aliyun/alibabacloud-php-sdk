@@ -1287,6 +1287,12 @@ class Polardb extends OpenApiClient
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
         }
+        if (!Utils::isUnset($request->polarSccTimeoutAction)) {
+            $query['PolarSccTimeoutAction'] = $request->polarSccTimeoutAction;
+        }
+        if (!Utils::isUnset($request->polarSccWaitTimeout)) {
+            $query['PolarSccWaitTimeout'] = $request->polarSccWaitTimeout;
+        }
         if (!Utils::isUnset($request->readWriteMode)) {
             $query['ReadWriteMode'] = $request->readWriteMode;
         }
@@ -1295,6 +1301,9 @@ class Polardb extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->sccMode)) {
+            $query['SccMode'] = $request->sccMode;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -7828,6 +7837,12 @@ class Polardb extends OpenApiClient
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
         }
+        if (!Utils::isUnset($request->polarSccTimeoutAction)) {
+            $query['PolarSccTimeoutAction'] = $request->polarSccTimeoutAction;
+        }
+        if (!Utils::isUnset($request->polarSccWaitTimeout)) {
+            $query['PolarSccWaitTimeout'] = $request->polarSccWaitTimeout;
+        }
         if (!Utils::isUnset($request->readWriteMode)) {
             $query['ReadWriteMode'] = $request->readWriteMode;
         }
@@ -7836,6 +7851,9 @@ class Polardb extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->sccMode)) {
+            $query['SccMode'] = $request->sccMode;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),

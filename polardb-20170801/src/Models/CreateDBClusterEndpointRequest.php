@@ -118,6 +118,16 @@ class CreateDBClusterEndpointRequest extends Model
     public $ownerId;
 
     /**
+     * @var string
+     */
+    public $polarSccTimeoutAction;
+
+    /**
+     * @var string
+     */
+    public $polarSccWaitTimeout;
+
+    /**
      * @description The read/write mode. Valid values:
      *
      *   **ReadWrite**: receives and forwards read and write requests. Automatic read/write splitting is enabled.
@@ -139,6 +149,11 @@ class CreateDBClusterEndpointRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
+
+    /**
+     * @var string
+     */
+    public $sccMode;
     protected $_name = [
         'autoAddNewNodes'       => 'AutoAddNewNodes',
         'clientToken'           => 'ClientToken',
@@ -149,9 +164,12 @@ class CreateDBClusterEndpointRequest extends Model
         'nodes'                 => 'Nodes',
         'ownerAccount'          => 'OwnerAccount',
         'ownerId'               => 'OwnerId',
+        'polarSccTimeoutAction' => 'PolarSccTimeoutAction',
+        'polarSccWaitTimeout'   => 'PolarSccWaitTimeout',
         'readWriteMode'         => 'ReadWriteMode',
         'resourceOwnerAccount'  => 'ResourceOwnerAccount',
         'resourceOwnerId'       => 'ResourceOwnerId',
+        'sccMode'               => 'SccMode',
     ];
 
     public function validate()
@@ -188,6 +206,12 @@ class CreateDBClusterEndpointRequest extends Model
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+        if (null !== $this->polarSccTimeoutAction) {
+            $res['PolarSccTimeoutAction'] = $this->polarSccTimeoutAction;
+        }
+        if (null !== $this->polarSccWaitTimeout) {
+            $res['PolarSccWaitTimeout'] = $this->polarSccWaitTimeout;
+        }
         if (null !== $this->readWriteMode) {
             $res['ReadWriteMode'] = $this->readWriteMode;
         }
@@ -196,6 +220,9 @@ class CreateDBClusterEndpointRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->sccMode) {
+            $res['SccMode'] = $this->sccMode;
         }
 
         return $res;
@@ -236,6 +263,12 @@ class CreateDBClusterEndpointRequest extends Model
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+        if (isset($map['PolarSccTimeoutAction'])) {
+            $model->polarSccTimeoutAction = $map['PolarSccTimeoutAction'];
+        }
+        if (isset($map['PolarSccWaitTimeout'])) {
+            $model->polarSccWaitTimeout = $map['PolarSccWaitTimeout'];
+        }
         if (isset($map['ReadWriteMode'])) {
             $model->readWriteMode = $map['ReadWriteMode'];
         }
@@ -244,6 +277,9 @@ class CreateDBClusterEndpointRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['SccMode'])) {
+            $model->sccMode = $map['SccMode'];
         }
 
         return $model;

@@ -115,6 +115,16 @@ class items extends Model
     public $nodes;
 
     /**
+     * @var string
+     */
+    public $polarSccTimeoutAction;
+
+    /**
+     * @var string
+     */
+    public $polarSccWaitTimeout;
+
+    /**
      * @description The read/write mode. Valid values:
      *
      *   **ReadWrite**: handles read and write requests. Automatic read/write splitting is enabled.
@@ -125,6 +135,11 @@ class items extends Model
      * @var string
      */
     public $readWriteMode;
+
+    /**
+     * @var string
+     */
+    public $sccMode;
     protected $_name = [
         'addressItems'          => 'AddressItems',
         'autoAddNewNodes'       => 'AutoAddNewNodes',
@@ -135,7 +150,10 @@ class items extends Model
         'endpointType'          => 'EndpointType',
         'nodeWithRoles'         => 'NodeWithRoles',
         'nodes'                 => 'Nodes',
+        'polarSccTimeoutAction' => 'PolarSccTimeoutAction',
+        'polarSccWaitTimeout'   => 'PolarSccWaitTimeout',
         'readWriteMode'         => 'ReadWriteMode',
+        'sccMode'               => 'SccMode',
     ];
 
     public function validate()
@@ -178,8 +196,17 @@ class items extends Model
         if (null !== $this->nodes) {
             $res['Nodes'] = $this->nodes;
         }
+        if (null !== $this->polarSccTimeoutAction) {
+            $res['PolarSccTimeoutAction'] = $this->polarSccTimeoutAction;
+        }
+        if (null !== $this->polarSccWaitTimeout) {
+            $res['PolarSccWaitTimeout'] = $this->polarSccWaitTimeout;
+        }
         if (null !== $this->readWriteMode) {
             $res['ReadWriteMode'] = $this->readWriteMode;
+        }
+        if (null !== $this->sccMode) {
+            $res['SccMode'] = $this->sccMode;
         }
 
         return $res;
@@ -226,8 +253,17 @@ class items extends Model
         if (isset($map['Nodes'])) {
             $model->nodes = $map['Nodes'];
         }
+        if (isset($map['PolarSccTimeoutAction'])) {
+            $model->polarSccTimeoutAction = $map['PolarSccTimeoutAction'];
+        }
+        if (isset($map['PolarSccWaitTimeout'])) {
+            $model->polarSccWaitTimeout = $map['PolarSccWaitTimeout'];
+        }
         if (isset($map['ReadWriteMode'])) {
             $model->readWriteMode = $map['ReadWriteMode'];
+        }
+        if (isset($map['SccMode'])) {
+            $model->sccMode = $map['SccMode'];
         }
 
         return $model;

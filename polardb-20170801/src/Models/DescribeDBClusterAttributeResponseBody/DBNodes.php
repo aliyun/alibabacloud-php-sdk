@@ -152,6 +152,11 @@ class DBNodes extends Model
     /**
      * @var string
      */
+    public $mirrorInsName;
+
+    /**
+     * @var string
+     */
     public $orca;
 
     /**
@@ -219,6 +224,7 @@ class DBNodes extends Model
         'maxConnections'   => 'MaxConnections',
         'maxIOPS'          => 'MaxIOPS',
         'memorySize'       => 'MemorySize',
+        'mirrorInsName'    => 'MirrorInsName',
         'orca'             => 'Orca',
         'remoteMemorySize' => 'RemoteMemorySize',
         'sccMode'          => 'SccMode',
@@ -276,6 +282,9 @@ class DBNodes extends Model
         }
         if (null !== $this->memorySize) {
             $res['MemorySize'] = $this->memorySize;
+        }
+        if (null !== $this->mirrorInsName) {
+            $res['MirrorInsName'] = $this->mirrorInsName;
         }
         if (null !== $this->orca) {
             $res['Orca'] = $this->orca;
@@ -351,6 +360,9 @@ class DBNodes extends Model
         }
         if (isset($map['MemorySize'])) {
             $model->memorySize = $map['MemorySize'];
+        }
+        if (isset($map['MirrorInsName'])) {
+            $model->mirrorInsName = $map['MirrorInsName'];
         }
         if (isset($map['Orca'])) {
             $model->orca = $map['Orca'];
