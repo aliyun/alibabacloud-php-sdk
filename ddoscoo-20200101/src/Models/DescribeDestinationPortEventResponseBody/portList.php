@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class portList extends Model
 {
     /**
+     * @description The destination port.
+     *
      * @example 80
      *
      * @var string
@@ -16,6 +18,8 @@ class portList extends Model
     public $dstPort;
 
     /**
+     * @description The number of request packets received by the destination port.
+     *
      * @example 8760950
      *
      * @var int

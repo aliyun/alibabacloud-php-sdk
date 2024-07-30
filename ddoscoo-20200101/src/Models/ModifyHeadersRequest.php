@@ -9,12 +9,12 @@ use AlibabaCloud\Tea\Model;
 class ModifyHeadersRequest extends Model
 {
     /**
-     * @description The key-value pair of the custom header. Key indicates the header name and Value indicates the header value. You can specify up to five key-value pairs. The key-value pairs can be up to 200 characters in length.
+     * @description The key-value pair of the custom header. The key specifies the header name, and the value specifies the header value. You can specify up to five key-value pairs. The key-value pairs can be up to 200 characters in length.
      *
      * Take note of the following items:
      *
      *   Do not use X-Forwarded-ClientSrcPort as a custom header.
-     *   Do not use a standard HTTP header such as User-Agent. If you use a standard HTTP header, the original header may be overwritten.
+     *   Do not use a standard HTTP header such as User-Agent. Otherwise, the original header may be overwritten.
      *
      * This parameter is required.
      * @example {\\"X-Forwarded-ClientSrcPort\\":\\"\\"}

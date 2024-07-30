@@ -9,8 +9,12 @@ use AlibabaCloud\Tea\Model;
 class DescribeDestinationPortEventRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The type of the attack event that you want to query. Valid values:
      *
+     *   **defense**: attack events that trigger traffic scrubbing.
+     *   **blackhole**: attack events that trigger blackhole filtering.
+     *
+     * This parameter is required.
      * @example defense
      *
      * @var string
@@ -18,8 +22,9 @@ class DescribeDestinationPortEventRequest extends Model
     public $eventType;
 
     /**
-     * @description This parameter is required.
+     * @description The IP address of the attacker.
      *
+     * This parameter is required.
      * @example 203.107.XX.XX
      *
      * @var string
@@ -27,8 +32,9 @@ class DescribeDestinationPortEventRequest extends Model
     public $ip;
 
     /**
-     * @description This parameter is required.
+     * @description The number of destination ports to return. The ports are sorted in descending order of the number of received request packets. By default, the first **10** ports are returned.
      *
+     * This parameter is required.
      * @example 2
      *
      * @var int
@@ -36,8 +42,12 @@ class DescribeDestinationPortEventRequest extends Model
     public $range;
 
     /**
-     * @description This parameter is required.
+     * @description The region in which your service is deployed. Valid values:
      *
+     *   **cn**: a region in the Chinese mainland.
+     *   **cn-hongkong**: a region outside the Chinese mainland.
+     *
+     * This parameter is required.
      * @example cn
      *
      * @var string
@@ -45,8 +55,9 @@ class DescribeDestinationPortEventRequest extends Model
     public $region;
 
     /**
-     * @description This parameter is required.
+     * @description The beginning of the time range to query. The value is a UNIX timestamp. Unit: seconds.
      *
+     * This parameter is required.
      * @example 1720059000
      *
      * @var int

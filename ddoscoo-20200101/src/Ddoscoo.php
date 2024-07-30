@@ -3701,7 +3701,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary 查询目的端口事件
+     * @summary Queries the number of request packets received by the destination ports of the attacked IP address that is protected by Anti-DDoS Proxy.
      *  *
      * @param DescribeDestinationPortEventRequest $request DescribeDestinationPortEventRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
@@ -3746,7 +3746,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary 查询目的端口事件
+     * @summary Queries the number of request packets received by the destination ports of the attacked IP address that is protected by Anti-DDoS Proxy.
      *  *
      * @param DescribeDestinationPortEventRequest $request DescribeDestinationPortEventRequest
      *

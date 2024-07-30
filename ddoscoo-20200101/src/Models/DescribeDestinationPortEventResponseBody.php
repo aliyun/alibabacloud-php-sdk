@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeDestinationPortEventResponseBody extends Model
 {
     /**
+     * @description The ports.
+     *
      * @var portList[]
      */
     public $portList;
 
     /**
+     * @description The request ID.
+     *
      * @example 9E7F6B2C-03F2-462F-9076-B782CF0DD502
      *
      * @var string
