@@ -28,10 +28,16 @@ class GetFileMetaRequest extends Model
      * @var string
      */
     public $URI;
+
+    /**
+     * @var string[]
+     */
+    public $withFields;
     protected $_name = [
         'datasetName' => 'DatasetName',
         'projectName' => 'ProjectName',
         'URI'         => 'URI',
+        'withFields'  => 'WithFields',
     ];
 
     public function validate()
@@ -49,6 +55,9 @@ class GetFileMetaRequest extends Model
         }
         if (null !== $this->URI) {
             $res['URI'] = $this->URI;
+        }
+        if (null !== $this->withFields) {
+            $res['WithFields'] = $this->withFields;
         }
 
         return $res;
@@ -70,6 +79,11 @@ class GetFileMetaRequest extends Model
         }
         if (isset($map['URI'])) {
             $model->URI = $map['URI'];
+        }
+        if (isset($map['WithFields'])) {
+            if (!empty($map['WithFields'])) {
+                $model->withFields = $map['WithFields'];
+            }
         }
 
         return $model;

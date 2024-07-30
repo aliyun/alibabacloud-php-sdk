@@ -177,6 +177,7 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\GetFigureClusterRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetFigureClusterResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetFileMetaRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetFileMetaResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\GetFileMetaShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetImageModerationResultRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetImageModerationResultResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetOSSBucketAttachmentRequest;
@@ -630,6 +631,9 @@ class Imm extends OpenApiClient
         if (!Utils::isUnset($tmpReq->URIs)) {
             $request->URIsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->URIs, 'URIs', 'json');
         }
+        if (!Utils::isUnset($tmpReq->withFields)) {
+            $request->withFieldsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->withFields, 'WithFields', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->datasetName)) {
             $query['DatasetName'] = $request->datasetName;
@@ -639,6 +643,9 @@ class Imm extends OpenApiClient
         }
         if (!Utils::isUnset($request->URIsShrink)) {
             $query['URIs'] = $request->URIsShrink;
+        }
+        if (!Utils::isUnset($request->withFieldsShrink)) {
+            $query['WithFields'] = $request->withFieldsShrink;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -4606,14 +4613,19 @@ class Imm extends OpenApiClient
     /**
      * @summary 获取文件元信息
      *  *
-     * @param GetFileMetaRequest $request GetFileMetaRequest
+     * @param GetFileMetaRequest $tmpReq  GetFileMetaRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
      * @return GetFileMetaResponse GetFileMetaResponse
      */
-    public function getFileMetaWithOptions($request, $runtime)
+    public function getFileMetaWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new GetFileMetaShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->withFields)) {
+            $request->withFieldsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->withFields, 'WithFields', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->datasetName)) {
             $query['DatasetName'] = $request->datasetName;
@@ -4623,6 +4635,9 @@ class Imm extends OpenApiClient
         }
         if (!Utils::isUnset($request->URI)) {
             $query['URI'] = $request->URI;
+        }
+        if (!Utils::isUnset($request->withFieldsShrink)) {
+            $query['WithFields'] = $request->withFieldsShrink;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),

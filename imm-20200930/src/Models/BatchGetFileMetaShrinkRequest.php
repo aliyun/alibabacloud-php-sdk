@@ -28,10 +28,16 @@ class BatchGetFileMetaShrinkRequest extends Model
      * @var string
      */
     public $URIsShrink;
+
+    /**
+     * @var string
+     */
+    public $withFieldsShrink;
     protected $_name = [
-        'datasetName' => 'DatasetName',
-        'projectName' => 'ProjectName',
-        'URIsShrink'  => 'URIs',
+        'datasetName'      => 'DatasetName',
+        'projectName'      => 'ProjectName',
+        'URIsShrink'       => 'URIs',
+        'withFieldsShrink' => 'WithFields',
     ];
 
     public function validate()
@@ -49,6 +55,9 @@ class BatchGetFileMetaShrinkRequest extends Model
         }
         if (null !== $this->URIsShrink) {
             $res['URIs'] = $this->URIsShrink;
+        }
+        if (null !== $this->withFieldsShrink) {
+            $res['WithFields'] = $this->withFieldsShrink;
         }
 
         return $res;
@@ -70,6 +79,9 @@ class BatchGetFileMetaShrinkRequest extends Model
         }
         if (isset($map['URIs'])) {
             $model->URIsShrink = $map['URIs'];
+        }
+        if (isset($map['WithFields'])) {
+            $model->withFieldsShrink = $map['WithFields'];
         }
 
         return $model;

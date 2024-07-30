@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class BatchGetFileMetaRequest extends Model
+class GetFileMetaShrinkRequest extends Model
 {
     /**
      * @description This parameter is required.
@@ -25,19 +25,19 @@ class BatchGetFileMetaRequest extends Model
     /**
      * @description This parameter is required.
      *
-     * @var string[]
+     * @var string
      */
-    public $URIs;
+    public $URI;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $withFields;
+    public $withFieldsShrink;
     protected $_name = [
-        'datasetName' => 'DatasetName',
-        'projectName' => 'ProjectName',
-        'URIs'        => 'URIs',
-        'withFields'  => 'WithFields',
+        'datasetName'      => 'DatasetName',
+        'projectName'      => 'ProjectName',
+        'URI'              => 'URI',
+        'withFieldsShrink' => 'WithFields',
     ];
 
     public function validate()
@@ -53,11 +53,11 @@ class BatchGetFileMetaRequest extends Model
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
         }
-        if (null !== $this->URIs) {
-            $res['URIs'] = $this->URIs;
+        if (null !== $this->URI) {
+            $res['URI'] = $this->URI;
         }
-        if (null !== $this->withFields) {
-            $res['WithFields'] = $this->withFields;
+        if (null !== $this->withFieldsShrink) {
+            $res['WithFields'] = $this->withFieldsShrink;
         }
 
         return $res;
@@ -66,7 +66,7 @@ class BatchGetFileMetaRequest extends Model
     /**
      * @param array $map
      *
-     * @return BatchGetFileMetaRequest
+     * @return GetFileMetaShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -77,15 +77,11 @@ class BatchGetFileMetaRequest extends Model
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
         }
-        if (isset($map['URIs'])) {
-            if (!empty($map['URIs'])) {
-                $model->URIs = $map['URIs'];
-            }
+        if (isset($map['URI'])) {
+            $model->URI = $map['URI'];
         }
         if (isset($map['WithFields'])) {
-            if (!empty($map['WithFields'])) {
-                $model->withFields = $map['WithFields'];
-            }
+            $model->withFieldsShrink = $map['WithFields'];
         }
 
         return $model;
