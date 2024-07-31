@@ -12,9 +12,13 @@ use AlibabaCloud\SDK\Bailian\V20231229\Models\AddFileRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\AddFileResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\ApplyFileUploadLeaseRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\ApplyFileUploadLeaseResponse;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\CreateAndPulishAgentRequest;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\CreateAndPulishAgentResponse;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\CreateAndPulishAgentShrinkRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\CreateIndexRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\CreateIndexResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\CreateIndexShrinkRequest;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\DeleteAgentResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\DeleteCategoryResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\DeleteFileResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\DeleteIndexDocumentRequest;
@@ -25,6 +29,7 @@ use AlibabaCloud\SDK\Bailian\V20231229\Models\DeleteIndexResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\DescribeFileResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\GetIndexJobStatusRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\GetIndexJobStatusResponse;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\GetPublishedAgentResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\ListCategoryRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\ListCategoryResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\ListChunksRequest;
@@ -33,6 +38,8 @@ use AlibabaCloud\SDK\Bailian\V20231229\Models\ListIndexDocumentsRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\ListIndexDocumentsResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\ListIndicesRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\ListIndicesResponse;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\ListPublishedAgentRequest;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\ListPublishedAgentResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\RetrieveRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\RetrieveResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\RetrieveShrinkRequest;
@@ -41,6 +48,9 @@ use AlibabaCloud\SDK\Bailian\V20231229\Models\SubmitIndexAddDocumentsJobResponse
 use AlibabaCloud\SDK\Bailian\V20231229\Models\SubmitIndexAddDocumentsJobShrinkRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\SubmitIndexJobRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\SubmitIndexJobResponse;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\UpdateAndPublishAgentRequest;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\UpdateAndPublishAgentResponse;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\UpdateAndPublishAgentShrinkRequest;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -253,6 +263,72 @@ class Bailian extends OpenApiClient
     }
 
     /**
+     * @summary 创建并发布智能体应用
+     *  *
+     * @param string                      $workspaceId
+     * @param CreateAndPulishAgentRequest $tmpReq      CreateAndPulishAgentRequest
+     * @param string[]                    $headers     map
+     * @param RuntimeOptions              $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return CreateAndPulishAgentResponse CreateAndPulishAgentResponse
+     */
+    public function createAndPulishAgentWithOptions($workspaceId, $tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateAndPulishAgentShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->applicationConfig)) {
+            $request->applicationConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->applicationConfig, 'applicationConfig', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->applicationConfigShrink)) {
+            $body['applicationConfig'] = $request->applicationConfigShrink;
+        }
+        if (!Utils::isUnset($request->instructions)) {
+            $body['instructions'] = $request->instructions;
+        }
+        if (!Utils::isUnset($request->modelId)) {
+            $body['modelId'] = $request->modelId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['name'] = $request->name;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateAndPulishAgent',
+            'version'     => '2023-12-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/application/agents',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateAndPulishAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建并发布智能体应用
+     *  *
+     * @param string                      $workspaceId
+     * @param CreateAndPulishAgentRequest $request     CreateAndPulishAgentRequest
+     *
+     * @return CreateAndPulishAgentResponse CreateAndPulishAgentResponse
+     */
+    public function createAndPulishAgent($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createAndPulishAgentWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
      * @summary 创建并运行pipeline
      *  *
      * @param string             $WorkspaceId
@@ -358,6 +434,52 @@ class Bailian extends OpenApiClient
         $headers = [];
 
         return $this->createIndexWithOptions($WorkspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 删除智能体
+     *  *
+     * @param string         $workspaceId
+     * @param string         $appCode
+     * @param string[]       $headers     map
+     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return DeleteAgentResponse DeleteAgentResponse
+     */
+    public function deleteAgentWithOptions($workspaceId, $appCode, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteAgent',
+            'version'     => '2023-12-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/application/agents/' . OpenApiUtilClient::getEncodeParam($appCode) . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除智能体
+     *  *
+     * @param string $workspaceId
+     * @param string $appCode
+     *
+     * @return DeleteAgentResponse DeleteAgentResponse
+     */
+    public function deleteAgent($workspaceId, $appCode)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteAgentWithOptions($workspaceId, $appCode, $headers, $runtime);
     }
 
     /**
@@ -662,6 +784,52 @@ class Bailian extends OpenApiClient
     }
 
     /**
+     * @summary 获取发布态智能体应用
+     *  *
+     * @param string         $workspaceId
+     * @param string         $appCode
+     * @param string[]       $headers     map
+     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return GetPublishedAgentResponse GetPublishedAgentResponse
+     */
+    public function getPublishedAgentWithOptions($workspaceId, $appCode, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'GetPublishedAgent',
+            'version'     => '2023-12-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/application/agents/' . OpenApiUtilClient::getEncodeParam($appCode) . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetPublishedAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取发布态智能体应用
+     *  *
+     * @param string $workspaceId
+     * @param string $appCode
+     *
+     * @return GetPublishedAgentResponse GetPublishedAgentResponse
+     */
+    public function getPublishedAgent($workspaceId, $appCode)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getPublishedAgentWithOptions($workspaceId, $appCode, $headers, $runtime);
+    }
+
+    /**
      * @summary ListCategory
      *  *
      * @param string              $WorkspaceId
@@ -909,6 +1077,61 @@ class Bailian extends OpenApiClient
     }
 
     /**
+     * @summary 查询已发布的智能体应用列表
+     *  *
+     * @param string                    $workspaceId
+     * @param ListPublishedAgentRequest $request     ListPublishedAgentRequest
+     * @param string[]                  $headers     map
+     * @param RuntimeOptions            $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return ListPublishedAgentResponse ListPublishedAgentResponse
+     */
+    public function listPublishedAgentWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['pageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['pageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListPublishedAgent',
+            'version'     => '2023-12-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/application/agents',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListPublishedAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询已发布的智能体应用列表
+     *  *
+     * @param string                    $workspaceId
+     * @param ListPublishedAgentRequest $request     ListPublishedAgentRequest
+     *
+     * @return ListPublishedAgentResponse ListPublishedAgentResponse
+     */
+    public function listPublishedAgent($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listPublishedAgentWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
      * @summary 召回测试
      *  *
      * @param string          $WorkspaceId
@@ -1123,5 +1346,73 @@ class Bailian extends OpenApiClient
         $headers = [];
 
         return $this->submitIndexJobWithOptions($WorkspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 更新并发布智能体应用
+     *  *
+     * @param string                       $workspaceId
+     * @param string                       $appCode
+     * @param UpdateAndPublishAgentRequest $tmpReq      UpdateAndPublishAgentRequest
+     * @param string[]                     $headers     map
+     * @param RuntimeOptions               $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return UpdateAndPublishAgentResponse UpdateAndPublishAgentResponse
+     */
+    public function updateAndPublishAgentWithOptions($workspaceId, $appCode, $tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateAndPublishAgentShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->applicationConfig)) {
+            $request->applicationConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->applicationConfig, 'applicationConfig', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->applicationConfigShrink)) {
+            $body['applicationConfig'] = $request->applicationConfigShrink;
+        }
+        if (!Utils::isUnset($request->instructions)) {
+            $body['instructions'] = $request->instructions;
+        }
+        if (!Utils::isUnset($request->modelId)) {
+            $body['modelId'] = $request->modelId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['name'] = $request->name;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateAndPublishAgent',
+            'version'     => '2023-12-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/application/agents/' . OpenApiUtilClient::getEncodeParam($appCode) . '',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateAndPublishAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 更新并发布智能体应用
+     *  *
+     * @param string                       $workspaceId
+     * @param string                       $appCode
+     * @param UpdateAndPublishAgentRequest $request     UpdateAndPublishAgentRequest
+     *
+     * @return UpdateAndPublishAgentResponse UpdateAndPublishAgentResponse
+     */
+    public function updateAndPublishAgent($workspaceId, $appCode, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateAndPublishAgentWithOptions($workspaceId, $appCode, $request, $headers, $runtime);
     }
 }
