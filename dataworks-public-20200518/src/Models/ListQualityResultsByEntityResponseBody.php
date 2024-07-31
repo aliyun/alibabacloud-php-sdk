@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class ListQualityResultsByEntityResponseBody extends Model
 {
     /**
-     * @description The total number of entries returned.
+     * @description The data structure of the check results.
      *
      * @var data
      */
     public $data;
 
     /**
-     * @description The number of entries returned per page. Default value: 10. Maximum value: 100.
+     * @description The error code.
      *
      * @example 401
      *
@@ -26,7 +26,7 @@ class ListQualityResultsByEntityResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error code returned.
+     * @description The error message.
      *
      * @example You have no permission.
      *
@@ -35,7 +35,7 @@ class ListQualityResultsByEntityResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description Indicates whether the request is successful.
+     * @description The HTTP status code.
      *
      * @example 200
      *
@@ -44,7 +44,7 @@ class ListQualityResultsByEntityResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The data structure of the monitoring results returned.
+     * @description The request ID.
      *
      * @example CBA58543-00D4-41****
      *
@@ -53,7 +53,7 @@ class ListQualityResultsByEntityResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The page number of the returned page.
+     * @description Indicates whether the request was successful.
      *
      * @example true
      *

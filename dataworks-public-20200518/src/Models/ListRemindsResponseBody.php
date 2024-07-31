@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListRemindsResponseBody extends Model
 {
     /**
-     * @description The information about custom alert rules returned.
+     * @description The data returned.
      *
      * @var data
      */

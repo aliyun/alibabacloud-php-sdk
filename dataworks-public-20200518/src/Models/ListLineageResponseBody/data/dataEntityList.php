@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class dataEntityList extends Model
 {
     /**
+     * @description The time when the lineage was generated.
+     *
      * @example 1686215809269
      *
      * @var int
@@ -18,13 +20,15 @@ class dataEntityList extends Model
     public $createTimestamp;
 
     /**
-     * @description The array of the entity structure.
+     * @description The information about the entity.
      *
      * @var Entity
      */
     public $entity;
 
     /**
+     * @description The array of the relationship structure.
+     *
      * @var relationList[]
      */
     public $relationList;

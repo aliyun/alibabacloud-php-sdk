@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class GetProjectResponseBody extends Model
 {
     /**
-     * @description This parameter is deprecated.
+     * @description The information about the workspace.
      *
      * @var data
      */
     public $data;
 
     /**
-     * @description Indicates whether the request was successful.
+     * @description The HTTP status code.
      *
      * @example 200
      *
@@ -26,7 +26,7 @@ class GetProjectResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The description of the workspace.
+     * @description The request ID.
      *
      * @example 0bc1411515937635973****
      *
@@ -35,18 +35,10 @@ class GetProjectResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The status of the workspace. Valid values:
+     * @description Indicates whether the request was successful. Valid values:
      *
-     *   AVAILABLE(0): The workspace is in a normal state.
-     *   DELETED(1): The workspace is deleted.
-     *   INITIALIZING(2): The workspace is being initialized.
-     *   INIT_FAILED(3): The workspace fails to be initialized.
-     *   FORBIDDEN(4): The workspace is manually disabled.
-     *   DELETING(5): The workspace is being deleted.
-     *   DEL_FAILED(6): The workspace fails to be deleted.
-     *   FROZEN(7): The workspace is frozen due to overdue payments.
-     *   UPDATING(8): The workspace is being updated. The workspace enters this state after you associate a new compute engine with the workspace and the compute engine is being initialized.
-     *   UPDATE_FAILED(9): The workspace fails to be updated.
+     *   **true**
+     *   **false**
      *
      * @example true
      *

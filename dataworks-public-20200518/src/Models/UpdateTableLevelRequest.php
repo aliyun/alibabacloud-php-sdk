@@ -18,7 +18,7 @@ class UpdateTableLevelRequest extends Model
     public $description;
 
     /**
-     * @description The ID of the table level to be updated. You can call the ListTableLevel operation to obtain the ID.
+     * @description The ID of the table level. You can call the ListTableLevel operation to query the ID.
      *
      * This parameter is required.
      * @example 123
@@ -28,7 +28,7 @@ class UpdateTableLevelRequest extends Model
     public $levelId;
 
     /**
-     * @description The type of the table level. Valid values: 1 and 2. A value of 1 indicates the logical level. A value of 2 indicates the physical level.
+     * @description The table level type. Valid values: 1 and 2. The value 1 indicates the logical level. The value 2 indicates the physical level.
      *
      * @example 1
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CheckMetaPartitionRequest extends Model
 {
     /**
-     * @description The name of the table.
+     * @description This parameter is deprecated.
      *
      * @example abc
      *
@@ -18,7 +18,7 @@ class CheckMetaPartitionRequest extends Model
     public $clusterId;
 
     /**
-     * @description Indicates whether the partition exists.
+     * @description The type of the data source. Set the value to odps.
      *
      * @example emr
      *
@@ -27,7 +27,7 @@ class CheckMetaPartitionRequest extends Model
     public $dataSourceType;
 
     /**
-     * @description The type of the data source. Valid values: odps and emr.
+     * @description The name of the metadatabase.
      *
      * @example abc
      *
@@ -36,7 +36,7 @@ class CheckMetaPartitionRequest extends Model
     public $databaseName;
 
     /**
-     * @description The name of the database.
+     * @description The name of the partition in the MaxCompute metatable.
      *
      * This parameter is required.
      * @example ds=202005
@@ -46,7 +46,7 @@ class CheckMetaPartitionRequest extends Model
     public $partition;
 
     /**
-     * @description The ID of the E-MapReduce (EMR) cluster.
+     * @description The GUID of the MaxCompute metatable.
      *
      * @example odps.engine_name.table_name
      *
@@ -55,7 +55,7 @@ class CheckMetaPartitionRequest extends Model
     public $tableGuid;
 
     /**
-     * @description The HTTP status code.
+     * @description The name of the metatable.
      *
      * @example abc
      *

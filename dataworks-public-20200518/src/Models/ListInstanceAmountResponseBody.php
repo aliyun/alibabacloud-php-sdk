@@ -17,7 +17,7 @@ class ListInstanceAmountResponseBody extends Model
     public $instanceCounts;
 
     /**
-     * @description The ID of the request. You can use the ID to troubleshoot issues.
+     * @description The request ID.
      *
      * @example 95279527adhfj****
      *

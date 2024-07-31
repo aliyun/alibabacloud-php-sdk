@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetOpRiskDataResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 0000-ABCD-EFG****
      *
@@ -18,9 +18,7 @@ class GetOpRiskDataResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The information of the risky sensitive data returned. The information includes totalCount and opRiskDatas.
-     *
-     * opRiskDatas includes the following parameters:
+     * @description The information about the high-risk sensitive data. The information includes totalCount and opRiskDatas. opRiskDatas includes the following parameters:
      *
      *   sensType: the type of the sensitive data
      *   sensLevel: the sensitivity level of the sensitive data

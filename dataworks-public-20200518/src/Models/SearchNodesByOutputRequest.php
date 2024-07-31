@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class SearchNodesByOutputRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The output names of the node. If you specify multiple output names, separate them with commas (,).
      *
+     * This parameter is required.
      * @example aaaaa.1231412_out,bbbb.12313123_out
      *
      * @var string
@@ -18,8 +19,9 @@ class SearchNodesByOutputRequest extends Model
     public $outputs;
 
     /**
-     * @description This parameter is required.
+     * @description The environment of Operation Center. Valid values: PROD and DEV.
      *
+     * This parameter is required.
      * @example PROD
      *
      * @var string

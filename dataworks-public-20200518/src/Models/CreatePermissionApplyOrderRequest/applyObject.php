@@ -20,8 +20,9 @@ class applyObject extends Model
     public $actions;
 
     /**
-     * @description This parameter is required.
+     * @description The fields on which you want to request permissions.
      *
+     * This parameter is required.
      * @var columnMetaList[]
      */
     public $columnMetaList;

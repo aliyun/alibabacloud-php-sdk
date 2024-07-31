@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteBaselineResponseBody extends Model
 {
     /**
+     * @description Indicates whether the deletion was successful.
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +18,8 @@ class DeleteBaselineResponseBody extends Model
     public $data;
 
     /**
+     * @description The error code.
+     *
      * @example 1031203110000
      *
      * @var string
@@ -23,6 +27,8 @@ class DeleteBaselineResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message.
+     *
      * @example Baseline deletion failed with nodes dependent on baseline
      *
      * @var string
@@ -30,6 +36,8 @@ class DeleteBaselineResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -37,6 +45,8 @@ class DeleteBaselineResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The request ID.
+     *
      * @example 0000-ABCD-EF****
      *
      * @var string
@@ -44,6 +54,11 @@ class DeleteBaselineResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

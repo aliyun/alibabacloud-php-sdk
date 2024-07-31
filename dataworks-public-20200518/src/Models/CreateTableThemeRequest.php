@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateTableThemeRequest extends Model
 {
     /**
-     * @description The level of the table folder. Valid values: 1 and 2. A value of 1 indicates a first-level table folder. A value of 2 indicates a second-level table folder.
+     * @description The level of the table theme. Valid values: 1 and 2. The value 1 indicates the first level. The value 2 indicates the second level.
      *
      * This parameter is required.
      * @example 1
@@ -19,7 +19,7 @@ class CreateTableThemeRequest extends Model
     public $level;
 
     /**
-     * @description The name of the table folder.
+     * @description The name of the table theme.
      *
      * This parameter is required.
      * @example test
@@ -29,7 +29,7 @@ class CreateTableThemeRequest extends Model
     public $name;
 
     /**
-     * @description The ID of the level of the parent table folder.
+     * @description The ID of the level of the parent table theme.
      *
      * @example 122
      *
@@ -38,7 +38,7 @@ class CreateTableThemeRequest extends Model
     public $parentId;
 
     /**
-     * @description The ID of the DataWorks workspace.
+     * @description The DataWorks workspace ID.
      *
      * @example 123
      *

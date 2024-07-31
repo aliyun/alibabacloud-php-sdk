@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class ListDIProjectConfigResponseBody extends Model
 {
     /**
-     * @description The information about the query operation.
+     * @description The information about the query.
      *
      * @var data
      */
     public $data;
 
     /**
-     * @description The ID of the request. You can locate logs and troubleshoot issues based on the ID.
+     * @description The request ID.
      *
      * @example 0000-ABCD-EFG
      *
@@ -28,8 +28,8 @@ class ListDIProjectConfigResponseBody extends Model
     /**
      * @description Indicates whether the request was successful. Valid values:
      *
-     *   true: The request was successful.
-     *   false: The request failed.
+     *   true
+     *   false
      *
      * @example true
      *

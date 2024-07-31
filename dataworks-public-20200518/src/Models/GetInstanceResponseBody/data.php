@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The ID of the baseline.
+     * @description The baseline ID.
      *
      * @example 123123
      *
@@ -36,7 +36,7 @@ class data extends Model
     public $beginWaitResTime;
 
     /**
-     * @description The time when the instance started to wait to be run.
+     * @description The time when the instance started to wait to be scheduled.
      *
      * @example 1590416703313
      *
@@ -45,7 +45,7 @@ class data extends Model
     public $beginWaitTimeTime;
 
     /**
-     * @description The data timestamp. In most cases, the value is one day before the date when the instance is run.
+     * @description The data timestamp of the instance. In most cases, the value is one day before the time when the instance was run.
      *
      * @example 1590336000000
      *
@@ -54,7 +54,7 @@ class data extends Model
     public $bizdate;
 
     /**
-     * @description The ID of the workflow.
+     * @description The workflow ID.
      *
      * @example 123
      *
@@ -81,7 +81,7 @@ class data extends Model
     public $createTime;
 
     /**
-     * @description The owner of the instance.
+     * @description The creator of the instance.
      *
      * @example 111
      *
@@ -90,7 +90,7 @@ class data extends Model
     public $createUser;
 
     /**
-     * @description The scheduled time of the instance.
+     * @description The scheduling time of the instance.
      *
      * @example 1590422400000
      *
@@ -99,7 +99,7 @@ class data extends Model
     public $cycTime;
 
     /**
-     * @description The ID of the workflow.
+     * @description The workflow ID.
      *
      * @example 338450167
      *
@@ -122,7 +122,7 @@ class data extends Model
     public $dagType;
 
     /**
-     * @description The table and partition filter expression in Data Quality that are associated with the instance.
+     * @description The table and partition filter expression in Data Quality that are associated with the node.
      *
      * @example [{"projectName":"ztjy_dim","tableName":"dim_user_agent_manage_area_a","partition":"ds\\u003d$[yyyy-mm-dd-1]"}]
      *
@@ -152,7 +152,7 @@ class data extends Model
     public $finishTime;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example 11713307578
      *
@@ -170,7 +170,7 @@ class data extends Model
     public $modifyTime;
 
     /**
-     * @description The ID of the node that generates the instance.
+     * @description The node ID.
      *
      * @example 33115
      *
@@ -179,7 +179,7 @@ class data extends Model
     public $nodeId;
 
     /**
-     * @description The name of the node that generates the instance.
+     * @description The name of the node.
      *
      * @example kzh
      *
@@ -188,7 +188,7 @@ class data extends Model
     public $nodeName;
 
     /**
-     * @description The values of the parameters related to the node.
+     * @description The parameters related to the node.
      *
      * @example bizdate=$bizdate tbods=$tbods tbdw=$tbdw tbpmic=$tbpmic tbpidx=$tbpidx tbptcif=$tbptcif
      *
@@ -197,7 +197,7 @@ class data extends Model
     public $paramValues;
 
     /**
-     * @description The priority of the instance. Valid values: 1, 3, 5, 7, and 8. A great value indicates a high priority. Default value: 1.
+     * @description The priority of the instance. Valid values: 1, 3, 5, 7, and 8. A greater value indicates a higher priority. Default value: 1.
      *
      * @example 1
      *
@@ -206,7 +206,7 @@ class data extends Model
     public $priority;
 
     /**
-     * @description The ID of the workflow to which the node that generates the instance belongs.
+     * @description The ID of the workflow to which the node belongs.
      *
      * @example 123123
      *
@@ -215,7 +215,7 @@ class data extends Model
     public $relatedFlowId;
 
     /**
-     * @description The interval at which the node that generates the instance is rerun after the node fails to run. Unit: milliseconds.
+     * @description The interval at which the node is rerun after the node fails to run. Unit: milliseconds.
      *
      * @example 60000
      *
@@ -236,7 +236,7 @@ class data extends Model
      * @description The status of the node that generates the instance. Valid values:
      *
      *   NOT_RUN: The node is not run.
-     *   WAIT_TIME: The node is waiting for its scheduled time to arrive.
+     *   WAIT_TIME: The node is waiting for its scheduling time to arrive.
      *   WAIT_RESOURCE: The node is waiting for resources.
      *   RUNNING: The node is running.
      *   CHECKING: Data quality is being checked for the node.
@@ -251,11 +251,11 @@ class data extends Model
     public $status;
 
     /**
-     * @description The number of times the node that generates the instance can be rerun. This parameter can be left empty, or the value of this parameter can be an integer that is greater than or equal to 0.
+     * @description The number of times the node can be rerun. The value of this parameter can be empty or an integer that is greater than or equal to 0.
      *
-     *   If this parameter is left empty, the number of rerun times is not specified for the node.
+     *   If the value of this parameter is empty, the number of times that the node can be rerun is not specified.
      *   If the value of this parameter is 0, the node cannot be rerun.
-     *   If the value of this parameter is n (an integer that is greater than 0), the node can be rerun n times. For example, if the value of this parameter is 1, the node can be rerun once. If the value of this parameter is 2, the node can be rerun two times, and so on.
+     *   If the value of this parameter is a positive integer such as n, the node can still be rerun n times. For example, if the value of this parameter is 1, the node can still be rerun once. If the value of this parameter is 2, the node can still be rerun twice.
      *
      * @example 0
      *
@@ -266,14 +266,14 @@ class data extends Model
     /**
      * @description The scheduling type of the node that generates the instance. Valid values:
      *
-     *   NORMAL(0): The node is an auto triggered node. It is run on a regular basis.
-     *   MANUAL(1): The node is a manually triggered node. It is not run on a regular basis.
-     *   PAUSE(2): The node is a frozen node. The scheduling system still runs the node on a regular basis but sets it to FAILURE when the scheduling system starts to run the node.
-     *   SKIP(3): The node is a dry-run node. The scheduling system still runs the node on a regular basis but sets it to SUCCESS when the scheduling system starts to run the node.
-     *   SKIP_UNCHOOSE(4): The node is an unselected node in a temporary workflow. This type of node exists only in temporary workflows. The scheduling system sets the node to SUCCESS when the scheduling system starts to run the node.
-     *   SKIP_CYCLE(5): The node is a node that is scheduled by week or month and is waiting for its scheduled time. The scheduling system still runs the node on a regular basis but sets it to SUCCESS when the scheduling system starts to run the node.
+     *   NORMAL(0): The node is an auto triggered node. The scheduling system regularly runs the node.
+     *   MANUAL(1): The node is a manually triggered node. The scheduling system does not regularly run the node.
+     *   PAUSE(2): The node is a frozen node. The scheduling system regularly runs the node but sets the status of the node to failed when the scheduling system starts to run the node.
+     *   SKIP(3): The node is a dry-run node. The scheduling system regularly runs the node but sets the status of the node to successful when the scheduling system starts to run the node.
+     *   SKIP_UNCHOOSE(4): The node is an unselected node in a temporary workflow. This type of node exists only in temporary workflows. The scheduling system sets the status of the node to successful when the scheduling system starts to run the node.
+     *   SKIP_CYCLE(5): The node is a node that is scheduled by the week or month and is waiting for the scheduling time to arrive. The scheduling system regularly runs the node but sets the status of the node to successful when the scheduling system starts to run the node.
      *   CONDITION_UNCHOOSE(6): The node is not selected by its ancestor branch node and is run as a dry-run node.
-     *   REALTIME_DEPRECATED(7): The node has instances generated in real time but deprecated. The scheduling system directly sets the node to SUCCESS.
+     *   REALTIME_DEPRECATED(7): The node has instances that are generated in real time but deprecated. The scheduling system sets the status of the node to successful.
      *
      * @example NORMAL(0)
      *

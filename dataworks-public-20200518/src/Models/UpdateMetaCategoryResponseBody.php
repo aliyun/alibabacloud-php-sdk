@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateMetaCategoryResponseBody extends Model
 {
     /**
-     * @description Indicates whether the category was updated.
+     * @description Indicates whether the category is updated.
      *
      * @example true
      *
@@ -18,7 +18,7 @@ class UpdateMetaCategoryResponseBody extends Model
     public $data;
 
     /**
-     * @description The error code returned.
+     * @description The error code.
      *
      * @example Invalid.Tenant.ConnectionNotExists
      *
@@ -27,7 +27,7 @@ class UpdateMetaCategoryResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message returned.
+     * @description The error message.
      *
      * @example The connection does not exist.
      *
@@ -36,7 +36,7 @@ class UpdateMetaCategoryResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The HTTP status code returned.
+     * @description The HTTP status code.
      *
      * @example 200
      *
@@ -45,7 +45,7 @@ class UpdateMetaCategoryResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 0bc1ec92159376
      *

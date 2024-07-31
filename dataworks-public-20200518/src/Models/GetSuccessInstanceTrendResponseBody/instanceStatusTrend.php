@@ -12,16 +12,22 @@ use AlibabaCloud\Tea\Model;
 class instanceStatusTrend extends Model
 {
     /**
+     * @description The average trend.
+     *
      * @var avgTrend[]
      */
     public $avgTrend;
 
     /**
+     * @description The trend on the current day.
+     *
      * @var todayTrend[]
      */
     public $todayTrend;
 
     /**
+     * @description The trend on the previous day.
+     *
      * @var yesterdayTrend[]
      */
     public $yesterdayTrend;

@@ -19,7 +19,7 @@ class ListQualityResultsByRuleRequest extends Model
     public $endDate;
 
     /**
-     * @description The number of the page to return.
+     * @description The page number.
      *
      * This parameter is required.
      * @example 1
@@ -29,7 +29,7 @@ class ListQualityResultsByRuleRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Default value: 10. Maximum value: 100.
+     * @description The number of entries per page. Default value: 10. Maximum value: 100.
      *
      * This parameter is required.
      * @example 10
@@ -39,12 +39,16 @@ class ListQualityResultsByRuleRequest extends Model
     public $pageSize;
 
     /**
+     * @description The DataWorks workspace ID.
+     *
+     * @example 12345
+     *
      * @var int
      */
     public $projectId;
 
     /**
-     * @description The name of the compute engine instance or data source for which data quality is monitored.
+     * @description The name of the compute engine or data source for which data quality is monitored.
      *
      * This parameter is required.
      * @example autotest
@@ -54,7 +58,7 @@ class ListQualityResultsByRuleRequest extends Model
     public $projectName;
 
     /**
-     * @description The ID of the monitoring rule. You can use the ID and information such as a partition filter expression to perform a joint query.
+     * @description The monitoring rule ID. You can use the ID and information such as a partition filter expression to perform a joint query.
      *
      * This parameter is required.
      * @example 152322134

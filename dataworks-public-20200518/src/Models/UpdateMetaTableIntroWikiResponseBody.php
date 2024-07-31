@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateMetaTableIntroWikiResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID. You can troubleshoot issues based on the ID.
      *
      * @example abcde
      *
@@ -18,7 +18,7 @@ class UpdateMetaTableIntroWikiResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The updated instructions.
+     * @description Indicates whether the instructions on how to use the table are updated.
      *
      * @example true
      *

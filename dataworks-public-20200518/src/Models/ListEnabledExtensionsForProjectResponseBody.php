@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class ListEnabledExtensionsForProjectResponseBody extends Model
 {
     /**
-     * @description The unique code of the extension.
+     * @description The details of the extension.
      *
      * @var extensions[]
      */
     public $extensions;
 
     /**
-     * @description The details of the extension.
+     * @description The request ID.
      *
      * @example 4F2CA7ED-27E5-59EA-A8C4-F1F7A1FF0B22
      *

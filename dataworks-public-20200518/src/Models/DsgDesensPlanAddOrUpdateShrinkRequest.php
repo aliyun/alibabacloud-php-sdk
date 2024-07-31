@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DsgDesensPlanAddOrUpdateShrinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description A collection of data masking rules that you want to add or modify.
      *
+     * This parameter is required.
      * @var string
      */
     public $desensRulesShrink;

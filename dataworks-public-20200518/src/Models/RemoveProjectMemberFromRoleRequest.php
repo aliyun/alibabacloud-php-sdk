@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class RemoveProjectMemberFromRoleRequest extends Model
 {
     /**
-     * @description The ID of the DataWorks workspace.
+     * @description The DataWorks workspace ID.
      *
      * This parameter is required.
      * @example 27
@@ -19,9 +19,7 @@ class RemoveProjectMemberFromRoleRequest extends Model
     public $projectId;
 
     /**
-     * @description The role in the DataWorks workspace. You can call the ListProjectRoles operation to query codes of the roles in the workspace.
-     *
-     * Valid values:
+     * @description The code of the role in the DataWorks workspace. You can call the ListProjectRoles operation to query the codes of all roles in a DataWorks workspace. Valid values:
      *
      *   role_project_owner: workspace owner
      *   role_project_admin: workspace administrator
@@ -41,7 +39,7 @@ class RemoveProjectMemberFromRoleRequest extends Model
     public $roleCode;
 
     /**
-     * @description The ID of the user.
+     * @description The user ID.
      *
      * This parameter is required.
      * @example 1234

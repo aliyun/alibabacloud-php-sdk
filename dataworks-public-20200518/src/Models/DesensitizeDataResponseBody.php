@@ -18,7 +18,7 @@ class DesensitizeDataResponseBody extends Model
     public $desensitizeData;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example BCA321BA-46C5-40E9-8A08-6******
      *

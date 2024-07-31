@@ -45,7 +45,7 @@ class CreateQualityRelativeNodeResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example ecb967ec-c137-48****
      *
@@ -54,7 +54,7 @@ class CreateQualityRelativeNodeResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful.
+     * @description Indicates whether the request was successful.
      *
      * @example true
      *

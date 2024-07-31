@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListBaselinesResponseBody extends Model
 {
     /**
+     * @description The data returned.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The error code.
+     *
      * @example 103630001
      *
      * @var string
@@ -22,6 +26,8 @@ class ListBaselinesResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message returned if the request failed.
+     *
      * @example The user does not exist. 276571706358178756
      *
      * @var string
@@ -29,6 +35,8 @@ class ListBaselinesResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -36,6 +44,8 @@ class ListBaselinesResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The request ID.
+     *
      * @example 952795279527ab****
      *
      * @var string
@@ -43,6 +53,11 @@ class ListBaselinesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

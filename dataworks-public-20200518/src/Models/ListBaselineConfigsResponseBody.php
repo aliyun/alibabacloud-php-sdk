@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class ListBaselineConfigsResponseBody extends Model
 {
     /**
-     * @description The return results of the request.
+     * @description The data returned.
      *
      * @var data
      */
     public $data;
 
     /**
-     * @description The error code returned.
+     * @description The error code.
      *
      * @example 1031203110005
      *
@@ -26,7 +26,7 @@ class ListBaselineConfigsResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message returned.
+     * @description The error message.
      *
      * @example The specified parameters are invalid.
      *
@@ -35,7 +35,7 @@ class ListBaselineConfigsResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The HTTP status code returned.
+     * @description The HTTP status code.
      *
      * @example 200
      *
@@ -44,7 +44,7 @@ class ListBaselineConfigsResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The unique ID of the request. You can troubleshoot issues based on the ID.
+     * @description The request ID.
      *
      * @example 0000-ABCD-EFG****
      *
@@ -53,7 +53,7 @@ class ListBaselineConfigsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful.
+     * @description Indicates whether the request was successful.
      *
      * @example true
      *

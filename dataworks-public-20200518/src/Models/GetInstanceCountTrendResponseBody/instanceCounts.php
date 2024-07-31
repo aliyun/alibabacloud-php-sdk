@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class instanceCounts extends Model
 {
     /**
+     * @description The number of instances.
+     *
      * @example 9527
      *
      * @var int
@@ -16,6 +18,8 @@ class instanceCounts extends Model
     public $count;
 
     /**
+     * @description The data timestamp.
+     *
      * @example 1600963200000
      *
      * @var int

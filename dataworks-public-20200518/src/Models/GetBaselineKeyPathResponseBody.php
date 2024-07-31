@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetBaselineKeyPathResponseBody extends Model
 {
     /**
+     * @description The information about the key path.
+     *
      * @var data[]
      */
     public $data;

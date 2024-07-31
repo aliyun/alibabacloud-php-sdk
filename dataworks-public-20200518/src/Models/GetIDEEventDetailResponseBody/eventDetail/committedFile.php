@@ -27,7 +27,7 @@ class committedFile extends Model
     public $comment;
 
     /**
-     * @description The ID of the Alibaba Cloud account that is used to create the file of the current version.
+     * @description The ID of the Alibaba Cloud account that is used to generate the file of the current version.
      *
      * @example 7384234****
      *
@@ -45,7 +45,7 @@ class committedFile extends Model
     public $content;
 
     /**
-     * @description The ID of the file.
+     * @description The file ID.
      *
      * @example 1234123
      *
@@ -70,7 +70,7 @@ class committedFile extends Model
     public $filePropertyContent;
 
     /**
-     * @description The type of the code in the file. Examples: 6 (Shell), 10 (ODPS SQL), 11 (ODPS MR), 23 (Data Integration), 24 (ODPS Script), 99 (zero load), 221 (PyODPS 2), 225 (ODPS Spark), 227 (EMR Hive), 228 (EMR Spark), 229 (EMR Spark SQL), 230 (EMR MR), 239 (OSS object inspection), 257 (EMR Shell), 258 (EMR Spark Shell), 259 (EMR Presto), 260 (EMR Impala), 900 (real-time sync), 1089 (cross-tenant collaboration), 1091 (Hologres development), 1093 (Hologres SQL), 1100 (assignment), and 1221 (PyODPS 3).
+     * @description The type of the code for the file. Valid values: 6 (Shell), 10 (ODPS SQL), 11 (ODPS MR), 23 (Data Integration), 24 (ODPS Script), 99 (zero load), 221 (PyODPS 2), 225 (ODPS Spark), 227 (EMR Hive), 228 (EMR Spark), 229 (EMR Spark SQL), 230 (EMR MR), 239 (OSS object inspection), 257 (EMR Shell), 258 (EMR Spark Shell), 259 (EMR Presto), 260 (EMR Impala), 900 (real-time synchronization), 1089 (cross-tenant collaboration), 1091 (Hologres development), 1093 (Hologres SQL), 1100 (assignment), and 1221 (PyODPS 3).
      *
      * @example 10
      *

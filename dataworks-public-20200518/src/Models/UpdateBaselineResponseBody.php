@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateBaselineResponseBody extends Model
 {
     /**
+     * @description Indicates whether the baseline was updated.
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +18,8 @@ class UpdateBaselineResponseBody extends Model
     public $data;
 
     /**
+     * @description The error code.
+     *
      * @example 401
      *
      * @var string
@@ -23,6 +27,8 @@ class UpdateBaselineResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message.
+     *
      * @example The specified parameters are invalid.
      *
      * @var string
@@ -30,6 +36,8 @@ class UpdateBaselineResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -37,6 +45,8 @@ class UpdateBaselineResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The request ID.
+     *
      * @example 6E07E90B-D9BC-5D6B-896A-82BA41A34AE1
      *
      * @var string
@@ -44,6 +54,8 @@ class UpdateBaselineResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
      * @example true
      *
      * @var bool

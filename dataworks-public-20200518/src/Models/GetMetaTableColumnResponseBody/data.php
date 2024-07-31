@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The name of the field.
+     * @description The information about fields.
      *
      * @var columnList[]
      */
     public $columnList;
 
     /**
-     * @description The total number of fields.
+     * @description The page number.
      *
      * @example 1
      *
@@ -26,7 +26,7 @@ class data extends Model
     public $pageNum;
 
     /**
-     * @description The information of fields.
+     * @description The number of entries per page. Default value: 10. Maximum value: 100.
      *
      * @example 10
      *
@@ -35,7 +35,7 @@ class data extends Model
     public $pageSize;
 
     /**
-     * @description The GUID of the field.
+     * @description The total number of fields.
      *
      * @example 100
      *

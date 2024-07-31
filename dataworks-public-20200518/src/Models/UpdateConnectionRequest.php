@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateConnectionRequest extends Model
 {
     /**
-     * @description The ID of the data source.
+     * @description The data source ID. You can call the [ListConnections](https://help.aliyun.com/document_detail/173911.html) operation to query the ID.
      *
      * This parameter is required.
      * @example 1
@@ -19,8 +19,63 @@ class UpdateConnectionRequest extends Model
     public $connectionId;
 
     /**
-     * @description Details of the data source.
+     * @description The details of the data source. Examples of details of some common data sources:
      *
+     *   odps
+     *
+     * }
+     *
+     *   mysql
+     *
+     * }
+     *
+     *   rds
+     *
+     * }
+     *
+     *   oss
+     *
+     * }
+     *
+     *   sqlserver
+     *
+     * }
+     *
+     *   polardb
+     *
+     * }
+     *
+     *   oracle
+     *
+     * }
+     *
+     *   mongodb
+     *
+     * }
+     *
+     *   emr
+     *
+     * }
+     *
+     *   postgresql
+     *
+     * }
+     *
+     *   analyticdb_for_mysql
+     *
+     * }
+     *
+     *   hybriddb_for_postgresql
+     *
+     * }
+     *
+     *   holo
+     *
+     * }
+     *
+     *   kafka
+     *
+     * }
      * @example {"database":"dbname","instanceName":"instancename","password":"password","rdsOwnerId":"123","username":"username"}
      *
      * @var string
@@ -28,7 +83,7 @@ class UpdateConnectionRequest extends Model
     public $content;
 
     /**
-     * @description Describes the data source.
+     * @description The description of the data source.
      *
      * @example abc
      *
@@ -37,7 +92,7 @@ class UpdateConnectionRequest extends Model
     public $description;
 
     /**
-     * @description Environment of the data source.
+     * @description The environment in which the data source is used. Valid values: 0 and 1. The value 0 indicates the development environment. The value 1 indicates the production environment.
      *
      * @example 1
      *
@@ -46,7 +101,7 @@ class UpdateConnectionRequest extends Model
     public $envType;
 
     /**
-     * @description The status of the data source.
+     * @description The status of the data source. Valid values: ENABLED and DISABLED. The value ENABLED indicates that the data source is in the normal state. The value DISABLED indicates that the data source is in an abnormal state.
      *
      * @example ENABLED
      *

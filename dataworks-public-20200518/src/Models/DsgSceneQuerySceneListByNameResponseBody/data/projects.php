@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class projects extends Model
 {
     /**
+     * @description The ID of the EMR cluster. This parameter is returned only when the data scope that takes effect in the data masking scenario is an EMR compute engine.
+     *
      * @example c-1234
      *
      * @var string
@@ -16,6 +18,12 @@ class projects extends Model
     public $clusterId;
 
     /**
+     * @description The type of the compute engine. Valid values:
+     *
+     *   ODPS: ODPS.ODPS
+     *   HOLO: HOLO.POSTGRES
+     *   EMR: EMR
+     *
      * @example ODPS.ODPS
      *
      * @var string
@@ -23,6 +31,8 @@ class projects extends Model
     public $dbType;
 
     /**
+     * @description The name of the compute engine.
+     *
      * @example dev_project
      *
      * @var string

@@ -10,15 +10,14 @@ use AlibabaCloud\Tea\Model;
 class GetDISyncTaskResponseBody extends Model
 {
     /**
-     * @description *   If the TaskType parameter is set to DI_REALTIME, the details of the real-time synchronization node are returned.
-     *   If the TaskType parameter is set to DI_SOLUTION, the value null is returned.
+     * @description The returned results.
      *
      * @var data
      */
     public $data;
 
     /**
-     * @description The details of the real-time synchronization node or data synchronization solution.
+     * @description The request ID. You can locate logs and troubleshoot issues based on the ID.
      *
      * @example 0bc1411515937635973****
      *
@@ -27,7 +26,10 @@ class GetDISyncTaskResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the request. You can query logs and troubleshoot issues based on the ID.
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   True
+     *   False
      *
      * @example true
      *

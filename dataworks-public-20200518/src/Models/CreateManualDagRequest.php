@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateManualDagRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The data timestamp. The value of the data timestamp must be one or more days before the current date. For example, if the current date is November 11, 2020, set the value to 2020-11-10 00:00:00 or earlier. Configure this parameter in the YYYY-MM-DD 00:00:00 format.
      *
+     * This parameter is required.
      * @example 2020-11-11 00:00:00
      *
      * @var string
@@ -18,6 +19,8 @@ class CreateManualDagRequest extends Model
     public $bizDate;
 
     /**
+     * @description The parameters of the manually triggered workflow, which are synchronized to all the instances in the directed acyclic graph (DAG) of the workflow. If a workflow parameter specified in DagParameters is referenced as a scheduling parameter of a node, the value of the scheduling parameter is replaced with the value of the workflow parameter.
+     *
      * @example {"kaaaa": "vaaaaa", "kbbbb": "vbbbbb"}
      *
      * @var string
@@ -25,6 +28,8 @@ class CreateManualDagRequest extends Model
     public $dagParameters;
 
     /**
+     * @description The IDs of the nodes that do not need to be run.
+     *
      * @example 123,456
      *
      * @var string
@@ -32,8 +37,9 @@ class CreateManualDagRequest extends Model
     public $excludeNodeIds;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the manually triggered workflow.
      *
+     * This parameter is required.
      * @example test_workflow
      *
      * @var string
@@ -41,6 +47,8 @@ class CreateManualDagRequest extends Model
     public $flowName;
 
     /**
+     * @description The IDs of the nodes that you want to run.
+     *
      * @example 74324,74325
      *
      * @var string
@@ -48,6 +56,8 @@ class CreateManualDagRequest extends Model
     public $includeNodeIds;
 
     /**
+     * @description The parameters transmitted between nodes in the manually triggered workflow. The parameters are in the following JSON format: `{ "<ID of a node in the manually triggered workflow>": "Scheduling parameter settings of the node, which are in the same format as the parameters in the Scheduling Parameter section on the Properties tab of the DataStudio page", "<ID of a node in the manually triggered workflow>": "Scheduling parameter settings of the node, which are in the same format as the parameters in the Scheduling Parameter section on the Properties tab of the DataStudio page" }`
+     *
      * @example {"20000123121": "key1=val2 key2=val2", "20000123124": "kkkk=vvvvv aaaa=bbbb"}
      *
      * @var string
@@ -55,15 +65,17 @@ class CreateManualDagRequest extends Model
     public $nodeParameters;
 
     /**
-     * @description This parameter is required.
+     * @description The environment type of Operation Center. Valid values: PROD and DEV.
      *
+     * This parameter is required.
      * @var string
      */
     public $projectEnv;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the workspace to which the manually triggered workflow belongs.
      *
+     * This parameter is required.
      * @example test_workspace
      *
      * @var string

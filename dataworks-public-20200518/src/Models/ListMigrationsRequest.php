@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListMigrationsRequest extends Model
 {
     /**
-     * @description The ID of the owner.
+     * @description The migration task type. Valid values: IMPORT and EXPORT.
      *
      * This parameter is required.
      * @example IMPORT
@@ -19,7 +19,7 @@ class ListMigrationsRequest extends Model
     public $migrationType;
 
     /**
-     * @description The number of the page to return.
+     * @description The owner ID.
      *
      * @example 193379****
      *
@@ -28,7 +28,7 @@ class ListMigrationsRequest extends Model
     public $owner;
 
     /**
-     * @description The number of entries to return on each page. Maximum value: 100.
+     * @description The page number.
      *
      * @example 1
      *
@@ -37,7 +37,7 @@ class ListMigrationsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The ID of the request.
+     * @description The number of entries per page. Maximum value: 100.
      *
      * @example 10
      *
@@ -46,7 +46,7 @@ class ListMigrationsRequest extends Model
     public $pageSize;
 
     /**
-     * @description The type of the migration task. Valid values: IMPORT and EXPORT.
+     * @description The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to obtain the workspace ID.
      *
      * This parameter is required.
      * @example 12345

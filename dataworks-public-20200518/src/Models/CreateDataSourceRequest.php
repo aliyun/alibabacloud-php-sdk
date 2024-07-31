@@ -9,7 +9,65 @@ use AlibabaCloud\Tea\Model;
 class CreateDataSourceRequest extends Model
 {
     /**
-     * @description The ID of the data source.
+     * @description The details of the data source. Examples of details of some common data sources:
+     *
+     *   odps
+     *
+     * }
+     *
+     *   mysql
+     *
+     * }
+     *
+     *   rds
+     *
+     * }
+     *
+     *   oss
+     *
+     * }
+     *
+     *   sqlserver
+     *
+     * }
+     *
+     *   polardb
+     *
+     * }
+     *
+     *   redis
+     *
+     * }
+     *
+     *   oracle
+     *
+     * }
+     *
+     *   mongodb
+     *
+     * }
+     *
+     *   emr
+     *
+     * }
+     *
+     *   postgresql
+     *
+     * }
+     *
+     *   analyticdb_for_mysql
+     *
+     * }
+     *
+     *   hybriddb_for_postgresql
+     *
+     * }
+     *
+     *   holo
+     *
+     * }
+     *
+     *   kafka
      *
      * This parameter is required.
      * @example {"database":"dbname","instanceName":"instancename","password":"password","rdsOwnerId":"123","username":"username"}
@@ -17,38 +75,6 @@ class CreateDataSourceRequest extends Model
      * @var string
      */
     public $content;
-
-    /**
-     * @description The environment in which the data source is used. Valid values: 0 and 1. 0 indicates the development environment. 1 indicates the production environment.
-     *
-     * This parameter is required.
-     * @example rds
-     *
-     * @var string
-     */
-    public $dataSourceType;
-
-    /**
-     * @description The subtype of the data source. Example:
-     *
-     *   This parameter takes effect only if the DataSourceType parameter is set to rds.
-     *   If the DataSourceType parameter is set to rds, this parameter can be set to mysql, sqlserver, or postgresql.
-     *
-     * @example abc
-     *
-     * @var string
-     */
-    public $description;
-
-    /**
-     * @description The HTTP status code returned.
-     *
-     * This parameter is required.
-     * @example 1
-     *
-     * @var int
-     */
-    public $envType;
 
     /**
      * @description The type of the data source. Valid values:
@@ -68,6 +94,35 @@ class CreateDataSourceRequest extends Model
      *   holo
      *
      * This parameter is required.
+     * @example rds
+     *
+     * @var string
+     */
+    public $dataSourceType;
+
+    /**
+     * @description The description of the data source.
+     *
+     * @example abc
+     *
+     * @var string
+     */
+    public $description;
+
+    /**
+     * @description The environment in which the data source is used. Valid values: 0 and 1. The value 0 indicates the development environment. The value 1 indicates the production environment.
+     *
+     * This parameter is required.
+     * @example 1
+     *
+     * @var int
+     */
+    public $envType;
+
+    /**
+     * @description The name of the data source.
+     *
+     * This parameter is required.
      * @example abc
      *
      * @var string
@@ -75,7 +130,7 @@ class CreateDataSourceRequest extends Model
     public $name;
 
     /**
-     * @description The description of the data source.
+     * @description The ID of the DataWorks workspace to which the data source belongs. You can call the [ListProjects](https://help.aliyun.com/document_detail/2780068.html) operation to query the ID.
      *
      * This parameter is required.
      * @example 1
@@ -85,63 +140,11 @@ class CreateDataSourceRequest extends Model
     public $projectId;
 
     /**
-     * @description The details of the data source. Examples of details of some common data sources:
+     * @description The subtype of the data source.
      *
-     *   odps
+     *   This parameter takes effect only if you set the DataSourceType parameter to rds.
+     *   If the DataSourceType parameter is set to rds, this parameter can be set to mysql, sqlserver, or postgresql.
      *
-     * ```
-     *
-     *   mysql
-     *
-     * ```
-     *
-     *   rds
-     *
-     * ```
-     *
-     *   oss
-     *
-     * ```
-     *
-     *   sqlserver
-     *
-     * ```
-     *
-     *   polardb
-     *
-     * ```
-     *
-     *   oracle
-     *
-     * ```
-     *
-     *   mongodb
-     *
-     * ```
-     *
-     *   emr
-     *
-     * ```
-     *
-     *   postgresql
-     *
-     * ```
-     *
-     *   analyticdb_for_mysql
-     *
-     * ```
-     *
-     *   hybriddb_for_postgresql
-     *
-     * ```
-     *
-     *   holo
-     *
-     * ```
-     *
-     *   kafka
-     *
-     * ```
      * @example mysql
      *
      * @var string

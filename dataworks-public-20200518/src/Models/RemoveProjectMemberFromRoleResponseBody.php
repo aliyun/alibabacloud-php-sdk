@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class RemoveProjectMemberFromRoleResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 1AFAE64E-D1BE-432B-A9****
      *

@@ -9,7 +9,21 @@ use AlibabaCloud\Tea\Model;
 class CreateConnectionRequest extends Model
 {
     /**
-     * @description The type of the connection string.
+     * @description The type of the connection string. Valid values:
+     *
+     *   odps
+     *   mysql
+     *   rds
+     *   oss
+     *   sqlserver
+     *   polardb
+     *   oracle
+     *   mongodb
+     *   emr
+     *   postgresql
+     *   analyticdb_for_mysql
+     *   hybriddb_for_postgresql
+     *   holo
      *
      * This parameter is required.
      * @example rds
@@ -19,7 +33,61 @@ class CreateConnectionRequest extends Model
     public $connectionType;
 
     /**
-     * @description Details of the data source.
+     * @description The details of the data source. Examples of details of some common data sources:
+     *
+     *   odps
+     *
+     * }
+     *
+     *   mysql
+     *
+     * }
+     *
+     *   rds
+     *
+     * }
+     *
+     *   oss
+     *
+     * }
+     *
+     *   sqlserver
+     *
+     * }
+     *
+     *   polardb
+     *
+     * }
+     *
+     *   oracle
+     *
+     * }
+     *
+     *   mongodb
+     *
+     * }
+     *
+     *   emr
+     *
+     * }
+     *
+     *   postgresql
+     *
+     * }
+     *
+     *   analyticdb_for_mysql
+     *
+     * }
+     *
+     *   hybriddb_for_postgresql
+     *
+     * }
+     *
+     *   holo
+     *
+     * }
+     *
+     *   kafka
      *
      * This parameter is required.
      * @example {"database":"dbname","instanceName":"instancename","password":"password","rdsOwnerId":"123","username":"username"}
@@ -38,7 +106,7 @@ class CreateConnectionRequest extends Model
     public $description;
 
     /**
-     * @description Environment of the data source.
+     * @description The environment in which the data source is used. Valid values: 0 and 1. The value 0 indicates the development environment. The value 1 indicates the production environment.
      *
      * This parameter is required.
      * @example 1
@@ -58,7 +126,7 @@ class CreateConnectionRequest extends Model
     public $name;
 
     /**
-     * @description The ID of the workspace to be associated with the data source.
+     * @description The ID of the workspace with which the data source is associated. You can call the [ListProjects](https://help.aliyun.com/document_detail/178393.html) operation to query the ID.
      *
      * This parameter is required.
      * @example 1
@@ -68,7 +136,10 @@ class CreateConnectionRequest extends Model
     public $projectId;
 
     /**
-     * @description The sub-type of a connection string.
+     * @description The subtype of the connection string. This parameter is used for scenarios where a type includes subtypes. The following type and subtypes are supported:
+     *
+     *   Type: `rds`
+     *   Subtypes: `mysql`, `sqlserver`, and `postgresql`.
      *
      * @example mysql
      *

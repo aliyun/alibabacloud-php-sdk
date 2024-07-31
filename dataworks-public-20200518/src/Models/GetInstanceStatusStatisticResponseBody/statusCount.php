@@ -45,7 +45,7 @@ class statusCount extends Model
     public $successCount;
 
     /**
-     * @description The total number of instances.
+     * @description The total number of instances returned.
      *
      * @example 1
      *

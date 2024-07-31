@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class lineageRelation extends Model
 {
     /**
+     * @description The unique identifier of the destination entity.
+     *
      * @example custom-report.month_stat_user
      *
      * @var string
@@ -16,6 +18,8 @@ class lineageRelation extends Model
     public $destEntityQualifiedName;
 
     /**
+     * @description The ID of the lineage between entities.
+     *
      * @example dfsldfdlsfdsaaaabbbb
      *
      * @var string
@@ -23,6 +27,8 @@ class lineageRelation extends Model
     public $relationshipGuid;
 
     /**
+     * @description The unique identifier of the source entity.
+     *
      * @example maxcompute-table.project.table
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class bindEventList extends Model
 {
     /**
+     * @description The code of the event.
+     *
      * @example commit-file
      *
      * @var string
@@ -16,7 +18,7 @@ class bindEventList extends Model
     public $eventCode;
 
     /**
-     * @description The code of the event.
+     * @description The name of the event.
      *
      * @var string
      */

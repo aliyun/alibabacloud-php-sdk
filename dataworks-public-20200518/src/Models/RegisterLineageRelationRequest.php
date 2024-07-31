@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class RegisterLineageRelationRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The structure whose lineage you want to register to DataWorks.
      *
+     * This parameter is required.
      * @var LineageRelationRegisterVO
      */
     public $lineageRelationRegisterVO;

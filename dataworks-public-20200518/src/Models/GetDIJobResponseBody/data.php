@@ -15,6 +15,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The timestamp when the synchronization task was created. The timestamp is accurate to the second.
+     *
      * @example 1671516776
      *
      * @var int
@@ -22,6 +24,8 @@ class data extends Model
     public $createdTime;
 
     /**
+     * @description The ID of the user who creates the synchronization task.
+     *
      * @example 100000001
      *
      * @var string
@@ -29,6 +33,8 @@ class data extends Model
     public $createdUid;
 
     /**
+     * @description The ID of the synchronization task.
+     *
      * @example 11588
      *
      * @var int
@@ -36,16 +42,22 @@ class data extends Model
     public $DIJobId;
 
     /**
+     * @description The description of the synchronization task.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The settings of the destination. Only a single destination is supported.
+     *
      * @var destinationDataSourceSettings[]
      */
     public $destinationDataSourceSettings;
 
     /**
+     * @description The type of the destination. The value Hologres is returned.
+     *
      * @example Hologres
      *
      * @var string
@@ -53,6 +65,8 @@ class data extends Model
     public $destinationDataSourceType;
 
     /**
+     * @description The error message returned if the value of the JobStatus parameter is Failed.
+     *
      * @example error details xxx
      *
      * @var string
@@ -60,6 +74,8 @@ class data extends Model
     public $errorMessage;
 
     /**
+     * @description The name of the synchronization task.
+     *
      * @example mysql_to_holo_sync_445
      *
      * @var string
@@ -67,11 +83,22 @@ class data extends Model
     public $jobName;
 
     /**
+     * @description The settings for the dimension of the synchronization task. The settings include processing policies for DDL messages, policies for data type mappings between source fields and destination fields, and runtime parameters of the synchronization task.
+     *
      * @var jobSettings
      */
     public $jobSettings;
 
     /**
+     * @description The task status. Valid values:
+     *
+     *   Finished
+     *   Initialized
+     *   Stopped
+     *   Failed
+     *   Running
+     *   Stopping
+     *
      * @example Finished
      *
      * @var string
@@ -79,6 +106,12 @@ class data extends Model
     public $jobStatus;
 
     /**
+     * @description The synchronization type. Valid values:
+     *
+     *   FullAndRealtimeIncremental: one-time full synchronization and real-time incremental synchronization
+     *   RealtimeIncremental: real-time incremental synchronization
+     *   Full: one-time full synchronization
+     *
      * @example FullAndRealtimeIncremental
      *
      * @var string
@@ -86,6 +119,8 @@ class data extends Model
     public $migrationType;
 
     /**
+     * @description The workspace ID.
+     *
      * @example 22
      *
      * @var int
@@ -93,21 +128,29 @@ class data extends Model
     public $projectId;
 
     /**
+     * @description The resource settings.
+     *
      * @var resourceSettings
      */
     public $resourceSettings;
 
     /**
+     * @description The information about the running of the synchronization task.
+     *
      * @var string[]
      */
     public $runStats;
 
     /**
+     * @description The settings of the source. Only a single source is supported.
+     *
      * @var sourceDataSourceSettings[]
      */
     public $sourceDataSourceSettings;
 
     /**
+     * @description The type of the source. The value MySQL is returned.
+     *
      * @example MySQL
      *
      * @var string
@@ -115,6 +158,8 @@ class data extends Model
     public $sourceDataSourceType;
 
     /**
+     * @description The timestamp when the synchronization task was last started. The timestamp is accurate to the second.
+     *
      * @example 1673859999
      *
      * @var int
@@ -122,6 +167,8 @@ class data extends Model
     public $startedTime;
 
     /**
+     * @description The ID of the user who last starts the synchronization task.
+     *
      * @example 100000001
      *
      * @var string
@@ -129,16 +176,22 @@ class data extends Model
     public $startedUid;
 
     /**
+     * @description The list of mappings between rules used to select synchronization objects in the source and transformation rules applied to the selected synchronization objects. Each entry in the list displays a mapping between a rule used to select synchronization objects and a transformation rule applied to the selected synchronization objects.
+     *
      * @var tableMappings[]
      */
     public $tableMappings;
 
     /**
+     * @description The list of transformation rules for objects involved in the synchronization task. Each entry in the list defines a transformation rule.
+     *
      * @var transformationRules[]
      */
     public $transformationRules;
 
     /**
+     * @description The timestamp when the synchronization task was last modified. The timestamp is accurate to the second.
+     *
      * @example 1673859985
      *
      * @var int
@@ -146,6 +199,8 @@ class data extends Model
     public $updatedTime;
 
     /**
+     * @description The ID of the user who last modifies the synchronization task.
+     *
      * @example 100000001
      *
      * @var string

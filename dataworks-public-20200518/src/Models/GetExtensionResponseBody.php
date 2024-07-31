@@ -17,7 +17,7 @@ class GetExtensionResponseBody extends Model
     public $extension;
 
     /**
-     * @description The ID of the request. You can use the ID to query logs and troubleshoot issues.
+     * @description The request ID. You can use the request ID to query logs and troubleshoot issues.
      *
      * @example 0000-ABCD-EFG
      *

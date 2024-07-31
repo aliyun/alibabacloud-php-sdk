@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The details of the folder.
+     * @description The list of folders.
      *
      * @var folders[]
      */
     public $folders;
 
     /**
-     * @description The page number of the returned page.
+     * @description The page number.
      *
      * @example 1
      *
@@ -26,7 +26,7 @@ class data extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries on the returned page.
+     * @description The number of entries per page.
      *
      * @example 10
      *

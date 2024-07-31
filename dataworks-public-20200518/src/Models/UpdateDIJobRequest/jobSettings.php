@@ -18,6 +18,8 @@ class jobSettings extends Model
     public $channelSettings;
 
     /**
+     * @description The settings for data type mappings between source fields and destination fields. The value of this parameter must be an array.
+     *
      * @var columnDataTypeSettings[]
      */
     public $columnDataTypeSettings;
@@ -28,11 +30,15 @@ class jobSettings extends Model
     public $cycleScheduleSettings;
 
     /**
+     * @description The settings for processing DDL messages. The value of this parameter must be an array.
+     *
      * @var ddlHandlingSettings[]
      */
     public $ddlHandlingSettings;
 
     /**
+     * @description The runtime settings. The value of this parameter must be an array.
+     *
      * @var runtimeSettings[]
      */
     public $runtimeSettings;

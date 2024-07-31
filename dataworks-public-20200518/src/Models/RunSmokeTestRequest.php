@@ -29,7 +29,7 @@ class RunSmokeTestRequest extends Model
     public $name;
 
     /**
-     * @description The ID of the node. You can call the [ListNodes](https://help.aliyun.com/document_detail/173979.html) operation to query the ID.
+     * @description The node ID. You can call the [ListNodes](https://help.aliyun.com/document_detail/173979.html) operation to query the ID.
      *
      * This parameter is required.
      * @example 1234
@@ -48,7 +48,7 @@ class RunSmokeTestRequest extends Model
     public $nodeParams;
 
     /**
-     * @description The environment of the workspace. Valid values: PROD and DEV. The value PROD indicates the production environment, and the value DEV indicates the development environment.
+     * @description The environment of the workspace. Valid values: PROD and DEV. The value PROD indicates the production environment, and the value DEV indicates the development environment. A workspace in basic mode does not have a development environment. For more information, see [Differences between workspaces in basic mode and workspaces in standard mode](https://help.aliyun.com/document_detail/85772.html).
      *
      * This parameter is required.
      * @example PROD

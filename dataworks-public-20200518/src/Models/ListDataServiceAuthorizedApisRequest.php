@@ -18,7 +18,7 @@ class ListDataServiceAuthorizedApisRequest extends Model
     public $apiNameKeyword;
 
     /**
-     * @description The number of the page to return. Pages start from page 1. Default value: 1.
+     * @description The page number. Pages start from page 1. Default value: 1.
      *
      * @example 1
      *
@@ -27,7 +27,7 @@ class ListDataServiceAuthorizedApisRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Default value: 10. Maximum value: 100.
+     * @description The number of entries per page. Default value: 10. Maximum value: 100.
      *
      * @example 10
      *
@@ -36,7 +36,7 @@ class ListDataServiceAuthorizedApisRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the workspace.
+     * @description The workspace ID.
      *
      * This parameter is required.
      * @example 10000
@@ -46,7 +46,7 @@ class ListDataServiceAuthorizedApisRequest extends Model
     public $projectId;
 
     /**
-     * @description The ID of the tenant.
+     * @description The tenant ID. This parameter is deprecated.
      *
      * @example 10001
      *

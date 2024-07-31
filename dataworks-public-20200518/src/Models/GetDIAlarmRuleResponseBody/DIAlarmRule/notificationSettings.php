@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class notificationSettings extends Model
 {
     /**
+     * @description The duration of the alert suppression interval. Unit: minutes.
+     *
      * @example 5
      *
      * @var int
@@ -18,11 +20,15 @@ class notificationSettings extends Model
     public $inhibitionInterval;
 
     /**
+     * @description The alert notification methods.
+     *
      * @var notificationChannels[]
      */
     public $notificationChannels;
 
     /**
+     * @description The alert notification recipients.
+     *
      * @var notificationReceivers[]
      */
     public $notificationReceivers;

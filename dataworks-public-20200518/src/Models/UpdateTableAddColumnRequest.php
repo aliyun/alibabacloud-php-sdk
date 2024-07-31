@@ -10,8 +10,9 @@ use AlibabaCloud\Tea\Model;
 class UpdateTableAddColumnRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The list of fields.
      *
+     * This parameter is required.
      * @var column[]
      */
     public $column;

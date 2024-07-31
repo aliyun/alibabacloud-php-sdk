@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class TopTenErrorTimesInstanceResponseBody extends Model
 {
     /**
-     * @description The ranking of nodes on which errors occur.
+     * @description The ranking data of nodes on which errors occurred.
      *
      * @var instanceErrorRank
      */
     public $instanceErrorRank;
 
     /**
-     * @description The ID of the request. You can use the ID to troubleshoot issues.
+     * @description The request ID.
      *
      * @example 952795279527****
      *

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListProjectsRequest extends Model
 {
     /**
-     * @description The ID of the resource group.
+     * @description The page number. Valid values: 1 to 100.
      *
      * @example 1
      *
@@ -19,7 +19,7 @@ class ListProjectsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The tags.
+     * @description The number of entries per page. Default value: 10. Maximum value: 100.
      *
      * @example 10
      *
@@ -28,7 +28,7 @@ class ListProjectsRequest extends Model
     public $pageSize;
 
     /**
-     * @description The tag key.
+     * @description The resource group ID.
      *
      * @example rg-acfmzbn7pti3zfa
      *
@@ -37,7 +37,7 @@ class ListProjectsRequest extends Model
     public $resourceManagerResourceGroupId;
 
     /**
-     * @description The tag value.
+     * @description The tags to add to the workspace.
      *
      * @var tags[]
      */

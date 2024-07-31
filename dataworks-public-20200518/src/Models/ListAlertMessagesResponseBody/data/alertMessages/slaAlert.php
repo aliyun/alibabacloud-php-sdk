@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class slaAlert extends Model
 {
     /**
-     * @description The ID of the baseline.
+     * @description The baseline ID.
      *
      * @example 1234
      *
@@ -43,7 +43,7 @@ class slaAlert extends Model
     public $bizdate;
 
     /**
-     * @description The ID of the cycle of the baseline instance. Valid values of the ID of an hour-level cycle: 1 to 24. The ID of a day-level cycle is 1.
+     * @description The ID of the cycle of the baseline instance. Valid values of the ID of an hour-level cycle: [1,24]. The ID of a day-level cycle is 1.
      *
      * @example 1
      *
@@ -61,7 +61,7 @@ class slaAlert extends Model
     public $projectId;
 
     /**
-     * @description The status of the baseline. Valid values: ERROR, SAFE, DANGROUS, and OVER. The value ERROR indicates that no nodes are associated with the baseline, or all nodes associated with the baseline are suspended. The value SAFE indicates that nodes are run before the alert duration begins. The value DANGROUS indicates that nodes are still running after the alert duration ends but the committed time does not arrive. The value OVER indicates that nodes are still running after the committed time.
+     * @description The status of the baseline. Valid values: ERROR, SAFE, DANGEROUS, and OVER. The value ERROR indicates that no nodes are associated with the baseline, or all nodes associated with the baseline are suspended. The value SAFE indicates that nodes are run before the alert duration begins. The value DANGEROUS indicates that nodes are still running after the alert duration ends but the committed completion time does not arrive. The value OVER indicates that nodes are still running after the committed completion time.
      *
      * @example SAFE
      *

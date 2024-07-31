@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class ListInnerNodesResponseBody extends Model
 {
     /**
-     * @description The page number of the returned page.
+     * @description The pagination information.
      *
      * @var paging
      */
     public $paging;
 
     /**
-     * @description Indicates whether the request is successful.
+     * @description The request ID.
      *
      * @example E6F0DBDD-5AD****
      *
@@ -26,7 +26,7 @@ class ListInnerNodesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The paging information.
+     * @description Indicates whether the request was successful.
      *
      * @example true
      *

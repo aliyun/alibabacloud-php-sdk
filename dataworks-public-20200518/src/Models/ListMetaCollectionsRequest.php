@@ -18,9 +18,7 @@ class ListMetaCollectionsRequest extends Model
     public $administrator;
 
     /**
-     * @description - **ALBUM**: data album
-     * - **ALBUM_CATEGORY**: category in a data album
-     *
+     * @description - ALBUM: data album
      * This parameter is required.
      * @example ALBUM
      *
@@ -56,7 +54,7 @@ class ListMetaCollectionsRequest extends Model
     public $keyword;
 
     /**
-     * @description The paging information. This parameter specifies the start point of the query.
+     * @description The pagination token that is used in the next request to retrieve a new page of results.
      *
      * @example 12345
      *
@@ -74,7 +72,7 @@ class ListMetaCollectionsRequest extends Model
     public $orderBy;
 
     /**
-     * @description The number of entries to return on each page. Default value: 10. Maximum value: 100.
+     * @description The number of entries per page. Default value: 10. Maximum value: 100.
      *
      * @example 10
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class folders extends Model
 {
     /**
-     * @description The ID of the folder.
+     * @description The folder ID.
      *
      * @example 2735c2****
      *

@@ -9,10 +9,10 @@ use AlibabaCloud\Tea\Model;
 class MountDirectoryResponseBody extends Model
 {
     /**
-     * @description Indicates whether the request was successful. Valid values:
+     * @description The number of directories that are added. Valid values:
      *
-     *   true: The request was successful.
-     *   false: The request failed.
+     *   0: No directories are added. The left-side navigation pane may contain the specified directory.
+     *   1: One directory is added.
      *
      * @example 1
      *
@@ -21,6 +21,8 @@ class MountDirectoryResponseBody extends Model
     public $data;
 
     /**
+     * @description The error code. The value 200 indicates that the task is successful.
+     *
      * @example 200
      *
      * @var string
@@ -28,6 +30,8 @@ class MountDirectoryResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message.
+     *
      * @example You have no permission.
      *
      * @var string
@@ -35,7 +39,7 @@ class MountDirectoryResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The error message returned if the request failed.
+     * @description The HTTP status code.
      *
      * @example 200
      *
@@ -44,7 +48,7 @@ class MountDirectoryResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The error code returned. The value 200 indicates that the add task is successful.
+     * @description The request ID. You can use the ID to troubleshoot issues.
      *
      * @example C27D4FB9-C59B-5E17-BD6C-1099B9D6A381
      *
@@ -53,6 +57,11 @@ class MountDirectoryResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

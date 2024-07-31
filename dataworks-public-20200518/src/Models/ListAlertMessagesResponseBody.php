@@ -17,7 +17,7 @@ class ListAlertMessagesResponseBody extends Model
     public $data;
 
     /**
-     * @description The error code returned.
+     * @description The error code.
      *
      * @example Invalid.Tenant.ConnectionNotExists
      *
@@ -26,7 +26,7 @@ class ListAlertMessagesResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message returned.
+     * @description The error message.
      *
      * @example The specified parameters are invalid.
      *
@@ -35,7 +35,7 @@ class ListAlertMessagesResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The HTTP status code returned.
+     * @description The HTTP status code.
      *
      * @example 200
      *
@@ -44,7 +44,7 @@ class ListAlertMessagesResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The ID of the request. You can use the ID to troubleshoot issues.
+     * @description The request ID.
      *
      * @example 0000-ABCD-EFG****
      *

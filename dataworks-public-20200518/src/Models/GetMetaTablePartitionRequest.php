@@ -12,7 +12,7 @@ class GetMetaTablePartitionRequest extends Model
     /**
      * @description The ID of the EMR cluster. This parameter is required only if you set the DataSourceType parameter to emr.
      *
-     * You can log on to the [EMR console](https://emr.console.aliyun.com/?spm=a2c4g.11186623.0.0.965cc5c2GeiHet#/cn-hangzhou) to obtain the ID of the EMR cluster.
+     * You can log on to the [EMR console](https://emr.console.aliyun.com/?spm=a2c4g.11186623.0.0.965cc5c2GeiHet#/cn-hangzhou) to obtain the ID.
      * @example abc
      *
      * @var string
@@ -29,9 +29,9 @@ class GetMetaTablePartitionRequest extends Model
     public $dataSourceType;
 
     /**
-     * @description The name of the metadatabase. This parameter is required only if you set the DataSourceType parameter to emr.
+     * @description The name of the database. This parameter is required only if you set the DataSourceType parameter to emr.
      *
-     * You can call the [ListMetaDB](https://help.aliyun.com/document_detail/185662.html) operation to query the name of the metadatabase.
+     * You can call the [ListMetaDB](https://help.aliyun.com/document_detail/2780105.html) operation to query the name of the metadatabase.
      * @example abc
      *
      * @var string
@@ -39,7 +39,7 @@ class GetMetaTablePartitionRequest extends Model
     public $databaseName;
 
     /**
-     * @description The number of the page to return.
+     * @description The page number.
      *
      * @example 1
      *
@@ -48,7 +48,7 @@ class GetMetaTablePartitionRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Default value: 10. Maximum value: 100.
+     * @description The number of entries per page. Default value: 10. Maximum value: 100.
      *
      * @example 10
      *
@@ -64,7 +64,7 @@ class GetMetaTablePartitionRequest extends Model
     public $sortCriterion;
 
     /**
-     * @description The GUID of the metatable.
+     * @description The unique identifier of the metatable.
      *
      * @example odps.engine_name.table_name
      *
@@ -75,7 +75,7 @@ class GetMetaTablePartitionRequest extends Model
     /**
      * @description The name of the metatable in the EMR cluster. This parameter is required only if you set the DataSourceType parameter to emr.
      *
-     * You can call the [GetMetaDBTableList](https://help.aliyun.com/document_detail/173916.html) operation to query the name of the metatable.
+     * You can call the [GetMetaDBTableList](https://help.aliyun.com/document_detail/2780086.html) operation to query the name of the metatable.
      * @example abc
      *
      * @var string

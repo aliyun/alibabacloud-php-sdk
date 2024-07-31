@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SubmitDataServiceApiResponseBody extends Model
 {
     /**
+     * @description Indicates whether the API was submitted.
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +18,8 @@ class SubmitDataServiceApiResponseBody extends Model
     public $data;
 
     /**
+     * @description The error code.
+     *
      * @example Invalid.Tenant.ConnectionNotExists
      *
      * @var string
@@ -23,6 +27,8 @@ class SubmitDataServiceApiResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -30,6 +36,8 @@ class SubmitDataServiceApiResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The request ID.
+     *
      * @example 0000-ABCD-EFG****
      *
      * @var string
@@ -37,6 +45,8 @@ class SubmitDataServiceApiResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
      * @example true
      *
      * @var bool

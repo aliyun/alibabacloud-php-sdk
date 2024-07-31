@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class UpdateDIAlarmRuleShrinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The alert rule ID.
      *
+     * This parameter is required.
      * @example 34982
      *
      * @var int
@@ -18,11 +19,15 @@ class UpdateDIAlarmRuleShrinkRequest extends Model
     public $DIAlarmRuleId;
 
     /**
+     * @description The description of the alert rule.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description Specifies whether to enable the alert rule. By default, the alert rule is disabled.
+     *
      * @example true
      *
      * @var bool
@@ -30,8 +35,13 @@ class UpdateDIAlarmRuleShrinkRequest extends Model
     public $enabled;
 
     /**
-     * @description This parameter is required.
+     * @description The metric type in the alert rule. Valid values:
      *
+     *   Heartbeat
+     *   FailoverCount
+     *   Delay
+     *
+     * This parameter is required.
      * @example Heartbeat
      *
      * @var string
@@ -39,15 +49,17 @@ class UpdateDIAlarmRuleShrinkRequest extends Model
     public $metricType;
 
     /**
-     * @description This parameter is required.
+     * @description The alert notification settings.
      *
+     * This parameter is required.
      * @var string
      */
     public $notificationSettingsShrink;
 
     /**
-     * @description This parameter is required.
+     * @description The conditions that can trigger the alert rule.
      *
+     * This parameter is required.
      * @var string
      */
     public $triggerConditionsShrink;

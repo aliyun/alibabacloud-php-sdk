@@ -18,7 +18,7 @@ class authorizationRecords extends Model
     public $createdTime;
 
     /**
-     * @description The ID of the Alibaba Cloud account used by the user who granted other users the access permissions on the API.
+     * @description The ID of the Alibaba Cloud account used by the API owner.
      *
      * @example 12345
      *

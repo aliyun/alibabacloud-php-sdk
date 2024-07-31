@@ -17,7 +17,7 @@ class ListDataServiceApiAuthoritiesResponseBody extends Model
     public $data;
 
     /**
-     * @description The error code returned.
+     * @description The error code.
      *
      * @example 0
      *
@@ -26,7 +26,7 @@ class ListDataServiceApiAuthoritiesResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message returned.
+     * @description The error message.
      *
      * @example Normal
      *
@@ -35,7 +35,7 @@ class ListDataServiceApiAuthoritiesResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The HTTP status code returned.
+     * @description The HTTP status code.
      *
      * @example 200
      *
@@ -44,7 +44,7 @@ class ListDataServiceApiAuthoritiesResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 0000-ABCD-EFG****
      *

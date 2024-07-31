@@ -9,7 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateQualityEntityRequest extends Model
 {
     /**
-     * @description Valid values: 0 (corrected when SQl is completed) and 1 (corrected when task is completed).
+     * @description This parameter is deprecated.
+     *
      *
      * @example 0
      *
@@ -18,7 +19,17 @@ class CreateQualityEntityRequest extends Model
     public $entityLevel;
 
     /**
-     * @description The engine or data source type.
+     * @description The type of the compute engine or data source.
+     *
+     * Valid values:
+     *
+     *   odps
+     *   emr
+     *   hadoop
+     *   cdh
+     *   analyticdb_for_mysql
+     *   hybriddb_for_postgresql
+     *   holodb
      *
      * This parameter is required.
      * @example ODPS
@@ -28,7 +39,7 @@ class CreateQualityEntityRequest extends Model
     public $envType;
 
     /**
-     * @description The partition expression.
+     * @description The partition filter expression.
      *
      * This parameter is required.
      * @example dt=$[yyyymmdd]
@@ -38,12 +49,16 @@ class CreateQualityEntityRequest extends Model
     public $matchExpression;
 
     /**
+     * @description The DataWorks workspace ID. You can log on to the DataWorks console to query the ID.
+     *
+     * @example 123
+     *
      * @var int
      */
     public $projectId;
 
     /**
-     * @description The name of the maxcompute project or data source.
+     * @description The name of the compute engine or data source.
      *
      * This parameter is required.
      * @example autotest

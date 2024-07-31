@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class TestNetworkConnectionResponseBody extends Model
 {
     /**
-     * @description The ID of the request. You can locate logs and troubleshoot issues based on the ID.
+     * @description The request ID. You can locate logs and troubleshoot issues based on the ID.
      *
      * @example 0000-ABCD-EFG
      *
@@ -21,8 +21,8 @@ class TestNetworkConnectionResponseBody extends Model
     /**
      * @description Indicates whether the request was successful. Valid values:
      *
-     *   true: The request was successful.
-     *   false: The request failed.
+     *   true
+     *   false
      *
      * @example true
      *

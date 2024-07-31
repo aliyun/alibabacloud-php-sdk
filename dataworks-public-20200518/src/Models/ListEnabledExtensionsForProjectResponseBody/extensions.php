@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class extensions extends Model
 {
     /**
-     * @description The modifier of the extension.
+     * @description The creator of the extension.
      *
      * @example 3444434343555
      *
@@ -18,7 +18,7 @@ class extensions extends Model
     public $createUser;
 
     /**
-     * @description The name of the extension.
+     * @description The unique code of the extension.
      *
      * @example a94a8e23bc0b4dfab9a5e4d2f374d645
      *
@@ -27,21 +27,21 @@ class extensions extends Model
     public $extensionCode;
 
     /**
-     * @description The owner ID.
+     * @description The description of the extension.
      *
      * @var string
      */
     public $extensionDesc;
 
     /**
-     * @description The ID of the tenant.
+     * @description The name of the extension.
      *
      * @var string
      */
     public $extensionName;
 
     /**
-     * @description The description of the extension.
+     * @description The modifier of the extension.
      *
      * @example 34452335611988
      *
@@ -50,7 +50,7 @@ class extensions extends Model
     public $modifyUser;
 
     /**
-     * @description The parameter settings of the extension. For more information, see [Configure extension parameters](https://help.aliyun.com/document_detail/405354.html).
+     * @description The owner ID.
      *
      * @example 21323672*******55500
      *
@@ -59,7 +59,7 @@ class extensions extends Model
     public $owner;
 
     /**
-     * @description The time when the extension was created.
+     * @description The parameter settings of the extension. For more information, see [Configure extension parameters](https://help.aliyun.com/document_detail/405354.html).
      *
      * @example extension.fileType.23.deploy-file.enabled=true
      *
@@ -68,7 +68,7 @@ class extensions extends Model
     public $parameterSetting;
 
     /**
-     * @description The creator of the extension.
+     * @description The tenant ID.
      *
      * @example 529889518659842
      *

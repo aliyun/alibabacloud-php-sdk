@@ -45,7 +45,7 @@ class DeleteDataServiceApiResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 0000-ABCD-EFG****
      *

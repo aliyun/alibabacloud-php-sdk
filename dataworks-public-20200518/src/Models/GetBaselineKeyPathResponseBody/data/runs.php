@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class runs extends Model
 {
     /**
+     * @description The timestamp obtained by adding the predicted time when the instance started to run to the historical average running duration of the instance.
+     *
      * @example 1553531402000
      *
      * @var int
@@ -16,6 +18,8 @@ class runs extends Model
     public $absTime;
 
     /**
+     * @description The timestamp of the predicted time when the instance started to run.
+     *
      * @example 1553531686000
      *
      * @var int
@@ -23,6 +27,8 @@ class runs extends Model
     public $beginCast;
 
     /**
+     * @description The timestamp of the actual time when the instance started to run.
+     *
      * @example 1553531401000
      *
      * @var int
@@ -30,6 +36,8 @@ class runs extends Model
     public $beginRunningTime;
 
     /**
+     * @description The timestamp when the instance started to wait for resources.
+     *
      * @example 1553531401000
      *
      * @var int
@@ -37,6 +45,8 @@ class runs extends Model
     public $beginWaitResTime;
 
     /**
+     * @description The timestamp when the instance started to wait for the scheduling time.
+     *
      * @example 1553531400000
      *
      * @var int
@@ -44,6 +54,8 @@ class runs extends Model
     public $beginWaitTimeTime;
 
     /**
+     * @description The timestamp of the predicted time when the instance finished running.
+     *
      * @example 1553531687000
      *
      * @var int
@@ -51,6 +63,8 @@ class runs extends Model
     public $endCast;
 
     /**
+     * @description The timestamp of the actual time when the instance finished running.
+     *
      * @example 1553531401000
      *
      * @var int
@@ -58,6 +72,8 @@ class runs extends Model
     public $finishTime;
 
     /**
+     * @description The status of the instance. Valid values: NOT_RUN, WAIT_TIME, WAIT_RESOURCE, RUNNING, CHECKING, CHECKING_CONDITION, FAILURE, and SUCCESS. The value NOT_RUN indicates that the instance is not run. The value WAIT_TIME indicates that the instance is waiting to be run. The value WAIT_RESOURCE indicates that the instance is waiting for resources. The value RUNNING indicates that the instance is running. The value CHECKING indicates that data quality is being checked for the instance. The value CHECKING_CONDITION indicates that branch conditions are being checked for the instance. The value FAILURE indicates that the instance fails to run. The value SUCCESS indicates that the instance is run.
+     *
      * @example SUCCESS
      *
      * @var string

@@ -10,13 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListRefDISyncTasksResponseBody extends Model
 {
     /**
-     * @description The data returned for the query.
+     * @description The returned result.
      *
      * @var data
      */
     public $data;
 
     /**
+     * @description The request ID. You can locate logs and troubleshoot issues based on the ID.
+     *
      * @example 0bc1411515937635973****
      *
      * @var string
@@ -26,8 +28,8 @@ class ListRefDISyncTasksResponseBody extends Model
     /**
      * @description Indicates whether the request was successful. Valid values:
      *
-     *   true: The request was successful.
-     *   false: The request failed.
+     *   true
+     *   false
      *
      * @example true
      *

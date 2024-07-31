@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class pageData extends Model
 {
     /**
+     * @description The information about the data masking rule.
+     *
      * @var data[]
      */
     public $data;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class pageData extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Maximum value: 100.
+     *
      * @example 10
      *
      * @var int
@@ -29,6 +35,8 @@ class pageData extends Model
     public $pageSize;
 
     /**
+     * @description The number of data masking rules.
+     *
      * @example 100
      *
      * @var int

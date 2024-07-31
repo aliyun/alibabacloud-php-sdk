@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetMetaDBInfoRequest extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The compute engine instance ID. Specify the ID in the `Engine type.Engine name` format.
      *
      * @example odps.some_engine_name
      *
@@ -18,7 +18,7 @@ class GetMetaDBInfoRequest extends Model
     public $appGuid;
 
     /**
-     * @description The business data returned.
+     * @description The E-MapReduce (EMR) cluster ID.
      *
      * @example abc
      *
@@ -27,7 +27,7 @@ class GetMetaDBInfoRequest extends Model
     public $clusterId;
 
     /**
-     * @description The comment.
+     * @description The type of the data source. Valid values: odps and emr.
      *
      * @example emr
      *
@@ -36,7 +36,7 @@ class GetMetaDBInfoRequest extends Model
     public $dataSourceType;
 
     /**
-     * @description The type of the metadatabase. Only hive is supported.
+     * @description The name of the metadatabase of the EMR cluster.
      *
      * @example abc
      *

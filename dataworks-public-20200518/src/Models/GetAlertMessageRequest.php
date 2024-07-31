@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetAlertMessageRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The alert ID. You can all the [ListAlertMessages](https://help.aliyun.com/document_detail/173961.html) operation to obtain the alert ID.
      *
+     * This parameter is required.
      * @example 1421
      *
      * @var string

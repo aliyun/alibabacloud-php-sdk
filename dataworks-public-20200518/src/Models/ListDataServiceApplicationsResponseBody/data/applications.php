@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class applications extends Model
 {
     /**
-     * @description The ID of the application.
+     * @description The application ID.
      *
      * @example 20000
      *
@@ -27,7 +27,7 @@ class applications extends Model
     public $applicationName;
 
     /**
-     * @description The ID of the workspace.
+     * @description The workspace ID.
      *
      * @example 10000
      *

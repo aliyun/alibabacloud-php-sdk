@@ -25,6 +25,10 @@ class columnMetaList extends Model
     public $columnName;
 
     /**
+     * @description The security level of the column on which you request permissions. Valid values: 0 to 9.
+     *
+     * @example 9
+     *
      * @var string
      */
     public $securityLevel;

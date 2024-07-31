@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateQualityRelativeNodeRequest extends Model
 {
     /**
-     * @description The type of the compute engine instance or data source.
+     * @description The type of the compute engine or data source.
      *
      * This parameter is required.
      * @example ODPS
@@ -29,7 +29,7 @@ class CreateQualityRelativeNodeRequest extends Model
     public $matchExpression;
 
     /**
-     * @description The ID of the node.
+     * @description The node ID. You can call the [ListNodes](https://help.aliyun.com/document_detail/173979.html) operation to query the ID.
      *
      * This parameter is required.
      * @example 12321
@@ -39,7 +39,7 @@ class CreateQualityRelativeNodeRequest extends Model
     public $nodeId;
 
     /**
-     * @description The ID of the workspace.
+     * @description The workspace ID.
      *
      * This parameter is required.
      * @example 123
@@ -49,7 +49,7 @@ class CreateQualityRelativeNodeRequest extends Model
     public $projectId;
 
     /**
-     * @description The name of the compute engine instance or data source.
+     * @description The name of the compute engine or data source.
      *
      * This parameter is required.
      * @example autotest
@@ -69,7 +69,7 @@ class CreateQualityRelativeNodeRequest extends Model
     public $tableName;
 
     /**
-     * @description The ID of the workspace to which the node to be associated with the partition filter expression belongs.
+     * @description The ID of the workspace to which the node belongs.
      *
      * This parameter is required.
      * @example 1234

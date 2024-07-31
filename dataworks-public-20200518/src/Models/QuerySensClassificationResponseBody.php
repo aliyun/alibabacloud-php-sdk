@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QuerySensClassificationResponseBody extends Model
 {
     /**
+     * @description The returned data about data categories. The data is in the JSON format.
+     *
      * @example [{         "nodeName": "teset1",         "sensitiveNotNull": true,         "nodeId": "1aac2e35-b437-486b-95c7-a5ae48371024",         "nodeOldId": "1aac2e35-b437-486b-95c7-a5ae48371024",         "parentId": "0"     }]
      *
      * @var mixed
@@ -16,6 +18,8 @@ class QuerySensClassificationResponseBody extends Model
     public $data;
 
     /**
+     * @description The error code.
+     *
      * @example 9990030003
      *
      * @var string
@@ -23,11 +27,15 @@ class QuerySensClassificationResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The HTTP status code.
+     *
      * @example 400
      *
      * @var int
@@ -35,6 +43,8 @@ class QuerySensClassificationResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The request ID.
+     *
      * @example 10000001
      *
      * @var string
@@ -42,6 +52,11 @@ class QuerySensClassificationResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

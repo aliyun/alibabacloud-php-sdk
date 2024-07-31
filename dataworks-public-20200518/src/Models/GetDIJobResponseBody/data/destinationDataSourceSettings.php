@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class destinationDataSourceSettings extends Model
 {
     /**
+     * @description The name of the data source.
+     *
      * @example holo_datasource_1
      *
      * @var string
@@ -16,6 +18,8 @@ class destinationDataSourceSettings extends Model
     public $dataSourceName;
 
     /**
+     * @description The properties of the data source.
+     *
      * @var string[]
      */
     public $dataSourceProperties;

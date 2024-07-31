@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class dags extends Model
 {
     /**
-     * @description The name of the DAG.
+     * @description The data timestamp.
      *
      * @example 1605052800000
      *
@@ -18,7 +18,7 @@ class dags extends Model
     public $bizdate;
 
     /**
-     * @description The ID of the workspace.
+     * @description The creation time.
      *
      * @example 1605052800000
      *
@@ -27,7 +27,7 @@ class dags extends Model
     public $createTime;
 
     /**
-     * @description The data timestamp.
+     * @description The creator.
      *
      * @example 1736629400048545
      *
@@ -36,7 +36,7 @@ class dags extends Model
     public $createUser;
 
     /**
-     * @description The time at which the DAG was scheduled to run.
+     * @description The DAG ID.
      *
      * @example 351249682
      *
@@ -45,7 +45,7 @@ class dags extends Model
     public $dagId;
 
     /**
-     * @description The time at which the DAG was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     * @description The end time.
      *
      * @example 1605052800000
      *
@@ -54,7 +54,7 @@ class dags extends Model
     public $finishTime;
 
     /**
-     * @description The time at which the DAG started to run.
+     * @description The actual running time.
      *
      * @example 1605052800000
      *
@@ -63,7 +63,7 @@ class dags extends Model
     public $gmtdate;
 
     /**
-     * @description The sequence number of the operation.
+     * @description The modification time.
      *
      * @example 1605052800000
      *
@@ -72,7 +72,7 @@ class dags extends Model
     public $modifyTime;
 
     /**
-     * @description The time at which the DAG was last modified. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     * @description The name of the DAG.
      *
      * @example test_dag
      *
@@ -81,6 +81,8 @@ class dags extends Model
     public $name;
 
     /**
+     * @description The sequence number of the operation.
+     *
      * @example 123
      *
      * @var int
@@ -88,7 +90,7 @@ class dags extends Model
     public $opSeq;
 
     /**
-     * @description The ID of the DAG.
+     * @description The workspace ID.
      *
      * @example 112345
      *
@@ -97,7 +99,7 @@ class dags extends Model
     public $projectId;
 
     /**
-     * @description The user who created the DAG.
+     * @description The start time.
      *
      * @example 1605052800000
      *
@@ -106,7 +108,12 @@ class dags extends Model
     public $startTime;
 
     /**
-     * @description The time at which the DAG finished running. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     * @description The status of the DAG. Valid values:
+     *
+     *   CREATED
+     *   RUNNING
+     *   FAILURE
+     *   SUCCESS
      *
      * @example FAILURE
      *
@@ -115,7 +122,12 @@ class dags extends Model
     public $status;
 
     /**
-     * @description The status of the DAG. Valid values: CREATED, RUNNING, FAILURE, and SUCCESS.
+     * @description The type of the DAG. Valid values:
+     *
+     *   MANUAL: DAG for a manually triggered workflow
+     *   SMOKE_TEST: DAG for a smoke testing workflow
+     *   SUPPLY_DATA: DAG for a data backfill instance
+     *   BUSINESS_PROCESS_DAG: DAG for a one-time workflow
      *
      * @example MANUAL_FLOW
      *

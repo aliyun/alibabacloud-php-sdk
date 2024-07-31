@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class approveContent extends Model
 {
     /**
-     * @description The reason for your request. The administrator decides whether to approve the request based on the request reason.
+     * @description The reason of the permission request. The administrator processes the request based on the reason.
      *
      * @example I need to use this table
      *
@@ -19,9 +19,8 @@ class approveContent extends Model
     public $applyReason;
 
     /**
-     * @description The expiration time of the permissions that you requested. The parameter value is a UNIX timestamp.
+     * @description The expiration time of the permissions that you request. The value is a UNIX timestamp. If LabelSecurity is disabled for the MaxCompute project in which you want to request permissions on the fields of a table, or the security level of the fields is 0 or is lower than or equal to the security level of the Alibaba Cloud account for which you want to request permissions, you can request only permanent permissions.
      *
-     * If LabelSecurity is disabled in the MaxCompute project, or the security level of fields in the MaxCompute table on which you request permissions is 0 or is less than or equal to the security level of the Alibaba Cloud account for which you request permissions, you can request only permanent permissions.
      * @example 1617115071885
      *
      * @var int
@@ -29,7 +28,7 @@ class approveContent extends Model
     public $deadline;
 
     /**
-     * @description The type of the permission request order. The parameter value is 1 and cannot be changed. 1 indicates that ACL-based authorization is requested.
+     * @description The type of the permission request order. The parameter value is 1 and cannot be changed. This value indicates ACL-based authorization.
      *
      * @example 1
      *
@@ -38,7 +37,7 @@ class approveContent extends Model
     public $orderType;
 
     /**
-     * @description The information about the project and workspace that are associated with the object on which you requested permissions.
+     * @description The information about the project and workspace that are associated with the object on which you request permissions.
      *
      * @var projectMeta
      */

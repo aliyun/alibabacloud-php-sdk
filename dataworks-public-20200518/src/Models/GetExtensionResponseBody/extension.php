@@ -11,14 +11,14 @@ use AlibabaCloud\Tea\Model;
 class extension extends Model
 {
     /**
-     * @description The extension point events.
+     * @description The list of extension points.
      *
      * @var bindEventList[]
      */
     public $bindEventList;
 
     /**
-     * @description The URL of the help document about the extension. You can visit the URL for the details of the extension.
+     * @description The URL of the extension details page, on which users can view the details of the process blocked by the extension.
      *
      * @example https://www.aliyun.com/
      *
@@ -27,7 +27,7 @@ class extension extends Model
     public $detailUrl;
 
     /**
-     * @description The types of the events.
+     * @description The list of event types.
      *
      * @var eventCategoryList[]
      */
@@ -57,7 +57,7 @@ class extension extends Model
     public $extensionName;
 
     /**
-     * @description The URL of the help document about the extension.
+     * @description The URL of the help documentation of the extension.
      *
      * @example https://www.aliyun.com/
      *
@@ -66,14 +66,14 @@ class extension extends Model
     public $helpDocUrl;
 
     /**
-     * @description The option settings of the extension.
+     * @description The options defined for the extension.
      *
      * @var string
      */
     public $optionSetting;
 
     /**
-     * @description The parameter settings of the extension. For more information, visit https://www.alibabacloud.com/help/en/dataworks/latest/set-extension-parameters.
+     * @description The parameter settings of the extension. For more information, see [Configure extension parameters](https://help.aliyun.com/document_detail/405354.html).
      *
      * @example extension.project.disabled=projectId1,projectId2,projectId3
      *
@@ -82,7 +82,7 @@ class extension extends Model
     public $parameterSetting;
 
     /**
-     * @description The workspace for testing. If the extension is in the testing state, the extension can be used only in the workspace for testing.
+     * @description The workspace for testing. If the extension is being tested, the extension can be used only in the workspace for testing.
      *
      * @example 13552
      *
@@ -91,7 +91,7 @@ class extension extends Model
     public $projectTesting;
 
     /**
-     * @description The state of the extension. 0: testing. 1: publishing. 3: disabled. 4: approving. 5: approved. 6: approval failed.
+     * @description The state of the extension. 0: Testing, 1: Publishing, 3: Disabled, 4: Processing, 5: Approved, 6: Approve Failed
      *
      * @example 0
      *

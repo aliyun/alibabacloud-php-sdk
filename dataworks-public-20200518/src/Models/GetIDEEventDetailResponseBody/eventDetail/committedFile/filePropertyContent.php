@@ -27,7 +27,7 @@ class filePropertyContent extends Model
     public $currentVersion;
 
     /**
-     * @description The name of the compute engine instance with which the file is associated.
+     * @description The name of the data source with which the file is associated.
      *
      * @example odps_first
      *
@@ -45,7 +45,7 @@ class filePropertyContent extends Model
     public $folderId;
 
     /**
-     * @description The owner of the file.
+     * @description The file owner.
      *
      * @example 7384234****
      *

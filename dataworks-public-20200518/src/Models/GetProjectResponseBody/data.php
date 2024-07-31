@@ -10,10 +10,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description Indicates whether the workspace is a default workspace. Valid values:
-     *
-     *   1: The workspace is a default workspace.
-     *   0: The workspace is not a default workspace.
+     * @description This parameter is deprecated.
      *
      * @example 0
      *
@@ -22,7 +19,7 @@ class data extends Model
     public $appkey;
 
     /**
-     * @description The time when the workspace was created. Example: Dec 3, 2019 9:12:20 PM.
+     * @description This parameter is deprecated.
      *
      * @example false
      *
@@ -31,6 +28,8 @@ class data extends Model
     public $baseProject;
 
     /**
+     * @description The ID of the resource group that was allocated by default when you purchased an exclusive resource group for MaxCompute.
+     *
      * @example group_280749521****
      *
      * @var string
@@ -38,7 +37,7 @@ class data extends Model
     public $defaultDiResourceGroupIdentifier;
 
     /**
-     * @description The unique identifier of the workspace.
+     * @description This parameter is deprecated.
      *
      * @example 0
      *
@@ -56,7 +55,7 @@ class data extends Model
     public $devStorageQuota;
 
     /**
-     * @description The default maximum number of automatic reruns that are allowed after an error occurs.
+     * @description This parameter is deprecated.
      *
      * @example 4
      *
@@ -65,7 +64,10 @@ class data extends Model
     public $developmentType;
 
     /**
-     * @description This parameter is deprecated.
+     * @description Indicates whether the Develop role is disabled. Valid values:
+     *
+     *   **false** (default)
+     *   **true**
      *
      * @example true
      *
@@ -74,18 +76,14 @@ class data extends Model
     public $disableDevelopment;
 
     /**
-     * @description The list of tags.
+     * @description The environment information of the workspace.
      *
-     * The tags are added to resources in the workspace and used for authentication and cost allocation.
      * @var string[]
      */
     public $envTypes;
 
     /**
-     * @description The environment of the workspace. Valid values: PROD and DEV.
-     *
-     *   The value PROD indicates the production environment. Workspaces in basic mode provide only the production environment.
-     *   The value DEV indicates the development environment. Workspaces in standard mode provide both the development environment and the production environment.
+     * @description The time when the workspace was created. Example: `Dec 3, 2019 9:12:20 PM`.
      *
      * @example Oct 10, 2019 3:42:53 PM
      *
@@ -94,7 +92,7 @@ class data extends Model
     public $gmtCreate;
 
     /**
-     * @description The description of the workspace.
+     * @description The time when the workspace was last modified. Example: `Dec 3, 2019 9:12:20 PM`.
      *
      * @example Dec 3, 2019 9:12:20 PM
      *
@@ -103,7 +101,10 @@ class data extends Model
     public $gmtModified;
 
     /**
-     * @description The time when the workspace was last modified. Example: Dec 3, 2019 9:12:20 PM.
+     * @description Indicates whether you are allowed to download the query result from DataStudio. Valid values:
+     *
+     *   **1**: You are allowed to download the query result from DataStudio.
+     *   **0**: You are not allowed to download the query result from DataStudio.
      *
      * @example 1
      *
@@ -112,7 +113,10 @@ class data extends Model
     public $isAllowDownload;
 
     /**
-     * @description The display name of the workspace.
+     * @description Indicates whether the workspace is a default workspace. Valid values:
+     *
+     *   **1**: The workspace is a default workspace.
+     *   **0**: The workspace is not a default workspace.
      *
      * @example 1
      *
@@ -121,10 +125,7 @@ class data extends Model
     public $isDefault;
 
     /**
-     * @description Indicates whether you are allowed to download the query result from DataStudio. Valid values:
-     *
-     *   1: You are allowed to download the query result from DataStudio.
-     *   0: You are not allowed to download the query result from DataStudio.
+     * @description This parameter is deprecated.
      *
      * @example 1
      *
@@ -133,7 +134,7 @@ class data extends Model
     public $maxFlowNode;
 
     /**
-     * @description The development type of the workspace. The value is fixed as 4. This parameter is deprecated.
+     * @description This parameter is deprecated.
      *
      * @example 1
      *
@@ -142,10 +143,7 @@ class data extends Model
     public $prodStorageQuota;
 
     /**
-     * @description Indicates whether the MaxCompute tables in the workspace are visible to the users within a tenant. Valid values:
-     *
-     *   0: The MaxCompute tables are invisible to the users within a tenant.
-     *   1: The MaxCompute tables are visible to the users within a tenant.
+     * @description The description of the workspace.
      *
      * @example abc
      *
@@ -154,10 +152,7 @@ class data extends Model
     public $projectDescription;
 
     /**
-     * @description The mode of the workspace. Valid values:
-     *
-     *   2: The workspace is in basic mode.
-     *   3: The workspace is in standard mode.
+     * @description The ID of the workspace.
      *
      * @example 27
      *
@@ -166,7 +161,7 @@ class data extends Model
     public $projectId;
 
     /**
-     * @description The ID of the Alibaba Cloud account used by the workspace owner.
+     * @description The name of the workspace.
      *
      * @example abc
      *
@@ -175,7 +170,10 @@ class data extends Model
     public $projectIdentifier;
 
     /**
-     * @description This parameter is deprecated.
+     * @description The mode of the workspace. Valid values:
+     *
+     *   **2**: The workspace is in basic mode.
+     *   **3**: The workspace is in standard mode.
      *
      * @example 2
      *
@@ -184,14 +182,7 @@ class data extends Model
     public $projectMode;
 
     /**
-     * @description Indicates whether the Development role is disabled. Valid values:
-     *
-     *   false: The Development role is enabled.
-     *   true: The Development role is disabled.
-     *
-     * <!---->
-     *
-     *   Default value: false.
+     * @description The display name of the workspace.
      *
      * @example abc
      *
@@ -200,7 +191,7 @@ class data extends Model
     public $projectName;
 
     /**
-     * @description Indicates whether a proxy account is used to access the MaxCompute compute engine instance associated with the workspace.
+     * @description The ID of the Alibaba Cloud account used by the workspace owner.
      *
      * @example 18229311****
      *
@@ -209,7 +200,10 @@ class data extends Model
     public $projectOwnerBaseId;
 
     /**
-     * @description This parameter is deprecated.
+     * @description Indicates whether the workspace protection feature is enabled. Valid values:
+     *
+     *   **1**: enabled
+     *   **0**: disabled
      *
      * @example 1
      *
@@ -218,6 +212,11 @@ class data extends Model
     public $protectedMode;
 
     /**
+     * @description The type of the workspace. Valid values:
+     *
+     *   **private**
+     *   **swap**
+     *
      * @example private
      *
      * @var string
@@ -225,12 +224,7 @@ class data extends Model
     public $residentArea;
 
     /**
-     * @description The keys of the tags that are added to resources in the workspace. The tag keys must meet the following conditions:
-     *
-     *   The number of tag keys that can be added to resources ranges from 1 to 20.
-     *   Each tag key can be a maximum of 128 characters in length.
-     *   The tag keys cannot start with acs: or aliyun:.
-     *   The tag keys cannot contain http:// or https://.
+     * @description The resource group ID.
      *
      * @example rg-acfmzbn7pti3zfa
      *
@@ -239,7 +233,7 @@ class data extends Model
     public $resourceManagerResourceGroupId;
 
     /**
-     * @description The interval between automatic reruns after an error occurs. Unit: milliseconds. The maximum interval is 30 minutes. You must pay attention to the conversion between units.
+     * @description The default maximum number of automatic reruns that are allowed after an error occurs.
      *
      * @example 3
      *
@@ -248,7 +242,7 @@ class data extends Model
     public $schedulerMaxRetryTimes;
 
     /**
-     * @description This parameter is deprecated.
+     * @description The default interval between automatic reruns after an error occurs. Unit: milliseconds. The maximum interval is 30 minutes. You must pay attention to the conversion between units.
      *
      * @example 120000
      *
@@ -257,7 +251,18 @@ class data extends Model
     public $schedulerRetryInterval;
 
     /**
-     * @description The ID of the workspace.
+     * @description The status of the workspace. Valid values:
+     *
+     *   **0**: AVAILABLE, which indicates that the workspace runs as expected.
+     *   **1**: DELETED, which indicates that the workspace is deleted.
+     *   **2**: INITIALIZING, which indicates that the workspace is being initialized.
+     *   **3**: INIT_FAILED, which indicates that the workspace fails to be initialized.
+     *   **4**: FORBIDDEN, which indicates that the workspace is manually disabled.
+     *   **5**: DELETING, which indicates that the workspace is being deleted.
+     *   **6**: DEL_FAILED, which indicates that the workspace fails to be deleted.
+     *   **7**: FROZEN, which indicates that the workspace is frozen due to overdue payments.
+     *   **8**: UPDATING, which indicates that the workspace is being updated. The workspace enters this state after you associate a new compute engine with the workspace and the compute engine is initialized.
+     *   **9**: UPDATE_FAILED, which indicates that the workspace fails to be updated.
      *
      * @example 0
      *
@@ -266,10 +271,10 @@ class data extends Model
     public $status;
 
     /**
-     * @description Indicates whether the workspace protection feature is enabled. Valid values:
+     * @description Indicates whether the MaxCompute tables in the workspace are visible to the users within a tenant. Valid values:
      *
-     *   1: The workspace protection feature is enabled.
-     *   0: The workspace protection feature is disabled.
+     *   **0**: invisible
+     *   **1**: visible
      *
      * @example 1
      *
@@ -278,19 +283,14 @@ class data extends Model
     public $tablePrivacyMode;
 
     /**
-     * @description The values of the tags that are added to resources in the workspace. The tag values must meet the following conditions:
-     *
-     *   The number of tag values that can be added to resources ranges from 1 to 20.
-     *   Each tag value can be a maximum of 128 characters in length.
-     *   The tag values cannot start with acs:.
-     *   The tag values cannot contain http:// or https://.
+     * @description The tags added to the workspace.
      *
      * @var tags[]
      */
     public $tags;
 
     /**
-     * @description The ID of the resource group used in the workspace.
+     * @description The tenant ID.
      *
      * @example 280749521
      *
@@ -299,7 +299,7 @@ class data extends Model
     public $tenantId;
 
     /**
-     * @description The ID of the tenant.
+     * @description Indicates whether a proxy account is used to access the MaxCompute compute engine associated with the workspace.
      *
      * @example true
      *

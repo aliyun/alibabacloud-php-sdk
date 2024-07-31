@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The usernames in the user group.
+     *
      * @var string[]
      */
     public $accounts;
 
     /**
+     * @description The time when the user group was created.
+     *
      * @example 2024-05-10 17:14:44
      *
      * @var string
@@ -21,6 +25,8 @@ class data extends Model
     public $gmtCreate;
 
     /**
+     * @description The time when the user group was modified.
+     *
      * @example 2024-05-10 17:14:44
      *
      * @var string
@@ -28,6 +34,8 @@ class data extends Model
     public $gmtModified;
 
     /**
+     * @description The user group ID.
+     *
      * @example 123
      *
      * @var int
@@ -35,6 +43,8 @@ class data extends Model
     public $id;
 
     /**
+     * @description The name of the user group.
+     *
      * @example test_group
      *
      * @var string
@@ -42,6 +52,8 @@ class data extends Model
     public $name;
 
     /**
+     * @description The owner of the user group.
+     *
      * @example user1
      *
      * @var string

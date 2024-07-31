@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListFilesRequest extends Model
 {
     /**
+     * @example ods_create.sql
+     *
      * @var string
      */
     public $exactFileName;
@@ -21,6 +23,8 @@ class ListFilesRequest extends Model
     public $fileFolderPath;
 
     /**
+     * @example 78237,816123
+     *
      * @var string
      */
     public $fileIdIn;
@@ -45,11 +49,15 @@ class ListFilesRequest extends Model
     public $keyword;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $needAbsoluteFolderPath;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $needContent;
@@ -73,7 +81,7 @@ class ListFilesRequest extends Model
     public $owner;
 
     /**
-     * @description The number of the page to return.
+     * @description The page number.
      *
      * @example 1
      *
@@ -82,7 +90,7 @@ class ListFilesRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Default value: 10. Maximum value: 100.
+     * @description The number of entries per page. Default value: 10. Maximum value: 100.
      *
      * @example 10
      *

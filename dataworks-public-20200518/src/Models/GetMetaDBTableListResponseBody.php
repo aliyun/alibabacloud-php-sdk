@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class GetMetaDBTableListResponseBody extends Model
 {
     /**
-     * @description The number of entries returned per page. Default value: 10. Maximum value: 100.
+     * @description The metatable information in a compute engine instance.
      *
      * @var data
      */
     public $data;
 
     /**
-     * @description The page number of the returned page.
+     * @description The request ID.
      *
      * @example 0bc1ec92159376
      *

@@ -25,6 +25,8 @@ class data extends Model
     public $alertMarginThreshold;
 
     /**
+     * @description The alert settings.
+     *
      * @var alertSettings[]
      */
     public $alertSettings;

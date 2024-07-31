@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class GetNodeChildrenResponseBody extends Model
 {
     /**
-     * @description The information of the descendant nodes.
+     * @description The information about the descendant nodes.
      *
      * @var data
      */
     public $data;
 
     /**
-     * @description The error code returned.
+     * @description The error code.
      *
      * @example 1060010000000
      *
@@ -26,7 +26,7 @@ class GetNodeChildrenResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message returned.
+     * @description The error message.
      *
      * @example err
      *
@@ -35,7 +35,7 @@ class GetNodeChildrenResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The HTTP status code returned.
+     * @description The HTTP status code.
      *
      * @example 200
      *
@@ -44,7 +44,7 @@ class GetNodeChildrenResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The ID of the request. You can use the ID to troubleshoot issues.
+     * @description The request ID. You can use the ID to troubleshoot issues.
      *
      * @example adsfasdf-adf-asdf-asdf-asdfadfasdd
      *
@@ -53,7 +53,7 @@ class GetNodeChildrenResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful.
+     * @description Indicates whether the request was successful.
      *
      * @example true
      *

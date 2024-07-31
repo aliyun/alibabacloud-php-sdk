@@ -19,7 +19,7 @@ class AddMetaCollectionEntityRequest extends Model
     public $collectionQualifiedName;
 
     /**
-     * @description The unique identifier of the entity.
+     * @description The unique identifier of the entity. Example: maxcompute-table.projectA.tableA.
      *
      * This parameter is required.
      * @example maxcompute-table.projectA.tableB
@@ -29,7 +29,7 @@ class AddMetaCollectionEntityRequest extends Model
     public $entityQualifiedName;
 
     /**
-     * @description The remarks on the entity. Example: latest product table.
+     * @description The remarks of the entity. Example: latest product table.
      *
      * @example this is a remark
      *

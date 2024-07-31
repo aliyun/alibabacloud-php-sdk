@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class tags extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The key of tag N to add to the workspace.
      *
      * @example Env
      *
@@ -18,7 +18,7 @@ class tags extends Model
     public $key;
 
     /**
-     * @description The results that are returned.
+     * @description The value of tag N to add to the workspace.
      *
      * @example Test
      *

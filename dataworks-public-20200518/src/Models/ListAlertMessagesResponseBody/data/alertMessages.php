@@ -13,7 +13,7 @@ use AlibabaCloud\Tea\Model;
 class alertMessages extends Model
 {
     /**
-     * @description The ID of the alert.
+     * @description The alert ID.
      *
      * @example 1234
      *
@@ -31,7 +31,7 @@ class alertMessages extends Model
     public $alertMessageStatus;
 
     /**
-     * @description The notification method. Valid values: MAIL, SMS, and PHONE. The value MAIL indicates that the notification is sent by email. The value SMS indicates that the notification is sent by text message. The value PHONE indicates that the notification is sent by phone call. Only DataWorks Professional Edition and more advanced editions support the PHONE notification method.
+     * @description The notification method. Valid values: MAIL, SMS, and PHONE. Only DataWorks Professional Edition and more advanced editions support the PHONE notification method.
      *
      * @example SMS
      *

@@ -9,15 +9,17 @@ use AlibabaCloud\Tea\Model;
 class QueryDefaultTemplateResponseBody extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The returned data about the default data category and data sensitivity level template. The data is in the JSON array format.
      *
+     * This parameter is required.
      * @var mixed
      */
     public $data;
 
     /**
-     * @description This parameter is required.
+     * @description The error code.
      *
+     * This parameter is required.
      * @example 9990030003
      *
      * @var string
@@ -25,15 +27,17 @@ class QueryDefaultTemplateResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description This parameter is required.
+     * @description The error message.
      *
+     * This parameter is required.
      * @var string
      */
     public $errorMessage;
 
     /**
-     * @description This parameter is required.
+     * @description The HTTP status code.
      *
+     * This parameter is required.
      * @example 400
      *
      * @var int
@@ -41,8 +45,9 @@ class QueryDefaultTemplateResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description This parameter is required.
+     * @description The request ID. You can locate logs and troubleshoot issues based on the ID.
      *
+     * This parameter is required.
      * @example 102400001
      *
      * @var string
@@ -50,8 +55,12 @@ class QueryDefaultTemplateResponseBody extends Model
     public $requestId;
 
     /**
-     * @description This parameter is required.
+     * @description Indicates whether the request was successful. Valid values:
      *
+     *   true
+     *   false
+     *
+     * This parameter is required.
      * @example true
      *
      * @var bool

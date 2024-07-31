@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListShiftPersonnelsRequest extends Model
 {
     /**
-     * @description The time when the on-duty engineer ends a shift. Set the value to a UNIX timestamp.
+     * @description The time when the on-duty engineer starts a shift. Set the value to a UNIX timestamp.
      *
      * This parameter is required.
      * @example 1593950832000
@@ -19,7 +19,7 @@ class ListShiftPersonnelsRequest extends Model
     public $beginTime;
 
     /**
-     * @description The ID of the request. You can use the ID to troubleshoot issues.
+     * @description The time when the on-duty engineer ends a shift. Set the value to a UNIX timestamp.
      *
      * This parameter is required.
      * @example 1593950832000
@@ -29,7 +29,7 @@ class ListShiftPersonnelsRequest extends Model
     public $endTime;
 
     /**
-     * @description The time when the on-duty engineer starts a shift. Set the value to a UNIX timestamp.
+     * @description The ID of the Alibaba Cloud account. You can log on to the DataWorks console and move the pointer over the profile picture in the upper-right corner to view the ID.
      *
      * @example 1933790****551
      *
@@ -38,7 +38,7 @@ class ListShiftPersonnelsRequest extends Model
     public $shiftPersonUID;
 
     /**
-     * @description The type of on-duty engineers that you want to query. Valid values: ALL, PRIMARY, BACKUP, and DESIGNATED_USER.
+     * @description The unique identifier of the shift schedule.
      *
      * This parameter is required.
      * @example 2ab6456ada634b2f938ee******9b45b
@@ -48,7 +48,7 @@ class ListShiftPersonnelsRequest extends Model
     public $shiftScheduleIdentifier;
 
     /**
-     * @description The ID of your Alibaba Cloud account. You can log on to the DataWorks console and move the pointer over the profile picture in the upper-right corner to obtain the ID.
+     * @description The type of the on-duty engineer that you want to query. Valid values: ALL, PRIMARY, BACKUP, and DESIGNATED_USER.
      *
      * @example ALL
      *

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class failoverSettings extends Model
 {
     /**
+     * @description The failover interval. Unit: minutes.
+     *
      * @example 10
      *
      * @var int
@@ -16,6 +18,8 @@ class failoverSettings extends Model
     public $interval;
 
     /**
+     * @description The maximum number of failovers.
+     *
      * @example 30
      *
      * @var int

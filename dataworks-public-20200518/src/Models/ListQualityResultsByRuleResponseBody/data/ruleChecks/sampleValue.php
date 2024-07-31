@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class sampleValue extends Model
 {
     /**
-     * @description The date on which the business was performed. If the monitored business entity is offline data, the value is usually one day before the monitoring is performed.
+     * @description The data timestamp. If the monitored business entity is offline data, the value is usually one day before the monitoring is performed.
      *
      * @example 1600704000000
      *

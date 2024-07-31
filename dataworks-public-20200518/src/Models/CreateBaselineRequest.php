@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateBaselineRequest extends Model
 {
     /**
+     * @description The alert margin threshold of the baseline. Unit: minutes.
+     *
      * @example 30
      *
      * @var int
@@ -17,8 +19,9 @@ class CreateBaselineRequest extends Model
     public $alertMarginThreshold;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the baseline.
      *
+     * This parameter is required.
      * @example BaselineName
      *
      * @var string
@@ -26,8 +29,9 @@ class CreateBaselineRequest extends Model
     public $baselineName;
 
     /**
-     * @description This parameter is required.
+     * @description The type of the baseline. Valid values: DAILY and HOURLY.
      *
+     * This parameter is required.
      * @example DAILY
      *
      * @var string
@@ -35,6 +39,8 @@ class CreateBaselineRequest extends Model
     public $baselineType;
 
     /**
+     * @description The ancestor nodes of nodes in the baseline.
+     *
      * @example 210001233239,210001236482
      *
      * @var string
@@ -42,15 +48,17 @@ class CreateBaselineRequest extends Model
     public $nodeIds;
 
     /**
-     * @description This parameter is required.
+     * @description The settings of the committed completion time of the baseline.
      *
+     * This parameter is required.
      * @var overtimeSettings[]
      */
     public $overtimeSettings;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the Alibaba Cloud account used by the baseline owner.
      *
+     * This parameter is required.
      * @example 1000000000001
      *
      * @var string
@@ -58,8 +66,9 @@ class CreateBaselineRequest extends Model
     public $owner;
 
     /**
-     * @description This parameter is required.
+     * @description The priority of the baseline. Valid values: {1,3,5,7,8}.
      *
+     * This parameter is required.
      * @example 1,3,5,7,8
      *
      * @var int
@@ -67,8 +76,9 @@ class CreateBaselineRequest extends Model
     public $priority;
 
     /**
-     * @description This parameter is required.
+     * @description The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
      *
+     * This parameter is required.
      * @example 10000
      *
      * @var int

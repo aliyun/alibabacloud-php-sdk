@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class StopDIJobResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 92F778C7-8F00-53B1-AE1A-B3B17101247D
      *
      * @var string

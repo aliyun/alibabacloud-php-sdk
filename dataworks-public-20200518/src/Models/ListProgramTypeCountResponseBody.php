@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class ListProgramTypeCountResponseBody extends Model
 {
     /**
-     * @description The type and number of nodes.
+     * @description The list of node types and quantity.
      *
      * @var programTypeAndCounts[]
      */
     public $programTypeAndCounts;
 
     /**
-     * @description The ID of the request, which is used to locate logs and troubleshoot problems.
+     * @description The request ID.
      *
      * @example E6F0DBDD-5AD****
      *

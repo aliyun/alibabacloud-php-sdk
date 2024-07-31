@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryRecognizeRulesTypeResponseBody extends Model
 {
     /**
+     * @description The returned data about the built-in sensitive data identification rule that is used to configure a sensitive field. The data is in the JSON format.
+     *
      * @example {   "HttpStatusCode": 200,   "Data": [     {       "Regular Expression": "1"     },     {       "Recognize Rule": "2"     },     {       "Sample Library": "3"     },     {       "Model": "4"     }   ],   "Success": true }
      *
      * @var mixed
@@ -16,6 +18,8 @@ class QueryRecognizeRulesTypeResponseBody extends Model
     public $data;
 
     /**
+     * @description The error code.
+     *
      * @example 9990030003
      *
      * @var string
@@ -23,11 +27,15 @@ class QueryRecognizeRulesTypeResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -35,6 +43,8 @@ class QueryRecognizeRulesTypeResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The request ID.
+     *
      * @example 10000001
      *
      * @var string
@@ -42,6 +52,11 @@ class QueryRecognizeRulesTypeResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

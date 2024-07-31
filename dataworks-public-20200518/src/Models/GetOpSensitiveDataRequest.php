@@ -19,13 +19,13 @@ class GetOpSensitiveDataRequest extends Model
     public $date;
 
     /**
-     * @description The parameters that you can specify to query the access records. Valid values:
+     * @description The parameters that you can configure to query the access records. Valid values:
      *
-     *   dbType: the data type
-     *   instanceName: the name of the instance
-     *   databaseName: the name of the database
-     *   projectName: the name of the workspace
-     *   clusterName: the name of the cluster
+     *   dbType
+     *   instanceName
+     *   databaseName
+     *   projectName
+     *   clusterName
      *
      * This parameter is required.
      * @example [  {"dbType":"hologres","instanceName":"ABC","databaseName":"abc"},  {"dbType":"ODPS.ODPS","projectName":"adbc"}  ]
@@ -37,8 +37,8 @@ class GetOpSensitiveDataRequest extends Model
     /**
      * @description The operation that is performed on the data. Valid values:
      *
-     *   SQL_SELECT: indicates that the data is accessed. For example, the SELECT statement is executed to query the data.
-     *   TUNNEL_DOWNLOAD: indicates that the data is downloaded. For example, a Tunnel command is run to download the data.
+     *   SQL_SELECT: specifies the data access operation. For example, execute a SELECT statement to query data.
+     *   TUNNEL_DOWNLOAD: specifies the data download operation. For example, run a Tunnel command to download data.
      *
      * @example SQL_SELECT
      *
@@ -47,7 +47,7 @@ class GetOpSensitiveDataRequest extends Model
     public $opType;
 
     /**
-     * @description The number of the page to return. Minimum value:1. Maximum value: 1000.
+     * @description The page number. Minimum value: 1. Maximum value: 1000.
      *
      * This parameter is required.
      * @example 100
@@ -57,7 +57,7 @@ class GetOpSensitiveDataRequest extends Model
     public $pageNo;
 
     /**
-     * @description The number of entries to return on each page. Minimum value: 1. Maximum value: 1000.
+     * @description The number of entries per page. Minimum value: 1. Maximum value: 1000.
      *
      * This parameter is required.
      * @example 1

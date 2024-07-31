@@ -44,7 +44,7 @@ class ListQualityRulesResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The ID of the request. You can use the ID to troubleshoot errors.
+     * @description The request ID. You can troubleshoot errors based on the ID.
      *
      * @example 38cbdef0-f6cf-49****
      *
@@ -53,10 +53,10 @@ class ListQualityRulesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful. Valid values:
+     * @description Indicates whether the request was successful. Valid values:
      *
-     *   true: The request is successful.
-     *   false: The request fails.
+     *   true
+     *   false
      *
      * @example true
      *

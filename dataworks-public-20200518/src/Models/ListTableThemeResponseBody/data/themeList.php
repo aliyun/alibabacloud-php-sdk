@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class themeList extends Model
 {
     /**
-     * @description The time when the level was created.
+     * @description The time when the table level was created.
      *
      * @example 123432343243
      *
@@ -18,7 +18,7 @@ class themeList extends Model
     public $createTimeStamp;
 
     /**
-     * @description The creator of the level.
+     * @description The creator of the table level.
      *
      * @example 123455
      *
@@ -27,7 +27,7 @@ class themeList extends Model
     public $creator;
 
     /**
-     * @description The level of the table folder. Valid values: 1 and 2. A value of 1 indicates a table folder of level 1. A value of 2 indicates a table folder of level 2.
+     * @description The level of the table folder. Valid values: 1 and 2. The value 1 indicates the first level. The value 2 indicates the second level.
      *
      * @example 1
      *
@@ -36,7 +36,7 @@ class themeList extends Model
     public $level;
 
     /**
-     * @description The name of the level of the table folder.
+     * @description The name of the table level.
      *
      * @example test
      *
@@ -45,7 +45,7 @@ class themeList extends Model
     public $name;
 
     /**
-     * @description The ID of the parent node.
+     * @description The ancestor node ID.
      *
      * @example 122
      *
@@ -54,7 +54,7 @@ class themeList extends Model
     public $parentId;
 
     /**
-     * @description The ID of the DataWorks workspace.
+     * @description The DataWorks workspace ID.
      *
      * @example 123
      *
@@ -63,7 +63,7 @@ class themeList extends Model
     public $projectId;
 
     /**
-     * @description The ID of the table folder.
+     * @description The table theme ID.
      *
      * @example 123
      *

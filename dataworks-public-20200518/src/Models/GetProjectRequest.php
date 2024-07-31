@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetProjectRequest extends Model
 {
     /**
-     * @description The ID of the request. You can use the ID to locate logs and troubleshoot issues.
+     * @description The ID of the DataWorks workspace. You can call the [ListProjects](https://help.aliyun.com/document_detail/2780068.html) operation to query the ID.
      *
      * @example 27
      *
@@ -18,6 +18,10 @@ class GetProjectRequest extends Model
     public $projectId;
 
     /**
+     * @description The name of the DataWorks workspace. You can call the [ListProjects](https://help.aliyun.com/document_detail/2780068.html) operation to query the name.
+     *
+     * @example test_project
+     *
      * @var string
      */
     public $projectIdentifier;

@@ -36,7 +36,7 @@ class data extends Model
     public $creator;
 
     /**
-     * @description The name of the user who created the metatable.
+     * @description The name of the user who creates the metatable.
      *
      * @example abc
      *
@@ -45,7 +45,7 @@ class data extends Model
     public $creatorName;
 
     /**
-     * @description The time when the metatable was modified.
+     * @description The time when the metatable was last modified.
      *
      * @example 1584444247000
      *

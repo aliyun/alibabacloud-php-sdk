@@ -18,7 +18,7 @@ class levelList extends Model
     public $description;
 
     /**
-     * @description The ID of the table level.
+     * @description The table level ID.
      *
      * @example 123
      *
@@ -27,7 +27,7 @@ class levelList extends Model
     public $levelId;
 
     /**
-     * @description The type of the table level. Valid values: 1 and 2. A value of 1 indicates the logical level. A value of 2 indicates the physical level.
+     * @description The table level type. Valid values: 1 and 2. The value 1 indicates the logical level. The value 2 indicates the physical level.
      *
      * @example 1
      *

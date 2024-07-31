@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DsgUserGroupDeleteRequest extends Model
 {
     /**
+     * @description The information about the user group.
+     *
      * @var int[]
      */
     public $ids;

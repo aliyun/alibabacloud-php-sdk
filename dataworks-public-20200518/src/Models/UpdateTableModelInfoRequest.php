@@ -18,7 +18,7 @@ class UpdateTableModelInfoRequest extends Model
     public $firstLevelThemeId;
 
     /**
-     * @description The ID of the table level.
+     * @description The table level ID.
      *
      * @example 101
      *
@@ -27,7 +27,7 @@ class UpdateTableModelInfoRequest extends Model
     public $levelId;
 
     /**
-     * @description The type of the table level. Valid values: 1 and 2. A value of 1 indicates the logical level. A value of 2 indicates the physical level.
+     * @description The type of the table level. Valid values: 1 and 2. The value 1 indicates the logical level. The value 2 indicates the physical level.
      *
      * @example 1
      *
@@ -45,7 +45,7 @@ class UpdateTableModelInfoRequest extends Model
     public $secondLevelThemeId;
 
     /**
-     * @description The globally unique identifier (GUID) of the table. Specify the GUID in the format of odps.{projectName}.{tableName}.
+     * @description The GUID of the table. Specify the GUID in the odps.{projectName}.{tableName} format.
      *
      * This parameter is required.
      * @example odps.test.table1

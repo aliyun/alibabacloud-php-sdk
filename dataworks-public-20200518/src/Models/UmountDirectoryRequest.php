@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UmountDirectoryRequest extends Model
 {
     /**
-     * @description The HTTP status code returned. The value 200 indicates that the request was successful.
+     * @description The ID of the directory that you want to remove from the left-side navigation pane of DataAnalysis. This parameter is used together with the TargetType parameter. For example, if you set the TargetType parameter to META_ALBUM, you must set the TargetId parameter to the ID of the metadata data album. You can call the [ListMetaCollections](https://help.aliyun.com/document_detail/469938.html) operation to obtain the ID of the data album. The ID is indicated by the QualifiedName parameter.
      *
      * @example album.339
      *
@@ -18,7 +18,7 @@ class UmountDirectoryRequest extends Model
     public $targetId;
 
     /**
-     * @description The ID of the request. You can use the ID to troubleshoot issues.
+     * @description The type of the directory that you want to remove from the left-side navigation pane of DataAnalysis. Example: META_ALBUM, which indicates the metadata data album.
      *
      * @example META_ALBUM
      *
@@ -27,6 +27,13 @@ class UmountDirectoryRequest extends Model
     public $targetType;
 
     /**
+     * @description The ID of the user in the tenant.
+     *
+     *   If you do not configure TargetUserId, the directory belongs to you.
+     *   If you configure TargetUserId, the directory belongs to the user specified by using TargetUserId.
+     *
+     * @example 1234567890
+     *
      * @var string
      */
     public $targetUserId;

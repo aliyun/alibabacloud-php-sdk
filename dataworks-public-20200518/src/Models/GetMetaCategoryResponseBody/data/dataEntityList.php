@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class dataEntityList extends Model
 {
     /**
-     * @description The ID of the category.
+     * @description The category ID.
      *
      * @example 133
      *
@@ -72,7 +72,7 @@ class dataEntityList extends Model
     public $name;
 
     /**
-     * @description The ID of the category owner.
+     * @description The category owner ID.
      *
      * @example 123
      *
@@ -81,7 +81,7 @@ class dataEntityList extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the parent category.
+     * @description The parent category ID.
      *
      * @example 12
      *

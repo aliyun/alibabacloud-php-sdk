@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetOpRiskDataRequest extends Model
 {
     /**
-     * @description The date on which the access records were queried. Specify the value in the yyyyMMdd format.
+     * @description The date on which access records were generated. Specify the value in the yyyyMMdd format.
      *
      * This parameter is required.
      * @example 20210221
@@ -19,15 +19,15 @@ class GetOpRiskDataRequest extends Model
     public $date;
 
     /**
-     * @description The parameters that you can specify to query the access records. Valid values:
+     * @description The parameters that you can configure to query the access records. Valid values:
      *
-     *   dbType: the data type
-     *   instanceName: the name of the instance
-     *   databaseName: the name of the database
-     *   projectName: the name of the workspace
-     *   clusterName: the name of the cluster
+     *   dbType
+     *   instanceName
+     *   databaseName
+     *   projectName
+     *   clusterName
      *
-     * You must specify the parameters based on the compute engine that you use in your business.
+     * You must configure the parameters based on the compute engine that you use in your business.
      * @example [ {"dbType":"hologres","instanceName":"ABC","databaseName":"abc"}, {"dbType":"ODPS.ODPS","projectName":"adbc"} ]
      *
      * @var string
@@ -35,7 +35,7 @@ class GetOpRiskDataRequest extends Model
     public $name;
 
     /**
-     * @description The number of the page to return. Minimum value: 1.
+     * @description The page number. Pages start from 1.
      *
      * This parameter is required.
      * @example 1
@@ -45,7 +45,7 @@ class GetOpRiskDataRequest extends Model
     public $pageNo;
 
     /**
-     * @description The number of entries to return on each page. Maximum value: 1000.
+     * @description The number of entries per page. Maximum value: 1000.
      *
      * This parameter is required.
      * @example 100
@@ -55,10 +55,10 @@ class GetOpRiskDataRequest extends Model
     public $pageSize;
 
     /**
-     * @description The method that you use to identify risks.
+     * @description The method that you use to identify risks. Valid values:
      *
      *   You can manually identify risks.
-     *   You can also use a risk rule to identify risks. You can go to the DataWorks console to obtain the name of the risk rule on the Custom Identification Rules page of Data Security Guard.
+     *   You can also use a sensitive data identification rule to identify risks. You can log on to the DataWorks console and go to the Risk Identification Rules page in Data Security Guard to obtain the name of the rule.
      *
      * @var string
      */

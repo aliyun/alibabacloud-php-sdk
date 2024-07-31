@@ -9,10 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetMetaTableChangeLogRequest extends Model
 {
     /**
-     * @description The beginning of the time range to query. Specify the time in the yyyy-MM-dd HH:mm:ss format.
-     *
-     *   By default, the system uses the current time as the value of this parameter if the time that you specify is invalid.
-     *   If both the values of the StartDate and EndDate parameters are invalid, the system automatically queries the change logs that are generated within the last 30 days.
+     * @description The type of the change. Valid values: CREATE_TABLE, ALTER_TABLE, DROP_TABLE, ADD_PARTITION, and DROP_PARTITION.
      *
      * @example ALTER_TABLE
      *
@@ -21,7 +18,10 @@ class GetMetaTableChangeLogRequest extends Model
     public $changeType;
 
     /**
-     * @description The error message returned.
+     * @description The end of the time range to query. Specify the time in the yyyy-MM-dd HH:mm:ss format.
+     *
+     *   By default, the system uses the current time as the value of this parameter if the time that you specify is invalid.
+     *   If both the values of the StartDate and EndDate parameters are invalid, the system automatically queries the change logs that are generated within the last 30 days.
      *
      * @example 2020-06-02 00:00:00
      *
@@ -30,10 +30,7 @@ class GetMetaTableChangeLogRequest extends Model
     public $endDate;
 
     /**
-     * @description The end of the time range to query. Specify the time in the yyyy-MM-dd HH:mm:ss format.
-     *
-     *   By default, the system uses the current time as the value of this parameter if the time that you specify is invalid.
-     *   If both the values of the StartDate and EndDate parameters are invalid, the system automatically queries the change logs that are generated within the last 30 days.
+     * @description The entity on which the change is made. Valid values: TABLE and PARTITION.
      *
      * @example TABLE
      *
@@ -42,9 +39,8 @@ class GetMetaTableChangeLogRequest extends Model
     public $objectType;
 
     /**
-     * @description The globally unique identifier (GUID) of the table. Specify the GUID in the format of odps.projectName.tableName. You can call the [GetMetaDBTableList](https://help.aliyun.com/document_detail/173916.html) operation to query the GUID of the table.
+     * @description The page number.
      *
-     * >  To query the change logs of a MaxCompute table, you must call the [GetMetaTableChangeLog](https://help.aliyun.com/document_detail/173925.html) operation.
      * @example 1
      *
      * @var int
@@ -52,7 +48,7 @@ class GetMetaTableChangeLogRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The type of the change. Valid values: CREATE_TABLE, ALTER_TABLE, DROP_TABLE, ADD_PARTITION, and DROP_PARTITION.
+     * @description The number of entries per page. Default value: 10. Maximum value: 100.
      *
      * @example 10
      *
@@ -61,7 +57,10 @@ class GetMetaTableChangeLogRequest extends Model
     public $pageSize;
 
     /**
-     * @description The HTTP status code returned.
+     * @description The beginning of the time range to query. Specify the time in the yyyy-MM-dd HH:mm:ss format.
+     *
+     *   By default, the system uses the current time as the value of this parameter if the time that you specify is invalid.
+     *   If both the values of the StartDate and EndDate parameters are invalid, the system automatically queries the change logs that are generated within the last 30 days.
      *
      * @example 2020-06-01 00:00:00
      *
@@ -70,7 +69,7 @@ class GetMetaTableChangeLogRequest extends Model
     public $startDate;
 
     /**
-     * @description The entity on which the change is made. Valid values: TABLE and PARTITION.
+     * @description The GUID of the table. Specify the GUID in the odps.projectName.tableName format. You can call the [GetMetaDBTableList](https://help.aliyun.com/document_detail/2780086.html) operation to query the GUID.
      *
      * This parameter is required.
      * @example odps.engine_name.table_name

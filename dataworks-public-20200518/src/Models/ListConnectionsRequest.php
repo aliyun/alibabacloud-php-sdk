@@ -9,6 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ListConnectionsRequest extends Model
 {
     /**
+     * @description The type of the data source. Valid values:
+     *
+     *   odps
+     *   mysql
+     *   rds
+     *   oss
+     *   sqlserver
+     *   polardb
+     *   oracle
+     *   mongodb
+     *   emr
+     *   postgresql
+     *   analyticdb_for_mysql
+     *   hybriddb_for_postgresql
+     *   holo
+     *
      * @example rds
      *
      * @var string
@@ -16,6 +32,8 @@ class ListConnectionsRequest extends Model
     public $connectionType;
 
     /**
+     * @description The environment in which the data source is used. Valid values: 0 and 1. The value 0 indicates the development environment. The value 1 indicates the production environment.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +41,8 @@ class ListConnectionsRequest extends Model
     public $envType;
 
     /**
+     * @description The name of the data source that you want to query.
+     *
      * @example abc
      *
      * @var string
@@ -30,6 +50,8 @@ class ListConnectionsRequest extends Model
     public $name;
 
     /**
+     * @description The page number. Pages start from page 1.
+     *
      * @example 1
      *
      * @var int
@@ -37,6 +59,8 @@ class ListConnectionsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Default value: 10. Maximum value: 100.
+     *
      * @example 10
      *
      * @var int
@@ -44,8 +68,9 @@ class ListConnectionsRequest extends Model
     public $pageSize;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the workspace to which the data source belongs. You can call the [ListProjects](https://help.aliyun.com/document_detail/178393.html) operation to query the ID.
      *
+     * This parameter is required.
      * @example 76086
      *
      * @var int
@@ -53,6 +78,11 @@ class ListConnectionsRequest extends Model
     public $projectId;
 
     /**
+     * @description The status of the data source. Valid values:
+     *
+     *   ENABLED
+     *   DISABLED
+     *
      * @example 1
      *
      * @var string
@@ -60,6 +90,11 @@ class ListConnectionsRequest extends Model
     public $status;
 
     /**
+     * @description The subtype of the data source. This parameter is used in scenarios where a type includes subtypes. The following type and subtypes are supported:
+     *
+     *   Type: `rds`
+     *   Subtypes: `mysql`, `sqlserver`, and `postgresql`
+     *
      * @example mysql
      *
      * @var string

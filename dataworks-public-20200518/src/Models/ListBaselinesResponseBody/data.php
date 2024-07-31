@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The baselines.
+     *
      * @var baselines[]
      */
     public $baselines;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var string
@@ -22,6 +26,8 @@ class data extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 10
      *
      * @var string
@@ -29,6 +35,8 @@ class data extends Model
     public $pageSize;
 
     /**
+     * @description The total number of baselines returned.
+     *
      * @example 100
      *
      * @var string

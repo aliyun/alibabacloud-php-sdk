@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryRecognizeDataByRuleTypeResponseBody extends Model
 {
     /**
+     * @description The returned result in the JSON format.
+     *
      * @example [{"custom": false,       "name": "EducationDegree",       "localeName": "EducationDegree",       "templateJsonStr": "{&quot;_clazz&quot;:&quot;com.alipay.dsgclient.sdk.dsg.fastscan.engine.cond.EducationDegreeCond&quot;}",       "desc": ""}]
      *
      * @var mixed
@@ -16,6 +18,8 @@ class QueryRecognizeDataByRuleTypeResponseBody extends Model
     public $data;
 
     /**
+     * @description The error code.
+     *
      * @example 9990030003
      *
      * @var string
@@ -23,11 +27,15 @@ class QueryRecognizeDataByRuleTypeResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -35,6 +43,8 @@ class QueryRecognizeDataByRuleTypeResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The request ID. You can use the ID to locate logs and troubleshoot issues.
+     *
      * @example 10000001
      *
      * @var string
@@ -42,6 +52,11 @@ class QueryRecognizeDataByRuleTypeResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

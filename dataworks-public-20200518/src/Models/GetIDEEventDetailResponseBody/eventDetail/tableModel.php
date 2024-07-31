@@ -17,14 +17,14 @@ class tableModel extends Model
     public $columns;
 
     /**
-     * @description The description of the table.
+     * @description The remarks of the table.
      *
      * @var string
      */
     public $comment;
 
     /**
-     * @description The name of the compute engine instance to which the table belongs.
+     * @description The name of the data source to which the table belongs.
      *
      * @example odps_first
      *
@@ -35,7 +35,9 @@ class tableModel extends Model
     /**
      * @description The environment in which the table is used. Valid values:
      *
-     * - PROD: production environment
+     *   DEV
+     *   PROD
+     *
      * @example DEV
      *
      * @var string
@@ -43,7 +45,7 @@ class tableModel extends Model
     public $env;
 
     /**
-     * @description The lifecycle of the table. Unit: days.
+     * @description The lifecycle of the metatable. Unit: day.
      *
      * @example 7
      *

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class RemoveEntityTagsShrinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The unique identifier of the entity. Example: maxcompute-table.projectA.tableA.
      *
+     * This parameter is required.
      * @example maxcompute-table.projectA.tableA
      *
      * @var string
@@ -18,8 +19,9 @@ class RemoveEntityTagsShrinkRequest extends Model
     public $qualifiedName;
 
     /**
-     * @description This parameter is required.
+     * @description The tag keys.
      *
+     * This parameter is required.
      * @var string
      */
     public $tagKeysShrink;

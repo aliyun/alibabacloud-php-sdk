@@ -27,7 +27,7 @@ class GetMetaCategoryRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the category tree.
+     * @description The category tree ID.
      *
      * @example 333
      *

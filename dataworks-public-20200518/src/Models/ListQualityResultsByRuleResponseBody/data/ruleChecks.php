@@ -29,7 +29,7 @@ class ruleChecks extends Model
     public $beginTime;
 
     /**
-     * @description The date on which the business was performed. If the monitored business entity is offline data, the value is usually one day before the monitoring is performed.
+     * @description The data timestamp. If the monitored business entity is offline data, the value is usually one day before the monitoring is performed.
      *
      * @example 1600704000000
      *
@@ -38,13 +38,11 @@ class ruleChecks extends Model
     public $bizDate;
 
     /**
-     * @description The type of the monitoring rule. The type of a monitoring rule indicates the importance of the rule. Valid values:
+     * @description The strength of the monitoring rule. The strength of a monitoring rule indicates the importance of the rule. Valid values:
      *
      *   1: indicates that the monitoring rule is a strong rule.
+     *   0: indicates that the monitoring rule is a weak rule. You can specify the strength of a monitoring rule based on your business requirements. If a monitoring rule is a strong rule and the critical threshold is exceeded, a critical alert is reported and tasks that are associated with the rule are blocked from running.
      *
-     *   0: indicates that the monitoring rule is a weak rule.
-     *
-     * You can specify whether a monitoring rule is a strong rule based on your business requirements. If a strong rule is used and a critical alert is reported, nodes are blocked.
      * @example 1
      *
      * @var int
@@ -70,7 +68,7 @@ class ruleChecks extends Model
     public $checkResultStatus;
 
     /**
-     * @description The ID of the checker.
+     * @description The checker ID.
      *
      * @example 7
      *
@@ -104,7 +102,7 @@ class ruleChecks extends Model
     public $comment;
 
     /**
-     * @description The threshold for a critical alert. The threshold indicates the deviation of the monitoring result from the expected value. You can customize this threshold based on your business requirements. If a strong rule is used and a critical alert is reported, nodes are blocked.
+     * @description The threshold for a critical alert. The threshold indicates the deviation of the monitoring result from the expected value. You can specify a custom value for the threshold based on your business requirements. If a monitoring rule is a strong rule and the critical threshold is exceeded, a critical alert is reported and tasks that are associated with the rule are blocked from running.
      *
      * @example 0.6
      *
@@ -113,7 +111,7 @@ class ruleChecks extends Model
     public $criticalThreshold;
 
     /**
-     * @description The type of the scheduling cycle. In most cases, the value of this parameter is YMD. This value indicates year, month, and day.
+     * @description The scheduling frequency. In most cases, the value of this parameter is YMD. This value indicates year, month, and day.
      *
      * @example YMD
      *
@@ -124,8 +122,8 @@ class ruleChecks extends Model
     /**
      * @description Indicates whether the monitoring is discrete monitoring. Valid values:
      *
-     *   true: indicates that the monitoring is discrete monitoring.
-     *   false: indicates that the monitoring is not discrete monitoring.
+     *   true
+     *   false
      *
      * @example true
      *
@@ -161,7 +159,7 @@ class ruleChecks extends Model
     public $expectValue;
 
     /**
-     * @description The ID of the node.
+     * @description The node ID.
      *
      * @example 123112232
      *
@@ -181,8 +179,8 @@ class ruleChecks extends Model
     /**
      * @description Indicates whether the monitoring is performed based on a fixed value. Valid values:
      *
-     *   true: indicates that the monitoring is performed based on a fixed value.
-     *   false: indicates that the monitoring is performed based on a non-fixed value.
+     *   true
+     *   false
      *
      * @example false
      *
@@ -191,7 +189,7 @@ class ruleChecks extends Model
     public $fixedCheck;
 
     /**
-     * @description The ID of the primary key.
+     * @description The primary key ID.
      *
      * @example 2231123
      *
@@ -202,8 +200,8 @@ class ruleChecks extends Model
     /**
      * @description Indicates whether the monitoring result is the same as the predicted result. Valid values:
      *
-     *   true: indicates that the monitoring result is the same as the predicted result.
-     *   false: indicates that the monitoring result is different from the predicted result.
+     *   true
+     *   false
      *
      * @example false
      *
@@ -212,7 +210,7 @@ class ruleChecks extends Model
     public $isPrediction;
 
     /**
-     * @description The lower limit of the predicted result. The value of this parameter is automatically generated based on the threshold that you specified.
+     * @description The lower limit of the predicted result. The value of this parameter is automatically generated based on the threshold that you specify.
      *
      * @example 2344
      *
@@ -230,7 +228,7 @@ class ruleChecks extends Model
     public $matchExpression;
 
     /**
-     * @description The method used to collect sample data, such as avg, count, sum, min, max, count_distinct, user_defined, table_count, table_size, table_dt_load_count, table_dt_refuseload_count, null_value, null_value/table_count, (table_count-count_distinct)/table_count, or table_count-count_distinct.
+     * @description The method used to collect sample data, such as such as avg, count, sum, min, max, count_distinct, user_defined, table_count, table_size, table_dt_load_count, table_dt_refuseload_count, null_value, null_value/table_count, (table_count-count_distinct)/table_count, or table_count-count_distinct.
      *
      * @example max
      *
@@ -248,12 +246,16 @@ class ruleChecks extends Model
     public $op;
 
     /**
+     * @description Indicates whether the monitoring rule is enabled.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $open;
 
     /**
-     * @description The name of the compute engine instance or data source for which data quality is monitored.
+     * @description The name of the compute engine or data source for which data quality is monitored.
      *
      * @example autotest
      *
@@ -262,7 +264,7 @@ class ruleChecks extends Model
     public $projectName;
 
     /**
-     * @description The field of the rule attribute. This field is the column name of the data source table that is monitored.
+     * @description The field whose data quality is checked based on the monitoring rule. This field is a column in the data source table that is monitored.
      *
      * @example type
      *
@@ -303,7 +305,7 @@ class ruleChecks extends Model
     public $ruleName;
 
     /**
-     * @description The sample values.
+     * @description The current sample values.
      *
      * @var sampleValue[]
      */
@@ -319,7 +321,7 @@ class ruleChecks extends Model
     public $tableName;
 
     /**
-     * @description The ID of the monitoring task.
+     * @description The monitoring task ID.
      *
      * @example 16008552981681a0d6****
      *
@@ -362,7 +364,7 @@ class ruleChecks extends Model
     public $trend;
 
     /**
-     * @description The upper limit of the predicted result. The value of this parameter is automatically generated based on the threshold that you specified.
+     * @description The upper limit of the predicted result. The value of this parameter is automatically generated based on the threshold that you specify.
      *
      * @example 22200
      *
@@ -371,7 +373,7 @@ class ruleChecks extends Model
     public $upperValue;
 
     /**
-     * @description The threshold for a warning alert. The threshold indicates the deviation of the monitoring result from the expected value. You can customize this threshold based on your business requirements.
+     * @description The threshold for a warning alert. The threshold specifies the deviation of the monitoring result from the expected value. You can specify a custom value for the threshold based on your business requirements.
      *
      * @example 0.1
      *
@@ -380,7 +382,7 @@ class ruleChecks extends Model
     public $warningThreshold;
 
     /**
-     * @description The filter condition of the monitoring rule.
+     * @description The filter condition of the monitoring task.
      *
      * @example type!=\\"type2\\"
      *

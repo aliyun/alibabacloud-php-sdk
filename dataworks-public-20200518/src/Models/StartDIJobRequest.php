@@ -10,8 +10,9 @@ use AlibabaCloud\Tea\Model;
 class StartDIJobRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The task ID.
      *
+     * This parameter is required.
      * @example 11743
      *
      * @var int
@@ -19,6 +20,8 @@ class StartDIJobRequest extends Model
     public $DIJobId;
 
     /**
+     * @description Specifies whether to forcefully rerun all synchronization steps. If you do not configure this parameter, the system does not forcefully rerun the task.
+     *
      * @example true
      *
      * @var bool
@@ -26,6 +29,8 @@ class StartDIJobRequest extends Model
     public $forceToRerun;
 
     /**
+     * @description The settings for the start.
+     *
      * @var realtimeStartSettings
      */
     public $realtimeStartSettings;

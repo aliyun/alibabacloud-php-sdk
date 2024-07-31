@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description Indicates whether the default global configuration of synchronization solutions is modified. Valid values:
+     *
+     *   success
+     *   fail
+     *
      * @example success
      *
      * @var string

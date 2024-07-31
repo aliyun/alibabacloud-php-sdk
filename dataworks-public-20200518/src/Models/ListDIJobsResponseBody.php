@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListDIJobsResponseBody extends Model
 {
     /**
+     * @description The pagination information.
+     *
      * @var DIJobPaging
      */
     public $DIJobPaging;
 
     /**
+     * @description The request ID.
+     *
      * @example 7263E4AC-9D2E-5B29-B8AF-7C5012E92A41
      *
      * @var string

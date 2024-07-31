@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetTopicRequest extends Model
 {
     /**
-     * @description The ID of the request. You can troubleshoot issues based on the ID.
+     * @description The event ID. You can call the [ListTopics](https://help.aliyun.com/document_detail/173973.html) operation to query the ID.
      *
      * This parameter is required.
      * @example 1234

@@ -43,7 +43,7 @@ class registrationDetails extends Model
     public $serviceContentType;
 
     /**
-     * @description The address of the backend service.
+     * @description The URL of the backend service.
      *
      * @example http://example.aliyundoc.com
      *

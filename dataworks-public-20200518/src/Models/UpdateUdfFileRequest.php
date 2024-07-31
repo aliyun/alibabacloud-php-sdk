@@ -54,7 +54,7 @@ class UpdateUdfFileRequest extends Model
     public $fileId;
 
     /**
-     * @description The type of the function. Valid values: MATH, AGGREGATE, STRING, DATE, ANALYTIC, and OTHER. This parameter corresponds to the Function Type parameter in the Register Function section of the configuration tab of the function in the DataWorks console.
+     * @description The type of the function. Valid values: MATH, AGGREGATE, STRING, DATE, ANALYTIC, and OTHER. This parameter corresponds to the Function Type parameter in the Register Function section of the configuration tab of the function on the DataStudio page.
      *
      * This parameter is required.
      * @example STRING
@@ -64,7 +64,7 @@ class UpdateUdfFileRequest extends Model
     public $functionType;
 
     /**
-     * @description The description of the input parameters of the function. This parameter corresponds to the Parameter Description parameter in the Register Function section of the configuration tab of the function in the DataWorks console.
+     * @description The description of the input parameters of the function. This parameter corresponds to the Parameter Description parameter in the Register Function section of the configuration tab of the function on the DataStudio page.
      *
      * @var string
      */
@@ -100,7 +100,7 @@ class UpdateUdfFileRequest extends Model
     public $resources;
 
     /**
-     * @description The description of the return value of the function. This parameter corresponds to the Return Value parameter in the Register Function section of the configuration tab of the function in the DataWorks console.
+     * @description The description of the return value of the function. This parameter corresponds to the Return Value parameter in the Register Function section of the configuration tab of the function on the DataStudio page.
      *
      * @var string
      */

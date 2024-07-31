@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListInstanceAmountRequest extends Model
 {
     /**
-     * @description The beginning of the time range to query, accurate to the day. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     * @description The beginning of the time range to query, accurate to the day. Specify the time in the ISO 8601 standard in the yyyy-MM-dd\\"T\\"HH:mm:ssZ format. The time must be in UTC.
      *
      * This parameter is required.
      * @example 2021-06-13T00:00:00+0800
@@ -19,7 +19,7 @@ class ListInstanceAmountRequest extends Model
     public $beginDate;
 
     /**
-     * @description The end of the time range to query, accurate to the day. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     * @description The end of the time range to query, accurate to the day. Specify the time in the ISO 8601 standard in the yyyy-MM-dd\\"T\\"HH:mm:ssZ format. The time must be in UTC.
      *
      * This parameter is required.
      * @example 2021-06-16T00:00:00+0800
@@ -29,7 +29,7 @@ class ListInstanceAmountRequest extends Model
     public $endDate;
 
     /**
-     * @description The ID of the DataWorks workspace. You can log on to the DataWorks console and go to the Workspace Management page to obtain the ID.
+     * @description The DataWorks workspace ID. You can log on to the DataWorks console and go to the Work space page to obtain the workspace ID.
      *
      * This parameter is required.
      * @example 10000

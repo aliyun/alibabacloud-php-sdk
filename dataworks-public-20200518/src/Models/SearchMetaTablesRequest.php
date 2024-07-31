@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class SearchMetaTablesRequest extends Model
 {
     /**
-     * @description The type of the metatables. Valid values: 0 and 1. The value 0 indicates that tables are queried. The value 1 indicates that views are queried. If you do not configure this parameter, all types of metatables are queried.
+     * @description The GUID of the workspace where the metatables reside.
      *
      * @example odps.engine_name
      *
@@ -18,8 +18,9 @@ class SearchMetaTablesRequest extends Model
     public $appGuid;
 
     /**
-     * @description The schema information of the table. You need to configure this parameter if you enable the table schema in MaxCompute.
+     * @description The ID of the EMR cluster. This parameter is required only if you set the DataSourceType parameter to emr.
      *
+     * You can log on to the [EMR console](https://emr.console.aliyun.com/?spm=a2c4g.11186623.0.0.965cc5c2GeiHet#/cn-hangzhou) to obtain the ID.
      * @example abc
      *
      * @var string
@@ -27,7 +28,7 @@ class SearchMetaTablesRequest extends Model
     public $clusterId;
 
     /**
-     * @description The HTTP status code returned.
+     * @description The type of the data source. Valid values: odps and emr.
      *
      * @example emr
      *
@@ -36,7 +37,7 @@ class SearchMetaTablesRequest extends Model
     public $dataSourceType;
 
     /**
-     * @description The type of the data source. Valid values: odps and emr.
+     * @description The type of the metatables. Valid values: 0 and 1. The value 0 indicates that tables are queried. The value 1 indicates that views are queried. If you do not configure this parameter, all types of metatables are queried.
      *
      * @example 0
      *
@@ -45,7 +46,7 @@ class SearchMetaTablesRequest extends Model
     public $entityType;
 
     /**
-     * @description The ID of the EMR cluster. This parameter is required only if you set the DataSourceType parameter to emr.
+     * @description The keyword based on which metatables are queried. During the query, the system tokenizes the names of metatables and matches the names with the keyword. If no name is matched, the value null is returned. By default, the system uses underscores (_) to tokenize the names.
      *
      * This parameter is required.
      * @example test
@@ -55,7 +56,7 @@ class SearchMetaTablesRequest extends Model
     public $keyword;
 
     /**
-     * @description The GUID of the workspace where the metatables reside.
+     * @description The page number.
      *
      * @example 1
      *
@@ -64,7 +65,7 @@ class SearchMetaTablesRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The keyword based on which metatables are queried. During the query, the system tokenizes the names of metatables and matches the names with the keyword. If no name is matched, an empty result is returned. By default, the system uses underscores (_) to tokenize the names.
+     * @description The number of entries per page. Default value: 10. Maximum value: 100.
      *
      * @example 10
      *
@@ -73,7 +74,7 @@ class SearchMetaTablesRequest extends Model
     public $pageSize;
 
     /**
-     * @description The error message returned.
+     * @description The schema information of the table. You must configure this parameter if you enable the three-layer model of MaxCompute.
      *
      * @example default
      *

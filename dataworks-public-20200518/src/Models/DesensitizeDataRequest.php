@@ -19,7 +19,7 @@ class DesensitizeDataRequest extends Model
     public $data;
 
     /**
-     * @description The code of the data masking scene. You can view the code on the Data Masking page in Data Security Guard of the DataWorks console.
+     * @description The code of the data masking scenario. You can view the code on the Data Masking Management page in Data Security Guard of the DataWorks console.
      *
      * This parameter is required.
      * @example _default_scene_code

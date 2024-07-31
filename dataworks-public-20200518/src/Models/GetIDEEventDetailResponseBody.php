@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetIDEEventDetailResponseBody extends Model
 {
     /**
-     * @description The data snapshot that is generated when the extension point event is triggered.
+     * @description The data snapshot that is generated when an extension point event is triggered.
      *
      * The fields contained in data snapshots vary based on the types of the triggered extension point events. For more information, see the description of the fields.
      * @var eventDetail
@@ -18,7 +18,7 @@ class GetIDEEventDetailResponseBody extends Model
     public $eventDetail;
 
     /**
-     * @description The ID of the request. You can troubleshoot errors based on the ID.
+     * @description The request ID.
      *
      * @example 8abcb91f-d266-4073-b907-2ed670378ed1
      *

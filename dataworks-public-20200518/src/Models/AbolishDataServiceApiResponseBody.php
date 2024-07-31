@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class AbolishDataServiceApiResponseBody extends Model
 {
     /**
-     * @description Indicates whether the DataService Studio API is unpublished.
+     * @description Indicates whether the API is unpublished.
      *
      * @example true
      *
@@ -18,7 +18,7 @@ class AbolishDataServiceApiResponseBody extends Model
     public $data;
 
     /**
-     * @description The error code returned.
+     * @description The error code.
      *
      * @example Invalid.Tenant.ConnectionNotExists
      *
@@ -27,7 +27,7 @@ class AbolishDataServiceApiResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message returned.
+     * @description The error message.
      *
      * @example The connection does not exist.
      *
@@ -36,7 +36,7 @@ class AbolishDataServiceApiResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The HTTP status code returned.
+     * @description The HTTP status code.
      *
      * @example 200
      *
@@ -45,7 +45,7 @@ class AbolishDataServiceApiResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 0000-ABCD-EFG****
      *

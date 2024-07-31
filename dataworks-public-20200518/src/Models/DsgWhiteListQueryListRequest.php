@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DsgWhiteListQueryListRequest extends Model
 {
     /**
+     * @description The keyword of the sensitive field type.
+     *
      * @example phone
      *
      * @var string
@@ -16,8 +18,9 @@ class DsgWhiteListQueryListRequest extends Model
     public $dataType;
 
     /**
-     * @description This parameter is required.
+     * @description The page number.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -25,8 +28,9 @@ class DsgWhiteListQueryListRequest extends Model
     public $pageNumber;
 
     /**
-     * @description This parameter is required.
+     * @description The number of entries per page. Maximum value: 100.
      *
+     * This parameter is required.
      * @example 10
      *
      * @var int
@@ -34,8 +38,9 @@ class DsgWhiteListQueryListRequest extends Model
     public $pageSize;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the level-2 data masking scenario. You can call the [DsgSceneQuerySceneListByName](https://help.aliyun.com/document_detail/2786322.html) operation to query the list of IDs.
      *
+     * This parameter is required.
      * @example 123
      *
      * @var int

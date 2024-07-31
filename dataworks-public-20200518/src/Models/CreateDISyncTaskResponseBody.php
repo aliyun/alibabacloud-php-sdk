@@ -17,7 +17,7 @@ class CreateDISyncTaskResponseBody extends Model
     public $data;
 
     /**
-     * @description The request ID. You can use the ID to locate logs and troubleshoot issues.
+     * @description The request ID.
      *
      * @example 0bc1411515937635973****
      *
@@ -26,7 +26,7 @@ class CreateDISyncTaskResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request was successful. Valid values: true and false.
+     * @description Indicates whether the request was successful.
      *
      * @example true
      *

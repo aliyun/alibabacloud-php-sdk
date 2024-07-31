@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class instanceErrorRank extends Model
 {
     /**
-     * @description The ranking of nodes on which errors occur within the last month.
+     * @description The ranking data of nodes on which errors occurred within the last month.
      *
      * @var errorRank[]
      */
     public $errorRank;
 
     /**
-     * @description The time when the ranking was updated.
+     * @description The timestamp at which the rankings were updated.
      *
      * @example 1600963200000
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class granteeObjectList extends Model
 {
     /**
-     * @description The unique ID of the account that is used to request permissions.
+     * @description The ID of the account that is used to request permissions.
      *
      * @example 267842600408993176
      *
@@ -20,8 +20,8 @@ class granteeObjectList extends Model
     /**
      * @description The name of the account that is used to request permissions. The name is in the same format as that of the account used to access the MaxCompute project.
      *
-     *   An Alibaba Cloud account is in the format of ALIYUN$+Account name.
-     *   A RAM user is in the format of RAM$+Account name.
+     *   If the account is an Alibaba Cloud account, the value is in the ALIYUN$+Account name format.
+     *   If the account is a RAM user, the value is in the RAM$+Account name format.
      *
      * @example RAM$dataworks_3h1_1:StsRamUser(StsRamUser)
      *
@@ -30,7 +30,7 @@ class granteeObjectList extends Model
     public $granteeName;
 
     /**
-     * @description The type of the subject that requests permissions. The parameter value is 1 and cannot be changed. It indicates user.
+     * @description The type of the subject that requests permissions. The value is fixed as 1, which indicates users.
      *
      * @example 1
      *

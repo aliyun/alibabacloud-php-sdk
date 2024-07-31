@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetMetaTableColumnRequest extends Model
 {
     /**
-     * @description The name of the metatable in the EMR cluster. You can call the [GetMetaDBTableList](https://help.aliyun.com/document_detail/173916.html) operation to query the name.
+     * @description The ID of the E-MapReduce (EMR) cluster. You can log on to the EMR console to obtain the ID.
      *
      * @example C-010A704DA760****
      *
@@ -18,7 +18,7 @@ class GetMetaTableColumnRequest extends Model
     public $clusterId;
 
     /**
-     * @description The error message.
+     * @description The type of the data source. Set the value to emr.
      *
      * @example emr
      *
@@ -27,7 +27,7 @@ class GetMetaTableColumnRequest extends Model
     public $dataSourceType;
 
     /**
-     * @description The type of the data source. Only emr is supported.
+     * @description The name of the metadatabase of the EMR cluster. You can call the [ListMetaDB](https://help.aliyun.com/document_detail/2780105.html) operation to query the name.
      *
      * @example abc
      *
@@ -36,7 +36,7 @@ class GetMetaTableColumnRequest extends Model
     public $databaseName;
 
     /**
-     * @description The ID of the E-MapReduce (EMR) cluster. You can log on to the EMR console to obtain the ID.
+     * @description The page number.
      *
      * @example 1
      *
@@ -45,7 +45,7 @@ class GetMetaTableColumnRequest extends Model
     public $pageNum;
 
     /**
-     * @description The name of the metadatabase of the EMR cluster. You can call the [ListMetaDB](https://help.aliyun.com/document_detail/185662.html) operation to query the name.
+     * @description The number of entries per page. Default value: 10. Maximum value: 100.
      *
      * @example 10
      *
@@ -54,7 +54,7 @@ class GetMetaTableColumnRequest extends Model
     public $pageSize;
 
     /**
-     * @description The number of entries to return on each page. Default value: 10. Maximum value: 100.
+     * @description The GUID of the metatable. You can call the [GetMetaDBTableList](https://help.aliyun.com/document_detail/2780086.html) operation to query the GUID.
      *
      * @example odps.engine_name.table_name
      *
@@ -63,7 +63,7 @@ class GetMetaTableColumnRequest extends Model
     public $tableGuid;
 
     /**
-     * @description The HTTP status code.
+     * @description The name of the metatable in the EMR cluster. You can call the [GetMetaDBTableList](https://help.aliyun.com/document_detail/2780086.html) operation to query the name.
      *
      * @example abc
      *

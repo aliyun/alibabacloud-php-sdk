@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class errorRank extends Model
 {
     /**
+     * @description The number of errors that occurred on the node.
+     *
      * @example 5
      *
      * @var int
@@ -16,6 +18,8 @@ class errorRank extends Model
     public $count;
 
     /**
+     * @description The node ID.
+     *
      * @example 9527
      *
      * @var int
@@ -23,11 +27,15 @@ class errorRank extends Model
     public $nodeId;
 
     /**
+     * @description The name of the node.
+     *
      * @var string
      */
     public $nodeName;
 
     /**
+     * @description The ID of the Alibaba Cloud account used by the node owner.
+     *
      * @example 952795279527
      *
      * @var string
@@ -35,6 +43,8 @@ class errorRank extends Model
     public $owner;
 
     /**
+     * @description The type of the node.
+     *
      * @example 10
      *
      * @var int
@@ -42,6 +52,8 @@ class errorRank extends Model
     public $prgType;
 
     /**
+     * @description The DataWorks workspace ID.
+     *
      * @example 9527
      *
      * @var int

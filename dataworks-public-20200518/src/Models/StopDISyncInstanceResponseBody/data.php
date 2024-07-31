@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The reason why the synchronization task fails to be stopped.
+     *
+     * If the synchronization task is stopped, the value null is returned.
      * @example fileId:[100] is invalid.
      *
      * @var string
@@ -16,9 +19,11 @@ class data extends Model
     public $message;
 
     /**
-     * @description The reason why the synchronization node fails to be stopped.
+     * @description Indicates whether the synchronization task is stopped. Valid values:
      *
-     * If the synchronization node is stopped, the value null is returned.
+     *   success
+     *   fail
+     *
      * @example success
      *
      * @var string

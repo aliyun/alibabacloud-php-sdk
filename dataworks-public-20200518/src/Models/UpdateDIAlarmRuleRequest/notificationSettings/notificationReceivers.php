@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class notificationReceivers extends Model
 {
     /**
+     * @description The recipient type.
+     *
+     *   If the alert notification method is Mail, Phone, or Sms, the recipient type is Alibaba Cloud account ID.
+     *   If the alert notification method is Ding, the recipient type is DingTalk chatbot token.
+     *
      * @example DingToken
      *
      * @var string
@@ -16,6 +21,8 @@ class notificationReceivers extends Model
     public $receiverType;
 
     /**
+     * @description The recipients.
+     *
      * @var string[]
      */
     public $receiverValues;

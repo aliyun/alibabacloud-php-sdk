@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteQualityRuleResponseBody extends Model
 {
     /**
-     * @description Indicates whether the deletion was successful.
+     * @description Indicates whether the monitoring rule was deleted.
      *
      * @example true
      *
@@ -27,7 +27,7 @@ class DeleteQualityRuleResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The returned message.
+     * @description The error message.
      *
      * @example You have no permission.
      *
@@ -45,7 +45,7 @@ class DeleteQualityRuleResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 6d739ef6-098a-47****
      *
@@ -54,7 +54,7 @@ class DeleteQualityRuleResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the call is successful.
+     * @description Indicates whether the request was successful.
      *
      * @example true
      *

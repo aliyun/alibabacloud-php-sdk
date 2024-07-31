@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class measureDatas extends Model
 {
     /**
+     * @description The measurement component.
+     *
      * @example Count
      *
      * @var string
@@ -16,6 +18,8 @@ class measureDatas extends Model
     public $componentCode;
 
     /**
+     * @description The item that is measured.
+     *
      * @example DideAlarmPhone
      *
      * @var string
@@ -23,6 +27,8 @@ class measureDatas extends Model
     public $domainCode;
 
     /**
+     * @description The end timestamp of the measurement period, in milliseconds.
+     *
      * @example 1717430400000
      *
      * @var int
@@ -30,6 +36,8 @@ class measureDatas extends Model
     public $endTime;
 
     /**
+     * @description The start timestamp of the measurement period, in milliseconds.
+     *
      * @example 1717344000000
      *
      * @var int
@@ -37,6 +45,8 @@ class measureDatas extends Model
     public $startTime;
 
     /**
+     * @description The total quantity used within the measurement period.
+     *
      * @example 10
      *
      * @var int

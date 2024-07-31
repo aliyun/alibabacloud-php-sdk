@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetMetaTablePartitionResponseBody extends Model
 {
     /**
-     * @description The business data returned.
+     * @description The returned result.
      *
      * @var data
      */
@@ -44,7 +44,7 @@ class GetMetaTablePartitionResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 0bc1ec92159376
      *

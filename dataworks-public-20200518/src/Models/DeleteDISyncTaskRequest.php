@@ -9,10 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteDISyncTaskRequest extends Model
 {
     /**
-     * @description Indicates whether the request is successful. Valid values:
-     *
-     *   true: The request is successful.
-     *   false: The request failed.
+     * @description The ID of the real-time synchronization task. You can call the [ListFiles](https://help.aliyun.com/document_detail/173942.html) operation to query the ID.
      *
      * This parameter is required.
      * @example 100
@@ -22,7 +19,7 @@ class DeleteDISyncTaskRequest extends Model
     public $fileId;
 
     /**
-     * @description The type of the synchronization node in Data Integration.
+     * @description The ID of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to obtain the workspace ID.
      *
      * This parameter is required.
      * @example 10000
@@ -32,7 +29,7 @@ class DeleteDISyncTaskRequest extends Model
     public $projectId;
 
     /**
-     * @description The ID of the real-time synchronization node. You can call the [ListFiles](https://help.aliyun.com/document_detail/173942.html) operation to query the ID of the node.
+     * @description The type of the task. Set the value to DI_REALTIME, which indicates a real-time synchronization task.
      *
      * This parameter is required.
      * @example DI_REALTIME

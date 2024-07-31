@@ -78,6 +78,10 @@ class UpdateDataServiceApiRequest extends Model
     public $requestMethod;
 
     /**
+     * @description The ID of the exclusive resource group.
+     *
+     * @example 3242432423
+     *
      * @var int
      */
     public $resourceGroupId;
@@ -102,7 +106,7 @@ class UpdateDataServiceApiRequest extends Model
     public $scriptDetails;
 
     /**
-     * @description The ID of the tenant.
+     * @description The tenant ID. To obtain the tenant ID, perform the following steps: Log on to the [DataWorks console](https://workbench.data.aliyun.com/console). Find your workspace and go to the DataStudio page. On the DataStudio page, click the username for the logon in the upper-right corner and click User Info in the Menu section.
      *
      * @example 10001
      *

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class sourceObjectSelectionRules extends Model
 {
     /**
+     * @description The expression.
+     *
      * @example mysql_table_1
      *
      * @var string
@@ -16,6 +18,11 @@ class sourceObjectSelectionRules extends Model
     public $expression;
 
     /**
+     * @description The type of the object. Valid values:
+     *
+     *   Table
+     *   Database
+     *
      * @example Table
      *
      * @var string

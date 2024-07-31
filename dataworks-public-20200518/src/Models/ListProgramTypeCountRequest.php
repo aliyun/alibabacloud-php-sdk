@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListProgramTypeCountRequest extends Model
 {
     /**
-     * @description The environment of the workspace, including projects in PROD and DEV.
+     * @description The environment of the workspace. Valid values: PROD and DEV.
      *
      * This parameter is required.
      * @example PROD
@@ -19,7 +19,7 @@ class ListProgramTypeCountRequest extends Model
     public $projectEnv;
 
     /**
-     * @description The ID of the DataWorks workspace.
+     * @description The workspace ID.
      *
      * This parameter is required.
      * @example 1234

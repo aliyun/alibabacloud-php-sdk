@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The timestamp when the event was found.
+     *
      * @example 1553524393000
      *
      * @var int
@@ -16,7 +18,7 @@ class data extends Model
     public $addTime;
 
     /**
-     * @description The ID of the Apsara Stack tenant account used by the alert recipient.
+     * @description The timestamp when the first alert was reported.
      *
      * @example 1553524393000
      *
@@ -25,7 +27,7 @@ class data extends Model
     public $alertTime;
 
     /**
-     * @description The timestamp when the event was found.
+     * @description The ID of the Alibaba Cloud account used by the alert recipient.
      *
      * @example 952795****
      *
@@ -34,7 +36,7 @@ class data extends Model
     public $assigner;
 
     /**
-     * @description The status of the event. Valid values: IGNORE, NEW, FIXING, and RECOVER. A value of IGNORE indicates that the event is ignored. A value of NEW indicates that the event is a new event. A value of FIXING indicates that the event is being processed. A value of RECOVER indicates that the event is processed.
+     * @description The margin of the worst baseline instance. Unit: seconds.
      *
      * @example 3600
      *
@@ -43,7 +45,7 @@ class data extends Model
     public $baselineBuffer;
 
     /**
-     * @description The timestamp when the first alert was reported.
+     * @description The ID of the baseline to which the worst baseline instance belongs.
      *
      * @example 1234
      *
@@ -52,7 +54,7 @@ class data extends Model
     public $baselineId;
 
     /**
-     * @description The type of the event. Valid values: SLOW and ERROR. A value of SLOW indicates that the duration of the task is significantly longer than the average duration of the task in previous cycles. A value of ERROR indicates that the task fails to run.
+     * @description The ID of the cycle of the worst baseline instance.
      *
      * @example 1
      *
@@ -61,14 +63,14 @@ class data extends Model
     public $baselineInGroupId;
 
     /**
-     * @description The name of the node that triggered the event.
+     * @description The name of the baseline to which the worst baseline instance belongs.
      *
      * @var string
      */
     public $baselineName;
 
     /**
-     * @description The timestamp when the system reports the next alert.
+     * @description The status of the baseline. Valid values: ERROR, SAFE, DANGROUS, and OVER. The value ERROR indicates that no nodes are associated with the baseline, or all nodes associated with the baseline are suspended. The value SAFE indicates that nodes are run before the alert duration begins. The value DANGROUS indicates that nodes are still running after the alert duration ends but the committed completion time does not arrive. The value OVER indicates that nodes are still running after the committed completion time.
      *
      * @example SAFE
      *
@@ -77,7 +79,7 @@ class data extends Model
     public $baselineStatus;
 
     /**
-     * @description The ID of the event.
+     * @description The margin of the event. Unit: seconds.
      *
      * @example 1200
      *
@@ -86,7 +88,7 @@ class data extends Model
     public $buffer;
 
     /**
-     * @description The name of the baseline to which the worst baseline instance belongs.
+     * @description The timestamp when the event was last processed.
      *
      * @example 1553524393000
      *
@@ -95,7 +97,7 @@ class data extends Model
     public $dealTime;
 
     /**
-     * @description The ID of the baseline to which the worst baseline instance belongs.
+     * @description The ID of the Alibaba Cloud account used by the user who last processed the event.
      *
      * @example 952795****
      *
@@ -104,7 +106,7 @@ class data extends Model
     public $dealUser;
 
     /**
-     * @description The margin of the worst baseline instance. Unit: seconds.
+     * @description The timestamp when the event was processed.
      *
      * @example 1553524393000
      *
@@ -113,7 +115,7 @@ class data extends Model
     public $fixTime;
 
     /**
-     * @description The ID of the Apsara Stack tenant account used by the user who last processed the event.
+     * @description The timestamp when the event occurred. A time difference may exist between the time when the event occurred and the time when the event was found.
      *
      * @example 1553524393000
      *
@@ -122,7 +124,7 @@ class data extends Model
     public $happenTime;
 
     /**
-     * @description The ID of the cycle of the worst baseline instance.
+     * @description The ID of the instance that triggered the event.
      *
      * @example 12345
      *
@@ -131,7 +133,7 @@ class data extends Model
     public $instanceId;
 
     /**
-     * @description The timestamp when the event was processed.
+     * @description The timestamp when the system reports the next alert.
      *
      * @example 1553524393000
      *
@@ -140,6 +142,8 @@ class data extends Model
     public $nextAlertTime;
 
     /**
+     * @description The ID of the node that triggered the event.
+     *
      * @example 1234
      *
      * @var int
@@ -147,14 +151,14 @@ class data extends Model
     public $nodeId;
 
     /**
-     * @description The margin of the event. Unit: seconds.
+     * @description The name of the node that triggered the event.
      *
      * @var string
      */
     public $nodeName;
 
     /**
-     * @description The status of the baseline. Valid values: ERROR, SAFE, DANGROUS, and OVER. A value of ERROR indicates that no nodes are associated with the baseline, or all nodes associated with the baseline are suspended. A value of SAFE indicates that nodes are run before the alert duration begins. A value of DANGROUS indicates that nodes are still running after the alert duration ends but the committed time does not arrive. A value of OVER indicates that nodes are still running after the committed time.
+     * @description The ID of the Alibaba Cloud account used by the event owner.
      *
      * @example 952795****
      *
@@ -163,7 +167,7 @@ class data extends Model
     public $owner;
 
     /**
-     * @description The ID of the instance that triggered the event.
+     * @description The ID of the workspace to which the node that triggered the event belongs.
      *
      * @example 1234
      *
@@ -172,7 +176,7 @@ class data extends Model
     public $projectId;
 
     /**
-     * @description The ID of the node that triggered the event.
+     * @description The event ID.
      *
      * @example 1234
      *
@@ -181,14 +185,14 @@ class data extends Model
     public $topicId;
 
     /**
-     * @description The ID of the workspace to which the node that triggered the event belongs.
+     * @description The name of the event.
      *
      * @var string
      */
     public $topicName;
 
     /**
-     * @description The timestamp when the event was last processed.
+     * @description The status of the event. Valid values: IGNORE, NEW, FIXING, and RECOVER.
      *
      * @example FIXING
      *
@@ -197,7 +201,7 @@ class data extends Model
     public $topicStatus;
 
     /**
-     * @description The timestamp when the system event occurred. A time difference may exist between the time when the event occurred and the time when the event was found.
+     * @description The type of the event. Valid values: SLOW and ERROR. The value SLOW indicates that the duration of the task is significantly longer than the average duration of the task in previous cycles. The value ERROR indicates that the task fails to run.
      *
      * @example ERROR
      *

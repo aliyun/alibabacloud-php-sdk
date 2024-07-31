@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetInstanceCountTrendResponseBody extends Model
 {
     /**
+     * @description The quantity trend of instances.
+     *
      * @var instanceCounts[]
      */
     public $instanceCounts;
 
     /**
+     * @description The request ID.
+     *
      * @example 95279527adhfj****
      *
      * @var string

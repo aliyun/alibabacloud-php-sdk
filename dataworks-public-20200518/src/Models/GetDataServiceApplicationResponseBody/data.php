@@ -18,7 +18,7 @@ class data extends Model
     public $applicationCode;
 
     /**
-     * @description The ID of the application.
+     * @description The application ID.
      *
      * @example 10000
      *
@@ -54,7 +54,7 @@ class data extends Model
     public $applicationSecret;
 
     /**
-     * @description The ID of the workspace.
+     * @description The workspace ID.
      *
      * @example 10001
      *

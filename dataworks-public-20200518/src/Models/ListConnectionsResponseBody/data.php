@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The data sources.
+     *
      * @var connections[]
      */
     public $connections;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class data extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Default value: 10. Maximum value: 100.
+     *
      * @example 20
      *
      * @var int
@@ -29,6 +35,8 @@ class data extends Model
     public $pageSize;
 
     /**
+     * @description The total number of data sources returned.
+     *
      * @example 3
      *
      * @var int

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class calcEngines extends Model
 {
     /**
-     * @description The ID of the workspace with which the compute engine instance is associated.
+     * @description The ID of the workspace with which the compute engine is associated.
      *
      * @example 27
      *
@@ -18,7 +18,7 @@ class calcEngines extends Model
     public $bindingProjectId;
 
     /**
-     * @description The name of the workspace with which the compute engine instance is associated.
+     * @description The name of the workspace with which the compute engine is associated.
      *
      * @example abc
      *
@@ -27,7 +27,7 @@ class calcEngines extends Model
     public $bindingProjectName;
 
     /**
-     * @description The type of the compute engine instance. Valid values: `ODPS`, `EMR`, `BLINK`, `HOLO`, `MaxGraph`, `HYBRIDDB_FOR_POSTGRESQL`, `ADB_MYSQL`, and `HADOOP_CDH`.
+     * @description The type of the compute engine.
      *
      * @example ODPS
      *
@@ -36,7 +36,7 @@ class calcEngines extends Model
     public $calcEngineType;
 
     /**
-     * @description The region ID of the DataWorks workspace with which the compute engine instance is associated.
+     * @description The region where the DataWorks workspace with which the compute engine is associated resides.
      *
      * @example cn-zhangjiakou
      *
@@ -45,7 +45,7 @@ class calcEngines extends Model
     public $dwRegion;
 
     /**
-     * @description The ID of the compute engine instance.
+     * @description The compute engine ID.
      *
      * @example 35
      *
@@ -54,7 +54,7 @@ class calcEngines extends Model
     public $engineId;
 
     /**
-     * @description The details of the compute engine instance.
+     * @description The details of the compute engine.
      *
      *   ODPS
      *
@@ -96,10 +96,10 @@ class calcEngines extends Model
     public $engineInfo;
 
     /**
-     * @description The environment in which the compute engine instance runs. Valid values:
+     * @description The environment in which the compute engine is used. Valid values:
      *
-     *   DEV: development environment
-     *   PRD: production environment
+     *   **DEV**
+     *   **PRD**
      *
      * @example PRD
      *
@@ -108,7 +108,7 @@ class calcEngines extends Model
     public $envType;
 
     /**
-     * @description The time when the compute engine instance was created. This value is a timestamp.
+     * @description The time when the compute engine was created.
      *
      * @example Oct 10, 2019 3:42:44 PM
      *
@@ -117,7 +117,7 @@ class calcEngines extends Model
     public $gmtCreate;
 
     /**
-     * @description Indicates whether the compute engine instance is the default instance of the current compute engine type.
+     * @description Indicates whether the compute engine is the default engine of the current type.
      *
      * @example true
      *
@@ -126,7 +126,7 @@ class calcEngines extends Model
     public $isDefault;
 
     /**
-     * @description The display name of the compute engine instance.
+     * @description The display name of the compute engine.
      *
      * @example abc
      *
@@ -135,7 +135,7 @@ class calcEngines extends Model
     public $name;
 
     /**
-     * @description The ID of the region in which the compute engine instance resides.
+     * @description The region where the compute engine resides.
      *
      * @example cn-zhangjiakou
      *
@@ -144,12 +144,12 @@ class calcEngines extends Model
     public $region;
 
     /**
-     * @description The identity that is used to access the compute engine instance. Valid values:
+     * @description The identity that is used to access the compute engine. Valid values:
      *
-     *   USER: current user
-     *   PROJECT: workspace executor
-     *   SUBACCOUNT: RAM user
-     *   STS_ROLE: Security Token Service (STS) role
+     *   **USER**: the current user
+     *   **PROJECT**: the workspace executor
+     *   **SUBACCOUNT**: a RAM user
+     *   **STS_ROLE**: the Security Token Service (STS) role
      *
      * @example PROJECT
      *
@@ -158,7 +158,7 @@ class calcEngines extends Model
     public $taskAuthType;
 
     /**
-     * @description The ID of the tenant.
+     * @description The tenant ID.
      *
      * @example 1234567
      *

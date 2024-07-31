@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class offlineResourceSettings extends Model
 {
     /**
+     * @description The identifier of the resource group for Data Integration used for batch synchronization.
+     *
      * @example S_res_group_111_222
      *
      * @var string

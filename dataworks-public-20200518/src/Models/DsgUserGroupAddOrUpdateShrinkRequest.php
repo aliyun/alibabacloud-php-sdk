@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DsgUserGroupAddOrUpdateShrinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The information about the user group.
      *
+     * This parameter is required.
      * @var string
      */
     public $userGroupsShrink;

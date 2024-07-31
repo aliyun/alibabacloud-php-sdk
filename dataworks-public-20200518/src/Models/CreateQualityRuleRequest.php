@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateQualityRuleRequest extends Model
 {
     /**
-     * @description The strength of the monitoring rule. Valid values: 0 and 1. 0 indicates that the monitoring rule is a weak rule. 1 indicates that the monitoring rule is a strong rule.
+     * @description The strength type of the monitoring rule. Valid values: 0 and 1. The value 0 indicates that the monitoring rule is a weak rule. The value 1 indicates that the monitoring rule is a strong rule.
      *
      * This parameter is required.
      * @example 0
@@ -19,7 +19,7 @@ class CreateQualityRuleRequest extends Model
     public $blockType;
 
     /**
-     * @description The ID of the checker.
+     * @description The checker ID.
      *
      * @example 9
      *
@@ -35,7 +35,7 @@ class CreateQualityRuleRequest extends Model
     public $comment;
 
     /**
-     * @description The threshold for a critical alert. The threshold indicates the deviation of the monitoring result from the expected value. You can customize this threshold based on your business requirements. If a strong rule is used and a critical alert is reported, nodes are blocked.
+     * @description The threshold for a critical alert. The threshold indicates the deviation of the monitoring result from the expected value. You can customize this threshold based on your business requirements. If a strong rule is used and a critical alert is triggered, nodes are blocked.
      *
      * @example 20
      *
@@ -54,7 +54,7 @@ class CreateQualityRuleRequest extends Model
     public $entityId;
 
     /**
-     * @description The expected value of the monitoring result.
+     * @description The expected value.
      *
      * @example 0
      *
@@ -72,8 +72,9 @@ class CreateQualityRuleRequest extends Model
     public $methodName;
 
     /**
-     * @description The comparison operator of the monitoring rule.
+     * @description The comparison operator, such as >, >=, =, ≠, <, or <=.
      *
+     * > If you set the Checker parameter to 9, you must configure the Operator parameter.
      * @example >
      *
      * @var string
@@ -81,7 +82,7 @@ class CreateQualityRuleRequest extends Model
     public $operator;
 
     /**
-     * @description Specifies whether the monitoring rule is a dynamic threshold rule. Valid values: 0 and 2. 0 indicates that the monitoring rule is not a dynamic threshold rule. 2 indicates that the monitoring rule is a dynamic threshold rule.
+     * @description Specifies whether the monitoring rule is a dynamic threshold rule. Valid values: 0 and 2. The value 0 indicates that the monitoring rule is not a dynamic threshold rule. The value 2 indicates that the monitoring rule is a dynamic threshold rule.
      *
      * This parameter is required.
      * @example 0
@@ -91,12 +92,16 @@ class CreateQualityRuleRequest extends Model
     public $predictType;
 
     /**
+     * @description The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
+     *
+     * @example 10000
+     *
      * @var int
      */
     public $projectId;
 
     /**
-     * @description The name of the compute engine instance or data source.
+     * @description The name of the compute engine or data source.
      *
      * This parameter is required.
      * @example autotest
@@ -134,7 +139,7 @@ class CreateQualityRuleRequest extends Model
     public $ruleName;
 
     /**
-     * @description The type of the monitoring rule. Valid values: 0, 1, and 2. 0 indicates that the monitoring rule is created by the system. 1 indicates that the monitoring rule is created by a user. 2 indicates that the monitoring rule is a workspace-level rule.
+     * @description The type of the monitoring rule. Valid values: 0, 1, and 2. The value 0 indicates that the monitoring rule is created by the system. The value 1 indicates that the monitoring rule is created by a user. The value 2 indicates that the monitoring rule is a workspace-level rule.
      *
      * This parameter is required.
      * @example 0
@@ -144,12 +149,16 @@ class CreateQualityRuleRequest extends Model
     public $ruleType;
 
     /**
+     * @description The variable settings inserted before the custom rule. Format: x=a,y=b.
+     *
+     * @example x=a,y=b
+     *
      * @var string
      */
     public $taskSetting;
 
     /**
-     * @description The ID of the template that is used to create the monitoring rule.
+     * @description The template ID.
      *
      * @example 7
      *

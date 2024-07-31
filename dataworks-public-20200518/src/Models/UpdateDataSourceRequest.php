@@ -9,8 +9,63 @@ use AlibabaCloud\Tea\Model;
 class UpdateDataSourceRequest extends Model
 {
     /**
-     * @description The ID of the data source that you want to update. You can call the [ListDataSources](https://help.aliyun.com/document_detail/211431.html) operation to obtain the ID.
+     * @description The details about the data source. You are not allowed to change the type of the data source. For example, you are not allowed to change the data source type from MaxCompute to MySQL. Examples of details of some common data sources:
      *
+     *   MaxCompute
+     *
+     * }
+     *
+     *   MySQL
+     *
+     * }
+     *
+     *   RDS
+     *
+     * }
+     *
+     *   OSS
+     *
+     * }
+     *
+     *   SQL Server
+     *
+     * }
+     *
+     *   PolarDB
+     *
+     * }
+     *
+     *   Oracle
+     *
+     * }
+     *
+     *   MongoDB
+     *
+     * }
+     *
+     *   EMR
+     *
+     * }
+     *
+     *   PostgreSQL
+     *
+     * }
+     *
+     *   AnalyticDB for MySQL
+     *
+     * }
+     *
+     *   HybridDB for PostgreSQL
+     *
+     * }
+     *
+     *   Hologres
+     *
+     * }
+     *
+     *   Kafka
+     *
+     * }
      * @example {"accessId":"xssssss","accessKey":"xsaxsaxsa","authType":2,"endpoint":"http://service.odps.aliyun.com/api","project":"xsaxsax","tag":"public"}
      *
      * @var string
@@ -18,7 +73,7 @@ class UpdateDataSourceRequest extends Model
     public $content;
 
     /**
-     * @description Indicates whether the data source is updated.
+     * @description The ID of the data source. You can call the [ListDataSources](https://help.aliyun.com/document_detail/2780072.html) operation to query the ID.
      *
      * This parameter is required.
      * @example 1
@@ -28,65 +83,8 @@ class UpdateDataSourceRequest extends Model
     public $dataSourceId;
 
     /**
-     * @description The details about the data source that you want to update.
+     * @description The description of the data source.
      *
-     * Examples of details of some common data sources:
-     *
-     *   odps
-     *
-     * ```
-     *
-     *   mysql
-     *
-     * ```
-     *
-     *   rds
-     *
-     * ```
-     *
-     *   oss
-     *
-     * ```
-     *
-     *   sqlserver
-     *
-     * ```
-     *
-     *   polardb
-     *
-     * ```
-     *
-     *   oracle
-     *
-     * ```
-     *
-     *   mongodb
-     *
-     * ```
-     *
-     *   emr
-     *
-     * ```
-     *
-     *   postgresql
-     *
-     * ```
-     *
-     *   analyticdb_for_mysql
-     *
-     * ```
-     *
-     *   hybriddb_for_postgresql
-     *
-     * ```
-     *
-     *   holo
-     *
-     * ```
-     *
-     *   kafka
-     *
-     * ```
      * @example xxx
      *
      * @var string
@@ -94,7 +92,10 @@ class UpdateDataSourceRequest extends Model
     public $description;
 
     /**
-     * @description The status of the data source. The parameter is deprecated. Do not use this parameter.
+     * @description The environment in which the data source resides. Valid values:
+     *
+     *   0: development environment
+     *   1: production environment
      *
      * @example 1
      *
@@ -103,7 +104,7 @@ class UpdateDataSourceRequest extends Model
     public $envType;
 
     /**
-     * @description The HTTP status code returned.
+     * @description The status of the data source. This parameter is deprecated. Do not use this parameter.
      *
      * @example ENABLED
      *

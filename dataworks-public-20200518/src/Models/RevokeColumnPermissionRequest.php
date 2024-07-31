@@ -9,10 +9,7 @@ use AlibabaCloud\Tea\Model;
 class RevokeColumnPermissionRequest extends Model
 {
     /**
-     * @description The Alibaba Cloud account of the user from whom you want to revoke permissions. Specify this parameter in the format that is the same as the format of the account used to access the MaxCompute project.
-     *
-     *   If you want to revoke permissions from an Alibaba Cloud account, specify this parameter in the ALIYUN$+Alibaba Cloud account format.
-     *   If you want to revoke permissions from a Resource Access Management (RAM) user, specify this parameter in the RAM$+RAM user format.
+     * @description The fields for which you want to revoke permissions from a user. Separate multiple fields with commas (,). You can revoke the permissions on the fields only in MaxCompute tables.
      *
      * This parameter is required.
      * @example id,name
@@ -22,7 +19,7 @@ class RevokeColumnPermissionRequest extends Model
     public $columns;
 
     /**
-     * @description The name of the MaxCompute table to which the destination fields belong. You can call the [SearchMetaTables](https://help.aliyun.com/document_detail/173919.html) operation to query the name.
+     * @description The name of the MaxCompute project to which the fields belong. You can log on to the DataWorks console and go to the SettingCenter page to obtain the name of the MaxCompute project that you associate with the workspace.
      *
      * This parameter is required.
      * @example aMaxcomputeProjectName
@@ -32,7 +29,7 @@ class RevokeColumnPermissionRequest extends Model
     public $maxComputeProjectName;
 
     /**
-     * @description Indicates whether the permissions on table fields are revoked.
+     * @description The ID of the Alibaba Cloud account of the user from which you want to revoke permissions. You can log on to the DataWorks console and go to the Security Settings page to obtain the ID. You must specify either this parameter or the RevokeUserName parameter. If you specify both this parameter and the RevokeUserName parameter and the parameter values are different, the value of this parameter prevails.
      *
      * @example 267842600408993176
      *
@@ -41,9 +38,12 @@ class RevokeColumnPermissionRequest extends Model
     public $revokeUserId;
 
     /**
-     * @description The ID of the Alibaba Cloud account of the user from whom you want to revoke permissions. You can log on to the DataWorks console and go to the Security Settings page to obtain the ID.
+     * @description The Alibaba Cloud account from which you want to revoke permissions. Specify this parameter in the format that is the same as the format of the account used to access the MaxCompute project.
      *
-     * You must specify either this parameter or RevokeUserName. If you specify both this parameter and RevokeUserName, the value of this parameter prevails.
+     *   If the account is an Alibaba Cloud account, the value is in the ALIYUN$+Account name format.
+     *   If the account is a RAM user, the value is in the RAM$+Account name format.
+     *
+     * You must specify either this parameter or the RevokeUserId parameter. If you specify both this parameter and the RevokeUserId parameter and the parameter values are different, the value of the RevokeUserId parameter prevails.
      * @example RAM$dataworks_3h1_1:stsramuser
      *
      * @var string
@@ -51,7 +51,7 @@ class RevokeColumnPermissionRequest extends Model
     public $revokeUserName;
 
     /**
-     * @description The fields for which you want to revoke permissions from a user. Separate multiple fields with commas (,).
+     * @description The name of the MaxCompute table to which the fields belong. You can call the [SearchMetaTables](https://help.aliyun.com/document_detail/173919.html) operation to query the name of the MaxCompute table.
      *
      * This parameter is required.
      * @example aTableName
@@ -61,7 +61,7 @@ class RevokeColumnPermissionRequest extends Model
     public $tableName;
 
     /**
-     * @description The name of the MaxCompute project to which the destination fields belong. You can log on to the DataWorks console and go to the Workspace Management page to obtain the name of the MaxCompute project that is associated with the workspace.
+     * @description The ID of the DataWorks workspace with which the MaxCompute project is associated. You can log on to the DataWorks console and go to the Workspace page to obtain the ID.
      *
      * This parameter is required.
      * @example 12345

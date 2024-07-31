@@ -11,9 +11,8 @@ class ListAlertMessagesRequest extends Model
     /**
      * @description The notification method. Valid values:
      *
-     *   MAIL: email
-     *
-     *   SMS: text message
+     *   MAIL
+     *   SMS Alert notifications can be sent by text message only in the Singapore, Malaysia (Kuala Lumpur), and Germany (Frankfurt) regions.
      *
      * You can specify multiple notification methods. Separate them with commas (,).
      * @example SMS,MAIL,PHONE
@@ -41,9 +40,8 @@ class ListAlertMessagesRequest extends Model
     public $alertUser;
 
     /**
-     * @description The ID of the baseline. This parameter takes effect if the AlertRuleTypes parameter is set to GLOBAL.
+     * @description The baseline ID. This parameter takes effect if the AlertRuleTypes parameter is set to GLOBAL. You can configure either this parameter or the RemindId parameter.
      *
-     * You can configure either this parameter or RemindId.
      * @example 1234
      *
      * @var int
@@ -51,7 +49,7 @@ class ListAlertMessagesRequest extends Model
     public $baselineId;
 
     /**
-     * @description The beginning of the time range to query. Specify the time in the yyyy-MM-dd\\"T\\"HH:mm:ssZ format. The time must be in UTC.
+     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-dd\\"T\\"HH:mm:ssZ format. The time must be in UTC.
      *
      * This parameter is required.
      * @example 2020-04-02T00:00:00+0800
@@ -61,7 +59,7 @@ class ListAlertMessagesRequest extends Model
     public $beginTime;
 
     /**
-     * @description The end of the time range to query. Specify the time in the yyyy-MM-dd\\"T\\"HH:mm:ssZ format. The time must be in UTC.
+     * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-dd\\"T\\"HH:mm:ssZ format. The time must be in UTC.
      *
      * This parameter is required.
      * @example 2020-04-04T00:00:00+0800
@@ -71,7 +69,7 @@ class ListAlertMessagesRequest extends Model
     public $endTime;
 
     /**
-     * @description The number of the page to return. Valid values: 1 to 30. Default value: 1.
+     * @description The page number. Default value: 1. Minimum value: 1. Maximum value: 30.
      *
      * This parameter is required.
      * @example 1
@@ -81,7 +79,7 @@ class ListAlertMessagesRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Default value: 10. Maximum value: 100.
+     * @description The number of entries per page. Default value: 10. Maximum value: 100.
      *
      * This parameter is required.
      * @example 10
@@ -91,9 +89,8 @@ class ListAlertMessagesRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the custom alert rule. This parameter takes effect if the AlertRuleTypes parameter is set to USER_DEFINE.
+     * @description The custom alert rule ID. This parameter takes effect if the AlertRuleTypes parameter is set to USER_DEFINE. You can configure either this parameter or the BaselineId parameter.
      *
-     * You can configure either this parameter or BaselineId.
      * @example 9527
      *
      * @var int

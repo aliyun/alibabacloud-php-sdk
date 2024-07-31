@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The descendant nodes returned.
+     * @description The list of descendant nodes.
      *
      * @var nodes[]
      */

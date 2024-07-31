@@ -10,15 +10,14 @@ use AlibabaCloud\Tea\Model;
 class GetDISyncInstanceInfoResponseBody extends Model
 {
     /**
-     * @description *   If the TaskType parameter is set to DI_REALTIME, the Status parameter indicates the status of the real-time synchronization node. Valid values: PAUSE, NORUN, RUN, KILLING, and WAIT.
-     *   If the TaskType parameter is set to DI_SOLITION, the Status parameter indicates the status of the data synchronization solution. Valid values: success and fail.
+     * @description The status of the real-time synchronization task or data synchronization solution.
      *
      * @var data
      */
     public $data;
 
     /**
-     * @description The status of the real-time synchronization node or data synchronization solution.
+     * @description The request ID.
      *
      * @example 0bc1411515937635973****
      *
@@ -27,7 +26,10 @@ class GetDISyncInstanceInfoResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the request. You can use the ID to query logs and troubleshoot issues.
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
      *
      * @example true
      *

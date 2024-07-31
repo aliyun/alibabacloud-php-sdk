@@ -17,7 +17,7 @@ class data extends Model
     public $alertMessages;
 
     /**
-     * @description The page number of the returned page.
+     * @description The page number.
      *
      * @example 1
      *
@@ -26,7 +26,7 @@ class data extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The number of entries per page.
      *
      * @example 10
      *
@@ -35,7 +35,7 @@ class data extends Model
     public $pageSize;
 
     /**
-     * @description The total number of returned alerts.
+     * @description The total number of alerts returned.
      *
      * @example 100
      *

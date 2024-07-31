@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListConnectionsResponseBody extends Model
 {
     /**
+     * @description The query results for data sources that are returned on multiple pages.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -22,6 +26,8 @@ class ListConnectionsResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The request ID.
+     *
      * @example 0bc14115159376359****
      *
      * @var string
@@ -29,6 +35,8 @@ class ListConnectionsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
      * @example true
      *
      * @var bool

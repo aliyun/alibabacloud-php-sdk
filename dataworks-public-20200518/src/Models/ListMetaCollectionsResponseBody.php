@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class ListMetaCollectionsResponseBody extends Model
 {
     /**
-     * @description The object returned.
+     * @description The returned result.
      *
      * @var data
      */
     public $data;
 
     /**
-     * @description The error code returned.
+     * @description The error code.
      *
      * @example Invalid.Collection.NotExists
      *
@@ -26,7 +26,7 @@ class ListMetaCollectionsResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message returned.
+     * @description The error message.
      *
      * @example The specified parameters are invalid.
      *
@@ -35,7 +35,7 @@ class ListMetaCollectionsResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The HTTP status code returned.
+     * @description The HTTP status code.
      *
      * @example 200
      *
@@ -44,7 +44,7 @@ class ListMetaCollectionsResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The ID of the request. You can use the ID to query logs and troubleshoot issues.
+     * @description The request ID.
      *
      * @example E25887B7-579C-54A5-9C4F-83A0DE367DDE
      *
@@ -55,8 +55,8 @@ class ListMetaCollectionsResponseBody extends Model
     /**
      * @description Indicates whether the request was successful. Valid values:
      *
-     *   true: The request was successful.
-     *   false: The request failed.
+     *   true
+     *   false
      *
      * @example true
      *

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteBaselineRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The baseline ID. You can call the [ListBaselines](https://help.aliyun.com/document_detail/2261507.html) operation to query the ID.
      *
+     * This parameter is required.
      * @example 1234
      *
      * @var int
@@ -18,8 +19,9 @@ class DeleteBaselineRequest extends Model
     public $baselineId;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the workspace to which the baseline belongs. You can call the ListBaselines operation to query the ID.
      *
+     * This parameter is required.
      * @example 10000
      *
      * @var int

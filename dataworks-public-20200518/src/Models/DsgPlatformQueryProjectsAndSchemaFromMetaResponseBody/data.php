@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ID of the EMR cluster. This parameter is generated only when the request parameter EngineName is set to EMR.
+     *
      * @example c-12345
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $clusterId;
 
     /**
+     * @description The name of the compute engine.
+     *
      * @example emr_test_project
      *
      * @var string

@@ -9,12 +9,16 @@ use AlibabaCloud\Tea\Model;
 class DeleteQualityRuleRequest extends Model
 {
     /**
+     * @description The DataWorks workspace ID. You can log on to the DataWorks console and go to the Workspace page to query the ID.
+     *
+     * @example 10000
+     *
      * @var int
      */
     public $projectId;
 
     /**
-     * @description The name of the database engine or data source.
+     * @description The name of the compute engine or data source.
      *
      * This parameter is required.
      * @example autotest
@@ -24,7 +28,7 @@ class DeleteQualityRuleRequest extends Model
     public $projectName;
 
     /**
-     * @description The ID of the rule.
+     * @description The monitoring rule ID.
      *
      * This parameter is required.
      * @example 1234

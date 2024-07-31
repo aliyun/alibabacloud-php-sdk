@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class cycleScheduleSettings extends Model
 {
     /**
+     * @example Full
+     *
      * @var string
      */
     public $cycleMigrationType;
 
     /**
+     * @example bizdate=$bizdate
+     *
      * @var string
      */
     public $scheduleParameters;

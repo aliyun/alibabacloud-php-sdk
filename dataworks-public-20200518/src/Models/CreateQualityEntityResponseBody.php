@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateQualityEntityResponseBody extends Model
 {
     /**
-     * @description The ID of the partition expression.
+     * @description The partition filter expression ID.
      *
      * @example 12345
      *
@@ -27,7 +27,7 @@ class CreateQualityEntityResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The returned message.
+     * @description The error message.
      *
      * @example Your project is not relative with your account.
      *
@@ -36,7 +36,7 @@ class CreateQualityEntityResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The HTTP request error codes.
+     * @description The HTTP status code.
      *
      * @example 200
      *
@@ -45,7 +45,7 @@ class CreateQualityEntityResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 011e1231u3****
      *
@@ -54,7 +54,7 @@ class CreateQualityEntityResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the call is successful.
+     * @description Indicates whether the request was successful.
      *
      * @example true
      *

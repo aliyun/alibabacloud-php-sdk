@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteTableLevelRequest extends Model
 {
     /**
-     * @description The ID of the table level to be deleted. You can call the ListTableLevel operation to obtain the ID.
+     * @description The ID of the table level that you want to delete. You can call the ListTableLevel operation to query the ID.
      *
      * This parameter is required.
      * @example 123
@@ -19,7 +19,7 @@ class DeleteTableLevelRequest extends Model
     public $levelId;
 
     /**
-     * @description The ID of the DataWorks workspace.
+     * @description The DataWorks workspace ID.
      *
      * This parameter is required.
      * @example 123

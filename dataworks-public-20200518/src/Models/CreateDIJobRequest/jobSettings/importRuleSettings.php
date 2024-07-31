@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class importRuleSettings extends Model
 {
     /**
+     * @description The ID of the task to be imported.
+     *
+     * @example 10000
+     *
      * @var string
      */
     public $fileId;
 
     /**
+     * @description The import source of the task. Set the value to Datastudio, which indicates synchronization tasks created in DataStudio.
+     *
+     * @example Datastudio
+     *
      * @var string
      */
     public $source;

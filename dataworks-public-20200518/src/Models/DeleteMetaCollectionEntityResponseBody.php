@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteMetaCollectionEntityResponseBody extends Model
 {
     /**
-     * @description The error code returned.
+     * @description The error code.
      *
      * @example 999999
      *
@@ -18,7 +18,7 @@ class DeleteMetaCollectionEntityResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message returned.
+     * @description The error message.
      *
      * @example entity not exist
      *
@@ -27,7 +27,7 @@ class DeleteMetaCollectionEntityResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The HTTP status code returned.
+     * @description The HTTP status code.
      *
      * @example 200
      *
@@ -36,7 +36,7 @@ class DeleteMetaCollectionEntityResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The ID of the request.
+     * @description Id of the request
      *
      * @example 0000-ABCD-E****
      *
@@ -57,7 +57,7 @@ class DeleteMetaCollectionEntityResponseBody extends Model
     /**
      * @description Indicates whether the request was successful. Valid values:
      *
-     * false: The request failed.
+     * false
      * @example true
      *
      * @var bool

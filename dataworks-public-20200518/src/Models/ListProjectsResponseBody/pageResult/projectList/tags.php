@@ -9,11 +9,7 @@ use AlibabaCloud\Tea\Model;
 class tags extends Model
 {
     /**
-     * @description Indicates whether the Development role is disabled. Valid values:
-     *
-     *   false: enabled
-     *   true: disabled
-     *   Default value: false
+     * @description The key of tag N added to the workspace.
      *
      * @example Env
      *
@@ -22,7 +18,7 @@ class tags extends Model
     public $key;
 
     /**
-     * @description Indicates whether a proxy account is used to access the MaxCompute compute engine associated with the workspace.
+     * @description The value of tag N added to the workspace.
      *
      * @example Test
      *

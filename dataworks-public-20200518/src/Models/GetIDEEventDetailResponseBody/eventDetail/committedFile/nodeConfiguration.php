@@ -38,9 +38,9 @@ class nodeConfiguration extends Model
     public $cronExpress;
 
     /**
-     * @description The type of the scheduling cycle of the node that corresponds to the file. Valid values: NOT_DAY and DAY. A value of NOT_DAY indicates that the node is scheduled to run by minute or hour. A value of DAY indicates that the node is scheduled to run by day, week, or month.
+     * @description The type of the scheduling cycle of the node that corresponds to the file. Valid values: NOT_DAY and DAY. The value NOT_DAY indicates that the node is scheduled to run by minute or hour. The value DAY indicates that the node is scheduled to run by day, week, or month.
      *
-     * This parameter is equivalent to the Scheduling Cycle parameter in the Schedule section of the Properties panel in the [DataWorks console](https://workbench.data.aliyun.com/console).
+     * This parameter corresponds to the Scheduling Cycle parameter in the Schedule section of the Properties tab in the [DataWorks console](https://workbench.data.aliyun.com/console).
      * @example DAY
      *
      * @var string
@@ -48,9 +48,9 @@ class nodeConfiguration extends Model
     public $cycleType;
 
     /**
-     * @description The IDs of the nodes on which the node corresponding to the file depends when the DependentType parameter is set to USER_DEFINE. Multiple IDs are separated by commas (,).
+     * @description The ID of the node on which the node that corresponds to the file depends when the DependentType parameter is set to USER_DEFINE. Multiple IDs are separated by commas (,).
      *
-     * This parameter is equivalent to the field that appears after Previous Cycle is selected and the Depend On parameter is set to Other Nodes in the Dependencies section of the Properties panel in the [DataWorks console](https://workbench.data.aliyun.com/console).
+     * The value of this parameter is equivalent to the ID of the node that you specified after you select Other Nodes for Cross-Cycle Dependency (Original Previous-Cycle Dependency) in the Dependencies section of the Properties tab in the [DataWorks console](https://workbench.data.aliyun.com/console).
      * @example 5,10,15,20
      *
      * @var string
@@ -58,7 +58,7 @@ class nodeConfiguration extends Model
     public $dependentNodeIdList;
 
     /**
-     * @description The type of the cross-cycle scheduling dependency of the node that corresponds to the file. Valid values:
+     * @description The type of the cross-cycle scheduling dependency of the node. Valid values:
      *
      *   SELF: The instance generated for the node in the current cycle depends on the instance generated for the node in the previous cycle.
      *   CHILD: The instance generated for the node in the current cycle depends on the instances generated for the descendant nodes at the nearest level of the node in the previous cycle.
@@ -81,15 +81,15 @@ class nodeConfiguration extends Model
     /**
      * @description The output names of the current file.
      *
-     * This parameter is equivalent to the Output Name parameter under Output in the Dependencies section of the Properties panel in the [DataWorks console](https://workbench.data.aliyun.com/console).
+     * This parameter corresponds to the Output Name of Current Node parameter in the Dependencies section of the Properties tab in the [DataWorks console](https://workbench.data.aliyun.com/console).
      * @var outputList[]
      */
     public $outputList;
 
     /**
-     * @description The scheduling parameters.
+     * @description The scheduling parameters of the node.
      *
-     * This parameter is equivalent to the configuration of the scheduling parameters in the Parameters section of the Properties panel in the [DataWorks console](https://workbench.data.aliyun.com/console). For more information, see [Configure scheduling parameters](https://help.aliyun.com/document_detail/137548.html).
+     * This parameter corresponds to the Scheduling Parameter section of the Properties tab in the [DataWorks console](https://workbench.data.aliyun.com/console). For more information about the configurations of the scheduling parameters, see [Configure scheduling parameters](https://help.aliyun.com/document_detail/137548.html).
      * @example a=x b=y
      *
      * @var string
@@ -97,13 +97,13 @@ class nodeConfiguration extends Model
     public $paraValue;
 
     /**
-     * @description Indicates whether the node can be rerun. Valid values:
+     * @description Indicates whether the node that corresponds to the file can be rerun. Valid values:
      *
      *   ALL_ALLOWED: The node can be rerun regardless of whether it is successfully run or fails to run.
      *   FAILURE_ALLOWED: The node can be rerun only after it fails to run.
      *   ALL_DENIED: The node cannot be rerun regardless of whether it is successfully run or fails to run.
      *
-     * This parameter is equivalent to the Rerun parameter in the Schedule section of the Properties panel in the [DataWorks console](https://workbench.data.aliyun.com/console).
+     * This parameter corresponds to the Rerun parameter in the Schedule section of the Properties tab in the [DataWorks console](https://workbench.data.aliyun.com/console).
      * @example ALL_ALLOWED
      *
      * @var string
@@ -125,7 +125,7 @@ class nodeConfiguration extends Model
      *   NORMAL: The node is an auto triggered node.
      *   MANUAL: The node is a manually triggered node. Manually triggered nodes cannot be automatically triggered. They correspond to the nodes in the Manually Triggered Workflows pane.
      *   PAUSE: The node is a paused node.
-     *   SKIP: The node is a dry-run node. Dry-run nodes are started as scheduled but the system sets the status of the nodes to successful when it starts to run them.
+     *   SKIP: The node is a dry-run node. Dry-run nodes are started as scheduled, but the system sets the status of the nodes to successful when it starts to run them.
      *
      * @example NORMAL
      *

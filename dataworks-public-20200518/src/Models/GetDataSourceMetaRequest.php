@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetDataSourceMetaRequest extends Model
 {
     /**
-     * @description The number of the page to return.
+     * @description The name of the data source.
      *
      * This parameter is required.
      * @example mysql_name
@@ -19,10 +19,10 @@ class GetDataSourceMetaRequest extends Model
     public $datasourceName;
 
     /**
-     * @description Indicates whether the request was successful. Valid values:
+     * @description The environment in which the data source resides. Valid values:
      *
-     *   true: The request was successful.
-     *   false: The request failed.
+     *   0: development environment
+     *   1: production environment
      *
      * @example 1
      *
@@ -31,7 +31,7 @@ class GetDataSourceMetaRequest extends Model
     public $envType;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The page number.
      *
      * @example 1
      *
@@ -40,10 +40,7 @@ class GetDataSourceMetaRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The environment to which the data source belongs. Valid values:
-     *
-     *   0: development environment
-     *   1: production environment
+     * @description The number of entries per page.
      *
      * @example 10
      *
@@ -52,7 +49,7 @@ class GetDataSourceMetaRequest extends Model
     public $pageSize;
 
     /**
-     * @description The name of the data source.
+     * @description The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to obtain the ID.
      *
      * This parameter is required.
      * @example 10000

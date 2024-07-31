@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class migrations extends Model
 {
     /**
-     * @description The time when the migration task was last updated.
+     * @description The time when the migration task was created.
      *
      * @example 123124123123123
      *
@@ -18,7 +18,7 @@ class migrations extends Model
     public $createTime;
 
     /**
-     * @description The name of the user who created the migration task.
+     * @description The ID of the user who created the migration task.
      *
      * @example 123123****
      *
@@ -27,7 +27,7 @@ class migrations extends Model
     public $createUser;
 
     /**
-     * @description The ID of the user who last updated the migration task.
+     * @description The name of the user who created the migration task.
      *
      * @example 3h1_test
      *
@@ -36,14 +36,14 @@ class migrations extends Model
     public $createUserName;
 
     /**
-     * @description The page number of the returned page.
+     * @description The description of the export task.
      *
      * @var string
      */
     public $description;
 
     /**
-     * @description The description of the export task.
+     * @description The URL that is used to download the package of the export task. You can use the URL to download the package of the export task.
      *
      * @example http://geoip-sdk-user.oss-cn-zhangjiakou.aliyuncs.com/product/v1/ipv4/trace/v1.20220424123842.dex?Expires=1650780849&OSSAccessKeyId=XXXXXXeF4Lv5j&Signature=qxxxxx
      *
@@ -52,7 +52,7 @@ class migrations extends Model
     public $downloadUrl;
 
     /**
-     * @description The name of the migration task.
+     * @description The primary key ID.
      *
      * @example 436064
      *
@@ -61,7 +61,7 @@ class migrations extends Model
     public $id;
 
     /**
-     * @description The URL that is used to download the package of the export task. You can use the URL to download the package of the export task.
+     * @description The error message returned.
      *
      * @example An internal system error occurred. datasource kafka region is not cn-chengdu, can\\"t open network for it
      *
@@ -70,13 +70,25 @@ class migrations extends Model
     public $message;
 
     /**
-     * @description The time when the migration task was created.
+     * @description The type of the migration task.
+     *
+     *   IMPORT
+     *   EXPORT
      *
      * @example EXPORT
      *
      * @var string
      */
     public $migrationType;
+
+    /**
+     * @description The name of the migration task.
+     *
+     * @example test_task_1638498642279
+     *
+     * @var string
+     */
+    public $name;
 
     /**
      * @description The type of the import or export package. Valid values:
@@ -87,18 +99,6 @@ class migrations extends Model
      *   DATAWORKS_V3 (Apsara Stack DataWorks V3.12 and later)
      *
      * The DWMA and DATAWORKS_MODEL types are interchangeable.
-     * @example test_task_1638498642279
-     *
-     * @var string
-     */
-    public $name;
-
-    /**
-     * @description The type of the migration task.
-     *
-     *   IMPORT
-     *   EXPORT
-     *
      * @example DATAWORKS_MODEL
      *
      * @var string
@@ -106,22 +106,13 @@ class migrations extends Model
     public $packageType;
 
     /**
-     * @description The ID of the tenant.
+     * @description The ID of the DataWorks workspace to which the task belongs.
      *
      * @example 72132
      *
      * @var int
      */
     public $projectId;
-
-    /**
-     * @description The error message returned.
-     *
-     * @example SUCCESS
-     *
-     * @var string
-     */
-    public $status;
 
     /**
      * @description The status of the migration task. Valid values:
@@ -132,6 +123,15 @@ class migrations extends Model
      *   FAILURE: The migration task fails to run.
      *   SUCCESS: The migration task is successfully run.
      *
+     * @example SUCCESS
+     *
+     * @var string
+     */
+    public $status;
+
+    /**
+     * @description The tenant ID.
+     *
      * @example 16307
      *
      * @var int
@@ -139,7 +139,7 @@ class migrations extends Model
     public $tenantId;
 
     /**
-     * @description The ID of the user who created the migration task.
+     * @description The time when the migration task was last updated.
      *
      * @example 123123123123123
      *
@@ -148,7 +148,7 @@ class migrations extends Model
     public $updateTime;
 
     /**
-     * @description The name of the user who last updated the migration task.
+     * @description The ID of the user who last updated the migration task.
      *
      * @example 1231****
      *
@@ -157,7 +157,7 @@ class migrations extends Model
     public $updateUser;
 
     /**
-     * @description The ID of the DataWorks workspace to which the task belongs.
+     * @description The name of the user who last updated the migration task.
      *
      * @example 3h1_test
      *

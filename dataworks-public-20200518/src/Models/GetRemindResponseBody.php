@@ -44,7 +44,7 @@ class GetRemindResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The request ID. You can troubleshoot issues based on the ID.
+     * @description The request ID. You can use the ID to troubleshoot issues.
      *
      * @example 0000-ABCD-EFGH-IJKLMNOPQ
      *

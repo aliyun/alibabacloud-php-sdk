@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateMetaCollectionResponseBody extends Model
 {
     /**
-     * @description The error code returned.
+     * @description The error code.
      *
      * @example 9999
      *
@@ -18,7 +18,7 @@ class UpdateMetaCollectionResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message returned.
+     * @description The returned message.
      *
      * @example The specified product does not exist.
      *
@@ -27,7 +27,7 @@ class UpdateMetaCollectionResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The HTTP status code returned.
+     * @description The HTTP status code.
      *
      * @example 200
      *
@@ -36,7 +36,7 @@ class UpdateMetaCollectionResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The ID of the request. You can use the ID to query logs and troubleshoot issues.
+     * @description The request ID. You can locate logs and troubleshoot issues based on the ID.
      *
      * @example 0000-ABCD-E****
      *
@@ -45,9 +45,8 @@ class UpdateMetaCollectionResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The result of the operation. Valid values:
+     * @description The result of the operation. Valid values: true false
      *
-     * false: failed
      * @example true
      *
      * @var bool

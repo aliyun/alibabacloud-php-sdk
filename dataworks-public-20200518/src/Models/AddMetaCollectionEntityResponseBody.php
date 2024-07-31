@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class AddMetaCollectionEntityResponseBody extends Model
 {
     /**
-     * @description The error code returned.
+     * @description The error code.
      *
      * @example 9999
      *
@@ -18,7 +18,7 @@ class AddMetaCollectionEntityResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message returned.
+     * @description The error message.
      *
      * @example The specified product does not exist.
      *
@@ -27,7 +27,7 @@ class AddMetaCollectionEntityResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The HTTP status code returned.
+     * @description The HTTP status code.
      *
      * @example 200
      *
@@ -36,7 +36,7 @@ class AddMetaCollectionEntityResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The ID of the request. You can use the ID to query logs and troubleshoot issues.
+     * @description The request ID. You can use the request ID to query logs and troubleshoot issues.
      *
      * @example 0000-ABCD-E****
      *
@@ -59,7 +59,7 @@ class AddMetaCollectionEntityResponseBody extends Model
     /**
      * @description Indicates whether the request was successful. Valid values:
      *
-     * false: The request failed.
+     * true false
      * @example true
      *
      * @var bool

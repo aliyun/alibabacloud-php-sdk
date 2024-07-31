@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class projects extends Model
 {
     /**
-     * @description The ID of the workspace.
+     * @description The workspace ID.
      *
      * @example 1234
      *

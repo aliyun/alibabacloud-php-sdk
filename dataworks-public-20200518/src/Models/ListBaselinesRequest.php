@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListBaselinesRequest extends Model
 {
     /**
+     * @description The type of the baseline. Valid values: DAILY and HOURLY. You can specify multiple types. Separate multiple types with commas (,).
+     *
      * @example DAILY
      *
      * @var string
@@ -16,6 +18,8 @@ class ListBaselinesRequest extends Model
     public $baselineTypes;
 
     /**
+     * @description Specifies whether to enable the baseline. Valid values: true and false.
+     *
      * @example true
      *
      * @var bool
@@ -23,6 +27,8 @@ class ListBaselinesRequest extends Model
     public $enable;
 
     /**
+     * @description The owner.
+     *
      * @example 3726346****
      *
      * @var string
@@ -30,8 +36,9 @@ class ListBaselinesRequest extends Model
     public $owner;
 
     /**
-     * @description This parameter is required.
+     * @description The page number. Pages start from page 1. Default value: 1. Maximum value: 30.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -39,8 +46,9 @@ class ListBaselinesRequest extends Model
     public $pageNumber;
 
     /**
-     * @description This parameter is required.
+     * @description The number of entries per page. Default value: 10. Maximum value: 100.
      *
+     * This parameter is required.
      * @example 100
      *
      * @var int
@@ -48,6 +56,8 @@ class ListBaselinesRequest extends Model
     public $pageSize;
 
     /**
+     * @description The priority of the baseline. Valid values: {1,3,5,7,8}.
+     *
      * @example 1
      *
      * @var string
@@ -55,8 +65,9 @@ class ListBaselinesRequest extends Model
     public $priority;
 
     /**
-     * @description This parameter is required.
+     * @description The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
      *
+     * This parameter is required.
      * @example 123456
      *
      * @var int
@@ -64,6 +75,8 @@ class ListBaselinesRequest extends Model
     public $projectId;
 
     /**
+     * @description The keyword in the baseline name, which is used to search for the baseline.
+     *
      * @example baselineName
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DsgDesensPlanQueryListRequest extends Model
 {
     /**
+     * @description The owner of the data masking rule.
+     *
      * @example user1
      *
      * @var string
@@ -16,8 +18,9 @@ class DsgDesensPlanQueryListRequest extends Model
     public $owner;
 
     /**
-     * @description This parameter is required.
+     * @description The page number.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -25,8 +28,9 @@ class DsgDesensPlanQueryListRequest extends Model
     public $pageNumber;
 
     /**
-     * @description This parameter is required.
+     * @description The number of entries per page. Maximum value: 100.
      *
+     * This parameter is required.
      * @example 10
      *
      * @var int
@@ -34,6 +38,8 @@ class DsgDesensPlanQueryListRequest extends Model
     public $pageSize;
 
     /**
+     * @description The name of the sensitive field.
+     *
      * @example phone
      *
      * @var string
@@ -41,8 +47,9 @@ class DsgDesensPlanQueryListRequest extends Model
     public $ruleName;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the level-2 data masking scenario. You can call the [DsgSceneQuerySceneListByName](https://help.aliyun.com/document_detail/2786322.html) operation to query the list of IDs.
      *
+     * This parameter is required.
      * @example 123
      *
      * @var int
@@ -50,6 +57,11 @@ class DsgDesensPlanQueryListRequest extends Model
     public $sceneId;
 
     /**
+     * @description The status of the data masking rule. Valid values:
+     *
+     *   0: expired
+     *   1: effective
+     *
      * @example 1
      *
      * @var int

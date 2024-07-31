@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The reason why the data source failed to be shared. If the data source was shared, this parameter is left empty.
+     * @description The reason why the data source failed to be shared. If the data source is successfully shared, the value of this parameter is an empty string.
      *
      * @example datasource is wrong
      *
@@ -20,8 +20,8 @@ class data extends Model
     /**
      * @description Indicates whether the data source was shared. Valid values:
      *
-     *   success: The data source was shared.
-     *   fail: The data source failed to be shared. You can troubleshoot issues based on the Message parameter.
+     *   success.
+     *   fail. You can view the value of the Message parameter to identify the cause of the failure.
      *
      * @example success
      *

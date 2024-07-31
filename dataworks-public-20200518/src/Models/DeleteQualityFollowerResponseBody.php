@@ -21,7 +21,7 @@ class DeleteQualityFollowerResponseBody extends Model
     public $data;
 
     /**
-     * @description The error code returned.
+     * @description The error code.
      *
      * @example 401
      *
@@ -39,7 +39,7 @@ class DeleteQualityFollowerResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The HTTP status code returned.
+     * @description The HTTP status code.
      *
      * @example 200
      *
@@ -48,7 +48,7 @@ class DeleteQualityFollowerResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The ID of the request. You can use the ID to troubleshoot errors.
+     * @description The request ID. You can troubleshoot errors based on the ID.
      *
      * @example 6d739ef6-098a-47****
      *
@@ -59,8 +59,8 @@ class DeleteQualityFollowerResponseBody extends Model
     /**
      * @description Indicates whether the request was successful. Valid values:
      *
-     *   true: The request was successful.
-     *   false: The request failed.
+     *   true
+     *   false
      *
      * @example true
      *

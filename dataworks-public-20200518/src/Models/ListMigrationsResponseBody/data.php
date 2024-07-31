@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The ID of the primary key.
+     * @description The list of migration tasks.
      *
      * @var migrations[]
      */
     public $migrations;
 
     /**
-     * @description The number of entries returned per page. Default value: 10. Maximum value: 50.
+     * @description The page number.
      *
      * @example 1
      *
@@ -26,7 +26,7 @@ class data extends Model
     public $pageNumber;
 
     /**
-     * @description The total number of entries returned.
+     * @description The number of entries per page. Default value: 10. Maximum value: 50.
      *
      * @example 10
      *
@@ -35,6 +35,8 @@ class data extends Model
     public $pageSize;
 
     /**
+     * @description The total number of entries.
+     *
      * @example 20
      *
      * @var int

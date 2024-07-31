@@ -19,7 +19,7 @@ class ListManualDagInstancesRequest extends Model
     public $dagId;
 
     /**
-     * @description The environment of the workspace. Valid values: PROD and DEV. A value of PROD indicates the production environment. A value of DEV indicates the development environment.
+     * @description The environment of Operation Center. Valid values: PROD and DEV.
      *
      * This parameter is required.
      * @example RPOD
@@ -29,7 +29,7 @@ class ListManualDagInstancesRequest extends Model
     public $projectEnv;
 
     /**
-     * @description The name of the workspace to which the manually triggered workflow belongs. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace Management page to view the name.
+     * @description The name of the workspace to which the manually triggered workflow belongs. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to obtain the name.
      *
      * This parameter is required.
      * @example test_workspace

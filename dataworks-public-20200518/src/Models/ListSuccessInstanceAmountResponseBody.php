@@ -17,7 +17,7 @@ class ListSuccessInstanceAmountResponseBody extends Model
     public $instanceStatusTrend;
 
     /**
-     * @description The ID of the request. You can use the ID to troubleshoot issues.
+     * @description The request ID.
      *
      * @example 952795279527ab****
      *

@@ -19,7 +19,7 @@ class ListQualityRulesRequest extends Model
     public $entityId;
 
     /**
-     * @description The number of the page to return.
+     * @description The page number.
      *
      * This parameter is required.
      * @example 1
@@ -29,7 +29,7 @@ class ListQualityRulesRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Default value: 10. Maximum value: 20.
+     * @description The number of entries per page. Default value: 10. Maximum value: 20.
      *
      * This parameter is required.
      * @example 20
@@ -39,12 +39,16 @@ class ListQualityRulesRequest extends Model
     public $pageSize;
 
     /**
+     * @description The DataWorks workspace ID.
+     *
+     * @example 12345
+     *
      * @var int
      */
     public $projectId;
 
     /**
-     * @description The name of the compute engine instance or data source. You can obtain the name from data source configurations.
+     * @description The name of the compute engine or data source. You can obtain the name from data source configurations.
      *
      * This parameter is required.
      * @example autotest

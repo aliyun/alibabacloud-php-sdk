@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetInstanceErrorRankResponseBody extends Model
 {
     /**
+     * @description The ranking data of nodes on which errors occurred.
+     *
      * @var instanceErrorRank
      */
     public $instanceErrorRank;
 
     /**
+     * @description The request ID.
+     *
      * @example 952795279527****
      *
      * @var string

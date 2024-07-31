@@ -17,7 +17,7 @@ class GetBaselineConfigResponseBody extends Model
     public $data;
 
     /**
-     * @description The error code returned.
+     * @description The error code.
      *
      * @example 1031203110005
      *
@@ -26,7 +26,7 @@ class GetBaselineConfigResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message returned.
+     * @description The error message.
      *
      * @example The specified parameters are invalid.
      *
@@ -35,7 +35,7 @@ class GetBaselineConfigResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The HTTP status code returned.
+     * @description The HTTP status code.
      *
      * @example 401
      *
@@ -44,7 +44,7 @@ class GetBaselineConfigResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example ecb967ec-c137-48a5-860****
      *

@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class GetMetaTableOutputResponseBody extends Model
 {
     /**
-     * @description The number of entries returned per page.
+     * @description The business data.
      *
      * @var data
      */
     public $data;
 
     /**
-     * @description The page number of the returned page.
+     * @description The error code.
      *
      * @example 0
      *
@@ -26,7 +26,7 @@ class GetMetaTableOutputResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description Indicates whether the request was successful.
+     * @description The error message.
      *
      * @example SUCCESS
      *
@@ -35,7 +35,7 @@ class GetMetaTableOutputResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The ID of the request.
+     * @description The HTTP status code.
      *
      * @example 200
      *
@@ -44,7 +44,7 @@ class GetMetaTableOutputResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The error code returned.
+     * @description The request ID.
      *
      * @example 0000-0000-0000-000
      *
@@ -53,7 +53,7 @@ class GetMetaTableOutputResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The output node and instance.
+     * @description Indicates whether the request was successful.
      *
      * @example true
      *

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class SetEntityTagsShrinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The unique identifier of the entity. Example: maxcompute-table.projectA.tableA.
      *
+     * This parameter is required.
      * @example maxcompute-table.projectA.tableA
      *
      * @var string
@@ -18,6 +19,8 @@ class SetEntityTagsShrinkRequest extends Model
     public $qualifiedName;
 
     /**
+     * @description The tags.
+     *
      * @var string
      */
     public $tagsShrink;

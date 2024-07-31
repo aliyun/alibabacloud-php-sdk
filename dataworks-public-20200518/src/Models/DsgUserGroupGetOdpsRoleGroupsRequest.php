@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DsgUserGroupGetOdpsRoleGroupsRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The name of the MaxCompute project. You can call the [DsgPlatformQueryProjectsAndSchemaFromMeta](https://help.aliyun.com/document_detail/2786303.html) operation to query a list of MaxCompute projects.
      *
+     * This parameter is required.
      * @example test_project
      *
      * @var string

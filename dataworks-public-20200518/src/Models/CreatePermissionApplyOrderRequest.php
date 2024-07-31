@@ -10,8 +10,9 @@ use AlibabaCloud\Tea\Model;
 class CreatePermissionApplyOrderRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The objects on which you want to request permissions.
      *
+     * This parameter is required.
      * @var applyObject[]
      */
     public $applyObject;
@@ -37,9 +38,8 @@ class CreatePermissionApplyOrderRequest extends Model
     public $applyUserIds;
 
     /**
-     * @description The expiration time of the permissions that you request. This value is a UNIX timestamp. If you do not specify a value for this parameter, January 1, 2065 is used as the expiration time.
+     * @description The expiration time of the permissions that you request. This value is a UNIX timestamp. The default value is January 1, 2065. If LabelSecurity is disabled for the MaxCompute project in which you want to request permissions on the fields of a table, or the security level of the fields is 0 or is lower than or equal to the security level of the Alibaba Cloud account for which you want to request permissions, you can request only permanent permissions. You can go to the Workspace Management page in the DataWorks console, click MaxCompute Management in the left-side navigation pane, and then check whether column-level access control is enabled. You can go to your DataWorks workspace, view the security level of the fields in Data Map, and then view the security level of the Alibaba Cloud account on the User Management page.
      *
-     * You can go to your DataWorks workspace, view the security level of the fields in DataMap, and then view the security level of the Alibaba Cloud account on the User Management page.
      * @example 1617115071885
      *
      * @var int
@@ -47,7 +47,7 @@ class CreatePermissionApplyOrderRequest extends Model
     public $deadline;
 
     /**
-     * @description The type of the compute engine instance in which you want to request permissions on the fields of a table. The parameter value is odps and cannot be changed. This value indicates that you can request permissions only on fields of tables in MaxCompute compute engine instances.
+     * @description The type of the compute engine in which you want to request permissions on the fields of a table. The parameter value is odps and cannot be changed. This value indicates that you can request permissions only on fields of tables in the MaxCompute compute engine.
      *
      * @example odps
      *
@@ -75,7 +75,7 @@ class CreatePermissionApplyOrderRequest extends Model
     public $orderType;
 
     /**
-     * @description The ID of the DataWorks workspace that is associated with the MaxCompute project in which you want to request permissions on the fields of a table. You can go to the Workspace Management page in the DataWorks console to view the workspace ID.
+     * @description The ID of the DataWorks workspace that is associated with the MaxCompute project in which you want to request permissions on the fields of a table. You can go to the SettingCenter page in the DataWorks console to view the workspace ID.
      *
      * This parameter is required.
      * @example 12345

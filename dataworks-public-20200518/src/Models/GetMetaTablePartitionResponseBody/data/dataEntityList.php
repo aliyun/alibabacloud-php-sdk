@@ -99,7 +99,7 @@ class dataEntityList extends Model
     public $recordCount;
 
     /**
-     * @description The GUID of the metatable.
+     * @description The unique identifier of the metatable.
      *
      * @example odps.engine_name.table_name
      *

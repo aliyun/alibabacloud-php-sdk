@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteTableLevelResponseBody extends Model
 {
     /**
-     * @description Indicates whether the table level is deleted.
+     * @description Indicates whether the table level was deleted.
      *
      * @example true
      *
@@ -18,7 +18,7 @@ class DeleteTableLevelResponseBody extends Model
     public $deleteResult;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example abcde
      *

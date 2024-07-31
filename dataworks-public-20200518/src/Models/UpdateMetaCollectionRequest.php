@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateMetaCollectionRequest extends Model
 {
     /**
-     * @description The comment of the collection.
+     * @description The comment of the collection. The comment must be 1 to 64 characters in length.
      *
-     * The comment must be 1 to 64 characters in length.
      * @example this is a comment
      *
      * @var string

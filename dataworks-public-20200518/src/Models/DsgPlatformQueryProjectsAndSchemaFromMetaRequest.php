@@ -9,8 +9,13 @@ use AlibabaCloud\Tea\Model;
 class DsgPlatformQueryProjectsAndSchemaFromMetaRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The type of the compute engine. Valid values:
      *
+     *   ODPS.ODPS
+     *   EMR
+     *   HOLO.POSTGRES
+     *
+     * This parameter is required.
      * @example EMR
      *
      * @var string

@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class DIJobAlarmRules extends Model
 {
     /**
+     * @description The alert rule ID.
+     *
      * @example 41998
      *
      * @var int
@@ -18,6 +20,8 @@ class DIJobAlarmRules extends Model
     public $DIAlarmRuleId;
 
     /**
+     * @description The ID of the task with which the alert rule is associated.
+     *
      * @example 11260
      *
      * @var int
@@ -25,11 +29,15 @@ class DIJobAlarmRules extends Model
     public $DIJobId;
 
     /**
+     * @description The description of the alert rule.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description Indicates whether the alert rule is enabled.
+     *
      * @example true
      *
      * @var bool
@@ -37,6 +45,12 @@ class DIJobAlarmRules extends Model
     public $enabled;
 
     /**
+     * @description The metric type in the alert rule. Valid values:
+     *
+     *   Heartbeat
+     *   FailoverCount
+     *   Delay
+     *
      * @example Heartbeat
      *
      * @var string
@@ -44,11 +58,15 @@ class DIJobAlarmRules extends Model
     public $metricType;
 
     /**
+     * @description The alert notification settings.
+     *
      * @var notificationSettings
      */
     public $notificationSettings;
 
     /**
+     * @description The conditions that can trigger the alert rule.
+     *
      * @var triggerConditions[]
      */
     public $triggerConditions;

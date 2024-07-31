@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateDataServiceApiResponseBody extends Model
 {
     /**
-     * @description Indicates whether the information about the API is updated.
+     * @description Indicates whether the information about the API was updated.
      *
      * @example true
      *
@@ -45,7 +45,7 @@ class UpdateDataServiceApiResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 0000-ABCD-EFG****
      *

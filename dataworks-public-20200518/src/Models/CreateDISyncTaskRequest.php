@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateDISyncTaskRequest extends Model
 {
     /**
-     * @description The client token that is used to ensure the idempotence of the request. This parameter can be left empty
+     * @description The client token that is used to ensure the idempotence of the request. This parameter can be left empty.
      *
      * @example 0000-ABCD-EFG****
      *
@@ -18,7 +18,7 @@ class CreateDISyncTaskRequest extends Model
     public $clientToken;
 
     /**
-     * @description The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to obtain the workspace ID.
+     * @description The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
      *
      * This parameter is required.
      * @example 10000
@@ -28,7 +28,7 @@ class CreateDISyncTaskRequest extends Model
     public $projectId;
 
     /**
-     * @description The configurations of the batch synchronization task to be created. Calling this API operation to create a batch synchronization task is equivalent to creating a batch synchronization task by using the code editor in the DataWorks console. For more information, see [Create a synchronization node by using the code editor](https://help.aliyun.com/document_detail/137717.html).
+     * @description The configurations of the batch synchronization task to be created. Calling this API operation to create a batch synchronization task is equivalent to creating a batch synchronization task by using the code editor in the DataWorks console. For more information, see [Create a data synchronization task by using the code editor](https://help.aliyun.com/document_detail/137717.html).
      *
      * This parameter is required.
      * @example {"type":"job","version":"2.0","steps":[{"stepType":"mysql","parameter":{"envType":1,"datasource":"mysql_pub","column":["id","name","create_time","age","score","t_01"],"connection":[{"datasource":"mysql_pub","table":["u_pk"]}],"where":"","splitPk":"id","encoding":"UTF-8"},"name":"Reader","category":"reader"},{"stepType":"odps","parameter":{"partition":"pt=${bizdate}","truncate":true,"datasource":"odps_source","envType":1,"column":["id","name","create_time","age","score","t_01"],"emptyAsNull":false,"tableComment":"null","table":"u_pk"},"name":"Writer","category":"writer"}],"setting":{"executeMode":null,"errorLimit":{"record":""},"speed":{"concurrent":2,"throttle":false}},"order":{"hops":[{"from":"Reader","to":"Writer"}]}}
@@ -48,7 +48,10 @@ class CreateDISyncTaskRequest extends Model
 
     /**
      * @description The settings that specify the storage path of the data synchronization task and the resource group used by the task. The following parameters are supported:
-     * - ResourceGroup: the identifier of the resource group for Data Integration that is used by the data synchronization task. You can call the [ListResourceGroup](https://help.aliyun.com/document_detail/173913.html) operation to query the identifier of the resource group.
+     *
+     *   FileFolderPath: the storage path of the data synchronization task.
+     *   ResourceGroup: the identifier of the resource group for Data Integration that is used by the data synchronization task. You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/173913.html) operation to query the identifier of the resource group.
+     *
      * @example {"FileFolderPath":"Business Flow/XXX/Data Integration","ResourceGroup":"S_res_group_XXX_XXXX"}
      *
      * @var string
@@ -56,7 +59,8 @@ class CreateDISyncTaskRequest extends Model
     public $taskParam;
 
     /**
-     * @description The type of the data synchronization task.
+     * @description The type of the data synchronization task. Valid values: DI_OFFLINE, DI_REALTIME, and DI_SOLUTION.
+     *
      * This parameter is required.
      * @example DI_OFFLINE
      *

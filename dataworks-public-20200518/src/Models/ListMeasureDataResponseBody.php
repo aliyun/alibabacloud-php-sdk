@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListMeasureDataResponseBody extends Model
 {
     /**
+     * @description The error code.
+     *
      * @example 100001001
      *
      * @var string
@@ -17,6 +19,8 @@ class ListMeasureDataResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message.
+     *
      * @example The user is not in tenant.
      *
      * @var string
@@ -24,6 +28,8 @@ class ListMeasureDataResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -31,11 +37,15 @@ class ListMeasureDataResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The measurement results.
+     *
      * @var measureDatas[]
      */
     public $measureDatas;
 
     /**
+     * @description The request ID.
+     *
      * @example 1AFAE64E-D1BE-432B-A9****
      *
      * @var string
@@ -43,6 +53,13 @@ class ListMeasureDataResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

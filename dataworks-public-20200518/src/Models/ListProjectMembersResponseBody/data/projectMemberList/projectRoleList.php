@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class projectRoleList extends Model
 {
     /**
-     * @description The code of the role.
+     * @description The code of the role. DataWorks provides built-in roles and allows you to create custom roles based on your business requirements. For more information about roles, see [Overview of users, roles, and permissions](https://help.aliyun.com/document_detail/295463.html).
      *
-     * DataWorks provides built-in roles and allows you to create custom roles based on your business requirements. For more information about roles, see [Overview of users, roles, and permissions](https://help.aliyun.com/document_detail/295463.html).
      * @example role_project_guest
      *
      * @var string
@@ -28,9 +27,8 @@ class projectRoleList extends Model
     public $projectRoleId;
 
     /**
-     * @description The name of the role.
+     * @description The name of the role. DataWorks provides built-in roles and allows you to create custom roles based on your business requirements. For more information about roles, see [Overview of users, roles, and permissions](https://help.aliyun.com/document_detail/295463.html).
      *
-     * DataWorks provides built-in roles and allows you to create custom roles based on your business requirements. For more information about roles, see [Overview of users, roles, and permissions](https://help.aliyun.com/document_detail/295463.html).
      * @example test
      *
      * @var string

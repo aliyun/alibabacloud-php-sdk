@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DsgUserGroupQueryListRequest extends Model
 {
     /**
+     * @description The keyword of the user group name. A fuzzy match is performed based on the keyword to search for the user group.
+     *
      * @example yun_group
      *
      * @var string
@@ -16,6 +18,8 @@ class DsgUserGroupQueryListRequest extends Model
     public $name;
 
     /**
+     * @description The owner of the user group.
+     *
      * @example user1
      *
      * @var string
@@ -23,8 +27,9 @@ class DsgUserGroupQueryListRequest extends Model
     public $owner;
 
     /**
-     * @description This parameter is required.
+     * @description The page number.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -32,8 +37,9 @@ class DsgUserGroupQueryListRequest extends Model
     public $pageNumber;
 
     /**
-     * @description This parameter is required.
+     * @description The number of entries per page. Maximum value: 100.
      *
+     * This parameter is required.
      * @example 10
      *
      * @var int
@@ -41,6 +47,8 @@ class DsgUserGroupQueryListRequest extends Model
     public $pageSize;
 
     /**
+     * @description The name of the compute engine. If you want to query the information about a MaxCompute user group, you need to configure this parameter.
+     *
      * @example dev_project
      *
      * @var string

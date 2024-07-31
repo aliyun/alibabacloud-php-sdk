@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteConnectionRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The data source ID. You can call the [ListConnection](https://help.aliyun.com/document_detail/173911.html) operation to query the ID.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int

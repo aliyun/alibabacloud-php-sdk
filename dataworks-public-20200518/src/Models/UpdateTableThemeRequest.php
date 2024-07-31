@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateTableThemeRequest extends Model
 {
     /**
-     * @description The name of the table folder.
+     * @description The name of the theme.
      *
      * This parameter is required.
      * @example table folder name
@@ -19,7 +19,7 @@ class UpdateTableThemeRequest extends Model
     public $name;
 
     /**
-     * @description The ID of the DataWorks workspace.
+     * @description The workspace ID.
      *
      * @example 123
      *
@@ -28,7 +28,7 @@ class UpdateTableThemeRequest extends Model
     public $projectId;
 
     /**
-     * @description The ID of the table folder.
+     * @description The ID of the theme.
      *
      * This parameter is required.
      * @example 123

@@ -10,8 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DsgUserGroupAddOrUpdateRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The information about the user group.
      *
+     * This parameter is required.
      * @var userGroups[]
      */
     public $userGroups;

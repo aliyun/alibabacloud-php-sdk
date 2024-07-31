@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateDataServiceApiAuthorityResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 0000-ABCD-EF****
      *

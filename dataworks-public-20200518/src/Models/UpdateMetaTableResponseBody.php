@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateMetaTableResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example abcde
      *
@@ -18,7 +18,7 @@ class UpdateMetaTableResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the metadata information about the table is updated.
+     * @description Indicates whether the metadata information about the table was updated.
      *
      * @example true
      *

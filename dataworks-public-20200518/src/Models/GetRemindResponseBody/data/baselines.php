@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class baselines extends Model
 {
     /**
-     * @description The ID of the baseline.
+     * @description The baseline ID.
      *
      * @example 1234
      *

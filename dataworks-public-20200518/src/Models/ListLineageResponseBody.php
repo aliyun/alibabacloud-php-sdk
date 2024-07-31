@@ -44,7 +44,7 @@ class ListLineageResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The request ID. You can locate logs and troubleshoot issues based on the ID.
+     * @description The request ID.
      *
      * @example 64B-587A-8CED-969E1973887FXXX-TT
      *
@@ -55,9 +55,7 @@ class ListLineageResponseBody extends Model
     /**
      * @description Indicates whether the request was successful. Valid values:
      *
-     *   true
-     *   false
-     *
+     * false
      * @example true
      *
      * @var bool

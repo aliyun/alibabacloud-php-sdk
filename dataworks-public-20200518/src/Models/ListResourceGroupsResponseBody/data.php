@@ -10,13 +10,98 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The details of the resource group. The content enclosed in braces {} is the details of the resource group.
+     * @description The category of the resource group. Valid values:
+     *
+     *   default: shared resource group
+     *   single: exclusive resource group
      *
      * @example default
      *
      * @var string
      */
     public $bizExtKey;
+
+    /**
+     * @description The name of the cluster. This parameter is returned only if the type of the resource group is MaxCompute or PAI.
+     *
+     * @example AY18G
+     *
+     * @var string
+     */
+    public $cluster;
+
+    /**
+     * @description The time when the cluster was created. Example: Jul 9, 2018 2:43:37 PM.
+     *
+     * @example Jul 9, 2018 2:43:37 PM
+     *
+     * @var string
+     */
+    public $createTime;
+
+    /**
+     * @description Indicates whether the UID of an Alibaba Cloud account is used for access. Valid values:
+     *
+     *   true: The MaxCompute compute engine uses the UID of the Alibaba Cloud account as the display name of the account for access.
+     *   false: The MaxCompute compute engine uses the name of the Alibaba Cloud account as the display name of the account for access. The remaining values are useless. This parameter is returned only if the type of the resource group is MaxCompute.
+     *
+     * @example false
+     *
+     * @var bool
+     */
+    public $enableKp;
+
+    /**
+     * @description The resource group ID.
+     *
+     * @example 1234567
+     *
+     * @var int
+     */
+    public $id;
+
+    /**
+     * @description The identifier of the resource group.
+     *
+     * @example e1815577-2f4e-4c5e-b29****
+     *
+     * @var string
+     */
+    public $identifier;
+
+    /**
+     * @description Indicates whether the resource group is the default resource group. Valid values:
+     *
+     *   true: The resource group is the default resource group.
+     *   false: The resource group is not the default resource group.
+     *
+     * @example true
+     *
+     * @var bool
+     */
+    public $isDefault;
+
+    /**
+     * @description The mode of the resource group. Valid values:
+     *
+     *   ISOLATE: exclusive resource group that adopts the subscription billing method
+     *   SHARE: shared resource group that adopts the pay-as-you-go billing method
+     *   DEVELOP: resource group for developers
+     *
+     * @example SHARE
+     *
+     * @var string
+     */
+    public $mode;
+
+    /**
+     * @description The name of the resource group.
+     *
+     * @example abc
+     *
+     * @var string
+     */
+    public $name;
 
     /**
      * @description The type of the resource group. Valid values:
@@ -28,90 +113,6 @@ class data extends Model
      *   7: scheduling
      *   9: DataService Studio
      *
-     * @example AY18G
-     *
-     * @var string
-     */
-    public $cluster;
-
-    /**
-     * @description The mode of the resource group. Valid values:
-     *
-     *   ISOLATE: exclusive resource group that adopts the subscription billing method
-     *   SHARE: shared resource group that adopts the pay-as-you-go billing method
-     *   DEVELOP: resource group for developers
-     *
-     * @example Jul 9, 2018 2:43:37 PM
-     *
-     * @var string
-     */
-    public $createTime;
-
-    /**
-     * @description The time when the cluster was created. Example: Jul 9, 2018 02:43:37 PM.
-     *
-     * @example false
-     *
-     * @var bool
-     */
-    public $enableKp;
-
-    /**
-     * @description The ID of your Alibaba Cloud resource group.
-     *
-     * @example 1234567
-     *
-     * @var int
-     */
-    public $id;
-
-    /**
-     * @description The category of the resource group. Valid values:
-     *
-     *   default: shared resource group
-     *   single: exclusive resource group
-     *
-     * @example e1815577-2f4e-4c5e-b29****
-     *
-     * @var string
-     */
-    public $identifier;
-
-    /**
-     * @description Indicates whether the UID of an Alibaba Cloud account is used for access. Valid values:
-     *
-     *   true: The MaxCompute compute engine uses the UID of the Alibaba Cloud account as the display name of the account for access.
-     *
-     *   false: The MaxCompute compute engine uses the name of the Alibaba Cloud account as the display name of the account for access.
-     *
-     * The remaining values are useless. This parameter is returned only if the type of the resource group is MaxCompute.
-     * @example true
-     *
-     * @var bool
-     */
-    public $isDefault;
-
-    /**
-     * @description The sequence number of the resource group. Created resource groups are sorted in ascending order by sequence number.
-     *
-     * @example SHARE
-     *
-     * @var string
-     */
-    public $mode;
-
-    /**
-     * @description The ID of the tenant.
-     *
-     * @example abc
-     *
-     * @var string
-     */
-    public $name;
-
-    /**
-     * @description The identifier of the resource group.
-     *
      * @example 3
      *
      * @var string
@@ -119,7 +120,7 @@ class data extends Model
     public $resourceGroupType;
 
     /**
-     * @description The tag key.
+     * @description The ID of your Alibaba Cloud resource group.
      *
      * @example rg-acfmzbn7pti3zfa
      *
@@ -128,7 +129,7 @@ class data extends Model
     public $resourceManagerResourceGroupId;
 
     /**
-     * @description The name of the resource group.
+     * @description The sequence number of the resource group. Created resource groups are sorted in ascending order by sequence number.
      *
      * @example 300
      *
@@ -137,7 +138,7 @@ class data extends Model
     public $sequence;
 
     /**
-     * @description The ID of the resource group.
+     * @description The details of the resource group. The content enclosed in braces {} is the details of the resource group.
      *
      * @example {}
      *
@@ -146,10 +147,18 @@ class data extends Model
     public $specs;
 
     /**
-     * @description Indicates whether the resource group is the default resource group. Valid values:
+     * @description The status of the resource group. Valid values:
      *
-     *   true: The resource group is the default resource group.
-     *   false: The resource group is not the default resource group.
+     *   0: NORMAL, which indicates that the resource group is running or in service.
+     *   1: STOP, which indicates that the resource group has expired and is frozen.
+     *   2: DELETED, which indicates that the resource group is released or destroyed.
+     *   3: CREATING, which indicates that the resource group is being created or started.
+     *   4: CREATE_FAILED, which indicates that the resource group fails to be created or started.
+     *   5: UPDATING, which indicates that the resource group is being scaled out or upgraded.
+     *   6: UPDATE_FAILED, which indicates that the resource group fails to be scaled out or upgraded.
+     *   7: DELETING, which indicates that the resource group is being released or destroyed.
+     *   8: DELETE_FAILED, which indicates that the resource group fails to be released or destroyed.
+     *   9: TIMEOUT, which indicates that the operation performed on the resource group times out. All operations may time out. This value is temporarily available only for DataService Studio.
      *
      * @example 0
      *
@@ -158,14 +167,14 @@ class data extends Model
     public $status;
 
     /**
-     * @description The tag value.
+     * @description The tags.
      *
      * @var tags[]
      */
     public $tags;
 
     /**
-     * @description The tags.
+     * @description The tenant ID.
      *
      * @example 1234567
      *
@@ -174,7 +183,7 @@ class data extends Model
     public $tenantId;
 
     /**
-     * @description The name of the cluster. This parameter is returned only if the type of the resource group is MaxCompute or PAI.
+     * @description The time when the resource group was last updated.
      *
      * @example Jul 9, 2018 2:43:37 PM
      *

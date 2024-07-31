@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteRecognizeRuleResponseBody extends Model
 {
     /**
+     * @description The returned data about whether the deletion is successful.
+     *
      * @example {   "HttpStatusCode": 200,   "Success": true }
      *
      * @var mixed
@@ -16,6 +18,8 @@ class DeleteRecognizeRuleResponseBody extends Model
     public $data;
 
     /**
+     * @description The error code.
+     *
      * @example 9990030003
      *
      * @var string
@@ -23,11 +27,15 @@ class DeleteRecognizeRuleResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -35,6 +43,8 @@ class DeleteRecognizeRuleResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The request ID.
+     *
      * @example 10000001
      *
      * @var string
@@ -42,6 +52,11 @@ class DeleteRecognizeRuleResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

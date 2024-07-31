@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CheckMetaTableResponseBody extends Model
 {
     /**
+     * @description Indicates whether the metatable exists.
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +18,8 @@ class CheckMetaTableResponseBody extends Model
     public $data;
 
     /**
+     * @description The request ID.
+     *
      * @example 0bc1ec92159376
      *
      * @var string

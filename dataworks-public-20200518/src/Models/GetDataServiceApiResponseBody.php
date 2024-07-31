@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetDataServiceApiResponseBody extends Model
 {
     /**
-     * @description The data returned.
+     * @description The returned data.
      *
      * @var data
      */

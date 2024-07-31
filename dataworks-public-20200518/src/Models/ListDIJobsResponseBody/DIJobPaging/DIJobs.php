@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DIJobs extends Model
 {
     /**
+     * @description The task ID.
+     *
      * @example 16626
      *
      * @var int
@@ -16,6 +18,8 @@ class DIJobs extends Model
     public $DIJobId;
 
     /**
+     * @description The type of the destination. The value Hologres is returned.
+     *
      * @example Hologres
      *
      * @var string
@@ -23,6 +27,8 @@ class DIJobs extends Model
     public $destinationDataSourceType;
 
     /**
+     * @description The task name.
+     *
      * @example mysql_to_holo_sync_8772
      *
      * @var string
@@ -30,6 +36,15 @@ class DIJobs extends Model
     public $jobName;
 
     /**
+     * @description The task status. Valid values:
+     *
+     *   Finished
+     *   Initialized
+     *   Stopped
+     *   Failed
+     *   Running
+     *   Stopping
+     *
      * @example Finished
      *
      * @var string
@@ -37,6 +52,12 @@ class DIJobs extends Model
     public $jobStatus;
 
     /**
+     * @description The synchronization type. Valid values:
+     *
+     *   FullAndRealtimeIncremental: one-time full synchronization and real-time incremental synchronization
+     *   RealtimeIncremental: real-time incremental synchronization
+     *   Full: one-time full synchronization
+     *
      * @example Full
      *
      * @var string
@@ -44,6 +65,8 @@ class DIJobs extends Model
     public $migrationType;
 
     /**
+     * @description The workspace ID.
+     *
      * @example 1967
      *
      * @var int
@@ -51,6 +74,8 @@ class DIJobs extends Model
     public $projectId;
 
     /**
+     * @description The type of the source. The value MySQL is returned.
+     *
      * @example MySQL
      *
      * @var string

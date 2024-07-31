@@ -10,26 +10,14 @@ use AlibabaCloud\Tea\Model;
 class ListInstanceHistoryResponseBody extends Model
 {
     /**
-     * @description The status of the node that generates the instance. Valid values:
-     *
-     *   NOT_RUN: The node is not run.
-     *   WAIT_TIME: The node is waiting for the scheduling time to arrive.
-     *   WAIT_RESOURCE: The node is waiting for resources.
-     *   RUNNING: The node is running.
-     *   CHECKING: Data quality is being checked for the node.
-     *   CHECKING_CONDITION: Branch conditions are being checked for the node.
-     *   FAILURE: The node fails to be run.
-     *   SUCCESS: The node is successfully run.
+     * @description The instances.
      *
      * @var instances[]
      */
     public $instances;
 
     /**
-     * @description Indicates whether the request is successful. Valid values:
-     *
-     *   true: The request is successful.
-     *   false: The request fails.
+     * @description The request ID.
      *
      * @example E6F0DBDD-5AD****
      *
@@ -38,7 +26,10 @@ class ListInstanceHistoryResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The instance list.
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
      *
      * @example true
      *

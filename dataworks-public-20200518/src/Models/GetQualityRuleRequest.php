@@ -9,12 +9,16 @@ use AlibabaCloud\Tea\Model;
 class GetQualityRuleRequest extends Model
 {
     /**
+     * @description The DataWorks workspace ID.
+     *
+     * @example 12345
+     *
      * @var int
      */
     public $projectId;
 
     /**
-     * @description The name of the compute engine instance or data source.
+     * @description The name of the compute engine or data source.
      *
      * This parameter is required.
      * @example autotest
@@ -24,7 +28,7 @@ class GetQualityRuleRequest extends Model
     public $projectName;
 
     /**
-     * @description The ID of the monitoring rule. You can call the [ListQualityRules](https://help.aliyun.com/document_detail/173995.html) operation to query the ID.
+     * @description The monitoring rule ID. You can call the [ListQualityRules](https://help.aliyun.com/document_detail/173995.html) operation to query the ID.
      *
      * This parameter is required.
      * @example 1234

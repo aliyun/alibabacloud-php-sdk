@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetNodeTypeListInfoResponseBody extends Model
 {
     /**
+     * @description The list of node types.
+     *
      * @var nodeTypeInfoList
      */
     public $nodeTypeInfoList;
 
     /**
+     * @description The request ID.
+     *
      * @example 0000-ABCD-EFG****
      *
      * @var string

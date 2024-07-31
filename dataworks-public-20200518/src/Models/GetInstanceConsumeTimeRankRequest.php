@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetInstanceConsumeTimeRankRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The data timestamp, accurate to the day. Specify the time in the ISO 8601 standard in the yyyy-MM-dd\\"T\\"HH:mm:ssZ format. The time must be in UTC.
      *
+     * This parameter is required.
      * @example 2020-09-21T00:00:00+0800
      *
      * @var string
@@ -18,8 +19,9 @@ class GetInstanceConsumeTimeRankRequest extends Model
     public $bizdate;
 
     /**
-     * @description This parameter is required.
+     * @description The DataWorks workspace ID.
      *
+     * This parameter is required.
      * @example 100000
      *
      * @var int

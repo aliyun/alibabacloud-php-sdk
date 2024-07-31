@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetProjectDetailRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The DataWorks workspace ID.
      *
+     * This parameter is required.
      * @example 27
      *
      * @var int

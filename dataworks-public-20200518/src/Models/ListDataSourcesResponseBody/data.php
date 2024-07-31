@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The ID of the workspace to which the data source belongs.
+     * @description The data sources.
      *
      * @var dataSources[]
      */
     public $dataSources;
 
     /**
-     * @description The total number of data sources.
+     * @description The page number.
      *
      * @example 1
      *
@@ -26,7 +26,7 @@ class data extends Model
     public $pageNumber;
 
     /**
-     * @description The data sources.
+     * @description The number of entries per page.
      *
      * @example 20
      *
@@ -35,10 +35,7 @@ class data extends Model
     public $pageSize;
 
     /**
-     * @description The status of the data source. Valid values:
-     *
-     *   1: The data source is accessible.
-     *   2: The data source is inaccessible.
+     * @description The total number of data sources.
      *
      * @example 233
      *

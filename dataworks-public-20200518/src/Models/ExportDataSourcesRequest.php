@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ExportDataSourcesRequest extends Model
 {
     /**
-     * @description The data source type. Valid values:
+     * @description The type of the data source. Valid values:
      *
      *   odps
      *   mysql
@@ -32,7 +32,7 @@ class ExportDataSourcesRequest extends Model
     public $dataSourceType;
 
     /**
-     * @description The environment to which the data sources belong. Valid values:
+     * @description The environment in which the data source resides. Valid values:
      *
      *   0: development environment
      *   1: production environment
@@ -44,9 +44,8 @@ class ExportDataSourcesRequest extends Model
     public $envType;
 
     /**
-     * @description The keyword contained in the names of the data sources to be exported.
+     * @description The keyword contained in the names of the data sources that you want to export. You can specify only one keyword. For example, if you set this parameter to test, you can call the ExportDataSources operation to export all data sources whose names contain test in the workspace.
      *
-     * You can specify only one keyword. For example, if you set this parameter to test, all the data sources whose names contain test in the specified workspace are exported.
      * @example test
      *
      * @var string
@@ -54,7 +53,7 @@ class ExportDataSourcesRequest extends Model
     public $name;
 
     /**
-     * @description The number of the page to return. The value of this parameter must be a positive integer greater than or equal to 1.
+     * @description The page number. Pages start from page 1.
      *
      * @example 1
      *
@@ -63,7 +62,7 @@ class ExportDataSourcesRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Default value: 10. Maximum value: 100.
+     * @description The number of entries per page. Default value: 10. Maximum value: 100.
      *
      * @example 10
      *
@@ -82,9 +81,9 @@ class ExportDataSourcesRequest extends Model
     public $projectId;
 
     /**
-     * @description The data source subtype. This parameter takes effect only if the DataSourceType parameter is set to rds.
+     * @description The subtype of the data source. This parameter takes effect only when the DataSourceType parameter is set to rds.
      *
-     * If the DataSourceType parameter is set to rds, this parameter can be set to mysql, sqlserver, or postgresql.
+     * If the value of the DataSourceType parameter is rds, the value of this parameter can be mysql, sqlserver, or postgresql.
      * @example mysql
      *
      * @var string

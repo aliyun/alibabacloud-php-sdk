@@ -19,7 +19,7 @@ class ListFileVersionsRequest extends Model
     public $fileId;
 
     /**
-     * @description The number of the page to return.
+     * @description The page number.
      *
      * @example 1
      *
@@ -28,7 +28,7 @@ class ListFileVersionsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Default value:10. Maximum value: 100.
+     * @description The number of entries per page. Default value: 10. Maximum value: 100.
      *
      * @example 10
      *

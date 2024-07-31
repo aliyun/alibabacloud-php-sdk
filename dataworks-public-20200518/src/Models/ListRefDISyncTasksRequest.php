@@ -19,7 +19,7 @@ class ListRefDISyncTasksRequest extends Model
     public $datasourceName;
 
     /**
-     * @description The number of the page to return.
+     * @description The page number. Valid values: 1 to 100.
      *
      * @example 1
      *
@@ -28,7 +28,7 @@ class ListRefDISyncTasksRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The number of entries per page.
      *
      * @example 100
      *
@@ -37,7 +37,7 @@ class ListRefDISyncTasksRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace Management page to obtain the workspace ID.
+     * @description The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to obtain the ID.
      *
      * This parameter is required.
      * @example 10000
@@ -47,10 +47,10 @@ class ListRefDISyncTasksRequest extends Model
     public $projectId;
 
     /**
-     * @description The condition used to filter sync nodes. Valid values:
+     * @description The condition used to filter synchronization tasks. Valid values:
      *
-     *   from: queries the sync nodes that use the data source as the source data source.
-     *   to: queries the sync nodes that use the data source as the destination data source.
+     *   from: queries the synchronization tasks that use the data source as the source.
+     *   to: queries the synchronization tasks that use the data source as the destination.
      *
      * This parameter is required.
      * @example from
@@ -60,10 +60,10 @@ class ListRefDISyncTasksRequest extends Model
     public $refType;
 
     /**
-     * @description The type of the sync node that you want to query. Valid values:
+     * @description The type of the synchronization task that you want to query. Valid values:
      *
-     *   DI_OFFLINE: batch sync node
-     *   DI_REALTIME: real-time sync node
+     *   DI_OFFLINE: batch synchronization task
+     *   DI_REALTIME: real-time synchronization task
      *
      * This parameter is required.
      * @example DI_OFFLINE

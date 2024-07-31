@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class dingRobots extends Model
 {
     /**
+     * @description Indicates whether all members were reminded by using the at sign (@).
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +18,8 @@ class dingRobots extends Model
     public $atAll;
 
     /**
+     * @description The webhook URL of the DingTalk chatbot.
+     *
      * @example https://oapi.dingtalk.com/robot/send?access_token=xxx
      *
      * @var string

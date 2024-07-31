@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The list of levels of the table folders.
+     * @description The list of table levels.
      *
      * @var themeList[]
      */
     public $themeList;
 
     /**
-     * @description The total number of table folders.
+     * @description The total number of entries returned.
      *
      * @example 10
      *

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class topics extends Model
 {
     /**
+     * @description The timestamp when the event was found.
+     *
      * @example 1553531401000
      *
      * @var int
@@ -16,6 +18,8 @@ class topics extends Model
     public $addTime;
 
     /**
+     * @description The instance ID.
+     *
      * @example 1234
      *
      * @var int
@@ -23,6 +27,8 @@ class topics extends Model
     public $instanceId;
 
     /**
+     * @description The event ID.
+     *
      * @example 1234
      *
      * @var int
@@ -30,6 +36,8 @@ class topics extends Model
     public $topicId;
 
     /**
+     * @description The name of the event.
+     *
      * @example 1234
      *
      * @var string

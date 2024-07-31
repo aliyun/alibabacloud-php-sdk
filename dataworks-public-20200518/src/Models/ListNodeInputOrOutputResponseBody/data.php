@@ -18,7 +18,7 @@ class data extends Model
     public $data;
 
     /**
-     * @description The ID of the node.
+     * @description The node ID.
      *
      * @example 1234667
      *
@@ -27,7 +27,7 @@ class data extends Model
     public $nodeId;
 
     /**
-     * @description The name of the associated table.
+     * @description This parameter does not take effect. You cannot obtain the parameter settings.
      *
      * @example dwd_xxx_table
      *

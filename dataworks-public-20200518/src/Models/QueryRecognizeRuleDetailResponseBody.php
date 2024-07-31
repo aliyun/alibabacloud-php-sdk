@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class QueryRecognizeRuleDetailResponseBody extends Model
 {
     /**
+     * @description The details of the sensitive field in the JSON format.
+     *
      * @var mixed
      */
     public $data;
 
     /**
+     * @description The error code.
+     *
      * @example 9990030003
      *
      * @var string
@@ -21,11 +25,15 @@ class QueryRecognizeRuleDetailResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -33,6 +41,8 @@ class QueryRecognizeRuleDetailResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The request ID. You can use the request ID to query logs and troubleshoot issues.
+     *
      * @example 10000001
      *
      * @var string
@@ -40,6 +50,11 @@ class QueryRecognizeRuleDetailResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

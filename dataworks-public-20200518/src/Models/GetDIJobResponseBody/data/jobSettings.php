@@ -13,11 +13,15 @@ use AlibabaCloud\Tea\Model;
 class jobSettings extends Model
 {
     /**
+     * @example {"structInfo":"MANAGED","storageType":"TEXTFILE","writeMode":"APPEND","partitionColumns":[{"columnName":"pt","columnType":"STRING","comment":""}],"fieldDelimiter":""}
+     *
      * @var string
      */
     public $channelSettings;
 
     /**
+     * @description The settings for data type mappings between source fields and destination fields. The value of this parameter is an array.
+     *
      * @var columnDataTypeSettings[]
      */
     public $columnDataTypeSettings;
@@ -28,11 +32,15 @@ class jobSettings extends Model
     public $cycleScheduleSettings;
 
     /**
+     * @description The settings for processing DDL messages. The value of this parameter is an array.
+     *
      * @var ddlHandlingSettings[]
      */
     public $ddlHandlingSettings;
 
     /**
+     * @description The runtime settings. The value of this parameter is an array.
+     *
      * @var runtimeSettings[]
      */
     public $runtimeSettings;

@@ -19,7 +19,7 @@ class UpdateMetaTableIntroWikiRequest extends Model
     public $content;
 
     /**
-     * @description The GUID of the metatable. Specify the GUID in the format of odps.{projectName}.{tableName}.
+     * @description The GUID of the table. Specify the GUID in the odps.{projectName}.{tableName} format.
      *
      * This parameter is required.
      * @example odps.test.table1

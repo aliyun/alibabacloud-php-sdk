@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListSuccessInstanceAmountRequest extends Model
 {
     /**
-     * @description The ID of the DataWorks workspace. You can log on to the DataWorks console and go to the Workspace Management page to obtain the ID.
+     * @description The DataWorks workspace ID. You can log on to the DataWorks console and go to the Workspace page to obtain the workspace ID.
      *
      * This parameter is required.
      * @example 9527

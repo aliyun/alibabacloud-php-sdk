@@ -9,12 +9,14 @@ use AlibabaCloud\Tea\Model;
 class stepDetail extends Model
 {
     /**
+     * @description The information of the data synchronization solution.
+     *
      * @var string
      */
     public $info;
 
     /**
-     * @description The ID of the step in the data synchronization solution.
+     * @description The status of the step in the data synchronization solution.
      *
      * @example success
      *
@@ -23,7 +25,7 @@ class stepDetail extends Model
     public $status;
 
     /**
-     * @description The name of the step in the data synchronization solution.
+     * @description The ID of the step in the data synchronization solution.
      *
      * @example 1
      *
@@ -32,7 +34,7 @@ class stepDetail extends Model
     public $stepId;
 
     /**
-     * @description The information of the data synchronization solution.
+     * @description The name of the step in the data synchronization solution.
      *
      * @var string
      */

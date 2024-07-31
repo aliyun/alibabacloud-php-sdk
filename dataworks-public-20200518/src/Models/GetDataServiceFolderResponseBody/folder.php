@@ -18,7 +18,7 @@ class folder extends Model
     public $createdTime;
 
     /**
-     * @description The ID of the folder.
+     * @description The folder ID.
      *
      * @example 11
      *
@@ -54,7 +54,7 @@ class folder extends Model
     public $modifiedTime;
 
     /**
-     * @description The ID of the parent folder. The ID of the root folder in a business process is 0, and the ID of a folder created by a user in a business process is greater than 0.
+     * @description The parent folder ID. The ID of the root folder in a business process is 0, and the ID of a folder created by a user in a business process is greater than 0.
      *
      * @example 0
      *
@@ -63,7 +63,7 @@ class folder extends Model
     public $parentId;
 
     /**
-     * @description The ID of the workspace.
+     * @description The workspace ID.
      *
      * @example 10001
      *
@@ -72,7 +72,7 @@ class folder extends Model
     public $projectId;
 
     /**
-     * @description The ID of the tenant.
+     * @description The tenant ID.
      *
      * @example 10002
      *

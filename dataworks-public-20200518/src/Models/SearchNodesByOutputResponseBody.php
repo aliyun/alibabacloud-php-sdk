@@ -9,13 +9,15 @@ use AlibabaCloud\Tea\Model;
 class SearchNodesByOutputResponseBody extends Model
 {
     /**
-     * @example { "test_0709_1.630003558_out": {  "nodeId": 21673,             "nodeName": "hour_sql",             "ownerId": 123123123124,             "cronExpress": "00 00 00-23/2 * * ?",             "repeatability": true,             "programType": "ODPS_SQL",             "projectId": 11111,             "schedulerType": "NORMAL",             "priority": 1,             "baselineId": 20001721,             "connection": "odps_first"         },         "test_0709_1.630003556_out": {             "nodeId": 21671,             "nodeName": "start",             "ownerId": 123141231231,             "cronExpress": "00 *\/10 00-23 * * ?",             "repeatability": true,             "programType": "VIRTUAL",             "projectId": 1111,             "schedulerType": "NORMAL",             "priority": 1,             "baselineId": 20001721         }     }
+     * @description The map returned. The key in the map indicates an output name, and the value in the map indicates the information about the node that generates the output.
      *
      * @var mixed[]
      */
     public $data;
 
     /**
+     * @description The error code.
+     *
      * @example Invalid.Tenant.ConnectionNotExists
      *
      * @var string
@@ -23,6 +25,8 @@ class SearchNodesByOutputResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message.
+     *
      * @example The connection does not exist.
      *
      * @var string
@@ -30,6 +34,8 @@ class SearchNodesByOutputResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -37,6 +43,8 @@ class SearchNodesByOutputResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The request ID.
+     *
      * @example SDFSDFSDF-asdfDFSDF-SDFSDf-SDfSFD
      *
      * @var string
@@ -44,6 +52,8 @@ class SearchNodesByOutputResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
      * @example true
      *
      * @var bool

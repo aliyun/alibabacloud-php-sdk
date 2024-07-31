@@ -18,7 +18,7 @@ class programTypeAndCounts extends Model
     public $count;
 
     /**
-     * @description The type of the node.
+     * @description The node type.
      *
      * @example ODPS_SQL
      *

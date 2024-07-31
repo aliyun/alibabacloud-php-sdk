@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteDIAlarmRuleResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example C99E2BE6-9DEA-5C2E-8F51-1DDCFEADE490
      *
      * @var string

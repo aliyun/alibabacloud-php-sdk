@@ -10,17 +10,14 @@ use AlibabaCloud\Tea\Model;
 class GenerateDISyncTaskConfigForCreatingResponseBody extends Model
 {
     /**
-     * @description Indicates whether the ID of the asynchronous thread is generated. Valid values:
-     *
-     *   success: indicates that the ID of the asynchronous thread is generated.
-     *   fail: indicates that the ID of the asynchronous thread fails to be generated. You can view the reason for the failure and troubleshoot the issue based on the reason.
+     * @description The information returned for the ID of the asynchronous thread.
      *
      * @var data
      */
     public $data;
 
     /**
-     * @description The information returned for the ID of the asynchronous thread.
+     * @description The request ID.
      *
      * @example 0bc1411515937635973****
      *
@@ -29,7 +26,10 @@ class GenerateDISyncTaskConfigForCreatingResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the request. You can locate logs and troubleshoot issues based on the ID.
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
      *
      * @example true
      *

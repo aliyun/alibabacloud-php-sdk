@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListDagsRequest extends Model
 {
     /**
-     * @description The environment of the workspace. Valid values: PROD and DEV. PROD indicates the production environment. DEV indicates the development environment.
+     * @description The sequence number that uniquely identifies the data backfill operation. You can call the [GetDag](https://help.aliyun.com/document_detail/189753.html) operation to query the sequence number.
      *
      * This parameter is required.
      * @example 123
@@ -19,7 +19,7 @@ class ListDagsRequest extends Model
     public $opSeq;
 
     /**
-     * @description The HTTP status code returned.
+     * @description The environment of the workspace. Valid values: PROD and DEV. The value PROD indicates the production environment, and the value DEV indicates the development environment.
      *
      * This parameter is required.
      * @example PROD

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DsgRunSensIdentifyResponseBody extends Model
 {
     /**
+     * @description The ID of the generated sensitive data identification task. The value is of the INT 64 type.
+     *
      * @example 1000001
      *
      * @var mixed
@@ -16,6 +18,8 @@ class DsgRunSensIdentifyResponseBody extends Model
     public $data;
 
     /**
+     * @description The error code.
+     *
      * @example 9990030003
      *
      * @var string
@@ -23,11 +27,15 @@ class DsgRunSensIdentifyResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The HTTP status code.
+     *
      * @example 400
      *
      * @var int
@@ -35,6 +43,8 @@ class DsgRunSensIdentifyResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The request ID.
+     *
      * @example 10000001
      *
      * @var string
@@ -42,6 +52,11 @@ class DsgRunSensIdentifyResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

@@ -9,7 +9,17 @@ use AlibabaCloud\Tea\Model;
 class ListCalcEnginesRequest extends Model
 {
     /**
-     * @description The type of the compute engine instance. Valid values: `ODPS`, `EMR`, `BLINK`, `HOLO`, `MaxGraph`, `HYBRIDDB_FOR_POSTGRESQL`, `ADB_MYSQL`, and `HADOOP_CDH`. The values are not case-sensitive.
+     * @description The type of the compute engine. The value of this parameter is not case-sensitive. Valid values:
+     *
+     *   **ODPS**
+     *   **EMR**
+     *   **BLINK**
+     *   **HOLO**
+     *   **MaxGraph**
+     *   **HYBRIDDB_FOR_POSTGRESQL**
+     *   **ADB_MYSQL**
+     *   **HADOOP_CDH**
+     *   **CLICKHOUSE**
      *
      * This parameter is required.
      * @example ODPS
@@ -19,7 +29,10 @@ class ListCalcEnginesRequest extends Model
     public $calcEngineType;
 
     /**
-     * @description The environment in which the compute engine instance runs. Valid values: DEV and PRD. The value DEV indicates the development environment, and the value PRD indicates the production environment.
+     * @description The environment in which the compute engine is used. Valid values:
+     *
+     *   **DEV**
+     *   **PRD**
      *
      * @example PRD
      *
@@ -28,7 +41,7 @@ class ListCalcEnginesRequest extends Model
     public $envType;
 
     /**
-     * @description The name of the compute engine instance that you want to query. Only exact match is supported.
+     * @description The name of the compute engine, which must be exactly matched.
      *
      * @example abc
      *
@@ -37,7 +50,7 @@ class ListCalcEnginesRequest extends Model
     public $name;
 
     /**
-     * @description The number of the page to return. Pages start from page 1. Default value: 1.
+     * @description The page number. Pages start from page 1. Default value: 1.
      *
      * @example 1
      *
@@ -46,7 +59,7 @@ class ListCalcEnginesRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Default value: 100. Maximum value: 100.
+     * @description The number of entries per page. Default value: 10. Maximum value: 100.
      *
      * @example 10
      *
@@ -55,7 +68,7 @@ class ListCalcEnginesRequest extends Model
     public $pageSize;
 
     /**
-     * @description The DataWorks workspace with which the compute engine instances are associated.
+     * @description The ID of the DataWorks workspace with which the compute engine is associated.
      *
      * This parameter is required.
      * @example 27

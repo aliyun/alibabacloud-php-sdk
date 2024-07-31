@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DsgSceneAddOrUpdateSceneResponseBody extends Model
 {
     /**
+     * @description The operation result.
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +18,8 @@ class DsgSceneAddOrUpdateSceneResponseBody extends Model
     public $data;
 
     /**
+     * @description The error code.
+     *
      * @example 1029030003
      *
      * @var string
@@ -23,6 +27,8 @@ class DsgSceneAddOrUpdateSceneResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message.
+     *
      * @example param error
      *
      * @var string
@@ -30,6 +36,8 @@ class DsgSceneAddOrUpdateSceneResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The HTTP status code.
+     *
      * @example 400
      *
      * @var int
@@ -37,6 +45,8 @@ class DsgSceneAddOrUpdateSceneResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The request ID. You can use the ID to locate logs and troubleshoot issues.
+     *
      * @example 102400001
      *
      * @var string
@@ -44,6 +54,11 @@ class DsgSceneAddOrUpdateSceneResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

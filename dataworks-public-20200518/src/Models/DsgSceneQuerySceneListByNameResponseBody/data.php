@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The information about multiple levels of data masking scenarios.
+     *
      * @var mixed[]
      */
     public $children;
 
     /**
+     * @description The description of the data masking scenario.
+     *
      * @var string
      */
     public $desc;
 
     /**
+     * @description The ID of the data masking scenario.
+     *
      * @example 123
      *
      * @var int
@@ -27,11 +33,22 @@ class data extends Model
     public $id;
 
     /**
+     * @description The information about the compute engine for which the data masking scenario takes effect.
+     *
      * @var projects[]
      */
     public $projects;
 
     /**
+     * @description The code of the level-1 data masking scenario. Valid values:
+     *
+     *   dataworks_display_desense_code: masking of displayed data in DataStudio and Data Map
+     *   maxcompute_desense_code: data masking at the MaxCompute compute engine layer
+     *   maxcompute_new_desense_code: data masking at the MaxCompute compute engine layer (new)
+     *   hologres_display_desense_code: data masking at the Hologres compute engine layer
+     *   dataworks_data_integration_desense_code: static data masking in Data Integration
+     *   dataworks_analysis_desense_code: masking of displayed data in DataAnalysis
+     *
      * @example dataworks_display_desense_code
      *
      * @var string
@@ -39,6 +56,11 @@ class data extends Model
     public $sceneCode;
 
     /**
+     * @description The level of the data masking scenario. Valid values:
+     *
+     *   0: level-1 data masking scenario
+     *   1: level-2 data masking scenario
+     *
      * @example 1
      *
      * @var int
@@ -46,6 +68,8 @@ class data extends Model
     public $sceneLevel;
 
     /**
+     * @description The name of the data masking scenario.
+     *
      * @example test_scene
      *
      * @var string
@@ -53,6 +77,8 @@ class data extends Model
     public $sceneName;
 
     /**
+     * @description The list of user groups in the data masking scenario. Separate user groups with commas (,).
+     *
      * @example user1,user2
      *
      * @var string

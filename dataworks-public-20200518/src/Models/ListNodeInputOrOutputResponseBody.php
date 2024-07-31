@@ -17,7 +17,7 @@ class ListNodeInputOrOutputResponseBody extends Model
     public $data;
 
     /**
-     * @description The error code returned if the request fails.
+     * @description The error code.
      *
      * @example Invalid.Tenant.ProjectNotExists
      *
@@ -26,7 +26,7 @@ class ListNodeInputOrOutputResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message returned if the request fails.
+     * @description The error message.
      *
      * @example The project does not exist.
      *
@@ -35,7 +35,7 @@ class ListNodeInputOrOutputResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The HTTP status code returned.
+     * @description The HTTP status code.
      *
      * @example 200
      *
@@ -44,7 +44,7 @@ class ListNodeInputOrOutputResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The ID of the request. You can use the ID to query logs and troubleshoot issues.
+     * @description The request ID.
      *
      * @example E6F0DBDD-5AD****
      *
@@ -53,7 +53,7 @@ class ListNodeInputOrOutputResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful.
+     * @description Indicates whether the request was successful.
      *
      * @example true
      *

@@ -19,7 +19,7 @@ class projectMeta extends Model
     public $maxComputeProjectName;
 
     /**
-     * @description Details about the object on which you request permissions.
+     * @description The details about the object on which you request permissions.
      *
      * @var objectMetaList[]
      */

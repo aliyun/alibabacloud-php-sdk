@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class desensPlan extends Model
 {
     /**
+     * @description The type of the data masking rule.
+     *
      * @example hash
      *
      * @var string
@@ -16,6 +18,8 @@ class desensPlan extends Model
     public $desensPlanType;
 
     /**
+     * @description The parameters for the data masking rule. For more information about the parameters, see the [DsgDesensPlanAddOrUpdate](https://help.aliyun.com/document_detail/2786295.html) API reference.
+     *
      * @var mixed[]
      */
     public $extParam;

@@ -9,8 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListMeasureDataRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The measurement component.
      *
+     *   This parameter is set to Count if the DomainCode parameter is set to DideAlarmPhone or DideAlarmSms. In this case, statistics on the number of phone calls or text messages that are used to send alert notifications are collected.
+     *
+     * This parameter is required.
      * @example Count
      *
      * @var string
@@ -18,8 +21,12 @@ class ListMeasureDataRequest extends Model
     public $componentCode;
 
     /**
-     * @description This parameter is required.
+     * @description The item to be measured. Valid values:
      *
+     *   DideAlarmPhone: phone call-based alerts
+     *   DideAlarmSms: text message-based alerts
+     *
+     * This parameter is required.
      * @example DideAlarmPhone
      *
      * @var string
@@ -27,8 +34,9 @@ class ListMeasureDataRequest extends Model
     public $domainCode;
 
     /**
-     * @description This parameter is required.
+     * @description The end timestamp of the measurement period, in milliseconds. The measurement period is calculated in days. You can query only the data within the last 30 days.
      *
+     * This parameter is required.
      * @example 1717430400000
      *
      * @var int
@@ -36,8 +44,9 @@ class ListMeasureDataRequest extends Model
     public $endTime;
 
     /**
-     * @description This parameter is required.
+     * @description The start timestamp of the measurement period, in milliseconds. The measurement period is calculated in days. You can query only the data within the last 30 days.
      *
+     * This parameter is required.
      * @example 1717344000000
      *
      * @var int

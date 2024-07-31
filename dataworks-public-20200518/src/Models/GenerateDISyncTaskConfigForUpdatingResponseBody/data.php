@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The reason why the ID of the asynchronous thread fails to be generated. If the ID is successfully generated, no value is returned for this parameter.
+     *
      * @example XXX is invalid.
      *
      * @var string
@@ -16,7 +18,7 @@ class data extends Model
     public $message;
 
     /**
-     * @description The reason why the ID of the asynchronous thread fails to be generated. If the ID is successfully generated, the value null is returned.
+     * @description The ID of the asynchronous thread. You can call the [QueryDISyncTaskConfigProcessResult](https://help.aliyun.com/document_detail/383465.html) operation to obtain the asynchronously generated parameters based on the ID. The parameters are used to update a real-time synchronization task in Data Integration.
      *
      * @example 10
      *
@@ -25,7 +27,10 @@ class data extends Model
     public $processId;
 
     /**
-     * @description The ID of the asynchronous thread. You can call the [QueryDISyncTaskConfigProcessResult](https://help.aliyun.com/document_detail/383465.html) operation to obtain the asynchronously generated parameters based on the ID. The parameters are used to update a real-time synchronization node or a synchronization solution in Data Integration.
+     * @description Indicates whether the ID of the asynchronous thread is generated. Valid values:
+     *
+     *   success: indicates that the ID of the asynchronous thread is generated.
+     *   fail: indicates that the ID of the asynchronous thread fails to be generated. You can view the reason for the failure and troubleshoot the issue based on the reason.
      *
      * @example true
      *

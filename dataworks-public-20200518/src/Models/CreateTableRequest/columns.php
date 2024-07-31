@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class columns extends Model
 {
     /**
-     * @description The comment of the field.
+     * @description The name of the field. You can configure a maximum of 1,000 fields when you call the CreateTable operation to create a table.
      *
      * This parameter is required.
      * @example columnName1
@@ -19,15 +19,14 @@ class columns extends Model
     public $columnName;
 
     /**
-     * @description The name of the field.
+     * @description The display name of the field.
      *
-     * You can call the CreateTable operation to configure a maximum of 1,000 fields.
      * @var string
      */
     public $columnNameCn;
 
     /**
-     * @description The sequence number of the field. You can use this parameter to specify how fields are sorted in a table. By default, fields are sorted in the order in which requests are created.
+     * @description The data type of the field. For information about supported data types, see [Data type editions](https://help.aliyun.com/document_detail/27821.html) in MaxCompute documentation.
      *
      * This parameter is required.
      * @example string
@@ -37,14 +36,14 @@ class columns extends Model
     public $columnType;
 
     /**
-     * @description The data type of the field.
+     * @description The comment of the field.
      *
      * @var string
      */
     public $comment;
 
     /**
-     * @description The ID of the topic.
+     * @description Specifies whether the field is a partition field.
      *
      * @example true
      *
@@ -53,7 +52,7 @@ class columns extends Model
     public $isPartitionCol;
 
     /**
-     * @description Specifies whether the current field is a partition field.
+     * @description The length of the field. For more information, see [MaxCompute data type editions](https://help.aliyun.com/document_detail/159541.html).
      *
      * @example 10
      *
@@ -62,7 +61,7 @@ class columns extends Model
     public $length;
 
     /**
-     * @description The length of the field. For more information, see [MaxCompute V2.0 data type edition](~~159541#concept-2454988~~).
+     * @description The sequence number of the field. You can use this parameter to specify how fields are sorted in a table. By default, fields are sorted based on the order in which requests are created. If the field is a partition field, this parameter is not supported.
      *
      * @example 1
      *

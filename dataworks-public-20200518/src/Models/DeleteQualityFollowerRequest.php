@@ -19,12 +19,16 @@ class DeleteQualityFollowerRequest extends Model
     public $followerId;
 
     /**
+     * @description The DataWorks workspace ID. You can log on to the DataWorks console and go to the Workspace page to obtain the workspace ID.
+     *
+     * @example 10000
+     *
      * @var int
      */
     public $projectId;
 
     /**
-     * @description The name of the compute engine or data source for which the partition filter expression is configured. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Monitoring Rules page of Data Quality to obtain the name.
+     * @description The name of the compute engine or data source for which the partition filter expression is configured. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the rule configuration page of Data Quality page to obtain the name.
      *
      * This parameter is required.
      * @example autotest

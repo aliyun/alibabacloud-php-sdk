@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The expiration time of the data masking whitelist cannot be earlier than the time when the data masking whitelist takes effect. Unit: days.
+     *
      * @example 2024-05-10 15:46:20
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $endTime;
 
     /**
+     * @description The time when the whitelist was created.
+     *
      * @example 2024-05-09 15:46:20
      *
      * @var string
@@ -23,6 +27,8 @@ class data extends Model
     public $gmtCreate;
 
     /**
+     * @description The time when the whitelist was modified.
+     *
      * @example 2024-05-09 15:46:20
      *
      * @var string
@@ -30,6 +36,8 @@ class data extends Model
     public $gmtModified;
 
     /**
+     * @description The ID of the data masking whitelist.
+     *
      * @example 123
      *
      * @var int
@@ -37,6 +45,8 @@ class data extends Model
     public $id;
 
     /**
+     * @description The ID of the data masking rule.
+     *
      * @example 123
      *
      * @var int
@@ -44,6 +54,8 @@ class data extends Model
     public $ruleId;
 
     /**
+     * @description The ID of the level-2 data masking scenario.
+     *
      * @example 123
      *
      * @var int
@@ -51,6 +63,8 @@ class data extends Model
     public $sceneId;
 
     /**
+     * @description The time when the data masking whitelist takes effect cannot be earlier than the current time. Unit: days.
+     *
      * @example 2024-05-09 15:46:20
      *
      * @var string
@@ -58,6 +72,8 @@ class data extends Model
     public $startTime;
 
     /**
+     * @description The sensitive field type.
+     *
      * @example phone
      *
      * @var string
@@ -65,6 +81,8 @@ class data extends Model
     public $type;
 
     /**
+     * @description A collection of user group names.
+     *
      * @var string[]
      */
     public $userGroups;

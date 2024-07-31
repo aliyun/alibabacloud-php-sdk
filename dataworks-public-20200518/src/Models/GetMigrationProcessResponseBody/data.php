@@ -20,7 +20,7 @@ class data extends Model
     /**
      * @description The running status of the step in the migration task. Valid values:
      *
-     *   INT
+     *   INIT
      *   RUNNING
      *   FAILURE
      *   SUCCESS

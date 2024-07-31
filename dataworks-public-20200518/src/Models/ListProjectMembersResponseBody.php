@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListProjectMembersResponseBody extends Model
 {
     /**
-     * @description The results that are returned.
+     * @description The returned results.
      *
      * @var data
      */

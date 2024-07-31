@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description Indicates whether a watermark is added. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool
@@ -17,6 +22,8 @@ class data extends Model
     public $checkWatermark;
 
     /**
+     * @description The sensitive field type.
+     *
      * @example phone
      *
      * @var string
@@ -24,6 +31,8 @@ class data extends Model
     public $dataType;
 
     /**
+     * @description The type of the data masking method.
+     *
      * @example HASH
      *
      * @var string
@@ -31,11 +40,15 @@ class data extends Model
     public $desenMode;
 
     /**
+     * @description The details of the data masking rule.
+     *
      * @var desensPlan
      */
     public $desensPlan;
 
     /**
+     * @description The data masking rule.
+     *
      * @example HASH
      *
      * @var string
@@ -43,6 +56,8 @@ class data extends Model
     public $desensRule;
 
     /**
+     * @description The data masking method.
+     *
      * @example HASH
      *
      * @var string
@@ -50,6 +65,8 @@ class data extends Model
     public $desensWay;
 
     /**
+     * @description The time when the data masking rule was created.
+     *
      * @example 2024-05-09 15:46:20
      *
      * @var string
@@ -57,6 +74,8 @@ class data extends Model
     public $gmtCreate;
 
     /**
+     * @description The time when the data masking rule was modified.
+     *
      * @example 2024-05-09 15:46:20
      *
      * @var string
@@ -64,6 +83,8 @@ class data extends Model
     public $gmtModified;
 
     /**
+     * @description The ID of the data masking rule.
+     *
      * @example 123
      *
      * @var int
@@ -71,6 +92,8 @@ class data extends Model
     public $id;
 
     /**
+     * @description The owner of the data masking rule.
+     *
      * @example user1
      *
      * @var string
@@ -78,6 +101,8 @@ class data extends Model
     public $owner;
 
     /**
+     * @description The name of the data masking rule.
+     *
      * @example phone_hash
      *
      * @var string
@@ -85,6 +110,15 @@ class data extends Model
     public $ruleName;
 
     /**
+     * @description The code of the level-1 data masking scenario to which the rule belongs. Valid values:
+     *
+     *   dataworks_display_desense_code: masking of displayed data in DataStudio and Data Map
+     *   maxcompute_desense_code: data masking at the MaxCompute compute engine layer
+     *   maxcompute_new_desense_code: data masking at the MaxCompute compute engine layer (new)
+     *   hologres_display_desense_code: data masking at the Hologres compute engine layer
+     *   dataworks_data_integration_desense_code: static data masking in Data Integration
+     *   dataworks_analysis_desense_code: masking of displayed data in DataAnalysis
+     *
      * @example dataworks_display_desense_code
      *
      * @var string
@@ -92,6 +126,8 @@ class data extends Model
     public $sceneCode;
 
     /**
+     * @description The name of the level-2 data masking scenario to which the data masking rule belongs.
+     *
      * @example test_scene
      *
      * @var string
@@ -99,6 +135,11 @@ class data extends Model
     public $sceneName;
 
     /**
+     * @description The status of the data masking rule. Valid values:
+     *
+     *   0: expired
+     *   1: effective
+     *
      * @example 1
      *
      * @var int

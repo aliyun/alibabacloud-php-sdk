@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetManualDagInstancesResponseBody extends Model
 {
     /**
+     * @description The instances in the manually triggered workflow.
+     *
      * @var instances[]
      */
     public $instances;
 
     /**
+     * @description The request ID.
+     *
      * @example SDFSDFSDF-SDFSDF-SDFDSF-SDFSDF
      *
      * @var string

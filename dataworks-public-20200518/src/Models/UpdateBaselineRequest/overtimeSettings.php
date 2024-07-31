@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class overtimeSettings extends Model
 {
     /**
+     * @description The cycle that corresponds to the committed completion time. For a day-level baseline, set this parameter to 1. For an hour-level baseline, set this parameter to a value that does not exceed 24.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class overtimeSettings extends Model
     public $cycle;
 
     /**
+     * @description The committed completion time in the hh:mm format. Valid values of hh: [0,47]. Valid values of mm: [0,59].
+     *
      * @example 00:00
      *
      * @var string

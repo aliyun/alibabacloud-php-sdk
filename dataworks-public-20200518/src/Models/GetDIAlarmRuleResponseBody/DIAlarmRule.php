@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class DIAlarmRule extends Model
 {
     /**
+     * @description The timestamp when the alert rule was created. Unit: seconds.
+     *
      * @example 1663573162
      *
      * @var int
@@ -18,6 +20,8 @@ class DIAlarmRule extends Model
     public $createdTime;
 
     /**
+     * @description The ID of the user who creates the alert rule.
+     *
      * @example 10000001
      *
      * @var string
@@ -25,6 +29,8 @@ class DIAlarmRule extends Model
     public $createdUid;
 
     /**
+     * @description The alert rule ID.
+     *
      * @example 34988
      *
      * @var int
@@ -32,6 +38,8 @@ class DIAlarmRule extends Model
     public $DIAlarmRuleId;
 
     /**
+     * @description The ID of the task with which the alert rule is associated.
+     *
      * @example 11170
      *
      * @var int
@@ -39,11 +47,15 @@ class DIAlarmRule extends Model
     public $DIJobId;
 
     /**
+     * @description The description of the alert rule.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description Indicates whether the alert rule is enabled.
+     *
      * @example true
      *
      * @var bool
@@ -51,6 +63,12 @@ class DIAlarmRule extends Model
     public $enabled;
 
     /**
+     * @description The metric type in the alert rule. Valid values:
+     *
+     *   Heartbeat
+     *   FailoverCount
+     *   Delay
+     *
      * @example Heartbeat
      *
      * @var string
@@ -58,16 +76,22 @@ class DIAlarmRule extends Model
     public $metricType;
 
     /**
+     * @description The alert notification settings.
+     *
      * @var notificationSettings
      */
     public $notificationSettings;
 
     /**
+     * @description The conditions that can trigger the alert rule.
+     *
      * @var triggerConditions[]
      */
     public $triggerConditions;
 
     /**
+     * @description The timestamp when the alert rule was last updated. Unit: seconds.
+     *
      * @example 1663573163
      *
      * @var int
@@ -75,6 +99,8 @@ class DIAlarmRule extends Model
     public $updatedTime;
 
     /**
+     * @description The ID of the user who last updates the alert rule.
+     *
      * @example 10000001
      *
      * @var string

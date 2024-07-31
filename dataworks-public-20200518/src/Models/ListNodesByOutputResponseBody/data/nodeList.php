@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class nodeList extends Model
 {
     /**
-     * @description The ID of the baseline.
+     * @description The baseline ID.
      *
      * @example 1235667
      *
@@ -27,7 +27,7 @@ class nodeList extends Model
     public $connection;
 
     /**
-     * @description The cron expression.
+     * @description The CRON expression.
      *
      * @example 00 00 00 * * ?
      *
@@ -54,7 +54,7 @@ class nodeList extends Model
     public $dqcDescription;
 
     /**
-     * @description Indicates whether the node is associated with Data Quality. Valid values: 0 and 1. The value 0 indicates that node is associated with Data Quality, and the value 1 indicates that the node is not associated with Data Quality.
+     * @description Indicates whether the node is associated with a monitoring rule in Data Quality. Valid values: 0 and 1. The value 0 indicates that the node is associated with a monitoring rule in Data Quality. The value 1 indicates that the node is not associated with a monitoring rule in Data Quality.
      *
      * @example 1
      *
@@ -63,9 +63,9 @@ class nodeList extends Model
     public $dqcType;
 
     /**
-     * @description The type of the node.
+     * @description The node type. Valid values:
      *
-     * 6 (Shell node), 10 (ODPS SQL node), 11 (ODPS MR node), 23 (Data Integration node), 24 (ODPS Script node), 99 (zero-load node), 221 (PyODPS 2 node), 225 (ODPS Spark node), 227 (EMR Hive node), 228 (EMR Spark node), 229 (EMR Spark SQL node), 230 (EMR MR node), 239 (OSS object inspection node), 257 (EMR Shell node), 258 (EMR Spark Shell node), 259 (EMR Presto node), 260 (EMR Impala node), 900 (real-time synchronization node), 1089 (cross-tenant collaboration node), 1091 (Hologres development node), 1093 (Hologres SQL node), 1100 (assignment node), and 1221 (PyODPS 3 node).
+     * 6 (Shell), 10 (ODPS SQL), 11 (ODPS MR), 23 (Data Integration), 24 (ODPS Script), 99 (zero load), 221 (PyODPS 2), 225 (ODPS Spark), 227 (EMR Hive), 228 (EMR Spark), 229 (EMR Spark SQL), 230 (EMR MR), 239 (OSS object inspection), 257 (EMR Shell), 258 (EMR Spark Shell), 259 (EMR Presto), 260 (EMR Impala), 900 (real-time synchronization), 1089 (cross-tenant collaboration), 1091 (Hologres development), 1093 (Hologres SQL), 1100 (assignment), and 1221 (PyODPS 3)
      * @example ODPS_SQL
      *
      * @var string
@@ -73,7 +73,7 @@ class nodeList extends Model
     public $fileType;
 
     /**
-     * @description The ID of the node.
+     * @description The node ID.
      *
      * @example 125677
      *
@@ -91,7 +91,7 @@ class nodeList extends Model
     public $nodeName;
 
     /**
-     * @description The ID of the node owner.
+     * @description The owner ID.
      *
      * @example 19337906836551
      *
@@ -100,7 +100,7 @@ class nodeList extends Model
     public $ownerId;
 
     /**
-     * @description The values of the scheduling parameters configured for the node.
+     * @description The scheduling parameters of the node.
      *
      * @example a=b
      *
@@ -109,7 +109,7 @@ class nodeList extends Model
     public $paramValues;
 
     /**
-     * @description The priority of the node. Valid values: 1, 3, 5, 7, and 8. A large value indicates a high priority. Default value: 1.
+     * @description The priority of the node. Valid values: 1, 3, 5, 7, and 8. A greater value indicates a higher priority. Default value: 1.
      *
      * @example 1
      *
@@ -118,7 +118,7 @@ class nodeList extends Model
     public $priority;
 
     /**
-     * @description The type of the node. This parameter is deprecated. For more information about node types, see the valid values of FileType.
+     * @description The node type. This parameter is deprecated. For more information about node types, see valid values of the FileType parameter.
      *
      * @example ODPS_SQL
      *
@@ -127,7 +127,7 @@ class nodeList extends Model
     public $programType;
 
     /**
-     * @description The ID of the workspace.
+     * @description The workspace ID.
      *
      * @example 33671
      *
@@ -136,7 +136,7 @@ class nodeList extends Model
     public $projectId;
 
     /**
-     * @description The ID of the associated workflow.
+     * @description The ID of the workflow to which the node belongs.
      *
      * @example 1235655464
      *
@@ -172,10 +172,10 @@ class nodeList extends Model
     /**
      * @description The scheduling type of the node. Valid values:
      *
-     *   NORAMAL: The node is an auto triggered node. The node is scheduled on a regular basis.
-     *   MANUAL: The node is a manually triggered node. The node is not scheduled on a regular basis.
-     *   PAUSE: The node is a frozen node. The system schedules the node on a regular basis but sets it to FAILURE when the system starts to schedule it.
-     *   SKIP: The node is a dry-run node. The system schedules the node on a regular basis but sets it to SUCCESS when the system starts to schedule it.
+     *   NORMAL: The node is an auto triggered node. The scheduling system regularly runs the node.
+     *   MANUAL: The node is a manually triggered node. The scheduling system does not regularly run the node.
+     *   PAUSE: The node is a frozen node. The scheduling system regularly runs the node but sets the status of the node to failed when the scheduling system starts to run the node.
+     *   SKIP: The node is a dry-run node. The scheduling system regularly runs the node but sets the status of the node to successful when the scheduling system starts to run the node.
      *
      * @example NORMAL
      *

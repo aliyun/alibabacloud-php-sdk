@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class ListDeploymentsResponseBody extends Model
 {
     /**
-     * @description The return results.
+     * @description The data returned.
      *
      * @var data
      */
     public $data;
 
     /**
-     * @description The ID of the request. You can use the ID to troubleshoot issues.
+     * @description The request ID.
      *
      * @example 0000-ABCD-EFG
      *

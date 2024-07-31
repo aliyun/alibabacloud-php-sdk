@@ -18,9 +18,8 @@ class sortCriterion extends Model
     public $order;
 
     /**
-     * @description The field that is used to sort partitions in the metatable. Valid values: name and modify_time.
+     * @description The field that is used to sort partitions in the metatable. Valid values: name and modify_time. By default, partitions in the metatable are sorted based on their creation time.
      *
-     * By default, partitions in the metatable are sorted based on their creation time.
      * @example name
      *
      * @var string

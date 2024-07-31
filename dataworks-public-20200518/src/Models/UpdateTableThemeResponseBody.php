@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateTableThemeResponseBody extends Model
 {
     /**
-     * @description The error code returned.
+     * @description The error code.
      *
      * @example 1031203110005
      *
@@ -18,7 +18,7 @@ class UpdateTableThemeResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message returned.
+     * @description The error message.
      *
      * @example The specified parameters are invalid.
      *
@@ -27,7 +27,7 @@ class UpdateTableThemeResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The HTTP status code returned.
+     * @description The HTTP status code.
      *
      * @example 200
      *
@@ -36,7 +36,7 @@ class UpdateTableThemeResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example abcd
      *
@@ -45,10 +45,10 @@ class UpdateTableThemeResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful. Valid values:
+     * @description Indicates whether the request was successful. Valid values:
      *
-     *   true: The request is successful.
-     *   false: The request fails.
+     *   true
+     *   false
      *
      * @example true
      *
@@ -59,8 +59,8 @@ class UpdateTableThemeResponseBody extends Model
     /**
      * @description Indicates whether the update result is returned. Valid values:
      *
-     *   true: The update result is returned.
-     *   false: The update result is not returned.
+     *   true
+     *   false
      *
      * @example true
      *

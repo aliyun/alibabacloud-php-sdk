@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SaveDataServiceApiTestResultResponseBody extends Model
 {
     /**
+     * @description Indicates whether the test results are saved.
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +18,8 @@ class SaveDataServiceApiTestResultResponseBody extends Model
     public $data;
 
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -23,6 +27,8 @@ class SaveDataServiceApiTestResultResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The request ID.
+     *
      * @example 0000-ABCD-EFG****
      *
      * @var string
@@ -30,6 +36,8 @@ class SaveDataServiceApiTestResultResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
      * @example true
      *
      * @var bool

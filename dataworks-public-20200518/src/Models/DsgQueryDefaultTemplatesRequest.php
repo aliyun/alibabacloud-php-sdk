@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DsgQueryDefaultTemplatesRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the level-2 data masking scenario. You can call the [DsgSceneQuerySceneListByName](https://help.aliyun.com/document_detail/2786322.html) operation to query the list of IDs.
      *
+     * This parameter is required.
      * @example 123
      *
      * @var int

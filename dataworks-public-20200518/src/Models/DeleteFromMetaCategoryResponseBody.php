@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteFromMetaCategoryResponseBody extends Model
 {
     /**
-     * @description Indicates whether the metatable was removed from the specified category.
+     * @description Indicates whether the table was removed from the specified category.
      *
      * @example true
      *
@@ -45,7 +45,7 @@ class DeleteFromMetaCategoryResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 0bc1ec92159376
      *

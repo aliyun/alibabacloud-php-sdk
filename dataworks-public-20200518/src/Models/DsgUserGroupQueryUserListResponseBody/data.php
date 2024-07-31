@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The name of the user.
+     *
      * @example user1
      *
      * @var string
@@ -16,6 +18,11 @@ class data extends Model
     public $accountName;
 
     /**
+     * @description The type of the user. Valid values:
+     *
+     *   1 to 5: Alibaba Cloud account
+     *   6: RAM role
+     *
      * @example 2
      *
      * @var int
@@ -23,6 +30,8 @@ class data extends Model
     public $accountType;
 
     /**
+     * @description The user ID or role ID.
+     *
      * @example 234
      *
      * @var string
@@ -30,6 +39,8 @@ class data extends Model
     public $baseId;
 
     /**
+     * @description The parent user ID. This parameter is required if a RAM user is used.
+     *
      * @example 123
      *
      * @var string
@@ -37,6 +48,8 @@ class data extends Model
     public $parentAccountId;
 
     /**
+     * @description The name of the Alibaba Cloud account or RAM role. The return value of this parameter must be used if the user group is created by using an Alibaba Cloud account or a RAM role.
+     *
      * @example user:user1
      *
      * @var string

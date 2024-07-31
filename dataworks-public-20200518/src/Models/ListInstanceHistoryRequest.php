@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListInstanceHistoryRequest extends Model
 {
     /**
-     * @description The environment of the workspace. Valid values: PROD (production environment) and DEV (development environment).By default, data of instances in the production environment is queried.
+     * @description The instance ID. You can call the ListInstances operation to query the instance ID.
      *
      * This parameter is required.
      * @example 1234
@@ -19,7 +19,7 @@ class ListInstanceHistoryRequest extends Model
     public $instanceId;
 
     /**
-     * @description The ID of the request. You can use the ID to query logs and troubleshoot issues.
+     * @description The environment of the workspace. Valid values: PROD and DEV. By default, data of instances in the production environment is queried.
      *
      * @example PROD
      *

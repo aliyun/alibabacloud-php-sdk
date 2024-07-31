@@ -9,8 +9,17 @@ use AlibabaCloud\Tea\Model;
 class desensPlan extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The masking method configured in the data masking rule. Valid values:
      *
+     *   hash
+     *   mapping
+     *   mask
+     *   charreplacement
+     *   intervalselect
+     *   decimalpoint
+     *   emptydesens
+     *
+     * This parameter is required.
      * @example hash
      *
      * @var string
@@ -18,6 +27,8 @@ class desensPlan extends Model
     public $desensPlanType;
 
     /**
+     * @description The parameters for the data masking rule.
+     *
      * @var mixed[]
      */
     public $extParam;

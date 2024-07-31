@@ -11,11 +11,9 @@ class UpdateQualityRuleRequest extends Model
     /**
      * @description The strength of the monitoring rule. The strength of a monitoring rule indicates the importance of the rule. Valid values:
      *
-     *   1: indicates that the monitoring rule is a strong rule.
+     *   1: The monitoring rule is a strong rule.
+     *   0: The monitoring rule is a weak rule. You can specify the strength of a monitoring rule based on your business requirements. If a monitoring rule is a strong rule and the critical threshold is exceeded, a critical alert is reported and tasks that are associated with the rule are blocked from running.
      *
-     *   0: indicates that the monitoring rule is a weak rule.
-     *
-     * You can specify whether a monitoring rule is a strong rule based on your business requirements. If a strong rule is used and a critical alert is triggered, nodes are blocked.
      * @example 0
      *
      * @var int
@@ -23,7 +21,7 @@ class UpdateQualityRuleRequest extends Model
     public $blockType;
 
     /**
-     * @description The ID of the checker. You can call the [ListQualityRules](https://help.aliyun.com/document_detail/173995.html) operation to obtain the ID of the checker.
+     * @description The checker ID. You can call the [ListQualityRules](https://help.aliyun.com/document_detail/173995.html) operation to obtain the ID of the checker.
      *
      * This parameter is required.
      * @example 9
@@ -40,7 +38,7 @@ class UpdateQualityRuleRequest extends Model
     public $comment;
 
     /**
-     * @description The threshold for a critical alert. The threshold indicates the deviation of the monitoring result from the expected value. You can customize this threshold based on your business requirements. If a strong rule is used and an error alert is triggered, nodes are blocked.
+     * @description The threshold for a critical alert. The threshold indicates the deviation of the monitoring result from the expected value. You can specify a custom value for the threshold based on your business requirements. If a monitoring rule is a strong rule and the critical threshold is exceeded, a critical alert is reported and tasks that are associated with the rule are blocked from running.
      *
      * @example 10
      *
@@ -49,7 +47,7 @@ class UpdateQualityRuleRequest extends Model
     public $criticalThreshold;
 
     /**
-     * @description The ID of the partition filter expression. You can call the [GetQualityEntity](https://help.aliyun.com/document_detail/173995.html) operation to obtain the ID of the partition filter expression.
+     * @description The ID of the partition filter expression. You can call the [ListQualityRules](https://help.aliyun.com/document_detail/173995.html) operation to obtain the ID of the partition filter expression.
      *
      * @example 123
      *
@@ -58,7 +56,7 @@ class UpdateQualityRuleRequest extends Model
     public $entityId;
 
     /**
-     * @description The expected value of the monitoring result.
+     * @description The expected value of the monitoring rule.
      *
      * @example 300
      *
@@ -67,7 +65,7 @@ class UpdateQualityRuleRequest extends Model
     public $expectValue;
 
     /**
-     * @description The ID of the monitoring rule. You can call the [ListQualityRules](https://help.aliyun.com/document_detail/173995.html) operation to obtain the ID of the monitoring rule.
+     * @description The monitoring rule ID. You can call the [ListQualityRules](https://help.aliyun.com/document_detail/173995.html) operation to query the ID of the monitoring rule.
      *
      * This parameter is required.
      * @example 1234
@@ -87,7 +85,7 @@ class UpdateQualityRuleRequest extends Model
     public $methodName;
 
     /**
-     * @description Specifies whether to enable the monitoring rule in the production environment.
+     * @description Specifies whether to enable the monitoring rule in the production environment. Valid values:
      *
      *   true: The monitoring rule is triggered when the associated auto triggered node that generates the output data starts to run.
      *   false: The monitoring rule is not triggered when the associated auto triggered node that generates the output data starts to run.
@@ -110,8 +108,8 @@ class UpdateQualityRuleRequest extends Model
     /**
      * @description Specifies whether the threshold is a dynamic threshold. Valid values:
      *
-     *   0: indicates that the threshold is not a dynamic threshold.
-     *   2: indicates that the threshold is a dynamic threshold.
+     *   0: The threshold is not a dynamic threshold.
+     *   2: The threshold is a dynamic threshold.
      *
      * @example 0
      *
@@ -120,12 +118,16 @@ class UpdateQualityRuleRequest extends Model
     public $predictType;
 
     /**
+     * @description The DataWorks workspace ID.
+     *
+     * @example 26
+     *
      * @var int
      */
     public $projectId;
 
     /**
-     * @description The name of the compute engine instance or data source. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace Management page to obtain the name.
+     * @description The name of the compute engine or data source. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to obtain the name of the compute engine or data source.
      *
      * This parameter is required.
      * @example autotest
@@ -135,7 +137,7 @@ class UpdateQualityRuleRequest extends Model
     public $projectName;
 
     /**
-     * @description The name of the field to be monitored.
+     * @description The name of the field.
      *
      * This parameter is required.
      * @example id
@@ -176,12 +178,16 @@ class UpdateQualityRuleRequest extends Model
     public $ruleType;
 
     /**
+     * @description The variable settings inserted before the custom rule. Format: x=a,y=b.
+     *
+     * @example x=a,y=b
+     *
      * @var string
      */
     public $taskSetting;
 
     /**
-     * @description The ID of the monitoring template. You can call the [ListQualityRules](https://help.aliyun.com/document_detail/173995.html) operation to obtain the ID of the monitoring template that is used to create the monitoring rule.
+     * @description The ID of the monitoring template. You can call the [ListQualityRules](https://help.aliyun.com/document_detail/173995.html) operation to obtain the ID of the monitoring template.
      *
      * @example 7
      *
@@ -203,7 +209,7 @@ class UpdateQualityRuleRequest extends Model
     public $trend;
 
     /**
-     * @description The threshold for a warning alert. The threshold indicates the deviation of the monitoring result from the expected value. You can customize this threshold based on your business requirements.
+     * @description The threshold for a warning alert. The threshold specifies the deviation of the monitoring result from the expected value. You can specify a custom value for the threshold based on your business requirements.
      *
      * @example 5
      *

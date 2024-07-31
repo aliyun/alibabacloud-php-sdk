@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class nodes extends Model
 {
     /**
-     * @description The ID of the baseline.
+     * @description The baseline ID.
      *
      * @example 12345656
      *
@@ -18,7 +18,7 @@ class nodes extends Model
     public $baselineId;
 
     /**
-     * @description The cron expression. Cron expressions are used to run auto triggered nodes.
+     * @description The CRON expression. CRON expressions are used to run auto triggered nodes.
      *
      * @example 00 00 * * * *
      *
@@ -27,7 +27,7 @@ class nodes extends Model
     public $cronExpress;
 
     /**
-     * @description The ID of the node.
+     * @description The node ID.
      *
      * @example 1244564565
      *
@@ -54,7 +54,7 @@ class nodes extends Model
     public $ownerId;
 
     /**
-     * @description The priority of the node. Valid values: 1 to 8. A large value indicates a high priority.
+     * @description The priority. Valid values: 1 to 8. A large value indicates a high priority.
      *
      * @example 3
      *
@@ -83,8 +83,8 @@ class nodes extends Model
     /**
      * @description Indicates whether the node can be rerun if the node fails to run. Valid values:
      *
-     *   true: indicates that the node can be rerun.
-     *   false: indicates that the node cannot be rerun.
+     *   true
+     *   false
      *
      * @example true
      *
@@ -95,10 +95,10 @@ class nodes extends Model
     /**
      * @description The scheduling type of the node. Valid values:
      *
-     *   NORMAL: indicates that the node is an auto triggered node.
-     *   MANUAL: indicates that node is a manually triggered node.
-     *   PAUSE: indicates that the node is a paused node. Paused nodes are started as scheduled but the system sets the status of the nodes to failed when it starts to run them.
-     *   SKIP: indicates that the node is a dry-run node. Dry-run nodes are started as scheduled but the system sets the status of the nodes to successful when it starts to run them.
+     *   NORMAL: The node is an auto triggered node.
+     *   MANUAL: The node is a manually triggered node. Manually triggered nodes cannot be automatically triggered.
+     *   PAUSE: The node is a paused node. Paused nodes are started as scheduled but the system sets the status of the nodes to failed when it starts to run them.
+     *   SKIP: The node is a dry-run node. Dry-run nodes are started as scheduled but the system sets the status of the nodes to successful when it starts to run them.
      *
      * @example NORMAL
      *

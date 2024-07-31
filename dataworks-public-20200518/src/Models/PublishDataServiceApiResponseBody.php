@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class PublishDataServiceApiResponseBody extends Model
 {
     /**
-     * @description Indicates whether the API is published.
+     * @description Indicates whether the API was published.
      *
      * @example true
      *
@@ -45,7 +45,7 @@ class PublishDataServiceApiResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 0000-ABCD-EFG****
      *
@@ -54,7 +54,7 @@ class PublishDataServiceApiResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful.
+     * @description Indicates whether the request was successful.
      *
      * @example true
      *

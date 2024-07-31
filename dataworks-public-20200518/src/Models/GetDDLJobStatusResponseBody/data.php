@@ -27,7 +27,7 @@ class data extends Model
     public $nextTaskId;
 
     /**
-     * @description The status of the task
+     * @description The status of the task.
      *
      * @example success
      *
@@ -36,7 +36,7 @@ class data extends Model
     public $status;
 
     /**
-     * @description The ID of the task.
+     * @description The task ID.
      *
      * @example abc
      *

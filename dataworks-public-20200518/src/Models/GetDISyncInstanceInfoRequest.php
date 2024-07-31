@@ -9,10 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetDISyncInstanceInfoRequest extends Model
 {
     /**
-     * @description Indicates whether the request was successful. Valid values:
-     *
-     *   true: The request was successful.
-     *   false: The request failed.
+     * @description *   If you set the TaskType parameter to DI_REALTIME, set the FileId parameter to the ID of the real-time synchronization task that you want to query.
+     *   If you set the TaskType parameter to DI_SOLUTION, set the FileId parameter to the ID of the data synchronization solution that you want to query.
      *
      * This parameter is required.
      * @example 100
@@ -22,10 +20,7 @@ class GetDISyncInstanceInfoRequest extends Model
     public $fileId;
 
     /**
-     * @description The type of the object that you want to query. Valid values:
-     *
-     *   DI_REALTIME: real-time synchronization node
-     *   DI_SOLUTION: data synchronization solution
+     * @description The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
      *
      * This parameter is required.
      * @example 10000
@@ -35,8 +30,10 @@ class GetDISyncInstanceInfoRequest extends Model
     public $projectId;
 
     /**
-     * @description *   If you set the TaskType parameter to DI_REALTIME, set the FileId parameter to the ID of the real-time synchronization node that you want to query.
-     *   If you set the TaskType parameter to DI_SOLUTION, set the FileId parameter to the ID of the data synchronization solution that you want to query.
+     * @description The type of the object that you want to query. Valid values:
+     *
+     *   DI_REALTIME: real-time synchronization task
+     *   DI_SOLUTION: data synchronization solution
      *
      * This parameter is required.
      * @example DI_REALTIME

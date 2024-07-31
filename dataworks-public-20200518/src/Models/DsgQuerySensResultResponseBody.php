@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DsgQuerySensResultResponseBody extends Model
 {
     /**
+     * @description The data returned.
+     *
      * @example 1234
      *
      * @var mixed
@@ -16,6 +18,8 @@ class DsgQuerySensResultResponseBody extends Model
     public $data;
 
     /**
+     * @description The error code. The value is the same as that of ErrorCode.
+     *
      * @example 400
      *
      * @var string
@@ -23,11 +27,15 @@ class DsgQuerySensResultResponseBody extends Model
     public $dynamicErrorCode;
 
     /**
+     * @description The error message. The value is the same as that of ErrorMessage.
+     *
      * @var string
      */
     public $dynamicErrorMessage;
 
     /**
+     * @description The error code.
+     *
      * @example 400
      *
      * @var string
@@ -35,11 +43,15 @@ class DsgQuerySensResultResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The HTTP status code.
+     *
      * @example 400
      *
      * @var int
@@ -47,6 +59,8 @@ class DsgQuerySensResultResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The request ID.
+     *
      * @example 900000001
      *
      * @var string
@@ -54,6 +68,11 @@ class DsgQuerySensResultResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

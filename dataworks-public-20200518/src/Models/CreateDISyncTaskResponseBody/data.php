@@ -18,7 +18,7 @@ class data extends Model
     public $fileId;
 
     /**
-     * @description The error message that is returned if the data synchronization task fails to be created. If the data synchronization task is successfully created, this parameter is not returned. If the data synchronization task fails to be created, an error message in the "Invalid path: Business Flow/xxxx/Data Integration" format is returned.
+     * @description The error message that is returned if the data synchronization task fails to be created. If the data synchronization task is successfully created, this parameter is not returned. If the data synchronization task fails to be created, an error message in the "Invalid path: Workflow/xxxx/Data Integration" format is returned.
      *
      * @example Invalid path: Business Flow/xxxx/Data Integration
      *
@@ -28,7 +28,10 @@ class data extends Model
 
     /**
      * @description The creation status of the data synchronization task. Valid values:
-     * - fail
+     *
+     *   success
+     *   fail
+     *
      * @example success
      *
      * @var string

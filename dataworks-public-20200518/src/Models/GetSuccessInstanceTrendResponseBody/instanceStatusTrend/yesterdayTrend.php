@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class yesterdayTrend extends Model
 {
     /**
+     * @description The number of instances.
+     *
      * @example 10
      *
      * @var int
@@ -16,6 +18,8 @@ class yesterdayTrend extends Model
     public $count;
 
     /**
+     * @description The point in time. Valid values: 00:00 to 23:00.
+     *
      * @example 01:00
      *
      * @var string

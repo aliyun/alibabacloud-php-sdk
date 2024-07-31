@@ -18,7 +18,7 @@ class ResumeInstanceResponseBody extends Model
     public $data;
 
     /**
-     * @description The error code returned.
+     * @description The error code.
      *
      * @example Invalid.Tenant.ConnectionNotExists
      *
@@ -27,7 +27,7 @@ class ResumeInstanceResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message returned.
+     * @description The error message.
      *
      * @example The connection does not exist.
      *
@@ -36,7 +36,7 @@ class ResumeInstanceResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The HTTP status code returned.
+     * @description The HTTP status code.
      *
      * @example 200
      *
@@ -45,7 +45,7 @@ class ResumeInstanceResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The ID of the request. You can use the ID to query logs and troubleshoot issues.
+     * @description The request ID.
      *
      * @example E6F0DBDD-5AD****
      *

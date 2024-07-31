@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class CreateTableRequest extends Model
 {
     /**
-     * @description The comment.
+     * @description The ID of the MaxCompute project. Specify the ID in the odps.{projectName} format.
      *
      * @example odps.test
      *
@@ -20,7 +20,7 @@ class CreateTableRequest extends Model
     public $appGuid;
 
     /**
-     * @description The ID of the logical level.
+     * @description The ID of the associated category. You can call the [GetMetaCategory](https://help.aliyun.com/document_detail/173932.html) operation to query the IDs of all categories that can be associated.
      *
      * @example 101
      *
@@ -29,32 +29,29 @@ class CreateTableRequest extends Model
     public $categoryId;
 
     /**
-     * @description The schema information of the table. You need to enter the schema information of the table if you enable the table schema in MaxCompute.
+     * @description A reserved parameter.
      *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description This parameter is required.
+     * @description The list of fields. A maximum of 1,000 fields are supported.
      *
+     * This parameter is required.
      * @var columns[]
      */
     public $columns;
 
     /**
-     * @description Specifies whether the MaxCompute table is a partitioned table. Valid values: 1 and 0. The value 1 indicates that the MaxCompute table is a partitioned table. The value 0 indicates that the MaxCompute table is not a partitioned table. This parameter is deprecated. Do not use this parameter.
+     * @description The comment.
      *
-     * The Column.N.isPartitionCol parameter is used to specify whether the MaxCompute table is a partitioned table. If the Column.N.isPartitionCol parameter is set to true, the MaxCompute table is a partitioned table.
      * @var string
      */
     public $comment;
 
     /**
-     * @description The environment of the DataWorks workspace. Valid values:
-     *
-     *   0: development environment
-     *   1: production environment
+     * @description The endpoint of MaxCompute.
      *
      * @example odps://abc
      *
@@ -63,7 +60,10 @@ class CreateTableRequest extends Model
     public $endpoint;
 
     /**
-     * @description The globally unique identifier (GUID) of the MaxCompute project. Specify the GUID in the odps.{projectName} format.
+     * @description The environment type of the DataWorks workspace. Valid values:
+     *
+     *   0: development environment
+     *   1: production environment
      *
      * @example 1
      *
@@ -72,7 +72,12 @@ class CreateTableRequest extends Model
     public $envType;
 
     /**
-     * @description The storage location of the external table.
+     * @description The storage type of the external table. Valid values:
+     *
+     *   0: Object Storage Service (OSS)
+     *   1: Tablestore
+     *   2: Volume
+     *   3: MySQL
      *
      * @example 0
      *
@@ -81,7 +86,7 @@ class CreateTableRequest extends Model
     public $externalTableType;
 
     /**
-     * @description A reserved parameter.
+     * @description Specifies whether to create a MaxCompute partitioned table. Valid values: 1 and 0. The value 1 indicates a partitioned table. The value 0 indicates a non-partitioned table. This parameter is deprecated. Do not use this parameter. The Column.N.isPartitionCol parameter is used to specify whether to create a MaxCompute partitioned table. If the Column.N.isPartitionCol parameter is set to true, a MaxCompute partitioned table is created.
      *
      * @example 0
      *
@@ -90,11 +95,10 @@ class CreateTableRequest extends Model
     public $hasPart;
 
     /**
-     * @description Specifies whether the table or workspace is visible:
+     * @description Specifies whether to create a view or table. Valid values:
      *
-     *   0: Both the table and workspace are not visible.
-     *   1: The table and workspace are visible.
-     *   2: Only the workspace is visible.
+     *   0: Create a table.
+     *   1: Create a view.
      *
      * @example 0
      *
@@ -103,7 +107,7 @@ class CreateTableRequest extends Model
     public $isView;
 
     /**
-     * @description The ID of the associated category. You can call the [GetMetaCategory](https://help.aliyun.com/document_detail/173932.html) operation to query the ID of the category that can be associated.
+     * @description The lifecycle of the table. Unit: days. By default, this parameter is left empty, which indicates that the table is permanently stored.
      *
      * @example 10
      *
@@ -112,7 +116,7 @@ class CreateTableRequest extends Model
     public $lifeCycle;
 
     /**
-     * @description The ID of the DataWorks workspace.
+     * @description The storage location of the external table.
      *
      * @example location
      *
@@ -121,7 +125,7 @@ class CreateTableRequest extends Model
     public $location;
 
     /**
-     * @description The ID of the physical level.
+     * @description The ID of the logical level.
      *
      * @example 101
      *
@@ -135,12 +139,7 @@ class CreateTableRequest extends Model
     public $ownerId;
 
     /**
-     * @description The storage type of the external table. Valid values:
-     *
-     *   0: Object Storage Service (OSS)
-     *   1: Tablestore
-     *   2: Volume
-     *   3: MySQL
+     * @description The ID of the physical level.
      *
      * @example 101
      *
@@ -149,7 +148,7 @@ class CreateTableRequest extends Model
     public $physicsLevelId;
 
     /**
-     * @description The name of the table.
+     * @description The DataWorks workspace ID.
      *
      * @example 23
      *
@@ -158,7 +157,7 @@ class CreateTableRequest extends Model
     public $projectId;
 
     /**
-     * @description The display name of the field.
+     * @description The schema information of the table. You need to enter the schema information of the table if you enable the table schema in MaxCompute.
      *
      * @example default
      *
@@ -167,7 +166,7 @@ class CreateTableRequest extends Model
     public $schema;
 
     /**
-     * @description The endpoint of MaxCompute.
+     * @description The name of the table.
      *
      * This parameter is required.
      * @example tableName1
@@ -177,12 +176,18 @@ class CreateTableRequest extends Model
     public $tableName;
 
     /**
+     * @description The list of themes.
+     *
      * @var themes[]
      */
     public $themes;
 
     /**
-     * @description The lifecycle of the table. Unit: days. By default, this parameter is left empty, which indicates that the table is permanently stored.
+     * @description Specifies whether the table or workspace is visible. Valid values:
+     *
+     *   0: Both the table and workspace are invisible.
+     *   1: Both the table and workspace are visible.
+     *   2: Only the workspace is visible.
      *
      * @example 1
      *

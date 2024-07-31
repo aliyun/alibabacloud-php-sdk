@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteDIJobRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The task ID.
      *
+     * This parameter is required.
      * @example 11126
      *
      * @var int

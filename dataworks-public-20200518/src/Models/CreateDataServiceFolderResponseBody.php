@@ -18,7 +18,7 @@ class CreateDataServiceFolderResponseBody extends Model
     public $folderId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 0000-ABCD-E****
      *

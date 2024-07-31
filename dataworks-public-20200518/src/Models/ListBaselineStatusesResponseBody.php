@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListBaselineStatusesResponseBody extends Model
 {
     /**
-     * @description The list of baseline instances returned.
+     * @description The data returned.
      *
      * @var data
      */

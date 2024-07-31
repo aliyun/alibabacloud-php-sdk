@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class dataSources extends Model
 {
     /**
-     * @description The ID of the compute engine to which the data source is bound.
+     * @description The ID of the compute engine that is added as the data source.
      *
      * @example 123
      *
@@ -62,7 +62,7 @@ class dataSources extends Model
     public $dataSourceType;
 
     /**
-     * @description Indicates whether the compute engine to which the data source is bound is the default compute engine. Valid values:
+     * @description Indicates whether the compute engine that is added as the data source is the default compute engine. Valid values:
      *
      *   true: The compute engine is the default compute engine.
      *   false: The compute engine is not the default compute engine.
@@ -83,7 +83,7 @@ class dataSources extends Model
     public $description;
 
     /**
-     * @description The environment to which the data source belongs. Valid values:
+     * @description The environment in which the data source resides. Valid values:
      *
      *   0: development environment
      *   1: production environment
@@ -113,7 +113,7 @@ class dataSources extends Model
     public $gmtModified;
 
     /**
-     * @description The ID of the data source.
+     * @description The data source ID.
      *
      * @example 1
      *
@@ -182,7 +182,7 @@ class dataSources extends Model
     public $status;
 
     /**
-     * @description The subtype of the data source. This parameter is returned only if the value of the DataSourceType parameter is rds.
+     * @description The subtype of the data source. This parameter takes effect only when the DataSourceType parameter is set to rds.
      *
      * If the value of the DataSourceType parameter is rds, the value of this parameter can be mysql, sqlserver, or postgresql.
      * @example mysql

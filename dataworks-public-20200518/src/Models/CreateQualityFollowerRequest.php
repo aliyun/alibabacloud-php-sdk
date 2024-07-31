@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateQualityFollowerRequest extends Model
 {
     /**
-     * @description The notification method. Valid values: 1, 2, 4, and 5. 1 indicates that the notification is sent by email. 2 indicates that the notification is sent by email and text message. 4 indicates that the notification is sent by a DingTalk chatbot. 5 indicates that the notification is sent by a DingTalk chatbot to all members in a DingTalk group.
+     * @description The notification method. Valid values: 1, 2, 4, 5, 6, 7, 8, and 9. The value 1 indicates that the notification is sent by email. The value 2 indicates that the notification is sent by email and text message. The value 4 indicates that the notification is sent by a DingTalk chatbot. The value 5 indicates that the notification is sent by a DingTalk chatbot to all members in a DingTalk group. The value 6 indicates that the notification is sent by Lark. The value 7 indicates that the notification is sent by WeCom. The value 8 indicates that the notification is sent by webhook. The value 9 indicates that the notification is sent by phone call.
      *
      * This parameter is required.
      * @example 1
@@ -29,7 +29,7 @@ class CreateQualityFollowerRequest extends Model
     public $entityId;
 
     /**
-     * @description The user ID of the subscriber.
+     * @description The account ID of the subscriber.
      *
      * This parameter is required.
      * @example 123
@@ -39,12 +39,16 @@ class CreateQualityFollowerRequest extends Model
     public $follower;
 
     /**
+     * @description The DataWorks workspace ID. You can log on to the DataWorks console to query the ID.
+     *
+     * @example 123
+     *
      * @var int
      */
     public $projectId;
 
     /**
-     * @description The name of the computing engine instance or data source.
+     * @description The name of the compute engine or data source.
      *
      * This parameter is required.
      * @example autotest

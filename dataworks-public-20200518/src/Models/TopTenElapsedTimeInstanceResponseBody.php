@@ -17,7 +17,7 @@ class TopTenElapsedTimeInstanceResponseBody extends Model
     public $instanceConsumeTimeRank;
 
     /**
-     * @description The ID of the request. You can troubleshoot errors based on the ID.
+     * @description The request ID.
      *
      * @example 6347364dadsfadf****
      *

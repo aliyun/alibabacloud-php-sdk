@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ScanSensitiveDataResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 0000-ABCD-EFG****
      *
@@ -18,12 +18,10 @@ class ScanSensitiveDataResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The result of the check.
+     * @description The check result. sensDatas indicates the rules that are used to check the sensitive data. sensDatas includes the following parameters:
      *
-     * sensDatas indicates the rules that are used to check the sensitive data. sensDatas includes the following parameters:
-     *
-     *   hitCount: the number of times that the sensitive data hits the rule
-     *   ruleName: the name of the rule
+     *   hitCount: the number of times that the sensitive data hits the rule.
+     *   ruleName: the name of the rule.
      *
      * @var mixed[]
      */

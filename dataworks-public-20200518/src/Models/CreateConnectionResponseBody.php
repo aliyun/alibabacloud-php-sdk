@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateConnectionResponseBody extends Model
 {
     /**
-     * @description The ID of the data source.
+     * @description The data source ID.
      *
      * @example 123
      *
@@ -27,7 +27,7 @@ class CreateConnectionResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 0bc141151593763****
      *
@@ -36,7 +36,7 @@ class CreateConnectionResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful. A value of true indicates that the request is successful. A value of false indicates that the request has failed.
+     * @description Indicates whether the request was successful.
      *
      * @example true
      *

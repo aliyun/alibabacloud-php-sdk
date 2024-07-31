@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetMetaTableLineageRequest extends Model
 {
     /**
-     * @description The name of the metatable.
+     * @description The ID of the E-MapReduce (EMR) cluster. Configure this parameter only if you want to query the lineage of an EMR table.
      *
      * @example abc
      *
@@ -18,7 +18,7 @@ class GetMetaTableLineageRequest extends Model
     public $clusterId;
 
     /**
-     * @description The error message.
+     * @description The type of the data source. Valid values: odps and emr.
      *
      * @example emr
      *
@@ -27,7 +27,7 @@ class GetMetaTableLineageRequest extends Model
     public $dataSourceType;
 
     /**
-     * @description The type of the data source. Valid values: odps and emr.
+     * @description The name of the database.
      *
      * @example abc
      *
@@ -36,7 +36,7 @@ class GetMetaTableLineageRequest extends Model
     public $databaseName;
 
     /**
-     * @description The number of entries to return on each page. Default value: 10. Maximum value: 100.
+     * @description Specifies the ancestor or descendant lineage that you want to query for a field. Valid values: up and down. The value up indicates the ancestor lineage. The value down indicates the descendant lineage.
      *
      * This parameter is required.
      * @example up
@@ -46,7 +46,7 @@ class GetMetaTableLineageRequest extends Model
     public $direction;
 
     /**
-     * @description The ID of the E-MapReduce (EMR) cluster. Set this parameter only when you query data in an EMR compute engine instance.
+     * @description The logic of paging. Configure this parameter based on the value of the response parameter NextPrimaryKey when the value of the response parameter HasNext is true in the previous request.
      *
      * @example odps.engine_name.table_name1
      *
@@ -55,7 +55,7 @@ class GetMetaTableLineageRequest extends Model
     public $nextPrimaryKey;
 
     /**
-     * @description The name of the metadatabase.
+     * @description The number of entries per page. Default value: 10. Maximum value: 100.
      *
      * @example 10
      *
@@ -64,7 +64,7 @@ class GetMetaTableLineageRequest extends Model
     public $pageSize;
 
     /**
-     * @description The logic of paging. Set this parameter based on the value of the response parameter NextPrimaryKey when the value of the response parameter HasNext is true in the last query.
+     * @description The unique identifier of the table.
      *
      * @example odps.engine_name.table_name
      *
@@ -73,7 +73,7 @@ class GetMetaTableLineageRequest extends Model
     public $tableGuid;
 
     /**
-     * @description The HTTP status code.
+     * @description The name of the table.
      *
      * @example abc
      *

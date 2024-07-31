@@ -18,7 +18,7 @@ class DeleteTableThemeRequest extends Model
     public $projectId;
 
     /**
-     * @description The ID of the table folder.
+     * @description The ID of the theme.
      *
      * This parameter is required.
      * @example 123

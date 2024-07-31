@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListQualityResultsByEntityRequest extends Model
 {
     /**
-     * @description The name of the compute engine instance or data source. You can obtain the name from data source configurations.
+     * @description The end of the time range to query. Specify the time in the yyyy-MM-dd HH:mm:ss format.
      *
      * This parameter is required.
      * @example 2020-09-21 00:00:00
@@ -19,7 +19,7 @@ class ListQualityResultsByEntityRequest extends Model
     public $endDate;
 
     /**
-     * @description The number of entries to return on each page. Default value: 10. Maximum value: 100.
+     * @description The ID of the partition filter expression. You can call the [GetQualityEntity](https://help.aliyun.com/document_detail/174003.html) operation to query the ID of the partition filter expression.
      *
      * This parameter is required.
      * @example 152322134
@@ -29,7 +29,7 @@ class ListQualityResultsByEntityRequest extends Model
     public $entityId;
 
     /**
-     * @description The error message returned.
+     * @description The page number.
      *
      * This parameter is required.
      * @example 1
@@ -39,7 +39,7 @@ class ListQualityResultsByEntityRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The HTTP status code returned.
+     * @description The number of entries per page. Default value: 10. Maximum value: 20.
      *
      * This parameter is required.
      * @example 10
@@ -49,12 +49,16 @@ class ListQualityResultsByEntityRequest extends Model
     public $pageSize;
 
     /**
+     * @description The DataWorks workspace ID.
+     *
+     * @example 12345
+     *
      * @var int
      */
     public $projectId;
 
     /**
-     * @description The ID of the request.
+     * @description The name of the compute engine or data source. You can obtain the name from data source configurations.
      *
      * This parameter is required.
      * @example autotest
@@ -64,7 +68,7 @@ class ListQualityResultsByEntityRequest extends Model
     public $projectName;
 
     /**
-     * @description The number of the page to return.
+     * @description The beginning of the time range to query. Specify the time in the yyyy-MM-dd HH:mm:ss format.
      *
      * This parameter is required.
      * @example 2020-09-20 00:00:00

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateNodeOwnerRequest extends Model
 {
     /**
-     * @description The ID of the node. You can call the [ListNodes](https://help.aliyun.com/document_detail/173979.html) operation to query the ID.
+     * @description The node ID. You can call the [ListNodes](https://help.aliyun.com/document_detail/173979.html) operation to query the node ID.
      *
      * This parameter is required.
      * @example 1234
@@ -19,7 +19,10 @@ class UpdateNodeOwnerRequest extends Model
     public $nodeId;
 
     /**
-     * @description The environment where the node runs. Valid values: DEV and PROD. The value DEV indicates the development environment. The value PROD indicates the production environment.
+     * @description The environment in which the node runs. Valid values: DEV and PROD. The value DEV indicates the development environment, and the value PROD indicates the production environment.
+     *
+     *   PROD
+     *   DEV
      *
      * This parameter is required.
      * @example PROD
@@ -29,7 +32,7 @@ class UpdateNodeOwnerRequest extends Model
     public $projectEnv;
 
     /**
-     * @description The Alibaba Cloud account ID of the node owner. You can log on to the DataWorks console and move the pointer over the profile picture in the upper-right corner to view the ID.
+     * @description The ID of the Alibaba Cloud account used by the node owner. You can log on to the DataWorks console and move the pointer over the profile picture in the upper-right corner to view the ID.
      *
      * This parameter is required.
      * @example 19337906836551

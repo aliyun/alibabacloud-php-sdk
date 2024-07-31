@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetDIAlarmRuleResponseBody extends Model
 {
     /**
+     * @description The details of the alert rule.
+     *
      * @var DIAlarmRule
      */
     public $DIAlarmRule;
 
     /**
+     * @description The request ID.
+     *
      * @example 4A807D85-AC9F-55F7-A58F-998D5249CAD9
      *
      * @var string

@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The list of APIs that you are authorized to access.
+     * @description The APIs that you are authorized to access.
      *
      * @var apiAuthorizedList[]
      */
     public $apiAuthorizedList;
 
     /**
-     * @description The page number of the returned page. The value of this parameter is the same as that of the PageNumber parameter in the request.
+     * @description The page number. The value of this parameter is the same as that of the PageNumber parameter in the request.
      *
      * @example 1
      *
@@ -26,7 +26,7 @@ class data extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page. Default value: 10. Maximum value: 100.
+     * @description The number of entries per page. Default value: 10. Maximum value: 100.
      *
      * @example 10
      *
@@ -35,7 +35,7 @@ class data extends Model
     public $pageSize;
 
     /**
-     * @description The total number of returned entries.
+     * @description The total number of entries returned.
      *
      * @example 100
      *

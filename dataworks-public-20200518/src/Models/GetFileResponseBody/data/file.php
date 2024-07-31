@@ -11,7 +11,7 @@ class file extends Model
     /**
      * @description The advanced configurations of the node.
      *
-     * This parameter is configured in the JSON format.
+     * For information about the advanced parameters of each type of EMR node, see [Develop EMR tasks](https://help.aliyun.com/document_detail/473077.html).
      * @example {"queue":"default","SPARK_CONF":"--conf spark.driver.memory=2g"}
      *
      * @var string
@@ -133,6 +133,8 @@ class file extends Model
     public $fileFolderId;
 
     /**
+     * @example 100000001
+     *
      * @var int
      */
     public $fileId;

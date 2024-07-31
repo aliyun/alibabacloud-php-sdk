@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class baselines extends Model
 {
     /**
+     * @description Indicates whether the alerting feature is enabled. Valid values: true and false.
+     *
      * @example true
      *
      * @var bool
@@ -17,6 +19,8 @@ class baselines extends Model
     public $alertEnabled;
 
     /**
+     * @description The alert margin threshold for the baseline instance. Unit: minutes.
+     *
      * @example 30
      *
      * @var int
@@ -24,6 +28,8 @@ class baselines extends Model
     public $alertMarginThreshold;
 
     /**
+     * @description The baseline ID.
+     *
      * @example 1234
      *
      * @var int
@@ -31,6 +37,8 @@ class baselines extends Model
     public $baselineId;
 
     /**
+     * @description The name of the baseline.
+     *
      * @example BaselineName
      *
      * @var string
@@ -38,6 +46,8 @@ class baselines extends Model
     public $baselineName;
 
     /**
+     * @description The type of the baseline. Valid values: DAILY and HOURLY.
+     *
      * @example DAILY
      *
      * @var string
@@ -45,6 +55,8 @@ class baselines extends Model
     public $baselineType;
 
     /**
+     * @description Indicates whether the baseline is enabled. Valid values: true and false.
+     *
      * @example true
      *
      * @var bool
@@ -52,11 +64,15 @@ class baselines extends Model
     public $enabled;
 
     /**
+     * @description The settings of the committed completion time of the baseline.
+     *
      * @var overTimeSettings[]
      */
     public $overTimeSettings;
 
     /**
+     * @description The ID of the Alibaba Cloud account used by the baseline owner. Multiple IDs can be specified. The IDs are separated by commas (,).
+     *
      * @example 952795****
      *
      * @var string
@@ -64,6 +80,8 @@ class baselines extends Model
     public $owner;
 
     /**
+     * @description The priority of the baseline. Valid values: {1,2,5,7,8}.
+     *
      * @example 1
      *
      * @var int
@@ -71,6 +89,8 @@ class baselines extends Model
     public $priority;
 
     /**
+     * @description The ID of the workspace to which the baseline belongs.
+     *
      * @example 9527
      *
      * @var int

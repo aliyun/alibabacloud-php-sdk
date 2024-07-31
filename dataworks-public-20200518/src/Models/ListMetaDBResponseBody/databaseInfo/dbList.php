@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class dbList extends Model
 {
     /**
-     * @description The timestamp at which the metadatabase was updated.
+     * @description The timestamp at which the metadatabase was created. You can convert the timestamp to the date based on the time zone that you use.
      *
      * @example 1388776825
      *
@@ -18,6 +18,8 @@ class dbList extends Model
     public $createTimeStamp;
 
     /**
+     * @description The URL of the metadatabase.
+     *
      * @example hdfs://localhost:777/user/hadoop/test.txt
      *
      * @var string
@@ -25,7 +27,7 @@ class dbList extends Model
     public $location;
 
     /**
-     * @description The ID of the metadatabase owner.
+     * @description The timestamp at which the metadatabase was updated.
      *
      * @example 1388776837
      *
@@ -34,7 +36,7 @@ class dbList extends Model
     public $modifiedTimeStamp;
 
     /**
-     * @description The URL of the metadatabase.
+     * @description The name of the metadatabase.
      *
      * @example name
      *
@@ -43,6 +45,8 @@ class dbList extends Model
     public $name;
 
     /**
+     * @description The owner ID.
+     *
      * @example 1232
      *
      * @var string
@@ -50,7 +54,7 @@ class dbList extends Model
     public $ownerId;
 
     /**
-     * @description The universally unique identifier (UUID) of the metadatabase.
+     * @description The type of the metadatabase.
      *
      * @example HIVE
      *
@@ -59,7 +63,7 @@ class dbList extends Model
     public $type;
 
     /**
-     * @description The name of the metadatabase.
+     * @description The UUID of the metadatabase.
      *
      * @example 32342
      *

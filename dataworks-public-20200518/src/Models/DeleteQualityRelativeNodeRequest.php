@@ -9,7 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteQualityRelativeNodeRequest extends Model
 {
     /**
-     * @description The environment in which the compute engine instance runs. Valid values: DEV and PRD. The value DEV indicates the development environment, and the value PRD indicates the production environment.
+     * @description The type of the compute engine or data source. Valid values:
+     *
+     *   cdh
+     *   analyticdb_for_mysql
+     *   odps
+     *   emr
+     *   hadoop
+     *   holodb
+     *   hybriddb_for_postgresql
      *
      * This parameter is required.
      * @example ODPS

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The sensitive field type.
+     *
      * @example phone
      *
      * @var string
@@ -17,6 +19,8 @@ class data extends Model
     public $dataType;
 
     /**
+     * @description The supported data masking methods and parameter descriptions.
+     *
      * @var DataDesensPlanTemplateValue[][]
      */
     public $desensPlanTemplate;

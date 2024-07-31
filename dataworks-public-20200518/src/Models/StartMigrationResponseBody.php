@@ -21,7 +21,7 @@ class StartMigrationResponseBody extends Model
     public $data;
 
     /**
-     * @description The error code returned.
+     * @description The error code.
      *
      * @example 110001123445
      *
@@ -30,7 +30,7 @@ class StartMigrationResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message returned.
+     * @description The error message.
      *
      * @example test error msg
      *
@@ -39,7 +39,7 @@ class StartMigrationResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The HTTP status code returned.
+     * @description The HTTP status code.
      *
      * @example 200
      *
@@ -48,7 +48,7 @@ class StartMigrationResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example FSDFSDF-WERWER-XVCX-DSFSDF
      *

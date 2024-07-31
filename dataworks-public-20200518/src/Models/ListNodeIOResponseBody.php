@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListNodeIOResponseBody extends Model
 {
     /**
+     * @description The node information.
+     *
      * @var data[]
      */
     public $data;
 
     /**
+     * @description The error code.
+     *
      * @example Invalid.Tenant.ProjectNotExists
      *
      * @var string
@@ -22,6 +26,8 @@ class ListNodeIOResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message.
+     *
      * @example The project does not exist.
      *
      * @var string
@@ -29,6 +35,8 @@ class ListNodeIOResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -36,6 +44,8 @@ class ListNodeIOResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The request ID.
+     *
      * @example E6F0DBDD-5AD****
      *
      * @var string
@@ -43,6 +53,8 @@ class ListNodeIOResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
      * @example true
      *
      * @var bool

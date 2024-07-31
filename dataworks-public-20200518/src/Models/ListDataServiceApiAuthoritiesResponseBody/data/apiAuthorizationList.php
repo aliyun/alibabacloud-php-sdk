@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class apiAuthorizationList extends Model
 {
     /**
-     * @description The ID of the API.
+     * @description The API ID.
      *
      * @example 10002
      *
@@ -71,7 +71,7 @@ class apiAuthorizationList extends Model
     public $creatorId;
 
     /**
-     * @description The ID of the group.
+     * @description The group ID.
      *
      * @example ab123
      *
@@ -80,7 +80,7 @@ class apiAuthorizationList extends Model
     public $groupId;
 
     /**
-     * @description The time when the API was last updated.
+     * @description The time when the API was last modified.
      *
      * @example 2020-06-23T00:21:01+0800
      *
@@ -89,7 +89,7 @@ class apiAuthorizationList extends Model
     public $modifiedTime;
 
     /**
-     * @description The ID of the workspace.
+     * @description The workspace ID.
      *
      * @example 10000
      *
@@ -98,7 +98,7 @@ class apiAuthorizationList extends Model
     public $projectId;
 
     /**
-     * @description The ID of the tenant.
+     * @description The tenant ID.
      *
      * @example 10001
      *

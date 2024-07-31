@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class nodes extends Model
 {
     /**
-     * @description The description of the inner node.
+     * @description The baseline ID.
      *
      * @example 1234
      *
@@ -18,7 +18,7 @@ class nodes extends Model
     public $baselineId;
 
     /**
-     * @description The table and partition filter expression in Data Quality that are associated with the inner node.
+     * @description The workflow ID.
      *
      * @example 123
      *
@@ -27,7 +27,7 @@ class nodes extends Model
     public $businessId;
 
     /**
-     * @description The values of other parameters related to the inner node.
+     * @description The connection string.
      *
      * @example odps_first
      *
@@ -36,7 +36,7 @@ class nodes extends Model
     public $connection;
 
     /**
-     * @description The ID of the inner node.
+     * @description The CRON expression.
      *
      * @example 00 00 00 * * ?
      *
@@ -45,7 +45,7 @@ class nodes extends Model
     public $cronExpress;
 
     /**
-     * @description The name of the inner node.
+     * @description The description of the inner node.
      *
      * @example test
      *
@@ -54,7 +54,7 @@ class nodes extends Model
     public $description;
 
     /**
-     * @description The cron expression.
+     * @description The table and partition filter expression in Data Quality that are associated with the inner node.
      *
      * @example [{"projectName":"ztjy_dim","tableName":"dim_user_agent_manage_area_a","partition":"ds\\u003d$[yyyy-mm-dd-1]"}]
      *
@@ -63,7 +63,7 @@ class nodes extends Model
     public $dqcDescription;
 
     /**
-     * @description The ID of the baseline with which the inner node is associated.
+     * @description Indicates whether the inner node is associated with a monitoring rule in Data Quality. Valid values: 0 and 1. The value 0 indicates that the inner node is associated with a monitoring rule in Data Quality. The value 1 indicates that the inner node is not associated with a monitoring rule in Data Quality.
      *
      * @example 1
      *
@@ -72,6 +72,8 @@ class nodes extends Model
     public $dqcType;
 
     /**
+     * @description The inner node ID.
+     *
      * @example 12
      *
      * @var int
@@ -79,7 +81,7 @@ class nodes extends Model
     public $nodeId;
 
     /**
-     * @description The name of the resource group.
+     * @description The name of the inner node.
      *
      * @example liux_test_n****
      *
@@ -88,7 +90,7 @@ class nodes extends Model
     public $nodeName;
 
     /**
-     * @description The connection string.
+     * @description The owner ID.
      *
      * @example 1933****36551
      *
@@ -97,7 +99,7 @@ class nodes extends Model
     public $ownerId;
 
     /**
-     * @description Indicates whether the node is associated with Data Quality. Valid values: 0 and 1. The value 0 indicates that the node is associated with Data Quality. The value 1 indicates that the node is not associated with Data Quality.
+     * @description The additional parameters.
      *
      * @example a=b
      *
@@ -106,7 +108,7 @@ class nodes extends Model
     public $paramValues;
 
     /**
-     * @description The ID of the owner of the inner node.
+     * @description The priority of the inner node. Valid values: 1, 3, 5, 7, and 8.
      *
      * @example 1
      *
@@ -115,7 +117,7 @@ class nodes extends Model
     public $priority;
 
     /**
-     * @description The priority of the inner node. Valid values: 1, 3, 5, 7, and 8.
+     * @description The type of the inner node.
      *
      * @example ODPS_SQL
      *
@@ -124,7 +126,7 @@ class nodes extends Model
     public $programType;
 
     /**
-     * @description The type of the inner node.
+     * @description The workspace ID.
      *
      * @example 123
      *
@@ -133,7 +135,7 @@ class nodes extends Model
     public $projectId;
 
     /**
-     * @description Indicates whether the inner node can be rerun.
+     * @description The interval at which the inner node is rerun after the inner node fails to run.
      *
      * @example 60
      *
@@ -142,7 +144,7 @@ class nodes extends Model
     public $repeatInterval;
 
     /**
-     * @description The ID of the workspace.
+     * @description Indicates whether the inner node can be rerun.
      *
      * @example true
      *
@@ -151,14 +153,19 @@ class nodes extends Model
     public $repeatability;
 
     /**
-     * @description The ID of the workflow.
+     * @description The name of the resource group.
      *
      * @var string
      */
     public $resGroupName;
 
     /**
-     * @description The interval at which the inner node is rerun after the inner node fails to be run.
+     * @description The scheduling type of the inner node. Valid values:
+     *
+     *   NORMAL: The inner node is an auto triggered node.
+     *   MANUAL: The inner node is a manually triggered node. The scheduling system does not run the node on a regular basis.
+     *   PAUSE: The inner node is a paused node.
+     *   SKIP: The inner node is a dry-run node. Dry-run nodes are started as scheduled, but the scheduling system sets the status of the nodes to successful when it starts to run them.
      *
      * @example NORMAL
      *

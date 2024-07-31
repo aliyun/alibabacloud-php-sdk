@@ -27,7 +27,7 @@ class topics extends Model
     public $nodeId;
 
     /**
-     * @description The ID of the event.
+     * @description The event ID.
      *
      * @example 1234
      *

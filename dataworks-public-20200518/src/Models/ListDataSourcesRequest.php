@@ -9,55 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ListDataSourcesRequest extends Model
 {
     /**
-     * @description The status of the data source. Valid values:
-     *
-     *   ENABLED: The data source is accessible.
-     *   DISABLED: The data source is inaccessible.
-     *
-     * @example rds
-     *
-     * @var string
-     */
-    public $dataSourceType;
-
-    /**
-     * @description The number of the page to return. The value of this parameter must be an integer greater than or equal to 1.
-     *
-     * @example 1
-     *
-     * @var int
-     */
-    public $envType;
-
-    /**
-     * @description The subtype of the data source. This parameter takes effect only if the DataSourceType parameter is set to rds.
-     *
-     * If the DataSourceType parameter is set to rds, this parameter can be set to mysql, sqlserver, or postgresql.
-     * @example test
-     *
-     * @var string
-     */
-    public $name;
-
-    /**
-     * @description The ID of the request.
-     *
-     * @example 1
-     *
-     * @var int
-     */
-    public $pageNumber;
-
-    /**
-     * @description The HTTP status code returned.
-     *
-     * @example 10
-     *
-     * @var int
-     */
-    public $pageSize;
-
-    /**
      * @description The type of the data source. Valid values:
      *
      *   odps
@@ -74,6 +25,51 @@ class ListDataSourcesRequest extends Model
      *   hybriddb_for_postgresql
      *   holo
      *
+     * @example rds
+     *
+     * @var string
+     */
+    public $dataSourceType;
+
+    /**
+     * @description The environment in which the data source is used. Valid values: 0 and 1. The value 0 indicates development environment. The value 1 indicates production environment.
+     *
+     * @example 1
+     *
+     * @var int
+     */
+    public $envType;
+
+    /**
+     * @description The name of the data source that you want to query.
+     *
+     * @example test
+     *
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @description The page number. Pages start from page 1.
+     *
+     * @example 1
+     *
+     * @var int
+     */
+    public $pageNumber;
+
+    /**
+     * @description The number of entries per page. Default value: 10. Maximum value: 100.
+     *
+     * @example 10
+     *
+     * @var int
+     */
+    public $pageSize;
+
+    /**
+     * @description The ID of the DataWorks workspace to which the data sources belong. You can call the [ListProjects](https://help.aliyun.com/document_detail/2780068.html) operation to query the ID.
+     *
      * This parameter is required.
      * @example 1
      *
@@ -82,7 +78,10 @@ class ListDataSourcesRequest extends Model
     public $projectId;
 
     /**
-     * @description The number of entries to return on each page. Default value: 10. Maximum value: 100.
+     * @description The status of the data source. Valid values:
+     *
+     *   ENABLED
+     *   DISABLED
      *
      * @example ENABLED
      *
@@ -91,8 +90,9 @@ class ListDataSourcesRequest extends Model
     public $status;
 
     /**
-     * @description The environment in which the data source is used. Valid values: 0 and 1. The value 0 indicates the development environment. The value 1 indicates the production environment.
+     * @description The subtype of the data source. This parameter takes effect only when the DataSourceType parameter is set to rds.
      *
+     * If the value of the DataSourceType parameter is rds, the value of this parameter can be mysql, sqlserver, or postgresql.
      * @example mysql
      *
      * @var string

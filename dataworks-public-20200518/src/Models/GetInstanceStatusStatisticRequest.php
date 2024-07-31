@@ -26,6 +26,14 @@ class GetInstanceStatusStatisticRequest extends Model
      *   SUPPLY_DATA: DAG for a data backfill instance
      *   BUSINESS_PROCESS_DAG: DAG for a one-time workflow
      *
+     * <!---->
+     *
+     *   DAILY
+     *   MANUAL
+     *   SMOKE_TEST
+     *   SUPPLY_DATA
+     *   BUSINESS_PROCESS_DAG
+     *
      * @example MANUAL
      *
      * @var string
@@ -33,7 +41,7 @@ class GetInstanceStatusStatisticRequest extends Model
     public $dagType;
 
     /**
-     * @description The environment of the workspace. Valid values: PROD and DEV. The value PROD indicates the production environment. The value DEV indicates the development environment.
+     * @description The runtime environment. Valid values: PROD and DEV.
      *
      * This parameter is required.
      * @example PROD
@@ -43,7 +51,7 @@ class GetInstanceStatusStatisticRequest extends Model
     public $projectEnv;
 
     /**
-     * @description The ID of the DataWorks workspace. You can log on to the DataWorks console and go to the Workspace Management page to obtain the workspace ID.
+     * @description The DataWorks workspace ID. You can log on to the DataWorks console and go to the Workspace page to query the ID.
      *
      * This parameter is required.
      * @example 1234
@@ -53,6 +61,16 @@ class GetInstanceStatusStatisticRequest extends Model
     public $projectId;
 
     /**
+     * @description The scheduling cycle. Valid values:
+     *
+     *   MINUTE
+     *   HOUR
+     *   DAY
+     *   WEEK
+     *   MONTH
+     *
+     * @example DAY
+     *
      * @var string
      */
     public $schedulerPeriod;

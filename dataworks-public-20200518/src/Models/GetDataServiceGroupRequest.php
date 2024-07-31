@@ -19,7 +19,7 @@ class GetDataServiceGroupRequest extends Model
     public $groupId;
 
     /**
-     * @description The ID of the workspace.
+     * @description The workspace ID.
      *
      * This parameter is required.
      * @example 10001
@@ -29,7 +29,7 @@ class GetDataServiceGroupRequest extends Model
     public $projectId;
 
     /**
-     * @description The ID of the tenant.
+     * @description The tenant ID. This parameter is deprecated.
      *
      * @example 10002
      *

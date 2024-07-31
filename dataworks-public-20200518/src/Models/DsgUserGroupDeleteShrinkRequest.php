@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DsgUserGroupDeleteShrinkRequest extends Model
 {
     /**
+     * @description The information about the user group.
+     *
      * @var string
      */
     public $idsShrink;

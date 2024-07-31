@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class ListExtensionsResponseBody extends Model
 {
     /**
-     * @description The page number of the returned page.
+     * @description The pagination information.
      *
      * @var pagingInfo
      */
     public $pagingInfo;
 
     /**
-     * @description The extensions returned on pages.
+     * @description Id of the request
      *
      * @example 0000-ABCD-EFG
      *

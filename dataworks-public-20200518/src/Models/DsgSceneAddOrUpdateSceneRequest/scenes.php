@@ -10,11 +10,18 @@ use AlibabaCloud\Tea\Model;
 class scenes extends Model
 {
     /**
+     * @description The description.
+     *
      * @var string
      */
     public $desc;
 
     /**
+     * @description The ID of the level-2 data masking scenario.
+     *
+     *   If you do not configure this parameter, the current operation is to add a level-2 data masking scenario.
+     *   If you configure this parameter, the current operation is to modify a level-2 data masking scenario. You can call the [DsgSceneQuerySceneListByName](https://help.aliyun.com/document_detail/2786322.html) operation to query the ID of the level-2 data masking scenario.
+     *
      * @example 123
      *
      * @var string
@@ -22,13 +29,21 @@ class scenes extends Model
     public $id;
 
     /**
+     * @description The information about the compute engine for which the data masking scenario takes effect.
+     *
      * @var projects[]
      */
     public $projects;
 
     /**
-     * @description This parameter is required.
+     * @description The code of the level-1 data masking scenario to which the level-2 data masking scenario belongs. Valid values:
      *
+     *   dataworks_display_desense_code: masking of displayed data in DataStudio and Data Map
+     *   maxcompute_desense_code: data masking at the MaxCompute compute engine layer
+     *   maxcompute_new_desense_code: data masking at the MaxCompute compute engine layer (new)
+     *   dataworks_analysis_desense_code: masking of displayed data in DataAnalysis
+     *
+     * This parameter is required.
      * @example dataworks_display_desense_code
      *
      * @var string
@@ -36,8 +51,9 @@ class scenes extends Model
     public $sceneCode;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the level-2 data masking scenario.
      *
+     * This parameter is required.
      * @example dev_scene
      *
      * @var string
@@ -45,6 +61,8 @@ class scenes extends Model
     public $sceneName;
 
     /**
+     * @description The information about the user group for which the data masking scenario takes effect.
+     *
      * @var int[]
      */
     public $userGroupIds;

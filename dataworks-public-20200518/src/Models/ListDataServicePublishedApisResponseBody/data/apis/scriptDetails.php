@@ -40,7 +40,7 @@ class scriptDetails extends Model
     public $script;
 
     /**
-     * @description The data source information of the API generated in script mode.
+     * @description The data source information about the API generated in script mode.
      *
      * @var scriptConnection
      */

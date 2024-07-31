@@ -27,7 +27,7 @@ class ListDataServiceFoldersRequest extends Model
     public $groupId;
 
     /**
-     * @description The number of the page to return. Pages start from page 1. Default value: 1.
+     * @description The page number. Pages start from page 1. Default value: 1.
      *
      * @example 1
      *
@@ -36,7 +36,7 @@ class ListDataServiceFoldersRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Default value: 10. Maximum value: 100.
+     * @description The number of entries per page. Default value: 10. Maximum value: 100.
      *
      * @example 10
      *
@@ -55,7 +55,7 @@ class ListDataServiceFoldersRequest extends Model
     public $projectId;
 
     /**
-     * @description The ID of the tenant.
+     * @description The tenant ID. To obtain the tenant ID, perform the following steps: Log on to the [DataWorks console](https://workbench.data.aliyun.com/console). Find your workspace and go to the DataStudio page. On the page that appears, click the username for the logon in the upper-right corner and click User Info in the Menu section.
      *
      * @example 10002
      *

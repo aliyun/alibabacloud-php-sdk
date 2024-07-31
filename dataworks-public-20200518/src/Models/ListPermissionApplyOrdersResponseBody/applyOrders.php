@@ -17,7 +17,7 @@ class applyOrders extends Model
     public $applyOrder;
 
     /**
-     * @description The number of the returned page.
+     * @description The page number.
      *
      * @example 1
      *
@@ -26,7 +26,7 @@ class applyOrders extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The number of entries per page.
      *
      * @example 10
      *
@@ -35,7 +35,7 @@ class applyOrders extends Model
     public $pageSize;
 
     /**
-     * @description The total number of permission request orders returned.
+     * @description The total number of entries returned.
      *
      * @example 150
      *

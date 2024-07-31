@@ -19,7 +19,7 @@ class RunTriggerNodeRequest extends Model
     public $appId;
 
     /**
-     * @description The data timestamp of the manually triggered node instance.
+     * @description The data timestamp of the instance that is generated for the manually triggered node.
      *
      * This parameter is required.
      * @example 1606200230105
@@ -29,7 +29,7 @@ class RunTriggerNodeRequest extends Model
     public $bizDate;
 
     /**
-     * @description The scheduled time to run the manually triggered node. Set the value to a 13-digit timestamp in milliseconds.
+     * @description The scheduling time to run the manually triggered node. Set the value to a 13-digit timestamp in milliseconds.
      *
      * This parameter is required.
      * @example 1606200230105

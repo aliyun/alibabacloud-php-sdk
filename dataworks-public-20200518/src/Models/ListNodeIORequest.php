@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListNodeIORequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description Specifies whether to query the information about ancestor or descendant nodes of the current node. Valid values: input and output.
      *
+     * This parameter is required.
      * @example output
      *
      * @var string
@@ -18,8 +19,9 @@ class ListNodeIORequest extends Model
     public $ioType;
 
     /**
-     * @description This parameter is required.
+     * @description The node ID. You can call the [ListNodes](https://help.aliyun.com/document_detail/173979.html) operation to query the ID.
      *
+     * This parameter is required.
      * @example 1234
      *
      * @var int
@@ -27,8 +29,9 @@ class ListNodeIORequest extends Model
     public $nodeId;
 
     /**
-     * @description This parameter is required.
+     * @description The runtime environment. Valid values: DEV and PROD.
      *
+     * This parameter is required.
      * @example PROD
      *
      * @var string

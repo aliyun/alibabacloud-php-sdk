@@ -19,7 +19,7 @@ class data extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries per page. Valid values: 1 to 100. Default value: 10.
+     * @description The number of entries per page.
      *
      * @example 10
      *
@@ -28,7 +28,7 @@ class data extends Model
     public $pageSize;
 
     /**
-     * @description The information of members in the DataWorks workspace.
+     * @description The information about members in the DataWorks workspace.
      *
      * @var projectMemberList[]
      */

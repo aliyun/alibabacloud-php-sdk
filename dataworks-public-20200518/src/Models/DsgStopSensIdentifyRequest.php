@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DsgStopSensIdentifyRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the sensitive data identification task. You can call the [DsgRunSensIdentify](https://help.aliyun.com/document_detail/2744039.html) operation to obtain the task ID.
      *
+     * This parameter is required.
      * @example 1000001
      *
      * @var int
@@ -18,8 +19,9 @@ class DsgStopSensIdentifyRequest extends Model
     public $jobId;
 
     /**
-     * @description This parameter is required.
+     * @description The tenant ID. To obtain the tenant ID, perform the following steps: Log on to the [DataWorks console](https://workbench.data.aliyun.com/console). Find your workspace and go to the DataStudio page. On the DataStudio page, click the logon username in the upper-right corner and click User Info in the Menu section.
      *
+     * This parameter is required.
      * @example 10241024
      *
      * @var string

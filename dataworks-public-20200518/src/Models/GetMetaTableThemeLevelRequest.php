@@ -19,7 +19,7 @@ class GetMetaTableThemeLevelRequest extends Model
     public $dataSourceType;
 
     /**
-     * @description The globally unique identifier (GUID) of the table. Specify the GUID in the format of odps.${projectName}.${tableName}.
+     * @description The GUID of the metatable. Specify the GUID in the format of odps.${projectName}.${tableName}.
      *
      * This parameter is required.
      * @example odps.project1.name1

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The compute engine instances.
+     * @description The compute engines.
      *
      * @var calcEngines[]
      */
@@ -26,7 +26,7 @@ class data extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page. Default value: 10. Maximum value: 100.
+     * @description The number of entries per page.
      *
      * @example 20
      *

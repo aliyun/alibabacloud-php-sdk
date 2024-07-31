@@ -15,16 +15,22 @@ use AlibabaCloud\Tea\Model;
 class CreateDIJobRequest extends Model
 {
     /**
+     * @description The description of the synchronization task.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The settings of the destination. Only a single destination is supported.
+     *
      * @var destinationDataSourceSettings[]
      */
     public $destinationDataSourceSettings;
 
     /**
+     * @description The type of the destination. Valid values: Hologres and Hive.
+     *
      * @example Hologres
      *
      * @var string
@@ -32,6 +38,8 @@ class CreateDIJobRequest extends Model
     public $destinationDataSourceType;
 
     /**
+     * @description The name of the synchronization task.
+     *
      * @example mysql_to_holo_sync_8772
      *
      * @var string
@@ -39,11 +47,21 @@ class CreateDIJobRequest extends Model
     public $jobName;
 
     /**
+     * @description The settings for the dimension of the synchronization task. The settings include processing policies for DDL messages, policies for data type mappings between source fields and destination fields, and runtime parameters of the synchronization task.
+     *
      * @var jobSettings
      */
     public $jobSettings;
 
     /**
+     * @description The synchronization type. Valid values:
+     *
+     *   FullAndRealtimeIncremental (one-time full synchronization and real-time incremental synchronization)
+     *   RealtimeIncremental (real-time incremental synchronization)
+     *   Full (full synchronization)
+     *   OfflineIncremental (batch incremental synchronization)
+     *   FullAndOfflineIncremental (one-time full synchronization and batch incremental synchronization)
+     *
      * @example FullAndRealtimeIncremental
      *
      * @var string
@@ -51,6 +69,8 @@ class CreateDIJobRequest extends Model
     public $migrationType;
 
     /**
+     * @description The DataWorks workspace ID. You can call the [ListProjects](https://help.aliyun.com/document_detail/178393.html) operation to obtain the ID.
+     *
      * @example 10000
      *
      * @var int
@@ -58,16 +78,22 @@ class CreateDIJobRequest extends Model
     public $projectId;
 
     /**
+     * @description The resource settings.
+     *
      * @var resourceSettings
      */
     public $resourceSettings;
 
     /**
+     * @description The settings of the source. Only a single source is supported.
+     *
      * @var sourceDataSourceSettings[]
      */
     public $sourceDataSourceSettings;
 
     /**
+     * @description The type of the source. Set the value to MySQL.
+     *
      * @example MySQL
      *
      * @var string
@@ -75,6 +101,8 @@ class CreateDIJobRequest extends Model
     public $sourceDataSourceType;
 
     /**
+     * @description Specifies whether to perform system debugging. Valid values: true and false. Default value: false.
+     *
      * @example false
      *
      * @var string
@@ -82,11 +110,15 @@ class CreateDIJobRequest extends Model
     public $systemDebug;
 
     /**
+     * @description The list of mappings between rules used to select synchronization objects in the source and transformation rules applied to the selected synchronization objects. Each entry in the list displays a mapping between a rule used to select synchronization objects and a transformation rule applied to the selected synchronization objects.
+     *
      * @var tableMappings[]
      */
     public $tableMappings;
 
     /**
+     * @description The list of transformation rules for objects involved in the synchronization task. Each entry in the list defines a transformation rule.
+     *
      * @var transformationRules[]
      */
     public $transformationRules;

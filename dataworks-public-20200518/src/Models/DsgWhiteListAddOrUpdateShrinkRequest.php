@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DsgWhiteListAddOrUpdateShrinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description A collection of whitelists.
      *
+     * This parameter is required.
      * @var string
      */
     public $whiteListsShrink;

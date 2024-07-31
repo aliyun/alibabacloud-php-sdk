@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListNodesByBaselineRequest extends Model
 {
     /**
-     * @description The ID of the request. You can use the ID to troubleshoot issues.
+     * @description The baseline ID. You can call the [ListBaselineConfigs](https://help.aliyun.com/document_detail/173964.html) operation to query the baseline ID.
      *
      * This parameter is required.
      * @example 1234

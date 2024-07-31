@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetInstanceStatusStatisticResponseBody extends Model
 {
     /**
-     * @description The ID of the request. You can use the ID to search for logs and troubleshoot issues based on the logs.
+     * @description The request ID.
      *
      * @example 0000-ABCD-EFG****
      *

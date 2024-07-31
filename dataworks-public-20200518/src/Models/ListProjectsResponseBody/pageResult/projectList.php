@@ -10,10 +10,10 @@ use AlibabaCloud\Tea\Model;
 class projectList extends Model
 {
     /**
-     * @description Indicates whether the MaxCompute tables in the workspace are visible to the users within a tenant. Valid values:
+     * @description Indicates whether the Development role is disabled. Valid values:
      *
-     *   0: invisible
-     *   1: visible
+     *   **false**: enabled
+     *   **true**: disabled
      *
      * @example true
      *
@@ -22,6 +22,11 @@ class projectList extends Model
     public $disableDevelopment;
 
     /**
+     * @description Indicates whether the workspace is a default workspace. Valid values:
+     *
+     *   **1**: The workspace is a default workspace.
+     *   **0**: The workspace is not a default workspace.
+     *
      * @example 1
      *
      * @var int
@@ -29,14 +34,16 @@ class projectList extends Model
     public $isDefault;
 
     /**
-     * @description The ID of the resource group.
+     * @description The description of the workspace.
+     *
+     * @example test_describe
      *
      * @var string
      */
     public $projectDescription;
 
     /**
-     * @description The ID of the user used by the workspace owner.
+     * @description The workspace ID.
      *
      * @example 1212
      *
@@ -45,7 +52,7 @@ class projectList extends Model
     public $projectId;
 
     /**
-     * @description The description of the workspace.
+     * @description The name of the workspace.
      *
      * @example test
      *
@@ -54,14 +61,16 @@ class projectList extends Model
     public $projectIdentifier;
 
     /**
-     * @description The ID of the workspace.
+     * @description The display name of the workspace.
+     *
+     * @example test_project
      *
      * @var string
      */
     public $projectName;
 
     /**
-     * @description The tags.
+     * @description The ID of the user used by the workspace owner.
      *
      * @example 122222
      *
@@ -70,7 +79,18 @@ class projectList extends Model
     public $projectOwnerBaseId;
 
     /**
-     * @description The identifier of the workspace.
+     * @description The status of the workspace. Valid values:
+     *
+     *   0: AVAILABLE, which indicates that the workspace is running as expected.
+     *   1: DELETED, which indicates that the workspace is deleted.
+     *   2: INITIALIZING, which indicates that the workspace is being initialized.
+     *   3: INIT_FAILED, which indicates that the workspace fails to be initialized.
+     *   4: FORBIDDEN, which indicates that the workspace is manually disabled.
+     *   5: DELETING, which indicates that the workspace is being deleted.
+     *   6: DEL_FAILED, which indicates that the workspace fails to be deleted.
+     *   7: FROZEN, which indicates that the workspace is frozen due to overdue payments.
+     *   8: UPDATING, which indicates that the workspace is being updated. After you associate a compute engine with the workspace, the system initializes the compute engine and updates the workspace.
+     *   9: UPDATE_FAILED, which indicates that the workspace fails to be updated.
      *
      * @example 0
      *
@@ -79,7 +99,18 @@ class projectList extends Model
     public $projectStatus;
 
     /**
-     * @description The name of the workspace.
+     * @description The status code of the workspace. Valid values:
+     *
+     *   AVAILABLE: 0, which indicates that the workspace is running as expected.
+     *   DELETED: 1, which indicates that the workspace is deleted.
+     *   INITIALIZING: 2, which indicates that the workspace is being initialized.
+     *   INIT_FAILED: 3, which indicates that the workspace fails to be initialized.
+     *   FORBIDDEN: 4, which indicates that the workspace is manually disabled.
+     *   DELETING: 5, which indicates that the workspace is being deleted.
+     *   DEL_FAILED: 6, which indicates that the workspace fails to be deleted.
+     *   FROZEN: 7, which indicates that the workspace is frozen due to overdue payments.
+     *   UPDATING: 8, which indicates that the workspace is being updated. After you associate a compute engine with the workspace, the system initializes the compute engine and updates the workspace.
+     *   UPDATE_FAILED: 9, which indicates that the workspace fails to be updated.
      *
      * @example AVAILABLE
      *
@@ -88,7 +119,7 @@ class projectList extends Model
     public $projectStatusCode;
 
     /**
-     * @description The tag key.
+     * @description The resource group ID.
      *
      * @example rg-acfmzbn7pti3zfa
      *
@@ -97,6 +128,11 @@ class projectList extends Model
     public $resourceManagerResourceGroupId;
 
     /**
+     * @description Indicates whether the MaxCompute tables in the workspace are visible to the users within a tenant. Valid values:
+     *
+     *   **0**: invisible
+     *   **1**: visible
+     *
      * @example 1
      *
      * @var int
@@ -104,17 +140,17 @@ class projectList extends Model
     public $tablePrivacyMode;
 
     /**
-     * @description The tag value.
+     * @description The tags added to the workspace.
      *
      * @var tags[]
      */
     public $tags;
 
     /**
-     * @description Indicates whether the workspace is a default workspace. Valid values:
+     * @description Indicates whether a proxy account is used to access the MaxCompute compute engine associated with the workspace. Valid values:
      *
-     *   1: The workspace is a default workspace.
-     *   0: The workspace is not a default workspace.
+     *   **false**
+     *   **true**
      *
      * @example true
      *

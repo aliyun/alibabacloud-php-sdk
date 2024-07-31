@@ -18,7 +18,7 @@ class GetMetaColumnLineageRequest extends Model
     public $clusterId;
 
     /**
-     * @description The GUID of the field.
+     * @description The unique identifier of the field.
      *
      * @example odps.engine_name.table_name.column_name
      *

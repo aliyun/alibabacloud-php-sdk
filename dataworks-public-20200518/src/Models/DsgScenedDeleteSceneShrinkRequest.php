@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DsgScenedDeleteSceneShrinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The IDs of level-2 data masking scenarios.
      *
+     * This parameter is required.
      * @var string
      */
     public $idsShrink;

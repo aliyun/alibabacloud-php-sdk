@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class consumeTimeRank extends Model
 {
     /**
+     * @description The data timestamp of the instance.
+     *
      * @example 1600963200000
      *
      * @var int
@@ -16,6 +18,8 @@ class consumeTimeRank extends Model
     public $bizdate;
 
     /**
+     * @description The running duration of the instance. Unit: seconds.
+     *
      * @example 1000
      *
      * @var int
@@ -23,6 +27,8 @@ class consumeTimeRank extends Model
     public $consumed;
 
     /**
+     * @description The instance ID.
+     *
      * @example 95279527
      *
      * @var int
@@ -30,6 +36,8 @@ class consumeTimeRank extends Model
     public $instanceId;
 
     /**
+     * @description The node ID.
+     *
      * @example 9527
      *
      * @var int
@@ -37,11 +45,15 @@ class consumeTimeRank extends Model
     public $nodeId;
 
     /**
+     * @description The name of the node.
+     *
      * @var string
      */
     public $nodeName;
 
     /**
+     * @description The ID of the Alibaba Cloud account used by the node owner.
+     *
      * @example 952795279527
      *
      * @var string
@@ -49,6 +61,8 @@ class consumeTimeRank extends Model
     public $owner;
 
     /**
+     * @description The type of the node.
+     *
      * @example 10
      *
      * @var int

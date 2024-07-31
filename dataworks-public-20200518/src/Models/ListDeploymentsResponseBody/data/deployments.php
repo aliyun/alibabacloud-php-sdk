@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class deployments extends Model
 {
     /**
-     * @description The time when the deployment task was created.
+     * @description The time when the deployment package was created.
      *
      * @example 1593877765000
      *
@@ -18,7 +18,7 @@ class deployments extends Model
     public $createTime;
 
     /**
-     * @description The ID of the Alibaba Cloud account used by the user who created the deployment tasks.
+     * @description The ID of the Alibaba Cloud account used by the user who created the deployment package.
      *
      * @example 2003****
      *
@@ -27,7 +27,7 @@ class deployments extends Model
     public $creator;
 
     /**
-     * @description The error message returned when the deployment task failed.
+     * @description The error message returned when the deployment package failed.
      *
      * @example OK
      *
@@ -36,7 +36,7 @@ class deployments extends Model
     public $errorMessage;
 
     /**
-     * @description The time when the deployment task was run. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     * @description The time when the deployment package was run. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
      * @example 1593877765000
      *
@@ -45,7 +45,7 @@ class deployments extends Model
     public $executeTime;
 
     /**
-     * @description The ID of the Alibaba Cloud account used by the user who ran the deployment tasks.
+     * @description The ID of the Alibaba Cloud account used by the user who ran the deployment package.
      *
      * @example 2003****
      *
@@ -54,7 +54,7 @@ class deployments extends Model
     public $executor;
 
     /**
-     * @description The ID of the deployment task. You can call the [GetDeployment](https://help.aliyun.com/document_detail/173950.html) operation to query the details of the deployment task based on the ID.
+     * @description The deployment package ID. You can call the [GetDeployment](https://help.aliyun.com/document_detail/173950.html) operation to obtain the ID.
      *
      * @example 11111
      *
@@ -63,7 +63,7 @@ class deployments extends Model
     public $id;
 
     /**
-     * @description The name of the deployment task.
+     * @description The name of the deployment package.
      *
      * @example auto_created
      *
@@ -72,12 +72,12 @@ class deployments extends Model
     public $name;
 
     /**
-     * @description The status of the deployment tasks. Valid values:
+     * @description The status of the deployment package. Valid values:
      *
-     *   0: The deployment tasks are ready.
-     *   1: The deployment tasks are successful.
-     *   2: The deployment tasks fail.
-     *   6: The deployment tasks are rejected.
+     *   0: The deployment package is ready.
+     *   1: The deployment package is deployed.
+     *   2: The deployment package fails to be deployed.
+     *   6: The deployment package is rejected.
      *
      * @example 1
      *

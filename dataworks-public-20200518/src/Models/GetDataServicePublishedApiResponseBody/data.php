@@ -111,7 +111,7 @@ class data extends Model
     public $projectId;
 
     /**
-     * @description The list of fields.
+     * @description The protocol used by the API. Valid values: 0 and 1. The value 0 indicates HTTP. The value 1 indicates HTTPS. Multiple protocols are presented in a list.
      *
      * @var int[]
      */

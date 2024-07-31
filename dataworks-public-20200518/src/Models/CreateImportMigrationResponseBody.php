@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateImportMigrationResponseBody extends Model
 {
     /**
-     * @description The ID of the import task. The ID is used as an input parameter if you want the system to run the import task or you want to obtain the running progress of the import task.
+     * @description The import task ID. The ID is used as an input parameter if you want the system to run the import task or you want to obtain the running progress of the import task.
      *
      * @example 123456
      *
@@ -18,7 +18,7 @@ class CreateImportMigrationResponseBody extends Model
     public $data;
 
     /**
-     * @description The error code returned.
+     * @description The error code.
      *
      * @example 110001123456
      *
@@ -27,7 +27,7 @@ class CreateImportMigrationResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message returned.
+     * @description The error message.
      *
      * @example test error message
      *
@@ -36,7 +36,7 @@ class CreateImportMigrationResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The HTTP status code returned.
+     * @description The HTTP status code.
      *
      * @example 200
      *
@@ -45,7 +45,7 @@ class CreateImportMigrationResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The ID of the request. You can use the ID to locate logs and troubleshoot issues.
+     * @description The request ID. You can locate logs and troubleshoot issues based on the ID.
      *
      * @example ADFASDFASDFA-ADFASDF-ASDFADSDF-AFFADS
      *
@@ -54,7 +54,7 @@ class CreateImportMigrationResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful.
+     * @description Indicates whether the request was successful.
      *
      * @example true
      *

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The reason why the synchronization task fails to be deleted. If the synchronization task is deleted, the value null is returned for this parameter.
+     *
      * @example fileId:[100] is invalid.
      *
      * @var string
@@ -16,9 +18,11 @@ class data extends Model
     public $message;
 
     /**
-     * @description The reason why the synchronization node in Data Integration failed to be deleted.
+     * @description Indicates whether the synchronization task is deleted. Valid values:
      *
-     * If the synchronization node in Data Integration is deleted, the value null is returned.
+     *   success: The synchronization task is deleted.
+     *   fail: The synchronization task fails to be deleted. You can troubleshoot the issue based on the failure reason.
+     *
      * @example fail
      *
      * @var string

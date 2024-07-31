@@ -9,15 +9,14 @@ use AlibabaCloud\Tea\Model;
 class ListProjectIdsResponseBody extends Model
 {
     /**
-     * @description The IDs of the DataWorks workspaces.
+     * @description The IDs of the DataWorks workspaces. The IDs of the workspaces on which the desired Alibaba Cloud account has permissions were returned.
      *
-     * The IDs of the workspaces on which the specific Alibaba Cloud account has permissions were returned. In this example, a single workspace ID is used.
      * @var int[]
      */
     public $projectIds;
 
     /**
-     * @description The ID of the request. You can troubleshoot errors based on the ID.
+     * @description The request ID.
      *
      * @example 0b57ff7216278945532771749d****
      *

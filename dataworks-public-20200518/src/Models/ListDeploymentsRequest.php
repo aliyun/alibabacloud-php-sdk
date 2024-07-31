@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListDeploymentsRequest extends Model
 {
     /**
-     * @description The ID of the Alibaba Cloud account used by the user who created the deployment tasks.
+     * @description The ID of the Alibaba Cloud account used by the user who creates the deployment packages.
      *
      * @example 20030****
      *
@@ -18,7 +18,7 @@ class ListDeploymentsRequest extends Model
     public $creator;
 
     /**
-     * @description The time when the deployment tasks to be queried were created. This value must be a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     * @description The time when the deployment packages to be queried are created. This value must be a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
      * @example 1593877765000
      *
@@ -27,7 +27,7 @@ class ListDeploymentsRequest extends Model
     public $endCreateTime;
 
     /**
-     * @description The time when the deployment tasks were run. This value must be a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     * @description The time when the deployment packages are run. This value must be a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
      * @example 1593877765000
      *
@@ -36,7 +36,7 @@ class ListDeploymentsRequest extends Model
     public $endExecuteTime;
 
     /**
-     * @description The ID of the Alibaba Cloud account used by the user who runs the deployment tasks.
+     * @description The ID of the Alibaba Cloud account used by the user who runs the deployment packages.
      *
      * @example 2003****
      *
@@ -45,7 +45,7 @@ class ListDeploymentsRequest extends Model
     public $executor;
 
     /**
-     * @description The keyword that is contained in the names of the deployment tasks. The keyword is used to search for deployment tasks in fuzzy mode.
+     * @description The keyword that is contained in the names of the deployment packages. A fuzzy search is supported. After you enter a keyword, all deployment packages whose names contain the keyword are displayed.
      *
      * @example hello
      *
@@ -54,7 +54,7 @@ class ListDeploymentsRequest extends Model
     public $keyword;
 
     /**
-     * @description The number of the page to return.
+     * @description The page number.
      *
      * @example 1
      *
@@ -63,7 +63,7 @@ class ListDeploymentsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page. Default value: 10. Maximum value: 100.
+     * @description The number of entries per page. Default value: 10. Maximum value: 100.
      *
      * @example 20
      *
@@ -72,9 +72,9 @@ class ListDeploymentsRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace Management page to obtain the workspace ID.
+     * @description The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to obtain the workspace ID.
      *
-     * You must configure this parameter or the ProjectIdentifier parameter to determine the DataWorks workspace to which the operation is applied.
+     * You must configure either this parameter or the ProjectIdentifier parameter to determine the DataWorks workspace to which the operation is applied.
      * @example 10000
      *
      * @var int
@@ -82,9 +82,9 @@ class ListDeploymentsRequest extends Model
     public $projectId;
 
     /**
-     * @description The name of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace Management page to obtain the workspace name.
+     * @description The name of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to obtain the workspace name.
      *
-     * You must configure this parameter or the ProjectId parameter to determine the DataWorks workspace to which the operation is applied.
+     * You must configure either this parameter or the ProjectId parameter to determine the DataWorks workspace to which the operation is applied.
      * @example dw_project
      *
      * @var string
@@ -92,12 +92,12 @@ class ListDeploymentsRequest extends Model
     public $projectIdentifier;
 
     /**
-     * @description The status of the deployment tasks. Valid values:
+     * @description The status of the deployment packages. Valid values:
      *
-     *   0: The deployment tasks are ready.
-     *   1: The deployment tasks are successful.
-     *   2: The deployment tasks fail.
-     *   6: The deployment tasks are rejected.
+     *   0: The deployment packages are ready.
+     *   1: The deployment packages are deployed.
+     *   2: The deployment packages fail to be deployed.
+     *   6: The deployment packages are rejected.
      *
      * @example 1
      *

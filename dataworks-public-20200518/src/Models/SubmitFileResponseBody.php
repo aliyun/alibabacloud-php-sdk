@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class SubmitFileResponseBody extends Model
 {
     /**
-     * @description The ID of the request. You can troubleshoot issues based on the ID.
+     * @description The deployment package ID. The ID is used as the value of a specific request parameter when you call the [GetDeployment](https://help.aliyun.com/document_detail/173950.html) operation to query the details of the deployment operation.
      *
      * @example 3000001
      *
@@ -18,6 +18,8 @@ class SubmitFileResponseBody extends Model
     public $data;
 
     /**
+     * @description The error code.
+     *
      * @example Invalid.Tenant.ConnectionNotExists
      *
      * @var string
@@ -25,7 +27,7 @@ class SubmitFileResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description Indicates whether the request is successful.
+     * @description The error message.
      *
      * @example The connection does not exist.
      *
@@ -34,7 +36,7 @@ class SubmitFileResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The ID of the deployment task. The ID is used as the value of a specific request parameter when you call the [GetDeployment](https://help.aliyun.com/document_detail/173950.html) operation to query the details of the deployment task.
+     * @description The HTTP status code.
      *
      * @example 200
      *
@@ -43,7 +45,7 @@ class SubmitFileResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The error message returned.
+     * @description The request ID.
      *
      * @example 0000-ABCD-EFG****
      *
@@ -52,7 +54,7 @@ class SubmitFileResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The error code returned.
+     * @description Indicates whether the request was successful.
      *
      * @example true
      *

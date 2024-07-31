@@ -27,7 +27,7 @@ class scriptErrorCodes extends Model
     public $errorMessage;
 
     /**
-     * @description The solution used to resolve the issue.
+     * @description The solution used to fix the error.
      *
      * @example retry
      *

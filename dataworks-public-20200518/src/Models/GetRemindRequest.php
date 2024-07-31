@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetRemindRequest extends Model
 {
     /**
-     * @description The ID of the custom alert rule.
+     * @description The custom alert rule ID.
      *
      * This parameter is required.
      * @example 1234

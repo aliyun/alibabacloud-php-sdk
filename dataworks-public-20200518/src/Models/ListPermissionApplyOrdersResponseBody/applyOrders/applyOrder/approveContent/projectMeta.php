@@ -17,7 +17,7 @@ class projectMeta extends Model
     public $objectMetaList;
 
     /**
-     * @description The name of the DataWorks workspace that was associated with the MaxCompute project in which you requested permissions on a table.
+     * @description The name of the DataWorks workspace that is associated with the MaxCompute project in which you requested permissions on a table.
      *
      * @example aWorkspaceName
      *

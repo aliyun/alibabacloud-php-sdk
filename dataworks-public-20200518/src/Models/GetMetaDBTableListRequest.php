@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetMetaDBTableListRequest extends Model
 {
     /**
-     * @description The name of the metadatabase.
+     * @description The GUID of the MaxCompute project. Specify the GUID in the `odps.{projectName}` format. You must configure this parameter only if you set the DataSourceType parameter to odps.
      *
      * @example odps.testProjectName
      *
@@ -18,7 +18,7 @@ class GetMetaDBTableListRequest extends Model
     public $appGuid;
 
     /**
-     * @description The type of the data source. Valid values: odps and emr.
+     * @description The E-MapReduce (EMR) cluster ID. You must configure this parameter only if you set the DataSourceType parameter to emr.
      *
      * @example abc
      *
@@ -27,7 +27,7 @@ class GetMetaDBTableListRequest extends Model
     public $clusterId;
 
     /**
-     * @description The business data.
+     * @description The type of the data source. Valid values: odps and emr.
      *
      * @example odps
      *
@@ -36,7 +36,7 @@ class GetMetaDBTableListRequest extends Model
     public $dataSourceType;
 
     /**
-     * @description The ID of the request.
+     * @description The name of the metadatabase.
      *
      * @example abc
      *
@@ -45,7 +45,7 @@ class GetMetaDBTableListRequest extends Model
     public $databaseName;
 
     /**
-     * @description The globally unique identifier (GUID) of the MaxCompute project. Specify the GUID in the `odps.{projectName}` format. This parameter must be configured if you set the DataSourceType parameter to odps.
+     * @description The page number.
      *
      * @example 1
      *
@@ -54,7 +54,7 @@ class GetMetaDBTableListRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The ID of the E-MapReduce (EMR) cluster. This parameter must be configured if you set the DataSourceType parameter to emr.
+     * @description The number of entries per page. Default value: 10. Maximum value: 100.
      *
      * @example 10
      *

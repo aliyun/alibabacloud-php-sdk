@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteTableThemeResponseBody extends Model
 {
     /**
-     * @description Indicates whether the table folder is deleted.
+     * @description Indicates whether the theme was deleted.
      *
      * @example true
      *
@@ -18,7 +18,7 @@ class DeleteTableThemeResponseBody extends Model
     public $deleteResult;
 
     /**
-     * @description The error code returned.
+     * @description The error code.
      *
      * @example 1031203110005
      *
@@ -27,7 +27,7 @@ class DeleteTableThemeResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message returned.
+     * @description The error message.
      *
      * @example The specified parameters are invalid.
      *
@@ -36,7 +36,7 @@ class DeleteTableThemeResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The HTTP status code returned.
+     * @description The HTTP status code.
      *
      * @example 200
      *
@@ -45,7 +45,7 @@ class DeleteTableThemeResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example abcdef
      *
@@ -54,10 +54,10 @@ class DeleteTableThemeResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful. Valid values:
+     * @description Indicates whether the request was successful. Valid values:
      *
-     *   true: The request is successful.
-     *   false: The request fails.
+     *   true
+     *   false
      *
      * @example true
      *

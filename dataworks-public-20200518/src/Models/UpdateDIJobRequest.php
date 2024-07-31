@@ -13,6 +13,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateDIJobRequest extends Model
 {
     /**
+     * @description The ID of the synchronization task.
+     *
      * @example 11588
      *
      * @var int
@@ -20,26 +22,36 @@ class UpdateDIJobRequest extends Model
     public $DIJobId;
 
     /**
+     * @description The description of the synchronization task.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The settings for the dimension of the synchronization task. The settings include processing policies for DDL messages, policies for data type mappings between source fields and destination fields, and runtime parameters of the synchronization task.
+     *
      * @var jobSettings
      */
     public $jobSettings;
 
     /**
+     * @description The resource settings.
+     *
      * @var resourceSettings
      */
     public $resourceSettings;
 
     /**
+     * @description The list of mappings between rules used to select synchronization objects in the source and transformation rules applied to the selected synchronization objects. Each entry in the list displays a mapping between a rule used to select synchronization objects and a transformation rule applied to the selected synchronization objects.
+     *
      * @var tableMappings[]
      */
     public $tableMappings;
 
     /**
+     * @description The list of transformation rules for objects involved in the synchronization task. Each entry in the list defines a transformation rule.
+     *
      * @var transformationRules[]
      */
     public $transformationRules;

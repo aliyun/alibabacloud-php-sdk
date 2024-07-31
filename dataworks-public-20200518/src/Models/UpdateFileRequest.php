@@ -171,6 +171,8 @@ class UpdateFileRequest extends Model
     public $fileName;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $ignoreParentSkipRunningProperty;
@@ -178,7 +180,7 @@ class UpdateFileRequest extends Model
     /**
      * @description The output name of the parent file on which the current file depends. If you specify multiple output names, separate them with commas (,).
      *
-     * This parameter corresponds to the Output Name parameter under Parent Nodes in the Dependencies section of the Properties tab in the [DataWorks console](https://workbench.data.aliyun.com/console).
+     * >  You must configure this parameter when you call the CreateDISyncTask or UpdateFile operation to create a batch synchronization task.
      * @example project_root,project.file1,project.001_out
      *
      * @var string

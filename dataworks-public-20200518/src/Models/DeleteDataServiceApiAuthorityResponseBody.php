@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteDataServiceApiAuthorityResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 0000-ABCD-EF****
      *
@@ -18,7 +18,7 @@ class DeleteDataServiceApiAuthorityResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the access permissions are revoked.
+     * @description Indicates whether the request was successful.
      *
      * @example true
      *

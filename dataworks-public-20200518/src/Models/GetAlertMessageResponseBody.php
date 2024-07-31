@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetAlertMessageResponseBody extends Model
 {
     /**
+     * @description The details of the returned data.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The error code.
+     *
      * @example Invalid.Tenant.ConnectionNotExists
      *
      * @var string
@@ -22,6 +26,8 @@ class GetAlertMessageResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message.
+     *
      * @example The specified parameters are invalid.
      *
      * @var string
@@ -29,6 +35,8 @@ class GetAlertMessageResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -36,6 +44,8 @@ class GetAlertMessageResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The request ID.
+     *
      * @example 0000-ABCD-EFG****
      *
      * @var string
@@ -43,6 +53,11 @@ class GetAlertMessageResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

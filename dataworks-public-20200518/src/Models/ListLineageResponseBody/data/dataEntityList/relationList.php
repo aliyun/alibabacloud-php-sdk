@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class relationList extends Model
 {
     /**
+     * @description The data channel. Valid values:
+     *
+     * FIRST_PARTY: DataWorks platformTHIRD_PARTY: user registration
      * @example THIRD_PARTY
      *
      * @var string
@@ -16,6 +19,8 @@ class relationList extends Model
     public $channel;
 
     /**
+     * @description The name of the data source.
+     *
      * @example mysql
      *
      * @var string
@@ -23,6 +28,8 @@ class relationList extends Model
     public $datasource;
 
     /**
+     * @description The unique relationship ID.
+     *
      * @example aaabbccddguid
      *
      * @var string
@@ -30,6 +37,8 @@ class relationList extends Model
     public $guid;
 
     /**
+     * @description The task type, which is used to describe the relationship between entities, such as SQL-based calculation, mapping based on report fields, or API operation definition.
+     *
      * @example sql
      *
      * @var string

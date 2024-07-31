@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateQualityFollowerResponseBody extends Model
 {
     /**
-     * @description Indicates whether the subscription relationship is updated.
+     * @description Indicates whether the update is successful.
      *
      * @example true
      *
@@ -18,7 +18,7 @@ class UpdateQualityFollowerResponseBody extends Model
     public $data;
 
     /**
-     * @description The error code returned.
+     * @description The error code.
      *
      * @example 401
      *
@@ -27,7 +27,7 @@ class UpdateQualityFollowerResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message returned.
+     * @description The error message.
      *
      * @example You have no permission
      *
@@ -36,7 +36,7 @@ class UpdateQualityFollowerResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The HTTP status code returned.
+     * @description The HTTP status code.
      *
      * @example 200
      *
@@ -45,7 +45,7 @@ class UpdateQualityFollowerResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 576b9457-2cf5-4****
      *
@@ -54,7 +54,7 @@ class UpdateQualityFollowerResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful.
+     * @description Indicates whether the request was successful.
      *
      * @example true
      *

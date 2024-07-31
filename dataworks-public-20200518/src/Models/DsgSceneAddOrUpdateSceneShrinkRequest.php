@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DsgSceneAddOrUpdateSceneShrinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The information about the level-2 data masking scenario.
      *
+     * This parameter is required.
      * @var string
      */
     public $scenesShrink;

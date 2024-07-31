@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class SetEntityTagsResponseBody extends Model
 {
     /**
+     * @description Indicates whether the call was successful. Valid values:
+     *
+     * true and false.
      * @example true
      *
      * @var bool
@@ -16,6 +19,8 @@ class SetEntityTagsResponseBody extends Model
     public $data;
 
     /**
+     * @description The error code.
+     *
      * @example 101011005
      *
      * @var string
@@ -23,6 +28,8 @@ class SetEntityTagsResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message.
+     *
      * @example Invalid.Entity.EntityTypeNotSupported
      *
      * @var string
@@ -30,6 +37,8 @@ class SetEntityTagsResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -37,6 +46,8 @@ class SetEntityTagsResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The request ID.
+     *
      * @example 0000-ABCD-E****
      *
      * @var string
@@ -44,6 +55,9 @@ class SetEntityTagsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     * true and false.
      * @example true
      *
      * @var bool

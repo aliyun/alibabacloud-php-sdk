@@ -10,17 +10,14 @@ use AlibabaCloud\Tea\Model;
 class ListMigrationsResponseBody extends Model
 {
     /**
-     * @description The list of migration tasks.
+     * @description The returned data.
      *
      * @var data
      */
     public $data;
 
     /**
-     * @description Indicates whether the request is successful. Valid values:
-     *
-     *   true: The request is successful.
-     *   false: The request fails.
+     * @description The request ID.
      *
      * @example F9198AA3-9010-53D5-9714-DC4461427D3E
      *
@@ -29,7 +26,10 @@ class ListMigrationsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The data returned.
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
      *
      * @example true
      *

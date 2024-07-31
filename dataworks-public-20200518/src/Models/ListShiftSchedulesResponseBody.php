@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class ListShiftSchedulesResponseBody extends Model
 {
     /**
-     * @description The page number of the returned page. Minimum value:1. Maximum value: 100.
+     * @description The pagination data.
      *
      * @var paging
      */
     public $paging;
 
     /**
-     * @description The pagination data.
+     * @description The request ID.
      *
      * @example E6F0DBDD-5AD****
      *

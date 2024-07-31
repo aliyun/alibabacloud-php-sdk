@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetMetaCollectionDetailResponseBody extends Model
 {
     /**
-     * @description The details of the collection.
+     * @description The information about the collection.
      *
      * @var Collection
      */
@@ -43,7 +43,7 @@ class GetMetaCollectionDetailResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description Id of the request
+     * @description The request ID. You can locate logs and troubleshoot issues based on the ID.
      *
      * @example 0000-ABCD-E****
      *

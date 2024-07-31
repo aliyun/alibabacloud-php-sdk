@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetDIJobResponseBody extends Model
 {
     /**
+     * @description The information about the synchronization task.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The request ID.
+     *
      * @example 0000-ABCD-EFG****
      *
      * @var string

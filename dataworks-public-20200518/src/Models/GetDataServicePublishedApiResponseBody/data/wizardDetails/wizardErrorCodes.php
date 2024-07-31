@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class wizardErrorCodes extends Model
 {
     /**
-     * @description The error code returned.
+     * @description The error code.
      *
      * @example 1001
      *
@@ -18,7 +18,7 @@ class wizardErrorCodes extends Model
     public $errorCode;
 
     /**
-     * @description The error message returned.
+     * @description The error message.
      *
      * @example fail to call
      *

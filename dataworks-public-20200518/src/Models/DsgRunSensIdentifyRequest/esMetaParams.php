@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class esMetaParams extends Model
 {
     /**
+     * @description The cluster ID. You can obtain the ID based on the data source you use.
+     *
      * @example 101010
      *
      * @var string
@@ -16,6 +18,12 @@ class esMetaParams extends Model
     public $clusterId;
 
     /**
+     * @description The type of the data source. Valid values:
+     *
+     *   ODPS.ODPS
+     *   EMR
+     *   HOLO.POSTGRES
+     *
      * @example ODPS.ODPS
      *
      * @var string
@@ -23,6 +31,8 @@ class esMetaParams extends Model
     public $dbType;
 
     /**
+     * @description The instance ID. You can obtain the ID based on the data source you use.
+     *
      * @example hgprecn-cn-9lb37k181024
      *
      * @var int
@@ -30,6 +40,8 @@ class esMetaParams extends Model
     public $instanceId;
 
     /**
+     * @description The name of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the name.
+     *
      * @example 1666676756691024
      *
      * @var string
@@ -37,6 +49,8 @@ class esMetaParams extends Model
     public $projectName;
 
     /**
+     * @description The name of the schema.
+     *
      * @example default
      *
      * @var string
@@ -44,6 +58,8 @@ class esMetaParams extends Model
     public $schemaName;
 
     /**
+     * @description The name of the table.
+     *
      * @example table1
      *
      * @var string
@@ -51,11 +67,15 @@ class esMetaParams extends Model
     public $tableName;
 
     /**
+     * @description The names of the tables.
+     *
      * @var string[]
      */
     public $tableNameList;
 
     /**
+     * @description The username of the operator. We recommend that you enter the username of your Alibaba Cloud account.
+     *
      * @example xxx-uat
      *
      * @var string

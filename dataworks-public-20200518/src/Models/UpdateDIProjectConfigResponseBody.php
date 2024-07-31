@@ -10,17 +10,14 @@ use AlibabaCloud\Tea\Model;
 class UpdateDIProjectConfigResponseBody extends Model
 {
     /**
-     * @description Indicates whether the default global configuration of synchronization solutions was modified. Valid values:
-     *
-     *   success: The default global configuration of synchronization solutions was modified.
-     *   fail: The default global configuration of synchronization solutions failed to be modified.
+     * @description The information about the modification.
      *
      * @var data
      */
     public $data;
 
     /**
-     * @description The information about the modification.
+     * @description The request ID. You can locate logs and troubleshoot issues based on the ID.
      *
      * @example 0000-ABCD-EFG
      *
@@ -29,7 +26,10 @@ class UpdateDIProjectConfigResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the request. You can use the ID to locate logs and troubleshoot issues.
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
      *
      * @example true
      *

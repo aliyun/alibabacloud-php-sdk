@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DsgSceneQuerySceneListByNameRequest extends Model
 {
     /**
+     * @description The name of the data masking scenario. A fuzzy match is performed in the platform based on a keyword to search for the data masking scenario.
+     *
      * @example dev_
      *
      * @var string

@@ -9,10 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ApprovePermissionApplyOrderRequest extends Model
 {
     /**
-     * @description The approval action. Valid values:
+     * @description The action for the permission request order. Valid values:
      *
-     *   1: Approve the permission request order.
-     *   2: Reject the permission request order.
+     *   1: approve
+     *   2: reject
+     *
+     * <!---->
+     *
+     *   0
+     *   1
+     *   2\\.
+     *   3\\.
+     *   4
+     *   5
      *
      * This parameter is required.
      * @example 1
@@ -22,7 +31,7 @@ class ApprovePermissionApplyOrderRequest extends Model
     public $approveAction;
 
     /**
-     * @description The comment on the approval.
+     * @description The comment on the order.
      *
      * This parameter is required.
      * @example agree

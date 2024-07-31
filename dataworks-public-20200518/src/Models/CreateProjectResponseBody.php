@@ -18,7 +18,7 @@ class CreateProjectResponseBody extends Model
     public $data;
 
     /**
-     * @description The HTTP status code returned.
+     * @description The HTTP status code.
      *
      * @example 200
      *
@@ -27,7 +27,7 @@ class CreateProjectResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The request ID. You can use the ID to locate logs and troubleshoot issues.
+     * @description The request ID.
      *
      * @example 1AFAE64E-D1BE-432B-A9****
      *
@@ -38,8 +38,8 @@ class CreateProjectResponseBody extends Model
     /**
      * @description Indicates whether the request was successful. Valid values:
      *
-     *   true: The request was successful.
-     *   false: The request failed.
+     *   **true**
+     *   **false**
      *
      * @example true
      *

@@ -9,23 +9,21 @@ use AlibabaCloud\Tea\Model;
 class GetOpSensitiveDataResponseBody extends Model
 {
     /**
-     * @description The information of the access records returned for the sensitive data. The information includes totalCount and opRiskDatas.
+     * @description The information about the access records of the sensitive data. The information includes totalCount and opRiskDatas. opRiskDatas includes the following parameters:
      *
-     * opRiskDatas includes the following parameters:
-     *
-     *   sensType: indicates the type of the sensitive data.
-     *   sensLevel: indicates the sensitivity level of the sensitive data. A larger value of sensLevel indicates a higher sensitivity level.
-     *   opType: indicates the type of the operation.
-     *   sql: indicates the SQL statement that is executed.
-     *   opAccount: indicates the account that is used to perform the operation.
-     *   opTime: indicates the time when the operation was performed.
+     *   sensType: the type of the sensitive data.
+     *   sensLevel: the sensitivity level of the sensitive data. A larger value indicates a higher sensitivity level.
+     *   opType: the type of the operation.
+     *   sql: the SQL statement that is executed.
+     *   opAccount: the account that is used to perform the operation.
+     *   opTime: the time when the operation was performed.
      *
      * @var string
      */
     public $opSensitiveData;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 0000-ABCD-EFG****
      *

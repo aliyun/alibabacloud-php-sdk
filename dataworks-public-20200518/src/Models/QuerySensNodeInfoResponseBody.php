@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class QuerySensNodeInfoResponseBody extends Model
 {
     /**
+     * @description The returned business data in the JSON format.
+     *
      * @var mixed
      */
     public $data;
 
     /**
+     * @description The error code.
+     *
      * @example 9990030003
      *
      * @var string
@@ -21,11 +25,15 @@ class QuerySensNodeInfoResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -33,6 +41,8 @@ class QuerySensNodeInfoResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The request ID.
+     *
      * @example 10000001
      *
      * @var string
@@ -40,6 +50,11 @@ class QuerySensNodeInfoResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

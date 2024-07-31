@@ -17,7 +17,7 @@ class ListManualDagInstancesResponseBody extends Model
     public $instances;
 
     /**
-     * @description The ID of the request. You can use the ID to search for logs and troubleshoot issues based on the logs.
+     * @description The request ID.
      *
      * @example SDFSDFSDF-SDFSDF-SDFDSF-SDFSDF
      *

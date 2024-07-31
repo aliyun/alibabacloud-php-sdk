@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class groups extends Model
 {
     /**
-     * @description The ID of the API group that is associated with the business process in the API Gateway console.
+     * @description The ID of the API Gateway group to which the workflow is bound.
      *
      * @example 100abc
      *
@@ -45,7 +45,7 @@ class groups extends Model
     public $description;
 
     /**
-     * @description The ID of the business process.
+     * @description The business process ID.
      *
      * @example ds_123abc
      *
@@ -72,7 +72,7 @@ class groups extends Model
     public $modifiedTime;
 
     /**
-     * @description The ID of the workspace.
+     * @description The workspace ID.
      *
      * @example 10002
      *
@@ -81,7 +81,7 @@ class groups extends Model
     public $projectId;
 
     /**
-     * @description The ID of the tenant.
+     * @description The tenant ID.
      *
      * @example 10003
      *

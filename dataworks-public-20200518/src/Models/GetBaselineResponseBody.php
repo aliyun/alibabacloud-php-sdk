@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetBaselineResponseBody extends Model
 {
     /**
+     * @description The data returned.
+     *
      * @var data
      */
     public $data;

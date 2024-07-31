@@ -19,7 +19,7 @@ class TestNetworkConnectionRequest extends Model
     public $datasourceName;
 
     /**
-     * @description The environment to which the data source belongs. Valid values:
+     * @description The environment in which the data source resides. Valid values:
      *
      *   0: development environment
      *   1: production environment
@@ -32,7 +32,7 @@ class TestNetworkConnectionRequest extends Model
     public $envType;
 
     /**
-     * @description The ID of the DataWorks workspace to which the data source belongs. You can call the [ListProjects](https://help.aliyun.com/document_detail/178393.html) operation to query the ID of the workspace.
+     * @description The ID of the DataWorks workspace to which the data sources belong. You can call the [ListProjects](https://help.aliyun.com/document_detail/178393.html) operation to query the ID of the workspace.
      *
      * This parameter is required.
      * @example 10000

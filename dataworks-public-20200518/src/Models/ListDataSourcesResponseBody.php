@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class ListDataSourcesResponseBody extends Model
 {
     /**
-     * @description The number of entries returned per page. Default value: 10. Maximum value: 100.
+     * @description The query result returned.
      *
      * @var data
      */
     public $data;
 
     /**
-     * @description Indicates whether the request was successful.
+     * @description The HTTP status code.
      *
      * @example 200
      *
@@ -26,7 +26,7 @@ class ListDataSourcesResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The query result.
+     * @description The request ID.
      *
      * @example 0bc14115159376359****
      *
@@ -35,7 +35,7 @@ class ListDataSourcesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The page number of the returned page.
+     * @description Indicates whether the request was successful.
      *
      * @example true
      *

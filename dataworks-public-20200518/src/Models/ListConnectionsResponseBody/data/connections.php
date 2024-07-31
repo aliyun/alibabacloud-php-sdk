@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class connections extends Model
 {
     /**
+     * @description The ID of the compute engine with which the data source is associated.
+     *
      * @example 123
      *
      * @var int
@@ -16,6 +18,11 @@ class connections extends Model
     public $bindingCalcEngineId;
 
     /**
+     * @description The status of the data source. Valid values:
+     *
+     *   1: The data source is normal.
+     *   2: The data source is disabled.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +30,22 @@ class connections extends Model
     public $connectStatus;
 
     /**
+     * @description The type of the data source. Valid values:
+     *
+     *   odps
+     *   mysql
+     *   rds
+     *   oss
+     *   sqlserver
+     *   polardb
+     *   oracle
+     *   mongodb
+     *   emr
+     *   postgresql
+     *   analyticdb_for_mysql
+     *   hybriddb_for_postgresql
+     *   holo
+     *
      * @example mysql
      *
      * @var string
@@ -30,6 +53,63 @@ class connections extends Model
     public $connectionType;
 
     /**
+     * @description The details of the data source. Examples of details of some common data sources:
+     *
+     *   odps
+     *
+     * }
+     *
+     *   mysql
+     *
+     * }
+     *
+     *   rds
+     *
+     * }
+     *
+     *   oss
+     *
+     * }
+     *
+     *   sqlserver
+     *
+     * }
+     *
+     *   polardb
+     *
+     * }
+     *
+     *   oracle
+     *
+     * }
+     *
+     *   mongodb
+     *
+     * }
+     *
+     *   emr
+     *
+     * }
+     *
+     *   postgresql
+     *
+     * }
+     *
+     *   analyticdb_for_mysql
+     *
+     * }
+     *
+     *   hybriddb_for_postgresql
+     *
+     * }
+     *
+     *   holo
+     *
+     * }
+     *
+     *   kafka
+     *
+     * }
      * @example {\\"database\\":\\"xxx\\",\\"instanceName\\":\\"xxx\\",\\"password\\":\\"xxx\\",\\"rdsOwnerId\\":\\"xxx\\",\\"tag\\":\\"rds\\",\\"username\\":\\"xxx\\"}
      *
      * @var string
@@ -37,6 +117,8 @@ class connections extends Model
     public $content;
 
     /**
+     * @description Indicates whether the compute engine that is associated with the data source is the default compute engine used by data sources of the same type.
+     *
      * @example false
      *
      * @var bool
@@ -44,6 +126,8 @@ class connections extends Model
     public $defaultEngine;
 
     /**
+     * @description The description of the data source.
+     *
      * @example a connection
      *
      * @var string
@@ -51,6 +135,11 @@ class connections extends Model
     public $description;
 
     /**
+     * @description The environment in which the data source is used. Valid values:
+     *
+     *   0: development environment
+     *   1: production environment
+     *
      * @example 1
      *
      * @var int
@@ -58,6 +147,8 @@ class connections extends Model
     public $envType;
 
     /**
+     * @description The time when the data source was created. Example: Mar 17, 2021 4:09:32 PM.
+     *
      * @example Mar 17, 2021 4:09:32 PM
      *
      * @var string
@@ -65,6 +156,8 @@ class connections extends Model
     public $gmtCreate;
 
     /**
+     * @description The time when the data source was last modified. Example: Mar 17, 2021 4:09:32 PM.
+     *
      * @example Mar 17, 2021 4:09:32 PM
      *
      * @var string
@@ -72,6 +165,8 @@ class connections extends Model
     public $gmtModified;
 
     /**
+     * @description The data source ID.
+     *
      * @example 1
      *
      * @var int
@@ -79,6 +174,8 @@ class connections extends Model
     public $id;
 
     /**
+     * @description The name of the data source.
+     *
      * @example abc
      *
      * @var string
@@ -86,6 +183,8 @@ class connections extends Model
     public $name;
 
     /**
+     * @description The ID of the Alibaba Cloud account that is used to last modify the data source.
+     *
      * @example 193543050****
      *
      * @var string
@@ -93,6 +192,8 @@ class connections extends Model
     public $operator;
 
     /**
+     * @description The ID of the workspace with which the data source is associated.
+     *
      * @example 123
      *
      * @var int
@@ -100,6 +201,8 @@ class connections extends Model
     public $projectId;
 
     /**
+     * @description The field that is used to sort data sources. Data sources are sorted in descending order based on the value of this parameter.
+     *
      * @example 300
      *
      * @var int
@@ -107,6 +210,8 @@ class connections extends Model
     public $sequence;
 
     /**
+     * @description Indicates whether the data source is a shared data source.
+     *
      * @example false
      *
      * @var bool
@@ -114,6 +219,11 @@ class connections extends Model
     public $shared;
 
     /**
+     * @description The status of the data source. Valid values:
+     *
+     *   1: The data source is normal.
+     *   2: The data source is disabled.
+     *
      * @example 1
      *
      * @var int
@@ -121,6 +231,11 @@ class connections extends Model
     public $status;
 
     /**
+     * @description The subtype of the data source. This parameter is used in scenarios where a type includes subtypes. The following type and subtypes are supported:
+     *
+     *   Type: `rds`
+     *   Subtypes: `mysql`, `sqlserver`, and `postgresql`.
+     *
      * @example mysql
      *
      * @var string
@@ -128,6 +243,8 @@ class connections extends Model
     public $subType;
 
     /**
+     * @description The tenant ID.
+     *
      * @example 1234567
      *
      * @var int

@@ -29,7 +29,7 @@ class GetDataServiceApiRequest extends Model
     public $projectId;
 
     /**
-     * @description The ID of the tenant.
+     * @description The tenant ID.
      *
      * @example 10002
      *

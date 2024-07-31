@@ -10,17 +10,14 @@ use AlibabaCloud\Tea\Model;
 class StopDISyncInstanceResponseBody extends Model
 {
     /**
-     * @description Indicates whether the synchronization node is stopped. Valid values:
-     *
-     *   success: The synchronization node is stopped.
-     *   fail: The synchronization node fails to be stopped.
+     * @description The information returned for the synchronization task.
      *
      * @var data
      */
     public $data;
 
     /**
-     * @description The information returned for the synchronization node.
+     * @description The request ID. You can locate logs and troubleshoot issues based on the ID.
      *
      * @example 0bc1411515937635973****
      *
@@ -29,7 +26,10 @@ class StopDISyncInstanceResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the request. You can locate logs and troubleshoot issues based on the ID.
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
      *
      * @example true
      *

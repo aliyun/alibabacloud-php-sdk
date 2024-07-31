@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class alertSettings extends Model
 {
     /**
+     * @description The interval at which an event alert notification is sent. Unit: seconds.
+     *
      * @example 900
      *
      * @var int
@@ -17,6 +19,8 @@ class alertSettings extends Model
     public $alertInterval;
 
     /**
+     * @description The maximum number of times an event alert notification is sent.
+     *
      * @example 1
      *
      * @var int
@@ -24,11 +28,19 @@ class alertSettings extends Model
     public $alertMaximum;
 
     /**
+     * @description The alert notification methods.
+     *
      * @var string[]
      */
     public $alertMethods;
 
     /**
+     * @description The details of the alert recipient.
+     *
+     *   If the value of AlertRecipientType is OWNER, this parameter is left empty.
+     *   If the value of AlertRecipientType is SHIFT_SCHEDULE, the value of this parameter is the ID of a shift schedule.
+     *   If the value of AlertRecipientType is OTHER, the value of this parameter is the UIDs of specified personnel. Multiple UIDs are separated by commas (,).
+     *
      * @example 123123
      *
      * @var string
@@ -36,6 +48,12 @@ class alertSettings extends Model
     public $alertRecipient;
 
     /**
+     * @description The type of the alert recipient. Valid values:
+     *
+     *   OWNER: indicates the node owner.
+     *   OTHER: indicates specified personnel.
+     *   SHIFT_SCHEDULE: indicates personnel in a shift schedule.
+     *
      * @example OWNER
      *
      * @var string
@@ -43,6 +61,11 @@ class alertSettings extends Model
     public $alertRecipientType;
 
     /**
+     * @description The type of the alert. Valid values:
+     *
+     *   BASELINE: indicates a baseline alert.
+     *   TOPIC: indicates an event alert.
+     *
      * @example BASELINE
      *
      * @var string
@@ -50,6 +73,11 @@ class alertSettings extends Model
     public $alertType;
 
     /**
+     * @description Indicates whether the baseline alerting feature is enabled. The feature is specific to baselines. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example false
      *
      * @var bool
@@ -57,11 +85,15 @@ class alertSettings extends Model
     public $baselineAlertEnabled;
 
     /**
+     * @description The DingTalk chatbots.
+     *
      * @var dingRobots[]
      */
     public $dingRobots;
 
     /**
+     * @description The end of the time range for silence. The time is in the HH:mm:ss format.
+     *
      * @example 00:00:00
      *
      * @var string
@@ -69,6 +101,8 @@ class alertSettings extends Model
     public $silenceEndTime;
 
     /**
+     * @description The beginning of the time range for silence. The time is in the HH:mm:ss format.
+     *
      * @example 00:00:00
      *
      * @var string
@@ -76,11 +110,15 @@ class alertSettings extends Model
     public $silenceStartTime;
 
     /**
+     * @description The types of event alerts, which are event-specific configurations.
+     *
      * @var string[]
      */
     public $topicTypes;
 
     /**
+     * @description The webhook URLs.
+     *
      * @var string[]
      */
     public $webhooks;

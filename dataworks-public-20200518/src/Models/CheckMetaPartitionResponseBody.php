@@ -9,7 +9,10 @@ use AlibabaCloud\Tea\Model;
 class CheckMetaPartitionResponseBody extends Model
 {
     /**
-     * @description The error message.
+     * @description Indicates whether the partition in the MaxCompute metatable exists. Valid values:
+     *
+     *   true
+     *   false
      *
      * @example true
      *
@@ -18,6 +21,8 @@ class CheckMetaPartitionResponseBody extends Model
     public $data;
 
     /**
+     * @description The error code.
+     *
      * @example Invalid.Tenant.ConnectionNotExists
      *
      * @var string
@@ -25,7 +30,7 @@ class CheckMetaPartitionResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description Indicates whether the request is successful.
+     * @description The error message.
      *
      * @example The connection does not exist.
      *
@@ -34,7 +39,7 @@ class CheckMetaPartitionResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The ID of the request.
+     * @description The HTTP status code.
      *
      * @example 200
      *
@@ -43,7 +48,7 @@ class CheckMetaPartitionResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The error code.
+     * @description The request ID.
      *
      * @example 0bc1ec92159376
      *
@@ -52,6 +57,8 @@ class CheckMetaPartitionResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
      * @example true
      *
      * @var bool

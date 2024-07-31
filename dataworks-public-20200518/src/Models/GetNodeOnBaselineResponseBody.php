@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetNodeOnBaselineResponseBody extends Model
 {
     /**
+     * @description The list of nodes.
+     *
      * @var data[]
      */
     public $data;
 
     /**
+     * @description The error code.
+     *
      * @example 1031203110005
      *
      * @var string
@@ -22,6 +26,8 @@ class GetNodeOnBaselineResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message.
+     *
      * @example The specified parameters are invalid.
      *
      * @var string
@@ -29,6 +35,8 @@ class GetNodeOnBaselineResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -36,6 +44,8 @@ class GetNodeOnBaselineResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The request ID.
+     *
      * @example 0000-ABCD-E****
      *
      * @var string
@@ -43,6 +53,8 @@ class GetNodeOnBaselineResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
      * @example true
      *
      * @var string

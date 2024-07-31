@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class GetQualityRuleResponseBody extends Model
 {
     /**
-     * @description The information of the monitoring rule.
+     * @description The information about the monitoring rule.
      *
      * @var data
      */
     public $data;
 
     /**
-     * @description The error code returned.
+     * @description The error code.
      *
      * @example 401
      *
@@ -26,7 +26,7 @@ class GetQualityRuleResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message returned.
+     * @description The error message.
      *
      * @example You have no permission.
      *
@@ -35,7 +35,7 @@ class GetQualityRuleResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The HTTP status code returned.
+     * @description The HTTP status code.
      *
      * @example 200
      *
@@ -44,7 +44,7 @@ class GetQualityRuleResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 576b9457-2cf5-4****
      *
@@ -53,7 +53,7 @@ class GetQualityRuleResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful.
+     * @description Indicates whether the request was successful.
      *
      * @example true
      *

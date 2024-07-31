@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class apiAuthorizedList extends Model
 {
     /**
-     * @description The ID of the API.
+     * @description The API ID.
      *
      * @example 10002
      *
@@ -63,7 +63,7 @@ class apiAuthorizedList extends Model
     public $creatorId;
 
     /**
-     * @description The time when the access permissions of the API were granted.
+     * @description The time when the access permissions on the API were granted.
      *
      * @example 2020-06-23T00:21:01+0800
      *
@@ -72,7 +72,7 @@ class apiAuthorizedList extends Model
     public $grantCreatedTime;
 
     /**
-     * @description The expiration time for the granted access permissions of the API.
+     * @description The expiration time of the access permissions granted on the API.
      *
      * @example 2020-06-24T00:21:01+0800
      *
@@ -81,7 +81,7 @@ class apiAuthorizedList extends Model
     public $grantEndTime;
 
     /**
-     * @description The ID of the Alibaba Cloud account used by the user who granted the access permissions of the API.
+     * @description The ID of the Alibaba Cloud account used by the user who granted the access permissions on the API.
      *
      * @example 23456
      *
@@ -90,7 +90,7 @@ class apiAuthorizedList extends Model
     public $grantOperatorId;
 
     /**
-     * @description The ID of the API group.
+     * @description The group ID.
      *
      * @example abcde123456789
      *
@@ -108,7 +108,7 @@ class apiAuthorizedList extends Model
     public $modifiedTime;
 
     /**
-     * @description The ID of the workspace.
+     * @description The workspace ID.
      *
      * @example 10000
      *
@@ -117,7 +117,7 @@ class apiAuthorizedList extends Model
     public $projectId;
 
     /**
-     * @description The ID of the tenant.
+     * @description The tenant ID.
      *
      * @example 10001
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetInstanceStatusCountRequest extends Model
 {
     /**
-     * @description The business date of the instance.
+     * @description The data timestamp of instances.
      *
      * This parameter is required.
      * @example 2020-01-01
@@ -19,7 +19,7 @@ class GetInstanceStatusCountRequest extends Model
     public $bizDate;
 
     /**
-     * @description The running environment in PROD and DEV modes.
+     * @description The runtime environment. Valid values: PROD and DEV.
      *
      * This parameter is required.
      * @example PROD
@@ -29,7 +29,7 @@ class GetInstanceStatusCountRequest extends Model
     public $projectEnv;
 
     /**
-     * @description The ID of the DataWorks workspace.
+     * @description The workspace ID.
      *
      * This parameter is required.
      * @example 1234

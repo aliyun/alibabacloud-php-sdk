@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class dataEntityList extends Model
 {
     /**
-     * @description The ID of the tenant.
+     * @description The ID of the EMR cluster.
      *
      * @example abc
      *
@@ -18,7 +18,7 @@ class dataEntityList extends Model
     public $clusterId;
 
     /**
-     * @description The name of the workspace.
+     * @description The name of the metadatabase.
      *
      * @example abc
      *
@@ -27,7 +27,10 @@ class dataEntityList extends Model
     public $databaseName;
 
     /**
-     * @description The ID of the workspace.
+     * @description The type of the metatable. Valid values:
+     *
+     *   0: table
+     *   1: view
      *
      * @example 0
      *
@@ -36,7 +39,10 @@ class dataEntityList extends Model
     public $entityType;
 
     /**
-     * @description The schema information of the table. This parameter is returned only if you enable the table schema in MaxCompute.
+     * @description The type of the environment. Valid values:
+     *
+     *   1: production environment
+     *   0: development environment
      *
      * @example 1
      *
@@ -45,10 +51,7 @@ class dataEntityList extends Model
     public $envType;
 
     /**
-     * @description The type of the environment. Valid values:
-     *
-     *   1: production environment
-     *   0: development environment
+     * @description The ID of the Alibaba Cloud account used by the workspace owner.
      *
      * @example 123
      *
@@ -57,7 +60,7 @@ class dataEntityList extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the Alibaba Cloud account used by the workspace owner.
+     * @description The ID of the workspace.
      *
      * @example 323
      *
@@ -66,7 +69,7 @@ class dataEntityList extends Model
     public $projectId;
 
     /**
-     * @description The GUID of the metatable.
+     * @description The name of the workspace.
      *
      * @example test
      *
@@ -75,6 +78,8 @@ class dataEntityList extends Model
     public $projectName;
 
     /**
+     * @description The schema information of the table. You must configure this parameter if you enable the three-layer model of MaxCompute.
+     *
      * @example default
      *
      * @var string
@@ -82,7 +87,7 @@ class dataEntityList extends Model
     public $schema;
 
     /**
-     * @description The ID of the EMR cluster.
+     * @description The GUID of the metatable.
      *
      * @example odps.engine_name.test_name
      *
@@ -91,10 +96,7 @@ class dataEntityList extends Model
     public $tableGuid;
 
     /**
-     * @description The type of the metatable. Valid values:
-     *
-     *   0: table
-     *   1: view
+     * @description The name of the metatable.
      *
      * @example test_name
      *
@@ -103,6 +105,8 @@ class dataEntityList extends Model
     public $tableName;
 
     /**
+     * @description The tenant ID.
+     *
      * @example 12345
      *
      * @var int

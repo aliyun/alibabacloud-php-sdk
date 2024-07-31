@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class triggerConditions extends Model
 {
     /**
+     * @description The time interval for alert calculation. Unit: minutes.
+     *
      * @example 15
      *
      * @var int
@@ -16,6 +18,11 @@ class triggerConditions extends Model
     public $duration;
 
     /**
+     * @description The severity level. Valid values:
+     *
+     *   Warning
+     *   Critical
+     *
      * @example Warning
      *
      * @var string
@@ -23,6 +30,12 @@ class triggerConditions extends Model
     public $severity;
 
     /**
+     * @description The alert threshold.
+     *
+     *   If the alert rule is for task status, you do not need to specify a threshold.
+     *   If the alert rule is for failovers, specify the number of failovers.
+     *   If the alert rule is for latency, specify the latency duration, in seconds.
+     *
      * @example 5
      *
      * @var int

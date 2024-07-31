@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class nodeTypeInfo extends Model
 {
     /**
+     * @description The type of the node, which is specified by a number.
+     *
      * @example 10
      *
      * @var int
@@ -16,6 +18,8 @@ class nodeTypeInfo extends Model
     public $nodeType;
 
     /**
+     * @description The name of the node type.
+     *
      * @example ODPS SQL
      *
      * @var string

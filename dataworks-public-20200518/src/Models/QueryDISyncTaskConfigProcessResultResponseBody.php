@@ -10,17 +10,14 @@ use AlibabaCloud\Tea\Model;
 class QueryDISyncTaskConfigProcessResultResponseBody extends Model
 {
     /**
-     * @description Indicates whether the parameters are obtained. Valid values:
-     *
-     *   success: indicates that the parameters are obtained.
-     *   fail: indicates that the parameters fail to be obtained. You can view the reason for the failure and troubleshoot the issue based on the reason.
+     * @description The information returned for the parameters that are asynchronously generated and used to create or update a real-time synchronization task in Data Integration.
      *
      * @var data
      */
     public $data;
 
     /**
-     * @description The information returned for the parameters that are asynchronously generated and used to create or update a real-time synchronization node or a synchronization solution in Data Integration.
+     * @description The request ID. You can locate logs and troubleshoot issues based on the ID.
      *
      * @example 0bc1411515937635973****
      *
@@ -29,7 +26,10 @@ class QueryDISyncTaskConfigProcessResultResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the request. You can locate logs and troubleshoot issues based on the ID.
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
      *
      * @example true
      *

@@ -9,7 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetQualityEntityRequest extends Model
 {
     /**
-     * @description The type of the compute engine instance or data source.
+     * @description The type of the compute engine or data source. Valid values:
+     *
+     *   cdh
+     *   analyticdb_for_mysql
+     *   odps
+     *   emr
+     *   hadoop
+     *   holodb
+     *   hybriddb_for_postgresql
      *
      * This parameter is required.
      * @example odps
@@ -28,6 +36,8 @@ class GetQualityEntityRequest extends Model
     public $matchExpression;
 
     /**
+     * @example 12345
+     *
      * @var int
      */
     public $projectId;

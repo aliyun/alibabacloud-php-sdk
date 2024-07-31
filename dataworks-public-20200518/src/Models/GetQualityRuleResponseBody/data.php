@@ -11,11 +11,9 @@ class data extends Model
     /**
      * @description The strength of the monitoring rule. The strength of a monitoring rule indicates the importance of the rule. Valid values:
      *
-     *   1: indicates that the monitoring rule is a strong rule.
+     *   1: the monitoring rule is a strong rule.
+     *   0: the monitoring rule is a weak rule. You can specify whether a monitoring rule is a strong rule based on your business requirements. If a monitoring rule is a strong rule and the critical threshold is exceeded, a critical alert is reported and tasks that are associated with the rule are blocked from running.
      *
-     *   0: indicates that the monitoring rule is a weak rule.
-     *
-     * You can specify whether a monitoring rule is a strong rule based on your business requirements. If a strong rule is used and an error alert is triggered, nodes are blocked.
      * @example 1
      *
      * @var int
@@ -23,7 +21,7 @@ class data extends Model
     public $blockType;
 
     /**
-     * @description The ID of the checker. The value of this parameter corresponds to the ID at the frontend and is converted from the ID of the primary key.
+     * @description The checker ID. The value of this parameter corresponds to the ID at the frontend and is converted from the ID of the primary key.
      *
      * @example 9
      *
@@ -48,7 +46,7 @@ class data extends Model
     public $comment;
 
     /**
-     * @description The threshold for an error alert. The threshold indicates the deviation of the monitoring result from the expected value. You can customize this threshold based on your business requirements. If a strong rule is used and an error alert is triggered, nodes are blocked.
+     * @description The threshold for a critical alert. The threshold indicates the deviation of the check result from the expected value. You can specify a value for the threshold based on your business requirements. If a monitoring rule is a strong rule and the critical threshold is exceeded, a critical alert is reported and tasks that are associated with the rule are blocked from running.
      *
      * @example 20
      *
@@ -84,7 +82,7 @@ class data extends Model
     public $fixCheck;
 
     /**
-     * @description The ID of the monitoring rule.
+     * @description The monitoring rule ID.
      *
      * @example 123232
      *
@@ -93,7 +91,7 @@ class data extends Model
     public $id;
 
     /**
-     * @description The ID of the sampling method of the monitoring rule.
+     * @description The ID of the task that is associated with the partition filter expression.
      *
      * @example 8
      *
@@ -102,7 +100,7 @@ class data extends Model
     public $methodId;
 
     /**
-     * @description The name of the method that is used to collect sample data, such as avg, count, sum, min, max, count_distinct, user_defined, table_count, table_size, table_dt_load_count, table_dt_refuseload_count, null_value, null_value/table_count, (table_count-count_distinct)/table_count, or table_count-count_distinct.
+     * @description The method that is used to collect sample data, such as avg, count, sum, min, max, count_distinct, user_defined, table_count, table_size, table_dt_load_count, table_dt_refuseload_count, null_value, null_value/table_count, (table_count-count_distinct)/table_count, or table_count-count_distinct.
      *
      * @example table_count
      *
@@ -129,6 +127,10 @@ class data extends Model
     public $onDutyAccountName;
 
     /**
+     * @description Indicates whether the monitoring rule is enabled.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $openSwitch;
@@ -155,7 +157,7 @@ class data extends Model
     public $predictType;
 
     /**
-     * @description The field that is monitored. This field is a column name in the data source table that is monitored.
+     * @description The field whose data quality is checked based on the monitoring rule. This field is a column in the data source table that is monitored.
      *
      * @example id
      *
@@ -180,6 +182,11 @@ class data extends Model
     public $ruleType;
 
     /**
+     * @var string
+     */
+    public $taskSetting;
+
+    /**
      * @description The ID of the monitoring template.
      *
      * @example 7
@@ -198,7 +205,7 @@ class data extends Model
     public $templateName;
 
     /**
-     * @description The trend of the monitoring result.
+     * @description The trend of the check result.
      *
      * @example abs
      *
@@ -207,7 +214,7 @@ class data extends Model
     public $trend;
 
     /**
-     * @description The threshold for a warning alert. The threshold indicates the deviation of the monitoring result from the expected value. You can customize this threshold based on your business requirements.
+     * @description The threshold for a warning alert. The threshold indicates the deviation of the check result from the expected value. You can customize this threshold based on your business requirements.
      *
      * @example 10
      *
@@ -243,6 +250,7 @@ class data extends Model
         'property'          => 'Property',
         'ruleName'          => 'RuleName',
         'ruleType'          => 'RuleType',
+        'taskSetting'       => 'TaskSetting',
         'templateId'        => 'TemplateId',
         'templateName'      => 'TemplateName',
         'trend'             => 'Trend',
@@ -313,6 +321,9 @@ class data extends Model
         }
         if (null !== $this->ruleType) {
             $res['RuleType'] = $this->ruleType;
+        }
+        if (null !== $this->taskSetting) {
+            $res['TaskSetting'] = $this->taskSetting;
         }
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
@@ -397,6 +408,9 @@ class data extends Model
         }
         if (isset($map['RuleType'])) {
             $model->ruleType = $map['RuleType'];
+        }
+        if (isset($map['TaskSetting'])) {
+            $model->taskSetting = $map['TaskSetting'];
         }
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];

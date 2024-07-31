@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CallbackExtensionResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 7C352CB7-CD88-50CF-9D0D-E81BDF020E7F
      *
      * @var string
@@ -16,6 +18,9 @@ class CallbackExtensionResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     * false
      * @example true
      *
      * @var string

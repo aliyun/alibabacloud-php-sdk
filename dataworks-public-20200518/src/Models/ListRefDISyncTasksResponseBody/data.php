@@ -10,9 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The details of the sync nodes.
+     * @description The details of the synchronization tasks. In most cases, a data source is used by multiple synchronization tasks. Therefore, the value of this parameter is an array. The following parameters are the elements in the array. The sample values of these parameters show the details of a synchronization task.
      *
-     * A data source is usually associated with multiple sync nodes. Therefore, the value of this parameter is an array. The following parameters are the elements in the array. The sample values of these parameters show the details of a sync node.
      * @var DISyncTasks[]
      */
     public $DISyncTasks;

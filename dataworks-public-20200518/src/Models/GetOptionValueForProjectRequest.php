@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetOptionValueForProjectRequest extends Model
 {
     /**
-     * @description The ID of the workspace.
+     * @description The unique code of the extension.
      *
      * @example ce4*********086da5
      *
@@ -18,7 +18,7 @@ class GetOptionValueForProjectRequest extends Model
     public $extensionCode;
 
     /**
-     * @description Id of the request
+     * @description The workspace ID.
      *
      * @example 234
      *

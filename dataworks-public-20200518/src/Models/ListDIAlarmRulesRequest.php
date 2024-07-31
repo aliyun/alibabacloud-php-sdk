@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListDIAlarmRulesRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the task with which the alert rules are associated.
      *
+     * This parameter is required.
      * @example 11260
      *
      * @var int
@@ -18,6 +19,8 @@ class ListDIAlarmRulesRequest extends Model
     public $DIJobId;
 
     /**
+     * @description The page number. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -25,6 +28,8 @@ class ListDIAlarmRulesRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Default value: 10.
+     *
      * @example 10
      *
      * @var int

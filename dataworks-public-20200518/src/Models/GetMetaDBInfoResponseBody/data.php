@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The display name of the workspace.
+     * @description The compute engine instance ID. Specify the ID in the `Engine type.Engine name` format.
      *
      * @example odps.engine_name
      *
@@ -18,7 +18,7 @@ class data extends Model
     public $appGuid;
 
     /**
-     * @description The time when the compute engine instance was modified. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+     * @description The EMR cluster ID.
      *
      * @example abc
      *
@@ -27,7 +27,7 @@ class data extends Model
     public $clusterBizId;
 
     /**
-     * @description The name of the workspace.
+     * @description The comment.
      *
      * @example The ID of the compute engine instance. The ID is in the Engine type.Engine name format.
      *
@@ -36,7 +36,7 @@ class data extends Model
     public $comment;
 
     /**
-     * @description The name of the workspace owner.
+     * @description The time when the compute engine instance was created.
      *
      * @example 1541576644000
      *
@@ -45,7 +45,7 @@ class data extends Model
     public $createTime;
 
     /**
-     * @description The ID of the tenant.
+     * @description The endpoint of the service.
      *
      * @example http://service.odpsstg.aliyun-inc.com/
      *
@@ -54,7 +54,7 @@ class data extends Model
     public $endpoint;
 
     /**
-     * @description The ID of the EMR cluster. This parameter is returned only for an EMR compute engine instance.
+     * @description The type of the environment. Valid values: 0 and 1. The value 0 indicates the development environment. The value 1 indicates the production environment.
      *
      * @example 1
      *
@@ -63,6 +63,8 @@ class data extends Model
     public $envType;
 
     /**
+     * @description The storage path of the metadatabase of the EMR cluster.
+     *
      * @example hdfs://
      *
      * @var string
@@ -70,6 +72,8 @@ class data extends Model
     public $location;
 
     /**
+     * @description The time when the compute engine instance was modified.
+     *
      * @example 1541576644000
      *
      * @var int
@@ -77,6 +81,8 @@ class data extends Model
     public $modifyTime;
 
     /**
+     * @description The name of the database.
+     *
      * @example abc
      *
      * @var string
@@ -84,7 +90,7 @@ class data extends Model
     public $name;
 
     /**
-     * @description The endpoint of the service.
+     * @description The ID of the Alibaba Cloud account used by the workspace owner.
      *
      * @example 23
      *
@@ -93,7 +99,7 @@ class data extends Model
     public $ownerId;
 
     /**
-     * @description Test items
+     * @description The name of the workspace owner.
      *
      * @example 323
      *
@@ -102,7 +108,7 @@ class data extends Model
     public $ownerName;
 
     /**
-     * @description The ID of the Alibaba Cloud account used by the workspace owner.
+     * @description The workspace ID.
      *
      * @example 22
      *
@@ -111,7 +117,7 @@ class data extends Model
     public $projectId;
 
     /**
-     * @description The type of the environment. Valid values: 0 and 1. The value 0 indicates the development environment. The value 1 indicates the production environment.
+     * @description The name of the workspace.
      *
      * @example test
      *
@@ -120,7 +126,7 @@ class data extends Model
     public $projectName;
 
     /**
-     * @description The name of the metadatabase.
+     * @description The display name of the workspace.
      *
      * @example The storage path of the metadatabase of the EMR cluster.
      *
@@ -129,6 +135,8 @@ class data extends Model
     public $projectNameCn;
 
     /**
+     * @description The tenant ID.
+     *
      * @example 233
      *
      * @var int
@@ -136,7 +144,7 @@ class data extends Model
     public $tenantId;
 
     /**
-     * @description The ID of the workspace.
+     * @description The type of the metadatabase.
      *
      * @example hive
      *

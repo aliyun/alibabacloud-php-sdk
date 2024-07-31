@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The ID of the category.
+     * @description The category ID.
      *
      * @example 223
      *

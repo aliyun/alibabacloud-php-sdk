@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetSuccessInstanceTrendResponseBody extends Model
 {
     /**
+     * @description The trend of statistics on the instance status in different time periods.
+     *
      * @var instanceStatusTrend
      */
     public $instanceStatusTrend;
 
     /**
+     * @description The request ID.
+     *
      * @example 952795279527ab****
      *
      * @var string

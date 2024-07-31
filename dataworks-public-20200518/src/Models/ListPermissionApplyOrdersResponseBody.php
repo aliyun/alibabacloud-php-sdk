@@ -17,7 +17,7 @@ class ListPermissionApplyOrdersResponseBody extends Model
     public $applyOrders;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 0bc1ec92159376****
      *

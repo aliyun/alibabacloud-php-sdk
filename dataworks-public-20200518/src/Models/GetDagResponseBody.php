@@ -17,7 +17,7 @@ class GetDagResponseBody extends Model
     public $data;
 
     /**
-     * @description The error code returned.
+     * @description The error code.
      *
      * @example Invalid.Tenant.ConnectionNotExists
      *
@@ -26,7 +26,7 @@ class GetDagResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message returned.
+     * @description The error message.
      *
      * @example The connection does not exist.
      *
@@ -35,6 +35,8 @@ class GetDagResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -42,7 +44,7 @@ class GetDagResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The ID of the request. You can use the ID to locate logs and troubleshoot issues.
+     * @description The request ID.
      *
      * @example 7782a299-b291-4fee-8424-cf8058efa8e8
      *
@@ -51,7 +53,7 @@ class GetDagResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful.
+     * @description Indicates whether the request was successful.
      *
      * @example true
      *

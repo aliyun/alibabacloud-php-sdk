@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteDataServiceApiAuthorityRequest extends Model
 {
     /**
-     * @description The ID of the API.
+     * @description The API ID.
      *
      * This parameter is required.
      * @example 10001
@@ -29,7 +29,7 @@ class DeleteDataServiceApiAuthorityRequest extends Model
     public $authorizedProjectId;
 
     /**
-     * @description The ID of the workspace.
+     * @description The workspace ID.
      *
      * This parameter is required.
      * @example 10003
@@ -39,7 +39,7 @@ class DeleteDataServiceApiAuthorityRequest extends Model
     public $projectId;
 
     /**
-     * @description The ID of the tenant.
+     * @description The tenant ID. This parameter is deprecated.
      *
      * @example 10004
      *

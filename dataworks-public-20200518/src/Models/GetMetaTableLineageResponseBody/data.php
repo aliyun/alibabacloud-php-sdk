@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The GUID of the metatable.
+     * @description The information about the table.
      *
      * @var dataEntityList[]
      */
     public $dataEntityList;
 
     /**
-     * @description The name of the metatable.
+     * @description Indicates whether the next page exists.
      *
      * @example true
      *
@@ -26,7 +26,7 @@ class data extends Model
     public $hasNext;
 
     /**
-     * @description The information about the metatable.
+     * @description The logic of paging. If the value true is returned for the HasNext parameter and a value is returned for the NextPrimaryKey parameter in the response of the previous request, you must use the value of the NextPrimaryKey parameter for the next request.
      *
      * @example odps | retail_e_commerce_2 | retail_e_commerce_2 | dws_ec_trd__cate_commodity_gmv_kpy_fy
      *

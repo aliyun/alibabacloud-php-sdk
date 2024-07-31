@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetInstanceConsumeTimeRankResponseBody extends Model
 {
     /**
+     * @description The ranking record of the running durations of instances.
+     *
      * @var instanceConsumeTimeRank
      */
     public $instanceConsumeTimeRank;
 
     /**
+     * @description The request ID.
+     *
      * @example 6347364dadsfadf****
      *
      * @var string

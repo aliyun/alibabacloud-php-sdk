@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateProjectShrinkRequest extends Model
 {
     /**
-     * @description The client token that is used to ensure the idempotence of the request. We recommend that you set this parameter to a UUID.
+     * @description The client token that is used to ensure the idempotence of the request. This parameter can be left empty.
      *
      * @example ABFUOEUOTRTRJKE
      *
@@ -18,11 +18,10 @@ class CreateProjectShrinkRequest extends Model
     public $clientToken;
 
     /**
-     * @description Specifies whether to disable the Development role. Valid values:
+     * @description Specifies whether to disable the Develop role. Valid values:
      *
-     *   false: enables the Development role.
-     *   true: disables the Development role.
-     *   Default value: false.
+     *   **false** (default)
+     *   **true**
      *
      * @example false
      *
@@ -31,11 +30,10 @@ class CreateProjectShrinkRequest extends Model
     public $disableDevelopment;
 
     /**
-     * @description Specifies whether query result download from DataStudio is allowed. Valid values:
+     * @description Specifies whether to allow you to download the query result from DataStudio. Valid values:
      *
-     *   1: allowed
-     *   0: not allowed
-     *   Default value: 1.
+     *   **1** (default): allows you to download the query result from DataStudio.
+     *   **0**: does not allow you to download the query result from DataStudio.
      *
      * @example 1
      *
@@ -54,7 +52,7 @@ class CreateProjectShrinkRequest extends Model
     public $projectDescription;
 
     /**
-     * @description The name of the workspace. The name can contain letters, digits, and underscores (_) and must start with a letter or digit.
+     * @description The name of the workspace. The name can contain only letters, digits, and underscores (_) and must start with a letter or digit.
      *
      * This parameter is required.
      * @example test_project
@@ -64,11 +62,12 @@ class CreateProjectShrinkRequest extends Model
     public $projectIdentifier;
 
     /**
-     * @description The mode of the workspace. For more information about the differences between the modes of workspaces, see [Differences between workspaces in basic mode and workspaces in standard mode](https://help.aliyun.com/document_detail/85772.html). Valid values:
+     * @description The mode of the workspace. For more information about the differences between the modes of workspaces, see [Differences between workspaces in basic mode and workspaces in standard mode](https://help.aliyun.com/document_detail/85772.html).
      *
-     *   2: basic mode
-     *   3: standard mode
-     *   Default value: 2.
+     * Valid values:
+     *
+     *   **2** (default): basic mode
+     *   **3**: standard mode
      *
      * @example 3
      *
@@ -96,7 +95,7 @@ class CreateProjectShrinkRequest extends Model
     public $resourceManagerResourceGroupId;
 
     /**
-     * @description The tags.
+     * @description The tags added to the workspace.
      *
      * @var string
      */

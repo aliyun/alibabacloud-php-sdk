@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class OfflineNodeRequest extends Model
 {
     /**
-     * @description The ID of the DataWorks workspace. You can call the [ListProjects](https://help.aliyun.com/document_detail/178393.html) operation to obtain the ID.
+     * @description The node ID. You can call the [ListNodes](https://help.aliyun.com/document_detail/173979.html) operation to obtain the node ID.
      *
      * This parameter is required.
      * @example 1234
@@ -19,7 +19,7 @@ class OfflineNodeRequest extends Model
     public $nodeId;
 
     /**
-     * @description The ID of the request. You can use the ID to locate logs and troubleshoot issues.
+     * @description The DataWorks workspace ID. You can call the [ListProjects](https://help.aliyun.com/document_detail/178393.html) operation to obtain the ID.
      *
      * This parameter is required.
      * @example 9527

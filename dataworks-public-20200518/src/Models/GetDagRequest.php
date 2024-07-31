@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetDagRequest extends Model
 {
     /**
-     * @description The ID of the DAG. You can set this parameter to the value of the DagId parameter returned by the CreateDagComplement, CreateTest, or CreateManualDag operation.
+     * @description The DAG ID. You can set this parameter to the value of the DagId parameter returned by the CreateDagComplement, CreateTest, or CreateManualDag operation.
      *
      * This parameter is required.
      * @example 123141452344525
@@ -19,7 +19,7 @@ class GetDagRequest extends Model
     public $dagId;
 
     /**
-     * @description The environment type. Valid values: PROD and DEV. The value PROD indicates the production environment. The value DEV indicates the development environment.
+     * @description The environment of the workspace. Valid values: PROD and DEV.
      *
      * This parameter is required.
      * @example PROD

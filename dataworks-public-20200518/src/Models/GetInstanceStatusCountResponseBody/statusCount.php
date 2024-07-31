@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class statusCount extends Model
 {
     /**
-     * @description The number of failed instances.
+     * @description The number of instances that failed.
      *
      * @example 1
      *
@@ -18,7 +18,7 @@ class statusCount extends Model
     public $failureCount;
 
     /**
-     * @description The number of instances that are not running.
+     * @description The number of instances that are not run.
      *
      * @example 1
      *
@@ -27,7 +27,7 @@ class statusCount extends Model
     public $notRunCount;
 
     /**
-     * @description The number of running instances.
+     * @description The number of instances that are running.
      *
      * @example 1
      *
@@ -36,7 +36,7 @@ class statusCount extends Model
     public $runningCount;
 
     /**
-     * @description The number of successful instances.
+     * @description The number of instances that are successfully run.
      *
      * @example 1
      *
@@ -45,7 +45,7 @@ class statusCount extends Model
     public $successCount;
 
     /**
-     * @description The total number of instances.
+     * @description The total number of instances returned.
      *
      * @example 1
      *
@@ -54,7 +54,7 @@ class statusCount extends Model
     public $totalCount;
 
     /**
-     * @description The number of instances waiting for resources.
+     * @description The number of instances that are waiting for resources.
      *
      * @example 1
      *
@@ -63,7 +63,7 @@ class statusCount extends Model
     public $waitResCount;
 
     /**
-     * @description The number of instances to be run that meet the conditions.
+     * @description The number of instances that are waiting for their scheduling time to arrive.
      *
      * @example 1
      *

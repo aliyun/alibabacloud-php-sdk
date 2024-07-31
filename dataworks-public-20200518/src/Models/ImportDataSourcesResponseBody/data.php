@@ -20,8 +20,8 @@ class data extends Model
     /**
      * @description Indicates whether the data sources were imported. Valid values:
      *
-     *   true: All the data sources were imported.
-     *   false: Some of the data sources failed to be imported. You can troubleshoot issues based on the Message parameter.
+     *   true: All data sources were imported.
+     *   false: Specific data sources failed to be imported. You can troubleshoot issues based on the Message parameter.
      *
      * @example true
      *

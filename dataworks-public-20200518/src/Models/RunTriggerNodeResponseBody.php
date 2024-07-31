@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class RunTriggerNodeResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 9BA675F1-F848-4752-A6E3-92ABA0616005
      *
@@ -18,10 +18,10 @@ class RunTriggerNodeResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful.
+     * @description Indicates whether the request was successful. Valid values:
      *
-     *   true: The request is successful.
-     *   false: The request fails.
+     *   true
+     *   false
      *
      * @example true
      *

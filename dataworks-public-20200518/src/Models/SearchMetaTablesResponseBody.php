@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class SearchMetaTablesResponseBody extends Model
 {
     /**
-     * @description The number of entries returned per page.
+     * @description The search results.
      *
      * @var data
      */
     public $data;
 
     /**
-     * @description The page number of the returned page.
+     * @description The error code.
      *
      * @example 1031203110005
      *
@@ -26,7 +26,7 @@ class SearchMetaTablesResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description Indicates whether the request is successful.
+     * @description The error message.
      *
      * @example The specified parameters are invalid.
      *
@@ -35,7 +35,7 @@ class SearchMetaTablesResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The ID of the request.
+     * @description The HTTP status code.
      *
      * @example 200
      *
@@ -44,7 +44,7 @@ class SearchMetaTablesResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The error code returned.
+     * @description The request ID.
      *
      * @example 0bc1ec92159376****
      *
@@ -53,7 +53,7 @@ class SearchMetaTablesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The business data returned.
+     * @description Indicates whether the request was successful.
      *
      * @example true
      *

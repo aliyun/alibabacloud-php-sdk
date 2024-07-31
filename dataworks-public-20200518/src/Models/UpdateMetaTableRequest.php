@@ -45,7 +45,7 @@ class UpdateMetaTableRequest extends Model
     public $envType;
 
     /**
-     * @description The ID of the new owner. If this parameter is not specified, the owner ID is not updated.
+     * @description The new owner ID. If you leave this parameter empty, the owner ID is not updated.
      *
      * @example 12345
      *
@@ -54,7 +54,7 @@ class UpdateMetaTableRequest extends Model
     public $newOwnerId;
 
     /**
-     * @description The ID of the DataWorks workspace.
+     * @description The DataWorks workspace ID.
      *
      * @example 101
      *
@@ -63,7 +63,7 @@ class UpdateMetaTableRequest extends Model
     public $projectId;
 
     /**
-     * @description The names of labels that you want to delete. Separate the labels with commas (,).
+     * @description The names of labels that you want to remove. Separate the labels with commas (,).
      *
      * @example a,b,c
      *
@@ -72,7 +72,7 @@ class UpdateMetaTableRequest extends Model
     public $removedLabels;
 
     /**
-     * @description The schema information of the table. You need to configure this parameter if you enable the table schema in MaxCompute.
+     * @description The schema information about the table. You must configure this parameter if you enable the three-layer model of MaxCompute.
      *
      * @example default
      *
@@ -81,7 +81,7 @@ class UpdateMetaTableRequest extends Model
     public $schema;
 
     /**
-     * @description The globally unique identifier (GUID) of the table. Specify the GUID in the format of odps.{projectName}.{tableName}.
+     * @description The GUID of the table. Specify the GUID in the format of odps.{projectName}.{tableName}.
      *
      * @example odps.test.table1
      *
@@ -99,7 +99,7 @@ class UpdateMetaTableRequest extends Model
     public $tableName;
 
     /**
-     * @description The scope in which the table is visible. Valid values: 0, 1, and 2. The value 0 indicates that the table is invisible to all workspace members. The value 1 indicates that the table is visible to all workspace members. The value 2 indicates that the table is visible to workspace members.
+     * @description The scope in which the table is visible. Valid values: 0, 1, and 2. The value 0 indicates that the table is invisible to all members. The value 1 indicates that the table is visible to all members. The value 2 indicates that the table is visible to workspace members.
      *
      * @example 1
      *

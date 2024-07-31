@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateBaselineShrinkRequest extends Model
 {
     /**
+     * @description Specifies whether to enable the alerting feature. Valid values: true and false.
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +18,8 @@ class UpdateBaselineShrinkRequest extends Model
     public $alertEnabled;
 
     /**
+     * @description The alert margin threshold of the baseline. Unit: minutes.
+     *
      * @example 30
      *
      * @var int
@@ -23,13 +27,16 @@ class UpdateBaselineShrinkRequest extends Model
     public $alertMarginThreshold;
 
     /**
+     * @description The alert settings of the baseline.
+     *
      * @var string
      */
     public $alertSettingsShrink;
 
     /**
-     * @description This parameter is required.
+     * @description The baseline ID. You can call the [ListBaselines](https://help.aliyun.com/document_detail/2261507.html) operation to query the ID.
      *
+     * This parameter is required.
      * @example 1000010800007
      *
      * @var int
@@ -37,6 +44,8 @@ class UpdateBaselineShrinkRequest extends Model
     public $baselineId;
 
     /**
+     * @description The name of the baseline.
+     *
      * @example BaselineName
      *
      * @var string
@@ -44,6 +53,8 @@ class UpdateBaselineShrinkRequest extends Model
     public $baselineName;
 
     /**
+     * @description The type of the baseline. Valid values: DAILY and HOURLY.
+     *
      * @example DAILY
      *
      * @var string
@@ -51,6 +62,8 @@ class UpdateBaselineShrinkRequest extends Model
     public $baselineType;
 
     /**
+     * @description Specifies whether to enable the baseline. Valid values: true and false.
+     *
      * @example true
      *
      * @var bool
@@ -58,6 +71,8 @@ class UpdateBaselineShrinkRequest extends Model
     public $enabled;
 
     /**
+     * @description The ancestor nodes of nodes in the baseline. Separate the ancestor nodes with commas (,). If a large number of ancestor nodes exist, we recommend that you create a zero load node and configure the zero load node as the descendant node of nodes in the baseline to facilitate node management.
+     *
      * @example 1,2,3
      *
      * @var string
@@ -65,11 +80,15 @@ class UpdateBaselineShrinkRequest extends Model
     public $nodeIds;
 
     /**
+     * @description The settings of the committed completion time of the baseline.
+     *
      * @var string
      */
     public $overtimeSettingsShrink;
 
     /**
+     * @description The ID of the Alibaba Cloud account used by the baseline owner.
+     *
      * @example 3726346****
      *
      * @var string
@@ -77,6 +96,8 @@ class UpdateBaselineShrinkRequest extends Model
     public $owner;
 
     /**
+     * @description The priority of the baseline. Valid values: {1,3,5,7,8}.
+     *
      * @example 7
      *
      * @var int
@@ -84,8 +105,9 @@ class UpdateBaselineShrinkRequest extends Model
     public $priority;
 
     /**
-     * @description This parameter is required.
+     * @description The workspace ID. You can call the [ListBaselines](https://help.aliyun.com/document_detail/2261507.html) operation to query the ID.
      *
+     * This parameter is required.
      * @example 2043
      *
      * @var int
@@ -93,6 +115,8 @@ class UpdateBaselineShrinkRequest extends Model
     public $projectId;
 
     /**
+     * @description The ID of the node that you want to disassociate from the baseline. You can specify multiple node IDs. Separate multiple node IDs with commas (,).
+     *
      * @example 123,456
      *
      * @var string

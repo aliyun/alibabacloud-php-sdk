@@ -18,7 +18,7 @@ class folders extends Model
     public $createdTime;
 
     /**
-     * @description The ID of the folder.
+     * @description The folder ID.
      *
      * @example 11
      *
@@ -63,7 +63,7 @@ class folders extends Model
     public $parentId;
 
     /**
-     * @description The ID of the workspace.
+     * @description The workspace ID.
      *
      * @example 10001
      *
@@ -72,7 +72,7 @@ class folders extends Model
     public $projectId;
 
     /**
-     * @description The ID of the tenant.
+     * @description The tenant ID.
      *
      * @example 10002
      *

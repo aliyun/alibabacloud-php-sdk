@@ -10,17 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DeleteDISyncTaskResponseBody extends Model
 {
     /**
-     * @description Indicates whether the synchronization node in Data Integration is deleted. Valid values:
-     *
-     *   success: The synchronization node in Data Integration is deleted.
-     *   fail: The synchronization node in Data Integration failed to be deleted. You can troubleshoot the issue based on the failure reason.
+     * @description The deletion result.
      *
      * @var data
      */
     public $data;
 
     /**
-     * @description The result returned after you called the DeleteDISyncTask operation.
+     * @description The request ID. You can locate logs and troubleshoot issues based on the ID.
      *
      * @example 0bc1411515937635973****
      *
@@ -29,7 +26,10 @@ class DeleteDISyncTaskResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the request. You can use the ID to locate logs and troubleshoot issues.
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
      *
      * @example true
      *

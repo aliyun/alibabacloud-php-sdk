@@ -19,7 +19,16 @@ class DeleteQualityEntityRequest extends Model
     public $entityId;
 
     /**
-     * @description The type of the compute engine instance or data source. Valid values: EMR, Hologres, AnalyticDB for PostgreSQL, CDH, MaxCompute, Kafka and DataHub.
+     * @description The type of the compute engine or data source. The following types are supported: E-MapReduce (EMR), Hologres, AnalyticDB for PostgreSQL, CDH, MaxCompute, Kafka, and DataHub.
+     *
+     * Valid values:
+     *
+     *   odps
+     *   emr
+     *   hadoop
+     *   cdh
+     *   hybriddb_for_postgresql
+     *   holodb
      *
      * This parameter is required.
      * @example ODPS
@@ -29,12 +38,16 @@ class DeleteQualityEntityRequest extends Model
     public $envType;
 
     /**
+     * @description The DataWorks workspace ID.
+     *
+     * @example 12345
+     *
      * @var int
      */
     public $projectId;
 
     /**
-     * @description The name of the compute engine instance or data source.
+     * @description The name of the compute engine or data source.
      *
      * This parameter is required.
      * @example autotest

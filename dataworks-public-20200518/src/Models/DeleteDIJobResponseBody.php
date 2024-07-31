@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteDIJobResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example D33D4A51-5845-579A-B4BA-FAADD0F83D53
      *
      * @var string

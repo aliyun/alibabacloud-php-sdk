@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListEntitiesByTagsRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The type of the entity.
      *
+     * This parameter is required.
      * @example maxcompute-table
      *
      * @var string
@@ -18,6 +19,8 @@ class ListEntitiesByTagsRequest extends Model
     public $entityType;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results.
+     *
      * @example 12345
      *
      * @var string
@@ -25,6 +28,8 @@ class ListEntitiesByTagsRequest extends Model
     public $nextToken;
 
     /**
+     * @description The number of entries per page. Default value: 10. Valid values: 1 to 100.
+     *
      * @example 10
      *
      * @var int
@@ -32,8 +37,9 @@ class ListEntitiesByTagsRequest extends Model
     public $pageSize;
 
     /**
-     * @description This parameter is required.
+     * @description The tags.
      *
+     * This parameter is required.
      * @var UserEntityTag[]
      */
     public $tags;

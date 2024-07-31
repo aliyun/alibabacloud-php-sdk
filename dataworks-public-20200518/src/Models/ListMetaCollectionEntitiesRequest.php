@@ -38,7 +38,7 @@ class ListMetaCollectionEntitiesRequest extends Model
     public $keyword;
 
     /**
-     * @description The paging information. This parameter specifies the start point of the query.
+     * @description The pagination token that is used in the next request to retrieve a new page of results.
      *
      * @example 12222
      *
@@ -47,7 +47,7 @@ class ListMetaCollectionEntitiesRequest extends Model
     public $nextToken;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The number of entries per page.
      *
      * @example 10
      *

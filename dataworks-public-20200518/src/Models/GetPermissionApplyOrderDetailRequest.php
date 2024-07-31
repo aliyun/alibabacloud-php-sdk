@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetPermissionApplyOrderDetailRequest extends Model
 {
     /**
-     * @description The ID of the permission request order. You can call the ListPermissionApplyOrders operation to obtain the order ID.
+     * @description The ID of the permission request order. You can call the [ListPermissionApplyOrders](https://help.aliyun.com/document_detail/211008.html) operation to obtain the ID.
      *
      * This parameter is required.
      * @example 48f36729-05f9-4a40-9286-933fd940f30a

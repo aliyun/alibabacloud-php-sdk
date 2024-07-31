@@ -11,14 +11,14 @@ use AlibabaCloud\Tea\Model;
 class entity extends Model
 {
     /**
-     * @description The information about the table level.
+     * @description The information about the levels of the metatable.
      *
      * @var level[]
      */
     public $level;
 
     /**
-     * @description The information about the table folder.
+     * @description The information about the themes of the metatable.
      *
      * @var theme[]
      */

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The reason why the sync node failed to be updated. If the sync node was updated, this parameter is left empty.
+     * @description The error message returned if the data synchronization task fails to be updated. If the data synchronization task is successfully updated, the value null is returned for this parameter.
      *
      * @example ResourceGroup:[S_res_group_XXX] is invalid.
      *
@@ -18,10 +18,10 @@ class data extends Model
     public $message;
 
     /**
-     * @description Indicates whether the sync node was updated. Valid values:
+     * @description The update status of the data synchronization task. Valid values:
      *
-     *   success: The sync node was updated.
-     *   fail: The sync node failed to be updated.
+     *   success
+     *   fail
      *
      * @example success
      *

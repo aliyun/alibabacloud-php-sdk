@@ -95,8 +95,8 @@ class data extends Model
     /**
      * @description Indicates whether the metatable is a partitioned table. Valid values:
      *
-     *   true: The metatable is a partitioned table.
-     *   false: The metatable is a non-partitioned table.
+     *   true
+     *   false
      *
      * @example true
      *
@@ -107,8 +107,8 @@ class data extends Model
     /**
      * @description Indicates whether the metatable is a view. Valid values:
      *
-     *   true: The metatable is a view.
-     *   false: The metatable is not a view.
+     *   true
+     *   false
      *
      * @example false
      *
@@ -221,7 +221,7 @@ class data extends Model
     public $readCount;
 
     /**
-     * @description The schema information of the metatable. This parameter is returned only if you enable the table schema in MaxCompute.
+     * @description The schema information of the metatable. This parameter is returned if the three-layer model of MaxCompute is enabled.
      *
      * @example default
      *

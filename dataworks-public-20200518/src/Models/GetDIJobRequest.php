@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetDIJobRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the synchronization task.
      *
+     * This parameter is required.
      * @example 11588
      *
      * @var int
@@ -18,6 +19,8 @@ class GetDIJobRequest extends Model
     public $DIJobId;
 
     /**
+     * @description Specifies whether to return detailed configuration information, including TransformationRules, TableMappings, and JobSettings. Valid values: true and false. Default value: true.
+     *
      * @example true
      *
      * @var bool

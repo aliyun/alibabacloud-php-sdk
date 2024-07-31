@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DISyncTasks extends Model
 {
     /**
-     * @description The destination data source of the sync node.
+     * @description The destination of the synchronization task. If the synchronization task has multiple destinations, the return value is a JSON array, such as \\\\"odps_writer\\\\", \\\\"mysql\\\\". If the RefType parameter is set to to, the synchronization tasks that use the specified data source as the destination are returned. In this case, the value of this parameter indicates the specified data source.
      *
-     * If the RefType parameter is set to to, the sync nodes that use the specified data source as the destination data source are returned. In this case, the value of this parameter indicates the specified data source.
      * @example [\\"qcc_polardb2\\"]
      *
      * @var string
@@ -19,9 +18,8 @@ class DISyncTasks extends Model
     public $diDestinationDatasource;
 
     /**
-     * @description The source data source of the sync node.
+     * @description The source of the synchronization task. If the synchronization task has multiple sources, the return value is a JSON array, such as \\\\"odps_writer\\\\", \\\\"mysql\\\\". If the RefType parameter is set to from, the synchronization tasks that use the specified data source as the source are returned. In this case, the value of this parameter indicates the specified data source.
      *
-     * If the RefType parameter is set to from, the sync nodes that use the specified data source as the source data source are returned. In this case, the value of this parameter indicates the specified data source.
      * @example [\\"odps_writer\\"]
      *
      * @var string
@@ -29,7 +27,7 @@ class DISyncTasks extends Model
     public $diSourceDatasource;
 
     /**
-     * @description The ID of the sync node.
+     * @description The ID of the synchronization task.
      *
      * @example 100000
      *
@@ -38,7 +36,7 @@ class DISyncTasks extends Model
     public $nodeId;
 
     /**
-     * @description The name of the sync node.
+     * @description The name of the synchronization task.
      *
      * @example abcd1234
      *
@@ -47,10 +45,10 @@ class DISyncTasks extends Model
     public $nodeName;
 
     /**
-     * @description The type of the sync node. Valid values:
+     * @description The type of the synchronization task. Valid values:
      *
-     *   DI_OFFLINE: batch sync node
-     *   DI_REALTIME: real-time sync node
+     *   DI_OFFLINE: batch synchronization task
+     *   DI_REALTIME: real-time synchronization task
      *
      * @example DI_OFFLINE
      *

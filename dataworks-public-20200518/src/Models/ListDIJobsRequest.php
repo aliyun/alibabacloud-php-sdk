@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListDIJobsRequest extends Model
 {
     /**
+     * @description The destination type. If you do not configure this parameter, no limits are imposed on the tasks.
+     *
      * @example Hologres
      *
      * @var string
@@ -16,6 +18,8 @@ class ListDIJobsRequest extends Model
     public $destinationDataSourceType;
 
     /**
+     * @description The name of the task. Fuzzy match is supported. If you do not configure this parameter, no limits are imposed on the tasks.
+     *
      * @example mysql_to_holo_sync_8772
      *
      * @var string
@@ -23,6 +27,8 @@ class ListDIJobsRequest extends Model
     public $jobName;
 
     /**
+     * @description The page number. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -30,6 +36,8 @@ class ListDIJobsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Default value: 10. Maximum value: 100.
+     *
      * @example 10
      *
      * @var int
@@ -37,8 +45,9 @@ class ListDIJobsRequest extends Model
     public $pageSize;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the workspace.
      *
+     * This parameter is required.
      * @example 1967
      *
      * @var int
@@ -46,6 +55,8 @@ class ListDIJobsRequest extends Model
     public $projectId;
 
     /**
+     * @description The source type. If you do not configure this parameter, no limits are imposed on the tasks.
+     *
      * @example MySQL
      *
      * @var string

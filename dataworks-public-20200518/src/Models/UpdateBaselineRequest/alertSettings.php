@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class alertSettings extends Model
 {
     /**
+     * @description The interval at which an event alert notification is sent. Unit: seconds. Minimum value: 900.
+     *
      * @example 1800
      *
      * @var int
@@ -17,6 +19,8 @@ class alertSettings extends Model
     public $alertInterval;
 
     /**
+     * @description The maximum number of times an event alert notification is sent. Maximum value: 24.
+     *
      * @example 1
      *
      * @var int
@@ -24,11 +28,15 @@ class alertSettings extends Model
     public $alertMaximum;
 
     /**
+     * @description The alert notification methods. Valid values: MAIL, SMS, PHONE, DINGROBOTS, and Webhooks. The value MAIL indicates that alert notifications are sent by email. The value SMS indicates that alert notifications are sent by text message. The value PHONE indicates that alert notifications are sent by phone call. You can use this notification method only in DataWorks Professional Edition or a more advanced edition. The value DINGROBOTS indicates that alert notifications are sent by using a DingTalk chatbot. You can use this notification method only if the RobotUrls parameter is configured. The value Webhooks indicates that alert notifications are sent by WeCom or Lark. You can use this notification method only if the Webhooks parameter is configured.
+     *
      * @var string[]
      */
     public $alertMethods;
 
     /**
+     * @description The details of the alert recipient. If you set AlertRecipientType to OWNER, leave this parameter empty. If you set AlertRecipientType to SHIFT_SCHEDULE, set this parameter to the name of the shift schedule. If you set AlertRecipientType to OTHER, set this parameter to the employee IDs of specified personnel.
+     *
      * @example 123123
      *
      * @var string
@@ -36,6 +44,8 @@ class alertSettings extends Model
     public $alertRecipient;
 
     /**
+     * @description The type of the alert recipient. Valid values: OWNER, OTHER, and SHIFT_SCHEDULE. The value OWNER indicates the node owner. The value OTHER indicates specified personnel. The value SHIFT_SCHEDULE indicates personnel in a shift schedule.
+     *
      * @example OWNER
      *
      * @var string
@@ -43,6 +53,8 @@ class alertSettings extends Model
     public $alertRecipientType;
 
     /**
+     * @description The type of the alert. Valid values: BASELINE and TOPIC. The value BASELINE indicates a baseline alert. The value TOPIC indicates an event alert.
+     *
      * @example BASELINE
      *
      * @var string
@@ -50,6 +62,8 @@ class alertSettings extends Model
     public $alertType;
 
     /**
+     * @description Specifies whether to enable the baseline alerting feature. This feature is specific to baselines. Valid values: true and false.
+     *
      * @example true
      *
      * @var bool
@@ -57,11 +71,15 @@ class alertSettings extends Model
     public $baselineAlertEnabled;
 
     /**
+     * @description The DingTalk chatbots.
+     *
      * @var dingRobots[]
      */
     public $dingRobots;
 
     /**
+     * @description The end time of silence.
+     *
      * @example 00:00:00
      *
      * @var string
@@ -69,6 +87,8 @@ class alertSettings extends Model
     public $silenceEndTime;
 
     /**
+     * @description The start time of silence.
+     *
      * @example 00:00:00
      *
      * @var string
@@ -76,11 +96,15 @@ class alertSettings extends Model
     public $silenceStartTime;
 
     /**
+     * @description The types of event alerts, which are event-specific configurations.
+     *
      * @var string[]
      */
     public $topicTypes;
 
     /**
+     * @description The webhook URLs.
+     *
      * @var string[]
      */
     public $webhooks;

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteLineageRelationRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The unique identifier of the destination entity.
      *
+     * This parameter is required.
      * @example custom-report.report123
      *
      * @var string
@@ -18,6 +19,8 @@ class DeleteLineageRelationRequest extends Model
     public $destEntityQualifiedName;
 
     /**
+     * @description The unique identifier of the lineage.
+     *
      * @example dfazcdfdfccdedd
      *
      * @var string
@@ -25,8 +28,9 @@ class DeleteLineageRelationRequest extends Model
     public $relationshipGuid;
 
     /**
-     * @description This parameter is required.
+     * @description The unique identifier of the source entity.
      *
+     * This parameter is required.
      * @example maxcompute-table.project.table
      *
      * @var string

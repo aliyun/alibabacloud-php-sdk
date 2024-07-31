@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class desensRules extends Model
 {
     /**
+     * @description Specifies whether to add a watermark. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool
@@ -17,8 +22,9 @@ class desensRules extends Model
     public $checkWatermark;
 
     /**
-     * @description This parameter is required.
+     * @description The sensitive field type.
      *
+     * This parameter is required.
      * @example phone
      *
      * @var string
@@ -26,20 +32,26 @@ class desensRules extends Model
     public $dataType;
 
     /**
-     * @description This parameter is required.
+     * @description The data masking rule.
      *
+     * This parameter is required.
      * @var desensPlan
      */
     public $desensPlan;
 
     /**
+     * @description The ID of the data masking rule. You can call the [DsgDesensPlanQueryList](https://help.aliyun.com/document_detail/2786578.html) operation to query the ID of the data masking rule.
+     *
+     * @example 123
+     *
      * @var int
      */
     public $id;
 
     /**
-     * @description This parameter is required.
+     * @description The owner of the data masking rule.
      *
+     * This parameter is required.
      * @example test_user
      *
      * @var string
@@ -47,8 +59,9 @@ class desensRules extends Model
     public $owner;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the data masking rule.
      *
+     * This parameter is required.
      * @example phone_hash
      *
      * @var string
@@ -56,13 +69,19 @@ class desensRules extends Model
     public $ruleName;
 
     /**
-     * @description This parameter is required.
+     * @description The level-2 data masking scenario.
      *
+     * This parameter is required.
      * @var int[]
      */
     public $sceneIds;
 
     /**
+     * @description The status of the data masking rule. Valid values:
+     *
+     *   0: expired
+     *   1: effective
+     *
      * @example 1
      *
      * @var int

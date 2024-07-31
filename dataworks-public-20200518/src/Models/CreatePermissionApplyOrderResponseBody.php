@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class CreatePermissionApplyOrderResponseBody extends Model
 {
     /**
-     * @description The ID of the request order. If you request permissions on multiple objects but each object has a different request approver, one request order is generated for each object and is sent to the related approver. In this case, an array is returned.
+     * @description The request order ID.
      *
      * @var string[]
      */
     public $flowId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 0bc1ec92159376****
      *

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListEntityTagsRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The unique identifier of the entity. Example: maxcompute-table.projectA.tableA.
      *
+     * This parameter is required.
      * @example maxcompute-table.projectA.tableA
      *
      * @var string

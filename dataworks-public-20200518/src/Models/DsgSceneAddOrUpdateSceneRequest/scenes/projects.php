@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class projects extends Model
 {
     /**
+     * @description If the data masking scenario takes effect for an E-MapReduce (EMR) compute engine, enter the ID of an EMR cluster. This parameter is required only when you use an EMR compute engine.
+     *
      * @example c-1234
      *
      * @var string
@@ -16,6 +18,12 @@ class projects extends Model
     public $clusterId;
 
     /**
+     * @description The type of the compute engine for which the data masking scenario takes effect. Valid values:
+     *
+     *   ODPS: ODPS.ODPS
+     *   HOLO: HOLO.POSTGRES
+     *   EMR: EMR
+     *
      * @example ODPS.ODPS
      *
      * @var string
@@ -23,6 +31,8 @@ class projects extends Model
     public $dbType;
 
     /**
+     * @description The name of the compute engine instance for which the data masking scenario takes effect.
+     *
      * @example dev_project
      *
      * @var string

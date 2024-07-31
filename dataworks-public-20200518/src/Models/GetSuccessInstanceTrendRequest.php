@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetSuccessInstanceTrendRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The DataWorks workspace ID.
      *
+     * This parameter is required.
      * @example 9527
      *
      * @var int

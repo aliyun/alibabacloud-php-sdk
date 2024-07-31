@@ -38,7 +38,9 @@ class columns extends Model
     /**
      * @description Indicates whether the column is a partition key column. Valid values:
      *
-     * - false: The column is not a partition key column.
+     *   true
+     *   false
+     *
      * @example false
      *
      * @var bool

@@ -12,10 +12,8 @@ class rules extends Model
      * @description The strength of the monitoring rule. The strength of a monitoring rule indicates the importance of the rule. Valid values:
      *
      *   1: The monitoring rule is a strong rule.
+     *   0: The monitoring rule is a weak rule. You can specify the strength of a monitoring rule based on your business requirements. If a monitoring rule is a strong rule and the critical threshold is exceeded, a critical alert is reported and tasks that are associated with the rule are blocked from running.
      *
-     *   0: The monitoring rule is a weak rule.
-     *
-     * You can specify whether a monitoring rule is a strong rule based on your business requirements. If a strong rule is used and a critical alert is reported, nodes are blocked.
      * @example 0
      *
      * @var int
@@ -23,7 +21,7 @@ class rules extends Model
     public $blockType;
 
     /**
-     * @description The ID of the checker.
+     * @description The checker ID.
      *
      * @example 7
      *
@@ -32,14 +30,14 @@ class rules extends Model
     public $checkerId;
 
     /**
-     * @description The description of the monitoring rule.
+     * @description The description of the system defense rule.
      *
      * @var string
      */
     public $comment;
 
     /**
-     * @description The threshold for a critical alert. The threshold indicates the deviation of the monitoring result from the expected value. You can customize this threshold based on your business requirements. If a strong rule is used and a critical alert is reported, nodes are blocked.
+     * @description The threshold for a critical alert. The threshold indicates the deviation of the monitoring result from the expected value. You can specify a custom value for the threshold based on your business requirements. If a monitoring rule is a strong rule and the critical threshold is exceeded, a critical alert is reported and tasks that are associated with the rule are blocked from running.
      *
      * @example 40
      *
@@ -93,7 +91,7 @@ class rules extends Model
     public $historyWarningThreshold;
 
     /**
-     * @description The ID of the monitoring rule.
+     * @description The monitoring rule ID.
      *
      * @example 1234
      *
@@ -111,7 +109,7 @@ class rules extends Model
     public $matchExpression;
 
     /**
-     * @description The ID of the sampling method of the monitoring rule.
+     * @description The ID of the task that is associated with the partition filter expression.
      *
      * @example 21
      *
@@ -120,7 +118,7 @@ class rules extends Model
     public $methodId;
 
     /**
-     * @description The name of the method that is used to collect sample data, such as avg, count, sum, min, max, count_distinct, user_defined, table_count, table_size, table_dt_load_count, table_dt_refuseload_count, null_value, null_value/table_count, (table_count-count_distinct)/table_count, or table_count-count_distinct.
+     * @description The method that is used to collect sample data, such as avg, count, sum, min, max, count_distinct, user_defined, table_count, table_size, table_dt_load_count, table_dt_refuseload_count, null_value, null_value/table_count, (table_count-count_distinct)/table_count, or table_count-count_distinct.
      *
      * @example count/table_count
      *
@@ -129,7 +127,7 @@ class rules extends Model
     public $methodName;
 
     /**
-     * @description The ID of the Alibaba Cloud account that is used to configure the monitoring rule.
+     * @description The name of the Alibaba Cloud account that is used to configure the monitoring rule.
      *
      * @example 1912****
      *
@@ -147,7 +145,7 @@ class rules extends Model
     public $onDutyAccountName;
 
     /**
-     * @description The name of the compute engine instance or data source.
+     * @description The name of the compute engine or data source.
      *
      * @example autotest
      *
@@ -156,7 +154,7 @@ class rules extends Model
     public $projectName;
 
     /**
-     * @description The name of the monitored field.
+     * @description The name of the field.
      *
      * @example id
      *
@@ -174,7 +172,7 @@ class rules extends Model
     public $propertyKey;
 
     /**
-     * @description The ID of the node that is associated with the partition filter expression.
+     * @description The ID of the task that is associated with the partition filter expression.
      *
      * @example 132323
      *
@@ -230,7 +228,7 @@ class rules extends Model
     public $templateName;
 
     /**
-     * @description The trend of the monitoring results.
+     * @description The trend of the monitoring result.
      *
      * @example abs
      *
@@ -239,7 +237,7 @@ class rules extends Model
     public $trend;
 
     /**
-     * @description The threshold for a warning alert. The threshold indicates the deviation of the monitoring result from the expected value. You can customize this threshold based on your business requirements.
+     * @description The threshold for a warning alert. The threshold specifies the deviation of the monitoring result from the expected value. You can specify a custom value for the threshold based on your business requirements.
      *
      * @example 10
      *

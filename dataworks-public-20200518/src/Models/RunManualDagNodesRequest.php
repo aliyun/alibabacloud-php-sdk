@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class RunManualDagNodesRequest extends Model
 {
     /**
-     * @description The parameters transmitted between nodes in the manually triggered workflow. The parameters are in the following JSON format: { "\\<ID of a node in the manually triggered workflow>": "Scheduling parameter settings of the node, which are in the same format as the Parameters parameter on the Properties tab of the DataStudio page", "\\<ID of a node in the manually triggered workflow>": "Scheduling parameter settings of the node, which are in the same format as the Parameters parameter on the Properties tab of the DataStudio page" }.
+     * @description The data timestamp. The value of the data timestamp must be one or more days before the current date. For example, if the current date is November 11, 2020, set the value to 2020-11-10 00:00:00 or earlier. Configure this parameter in the YYYY-MM-DD 00:00:00 format. The StartBizDate parameter is used together with the EndBizDate parameter. You can configure only the BizDate parameter or the StartBizDate and EndBizDate parameters.
      *
      * @example 2020-11-11 00:00:00
      *
@@ -18,7 +18,7 @@ class RunManualDagNodesRequest extends Model
     public $bizDate;
 
     /**
-     * @description The IDs of the nodes that you need to run in the manually triggered workflow. Separate multiple node IDs with commas (,). You can call the ListNodes operation to query the node IDs.
+     * @description The parameters are synchronized to all the instances in the directed acyclic graph (DAG) of the workflow. If a workflow parameter specified in DagParameters is referenced as a scheduling parameter of a [node](https://help.aliyun.com/document_detail/147245.html), the value of the scheduling parameter is replaced with the value of the workflow parameter.
      *
      * @example {"kaaaa": "vaaaaa", "kbbbb": "vbbbbb"}
      *
@@ -27,12 +27,16 @@ class RunManualDagNodesRequest extends Model
     public $dagParameters;
 
     /**
+     * @description The end of the time range in which data generated needs to be processed. Configure this parameter in the yyyy-MM-dd HH:mm:ss format. The StartBizDate parameter is used together with the EndBizDate parameter. You can configure only the BizDate parameter or the StartBizDate and EndBizDate parameters.
+     *
+     * @example 2020-02-03 00:00:00
+     *
      * @var string
      */
     public $endBizDate;
 
     /**
-     * @description The ID of the workspace to which the manually triggered workflow belongs.
+     * @description The IDs of the nodes that you do not need to run in the manually triggered workflow. DataWorks generates dry-run instances for all these nodes. After the dry-run instances are scheduled, the states of these instances are directly set to successful, but the scripts are not run. Separate multiple node IDs with commas (,). The ExcludeNodeIds parameter must be used together with the IncludeNodeIds parameter. This way, the settings of the ExcludeNodeIds parameter can take effect.
      *
      * @example 123,456
      *
@@ -41,7 +45,7 @@ class RunManualDagNodesRequest extends Model
     public $excludeNodeIds;
 
     /**
-     * @description The data timestamp. The value must be one or more days before the current date. For example, if the current date is November 11, 2020, set the value to 2020-11-10 00:00:00 or earlier. Specify this parameter in the YYYY-MM-DD 00:00:00 format.
+     * @description The name of the manually triggered workflow.
      *
      * This parameter is required.
      * @example test_workflow
@@ -51,7 +55,7 @@ class RunManualDagNodesRequest extends Model
     public $flowName;
 
     /**
-     * @description The IDs of the nodes that you do not need to run in the manually triggered workflow. The system generates dry-run instances for all these nodes. After the dry-run instances are scheduled, the states of these instances are directly set to successful, but the scripts are not run. Separate multiple node IDs with commas (,).
+     * @description The IDs of the nodes that you need to run in the manually triggered workflow. Separate multiple node IDs with commas (,).
      *
      * @example 74324,74325
      *
@@ -60,7 +64,7 @@ class RunManualDagNodesRequest extends Model
     public $includeNodeIds;
 
     /**
-     * @description The parameters of the manually triggered workflow, which are synchronized to all the instances in the directed acyclic graph (DAG) of the workflow. If a workflow parameter specified in DagParameters is referenced as a scheduling parameter of a node, the value of the scheduling parameter is replaced with the value of the workflow parameter.
+     * @description The scheduling parameters of nodes in the manually triggered workflow. Configure NodeParameters in the following JSON format: {"\\<ID of a node in the manually triggered workflow>": "Scheduling parameter settings of the node, which are in the same format as the parameter settings in the Scheduling Parameter section of the Properties tab on the DataStudio page", "\\<ID of a node in the manually triggered workflow>": "Scheduling parameter settings of the node, which are in the same format as the parameter settings in the Scheduling Parameter section of the Properties tab on the DataStudio page"}.
      *
      * @example {"20000123121": "key1=val2 key2=val2", "20000123124": "kkkk=vvvvv aaaa=bbbb"}
      *
@@ -69,7 +73,7 @@ class RunManualDagNodesRequest extends Model
     public $nodeParameters;
 
     /**
-     * @description The name of the workspace to which the manually triggered workflow belongs.
+     * @description The environment type of Operation Center. Valid values: PROD and DEV. The value PROD indicates the production environment. The value DEV indicates the development environment.
      *
      * This parameter is required.
      * @var string
@@ -77,7 +81,7 @@ class RunManualDagNodesRequest extends Model
     public $projectEnv;
 
     /**
-     * @description The ID of the DAG for the manually triggered workflow. You can call an operation with this parameter as a request parameter to query the details and statuses of the nodes in this manually triggered workflow.
+     * @description The ID of the workspace to which the manually triggered workflow belongs.
      *
      * @example 123
      *
@@ -86,7 +90,7 @@ class RunManualDagNodesRequest extends Model
     public $projectId;
 
     /**
-     * @description The name of the manually triggered workflow.
+     * @description The name of the workspace to which the manually triggered workflow belongs.
      *
      * This parameter is required.
      * @example test_workspace
@@ -96,6 +100,10 @@ class RunManualDagNodesRequest extends Model
     public $projectName;
 
     /**
+     * @description The beginning of the time range in which data generated needs to be processed. Configure this parameter in the yyyy-MM-dd HH:mm:ss format. The StartBizDate parameter is used together with the EndBizDate parameter. You can configure only the BizDate parameter or the StartBizDate and EndBizDate parameters.
+     *
+     * @example 2020-02-02 00:00:00
+     *
      * @var string
      */
     public $startBizDate;

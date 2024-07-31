@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateWorkbenchEventResultRequest extends Model
 {
     /**
-     * @description The check status of the extension point event. Valid values: OK and Fail. A value of OK indicates that the event passes the check. A value of FAIL indicates that the event fails to pass the check.
+     * @description The check result of the extension point event. Valid values: OK and Fail.
      *
      * This parameter is required.
      * @example FAIL

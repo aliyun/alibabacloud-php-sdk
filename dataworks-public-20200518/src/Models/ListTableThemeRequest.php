@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListTableThemeRequest extends Model
 {
     /**
-     * @description The number of the page to return.
+     * @description The page number.
      *
      * @example 1
      *
@@ -18,7 +18,7 @@ class ListTableThemeRequest extends Model
     public $pageNum;
 
     /**
-     * @description The number of entries to return on each page. Default value:10. Maximum value: 100.
+     * @description The number of entries per page. Default value: 10. Maximum value: 100.
      *
      * @example 10
      *
@@ -27,7 +27,7 @@ class ListTableThemeRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the parent table folder.
+     * @description The ID of the parent table theme.
      *
      * @example 121
      *
@@ -36,7 +36,7 @@ class ListTableThemeRequest extends Model
     public $parentId;
 
     /**
-     * @description The ID of the DataWorks workspace.
+     * @description The DataWorks workspace ID.
      *
      * @example 123
      *

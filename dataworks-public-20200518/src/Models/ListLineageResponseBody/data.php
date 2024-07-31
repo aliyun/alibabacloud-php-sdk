@@ -17,7 +17,7 @@ class data extends Model
     public $dataEntityList;
 
     /**
-     * @description The pagination token that is used in the next request to retrieve a new page of results.
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results.
      *
      * @example nextTokenFromRequest-xxxsd-ff
      *

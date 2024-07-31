@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetMigrationSummaryRequest extends Model
 {
     /**
-     * @description The ID of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace Management page to obtain the workspace ID.
+     * @description The migration task ID.
      *
      * This parameter is required.
      * @example 1234
@@ -19,7 +19,7 @@ class GetMigrationSummaryRequest extends Model
     public $migrationId;
 
     /**
-     * @description The operation that you want to perform.
+     * @description The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to obtain the workspace ID.
      *
      * This parameter is required.
      * @example 12345

@@ -9,9 +9,6 @@ use AlibabaCloud\Tea\Model;
 class objectMetaList extends Model
 {
     /**
-     * @description The permission that you wanted to request. If you wanted to request multiple permissions at the same time, separate them with commas (,).
-     *
-     * You can request only the following permissions: Select, Describe, Drop, Alter, Update, and Download.
      * @var string[]
      */
     public $actions;

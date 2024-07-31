@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class solutionDetail extends Model
 {
     /**
-     * @description The ID of the project to which the data synchronization solution belongs.
+     * @description The creator of the data synchronization solution.
      *
      * @example dataworks_di
      *
@@ -18,6 +18,8 @@ class solutionDetail extends Model
     public $creatorName;
 
     /**
+     * @description The ID of the data synchronization solution.
+     *
      * @example 100
      *
      * @var int
@@ -25,7 +27,7 @@ class solutionDetail extends Model
     public $id;
 
     /**
-     * @description The additional parameters of the data synchronization solution.
+     * @description The name of the data synchronization solution.
      *
      * @example holo_20211206161025
      *
@@ -34,7 +36,7 @@ class solutionDetail extends Model
     public $name;
 
     /**
-     * @description The name of the data synchronization solution.
+     * @description The configuration details of the data synchronization solution.
      *
      * @example {"holoDatasource":"holo","offlineSyncConfig":{"nodeNameRule":"oneclick_holo_di_${db_table_name_src}_to_${db_table_name_dest}","resourceGroup":"group_219193793999490"},"processRuleId":1007,"readerConcurrent":10,"realtimeSyncConfig":{"content":{"order":{"hops":[{"from":"reader","to":"writer"}]},"setting":{"speed":{"readerConcurrent":10}},"steps":[{"stepType":"mysql","name":"reader","category":"reader","parameter":{"connection":[{"datasource":"mm","datasourceType":"mysql","table":[]}]}},{"stepType":"holo","name":"writer","category":"writer","parameter":{"datasource":"holo","writeMode":"replay","datasourceSchema":"public","tableMappingRule":{"datasource":[{"tableRule":[],"srcDatasourceName":"mm"}]}}}]},"extend":{"mode":"migration_holo","resourceGroup":"group_219193793999490"}},"setting":{"autoCreateWorkflow":true,"userDefinedFileNameExpression":"oneclick"},"srcType":"mysql","tableMappingRuleFromRealtimeSyncConfig":{"datasource":[{"srcDatasourceName":"mm","tableRule":[]}]}}
      *
@@ -43,7 +45,7 @@ class solutionDetail extends Model
     public $processContent;
 
     /**
-     * @description The time when the data synchronization solution was committed.
+     * @description The additional parameters of the data synchronization solution.
      *
      * @example {"processType":"new","tableNum":300}
      *
@@ -52,7 +54,7 @@ class solutionDetail extends Model
     public $processExtra;
 
     /**
-     * @description The type of the source of the data synchronization solution.
+     * @description The ID of the project to which the data synchronization solution belongs.
      *
      * @example 10000
      *
@@ -61,7 +63,7 @@ class solutionDetail extends Model
     public $projectId;
 
     /**
-     * @description The configuration details of the data synchronization solution.
+     * @description The type of the source of the data synchronization solution.
      *
      * @example mysql
      *
@@ -70,7 +72,7 @@ class solutionDetail extends Model
     public $sourceType;
 
     /**
-     * @description The creator of the data synchronization solution.
+     * @description The start time of the data synchronization solution.
      *
      * @example 2021-12-07 14:40:51
      *
@@ -79,7 +81,18 @@ class solutionDetail extends Model
     public $startTime;
 
     /**
-     * @description The type of the data synchronization solution.
+     * @description The status of the data synchronization solution. Valid values:
+     *
+     *   0: successful
+     *   1: not running
+     *   2: running
+     *   3: failed
+     *   4: committed
+     *   5: pending manual confirmation
+     *   6: manually confirmed
+     *   7: others
+     *   8: waiting
+     *   9: deleted
      *
      * @example 0
      *
@@ -88,7 +101,7 @@ class solutionDetail extends Model
     public $status;
 
     /**
-     * @description The ID of the data synchronization solution.
+     * @description The time when the data synchronization solution was committed.
      *
      * @example 2021-12-07 14:40:51
      *
@@ -97,7 +110,7 @@ class solutionDetail extends Model
     public $submitTime;
 
     /**
-     * @description The start time of the data synchronization solution.
+     * @description The type of the data synchronization solution.
      *
      * @example holo
      *

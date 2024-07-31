@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The data timestamp of the instance.
+     *
      * @example 1553443200000
      *
      * @var int
@@ -18,6 +20,8 @@ class data extends Model
     public $bizdate;
 
     /**
+     * @description The ID of the scheduling cycle of the instance. Valid values: 1 to 288.
+     *
      * @example 1
      *
      * @var int
@@ -25,6 +29,8 @@ class data extends Model
     public $inGroupId;
 
     /**
+     * @description The instance ID.
+     *
      * @example 12345
      *
      * @var int
@@ -32,6 +38,8 @@ class data extends Model
     public $instanceId;
 
     /**
+     * @description The node ID.
+     *
      * @example 1234
      *
      * @var int
@@ -39,11 +47,15 @@ class data extends Model
     public $nodeId;
 
     /**
+     * @description The name of the node.
+     *
      * @var string
      */
     public $nodeName;
 
     /**
+     * @description The ID of the Alibaba Cloud account used by the node owner.
+     *
      * @example 9527952****
      *
      * @var string
@@ -51,6 +63,8 @@ class data extends Model
     public $owner;
 
     /**
+     * @description The type of the node. Valid values: 23, 10, 6, and 99. The value 23 indicates that the node is a Data Integration node. The value 10 indicates that the node is a MaxCompute SQL node. The value 6 indicates that the node is a Shell node. The value 99 indicates that the node is a zero load node.
+     *
      * @example 10
      *
      * @var int
@@ -58,6 +72,8 @@ class data extends Model
     public $prgType;
 
     /**
+     * @description The ID of the workspace to which the node belongs.
+     *
      * @example 1234
      *
      * @var int
@@ -65,11 +81,15 @@ class data extends Model
     public $projectId;
 
     /**
+     * @description The running records of the instance.
+     *
      * @var runs[]
      */
     public $runs;
 
     /**
+     * @description The information about the events that are associated with the instance.
+     *
      * @var topics[]
      */
     public $topics;

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class applyOrder extends Model
 {
     /**
-     * @description The unique ID of the Alibaba Cloud account that was used to submit the permission request order.
+     * @description The ID of the Alibaba Cloud account that was used to submit the permission request order.
      *
      * @example 267842600408993176
      *
@@ -46,7 +46,7 @@ class applyOrder extends Model
     /**
      * @description The status of the permission request order. Valid values:
      *
-     *   1: pending approval
+     *   1: to be processed
      *   2: approved and authorized
      *   3: approved but authorization failed
      *   4: rejected

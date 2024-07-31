@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateTableThemeResponseBody extends Model
 {
     /**
-     * @description The error code returned.
+     * @description The error code.
      *
      * @example 0
      *
@@ -18,7 +18,7 @@ class CreateTableThemeResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message returned.
+     * @description The error message.
      *
      * @example success
      *
@@ -27,7 +27,7 @@ class CreateTableThemeResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The HTTP status code returned.
+     * @description The HTTP status code.
      *
      * @example 200
      *
@@ -36,7 +36,7 @@ class CreateTableThemeResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example ABCd
      *
@@ -45,7 +45,7 @@ class CreateTableThemeResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful.
+     * @description Indicates whether the request was successful.
      *
      * @example true
      *
@@ -54,7 +54,7 @@ class CreateTableThemeResponseBody extends Model
     public $success;
 
     /**
-     * @description The ID of the created table folder.
+     * @description The table theme ID.
      *
      * @example 123
      *

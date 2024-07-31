@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The time when the migration task was modified.
+     * @description The ID of the user who created the task.
      *
      * @example 982293332403****
      *
@@ -18,7 +18,7 @@ class data extends Model
     public $createUser;
 
     /**
-     * @description The ID of the DataWorks workspace.
+     * @description The URL that is used to download the package of the export task. You can use the URL to download the package of the export task.
      *
      * @example https://shanghai-xxx-oss.oss-cn-shanghai.aliyuncs.com/pre/store/f10_bf47_b4fa7df0860f.zip?Expires=1639540903&OSSAccessKeyId=XXXXXXeF4Lv5j&Signature=qxxxxx
      *
@@ -27,7 +27,7 @@ class data extends Model
     public $downloadUrl;
 
     /**
-     * @description The name of the migration task.
+     * @description The time when the task was created.
      *
      * @example 1589904000000
      *
@@ -36,7 +36,7 @@ class data extends Model
     public $gmtCreate;
 
     /**
-     * @description The time when the migration task was created.
+     * @description The time when the task was modified.
      *
      * @example 1589904000000
      *
@@ -45,7 +45,7 @@ class data extends Model
     public $gmtModified;
 
     /**
-     * @description The details of the migration task.
+     * @description The task ID.
      *
      * @example 1234
      *
@@ -54,7 +54,7 @@ class data extends Model
     public $migrationId;
 
     /**
-     * @description The ID of the migration task.
+     * @description The task name.
      *
      * @example test_export_01
      *
@@ -63,7 +63,7 @@ class data extends Model
     public $name;
 
     /**
-     * @description The ID of the user who creates the migration task.
+     * @description The ID of the user who managed the task.
      *
      * @example 982293332403****
      *
@@ -72,18 +72,7 @@ class data extends Model
     public $opUser;
 
     /**
-     * @description The status of the migration task. Valid values:
-     *
-     *   INIT: The migration task is initiating.
-     *   EDITING: The migration task is being edited.
-     *   IMPORTING: The migration task is importing data objects.
-     *   IMPORT_ERROR: The migration task fails to import data objects.
-     *   IMPORT_SUCCESS: Data objects are imported.
-     *   EXPORTING: The migration task is exporting data objects.
-     *   EXPORT_ERROR: The migration task fails to export data objects.
-     *   EXPORT_SUCCESS: The migration task successfully exports data objects.
-     *   REVOKED: The migration task is canceled.
-     *   PARTIAL_SUCCESS: The migration task successfully imports or exports only some data objects.
+     * @description The ID of the DataWorks workspace to which the migration task belongs.
      *
      * @example 12345
      *
@@ -92,7 +81,18 @@ class data extends Model
     public $projectId;
 
     /**
-     * @description The ID of the user who manages the migration task.
+     * @description The status of the migration task. Valid values:
+     *
+     *   INIT
+     *   EDITING
+     *   IMPORTING
+     *   IMPORT_ERROR
+     *   IMPORT_SUCCESS
+     *   EXPORTING
+     *   EXPORT_ERROR
+     *   EXPORT_SUCCESS
+     *   REVOKED
+     *   PARTIAL_SUCCESS
      *
      * @example EXPORT_SUCCESS
      *

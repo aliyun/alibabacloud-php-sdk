@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class GetMetaCategoryResponseBody extends Model
 {
     /**
-     * @description The returned result.
+     * @description The business data.
      *
      * @var data
      */
     public $data;
 
     /**
-     * @description The error code returned.
+     * @description The error code.
      *
      * @example Invalid.Tenant.ConnectionNotExists
      *
@@ -26,7 +26,7 @@ class GetMetaCategoryResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message returned.
+     * @description The error message.
      *
      * @example The connection does not exist.
      *
@@ -35,7 +35,7 @@ class GetMetaCategoryResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The HTTP status code returned.
+     * @description The HTTP status code.
      *
      * @example 200
      *
@@ -44,7 +44,7 @@ class GetMetaCategoryResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 0bc1ec92159376
      *

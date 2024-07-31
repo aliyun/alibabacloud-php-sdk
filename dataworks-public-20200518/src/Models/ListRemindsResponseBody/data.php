@@ -28,7 +28,7 @@ class data extends Model
     public $pageSize;
 
     /**
-     * @description The custom alert rules returned.
+     * @description The list of custom alert rules.
      *
      * @var reminds[]
      */

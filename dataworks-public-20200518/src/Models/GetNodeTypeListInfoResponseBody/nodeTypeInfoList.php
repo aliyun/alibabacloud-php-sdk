@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class nodeTypeInfoList extends Model
 {
     /**
+     * @description The information about a node type.
+     *
      * @var nodeTypeInfo[]
      */
     public $nodeTypeInfo;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class nodeTypeInfoList extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 50
      *
      * @var int
@@ -29,6 +35,8 @@ class nodeTypeInfoList extends Model
     public $pageSize;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 127
      *
      * @var int

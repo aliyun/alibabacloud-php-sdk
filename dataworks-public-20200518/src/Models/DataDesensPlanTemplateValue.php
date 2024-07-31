@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DataDesensPlanTemplateValue extends Model
 {
     /**
+     * @description The name of the data masking method.
+     *
      * @example hash
      *
      * @var string
@@ -16,6 +18,11 @@ class DataDesensPlanTemplateValue extends Model
     public $name;
 
     /**
+     * @description Indicates whether a watermark is added. Valid values:
+     *
+     *   true: allow
+     *   false: disallow
+     *
      * @example true
      *
      * @var bool
@@ -23,6 +30,8 @@ class DataDesensPlanTemplateValue extends Model
     public $supportWaterMark;
 
     /**
+     * @description The data masking parameters and their descriptions.
+     *
      * @var mixed[]
      */
     public $extParamTemplate;

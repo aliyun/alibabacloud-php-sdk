@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetInstanceCountTrendRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The beginning of the time range to query, accurate to the day. Specify the time in the ISO 8601 standard in the yyyy-MM-dd\\"T\\"HH:mm:ssZ format. The time must be in UTC.
      *
+     * This parameter is required.
      * @example 2020-04-02T00:00:00+0800
      *
      * @var string
@@ -18,8 +19,9 @@ class GetInstanceCountTrendRequest extends Model
     public $beginDate;
 
     /**
-     * @description This parameter is required.
+     * @description The end of the time range to query, accurate to the day. Specify the time in the ISO 8601 standard in the yyyy-MM-dd\\"T\\"HH:mm:ssZ format. The time must be in UTC.
      *
+     * This parameter is required.
      * @example 2020-09-10T00:00:00+0800
      *
      * @var string
@@ -27,8 +29,9 @@ class GetInstanceCountTrendRequest extends Model
     public $endDate;
 
     /**
-     * @description This parameter is required.
+     * @description The DataWorks workspace ID.
      *
+     * This parameter is required.
      * @example 10000
      *
      * @var int

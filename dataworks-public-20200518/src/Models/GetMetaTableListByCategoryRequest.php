@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetMetaTableListByCategoryRequest extends Model
 {
     /**
-     * @description The ID of the category. You can call the [GetMetaCategory](https://help.aliyun.com/document_detail/173932.html) operation to query the ID of the category. Categories allow you to efficiently organize and manage tables by category. You can search for the desired table by category.
+     * @description The category ID. You can call the [GetMetaCategory](https://help.aliyun.com/document_detail/2780099.html) operation to obtain the ID of the category. Categories allow you to efficiently organize and manage tables by category. You can search for the desired table by category.
      *
      * This parameter is required.
      * @example 23

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class dataEntityList extends Model
 {
     /**
-     * @description The ID of the EMR cluster.
+     * @description The EMR cluster ID.
      *
      * @example abc
      *
@@ -18,7 +18,7 @@ class dataEntityList extends Model
     public $clusterId;
 
     /**
-     * @description The GUID of the field.
+     * @description The unique identifier of the field.
      *
      * @example odps.engine_name.table_name.1
      *
@@ -45,7 +45,7 @@ class dataEntityList extends Model
     public $databaseName;
 
     /**
-     * @description The name of the metatable.
+     * @description The name of the table.
      *
      * @example abc
      *

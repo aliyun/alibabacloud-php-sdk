@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class deployedItems extends Model
 {
     /**
+     * @example 507642378
+     *
      * @var int
      */
     public $fileId;
 
     /**
+     * @example 7
+     *
      * @var int
      */
     public $fileVersion;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $status;

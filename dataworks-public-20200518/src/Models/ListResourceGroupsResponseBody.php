@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class ListResourceGroupsResponseBody extends Model
 {
     /**
-     * @description The time when the resource group was last updated.
+     * @description The resource groups.
      *
      * @var data[]
      */
     public $data;
 
     /**
-     * @description Indicates whether the request was successful.
+     * @description The HTTP status code.
      *
      * @example 200
      *
@@ -26,7 +26,7 @@ class ListResourceGroupsResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The resource groups.
+     * @description The request ID.
      *
      * @example 0bc1411515937635973****
      *
@@ -35,18 +35,7 @@ class ListResourceGroupsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The status of the resource group. Valid values:
-     *
-     *   0: The resource group is running or in service.
-     *   1: The resource group has expired and is frozen.
-     *   2: The resource group is released or destroyed.
-     *   3: The resource group is being created or started.
-     *   4: The resource group fails to be created or started.
-     *   5: The resource group is being scaled out or upgraded.
-     *   6: The resource group fails to be scaled out or upgraded.
-     *   7: The resource group is being released or destroyed.
-     *   8: The resource group fails to be released or destroyed.
-     *   9: The operation performed on the resource group times out. All operations may time out. This value is temporarily available only for DataService Studio.
+     * @description Indicates whether the request was successful.
      *
      * @example true
      *

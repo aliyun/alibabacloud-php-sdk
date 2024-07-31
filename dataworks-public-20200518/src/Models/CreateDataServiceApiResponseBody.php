@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateDataServiceApiResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The ID of the API.
      *
      * @example 100003
      *
@@ -18,6 +18,8 @@ class CreateDataServiceApiResponseBody extends Model
     public $data;
 
     /**
+     * @description The error code.
+     *
      * @example Invalid.Tenant.ConnectionNotExists
      *
      * @var string
@@ -25,7 +27,7 @@ class CreateDataServiceApiResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error code.
+     * @description The error message.
      *
      * @example The connection does not exist.
      *
@@ -34,7 +36,7 @@ class CreateDataServiceApiResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The error message.
+     * @description The HTTP status code.
      *
      * @example 200
      *
@@ -43,7 +45,7 @@ class CreateDataServiceApiResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description Indicates whether the request is successful.
+     * @description The request ID.
      *
      * @example 0000-ABCD-EFG****
      *
@@ -52,6 +54,8 @@ class CreateDataServiceApiResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
      * @example true
      *
      * @var bool

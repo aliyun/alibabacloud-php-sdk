@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class AddProjectMemberToRoleRequest extends Model
 {
     /**
-     * @description The ID of the request. You can use the ID to search for logs and troubleshoot issues based on the logs.
+     * @description The client token that is used to ensure the idempotence of the request. We recommend that you set this parameter to a UUID. This parameter is used to uniquely identify the API operation call.
      *
      * @example 1AFAE64E-D1BE-432B-A9*****
      *
@@ -18,7 +18,7 @@ class AddProjectMemberToRoleRequest extends Model
     public $clientToken;
 
     /**
-     * @description The ID of your Alibaba Cloud account. To view the ID, log on to [the DataWorks console](https://workbench.data.aliyun.com/console) and move the pointer over the profile picture in the upper-right corner.
+     * @description The DataWorks workspace ID. You can call the [ListProjects](https://help.aliyun.com/document_detail/2780068.html) operation to query the ID.
      *
      * This parameter is required.
      * @example 27
@@ -28,7 +28,7 @@ class AddProjectMemberToRoleRequest extends Model
     public $projectId;
 
     /**
-     * @description The client token. It is a field with the idempotence property. We recommend that you use a universally unique identifier (UUID). This parameter is used to uniquely identify the API operation call.
+     * @description The code of the role that you want to assign to a member of the DataWorks workspace. You can call the [ListProjectRoles](https://help.aliyun.com/document_detail/2780079.html) operation to query the codes of all roles in a DataWorks workspace.
      *
      * This parameter is required.
      * @example role_project_guest
@@ -38,7 +38,7 @@ class AddProjectMemberToRoleRequest extends Model
     public $roleCode;
 
     /**
-     * @description The region of the workspace. For example, the ID of the China (Shanghai) region is cn-shanghai, and that of the China (Zhangjiakou) region is cn-zhangjiakou. The system automatically determines the value of this parameter based on the endpoint used to call the operation.
+     * @description The Alibaba Cloud account ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and move the pointer over the profile picture in the upper-right corner to view the ID.
      *
      * This parameter is required.
      * @example 1234

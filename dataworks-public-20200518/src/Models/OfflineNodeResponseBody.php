@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class OfflineNodeResponseBody extends Model
 {
     /**
-     * @description Indicates whether the request is successful.
+     * @description The request ID. You can use the request ID to query logs and troubleshoot issues.
      *
      * @example E6F0DBDD-5AD****
      *
@@ -18,6 +18,8 @@ class OfflineNodeResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
      * @example true
      *
      * @var string

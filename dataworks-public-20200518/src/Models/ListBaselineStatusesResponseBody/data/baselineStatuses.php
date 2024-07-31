@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class baselineStatuses extends Model
 {
     /**
-     * @description The ID of the baseline.
+     * @description The baseline ID.
      *
      * @example 1234
      *
@@ -27,7 +27,7 @@ class baselineStatuses extends Model
     public $baselineName;
 
     /**
-     * @description The data timestamp of the baseline instance.
+     * @description The data timestamp.
      *
      * @example 1553443200000
      *
@@ -45,7 +45,7 @@ class baselineStatuses extends Model
     public $buffer;
 
     /**
-     * @description The predicted time when the baseline instance finished running.
+     * @description The timestamp of the predicted time when the baseline instance finished running.
      *
      * @example 1553531400000
      *
@@ -54,7 +54,7 @@ class baselineStatuses extends Model
     public $endCast;
 
     /**
-     * @description The alerting time of the baseline instance.
+     * @description The timestamp of the alerting time of the baseline instance.
      *
      * @example 1553531400000
      *
@@ -63,7 +63,7 @@ class baselineStatuses extends Model
     public $expTime;
 
     /**
-     * @description The status of the baseline instance. Valid values: UNFINISH and FINISH. The value UNFINISH indicates that the baseline instance is still running. The value FINISH indicates that the baseline instance finishes running.
+     * @description The status of the baseline instance. Valid values: UNFINISH and FINISH.
      *
      * @example UNFINISH
      *
@@ -81,7 +81,7 @@ class baselineStatuses extends Model
     public $finishTime;
 
     /**
-     * @description The ID of the scheduling cycle of the baseline instance. For a baseline instance that is scheduled by day, the value of this parameter is 1. For a baseline instance that is scheduled by hour, the value of this parameter ranges from 1 to 24.
+     * @description The ID of the cycle of the baseline instance. Valid values of the ID of an hour-level cycle: [1,24]. The ID of a day-level cycle is 1.
      *
      * @example 1
      *
@@ -99,7 +99,7 @@ class baselineStatuses extends Model
     public $owner;
 
     /**
-     * @description The priority of the baseline. Valid values: 1, 3, 5, 7, and 8.
+     * @description The priority of the baseline. Valid values: {1,3,5,7,8}.
      *
      * @example 1
      *
@@ -117,7 +117,7 @@ class baselineStatuses extends Model
     public $projectId;
 
     /**
-     * @description The actual time when the baseline instance finished running.
+     * @description The timestamp of the actual time when the baseline instance finished running.
      *
      * @example 1553531400000
      *
@@ -126,7 +126,7 @@ class baselineStatuses extends Model
     public $slaTime;
 
     /**
-     * @description The status of the baseline. Valid values: ERROR, SAFE, DANGEROUS, and OVER. The value ERROR indicates that no nodes are associated with the baseline, or all nodes associated with the baseline are suspended. The value SAFE indicates that nodes finish running before the alerting time. The value DANGEROUS indicates that nodes are still running after the alerting time but before the committed completion time. The value OVER indicates that nodes are still running after the committed completion time.
+     * @description The status of the baseline. Valid values: ERROR, SAFE, DANGEROUS, and OVER. The value ERROR indicates that no nodes are associated with the baseline, or all nodes associated with the baseline are suspended. The value SAFE indicates that nodes are run before the alert duration begins. The value DANGEROUS indicates that nodes are still running after the alert duration ends but the committed completion time does not arrive. The value OVER indicates that nodes are still running after the committed completion time.
      *
      * @example SAFE
      *

@@ -48,7 +48,7 @@ class CreateDataServiceGroupRequest extends Model
     public $projectId;
 
     /**
-     * @description The ID of the tenant.
+     * @description The tenant ID. This parameter is deprecated.
      *
      * @example 10002
      *

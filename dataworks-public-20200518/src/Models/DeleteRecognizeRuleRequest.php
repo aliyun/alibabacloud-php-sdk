@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteRecognizeRuleRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The sensitive field ID. You can call the [QuerySensNodeInfo](https://help.aliyun.com/document_detail/2747189.html) operation to obtain the ID of the sensitive field.
      *
+     * This parameter is required.
      * @example 27f5f5e2-ec60-4567-b1e4-779ac3681024
      *
      * @var string
@@ -18,8 +19,9 @@ class DeleteRecognizeRuleRequest extends Model
     public $sensitiveId;
 
     /**
-     * @description This parameter is required.
+     * @description The tenant ID. To obtain the tenant ID, perform the following steps: Log on to the [DataWorks console](https://workbench.data.aliyun.com/console). Find your workspace and go to the DataStudio page. On the DataStudio page, click the logon username in the upper-right corner and click User Info in the Menu section.
      *
+     * This parameter is required.
      * @example 10241024
      *
      * @var string

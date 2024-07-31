@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetIDEEventDetailRequest extends Model
 {
     /**
-     * @description The ID of the message. You can obtain the ID from the received message when the extension point event is triggered.
+     * @description The message ID in DataWorks OpenEvent. You can obtain the ID from a received message when an extension point event is triggered.
      *
      * This parameter is required.
      * @example 8abcb91f-d266-4073-b907-2ed670378ed1
@@ -19,7 +19,7 @@ class GetIDEEventDetailRequest extends Model
     public $messageId;
 
     /**
-     * @description The ID of the workspace. You can obtain the ID from the message.
+     * @description The DataWorks workspace ID. You can obtain the ID from the message.
      *
      * This parameter is required.
      * @example 10000
