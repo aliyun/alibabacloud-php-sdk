@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class KnowledgeFileItem extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $driveId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $fileId;

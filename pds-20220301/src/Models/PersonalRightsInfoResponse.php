@@ -39,7 +39,7 @@ class PersonalRightsInfoResponse extends Model
     public $otherRights;
 
     /**
-     * @var DataBoxPrivileges
+     * @var DataBoxPrivileges[]
      */
     public $privileges;
 
@@ -90,7 +90,13 @@ class PersonalRightsInfoResponse extends Model
             $res['other_rights'] = null !== $this->otherRights ? $this->otherRights->toMap() : null;
         }
         if (null !== $this->privileges) {
-            $res['privileges'] = null !== $this->privileges ? $this->privileges->toMap() : null;
+            $res['privileges'] = [];
+            if (null !== $this->privileges && \is_array($this->privileges)) {
+                $n = 0;
+                foreach ($this->privileges as $item) {
+                    $res['privileges'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->spuId) {
             $res['spu_id'] = $this->spuId;
@@ -129,7 +135,13 @@ class PersonalRightsInfoResponse extends Model
             $model->otherRights = self::fromMap($map['other_rights']);
         }
         if (isset($map['privileges'])) {
-            $model->privileges = DataBoxPrivileges::fromMap($map['privileges']);
+            if (!empty($map['privileges'])) {
+                $model->privileges = [];
+                $n                 = 0;
+                foreach ($map['privileges'] as $item) {
+                    $model->privileges[$n++] = null !== $item ? DataBoxPrivileges::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['spu_id'])) {
             $model->spuId = $map['spu_id'];
