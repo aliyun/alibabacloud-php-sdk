@@ -4,6 +4,12 @@
 - Update API DescribeInstances: update response param.
 
 
+2024-07-31 Version: 1.0.4
+- Update API CreateInstance: update param Storage.
+- Update API CreateInstance: update response param.
+- Update API DescribeInstances: update response param.
+
+
 2024-04-18 Version: 1.0.3
 - Update API CreateInstance: add param Tag.
 - Update API QueryConvertInstancePrice: update response param.
