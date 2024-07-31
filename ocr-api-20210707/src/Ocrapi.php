@@ -1419,6 +1419,9 @@ class Ocrapi extends OpenApiClient
         if (!Utils::isUnset($request->imageType)) {
             $query['ImageType'] = $request->imageType;
         }
+        if (!Utils::isUnset($request->outputOricoord)) {
+            $query['OutputOricoord'] = $request->outputOricoord;
+        }
         if (!Utils::isUnset($request->subject)) {
             $query['Subject'] = $request->subject;
         }
