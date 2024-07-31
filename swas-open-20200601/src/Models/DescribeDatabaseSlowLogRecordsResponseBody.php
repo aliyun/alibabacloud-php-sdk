@@ -57,7 +57,7 @@ class DescribeDatabaseSlowLogRecordsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The database name.
+     * @description The slow query logs returned.
      *
      * @var slowLogs[]
      */

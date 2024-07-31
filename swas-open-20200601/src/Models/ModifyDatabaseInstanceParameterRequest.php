@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyDatabaseInstanceParameterRequest extends Model
 {
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
      *
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
@@ -20,6 +20,7 @@ class ModifyDatabaseInstanceParameterRequest extends Model
     /**
      * @description The ID of the Simple Database Service instance.
      *
+     * This parameter is required.
      * @example db-38263fa955774501a2ae1bdaed6f****
      *
      * @var string
@@ -42,6 +43,7 @@ class ModifyDatabaseInstanceParameterRequest extends Model
     /**
      * @description The JSON strings that consist of instance parameters and the values of the instance parameters. The parameter values are of the string type. Format: {"Parameter name 1":"Parameter value 1","Parameter name 2":"Parameter value 2"...}.
      *
+     * This parameter is required.
      * @example {"delayed_insert_timeout":"600","max_length_for_sort_data":"2048"}
      *
      * @var string
@@ -49,8 +51,9 @@ class ModifyDatabaseInstanceParameterRequest extends Model
     public $parameters;
 
     /**
-     * @description The region ID of the Simple Database Service instance. You can call the [ListRegions](~~189315~~) operation to query the most recent region list.
+     * @description The region ID of the Simple Database Service instance. You can call the [ListRegions](https://help.aliyun.com/document_detail/189315.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

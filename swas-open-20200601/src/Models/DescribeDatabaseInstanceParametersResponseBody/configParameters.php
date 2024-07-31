@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class configParameters extends Model
 {
     /**
+     * @description The check code that indicates the valid values of the parameter.
+     *
      * @example [1-65535]
      *
      * @var string
@@ -16,6 +18,9 @@ class configParameters extends Model
     public $checkingCode;
 
     /**
+     * @description Does it support modifying parameter values. Possible values:
+     *
+     * - false:Modifying parameter values is not supported.
      * @example true
      *
      * @var string
@@ -23,6 +28,12 @@ class configParameters extends Model
     public $forceModify;
 
     /**
+     * @description Specifies whether to forcibly restart the instance after parameters are modified. Valid values:
+     *
+     *   true: forcibly restarts the instance. If a new parameter value takes effect only after the instance restarts, you must set this parameter to true. Otherwise, the new parameter value cannot take effect.
+     *   false: does not forcibly restart the instance.
+     *
+     * Default value: false.
      * @example false
      *
      * @var string
@@ -30,6 +41,8 @@ class configParameters extends Model
     public $forceRestart;
 
     /**
+     * @description The description of the parameter.
+     *
      * @example Auto-increment columns are incremented by this
      *
      * @var string
@@ -37,6 +50,8 @@ class configParameters extends Model
     public $parameterDescription;
 
     /**
+     * @description The name of the parameter.
+     *
      * @example auto_increment_increment
      *
      * @var string
@@ -44,6 +59,8 @@ class configParameters extends Model
     public $parameterName;
 
     /**
+     * @description The value of the parameter.
+     *
      * @example 1
      *
      * @var string

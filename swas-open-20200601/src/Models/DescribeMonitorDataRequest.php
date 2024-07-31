@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeMonitorDataRequest extends Model
 {
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The **token** can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The **token** can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
      *
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
@@ -23,7 +23,7 @@ class DescribeMonitorDataRequest extends Model
      *   UNIX timestamp: the number of milliseconds that have elapsed since 00:00:00 January 1, 1970.
      *   Time format: YYYY-MM-DDThh:mm:ssZ.
      *
-     * > The interval between the start time and the end time is less than or equal to 31 days.
+     * This parameter is required.
      * @example 2022-09-08T08:04:44Z
      *
      * @var string
@@ -33,6 +33,7 @@ class DescribeMonitorDataRequest extends Model
     /**
      * @description The ID of the simple application server.
      *
+     * This parameter is required.
      * @example 2ad1ae67295445f598017499dc****
      *
      * @var string
@@ -49,17 +50,18 @@ class DescribeMonitorDataRequest extends Model
     public $length;
 
     /**
-     * @description The metric name. Valid values:
+     * @description The name of the metric. Valid values:
      *
      *   MEMORY_ACTUALUSEDSPACE: the memory usage. Unit: bytes.
      *   DISKUSAGE_USED: the disk usage. Unit: bytes.
-     *   CPU_UTILIZATION: the CPU utilization in percentage.
-     *   VPC_PUBLICIP_INTERNETOUT_RATE: the outbound bandwidth rate of the network. Unit: bits/s.
-     *   VPC_PUBLICIP_INTERNETIN_RATE: the inbound bandwidth rate of the network. Unit: bits/s.
+     *   CPU_UTILIZATION: the CPU usage, in percentage.
+     *   VPC_PUBLICIP_INTERNETOUT_RATE: the outbound bandwidth. Unit: bits/s.
+     *   VPC_PUBLICIP_INTERNETIN_RATE: the inbound bandwidth. Unit: bits/s.
      *   DISK_READ_IOPS: the read IOPS of the disk. Unit: count/s.
      *   DISK_WRITE_IOPS: the write IOPS of the disk. Unit: count/s.
      *   FLOW_USED: the traffic usage. Unit: bytes.
      *
+     * This parameter is required.
      * @example DISKUSAGE_USED
      *
      * @var string
@@ -78,7 +80,7 @@ class DescribeMonitorDataRequest extends Model
     /**
      * @description The interval at which the monitoring data is queried. Valid values: 60, 300, and 900. Unit: seconds.
      *
-     ****
+     * This parameter is required.
      * @example 60
      *
      * @var string
@@ -86,8 +88,9 @@ class DescribeMonitorDataRequest extends Model
     public $period;
 
     /**
-     * @description The region ID of the simple application server. You can call the [ListRegions](~~189315~~) operation to query the most recent region list.
+     * @description The region ID of the simple application server. You can call the [ListRegions](https://help.aliyun.com/document_detail/189315.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -100,7 +103,7 @@ class DescribeMonitorDataRequest extends Model
      *   UNIX timestamp: the number of milliseconds that have elapsed since 00:00:00 January 1, 1970.
      *   Time format: YYYY-MM-DDThh:mm:ssZ.
      *
-     ****
+     * This parameter is required.
      * @example 2022-09-07T04:04:44Z
      *
      * @var string

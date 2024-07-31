@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeCommandsResponseBody extends Model
 {
     /**
+     * @description The queried commands.
+     *
      * @var commands[]
      */
     public $commands;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class DescribeCommandsResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 10
      *
      * @var int
@@ -29,6 +35,8 @@ class DescribeCommandsResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
      * @example 20758A-585D-4A41-A9B2-28DA8F4F****
      *
      * @var string
@@ -36,6 +44,8 @@ class DescribeCommandsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of commands.
+     *
      * @example 10
      *
      * @var int

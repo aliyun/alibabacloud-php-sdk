@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class parameterDefinitions extends Model
 {
     /**
+     * @description The default value of the custom parameter.
+     *
      * @example https://aliyun-client-assist.oss-accelerate.aliyuncs.com/linux/aliyun_assist_latest.rpm
      *
      * @var string
@@ -16,11 +18,17 @@ class parameterDefinitions extends Model
     public $defaultValue;
 
     /**
+     * @description The description of the custom parameter.
+     *
+     * @example Command Assistant Agent Installation Package Path
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The name of the custom parameter.
+     *
      * @example DownloadUrl
      *
      * @var string
@@ -28,11 +36,19 @@ class parameterDefinitions extends Model
     public $parameterName;
 
     /**
+     * @description The valid values of the custom parameter.
+     *
      * @var string[]
      */
     public $possibleValues;
 
     /**
+     * @description Indicates whether the custom parameter is required. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * Default value: false.
      * @example false
      *
      * @var bool

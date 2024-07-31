@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDatabaseInstancesResponseBody extends Model
 {
     /**
-     * @description The name of the super administrator account of the Simple Database Service instance.
+     * @description The information about the Simple Database Service instances.
      *
      * @var databaseInstances[]
      */

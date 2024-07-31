@@ -51,7 +51,7 @@ class CreateInstancesRequest extends Model
     public $chargeType;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The value of **ClientToken** can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The value of **ClientToken** can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
      *
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
@@ -73,8 +73,9 @@ class CreateInstancesRequest extends Model
     public $dataDiskSize;
 
     /**
-     * @description The image ID. You can call the [ListImages](~~189313~~) operation to query the available images in the specified region.
+     * @description The image ID. You can call the [ListImages](https://help.aliyun.com/document_detail/189313.html) operation to query the available images in the specified region.
      *
+     * This parameter is required.
      * @example e2c9c365024a44369c9b955a998a****
      *
      * @var string
@@ -84,6 +85,7 @@ class CreateInstancesRequest extends Model
     /**
      * @description The subscription period of the servers. Unit: months. Valid values: 1, 3, 6, 12, 24, and 36.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -91,8 +93,9 @@ class CreateInstancesRequest extends Model
     public $period;
 
     /**
-     * @description The plan ID. You can call the [ListPlans](~~189314~~) operation to query all plans provided by Simple Application Server in the specified region.
+     * @description The plan ID. You can call the [ListPlans](https://help.aliyun.com/document_detail/189314.html) operation to query all plans provided by Simple Application Server in the specified region.
      *
+     * This parameter is required.
      * @example swas.s1.c1m1s40b3t05
      *
      * @var string
@@ -100,8 +103,9 @@ class CreateInstancesRequest extends Model
     public $planId;
 
     /**
-     * @description The region ID of the simple application servers. You can call the [ListRegions](~~189315~~) operation to query the most recent region list.
+     * @description The region ID of the simple application servers. You can call the [ListRegions](https://help.aliyun.com/document_detail/189315.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

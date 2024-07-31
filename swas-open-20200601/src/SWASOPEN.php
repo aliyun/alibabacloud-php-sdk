@@ -6,8 +6,14 @@ namespace AlibabaCloud\SDK\SWASOPEN\V20200601;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\AddCustomImageShareAccountRequest;
+use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\AddCustomImageShareAccountResponse;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\AllocatePublicConnectionRequest;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\AllocatePublicConnectionResponse;
+use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\ApplyFirewallTemplateRequest;
+use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\ApplyFirewallTemplateResponse;
+use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\AttachKeyPairRequest;
+use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\AttachKeyPairResponse;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\CreateCommandRequest;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\CreateCommandResponse;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\CreateCustomImageRequest;
@@ -17,24 +23,44 @@ use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\CreateFirewallRuleResponse;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\CreateFirewallRulesRequest;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\CreateFirewallRulesResponse;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\CreateFirewallRulesShrinkRequest;
+use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\CreateFirewallTemplateRequest;
+use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\CreateFirewallTemplateResponse;
+use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\CreateFirewallTemplateRulesRequest;
+use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\CreateFirewallTemplateRulesResponse;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\CreateInstanceKeyPairRequest;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\CreateInstanceKeyPairResponse;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\CreateInstancesRequest;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\CreateInstancesResponse;
+use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\CreateKeyPairRequest;
+use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\CreateKeyPairResponse;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\CreateSnapshotRequest;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\CreateSnapshotResponse;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\DeleteCommandRequest;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\DeleteCommandResponse;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\DeleteCustomImageRequest;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\DeleteCustomImageResponse;
+use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\DeleteCustomImagesRequest;
+use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\DeleteCustomImagesResponse;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\DeleteFirewallRuleRequest;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\DeleteFirewallRuleResponse;
+use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\DeleteFirewallRulesRequest;
+use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\DeleteFirewallRulesResponse;
+use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\DeleteFirewallRulesShrinkRequest;
+use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\DeleteFirewallTemplateRulesRequest;
+use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\DeleteFirewallTemplateRulesResponse;
+use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\DeleteFirewallTemplatesRequest;
+use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\DeleteFirewallTemplatesResponse;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\DeleteInstanceKeyPairRequest;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\DeleteInstanceKeyPairResponse;
+use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\DeleteKeyPairsRequest;
+use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\DeleteKeyPairsResponse;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\DeleteSnapshotRequest;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\DeleteSnapshotResponse;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\DeleteSnapshotsRequest;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\DeleteSnapshotsResponse;
+use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\DescribeCloudAssistantAttributesRequest;
+use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\DescribeCloudAssistantAttributesResponse;
+use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\DescribeCloudAssistantAttributesShrinkRequest;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\DescribeCloudAssistantStatusRequest;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\DescribeCloudAssistantStatusResponse;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\DescribeCloudAssistantStatusShrinkRequest;
@@ -54,6 +80,12 @@ use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\DescribeDatabaseInstancesRequest;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\DescribeDatabaseInstancesResponse;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\DescribeDatabaseSlowLogRecordsRequest;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\DescribeDatabaseSlowLogRecordsResponse;
+use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\DescribeFirewallTemplateApplyResultsRequest;
+use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\DescribeFirewallTemplateApplyResultsResponse;
+use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\DescribeFirewallTemplateRulesApplyResultRequest;
+use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\DescribeFirewallTemplateRulesApplyResultResponse;
+use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\DescribeFirewallTemplatesRequest;
+use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\DescribeFirewallTemplatesResponse;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\DescribeInstanceKeyPairRequest;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\DescribeInstanceKeyPairResponse;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\DescribeInstancePasswordsSettingRequest;
@@ -68,10 +100,14 @@ use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\DescribeMonitorDataRequest;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\DescribeMonitorDataResponse;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\DescribeSecurityAgentStatusRequest;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\DescribeSecurityAgentStatusResponse;
+use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\DetachKeyPairRequest;
+use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\DetachKeyPairResponse;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\DisableFirewallRuleRequest;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\DisableFirewallRuleResponse;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\EnableFirewallRuleRequest;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\EnableFirewallRuleResponse;
+use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\ImportKeyPairRequest;
+use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\ImportKeyPairResponse;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\InstallCloudAssistantRequest;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\InstallCloudAssistantResponse;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\InstallCloudAssistantShrinkRequest;
@@ -80,6 +116,8 @@ use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\InstallCloudMonitorAgentResponse;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\InvokeCommandRequest;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\InvokeCommandResponse;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\InvokeCommandShrinkRequest;
+use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\ListCustomImageShareAccountsRequest;
+use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\ListCustomImageShareAccountsResponse;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\ListCustomImagesRequest;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\ListCustomImagesResponse;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\ListDisksRequest;
@@ -96,11 +134,16 @@ use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\ListInstanceStatusRequest;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\ListInstanceStatusResponse;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\ListInstancesTrafficPackagesRequest;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\ListInstancesTrafficPackagesResponse;
+use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\ListKeyPairsRequest;
+use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\ListKeyPairsResponse;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\ListPlansRequest;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\ListPlansResponse;
+use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\ListRegionsRequest;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\ListRegionsResponse;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\ListSnapshotsRequest;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\ListSnapshotsResponse;
+use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\ListTagResourcesRequest;
+use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\LoginInstanceRequest;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\LoginInstanceResponse;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\ModifyDatabaseInstanceDescriptionRequest;
@@ -109,6 +152,8 @@ use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\ModifyDatabaseInstanceParameterRe
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\ModifyDatabaseInstanceParameterResponse;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\ModifyFirewallRuleRequest;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\ModifyFirewallRuleResponse;
+use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\ModifyFirewallTemplateRequest;
+use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\ModifyFirewallTemplateResponse;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\ModifyImageShareStatusRequest;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\ModifyImageShareStatusResponse;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\ModifyInstanceVncPasswordRequest;
@@ -119,6 +164,8 @@ use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\RebootInstancesRequest;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\RebootInstancesResponse;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\ReleasePublicConnectionRequest;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\ReleasePublicConnectionResponse;
+use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\RemoveCustomImageShareAccountRequest;
+use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\RemoveCustomImageShareAccountResponse;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\RenewInstanceRequest;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\RenewInstanceResponse;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\ResetDatabaseAccountPasswordRequest;
@@ -146,6 +193,10 @@ use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\StopInstanceRequest;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\StopInstanceResponse;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\StopInstancesRequest;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\StopInstancesResponse;
+use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\TagResourcesRequest;
+use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\TagResourcesResponse;
+use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\UntagResourcesRequest;
+use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\UntagResourcesResponse;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\UpdateCommandAttributeRequest;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\UpdateCommandAttributeResponse;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\UpdateDiskAttributeRequest;
@@ -198,10 +249,68 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * By default, no public endpoints are assigned to Simple Database Service instances. If you want to access the databases of a Simple Database Service instance over the Internet by using Simple Container Service or Data Management (DMS), you must apply for a public endpoint for the Simple Database Service instance.
-     *   * ### QPS limit
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
-     *   *
+     * @summary 共享镜像给用户
+     *  *
+     * @param AddCustomImageShareAccountRequest $request AddCustomImageShareAccountRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return AddCustomImageShareAccountResponse AddCustomImageShareAccountResponse
+     */
+    public function addCustomImageShareAccountWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->account)) {
+            $query['Account'] = $request->account;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->imageId)) {
+            $query['ImageId'] = $request->imageId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddCustomImageShareAccount',
+            'version'     => '2020-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddCustomImageShareAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 共享镜像给用户
+     *  *
+     * @param AddCustomImageShareAccountRequest $request AddCustomImageShareAccountRequest
+     *
+     * @return AddCustomImageShareAccountResponse AddCustomImageShareAccountResponse
+     */
+    public function addCustomImageShareAccount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addCustomImageShareAccountWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Applies for a public endpoint for a Simple Database Service instance.
+     *  *
+     * @description By default, no public endpoints are assigned to Simple Database Service instances. If you want to access the databases of a Simple Database Service instance over the Internet by using Simple Container Service or Data Management (DMS), you must apply for a public endpoint for the Simple Database Service instance.
+     * ### QPS limit
+     * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
+     *  *
      * @param AllocatePublicConnectionRequest $request AllocatePublicConnectionRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -239,10 +348,12 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * By default, no public endpoints are assigned to Simple Database Service instances. If you want to access the databases of a Simple Database Service instance over the Internet by using Simple Container Service or Data Management (DMS), you must apply for a public endpoint for the Simple Database Service instance.
-     *   * ### QPS limit
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
-     *   *
+     * @summary Applies for a public endpoint for a Simple Database Service instance.
+     *  *
+     * @description By default, no public endpoints are assigned to Simple Database Service instances. If you want to access the databases of a Simple Database Service instance over the Internet by using Simple Container Service or Data Management (DMS), you must apply for a public endpoint for the Simple Database Service instance.
+     * ### QPS limit
+     * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
+     *  *
      * @param AllocatePublicConnectionRequest $request AllocatePublicConnectionRequest
      *
      * @return AllocatePublicConnectionResponse AllocatePublicConnectionResponse
@@ -255,10 +366,135 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @param CreateCommandRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Uses a firewall template to apply firewall rules to multiple simple application servers at a time. This improves your efficiency of setting firewall rules.
+     *  *
+     * @description If the port range, protocol, and source IP address of a firewall rule in a firewall template are the same as the port range, protocol, and source IP address of an existing rule, the new rule overwrites the existing rule regardless of whether the existing rule is enabled or disabled.
+     *  *
+     * @param ApplyFirewallTemplateRequest $request ApplyFirewallTemplateRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateCommandResponse
+     * @return ApplyFirewallTemplateResponse ApplyFirewallTemplateResponse
+     */
+    public function applyFirewallTemplateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->firewallTemplateId)) {
+            $query['FirewallTemplateId'] = $request->firewallTemplateId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->instanceIds)) {
+            $query['InstanceIds'] = $request->instanceIds;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ApplyFirewallTemplate',
+            'version'     => '2020-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ApplyFirewallTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Uses a firewall template to apply firewall rules to multiple simple application servers at a time. This improves your efficiency of setting firewall rules.
+     *  *
+     * @description If the port range, protocol, and source IP address of a firewall rule in a firewall template are the same as the port range, protocol, and source IP address of an existing rule, the new rule overwrites the existing rule regardless of whether the existing rule is enabled or disabled.
+     *  *
+     * @param ApplyFirewallTemplateRequest $request ApplyFirewallTemplateRequest
+     *
+     * @return ApplyFirewallTemplateResponse ApplyFirewallTemplateResponse
+     */
+    public function applyFirewallTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->applyFirewallTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Binds a key pair to simple application servers.
+     *  *
+     * @description You can bind only one key pair to a simple application server in the Simple Application Server console. If a simple application server has a key pair bound, the new key pair overwrites the original key pair.
+     *  *
+     * @param AttachKeyPairRequest $request AttachKeyPairRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return AttachKeyPairResponse AttachKeyPairResponse
+     */
+    public function attachKeyPairWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->instanceIds)) {
+            $query['InstanceIds'] = $request->instanceIds;
+        }
+        if (!Utils::isUnset($request->keyPairName)) {
+            $query['KeyPairName'] = $request->keyPairName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AttachKeyPair',
+            'version'     => '2020-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AttachKeyPairResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Binds a key pair to simple application servers.
+     *  *
+     * @description You can bind only one key pair to a simple application server in the Simple Application Server console. If a simple application server has a key pair bound, the new key pair overwrites the original key pair.
+     *  *
+     * @param AttachKeyPairRequest $request AttachKeyPairRequest
+     *
+     * @return AttachKeyPairResponse AttachKeyPairResponse
+     */
+    public function attachKeyPair($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->attachKeyPairWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Creates a Cloud Assistant command.
+     *  *
+     * @param CreateCommandRequest $request CreateCommandRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateCommandResponse CreateCommandResponse
      */
     public function createCommandWithOptions($request, $runtime)
     {
@@ -278,6 +514,12 @@ class SWASOPEN extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
         if (!Utils::isUnset($request->timeout)) {
             $query['Timeout'] = $request->timeout;
@@ -307,9 +549,11 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @param CreateCommandRequest $request
+     * @summary Creates a Cloud Assistant command.
+     *  *
+     * @param CreateCommandRequest $request CreateCommandRequest
      *
-     * @return CreateCommandResponse
+     * @return CreateCommandResponse CreateCommandResponse
      */
     public function createCommand($request)
     {
@@ -319,18 +563,20 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * A custom image is created based on a snapshot of a simple application server. You can use a custom image to create multiple simple application servers that have the same configurations. You can also share custom images to ECS and use the shared images to create ECS instances or replace the OSs of existing ECS instances. For more information about custom images, see [Overview of custom images](~~199375~~).
-     *   * You must create a system disk snapshot of a simple application server before you create a custom image based on the snapshot. For more information, see [CreateSnapshot](~~190452~~).
-     *   * > If you need the data on the data disk of a simple application server when you create a custom image, create a snapshot for the data disk first.
-     *   * Before you create a custom image, take note of the following items:
-     *   * *   The custom image and the corresponding simple application server must reside in the same region.
-     *   * *   The maximum number of custom images that can be maintained in an Alibaba Cloud account is triple the number of simple application servers in the account. The value cannot be greater than 15.
-     *   * *   You can directly create a custom image only based on the system disk snapshot of a simple application server. If you want a custom image to contain the data on the data disk of the simple application server, you must select a data disk snapshot when you create the custom image.
-     *   * *   If a simple application server is released due to expiration or refunds, the custom images that are created based on a snapshot of the server are also released.
-     *   * *   If you reset a simple application server by changing the application system or OS of the server or replacing the image of the server, the disk data on the server is cleared. Back up the disk data as needed.
-     *   * ### QPS limit
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
-     *   *
+     * @summary Creates a custom image based on a snapshot of a simple application server.
+     *  *
+     * @description A custom image is created based on a snapshot of a simple application server. You can use a custom image to create multiple simple application servers that have the same configurations. You can also share custom images to ECS and use the shared images to create ECS instances or replace the OSs of existing ECS instances. For more information about custom images, see [Overview of custom images](https://help.aliyun.com/document_detail/199375.html).
+     * You must create a system disk snapshot of a simple application server before you create a custom image based on the snapshot. For more information, see [CreateSnapshot](https://help.aliyun.com/document_detail/190452.html).
+     * > If you need the data on the data disk of a simple application server when you create a custom image, create a snapshot for the data disk first.
+     * Before you create a custom image, take note of the following items:
+     * *   The custom image and the corresponding simple application server must reside in the same region.
+     * *   The maximum number of custom images that can be maintained in an Alibaba Cloud account is triple the number of simple application servers in the account. The value cannot be greater than 15.
+     * *   You can directly create a custom image only based on the system disk snapshot of a simple application server. If you want a custom image to contain the data on the data disk of the simple application server, you must select a data disk snapshot when you create the custom image.
+     * *   If a simple application server is released due to expiration or refunds, the custom images that are created based on a snapshot of the server are also released.
+     * *   If you reset a simple application server by changing the application system or OS of the server or replacing the image of the server, the disk data on the server is cleared. Back up the disk data as needed.
+     * ### QPS limit
+     * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
+     *  *
      * @param CreateCustomImageRequest $request CreateCustomImageRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -358,8 +604,14 @@ class SWASOPEN extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resoureGroupId)) {
+            $query['ResoureGroupId'] = $request->resoureGroupId;
+        }
         if (!Utils::isUnset($request->systemSnapshotId)) {
             $query['SystemSnapshotId'] = $request->systemSnapshotId;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -380,18 +632,20 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * A custom image is created based on a snapshot of a simple application server. You can use a custom image to create multiple simple application servers that have the same configurations. You can also share custom images to ECS and use the shared images to create ECS instances or replace the OSs of existing ECS instances. For more information about custom images, see [Overview of custom images](~~199375~~).
-     *   * You must create a system disk snapshot of a simple application server before you create a custom image based on the snapshot. For more information, see [CreateSnapshot](~~190452~~).
-     *   * > If you need the data on the data disk of a simple application server when you create a custom image, create a snapshot for the data disk first.
-     *   * Before you create a custom image, take note of the following items:
-     *   * *   The custom image and the corresponding simple application server must reside in the same region.
-     *   * *   The maximum number of custom images that can be maintained in an Alibaba Cloud account is triple the number of simple application servers in the account. The value cannot be greater than 15.
-     *   * *   You can directly create a custom image only based on the system disk snapshot of a simple application server. If you want a custom image to contain the data on the data disk of the simple application server, you must select a data disk snapshot when you create the custom image.
-     *   * *   If a simple application server is released due to expiration or refunds, the custom images that are created based on a snapshot of the server are also released.
-     *   * *   If you reset a simple application server by changing the application system or OS of the server or replacing the image of the server, the disk data on the server is cleared. Back up the disk data as needed.
-     *   * ### QPS limit
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
-     *   *
+     * @summary Creates a custom image based on a snapshot of a simple application server.
+     *  *
+     * @description A custom image is created based on a snapshot of a simple application server. You can use a custom image to create multiple simple application servers that have the same configurations. You can also share custom images to ECS and use the shared images to create ECS instances or replace the OSs of existing ECS instances. For more information about custom images, see [Overview of custom images](https://help.aliyun.com/document_detail/199375.html).
+     * You must create a system disk snapshot of a simple application server before you create a custom image based on the snapshot. For more information, see [CreateSnapshot](https://help.aliyun.com/document_detail/190452.html).
+     * > If you need the data on the data disk of a simple application server when you create a custom image, create a snapshot for the data disk first.
+     * Before you create a custom image, take note of the following items:
+     * *   The custom image and the corresponding simple application server must reside in the same region.
+     * *   The maximum number of custom images that can be maintained in an Alibaba Cloud account is triple the number of simple application servers in the account. The value cannot be greater than 15.
+     * *   You can directly create a custom image only based on the system disk snapshot of a simple application server. If you want a custom image to contain the data on the data disk of the simple application server, you must select a data disk snapshot when you create the custom image.
+     * *   If a simple application server is released due to expiration or refunds, the custom images that are created based on a snapshot of the server are also released.
+     * *   If you reset a simple application server by changing the application system or OS of the server or replacing the image of the server, the disk data on the server is cleared. Back up the disk data as needed.
+     * ### QPS limit
+     * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
+     *  *
      * @param CreateCustomImageRequest $request CreateCustomImageRequest
      *
      * @return CreateCustomImageResponse CreateCustomImageResponse
@@ -404,10 +658,12 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * Firewalls serve to control network access to simple application servers and isolate security domains in the cloud. By default, SSH port 22, HTTP port 80, and HTTPS port 443 are enabled for simple application servers. Other ports are disabled. You can add firewall rules to enable more ports.
-     *   * ### QPS limits
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
-     *   *
+     * @summary Creates a firewall rule for a simple application server.
+     *  *
+     * @description Firewalls serve to control network access to simple application servers and isolate security domains in the cloud. By default, SSH port 22, HTTP port 80, and HTTPS port 443 are enabled for simple application servers. Other ports are disabled. You can add firewall rules to enable more ports.
+     * ### QPS limits
+     * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
+     *  *
      * @param CreateFirewallRuleRequest $request CreateFirewallRuleRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -454,10 +710,12 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * Firewalls serve to control network access to simple application servers and isolate security domains in the cloud. By default, SSH port 22, HTTP port 80, and HTTPS port 443 are enabled for simple application servers. Other ports are disabled. You can add firewall rules to enable more ports.
-     *   * ### QPS limits
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
-     *   *
+     * @summary Creates a firewall rule for a simple application server.
+     *  *
+     * @description Firewalls serve to control network access to simple application servers and isolate security domains in the cloud. By default, SSH port 22, HTTP port 80, and HTTPS port 443 are enabled for simple application servers. Other ports are disabled. You can add firewall rules to enable more ports.
+     * ### QPS limits
+     * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
+     *  *
      * @param CreateFirewallRuleRequest $request CreateFirewallRuleRequest
      *
      * @return CreateFirewallRuleResponse CreateFirewallRuleResponse
@@ -470,8 +728,10 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * Firewalls serve to control network access to simple application servers and isolate security domains in the cloud. By default, SSH port 22, HTTP port 80, and HTTPS port 443 are enabled for simple application servers. Other ports are disabled. You can add firewall rules to enable more ports.
-     *   *
+     * @summary Creates multiple firewall rules for a simple application server at a time.
+     *  *
+     * @description Firewalls serve to control network access to simple application servers and isolate security domains in the cloud. By default, SSH port 22, HTTP port 80, and HTTPS port 443 are enabled for simple application servers. Other ports are disabled. You can add firewall rules to enable more ports.
+     *  *
      * @param CreateFirewallRulesRequest $tmpReq  CreateFirewallRulesRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -498,6 +758,9 @@ class SWASOPEN extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -517,8 +780,10 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * Firewalls serve to control network access to simple application servers and isolate security domains in the cloud. By default, SSH port 22, HTTP port 80, and HTTPS port 443 are enabled for simple application servers. Other ports are disabled. You can add firewall rules to enable more ports.
-     *   *
+     * @summary Creates multiple firewall rules for a simple application server at a time.
+     *  *
+     * @description Firewalls serve to control network access to simple application servers and isolate security domains in the cloud. By default, SSH port 22, HTTP port 80, and HTTPS port 443 are enabled for simple application servers. Other ports are disabled. You can add firewall rules to enable more ports.
+     *  *
      * @param CreateFirewallRulesRequest $request CreateFirewallRulesRequest
      *
      * @return CreateFirewallRulesResponse CreateFirewallRulesResponse
@@ -531,10 +796,129 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @param CreateInstanceKeyPairRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Creates a firewall template.
+     *  *
+     * @description Simple Application Server supports the firewall template feature that provides multiple firewall rules. You can use a template to add a group of firewall rules to one or more simple application servers at a time. This improves the efficiency of setting firewall rules.
+     *  *
+     * @param CreateFirewallTemplateRequest $request CreateFirewallTemplateRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateInstanceKeyPairResponse
+     * @return CreateFirewallTemplateResponse CreateFirewallTemplateResponse
+     */
+    public function createFirewallTemplateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->firewallRule)) {
+            $query['FirewallRule'] = $request->firewallRule;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateFirewallTemplate',
+            'version'     => '2020-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateFirewallTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Creates a firewall template.
+     *  *
+     * @description Simple Application Server supports the firewall template feature that provides multiple firewall rules. You can use a template to add a group of firewall rules to one or more simple application servers at a time. This improves the efficiency of setting firewall rules.
+     *  *
+     * @param CreateFirewallTemplateRequest $request CreateFirewallTemplateRequest
+     *
+     * @return CreateFirewallTemplateResponse CreateFirewallTemplateResponse
+     */
+    public function createFirewallTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createFirewallTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Adds firewall rules to a firewall template based on your business requirements.
+     *  *
+     * @description Adding firewall rules to a firewall template does not affect the firewall rules that have been applied to simple application servers..
+     *  *
+     * @param CreateFirewallTemplateRulesRequest $request CreateFirewallTemplateRulesRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateFirewallTemplateRulesResponse CreateFirewallTemplateRulesResponse
+     */
+    public function createFirewallTemplateRulesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->firewallRule)) {
+            $query['FirewallRule'] = $request->firewallRule;
+        }
+        if (!Utils::isUnset($request->firewallTemplateId)) {
+            $query['FirewallTemplateId'] = $request->firewallTemplateId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateFirewallTemplateRules',
+            'version'     => '2020-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateFirewallTemplateRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Adds firewall rules to a firewall template based on your business requirements.
+     *  *
+     * @description Adding firewall rules to a firewall template does not affect the firewall rules that have been applied to simple application servers..
+     *  *
+     * @param CreateFirewallTemplateRulesRequest $request CreateFirewallTemplateRulesRequest
+     *
+     * @return CreateFirewallTemplateRulesResponse CreateFirewallTemplateRulesResponse
+     */
+    public function createFirewallTemplateRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createFirewallTemplateRulesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Creates a key pair for a simple application server.
+     *  *
+     * @param CreateInstanceKeyPairRequest $request CreateInstanceKeyPairRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateInstanceKeyPairResponse CreateInstanceKeyPairResponse
      */
     public function createInstanceKeyPairWithOptions($request, $runtime)
     {
@@ -571,9 +955,11 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @param CreateInstanceKeyPairRequest $request
+     * @summary Creates a key pair for a simple application server.
+     *  *
+     * @param CreateInstanceKeyPairRequest $request CreateInstanceKeyPairRequest
      *
-     * @return CreateInstanceKeyPairResponse
+     * @return CreateInstanceKeyPairResponse CreateInstanceKeyPairResponse
      */
     public function createInstanceKeyPair($request)
     {
@@ -583,12 +969,14 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * *   Before you call this operation, we recommend that you understand the billing of Simple Application Server. For more information, see [Billable items](~~58623~~).
-     *   * *   A maximum of 20 simple application servers can be maintained in an Alibaba Cloud account.
-     *   * *   When you call this operation to create simple application servers, make sure that the balance in your account is sufficient to pay for the servers. If the balance in your account is insufficient, the servers cannot be created.
-     *   * ### QPS limit
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
-     *   *
+     * @summary Creates subscription simple application servers.
+     *  *
+     * @description *   Before you call this operation, we recommend that you understand the billing of Simple Application Server. For more information, see [Billable items](https://help.aliyun.com/document_detail/58623.html).
+     * *   A maximum of 20 simple application servers can be maintained in an Alibaba Cloud account.
+     * *   When you call this operation to create simple application servers, make sure that the balance in your account is sufficient to pay for the servers. If the balance in your account is insufficient, the servers cannot be created.
+     * ### QPS limit
+     * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
+     *  *
      * @param CreateInstancesRequest $request CreateInstancesRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -647,12 +1035,14 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * *   Before you call this operation, we recommend that you understand the billing of Simple Application Server. For more information, see [Billable items](~~58623~~).
-     *   * *   A maximum of 20 simple application servers can be maintained in an Alibaba Cloud account.
-     *   * *   When you call this operation to create simple application servers, make sure that the balance in your account is sufficient to pay for the servers. If the balance in your account is insufficient, the servers cannot be created.
-     *   * ### QPS limit
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
-     *   *
+     * @summary Creates subscription simple application servers.
+     *  *
+     * @description *   Before you call this operation, we recommend that you understand the billing of Simple Application Server. For more information, see [Billable items](https://help.aliyun.com/document_detail/58623.html).
+     * *   A maximum of 20 simple application servers can be maintained in an Alibaba Cloud account.
+     * *   When you call this operation to create simple application servers, make sure that the balance in your account is sufficient to pay for the servers. If the balance in your account is insufficient, the servers cannot be created.
+     * ### QPS limit
+     * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
+     *  *
      * @param CreateInstancesRequest $request CreateInstancesRequest
      *
      * @return CreateInstancesResponse CreateInstancesResponse
@@ -665,16 +1055,81 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * A snapshot is a point-in-time backup of a disk. Snapshots can be used to back up data, recover data after accidental operations on instances, recover data after network attacks, and create custom images.
-     *   * > You are not charged for creating snapshots for disks of simple application servers.
-     *   * ### Precautions
-     *   * *   You can create up to three snapshots for disks of each simple application server.
-     *   * *   The maximum number of snapshots that can be retained in an Alibaba Cloud account is triple the number of simple application servers that you maintain. The value cannot be greater than 15.
-     *   * *   If a simple application server is automatically released due to expiration, the snapshots created for the server are deleted.
-     *   * *   If you reset the simple application server after you create a snapshot for a server, the snapshot is retained but cannot be used to roll back the disks of the server.
-     *   * ### QPS limit
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
-     *   *
+     * @summary Creates a key pair.
+     *  *
+     * @description Alibaba Cloud SSH key pairs offer a secure and efficient logon authentication mechanism, facilitating both verification and encrypted communication within the SSH protocol framework. An SSH key pair is essentially constituted by a public key and a private key. Tailored for Linux-based simple application servers, this security measure enhances security and convenience, effectively addressing your heightened security requirements.
+     * *   The key pair logon method is only valid for Linux-based simple application servers.
+     * *   A maximum of 10 key pairs can be created in a region for an Alibaba Cloud account.
+     * *   Only RSA 2048-bit key pairs can be created in the Simple Application Server console.
+     *  *
+     * @param CreateKeyPairRequest $request CreateKeyPairRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateKeyPairResponse CreateKeyPairResponse
+     */
+    public function createKeyPairWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->keyPairName)) {
+            $query['KeyPairName'] = $request->keyPairName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateKeyPair',
+            'version'     => '2020-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateKeyPairResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Creates a key pair.
+     *  *
+     * @description Alibaba Cloud SSH key pairs offer a secure and efficient logon authentication mechanism, facilitating both verification and encrypted communication within the SSH protocol framework. An SSH key pair is essentially constituted by a public key and a private key. Tailored for Linux-based simple application servers, this security measure enhances security and convenience, effectively addressing your heightened security requirements.
+     * *   The key pair logon method is only valid for Linux-based simple application servers.
+     * *   A maximum of 10 key pairs can be created in a region for an Alibaba Cloud account.
+     * *   Only RSA 2048-bit key pairs can be created in the Simple Application Server console.
+     *  *
+     * @param CreateKeyPairRequest $request CreateKeyPairRequest
+     *
+     * @return CreateKeyPairResponse CreateKeyPairResponse
+     */
+    public function createKeyPair($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createKeyPairWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Creates a snapshot for a disk.
+     *  *
+     * @description A snapshot is a point-in-time backup of a disk. Snapshots can be used to back up data, recover data after accidental operations on instances, recover data after network attacks, and create custom images.
+     * > You are not charged for creating snapshots for disks of simple application servers.
+     * ### Precautions
+     * *   You can create up to three snapshots for disks of each simple application server.
+     * *   The maximum number of snapshots that can be retained in an Alibaba Cloud account is triple the number of simple application servers that you maintain. The value cannot be greater than 15.
+     * *   If a simple application server is automatically released due to expiration, the snapshots created for the server are deleted.
+     * *   If you reset the simple application server after you create a snapshot for a server, the snapshot is retained but cannot be used to roll back the disks of the server.
+     * ### QPS limit
+     * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
+     *  *
      * @param CreateSnapshotRequest $request CreateSnapshotRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -693,8 +1148,14 @@ class SWASOPEN extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->snapshotName)) {
             $query['SnapshotName'] = $request->snapshotName;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -715,16 +1176,18 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * A snapshot is a point-in-time backup of a disk. Snapshots can be used to back up data, recover data after accidental operations on instances, recover data after network attacks, and create custom images.
-     *   * > You are not charged for creating snapshots for disks of simple application servers.
-     *   * ### Precautions
-     *   * *   You can create up to three snapshots for disks of each simple application server.
-     *   * *   The maximum number of snapshots that can be retained in an Alibaba Cloud account is triple the number of simple application servers that you maintain. The value cannot be greater than 15.
-     *   * *   If a simple application server is automatically released due to expiration, the snapshots created for the server are deleted.
-     *   * *   If you reset the simple application server after you create a snapshot for a server, the snapshot is retained but cannot be used to roll back the disks of the server.
-     *   * ### QPS limit
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
-     *   *
+     * @summary Creates a snapshot for a disk.
+     *  *
+     * @description A snapshot is a point-in-time backup of a disk. Snapshots can be used to back up data, recover data after accidental operations on instances, recover data after network attacks, and create custom images.
+     * > You are not charged for creating snapshots for disks of simple application servers.
+     * ### Precautions
+     * *   You can create up to three snapshots for disks of each simple application server.
+     * *   The maximum number of snapshots that can be retained in an Alibaba Cloud account is triple the number of simple application servers that you maintain. The value cannot be greater than 15.
+     * *   If a simple application server is automatically released due to expiration, the snapshots created for the server are deleted.
+     * *   If you reset the simple application server after you create a snapshot for a server, the snapshot is retained but cannot be used to roll back the disks of the server.
+     * ### QPS limit
+     * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
+     *  *
      * @param CreateSnapshotRequest $request CreateSnapshotRequest
      *
      * @return CreateSnapshotResponse CreateSnapshotResponse
@@ -737,10 +1200,14 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @param DeleteCommandRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Deletes a Command Assistant command.
+     *  *
+     * @description You cannot delete commands that are being run.
+     *  *
+     * @param DeleteCommandRequest $request DeleteCommandRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteCommandResponse
+     * @return DeleteCommandResponse DeleteCommandResponse
      */
     public function deleteCommandWithOptions($request, $runtime)
     {
@@ -771,9 +1238,13 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @param DeleteCommandRequest $request
+     * @summary Deletes a Command Assistant command.
+     *  *
+     * @description You cannot delete commands that are being run.
+     *  *
+     * @param DeleteCommandRequest $request DeleteCommandRequest
      *
-     * @return DeleteCommandResponse
+     * @return DeleteCommandResponse DeleteCommandResponse
      */
     public function deleteCommand($request)
     {
@@ -783,11 +1254,13 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * You can delete a custom image that you no longer need. After the custom image is deleted, you cannot use the custom image to reset the simple application servers that were created based on the custom image.
-     *   * > If a custom image is shared to Elastic Compute Service (ECS), you must unshare the image before you can delete it. After you unshare the custom image, you cannot query the custom image by using the ECS console or by calling ECS API operations. If you need to use the custom image in ECS, we recommend that you copy the image before you delete it. For more information, see [Copy a shared image of a simple application server in the ECS console](~~199378~~).
-     *   * ### QPS limit
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
-     *   *
+     * @summary Deletes a custom image.
+     *  *
+     * @description You can delete a custom image that you no longer need. After the custom image is deleted, you cannot use the custom image to reset the simple application servers that were created based on the custom image.
+     * > If a custom image is shared to Elastic Compute Service (ECS), you must unshare the image before you can delete it. After you unshare the custom image, you cannot query the custom image by using the ECS console or by calling ECS API operations. If you need to use the custom image in ECS, we recommend that you copy the image before you delete it. For more information, see [Copy a shared image of a simple application server in the ECS console](https://help.aliyun.com/document_detail/199378.html).
+     * ### QPS limit
+     * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
+     *  *
      * @param DeleteCustomImageRequest $request DeleteCustomImageRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -825,11 +1298,13 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * You can delete a custom image that you no longer need. After the custom image is deleted, you cannot use the custom image to reset the simple application servers that were created based on the custom image.
-     *   * > If a custom image is shared to Elastic Compute Service (ECS), you must unshare the image before you can delete it. After you unshare the custom image, you cannot query the custom image by using the ECS console or by calling ECS API operations. If you need to use the custom image in ECS, we recommend that you copy the image before you delete it. For more information, see [Copy a shared image of a simple application server in the ECS console](~~199378~~).
-     *   * ### QPS limit
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
-     *   *
+     * @summary Deletes a custom image.
+     *  *
+     * @description You can delete a custom image that you no longer need. After the custom image is deleted, you cannot use the custom image to reset the simple application servers that were created based on the custom image.
+     * > If a custom image is shared to Elastic Compute Service (ECS), you must unshare the image before you can delete it. After you unshare the custom image, you cannot query the custom image by using the ECS console or by calling ECS API operations. If you need to use the custom image in ECS, we recommend that you copy the image before you delete it. For more information, see [Copy a shared image of a simple application server in the ECS console](https://help.aliyun.com/document_detail/199378.html).
+     * ### QPS limit
+     * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
+     *  *
      * @param DeleteCustomImageRequest $request DeleteCustomImageRequest
      *
      * @return DeleteCustomImageResponse DeleteCustomImageResponse
@@ -842,10 +1317,69 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * After a firewall rule is deleted, your business deployed on the simple application server may become inaccessible. Before you delete a firewall rule, make sure that the firewall rule is no longer needed by the simple application server.
-     *   * ### QPS limit
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
-     *   *
+     * @summary Deletes custom images. If you no longer require a custom image, you can call this operation to delete the custom image. You can also call this operation to delete multiple custom images at the same time. After a custom image is deleted, you cannot use the custom image to reset the simple application servers that were created based on the custom image.
+     *  *
+     * @description If a custom image is shared, you must unshare the image before you can delete it. After a custom image is unshared, you cannot query the custom image by using the Elastic Compute Service (ECS) console or by calling an ECS API operation. If you want to use a custom image to create ECS instances, we recommend that you copy the custom image before you delete it. For more information, see the "Copy custom images" topic.
+     *  *
+     * @param DeleteCustomImagesRequest $request DeleteCustomImagesRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteCustomImagesResponse DeleteCustomImagesResponse
+     */
+    public function deleteCustomImagesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->imageIds)) {
+            $query['ImageIds'] = $request->imageIds;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteCustomImages',
+            'version'     => '2020-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteCustomImagesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Deletes custom images. If you no longer require a custom image, you can call this operation to delete the custom image. You can also call this operation to delete multiple custom images at the same time. After a custom image is deleted, you cannot use the custom image to reset the simple application servers that were created based on the custom image.
+     *  *
+     * @description If a custom image is shared, you must unshare the image before you can delete it. After a custom image is unshared, you cannot query the custom image by using the Elastic Compute Service (ECS) console or by calling an ECS API operation. If you want to use a custom image to create ECS instances, we recommend that you copy the custom image before you delete it. For more information, see the "Copy custom images" topic.
+     *  *
+     * @param DeleteCustomImagesRequest $request DeleteCustomImagesRequest
+     *
+     * @return DeleteCustomImagesResponse DeleteCustomImagesResponse
+     */
+    public function deleteCustomImages($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteCustomImagesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Deletes a firewall rule of a simple application server.
+     *  *
+     * @description After a firewall rule is deleted, your business deployed on the simple application server may become inaccessible. Before you delete a firewall rule, make sure that the firewall rule is no longer needed by the simple application server.
+     * ### QPS limit
+     * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
+     *  *
      * @param DeleteFirewallRuleRequest $request DeleteFirewallRuleRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -886,10 +1420,12 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * After a firewall rule is deleted, your business deployed on the simple application server may become inaccessible. Before you delete a firewall rule, make sure that the firewall rule is no longer needed by the simple application server.
-     *   * ### QPS limit
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
-     *   *
+     * @summary Deletes a firewall rule of a simple application server.
+     *  *
+     * @description After a firewall rule is deleted, your business deployed on the simple application server may become inaccessible. Before you delete a firewall rule, make sure that the firewall rule is no longer needed by the simple application server.
+     * ### QPS limit
+     * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
+     *  *
      * @param DeleteFirewallRuleRequest $request DeleteFirewallRuleRequest
      *
      * @return DeleteFirewallRuleResponse DeleteFirewallRuleResponse
@@ -902,10 +1438,200 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @param DeleteInstanceKeyPairRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Deletes multiple firewall rules of a simple application server.
+     *  *
+     * @description After a firewall rule is deleted, your business deployed on the simple application server may become inaccessible. Before you delete a firewall rule, make sure that the firewall rule is no longer needed by the simple application server.
+     *  *
+     * @param DeleteFirewallRulesRequest $tmpReq  DeleteFirewallRulesRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteInstanceKeyPairResponse
+     * @return DeleteFirewallRulesResponse DeleteFirewallRulesResponse
+     */
+    public function deleteFirewallRulesWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DeleteFirewallRulesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->ruleIds)) {
+            $request->ruleIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ruleIds, 'RuleIds', 'simple');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->ruleIdsShrink)) {
+            $query['RuleIds'] = $request->ruleIdsShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteFirewallRules',
+            'version'     => '2020-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteFirewallRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Deletes multiple firewall rules of a simple application server.
+     *  *
+     * @description After a firewall rule is deleted, your business deployed on the simple application server may become inaccessible. Before you delete a firewall rule, make sure that the firewall rule is no longer needed by the simple application server.
+     *  *
+     * @param DeleteFirewallRulesRequest $request DeleteFirewallRulesRequest
+     *
+     * @return DeleteFirewallRulesResponse DeleteFirewallRulesResponse
+     */
+    public function deleteFirewallRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteFirewallRulesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Deletes firewall rules from a firewall template based on your requirements.
+     *  *
+     * @description Deletion of firewall rules does not affect the firewall rules that have been applied to simple application servers.
+     *  *
+     * @param DeleteFirewallTemplateRulesRequest $request DeleteFirewallTemplateRulesRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteFirewallTemplateRulesResponse DeleteFirewallTemplateRulesResponse
+     */
+    public function deleteFirewallTemplateRulesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->firewallTemplateId)) {
+            $query['FirewallTemplateId'] = $request->firewallTemplateId;
+        }
+        if (!Utils::isUnset($request->firewallTemplateRuleId)) {
+            $query['FirewallTemplateRuleId'] = $request->firewallTemplateRuleId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteFirewallTemplateRules',
+            'version'     => '2020-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteFirewallTemplateRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Deletes firewall rules from a firewall template based on your requirements.
+     *  *
+     * @description Deletion of firewall rules does not affect the firewall rules that have been applied to simple application servers.
+     *  *
+     * @param DeleteFirewallTemplateRulesRequest $request DeleteFirewallTemplateRulesRequest
+     *
+     * @return DeleteFirewallTemplateRulesResponse DeleteFirewallTemplateRulesResponse
+     */
+    public function deleteFirewallTemplateRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteFirewallTemplateRulesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Deletes firewall templates from a simple application server.
+     *  *
+     * @description Deleting a firewall template does not affect the firewall rules that have been applied to simple application servers. You can delete firewall templates that you no longer need.
+     *  *
+     * @param DeleteFirewallTemplatesRequest $request DeleteFirewallTemplatesRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteFirewallTemplatesResponse DeleteFirewallTemplatesResponse
+     */
+    public function deleteFirewallTemplatesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->firewallTemplateId)) {
+            $query['FirewallTemplateId'] = $request->firewallTemplateId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteFirewallTemplates',
+            'version'     => '2020-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteFirewallTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Deletes firewall templates from a simple application server.
+     *  *
+     * @description Deleting a firewall template does not affect the firewall rules that have been applied to simple application servers. You can delete firewall templates that you no longer need.
+     *  *
+     * @param DeleteFirewallTemplatesRequest $request DeleteFirewallTemplatesRequest
+     *
+     * @return DeleteFirewallTemplatesResponse DeleteFirewallTemplatesResponse
+     */
+    public function deleteFirewallTemplates($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteFirewallTemplatesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Deletes the key pair of a simple application server.
+     *  *
+     * @param DeleteInstanceKeyPairRequest $request DeleteInstanceKeyPairRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteInstanceKeyPairResponse DeleteInstanceKeyPairResponse
      */
     public function deleteInstanceKeyPairWithOptions($request, $runtime)
     {
@@ -939,9 +1665,11 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @param DeleteInstanceKeyPairRequest $request
+     * @summary Deletes the key pair of a simple application server.
+     *  *
+     * @param DeleteInstanceKeyPairRequest $request DeleteInstanceKeyPairRequest
      *
-     * @return DeleteInstanceKeyPairResponse
+     * @return DeleteInstanceKeyPairResponse DeleteInstanceKeyPairResponse
      */
     public function deleteInstanceKeyPair($request)
     {
@@ -951,11 +1679,70 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * You can delete a snapshot if you no longer need it.
-     *   * > If a custom image was created based on the snapshot, delete the custom image before you delete the snapshot.
-     *   * ### QPS limit
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
-     *   *
+     * @summary Deletes the SSH key pairs of simple application servers.
+     *  *
+     * @description You must unbind SSH key pairs that you no longer use from simple application servers before you delete the SSH key pairs.
+     *  *
+     * @param DeleteKeyPairsRequest $request DeleteKeyPairsRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteKeyPairsResponse DeleteKeyPairsResponse
+     */
+    public function deleteKeyPairsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->keyPairNames)) {
+            $query['KeyPairNames'] = $request->keyPairNames;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteKeyPairs',
+            'version'     => '2020-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteKeyPairsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Deletes the SSH key pairs of simple application servers.
+     *  *
+     * @description You must unbind SSH key pairs that you no longer use from simple application servers before you delete the SSH key pairs.
+     *  *
+     * @param DeleteKeyPairsRequest $request DeleteKeyPairsRequest
+     *
+     * @return DeleteKeyPairsResponse DeleteKeyPairsResponse
+     */
+    public function deleteKeyPairs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteKeyPairsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Deletes a snapshot of a simple application server.
+     *  *
+     * @description You can delete a snapshot if you no longer need it.
+     * > If a custom image was created based on the snapshot, delete the custom image before you delete the snapshot.
+     * ### QPS limit
+     * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
+     *  *
      * @param DeleteSnapshotRequest $request DeleteSnapshotRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -993,11 +1780,13 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * You can delete a snapshot if you no longer need it.
-     *   * > If a custom image was created based on the snapshot, delete the custom image before you delete the snapshot.
-     *   * ### QPS limit
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
-     *   *
+     * @summary Deletes a snapshot of a simple application server.
+     *  *
+     * @description You can delete a snapshot if you no longer need it.
+     * > If a custom image was created based on the snapshot, delete the custom image before you delete the snapshot.
+     * ### QPS limit
+     * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
+     *  *
      * @param DeleteSnapshotRequest $request DeleteSnapshotRequest
      *
      * @return DeleteSnapshotResponse DeleteSnapshotResponse
@@ -1010,10 +1799,12 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @param DeleteSnapshotsRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Deletes snapshots of a simple application server.
+     *  *
+     * @param DeleteSnapshotsRequest $request DeleteSnapshotsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteSnapshotsResponse
+     * @return DeleteSnapshotsResponse DeleteSnapshotsResponse
      */
     public function deleteSnapshotsWithOptions($request, $runtime)
     {
@@ -1047,9 +1838,11 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @param DeleteSnapshotsRequest $request
+     * @summary Deletes snapshots of a simple application server.
+     *  *
+     * @param DeleteSnapshotsRequest $request DeleteSnapshotsRequest
      *
-     * @return DeleteSnapshotsResponse
+     * @return DeleteSnapshotsResponse DeleteSnapshotsResponse
      */
     public function deleteSnapshots($request)
     {
@@ -1059,8 +1852,71 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * By default, the Cloud Assistant client is installed on simple application servers. If you have manually uninstalled the client, you must reinstall the client. Otherwise, you cannot run commands on the servers.
-     *   *
+     * @summary Queries the Command Assistant information of simple application servers.
+     *  *
+     * @param DescribeCloudAssistantAttributesRequest $tmpReq  DescribeCloudAssistantAttributesRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeCloudAssistantAttributesResponse DescribeCloudAssistantAttributesResponse
+     */
+    public function describeCloudAssistantAttributesWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DescribeCloudAssistantAttributesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->instanceIds)) {
+            $request->instanceIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->instanceIds, 'InstanceIds', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->instanceIdsShrink)) {
+            $query['InstanceIds'] = $request->instanceIdsShrink;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCloudAssistantAttributes',
+            'version'     => '2020-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeCloudAssistantAttributesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries the Command Assistant information of simple application servers.
+     *  *
+     * @param DescribeCloudAssistantAttributesRequest $request DescribeCloudAssistantAttributesRequest
+     *
+     * @return DescribeCloudAssistantAttributesResponse DescribeCloudAssistantAttributesResponse
+     */
+    public function describeCloudAssistantAttributes($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCloudAssistantAttributesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries whether the Cloud Assistant client is installed on simple application servers.
+     *  *
+     * @description By default, the Cloud Assistant client is installed on simple application servers. If you have manually uninstalled the client, you must reinstall the client. Otherwise, you cannot run commands on the servers.
+     *  *
      * @param DescribeCloudAssistantStatusRequest $tmpReq  DescribeCloudAssistantStatusRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
@@ -1106,8 +1962,10 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * By default, the Cloud Assistant client is installed on simple application servers. If you have manually uninstalled the client, you must reinstall the client. Otherwise, you cannot run commands on the servers.
-     *   *
+     * @summary Queries whether the Cloud Assistant client is installed on simple application servers.
+     *  *
+     * @description By default, the Cloud Assistant client is installed on simple application servers. If you have manually uninstalled the client, you must reinstall the client. Otherwise, you cannot run commands on the servers.
+     *  *
      * @param DescribeCloudAssistantStatusRequest $request DescribeCloudAssistantStatusRequest
      *
      * @return DescribeCloudAssistantStatusResponse DescribeCloudAssistantStatusResponse
@@ -1120,10 +1978,12 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @param DescribeCloudMonitorAgentStatusesRequest $request
-     * @param RuntimeOptions                           $runtime
+     * @summary Queries the status of the CloudMonitor agent on simple application servers.
+     *  *
+     * @param DescribeCloudMonitorAgentStatusesRequest $request DescribeCloudMonitorAgentStatusesRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeCloudMonitorAgentStatusesResponse
+     * @return DescribeCloudMonitorAgentStatusesResponse DescribeCloudMonitorAgentStatusesResponse
      */
     public function describeCloudMonitorAgentStatusesWithOptions($request, $runtime)
     {
@@ -1157,9 +2017,11 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @param DescribeCloudMonitorAgentStatusesRequest $request
+     * @summary Queries the status of the CloudMonitor agent on simple application servers.
+     *  *
+     * @param DescribeCloudMonitorAgentStatusesRequest $request DescribeCloudMonitorAgentStatusesRequest
      *
-     * @return DescribeCloudMonitorAgentStatusesResponse
+     * @return DescribeCloudMonitorAgentStatusesResponse DescribeCloudMonitorAgentStatusesResponse
      */
     public function describeCloudMonitorAgentStatuses($request)
     {
@@ -1169,10 +2031,12 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @param DescribeCommandInvocationsRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Queries the executions and execution status of a Cloud Assistant command.
+     *  *
+     * @param DescribeCommandInvocationsRequest $request DescribeCommandInvocationsRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeCommandInvocationsResponse
+     * @return DescribeCommandInvocationsResponse DescribeCommandInvocationsResponse
      */
     public function describeCommandInvocationsWithOptions($request, $runtime)
     {
@@ -1224,9 +2088,11 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @param DescribeCommandInvocationsRequest $request
+     * @summary Queries the executions and execution status of a Cloud Assistant command.
+     *  *
+     * @param DescribeCommandInvocationsRequest $request DescribeCommandInvocationsRequest
      *
-     * @return DescribeCommandInvocationsResponse
+     * @return DescribeCommandInvocationsResponse DescribeCommandInvocationsResponse
      */
     public function describeCommandInvocations($request)
     {
@@ -1236,10 +2102,12 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @param DescribeCommandsRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Queries the commands that you created or the common commands that Alibaba Cloud provides.
+     *  *
+     * @param DescribeCommandsRequest $request DescribeCommandsRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeCommandsResponse
+     * @return DescribeCommandsResponse DescribeCommandsResponse
      */
     public function describeCommandsWithOptions($request, $runtime)
     {
@@ -1263,6 +2131,12 @@ class SWASOPEN extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
         if (!Utils::isUnset($request->type)) {
             $query['Type'] = $request->type;
         }
@@ -1285,9 +2159,11 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @param DescribeCommandsRequest $request
+     * @summary Queries the commands that you created or the common commands that Alibaba Cloud provides.
+     *  *
+     * @param DescribeCommandsRequest $request DescribeCommandsRequest
      *
-     * @return DescribeCommandsResponse
+     * @return DescribeCommandsResponse DescribeCommandsResponse
      */
     public function describeCommands($request)
     {
@@ -1297,9 +2173,11 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the error logs of databases in a Simple Database Service instance and locate faults based on the error logs.
-     *   * \\### QPS limit You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
-     *   *
+     * @summary Queries error logs of databases in a Simple Database Service instance.
+     *  *
+     * @description You can call this operation to query the error logs of databases in a Simple Database Service instance and locate faults based on the error logs.
+     * \\### QPS limit You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
+     *  *
      * @param DescribeDatabaseErrorLogsRequest $request DescribeDatabaseErrorLogsRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -1346,9 +2224,11 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the error logs of databases in a Simple Database Service instance and locate faults based on the error logs.
-     *   * \\### QPS limit You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
-     *   *
+     * @summary Queries error logs of databases in a Simple Database Service instance.
+     *  *
+     * @description You can call this operation to query the error logs of databases in a Simple Database Service instance and locate faults based on the error logs.
+     * \\### QPS limit You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
+     *  *
      * @param DescribeDatabaseErrorLogsRequest $request DescribeDatabaseErrorLogsRequest
      *
      * @return DescribeDatabaseErrorLogsResponse DescribeDatabaseErrorLogsResponse
@@ -1361,10 +2241,12 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * After you create a Simple Database Service instance, you can query the details about the vCPU, memory, disk size, storage IOPS (input/output operations per second), and total current connection number of the instance.
-     *   * ### QPS limit
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
-     *   *
+     * @summary Queries the monitoring information about a Simple Database Service instance.
+     *  *
+     * @description After you create a Simple Database Service instance, you can query the details about the vCPU, memory, disk size, storage IOPS (input/output operations per second), and total current connection number of the instance.
+     * ### QPS limit
+     * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
+     *  *
      * @param DescribeDatabaseInstanceMetricDataRequest $request DescribeDatabaseInstanceMetricDataRequest
      * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
@@ -1408,10 +2290,12 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * After you create a Simple Database Service instance, you can query the details about the vCPU, memory, disk size, storage IOPS (input/output operations per second), and total current connection number of the instance.
-     *   * ### QPS limit
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
-     *   *
+     * @summary Queries the monitoring information about a Simple Database Service instance.
+     *  *
+     * @description After you create a Simple Database Service instance, you can query the details about the vCPU, memory, disk size, storage IOPS (input/output operations per second), and total current connection number of the instance.
+     * ### QPS limit
+     * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
+     *  *
      * @param DescribeDatabaseInstanceMetricDataRequest $request DescribeDatabaseInstanceMetricDataRequest
      *
      * @return DescribeDatabaseInstanceMetricDataResponse DescribeDatabaseInstanceMetricDataResponse
@@ -1424,8 +2308,10 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the information about parameters of a Simple Database Service instance.
-     *   *
+     * @summary Queries the parameters of a Simple Database Service instance.
+     *  *
+     * @description You can call this operation to query the information about parameters of a Simple Database Service instance.
+     *  *
      * @param DescribeDatabaseInstanceParametersRequest $request DescribeDatabaseInstanceParametersRequest
      * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
@@ -1460,8 +2346,10 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the information about parameters of a Simple Database Service instance.
-     *   *
+     * @summary Queries the parameters of a Simple Database Service instance.
+     *  *
+     * @description You can call this operation to query the information about parameters of a Simple Database Service instance.
+     *  *
      * @param DescribeDatabaseInstanceParametersRequest $request DescribeDatabaseInstanceParametersRequest
      *
      * @return DescribeDatabaseInstanceParametersResponse DescribeDatabaseInstanceParametersResponse
@@ -1474,10 +2362,12 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the details of Simple Database Service instances in a region, including the IDs, names, plans, database versions, public endpoint, internal endpoint, creation time, and expiration time of the instances.
-     *   * ### QPS limit
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
-     *   *
+     * @summary Queries the information about Simple Database Service instances.
+     *  *
+     * @description You can call this operation to query the details of Simple Database Service instances in a region, including the IDs, names, plans, database versions, public endpoint, internal endpoint, creation time, and expiration time of the instances.
+     * ### QPS limit
+     * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
+     *  *
      * @param DescribeDatabaseInstancesRequest $request DescribeDatabaseInstancesRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -1518,10 +2408,12 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the details of Simple Database Service instances in a region, including the IDs, names, plans, database versions, public endpoint, internal endpoint, creation time, and expiration time of the instances.
-     *   * ### QPS limit
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
-     *   *
+     * @summary Queries the information about Simple Database Service instances.
+     *  *
+     * @description You can call this operation to query the details of Simple Database Service instances in a region, including the IDs, names, plans, database versions, public endpoint, internal endpoint, creation time, and expiration time of the instances.
+     * ### QPS limit
+     * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
+     *  *
      * @param DescribeDatabaseInstancesRequest $request DescribeDatabaseInstancesRequest
      *
      * @return DescribeDatabaseInstancesResponse DescribeDatabaseInstancesResponse
@@ -1534,11 +2426,13 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * You can query the slow query log details of a Simple Database Service instance and locate faults based on the log details.
-     *   * > Slow query log details are retained for 7 days.
-     *   * ### QPS limit
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
-     *   *
+     * @summary Queries the slow query log details of a Simple Database Service instance.
+     *  *
+     * @description You can query the slow query log details of a Simple Database Service instance and locate faults based on the log details.
+     * > Slow query log details are retained for 7 days.
+     * ### QPS limit
+     * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
+     *  *
      * @param DescribeDatabaseSlowLogRecordsRequest $request DescribeDatabaseSlowLogRecordsRequest
      * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
@@ -1548,9 +2442,6 @@ class SWASOPEN extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->acsProduct)) {
-            $query['AcsProduct'] = $request->acsProduct;
-        }
         if (!Utils::isUnset($request->databaseInstanceId)) {
             $query['DatabaseInstanceId'] = $request->databaseInstanceId;
         }
@@ -1588,11 +2479,13 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * You can query the slow query log details of a Simple Database Service instance and locate faults based on the log details.
-     *   * > Slow query log details are retained for 7 days.
-     *   * ### QPS limit
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
-     *   *
+     * @summary Queries the slow query log details of a Simple Database Service instance.
+     *  *
+     * @description You can query the slow query log details of a Simple Database Service instance and locate faults based on the log details.
+     * > Slow query log details are retained for 7 days.
+     * ### QPS limit
+     * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
+     *  *
      * @param DescribeDatabaseSlowLogRecordsRequest $request DescribeDatabaseSlowLogRecordsRequest
      *
      * @return DescribeDatabaseSlowLogRecordsResponse DescribeDatabaseSlowLogRecordsResponse
@@ -1605,10 +2498,195 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceKeyPairRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries the result of applying a firewall template to simple application servers.
+     *  *
+     * @param DescribeFirewallTemplateApplyResultsRequest $request DescribeFirewallTemplateApplyResultsRequest
+     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeInstanceKeyPairResponse
+     * @return DescribeFirewallTemplateApplyResultsResponse DescribeFirewallTemplateApplyResultsResponse
+     */
+    public function describeFirewallTemplateApplyResultsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->firewallTemplateId)) {
+            $query['FirewallTemplateId'] = $request->firewallTemplateId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeFirewallTemplateApplyResults',
+            'version'     => '2020-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeFirewallTemplateApplyResultsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries the result of applying a firewall template to simple application servers.
+     *  *
+     * @param DescribeFirewallTemplateApplyResultsRequest $request DescribeFirewallTemplateApplyResultsRequest
+     *
+     * @return DescribeFirewallTemplateApplyResultsResponse DescribeFirewallTemplateApplyResultsResponse
+     */
+    public function describeFirewallTemplateApplyResults($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeFirewallTemplateApplyResultsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries the result of applying a firewall template rule to simple application servers.
+     *  *
+     * @param DescribeFirewallTemplateRulesApplyResultRequest $request DescribeFirewallTemplateRulesApplyResultRequest
+     * @param RuntimeOptions                                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeFirewallTemplateRulesApplyResultResponse DescribeFirewallTemplateRulesApplyResultResponse
+     */
+    public function describeFirewallTemplateRulesApplyResultWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->firewallTemplateId)) {
+            $query['FirewallTemplateId'] = $request->firewallTemplateId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeFirewallTemplateRulesApplyResult',
+            'version'     => '2020-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeFirewallTemplateRulesApplyResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries the result of applying a firewall template rule to simple application servers.
+     *  *
+     * @param DescribeFirewallTemplateRulesApplyResultRequest $request DescribeFirewallTemplateRulesApplyResultRequest
+     *
+     * @return DescribeFirewallTemplateRulesApplyResultResponse DescribeFirewallTemplateRulesApplyResultResponse
+     */
+    public function describeFirewallTemplateRulesApplyResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeFirewallTemplateRulesApplyResultWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries details about firewall templates.
+     *  *
+     * @param DescribeFirewallTemplatesRequest $request DescribeFirewallTemplatesRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeFirewallTemplatesResponse DescribeFirewallTemplatesResponse
+     */
+    public function describeFirewallTemplatesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->firewallTemplateId)) {
+            $query['FirewallTemplateId'] = $request->firewallTemplateId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeFirewallTemplates',
+            'version'     => '2020-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeFirewallTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries details about firewall templates.
+     *  *
+     * @param DescribeFirewallTemplatesRequest $request DescribeFirewallTemplatesRequest
+     *
+     * @return DescribeFirewallTemplatesResponse DescribeFirewallTemplatesResponse
+     */
+    public function describeFirewallTemplates($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeFirewallTemplatesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries information about the key pair of a simple application server.
+     *  *
+     * @param DescribeInstanceKeyPairRequest $request DescribeInstanceKeyPairRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeInstanceKeyPairResponse DescribeInstanceKeyPairResponse
      */
     public function describeInstanceKeyPairWithOptions($request, $runtime)
     {
@@ -1642,9 +2720,11 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceKeyPairRequest $request
+     * @summary Queries information about the key pair of a simple application server.
+     *  *
+     * @param DescribeInstanceKeyPairRequest $request DescribeInstanceKeyPairRequest
      *
-     * @return DescribeInstanceKeyPairResponse
+     * @return DescribeInstanceKeyPairResponse DescribeInstanceKeyPairResponse
      */
     public function describeInstanceKeyPair($request)
     {
@@ -1654,10 +2734,12 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstancePasswordsSettingRequest $request
-     * @param RuntimeOptions                          $runtime
+     * @summary Checks whether a password is set for a simple application server.
+     *  *
+     * @param DescribeInstancePasswordsSettingRequest $request DescribeInstancePasswordsSettingRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeInstancePasswordsSettingResponse
+     * @return DescribeInstancePasswordsSettingResponse DescribeInstancePasswordsSettingResponse
      */
     public function describeInstancePasswordsSettingWithOptions($request, $runtime)
     {
@@ -1691,9 +2773,11 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstancePasswordsSettingRequest $request
+     * @summary Checks whether a password is set for a simple application server.
+     *  *
+     * @param DescribeInstancePasswordsSettingRequest $request DescribeInstancePasswordsSettingRequest
      *
-     * @return DescribeInstancePasswordsSettingResponse
+     * @return DescribeInstancePasswordsSettingResponse DescribeInstancePasswordsSettingResponse
      */
     public function describeInstancePasswordsSetting($request)
     {
@@ -1703,10 +2787,12 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceVncUrlRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Queries the VNC connection address of a simple application server.
+     *  *
+     * @param DescribeInstanceVncUrlRequest $request DescribeInstanceVncUrlRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeInstanceVncUrlResponse
+     * @return DescribeInstanceVncUrlResponse DescribeInstanceVncUrlResponse
      */
     public function describeInstanceVncUrlWithOptions($request, $runtime)
     {
@@ -1740,9 +2826,11 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceVncUrlRequest $request
+     * @summary Queries the VNC connection address of a simple application server.
+     *  *
+     * @param DescribeInstanceVncUrlRequest $request DescribeInstanceVncUrlRequest
      *
-     * @return DescribeInstanceVncUrlResponse
+     * @return DescribeInstanceVncUrlResponse DescribeInstanceVncUrlResponse
      */
     public function describeInstanceVncUrl($request)
     {
@@ -1752,9 +2840,11 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * *   After you execute a command, the command may not succeed or return the expected results. You can call this operation to query the execution result of a command.
-     *   * *   You can query the execution results that were generated within the last two weeks. A maximum of 100,000 entries of execution results can be retained.
-     *   *
+     * @summary Queries the execution result of a command.
+     *  *
+     * @description *   After you execute a command, the command may not succeed or return the expected results. You can call this operation to query the execution result of a command.
+     * *   You can query the execution results that were generated within the last two weeks. A maximum of 100,000 entries of execution results can be retained.
+     *  *
      * @param DescribeInvocationResultRequest $request DescribeInvocationResultRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -1792,9 +2882,11 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * *   After you execute a command, the command may not succeed or return the expected results. You can call this operation to query the execution result of a command.
-     *   * *   You can query the execution results that were generated within the last two weeks. A maximum of 100,000 entries of execution results can be retained.
-     *   *
+     * @summary Queries the execution result of a command.
+     *  *
+     * @description *   After you execute a command, the command may not succeed or return the expected results. You can call this operation to query the execution result of a command.
+     * *   You can query the execution results that were generated within the last two weeks. A maximum of 100,000 entries of execution results can be retained.
+     *  *
      * @param DescribeInvocationResultRequest $request DescribeInvocationResultRequest
      *
      * @return DescribeInvocationResultResponse DescribeInvocationResultResponse
@@ -1807,9 +2899,11 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * *   After you execute a command, the command may not succeed or return the expected results. You can call this operation to query the actual execution results.
-     *   * *   You can query the execution results that were generated within the last two weeks. Up to 100,000 entries of execution results can be retained.
-     *   *
+     * @summary Queries details about command execution.
+     *  *
+     * @description *   After you execute a command, the command may not succeed or return the expected results. You can call this operation to query the actual execution results.
+     * *   You can query the execution results that were generated within the last two weeks. Up to 100,000 entries of execution results can be retained.
+     *  *
      * @param DescribeInvocationsRequest $request DescribeInvocationsRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -1853,9 +2947,11 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * *   After you execute a command, the command may not succeed or return the expected results. You can call this operation to query the actual execution results.
-     *   * *   You can query the execution results that were generated within the last two weeks. Up to 100,000 entries of execution results can be retained.
-     *   *
+     * @summary Queries details about command execution.
+     *  *
+     * @description *   After you execute a command, the command may not succeed or return the expected results. You can call this operation to query the actual execution results.
+     * *   You can query the execution results that were generated within the last two weeks. Up to 100,000 entries of execution results can be retained.
+     *  *
      * @param DescribeInvocationsRequest $request DescribeInvocationsRequest
      *
      * @return DescribeInvocationsResponse DescribeInvocationsResponse
@@ -1868,10 +2964,12 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @param DescribeMonitorDataRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries the monitoring information about vCPUs, memory, disk IOPS, and traffic of a simple application server.
+     *  *
+     * @param DescribeMonitorDataRequest $request DescribeMonitorDataRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeMonitorDataResponse
+     * @return DescribeMonitorDataResponse DescribeMonitorDataResponse
      */
     public function describeMonitorDataWithOptions($request, $runtime)
     {
@@ -1923,9 +3021,11 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @param DescribeMonitorDataRequest $request
+     * @summary Queries the monitoring information about vCPUs, memory, disk IOPS, and traffic of a simple application server.
+     *  *
+     * @param DescribeMonitorDataRequest $request DescribeMonitorDataRequest
      *
-     * @return DescribeMonitorDataResponse
+     * @return DescribeMonitorDataResponse DescribeMonitorDataResponse
      */
     public function describeMonitorData($request)
     {
@@ -1935,10 +3035,12 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @param DescribeSecurityAgentStatusRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Queries the status of the Security Center agent on a simple application server.
+     *  *
+     * @param DescribeSecurityAgentStatusRequest $request DescribeSecurityAgentStatusRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSecurityAgentStatusResponse
+     * @return DescribeSecurityAgentStatusResponse DescribeSecurityAgentStatusResponse
      */
     public function describeSecurityAgentStatusWithOptions($request, $runtime)
     {
@@ -1972,9 +3074,11 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @param DescribeSecurityAgentStatusRequest $request
+     * @summary Queries the status of the Security Center agent on a simple application server.
+     *  *
+     * @param DescribeSecurityAgentStatusRequest $request DescribeSecurityAgentStatusRequest
      *
-     * @return DescribeSecurityAgentStatusResponse
+     * @return DescribeSecurityAgentStatusResponse DescribeSecurityAgentStatusResponse
      */
     public function describeSecurityAgentStatus($request)
     {
@@ -1984,10 +3088,72 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @param DisableFirewallRuleRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Unbinds key pairs from simple application servers.
+     *  *
+     * @description If you want to change the SSH key pairs that are bound to your simple application servers or your end user no longer needs to access a specific simple application server, you can unbind the SSH key pairs from simple application servers to improve the security of the simple application servers or restrict access to the specific simple application server.
+     *  *
+     * @param DetachKeyPairRequest $request DetachKeyPairRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DisableFirewallRuleResponse
+     * @return DetachKeyPairResponse DetachKeyPairResponse
+     */
+    public function detachKeyPairWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->instanceIds)) {
+            $query['InstanceIds'] = $request->instanceIds;
+        }
+        if (!Utils::isUnset($request->keyPairName)) {
+            $query['KeyPairName'] = $request->keyPairName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DetachKeyPair',
+            'version'     => '2020-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DetachKeyPairResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Unbinds key pairs from simple application servers.
+     *  *
+     * @description If you want to change the SSH key pairs that are bound to your simple application servers or your end user no longer needs to access a specific simple application server, you can unbind the SSH key pairs from simple application servers to improve the security of the simple application servers or restrict access to the specific simple application server.
+     *  *
+     * @param DetachKeyPairRequest $request DetachKeyPairRequest
+     *
+     * @return DetachKeyPairResponse DetachKeyPairResponse
+     */
+    public function detachKeyPair($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->detachKeyPairWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Disables a firewall rule of a simple application server.
+     *  *
+     * @param DisableFirewallRuleRequest $request DisableFirewallRuleRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DisableFirewallRuleResponse DisableFirewallRuleResponse
      */
     public function disableFirewallRuleWithOptions($request, $runtime)
     {
@@ -2027,9 +3193,11 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @param DisableFirewallRuleRequest $request
+     * @summary Disables a firewall rule of a simple application server.
+     *  *
+     * @param DisableFirewallRuleRequest $request DisableFirewallRuleRequest
      *
-     * @return DisableFirewallRuleResponse
+     * @return DisableFirewallRuleResponse DisableFirewallRuleResponse
      */
     public function disableFirewallRule($request)
     {
@@ -2039,10 +3207,12 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @param EnableFirewallRuleRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Enables a firewall rule for a simple application server.
+     *  *
+     * @param EnableFirewallRuleRequest $request EnableFirewallRuleRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return EnableFirewallRuleResponse
+     * @return EnableFirewallRuleResponse EnableFirewallRuleResponse
      */
     public function enableFirewallRuleWithOptions($request, $runtime)
     {
@@ -2085,9 +3255,11 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @param EnableFirewallRuleRequest $request
+     * @summary Enables a firewall rule for a simple application server.
+     *  *
+     * @param EnableFirewallRuleRequest $request EnableFirewallRuleRequest
      *
-     * @return EnableFirewallRuleResponse
+     * @return EnableFirewallRuleResponse EnableFirewallRuleResponse
      */
     public function enableFirewallRule($request)
     {
@@ -2097,8 +3269,70 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * To run commands on your simple application servers, you must install the Cloud Assistant client on your servers. You can call the [DescribeCloudAssistantStatus](~~439512~~) operation to check whether the Cloud Assistant client is installed on your simple application servers. If you have not installed the Cloud Assistant client, you can call the InstallCloudAssistant operation to install the client. Then, you can call the [RebootInstance](~~190443~~) operation to restart the servers to allow the client to take effect.
-     *   *
+     * @summary Imports an existing key pair to the Simple Application Server console.
+     *  *
+     * @description You can call this operation to import an existing key pair to the Simple Application Server console. This way, you can use the key pair to log on to simple application servers. The existing key pair that you want to import must use a supported encryption method. For more information, see [Q2: Which encryption methods must be used by key pairs when I import existing key pairs to the Simple Application Server console?](https://help.aliyun.com/document_detail/59085.html)
+     *  *
+     * @param ImportKeyPairRequest $request ImportKeyPairRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ImportKeyPairResponse ImportKeyPairResponse
+     */
+    public function importKeyPairWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->keyPairName)) {
+            $query['KeyPairName'] = $request->keyPairName;
+        }
+        if (!Utils::isUnset($request->publicKeyBody)) {
+            $query['PublicKeyBody'] = $request->publicKeyBody;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ImportKeyPair',
+            'version'     => '2020-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ImportKeyPairResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Imports an existing key pair to the Simple Application Server console.
+     *  *
+     * @description You can call this operation to import an existing key pair to the Simple Application Server console. This way, you can use the key pair to log on to simple application servers. The existing key pair that you want to import must use a supported encryption method. For more information, see [Q2: Which encryption methods must be used by key pairs when I import existing key pairs to the Simple Application Server console?](https://help.aliyun.com/document_detail/59085.html)
+     *  *
+     * @param ImportKeyPairRequest $request ImportKeyPairRequest
+     *
+     * @return ImportKeyPairResponse ImportKeyPairResponse
+     */
+    public function importKeyPair($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->importKeyPairWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Installs the Cloud Assistant client on simple application servers at a time.
+     *  *
+     * @description To run commands on your simple application servers, you must install the Cloud Assistant client on your servers. You can call the [DescribeCloudAssistantStatus](https://help.aliyun.com/document_detail/439512.html) operation to check whether the Cloud Assistant client is installed on your simple application servers. If you have not installed the Cloud Assistant client, you can call the InstallCloudAssistant operation to install the client. Then, you can call the [RebootInstance](https://help.aliyun.com/document_detail/190443.html) operation to restart the servers to allow the client to take effect.
+     *  *
      * @param InstallCloudAssistantRequest $tmpReq  InstallCloudAssistantRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -2138,8 +3372,10 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * To run commands on your simple application servers, you must install the Cloud Assistant client on your servers. You can call the [DescribeCloudAssistantStatus](~~439512~~) operation to check whether the Cloud Assistant client is installed on your simple application servers. If you have not installed the Cloud Assistant client, you can call the InstallCloudAssistant operation to install the client. Then, you can call the [RebootInstance](~~190443~~) operation to restart the servers to allow the client to take effect.
-     *   *
+     * @summary Installs the Cloud Assistant client on simple application servers at a time.
+     *  *
+     * @description To run commands on your simple application servers, you must install the Cloud Assistant client on your servers. You can call the [DescribeCloudAssistantStatus](https://help.aliyun.com/document_detail/439512.html) operation to check whether the Cloud Assistant client is installed on your simple application servers. If you have not installed the Cloud Assistant client, you can call the InstallCloudAssistant operation to install the client. Then, you can call the [RebootInstance](https://help.aliyun.com/document_detail/190443.html) operation to restart the servers to allow the client to take effect.
+     *  *
      * @param InstallCloudAssistantRequest $request InstallCloudAssistantRequest
      *
      * @return InstallCloudAssistantResponse InstallCloudAssistantResponse
@@ -2152,10 +3388,12 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @param InstallCloudMonitorAgentRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Installs the CloudMonitor agent for a simple application server.
+     *  *
+     * @param InstallCloudMonitorAgentRequest $request InstallCloudMonitorAgentRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return InstallCloudMonitorAgentResponse
+     * @return InstallCloudMonitorAgentResponse InstallCloudMonitorAgentResponse
      */
     public function installCloudMonitorAgentWithOptions($request, $runtime)
     {
@@ -2192,9 +3430,11 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @param InstallCloudMonitorAgentRequest $request
+     * @summary Installs the CloudMonitor agent for a simple application server.
+     *  *
+     * @param InstallCloudMonitorAgentRequest $request InstallCloudMonitorAgentRequest
      *
-     * @return InstallCloudMonitorAgentResponse
+     * @return InstallCloudMonitorAgentResponse InstallCloudMonitorAgentResponse
      */
     public function installCloudMonitorAgent($request)
     {
@@ -2204,10 +3444,20 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @param InvokeCommandRequest $tmpReq
-     * @param RuntimeOptions       $runtime
+     * @summary Runs a Command Assistant command for one or more simple application servers.
+     *  *
+     * @description *   The simple application servers for which you want to call the operation must meet the following conditions. If a simple application server cannot meet the conditions, you must call this operation again.
+     *     *   The simple application servers are in the `Running` state. You can call the [ListInstances](https://help.aliyun.com/document_detail/2361065.html) operation to query the status of simple application servers.
+     *     *   Cloud Assistant Agent is installed on the simple application servers. For more information, see [InstallCloudAssistant](https://help.aliyun.com/document_detail/2361030.html).
+     *     *   If you run a PowerShell command, make sure that the PowerShell module is configured for the simple application servers.
+     * *   The command may fail to be run due to the abnormal states of simple application servers, network exceptions, or exceptions in Cloud Assistant Agent. If the command fails to be run, no execution information is generated.
+     * *   If you enable the custom parameter feature when you create a command, you must set the `Parameters` parameter to specify custom parameters when you run the command.
+     * *   When you call this operation, you can select only one common command or a custom command that you have created.
+     *  *
+     * @param InvokeCommandRequest $tmpReq  InvokeCommandRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return InvokeCommandResponse
+     * @return InvokeCommandResponse InvokeCommandResponse
      */
     public function invokeCommandWithOptions($tmpReq, $runtime)
     {
@@ -2252,9 +3502,19 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @param InvokeCommandRequest $request
+     * @summary Runs a Command Assistant command for one or more simple application servers.
+     *  *
+     * @description *   The simple application servers for which you want to call the operation must meet the following conditions. If a simple application server cannot meet the conditions, you must call this operation again.
+     *     *   The simple application servers are in the `Running` state. You can call the [ListInstances](https://help.aliyun.com/document_detail/2361065.html) operation to query the status of simple application servers.
+     *     *   Cloud Assistant Agent is installed on the simple application servers. For more information, see [InstallCloudAssistant](https://help.aliyun.com/document_detail/2361030.html).
+     *     *   If you run a PowerShell command, make sure that the PowerShell module is configured for the simple application servers.
+     * *   The command may fail to be run due to the abnormal states of simple application servers, network exceptions, or exceptions in Cloud Assistant Agent. If the command fails to be run, no execution information is generated.
+     * *   If you enable the custom parameter feature when you create a command, you must set the `Parameters` parameter to specify custom parameters when you run the command.
+     * *   When you call this operation, you can select only one common command or a custom command that you have created.
+     *  *
+     * @param InvokeCommandRequest $request InvokeCommandRequest
      *
-     * @return InvokeCommandResponse
+     * @return InvokeCommandResponse InvokeCommandResponse
      */
     public function invokeCommand($request)
     {
@@ -2264,10 +3524,71 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @param ListCustomImagesRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary 查询镜像共享给的用户
+     *  *
+     * @param ListCustomImageShareAccountsRequest $request ListCustomImageShareAccountsRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListCustomImagesResponse
+     * @return ListCustomImageShareAccountsResponse ListCustomImageShareAccountsResponse
+     */
+    public function listCustomImageShareAccountsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->imageId)) {
+            $query['ImageId'] = $request->imageId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListCustomImageShareAccounts',
+            'version'     => '2020-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListCustomImageShareAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询镜像共享给的用户
+     *  *
+     * @param ListCustomImageShareAccountsRequest $request ListCustomImageShareAccountsRequest
+     *
+     * @return ListCustomImageShareAccountsResponse ListCustomImageShareAccountsResponse
+     */
+    public function listCustomImageShareAccounts($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCustomImageShareAccountsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries the information about custom images in a region.
+     *  *
+     * @param ListCustomImagesRequest $request ListCustomImagesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListCustomImagesResponse ListCustomImagesResponse
      */
     public function listCustomImagesWithOptions($request, $runtime)
     {
@@ -2285,6 +3606,9 @@ class SWASOPEN extends OpenApiClient
         if (!Utils::isUnset($request->imageNames)) {
             $query['ImageNames'] = $request->imageNames;
         }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
         if (!Utils::isUnset($request->pageNumber)) {
             $query['PageNumber'] = $request->pageNumber;
         }
@@ -2294,8 +3618,17 @@ class SWASOPEN extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->share)) {
+            $query['Share'] = $request->share;
+        }
         if (!Utils::isUnset($request->systemSnapshotId)) {
             $query['SystemSnapshotId'] = $request->systemSnapshotId;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -2316,9 +3649,11 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @param ListCustomImagesRequest $request
+     * @summary Queries the information about custom images in a region.
+     *  *
+     * @param ListCustomImagesRequest $request ListCustomImagesRequest
      *
-     * @return ListCustomImagesResponse
+     * @return ListCustomImagesResponse ListCustomImagesResponse
      */
     public function listCustomImages($request)
     {
@@ -2328,10 +3663,12 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * You can specify multiple request parameters such as `InstanceId` and `DiskIds`. Specified parameters have logical AND relations. Only the specified parameters are included in the filter conditions.
-     *   * ### QPS limit
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](~~347607~~).
-     *   *
+     * @summary Queries the information about disks in a region.
+     *  *
+     * @description You can specify multiple request parameters that you want to query, such as `InstanceId`, `DiskIds`, and `ResourceGroupId`. Specified request parameters have logical AND relations. Only the specified parameters are included in the filter conditions.
+     * ### [](#qps-)QPS limits
+     * You can call this operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
+     *  *
      * @param ListDisksRequest $request ListDisksRequest
      * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
@@ -2359,6 +3696,12 @@ class SWASOPEN extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -2378,10 +3721,12 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * You can specify multiple request parameters such as `InstanceId` and `DiskIds`. Specified parameters have logical AND relations. Only the specified parameters are included in the filter conditions.
-     *   * ### QPS limit
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](~~347607~~).
-     *   *
+     * @summary Queries the information about disks in a region.
+     *  *
+     * @description You can specify multiple request parameters that you want to query, such as `InstanceId`, `DiskIds`, and `ResourceGroupId`. Specified request parameters have logical AND relations. Only the specified parameters are included in the filter conditions.
+     * ### [](#qps-)QPS limits
+     * You can call this operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
+     *  *
      * @param ListDisksRequest $request ListDisksRequest
      *
      * @return ListDisksResponse ListDisksResponse
@@ -2394,10 +3739,12 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * You can call the ListFirewallRules operation to query the firewall rule details of a simple application server, including the port range, firewall rule ID, and transport layer protocol.
-     *   * ### QPS limit
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
-     *   *
+     * @summary Queries the firewall rules of a simple application server.
+     *  *
+     * @description You can call the ListFirewallRules operation to query the firewall rule details of a simple application server, including the port range, firewall rule ID, and transport layer protocol.
+     * ### QPS limit
+     * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
+     *  *
      * @param ListFirewallRulesRequest $request ListFirewallRulesRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -2407,6 +3754,9 @@ class SWASOPEN extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->firewallRuleId)) {
+            $query['FirewallRuleId'] = $request->firewallRuleId;
+        }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
@@ -2418,6 +3768,9 @@ class SWASOPEN extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -2438,10 +3791,12 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * You can call the ListFirewallRules operation to query the firewall rule details of a simple application server, including the port range, firewall rule ID, and transport layer protocol.
-     *   * ### QPS limit
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
-     *   *
+     * @summary Queries the firewall rules of a simple application server.
+     *  *
+     * @description You can call the ListFirewallRules operation to query the firewall rule details of a simple application server, including the port range, firewall rule ID, and transport layer protocol.
+     * ### QPS limit
+     * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
+     *  *
      * @param ListFirewallRulesRequest $request ListFirewallRulesRequest
      *
      * @return ListFirewallRulesResponse ListFirewallRulesResponse
@@ -2454,10 +3809,12 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * You can query information about images in a region, including the IDs, names, and types of the images.
-     *   * ### QPS limit
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
-     *   *
+     * @summary Queries the information about images in a region.
+     *  *
+     * @description You can query information about images in a region, including the IDs, names, and types of the images.
+     * ### QPS limit
+     * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
+     *  *
      * @param ListImagesRequest $request ListImagesRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
@@ -2495,10 +3852,12 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * You can query information about images in a region, including the IDs, names, and types of the images.
-     *   * ### QPS limit
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
-     *   *
+     * @summary Queries the information about images in a region.
+     *  *
+     * @description You can query information about images in a region, including the IDs, names, and types of the images.
+     * ### QPS limit
+     * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
+     *  *
      * @param ListImagesRequest $request ListImagesRequest
      *
      * @return ListImagesResponse ListImagesResponse
@@ -2511,12 +3870,14 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * If the plan of your simple application server does not meet your business requirements, you can call the ListInstancePlansModification operation to obtain a list of plans to which you can upgrade your simple application server. Then, you can call the [UpgradeInstance](~~190445~~) operation to upgrade the server.
-     *   * > We recommend that you create snapshots for the disks of your simple application server to back up data before you upgrade the server. For more information, see [CreateSnapshot](~~190452~~).
-     *   * For the precautions about plan upgrade, see [Upgrade a simple application server](~~61433~~).
-     *   * ### QPS limit
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
-     *   *
+     * @summary Queries the plans to which you can upgrade your simple application server.
+     *  *
+     * @description If the plan of your simple application server does not meet your business requirements, you can call the ListInstancePlansModification operation to obtain a list of plans to which you can upgrade your simple application server. Then, you can call the [UpgradeInstance](https://help.aliyun.com/document_detail/190445.html) operation to upgrade the server.
+     * > We recommend that you create snapshots for the disks of your simple application server to back up data before you upgrade the server. For more information, see [CreateSnapshot](https://help.aliyun.com/document_detail/190452.html).
+     * For the precautions about plan upgrade, see [Upgrade a simple application server](https://help.aliyun.com/document_detail/61433.html).
+     * ### QPS limit
+     * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
+     *  *
      * @param ListInstancePlansModificationRequest $request ListInstancePlansModificationRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
@@ -2551,12 +3912,14 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * If the plan of your simple application server does not meet your business requirements, you can call the ListInstancePlansModification operation to obtain a list of plans to which you can upgrade your simple application server. Then, you can call the [UpgradeInstance](~~190445~~) operation to upgrade the server.
-     *   * > We recommend that you create snapshots for the disks of your simple application server to back up data before you upgrade the server. For more information, see [CreateSnapshot](~~190452~~).
-     *   * For the precautions about plan upgrade, see [Upgrade a simple application server](~~61433~~).
-     *   * ### QPS limit
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
-     *   *
+     * @summary Queries the plans to which you can upgrade your simple application server.
+     *  *
+     * @description If the plan of your simple application server does not meet your business requirements, you can call the ListInstancePlansModification operation to obtain a list of plans to which you can upgrade your simple application server. Then, you can call the [UpgradeInstance](https://help.aliyun.com/document_detail/190445.html) operation to upgrade the server.
+     * > We recommend that you create snapshots for the disks of your simple application server to back up data before you upgrade the server. For more information, see [CreateSnapshot](https://help.aliyun.com/document_detail/190452.html).
+     * For the precautions about plan upgrade, see [Upgrade a simple application server](https://help.aliyun.com/document_detail/61433.html).
+     * ### QPS limit
+     * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
+     *  *
      * @param ListInstancePlansModificationRequest $request ListInstancePlansModificationRequest
      *
      * @return ListInstancePlansModificationResponse ListInstancePlansModificationResponse
@@ -2569,10 +3932,12 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @param ListInstanceStatusRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Queries the status of simple application servers.
+     *  *
+     * @param ListInstanceStatusRequest $request ListInstanceStatusRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListInstanceStatusResponse
+     * @return ListInstanceStatusResponse ListInstanceStatusResponse
      */
     public function listInstanceStatusWithOptions($request, $runtime)
     {
@@ -2609,9 +3974,11 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @param ListInstanceStatusRequest $request
+     * @summary Queries the status of simple application servers.
+     *  *
+     * @param ListInstanceStatusRequest $request ListInstanceStatusRequest
      *
-     * @return ListInstanceStatusResponse
+     * @return ListInstanceStatusResponse ListInstanceStatusResponse
      */
     public function listInstanceStatus($request)
     {
@@ -2621,10 +3988,12 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the details of simple application servers in a specified region, including the names, public IP addresses, internal IP addresses, creation time, and expiration time of the servers.
-     *   * ### QPS limit
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
-     *   *
+     * @summary Queries the information about simple application servers in a region.
+     *  *
+     * @description You can call this operation to query the details of simple application servers in a specified region, including the names, public IP addresses, internal IP addresses, creation time, and expiration time of the servers.
+     * ### QPS limit
+     * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
+     *  *
      * @param ListInstancesRequest $request ListInstancesRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -2640,6 +4009,9 @@ class SWASOPEN extends OpenApiClient
         if (!Utils::isUnset($request->instanceIds)) {
             $query['InstanceIds'] = $request->instanceIds;
         }
+        if (!Utils::isUnset($request->instanceName)) {
+            $query['InstanceName'] = $request->instanceName;
+        }
         if (!Utils::isUnset($request->pageNumber)) {
             $query['PageNumber'] = $request->pageNumber;
         }
@@ -2652,8 +4024,14 @@ class SWASOPEN extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->status)) {
             $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -2674,10 +4052,12 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the details of simple application servers in a specified region, including the names, public IP addresses, internal IP addresses, creation time, and expiration time of the servers.
-     *   * ### QPS limit
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
-     *   *
+     * @summary Queries the information about simple application servers in a region.
+     *  *
+     * @description You can call this operation to query the details of simple application servers in a specified region, including the names, public IP addresses, internal IP addresses, creation time, and expiration time of the servers.
+     * ### QPS limit
+     * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
+     *  *
      * @param ListInstancesRequest $request ListInstancesRequest
      *
      * @return ListInstancesResponse ListInstancesResponse
@@ -2690,15 +4070,17 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * You can query the details of data transfer plans of simple application servers, including the data transfer quota, used amount and unused amount of the data transfer quota, and excess data transfers beyond the quota in the current month.
-     *   * Simple Application Server provides data transfer quotas in plans. Plan prices include prices of data transfer quotas. You are charged for data transfers that exceed the quotas. Take note of the following items:
-     *   * *   Only outbound data transfers of simple application servers over the Internet are calculated. Outbound data transfers include the data transfer quota and the excess data transfers beyond the quota. Inbound data transfers of simple application servers over the Internet are not calculated.
-     *   * *   Outbound data transfers from simple application servers to other Alibaba Cloud services over the Internet first consume data transfer quotas. If the quotas are exhausted, you are charged for excess data transfers.
-     *   * *   You are not charged for data transfers between simple application servers within the same virtual private cloud (VPC).
-     *   * For more information, see [Quotas and billing of data transfers](~~86281~~).
-     *   * ### QPS limit
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
-     *   *
+     * @summary Queries the details about data transfer plans of simple application servers.
+     *  *
+     * @description You can query the details of data transfer plans of simple application servers, including the data transfer quota, used amount and unused amount of the data transfer quota, and excess data transfers beyond the quota in the current month.
+     * Simple Application Server provides data transfer quotas in plans. Plan prices include prices of data transfer quotas. You are charged for data transfers that exceed the quotas. Take note of the following items:
+     * *   Only outbound data transfers of simple application servers over the Internet are calculated. Outbound data transfers include the data transfer quota and the excess data transfers beyond the quota. Inbound data transfers of simple application servers over the Internet are not calculated.
+     * *   Outbound data transfers from simple application servers to other Alibaba Cloud services over the Internet first consume data transfer quotas. If the quotas are exhausted, you are charged for excess data transfers.
+     * *   You are not charged for data transfers between simple application servers within the same virtual private cloud (VPC).
+     * For more information, see [Quotas and billing of data transfers](https://help.aliyun.com/document_detail/86281.html).
+     * ### QPS limit
+     * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
+     *  *
      * @param ListInstancesTrafficPackagesRequest $request ListInstancesTrafficPackagesRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
@@ -2708,9 +4090,6 @@ class SWASOPEN extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->acsProduct)) {
-            $query['AcsProduct'] = $request->acsProduct;
-        }
         if (!Utils::isUnset($request->instanceIds)) {
             $query['InstanceIds'] = $request->instanceIds;
         }
@@ -2736,15 +4115,17 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * You can query the details of data transfer plans of simple application servers, including the data transfer quota, used amount and unused amount of the data transfer quota, and excess data transfers beyond the quota in the current month.
-     *   * Simple Application Server provides data transfer quotas in plans. Plan prices include prices of data transfer quotas. You are charged for data transfers that exceed the quotas. Take note of the following items:
-     *   * *   Only outbound data transfers of simple application servers over the Internet are calculated. Outbound data transfers include the data transfer quota and the excess data transfers beyond the quota. Inbound data transfers of simple application servers over the Internet are not calculated.
-     *   * *   Outbound data transfers from simple application servers to other Alibaba Cloud services over the Internet first consume data transfer quotas. If the quotas are exhausted, you are charged for excess data transfers.
-     *   * *   You are not charged for data transfers between simple application servers within the same virtual private cloud (VPC).
-     *   * For more information, see [Quotas and billing of data transfers](~~86281~~).
-     *   * ### QPS limit
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
-     *   *
+     * @summary Queries the details about data transfer plans of simple application servers.
+     *  *
+     * @description You can query the details of data transfer plans of simple application servers, including the data transfer quota, used amount and unused amount of the data transfer quota, and excess data transfers beyond the quota in the current month.
+     * Simple Application Server provides data transfer quotas in plans. Plan prices include prices of data transfer quotas. You are charged for data transfers that exceed the quotas. Take note of the following items:
+     * *   Only outbound data transfers of simple application servers over the Internet are calculated. Outbound data transfers include the data transfer quota and the excess data transfers beyond the quota. Inbound data transfers of simple application servers over the Internet are not calculated.
+     * *   Outbound data transfers from simple application servers to other Alibaba Cloud services over the Internet first consume data transfer quotas. If the quotas are exhausted, you are charged for excess data transfers.
+     * *   You are not charged for data transfers between simple application servers within the same virtual private cloud (VPC).
+     * For more information, see [Quotas and billing of data transfers](https://help.aliyun.com/document_detail/86281.html).
+     * ### QPS limit
+     * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
+     *  *
      * @param ListInstancesTrafficPackagesRequest $request ListInstancesTrafficPackagesRequest
      *
      * @return ListInstancesTrafficPackagesResponse ListInstancesTrafficPackagesResponse
@@ -2757,10 +4138,56 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * You can query the details of all plans provided by Simple Application Server in a region, including the IDs, prices, disk sizes, and disk categories of the plans.
-     *   * ### QPS limit
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
-     *   *
+     * @summary Queries the AccessKey pairs that are bound to simple application servers in a specific region.
+     *  *
+     * @param ListKeyPairsRequest $request ListKeyPairsRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListKeyPairsResponse ListKeyPairsResponse
+     */
+    public function listKeyPairsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListKeyPairs',
+            'version'     => '2020-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListKeyPairsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries the AccessKey pairs that are bound to simple application servers in a specific region.
+     *  *
+     * @param ListKeyPairsRequest $request ListKeyPairsRequest
+     *
+     * @return ListKeyPairsResponse ListKeyPairsResponse
+     */
+    public function listKeyPairs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listKeyPairsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries all plans provided by Simple Application Server in a region.
+     *  *
+     * @description You can query the details of all plans provided by Simple Application Server in a region, including the IDs, prices, disk sizes, and disk categories of the plans.
+     * ### QPS limit
+     * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
+     *  *
      * @param ListPlansRequest $request ListPlansRequest
      * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
@@ -2792,10 +4219,12 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * You can query the details of all plans provided by Simple Application Server in a region, including the IDs, prices, disk sizes, and disk categories of the plans.
-     *   * ### QPS limit
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
-     *   *
+     * @summary Queries all plans provided by Simple Application Server in a region.
+     *  *
+     * @description You can query the details of all plans provided by Simple Application Server in a region, including the IDs, prices, disk sizes, and disk categories of the plans.
+     * ### QPS limit
+     * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
+     *  *
      * @param ListPlansRequest $request ListPlansRequest
      *
      * @return ListPlansResponse ListPlansResponse
@@ -2808,17 +4237,27 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * The query results include all the Alibaba Cloud regions where Simple Application Server is supported on the international site (alibabacloud.com) and the China site (aliyun.com).
-     *   * ### QPS limit
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
-     *   *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * @summary Queries all regions in which Simple Application Server is supported.
+     *  *
+     * @description The query results include all the Alibaba Cloud regions where Simple Application Server is supported on the international site (alibabacloud.com) and the China site (aliyun.com).
+     * ### QPS limit
+     * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
+     *  *
+     * @param ListRegionsRequest $request ListRegionsRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
      * @return ListRegionsResponse ListRegionsResponse
      */
-    public function listRegionsWithOptions($runtime)
+    public function listRegionsWithOptions($request, $runtime)
     {
-        $req    = new OpenApiRequest([]);
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
         $params = new Params([
             'action'      => 'ListRegions',
             'version'     => '2020-06-01',
@@ -2835,24 +4274,30 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * The query results include all the Alibaba Cloud regions where Simple Application Server is supported on the international site (alibabacloud.com) and the China site (aliyun.com).
-     *   * ### QPS limit
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
-     *   *
+     * @summary Queries all regions in which Simple Application Server is supported.
+     *  *
+     * @description The query results include all the Alibaba Cloud regions where Simple Application Server is supported on the international site (alibabacloud.com) and the China site (aliyun.com).
+     * ### QPS limit
+     * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
+     *  *
+     * @param ListRegionsRequest $request ListRegionsRequest
+     *
      * @return ListRegionsResponse ListRegionsResponse
      */
-    public function listRegions()
+    public function listRegions($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->listRegionsWithOptions($runtime);
+        return $this->listRegionsWithOptions($request, $runtime);
     }
 
     /**
-     * You can specify multiple request parameters such as `InstanceId`, `DiskId`, and `SnapshotIds` to query snapshots. Specified parameters have logical AND relations. Only the specified parameters are included in the filter conditions.
-     *   * ### QPS limit
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
-     *   *
+     * @summary Queries the information about snapshots that are created for a simple application server.
+     *  *
+     * @description You can specify multiple request parameters that you want to query, such as `InstanceId`, `DiskId`, `SnapshotIds`, and `ResourceGroupId`. Specified parameters have logical AND relations. Only the specified parameters are included in the filter conditions.
+     * ### [](#qps-)QPS limits
+     * You can call this operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
+     *  *
      * @param ListSnapshotsRequest $request ListSnapshotsRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -2862,9 +4307,6 @@ class SWASOPEN extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->acsProduct)) {
-            $query['AcsProduct'] = $request->acsProduct;
-        }
         if (!Utils::isUnset($request->diskId)) {
             $query['DiskId'] = $request->diskId;
         }
@@ -2880,11 +4322,17 @@ class SWASOPEN extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->snapshotIds)) {
             $query['SnapshotIds'] = $request->snapshotIds;
         }
         if (!Utils::isUnset($request->sourceDiskType)) {
             $query['SourceDiskType'] = $request->sourceDiskType;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -2905,10 +4353,12 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * You can specify multiple request parameters such as `InstanceId`, `DiskId`, and `SnapshotIds` to query snapshots. Specified parameters have logical AND relations. Only the specified parameters are included in the filter conditions.
-     *   * ### QPS limit
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
-     *   *
+     * @summary Queries the information about snapshots that are created for a simple application server.
+     *  *
+     * @description You can specify multiple request parameters that you want to query, such as `InstanceId`, `DiskId`, `SnapshotIds`, and `ResourceGroupId`. Specified parameters have logical AND relations. Only the specified parameters are included in the filter conditions.
+     * ### [](#qps-)QPS limits
+     * You can call this operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
+     *  *
      * @param ListSnapshotsRequest $request ListSnapshotsRequest
      *
      * @return ListSnapshotsResponse ListSnapshotsResponse
@@ -2921,9 +4371,72 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * ##
-     *   * After you create a simple application server, you can log on to the simple application server to build environments and applications on the server.
-     *   *
+     * @summary 云产品查标签接口
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListTagResourcesResponse ListTagResourcesResponse
+     */
+    public function listTagResourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTagResources',
+            'version'     => '2020-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 云产品查标签接口
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     *
+     * @return ListTagResourcesResponse ListTagResourcesResponse
+     */
+    public function listTagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Logs on to a simple application server on Workbench.
+     *  *
+     * @description After you create a simple application server, you can log on to the simple application server to build environments and applications on the server.
+     *  *
      * @param LoginInstanceRequest $request LoginInstanceRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -2938,6 +4451,9 @@ class SWASOPEN extends OpenApiClient
         }
         if (!Utils::isUnset($request->password)) {
             $query['Password'] = $request->password;
+        }
+        if (!Utils::isUnset($request->port)) {
+            $query['Port'] = $request->port;
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
@@ -2964,9 +4480,10 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * ##
-     *   * After you create a simple application server, you can log on to the simple application server to build environments and applications on the server.
-     *   *
+     * @summary Logs on to a simple application server on Workbench.
+     *  *
+     * @description After you create a simple application server, you can log on to the simple application server to build environments and applications on the server.
+     *  *
      * @param LoginInstanceRequest $request LoginInstanceRequest
      *
      * @return LoginInstanceResponse LoginInstanceResponse
@@ -2979,10 +4496,12 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * You can call this operation to modify the description of a Simple Database Service instance.
-     *   * ### QPS limit
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
-     *   *
+     * @summary Modifies the description of a Simple Database Service instance.
+     *  *
+     * @description You can call this operation to modify the description of a Simple Database Service instance.
+     * ### QPS limit
+     * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
+     *  *
      * @param ModifyDatabaseInstanceDescriptionRequest $request ModifyDatabaseInstanceDescriptionRequest
      * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
@@ -3023,10 +4542,12 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * You can call this operation to modify the description of a Simple Database Service instance.
-     *   * ### QPS limit
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
-     *   *
+     * @summary Modifies the description of a Simple Database Service instance.
+     *  *
+     * @description You can call this operation to modify the description of a Simple Database Service instance.
+     * ### QPS limit
+     * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
+     *  *
      * @param ModifyDatabaseInstanceDescriptionRequest $request ModifyDatabaseInstanceDescriptionRequest
      *
      * @return ModifyDatabaseInstanceDescriptionResponse ModifyDatabaseInstanceDescriptionResponse
@@ -3039,10 +4560,12 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * After you create a Simple Database Service instance, you can view the parameters of the instance or modify the parameters of the instance based on your business requirements.
-     *   * ### QPS limit
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
-     *   *
+     * @summary Modifies the parameters of a Simple Database Service instance.
+     *  *
+     * @description After you create a Simple Database Service instance, you can view the parameters of the instance or modify the parameters of the instance based on your business requirements.
+     * ### QPS limit
+     * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
+     *  *
      * @param ModifyDatabaseInstanceParameterRequest $request ModifyDatabaseInstanceParameterRequest
      * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
@@ -3086,10 +4609,12 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * After you create a Simple Database Service instance, you can view the parameters of the instance or modify the parameters of the instance based on your business requirements.
-     *   * ### QPS limit
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
-     *   *
+     * @summary Modifies the parameters of a Simple Database Service instance.
+     *  *
+     * @description After you create a Simple Database Service instance, you can view the parameters of the instance or modify the parameters of the instance based on your business requirements.
+     * ### QPS limit
+     * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
+     *  *
      * @param ModifyDatabaseInstanceParameterRequest $request ModifyDatabaseInstanceParameterRequest
      *
      * @return ModifyDatabaseInstanceParameterResponse ModifyDatabaseInstanceParameterResponse
@@ -3102,10 +4627,12 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @param ModifyFirewallRuleRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Modifies the firewall rule of a simple application server.
+     *  *
+     * @param ModifyFirewallRuleRequest $request ModifyFirewallRuleRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyFirewallRuleResponse
+     * @return ModifyFirewallRuleResponse ModifyFirewallRuleResponse
      */
     public function modifyFirewallRuleWithOptions($request, $runtime)
     {
@@ -3154,9 +4681,11 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @param ModifyFirewallRuleRequest $request
+     * @summary Modifies the firewall rule of a simple application server.
+     *  *
+     * @param ModifyFirewallRuleRequest $request ModifyFirewallRuleRequest
      *
-     * @return ModifyFirewallRuleResponse
+     * @return ModifyFirewallRuleResponse ModifyFirewallRuleResponse
      */
     public function modifyFirewallRule($request)
     {
@@ -3166,14 +4695,85 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * You can share a custom image with ECS. If the configurations of your simple application server cannot meet your business requirements, or you want to use ECS instances to deploy your business, you can share your custom image with ECS to transfer your business from Simple Application Server to ECS.
-     *   * > The shared image in ECS resides in the same region as the custom image in Simple Application Server.
-     *   * You can unshare a custom image based on your business requirements or when you want to delete the custom image. Take note of the following items:
-     *   * *   After you unshare a custom image, you cannot query or use the custom image in the ECS console or by calling ECS API operations.
-     *   * *   After you unshare a custom image, you cannot re-initialize the disks of the ECS instances that were created based on the shared image.
-     *   * ### QPS limit
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
-     *   *
+     * @summary Modifies the firewall rule in a firewall template. You can apply the new firewall rule to simple application servers.
+     *  *
+     * @description Modifying a firewall template does not affect the firewall rules that have been applied to simple application servers.
+     *  *
+     * @param ModifyFirewallTemplateRequest $request ModifyFirewallTemplateRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyFirewallTemplateResponse ModifyFirewallTemplateResponse
+     */
+    public function modifyFirewallTemplateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->firewallTemplateId)) {
+            $query['FirewallTemplateId'] = $request->firewallTemplateId;
+        }
+        if (!Utils::isUnset($request->firewallTemplateRule)) {
+            $query['FirewallTemplateRule'] = $request->firewallTemplateRule;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyFirewallTemplate',
+            'version'     => '2020-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyFirewallTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Modifies the firewall rule in a firewall template. You can apply the new firewall rule to simple application servers.
+     *  *
+     * @description Modifying a firewall template does not affect the firewall rules that have been applied to simple application servers.
+     *  *
+     * @param ModifyFirewallTemplateRequest $request ModifyFirewallTemplateRequest
+     *
+     * @return ModifyFirewallTemplateResponse ModifyFirewallTemplateResponse
+     */
+    public function modifyFirewallTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyFirewallTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Shares or unshares a custom image to Elastic Compute Service (ECS).
+     *  *
+     * @description You can share a custom image with ECS. If the configurations of your simple application server cannot meet your business requirements, or you want to use ECS instances to deploy your business, you can share your custom image with ECS to transfer your business from Simple Application Server to ECS.
+     * > The shared image in ECS resides in the same region as the custom image in Simple Application Server.
+     * You can unshare a custom image based on your business requirements or when you want to delete the custom image. Take note of the following items:
+     * *   After you unshare a custom image, you cannot query or use the custom image in the ECS console or by calling ECS API operations.
+     * *   After you unshare a custom image, you cannot re-initialize the disks of the ECS instances that were created based on the shared image.
+     * ### QPS limit
+     * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
+     *  *
      * @param ModifyImageShareStatusRequest $request ModifyImageShareStatusRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -3214,14 +4814,16 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * You can share a custom image with ECS. If the configurations of your simple application server cannot meet your business requirements, or you want to use ECS instances to deploy your business, you can share your custom image with ECS to transfer your business from Simple Application Server to ECS.
-     *   * > The shared image in ECS resides in the same region as the custom image in Simple Application Server.
-     *   * You can unshare a custom image based on your business requirements or when you want to delete the custom image. Take note of the following items:
-     *   * *   After you unshare a custom image, you cannot query or use the custom image in the ECS console or by calling ECS API operations.
-     *   * *   After you unshare a custom image, you cannot re-initialize the disks of the ECS instances that were created based on the shared image.
-     *   * ### QPS limit
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
-     *   *
+     * @summary Shares or unshares a custom image to Elastic Compute Service (ECS).
+     *  *
+     * @description You can share a custom image with ECS. If the configurations of your simple application server cannot meet your business requirements, or you want to use ECS instances to deploy your business, you can share your custom image with ECS to transfer your business from Simple Application Server to ECS.
+     * > The shared image in ECS resides in the same region as the custom image in Simple Application Server.
+     * You can unshare a custom image based on your business requirements or when you want to delete the custom image. Take note of the following items:
+     * *   After you unshare a custom image, you cannot query or use the custom image in the ECS console or by calling ECS API operations.
+     * *   After you unshare a custom image, you cannot re-initialize the disks of the ECS instances that were created based on the shared image.
+     * ### QPS limit
+     * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
+     *  *
      * @param ModifyImageShareStatusRequest $request ModifyImageShareStatusRequest
      *
      * @return ModifyImageShareStatusResponse ModifyImageShareStatusResponse
@@ -3234,10 +4836,12 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @param ModifyInstanceVncPasswordRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Changes the VNC password of a simple application server.
+     *  *
+     * @param ModifyInstanceVncPasswordRequest $request ModifyInstanceVncPasswordRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyInstanceVncPasswordResponse
+     * @return ModifyInstanceVncPasswordResponse ModifyInstanceVncPasswordResponse
      */
     public function modifyInstanceVncPasswordWithOptions($request, $runtime)
     {
@@ -3274,9 +4878,11 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @param ModifyInstanceVncPasswordRequest $request
+     * @summary Changes the VNC password of a simple application server.
+     *  *
+     * @param ModifyInstanceVncPasswordRequest $request ModifyInstanceVncPasswordRequest
      *
-     * @return ModifyInstanceVncPasswordResponse
+     * @return ModifyInstanceVncPasswordResponse ModifyInstanceVncPasswordResponse
      */
     public function modifyInstanceVncPassword($request)
     {
@@ -3286,11 +4892,13 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * *   Only simple application servers that are in the Running state can be restarted.
-     *   * *   After you restart a simple application server, it enters the Starting state.
-     *   * ### QPS limit
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
-     *   *
+     * @summary Restarts a simple application server.
+     *  *
+     * @description *   Only simple application servers that are in the Running state can be restarted.
+     * *   After you restart a simple application server, it enters the Starting state.
+     * ### QPS limit
+     * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
+     *  *
      * @param RebootInstanceRequest $request RebootInstanceRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -3328,11 +4936,13 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * *   Only simple application servers that are in the Running state can be restarted.
-     *   * *   After you restart a simple application server, it enters the Starting state.
-     *   * ### QPS limit
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
-     *   *
+     * @summary Restarts a simple application server.
+     *  *
+     * @description *   Only simple application servers that are in the Running state can be restarted.
+     * *   After you restart a simple application server, it enters the Starting state.
+     * ### QPS limit
+     * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
+     *  *
      * @param RebootInstanceRequest $request RebootInstanceRequest
      *
      * @return RebootInstanceResponse RebootInstanceResponse
@@ -3345,10 +4955,12 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @param RebootInstancesRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Restarts simple application servers.
+     *  *
+     * @param RebootInstancesRequest $request RebootInstancesRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return RebootInstancesResponse
+     * @return RebootInstancesResponse RebootInstancesResponse
      */
     public function rebootInstancesWithOptions($request, $runtime)
     {
@@ -3385,9 +4997,11 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @param RebootInstancesRequest $request
+     * @summary Restarts simple application servers.
+     *  *
+     * @param RebootInstancesRequest $request RebootInstancesRequest
      *
-     * @return RebootInstancesResponse
+     * @return RebootInstancesResponse RebootInstancesResponse
      */
     public function rebootInstances($request)
     {
@@ -3397,10 +5011,12 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * If you no longer need to use a public endpoint to access a Simple Database Service instance, you can release the public endpoint.
-     *   * ### QPS limit
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
-     *   *
+     * @summary Releases the public endpoint of a Simple Database Service instance.
+     *  *
+     * @description If you no longer need to use a public endpoint to access a Simple Database Service instance, you can release the public endpoint.
+     * ### QPS limit
+     * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
+     *  *
      * @param ReleasePublicConnectionRequest $request ReleasePublicConnectionRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -3438,10 +5054,12 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * If you no longer need to use a public endpoint to access a Simple Database Service instance, you can release the public endpoint.
-     *   * ### QPS limit
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
-     *   *
+     * @summary Releases the public endpoint of a Simple Database Service instance.
+     *  *
+     * @description If you no longer need to use a public endpoint to access a Simple Database Service instance, you can release the public endpoint.
+     * ### QPS limit
+     * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
+     *  *
      * @param ReleasePublicConnectionRequest $request ReleasePublicConnectionRequest
      *
      * @return ReleasePublicConnectionResponse ReleasePublicConnectionResponse
@@ -3454,11 +5072,69 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * *   Before you call this operation, we recommend that you understand the billing of Simple Application Server. For more information, see [Billable items](~~58623~~).
-     *   * *   When you call this operation to renew a server, make sure that the balance in your account is sufficient. If the balance in your account is insufficient, the server cannot be renewed.
-     *   * ### QPS limit
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
-     *   *
+     * @summary 取消共享镜像到用户
+     *  *
+     * @param RemoveCustomImageShareAccountRequest $request RemoveCustomImageShareAccountRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return RemoveCustomImageShareAccountResponse RemoveCustomImageShareAccountResponse
+     */
+    public function removeCustomImageShareAccountWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->account)) {
+            $query['Account'] = $request->account;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->imageId)) {
+            $query['ImageId'] = $request->imageId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RemoveCustomImageShareAccount',
+            'version'     => '2020-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RemoveCustomImageShareAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 取消共享镜像到用户
+     *  *
+     * @param RemoveCustomImageShareAccountRequest $request RemoveCustomImageShareAccountRequest
+     *
+     * @return RemoveCustomImageShareAccountResponse RemoveCustomImageShareAccountResponse
+     */
+    public function removeCustomImageShareAccount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->removeCustomImageShareAccountWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Renews a simple application server.
+     *  *
+     * @description *   Before you call this operation, we recommend that you understand the billing of Simple Application Server. For more information, see [Billable items](https://help.aliyun.com/document_detail/58623.html).
+     * *   When you call this operation to renew a server, make sure that the balance in your account is sufficient. If the balance in your account is insufficient, the server cannot be renewed.
+     * ### QPS limit
+     * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
+     *  *
      * @param RenewInstanceRequest $request RenewInstanceRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -3499,11 +5175,13 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * *   Before you call this operation, we recommend that you understand the billing of Simple Application Server. For more information, see [Billable items](~~58623~~).
-     *   * *   When you call this operation to renew a server, make sure that the balance in your account is sufficient. If the balance in your account is insufficient, the server cannot be renewed.
-     *   * ### QPS limit
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
-     *   *
+     * @summary Renews a simple application server.
+     *  *
+     * @description *   Before you call this operation, we recommend that you understand the billing of Simple Application Server. For more information, see [Billable items](https://help.aliyun.com/document_detail/58623.html).
+     * *   When you call this operation to renew a server, make sure that the balance in your account is sufficient. If the balance in your account is insufficient, the server cannot be renewed.
+     * ### QPS limit
+     * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
+     *  *
      * @param RenewInstanceRequest $request RenewInstanceRequest
      *
      * @return RenewInstanceResponse RenewInstanceResponse
@@ -3516,10 +5194,12 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * If the password of your Simple Database Service instance is not strong, you can call this operation to change the password of the administrator account of the instance. To ensure security of the instance, we recommend that you regularly change the password of the instance.
-     *   * ### QPS limit
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
-     *   *
+     * @summary Resets the password of the administrator account of a Simple Database Service instance.
+     *  *
+     * @description If the password of your Simple Database Service instance is not strong, you can call this operation to change the password of the administrator account of the instance. To ensure security of the instance, we recommend that you regularly change the password of the instance.
+     * ### QPS limit
+     * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
+     *  *
      * @param ResetDatabaseAccountPasswordRequest $request ResetDatabaseAccountPasswordRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
@@ -3560,10 +5240,12 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * If the password of your Simple Database Service instance is not strong, you can call this operation to change the password of the administrator account of the instance. To ensure security of the instance, we recommend that you regularly change the password of the instance.
-     *   * ### QPS limit
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
-     *   *
+     * @summary Resets the password of the administrator account of a Simple Database Service instance.
+     *  *
+     * @description If the password of your Simple Database Service instance is not strong, you can call this operation to change the password of the administrator account of the instance. To ensure security of the instance, we recommend that you regularly change the password of the instance.
+     * ### QPS limit
+     * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
+     *  *
      * @param ResetDatabaseAccountPasswordRequest $request ResetDatabaseAccountPasswordRequest
      *
      * @return ResetDatabaseAccountPasswordResponse ResetDatabaseAccountPasswordResponse
@@ -3576,13 +5258,15 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation to roll back a disk only if the associated simple application server is in the Stopped state.
-     *   * *   After a disk is rolled back, all data changes that are made from when the snapshot was created to when the disk is rolled back are lost. Back up disk data based on your needs before you roll back the disk.
-     *   * ### Precautions
-     *   * After you reset a simple application server, the disk data on the server is deleted. Snapshots created before the resetting operation are retained but cannot be used to roll back the disks of the server.
-     *   * ### QPS limit
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
-     *   *
+     * @summary Rolls back a disk based on a snapshot.
+     *  *
+     * @description *   You can call this operation to roll back a disk only if the associated simple application server is in the Stopped state.
+     * *   After a disk is rolled back, all data changes that are made from when the snapshot was created to when the disk is rolled back are lost. Back up disk data based on your needs before you roll back the disk.
+     * ### Precautions
+     * After you reset a simple application server, the disk data on the server is deleted. Snapshots created before the resetting operation are retained but cannot be used to roll back the disks of the server.
+     * ### QPS limit
+     * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
+     *  *
      * @param ResetDiskRequest $request ResetDiskRequest
      * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
@@ -3623,13 +5307,15 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation to roll back a disk only if the associated simple application server is in the Stopped state.
-     *   * *   After a disk is rolled back, all data changes that are made from when the snapshot was created to when the disk is rolled back are lost. Back up disk data based on your needs before you roll back the disk.
-     *   * ### Precautions
-     *   * After you reset a simple application server, the disk data on the server is deleted. Snapshots created before the resetting operation are retained but cannot be used to roll back the disks of the server.
-     *   * ### QPS limit
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
-     *   *
+     * @summary Rolls back a disk based on a snapshot.
+     *  *
+     * @description *   You can call this operation to roll back a disk only if the associated simple application server is in the Stopped state.
+     * *   After a disk is rolled back, all data changes that are made from when the snapshot was created to when the disk is rolled back are lost. Back up disk data based on your needs before you roll back the disk.
+     * ### Precautions
+     * After you reset a simple application server, the disk data on the server is deleted. Snapshots created before the resetting operation are retained but cannot be used to roll back the disks of the server.
+     * ### QPS limit
+     * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
+     *  *
      * @param ResetDiskRequest $request ResetDiskRequest
      *
      * @return ResetDiskResponse ResetDiskResponse
@@ -3642,30 +5328,32 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * You can reset a simple application server to re-install its application system or OS and re-initialize the server. You can reset a simple application server by resetting the current system or replacing the image.
-     *   * You can use one of the following methods to reset a simple application server:
-     *   * *   Reset the current system. You can re-install the operating system without replacing the image.
-     *   * *   Replace the image. You can select an Alibaba Cloud image or a custom image that is different from the existing image of the server to reinstall the OS of the server.
-     *   * ### Precautions
-     *   * *   After you reset a simple application server, the disk data on the server is cleared. Back up the data as needed.
-     *   * *   After you reset a simple application server, the monitoring operations that are performed on the server may fail. In this case, you can use one of the following methods to install the CloudMonitor agent on the server:
-     *   *     *   Connect to the server: For more information, see [Manually install the CloudMonitor agent for C++ on an ECS instance](~~183482~~).
-     *   *     *   Use Command Assistant: For more information, see [Use Command Assistant](~~438681~~). You can obtain the command that can be used to install CloudMonitor from the "Common commands" section of the [Use Command Assistant](~~438681~~) topic.
-     *   * ### Limits
-     *   * *   Snapshots that are created before a server is reset are retained, but the snapshots cannot be used to roll back the disks of the server.
-     *   * *   You cannot reset simple application servers that were created based on custom images that contain data of data disks.
-     *   * *   Before you reset a simple application server by replacing the existing image with a custom image, take note of the following items:
-     *   *     *   The custom image must reside in the same region as the current server.
-     *   *     *   The custom image cannot be created based on the current server. If you want to recover the data on the server, you can use a snapshot of the server to roll back the disks of the server.
-     *   *     *   If your simple application server resides outside the Chinese mainland, you cannot switch the OS of the server between Windows Server and Linux. You cannot use a Windows Server custom image to reset a Linux simple application server. You also cannot use a Linux custom image to reset a Windows Server simple application server. You can switch the OSs of simple application servers only between Windows Server OSs or between Linux distributions.
-     *   *     *   The following limits apply to the disks attached to the simple application server:
-     *   *         *   If the custom image contains a system disk and a data disk but only a system disk is attached to the simple application server and no data disk is attached, you cannot use the custom image to reset the simple application server.
-     *   *         *   If the system disk size of the custom image is greater than the system disk size of the simple application server, you cannot directly use the custom image to reset the simple application server.
-     *   *         *   Only if the system disk size of the simple application server is greater than or equal to the system disk size of the custom image, you can use the custom image to reset the simple application server. To increase the system disk size of your simple application server, you can upgrade the server. For more information, see Upgrade a simple application server.
-     *   *         *   If the data disk size of the custom image is greater than the data disk size of the simple application server, you cannot use the custom image to reset the simple application server.
-     *   * ### QPS limit
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
-     *   *
+     * @summary Resets a simple application server.
+     *  *
+     * @description You can reset a simple application server to re-install its application system or OS and re-initialize the server. You can reset a simple application server by resetting the current system or replacing the image.
+     * You can use one of the following methods to reset a simple application server:
+     * *   Reset the current system. You can re-install the operating system without replacing the image.
+     * *   Replace the image. You can select an Alibaba Cloud image or a custom image that is different from the existing image of the server to reinstall the OS of the server.
+     * ### Precautions
+     * *   After you reset a simple application server, the disk data on the server is cleared. Back up the data as needed.
+     * *   After you reset a simple application server, the monitoring operations that are performed on the server may fail. In this case, you can use one of the following methods to install the CloudMonitor agent on the server:
+     *     *   Connect to the server: For more information, see [Manually install the CloudMonitor agent for C++ on an ECS instance](https://help.aliyun.com/document_detail/183482.html).
+     *     *   Use Command Assistant: For more information, see [Use Command Assistant](https://help.aliyun.com/document_detail/438681.html). You can obtain the command that can be used to install CloudMonitor from the "Common commands" section of the [Use Command Assistant](https://help.aliyun.com/document_detail/438681.html) topic.
+     * ### Limits
+     * *   Snapshots that are created before a server is reset are retained, but the snapshots cannot be used to roll back the disks of the server.
+     * *   You cannot reset simple application servers that were created based on custom images that contain data of data disks.
+     * *   Before you reset a simple application server by replacing the existing image with a custom image, take note of the following items:
+     *     *   The custom image must reside in the same region as the current server.
+     *     *   The custom image cannot be created based on the current server. If you want to recover the data on the server, you can use a snapshot of the server to roll back the disks of the server.
+     *     *   If your simple application server resides outside the Chinese mainland, you cannot switch the OS of the server between Windows Server and Linux. You cannot use a Windows Server custom image to reset a Linux simple application server. You also cannot use a Linux custom image to reset a Windows Server simple application server. You can switch the OSs of simple application servers only between Windows Server OSs or between Linux distributions.
+     *     *   The following limits apply to the disks attached to the simple application server:
+     *         *   If the custom image contains a system disk and a data disk but only a system disk is attached to the simple application server and no data disk is attached, you cannot use the custom image to reset the simple application server.
+     *         *   If the system disk size of the custom image is greater than the system disk size of the simple application server, you cannot directly use the custom image to reset the simple application server.
+     *         *   Only if the system disk size of the simple application server is greater than or equal to the system disk size of the custom image, you can use the custom image to reset the simple application server. To increase the system disk size of your simple application server, you can upgrade the server. For more information, see Upgrade a simple application server.
+     *         *   If the data disk size of the custom image is greater than the data disk size of the simple application server, you cannot use the custom image to reset the simple application server.
+     * ### QPS limit
+     * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
+     *  *
      * @param ResetSystemRequest $request ResetSystemRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
@@ -3706,30 +5394,32 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * You can reset a simple application server to re-install its application system or OS and re-initialize the server. You can reset a simple application server by resetting the current system or replacing the image.
-     *   * You can use one of the following methods to reset a simple application server:
-     *   * *   Reset the current system. You can re-install the operating system without replacing the image.
-     *   * *   Replace the image. You can select an Alibaba Cloud image or a custom image that is different from the existing image of the server to reinstall the OS of the server.
-     *   * ### Precautions
-     *   * *   After you reset a simple application server, the disk data on the server is cleared. Back up the data as needed.
-     *   * *   After you reset a simple application server, the monitoring operations that are performed on the server may fail. In this case, you can use one of the following methods to install the CloudMonitor agent on the server:
-     *   *     *   Connect to the server: For more information, see [Manually install the CloudMonitor agent for C++ on an ECS instance](~~183482~~).
-     *   *     *   Use Command Assistant: For more information, see [Use Command Assistant](~~438681~~). You can obtain the command that can be used to install CloudMonitor from the "Common commands" section of the [Use Command Assistant](~~438681~~) topic.
-     *   * ### Limits
-     *   * *   Snapshots that are created before a server is reset are retained, but the snapshots cannot be used to roll back the disks of the server.
-     *   * *   You cannot reset simple application servers that were created based on custom images that contain data of data disks.
-     *   * *   Before you reset a simple application server by replacing the existing image with a custom image, take note of the following items:
-     *   *     *   The custom image must reside in the same region as the current server.
-     *   *     *   The custom image cannot be created based on the current server. If you want to recover the data on the server, you can use a snapshot of the server to roll back the disks of the server.
-     *   *     *   If your simple application server resides outside the Chinese mainland, you cannot switch the OS of the server between Windows Server and Linux. You cannot use a Windows Server custom image to reset a Linux simple application server. You also cannot use a Linux custom image to reset a Windows Server simple application server. You can switch the OSs of simple application servers only between Windows Server OSs or between Linux distributions.
-     *   *     *   The following limits apply to the disks attached to the simple application server:
-     *   *         *   If the custom image contains a system disk and a data disk but only a system disk is attached to the simple application server and no data disk is attached, you cannot use the custom image to reset the simple application server.
-     *   *         *   If the system disk size of the custom image is greater than the system disk size of the simple application server, you cannot directly use the custom image to reset the simple application server.
-     *   *         *   Only if the system disk size of the simple application server is greater than or equal to the system disk size of the custom image, you can use the custom image to reset the simple application server. To increase the system disk size of your simple application server, you can upgrade the server. For more information, see Upgrade a simple application server.
-     *   *         *   If the data disk size of the custom image is greater than the data disk size of the simple application server, you cannot use the custom image to reset the simple application server.
-     *   * ### QPS limit
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
-     *   *
+     * @summary Resets a simple application server.
+     *  *
+     * @description You can reset a simple application server to re-install its application system or OS and re-initialize the server. You can reset a simple application server by resetting the current system or replacing the image.
+     * You can use one of the following methods to reset a simple application server:
+     * *   Reset the current system. You can re-install the operating system without replacing the image.
+     * *   Replace the image. You can select an Alibaba Cloud image or a custom image that is different from the existing image of the server to reinstall the OS of the server.
+     * ### Precautions
+     * *   After you reset a simple application server, the disk data on the server is cleared. Back up the data as needed.
+     * *   After you reset a simple application server, the monitoring operations that are performed on the server may fail. In this case, you can use one of the following methods to install the CloudMonitor agent on the server:
+     *     *   Connect to the server: For more information, see [Manually install the CloudMonitor agent for C++ on an ECS instance](https://help.aliyun.com/document_detail/183482.html).
+     *     *   Use Command Assistant: For more information, see [Use Command Assistant](https://help.aliyun.com/document_detail/438681.html). You can obtain the command that can be used to install CloudMonitor from the "Common commands" section of the [Use Command Assistant](https://help.aliyun.com/document_detail/438681.html) topic.
+     * ### Limits
+     * *   Snapshots that are created before a server is reset are retained, but the snapshots cannot be used to roll back the disks of the server.
+     * *   You cannot reset simple application servers that were created based on custom images that contain data of data disks.
+     * *   Before you reset a simple application server by replacing the existing image with a custom image, take note of the following items:
+     *     *   The custom image must reside in the same region as the current server.
+     *     *   The custom image cannot be created based on the current server. If you want to recover the data on the server, you can use a snapshot of the server to roll back the disks of the server.
+     *     *   If your simple application server resides outside the Chinese mainland, you cannot switch the OS of the server between Windows Server and Linux. You cannot use a Windows Server custom image to reset a Linux simple application server. You also cannot use a Linux custom image to reset a Windows Server simple application server. You can switch the OSs of simple application servers only between Windows Server OSs or between Linux distributions.
+     *     *   The following limits apply to the disks attached to the simple application server:
+     *         *   If the custom image contains a system disk and a data disk but only a system disk is attached to the simple application server and no data disk is attached, you cannot use the custom image to reset the simple application server.
+     *         *   If the system disk size of the custom image is greater than the system disk size of the simple application server, you cannot directly use the custom image to reset the simple application server.
+     *         *   Only if the system disk size of the simple application server is greater than or equal to the system disk size of the custom image, you can use the custom image to reset the simple application server. To increase the system disk size of your simple application server, you can upgrade the server. For more information, see Upgrade a simple application server.
+     *         *   If the data disk size of the custom image is greater than the data disk size of the simple application server, you cannot use the custom image to reset the simple application server.
+     * ### QPS limit
+     * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
+     *  *
      * @param ResetSystemRequest $request ResetSystemRequest
      *
      * @return ResetSystemResponse ResetSystemResponse
@@ -3742,10 +5432,12 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * You can call this operation to restart a Simple Database Service instance that is in the Running state.
-     *   * ### QPS limit
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
-     *   *
+     * @summary Restarts a Simple Database Service instance.
+     *  *
+     * @description You can call this operation to restart a Simple Database Service instance that is in the Running state.
+     * ### QPS limit
+     * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
+     *  *
      * @param RestartDatabaseInstanceRequest $request RestartDatabaseInstanceRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -3783,10 +5475,12 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * You can call this operation to restart a Simple Database Service instance that is in the Running state.
-     *   * ### QPS limit
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
-     *   *
+     * @summary Restarts a Simple Database Service instance.
+     *  *
+     * @description You can call this operation to restart a Simple Database Service instance that is in the Running state.
+     * ### QPS limit
+     * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
+     *  *
      * @param RestartDatabaseInstanceRequest $request RestartDatabaseInstanceRequest
      *
      * @return RestartDatabaseInstanceResponse RestartDatabaseInstanceResponse
@@ -3799,11 +5493,13 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * Command Assistant is an automated O\\&M tool for Simple Application Server. You can maintain simple application servers by running shell, PowerShell, and batch commands in the Simple Application Server console without remotely logging on to the servers.
-     *   * Before you use Command Assistant, take note of the following items:
-     *   * *   The simple application server must be in the Running state.
-     *   * *   The Cloud Assistant client is installed on the server. By default, the Cloud Assistant client is installed on simple application servers. If you have manually uninstalled the client, you must reinstall it. For more information, see [Install the Cloud Assistant Agent](~~64921~~).
-     *   *
+     * @summary Runs commands on a simple application server.
+     *  *
+     * @description Command Assistant is an automated O\\&M tool for Simple Application Server. You can maintain simple application servers by running shell, PowerShell, and batch commands in the Simple Application Server console without remotely logging on to the servers.
+     * Before you use Command Assistant, take note of the following items:
+     * *   The simple application server must be in the Running state.
+     * *   The Cloud Assistant client is installed on the server. By default, the Cloud Assistant client is installed on simple application servers. If you have manually uninstalled the client, you must reinstall it. For more information, see [Install the Cloud Assistant Agent](https://help.aliyun.com/document_detail/64921.html).
+     *  *
      * @param RunCommandRequest $tmpReq  RunCommandRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
@@ -3870,11 +5566,13 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * Command Assistant is an automated O\\&M tool for Simple Application Server. You can maintain simple application servers by running shell, PowerShell, and batch commands in the Simple Application Server console without remotely logging on to the servers.
-     *   * Before you use Command Assistant, take note of the following items:
-     *   * *   The simple application server must be in the Running state.
-     *   * *   The Cloud Assistant client is installed on the server. By default, the Cloud Assistant client is installed on simple application servers. If you have manually uninstalled the client, you must reinstall it. For more information, see [Install the Cloud Assistant Agent](~~64921~~).
-     *   *
+     * @summary Runs commands on a simple application server.
+     *  *
+     * @description Command Assistant is an automated O\\&M tool for Simple Application Server. You can maintain simple application servers by running shell, PowerShell, and batch commands in the Simple Application Server console without remotely logging on to the servers.
+     * Before you use Command Assistant, take note of the following items:
+     * *   The simple application server must be in the Running state.
+     * *   The Cloud Assistant client is installed on the server. By default, the Cloud Assistant client is installed on simple application servers. If you have manually uninstalled the client, you must reinstall it. For more information, see [Install the Cloud Assistant Agent](https://help.aliyun.com/document_detail/64921.html).
+     *  *
      * @param RunCommandRequest $request RunCommandRequest
      *
      * @return RunCommandResponse RunCommandResponse
@@ -3887,10 +5585,12 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * You can call this operation to start a Simple Database Service instance that is in the Stopped state.
-     *   * ### QPS limit
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
-     *   *
+     * @summary Starts a Simple Database Service instance.
+     *  *
+     * @description You can call this operation to start a Simple Database Service instance that is in the Stopped state.
+     * ### QPS limit
+     * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
+     *  *
      * @param StartDatabaseInstanceRequest $request StartDatabaseInstanceRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -3928,10 +5628,12 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * You can call this operation to start a Simple Database Service instance that is in the Stopped state.
-     *   * ### QPS limit
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
-     *   *
+     * @summary Starts a Simple Database Service instance.
+     *  *
+     * @description You can call this operation to start a Simple Database Service instance that is in the Stopped state.
+     * ### QPS limit
+     * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
+     *  *
      * @param StartDatabaseInstanceRequest $request StartDatabaseInstanceRequest
      *
      * @return StartDatabaseInstanceResponse StartDatabaseInstanceResponse
@@ -3944,10 +5646,12 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * You can call this operation to start a simple application server that is in the Stopped state.
-     *   * ### QPS limit
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
-     *   *
+     * @summary Starts a simple application server.
+     *  *
+     * @description You can call this operation to start a simple application server that is in the Stopped state.
+     * ### QPS limit
+     * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
+     *  *
      * @param StartInstanceRequest $request StartInstanceRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -3985,10 +5689,12 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * You can call this operation to start a simple application server that is in the Stopped state.
-     *   * ### QPS limit
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
-     *   *
+     * @summary Starts a simple application server.
+     *  *
+     * @description You can call this operation to start a simple application server that is in the Stopped state.
+     * ### QPS limit
+     * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
+     *  *
      * @param StartInstanceRequest $request StartInstanceRequest
      *
      * @return StartInstanceResponse StartInstanceResponse
@@ -4001,10 +5707,12 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @param StartInstancesRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Starts simple application servers.
+     *  *
+     * @param StartInstancesRequest $request StartInstancesRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return StartInstancesResponse
+     * @return StartInstancesResponse StartInstancesResponse
      */
     public function startInstancesWithOptions($request, $runtime)
     {
@@ -4038,9 +5746,11 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @param StartInstancesRequest $request
+     * @summary Starts simple application servers.
+     *  *
+     * @param StartInstancesRequest $request StartInstancesRequest
      *
-     * @return StartInstancesResponse
+     * @return StartInstancesResponse StartInstancesResponse
      */
     public function startInstances($request)
     {
@@ -4050,10 +5760,12 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @param StartTerminalSessionRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Creates a session for a simple application server.
+     *  *
+     * @param StartTerminalSessionRequest $request StartTerminalSessionRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return StartTerminalSessionResponse
+     * @return StartTerminalSessionResponse StartTerminalSessionResponse
      */
     public function startTerminalSessionWithOptions($request, $runtime)
     {
@@ -4084,9 +5796,11 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @param StartTerminalSessionRequest $request
+     * @summary Creates a session for a simple application server.
+     *  *
+     * @param StartTerminalSessionRequest $request StartTerminalSessionRequest
      *
-     * @return StartTerminalSessionResponse
+     * @return StartTerminalSessionResponse StartTerminalSessionResponse
      */
     public function startTerminalSession($request)
     {
@@ -4096,10 +5810,12 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * You can call this operation to stop a Simple Database Service instance that is in the Running state. After the instance is stopped, you cannot log on to or access the instance.
-     *   * ### QPS limit
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
-     *   *
+     * @summary Stops a Simple Database Service instance.
+     *  *
+     * @description You can call this operation to stop a Simple Database Service instance that is in the Running state. After the instance is stopped, you cannot log on to or access the instance.
+     * ### QPS limit
+     * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
+     *  *
      * @param StopDatabaseInstanceRequest $request StopDatabaseInstanceRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -4137,10 +5853,12 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * You can call this operation to stop a Simple Database Service instance that is in the Running state. After the instance is stopped, you cannot log on to or access the instance.
-     *   * ### QPS limit
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
-     *   *
+     * @summary Stops a Simple Database Service instance.
+     *  *
+     * @description You can call this operation to stop a Simple Database Service instance that is in the Running state. After the instance is stopped, you cannot log on to or access the instance.
+     * ### QPS limit
+     * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
+     *  *
      * @param StopDatabaseInstanceRequest $request StopDatabaseInstanceRequest
      *
      * @return StopDatabaseInstanceResponse StopDatabaseInstanceResponse
@@ -4153,11 +5871,13 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * You can stop a simple application server that you do not use for the time being.
-     *   * >  Stopping a simple application server may interrupt your business. We recommend that you perform the stop operation during off-peak hours.
-     *   * ### QPS limit
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
-     *   *
+     * @summary Stops a simple application server.
+     *  *
+     * @description You can stop a simple application server that you do not use for the time being.
+     * >  Stopping a simple application server may interrupt your business. We recommend that you perform the stop operation during off-peak hours.
+     * ### QPS limit
+     * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
+     *  *
      * @param StopInstanceRequest $request StopInstanceRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
@@ -4195,11 +5915,13 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * You can stop a simple application server that you do not use for the time being.
-     *   * >  Stopping a simple application server may interrupt your business. We recommend that you perform the stop operation during off-peak hours.
-     *   * ### QPS limit
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
-     *   *
+     * @summary Stops a simple application server.
+     *  *
+     * @description You can stop a simple application server that you do not use for the time being.
+     * >  Stopping a simple application server may interrupt your business. We recommend that you perform the stop operation during off-peak hours.
+     * ### QPS limit
+     * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
+     *  *
      * @param StopInstanceRequest $request StopInstanceRequest
      *
      * @return StopInstanceResponse StopInstanceResponse
@@ -4212,10 +5934,12 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @param StopInstancesRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Stops simple application servers.
+     *  *
+     * @param StopInstancesRequest $request StopInstancesRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return StopInstancesResponse
+     * @return StopInstancesResponse StopInstancesResponse
      */
     public function stopInstancesWithOptions($request, $runtime)
     {
@@ -4252,9 +5976,11 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @param StopInstancesRequest $request
+     * @summary Stops simple application servers.
+     *  *
+     * @param StopInstancesRequest $request StopInstancesRequest
      *
-     * @return StopInstancesResponse
+     * @return StopInstancesResponse StopInstancesResponse
      */
     public function stopInstances($request)
     {
@@ -4264,10 +5990,133 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @param UpdateCommandAttributeRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary 打标签接口
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateCommandAttributeResponse
+     * @return TagResourcesResponse TagResourcesResponse
+     */
+    public function tagResourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'TagResources',
+            'version'     => '2020-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 打标签接口
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
+     *
+     * @return TagResourcesResponse TagResourcesResponse
+     */
+    public function tagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->tagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 删标签接口
+     *  *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UntagResourcesResponse UntagResourcesResponse
+     */
+    public function untagResourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->all)) {
+            $query['All'] = $request->all;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tagKey)) {
+            $query['TagKey'] = $request->tagKey;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UntagResources',
+            'version'     => '2020-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删标签接口
+     *  *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
+     *
+     * @return UntagResourcesResponse UntagResourcesResponse
+     */
+    public function untagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->untagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Modifys the parameter of a command.
+     *  *
+     * @param UpdateCommandAttributeRequest $request UpdateCommandAttributeRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateCommandAttributeResponse UpdateCommandAttributeResponse
      */
     public function updateCommandAttributeWithOptions($request, $runtime)
     {
@@ -4310,9 +6159,11 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @param UpdateCommandAttributeRequest $request
+     * @summary Modifys the parameter of a command.
+     *  *
+     * @param UpdateCommandAttributeRequest $request UpdateCommandAttributeRequest
      *
-     * @return UpdateCommandAttributeResponse
+     * @return UpdateCommandAttributeResponse UpdateCommandAttributeResponse
      */
     public function updateCommandAttribute($request)
     {
@@ -4322,10 +6173,12 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @param UpdateDiskAttributeRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Modifies the remarks for the data disk that is attached to a simple application server.
+     *  *
+     * @param UpdateDiskAttributeRequest $request UpdateDiskAttributeRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateDiskAttributeResponse
+     * @return UpdateDiskAttributeResponse UpdateDiskAttributeResponse
      */
     public function updateDiskAttributeWithOptions($request, $runtime)
     {
@@ -4362,9 +6215,11 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @param UpdateDiskAttributeRequest $request
+     * @summary Modifies the remarks for the data disk that is attached to a simple application server.
+     *  *
+     * @param UpdateDiskAttributeRequest $request UpdateDiskAttributeRequest
      *
-     * @return UpdateDiskAttributeResponse
+     * @return UpdateDiskAttributeResponse UpdateDiskAttributeResponse
      */
     public function updateDiskAttribute($request)
     {
@@ -4374,11 +6229,13 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * ## Usage notes
-     *   * After you change the password of a simple application server, you must restart the server by calling the [RebootInstance](~~190443~~) operation to allow the new password to take effect.
-     *   * ### QPS limits
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
-     *   *
+     * @summary Modifies the information of a simple application server, including the server name and the password that you use to log on to the server.
+     *  *
+     * @description ## Usage notes
+     * After you change the password of a simple application server, you must restart the server by calling the [RebootInstance](https://help.aliyun.com/document_detail/190443.html) operation to allow the new password to take effect.
+     * ### QPS limits
+     * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
+     *  *
      * @param UpdateInstanceAttributeRequest $request UpdateInstanceAttributeRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -4422,11 +6279,13 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * ## Usage notes
-     *   * After you change the password of a simple application server, you must restart the server by calling the [RebootInstance](~~190443~~) operation to allow the new password to take effect.
-     *   * ### QPS limits
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
-     *   *
+     * @summary Modifies the information of a simple application server, including the server name and the password that you use to log on to the server.
+     *  *
+     * @description ## Usage notes
+     * After you change the password of a simple application server, you must restart the server by calling the [RebootInstance](https://help.aliyun.com/document_detail/190443.html) operation to allow the new password to take effect.
+     * ### QPS limits
+     * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
+     *  *
      * @param UpdateInstanceAttributeRequest $request UpdateInstanceAttributeRequest
      *
      * @return UpdateInstanceAttributeResponse UpdateInstanceAttributeResponse
@@ -4439,10 +6298,12 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @param UpdateSnapshotAttributeRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Modifies the remarks of a snapshot of a simple application server.
+     *  *
+     * @param UpdateSnapshotAttributeRequest $request UpdateSnapshotAttributeRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateSnapshotAttributeResponse
+     * @return UpdateSnapshotAttributeResponse UpdateSnapshotAttributeResponse
      */
     public function updateSnapshotAttributeWithOptions($request, $runtime)
     {
@@ -4479,9 +6340,11 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @param UpdateSnapshotAttributeRequest $request
+     * @summary Modifies the remarks of a snapshot of a simple application server.
+     *  *
+     * @param UpdateSnapshotAttributeRequest $request UpdateSnapshotAttributeRequest
      *
-     * @return UpdateSnapshotAttributeResponse
+     * @return UpdateSnapshotAttributeResponse UpdateSnapshotAttributeResponse
      */
     public function updateSnapshotAttribute($request)
     {
@@ -4491,11 +6354,13 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * *   The plan of a simple application server cannot be downgraded, but can only be upgraded. For more information about plans, see [Billable items](~~58623~~).
-     *   * *   When you call this operation to upgrade a server, make sure that the balance in your account is sufficient. If the balance in your account is insufficient, the server cannot be upgraded.
-     *   * ### QPS limit
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
-     *   *
+     * @summary Upgrades the plan for a simple application server.
+     *  *
+     * @description *   The plan of a simple application server cannot be downgraded, but can only be upgraded. For more information about plans, see [Billable items](https://help.aliyun.com/document_detail/58623.html).
+     * *   When you call this operation to upgrade a server, make sure that the balance in your account is sufficient. If the balance in your account is insufficient, the server cannot be upgraded.
+     * ### QPS limit
+     * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
+     *  *
      * @param UpgradeInstanceRequest $request UpgradeInstanceRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -4536,11 +6401,13 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * *   The plan of a simple application server cannot be downgraded, but can only be upgraded. For more information about plans, see [Billable items](~~58623~~).
-     *   * *   When you call this operation to upgrade a server, make sure that the balance in your account is sufficient. If the balance in your account is insufficient, the server cannot be upgraded.
-     *   * ### QPS limit
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
-     *   *
+     * @summary Upgrades the plan for a simple application server.
+     *  *
+     * @description *   The plan of a simple application server cannot be downgraded, but can only be upgraded. For more information about plans, see [Billable items](https://help.aliyun.com/document_detail/58623.html).
+     * *   When you call this operation to upgrade a server, make sure that the balance in your account is sufficient. If the balance in your account is insufficient, the server cannot be upgraded.
+     * ### QPS limit
+     * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
+     *  *
      * @param UpgradeInstanceRequest $request UpgradeInstanceRequest
      *
      * @return UpgradeInstanceResponse UpgradeInstanceResponse
@@ -4553,10 +6420,12 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @param UploadInstanceKeyPairRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Imports a key pair for a simple application server.
+     *  *
+     * @param UploadInstanceKeyPairRequest $request UploadInstanceKeyPairRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return UploadInstanceKeyPairResponse
+     * @return UploadInstanceKeyPairResponse UploadInstanceKeyPairResponse
      */
     public function uploadInstanceKeyPairWithOptions($request, $runtime)
     {
@@ -4596,9 +6465,11 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @param UploadInstanceKeyPairRequest $request
+     * @summary Imports a key pair for a simple application server.
+     *  *
+     * @param UploadInstanceKeyPairRequest $request UploadInstanceKeyPairRequest
      *
-     * @return UploadInstanceKeyPairResponse
+     * @return UploadInstanceKeyPairResponse UploadInstanceKeyPairResponse
      */
     public function uploadInstanceKeyPair($request)
     {

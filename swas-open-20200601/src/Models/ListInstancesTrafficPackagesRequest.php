@@ -9,13 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListInstancesTrafficPackagesRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $acsProduct;
-
-    /**
      * @description The IDs of the simple application servers. The value can be a JSON array that consists of up to 100 simple application server IDs. Separate multiple server IDs with commas (,).
      *
+     * This parameter is required.
      * @example ["2ad1ae67295445f598017499dc******","2ad1ae67295445f598017499dc******"]
      *
      * @var string
@@ -23,15 +19,15 @@ class ListInstancesTrafficPackagesRequest extends Model
     public $instanceIds;
 
     /**
-     * @description The region ID of the simple application servers. You can call the [ListRegions](~~189315~~) operation to query the most recent region list.
+     * @description The region ID of the simple application servers. You can call the [ListRegions](https://help.aliyun.com/document_detail/189315.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'acsProduct'  => 'AcsProduct',
         'instanceIds' => 'InstanceIds',
         'regionId'    => 'RegionId',
     ];
@@ -43,9 +39,6 @@ class ListInstancesTrafficPackagesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->acsProduct) {
-            $res['AcsProduct'] = $this->acsProduct;
-        }
         if (null !== $this->instanceIds) {
             $res['InstanceIds'] = $this->instanceIds;
         }
@@ -64,9 +57,6 @@ class ListInstancesTrafficPackagesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AcsProduct'])) {
-            $model->acsProduct = $map['AcsProduct'];
-        }
         if (isset($map['InstanceIds'])) {
             $model->instanceIds = $map['InstanceIds'];
         }

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDatabaseErrorLogsResponseBody extends Model
 {
     /**
-     * @description The time when the error log entry was generated. The time follows the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     * @description The time when the error log entry was generated. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
      *
      * > The time displayed in the Simple Application Server console is in the format of UTC+8.
      * @var errorLogs[]

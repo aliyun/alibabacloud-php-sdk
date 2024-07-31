@@ -5,11 +5,14 @@
 namespace AlibabaCloud\SDK\SWASOPEN\V20200601\Models\DescribeCommandsResponseBody;
 
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\DescribeCommandsResponseBody\commands\parameterDefinitions;
+use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\DescribeCommandsResponseBody\commands\tags;
 use AlibabaCloud\Tea\Model;
 
 class commands extends Model
 {
     /**
+     * @description The content of the command.
+     *
      * @example cat /etc/ssh/sshd_config
      *
      * @var string
@@ -17,6 +20,8 @@ class commands extends Model
     public $commandContent;
 
     /**
+     * @description The command ID.
+     *
      * @example c-gov1k1tqwi9****
      *
      * @var string
@@ -24,6 +29,8 @@ class commands extends Model
     public $commandId;
 
     /**
+     * @description The time when the command was created.
+     *
      * @example 2023-01-05T06:38:53Z
      *
      * @var string
@@ -31,6 +38,8 @@ class commands extends Model
     public $creationTime;
 
     /**
+     * @description The description of the command.
+     *
      * @example testDescription
      *
      * @var string
@@ -38,6 +47,8 @@ class commands extends Model
     public $description;
 
     /**
+     * @description Indicates whether the custom parameter feature is enabled for the command.
+     *
      * @example false
      *
      * @var bool
@@ -45,6 +56,8 @@ class commands extends Model
     public $enableParameter;
 
     /**
+     * @description The name of the command.
+     *
      * @example testName
      *
      * @var string
@@ -52,16 +65,22 @@ class commands extends Model
     public $name;
 
     /**
+     * @description Details of the custom parameter.
+     *
      * @var parameterDefinitions[]
      */
     public $parameterDefinitions;
 
     /**
+     * @description The custom parameter names that are parsed from the command content specified when the command was created. The custom parameter names are returned in the list format. If the custom parameter feature is disabled, an empty list is returned.
+     *
      * @var string[]
      */
     public $parameterNames;
 
     /**
+     * @description The provider of the command.
+     *
      * @example User
      *
      * @var string
@@ -69,6 +88,24 @@ class commands extends Model
     public $provider;
 
     /**
+     * @description The resource group ID.
+     *
+     * @example rg-aek2bti7cf7****
+     *
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @description The tags that are bound to the command.
+     *
+     * @var tags[]
+     */
+    public $tags;
+
+    /**
+     * @description The timeout period of the command.
+     *
      * @example 60
      *
      * @var int
@@ -76,6 +113,8 @@ class commands extends Model
     public $timeout;
 
     /**
+     * @description The type of the command.
+     *
      * @example RunShellScript
      *
      * @var string
@@ -83,6 +122,8 @@ class commands extends Model
     public $type;
 
     /**
+     * @description The execution path of the command.
+     *
      * @example /home
      *
      * @var string
@@ -98,6 +139,8 @@ class commands extends Model
         'parameterDefinitions' => 'ParameterDefinitions',
         'parameterNames'       => 'ParameterNames',
         'provider'             => 'Provider',
+        'resourceGroupId'      => 'ResourceGroupId',
+        'tags'                 => 'Tags',
         'timeout'              => 'Timeout',
         'type'                 => 'Type',
         'workingDir'           => 'WorkingDir',
@@ -142,6 +185,18 @@ class commands extends Model
         }
         if (null !== $this->provider) {
             $res['Provider'] = $this->provider;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->timeout) {
             $res['Timeout'] = $this->timeout;
@@ -198,6 +253,18 @@ class commands extends Model
         }
         if (isset($map['Provider'])) {
             $model->provider = $map['Provider'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['Timeout'])) {
             $model->timeout = $map['Timeout'];

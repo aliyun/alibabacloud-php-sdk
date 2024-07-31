@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\SWASOPEN\V20200601\Models\ListDisksResponseBody;
 
+use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\ListDisksResponseBody\disks\tags;
 use AlibabaCloud\Tea\Model;
 
 class disks extends Model
@@ -11,8 +12,9 @@ class disks extends Model
     /**
      * @description The category of the disk. Valid values:
      *
-     *   ESSD: an enhanced SSD (ESSD) at performance level 0 (PL0).
-     *   SSD: a standard SSD.
+     *   ESSD: enhanced SSD (ESSD) of PL0
+     *   SSD: standard SSD
+     *   CLOUD_EFFICIENCY: ultra disk
      *
      * @example ESSD
      *
@@ -21,7 +23,7 @@ class disks extends Model
     public $category;
 
     /**
-     * @description The time when the disk was created. The time follows the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     * @description The time when the disk was created. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
      *
      * @example 2021-03-08T05:31:06Z
      *
@@ -30,7 +32,7 @@ class disks extends Model
     public $creationTime;
 
     /**
-     * @description The device name of the disk on the simple application server.
+     * @description The device name of the disk after the disk is attached to the simple application server.
      *
      * @example /dev/xvda
      *
@@ -48,7 +50,7 @@ class disks extends Model
     public $diskChargeType;
 
     /**
-     * @description The ID of the disk.
+     * @description The disk ID.
      *
      * @example d-bp14wq0149cpp2x****
      *
@@ -66,10 +68,10 @@ class disks extends Model
     public $diskName;
 
     /**
-     * @description The type of the disk. Valid values:
+     * @description The disk type. Valid values:
      *
-     *   System: system disk.
-     *   Data: data disk.
+     *   system: system disk
+     *   data: data disk
      *
      * @example System
      *
@@ -87,7 +89,7 @@ class disks extends Model
     public $instanceId;
 
     /**
-     * @description Name of the simple application server.
+     * @description The name of the simple application server.
      *
      * @example myInstance
      *
@@ -96,7 +98,7 @@ class disks extends Model
     public $instanceName;
 
     /**
-     * @description The region ID of the disks.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *
@@ -105,13 +107,22 @@ class disks extends Model
     public $regionId;
 
     /**
-     * @description Description about the disk.
+     * @description The remarks of the disk.
      *
      * @example remark
      *
      * @var string
      */
     public $remark;
+
+    /**
+     * @description The ID of the resource group to which the disk belongs.
+     *
+     * @example rg-aek2bti7cf7****
+     *
+     * @var string
+     */
+    public $resourceGroupId;
 
     /**
      * @description The size of the disk. Unit: GB.
@@ -127,7 +138,7 @@ class disks extends Model
      *
      *   ReIniting: The disk is being initialized.
      *   Creating: The disk is being created.
-     *   In_Use: The disk is being used.
+     *   In_use: The disk is in use.
      *   Available: The disk can be attached.
      *   Attaching: The disk is being attached.
      *   Detaching: The disk is being detached.
@@ -137,20 +148,29 @@ class disks extends Model
      * @var string
      */
     public $status;
+
+    /**
+     * @description The tags that are added to the disks.
+     *
+     * @var tags[]
+     */
+    public $tags;
     protected $_name = [
-        'category'       => 'Category',
-        'creationTime'   => 'CreationTime',
-        'device'         => 'Device',
-        'diskChargeType' => 'DiskChargeType',
-        'diskId'         => 'DiskId',
-        'diskName'       => 'DiskName',
-        'diskType'       => 'DiskType',
-        'instanceId'     => 'InstanceId',
-        'instanceName'   => 'InstanceName',
-        'regionId'       => 'RegionId',
-        'remark'         => 'Remark',
-        'size'           => 'Size',
-        'status'         => 'Status',
+        'category'        => 'Category',
+        'creationTime'    => 'CreationTime',
+        'device'          => 'Device',
+        'diskChargeType'  => 'DiskChargeType',
+        'diskId'          => 'DiskId',
+        'diskName'        => 'DiskName',
+        'diskType'        => 'DiskType',
+        'instanceId'      => 'InstanceId',
+        'instanceName'    => 'InstanceName',
+        'regionId'        => 'RegionId',
+        'remark'          => 'Remark',
+        'resourceGroupId' => 'ResourceGroupId',
+        'size'            => 'Size',
+        'status'          => 'Status',
+        'tags'            => 'Tags',
     ];
 
     public function validate()
@@ -193,11 +213,23 @@ class disks extends Model
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
         }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
         if (null !== $this->size) {
             $res['Size'] = $this->size;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -244,11 +276,23 @@ class disks extends Model
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];
         }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class runningParameters extends Model
 {
     /**
+     * @description The check code that indicates the valid values of the parameter.
+     *
      * @example [ON|OFF]
      *
      * @var string
@@ -16,6 +18,9 @@ class runningParameters extends Model
     public $checkingCode;
 
     /**
+     * @description Does it support modifying parameter values. Possible values:
+     *
+     * - false:Modifying parameter values is not supported.
      * @example true
      *
      * @var string
@@ -23,6 +28,12 @@ class runningParameters extends Model
     public $forceModify;
 
     /**
+     * @description Specifies whether to forcibly restart the instance after parameters are modified. Valid values:
+     *
+     *   true: forcibly restarts the instance. If a new parameter value takes effect only after the instance restarts, you must set this parameter to true. Otherwise, the new parameter value cannot take effect.
+     *   false: does not forcibly restart the instance.
+     *
+     * Default value: false.
      * @example false
      *
      * @var string
@@ -30,6 +41,8 @@ class runningParameters extends Model
     public $forceRestart;
 
     /**
+     * @description The description of the parameter.
+     *
      * @example When this variable has a value of 1 (the default), the server automatically grants the EXECUTE and ALTER ROUTINE privileges to the creator of a stored routine, if the user cannot already execute and alter or drop the routine. (The ALTER ROUTINE privilege is required to drop the routine.) The server also automatically drops those privileges from the creator when the routine is dropped. If automatic_sp_privileges is 0, the server does not automatically add or drop these privileges.
      *
      * @var string
@@ -37,6 +50,8 @@ class runningParameters extends Model
     public $parameterDescription;
 
     /**
+     * @description The name of the parameter.
+     *
      * @example autocommit
      *
      * @var string
@@ -44,6 +59,8 @@ class runningParameters extends Model
     public $parameterName;
 
     /**
+     * @description The value of the parameter.
+     *
      * @example ON
      *
      * @var string

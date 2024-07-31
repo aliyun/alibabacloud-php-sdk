@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListFirewallRulesResponseBody extends Model
 {
     /**
-     * @description Details about the firewall rules.
+     * @description The array of firewall rules.
      *
      * @var firewallRules[]
      */

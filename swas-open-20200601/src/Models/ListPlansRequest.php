@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListPlansRequest extends Model
 {
     /**
-     * @description The region ID of the plans. You can call the [ListRegions](~~189315~~) operation to query the most recent region list.
+     * @description The region ID of the plans. You can call the [ListRegions](https://help.aliyun.com/document_detail/189315.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

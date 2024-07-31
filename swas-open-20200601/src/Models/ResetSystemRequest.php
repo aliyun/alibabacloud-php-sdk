@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ResetSystemRequest extends Model
 {
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The value of **ClientToken** can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     * @description The client token that you want to use to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The **token** can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [Ensure idempotence](https://help.aliyun.com/document_detail/25693.html)
      *
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
@@ -18,7 +18,7 @@ class ResetSystemRequest extends Model
     public $clientToken;
 
     /**
-     * @description The ID of the image that is used to replace the image of the simple application server. If you do not specify this parameter, the current image of the simple application server is replaced by default.
+     * @description The ID of the destination image. If you do not specify this parameter, the current image is reset.
      *
      * @example 794c230fd3e64ea19f83f4d7a0ad****
      *
@@ -29,6 +29,7 @@ class ResetSystemRequest extends Model
     /**
      * @description The ID of the simple application server.
      *
+     * This parameter is required.
      * @example ace0706b2ac4454d984295a94213****
      *
      * @var string
@@ -36,8 +37,9 @@ class ResetSystemRequest extends Model
     public $instanceId;
 
     /**
-     * @description The region ID of the simple application server. You can call the [ListRegions](~~189315~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [ListRegions](https://help.aliyun.com/document_detail/189315.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

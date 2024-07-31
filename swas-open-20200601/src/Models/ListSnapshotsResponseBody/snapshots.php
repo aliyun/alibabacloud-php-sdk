@@ -4,12 +4,13 @@
 
 namespace AlibabaCloud\SDK\SWASOPEN\V20200601\Models\ListSnapshotsResponseBody;
 
+use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\ListSnapshotsResponseBody\snapshots\tags;
 use AlibabaCloud\Tea\Model;
 
 class snapshots extends Model
 {
     /**
-     * @description The time when the snapshot was created. The time follows the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     * @description The time when the snapshot was created. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
      *
      * @example 2021-03-09T07:12:49Z
      *
@@ -20,7 +21,7 @@ class snapshots extends Model
     /**
      * @description The ID of the simple application server.
      *
-     * Note: This parameter has a value for system disk snapshots. This parameter is left empty for data disk snapshots.
+     * Note: This parameter has a value returned for only system disk snapshots.
      * @example 2ad1ae67295445f598017499dc****
      *
      * @var string
@@ -37,7 +38,7 @@ class snapshots extends Model
     public $progress;
 
     /**
-     * @description The region ID of the snapshots.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *
@@ -53,6 +54,15 @@ class snapshots extends Model
      * @var string
      */
     public $remark;
+
+    /**
+     * @description The ID of the resource group to which the snapshot belongs.
+     *
+     * @example rg-aek2bti7cf7****
+     *
+     * @var string
+     */
+    public $resourceGroupId;
 
     /**
      * @description The time when the last disk rollback was performed.
@@ -82,7 +92,7 @@ class snapshots extends Model
     public $snapshotName;
 
     /**
-     * @description The ID of the source disk based on which the snapshot is created. This parameter has a value even if the source disk is released.
+     * @description The ID of the source disk. This parameter has a value even after the source disk is released.
      *
      * @example d-bp14wq0149cpp2xy****
      *
@@ -114,18 +124,27 @@ class snapshots extends Model
      * @var string
      */
     public $status;
+
+    /**
+     * @description The tags of the snapshot.
+     *
+     * @var tags[]
+     */
+    public $tags;
     protected $_name = [
-        'creationTime'   => 'CreationTime',
-        'instanceId'     => 'InstanceId',
-        'progress'       => 'Progress',
-        'regionId'       => 'RegionId',
-        'remark'         => 'Remark',
-        'rollbackTime'   => 'RollbackTime',
-        'snapshotId'     => 'SnapshotId',
-        'snapshotName'   => 'SnapshotName',
-        'sourceDiskId'   => 'SourceDiskId',
-        'sourceDiskType' => 'SourceDiskType',
-        'status'         => 'Status',
+        'creationTime'    => 'CreationTime',
+        'instanceId'      => 'InstanceId',
+        'progress'        => 'Progress',
+        'regionId'        => 'RegionId',
+        'remark'          => 'Remark',
+        'resourceGroupId' => 'ResourceGroupId',
+        'rollbackTime'    => 'RollbackTime',
+        'snapshotId'      => 'SnapshotId',
+        'snapshotName'    => 'SnapshotName',
+        'sourceDiskId'    => 'SourceDiskId',
+        'sourceDiskType'  => 'SourceDiskType',
+        'status'          => 'Status',
+        'tags'            => 'Tags',
     ];
 
     public function validate()
@@ -150,6 +169,9 @@ class snapshots extends Model
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
         }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
         if (null !== $this->rollbackTime) {
             $res['RollbackTime'] = $this->rollbackTime;
         }
@@ -167,6 +189,15 @@ class snapshots extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -195,6 +226,9 @@ class snapshots extends Model
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];
         }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
         if (isset($map['RollbackTime'])) {
             $model->rollbackTime = $map['RollbackTime'];
         }
@@ -212,6 +246,15 @@ class snapshots extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

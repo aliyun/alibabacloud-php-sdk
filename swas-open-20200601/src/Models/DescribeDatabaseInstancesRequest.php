@@ -40,6 +40,7 @@ class DescribeDatabaseInstancesRequest extends Model
     /**
      * @description The region ID of the Simple Database Service instances.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

@@ -4,8 +4,10 @@
 
 namespace AlibabaCloud\SDK\SWASOPEN\V20200601\Models\ListInstancesResponseBody;
 
+use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\ListInstancesResponseBody\instances\disks;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\ListInstancesResponseBody\instances\image;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\ListInstancesResponseBody\instances\resourceSpec;
+use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\ListInstancesResponseBody\instances\tags;
 use AlibabaCloud\Tea\Model;
 
 class instances extends Model
@@ -33,7 +35,7 @@ class instances extends Model
     public $chargeType;
 
     /**
-     * @description Indicates whether the plan is a bundle plan.
+     * @description Indicates whether the simple application server uses a bundle plan.
      *
      * @example false
      *
@@ -42,7 +44,7 @@ class instances extends Model
     public $combination;
 
     /**
-     * @description The ID of the bundle plan.
+     * @description The ID of the simple application server that uses a bundle plan.
      *
      * @example com-f6c9a22****45b5b8de68ad608af1ba
      *
@@ -51,7 +53,7 @@ class instances extends Model
     public $combinationInstanceId;
 
     /**
-     * @description The time when the simple application server was created. The time follows the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     * @description The time when the simple application server was created. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
      *
      * @example 2021-03-08T05:31:06Z
      *
@@ -76,8 +78,8 @@ class instances extends Model
      * @description The reason why the server is disabled. Valid values:
      *
      *   FINANCIAL: The server is locked due to overdue payments.
-     *   SECURITY: The server is locked due to security reasons.
-     *   EXPIRED: The server has expired.
+     *   SECURITY: The server is locked for security reasons.
+     *   EXPIRED: The server is expired.
      *
      * @example EXPIRED
      *
@@ -86,7 +88,14 @@ class instances extends Model
     public $disableReason;
 
     /**
-     * @description The time when the server expires. The time follows the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     * @description The disks that are attached to the simple application server.
+     *
+     * @var disks[]
+     */
+    public $disks;
+
+    /**
+     * @description The time when the simple application server expires. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
      *
      * @example 2021-05-08T16:00:00Z
      *
@@ -102,7 +111,7 @@ class instances extends Model
     public $image;
 
     /**
-     * @description The ID of an image.
+     * @description The ID of the image.
      *
      * @example fe9c66133a9d4688872869726b52****
      *
@@ -111,7 +120,7 @@ class instances extends Model
     public $imageId;
 
     /**
-     * @description The internal IP address of the simple application server.
+     * @description The private IP address of the simple application server.
      *
      * @example 172.26.XX.XX
      *
@@ -129,7 +138,7 @@ class instances extends Model
     public $instanceId;
 
     /**
-     * @description The name of the server.
+     * @description The name of the simple application server.
      *
      * @example test-InstanceName
      *
@@ -138,7 +147,7 @@ class instances extends Model
     public $instanceName;
 
     /**
-     * @description The plan ID.
+     * @description The ID of the instance plan.
      *
      * @example swas.s2.c2m2s50b4t08
      *
@@ -147,7 +156,7 @@ class instances extends Model
     public $planId;
 
     /**
-     * @description The public IP address of the server.
+     * @description The public IP address.
      *
      * @example 42.1.XX.XX
      *
@@ -156,13 +165,22 @@ class instances extends Model
     public $publicIpAddress;
 
     /**
-     * @description The region ID of the servers.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
+
+    /**
+     * @description The ID of the resource group to which the server belongs.
+     *
+     * @example rg-aekz7jmhg5s****
+     *
+     * @var string
+     */
+    public $resourceGroupId;
 
     /**
      * @description The specifications of the resource.
@@ -174,14 +192,14 @@ class instances extends Model
     /**
      * @description The status of the simple application server. Valid values:
      *
-     *   Pending
-     *   Starting
-     *   Running
-     *   Stopping
-     *   Stopped
-     *   Resetting
-     *   Upgrading
-     *   Disabled
+     *   Pending: The server is being prepared.
+     *   Starting: The server is being started.
+     *   Running: The server is running.
+     *   Stopping: The server is being stopped.
+     *   Stopped: The server is stopped.
+     *   Resetting: The server is being reset.
+     *   Upgrading: The server is being upgraded.
+     *   Disabled: The server is not available.
      *
      * @example Running
      *
@@ -190,7 +208,14 @@ class instances extends Model
     public $status;
 
     /**
-     * @description The universally unique identifier (UUID) of the server.
+     * @description The tags that are added to the simple application server.
+     *
+     * @var tags[]
+     */
+    public $tags;
+
+    /**
+     * @description The universally unique identifier (UUID) of the simple application server.
      *
      * @example 41f30524-5df7-49c9-9c6e-32****489001
      *
@@ -205,6 +230,7 @@ class instances extends Model
         'creationTime'          => 'CreationTime',
         'ddosStatus'            => 'DdosStatus',
         'disableReason'         => 'DisableReason',
+        'disks'                 => 'Disks',
         'expiredTime'           => 'ExpiredTime',
         'image'                 => 'Image',
         'imageId'               => 'ImageId',
@@ -214,8 +240,10 @@ class instances extends Model
         'planId'                => 'PlanId',
         'publicIpAddress'       => 'PublicIpAddress',
         'regionId'              => 'RegionId',
+        'resourceGroupId'       => 'ResourceGroupId',
         'resourceSpec'          => 'ResourceSpec',
         'status'                => 'Status',
+        'tags'                  => 'Tags',
         'uuid'                  => 'Uuid',
     ];
 
@@ -247,6 +275,15 @@ class instances extends Model
         if (null !== $this->disableReason) {
             $res['DisableReason'] = $this->disableReason;
         }
+        if (null !== $this->disks) {
+            $res['Disks'] = [];
+            if (null !== $this->disks && \is_array($this->disks)) {
+                $n = 0;
+                foreach ($this->disks as $item) {
+                    $res['Disks'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->expiredTime) {
             $res['ExpiredTime'] = $this->expiredTime;
         }
@@ -274,11 +311,23 @@ class instances extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
         if (null !== $this->resourceSpec) {
             $res['ResourceSpec'] = null !== $this->resourceSpec ? $this->resourceSpec->toMap() : null;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->uuid) {
             $res['Uuid'] = $this->uuid;
@@ -316,6 +365,15 @@ class instances extends Model
         if (isset($map['DisableReason'])) {
             $model->disableReason = $map['DisableReason'];
         }
+        if (isset($map['Disks'])) {
+            if (!empty($map['Disks'])) {
+                $model->disks = [];
+                $n            = 0;
+                foreach ($map['Disks'] as $item) {
+                    $model->disks[$n++] = null !== $item ? disks::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['ExpiredTime'])) {
             $model->expiredTime = $map['ExpiredTime'];
         }
@@ -343,11 +401,23 @@ class instances extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
         if (isset($map['ResourceSpec'])) {
             $model->resourceSpec = resourceSpec::fromMap($map['ResourceSpec']);
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['Uuid'])) {
             $model->uuid = $map['Uuid'];

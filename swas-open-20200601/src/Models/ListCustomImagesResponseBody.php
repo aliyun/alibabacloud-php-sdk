@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListCustomImagesResponseBody extends Model
 {
     /**
-     * @description The queried custom images.
+     * @description The array of queried custom images.
      *
      * @var customImages[]
      */

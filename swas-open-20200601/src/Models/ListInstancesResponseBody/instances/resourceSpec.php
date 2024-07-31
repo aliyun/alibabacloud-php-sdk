@@ -18,7 +18,7 @@ class resourceSpec extends Model
     public $bandwidth;
 
     /**
-     * @description The number of vCPUs.
+     * @description The number of vCPUs of the simple application server.
      *
      * @example 2
      *
@@ -29,9 +29,9 @@ class resourceSpec extends Model
     /**
      * @description The category of the disk. Valid values:
      *
-     *   ESSD: an enhanced SSD (ESSD) at performance level 0 (PL0).
-     *   SSD: a standard SSD.
-     *   CLOUD_EFFICIENCY: an ultra disk.
+     *   ESSD: enhanced SSD (ESSD) of PL0
+     *   SSD: standard SSD
+     *   CLOUD_EFFICIENCY: ultra disk
      *
      * @example cloud_efficiency
      *
@@ -51,8 +51,8 @@ class resourceSpec extends Model
     /**
      * @description The amount of the traffic.
      *
-     *   A value of 0 indicates that the server is a bandwidth-based server.
-     *   A value of none-zero indicates that the server is a data transfer plan-based server.
+     *   A value of 0 indicates the traffic amount of a bandwidth-based simple application server.
+     *   A non-zero value indicates the traffic amount of a data transfer plan-based simple application server.
      *
      * @example 818
      *
@@ -61,7 +61,7 @@ class resourceSpec extends Model
     public $flow;
 
     /**
-     * @description The memory size.
+     * @description The memory size of the server.
      *
      * @example 2
      *

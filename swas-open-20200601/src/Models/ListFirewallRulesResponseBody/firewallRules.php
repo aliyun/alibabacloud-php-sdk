@@ -4,12 +4,13 @@
 
 namespace AlibabaCloud\SDK\SWASOPEN\V20200601\Models\ListFirewallRulesResponseBody;
 
+use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\ListFirewallRulesResponseBody\firewallRules\tags;
 use AlibabaCloud\Tea\Model;
 
 class firewallRules extends Model
 {
     /**
-     * @description The firewall policy.
+     * @description The firewall policy. Valid values:
      *
      *   accept: Access is allowed.
      *   drop: Access is refused.
@@ -32,6 +33,8 @@ class firewallRules extends Model
     /**
      * @description The remarks of the firewall rule.
      *
+     * @example TEST
+     *
      * @var string
      */
     public $remark;
@@ -48,9 +51,9 @@ class firewallRules extends Model
     /**
      * @description The transport layer protocol. Valid values:
      *
-     *   TCP: the TCP protocol.
-     *   UDP: the UDP protocol
-     *   TCP+UDP: the TCP and UDP protocols
+     *   TCP
+     *   UDP
+     *   TCP+UDP
      *
      * @example TCP
      *
@@ -59,13 +62,20 @@ class firewallRules extends Model
     public $ruleProtocol;
 
     /**
-     * @description The IP address or CIDR block that is allowed by the firewall rule.
+     * @description The source CIDR block.
      *
      * @example 0.0.0.0/0
      *
      * @var string
      */
     public $sourceCidrIp;
+
+    /**
+     * @description The tags of the firewall rule.
+     *
+     * @var tags[]
+     */
+    public $tags;
     protected $_name = [
         'policy'       => 'Policy',
         'port'         => 'Port',
@@ -73,6 +83,7 @@ class firewallRules extends Model
         'ruleId'       => 'RuleId',
         'ruleProtocol' => 'RuleProtocol',
         'sourceCidrIp' => 'SourceCidrIp',
+        'tags'         => 'Tags',
     ];
 
     public function validate()
@@ -99,6 +110,15 @@ class firewallRules extends Model
         }
         if (null !== $this->sourceCidrIp) {
             $res['SourceCidrIp'] = $this->sourceCidrIp;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -129,6 +149,15 @@ class firewallRules extends Model
         }
         if (isset($map['SourceCidrIp'])) {
             $model->sourceCidrIp = $map['SourceCidrIp'];
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

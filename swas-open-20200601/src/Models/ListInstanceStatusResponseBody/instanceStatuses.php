@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class instanceStatuses extends Model
 {
     /**
+     * @description The ID of the simple application server.
+     *
      * @example a9a6474b935d41bcb531250bb5d****
      *
      * @var string
@@ -16,6 +18,17 @@ class instanceStatuses extends Model
     public $instanceId;
 
     /**
+     * @description The status of the simple application server. Valid values:
+     *
+     *   Pending
+     *   Starting
+     *   Running
+     *   Stopping
+     *   Stopped
+     *   Resetting
+     *   Upgrading
+     *   Disabled
+     *
      * @example Running
      *
      * @var string

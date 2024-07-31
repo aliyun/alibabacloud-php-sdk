@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\SWASOPEN\V20200601\Models;
 
+use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\ListDisksRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class ListDisksRequest extends Model
@@ -18,10 +19,10 @@ class ListDisksRequest extends Model
     public $diskIds;
 
     /**
-     * @description The type of the disk. Valid values:
+     * @description The disk type. Valid values:
      *
-     *   System: system disk.
-     *   Data: data disk.
+     *   system: system disk
+     *   data: data disk
      *
      * By default, system disks and data disks are both queried.
      * @example System
@@ -62,18 +63,37 @@ class ListDisksRequest extends Model
     /**
      * @description The region ID of the disks.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
+
+    /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-aek2bti7cf7****
+     *
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @description The tags that are added to the disks.
+     *
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
-        'diskIds'    => 'DiskIds',
-        'diskType'   => 'DiskType',
-        'instanceId' => 'InstanceId',
-        'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'regionId'   => 'RegionId',
+        'diskIds'         => 'DiskIds',
+        'diskType'        => 'DiskType',
+        'instanceId'      => 'InstanceId',
+        'pageNumber'      => 'PageNumber',
+        'pageSize'        => 'PageSize',
+        'regionId'        => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'tag'             => 'Tag',
     ];
 
     public function validate()
@@ -100,6 +120,18 @@ class ListDisksRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -130,6 +162,18 @@ class ListDisksRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

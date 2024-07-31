@@ -27,7 +27,7 @@ class image extends Model
     public $imageIconUrl;
 
     /**
-     * @description The image name.
+     * @description The name of the image.
      *
      * @example test-custom-1686536882356
      *
@@ -36,7 +36,7 @@ class image extends Model
     public $imageName;
 
     /**
-     * @description The image type. Valid values:
+     * @description The type of the image. Valid values:
      *
      *   system
      *   app

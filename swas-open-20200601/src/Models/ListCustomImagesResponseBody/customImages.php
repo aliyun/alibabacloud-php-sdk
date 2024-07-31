@@ -4,12 +4,18 @@
 
 namespace AlibabaCloud\SDK\SWASOPEN\V20200601\Models\ListCustomImagesResponseBody;
 
+use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\ListCustomImagesResponseBody\customImages\tags;
 use AlibabaCloud\Tea\Model;
 
 class customImages extends Model
 {
     /**
-     * @description The time when the snapshot was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     * @var string[]
+     */
+    public $createInstances;
+
+    /**
+     * @description The time when the snapshot was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is in UTC.
      *
      * @example 2022-10-09T02:28:06Z
      *
@@ -29,12 +35,16 @@ class customImages extends Model
     /**
      * @description The name of the data disk snapshot.
      *
+     * @example data disk snapshot
+     *
      * @var string
      */
     public $dataSnapshotName;
 
     /**
      * @description The description of the custom image.
+     *
+     * @example test-custom-image
      *
      * @var string
      */
@@ -50,13 +60,20 @@ class customImages extends Model
     public $imageId;
 
     /**
-     * @description Indicates whether the custom image is shared with Elastic Compute Service (ECS).
+     * @description Indicates whether the custom image is shared to Elastic Compute Service (ECS).
      *
      * @example false
      *
      * @var bool
      */
     public $inShare;
+
+    /**
+     * @example False
+     *
+     * @var bool
+     */
+    public $inShareUser;
 
     /**
      * @description The ID of the simple application server.
@@ -86,13 +103,29 @@ class customImages extends Model
     public $name;
 
     /**
-     * @description The region ID of the custom images.
+     * @example Linux
+     *
+     * @var string
+     */
+    public $osType;
+
+    /**
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
+
+    /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-acfm2h2lvp3ublq
+     *
+     * @var string
+     */
+    public $resourceGroupId;
 
     /**
      * @description The status of the custom image.
@@ -115,23 +148,45 @@ class customImages extends Model
     /**
      * @description The name of the system disk snapshot.
      *
+     * @example system disk snapshot
+     *
      * @var string
      */
     public $systemSnapshotName;
+
+    /**
+     * @description The tags of the custom image.
+     *
+     * @var tags[]
+     */
+    public $tags;
+
+    /**
+     * @example 180185828710****
+     *
+     * @var int
+     */
+    public $userId;
     protected $_name = [
+        'createInstances'    => 'CreateInstances',
         'creationTime'       => 'CreationTime',
         'dataSnapshotId'     => 'DataSnapshotId',
         'dataSnapshotName'   => 'DataSnapshotName',
         'description'        => 'Description',
         'imageId'            => 'ImageId',
         'inShare'            => 'InShare',
+        'inShareUser'        => 'InShareUser',
         'instanceId'         => 'InstanceId',
         'instanceName'       => 'InstanceName',
         'name'               => 'Name',
+        'osType'             => 'OsType',
         'regionId'           => 'RegionId',
+        'resourceGroupId'    => 'ResourceGroupId',
         'status'             => 'Status',
         'systemSnapshotId'   => 'SystemSnapshotId',
         'systemSnapshotName' => 'SystemSnapshotName',
+        'tags'               => 'Tags',
+        'userId'             => 'UserId',
     ];
 
     public function validate()
@@ -141,6 +196,9 @@ class customImages extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->createInstances) {
+            $res['CreateInstances'] = $this->createInstances;
+        }
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
         }
@@ -159,6 +217,9 @@ class customImages extends Model
         if (null !== $this->inShare) {
             $res['InShare'] = $this->inShare;
         }
+        if (null !== $this->inShareUser) {
+            $res['InShareUser'] = $this->inShareUser;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -168,8 +229,14 @@ class customImages extends Model
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+        if (null !== $this->osType) {
+            $res['OsType'] = $this->osType;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -179,6 +246,18 @@ class customImages extends Model
         }
         if (null !== $this->systemSnapshotName) {
             $res['SystemSnapshotName'] = $this->systemSnapshotName;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -192,6 +271,11 @@ class customImages extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CreateInstances'])) {
+            if (!empty($map['CreateInstances'])) {
+                $model->createInstances = $map['CreateInstances'];
+            }
+        }
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
         }
@@ -210,6 +294,9 @@ class customImages extends Model
         if (isset($map['InShare'])) {
             $model->inShare = $map['InShare'];
         }
+        if (isset($map['InShareUser'])) {
+            $model->inShareUser = $map['InShareUser'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
@@ -219,8 +306,14 @@ class customImages extends Model
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+        if (isset($map['OsType'])) {
+            $model->osType = $map['OsType'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
@@ -230,6 +323,18 @@ class customImages extends Model
         }
         if (isset($map['SystemSnapshotName'])) {
             $model->systemSnapshotName = $map['SystemSnapshotName'];
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
 
         return $model;

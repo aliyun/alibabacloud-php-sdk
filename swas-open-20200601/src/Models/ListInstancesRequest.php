@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\SWASOPEN\V20200601\Models;
 
+use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\ListInstancesRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class ListInstancesRequest extends Model
@@ -29,6 +30,15 @@ class ListInstancesRequest extends Model
     public $instanceIds;
 
     /**
+     * @description The name of the simple application servers, which supports fuzzy search using wildcard *.
+     *
+     * @example test
+     *
+     * @var string
+     */
+    public $instanceName;
+
+    /**
      * @description The page number.
      *
      * Default value: 1.
@@ -52,7 +62,7 @@ class ListInstancesRequest extends Model
      * @description The public IP addresses of the simple application servers. The value can be a JSON array that consists of up to 100 IP addresses. Separate multiple IP addresses with commas (,).
      *
      * > If you specify both `InstanceIds` and `PublicIpAddresses`, make sure that the specified IDs and the specified public IP addresses belong to the same simple application servers. Otherwise, an empty result is returned.
-     * @example ["42.1.**.**", "42.2.**.**"]
+     * @example ["42.1.\*\*.**", "42.2.\*\*.**"]
      *
      * @var string
      */
@@ -61,6 +71,7 @@ class ListInstancesRequest extends Model
     /**
      * @description The region ID of the simple application servers.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -68,22 +79,49 @@ class ListInstancesRequest extends Model
     public $regionId;
 
     /**
-     * @description 实例状态，可能值：
+     * @description The ID of the resource group to which the simple application servers belong.
      *
-     * - Disabled：不可用
+     * @example rg-aek2bti7cf7****
+     *
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @description The status of the simple application servers. Valid values:
+     *
+     *   Pending
+     *   Starting
+     *   Running
+     *   Stopping
+     *   Stopped
+     *   Resetting
+     *   Upgrading
+     *   Disabled
+     *
      * @example Running
      *
      * @var string
      */
     public $status;
+
+    /**
+     * @description The tags that are added to the simple application servers.
+     *
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
         'chargeType'        => 'ChargeType',
         'instanceIds'       => 'InstanceIds',
+        'instanceName'      => 'InstanceName',
         'pageNumber'        => 'PageNumber',
         'pageSize'          => 'PageSize',
         'publicIpAddresses' => 'PublicIpAddresses',
         'regionId'          => 'RegionId',
+        'resourceGroupId'   => 'ResourceGroupId',
         'status'            => 'Status',
+        'tag'               => 'Tag',
     ];
 
     public function validate()
@@ -99,6 +137,9 @@ class ListInstancesRequest extends Model
         if (null !== $this->instanceIds) {
             $res['InstanceIds'] = $this->instanceIds;
         }
+        if (null !== $this->instanceName) {
+            $res['InstanceName'] = $this->instanceName;
+        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
@@ -111,8 +152,20 @@ class ListInstancesRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -132,6 +185,9 @@ class ListInstancesRequest extends Model
         if (isset($map['InstanceIds'])) {
             $model->instanceIds = $map['InstanceIds'];
         }
+        if (isset($map['InstanceName'])) {
+            $model->instanceName = $map['InstanceName'];
+        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
@@ -144,8 +200,20 @@ class ListInstancesRequest extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

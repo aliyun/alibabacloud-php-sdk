@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class commandInvocations extends Model
 {
     /**
+     * @description The content of the command.
+     *
      * @example echo 123
      *
      * @var string
@@ -17,6 +19,8 @@ class commandInvocations extends Model
     public $commandContent;
 
     /**
+     * @description The description of the command.
+     *
      * @example testDescription
      *
      * @var string
@@ -24,6 +28,8 @@ class commandInvocations extends Model
     public $commandDescription;
 
     /**
+     * @description The command ID.
+     *
      * @example c-hy0338xh28r****
      *
      * @var string
@@ -31,6 +37,8 @@ class commandInvocations extends Model
     public $commandId;
 
     /**
+     * @description The command name.
+     *
      * @example testCommandName
      *
      * @var string
@@ -38,6 +46,8 @@ class commandInvocations extends Model
     public $commandName;
 
     /**
+     * @description The command type.
+     *
      * @example RunShellScript
      *
      * @var string
@@ -45,6 +55,8 @@ class commandInvocations extends Model
     public $commandType;
 
     /**
+     * @description The time when the command was created.
+     *
      * @example 2023-04-27T10:11:58
      *
      * @var string
@@ -52,6 +64,20 @@ class commandInvocations extends Model
     public $creationTime;
 
     /**
+     * @description The overall execution state of the command. Valid values:
+     *
+     *   Pending: The command is being verified or sent.
+     *   Invalid: The specified command type or parameter is invalid.
+     *   Aborted: The command failed to be sent to the instances. To send a command to an instance, make sure that the instance is in the Running state and the command is sent to the instance within 1 minute.
+     *   Running: The command is being run on the instances.
+     *   Success: The command execution is complete, and the exit code is 0.
+     *   Failed: The command execution is complete, and the exit code is not 0.
+     *   Error: The command execution cannot proceed due to an exception.
+     *   Timeout: The command execution timed out.
+     *   Cancelled: The command execution is canceled, and the command is not started.
+     *   Stopping: The command in the Running state is being stopped.
+     *   Terminated: The command is terminated when it is being run.
+     *
      * @example Success
      *
      * @var string
@@ -59,6 +85,8 @@ class commandInvocations extends Model
     public $invocationStatus;
 
     /**
+     * @description The execution ID of the command.
+     *
      * @example t-hz0373jyzxt****
      *
      * @var string
@@ -66,11 +94,15 @@ class commandInvocations extends Model
     public $invokeId;
 
     /**
+     * @description The instances on which the command is run.
+     *
      * @var invokeInstances[]
      */
     public $invokeInstances;
 
     /**
+     * @description The custom parameters in the command. If no custom parameter exists in the command, the default value is {}.
+     *
      * @example {}
      *
      * @var string
@@ -78,6 +110,8 @@ class commandInvocations extends Model
     public $parameters;
 
     /**
+     * @description The timeout period. Unit: seconds.
+     *
      * @example 60
      *
      * @var int
@@ -85,6 +119,8 @@ class commandInvocations extends Model
     public $timeout;
 
     /**
+     * @description The username that is used to run the command.
+     *
      * @example root
      *
      * @var string
@@ -92,7 +128,9 @@ class commandInvocations extends Model
     public $username;
 
     /**
-     * @example c:\wwwroot
+     * @description The working directory of the command.
+     *
+     * @example c:\\wwwroot
      *
      * @var string
      */

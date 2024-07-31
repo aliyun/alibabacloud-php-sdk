@@ -11,6 +11,7 @@ class DescribeDatabaseInstanceMetricDataRequest extends Model
     /**
      * @description The ID of the Simple Database Service instance.
      *
+     * This parameter is required.
      * @example db-38263fa955774501a2ae1bdaed6f****
      *
      * @var string
@@ -18,9 +19,9 @@ class DescribeDatabaseInstanceMetricDataRequest extends Model
     public $databaseInstanceId;
 
     /**
-     * @description The end of the time range to query. Specify the time in the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mmZ format. The time must be in UTC.
+     * @description The end of the time range to query. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mmZ format. The time must be in UTC.
      *
-     * > The time displayed in the Simple Application Server console is in the format of UTC+8.
+     * This parameter is required.
      * @example 2022-09-07T04:04Z
      *
      * @var string
@@ -35,6 +36,7 @@ class DescribeDatabaseInstanceMetricDataRequest extends Model
      *   MySQL_Sessions : The total number of active connections.
      *   MySQL_IOPS: The IOPS of the instance.
      *
+     * This parameter is required.
      * @example MySQL_MemCpuUsage
      *
      * @var string
@@ -42,8 +44,9 @@ class DescribeDatabaseInstanceMetricDataRequest extends Model
     public $metricName;
 
     /**
-     * @description The region ID of the Simple Database Service instance. You can call the [ListRegions](~~189315~~) operation to query the most recent region list.
+     * @description The region ID of the Simple Database Service instance. You can call the [ListRegions](https://help.aliyun.com/document_detail/189315.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -51,9 +54,9 @@ class DescribeDatabaseInstanceMetricDataRequest extends Model
     public $regionId;
 
     /**
-     * @description The beginning of the time range to query. Specify the time in the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mmZ format. The time must be in UTC.
+     * @description The beginning of the time range to query. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mmZ format. The time must be in UTC.
      *
-     * > The time displayed in the Simple Application Server console is in the format of UTC+8.
+     * This parameter is required.
      * @example 2022-09-06T04:04Z
      *
      * @var string

@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\SWASOPEN\V20200601\Models;
 
+use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\ListSnapshotsRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class ListSnapshotsRequest extends Model
 {
-    /**
-     * @var string
-     */
-    public $acsProduct;
-
     /**
      * @description The disk ID.
      *
@@ -54,11 +50,21 @@ class ListSnapshotsRequest extends Model
     /**
      * @description The region ID of the simple application server that corresponds to the snapshots.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
+
+    /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-aek2bti7cf7****
+     *
+     * @var string
+     */
+    public $resourceGroupId;
 
     /**
      * @description The snapshot IDs. The value can be a JSON array that consists of up to 100 snapshot IDs. Separate multiple snapshot IDs with commas (,).
@@ -80,15 +86,23 @@ class ListSnapshotsRequest extends Model
      * @var string
      */
     public $sourceDiskType;
+
+    /**
+     * @description Tag N that you want to add to the snapshot.
+     *
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
-        'acsProduct'     => 'AcsProduct',
-        'diskId'         => 'DiskId',
-        'instanceId'     => 'InstanceId',
-        'pageNumber'     => 'PageNumber',
-        'pageSize'       => 'PageSize',
-        'regionId'       => 'RegionId',
-        'snapshotIds'    => 'SnapshotIds',
-        'sourceDiskType' => 'SourceDiskType',
+        'diskId'          => 'DiskId',
+        'instanceId'      => 'InstanceId',
+        'pageNumber'      => 'PageNumber',
+        'pageSize'        => 'PageSize',
+        'regionId'        => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'snapshotIds'     => 'SnapshotIds',
+        'sourceDiskType'  => 'SourceDiskType',
+        'tag'             => 'Tag',
     ];
 
     public function validate()
@@ -98,9 +112,6 @@ class ListSnapshotsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->acsProduct) {
-            $res['AcsProduct'] = $this->acsProduct;
-        }
         if (null !== $this->diskId) {
             $res['DiskId'] = $this->diskId;
         }
@@ -116,11 +127,23 @@ class ListSnapshotsRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
         if (null !== $this->snapshotIds) {
             $res['SnapshotIds'] = $this->snapshotIds;
         }
         if (null !== $this->sourceDiskType) {
             $res['SourceDiskType'] = $this->sourceDiskType;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -134,9 +157,6 @@ class ListSnapshotsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AcsProduct'])) {
-            $model->acsProduct = $map['AcsProduct'];
-        }
         if (isset($map['DiskId'])) {
             $model->diskId = $map['DiskId'];
         }
@@ -152,11 +172,23 @@ class ListSnapshotsRequest extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
         if (isset($map['SnapshotIds'])) {
             $model->snapshotIds = $map['SnapshotIds'];
         }
         if (isset($map['SourceDiskType'])) {
             $model->sourceDiskType = $map['SourceDiskType'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

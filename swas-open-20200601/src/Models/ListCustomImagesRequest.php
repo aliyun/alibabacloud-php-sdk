@@ -4,12 +4,13 @@
 
 namespace AlibabaCloud\SDK\SWASOPEN\V20200601\Models;
 
+use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\ListCustomImagesRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class ListCustomImagesRequest extends Model
 {
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The value of **ClientToken** can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The value of **ClientToken** can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
      *
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
@@ -45,6 +46,13 @@ class ListCustomImagesRequest extends Model
     public $imageNames;
 
     /**
+     * @example ace0706b2ac4454d984295a94213****
+     *
+     * @var string
+     */
+    public $instanceId;
+
+    /**
      * @description The page number. Default value: 1.
      *
      * @example 1
@@ -66,13 +74,30 @@ class ListCustomImagesRequest extends Model
     public $pageSize;
 
     /**
-     * @description The region ID of the simple application servers corresponding to the custom images. You can call the [ListRegions](~~189315~~) operation to query the most recent region list.
+     * @description The region ID of the simple application servers corresponding to the custom images. You can call the [ListRegions](https://help.aliyun.com/document_detail/189315.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
+
+    /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-aek2bti7cf7yj2i
+     *
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @example False
+     *
+     * @var bool
+     */
+    public $share;
 
     /**
      * @description The ID of the system disk snapshot.
@@ -82,15 +107,26 @@ class ListCustomImagesRequest extends Model
      * @var string
      */
     public $systemSnapshotId;
+
+    /**
+     * @description Tag N of the custom image.
+     *
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
         'clientToken'      => 'ClientToken',
         'dataSnapshotId'   => 'DataSnapshotId',
         'imageIds'         => 'ImageIds',
         'imageNames'       => 'ImageNames',
+        'instanceId'       => 'InstanceId',
         'pageNumber'       => 'PageNumber',
         'pageSize'         => 'PageSize',
         'regionId'         => 'RegionId',
+        'resourceGroupId'  => 'ResourceGroupId',
+        'share'            => 'Share',
         'systemSnapshotId' => 'SystemSnapshotId',
+        'tag'              => 'Tag',
     ];
 
     public function validate()
@@ -112,6 +148,9 @@ class ListCustomImagesRequest extends Model
         if (null !== $this->imageNames) {
             $res['ImageNames'] = $this->imageNames;
         }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
@@ -121,8 +160,23 @@ class ListCustomImagesRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->share) {
+            $res['Share'] = $this->share;
+        }
         if (null !== $this->systemSnapshotId) {
             $res['SystemSnapshotId'] = $this->systemSnapshotId;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -148,6 +202,9 @@ class ListCustomImagesRequest extends Model
         if (isset($map['ImageNames'])) {
             $model->imageNames = $map['ImageNames'];
         }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
@@ -157,8 +214,23 @@ class ListCustomImagesRequest extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['Share'])) {
+            $model->share = $map['Share'];
+        }
         if (isset($map['SystemSnapshotId'])) {
             $model->systemSnapshotId = $map['SystemSnapshotId'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

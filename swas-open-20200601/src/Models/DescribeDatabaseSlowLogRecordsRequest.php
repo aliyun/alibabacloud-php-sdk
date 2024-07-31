@@ -9,13 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeDatabaseSlowLogRecordsRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $acsProduct;
-
-    /**
      * @description The ID of the Simple Database Service instance.
      *
+     * This parameter is required.
      * @example db-38263fa955774501a2ae1bdaed6f****
      *
      * @var string
@@ -25,7 +21,7 @@ class DescribeDatabaseSlowLogRecordsRequest extends Model
     /**
      * @description The end of the time range to query. The end time must be later than the start time. The interval between the start time and the end time must be less than 7 days.
      *
-     * > The time displayed in the Simple Application Server console is in the format of UTC+8.
+     * This parameter is required.
      * @example 2022-09-08T04:04:44Z
      *
      * @var string
@@ -53,8 +49,9 @@ class DescribeDatabaseSlowLogRecordsRequest extends Model
     public $pageSize;
 
     /**
-     * @description The region ID of the Simple Database Service instance. You can call the [ListRegions](~~189315~~) operation to query the most recent region list.
+     * @description The region ID of the Simple Database Service instance. You can call the [ListRegions](https://help.aliyun.com/document_detail/189315.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -64,14 +61,13 @@ class DescribeDatabaseSlowLogRecordsRequest extends Model
     /**
      * @description The beginning of the time range to query.
      *
-     * > The time displayed in the Simple Application Server console is in the format of UTC+8.
+     * This parameter is required.
      * @example 2022-09-07T04:04:44Z
      *
      * @var string
      */
     public $startTime;
     protected $_name = [
-        'acsProduct'         => 'AcsProduct',
         'databaseInstanceId' => 'DatabaseInstanceId',
         'endTime'            => 'EndTime',
         'pageNumber'         => 'PageNumber',
@@ -87,9 +83,6 @@ class DescribeDatabaseSlowLogRecordsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->acsProduct) {
-            $res['AcsProduct'] = $this->acsProduct;
-        }
         if (null !== $this->databaseInstanceId) {
             $res['DatabaseInstanceId'] = $this->databaseInstanceId;
         }
@@ -120,9 +113,6 @@ class DescribeDatabaseSlowLogRecordsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AcsProduct'])) {
-            $model->acsProduct = $map['AcsProduct'];
-        }
         if (isset($map['DatabaseInstanceId'])) {
             $model->databaseInstanceId = $map['DatabaseInstanceId'];
         }

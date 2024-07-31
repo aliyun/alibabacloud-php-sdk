@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateSnapshotAttributeRequest extends Model
 {
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The value of **ClientToken** can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The value of **ClientToken** can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
      *
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
@@ -18,8 +18,9 @@ class UpdateSnapshotAttributeRequest extends Model
     public $clientToken;
 
     /**
-     * @description The region ID of the simple application server. You can call the [ListRegions](~~189315~~) operation to query the most recent region list.
+     * @description The region ID of the simple application server. You can call the [ListRegions](https://help.aliyun.com/document_detail/189315.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -38,6 +39,7 @@ class UpdateSnapshotAttributeRequest extends Model
     /**
      * @description The snapshot ID. You can call the ListSnapshots operation to query the snapshot ID.
      *
+     * This parameter is required.
      * @example s-bp16oazlsold4dks****
      *
      * @var string

@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\SWASOPEN\V20200601\Models;
 
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\CreateFirewallRulesRequest\firewallRules;
+use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\CreateFirewallRulesRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class CreateFirewallRulesRequest extends Model
@@ -19,7 +20,7 @@ class CreateFirewallRulesRequest extends Model
     public $clientToken;
 
     /**
-     * @description The remarks of the firewall rule.
+     * @description Details about the firewall rules.
      *
      * @var firewallRules[]
      */
@@ -28,6 +29,7 @@ class CreateFirewallRulesRequest extends Model
     /**
      * @description The ID of the simple application server.
      *
+     * This parameter is required.
      * @example ace0706b2ac4454d984295a94213****
      *
      * @var string
@@ -35,18 +37,27 @@ class CreateFirewallRulesRequest extends Model
     public $instanceId;
 
     /**
-     * @description The region ID of the simple application server. You can call the [ListRegions](~~189315~~) operation to query the most recent region list.
+     * @description The region ID of the simple application server. You can call the [ListRegions](https://help.aliyun.com/document_detail/189315.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
+
+    /**
+     * @description The tags that you want to add to the firewall. You can specify up to 20 tags.
+     *
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
         'clientToken'   => 'ClientToken',
         'firewallRules' => 'FirewallRules',
         'instanceId'    => 'InstanceId',
         'regionId'      => 'RegionId',
+        'tag'           => 'Tag',
     ];
 
     public function validate()
@@ -73,6 +84,15 @@ class CreateFirewallRulesRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -103,6 +123,15 @@ class CreateFirewallRulesRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

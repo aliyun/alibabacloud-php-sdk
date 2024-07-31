@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class firewallRules extends Model
 {
     /**
+     * @description The port number.
+     *
+     *   When the transport layer protocol is TCP and/or UDP, the port number range is 1 to 65535. Specify a port range in the format of \\<Start port number>/\\<End port number>. Example: 1/200.
+     *   When the transport layer protocol is ICMP, the port number range is -1/-1, which indicates all ports.
+     *
      * @example 3306
      *
      * @var string
@@ -16,11 +21,22 @@ class firewallRules extends Model
     public $port;
 
     /**
+     * @description The description of the firewall rule.
+     *
+     * @example TEST
+     *
      * @var string
      */
     public $remark;
 
     /**
+     * @description The transport layer protocol. Valid values:
+     *
+     *   TCP
+     *   UDP
+     *   TCP+UDP
+     *   ICMP
+     *
      * @example TCP
      *
      * @var string
@@ -28,6 +44,8 @@ class firewallRules extends Model
     public $ruleProtocol;
 
     /**
+     * @description The IP address or CIDR block that is allowed in the firewall rule.
+     *
      * @example 47.101.XX.XX
      *
      * @var string

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListRegionsResponseBody extends Model
 {
     /**
-     * @description The region ID.
+     * @description The regions.
      *
      * @var regions[]
      */

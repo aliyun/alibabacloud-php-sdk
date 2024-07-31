@@ -11,9 +11,9 @@ class DescribeDatabaseInstanceMetricDataResponseBody extends Model
     /**
      * @description The data format. Valid values:
      *
-     *   cpuusage\&memusage
-     *   active_session\&total_session
-     *   ins_size\&data_size\&log_size\&tmp_size\&other_size
+     *   cpuusage\\&memusage
+     *   active_session\\&total_session
+     *   ins_size\\&data_size\\&log_size\\&tmp_size\\&other_size
      *   io
      *
      * @example cpuusage&memusage
@@ -25,7 +25,7 @@ class DescribeDatabaseInstanceMetricDataResponseBody extends Model
     /**
      * @description The monitoring data.
      *
-     * @example [  {     \"date"\: " 2022-09-06T04:04:00Z",\"value\":\"0.77&3.69\"  } ]
+     * @example [  {     \\"date"\\: " 2022-09-06T04:04:00Z",\\"value\\":\\"0.77&3.69\\"  } ]
      *
      * @var string
      */

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class slowLogs extends Model
 {
     /**
+     * @description The name of the database.
+     *
      * @example testDB
      *
      * @var string
@@ -16,6 +18,9 @@ class slowLogs extends Model
     public $DBName;
 
     /**
+     * @description The time when the execution of the SQL statement started. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
+     * >  The time displayed in the Simple Application Server console is in the format of UTC+8.
      * @example 2022-09-08T01:40:44Z
      *
      * @var string
@@ -23,6 +28,8 @@ class slowLogs extends Model
     public $executionStartTime;
 
     /**
+     * @description The name and IP address of the client that is connected to the database.
+     *
      * @example xxx[xxx] @ [1xx.xxx.xxx.xx]
      *
      * @var string
@@ -30,6 +37,8 @@ class slowLogs extends Model
     public $hostAddress;
 
     /**
+     * @description The lock duration of the SQL statement. Unit: seconds.
+     *
      * @example 0
      *
      * @var int
@@ -37,6 +46,8 @@ class slowLogs extends Model
     public $lockTimes;
 
     /**
+     * @description The number of rows parsed by the SQL statement.
+     *
      * @example 1
      *
      * @var int
@@ -44,6 +55,8 @@ class slowLogs extends Model
     public $parseRowCounts;
 
     /**
+     * @description The execution duration of the slow query. Unit: millisecond.
+     *
      * @example 2001
      *
      * @var int
@@ -51,6 +64,8 @@ class slowLogs extends Model
     public $queryTimeMS;
 
     /**
+     * @description The execution duration of the slow query. Unit: seconds.
+     *
      * @example 2
      *
      * @var int
@@ -58,6 +73,8 @@ class slowLogs extends Model
     public $queryTimes;
 
     /**
+     * @description The number of rows returned by the SQL statement.
+     *
      * @example 1
      *
      * @var int
@@ -65,6 +82,8 @@ class slowLogs extends Model
     public $returnRowCounts;
 
     /**
+     * @description The details of the SQL statement.
+     *
      * @example select sleep(2)
      *
      * @var string

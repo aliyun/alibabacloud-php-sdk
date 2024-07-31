@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListDisksResponseBody extends Model
 {
     /**
-     * @description Details about the disks.
+     * @description The queried disks.
      *
      * @var disks[]
      */

@@ -11,6 +11,7 @@ class DescribeInvocationsRequest extends Model
     /**
      * @description The ID of the simple application server.
      *
+     * This parameter is required.
      * @example 3a658ca270df4df39f22e289b338****
      *
      * @var string
@@ -51,8 +52,9 @@ class DescribeInvocationsRequest extends Model
     public $pageSize;
 
     /**
-     * @description The region ID of the simple application server. You can call the [ListRegions](~~189315~~) operation to query the most recent region list.
+     * @description The region ID of the simple application server. You can call the [ListRegions](https://help.aliyun.com/document_detail/189315.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

@@ -11,6 +11,7 @@ class LoginInstanceRequest extends Model
     /**
      * @description The ID of the simple application server.
      *
+     * This parameter is required.
      * @example 9ae7106e68eb4402b0dcbd48a9de****
      *
      * @var string
@@ -21,7 +22,7 @@ class LoginInstanceRequest extends Model
      * @description The password that corresponds to the username.
      *
      *   For a Linux server, you do not need to enter a password.
-     *   For a Windows server, enter the password that you set. If you have not set a password for the simple application server, set a password. For more information, see [Reset the password](~~60055~~).
+     *   For a Windows server, enter the password that you set. If you have not set a password for the simple application server, set a password. For more information, see [Reset the password](https://help.aliyun.com/document_detail/60055.html).
      *
      * @example Test****
      *
@@ -30,8 +31,16 @@ class LoginInstanceRequest extends Model
     public $password;
 
     /**
-     * @description The region ID of the simple application server. You can call the [ListRegions](~~189315~~) operation to query the most recent region list.
+     * @example 3389
      *
+     * @var int
+     */
+    public $port;
+
+    /**
+     * @description The region ID of the simple application server. You can call the [ListRegions](https://help.aliyun.com/document_detail/189315.html) operation to query the most recent region list.
+     *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -42,7 +51,7 @@ class LoginInstanceRequest extends Model
      * @description The username of the simple application server.
      *
      *   For a Linux server, you do not need to enter a username.
-     *   For a Windows server, the default username is `administrator`.
+     *   For a Windows server, the default username `administrator` is used.
      *
      * @example administrator
      *
@@ -52,6 +61,7 @@ class LoginInstanceRequest extends Model
     protected $_name = [
         'instanceId' => 'InstanceId',
         'password'   => 'Password',
+        'port'       => 'Port',
         'regionId'   => 'RegionId',
         'username'   => 'Username',
     ];
@@ -68,6 +78,9 @@ class LoginInstanceRequest extends Model
         }
         if (null !== $this->password) {
             $res['Password'] = $this->password;
+        }
+        if (null !== $this->port) {
+            $res['Port'] = $this->port;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -92,6 +105,9 @@ class LoginInstanceRequest extends Model
         }
         if (isset($map['Password'])) {
             $model->password = $map['Password'];
+        }
+        if (isset($map['Port'])) {
+            $model->port = $map['Port'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
