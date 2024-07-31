@@ -9,8 +9,15 @@ use AlibabaCloud\Tea\Model;
 class SubscribeRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The receiver endpoint. The format of the endpoint varies based on the terminal type.
      *
+     *   If you set PushType to http, set Endpoint to an `HTTP URL that starts with http:// or https://`.
+     *   If you set PushType to queue, set Endpoint to a `queue name`.
+     *   If you set PushType to mpush, set Endpoint to an `AppKey`.
+     *   If you set PushType to alisms, set Endpoint to a `mobile number`.
+     *   If you set PushType to email, set Endpoint to an `email address`.
+     *
+     * This parameter is required.
      * @example http://example.com
      *
      * @var string
@@ -18,6 +25,9 @@ class SubscribeRequest extends Model
     public $endpoint;
 
     /**
+     * @description The tag that is used to filter messages. Only messages that have the same tag can be pushed. Set the value to a string of no more than 16 characters.
+     *
+     * By default, no tag is specified to filter messages.
      * @example important
      *
      * @var string
@@ -25,6 +35,12 @@ class SubscribeRequest extends Model
     public $messageTag;
 
     /**
+     * @description The content format of the messages that are pushed to the endpoint. Valid values:
+     *
+     *   XML
+     *   JSON
+     *   SIMPLIFIED
+     *
      * @example XML
      *
      * @var string
@@ -32,6 +48,11 @@ class SubscribeRequest extends Model
     public $notifyContentFormat;
 
     /**
+     * @description The retry policy that is applied if an error occurs when Message Service (MNS) pushes messages to the endpoint. Valid values:
+     *
+     *   BACKOFF_RETRY
+     *   EXPONENTIAL_DECAY_RETRY
+     *
      * @example BACKOFF_RETRY
      *
      * @var string
@@ -39,8 +60,15 @@ class SubscribeRequest extends Model
     public $notifyStrategy;
 
     /**
-     * @description This parameter is required.
+     * @description The terminal type. Valid values:
      *
+     *   http: HTTP services
+     *   queue: queues
+     *   mpush: mobile devices
+     *   alisms: Alibaba Cloud Short Message Service (SMS)
+     *   email: emails
+     *
+     * This parameter is required.
      * @example queue
      *
      * @var string
@@ -48,8 +76,9 @@ class SubscribeRequest extends Model
     public $pushType;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the subscription.
      *
+     * This parameter is required.
      * @example testSubscription
      *
      * @var string
@@ -57,8 +86,9 @@ class SubscribeRequest extends Model
     public $subscriptionName;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the topic.
      *
+     * This parameter is required.
      * @example test
      *
      * @var string

@@ -10,8 +10,9 @@ use AlibabaCloud\Tea\Model;
 class GetQueueAttributesRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The name of the queue.
      *
+     * This parameter is required.
      * @example demo-queue
      *
      * @var string

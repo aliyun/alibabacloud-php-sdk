@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class SetTopicAttributesRequest extends Model
 {
     /**
+     * @description Specifies whether to enable the logging feature. Valid values:
+     *
+     *   True
+     *   False (default)
+     *
      * @example True
      *
      * @var bool
@@ -16,6 +21,8 @@ class SetTopicAttributesRequest extends Model
     public $enableLogging;
 
     /**
+     * @description The maximum length of the message that is sent to the topic. Valid values: 1024 to 65536. Unit: bytes. Default value: 65536.
+     *
      * @example 65536
      *
      * @var int
@@ -23,8 +30,9 @@ class SetTopicAttributesRequest extends Model
     public $maxMessageSize;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the topic.
      *
+     * This parameter is required.
      * @example test
      *
      * @var string

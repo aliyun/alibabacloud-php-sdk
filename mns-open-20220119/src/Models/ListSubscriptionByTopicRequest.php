@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListSubscriptionByTopicRequest extends Model
 {
     /**
+     * @description The page number. Valid values: 1 to 100000000. If you set this parameter to a value smaller than 1, the value of this parameter is 1 by default. If you set this parameter to a value greater than 100000000, the value of this parameter is 100000000 by default.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class ListSubscriptionByTopicRequest extends Model
     public $pageNum;
 
     /**
+     * @description The number of entries per page. Value values: 10 to 50. If you set this parameter to a value smaller than 10, the value of this parameter is 10 by default. If you set this parameter to a value greater than 50, the value of this parameter is 50 by default.
+     *
      * @example 20
      *
      * @var int
@@ -23,6 +27,8 @@ class ListSubscriptionByTopicRequest extends Model
     public $pageSize;
 
     /**
+     * @description The name of the subscription.
+     *
      * @example demo-subscription
      *
      * @var string
@@ -30,7 +36,7 @@ class ListSubscriptionByTopicRequest extends Model
     public $subscriptionName;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the topic.
      *
      * @example test
      *

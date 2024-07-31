@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The time when the subscription was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1449554806
      *
      * @var int
@@ -16,6 +18,8 @@ class data extends Model
     public $createTime;
 
     /**
+     * @description The endpoint to which the messages are pushed.
+     *
      * @example http://example.com
      *
      * @var string
@@ -23,6 +27,8 @@ class data extends Model
     public $endpoint;
 
     /**
+     * @description The tag that is used to filter messages. Only the messages that are attached with the specified tag can be pushed.
+     *
      * @example important
      *
      * @var string
@@ -30,6 +36,8 @@ class data extends Model
     public $filterTag;
 
     /**
+     * @description The time when the subscription was last modified. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1449554962
      *
      * @var int
@@ -37,6 +45,12 @@ class data extends Model
     public $lastModifyTime;
 
     /**
+     * @description The content format of the messages that are pushed to the endpoint. Valid values:
+     *
+     *   XML
+     *   JSON
+     *   SIMPLIFIED
+     *
      * @example XML
      *
      * @var string
@@ -44,6 +58,11 @@ class data extends Model
     public $notifyContentFormat;
 
     /**
+     * @description The retry policy that is applied if an error occurs when Message Service (MNS) pushes messages to the endpoint. Valid values:
+     *
+     *   BACKOFF_RETRY
+     *   EXPONENTIAL_DECAY_RETRY
+     *
      * @example BACKOFF_RETRY
      *
      * @var string
@@ -51,6 +70,8 @@ class data extends Model
     public $notifyStrategy;
 
     /**
+     * @description The name of the subscription.
+     *
      * @example MySubscription
      *
      * @var string
@@ -58,6 +79,8 @@ class data extends Model
     public $subscriptionName;
 
     /**
+     * @description The name of the topic.
+     *
      * @example MyTopic
      *
      * @var string
@@ -65,6 +88,8 @@ class data extends Model
     public $topicName;
 
     /**
+     * @description The Alibaba Cloud account ID of the topic owner.
+     *
      * @example 123456789098****
      *
      * @var string

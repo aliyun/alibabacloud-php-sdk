@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteQueueRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The name of the queue.
      *
+     * This parameter is required.
      * @example tf-testAccMNSQueue-525478433321945943
      *
      * @var string

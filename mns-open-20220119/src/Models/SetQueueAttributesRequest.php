@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SetQueueAttributesRequest extends Model
 {
     /**
+     * @description The period after which all messages sent to the queue are consumed. Valid values: 0 to 604800. Unit: seconds. Default value: 0
+     *
      * @example 0
      *
      * @var int
@@ -16,6 +18,11 @@ class SetQueueAttributesRequest extends Model
     public $delaySeconds;
 
     /**
+     * @description Specifies whether to enable the logging feature. Valid values:
+     *
+     *   True
+     *   False (default)
+     *
      * @example True
      *
      * @var bool
@@ -23,6 +30,8 @@ class SetQueueAttributesRequest extends Model
     public $enableLogging;
 
     /**
+     * @description The maximum length of the message that is sent to the queue. Valid values: 1024 to 65536. Unit: bytes. Default value: 65536.
+     *
      * @example 1024
      *
      * @var int
@@ -30,6 +39,8 @@ class SetQueueAttributesRequest extends Model
     public $maximumMessageSize;
 
     /**
+     * @description The maximum duration for which a message is retained in the queue. After the specified retention period ends, the message is deleted regardless of whether the message is received. Valid values: 60 to 604800. Unit: seconds. Default value: 345600.
+     *
      * @example 120
      *
      * @var int
@@ -37,6 +48,8 @@ class SetQueueAttributesRequest extends Model
     public $messageRetentionPeriod;
 
     /**
+     * @description The maximum duration for which long polling requests are held after the ReceiveMessage operation is called. Valid values: 0 to 30. Unit: seconds. Default value: 0
+     *
      * @example 0
      *
      * @var int
@@ -44,8 +57,9 @@ class SetQueueAttributesRequest extends Model
     public $pollingWaitSeconds;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the queue.
      *
+     * This parameter is required.
      * @example testqueue
      *
      * @var string
@@ -53,6 +67,8 @@ class SetQueueAttributesRequest extends Model
     public $queueName;
 
     /**
+     * @description The duration for which a message stays in the Inactive state after the message is received from the queue. Valid values: 1 to 43200. Unit: seconds. Default value: 30.
+     *
      * @example 60
      *
      * @var int

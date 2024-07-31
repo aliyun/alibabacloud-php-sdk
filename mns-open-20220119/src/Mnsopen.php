@@ -76,7 +76,7 @@ class Mnsopen extends OpenApiClient
     }
 
     /**
-     * @summary CreateQueue
+     * @summary Creates a queue.
      *  *
      * @param CreateQueueRequest $request CreateQueueRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
@@ -130,7 +130,7 @@ class Mnsopen extends OpenApiClient
     }
 
     /**
-     * @summary CreateQueue
+     * @summary Creates a queue.
      *  *
      * @param CreateQueueRequest $request CreateQueueRequest
      *
@@ -144,7 +144,7 @@ class Mnsopen extends OpenApiClient
     }
 
     /**
-     * @summary CreateTopic
+     * @summary Creates a topic.
      *  *
      * @param CreateTopicRequest $request CreateTopicRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
@@ -188,7 +188,7 @@ class Mnsopen extends OpenApiClient
     }
 
     /**
-     * @summary CreateTopic
+     * @summary Creates a topic.
      *  *
      * @param CreateTopicRequest $request CreateTopicRequest
      *
@@ -202,7 +202,7 @@ class Mnsopen extends OpenApiClient
     }
 
     /**
-     * @summary DeleteQueue
+     * @summary Deletes a queue.
      *  *
      * @param DeleteQueueRequest $request DeleteQueueRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
@@ -235,7 +235,7 @@ class Mnsopen extends OpenApiClient
     }
 
     /**
-     * @summary DeleteQueue
+     * @summary Deletes a queue.
      *  *
      * @param DeleteQueueRequest $request DeleteQueueRequest
      *
@@ -249,7 +249,7 @@ class Mnsopen extends OpenApiClient
     }
 
     /**
-     * @summary 删除订阅主题
+     * @summary Deletes a topic.
      *  *
      * @param DeleteTopicRequest $request DeleteTopicRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
@@ -282,7 +282,7 @@ class Mnsopen extends OpenApiClient
     }
 
     /**
-     * @summary 删除订阅主题
+     * @summary Deletes a topic.
      *  *
      * @param DeleteTopicRequest $request DeleteTopicRequest
      *
@@ -296,7 +296,7 @@ class Mnsopen extends OpenApiClient
     }
 
     /**
-     * @summary GetQueueAttributes
+     * @summary Queries the attributes of an existing queue.
      *  *
      * @param GetQueueAttributesRequest $request GetQueueAttributesRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -332,7 +332,7 @@ class Mnsopen extends OpenApiClient
     }
 
     /**
-     * @summary GetQueueAttributes
+     * @summary Queries the attributes of an existing queue.
      *  *
      * @param GetQueueAttributesRequest $request GetQueueAttributesRequest
      *
@@ -346,7 +346,7 @@ class Mnsopen extends OpenApiClient
     }
 
     /**
-     * @summary GetSubscription
+     * @summary Queries the attributes of a subscription.
      *  *
      * @param GetSubscriptionAttributesRequest $request GetSubscriptionAttributesRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -382,7 +382,7 @@ class Mnsopen extends OpenApiClient
     }
 
     /**
-     * @summary GetSubscription
+     * @summary Queries the attributes of a subscription.
      *  *
      * @param GetSubscriptionAttributesRequest $request GetSubscriptionAttributesRequest
      *
@@ -396,7 +396,7 @@ class Mnsopen extends OpenApiClient
     }
 
     /**
-     * @summary 查询主题
+     * @summary Queries the attributes of a topic.
      *  *
      * @param GetTopicAttributesRequest $request GetTopicAttributesRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -432,7 +432,7 @@ class Mnsopen extends OpenApiClient
     }
 
     /**
-     * @summary 查询主题
+     * @summary Queries the attributes of a topic.
      *  *
      * @param GetTopicAttributesRequest $request GetTopicAttributesRequest
      *
@@ -446,7 +446,7 @@ class Mnsopen extends OpenApiClient
     }
 
     /**
-     * @summary ListQueue
+     * @summary Queries all queues that belong to an Alibaba Cloud account. The queues are displayed by page.
      *  *
      * @param ListQueueRequest $request ListQueueRequest
      * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
@@ -488,7 +488,7 @@ class Mnsopen extends OpenApiClient
     }
 
     /**
-     * @summary ListQueue
+     * @summary Queries all queues that belong to an Alibaba Cloud account. The queues are displayed by page.
      *  *
      * @param ListQueueRequest $request ListQueueRequest
      *
@@ -502,7 +502,7 @@ class Mnsopen extends OpenApiClient
     }
 
     /**
-     * @summary ListSubscription
+     * @summary Queries all subscriptions to a topic. The subscriptions are displayed by page.
      *  *
      * @param ListSubscriptionByTopicRequest $request ListSubscriptionByTopicRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -544,7 +544,7 @@ class Mnsopen extends OpenApiClient
     }
 
     /**
-     * @summary ListSubscription
+     * @summary Queries all subscriptions to a topic. The subscriptions are displayed by page.
      *  *
      * @param ListSubscriptionByTopicRequest $request ListSubscriptionByTopicRequest
      *
@@ -558,7 +558,7 @@ class Mnsopen extends OpenApiClient
     }
 
     /**
-     * @summary ListTopic
+     * @summary Queries the topics that belong to an Alibaba Cloud account. The topics are displayed by page.
      *  *
      * @param ListTopicRequest $request ListTopicRequest
      * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
@@ -600,7 +600,7 @@ class Mnsopen extends OpenApiClient
     }
 
     /**
-     * @summary ListTopic
+     * @summary Queries the topics that belong to an Alibaba Cloud account. The topics are displayed by page.
      *  *
      * @param ListTopicRequest $request ListTopicRequest
      *
@@ -614,7 +614,7 @@ class Mnsopen extends OpenApiClient
     }
 
     /**
-     * @summary SetQueueAttributes
+     * @summary Modifies a queue.
      *  *
      * @param SetQueueAttributesRequest $request SetQueueAttributesRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -665,7 +665,7 @@ class Mnsopen extends OpenApiClient
     }
 
     /**
-     * @summary SetQueueAttributes
+     * @summary Modifies a queue.
      *  *
      * @param SetQueueAttributesRequest $request SetQueueAttributesRequest
      *
@@ -679,7 +679,7 @@ class Mnsopen extends OpenApiClient
     }
 
     /**
-     * @summary ModifySubscription
+     * @summary Modifies the attributes of a subscription.
      *  *
      * @param SetSubscriptionAttributesRequest $request SetSubscriptionAttributesRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -718,7 +718,7 @@ class Mnsopen extends OpenApiClient
     }
 
     /**
-     * @summary ModifySubscription
+     * @summary Modifies the attributes of a subscription.
      *  *
      * @param SetSubscriptionAttributesRequest $request SetSubscriptionAttributesRequest
      *
@@ -732,7 +732,7 @@ class Mnsopen extends OpenApiClient
     }
 
     /**
-     * @summary 编辑订阅主题
+     * @summary Modifies the attributes of a topic.
      *  *
      * @param SetTopicAttributesRequest $request SetTopicAttributesRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -771,7 +771,7 @@ class Mnsopen extends OpenApiClient
     }
 
     /**
-     * @summary 编辑订阅主题
+     * @summary Modifies the attributes of a topic.
      *  *
      * @param SetTopicAttributesRequest $request SetTopicAttributesRequest
      *
@@ -785,7 +785,7 @@ class Mnsopen extends OpenApiClient
     }
 
     /**
-     * @summary CreateSubscription
+     * @summary Creates a subscription to a topic.
      *  *
      * @param SubscribeRequest $request SubscribeRequest
      * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
@@ -836,7 +836,7 @@ class Mnsopen extends OpenApiClient
     }
 
     /**
-     * @summary CreateSubscription
+     * @summary Creates a subscription to a topic.
      *  *
      * @param SubscribeRequest $request SubscribeRequest
      *
@@ -850,7 +850,7 @@ class Mnsopen extends OpenApiClient
     }
 
     /**
-     * @summary DeleteSubscription
+     * @summary Deletes a subscription.
      *  *
      * @param UnsubscribeRequest $request UnsubscribeRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
@@ -886,7 +886,7 @@ class Mnsopen extends OpenApiClient
     }
 
     /**
-     * @summary DeleteSubscription
+     * @summary Deletes a subscription.
      *  *
      * @param UnsubscribeRequest $request UnsubscribeRequest
      *

@@ -15,8 +15,9 @@ class GetTopicAttributesRequest extends Model
     public $tag;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the topic.
      *
+     * This parameter is required.
      * @example demo-topic
      *
      * @var string

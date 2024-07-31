@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class pageData extends Model
 {
     /**
+     * @description The total number of messages that are in the Active state in the queue. The value is an approximate number.
+     *
      * @example 20
      *
      * @var int
@@ -17,6 +19,8 @@ class pageData extends Model
     public $activeMessages;
 
     /**
+     * @description The time when the queue was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1250700999
      *
      * @var int
@@ -24,6 +28,8 @@ class pageData extends Model
     public $createTime;
 
     /**
+     * @description The total number of the messages that are in the Delayed state in the queue. The value is an approximate number.
+     *
      * @example 0
      *
      * @var int
@@ -31,6 +37,8 @@ class pageData extends Model
     public $delayMessages;
 
     /**
+     * @description The period after which all messages sent to the queue are consumed. Unit: seconds.
+     *
      * @example 30
      *
      * @var int
@@ -38,6 +46,8 @@ class pageData extends Model
     public $delaySeconds;
 
     /**
+     * @description The total number of the messages that are in the Inactive state in the queue. The value is an approximate number.
+     *
      * @example 0
      *
      * @var int
@@ -45,6 +55,8 @@ class pageData extends Model
     public $inactiveMessages;
 
     /**
+     * @description The time when the queue was last modified. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1250700999
      *
      * @var int
@@ -52,6 +64,11 @@ class pageData extends Model
     public $lastModifyTime;
 
     /**
+     * @description Indicates whether the logging feature is enabled. Valid values:
+     *
+     *   True
+     *   False
+     *
      * @example True
      *
      * @var bool
@@ -59,6 +76,8 @@ class pageData extends Model
     public $loggingEnabled;
 
     /**
+     * @description The maximum length of the message that is sent to the queue. Unit: bytes.
+     *
      * @example 65536
      *
      * @var int
@@ -66,6 +85,8 @@ class pageData extends Model
     public $maximumMessageSize;
 
     /**
+     * @description The maximum duration for which a message is retained in the queue. After the specified retention period ends, the message is deleted regardless of whether the message is received. Unit: seconds.
+     *
      * @example 65536
      *
      * @var int
@@ -73,6 +94,8 @@ class pageData extends Model
     public $messageRetentionPeriod;
 
     /**
+     * @description The maximum duration for which long polling requests are held after the ReceiveMessage operation is called. Unit: seconds.
+     *
      * @example 0
      *
      * @var int
@@ -80,6 +103,8 @@ class pageData extends Model
     public $pollingWaitSeconds;
 
     /**
+     * @description The name of the queue.
+     *
      * @example demo-queue
      *
      * @var string
@@ -92,6 +117,8 @@ class pageData extends Model
     public $tags;
 
     /**
+     * @description The duration for which a message stays in the Inactive state after the message is received from the queue. Valid values: 1 to 43200. Unit: seconds. Default value: 30.
+     *
      * @example 60
      *
      * @var int

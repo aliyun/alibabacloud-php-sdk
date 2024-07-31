@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class SetSubscriptionAttributesRequest extends Model
 {
     /**
+     * @description The retry policy that is applied if an error occurs when Message Service (MNS) pushes messages to the endpoint. Valid values:
+     *
+     *   BACKOFF_RETRY
+     *   EXPONENTIAL_DECAY_RETRY
+     *
      * @example BACKOFF_RETRY
      *
      * @var string
@@ -16,8 +21,9 @@ class SetSubscriptionAttributesRequest extends Model
     public $notifyStrategy;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the subscription.
      *
+     * This parameter is required.
      * @example MySubscription
      *
      * @var string
@@ -25,8 +31,9 @@ class SetSubscriptionAttributesRequest extends Model
     public $subscriptionName;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the topic.
      *
+     * This parameter is required.
      * @example test
      *
      * @var string

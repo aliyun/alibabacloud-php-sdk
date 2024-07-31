@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class pageData extends Model
 {
     /**
+     * @description The time when the subscription was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1449554962
      *
      * @var int
@@ -17,6 +19,8 @@ class pageData extends Model
     public $createTime;
 
     /**
+     * @description The time when the subscription was last modified. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1449554962
      *
      * @var int
@@ -24,6 +28,11 @@ class pageData extends Model
     public $lastModifyTime;
 
     /**
+     * @description Indicates whether the logging feature is enabled.
+     *
+     *   True
+     *   False
+     *
      * @example True
      *
      * @var bool
@@ -31,6 +40,8 @@ class pageData extends Model
     public $loggingEnabled;
 
     /**
+     * @description The maximum length of the message that is sent to the topic. Unit: bytes.
+     *
      * @example 65536
      *
      * @var int
@@ -38,6 +49,8 @@ class pageData extends Model
     public $maxMessageSize;
 
     /**
+     * @description The number of messages in the topic.
+     *
      * @example 0
      *
      * @var int
@@ -45,6 +58,8 @@ class pageData extends Model
     public $messageCount;
 
     /**
+     * @description The maximum duration for which a message is retained in the topic. After the specified retention period ends, the message is deleted regardless of whether the message is received. Unit: seconds.
+     *
      * @example 86400
      *
      * @var int
@@ -62,6 +77,8 @@ class pageData extends Model
     public $topicInnerUrl;
 
     /**
+     * @description The name of the topic.
+     *
      * @example demo-topic
      *
      * @var string

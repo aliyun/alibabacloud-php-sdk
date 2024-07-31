@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateQueueRequest extends Model
 {
     /**
+     * @description The period after which all messages sent to the queue are consumed. Valid values: 0 to 604800. Unit: seconds. Default value: 0
+     *
      * @example 0
      *
      * @var int
@@ -17,6 +19,11 @@ class CreateQueueRequest extends Model
     public $delaySeconds;
 
     /**
+     * @description Specifies whether to enable the logging feature. Valid values:
+     *
+     *   True
+     *   False (default)
+     *
      * @example true
      *
      * @var bool
@@ -24,6 +31,8 @@ class CreateQueueRequest extends Model
     public $enableLogging;
 
     /**
+     * @description The maximum length of the message that is sent to the queue. Valid values: 1024 to 65536. Unit: bytes. Default value: 65536.
+     *
      * @example 65536
      *
      * @var int
@@ -31,6 +40,8 @@ class CreateQueueRequest extends Model
     public $maximumMessageSize;
 
     /**
+     * @description The maximum duration for which a message is retained in the queue. After the specified retention period ends, the message is deleted regardless of whether the message is received. Valid values: 60 to 604800. Unit: seconds. Default value: 345600.
+     *
      * @example 345600
      *
      * @var int
@@ -38,6 +49,8 @@ class CreateQueueRequest extends Model
     public $messageRetentionPeriod;
 
     /**
+     * @description The maximum duration for which long polling requests are held after the ReceiveMessage operation is called. Valid values: 0 to 30. Unit: seconds. Default value: 0
+     *
      * @example 0
      *
      * @var int
@@ -45,8 +58,9 @@ class CreateQueueRequest extends Model
     public $pollingWaitSeconds;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the queue.
      *
+     * This parameter is required.
      * @example 06273500-249F-5863-121D-74D51123****
      *
      * @var string
@@ -59,6 +73,8 @@ class CreateQueueRequest extends Model
     public $tag;
 
     /**
+     * @description The duration for which a message stays in the Inactive state after the message is received from the queue. Valid values: 1 to 43200. Unit: seconds. Default value: 30.
+     *
      * @example 60
      *
      * @var int
