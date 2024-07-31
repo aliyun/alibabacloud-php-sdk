@@ -67,7 +67,7 @@ class AllocateAnycastEipAddressRequest extends Model
     /**
      * @description The name of the Anycast EIP.
      *
-     * The name must be 0 to 128 characters in length, and can contain letters, digits, underscores (\_), and hyphens (-). It must start with a letter.
+     * The name must be 0 to 128 characters in length, and can contain letters, digits, underscores (_), and hyphens (-). It must start with a letter.
      * @example doctest
      *
      * @var string
@@ -87,6 +87,8 @@ class AllocateAnycastEipAddressRequest extends Model
      * @description The access area of the Anycast EIP.
      *
      * Set the value to **international**, which specifies the areas outside the Chinese mainland.
+     *
+     * This parameter is required.
      * @example international
      *
      * @var string

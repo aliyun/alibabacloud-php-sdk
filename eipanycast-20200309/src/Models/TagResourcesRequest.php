@@ -12,6 +12,7 @@ class TagResourcesRequest extends Model
     /**
      * @description The resource ID. You can specify at most 20 IDs.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $resourceId;
@@ -19,6 +20,7 @@ class TagResourcesRequest extends Model
     /**
      * @description The resource type. Set the value to **ANYCASTEIPADDRESS**.
      *
+     * This parameter is required.
      * @example ANYCASTEIPADDRESS
      *
      * @var string
@@ -28,6 +30,7 @@ class TagResourcesRequest extends Model
     /**
      * @description The tag information.
      *
+     * This parameter is required.
      * @var tag[]
      */
     public $tag;

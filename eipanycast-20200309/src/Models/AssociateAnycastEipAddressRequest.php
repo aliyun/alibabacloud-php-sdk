@@ -12,6 +12,7 @@ class AssociateAnycastEipAddressRequest extends Model
     /**
      * @description The ID of the Anycast EIP.
      *
+     * This parameter is required.
      * @example aeip-bp1ix34fralt4ykf3****
      *
      * @var string
@@ -24,7 +25,7 @@ class AssociateAnycastEipAddressRequest extends Model
      *   **Default**: the default mode. In this mode, the endpoint to be associated serves as the default origin server.
      *   **Normal**: the standard mode. In this mode, the endpoint to be associated serves as a standard origin server.
      *
-     * > You can associate endpoints in multiple regions with an Anycast EIP. However, only one endpoint can serve as the default origin server. Others serve as standard origin servers. If you do not specify or add an access point, requests are forwarded to the default origin server.\
+     * > You can associate endpoints in multiple regions with an Anycast EIP. However, only one endpoint can serve as the default origin server. Others serve as standard origin servers. If you do not specify or add an access point, requests are forwarded to the default origin server.\\
      *
      *
      *   If this is your first time to associate an Anycast EIP with an endpoint, set the value to **Default**.
@@ -39,6 +40,7 @@ class AssociateAnycastEipAddressRequest extends Model
     /**
      * @description The ID of the endpoint with which you want to associate the Anycast EIP.
      *
+     * This parameter is required.
      * @example lb-d7oxbixhxv1uupnon****
      *
      * @var string
@@ -48,7 +50,7 @@ class AssociateAnycastEipAddressRequest extends Model
     /**
      * @description The ID of the region where the endpoint is deployed.
      *
-     * You can associate Anycast EIPs only with endpoints in specific regions. You can call the [DescribeAnycastServerRegions](~~171939~~) operation to query the region IDs.
+     * This parameter is required.
      * @example us-west-1
      *
      * @var string
@@ -61,6 +63,7 @@ class AssociateAnycastEipAddressRequest extends Model
      *   **SlbInstance**: internal-facing Server Load Balancer (SLB) instance that is deployed in a virtual private cloud (VPC)
      *   **NetworkInterface**: elastic network interface (ENI)
      *
+     * This parameter is required.
      * @example SlbInstance
      *
      * @var string
@@ -94,7 +97,7 @@ class AssociateAnycastEipAddressRequest extends Model
     /**
      * @description The information about the access points in associated access areas when you associate an Anycast EIP with an endpoint.
      *
-     * You can call the [DescribeAnycastPopLocations](~~171938~~) operation to query information about access points in supported access areas.
+     * You can call the [DescribeAnycastPopLocations](https://help.aliyun.com/document_detail/171938.html) operation to query information about access points in supported access areas.
      * @var popLocations[]
      */
     public $popLocations;

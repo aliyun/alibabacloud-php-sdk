@@ -11,6 +11,7 @@ class UnassociateAnycastEipAddressRequest extends Model
     /**
      * @description The ID of the Anycast EIP.
      *
+     * This parameter is required.
      * @example aeip-2zeerraiwb7ujsxdc****
      *
      * @var string
@@ -20,6 +21,7 @@ class UnassociateAnycastEipAddressRequest extends Model
     /**
      * @description The ID of the endpoint from which you want to disassociate the Anycast EIP.
      *
+     * This parameter is required.
      * @example lb-2zebb08phyczzawe****
      *
      * @var string
@@ -29,6 +31,7 @@ class UnassociateAnycastEipAddressRequest extends Model
     /**
      * @description The region where the endpoint is deployed.
      *
+     * This parameter is required.
      * @example us-west-1
      *
      * @var string
@@ -41,6 +44,7 @@ class UnassociateAnycastEipAddressRequest extends Model
      *   **SlbInstance**: an internal-facing Server Load Balancer (SLB) instance that is deployed in a virtual private cloud (VPC)
      *   **NetworkInterface**: elastic network interface (ENI)
      *
+     * This parameter is required.
      * @example SlbInstance
      *
      * @var string

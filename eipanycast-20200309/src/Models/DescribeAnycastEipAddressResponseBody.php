@@ -151,6 +151,11 @@ class DescribeAnycastEipAddressResponseBody extends Model
     public $serviceLocation;
 
     /**
+     * @var int
+     */
+    public $serviceManaged;
+
+    /**
      * @description The status of the Anycast EIP.
      *
      *   **Associating**
@@ -189,6 +194,7 @@ class DescribeAnycastEipAddressResponseBody extends Model
         'requestId'              => 'RequestId',
         'resourceGroupId'        => 'ResourceGroupId',
         'serviceLocation'        => 'ServiceLocation',
+        'serviceManaged'         => 'ServiceManaged',
         'status'                 => 'Status',
         'tags'                   => 'Tags',
     ];
@@ -250,6 +256,9 @@ class DescribeAnycastEipAddressResponseBody extends Model
         }
         if (null !== $this->serviceLocation) {
             $res['ServiceLocation'] = $this->serviceLocation;
+        }
+        if (null !== $this->serviceManaged) {
+            $res['ServiceManaged'] = $this->serviceManaged;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -325,6 +334,9 @@ class DescribeAnycastEipAddressResponseBody extends Model
         }
         if (isset($map['ServiceLocation'])) {
             $model->serviceLocation = $map['ServiceLocation'];
+        }
+        if (isset($map['ServiceManaged'])) {
+            $model->serviceManaged = $map['ServiceManaged'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

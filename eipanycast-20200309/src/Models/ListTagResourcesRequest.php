@@ -40,6 +40,7 @@ class ListTagResourcesRequest extends Model
     /**
      * @description The resource type. Set the value to **ANYCASTEIPADDRESS**.
      *
+     * This parameter is required.
      * @example ANYCASTEIPADDRESS
      *
      * @var string

@@ -11,6 +11,7 @@ class ModifyAnycastEipAddressSpecRequest extends Model
     /**
      * @description The ID of the Anycast EIP.
      *
+     * This parameter is required.
      * @example aeip-bp1ix34fralt4ykf3****
      *
      * @var string
@@ -21,6 +22,8 @@ class ModifyAnycastEipAddressSpecRequest extends Model
      * @description The maximum bandwidth of the Anycast EIP. Unit: Mbit/s.
      *
      * Valid values: **200** to **1000**.
+     *
+     * This parameter is required.
      * @example 200
      *
      * @var string

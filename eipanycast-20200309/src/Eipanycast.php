@@ -74,10 +74,12 @@ class Eipanycast extends OpenApiClient
     }
 
     /**
-     * @param AllocateAnycastEipAddressRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Creates an Anycast elastic IP address (Anycast EIP).
+     *  *
+     * @param AllocateAnycastEipAddressRequest $request AllocateAnycastEipAddressRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return AllocateAnycastEipAddressResponse
+     * @return AllocateAnycastEipAddressResponse AllocateAnycastEipAddressResponse
      */
     public function allocateAnycastEipAddressWithOptions($request, $runtime)
     {
@@ -126,9 +128,11 @@ class Eipanycast extends OpenApiClient
     }
 
     /**
-     * @param AllocateAnycastEipAddressRequest $request
+     * @summary Creates an Anycast elastic IP address (Anycast EIP).
+     *  *
+     * @param AllocateAnycastEipAddressRequest $request AllocateAnycastEipAddressRequest
      *
-     * @return AllocateAnycastEipAddressResponse
+     * @return AllocateAnycastEipAddressResponse AllocateAnycastEipAddressResponse
      */
     public function allocateAnycastEipAddress($request)
     {
@@ -138,10 +142,12 @@ class Eipanycast extends OpenApiClient
     }
 
     /**
-     * @param AssociateAnycastEipAddressRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Associates an Anycast elastic IP address (Anycast EIP) with an endpoint.
+     *  *
+     * @param AssociateAnycastEipAddressRequest $request AssociateAnycastEipAddressRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return AssociateAnycastEipAddressResponse
+     * @return AssociateAnycastEipAddressResponse AssociateAnycastEipAddressResponse
      */
     public function associateAnycastEipAddressWithOptions($request, $runtime)
     {
@@ -193,9 +199,11 @@ class Eipanycast extends OpenApiClient
     }
 
     /**
-     * @param AssociateAnycastEipAddressRequest $request
+     * @summary Associates an Anycast elastic IP address (Anycast EIP) with an endpoint.
+     *  *
+     * @param AssociateAnycastEipAddressRequest $request AssociateAnycastEipAddressRequest
      *
-     * @return AssociateAnycastEipAddressResponse
+     * @return AssociateAnycastEipAddressResponse AssociateAnycastEipAddressResponse
      */
     public function associateAnycastEipAddress($request)
     {
@@ -205,10 +213,12 @@ class Eipanycast extends OpenApiClient
     }
 
     /**
-     * @param DescribeAnycastEipAddressRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Queries Anycast elastic IP addresses (Anycast EIPs) associated with specified instance IP addresses or instance IDs, including instance status, maximum bandwidth, and associated resources.
+     *  *
+     * @param DescribeAnycastEipAddressRequest $request DescribeAnycastEipAddressRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAnycastEipAddressResponse
+     * @return DescribeAnycastEipAddressResponse DescribeAnycastEipAddressResponse
      */
     public function describeAnycastEipAddressWithOptions($request, $runtime)
     {
@@ -242,9 +252,11 @@ class Eipanycast extends OpenApiClient
     }
 
     /**
-     * @param DescribeAnycastEipAddressRequest $request
+     * @summary Queries Anycast elastic IP addresses (Anycast EIPs) associated with specified instance IP addresses or instance IDs, including instance status, maximum bandwidth, and associated resources.
+     *  *
+     * @param DescribeAnycastEipAddressRequest $request DescribeAnycastEipAddressRequest
      *
-     * @return DescribeAnycastEipAddressResponse
+     * @return DescribeAnycastEipAddressResponse DescribeAnycastEipAddressResponse
      */
     public function describeAnycastEipAddress($request)
     {
@@ -254,10 +266,12 @@ class Eipanycast extends OpenApiClient
     }
 
     /**
-     * @param DescribeAnycastPopLocationsRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Queries the information about the access points in an area.
+     *  *
+     * @param DescribeAnycastPopLocationsRequest $request DescribeAnycastPopLocationsRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAnycastPopLocationsResponse
+     * @return DescribeAnycastPopLocationsResponse DescribeAnycastPopLocationsResponse
      */
     public function describeAnycastPopLocationsWithOptions($request, $runtime)
     {
@@ -285,9 +299,11 @@ class Eipanycast extends OpenApiClient
     }
 
     /**
-     * @param DescribeAnycastPopLocationsRequest $request
+     * @summary Queries the information about the access points in an area.
+     *  *
+     * @param DescribeAnycastPopLocationsRequest $request DescribeAnycastPopLocationsRequest
      *
-     * @return DescribeAnycastPopLocationsResponse
+     * @return DescribeAnycastPopLocationsResponse DescribeAnycastPopLocationsResponse
      */
     public function describeAnycastPopLocations($request)
     {
@@ -297,10 +313,12 @@ class Eipanycast extends OpenApiClient
     }
 
     /**
-     * @param DescribeAnycastServerRegionsRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Queries the regions where you can associate Anycast elastic IP addresses (Anycast EIPs) with endpoints.
+     *  *
+     * @param DescribeAnycastServerRegionsRequest $request DescribeAnycastServerRegionsRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAnycastServerRegionsResponse
+     * @return DescribeAnycastServerRegionsResponse DescribeAnycastServerRegionsResponse
      */
     public function describeAnycastServerRegionsWithOptions($request, $runtime)
     {
@@ -328,9 +346,11 @@ class Eipanycast extends OpenApiClient
     }
 
     /**
-     * @param DescribeAnycastServerRegionsRequest $request
+     * @summary Queries the regions where you can associate Anycast elastic IP addresses (Anycast EIPs) with endpoints.
+     *  *
+     * @param DescribeAnycastServerRegionsRequest $request DescribeAnycastServerRegionsRequest
      *
-     * @return DescribeAnycastServerRegionsResponse
+     * @return DescribeAnycastServerRegionsResponse DescribeAnycastServerRegionsResponse
      */
     public function describeAnycastServerRegions($request)
     {
@@ -340,10 +360,12 @@ class Eipanycast extends OpenApiClient
     }
 
     /**
-     * @param ListAnycastEipAddressesRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary 查询指定接入区域已创建的Anycast EIP实例
+     *  *
+     * @param ListAnycastEipAddressesRequest $request ListAnycastEipAddressesRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListAnycastEipAddressesResponse
+     * @return ListAnycastEipAddressesResponse ListAnycastEipAddressesResponse
      */
     public function listAnycastEipAddressesWithOptions($request, $runtime)
     {
@@ -410,9 +432,11 @@ class Eipanycast extends OpenApiClient
     }
 
     /**
-     * @param ListAnycastEipAddressesRequest $request
+     * @summary 查询指定接入区域已创建的Anycast EIP实例
+     *  *
+     * @param ListAnycastEipAddressesRequest $request ListAnycastEipAddressesRequest
      *
-     * @return ListAnycastEipAddressesResponse
+     * @return ListAnycastEipAddressesResponse ListAnycastEipAddressesResponse
      */
     public function listAnycastEipAddresses($request)
     {
@@ -422,10 +446,12 @@ class Eipanycast extends OpenApiClient
     }
 
     /**
-     * @param ListTagResourcesRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Queries the tags that are added to resources.
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResourcesWithOptions($request, $runtime)
     {
@@ -465,9 +491,11 @@ class Eipanycast extends OpenApiClient
     }
 
     /**
-     * @param ListTagResourcesRequest $request
+     * @summary Queries the tags that are added to resources.
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
      *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResources($request)
     {
@@ -477,10 +505,12 @@ class Eipanycast extends OpenApiClient
     }
 
     /**
-     * @param ModifyAnycastEipAddressAttributeRequest $request
-     * @param RuntimeOptions                          $runtime
+     * @summary Modifies the name and description of an Anycast elastic IP address (Anycast EIP).
+     *  *
+     * @param ModifyAnycastEipAddressAttributeRequest $request ModifyAnycastEipAddressAttributeRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyAnycastEipAddressAttributeResponse
+     * @return ModifyAnycastEipAddressAttributeResponse ModifyAnycastEipAddressAttributeResponse
      */
     public function modifyAnycastEipAddressAttributeWithOptions($request, $runtime)
     {
@@ -514,9 +544,11 @@ class Eipanycast extends OpenApiClient
     }
 
     /**
-     * @param ModifyAnycastEipAddressAttributeRequest $request
+     * @summary Modifies the name and description of an Anycast elastic IP address (Anycast EIP).
+     *  *
+     * @param ModifyAnycastEipAddressAttributeRequest $request ModifyAnycastEipAddressAttributeRequest
      *
-     * @return ModifyAnycastEipAddressAttributeResponse
+     * @return ModifyAnycastEipAddressAttributeResponse ModifyAnycastEipAddressAttributeResponse
      */
     public function modifyAnycastEipAddressAttribute($request)
     {
@@ -526,10 +558,12 @@ class Eipanycast extends OpenApiClient
     }
 
     /**
-     * @param ModifyAnycastEipAddressSpecRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Modifies the maximum bandwidth of an Anycast elastic IP address (Anycast EIP).
+     *  *
+     * @param ModifyAnycastEipAddressSpecRequest $request ModifyAnycastEipAddressSpecRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyAnycastEipAddressSpecResponse
+     * @return ModifyAnycastEipAddressSpecResponse ModifyAnycastEipAddressSpecResponse
      */
     public function modifyAnycastEipAddressSpecWithOptions($request, $runtime)
     {
@@ -560,9 +594,11 @@ class Eipanycast extends OpenApiClient
     }
 
     /**
-     * @param ModifyAnycastEipAddressSpecRequest $request
+     * @summary Modifies the maximum bandwidth of an Anycast elastic IP address (Anycast EIP).
+     *  *
+     * @param ModifyAnycastEipAddressSpecRequest $request ModifyAnycastEipAddressSpecRequest
      *
-     * @return ModifyAnycastEipAddressSpecResponse
+     * @return ModifyAnycastEipAddressSpecResponse ModifyAnycastEipAddressSpecResponse
      */
     public function modifyAnycastEipAddressSpec($request)
     {
@@ -572,10 +608,12 @@ class Eipanycast extends OpenApiClient
     }
 
     /**
-     * @param ReleaseAnycastEipAddressRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Releases an Anycast elastic IP address (Anycast EIP).
+     *  *
+     * @param ReleaseAnycastEipAddressRequest $request ReleaseAnycastEipAddressRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ReleaseAnycastEipAddressResponse
+     * @return ReleaseAnycastEipAddressResponse ReleaseAnycastEipAddressResponse
      */
     public function releaseAnycastEipAddressWithOptions($request, $runtime)
     {
@@ -606,9 +644,11 @@ class Eipanycast extends OpenApiClient
     }
 
     /**
-     * @param ReleaseAnycastEipAddressRequest $request
+     * @summary Releases an Anycast elastic IP address (Anycast EIP).
+     *  *
+     * @param ReleaseAnycastEipAddressRequest $request ReleaseAnycastEipAddressRequest
      *
-     * @return ReleaseAnycastEipAddressResponse
+     * @return ReleaseAnycastEipAddressResponse ReleaseAnycastEipAddressResponse
      */
     public function releaseAnycastEipAddress($request)
     {
@@ -618,10 +658,12 @@ class Eipanycast extends OpenApiClient
     }
 
     /**
-     * @param TagResourcesRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Creates and adds tags to resources.
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResourcesWithOptions($request, $runtime)
     {
@@ -655,9 +697,11 @@ class Eipanycast extends OpenApiClient
     }
 
     /**
-     * @param TagResourcesRequest $request
+     * @summary Creates and adds tags to resources.
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
      *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResources($request)
     {
@@ -667,10 +711,12 @@ class Eipanycast extends OpenApiClient
     }
 
     /**
-     * @param UnassociateAnycastEipAddressRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Disassociates an Anycast elastic IP address (Anycast EIP) from an endpoint.
+     *  *
+     * @param UnassociateAnycastEipAddressRequest $request UnassociateAnycastEipAddressRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return UnassociateAnycastEipAddressResponse
+     * @return UnassociateAnycastEipAddressResponse UnassociateAnycastEipAddressResponse
      */
     public function unassociateAnycastEipAddressWithOptions($request, $runtime)
     {
@@ -716,9 +762,11 @@ class Eipanycast extends OpenApiClient
     }
 
     /**
-     * @param UnassociateAnycastEipAddressRequest $request
+     * @summary Disassociates an Anycast elastic IP address (Anycast EIP) from an endpoint.
+     *  *
+     * @param UnassociateAnycastEipAddressRequest $request UnassociateAnycastEipAddressRequest
      *
-     * @return UnassociateAnycastEipAddressResponse
+     * @return UnassociateAnycastEipAddressResponse UnassociateAnycastEipAddressResponse
      */
     public function unassociateAnycastEipAddress($request)
     {
@@ -728,10 +776,12 @@ class Eipanycast extends OpenApiClient
     }
 
     /**
-     * @param UntagResourcesRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Removes tags from Anycast EIPs.
+     *  *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResourcesWithOptions($request, $runtime)
     {
@@ -765,9 +815,11 @@ class Eipanycast extends OpenApiClient
     }
 
     /**
-     * @param UntagResourcesRequest $request
+     * @summary Removes tags from Anycast EIPs.
+     *  *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
      *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResources($request)
     {
@@ -777,10 +829,12 @@ class Eipanycast extends OpenApiClient
     }
 
     /**
-     * @param UpdateAnycastEipAddressAssociationsRequest $request
-     * @param RuntimeOptions                             $runtime
+     * @summary If an Anycast EIP is associated with endpoints in different regions, you can change the access points that are mapped to an endpoint. You can call UpdateAnycastEipAddressAssociations to add or delete endpoints to modify the mappings between endpoints and access points.
+     *  *
+     * @param UpdateAnycastEipAddressAssociationsRequest $request UpdateAnycastEipAddressAssociationsRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateAnycastEipAddressAssociationsResponse
+     * @return UpdateAnycastEipAddressAssociationsResponse UpdateAnycastEipAddressAssociationsResponse
      */
     public function updateAnycastEipAddressAssociationsWithOptions($request, $runtime)
     {
@@ -826,9 +880,11 @@ class Eipanycast extends OpenApiClient
     }
 
     /**
-     * @param UpdateAnycastEipAddressAssociationsRequest $request
+     * @summary If an Anycast EIP is associated with endpoints in different regions, you can change the access points that are mapped to an endpoint. You can call UpdateAnycastEipAddressAssociations to add or delete endpoints to modify the mappings between endpoints and access points.
+     *  *
+     * @param UpdateAnycastEipAddressAssociationsRequest $request UpdateAnycastEipAddressAssociationsRequest
      *
-     * @return UpdateAnycastEipAddressAssociationsResponse
+     * @return UpdateAnycastEipAddressAssociationsResponse UpdateAnycastEipAddressAssociationsResponse
      */
     public function updateAnycastEipAddressAssociations($request)
     {

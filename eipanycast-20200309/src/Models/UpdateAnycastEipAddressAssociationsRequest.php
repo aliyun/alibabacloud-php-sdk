@@ -13,6 +13,7 @@ class UpdateAnycastEipAddressAssociationsRequest extends Model
     /**
      * @description The ID of the Anycast EIP.
      *
+     * This parameter is required.
      * @example aeip-bp1ix34fralt4ykf3****
      *
      * @var string
@@ -34,6 +35,7 @@ class UpdateAnycastEipAddressAssociationsRequest extends Model
     /**
      * @description The ID of the cloud resource with which you want to associate the Anycast EIP.
      *
+     * This parameter is required.
      * @example lb-d7oxbixhxv1uupnon****
      *
      * @var string

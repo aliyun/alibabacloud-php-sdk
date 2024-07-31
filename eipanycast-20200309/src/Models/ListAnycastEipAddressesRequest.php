@@ -92,7 +92,7 @@ class ListAnycastEipAddressesRequest extends Model
     /**
      * @description The name of the Anycast EIP.
      *
-     * The name must be 0 to 128 characters in length, and can contain digits, hyphens (-), and underscores (\_). The name must start with a letter.
+     * The name must be 0 to 128 characters in length, and can contain digits, hyphens (-), and underscores (_). The name must start with a letter.
      * @example doctest
      *
      * @var string

@@ -11,6 +11,7 @@ class UntagResourcesRequest extends Model
     /**
      * @description The resource ID. You can specify up to 20 resource IDs.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $resourceId;
@@ -18,6 +19,7 @@ class UntagResourcesRequest extends Model
     /**
      * @description The resource type. Set the value to **ANYCASTEIPADDRESS**.
      *
+     * This parameter is required.
      * @example ANYCASTEIPADDRESS
      *
      * @var string

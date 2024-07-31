@@ -11,6 +11,7 @@ class ModifyAnycastEipAddressAttributeRequest extends Model
     /**
      * @description The ID of the Anycast EIP.
      *
+     * This parameter is required.
      * @example aeip-bp1ix34fralt4ykf3****
      *
      * @var string
@@ -30,7 +31,7 @@ class ModifyAnycastEipAddressAttributeRequest extends Model
     /**
      * @description The name of the Anycast EIP.
      *
-     * The name must be 0 to 128 characters in length, and can contain letters, digits, underscores (\_), and hyphens (-). It must start with a letter.
+     * The name must be 0 to 128 characters in length, and can contain letters, digits, underscores (_), and hyphens (-). It must start with a letter.
      * @example docname
      *
      * @var string

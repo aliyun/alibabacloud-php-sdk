@@ -11,6 +11,7 @@ class ReleaseAnycastEipAddressRequest extends Model
     /**
      * @description The ID of the Anycast EIP to be released.
      *
+     * This parameter is required.
      * @example aeip-bp1ix34fralt4ykf3****
      *
      * @var string

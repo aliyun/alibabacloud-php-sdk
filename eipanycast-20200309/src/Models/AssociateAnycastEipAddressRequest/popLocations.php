@@ -11,7 +11,7 @@ class popLocations extends Model
     /**
      * @description The information about the access points in associated access areas when you associate an Anycast EIP with an endpoint.
      *
-     * You can call the [DescribeAnycastPopLocations](~~171938~~) operation to query information about access points in supported access areas.
+     * You can call the [DescribeAnycastPopLocations](https://help.aliyun.com/document_detail/171938.html) operation to query information about access points in supported access areas.
      * @example us-west-1-pop
      *
      * @var string
