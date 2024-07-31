@@ -30,6 +30,11 @@ class CreateJobShrinkRequest extends Model
     public $jobName;
 
     /**
+     * @var string
+     */
+    public $jobScheduler;
+
+    /**
      * @description This parameter is required.
      *
      * @var string
@@ -39,6 +44,7 @@ class CreateJobShrinkRequest extends Model
         'deploymentPolicyShrink' => 'DeploymentPolicy',
         'jobDescription'         => 'JobDescription',
         'jobName'                => 'JobName',
+        'jobScheduler'           => 'JobScheduler',
         'tasksShrink'            => 'Tasks',
     ];
 
@@ -57,6 +63,9 @@ class CreateJobShrinkRequest extends Model
         }
         if (null !== $this->jobName) {
             $res['JobName'] = $this->jobName;
+        }
+        if (null !== $this->jobScheduler) {
+            $res['JobScheduler'] = $this->jobScheduler;
         }
         if (null !== $this->tasksShrink) {
             $res['Tasks'] = $this->tasksShrink;
@@ -81,6 +90,9 @@ class CreateJobShrinkRequest extends Model
         }
         if (isset($map['JobName'])) {
             $model->jobName = $map['JobName'];
+        }
+        if (isset($map['JobScheduler'])) {
+            $model->jobScheduler = $map['JobScheduler'];
         }
         if (isset($map['Tasks'])) {
             $model->tasksShrink = $map['Tasks'];

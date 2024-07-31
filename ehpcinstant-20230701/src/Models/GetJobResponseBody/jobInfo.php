@@ -51,6 +51,11 @@ class jobInfo extends Model
     public $jobName;
 
     /**
+     * @var string
+     */
+    public $jobScheduler;
+
+    /**
      * @example 2024-03-05 20:00:48
      *
      * @var string
@@ -75,6 +80,7 @@ class jobInfo extends Model
         'jobDescription'   => 'JobDescription',
         'jobId'            => 'JobId',
         'jobName'          => 'JobName',
+        'jobScheduler'     => 'JobScheduler',
         'startTime'        => 'StartTime',
         'status'           => 'Status',
         'tasks'            => 'Tasks',
@@ -104,6 +110,9 @@ class jobInfo extends Model
         }
         if (null !== $this->jobName) {
             $res['JobName'] = $this->jobName;
+        }
+        if (null !== $this->jobScheduler) {
+            $res['JobScheduler'] = $this->jobScheduler;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -149,6 +158,9 @@ class jobInfo extends Model
         }
         if (isset($map['JobName'])) {
             $model->jobName = $map['JobName'];
+        }
+        if (isset($map['JobScheduler'])) {
+            $model->jobScheduler = $map['JobScheduler'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];

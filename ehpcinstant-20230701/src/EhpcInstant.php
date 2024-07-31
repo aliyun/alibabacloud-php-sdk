@@ -173,6 +173,9 @@ class EhpcInstant extends OpenApiClient
         if (!Utils::isUnset($request->jobName)) {
             $query['JobName'] = $request->jobName;
         }
+        if (!Utils::isUnset($request->jobScheduler)) {
+            $query['JobScheduler'] = $request->jobScheduler;
+        }
         if (!Utils::isUnset($request->tasksShrink)) {
             $query['Tasks'] = $request->tasksShrink;
         }

@@ -32,6 +32,11 @@ class CreateJobRequest extends Model
     public $jobName;
 
     /**
+     * @var string
+     */
+    public $jobScheduler;
+
+    /**
      * @description This parameter is required.
      *
      * @var tasks[]
@@ -41,6 +46,7 @@ class CreateJobRequest extends Model
         'deploymentPolicy' => 'DeploymentPolicy',
         'jobDescription'   => 'JobDescription',
         'jobName'          => 'JobName',
+        'jobScheduler'     => 'JobScheduler',
         'tasks'            => 'Tasks',
     ];
 
@@ -59,6 +65,9 @@ class CreateJobRequest extends Model
         }
         if (null !== $this->jobName) {
             $res['JobName'] = $this->jobName;
+        }
+        if (null !== $this->jobScheduler) {
+            $res['JobScheduler'] = $this->jobScheduler;
         }
         if (null !== $this->tasks) {
             $res['Tasks'] = [];
@@ -89,6 +98,9 @@ class CreateJobRequest extends Model
         }
         if (isset($map['JobName'])) {
             $model->jobName = $map['JobName'];
+        }
+        if (isset($map['JobScheduler'])) {
+            $model->jobScheduler = $map['JobScheduler'];
         }
         if (isset($map['Tasks'])) {
             if (!empty($map['Tasks'])) {
