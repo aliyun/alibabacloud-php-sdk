@@ -14,6 +14,11 @@ class DescAccountSummaryResponseBody extends Model
     public $dailyQuota;
 
     /**
+     * @var string
+     */
+    public $dailyRemainFreeQuota;
+
+    /**
      * @var int
      */
     public $dayuStatus;
@@ -93,23 +98,24 @@ class DescAccountSummaryResponseBody extends Model
      */
     public $userStatus;
     protected $_name = [
-        'dailyQuota'      => 'DailyQuota',
-        'dayuStatus'      => 'DayuStatus',
-        'domains'         => 'Domains',
-        'enableTimes'     => 'EnableTimes',
-        'mailAddresses'   => 'MailAddresses',
-        'maxQuotaLevel'   => 'MaxQuotaLevel',
-        'monthQuota'      => 'MonthQuota',
-        'quotaLevel'      => 'QuotaLevel',
-        'receivers'       => 'Receivers',
-        'remainFreeQuota' => 'RemainFreeQuota',
-        'requestId'       => 'RequestId',
-        'smsRecord'       => 'SmsRecord',
-        'smsSign'         => 'SmsSign',
-        'smsTemplates'    => 'SmsTemplates',
-        'tags'            => 'Tags',
-        'templates'       => 'Templates',
-        'userStatus'      => 'UserStatus',
+        'dailyQuota'           => 'DailyQuota',
+        'dailyRemainFreeQuota' => 'DailyRemainFreeQuota',
+        'dayuStatus'           => 'DayuStatus',
+        'domains'              => 'Domains',
+        'enableTimes'          => 'EnableTimes',
+        'mailAddresses'        => 'MailAddresses',
+        'maxQuotaLevel'        => 'MaxQuotaLevel',
+        'monthQuota'           => 'MonthQuota',
+        'quotaLevel'           => 'QuotaLevel',
+        'receivers'            => 'Receivers',
+        'remainFreeQuota'      => 'RemainFreeQuota',
+        'requestId'            => 'RequestId',
+        'smsRecord'            => 'SmsRecord',
+        'smsSign'              => 'SmsSign',
+        'smsTemplates'         => 'SmsTemplates',
+        'tags'                 => 'Tags',
+        'templates'            => 'Templates',
+        'userStatus'           => 'UserStatus',
     ];
 
     public function validate()
@@ -121,6 +127,9 @@ class DescAccountSummaryResponseBody extends Model
         $res = [];
         if (null !== $this->dailyQuota) {
             $res['DailyQuota'] = $this->dailyQuota;
+        }
+        if (null !== $this->dailyRemainFreeQuota) {
+            $res['DailyRemainFreeQuota'] = $this->dailyRemainFreeQuota;
         }
         if (null !== $this->dayuStatus) {
             $res['DayuStatus'] = $this->dayuStatus;
@@ -184,6 +193,9 @@ class DescAccountSummaryResponseBody extends Model
         $model = new self();
         if (isset($map['DailyQuota'])) {
             $model->dailyQuota = $map['DailyQuota'];
+        }
+        if (isset($map['DailyRemainFreeQuota'])) {
+            $model->dailyRemainFreeQuota = $map['DailyRemainFreeQuota'];
         }
         if (isset($map['DayuStatus'])) {
             $model->dayuStatus = $map['DayuStatus'];
