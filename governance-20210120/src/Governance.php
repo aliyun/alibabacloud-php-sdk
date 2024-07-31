@@ -6,16 +6,26 @@ namespace AlibabaCloud\SDK\Governance\V20210120;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Governance\V20210120\Models\BatchEnrollAccountsRequest;
+use AlibabaCloud\SDK\Governance\V20210120\Models\BatchEnrollAccountsResponse;
+use AlibabaCloud\SDK\Governance\V20210120\Models\CreateAccountFactoryBaselineRequest;
+use AlibabaCloud\SDK\Governance\V20210120\Models\CreateAccountFactoryBaselineResponse;
+use AlibabaCloud\SDK\Governance\V20210120\Models\DeleteAccountFactoryBaselineRequest;
+use AlibabaCloud\SDK\Governance\V20210120\Models\DeleteAccountFactoryBaselineResponse;
 use AlibabaCloud\SDK\Governance\V20210120\Models\EnrollAccountRequest;
 use AlibabaCloud\SDK\Governance\V20210120\Models\EnrollAccountResponse;
 use AlibabaCloud\SDK\Governance\V20210120\Models\GetAccountFactoryBaselineRequest;
 use AlibabaCloud\SDK\Governance\V20210120\Models\GetAccountFactoryBaselineResponse;
 use AlibabaCloud\SDK\Governance\V20210120\Models\GetEnrolledAccountRequest;
 use AlibabaCloud\SDK\Governance\V20210120\Models\GetEnrolledAccountResponse;
+use AlibabaCloud\SDK\Governance\V20210120\Models\ListAccountFactoryBaselineItemsRequest;
+use AlibabaCloud\SDK\Governance\V20210120\Models\ListAccountFactoryBaselineItemsResponse;
 use AlibabaCloud\SDK\Governance\V20210120\Models\ListAccountFactoryBaselinesRequest;
 use AlibabaCloud\SDK\Governance\V20210120\Models\ListAccountFactoryBaselinesResponse;
 use AlibabaCloud\SDK\Governance\V20210120\Models\ListEnrolledAccountsRequest;
 use AlibabaCloud\SDK\Governance\V20210120\Models\ListEnrolledAccountsResponse;
+use AlibabaCloud\SDK\Governance\V20210120\Models\UpdateAccountFactoryBaselineRequest;
+use AlibabaCloud\SDK\Governance\V20210120\Models\UpdateAccountFactoryBaselineResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -53,6 +63,168 @@ class Governance extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @summary 账号工厂批量注册账号
+     *  *
+     * @param BatchEnrollAccountsRequest $request BatchEnrollAccountsRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return BatchEnrollAccountsResponse BatchEnrollAccountsResponse
+     */
+    public function batchEnrollAccountsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accounts)) {
+            $query['Accounts'] = $request->accounts;
+        }
+        if (!Utils::isUnset($request->baselineId)) {
+            $query['BaselineId'] = $request->baselineId;
+        }
+        if (!Utils::isUnset($request->baselineItems)) {
+            $query['BaselineItems'] = $request->baselineItems;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchEnrollAccounts',
+            'version'     => '2021-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return BatchEnrollAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 账号工厂批量注册账号
+     *  *
+     * @param BatchEnrollAccountsRequest $request BatchEnrollAccountsRequest
+     *
+     * @return BatchEnrollAccountsResponse BatchEnrollAccountsResponse
+     */
+    public function batchEnrollAccounts($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->batchEnrollAccountsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 创建账号工厂基线
+     *  *
+     * @param CreateAccountFactoryBaselineRequest $request CreateAccountFactoryBaselineRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateAccountFactoryBaselineResponse CreateAccountFactoryBaselineResponse
+     */
+    public function createAccountFactoryBaselineWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->baselineItems)) {
+            $query['BaselineItems'] = $request->baselineItems;
+        }
+        if (!Utils::isUnset($request->baselineName)) {
+            $query['BaselineName'] = $request->baselineName;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateAccountFactoryBaseline',
+            'version'     => '2021-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateAccountFactoryBaselineResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建账号工厂基线
+     *  *
+     * @param CreateAccountFactoryBaselineRequest $request CreateAccountFactoryBaselineRequest
+     *
+     * @return CreateAccountFactoryBaselineResponse CreateAccountFactoryBaselineResponse
+     */
+    public function createAccountFactoryBaseline($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAccountFactoryBaselineWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 删除账号工厂基线
+     *  *
+     * @param DeleteAccountFactoryBaselineRequest $request DeleteAccountFactoryBaselineRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteAccountFactoryBaselineResponse DeleteAccountFactoryBaselineResponse
+     */
+    public function deleteAccountFactoryBaselineWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->baselineId)) {
+            $query['BaselineId'] = $request->baselineId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteAccountFactoryBaseline',
+            'version'     => '2021-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteAccountFactoryBaselineResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除账号工厂基线
+     *  *
+     * @param DeleteAccountFactoryBaselineRequest $request DeleteAccountFactoryBaselineRequest
+     *
+     * @return DeleteAccountFactoryBaselineResponse DeleteAccountFactoryBaselineResponse
+     */
+    public function deleteAccountFactoryBaseline($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAccountFactoryBaselineWithOptions($request, $runtime);
     }
 
     /**
@@ -233,6 +405,68 @@ class Governance extends OpenApiClient
     }
 
     /**
+     * @summary 获取账号工厂基线元素列表
+     *  *
+     * @param ListAccountFactoryBaselineItemsRequest $request ListAccountFactoryBaselineItemsRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListAccountFactoryBaselineItemsResponse ListAccountFactoryBaselineItemsResponse
+     */
+    public function listAccountFactoryBaselineItemsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->names)) {
+            $query['Names'] = $request->names;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        if (!Utils::isUnset($request->versions)) {
+            $query['Versions'] = $request->versions;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAccountFactoryBaselineItems',
+            'version'     => '2021-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListAccountFactoryBaselineItemsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取账号工厂基线元素列表
+     *  *
+     * @param ListAccountFactoryBaselineItemsRequest $request ListAccountFactoryBaselineItemsRequest
+     *
+     * @return ListAccountFactoryBaselineItemsResponse ListAccountFactoryBaselineItemsResponse
+     */
+    public function listAccountFactoryBaselineItems($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAccountFactoryBaselineItemsWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Obtains a list of baselines in the account factory.
      *  *
      * @param ListAccountFactoryBaselinesRequest $request ListAccountFactoryBaselinesRequest
@@ -336,5 +570,64 @@ class Governance extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listEnrolledAccountsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 更新账号工厂基线
+     *  *
+     * @param UpdateAccountFactoryBaselineRequest $request UpdateAccountFactoryBaselineRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateAccountFactoryBaselineResponse UpdateAccountFactoryBaselineResponse
+     */
+    public function updateAccountFactoryBaselineWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->baselineId)) {
+            $query['BaselineId'] = $request->baselineId;
+        }
+        if (!Utils::isUnset($request->baselineItems)) {
+            $query['BaselineItems'] = $request->baselineItems;
+        }
+        if (!Utils::isUnset($request->baselineName)) {
+            $query['BaselineName'] = $request->baselineName;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateAccountFactoryBaseline',
+            'version'     => '2021-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateAccountFactoryBaselineResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 更新账号工厂基线
+     *  *
+     * @param UpdateAccountFactoryBaselineRequest $request UpdateAccountFactoryBaselineRequest
+     *
+     * @return UpdateAccountFactoryBaselineResponse UpdateAccountFactoryBaselineResponse
+     */
+    public function updateAccountFactoryBaseline($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateAccountFactoryBaselineWithOptions($request, $runtime);
     }
 }
