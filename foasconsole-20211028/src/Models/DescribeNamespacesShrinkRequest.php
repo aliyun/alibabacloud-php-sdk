@@ -14,6 +14,8 @@ class DescribeNamespacesShrinkRequest extends Model
     public $ha;
 
     /**
+     * @description This parameter is required.
+     *
      * @example f-cn-wwo36qj4g06
      *
      * @var string
@@ -42,6 +44,8 @@ class DescribeNamespacesShrinkRequest extends Model
     public $pageSize;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-beijing
      *
      * @var string

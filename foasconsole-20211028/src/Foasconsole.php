@@ -93,10 +93,12 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * @param ConvertInstanceRequest $tmpReq
-     * @param RuntimeOptions         $runtime
+     * @summary 按量付费转包年包月
+     *  *
+     * @param ConvertInstanceRequest $tmpReq  ConvertInstanceRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ConvertInstanceResponse
+     * @return ConvertInstanceResponse ConvertInstanceResponse
      */
     public function convertInstanceWithOptions($tmpReq, $runtime)
     {
@@ -144,9 +146,11 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * @param ConvertInstanceRequest $request
+     * @summary 按量付费转包年包月
+     *  *
+     * @param ConvertInstanceRequest $request ConvertInstanceRequest
      *
-     * @return ConvertInstanceResponse
+     * @return ConvertInstanceResponse ConvertInstanceResponse
      */
     public function convertInstance($request)
     {
@@ -156,10 +160,12 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * @param CreateInstanceRequest $tmpReq
-     * @param RuntimeOptions        $runtime
+     * @summary 创建实例
+     *  *
+     * @param CreateInstanceRequest $tmpReq  CreateInstanceRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateInstanceResponse
+     * @return CreateInstanceResponse CreateInstanceResponse
      */
     public function createInstanceWithOptions($tmpReq, $runtime)
     {
@@ -270,9 +276,11 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * @param CreateInstanceRequest $request
+     * @summary 创建实例
+     *  *
+     * @param CreateInstanceRequest $request CreateInstanceRequest
      *
-     * @return CreateInstanceResponse
+     * @return CreateInstanceResponse CreateInstanceResponse
      */
     public function createInstance($request)
     {
@@ -282,10 +290,12 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * @param CreateNamespaceRequest $tmpReq
-     * @param RuntimeOptions         $runtime
+     * @summary 创建命名空间
+     *  *
+     * @param CreateNamespaceRequest $tmpReq  CreateNamespaceRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateNamespaceResponse
+     * @return CreateNamespaceResponse CreateNamespaceResponse
      */
     public function createNamespaceWithOptions($tmpReq, $runtime)
     {
@@ -330,9 +340,11 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * @param CreateNamespaceRequest $request
+     * @summary 创建命名空间
+     *  *
+     * @param CreateNamespaceRequest $request CreateNamespaceRequest
      *
-     * @return CreateNamespaceResponse
+     * @return CreateNamespaceResponse CreateNamespaceResponse
      */
     public function createNamespace($request)
     {
@@ -342,10 +354,12 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * @param DeleteInstanceRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary 释放按量付费的实例
+     *  *
+     * @param DeleteInstanceRequest $request DeleteInstanceRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteInstanceResponse
+     * @return DeleteInstanceResponse DeleteInstanceResponse
      */
     public function deleteInstanceWithOptions($request, $runtime)
     {
@@ -376,9 +390,11 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * @param DeleteInstanceRequest $request
+     * @summary 释放按量付费的实例
+     *  *
+     * @param DeleteInstanceRequest $request DeleteInstanceRequest
      *
-     * @return DeleteInstanceResponse
+     * @return DeleteInstanceResponse DeleteInstanceResponse
      */
     public function deleteInstance($request)
     {
@@ -388,10 +404,12 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * @param DeleteNamespaceRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary 删除namespace
+     *  *
+     * @param DeleteNamespaceRequest $request DeleteNamespaceRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteNamespaceResponse
+     * @return DeleteNamespaceResponse DeleteNamespaceResponse
      */
     public function deleteNamespaceWithOptions($request, $runtime)
     {
@@ -425,9 +443,11 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * @param DeleteNamespaceRequest $request
+     * @summary 删除namespace
+     *  *
+     * @param DeleteNamespaceRequest $request DeleteNamespaceRequest
      *
-     * @return DeleteNamespaceResponse
+     * @return DeleteNamespaceResponse DeleteNamespaceResponse
      */
     public function deleteNamespace($request)
     {
@@ -437,10 +457,12 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstancesRequest $tmpReq
-     * @param RuntimeOptions           $runtime
+     * @summary instance列表
+     *  *
+     * @param DescribeInstancesRequest $tmpReq  DescribeInstancesRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeInstancesResponse
+     * @return DescribeInstancesResponse DescribeInstancesResponse
      */
     public function describeInstancesWithOptions($tmpReq, $runtime)
     {
@@ -470,9 +492,11 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstancesRequest $request
+     * @summary instance列表
+     *  *
+     * @param DescribeInstancesRequest $request DescribeInstancesRequest
      *
-     * @return DescribeInstancesResponse
+     * @return DescribeInstancesResponse DescribeInstancesResponse
      */
     public function describeInstances($request)
     {
@@ -482,10 +506,12 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * @param DescribeNamespacesRequest $tmpReq
-     * @param RuntimeOptions            $runtime
+     * @summary namespace列表
+     *  *
+     * @param DescribeNamespacesRequest $tmpReq  DescribeNamespacesRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeNamespacesResponse
+     * @return DescribeNamespacesResponse DescribeNamespacesResponse
      */
     public function describeNamespacesWithOptions($tmpReq, $runtime)
     {
@@ -515,9 +541,11 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * @param DescribeNamespacesRequest $request
+     * @summary namespace列表
+     *  *
+     * @param DescribeNamespacesRequest $request DescribeNamespacesRequest
      *
-     * @return DescribeNamespacesResponse
+     * @return DescribeNamespacesResponse DescribeNamespacesResponse
      */
     public function describeNamespaces($request)
     {
@@ -527,9 +555,11 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary 获取支持的region列表
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSupportedRegionsResponse
+     * @return DescribeSupportedRegionsResponse DescribeSupportedRegionsResponse
      */
     public function describeSupportedRegionsWithOptions($runtime)
     {
@@ -550,7 +580,9 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * @return DescribeSupportedRegionsResponse
+     * @summary 获取支持的region列表
+     *  *
+     * @return DescribeSupportedRegionsResponse DescribeSupportedRegionsResponse
      */
     public function describeSupportedRegions()
     {
@@ -560,10 +592,12 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * @param DescribeSupportedZonesRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary 获取支持的zoneId列表
+     *  *
+     * @param DescribeSupportedZonesRequest $request DescribeSupportedZonesRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSupportedZonesResponse
+     * @return DescribeSupportedZonesResponse DescribeSupportedZonesResponse
      */
     public function describeSupportedZonesWithOptions($request, $runtime)
     {
@@ -588,9 +622,11 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * @param DescribeSupportedZonesRequest $request
+     * @summary 获取支持的zoneId列表
+     *  *
+     * @param DescribeSupportedZonesRequest $request DescribeSupportedZonesRequest
      *
-     * @return DescribeSupportedZonesResponse
+     * @return DescribeSupportedZonesResponse DescribeSupportedZonesResponse
      */
     public function describeSupportedZones($request)
     {
@@ -600,10 +636,12 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * @param ListTagResourcesRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary 列举flinkasi标签
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResourcesWithOptions($request, $runtime)
     {
@@ -643,9 +681,11 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * @param ListTagResourcesRequest $request
+     * @summary 列举flinkasi标签
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
      *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResources($request)
     {
@@ -655,8 +695,10 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * @deprecated : ModifyPrepayInstanceSpec is deprecated, please use foasconsole::2021-10-28::ModifyInstanceSpec instead.
-     *   *
+     * @deprecated openAPI ModifyPrepayInstanceSpec is deprecated, please use foasconsole::2021-10-28::ModifyInstanceSpec instead
+     *  *
+     * @summary 扩容/缩容
+     *  *
      * Deprecated
      *
      * @param ModifyPrepayInstanceSpecRequest $tmpReq  ModifyPrepayInstanceSpecRequest
@@ -719,8 +761,10 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * @deprecated : ModifyPrepayInstanceSpec is deprecated, please use foasconsole::2021-10-28::ModifyInstanceSpec instead.
-     *   *
+     * @deprecated openAPI ModifyPrepayInstanceSpec is deprecated, please use foasconsole::2021-10-28::ModifyInstanceSpec instead
+     *  *
+     * @summary 扩容/缩容
+     *  *
      * Deprecated
      *
      * @param ModifyPrepayInstanceSpecRequest $request ModifyPrepayInstanceSpecRequest
@@ -735,8 +779,10 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * @deprecated : ModifyPrepayNamespaceSpec is deprecated, please use foasconsole::2021-10-28::ModifyNamespaceSpec instead.
-     *   *
+     * @deprecated openAPI ModifyPrepayNamespaceSpec is deprecated, please use foasconsole::2021-10-28::ModifyNamespaceSpec instead
+     *  *
+     * @summary 修改namespace资源分配
+     *  *
      * Deprecated
      *
      * @param ModifyPrepayNamespaceSpecRequest $tmpReq  ModifyPrepayNamespaceSpecRequest
@@ -784,8 +830,10 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * @deprecated : ModifyPrepayNamespaceSpec is deprecated, please use foasconsole::2021-10-28::ModifyNamespaceSpec instead.
-     *   *
+     * @deprecated openAPI ModifyPrepayNamespaceSpec is deprecated, please use foasconsole::2021-10-28::ModifyNamespaceSpec instead
+     *  *
+     * @summary 修改namespace资源分配
+     *  *
      * Deprecated
      *
      * @param ModifyPrepayNamespaceSpecRequest $request ModifyPrepayNamespaceSpecRequest
@@ -800,10 +848,12 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * @param QueryConvertInstancePriceRequest $tmpReq
-     * @param RuntimeOptions                   $runtime
+     * @summary 按量付费转包年包月询价
+     *  *
+     * @param QueryConvertInstancePriceRequest $tmpReq  QueryConvertInstancePriceRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryConvertInstancePriceResponse
+     * @return QueryConvertInstancePriceResponse QueryConvertInstancePriceResponse
      */
     public function queryConvertInstancePriceWithOptions($tmpReq, $runtime)
     {
@@ -851,9 +901,11 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * @param QueryConvertInstancePriceRequest $request
+     * @summary 按量付费转包年包月询价
+     *  *
+     * @param QueryConvertInstancePriceRequest $request QueryConvertInstancePriceRequest
      *
-     * @return QueryConvertInstancePriceResponse
+     * @return QueryConvertInstancePriceResponse QueryConvertInstancePriceResponse
      */
     public function queryConvertInstancePrice($request)
     {
@@ -863,10 +915,12 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * @param QueryCreateInstancePriceRequest $tmpReq
-     * @param RuntimeOptions                  $runtime
+     * @summary 获取创建实例的价格
+     *  *
+     * @param QueryCreateInstancePriceRequest $tmpReq  QueryCreateInstancePriceRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryCreateInstancePriceResponse
+     * @return QueryCreateInstancePriceResponse QueryCreateInstancePriceResponse
      */
     public function queryCreateInstancePriceWithOptions($tmpReq, $runtime)
     {
@@ -956,9 +1010,11 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * @param QueryCreateInstancePriceRequest $request
+     * @summary 获取创建实例的价格
+     *  *
+     * @param QueryCreateInstancePriceRequest $request QueryCreateInstancePriceRequest
      *
-     * @return QueryCreateInstancePriceResponse
+     * @return QueryCreateInstancePriceResponse QueryCreateInstancePriceResponse
      */
     public function queryCreateInstancePrice($request)
     {
@@ -968,10 +1024,12 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * @param QueryModifyInstancePriceRequest $tmpReq
-     * @param RuntimeOptions                  $runtime
+     * @summary 查询付费类型为包年包月的实例修改资源规格的价格
+     *  *
+     * @param QueryModifyInstancePriceRequest $tmpReq  QueryModifyInstancePriceRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryModifyInstancePriceResponse
+     * @return QueryModifyInstancePriceResponse QueryModifyInstancePriceResponse
      */
     public function queryModifyInstancePriceWithOptions($tmpReq, $runtime)
     {
@@ -1028,9 +1086,11 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * @param QueryModifyInstancePriceRequest $request
+     * @summary 查询付费类型为包年包月的实例修改资源规格的价格
+     *  *
+     * @param QueryModifyInstancePriceRequest $request QueryModifyInstancePriceRequest
      *
-     * @return QueryModifyInstancePriceResponse
+     * @return QueryModifyInstancePriceResponse QueryModifyInstancePriceResponse
      */
     public function queryModifyInstancePrice($request)
     {
@@ -1040,10 +1100,12 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * @param QueryRenewInstancePriceRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary 查询付费类型为包年包月的实例续费价格
+     *  *
+     * @param QueryRenewInstancePriceRequest $request QueryRenewInstancePriceRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryRenewInstancePriceResponse
+     * @return QueryRenewInstancePriceResponse QueryRenewInstancePriceResponse
      */
     public function queryRenewInstancePriceWithOptions($request, $runtime)
     {
@@ -1080,9 +1142,11 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * @param QueryRenewInstancePriceRequest $request
+     * @summary 查询付费类型为包年包月的实例续费价格
+     *  *
+     * @param QueryRenewInstancePriceRequest $request QueryRenewInstancePriceRequest
      *
-     * @return QueryRenewInstancePriceResponse
+     * @return QueryRenewInstancePriceResponse QueryRenewInstancePriceResponse
      */
     public function queryRenewInstancePrice($request)
     {
@@ -1092,10 +1156,12 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * @param RenewInstanceRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary 续费
+     *  *
+     * @param RenewInstanceRequest $request RenewInstanceRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return RenewInstanceResponse
+     * @return RenewInstanceResponse RenewInstanceResponse
      */
     public function renewInstanceWithOptions($request, $runtime)
     {
@@ -1132,9 +1198,11 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * @param RenewInstanceRequest $request
+     * @summary 续费
+     *  *
+     * @param RenewInstanceRequest $request RenewInstanceRequest
      *
-     * @return RenewInstanceResponse
+     * @return RenewInstanceResponse RenewInstanceResponse
      */
     public function renewInstance($request)
     {
@@ -1144,10 +1212,12 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * @param TagResourcesRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary 打标签接口
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResourcesWithOptions($request, $runtime)
     {
@@ -1184,9 +1254,11 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * @param TagResourcesRequest $request
+     * @summary 打标签接口
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
      *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResources($request)
     {
@@ -1196,10 +1268,12 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * @param UntagResourcesRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary flinkasi去标签
+     *  *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResourcesWithOptions($request, $runtime)
     {
@@ -1239,9 +1313,11 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * @param UntagResourcesRequest $request
+     * @summary flinkasi去标签
+     *  *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
      *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResources($request)
     {

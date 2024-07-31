@@ -31,6 +31,8 @@ class ModifyPrepayInstanceSpecRequest extends Model
     public $haZoneId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example f-cn-wwo36qj4g06
      *
      * @var string
@@ -38,6 +40,8 @@ class ModifyPrepayInstanceSpecRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-beijing
      *
      * @var string
@@ -45,6 +49,8 @@ class ModifyPrepayInstanceSpecRequest extends Model
     public $region;
 
     /**
+     * @description This parameter is required.
+     *
      * @var resourceSpec
      */
     public $resourceSpec;

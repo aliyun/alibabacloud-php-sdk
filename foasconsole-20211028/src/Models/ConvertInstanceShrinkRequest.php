@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ConvertInstanceShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class ConvertInstanceShrinkRequest extends Model
     public $duration;
 
     /**
+     * @description This parameter is required.
+     *
      * @example f-cn-wwo36qj4g06
      *
      * @var string
@@ -23,6 +27,8 @@ class ConvertInstanceShrinkRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example true
      *
      * @var bool
@@ -30,11 +36,15 @@ class ConvertInstanceShrinkRequest extends Model
     public $isAutoRenew;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $namespaceResourceSpecsShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Month
      *
      * @var string
@@ -42,6 +52,8 @@ class ConvertInstanceShrinkRequest extends Model
     public $pricingCycle;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-beijing
      *
      * @var string

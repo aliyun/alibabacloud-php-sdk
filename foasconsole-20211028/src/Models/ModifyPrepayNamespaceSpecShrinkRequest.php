@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyPrepayNamespaceSpecShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example f-cn-wwo36qj4g06
      *
      * @var string
@@ -16,6 +18,8 @@ class ModifyPrepayNamespaceSpecShrinkRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example di-593440219799842
      *
      * @var string
@@ -23,6 +27,8 @@ class ModifyPrepayNamespaceSpecShrinkRequest extends Model
     public $namespace;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-shenzhen
      *
      * @var string
@@ -30,6 +36,8 @@ class ModifyPrepayNamespaceSpecShrinkRequest extends Model
     public $region;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $resourceSpecShrink;

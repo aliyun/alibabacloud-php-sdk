@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Foasconsole\V20211028\Models\DescribeInstancesResponseBody;
 
+use AlibabaCloud\SDK\Foasconsole\V20211028\Models\DescribeInstancesResponseBody\instances\clusterUsedStorage;
 use AlibabaCloud\SDK\Foasconsole\V20211028\Models\DescribeInstancesResponseBody\instances\haResourceSpec;
 use AlibabaCloud\SDK\Foasconsole\V20211028\Models\DescribeInstancesResponseBody\instances\hostAliases;
 use AlibabaCloud\SDK\Foasconsole\V20211028\Models\DescribeInstancesResponseBody\instances\resourceSpec;
@@ -38,6 +39,11 @@ class instances extends Model
     public $clusterStatus;
 
     /**
+     * @var clusterUsedStorage
+     */
+    public $clusterUsedStorage;
+
+    /**
      * @var bool
      */
     public $ha;
@@ -58,6 +64,8 @@ class instances extends Model
     public $haZoneId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var hostAliases[]
      */
     public $hostAliases;
@@ -166,6 +174,7 @@ class instances extends Model
         'askClusterId'        => 'AskClusterId',
         'chargeType'          => 'ChargeType',
         'clusterStatus'       => 'ClusterStatus',
+        'clusterUsedStorage'  => 'ClusterUsedStorage',
         'ha'                  => 'Ha',
         'haResourceSpec'      => 'HaResourceSpec',
         'haVSwitchIds'        => 'HaVSwitchIds',
@@ -207,6 +216,9 @@ class instances extends Model
         }
         if (null !== $this->clusterStatus) {
             $res['ClusterStatus'] = $this->clusterStatus;
+        }
+        if (null !== $this->clusterUsedStorage) {
+            $res['ClusterUsedStorage'] = null !== $this->clusterUsedStorage ? $this->clusterUsedStorage->toMap() : null;
         }
         if (null !== $this->ha) {
             $res['Ha'] = $this->ha;
@@ -306,6 +318,9 @@ class instances extends Model
         }
         if (isset($map['ClusterStatus'])) {
             $model->clusterStatus = $map['ClusterStatus'];
+        }
+        if (isset($map['ClusterUsedStorage'])) {
+            $model->clusterUsedStorage = clusterUsedStorage::fromMap($map['ClusterUsedStorage']);
         }
         if (isset($map['Ha'])) {
             $model->ha = $map['Ha'];

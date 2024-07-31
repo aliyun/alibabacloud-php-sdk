@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QueryConvertInstancePriceRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -17,6 +19,8 @@ class QueryConvertInstancePriceRequest extends Model
     public $duration;
 
     /**
+     * @description This parameter is required.
+     *
      * @example f-cn-wwo36qj4g06
      *
      * @var string
@@ -24,6 +28,8 @@ class QueryConvertInstancePriceRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example true
      *
      * @var bool
@@ -31,11 +37,15 @@ class QueryConvertInstancePriceRequest extends Model
     public $isAutoRenew;
 
     /**
+     * @description This parameter is required.
+     *
      * @var namespaceResourceSpecs[]
      */
     public $namespaceResourceSpecs;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Month
      *
      * @var string
@@ -43,6 +53,8 @@ class QueryConvertInstancePriceRequest extends Model
     public $pricingCycle;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-beijing
      *
      * @var string

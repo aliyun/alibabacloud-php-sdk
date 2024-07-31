@@ -14,6 +14,8 @@ class CreateNamespaceShrinkRequest extends Model
     public $ha;
 
     /**
+     * @description This parameter is required.
+     *
      * @example f-cn-wwo36qj4g06
      *
      * @var string
@@ -21,6 +23,8 @@ class CreateNamespaceShrinkRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example di-593440390152545
      *
      * @var string
@@ -28,6 +32,8 @@ class CreateNamespaceShrinkRequest extends Model
     public $namespace;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-shenzhen
      *
      * @var string

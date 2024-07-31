@@ -25,6 +25,8 @@ class CreateInstanceRequest extends Model
     public $autoRenew;
 
     /**
+     * @description This parameter is required.
+     *
      * @example PRE
      *
      * @var string
@@ -64,6 +66,8 @@ class CreateInstanceRequest extends Model
     public $haZoneId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example rtc-e2e-test-pre
      *
      * @var string
@@ -90,6 +94,8 @@ class CreateInstanceRequest extends Model
     public $promotionCode;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-beijing
      *
      * @var string
@@ -107,6 +113,8 @@ class CreateInstanceRequest extends Model
     public $resourceSpec;
 
     /**
+     * @description This parameter is required.
+     *
      * @var storage
      */
     public $storage;
@@ -122,11 +130,15 @@ class CreateInstanceRequest extends Model
     public $usePromotionCode;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $vSwitchIds;
 
     /**
+     * @description This parameter is required.
+     *
      * @example vpc-2ze9xoh8qyt1rnxfmfcdi
      *
      * @var string
@@ -134,6 +146,8 @@ class CreateInstanceRequest extends Model
     public $vpcId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-beijing-g
      *
      * @var string

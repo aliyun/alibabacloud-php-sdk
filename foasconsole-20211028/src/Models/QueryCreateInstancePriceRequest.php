@@ -24,6 +24,8 @@ class QueryCreateInstancePriceRequest extends Model
     public $autoRenew;
 
     /**
+     * @description This parameter is required.
+     *
      * @example PRE
      *
      * @var string
@@ -74,6 +76,8 @@ class QueryCreateInstancePriceRequest extends Model
     public $promotionCode;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-beijing
      *
      * @var string

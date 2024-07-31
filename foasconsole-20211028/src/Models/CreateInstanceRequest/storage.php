@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class storage extends Model
 {
     /**
+     * @var bool
+     */
+    public $fullyManaged;
+
+    /**
      * @var oss
      */
     public $oss;
     protected $_name = [
-        'oss' => 'Oss',
+        'fullyManaged' => 'FullyManaged',
+        'oss'          => 'Oss',
     ];
 
     public function validate()
@@ -24,6 +30,9 @@ class storage extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->fullyManaged) {
+            $res['FullyManaged'] = $this->fullyManaged;
+        }
         if (null !== $this->oss) {
             $res['Oss'] = null !== $this->oss ? $this->oss->toMap() : null;
         }
@@ -39,6 +48,9 @@ class storage extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['FullyManaged'])) {
+            $model->fullyManaged = $map['FullyManaged'];
+        }
         if (isset($map['Oss'])) {
             $model->oss = oss::fromMap($map['Oss']);
         }

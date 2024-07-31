@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteNamespaceRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example f-cn-wwo36qj4g06
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteNamespaceRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example di-593439443804417
      *
      * @var string
@@ -23,6 +27,8 @@ class DeleteNamespaceRequest extends Model
     public $namespace;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-beijing
      *
      * @var string

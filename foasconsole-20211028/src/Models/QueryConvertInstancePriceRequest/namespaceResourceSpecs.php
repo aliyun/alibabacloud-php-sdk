@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class namespaceResourceSpecs extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example lm-test-default
      *
      * @var string
@@ -17,6 +19,8 @@ class namespaceResourceSpecs extends Model
     public $namespace;
 
     /**
+     * @description This parameter is required.
+     *
      * @var resourceSpec
      */
     public $resourceSpec;

@@ -21,6 +21,8 @@ class CreateInstanceShrinkRequest extends Model
     public $autoRenew;
 
     /**
+     * @description This parameter is required.
+     *
      * @example PRE
      *
      * @var string
@@ -60,6 +62,8 @@ class CreateInstanceShrinkRequest extends Model
     public $haZoneId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example rtc-e2e-test-pre
      *
      * @var string
@@ -86,6 +90,8 @@ class CreateInstanceShrinkRequest extends Model
     public $promotionCode;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-beijing
      *
      * @var string
@@ -103,6 +109,8 @@ class CreateInstanceShrinkRequest extends Model
     public $resourceSpecShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $storageShrink;
@@ -118,11 +126,15 @@ class CreateInstanceShrinkRequest extends Model
     public $usePromotionCode;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $vSwitchIdsShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example vpc-2ze9xoh8qyt1rnxfmfcdi
      *
      * @var string
@@ -130,6 +142,8 @@ class CreateInstanceShrinkRequest extends Model
     public $vpcId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-beijing-g
      *
      * @var string

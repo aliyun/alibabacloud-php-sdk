@@ -17,6 +17,8 @@ class ListTagResourcesRequest extends Model
     public $nextToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-beijing
      *
      * @var string
@@ -29,6 +31,8 @@ class ListTagResourcesRequest extends Model
     public $resourceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example vvpinstance
      *
      * @var string

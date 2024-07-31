@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class resourceSpec extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 10
      *
      * @var int
@@ -16,6 +18,8 @@ class resourceSpec extends Model
     public $cpu;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 40
      *
      * @var int

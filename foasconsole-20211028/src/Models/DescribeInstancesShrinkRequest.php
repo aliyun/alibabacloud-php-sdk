@@ -42,6 +42,8 @@ class DescribeInstancesShrinkRequest extends Model
     public $pageSize;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-shenzhen
      *
      * @var string

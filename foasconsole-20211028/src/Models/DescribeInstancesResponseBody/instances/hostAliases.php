@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class hostAliases extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $hostNames;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $ip;
