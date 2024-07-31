@@ -111,6 +111,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeMeterImsSummaryRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeMeterImsSummaryResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DescribePlayListRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DescribePlayListResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeRtcRobotInstanceRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeRtcRobotInstanceResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DetectAudioForCustomizedVoiceJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DetectAudioForCustomizedVoiceJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DropSearchIndexRequest;
@@ -314,8 +316,13 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\SetDefaultStorageLocationRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SetDefaultStorageLocationResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SetEventCallbackRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SetEventCallbackResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\StartRtcRobotInstanceRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\StartRtcRobotInstanceResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\StartRtcRobotInstanceShrinkRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\StartWorkflowRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\StartWorkflowResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\StopRtcRobotInstanceRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\StopRtcRobotInstanceResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitASRJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitASRJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitAudioProduceJobRequest;
@@ -410,6 +417,9 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateMediaToSearchLibRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateMediaToSearchLibResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdatePipelineRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdatePipelineResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateRtcRobotInstanceRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateRtcRobotInstanceResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateRtcRobotInstanceShrinkRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateTemplateRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateTemplateResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UploadMediaByURLRequest;
@@ -3238,6 +3248,53 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describePlayListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询实例
+     *  *
+     * @param DescribeRtcRobotInstanceRequest $request DescribeRtcRobotInstanceRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeRtcRobotInstanceResponse DescribeRtcRobotInstanceResponse
+     */
+    public function describeRtcRobotInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRtcRobotInstance',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeRtcRobotInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询实例
+     *  *
+     * @param DescribeRtcRobotInstanceRequest $request DescribeRtcRobotInstanceRequest
+     *
+     * @return DescribeRtcRobotInstanceResponse DescribeRtcRobotInstanceResponse
+     */
+    public function describeRtcRobotInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRtcRobotInstanceWithOptions($request, $runtime);
     }
 
     /**
@@ -8766,6 +8823,73 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @summary 开启一个机器人实例
+     *  *
+     * @param StartRtcRobotInstanceRequest $tmpReq  StartRtcRobotInstanceRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return StartRtcRobotInstanceResponse StartRtcRobotInstanceResponse
+     */
+    public function startRtcRobotInstanceWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new StartRtcRobotInstanceShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->config)) {
+            $request->configShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->config, 'Config', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->authToken)) {
+            $query['AuthToken'] = $request->authToken;
+        }
+        if (!Utils::isUnset($request->channelId)) {
+            $query['ChannelId'] = $request->channelId;
+        }
+        if (!Utils::isUnset($request->configShrink)) {
+            $query['Config'] = $request->configShrink;
+        }
+        if (!Utils::isUnset($request->robotId)) {
+            $query['RobotId'] = $request->robotId;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StartRtcRobotInstance',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return StartRtcRobotInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 开启一个机器人实例
+     *  *
+     * @param StartRtcRobotInstanceRequest $request StartRtcRobotInstanceRequest
+     *
+     * @return StartRtcRobotInstanceResponse StartRtcRobotInstanceResponse
+     */
+    public function startRtcRobotInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->startRtcRobotInstanceWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 启动工作流
      *  *
      * @param StartWorkflowRequest $request StartWorkflowRequest
@@ -8816,6 +8940,53 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->startWorkflowWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 停止一个机器人实例
+     *  *
+     * @param StopRtcRobotInstanceRequest $request StopRtcRobotInstanceRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return StopRtcRobotInstanceResponse StopRtcRobotInstanceResponse
+     */
+    public function stopRtcRobotInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StopRtcRobotInstance',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return StopRtcRobotInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 停止一个机器人实例
+     *  *
+     * @param StopRtcRobotInstanceRequest $request StopRtcRobotInstanceRequest
+     *
+     * @return StopRtcRobotInstanceResponse StopRtcRobotInstanceResponse
+     */
+    public function stopRtcRobotInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->stopRtcRobotInstanceWithOptions($request, $runtime);
     }
 
     /**
@@ -11333,6 +11504,61 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updatePipelineWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 修改实例的配置
+     *  *
+     * @param UpdateRtcRobotInstanceRequest $tmpReq  UpdateRtcRobotInstanceRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateRtcRobotInstanceResponse UpdateRtcRobotInstanceResponse
+     */
+    public function updateRtcRobotInstanceWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateRtcRobotInstanceShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->config)) {
+            $request->configShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->config, 'Config', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->configShrink)) {
+            $query['Config'] = $request->configShrink;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateRtcRobotInstance',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateRtcRobotInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 修改实例的配置
+     *  *
+     * @param UpdateRtcRobotInstanceRequest $request UpdateRtcRobotInstanceRequest
+     *
+     * @return UpdateRtcRobotInstanceResponse UpdateRtcRobotInstanceResponse
+     */
+    public function updateRtcRobotInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateRtcRobotInstanceWithOptions($request, $runtime);
     }
 
     /**

@@ -26,6 +26,11 @@ class voiceList extends Model
     /**
      * @var string
      */
+    public $supportSampleRate;
+
+    /**
+     * @var string
+     */
     public $tag;
 
     /**
@@ -49,13 +54,14 @@ class voiceList extends Model
      */
     public $voiceUrl;
     protected $_name = [
-        'desc'      => 'Desc',
-        'name'      => 'Name',
-        'remark'    => 'Remark',
-        'tag'       => 'Tag',
-        'voice'     => 'Voice',
-        'voiceType' => 'VoiceType',
-        'voiceUrl'  => 'VoiceUrl',
+        'desc'              => 'Desc',
+        'name'              => 'Name',
+        'remark'            => 'Remark',
+        'supportSampleRate' => 'SupportSampleRate',
+        'tag'               => 'Tag',
+        'voice'             => 'Voice',
+        'voiceType'         => 'VoiceType',
+        'voiceUrl'          => 'VoiceUrl',
     ];
 
     public function validate()
@@ -73,6 +79,9 @@ class voiceList extends Model
         }
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
+        }
+        if (null !== $this->supportSampleRate) {
+            $res['SupportSampleRate'] = $this->supportSampleRate;
         }
         if (null !== $this->tag) {
             $res['Tag'] = $this->tag;
@@ -106,6 +115,9 @@ class voiceList extends Model
         }
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];
+        }
+        if (isset($map['SupportSampleRate'])) {
+            $model->supportSampleRate = $map['SupportSampleRate'];
         }
         if (isset($map['Tag'])) {
             $model->tag = $map['Tag'];
