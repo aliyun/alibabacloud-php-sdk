@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyPublicUrlIpListRequest extends Model
 {
     /**
-     * @description The request parameters.
+     * @description The request body.
      *
      * @var string[]
      */

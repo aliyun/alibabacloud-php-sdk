@@ -76,6 +76,11 @@ class result extends Model
     public $domain;
 
     /**
+     * @var string[][]
+     */
+    public $extend;
+
+    /**
      * @description The time when full data in the index was last updated.
      *
      * @example 2024-06-20 08:52:54
@@ -161,6 +166,7 @@ class result extends Model
         'dataSourceInfo'  => 'dataSourceInfo',
         'description'     => 'description',
         'domain'          => 'domain',
+        'extend'          => 'extend',
         'fullUpdateTime'  => 'fullUpdateTime',
         'fullVersion'     => 'fullVersion',
         'incUpdateTime'   => 'incUpdateTime',
@@ -206,6 +212,9 @@ class result extends Model
         }
         if (null !== $this->domain) {
             $res['domain'] = $this->domain;
+        }
+        if (null !== $this->extend) {
+            $res['extend'] = $this->extend;
         }
         if (null !== $this->fullUpdateTime) {
             $res['fullUpdateTime'] = $this->fullUpdateTime;
@@ -272,6 +281,9 @@ class result extends Model
         }
         if (isset($map['domain'])) {
             $model->domain = $map['domain'];
+        }
+        if (isset($map['extend'])) {
+            $model->extend = $map['extend'];
         }
         if (isset($map['fullUpdateTime'])) {
             $model->fullUpdateTime = $map['fullUpdateTime'];

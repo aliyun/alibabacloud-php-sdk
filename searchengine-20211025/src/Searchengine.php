@@ -1608,7 +1608,7 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a public endpoint.
+     * @summary 删除公网域名
      *  *
      * @param string         $instanceId
      * @param string[]       $headers    map
@@ -1637,7 +1637,7 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a public endpoint.
+     * @summary 删除公网域名
      *  *
      * @param string $instanceId
      *
@@ -1864,11 +1864,11 @@ class Searchengine extends OpenApiClient
     /**
      * @summary Performs a forced switchover.
      *  *
-     * @description \\### Method
+     * @description ### [](#)Method
      * ```java
      * PUT
      * ```
-     * ### URI
+     * ### [](#uri)URI
      * ```java
      * /openapi/ha3/instances/{instanceId}/force-switch/{fsmId}
      * ```
@@ -1903,11 +1903,11 @@ class Searchengine extends OpenApiClient
     /**
      * @summary Performs a forced switchover.
      *  *
-     * @description \\### Method
+     * @description ### [](#)Method
      * ```java
      * PUT
      * ```
-     * ### URI
+     * ### [](#uri)URI
      * ```java
      * /openapi/ha3/instances/{instanceId}/force-switch/{fsmId}
      * ```
@@ -5066,7 +5066,7 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @summary Modifies an online policy of an index.
+     * @summary Modifies the online policy of an index.
      *  *
      * @param string                           $instanceId
      * @param string                           $dataSourceName
@@ -5105,7 +5105,7 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @summary Modifies an online policy of an index.
+     * @summary Modifies the online policy of an index.
      *  *
      * @param string                           $instanceId
      * @param string                           $dataSourceName

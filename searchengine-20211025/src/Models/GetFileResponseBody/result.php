@@ -27,6 +27,11 @@ class result extends Model
     public $dataSource;
 
     /**
+     * @var string[][]
+     */
+    public $extend;
+
+    /**
      * @description The full path of the file.
      *
      * @example ""
@@ -64,6 +69,7 @@ class result extends Model
     protected $_name = [
         'content'      => 'content',
         'dataSource'   => 'dataSource',
+        'extend'       => 'extend',
         'fullPathName' => 'fullPathName',
         'isDir'        => 'isDir',
         'name'         => 'name',
@@ -82,6 +88,9 @@ class result extends Model
         }
         if (null !== $this->dataSource) {
             $res['dataSource'] = $this->dataSource;
+        }
+        if (null !== $this->extend) {
+            $res['extend'] = $this->extend;
         }
         if (null !== $this->fullPathName) {
             $res['fullPathName'] = $this->fullPathName;
@@ -112,6 +121,9 @@ class result extends Model
         }
         if (isset($map['dataSource'])) {
             $model->dataSource = $map['dataSource'];
+        }
+        if (isset($map['extend'])) {
+            $model->extend = $map['extend'];
         }
         if (isset($map['fullPathName'])) {
             $model->fullPathName = $map['fullPathName'];

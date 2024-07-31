@@ -18,7 +18,7 @@ class StopIndexResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The result.
+     * @description The index map.
      *
      * @example {}
      *
