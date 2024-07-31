@@ -120,6 +120,11 @@ class module extends Model
     public $settleTime;
 
     /**
+     * @var string
+     */
+    public $thirdPartApplyId;
+
+    /**
      * @example 17509140000
      *
      * @var string
@@ -150,6 +155,7 @@ class module extends Model
         'refundAmount'       => 'refund_amount',
         'sceneName'          => 'scene_name',
         'settleTime'         => 'settle_time',
+        'thirdPartApplyId'   => 'third_part_apply_id',
         'userAlipayId'       => 'user_alipay_id',
         'userId'             => 'user_id',
     ];
@@ -211,6 +217,9 @@ class module extends Model
         }
         if (null !== $this->settleTime) {
             $res['settle_time'] = $this->settleTime;
+        }
+        if (null !== $this->thirdPartApplyId) {
+            $res['third_part_apply_id'] = $this->thirdPartApplyId;
         }
         if (null !== $this->userAlipayId) {
             $res['user_alipay_id'] = $this->userAlipayId;
@@ -280,6 +289,9 @@ class module extends Model
         }
         if (isset($map['settle_time'])) {
             $model->settleTime = $map['settle_time'];
+        }
+        if (isset($map['third_part_apply_id'])) {
+            $model->thirdPartApplyId = $map['third_part_apply_id'];
         }
         if (isset($map['user_alipay_id'])) {
             $model->userAlipayId = $map['user_alipay_id'];

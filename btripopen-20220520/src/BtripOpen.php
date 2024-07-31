@@ -326,6 +326,8 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelOrderCreateShrinkRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelOrderDetailInfoHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelOrderDetailInfoRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelOrderDetailInfoResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelOrderInfoQueryHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelOrderInfoQueryResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelOrderListQueryHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelOrderListQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelOrderListQueryResponse;
@@ -355,6 +357,9 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelStaticInfoHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelStaticInfoRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelStaticInfoResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelStaticInfoShrinkRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelSuggestV2Headers;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelSuggestV2Request;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelSuggestV2Response;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IeFlightBillSettlementQueryHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IeFlightBillSettlementQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IeFlightBillSettlementQueryResponse;
@@ -7974,6 +7979,57 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
+     * @summary 自营酒店订单查询
+     *  *
+     * @param string                     $orderId
+     * @param HotelOrderInfoQueryHeaders $headers HotelOrderInfoQueryHeaders
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return HotelOrderInfoQueryResponse HotelOrderInfoQueryResponse
+     */
+    public function hotelOrderInfoQueryWithOptions($orderId, $headers, $runtime)
+    {
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+        ]);
+        $params = new Params([
+            'action'      => 'HotelOrderInfoQuery',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/order/v1/hotelOrders/' . OpenApiUtilClient::getEncodeParam($orderId) . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return HotelOrderInfoQueryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 自营酒店订单查询
+     *  *
+     * @param string $orderId
+     *
+     * @return HotelOrderInfoQueryResponse HotelOrderInfoQueryResponse
+     */
+    public function hotelOrderInfoQuery($orderId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new HotelOrderInfoQueryHeaders([]);
+
+        return $this->hotelOrderInfoQueryWithOptions($orderId, $headers, $runtime);
+    }
+
+    /**
      * @summary 查询酒店订单列表
      *  *
      * @param HotelOrderListQueryRequest $request HotelOrderListQueryRequest
@@ -8620,6 +8676,78 @@ class BtripOpen extends OpenApiClient
         $headers = new HotelStaticInfoHeaders([]);
 
         return $this->hotelStaticInfoWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 酒店关键词搜索
+     *  *
+     * @param HotelSuggestV2Request $request HotelSuggestV2Request
+     * @param HotelSuggestV2Headers $headers HotelSuggestV2Headers
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return HotelSuggestV2Response HotelSuggestV2Response
+     */
+    public function hotelSuggestV2WithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->btripUserId)) {
+            $query['btrip_user_id'] = $request->btripUserId;
+        }
+        if (!Utils::isUnset($request->checkIn)) {
+            $query['check_in'] = $request->checkIn;
+        }
+        if (!Utils::isUnset($request->checkOut)) {
+            $query['check_out'] = $request->checkOut;
+        }
+        if (!Utils::isUnset($request->cityCode)) {
+            $query['city_code'] = $request->cityCode;
+        }
+        if (!Utils::isUnset($request->keyword)) {
+            $query['keyword'] = $request->keyword;
+        }
+        if (!Utils::isUnset($request->searchType)) {
+            $query['search_type'] = $request->searchType;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'HotelSuggestV2',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dtb-hotel/v2/suggest-infos',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return HotelSuggestV2Response::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 酒店关键词搜索
+     *  *
+     * @param HotelSuggestV2Request $request HotelSuggestV2Request
+     *
+     * @return HotelSuggestV2Response HotelSuggestV2Response
+     */
+    public function hotelSuggestV2($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new HotelSuggestV2Headers([]);
+
+        return $this->hotelSuggestV2WithOptions($request, $headers, $runtime);
     }
 
     /**
