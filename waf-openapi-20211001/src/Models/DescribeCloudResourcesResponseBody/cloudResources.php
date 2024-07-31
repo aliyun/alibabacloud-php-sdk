@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class cloudResources extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $httpPortCount;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $httpsPortCount;
@@ -57,16 +61,22 @@ class cloudResources extends Model
     public $resourceInstance;
 
     /**
+     * @example lb-uf60ub45fr9b***
+     *
      * @var string
      */
     public $resourceInstanceId;
 
     /**
+     * @example 1.1.1.1
+     *
      * @var string
      */
     public $resourceInstanceIp;
 
     /**
+     * @example test-name
+     *
      * @var string
      */
     public $resourceInstanceName;

@@ -6,35 +6,32 @@ namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ModifyPauseProtectionStatusRequest extends Model
+class DescribeHybridCloudClusterRuleRequest extends Model
 {
+    /**
+     * @description The ID of the hybrid cloud cluster.
+     *
+     * This parameter is required.
+     * @example 1
+     *
+     * @var int
+     */
+    public $clusterId;
+
     /**
      * @description The ID of the WAF instance.
      *
      * This parameter is required.
-     * @example waf-cn-tl32ast****
+     * @example waf-cn-uqm33n***02
      *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description Specifies whether to pause WAF protection.
+     * @description The region in which the WAF instance is deployed. Valid value:
      *
-     *   **0**: does not pause WAF protection. This is the default value.
-     *   **1**: pauses WAF protection.
-     *
-     * This parameter is required.
-     * @example 0
-     *
-     * @var int
-     */
-    public $pauseStatus;
-
-    /**
-     * @description The region in which the WAF instance is deployed. Valid values:
-     *
-     *   **cn-hangzhou**: the Chinese mainland.
+     *   **cn-hangzhou**: Chinese mainland.
      *   **ap-southeast-1**: outside the Chinese mainland.
      *
      * @example cn-hangzhou
@@ -51,11 +48,24 @@ class ModifyPauseProtectionStatusRequest extends Model
      * @var string
      */
     public $resourceManagerResourceGroupId;
+
+    /**
+     * @description The type of the rule. Valid values:
+     *
+     *   **pullin**: The traffic redirection rule of the hybrid cloud cluster.
+     *
+     * This parameter is required.
+     * @example pullin
+     *
+     * @var string
+     */
+    public $ruleType;
     protected $_name = [
+        'clusterId'                      => 'ClusterId',
         'instanceId'                     => 'InstanceId',
-        'pauseStatus'                    => 'PauseStatus',
         'regionId'                       => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
+        'ruleType'                       => 'RuleType',
     ];
 
     public function validate()
@@ -65,17 +75,20 @@ class ModifyPauseProtectionStatusRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clusterId) {
+            $res['ClusterId'] = $this->clusterId;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->pauseStatus) {
-            $res['PauseStatus'] = $this->pauseStatus;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceManagerResourceGroupId) {
             $res['ResourceManagerResourceGroupId'] = $this->resourceManagerResourceGroupId;
+        }
+        if (null !== $this->ruleType) {
+            $res['RuleType'] = $this->ruleType;
         }
 
         return $res;
@@ -84,22 +97,25 @@ class ModifyPauseProtectionStatusRequest extends Model
     /**
      * @param array $map
      *
-     * @return ModifyPauseProtectionStatusRequest
+     * @return DescribeHybridCloudClusterRuleRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClusterId'])) {
+            $model->clusterId = $map['ClusterId'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['PauseStatus'])) {
-            $model->pauseStatus = $map['PauseStatus'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceManagerResourceGroupId'])) {
             $model->resourceManagerResourceGroupId = $map['ResourceManagerResourceGroupId'];
+        }
+        if (isset($map['RuleType'])) {
+            $model->ruleType = $map['RuleType'];
         }
 
         return $model;

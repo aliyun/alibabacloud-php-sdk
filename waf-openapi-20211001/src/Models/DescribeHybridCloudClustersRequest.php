@@ -6,37 +6,18 @@ namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ModifyPauseProtectionStatusRequest extends Model
+class DescribeHybridCloudClustersRequest extends Model
 {
     /**
-     * @description The ID of the WAF instance.
+     * @description This parameter is required.
      *
-     * This parameter is required.
-     * @example waf-cn-tl32ast****
+     * @example waf_v2_public_cn-uqm35****02
      *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description Specifies whether to pause WAF protection.
-     *
-     *   **0**: does not pause WAF protection. This is the default value.
-     *   **1**: pauses WAF protection.
-     *
-     * This parameter is required.
-     * @example 0
-     *
-     * @var int
-     */
-    public $pauseStatus;
-
-    /**
-     * @description The region in which the WAF instance is deployed. Valid values:
-     *
-     *   **cn-hangzhou**: the Chinese mainland.
-     *   **ap-southeast-1**: outside the Chinese mainland.
-     *
      * @example cn-hangzhou
      *
      * @var string
@@ -44,8 +25,6 @@ class ModifyPauseProtectionStatusRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the Alibaba Cloud resource group.
-     *
      * @example rg-acfm***q
      *
      * @var string
@@ -53,7 +32,6 @@ class ModifyPauseProtectionStatusRequest extends Model
     public $resourceManagerResourceGroupId;
     protected $_name = [
         'instanceId'                     => 'InstanceId',
-        'pauseStatus'                    => 'PauseStatus',
         'regionId'                       => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
     ];
@@ -68,9 +46,6 @@ class ModifyPauseProtectionStatusRequest extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->pauseStatus) {
-            $res['PauseStatus'] = $this->pauseStatus;
-        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -84,16 +59,13 @@ class ModifyPauseProtectionStatusRequest extends Model
     /**
      * @param array $map
      *
-     * @return ModifyPauseProtectionStatusRequest
+     * @return DescribeHybridCloudClustersRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['PauseStatus'])) {
-            $model->pauseStatus = $map['PauseStatus'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

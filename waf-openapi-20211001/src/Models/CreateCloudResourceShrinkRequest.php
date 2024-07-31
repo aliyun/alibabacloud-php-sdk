@@ -6,36 +6,38 @@ namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ModifyPauseProtectionStatusRequest extends Model
+class CreateCloudResourceShrinkRequest extends Model
 {
     /**
-     * @description The ID of the WAF instance.
+     * @description This parameter is required.
      *
-     * This parameter is required.
-     * @example waf-cn-tl32ast****
+     * @example waf_v3prepaid_public_cn-***
      *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description Specifies whether to pause WAF protection.
+     * @description This parameter is required.
      *
-     *   **0**: does not pause WAF protection. This is the default value.
-     *   **1**: pauses WAF protection.
-     *
-     * This parameter is required.
-     * @example 0
-     *
-     * @var int
+     * @var string
      */
-    public $pauseStatus;
+    public $listenShrink;
 
     /**
-     * @description The region in which the WAF instance is deployed. Valid values:
+     * @example 123
      *
-     *   **cn-hangzhou**: the Chinese mainland.
-     *   **ap-southeast-1**: outside the Chinese mainland.
+     * @var string
+     */
+    public $ownerUserId;
+
+    /**
+     * @var string
+     */
+    public $redirectShrink;
+
+    /**
+     * @description This parameter is required.
      *
      * @example cn-hangzhou
      *
@@ -44,8 +46,6 @@ class ModifyPauseProtectionStatusRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the Alibaba Cloud resource group.
-     *
      * @example rg-acfm***q
      *
      * @var string
@@ -53,7 +53,9 @@ class ModifyPauseProtectionStatusRequest extends Model
     public $resourceManagerResourceGroupId;
     protected $_name = [
         'instanceId'                     => 'InstanceId',
-        'pauseStatus'                    => 'PauseStatus',
+        'listenShrink'                   => 'Listen',
+        'ownerUserId'                    => 'OwnerUserId',
+        'redirectShrink'                 => 'Redirect',
         'regionId'                       => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
     ];
@@ -68,8 +70,14 @@ class ModifyPauseProtectionStatusRequest extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->pauseStatus) {
-            $res['PauseStatus'] = $this->pauseStatus;
+        if (null !== $this->listenShrink) {
+            $res['Listen'] = $this->listenShrink;
+        }
+        if (null !== $this->ownerUserId) {
+            $res['OwnerUserId'] = $this->ownerUserId;
+        }
+        if (null !== $this->redirectShrink) {
+            $res['Redirect'] = $this->redirectShrink;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -84,7 +92,7 @@ class ModifyPauseProtectionStatusRequest extends Model
     /**
      * @param array $map
      *
-     * @return ModifyPauseProtectionStatusRequest
+     * @return CreateCloudResourceShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -92,8 +100,14 @@ class ModifyPauseProtectionStatusRequest extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['PauseStatus'])) {
-            $model->pauseStatus = $map['PauseStatus'];
+        if (isset($map['Listen'])) {
+            $model->listenShrink = $map['Listen'];
+        }
+        if (isset($map['OwnerUserId'])) {
+            $model->ownerUserId = $map['OwnerUserId'];
+        }
+        if (isset($map['Redirect'])) {
+            $model->redirectShrink = $map['Redirect'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

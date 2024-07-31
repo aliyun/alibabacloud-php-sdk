@@ -4,32 +4,28 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models;
 
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeHybridCloudClusterRuleResponseBody\clusterRule;
 use AlibabaCloud\Tea\Model;
 
-class DescribePauseProtectionStatusResponseBody extends Model
+class DescribeHybridCloudClusterRuleResponseBody extends Model
 {
     /**
-     * @description Indicates whether WAF protection is paused.
+     * @description The details of the rule.
      *
-     *   **0**: indicates that WAF protection is not paused. This is the default value.
-     *   **1**: indicates that WAF protection is paused.
-     *
-     * @example 0
-     *
-     * @var int
+     * @var clusterRule
      */
-    public $pauseStatus;
+    public $clusterRule;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
-     * @example D7861F61-****-46CE-A47C-6B19****5EB0
+     * @example 1F29A6D2-9EB6-526D-A997-36888**99CB
      *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'pauseStatus' => 'PauseStatus',
+        'clusterRule' => 'ClusterRule',
         'requestId'   => 'RequestId',
     ];
 
@@ -40,8 +36,8 @@ class DescribePauseProtectionStatusResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->pauseStatus) {
-            $res['PauseStatus'] = $this->pauseStatus;
+        if (null !== $this->clusterRule) {
+            $res['ClusterRule'] = null !== $this->clusterRule ? $this->clusterRule->toMap() : null;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -53,13 +49,13 @@ class DescribePauseProtectionStatusResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return DescribePauseProtectionStatusResponseBody
+     * @return DescribeHybridCloudClusterRuleResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PauseStatus'])) {
-            $model->pauseStatus = $map['PauseStatus'];
+        if (isset($map['ClusterRule'])) {
+            $model->clusterRule = clusterRule::fromMap($map['ClusterRule']);
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribePauseProtectionStatusRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the WAF instance.
      *
+     * This parameter is required.
      * @example waf-cn-tl32ast****
      *
      * @var string
@@ -18,6 +19,11 @@ class DescribePauseProtectionStatusRequest extends Model
     public $instanceId;
 
     /**
+     * @description The region in which the WAF instance is deployed. Valid values:
+     *
+     *   **cn-hangzhou**: the Chinese mainland.
+     *   **ap-southeast-1**: outside the Chinese mainland.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -25,6 +31,8 @@ class DescribePauseProtectionStatusRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the Alibaba Cloud resource group.
+     *
      * @example rg-acfm***q
      *
      * @var string

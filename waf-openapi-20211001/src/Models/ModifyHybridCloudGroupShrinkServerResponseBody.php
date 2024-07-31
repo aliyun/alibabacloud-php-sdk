@@ -6,12 +6,12 @@ namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ModifyPauseProtectionStatusResponseBody extends Model
+class ModifyHybridCloudGroupShrinkServerResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
-     * @example D7861F61-*****-******-D5EB0
+     * @example D7861F61-5B61-46CE-A47C-6B19****5EB0
      *
      * @var string
      */
@@ -37,7 +37,7 @@ class ModifyPauseProtectionStatusResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ModifyPauseProtectionStatusResponseBody
+     * @return ModifyHybridCloudGroupShrinkServerResponseBody
      */
     public static function fromMap($map = [])
     {

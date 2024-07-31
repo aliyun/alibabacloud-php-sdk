@@ -6,31 +6,28 @@ namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribePauseProtectionStatusResponseBody extends Model
+class CreateHybridCloudGroupResponseBody extends Model
 {
     /**
-     * @description Indicates whether WAF protection is paused.
+     * @description The ID of the node group.
      *
-     *   **0**: indicates that WAF protection is not paused. This is the default value.
-     *   **1**: indicates that WAF protection is paused.
-     *
-     * @example 0
+     * @example 1
      *
      * @var int
      */
-    public $pauseStatus;
+    public $data;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
-     * @example D7861F61-****-46CE-A47C-6B19****5EB0
+     * @example 48F7C7BA-0932-50EA-89AD-5B0E1***274
      *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'pauseStatus' => 'PauseStatus',
-        'requestId'   => 'RequestId',
+        'data'      => 'Data',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -40,8 +37,8 @@ class DescribePauseProtectionStatusResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->pauseStatus) {
-            $res['PauseStatus'] = $this->pauseStatus;
+        if (null !== $this->data) {
+            $res['Data'] = $this->data;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -53,13 +50,13 @@ class DescribePauseProtectionStatusResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return DescribePauseProtectionStatusResponseBody
+     * @return CreateHybridCloudGroupResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PauseStatus'])) {
-            $model->pauseStatus = $map['PauseStatus'];
+        if (isset($map['Data'])) {
+            $model->data = $map['Data'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

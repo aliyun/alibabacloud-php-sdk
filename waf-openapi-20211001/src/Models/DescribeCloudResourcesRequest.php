@@ -85,6 +85,8 @@ class DescribeCloudResourcesRequest extends Model
     public $resourceInstanceId;
 
     /**
+     * @example test-name
+     *
      * @var string
      */
     public $resourceInstanceName;

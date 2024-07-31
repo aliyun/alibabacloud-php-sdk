@@ -6,35 +6,32 @@ namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ModifyPauseProtectionStatusRequest extends Model
+class DescribeHybridCloudServerRegionsRequest extends Model
 {
     /**
-     * @description The ID of the WAF instance.
+     * @description The ID of the Web Application Firewall (WAF) instance.
      *
      * This parameter is required.
-     * @example waf-cn-tl32ast****
+     * @example waf_v3prepaid_public_cn-5yd****7009
      *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description Specifies whether to pause WAF protection.
+     * @description The code of the region.
      *
-     *   **0**: does not pause WAF protection. This is the default value.
-     *   **1**: pauses WAF protection.
+     * >  This parameter is required if you set RegionType to region. The value is the code of the city.
+     * @example 410
      *
-     * This parameter is required.
-     * @example 0
-     *
-     * @var int
+     * @var string
      */
-    public $pauseStatus;
+    public $regionCode;
 
     /**
      * @description The region in which the WAF instance is deployed. Valid values:
      *
-     *   **cn-hangzhou**: the Chinese mainland.
+     *   **cn-hangzhou**: Chinese mainland.
      *   **ap-southeast-1**: outside the Chinese mainland.
      *
      * @example cn-hangzhou
@@ -42,6 +39,20 @@ class ModifyPauseProtectionStatusRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @description The type of the region. Valid values:
+     *
+     *   **operator**: the ISP.
+     *   **continents**: the continent.
+     *   **region**: the city.
+     *
+     * This parameter is required.
+     * @example region
+     *
+     * @var string
+     */
+    public $regionType;
 
     /**
      * @description The ID of the Alibaba Cloud resource group.
@@ -53,8 +64,9 @@ class ModifyPauseProtectionStatusRequest extends Model
     public $resourceManagerResourceGroupId;
     protected $_name = [
         'instanceId'                     => 'InstanceId',
-        'pauseStatus'                    => 'PauseStatus',
+        'regionCode'                     => 'RegionCode',
         'regionId'                       => 'RegionId',
+        'regionType'                     => 'RegionType',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
     ];
 
@@ -68,11 +80,14 @@ class ModifyPauseProtectionStatusRequest extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->pauseStatus) {
-            $res['PauseStatus'] = $this->pauseStatus;
+        if (null !== $this->regionCode) {
+            $res['RegionCode'] = $this->regionCode;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->regionType) {
+            $res['RegionType'] = $this->regionType;
         }
         if (null !== $this->resourceManagerResourceGroupId) {
             $res['ResourceManagerResourceGroupId'] = $this->resourceManagerResourceGroupId;
@@ -84,7 +99,7 @@ class ModifyPauseProtectionStatusRequest extends Model
     /**
      * @param array $map
      *
-     * @return ModifyPauseProtectionStatusRequest
+     * @return DescribeHybridCloudServerRegionsRequest
      */
     public static function fromMap($map = [])
     {
@@ -92,11 +107,14 @@ class ModifyPauseProtectionStatusRequest extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['PauseStatus'])) {
-            $model->pauseStatus = $map['PauseStatus'];
+        if (isset($map['RegionCode'])) {
+            $model->regionCode = $map['RegionCode'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['RegionType'])) {
+            $model->regionType = $map['RegionType'];
         }
         if (isset($map['ResourceManagerResourceGroupId'])) {
             $model->resourceManagerResourceGroupId = $map['ResourceManagerResourceGroupId'];

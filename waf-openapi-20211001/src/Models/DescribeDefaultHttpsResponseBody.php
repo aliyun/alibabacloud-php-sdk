@@ -4,20 +4,25 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models;
 
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefaultHttpsResponseBody\defaultHttps;
 use AlibabaCloud\Tea\Model;
 
-class ModifyPauseProtectionStatusResponseBody extends Model
+class DescribeDefaultHttpsResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example D7861F61-*****-******-D5EB0
+     * @var defaultHttps
+     */
+    public $defaultHttps;
+
+    /**
+     * @example F35F45B0-5D6B-4238-BE02-A62D****E840
      *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
+        'defaultHttps' => 'DefaultHttps',
+        'requestId'    => 'RequestId',
     ];
 
     public function validate()
@@ -27,6 +32,9 @@ class ModifyPauseProtectionStatusResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->defaultHttps) {
+            $res['DefaultHttps'] = null !== $this->defaultHttps ? $this->defaultHttps->toMap() : null;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -37,11 +45,14 @@ class ModifyPauseProtectionStatusResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ModifyPauseProtectionStatusResponseBody
+     * @return DescribeDefaultHttpsResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DefaultHttps'])) {
+            $model->defaultHttps = defaultHttps::fromMap($map['DefaultHttps']);
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

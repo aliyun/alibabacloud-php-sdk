@@ -6,36 +6,28 @@ namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ModifyPauseProtectionStatusRequest extends Model
+class DeleteCloudResourceRequest extends Model
 {
     /**
-     * @description The ID of the WAF instance.
+     * @description This parameter is required.
      *
-     * This parameter is required.
-     * @example waf-cn-tl32ast****
+     * @example waf_v2_public_cn-***
      *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description Specifies whether to pause WAF protection.
+     * @description This parameter is required.
      *
-     *   **0**: does not pause WAF protection. This is the default value.
-     *   **1**: pauses WAF protection.
-     *
-     * This parameter is required.
-     * @example 0
+     * @example 443
      *
      * @var int
      */
-    public $pauseStatus;
+    public $port;
 
     /**
-     * @description The region in which the WAF instance is deployed. Valid values:
-     *
-     *   **cn-hangzhou**: the Chinese mainland.
-     *   **ap-southeast-1**: outside the Chinese mainland.
+     * @description This parameter is required.
      *
      * @example cn-hangzhou
      *
@@ -44,18 +36,36 @@ class ModifyPauseProtectionStatusRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the Alibaba Cloud resource group.
+     * @description This parameter is required.
      *
+     * @example lb-bp1*****jqnnqk5uj2p
+     *
+     * @var string
+     */
+    public $resourceInstanceId;
+
+    /**
      * @example rg-acfm***q
      *
      * @var string
      */
     public $resourceManagerResourceGroupId;
+
+    /**
+     * @description This parameter is required.
+     *
+     * @example clb7
+     *
+     * @var string
+     */
+    public $resourceProduct;
     protected $_name = [
         'instanceId'                     => 'InstanceId',
-        'pauseStatus'                    => 'PauseStatus',
+        'port'                           => 'Port',
         'regionId'                       => 'RegionId',
+        'resourceInstanceId'             => 'ResourceInstanceId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
+        'resourceProduct'                => 'ResourceProduct',
     ];
 
     public function validate()
@@ -68,14 +78,20 @@ class ModifyPauseProtectionStatusRequest extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->pauseStatus) {
-            $res['PauseStatus'] = $this->pauseStatus;
+        if (null !== $this->port) {
+            $res['Port'] = $this->port;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+        if (null !== $this->resourceInstanceId) {
+            $res['ResourceInstanceId'] = $this->resourceInstanceId;
+        }
         if (null !== $this->resourceManagerResourceGroupId) {
             $res['ResourceManagerResourceGroupId'] = $this->resourceManagerResourceGroupId;
+        }
+        if (null !== $this->resourceProduct) {
+            $res['ResourceProduct'] = $this->resourceProduct;
         }
 
         return $res;
@@ -84,7 +100,7 @@ class ModifyPauseProtectionStatusRequest extends Model
     /**
      * @param array $map
      *
-     * @return ModifyPauseProtectionStatusRequest
+     * @return DeleteCloudResourceRequest
      */
     public static function fromMap($map = [])
     {
@@ -92,14 +108,20 @@ class ModifyPauseProtectionStatusRequest extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['PauseStatus'])) {
-            $model->pauseStatus = $map['PauseStatus'];
+        if (isset($map['Port'])) {
+            $model->port = $map['Port'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+        if (isset($map['ResourceInstanceId'])) {
+            $model->resourceInstanceId = $map['ResourceInstanceId'];
+        }
         if (isset($map['ResourceManagerResourceGroupId'])) {
             $model->resourceManagerResourceGroupId = $map['ResourceManagerResourceGroupId'];
+        }
+        if (isset($map['ResourceProduct'])) {
+            $model->resourceProduct = $map['ResourceProduct'];
         }
 
         return $model;
