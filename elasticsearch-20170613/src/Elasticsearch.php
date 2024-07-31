@@ -10953,6 +10953,9 @@ class Elasticsearch extends OpenApiClient
             $query['dryRun'] = $request->dryRun;
         }
         $body = [];
+        if (!Utils::isUnset($request->plugins)) {
+            $body['plugins'] = $request->plugins;
+        }
         if (!Utils::isUnset($request->type)) {
             $body['type'] = $request->type;
         }

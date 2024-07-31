@@ -4,10 +4,16 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models;
 
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpgradeEngineVersionRequest\plugins;
 use AlibabaCloud\Tea\Model;
 
 class UpgradeEngineVersionRequest extends Model
 {
+    /**
+     * @var plugins[]
+     */
+    public $plugins;
+
     /**
      * @example engineVersion
      *
@@ -45,6 +51,7 @@ class UpgradeEngineVersionRequest extends Model
      */
     public $dryRun;
     protected $_name = [
+        'plugins'     => 'plugins',
         'type'        => 'type',
         'version'     => 'version',
         'clientToken' => 'clientToken',
@@ -58,6 +65,15 @@ class UpgradeEngineVersionRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->plugins) {
+            $res['plugins'] = [];
+            if (null !== $this->plugins && \is_array($this->plugins)) {
+                $n = 0;
+                foreach ($this->plugins as $item) {
+                    $res['plugins'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
@@ -82,6 +98,15 @@ class UpgradeEngineVersionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['plugins'])) {
+            if (!empty($map['plugins'])) {
+                $model->plugins = [];
+                $n              = 0;
+                foreach ($map['plugins'] as $item) {
+                    $model->plugins[$n++] = null !== $item ? plugins::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }
