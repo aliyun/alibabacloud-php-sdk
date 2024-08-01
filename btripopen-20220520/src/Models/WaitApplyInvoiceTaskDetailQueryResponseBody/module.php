@@ -139,6 +139,11 @@ class module extends Model
      * @var string
      */
     public $vehicleInvoiceFee;
+
+    /**
+     * @var string
+     */
+    public $vehicleNormalInvoiceFee;
     protected $_name = [
         'contact'                            => 'contact',
         'email'                              => 'email',
@@ -162,6 +167,7 @@ class module extends Model
         'trainAccelerationPackageInvoiceFee' => 'train_acceleration_package_invoice_fee',
         'trainInvoiceFee'                    => 'train_invoice_fee',
         'vehicleInvoiceFee'                  => 'vehicle_invoice_fee',
+        'vehicleNormalInvoiceFee'            => 'vehicle_normal_invoice_fee',
     ];
 
     public function validate()
@@ -236,6 +242,9 @@ class module extends Model
         }
         if (null !== $this->vehicleInvoiceFee) {
             $res['vehicle_invoice_fee'] = $this->vehicleInvoiceFee;
+        }
+        if (null !== $this->vehicleNormalInvoiceFee) {
+            $res['vehicle_normal_invoice_fee'] = $this->vehicleNormalInvoiceFee;
         }
 
         return $res;
@@ -314,6 +323,9 @@ class module extends Model
         }
         if (isset($map['vehicle_invoice_fee'])) {
             $model->vehicleInvoiceFee = $map['vehicle_invoice_fee'];
+        }
+        if (isset($map['vehicle_normal_invoice_fee'])) {
+            $model->vehicleNormalInvoiceFee = $map['vehicle_normal_invoice_fee'];
         }
 
         return $model;

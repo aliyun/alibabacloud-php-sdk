@@ -26,6 +26,11 @@ class externalTravelerList extends Model
     /**
      * @var string
      */
+    public $externalUserId;
+
+    /**
+     * @var string
+     */
     public $invoiceName;
 
     /**
@@ -56,6 +61,7 @@ class externalTravelerList extends Model
         'attribute'             => 'attribute',
         'costCenterName'        => 'cost_center_name',
         'departId'              => 'depart_id',
+        'externalUserId'        => 'external_user_id',
         'invoiceName'           => 'invoice_name',
         'paymentDepartmentName' => 'payment_department_name',
         'projectCode'           => 'project_code',
@@ -79,6 +85,9 @@ class externalTravelerList extends Model
         }
         if (null !== $this->departId) {
             $res['depart_id'] = $this->departId;
+        }
+        if (null !== $this->externalUserId) {
+            $res['external_user_id'] = $this->externalUserId;
         }
         if (null !== $this->invoiceName) {
             $res['invoice_name'] = $this->invoiceName;
@@ -118,6 +127,9 @@ class externalTravelerList extends Model
         }
         if (isset($map['depart_id'])) {
             $model->departId = $map['depart_id'];
+        }
+        if (isset($map['external_user_id'])) {
+            $model->externalUserId = $map['external_user_id'];
         }
         if (isset($map['invoice_name'])) {
             $model->invoiceName = $map['invoice_name'];

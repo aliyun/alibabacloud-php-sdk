@@ -40,6 +40,11 @@ class externalTravelerList extends Model
     public $economyDiscount;
 
     /**
+     * @var string
+     */
+    public $externalUserId;
+
+    /**
      * @example 1
      *
      * @var int
@@ -159,6 +164,7 @@ class externalTravelerList extends Model
         'costCenterName'         => 'cost_center_name',
         'departId'               => 'depart_id',
         'economyDiscount'        => 'economy_discount',
+        'externalUserId'         => 'external_user_id',
         'firstDiscount'          => 'first_discount',
         'flightCabins'           => 'flight_cabins',
         'flightIntlRuleCode'     => 'flight_intl_rule_code',
@@ -203,6 +209,9 @@ class externalTravelerList extends Model
         }
         if (null !== $this->economyDiscount) {
             $res['economy_discount'] = $this->economyDiscount;
+        }
+        if (null !== $this->externalUserId) {
+            $res['external_user_id'] = $this->externalUserId;
         }
         if (null !== $this->firstDiscount) {
             $res['first_discount'] = $this->firstDiscount;
@@ -305,6 +314,9 @@ class externalTravelerList extends Model
         }
         if (isset($map['economy_discount'])) {
             $model->economyDiscount = $map['economy_discount'];
+        }
+        if (isset($map['external_user_id'])) {
+            $model->externalUserId = $map['external_user_id'];
         }
         if (isset($map['first_discount'])) {
             $model->firstDiscount = $map['first_discount'];

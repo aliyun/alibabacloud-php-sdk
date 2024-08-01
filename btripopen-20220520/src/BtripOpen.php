@@ -169,6 +169,8 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ExternalUserAddResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ExternalUserAddShrinkRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ExternalUserDeleteHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ExternalUserDeleteResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ExternalUserQueryHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ExternalUserQueryResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ExternalUserUpdateHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ExternalUserUpdateRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ExternalUserUpdateResponse;
@@ -4417,6 +4419,57 @@ class BtripOpen extends OpenApiClient
         $headers = new ExternalUserDeleteHeaders([]);
 
         return $this->externalUserDeleteWithOptions($externalUserId, $headers, $runtime);
+    }
+
+    /**
+     * @summary 查询外部出行人
+     *  *
+     * @param string                   $externalUserId
+     * @param ExternalUserQueryHeaders $headers        ExternalUserQueryHeaders
+     * @param RuntimeOptions           $runtime        runtime options for this request RuntimeOptions
+     *
+     * @return ExternalUserQueryResponse ExternalUserQueryResponse
+     */
+    public function externalUserQueryWithOptions($externalUserId, $headers, $runtime)
+    {
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+        ]);
+        $params = new Params([
+            'action'      => 'ExternalUserQuery',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/user/v1/externalUsers/' . OpenApiUtilClient::getEncodeParam($externalUserId) . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ExternalUserQueryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询外部出行人
+     *  *
+     * @param string $externalUserId
+     *
+     * @return ExternalUserQueryResponse ExternalUserQueryResponse
+     */
+    public function externalUserQuery($externalUserId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new ExternalUserQueryHeaders([]);
+
+        return $this->externalUserQueryWithOptions($externalUserId, $headers, $runtime);
     }
 
     /**
