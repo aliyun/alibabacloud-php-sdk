@@ -223,6 +223,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\ListDNAFilesRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListDNAFilesResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListDynamicImageJobsRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListDynamicImageJobsResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListEditingProjectsRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListEditingProjectsResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListLiveRecordFilesRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListLiveRecordFilesResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListLiveRecordJobsRequest;
@@ -6133,6 +6135,80 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listDynamicImageJobsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取云剪辑工程列表
+     *  *
+     * @param ListEditingProjectsRequest $request ListEditingProjectsRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListEditingProjectsResponse ListEditingProjectsResponse
+     */
+    public function listEditingProjectsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->createSource)) {
+            $query['CreateSource'] = $request->createSource;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->keyword)) {
+            $query['Keyword'] = $request->keyword;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->projectType)) {
+            $query['ProjectType'] = $request->projectType;
+        }
+        if (!Utils::isUnset($request->sortBy)) {
+            $query['SortBy'] = $request->sortBy;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->templateType)) {
+            $query['TemplateType'] = $request->templateType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListEditingProjects',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListEditingProjectsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取云剪辑工程列表
+     *  *
+     * @param ListEditingProjectsRequest $request ListEditingProjectsRequest
+     *
+     * @return ListEditingProjectsResponse ListEditingProjectsResponse
+     */
+    public function listEditingProjects($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listEditingProjectsWithOptions($request, $runtime);
     }
 
     /**
