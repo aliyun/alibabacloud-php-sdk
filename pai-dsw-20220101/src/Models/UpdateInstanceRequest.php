@@ -33,9 +33,19 @@ class UpdateInstanceRequest extends Model
     public $cloudDisks;
 
     /**
+     * @var CredentialConfig
+     */
+    public $credentialConfig;
+
+    /**
      * @var datasets[]
      */
     public $datasets;
+
+    /**
+     * @var bool
+     */
+    public $disassociateCredential;
 
     /**
      * @example false
@@ -141,7 +151,9 @@ class UpdateInstanceRequest extends Model
         'accessibility'            => 'Accessibility',
         'affinity'                 => 'Affinity',
         'cloudDisks'               => 'CloudDisks',
+        'credentialConfig'         => 'CredentialConfig',
         'datasets'                 => 'Datasets',
+        'disassociateCredential'   => 'DisassociateCredential',
         'disassociateDatasets'     => 'DisassociateDatasets',
         'disassociateDriver'       => 'DisassociateDriver',
         'disassociateForwardInfos' => 'DisassociateForwardInfos',
@@ -181,6 +193,9 @@ class UpdateInstanceRequest extends Model
                 }
             }
         }
+        if (null !== $this->credentialConfig) {
+            $res['CredentialConfig'] = null !== $this->credentialConfig ? $this->credentialConfig->toMap() : null;
+        }
         if (null !== $this->datasets) {
             $res['Datasets'] = [];
             if (null !== $this->datasets && \is_array($this->datasets)) {
@@ -189,6 +204,9 @@ class UpdateInstanceRequest extends Model
                     $res['Datasets'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->disassociateCredential) {
+            $res['DisassociateCredential'] = $this->disassociateCredential;
         }
         if (null !== $this->disassociateDatasets) {
             $res['DisassociateDatasets'] = $this->disassociateDatasets;
@@ -262,6 +280,9 @@ class UpdateInstanceRequest extends Model
                 }
             }
         }
+        if (isset($map['CredentialConfig'])) {
+            $model->credentialConfig = CredentialConfig::fromMap($map['CredentialConfig']);
+        }
         if (isset($map['Datasets'])) {
             if (!empty($map['Datasets'])) {
                 $model->datasets = [];
@@ -270,6 +291,9 @@ class UpdateInstanceRequest extends Model
                     $model->datasets[$n++] = null !== $item ? datasets::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['DisassociateCredential'])) {
+            $model->disassociateCredential = $map['DisassociateCredential'];
         }
         if (isset($map['DisassociateDatasets'])) {
             $model->disassociateDatasets = $map['DisassociateDatasets'];

@@ -34,6 +34,11 @@ class CreateInstanceRequest extends Model
     public $cloudDisks;
 
     /**
+     * @var CredentialConfig
+     */
+    public $credentialConfig;
+
+    /**
      * @var datasets[]
      */
     public $datasets;
@@ -142,6 +147,7 @@ class CreateInstanceRequest extends Model
         'accessibility'        => 'Accessibility',
         'affinity'             => 'Affinity',
         'cloudDisks'           => 'CloudDisks',
+        'credentialConfig'     => 'CredentialConfig',
         'datasets'             => 'Datasets',
         'driver'               => 'Driver',
         'ecsSpec'              => 'EcsSpec',
@@ -181,6 +187,9 @@ class CreateInstanceRequest extends Model
                     $res['CloudDisks'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->credentialConfig) {
+            $res['CredentialConfig'] = null !== $this->credentialConfig ? $this->credentialConfig->toMap() : null;
         }
         if (null !== $this->datasets) {
             $res['Datasets'] = [];
@@ -268,6 +277,9 @@ class CreateInstanceRequest extends Model
                     $model->cloudDisks[$n++] = null !== $item ? cloudDisks::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['CredentialConfig'])) {
+            $model->credentialConfig = CredentialConfig::fromMap($map['CredentialConfig']);
         }
         if (isset($map['Datasets'])) {
             if (!empty($map['Datasets'])) {

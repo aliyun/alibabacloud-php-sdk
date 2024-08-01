@@ -168,6 +168,9 @@ class Paidsw extends OpenApiClient
         if (!Utils::isUnset($request->cloudDisks)) {
             $body['CloudDisks'] = $request->cloudDisks;
         }
+        if (!Utils::isUnset($request->credentialConfig)) {
+            $body['CredentialConfig'] = $request->credentialConfig;
+        }
         if (!Utils::isUnset($request->datasets)) {
             $body['Datasets'] = $request->datasets;
         }
@@ -1543,8 +1546,14 @@ class Paidsw extends OpenApiClient
         if (!Utils::isUnset($request->cloudDisks)) {
             $body['CloudDisks'] = $request->cloudDisks;
         }
+        if (!Utils::isUnset($request->credentialConfig)) {
+            $body['CredentialConfig'] = $request->credentialConfig;
+        }
         if (!Utils::isUnset($request->datasets)) {
             $body['Datasets'] = $request->datasets;
+        }
+        if (!Utils::isUnset($request->disassociateCredential)) {
+            $body['DisassociateCredential'] = $request->disassociateCredential;
         }
         if (!Utils::isUnset($request->disassociateDatasets)) {
             $body['DisassociateDatasets'] = $request->disassociateDatasets;
