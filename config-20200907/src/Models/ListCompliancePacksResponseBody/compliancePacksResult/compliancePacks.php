@@ -18,7 +18,7 @@ class compliancePacks extends Model
     public $accountId;
 
     /**
-     * @description The ID of the compliance package.
+     * @description The compliance package ID.
      *
      * @example cp-fdc8626622af00f9****
      *
@@ -34,7 +34,7 @@ class compliancePacks extends Model
     public $compliancePackName;
 
     /**
-     * @description The ID of the compliance package template based on which the compliance package was created.
+     * @description The ID of the compliance package template.
      *
      * @example ct-5f26ff4e06a300c4****
      *
@@ -59,11 +59,11 @@ class compliancePacks extends Model
     public $description;
 
     /**
-     * @description The risk level of the resources that are not compliant with the managed rules in the compliance package. Valid values:
+     * @description The risk level of the resources that are not compliant with the rules in the compliance package. Valid values:
      *
-     *   1: high risk level.
-     *   2: medium risk level.
-     *   3: low risk level.
+     *   1: high
+     *   2: medium
+     *   3: low
      *
      * @example 1
      *
@@ -74,7 +74,7 @@ class compliancePacks extends Model
     /**
      * @description The status of the compliance package. Valid values:
      *
-     *   ACTIVE: The compliance package is active.
+     *   ACTIVE: The compliance package is normal.
      *   CREATING: The compliance package is being created.
      *
      * @example ACTIVE

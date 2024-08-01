@@ -12,7 +12,7 @@ use AlibabaCloud\Tea\Model;
 class configRuleList extends Model
 {
     /**
-     * @description The ID of the management account to which the rule belongs.
+     * @description The ID of the management account to which the rules belong.
      *
      * @example 100931896542****
      *
@@ -21,7 +21,7 @@ class configRuleList extends Model
     public $accountId;
 
     /**
-     * @description The type of the remediation template. Valid value: OOS, which indicates Operation Orchestration Service.
+     * @description The type of the remediation template. Only OOS is returned, which indicates CloudOps Orchestration Service.
      *
      * @example OOS
      *
@@ -55,7 +55,7 @@ class configRuleList extends Model
     public $configRuleId;
 
     /**
-     * @description The rule name.
+     * @description The name of the rule.
      *
      * @example test-rule-name
      *
@@ -66,7 +66,7 @@ class configRuleList extends Model
     /**
      * @description The status of the rule. Valid values:
      *
-     *   ACTIVE: The rule is enabled.
+     *   ACTIVE: The rule is being used to monitor resource configurations.
      *   DELETING: The rule is being deleted.
      *   EVALUATING: The rule is triggered and is being used to monitor resource configurations.
      *   INACTIVE: The rule is disabled.
@@ -103,7 +103,7 @@ class configRuleList extends Model
     public $resourceTypesScope;
 
     /**
-     * @description The risk level of the resources that are not compliant with the rule. Valid values:
+     * @description The risk level of the resources that do not comply with the rule. Valid values:
      *
      *   1: high
      *   2: medium
@@ -116,10 +116,10 @@ class configRuleList extends Model
     public $riskLevel;
 
     /**
-     * @description The ID of the rule.
+     * @description The identifier of the rule.
      *
      *   If the rule is a managed rule, the value of this parameter is the name of the managed rule.
-     *   If the rule is a custom rule, the value of this parameter is the Alibaba Cloud Resource Name (ARN) of the relevant function in Function Compute.
+     *   If the rule is a custom rule, the value of this parameter is the Alibaba Cloud Resource Name (ARN) of a function.
      *
      * @example eip-bandwidth-limit
      *
@@ -130,8 +130,8 @@ class configRuleList extends Model
     /**
      * @description The type of the rule. Valid values:
      *
-     *   CUSTOM_FC: custom rule
-     *   ALIYUN: managed rule
+     *   CUSTOM_FC: a custom rule.
+     *   ALIYUN: a managed rule.
      *
      * @example ALIYUN
      *

@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class UpdateAggregatorRequest extends Model
 {
     /**
-     * @description The information about the member accounts in the account group.
+     * @description The members in the account group.
      *
-     * >  When you modify the configurations of an account group, this parameter can be left empty. In this case, the member account list is not updated. If you want to update the member account list, you must set the `AccountId`, `AccountName` and `AccountType` parameters.
+     * >  When you modify the configurations of an account group, this parameter can be left empty. In this case, the member list is not updated. If you want to update the member list, you must configure both the `AccountId` and `AccountType` parameters.
      * @var aggregatorAccounts[]
      */
     public $aggregatorAccounts;

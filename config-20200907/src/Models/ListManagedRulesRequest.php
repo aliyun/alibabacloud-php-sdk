@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListManagedRulesRequest extends Model
 {
     /**
-     * @description The keyword that you want to use to filter managed rules.
+     * @description The keyword of the managed rule.
      *
      * @example CDN
      *
@@ -20,7 +20,7 @@ class ListManagedRulesRequest extends Model
     /**
      * @description The page number.
      *
-     * Pages start from page 1. Default value: 1.
+     * Page start from page 1. Default value: 1.
      * @example 1
      *
      * @var int
@@ -47,11 +47,11 @@ class ListManagedRulesRequest extends Model
     public $resourceTypes;
 
     /**
-     * @description The risk level that you want to use to filter managed rules. Valid values:
+     * @description The risk level of the managed rule. Valid values:
      *
-     *   1: high risk level
-     *   2: medium risk level
-     *   3: low risk level
+     *   1: high
+     *   2: medium
+     *   3: low
      *
      * @example 1
      *

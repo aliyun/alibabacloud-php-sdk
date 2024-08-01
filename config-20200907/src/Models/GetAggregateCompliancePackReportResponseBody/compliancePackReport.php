@@ -51,8 +51,6 @@ class compliancePackReport extends Model
     /**
      * @description The URL that is used to download the compliance evaluation report.
      *
-     * @example https://cloud-config-compliance-report.oss-cn-shanghai.aliyuncs.com/CompliancePackReports/100931896542****\/cp-fdc8626622af00f9****\/100931896542****-cp-fdc8626622af00f9****-report-202106221050.zip?Expires=162433****&OSSAccessKeyId=LTAIs86R8H59****&Signature=RqvJZtaxQ2HfqRcl0Ic2HG8oo****
-     *
      * @var string
      */
     public $reportUrl;

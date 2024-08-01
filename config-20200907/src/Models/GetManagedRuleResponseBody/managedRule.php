@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class managedRule extends Model
 {
     /**
-     * @description The settings of the required input parameters for the managed rule.
+     * @description The details of the required input parameters for the managed rule.
      *
      * @example {}
      *
@@ -63,7 +63,7 @@ class managedRule extends Model
     public $labels;
 
     /**
-     * @description The settings of the optional input parameters for the managed rule.
+     * @description The details of the optional input parameters for the managed rule.
      *
      * @example {}
      *
@@ -72,11 +72,11 @@ class managedRule extends Model
     public $optionalInputParameterDetails;
 
     /**
-     * @description The risk level of the resources that are not compliant with the managed rule. Valid values:
+     * @description The risk level of the managed rule. Valid values:
      *
-     *   1: high risk level
-     *   2: medium risk level
-     *   3: low risk level
+     *   1: high
+     *   2: medium
+     *   3: low
      *
      * @example 1
      *

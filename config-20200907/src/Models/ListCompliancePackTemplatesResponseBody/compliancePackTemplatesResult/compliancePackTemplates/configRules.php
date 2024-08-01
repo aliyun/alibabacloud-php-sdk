@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class configRules extends Model
 {
     /**
-     * @description The input parameters of the managed rule.
+     * @description The input parameter of the managed rule.
      *
      * @var configRuleParameters[]
      */
@@ -26,9 +26,9 @@ class configRules extends Model
     public $controlDescription;
 
     /**
-     * @description The ID of the regulation.
+     * @description The regulation ID.
      *
-     * > This parameter is available only for regulation compliance packages.
+     * >  This parameter is available only for regulation compliance packages.
      * @example 3.1
      *
      * @var string
@@ -36,7 +36,7 @@ class configRules extends Model
     public $controlId;
 
     /**
-     * @description Indicates whether the rule was enabled together with the compliance package. Default value: false. The value true indicates that the rule was enabled together with the compliance package. Valid values:
+     * @description Indicates whether the rules are enabled together with the compliance package. Valid values:
      *
      *   true
      *   false
@@ -48,7 +48,7 @@ class configRules extends Model
     public $defaultEnable;
 
     /**
-     * @description The description of the managed rule.
+     * @description The description of the rule.
      *
      * @var string
      */
@@ -71,7 +71,7 @@ class configRules extends Model
     public $managedRuleName;
 
     /**
-     * @description The type of the resource evaluated based on the rule.
+     * @description The types of the resources evaluated based on the rule.
      *
      * @example ACS::SLB::ServerCertificate
      *
@@ -80,7 +80,7 @@ class configRules extends Model
     public $resourceTypesScope;
 
     /**
-     * @description The risk level of the resources that are not compliant with the managed rule. Valid values:
+     * @description The risk level of the managed rule. Valid values:
      *
      *   1: high
      *   2: medium

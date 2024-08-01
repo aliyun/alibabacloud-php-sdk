@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ActiveConfigRulesRequest extends Model
 {
     /**
-     * @description The rule IDs. Separate multiple rule IDs with commas (,). You can specify a maximum of 20 rule IDs at a time.
+     * @description The rule ID. Separate multiple rule IDs with commas (,).
      *
      * This parameter is required.
      * @example cr-2da35180a8d1008e****,cr-2da35180a8d1008e****

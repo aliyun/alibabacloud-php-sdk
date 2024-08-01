@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class configRuleParameters extends Model
 {
     /**
-     * @description The name of the input parameter.
+     * @description The name of the input parameter of the managed rule.
      *
      * @example days
      *
@@ -18,7 +18,7 @@ class configRuleParameters extends Model
     public $parameterName;
 
     /**
-     * @description The value of the input parameter.
+     * @description The value of the input parameter of the managed rule.
      *
      * @example 90
      *
@@ -27,10 +27,10 @@ class configRuleParameters extends Model
     public $parameterValue;
 
     /**
-     * @description Indicates whether the input parameter is required. Valid values:
+     * @description Indicates whether the parameter is required in the managed rule. Valid values:
      *
-     *   true: The parameter is required.
-     *   false: The input parameter is optional.
+     *   true: required
+     *   false: optional
      *
      * @example true
      *

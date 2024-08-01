@@ -31,7 +31,7 @@ class StartAggregateConfigRuleEvaluationRequest extends Model
     /**
      * @description The rule ID.
      *
-     * For more information about how to obtain the ID of a rule, see [ListAggregateConfigRules](https://help.aliyun.com/document_detail/264148.html).
+     * >  You must configure either the `CompliancePackId` or `ConfigRuleId` parameter.
      * @example cr-c169626622af009f****
      *
      * @var string
@@ -39,10 +39,10 @@ class StartAggregateConfigRuleEvaluationRequest extends Model
     public $configRuleId;
 
     /**
-     * @description Specifies whether to re-evaluate the ignored incompliant resource. Valid values:
+     * @description Specifies whether to re-evaluate the ignored non-compliant resource. Valid values:
      *
-     *   true: The ignored incompliant resource based on the rule are re-evaluated.
-     *   false: The ignored incompliant resource based on the rule are not re-evaluated.
+     *   true: re-evaluates the ignored non-compliant resource based on the rule.
+     *   false (default): does not re-evaluate the ignored non-compliant resource based on the rule.
      *
      * @example false
      *

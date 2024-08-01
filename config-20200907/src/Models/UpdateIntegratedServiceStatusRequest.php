@@ -21,9 +21,11 @@ class UpdateIntegratedServiceStatusRequest extends Model
     public $integratedTypes;
 
     /**
-     * @description The product code of the cloud product. Valid values:
+     * @description The identity of the cloud service that is integrated with Cloud Config. Valid values:
      *
-     *   cadt: Cloud Architecture Design Tool
+     *   eventbridge: EventBridge
+     *   cms: CloudMonitor
+     *   bpstudio: Cloud Architect Design Tools
      *
      * This parameter is required.
      * @example cadt

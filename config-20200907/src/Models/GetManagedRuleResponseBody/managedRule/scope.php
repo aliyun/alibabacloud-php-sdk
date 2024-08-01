@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class scope extends Model
 {
     /**
-     * @description The type of resource to which the managed rule applies.
+     * @description The types of resources to which the managed rule applies.
      *
      * @var string[]
      */

@@ -27,6 +27,11 @@ class deliveryChannels extends Model
     public $aggregatorId;
 
     /**
+     * @var bool
+     */
+    public $compliantSnapshot;
+
+    /**
      * @description Indicates whether the specified destination receives resource change logs. If the value of this parameter is true, Cloud Config delivers the resource change logs to OSS, Log Service, or MNS when the configurations of the resources change. Valid values:
      *
      *   true: The specified destination receives resource change logs.
@@ -179,6 +184,7 @@ class deliveryChannels extends Model
     protected $_name = [
         'accountId'                           => 'AccountId',
         'aggregatorId'                        => 'AggregatorId',
+        'compliantSnapshot'                   => 'CompliantSnapshot',
         'configurationItemChangeNotification' => 'ConfigurationItemChangeNotification',
         'configurationSnapshot'               => 'ConfigurationSnapshot',
         'deliveryChannelAssumeRoleArn'        => 'DeliveryChannelAssumeRoleArn',
@@ -206,6 +212,9 @@ class deliveryChannels extends Model
         }
         if (null !== $this->aggregatorId) {
             $res['AggregatorId'] = $this->aggregatorId;
+        }
+        if (null !== $this->compliantSnapshot) {
+            $res['CompliantSnapshot'] = $this->compliantSnapshot;
         }
         if (null !== $this->configurationItemChangeNotification) {
             $res['ConfigurationItemChangeNotification'] = $this->configurationItemChangeNotification;
@@ -263,6 +272,9 @@ class deliveryChannels extends Model
         }
         if (isset($map['AggregatorId'])) {
             $model->aggregatorId = $map['AggregatorId'];
+        }
+        if (isset($map['CompliantSnapshot'])) {
+            $model->compliantSnapshot = $map['CompliantSnapshot'];
         }
         if (isset($map['ConfigurationItemChangeNotification'])) {
             $model->configurationItemChangeNotification = $map['ConfigurationItemChangeNotification'];

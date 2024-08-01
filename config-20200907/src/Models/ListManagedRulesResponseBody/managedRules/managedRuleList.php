@@ -46,14 +46,14 @@ class managedRuleList extends Model
     public $identifier;
 
     /**
-     * @description Classification description of the managed rule.
+     * @description The classification description of the managed rule.
      *
      * @var string[]
      */
     public $labels;
 
     /**
-     * @description Supported remediation template id.
+     * @description The ID of the remediation template.
      *
      * @example ACS-CDN-SetDomainServerCertificate
      *
@@ -62,7 +62,7 @@ class managedRuleList extends Model
     public $remediationTemplateIdentifier;
 
     /**
-     * @description Supported remediation template name.
+     * @description The name of the remediation template.
      *
      * @example Configure encryption rules for OSS buckets
      *
@@ -71,11 +71,11 @@ class managedRuleList extends Model
     public $remediationTemplateName;
 
     /**
-     * @description The risk level of the resources that do not comply with the managed rule. Valid values:
+     * @description The risk level of the resources that do not comply with the rule. Valid values:
      *
-     *   1: high risk level
-     *   2: medium risk level
-     *   3: low risk level
+     *   1: high
+     *   2: medium
+     *   3: low
      *
      * @example 1
      *
@@ -91,9 +91,11 @@ class managedRuleList extends Model
     public $scope;
 
     /**
-     * @description Whether pre-check is supported. Value:
+     * @description Indicates whether precheck is supported. Valid values:
      *
-     * - false: not supported
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

@@ -23,9 +23,9 @@ class data extends Model
     /**
      * @description The identifier of the cloud service. Valid values:
      *
-     *   eventbridge: event bus
+     *   eventbridge: EventBridge
      *   cms: CloudMonitor
-     *   bpstudio: Cloud Architect Design Tools (CADT)
+     *   bpstudio: Cloud Architect Design Tools
      *
      * @example cms
      *
@@ -45,8 +45,8 @@ class data extends Model
     /**
      * @description The integration status of the cloud service. Valid values:
      *
-     *   1: The cloud service is integrated.
-     *   0: The cloud service is not integrated.
+     *   true
+     *   false
      *
      * @example true
      *

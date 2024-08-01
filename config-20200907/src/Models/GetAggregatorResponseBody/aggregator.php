@@ -19,7 +19,7 @@ class aggregator extends Model
     public $accountId;
 
     /**
-     * @description The number of member accounts in the account group.
+     * @description The number of members in the account group.
      *
      * @example 2
      *
@@ -28,7 +28,7 @@ class aggregator extends Model
     public $aggregatorAccountCount;
 
     /**
-     * @description The information about the member accounts in the account group.
+     * @description The information about the members in the account group.
      *
      * @var aggregatorAccounts[]
      */
@@ -37,6 +37,7 @@ class aggregator extends Model
     /**
      * @description The timestamp generated when the account group was created.
      *
+     * Unit: milliseconds.
      * @example 1623034091000
      *
      * @var string

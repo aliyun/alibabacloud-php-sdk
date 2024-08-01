@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class createBy extends Model
 {
     /**
-     * @description The ID of the account group.
+     * @description The account group ID.
      *
      * @example ca-f632626622af0079****
      *
@@ -27,7 +27,7 @@ class createBy extends Model
     public $aggregatorName;
 
     /**
-     * @description The ID of the compliance package.
+     * @description The compliance package ID.
      *
      * @example cp-fdc8626622af00f9****
      *
@@ -45,7 +45,7 @@ class createBy extends Model
     public $compliancePackName;
 
     /**
-     * @description The ID of the management account that was used to create the rule.
+     * @description The ID of the management account that created the rule.
      *
      * @example 100931896542****
      *
@@ -54,7 +54,7 @@ class createBy extends Model
     public $creatorId;
 
     /**
-     * @description The name of the management account that was used to create the rule.
+     * @description The name of the management account that create the rule.
      *
      * @example Alice
      *
@@ -63,7 +63,7 @@ class createBy extends Model
     public $creatorName;
 
     /**
-     * @description The type of the creator of the rule. Valid value: AGGREGATOR, which indicates an account group.
+     * @description The type of the creator of the rule. The value is fixed to AGGREGATOR, which indicates an account group.
      *
      * @example AGGREGATOR
      *

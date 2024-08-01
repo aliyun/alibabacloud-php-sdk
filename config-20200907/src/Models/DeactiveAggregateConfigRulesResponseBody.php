@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DeactiveAggregateConfigRulesResponseBody extends Model
 {
     /**
-     * @description The returned result.
+     * @description The results of the operations that are performed to disable the specified rules.
      *
      * @var operateRuleResult
      */

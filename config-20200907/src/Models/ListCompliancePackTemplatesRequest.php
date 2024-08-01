@@ -11,7 +11,6 @@ class ListCompliancePackTemplatesRequest extends Model
     /**
      * @description The ID of the compliance package template.
      *
-     * For more information about how to obtain the ID of a compliance package template, see [ListCompliancePackTemplates](https://help.aliyun.com/document_detail/261176.html).
      * @example ct-d254ff4e06a300cf****
      *
      * @var string
@@ -39,7 +38,7 @@ class ListCompliancePackTemplatesRequest extends Model
     public $pageSize;
 
     /**
-     * @description The type of the resource evaluated by the rule.
+     * @description The types of the resources evaluated based on the rule. If you configure this parameter, only the rules that include the resource types in the compliance package template are returned.
      *
      * @example ACS::ECS::Instance
      *

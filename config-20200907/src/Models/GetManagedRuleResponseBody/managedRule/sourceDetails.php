@@ -9,13 +9,13 @@ use AlibabaCloud\Tea\Model;
 class sourceDetails extends Model
 {
     /**
-     * @description The interval at which the managed rule is triggered. Valid values:
+     * @description The interval at which the rule is triggered. Valid values: Valid values:
      *
-     *   One_Hour: 1 hour.
-     *   Three_Hours: 3 hours.
-     *   Six_Hours: 6 hours.
-     *   Twelve_Hours: 12 hours
-     *   TwentyFour_Hours: 24 hours
+     *   One_Hour
+     *   Three_Hours
+     *   Six_Hours
+     *   Twelve_Hours
+     *   TwentyFour_Hours
      *
      * @example TwentyFour_Hours
      *
@@ -24,10 +24,10 @@ class sourceDetails extends Model
     public $maximumExecutionFrequency;
 
     /**
-     * @description The trigger type of the managed rule. Valid values:
+     * @description The trigger type of the rule. Valid values:
      *
-     *   ConfigurationItemChangeNotification: The managed rule is triggered by configuration changes.
-     *   ScheduledNotification: The managed rule is periodically triggered.
+     *   ConfigurationItemChangeNotification: The rule is triggered by configuration changes.
+     *   ScheduledNotification: The rule is periodically triggered.
      *
      * @example ConfigurationItemChangeNotification
      *

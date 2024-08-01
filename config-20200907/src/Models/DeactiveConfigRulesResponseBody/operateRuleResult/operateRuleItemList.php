@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class operateRuleItemList extends Model
 {
     /**
-     * @description The ID of the rule.
+     * @description The rule ID.
      *
      * @example cr-19a56457e0d90058****
      *
@@ -21,10 +21,7 @@ class operateRuleItemList extends Model
      * @description The error code.
      *
      *   If the rule is disabled, no error code is returned.
-     *
-     * <!---->
-     *
-     *   If the rule fails to be disabled, an error code is returned. For more information about error codes, visit the [API Error Center](https://error-center.alibabacloud.com/status/product/Config).
+     *   If the rule fails to be disabled, an error code is returned. For more information about error codes, see [Error codes](https://error-center.alibabacloud.com/status/product/Config).
      *
      * @example ConfigRuleCanNotDelete
      *
@@ -33,10 +30,10 @@ class operateRuleItemList extends Model
     public $errorCode;
 
     /**
-     * @description Indicates whether the operation is successful. Valid values:
+     * @description Indicates whether the request was successful. Valid values:
      *
-     *   true: The operation is successful.
-     *   false: The operation fails.
+     *   true
+     *   false
      *
      * @example false
      *

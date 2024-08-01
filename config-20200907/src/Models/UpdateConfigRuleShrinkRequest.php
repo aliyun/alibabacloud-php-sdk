@@ -68,9 +68,9 @@ class UpdateConfigRuleShrinkRequest extends Model
     public $excludeResourceGroupIdsScope;
 
     /**
-     * @description The ID of the resource to be excluded from the compliance evaluations performed by the rule. Separate multiple resource IDs with commas (,).
+     * @description The IDs of the resources excluded from the compliance evaluations performed by the rule. Separate multiple resource IDs with commas (,).
      *
-     * >  This parameter applies only to managed rules.
+     * >  This parameter applies only to a managed rule.
      * @example lb-t4nbowvtbkss7t326****
      *
      * @var string
@@ -108,9 +108,9 @@ class UpdateConfigRuleShrinkRequest extends Model
     public $maximumExecutionFrequency;
 
     /**
-     * @description The ID of the region to which the rule applies. Separate multiple region IDs with commas (,).
+     * @description The IDs of the regions to which the rule applies. Separate multiple region IDs with commas (,).
      *
-     * >  This parameter applies only to managed rules.
+     * >  This parameter applies only to a managed rule.
      * @example cn-hangzhou
      *
      * @var string
@@ -118,9 +118,9 @@ class UpdateConfigRuleShrinkRequest extends Model
     public $regionIdsScope;
 
     /**
-     * @description The ID of the resource group to which the rule applies. Separate multiple resource group IDs with commas (,).
+     * @description The IDs of the resource groups to which the rule applies. Separate multiple resource group IDs with commas (,).
      *
-     * >  This parameter applies only to managed rules.
+     * >  This parameter applies only to a managed rule.
      * @example rg-aekzc7r7rhx****
      *
      * @var string
@@ -155,10 +155,10 @@ class UpdateConfigRuleShrinkRequest extends Model
     public $riskLevel;
 
     /**
-     * @description The logical relationship among the tag keys if you specify multiple tag keys by using the `TagKeyScope` parameter. For example, if the `TagKeyScope` parameter is set to `ECS,OSS` and the TagKeyLogicScope parameter is set to `AND`, the rule applies to resources with both the `ECS` and `OSS` tag keys. Valid values:
+     * @description The logical relationship among the tag keys if you specify multiple tag keys for the `TagKeyScope` parameter. For example, if you set the `TagKeyScope` parameter to `ECS,OSS` and the TagKeyLogicScope parameter to `AND`, the rule applies to resources with both the `ECS` and `OSS` tag keys. Valid values:
      *
-     *   AND: logical AND
-     *   OR: logical OR
+     *   AND
+     *   OR
      *
      * @example AND
      *
@@ -169,7 +169,7 @@ class UpdateConfigRuleShrinkRequest extends Model
     /**
      * @description The tag key used to filter resources. The rule applies only to the resources with the specified tag key.
      *
-     * >  This parameter applies only to managed rules. You must configure the `TagKeyScope` and `TagValueScope` parameters at the same time.
+     * >  This parameter applies only to a managed rule. You must configure the `TagKeyScope` and `TagValueScope` parameters at the same time.
      * @example ECS
      *
      * @var string
@@ -177,9 +177,9 @@ class UpdateConfigRuleShrinkRequest extends Model
     public $tagKeyScope;
 
     /**
-     * @description The tag key used to filter resources. The rule applies only to the resources with the specified tag key.
+     * @description The tag value used to filter resources. The rule applies only to the resources that use the specified tag value.
      *
-     * >  This parameter applies only to managed rules. You must configure the `TagKeyScope` and `TagValueScope` parameters at the same time.
+     * >  This parameter applies only to a managed rule. You must configure the `TagKeyScope` and `TagValueScope` parameters at the same time.
      * @example test
      *
      * @var string

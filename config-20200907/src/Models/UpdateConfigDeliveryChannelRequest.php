@@ -19,6 +19,11 @@ class UpdateConfigDeliveryChannelRequest extends Model
     public $clientToken;
 
     /**
+     * @var bool
+     */
+    public $compliantSnapshot;
+
+    /**
      * @description Specifies whether to deliver resource change logs. If you set this parameter to true, Cloud Config delivers resource change logs to OSS, Log Service, or MNS when the configurations of the resources change. Valid values:
      *
      *   true: Cloud Config delivers resource change logs.
@@ -152,6 +157,7 @@ class UpdateConfigDeliveryChannelRequest extends Model
     public $status;
     protected $_name = [
         'clientToken'                         => 'ClientToken',
+        'compliantSnapshot'                   => 'CompliantSnapshot',
         'configurationItemChangeNotification' => 'ConfigurationItemChangeNotification',
         'configurationSnapshot'               => 'ConfigurationSnapshot',
         'deliveryChannelCondition'            => 'DeliveryChannelCondition',
@@ -174,6 +180,9 @@ class UpdateConfigDeliveryChannelRequest extends Model
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->compliantSnapshot) {
+            $res['CompliantSnapshot'] = $this->compliantSnapshot;
         }
         if (null !== $this->configurationItemChangeNotification) {
             $res['ConfigurationItemChangeNotification'] = $this->configurationItemChangeNotification;
@@ -222,6 +231,9 @@ class UpdateConfigDeliveryChannelRequest extends Model
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['CompliantSnapshot'])) {
+            $model->compliantSnapshot = $map['CompliantSnapshot'];
         }
         if (isset($map['ConfigurationItemChangeNotification'])) {
             $model->configurationItemChangeNotification = $map['ConfigurationItemChangeNotification'];

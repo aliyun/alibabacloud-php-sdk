@@ -60,8 +60,6 @@ class configRulesReport extends Model
     /**
      * @description The URL that is used to download the compliance evaluation report.
      *
-     * @example https://cloud-config-compliance-report.oss-cn-shanghai.aliyuncs.com/ConfigRuleReports/100931896542****\/rules/100931896542****-rules-report-202106221125.zip?Expires=162433****&OSSAccessKeyId=LTAIs86R8H59****&Signature=yT8jn6ZQSX3dyCwVKL5EOJhGJ****
-     *
      * @var string
      */
     public $reportUrl;

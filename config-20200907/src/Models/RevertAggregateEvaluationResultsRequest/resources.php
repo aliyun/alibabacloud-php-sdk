@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class resources extends Model
 {
     /**
-     * @description The ID of the region where the resource resides.
+     * @description The ID of the region in which your resources reside.
      *
      * This parameter is required.
      * @example cn-beijing
@@ -39,7 +39,7 @@ class resources extends Model
     public $resourceId;
 
     /**
-     * @description The type of resource.
+     * @description The type of the resource.
      *
      * This parameter is required.
      * @example ACS::SLB::LoadBalancer

@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class configRules extends Model
 {
     /**
-     * @description The ID of the rule. If you configure this parameter, Cloud Config adds the rule of the specified ID to the compliance package.
+     * @description The rule ID. If you configure this parameter, Cloud Config adds the rule that has the specified ID to the compliance package.
      *
-     * You only need to configure the `ManagedRuleIdentifier` or `ConfigRuleId` parameter. If you configure both parameters, the value of the `ConfigRuleId` parameter takes precedence. For more information about how to obtain the ID of a rule, see [ListAggregateConfigRules](https://help.aliyun.com/document_detail/264148.html).
+     * You need to only configure the `ManagedRuleIdentifier` or `ConfigRuleId` parameter. If you configure both parameters, the value of the `ConfigRuleId` parameter takes precedence. For more information about how to obtain the ID of a rule, see [ListAggregateConfigRules](https://help.aliyun.com/document_detail/264148.html).
      * @example cr-e918626622af000f****
      *
      * @var string
@@ -20,7 +20,7 @@ class configRules extends Model
     public $configRuleId;
 
     /**
-     * @description The name of the rule.
+     * @description The rule name.
      *
      * @example test-rule-name
      *
@@ -29,7 +29,7 @@ class configRules extends Model
     public $configRuleName;
 
     /**
-     * @description The input parameter settings of the rule.
+     * @description The input parameters of the rule.
      *
      * @var configRuleParameters[]
      */
@@ -45,9 +45,9 @@ class configRules extends Model
     public $description;
 
     /**
-     * @description The ID of the managed rule. Cloud Config automatically creates a managed rule based on the specified ID and adds the rule to the compliance package.
+     * @description The identifier of the managed rule. Cloud Config automatically creates a rule based on the identifier of the managed rule and adds the rule to the current compliance package.
      *
-     * You only need to configure the `ManagedRuleIdentifier` or `ConfigRuleId` parameter. If you configure both parameters, the value of the `ConfigRuleId` parameter takes precedence. For more information about how to obtain the ID of a managed rule, see [ListCompliancePackTemplates](https://help.aliyun.com/document_detail/261176.html).
+     * You need to only configure the `ManagedRuleIdentifier` or `ConfigRuleId` parameter. If you configure both parameters, the value of the `ConfigRuleId` parameter takes precedence. You can call the [ListCompliancePackTemplates](https://help.aliyun.com/document_detail/261176.html) operation to obtain the identifier of the managed rule.
      * @example eip-bandwidth-limit
      *
      * @var string
@@ -55,11 +55,11 @@ class configRules extends Model
     public $managedRuleIdentifier;
 
     /**
-     * @description The risk level of the resources that are not compliant with the rule. Valid values:
+     * @description The risk level of the resources that do not comply with the rule. Valid values:
      *
-     *   1: high risk level
-     *   2: medium risk level
-     *   3: low risk level
+     *   1: high
+     *   2: medium
+     *   3: low
      *
      * @example 1
      *

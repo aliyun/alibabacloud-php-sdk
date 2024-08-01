@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class configRules extends Model
 {
     /**
-     * @description The rule ID. If you specify this parameter, Cloud Config adds the rule that has the specified ID to the compliance package.
+     * @description The rule ID. If you configure this parameter, Cloud Config adds the rule that has the specified ID to the compliance package.
      *
-     * You need to only specify `ManagedRuleIdentifier` or `ConfigRuleId`. If you specify both parameters, Cloud Config adds a rule based on the value of `ConfigRuleId`. You can call the [ListAggregateConfigRules](https://help.aliyun.com/document_detail/264148.html) operation to obtain the rule ID.
+     * You need to only configure the `ManagedRuleIdentifier` or `ConfigRuleId` parameter. If you configure both parameters, the value of the `ConfigRuleId` parameter takes precedence. For more information about how to obtain the ID of a rule, see [ListAggregateConfigRules](https://help.aliyun.com/document_detail/264148.html).
      * @example cr-e918626622af000f****
      *
      * @var string
@@ -20,7 +20,7 @@ class configRules extends Model
     public $configRuleId;
 
     /**
-     * @description The name of the rule.
+     * @description The rule name.
      *
      * @example eip-bandwidth-limit
      *
@@ -36,7 +36,7 @@ class configRules extends Model
     public $configRuleParameters;
 
     /**
-     * @description The description of the rule.
+     * @description The rule description.
      *
      * @example Test rule description.
      *
@@ -45,9 +45,9 @@ class configRules extends Model
     public $description;
 
     /**
-     * @description The identifier of the managed rule. Cloud Config automatically creates a managed rule based on the specified identifier and adds the rule to the compliance package.
+     * @description The identifier of the managed rule. Cloud Config automatically creates a rule based on the identifier of the managed rule and adds the rule to the current compliance package.
      *
-     * You need to only specify `ManagedRuleIdentifier` or `ConfigRuleId`. If you specify both parameters, Cloud Config adds a rule based on the value of `ConfigRuleId`. You can call the [ListCompliancePackTemplates](https://help.aliyun.com/document_detail/261176.html) operation to obtain the identifier of the managed rule.
+     * You need to only configure the `ManagedRuleIdentifier` or `ConfigRuleId` parameter. If you configure both parameters, the value of the `ConfigRuleId` parameter takes precedence. For more information about how to obtain the identifier of a managed rule, see [ListCompliancePackTemplates](https://help.aliyun.com/document_detail/261176.html).
      * @example eip-bandwidth-limit
      *
      * @var string
@@ -57,9 +57,9 @@ class configRules extends Model
     /**
      * @description The risk level of the resources that do not comply with the rule. Valid values:
      *
-     *   1: high.
-     *   2: medium.
-     *   3: low.
+     *   1: high
+     *   2: medium
+     *   3: low
      *
      * @example 1
      *

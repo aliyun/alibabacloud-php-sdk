@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class managedRules extends Model
 {
     /**
-     * @description The required input parameters of the evaluation rule.
+     * @description The details of the required input parameters of the rule.
      *
      * @example {}
      *
@@ -18,21 +18,21 @@ class managedRules extends Model
     public $compulsoryInputParameterDetails;
 
     /**
-     * @description The name of the evaluation rule.
+     * @description The name of the rule.
      *
      * @var string
      */
     public $configRuleName;
 
     /**
-     * @description The description of the evaluation rule.
+     * @description The description of the rule.
      *
      * @var string
      */
     public $description;
 
     /**
-     * @description The URL of the topic that describes how the managed rule remediates the incompliant configurations.
+     * @description The URL of the topic that describes how the evaluation rule remediates the incompliant configurations.
      *
      * @example https://example.aliyundoc.com
      *
@@ -41,7 +41,7 @@ class managedRules extends Model
     public $helpUrls;
 
     /**
-     * @description The identifier of the evaluation rule.
+     * @description The identifier of the rule.
      *
      * @example ecs-instance-deletion-protection-enabled
      *
@@ -50,7 +50,7 @@ class managedRules extends Model
     public $identifier;
 
     /**
-     * @description The details of the optional input parameters of the evaluation rule.
+     * @description The details of the optional input parameters of the rule.
      *
      * @example {}
      *
@@ -59,7 +59,7 @@ class managedRules extends Model
     public $optionalInputParameterDetails;
 
     /**
-     * @description The type of the resource.
+     * @description The type of resource.
      *
      * @example ACS::ECS::Instance
      *

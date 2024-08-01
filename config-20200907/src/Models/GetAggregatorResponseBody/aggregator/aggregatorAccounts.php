@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class aggregatorAccounts extends Model
 {
     /**
-     * @description The ID of the member account.
+     * @description The ID of the member.
      *
      * @example 171322098523****
      *
@@ -18,7 +18,7 @@ class aggregatorAccounts extends Model
     public $accountId;
 
     /**
-     * @description The name of the member account.
+     * @description The display name of the member.
      *
      * @example Alice
      *
@@ -27,7 +27,7 @@ class aggregatorAccounts extends Model
     public $accountName;
 
     /**
-     * @description The type of the member account. Only ResourceDirectory is returned, which indicates that the account is a resource directory account.
+     * @description The resource directory to which the member belongs. Valid value: ResourceDirectory. ResourceDirectory indicates that the member belongs to a resource directory.
      *
      * @example ResourceDirectory
      *
@@ -36,7 +36,7 @@ class aggregatorAccounts extends Model
     public $accountType;
 
     /**
-     * @description The status of the configuration recorder for the member account. Valid values:
+     * @description The status of the configuration recorder for the member. Valid values:
      *
      *   REGISTRABLE: The configuration recorder is not registered.
      *   BUILDING: The configuration recorder is being deployed.

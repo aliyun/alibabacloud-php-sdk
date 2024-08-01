@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class aggregatorAccounts extends Model
 {
     /**
-     * @description The member account ID, which indicates the Alibaba Cloud account ID of the member account.
+     * @description The ID of the member.
      *
-     * >  If you want to update the member account list, you must set the `AccountId`, `AccountName` and `AccountType` parameters.
+     * >  If you want to update the member list, you must configure both the `AccountId` and `AccountType` parameters.
      * @example 173808452267****
      *
      * @var int
@@ -19,9 +19,9 @@ class aggregatorAccounts extends Model
     public $accountId;
 
     /**
-     * @description The member account name, which indicates the name of the Alibaba Cloud account that corresponds to the member account.
+     * @description The display name of the member.
      *
-     * >  If you want to update the member account list, you must set the `AccountId`, `AccountName` and `AccountType` parameters.
+     * >  If you want to update the member list, you must configure both the `AccountId` and `AccountType` parameters.
      * @example Tony
      *
      * @var string
@@ -29,9 +29,9 @@ class aggregatorAccounts extends Model
     public $accountName;
 
     /**
-     * @description The affiliation of the member account. You can set this parameter to only ResourceDirectory.
+     * @description The resource directory to which the member belongs. Valid value: ResourceDirectory. ResourceDirectory indicates that the member belongs to a resource directory.
      *
-     * >  If you want to update the member account list, you must set the `AccountId`, `AccountName` and `AccountType` parameters.
+     * >  If you want to update the member list, you must configure both the `AccountId` and `AccountType` parameters.
      * @example ResourceDirectory
      *
      * @var string

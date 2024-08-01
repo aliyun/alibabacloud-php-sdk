@@ -53,7 +53,7 @@ class UpdateAggregateCompliancePackRequest extends Model
     /**
      * @description The rules in the compliance package.
      *
-     * If you leave this parameter empty, the rules in the compliance package remain unchanged. If you configure this parameter, Cloud Config replaces the existing rules in the compliance package with the specified rules.
+     * If you leave this parameter empty, the rules in the compliance package remain unchanged. If you set this parameter, Cloud Config replaces the existing rules in the compliance package with the specified rules.
      * @var configRules[]
      */
     public $configRules;
@@ -61,7 +61,6 @@ class UpdateAggregateCompliancePackRequest extends Model
     /**
      * @description The description of the compliance package.
      *
-     * For more information about how to obtain the description of a compliance package, see [ListCompliancePacks](https://help.aliyun.com/document_detail/262059.html).
      * @example Test compliance pack description.
      *
      * @var string

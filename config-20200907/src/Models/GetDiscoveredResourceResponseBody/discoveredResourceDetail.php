@@ -50,7 +50,7 @@ class discoveredResourceDetail extends Model
     public $region;
 
     /**
-     * @description The time when the resource was created.
+     * @description The timestamp when the resource was created.
      *
      * @example 1624961112000
      *
@@ -80,7 +80,7 @@ class discoveredResourceDetail extends Model
     public $resourceId;
 
     /**
-     * @description The resource name.
+     * @description The name of the resource.
      *
      * @example new-bucket
      *
@@ -89,10 +89,10 @@ class discoveredResourceDetail extends Model
     public $resourceName;
 
     /**
-     * @description The status of the resource. The value of this parameter varies with the resource type and may be empty. Examples:
+     * @description The status of the resource. The value of this parameter varies based on the resource type and may be empty.
      *
-     *   If the value of the ResourceType parameter is ACS::ECS::Instance, the resource is an Elastic Compute Service (ECS) instance that is in a specific state. In this case, the valid values of this parameter are Running and Stopped.
-     *   If the value of the ResourceType parameter is ACS::OSS::Bucket, the resource is an Object Storage Service (OSS) bucket that is not in a specific state. In this case, this parameter is empty.
+     *   If the ResourceType parameter is set to ACS::ECS::Instance, the resource is an ECS instance that has a specific state. In this case, the valid values of this parameter are Running and Stopped.
+     *   If the ResourceType parameter is ACS::OSS::Bucket, the resource is an Object Storage Service (OSS) bucket that is not in a specific state. In this case, this parameter is left empty.
      *
      * @example offline
      *
@@ -101,7 +101,7 @@ class discoveredResourceDetail extends Model
     public $resourceStatus;
 
     /**
-     * @description The resource type.
+     * @description The type of the resource.
      *
      * @example ACS::OSS::BucketACS::CDN::Domain
      *

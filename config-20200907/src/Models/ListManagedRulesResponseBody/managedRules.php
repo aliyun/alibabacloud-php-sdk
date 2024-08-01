@@ -10,15 +10,16 @@ use AlibabaCloud\Tea\Model;
 class managedRules extends Model
 {
     /**
-     * @description The name of the remediation template.
+     * @description The details of the managed rule.
      *
      * @var managedRuleList[]
      */
     public $managedRuleList;
 
     /**
-     * @description The page number of the returned page. Minimum value: 1.
+     * @description The page number.
      *
+     * Page start from page 1.
      * @example 10
      *
      * @var int
@@ -35,7 +36,7 @@ class managedRules extends Model
     public $pageSize;
 
     /**
-     * @description The total number of managed rules returned.
+     * @description The total number of entries returned.
      *
      * @example 1
      *

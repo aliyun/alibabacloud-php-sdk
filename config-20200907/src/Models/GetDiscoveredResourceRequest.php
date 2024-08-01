@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class GetDiscoveredResourceRequest extends Model
 {
     /**
+     * @description Specifies whether to query the compliance results of the resource. Valid values:
+     *
+     *   0 (default): does not query the compliance results of the resource.
+     *   1: queries the compliance results of the resource.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $complianceOption;
@@ -24,7 +31,7 @@ class GetDiscoveredResourceRequest extends Model
     public $region;
 
     /**
-     * @description The resource IDs.
+     * @description The resource ID.
      *
      * This parameter is required.
      * @example new-bucket
@@ -34,7 +41,7 @@ class GetDiscoveredResourceRequest extends Model
     public $resourceId;
 
     /**
-     * @description The resource type.
+     * @description The type of the resource.
      *
      * This parameter is required.
      * @example ACS::OSS::Bucket

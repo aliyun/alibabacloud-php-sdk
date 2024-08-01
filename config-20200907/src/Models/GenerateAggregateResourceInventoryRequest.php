@@ -37,6 +37,13 @@ class GenerateAggregateResourceInventoryRequest extends Model
     public $regions;
 
     /**
+     * @description Indicates whether the resource is deleted. Valid values:
+     *
+     *   1 (default): The resource is retained.
+     *   0: The resource is deleted.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $resourceDeleted;

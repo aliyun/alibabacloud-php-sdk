@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class operateRuleResult extends Model
 {
     /**
-     * @description The returned result.
+     * @description The operations that are performed to disable the rule.
      *
      * @var operateRuleItemList[]
      */

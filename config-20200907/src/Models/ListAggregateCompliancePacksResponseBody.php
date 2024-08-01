@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListAggregateCompliancePacksResponseBody extends Model
 {
     /**
-     * @description The information about the compliance packages.
+     * @description The compliance packages returned.
      *
      * @var compliancePacksResult
      */

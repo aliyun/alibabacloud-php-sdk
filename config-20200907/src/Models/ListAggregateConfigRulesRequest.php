@@ -21,10 +21,10 @@ class ListAggregateConfigRulesRequest extends Model
     /**
      * @description The compliance evaluation result. Valid values:
      *
-     *   COMPLIANT: The resource is evaluated as compliant.
-     *   NON_COMPLIANT: The resource is evaluated as non-compliant.
-     *   NOT_APPLICABLE: The rule does not apply to the resource.
-     *   INSUFFICIENT_DATA: No resource data is available.
+     *   COMPLIANT: The resources are evaluated as compliant.
+     *   NON_COMPLIANT: The resources are evaluated as non-compliant.
+     *   NOT_APPLICABLE: The rule does not apply to the resources.
+     *   INSUFFICIENT_DATA: No data is available.
      *
      * @example COMPLIANT
      *
@@ -44,9 +44,9 @@ class ListAggregateConfigRulesRequest extends Model
     /**
      * @description The status of the rule. Valid values:
      *
-     *   ACTIVE: The rule is enabled.
+     *   ACTIVE: The rule is being used to monitor resource configurations.
      *   DELETING: The rule is being deleted.
-     *   EVALUATING: The rule is being used to evaluate resource configurations.
+     *   EVALUATING: The rule is triggered and is being used to monitor resource configurations.
      *   INACTIVE: The rule is disabled.
      *
      * @example ACTIVE
@@ -56,7 +56,7 @@ class ListAggregateConfigRulesRequest extends Model
     public $configRuleState;
 
     /**
-     * @description The keyword that you want to use to query the rules.
+     * @description The keyword that is used for queries.
      *
      * You can perform a fuzzy search by rule ID, rule name, rule description, or managed rule ID.
      * @example ecs
@@ -68,7 +68,7 @@ class ListAggregateConfigRulesRequest extends Model
     /**
      * @description The page number.
      *
-     * Pages start from page 1. Default value: 1.
+     * Pages start from page 1. Default value: 1
      * @example 1
      *
      * @var int
@@ -78,7 +78,7 @@ class ListAggregateConfigRulesRequest extends Model
     /**
      * @description The number of entries per page.
      *
-     * Valid values: 1 to 100. Minimum value: 1. Default value: 10.
+     * Valid values: 1 to 100. Minimum value: 1. Default value: 10
      * @example 10
      *
      * @var int

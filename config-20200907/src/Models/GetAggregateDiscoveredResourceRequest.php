@@ -19,6 +19,13 @@ class GetAggregateDiscoveredResourceRequest extends Model
     public $aggregatorId;
 
     /**
+     * @description Specifies whether to query the compliance results of the resource. Valid values:
+     *
+     *   0 (default): does not query the compliance results of the resource.
+     *   1: queries the compliance results of the resource.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $complianceOption;
@@ -34,8 +41,8 @@ class GetAggregateDiscoveredResourceRequest extends Model
     public $region;
 
     /**
-     * @description The ID of the Alibaba Cloud account to which the resources in the account group belong.
-     * > You can use either the `ResourceAccountId` or `ResourceOwnerId` parameter. We recommend that you use the ResourceAccountId parameter.
+     * @description The ID of the Alibaba Cloud account to which the specified resource belongs in the account group.
+     *
      * @example 100931896542****
      *
      * @var int

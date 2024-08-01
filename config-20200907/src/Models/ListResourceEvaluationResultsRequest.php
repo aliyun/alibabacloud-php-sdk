@@ -13,7 +13,7 @@ class ListResourceEvaluationResultsRequest extends Model
      *
      *   COMPLIANT: The resource is evaluated as compliant.
      *   NON_COMPLIANT: The resource is evaluated as non-compliant.
-     *   NOT_APPLICABLE: The rule does not apply to the resource.
+     *   NOT_APPLICABLE: The rule does not apply to the resources.
      *   INSUFFICIENT_DATA: No data is available.
      *   IGNORED: The resource is ignored during compliance evaluation.
      *
@@ -24,7 +24,7 @@ class ListResourceEvaluationResultsRequest extends Model
     public $complianceType;
 
     /**
-     * @description The maximum number of entries to return for a single request. Valid values: 1 to 100.
+     * @description The maximum number of entries to return in a request. Valid values: 1 to 100.
      *
      * @example 10
      *

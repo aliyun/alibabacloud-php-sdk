@@ -19,14 +19,14 @@ class configRules extends Model
     public $configRuleId;
 
     /**
-     * @description The rule name.
+     * @description The name of the rule.
      *
      * @var string
      */
     public $configRuleName;
 
     /**
-     * @description The input parameters of the rule.
+     * @description The details of the input parameter of the rule.
      *
      * @var configRuleParameters[]
      */
@@ -40,7 +40,7 @@ class configRules extends Model
     public $description;
 
     /**
-     * @description The identifier of the managed rule.
+     * @description The ID of the rule template.
      *
      * @example eip-bandwidth-limit
      *
@@ -49,7 +49,7 @@ class configRules extends Model
     public $managedRuleIdentifier;
 
     /**
-     * @description The types of the resources evaluated based on the rule. Multiple resource types are separated with commas (,).
+     * @description The type of the resource evaluated based on the rule. Multiple resource types are separated with commas (,).
      *
      * @example ACS::EIP::EipAddress
      *
@@ -60,9 +60,9 @@ class configRules extends Model
     /**
      * @description The risk level of the resources that do not comply with the rule. Valid values:
      *
-     *   1: high.
-     *   2: medium.
-     *   3: low.
+     *   1: high
+     *   2: medium
+     *   3: low
      *
      * @example 1
      *

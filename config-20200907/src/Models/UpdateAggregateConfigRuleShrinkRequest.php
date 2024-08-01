@@ -73,7 +73,7 @@ class UpdateAggregateConfigRuleShrinkRequest extends Model
     public $description;
 
     /**
-     * @description The ID of the member account to which the rule does not apply, which means that the resources within the member account are not evaluated based on the rule. Separate multiple member account IDs with commas (,).
+     * @description The IDs of the member accounts to which the rule does not apply, which means that the resources within the member accounts are not evaluated based on the rule. Separate multiple member account IDs with commas (,).
      *
      * >  This parameter applies only to a managed rule.
      * @example 120886317861****
@@ -83,10 +83,12 @@ class UpdateAggregateConfigRuleShrinkRequest extends Model
     public $excludeAccountIdsScope;
 
     /**
-     * @description The ID of the resource directory to which the rule does not apply, which means that the resources within member accounts in the resource directory are not evaluated based on the rule. Separate multiple resource directory IDs with commas (,).
+     * @description The IDs of the resource directories to which the rule does not apply, which means that the resources within member accounts in the resource directories are not evaluated based on the rule. Separate multiple resource directory IDs with commas (,).
      *
      * >
+     *
      *   This parameter applies only to a rule of a global account group.
+     *
      *   This parameter applies only to a managed rule.
      *
      * @example fd-pWmkqZ****
@@ -106,7 +108,7 @@ class UpdateAggregateConfigRuleShrinkRequest extends Model
     public $excludeResourceGroupIdsScope;
 
     /**
-     * @description The ID of the resource to be excluded from the compliance evaluations performed by the rule. Separate multiple resource IDs with commas (,).
+     * @description The IDs of the resources excluded from the compliance evaluations performed by the rule. Separate multiple resource IDs with commas (,).
      *
      * >  This parameter applies only to a managed rule.
      * @example lb-t4nbowvtbkss7t326****
@@ -121,10 +123,12 @@ class UpdateAggregateConfigRuleShrinkRequest extends Model
     public $excludeTagsScope;
 
     /**
-     * @description The ID of the resource directory to which the rule applies, which means that the resources within member accounts in the resource directory are evaluated based on the rule.
+     * @description The IDs of the resource directories to which the rule applies, which means that the resources within member accounts in the resource directories are evaluated based on the rule.
      *
      * >
+     *
      *   This parameter applies only to a rule of a global account group.
+     *
      *   This parameter applies only to a managed rule.
      *
      * @example fd-ZtHsRH****
@@ -159,7 +163,7 @@ class UpdateAggregateConfigRuleShrinkRequest extends Model
     public $maximumExecutionFrequency;
 
     /**
-     * @description The ID of the region to which the rule applies. Separate multiple region IDs with commas (,).
+     * @description The IDs of the regions to which the rule applies. Separate multiple region IDs with commas (,).
      *
      * >  This parameter applies only to a managed rule.
      * @example cn-hangzhou
@@ -169,7 +173,7 @@ class UpdateAggregateConfigRuleShrinkRequest extends Model
     public $regionIdsScope;
 
     /**
-     * @description The ID of the resource group to which the rule applies. Separate multiple resource group IDs with commas (,).
+     * @description The IDs of the resource groups to which the rule applies. Separate multiple resource group IDs with commas (,).
      *
      * >  This parameter applies only to a managed rule.
      * @example rg-aekzc7r7rhx****
@@ -220,7 +224,7 @@ class UpdateAggregateConfigRuleShrinkRequest extends Model
     /**
      * @description The tag key used to filter resources. The rule applies only to the resources with the specified tag key.
      *
-     * >  This parameter applies only to a managed rule. You must set the `TagKeyScope` and `TagValueScope` parameters at the same time.
+     * >  This parameter applies only to a managed rule. You must configure the `TagKeyScope` and `TagValueScope` parameters at the same time.
      * @example ECS
      *
      * @var string
@@ -228,9 +232,9 @@ class UpdateAggregateConfigRuleShrinkRequest extends Model
     public $tagKeyScope;
 
     /**
-     * @description The tag value used to filter resources. The rule applies only to the resources with the specified tag value.
+     * @description The tag value used to filter resources. The rule applies only to the resources that use the specified tag value.
      *
-     * >  This parameter applies only to a managed rule. You must set the `TagKeyScope` and `TagValueScope` parameters at the same time.
+     * >  This parameter applies only to a managed rule. You must configure the `TagKeyScope` and `TagValueScope` parameters at the same time.
      * @example test
      *
      * @var string

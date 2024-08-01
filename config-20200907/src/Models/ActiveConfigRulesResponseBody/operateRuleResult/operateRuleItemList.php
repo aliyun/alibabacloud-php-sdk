@@ -18,7 +18,7 @@ class operateRuleItemList extends Model
     public $configRuleId;
 
     /**
-     * @description The error code returned if the request failed.
+     * @description The error code.
      *
      *   If the rule is enabled, no error code is returned.
      *   If the rule fails to be enabled, an error code is returned. For more information about error codes, see [Error codes](https://next.api.aliyun.com/document/Config/2020-09-07/errorCode).

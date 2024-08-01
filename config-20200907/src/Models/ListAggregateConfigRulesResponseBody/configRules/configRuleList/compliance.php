@@ -11,10 +11,10 @@ class compliance extends Model
     /**
      * @description The compliance evaluation result. Valid values:
      *
-     *   COMPLIANT: The resource is evaluated as compliant.
-     *   NON_COMPLIANT: The resource is evaluated as non-compliant.
-     *   NOT_APPLICABLE: The rule does not apply to the resource.
-     *   INSUFFICIENT_DATA: No resource data is available.
+     *   COMPLIANT: The resources are evaluated as compliant.
+     *   NON_COMPLIANT: The resources are evaluated as non-compliant.
+     *   NOT_APPLICABLE: The rule does not apply to the resources.
+     *   INSUFFICIENT_DATA: No data is available.
      *
      * @example COMPLIANT
      *
@@ -23,7 +23,7 @@ class compliance extends Model
     public $complianceType;
 
     /**
-     * @description The number of evaluated resources.
+     * @description The number of evaluation resources that correspond to the summary result of the rule compliance evaluation.
      *
      * @example 2
      *

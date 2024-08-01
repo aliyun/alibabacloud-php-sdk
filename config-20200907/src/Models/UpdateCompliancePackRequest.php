@@ -49,7 +49,6 @@ class UpdateCompliancePackRequest extends Model
     /**
      * @description The description of the compliance package.
      *
-     * For more information about how to obtain the description of a compliance package, see [ListCompliancePacks](https://help.aliyun.com/document_detail/263332.html).
      * @var string
      */
     public $description;
