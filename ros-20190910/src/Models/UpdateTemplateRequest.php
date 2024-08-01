@@ -18,6 +18,16 @@ class UpdateTemplateRequest extends Model
     public $description;
 
     /**
+     * @var bool
+     */
+    public $isDraft;
+
+    /**
+     * @var string
+     */
+    public $rotateStrategy;
+
+    /**
      * @var string
      */
     public $templateBody;
@@ -51,12 +61,20 @@ class UpdateTemplateRequest extends Model
      * @var string
      */
     public $templateURL;
+
+    /**
+     * @var string[]
+     */
+    public $validationOptions;
     protected $_name = [
-        'description'  => 'Description',
-        'templateBody' => 'TemplateBody',
-        'templateId'   => 'TemplateId',
-        'templateName' => 'TemplateName',
-        'templateURL'  => 'TemplateURL',
+        'description'       => 'Description',
+        'isDraft'           => 'IsDraft',
+        'rotateStrategy'    => 'RotateStrategy',
+        'templateBody'      => 'TemplateBody',
+        'templateId'        => 'TemplateId',
+        'templateName'      => 'TemplateName',
+        'templateURL'       => 'TemplateURL',
+        'validationOptions' => 'ValidationOptions',
     ];
 
     public function validate()
@@ -69,6 +87,12 @@ class UpdateTemplateRequest extends Model
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+        if (null !== $this->isDraft) {
+            $res['IsDraft'] = $this->isDraft;
+        }
+        if (null !== $this->rotateStrategy) {
+            $res['RotateStrategy'] = $this->rotateStrategy;
+        }
         if (null !== $this->templateBody) {
             $res['TemplateBody'] = $this->templateBody;
         }
@@ -80,6 +104,9 @@ class UpdateTemplateRequest extends Model
         }
         if (null !== $this->templateURL) {
             $res['TemplateURL'] = $this->templateURL;
+        }
+        if (null !== $this->validationOptions) {
+            $res['ValidationOptions'] = $this->validationOptions;
         }
 
         return $res;
@@ -96,6 +123,12 @@ class UpdateTemplateRequest extends Model
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+        if (isset($map['IsDraft'])) {
+            $model->isDraft = $map['IsDraft'];
+        }
+        if (isset($map['RotateStrategy'])) {
+            $model->rotateStrategy = $map['RotateStrategy'];
+        }
         if (isset($map['TemplateBody'])) {
             $model->templateBody = $map['TemplateBody'];
         }
@@ -107,6 +140,11 @@ class UpdateTemplateRequest extends Model
         }
         if (isset($map['TemplateURL'])) {
             $model->templateURL = $map['TemplateURL'];
+        }
+        if (isset($map['ValidationOptions'])) {
+            if (!empty($map['ValidationOptions'])) {
+                $model->validationOptions = $map['ValidationOptions'];
+            }
         }
 
         return $model;

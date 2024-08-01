@@ -1052,6 +1052,9 @@ class ROS extends OpenApiClient
         if (!Utils::isUnset($request->templateURL)) {
             $query['TemplateURL'] = $request->templateURL;
         }
+        if (!Utils::isUnset($request->validationOptions)) {
+            $query['ValidationOptions'] = $request->validationOptions;
+        }
         $body = [];
         if (!Utils::isUnset($request->templateBody)) {
             $body['TemplateBody'] = $request->templateBody;
@@ -5961,6 +5964,12 @@ class ROS extends OpenApiClient
         if (!Utils::isUnset($request->description)) {
             $query['Description'] = $request->description;
         }
+        if (!Utils::isUnset($request->isDraft)) {
+            $query['IsDraft'] = $request->isDraft;
+        }
+        if (!Utils::isUnset($request->rotateStrategy)) {
+            $query['RotateStrategy'] = $request->rotateStrategy;
+        }
         if (!Utils::isUnset($request->templateId)) {
             $query['TemplateId'] = $request->templateId;
         }
@@ -5969,6 +5978,9 @@ class ROS extends OpenApiClient
         }
         if (!Utils::isUnset($request->templateURL)) {
             $query['TemplateURL'] = $request->templateURL;
+        }
+        if (!Utils::isUnset($request->validationOptions)) {
+            $query['ValidationOptions'] = $request->validationOptions;
         }
         $body = [];
         if (!Utils::isUnset($request->templateBody)) {

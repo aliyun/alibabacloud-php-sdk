@@ -57,13 +57,19 @@ class CreateTemplateRequest extends Model
      * @var string
      */
     public $templateURL;
+
+    /**
+     * @var string[]
+     */
+    public $validationOptions;
     protected $_name = [
-        'description'     => 'Description',
-        'resourceGroupId' => 'ResourceGroupId',
-        'tags'            => 'Tags',
-        'templateBody'    => 'TemplateBody',
-        'templateName'    => 'TemplateName',
-        'templateURL'     => 'TemplateURL',
+        'description'       => 'Description',
+        'resourceGroupId'   => 'ResourceGroupId',
+        'tags'              => 'Tags',
+        'templateBody'      => 'TemplateBody',
+        'templateName'      => 'TemplateName',
+        'templateURL'       => 'TemplateURL',
+        'validationOptions' => 'ValidationOptions',
     ];
 
     public function validate()
@@ -96,6 +102,9 @@ class CreateTemplateRequest extends Model
         }
         if (null !== $this->templateURL) {
             $res['TemplateURL'] = $this->templateURL;
+        }
+        if (null !== $this->validationOptions) {
+            $res['ValidationOptions'] = $this->validationOptions;
         }
 
         return $res;
@@ -132,6 +141,11 @@ class CreateTemplateRequest extends Model
         }
         if (isset($map['TemplateURL'])) {
             $model->templateURL = $map['TemplateURL'];
+        }
+        if (isset($map['ValidationOptions'])) {
+            if (!empty($map['ValidationOptions'])) {
+                $model->validationOptions = $map['ValidationOptions'];
+            }
         }
 
         return $model;
