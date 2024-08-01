@@ -201,12 +201,12 @@ class DescribeSnapshotsRequest extends Model
     public $snapshotType;
 
     /**
-     * @description The type of the source disk. Valid values:
+     * @description The source disk type of the snapshot. Valid values:
      *
-     *   system: system disk
-     *   data: data disk
+     *   system: system disk.
+     *   data: data disk.
      *
-     * >  The value of this parameter is not case-sensitive.
+     * >  The value of this parameter is case-insensitive.
      * @example Data
      *
      * @var string

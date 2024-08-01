@@ -68,20 +68,20 @@ class valueItem extends Model
      *   max-spot-instance-vcpu-count
      *   used-postpaid-instance-vcpu-count
      *   used-spot-instance-vcpu-count
-     *   max-postpaid-yundisk-capacity(This value is deprecated)
-     *   used-postpaid-yundisk-capacity(This value is deprecated)
+     *   max-postpaid-yundisk-capacity (the value is deprecated)
+     *   used-postpaid-yundisk-capacity (the value is deprecated)
      *   max-dedicated-hosts
      *   max-axt-command-count
      *   max-axt-invocation-daily
      *   max-cloud-assistant-activation-count
      *
-     * When the AttributeName parameter is set to real-name-authentications, one of the following values is returned:
+     * When AttributeName is set to real-name-authentications, one of the following values is returned:
      *
      *   yes
      *   none
      *   unnecessary
      *
-     * When the AttributeName parameter is set to instance-network-type, one of the following values is returned:
+     * When AttributeName is set to instance-network-type, one of the following values is returned:
      *
      *   vpc
      *   classic

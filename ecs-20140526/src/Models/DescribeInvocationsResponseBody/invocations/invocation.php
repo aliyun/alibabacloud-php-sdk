@@ -157,6 +157,11 @@ class invocation extends Model
     public $invokeStatus;
 
     /**
+     * @var string
+     */
+    public $launcher;
+
+    /**
      * @description The custom parameters in the command.
      *
      * @example {}
@@ -248,6 +253,7 @@ class invocation extends Model
         'invokeId'           => 'InvokeId',
         'invokeInstances'    => 'InvokeInstances',
         'invokeStatus'       => 'InvokeStatus',
+        'launcher'           => 'Launcher',
         'parameters'         => 'Parameters',
         'repeatMode'         => 'RepeatMode',
         'tags'               => 'Tags',
@@ -303,6 +309,9 @@ class invocation extends Model
         }
         if (null !== $this->invokeStatus) {
             $res['InvokeStatus'] = $this->invokeStatus;
+        }
+        if (null !== $this->launcher) {
+            $res['Launcher'] = $this->launcher;
         }
         if (null !== $this->parameters) {
             $res['Parameters'] = $this->parameters;
@@ -378,6 +387,9 @@ class invocation extends Model
         }
         if (isset($map['InvokeStatus'])) {
             $model->invokeStatus = $map['InvokeStatus'];
+        }
+        if (isset($map['Launcher'])) {
+            $model->launcher = $map['Launcher'];
         }
         if (isset($map['Parameters'])) {
             $model->parameters = $map['Parameters'];

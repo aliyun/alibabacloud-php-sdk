@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class enhancedNetwork extends Model
 {
     /**
-     * @description This parameter is unavailable for public use.
+     * @description This parameter is not publicly available.
      *
      * @var bool
      */

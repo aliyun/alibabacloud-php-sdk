@@ -157,7 +157,7 @@ class ModifyInstanceAttributeRequest extends Model
      *   The instance is moved from the current security groups to the replacement security groups. If you want the instance to remain in the current security groups, add the IDs of the current security groups to the list.
      *   You can move the instance to security groups of a different type. However, the list cannot contain the IDs of both basic and advanced security groups.
      *   The security groups and the instance must belong to the same VPC.
-     *   The valid values of N vary based on the maximum number of security groups to which the instance can belong. For more information, see the [Security group limits](~~25412#SecurityGroupQuota1~~) section in the "Limits" topic.
+     *   The valid values of N vary based on the maximum number of security groups to which the instance can belong. For more information, see the [Security group limits](~~25412#SecurityGroupQuota1~~) section in the "Limits and quotas" topic.
      *   New security groups become valid for the instance after a short latency.
      *
      * @example sg-bp15ed6xe1yxeycg7o****

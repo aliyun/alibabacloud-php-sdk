@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyReservedInstancesRequest extends Model
 {
     /**
-     * @description The configurations of reserved instance N.
+     * @description The configurations of reserved instances.
      *
      * @var configuration[]
      */
@@ -37,7 +37,7 @@ class ModifyReservedInstancesRequest extends Model
     public $regionId;
 
     /**
-     * @description The IDs of reserved instances. Valid values of N: 1 to 20.
+     * @description The ID of reserved instance N. Valid values of N: 1 to 20.
      *
      * This parameter is required.
      * @example ReservedInstanceId.1="ecsri-bp1cx3****",ReservedInstanceId.2="ecsri-bp15xx2****"......

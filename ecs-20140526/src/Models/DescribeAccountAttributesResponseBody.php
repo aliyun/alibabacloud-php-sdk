@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeAccountAttributesResponseBody extends Model
 {
     /**
-     * @description Details about account privileges specified by AccountAttributeItem in the specified region.
+     * @description Details about account privileges in the specified region.
      *
      * @var accountAttributeItems
      */

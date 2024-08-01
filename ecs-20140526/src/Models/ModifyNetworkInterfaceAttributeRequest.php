@@ -12,7 +12,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyNetworkInterfaceAttributeRequest extends Model
 {
     /**
-     * @description This parameter is unavailable for public use.
+     * @description This parameter is not publicly available.
      *
      * @var connectionTrackingConfiguration
      */
@@ -41,7 +41,7 @@ class ModifyNetworkInterfaceAttributeRequest extends Model
     public $description;
 
     /**
-     * @description This parameter is unavailable for public use.
+     * @description This parameter is not publicly available.
      *
      * @var enhancedNetwork
      */
@@ -132,9 +132,9 @@ class ModifyNetworkInterfaceAttributeRequest extends Model
     public $rxQueueSize;
 
     /**
-     * @description The IDs of the security groups to which to add the secondary ENI. The secondary ENI is added to the specified security groups and are removed from its original security groups.
+     * @description The IDs of the security groups to which to add the secondary ENI. The secondary ENI is added to the specified security groups and removed from the original security groups.
      *
-     *   The valid value range of N varies based on the number of security groups to which an ENI can be added. For more information, see [Limits](~~25412#SecurityGroupQuota~~).
+     *   The valid values of N vary based on the maximum number of security groups to which an ENI can be added. For more information, see the [Security group limits](~~25412#SecurityGroupQuota~~) section of the "Limits and quotas" topic.
      *   The new security groups take effect after a short delay.
      *
      * @var string[]

@@ -437,7 +437,7 @@ class CreateLaunchTemplateVersionRequest extends Model
     public $spotStrategy;
 
     /**
-     * @description The tags to add to the activation code.
+     * @description The tags to add to the instance, disks, and primary ENI.
      *
      * @var tag[]
      */

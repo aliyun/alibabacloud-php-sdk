@@ -117,6 +117,11 @@ class InvokeCommandRequest extends Model
     /**
      * @var string
      */
+    public $launcher;
+
+    /**
+     * @var string
+     */
     public $ownerAccount;
 
     /**
@@ -271,6 +276,7 @@ class InvokeCommandRequest extends Model
         'containerName'        => 'ContainerName',
         'frequency'            => 'Frequency',
         'instanceId'           => 'InstanceId',
+        'launcher'             => 'Launcher',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'parameters'           => 'Parameters',
@@ -312,6 +318,9 @@ class InvokeCommandRequest extends Model
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->launcher) {
+            $res['Launcher'] = $this->launcher;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
@@ -401,6 +410,9 @@ class InvokeCommandRequest extends Model
             if (!empty($map['InstanceId'])) {
                 $model->instanceId = $map['InstanceId'];
             }
+        }
+        if (isset($map['Launcher'])) {
+            $model->launcher = $map['Launcher'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];

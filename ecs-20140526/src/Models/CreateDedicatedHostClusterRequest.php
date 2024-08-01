@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class CreateDedicatedHostClusterRequest extends Model
 {
     /**
-     * @description The name of the dedicated host cluster. The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The name must start with a letter. The name cannot contain `http://` or `https://`.
+     * @description The name of the dedicated host cluster. The name must be 2 to 128 characters in length and can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
      *
      * This parameter is left empty by default.
      * @example myDDHCluster
@@ -32,7 +32,7 @@ class CreateDedicatedHostClusterRequest extends Model
     /**
      * @description Specifies whether to perform only a dry run, without performing the actual request. Valid values:
      *
-     *   true: performs only a dry run. The system checks the request for potential issues, including invalid AccessKey pairs, unauthorized RAM users, and missing parameter values. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+     *   true: performs only a dry run. The system checks the request for potential issues, including invalid AccessKey pairs, unauthorized Resource Access Management (RAM) users, and missing parameter values. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
      *   false: performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
      *
      * Default value: false.

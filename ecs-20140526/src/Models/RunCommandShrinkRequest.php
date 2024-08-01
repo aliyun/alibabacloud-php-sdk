@@ -185,6 +185,11 @@ class RunCommandShrinkRequest extends Model
     public $keepCommand;
 
     /**
+     * @var string
+     */
+    public $launcher;
+
+    /**
      * @description The name of the command. The name supports all character sets and can be up to 128 characters in length.
      *
      * @example testName
@@ -382,6 +387,7 @@ class RunCommandShrinkRequest extends Model
         'frequency'            => 'Frequency',
         'instanceId'           => 'InstanceId',
         'keepCommand'          => 'KeepCommand',
+        'launcher'             => 'Launcher',
         'name'                 => 'Name',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
@@ -438,6 +444,9 @@ class RunCommandShrinkRequest extends Model
         }
         if (null !== $this->keepCommand) {
             $res['KeepCommand'] = $this->keepCommand;
+        }
+        if (null !== $this->launcher) {
+            $res['Launcher'] = $this->launcher;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -548,6 +557,9 @@ class RunCommandShrinkRequest extends Model
         }
         if (isset($map['KeepCommand'])) {
             $model->keepCommand = $map['KeepCommand'];
+        }
+        if (isset($map['Launcher'])) {
+            $model->launcher = $map['Launcher'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

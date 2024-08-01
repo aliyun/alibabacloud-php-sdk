@@ -39,7 +39,7 @@ class DescribeSecurityGroupReferencesRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The ID of security group N. Valid values of N: 1 to 10.
+     * @description The IDs of N security groups that you want to query. Valid values of N: 1 to 10.
      *
      * This parameter is required.
      * @example sg-bp14vtedjtobkvi****

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class configuration extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The number of pay-as-you-go instances of the same instance type that reserved instance N can match. The value of this parameter must be greater than or equal to 1. Valid values of N: 1 to 100.
      *
      * @example 1
      *
@@ -18,8 +18,9 @@ class configuration extends Model
     public $instanceAmount;
 
     /**
-     * @description The number of pay-as-you-go instances of the same instance type that the reserved instance can match. The value of this parameter must be greater than or equal to 1. Valid values of N: 1 to 100.
+     * @description The instance type that reserved instance N can match. Valid values of N: 1 to 100.
      *
+     * >  The applicable instance types are continuously updated. For more information, see the "Attributes" section in [Overview of reserved instances](https://help.aliyun.com/document_detail/100370.html).
      * @example ecs.c5.4xlarge
      *
      * @var string
@@ -27,9 +28,9 @@ class configuration extends Model
     public $instanceType;
 
     /**
-     * @description The zone ID of reserved instance N. Valid values of N: 1 to 100.
+     * @description The name of reserved instance N. Valid values of N: 1 to 100.
      *
-     * You can call the [DescribeZones](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent zone list.
+     * The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with http:// or https://. The name can contain digits, letters, colons (:), underscores (_), and hyphens (-).
      * @example testReservedInstanceName
      *
      * @var string
@@ -37,9 +38,12 @@ class configuration extends Model
     public $reservedInstanceName;
 
     /**
-     * @description The instance type that reserved instance N can match. Valid values of N: 1 to 100.
+     * @description The scope of reserved instance N. Valid values:
      *
-     * > The supported instance types are regularly updated. For more information, see the "Attributes" section of [Overview](https://help.aliyun.com/document_detail/100370.html).
+     *   Region: regional
+     *   Zone: zonal
+     *
+     * Default value: Region.
      * @example Zone
      *
      * @var string
@@ -47,12 +51,9 @@ class configuration extends Model
     public $scope;
 
     /**
-     * @description The scope of reserved instance N. Valid values:
+     * @description The zone ID of reserved instance N. Valid values of N: 1 to 100.
      *
-     *   Region
-     *   Zone
-     *
-     * Default value: Region.
+     * You can call the [DescribeZones](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent zone list.
      * @example cn-hangzhou-i
      *
      * @var string

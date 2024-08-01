@@ -432,7 +432,7 @@ class CreateLaunchTemplateRequest extends Model
     public $spotStrategy;
 
     /**
-     * @description The tags of the launch template.
+     * @description The tags to add to the instance, disks, and primary ENI.
      *
      * @var tag[]
      */

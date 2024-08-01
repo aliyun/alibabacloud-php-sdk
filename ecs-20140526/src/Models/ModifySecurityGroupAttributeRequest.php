@@ -19,17 +19,11 @@ class ModifySecurityGroupAttributeRequest extends Model
     public $description;
 
     /**
-     * @example ECSforCloud@Alibaba.com
-     *
      * @var string
      */
     public $ownerAccount;
 
     /**
-     * @description RAM用户的虚拟账号ID。
-     *
-     * @example 155780923770
-     *
      * @var int
      */
     public $ownerId;
@@ -45,19 +39,11 @@ class ModifySecurityGroupAttributeRequest extends Model
     public $regionId;
 
     /**
-     * @description 资源主账号的账号名称。
-     *
-     * @example ECSforCloud
-     *
      * @var string
      */
     public $resourceOwnerAccount;
 
     /**
-     * @description 资源主账号的ID，亦即UID。
-     *
-     * @example 155780923770
-     *
      * @var int
      */
     public $resourceOwnerId;
@@ -73,9 +59,9 @@ class ModifySecurityGroupAttributeRequest extends Model
     public $securityGroupId;
 
     /**
-     * @description The new name of the security group. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (_), and hyphens (-).
+     * @description The new name of the security group. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
      *
-     * By default, this parameter is left empty.
+     * This parameter is empty by default.
      * @example SecurityGroupTestName
      *
      * @var string

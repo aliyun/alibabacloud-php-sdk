@@ -120,7 +120,7 @@ class ModifySecurityGroupRuleRequest extends Model
     /**
      * @description The priority of the security group rule. Valid values: 1 to 100.
      *
-     * Default value: 1
+     * Default value: 1.
      * @example 1
      *
      * @var string

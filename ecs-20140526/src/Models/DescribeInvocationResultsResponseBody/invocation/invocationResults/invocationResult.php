@@ -216,6 +216,11 @@ class invocationResult extends Model
     public $invokeRecordStatus;
 
     /**
+     * @var string
+     */
+    public $launcher;
+
+    /**
      * @description The command output.
      *
      *   If ContentEncoding is set to PlainText in the request, the original command output is returned.
@@ -297,6 +302,7 @@ class invocationResult extends Model
         'invocationStatus'   => 'InvocationStatus',
         'invokeId'           => 'InvokeId',
         'invokeRecordStatus' => 'InvokeRecordStatus',
+        'launcher'           => 'Launcher',
         'output'             => 'Output',
         'repeats'            => 'Repeats',
         'startTime'          => 'StartTime',
@@ -348,6 +354,9 @@ class invocationResult extends Model
         }
         if (null !== $this->invokeRecordStatus) {
             $res['InvokeRecordStatus'] = $this->invokeRecordStatus;
+        }
+        if (null !== $this->launcher) {
+            $res['Launcher'] = $this->launcher;
         }
         if (null !== $this->output) {
             $res['Output'] = $this->output;
@@ -417,6 +426,9 @@ class invocationResult extends Model
         }
         if (isset($map['InvokeRecordStatus'])) {
             $model->invokeRecordStatus = $map['InvokeRecordStatus'];
+        }
+        if (isset($map['Launcher'])) {
+            $model->launcher = $map['Launcher'];
         }
         if (isset($map['Output'])) {
             $model->output = $map['Output'];
