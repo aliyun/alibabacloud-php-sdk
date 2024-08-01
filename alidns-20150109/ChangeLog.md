@@ -1,3 +1,8 @@
+2024-08-01 Version: 3.4.3
+- Update API CreatePdnsUdpIpSegment: add param IpToken.
+- Update API ValidatePdnsUdpIpSegment: add param IpToken.
+
+
 2024-07-30 Version: 3.4.2
 - Update API DescribePdnsUdpIpSegments: update response param.
 

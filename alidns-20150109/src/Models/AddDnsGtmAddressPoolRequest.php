@@ -78,7 +78,7 @@ class AddDnsGtmAddressPoolRequest extends Model
     /**
      * @description The extended information. The required parameters vary based on the value of ProtocolType.
      *
-     *   When ProtocolType is set to HTTP or HTTPS:
+     *   HTTP or HTTPS
      *
      *   port: the port that you want to check
      *
@@ -86,7 +86,7 @@ class AddDnsGtmAddressPoolRequest extends Model
      *
      *   path: the URL path
      *
-     *   code: the return code. The health check result is deemed abnormal if the returned value is greater than the specified value.
+     *   code: the response code. The health check result is deemed abnormal if the returned value is greater than the specified value. Values: 400, 500.
      *
      *   failureRate: the failure rate
      *
@@ -100,7 +100,7 @@ class AddDnsGtmAddressPoolRequest extends Model
      *   IPV4
      *   IPV6
      *
-     *   When ProtocolType is set to PING:
+     *   PING
      *
      *   failureRate: the failure rate
      *
@@ -113,7 +113,7 @@ class AddDnsGtmAddressPoolRequest extends Model
      *   IPV4
      *   IPV6
      *
-     *   When ProtocolType is set to TCP:
+     *   TCP
      *
      *   port: the port that you want to check
      *

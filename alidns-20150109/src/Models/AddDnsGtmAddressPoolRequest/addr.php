@@ -21,7 +21,7 @@ class addr extends Model
     /**
      * @description The information about the source region of the address. The value of this parameter is a JSON string. Valid values:
      *
-     *   LineCode: the line code of the source region for the address
+     *   lineCode: the line code of the source region for the address
      *
      *   lineCodeRectifyType: the rectification type of the line code. Default value: AUTO. Valid values:
      *
@@ -37,7 +37,7 @@ class addr extends Model
     public $attributeInfo;
 
     /**
-     * @description The weight of the address pool.
+     * @description The weight of the address.
      *
      * @example 1
      *
@@ -60,7 +60,7 @@ class addr extends Model
     public $mode;
 
     /**
-     * @description The remarks.
+     * @description The description of the address pool.
      *
      * @example test
      *

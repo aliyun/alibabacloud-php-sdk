@@ -16,6 +16,11 @@ class CreatePdnsUdpIpSegmentRequest extends Model
     /**
      * @var string
      */
+    public $ipToken;
+
+    /**
+     * @var string
+     */
     public $lang;
 
     /**
@@ -23,9 +28,10 @@ class CreatePdnsUdpIpSegmentRequest extends Model
      */
     public $name;
     protected $_name = [
-        'ip'   => 'Ip',
-        'lang' => 'Lang',
-        'name' => 'Name',
+        'ip'      => 'Ip',
+        'ipToken' => 'IpToken',
+        'lang'    => 'Lang',
+        'name'    => 'Name',
     ];
 
     public function validate()
@@ -37,6 +43,9 @@ class CreatePdnsUdpIpSegmentRequest extends Model
         $res = [];
         if (null !== $this->ip) {
             $res['Ip'] = $this->ip;
+        }
+        if (null !== $this->ipToken) {
+            $res['IpToken'] = $this->ipToken;
         }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
@@ -58,6 +67,9 @@ class CreatePdnsUdpIpSegmentRequest extends Model
         $model = new self();
         if (isset($map['Ip'])) {
             $model->ip = $map['Ip'];
+        }
+        if (isset($map['IpToken'])) {
+            $model->ipToken = $map['IpToken'];
         }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];

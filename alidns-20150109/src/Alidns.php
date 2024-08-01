@@ -1931,6 +1931,9 @@ class Alidns extends OpenApiClient
         if (!Utils::isUnset($request->ip)) {
             $query['Ip'] = $request->ip;
         }
+        if (!Utils::isUnset($request->ipToken)) {
+            $query['IpToken'] = $request->ipToken;
+        }
         if (!Utils::isUnset($request->lang)) {
             $query['Lang'] = $request->lang;
         }
@@ -12516,6 +12519,9 @@ class Alidns extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->ip)) {
             $query['Ip'] = $request->ip;
+        }
+        if (!Utils::isUnset($request->ipToken)) {
+            $query['IpToken'] = $request->ipToken;
         }
         if (!Utils::isUnset($request->lang)) {
             $query['Lang'] = $request->lang;

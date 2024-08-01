@@ -18,7 +18,7 @@ class AddDnsGtmAddressPoolResponseBody extends Model
     public $addrPoolId;
 
     /**
-     * @description The ID of the health check task.
+     * @description The ID of the health check configuration.
      *
      * @example test1
      *
