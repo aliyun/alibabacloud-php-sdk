@@ -29,7 +29,7 @@ class logRecords extends Model
     /**
      * @description The content of the log entry.
      *
-     * @example end connection 11.xxx.xxx.xx:3xxxx (0 connections now open)\n
+     * @example end connection 11.xxx.xxx.xx:3xxxx (0 connections now open)\\n
      *
      * @var string
      */

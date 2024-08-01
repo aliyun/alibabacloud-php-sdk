@@ -9,6 +9,14 @@ use AlibabaCloud\Tea\Model;
 class ReleasePublicNetworkAddressRequest extends Model
 {
     /**
+     * @description The public endpoint type. Valid values:
+     *
+     *   **SRV**
+     *   **Normal**
+     *
+     * >  This parameter is valid only when you want to release an SRV endpoint.
+     * @example SRV
+     *
      * @var string
      */
     public $connectionType;
@@ -17,6 +25,8 @@ class ReleasePublicNetworkAddressRequest extends Model
      * @description The instance ID.
      *
      * >  If you set this parameter to the ID of a sharded cluster instance, you must also specify the **NodeId** parameter.
+     *
+     * This parameter is required.
      * @example dds-bp2235****
      *
      * @var string
@@ -27,7 +37,7 @@ class ReleasePublicNetworkAddressRequest extends Model
      * @description The ID of the mongos, shard, or Configserver node in the sharded cluster instance.
      *
      * > *   This parameter is valid only if you set the **DBInstanceId** parameter to the ID of a sharded cluster instance.
-     * > *   You can call the [DescribeDBInstanceAttribute](~~62010~~) operation to view the ID of the mongos, shard, or Configserver node.
+     * > *   You can call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/62010.html) operation to view the ID of the mongos, shard, or Configserver node.
      * @example s-bp2235****
      *
      * @var string

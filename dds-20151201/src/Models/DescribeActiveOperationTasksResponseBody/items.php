@@ -30,7 +30,7 @@ class items extends Model
     public $allowChange;
 
     /**
-     * @description The change level of the O\&M task.
+     * @description The change level of the O\\&M task.
      *
      * @example ***
      *
@@ -93,7 +93,7 @@ class items extends Model
     public $dbVersion;
 
     /**
-     * @description The end time of the O\&M task.
+     * @description The end time of the O\\&M task.
      *
      * @example 1646014421633
      *

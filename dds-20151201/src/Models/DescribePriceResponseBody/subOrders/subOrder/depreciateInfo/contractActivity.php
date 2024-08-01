@@ -10,36 +10,62 @@ use AlibabaCloud\Tea\Model;
 class contractActivity extends Model
 {
     /**
+     * @description The activity ID.
+     *
+     * @example 41120065996xxxxx
+     *
      * @var int
      */
     public $activityId;
 
     /**
+     * @description The activity name.
+     *
+     * @example contract promotion_order_xxx discount
+     *
      * @var string
      */
     public $activityName;
 
     /**
+     * @description The price after the promotion.
+     *
+     * @example 20522.4
+     *
      * @var float
      */
     public $finalFee;
 
     /**
+     * @description The total discount amount.
+     *
+     * @example 3621.6
+     *
      * @var float
      */
     public $finalPromFee;
 
     /**
+     * @description The promotion ID.
+     *
+     * @example wanhua_activity
+     *
      * @var string
      */
     public $optionCode;
 
     /**
+     * @description The promotion IDs.
+     *
      * @var optionIds
      */
     public $optionIds;
 
     /**
+     * @description The original price.
+     *
+     * @example 24144.0
+     *
      * @var float
      */
     public $prodFee;

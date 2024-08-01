@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBInstanceDiskTypeResponseBody extends Model
 {
     /**
+     * @description The order ID.
+     *
      * @example 21012719476****
      *
      * @var string
@@ -16,6 +18,8 @@ class ModifyDBInstanceDiskTypeResponseBody extends Model
     public $orderId;
 
     /**
+     * @description The request ID.
+     *
      * @example D8F1D721-6439-4257-A89C-F1E8E9C9****
      *
      * @var string

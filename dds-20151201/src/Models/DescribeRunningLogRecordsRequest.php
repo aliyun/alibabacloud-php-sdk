@@ -12,6 +12,8 @@ class DescribeRunningLogRecordsRequest extends Model
      * @description The ID of the instance.
      *
      * >  If you set this parameter to the ID of a sharded cluster instance, you must also specify the **NodeId** parameter.
+     *
+     * This parameter is required.
      * @example dds-bpxxxxxxxx
      *
      * @var string
@@ -30,7 +32,7 @@ class DescribeRunningLogRecordsRequest extends Model
     /**
      * @description The end of the time range to query. Specify the time in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
      *
-     * >  The end time must be later than the start time and within 24 hours from the start time. Otherwise, the query fails.
+     * This parameter is required.
      * @example 2019-01-01T13:10Z
      *
      * @var string
@@ -128,7 +130,7 @@ class DescribeRunningLogRecordsRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The role ID of the node. You can call the [DescribeReplicaSetRole](~~62134~~) operation to query the role ID.
+     * @description The role ID of the node. You can call the [DescribeReplicaSetRole](https://help.aliyun.com/document_detail/62134.html) operation to query the role ID.
      *
      * @example 651xxxxx
      *
@@ -152,6 +154,7 @@ class DescribeRunningLogRecordsRequest extends Model
     /**
      * @description The beginning of the time range to query. Specify the time in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
      *
+     * This parameter is required.
      * @example 2019-01-01T12:10Z
      *
      * @var string

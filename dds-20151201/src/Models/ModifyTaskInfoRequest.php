@@ -9,17 +9,18 @@ use AlibabaCloud\Tea\Model;
 class ModifyTaskInfoRequest extends Model
 {
     /**
-     * @description The action-related parameters. Such parameters can be added based on your business requirements. The ActionParams parameter value varies based on the taskAction parameter value.
+     * @description A action-related parameter. This parameter can be extended based on your business requirements. This parameter value varies with the value of the TaskAction parameter.
      *
-     * @example {\"recoverMode\":\"immediate\"}
+     * @example {\\"recoverMode\\":\\"immediate\\"}
      *
      * @var string
      */
     public $actionParams;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~61933~~) operation to query the region ID.
+     * @description The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61933.html) operation to query the region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -39,6 +40,7 @@ class ModifyTaskInfoRequest extends Model
     /**
      * @description The name of the step visible to the user.
      *
+     * This parameter is required.
      * @example exec_task
      *
      * @var string
@@ -46,8 +48,9 @@ class ModifyTaskInfoRequest extends Model
     public $stepName;
 
     /**
-     * @description The name of the action to perform. Specify the value of this parameter as the action name corresponding to the current state of the task. The action name can be obtained from the actionInfo parameter returned by the [DescribeHistoryTasks](~~2639186~~) operation.
+     * @description The action name that corresponds to the state described in the actionInfo parameter of the [DescribeHistoryTasks](https://help.aliyun.com/document_detail/2639186.html) operation.
      *
+     * This parameter is required.
      * @example modifySwitchTime
      *
      * @var string
@@ -57,6 +60,7 @@ class ModifyTaskInfoRequest extends Model
     /**
      * @description The task ID. Separate multiple IDs with commas (,). You can specify up to 10 task IDs.
      *
+     * This parameter is required.
      * @example t-83br18hlpdrw3uxxxx
      *
      * @var string

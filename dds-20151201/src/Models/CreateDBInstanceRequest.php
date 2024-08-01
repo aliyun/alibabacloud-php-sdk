@@ -13,7 +13,7 @@ class CreateDBInstanceRequest extends Model
      * @description The password of the root account. The password must meet the following requirements:
      *
      *   The password must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
-     *   Special characters include ! # $ % ^ & \* ( ) \_ + - =
+     *   Special characters include ! # $ % ^ & \\* ( ) _ + - =
      *   The password of the account must be 8 to 32 characters in length.
      *
      * @example 123456Aa
@@ -36,7 +36,7 @@ class CreateDBInstanceRequest extends Model
     public $autoRenew;
 
     /**
-     * @description The ID of the backup set. You can call the [DescribeBackups](~~62172~~) operation to query the backup set ID.
+     * @description The ID of the backup set. You can call the [DescribeBackups](https://help.aliyun.com/document_detail/62172.html) operation to query the backup set ID.
      *
      * > When you call this operation to clone an instance based on the backup set, this parameter is required. The **SrcDBInstanceId** parameter is also required.
      * @example 32994****
@@ -96,8 +96,9 @@ class CreateDBInstanceRequest extends Model
     public $couponNo;
 
     /**
-     * @description The instance type. You can also call the [DescribeAvailableResource](~~149719~~) operation to query the instance type.
+     * @description The instance type. You can also call the [DescribeAvailableResource](https://help.aliyun.com/document_detail/149719.html) operation to query the instance type.
      *
+     * This parameter is required.
      * @example dds.mongo.standard
      *
      * @var string
@@ -108,7 +109,7 @@ class CreateDBInstanceRequest extends Model
      * @description The name of the instance. The name of the instance must meet the following requirements:
      *
      *   The name must start with a letter.
-     *   The name can contain digits, letters, underscores (\_), and hyphens (-).
+     *   The name can contain digits, letters, underscores (_), and hyphens (-).
      *   The name must be 2 to 256 characters in length.
      *
      * @example test
@@ -120,7 +121,7 @@ class CreateDBInstanceRequest extends Model
     /**
      * @description The storage capacity of the instance. Unit: GB.
      *
-     * The values that can be specified for this parameter vary based on the instance types. For more information, see [Replica set instance types](~~311410~~).
+     * This parameter is required.
      * @example 10
      *
      * @var int
@@ -173,7 +174,7 @@ class CreateDBInstanceRequest extends Model
      *   **4.2**
      *   **4.0**
      *
-     * > When you call this operation to clone an instance or restore an instance from the recycle bin, set the value of this parameter to the engine version of the source instance.
+     * This parameter is required.
      * @example 4.4
      *
      * @var string
@@ -271,8 +272,9 @@ class CreateDBInstanceRequest extends Model
     public $readonlyReplicas;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~61933~~) operation to query the most recent region list.
+     * @description The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61933.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -320,6 +322,11 @@ class CreateDBInstanceRequest extends Model
      * @var string
      */
     public $restoreTime;
+
+    /**
+     * @var string
+     */
+    public $restoreType;
 
     /**
      * @description The zone where the secondary node resides for multi-zone deployment. Valid values:
@@ -377,6 +384,11 @@ class CreateDBInstanceRequest extends Model
     public $srcDBInstanceId;
 
     /**
+     * @var string
+     */
+    public $srcRegion;
+
+    /**
      * @description The storage engine of the instance. Default value: WiredTiger. Valid values:
      *
      *   **WiredTiger**
@@ -384,7 +396,7 @@ class CreateDBInstanceRequest extends Model
      *   **TerarkDB**
      *
      * >  *   When you call this operation to clone an instance or restore an instance from the recycle bin, set the value of this parameter to the storage engine of the source instance.
-     * >  *   For more information about the limits on database versions and storage engines, see [MongoDB versions and storage engines](~~61906~~).
+     * >  *   For more information about the limits on database versions and storage engines, see [MongoDB versions and storage engines](https://help.aliyun.com/document_detail/61906.html).
      * @example WiredTiger
      *
      * @var string
@@ -431,7 +443,7 @@ class CreateDBInstanceRequest extends Model
     public $vpcId;
 
     /**
-     * @description The zone ID of the instance. You can call the [DescribeRegions](~~61933~~) operation to query the most recent zone list.
+     * @description The zone ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61933.html) operation to query the most recent zone list.
      *
      * @example cn-hangzhou-g
      *
@@ -469,9 +481,11 @@ class CreateDBInstanceRequest extends Model
         'resourceOwnerAccount'   => 'ResourceOwnerAccount',
         'resourceOwnerId'        => 'ResourceOwnerId',
         'restoreTime'            => 'RestoreTime',
+        'restoreType'            => 'RestoreType',
         'secondaryZoneId'        => 'SecondaryZoneId',
         'securityIPList'         => 'SecurityIPList',
         'srcDBInstanceId'        => 'SrcDBInstanceId',
+        'srcRegion'              => 'SrcRegion',
         'storageEngine'          => 'StorageEngine',
         'storageType'            => 'StorageType',
         'tag'                    => 'Tag',
@@ -577,6 +591,9 @@ class CreateDBInstanceRequest extends Model
         if (null !== $this->restoreTime) {
             $res['RestoreTime'] = $this->restoreTime;
         }
+        if (null !== $this->restoreType) {
+            $res['RestoreType'] = $this->restoreType;
+        }
         if (null !== $this->secondaryZoneId) {
             $res['SecondaryZoneId'] = $this->secondaryZoneId;
         }
@@ -585,6 +602,9 @@ class CreateDBInstanceRequest extends Model
         }
         if (null !== $this->srcDBInstanceId) {
             $res['SrcDBInstanceId'] = $this->srcDBInstanceId;
+        }
+        if (null !== $this->srcRegion) {
+            $res['SrcRegion'] = $this->srcRegion;
         }
         if (null !== $this->storageEngine) {
             $res['StorageEngine'] = $this->storageEngine;
@@ -712,6 +732,9 @@ class CreateDBInstanceRequest extends Model
         if (isset($map['RestoreTime'])) {
             $model->restoreTime = $map['RestoreTime'];
         }
+        if (isset($map['RestoreType'])) {
+            $model->restoreType = $map['RestoreType'];
+        }
         if (isset($map['SecondaryZoneId'])) {
             $model->secondaryZoneId = $map['SecondaryZoneId'];
         }
@@ -720,6 +743,9 @@ class CreateDBInstanceRequest extends Model
         }
         if (isset($map['SrcDBInstanceId'])) {
             $model->srcDBInstanceId = $map['SrcDBInstanceId'];
+        }
+        if (isset($map['SrcRegion'])) {
+            $model->srcRegion = $map['SrcRegion'];
         }
         if (isset($map['StorageEngine'])) {
             $model->storageEngine = $map['StorageEngine'];

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class extraInfo extends Model
 {
     /**
-     * @description Indicates whether the cluster backups are from the historical backup sets. If the value of this parameter is **1**, the cluster backups are migrated from the historical backup sets.
+     * @description Indicates whether the cluster backups are migrated from the historical backup sets. If the value of this parameter is **1**, the cluster backups are migrated from the historical backup sets.
      *
      * @example 1
      *

@@ -100,8 +100,9 @@ class DescribeAvailabilityZonesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~61933~~) operation to query the latest available regions.
+     * @description The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61933.html) operation to query the latest available regions.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -118,7 +119,7 @@ class DescribeAvailabilityZonesRequest extends Model
     public $replicationFactor;
 
     /**
-     * @description The ID of the resource group. For more information, see [View basic information of a resource group](~~151181~~).
+     * @description The ID of the resource group. For more information, see [View basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
      *
      * @example rg-acfmx2m4rqu7pry
      *
@@ -164,7 +165,7 @@ class DescribeAvailabilityZonesRequest extends Model
     public $storageType;
 
     /**
-     * @description The zone ID of the instance. You can call the [DescribeRegions](~~61933~~) operation to query available zones.
+     * @description The zone ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61933.html) operation to query available zones.
      *
      * @example cn-hangzhou-b
      *

@@ -18,8 +18,9 @@ class DescribeHistoryTasksStatRequest extends Model
     public $fromExecTime;
 
     /**
-     * @description The start time of the O\&M task to perform. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. You can query data within the last 30 days.
+     * @description The start time of the O\\&M task to perform. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. You can query data within the last 30 days.
      *
+     * This parameter is required.
      * @example 2023-04-16T02:46:21Z
      *
      * @var string
@@ -36,8 +37,9 @@ class DescribeHistoryTasksStatRequest extends Model
     public $instanceId;
 
     /**
-     * @description The region ID of the pending event. You can call the [DescribeRegions](~~61933~~) operation to query the most recent region list.
+     * @description The region ID of the pending event. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61933.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-beijing
      *
      * @var string
@@ -124,8 +126,9 @@ class DescribeHistoryTasksStatRequest extends Model
     public $toExecTime;
 
     /**
-     * @description The end time of the O\&M task to perform. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. You can query data within the last 30 days.
+     * @description The end time of the O\\&M task to perform. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. You can query data within the last 30 days.
      *
+     * This parameter is required.
      * @example 2023-05-16T02:15:52Z
      *
      * @var string

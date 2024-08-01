@@ -28,8 +28,9 @@ class DescribeGlobalSecurityIPGroupRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeDBInstanceAttribute](~~62010~~) operation to query the most recent region list.
+     * @description The region ID of the instance. You can call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/62010.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

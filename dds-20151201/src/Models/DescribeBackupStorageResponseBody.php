@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackupStorageResponseBody extends Model
 {
     /**
+     * @description The free quota for the storage capacity used for backup. Unit: bytes.
+     *
      * @example 42949672960
      *
      * @var int
@@ -16,6 +18,9 @@ class DescribeBackupStorageResponseBody extends Model
     public $freeSize;
 
     /**
+     * @description The storage capacity used for the full backup. Unit: bytes.
+     *
+     * >  Instances that use cloud disks support snapshot backup. The size of the storage used for the current full backup is the size of the snapshot chain.
      * @example 789221621
      *
      * @var int
@@ -23,6 +28,8 @@ class DescribeBackupStorageResponseBody extends Model
     public $fullStorageSize;
 
     /**
+     * @description The storage capacity used for the log backup. Unit: bytes.
+     *
      * @example 7892216
      *
      * @var int
@@ -30,6 +37,8 @@ class DescribeBackupStorageResponseBody extends Model
     public $logStorageSize;
 
     /**
+     * @description The request ID.
+     *
      * @example D648B367-15B6-1B42-BD4B-4XXXXXXXXX
      *
      * @var string

@@ -9,6 +9,14 @@ use AlibabaCloud\Tea\Model;
 class ReleaseNodePrivateNetworkAddressRequest extends Model
 {
     /**
+     * @description The public endpoint type. Valid values:
+     *
+     *   **SRV**
+     *   **Normal**
+     *
+     * >  This parameter is valid only when you want to release an SRV endpoint.
+     * @example SRV
+     *
      * @var string
      */
     public $connectionType;
@@ -16,6 +24,7 @@ class ReleaseNodePrivateNetworkAddressRequest extends Model
     /**
      * @description The ID of the sharded cluster instance.
      *
+     * This parameter is required.
      * @example dds-bp1a7009eb24****
      *
      * @var string
@@ -28,7 +37,7 @@ class ReleaseNodePrivateNetworkAddressRequest extends Model
      *   **VPC**: virtual private cloud (VPC).
      *   **Classic**: classic network.
      *
-     * >  You can call the [DescribeShardingNetworkAddress](~~62135~~) operation to query the network type of the internal endpoint.
+     * >  You can call the [DescribeShardingNetworkAddress](https://help.aliyun.com/document_detail/62135.html) operation to query the network type of the internal endpoint.
      * @example VPC
      *
      * @var string
@@ -38,7 +47,7 @@ class ReleaseNodePrivateNetworkAddressRequest extends Model
     /**
      * @description The ID of the shard or Configserver node.
      *
-     * >  You can call the [DescribeDBInstanceAttribute](~~62010~~) operation to query the ID of the shard or Configserver node.
+     * This parameter is required.
      * @example d-bp128a003436****
      *
      * @var string

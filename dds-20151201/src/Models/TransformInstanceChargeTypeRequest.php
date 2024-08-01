@@ -49,6 +49,7 @@ class TransformInstanceChargeTypeRequest extends Model
      *   **PrePaid**: subscription
      *   **PostPaid**: pay-as-you-go
      *
+     * This parameter is required.
      * @example PrePaid
      *
      * @var string
@@ -70,6 +71,7 @@ class TransformInstanceChargeTypeRequest extends Model
     /**
      * @description The ID of the instance
      *
+     * This parameter is required.
      * @example dds-2ze55b3ec56c****
      *
      * @var string

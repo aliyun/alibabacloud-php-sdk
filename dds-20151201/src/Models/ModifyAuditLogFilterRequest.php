@@ -11,6 +11,7 @@ class ModifyAuditLogFilterRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example dds-bp12c5b040dc****
      *
      * @var string
@@ -20,7 +21,7 @@ class ModifyAuditLogFilterRequest extends Model
     /**
      * @description The type of logs collected by the audit log feature of the instance. Separate multiple types with commas (,). Valid values:
      *
-     *   **admin**: O\&M and management operations
+     *   **admin**: O\\&M and management operations
      *   **slow**: slow query logs
      *   **query**: query operations
      *   **insert**: insert operations
@@ -28,6 +29,7 @@ class ModifyAuditLogFilterRequest extends Model
      *   **delete**: delete operations
      *   **command**: protocol commands such as the aggregate method
      *
+     * This parameter is required.
      * @example insert,query,update,delete
      *
      * @var string

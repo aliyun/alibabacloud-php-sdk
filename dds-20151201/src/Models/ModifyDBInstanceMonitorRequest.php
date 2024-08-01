@@ -11,6 +11,7 @@ class ModifyDBInstanceMonitorRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example dds-bpxxxxxxxx
      *
      * @var string
@@ -20,6 +21,7 @@ class ModifyDBInstanceMonitorRequest extends Model
     /**
      * @description The collection frequency of monitoring data. Valid values: **1** or **300**. Unit: seconds.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var string

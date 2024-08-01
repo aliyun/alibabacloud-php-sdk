@@ -25,6 +25,8 @@ class MigrateToOtherZoneRequest extends Model
      * @description The ID of the instance.
      *
      * >  If the network type of the instance is VPC, you must specify the **Vswitch** parameter .
+     *
+     * This parameter is required.
      * @example dds-bp2658****
      *
      * @var string
@@ -65,7 +67,9 @@ class MigrateToOtherZoneRequest extends Model
      * @description The ID of the destination zone to which you want to migrate the ApsaraDB for MongoDB instance.
      *
      * > * The destination and source zones must be in one region.
-     * > * You can call [DescribeRegions](~~61933~~) to query the zone IDs.
+     * > * You can call [DescribeRegions](https://help.aliyun.com/document_detail/61933.html) to query the zone IDs.
+     *
+     * This parameter is required.
      * @example cn-hangzhou-b
      *
      * @var string

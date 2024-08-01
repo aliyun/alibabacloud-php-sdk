@@ -50,6 +50,7 @@ class ModifyNodeSpecRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example dds-bp1c0b990184****
      *
      * @var string
@@ -81,7 +82,7 @@ class ModifyNodeSpecRequest extends Model
     public $fromApp;
 
     /**
-     * @description The specifications of the shard or mongos node. For more information, see [Instance types](~~57141~~).
+     * @description The specifications of the shard or mongos node. For more information, see [Instance types](https://help.aliyun.com/document_detail/57141.html).
      *
      * @example dds.mongos.standard
      *
@@ -90,9 +91,11 @@ class ModifyNodeSpecRequest extends Model
     public $nodeClass;
 
     /**
-     * @description The ID of the shard or mongos node in the sharded cluster instance. You can call the [DescribeDBInstanceAttribute](~~62010~~) operation to query the node ID.
+     * @description The ID of the shard or mongos node in the sharded cluster instance. You can call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/62010.html) operation to query the node ID.
      *
      * > If you set this parameter to the ID of the shard node, you must also specify the **NodeStorage** parameter.
+     *
+     * This parameter is required.
      * @example s-bp143e1b1637****
      *
      * @var string

@@ -11,7 +11,7 @@ class DescribeSlowLogRecordsRequest extends Model
     /**
      * @description The instance ID.
      *
-     * > If you set this parameter to the ID of a sharded cluster instance, you must also specify the `NodeId` parameter.
+     * This parameter is required.
      * @example dds-bp1fc7e65108****
      *
      * @var string
@@ -36,6 +36,7 @@ class DescribeSlowLogRecordsRequest extends Model
      *
      *   The end time must be within 24 hours from the start time. Otherwise, the query fails.
      *
+     * This parameter is required.
      * @example 2021-08-16T14:13Z
      *
      * @var string
@@ -135,6 +136,7 @@ class DescribeSlowLogRecordsRequest extends Model
     /**
      * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
      *
+     * This parameter is required.
      * @example 2021-08-15T14:13Z
      *
      * @var string

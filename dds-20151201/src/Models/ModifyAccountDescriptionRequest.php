@@ -12,8 +12,9 @@ class ModifyAccountDescriptionRequest extends Model
      * @description The description of the account.
      *
      *   The description must start with a letter and cannot start with http:// or https://.
-     *   The description must be 2 to 256 characters in length, and can contain letters, digits, underscores (\_), and hyphens (-).
+     *   The description must be 2 to 256 characters in length, and can contain letters, digits, underscores (_), and hyphens (-).
      *
+     * This parameter is required.
      * @example superadmin
      *
      * @var string
@@ -23,6 +24,7 @@ class ModifyAccountDescriptionRequest extends Model
     /**
      * @description The name of the account whose description is to be modified.
      *
+     * This parameter is required.
      * @example root
      *
      * @var string
@@ -32,6 +34,7 @@ class ModifyAccountDescriptionRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example dds-bp2356****
      *
      * @var string

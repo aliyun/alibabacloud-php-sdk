@@ -11,6 +11,7 @@ class ModifyDBInstanceMaintainTimeRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example dds-bpac2345****
      *
      * @var string
@@ -20,7 +21,7 @@ class ModifyDBInstanceMaintainTimeRequest extends Model
     /**
      * @description The end time of the maintenance window. Specify the time in the ISO 8601 standard in the *HH:mm*Z format. The time must be in UTC.
      *
-     * >  The end time must be later than the start time of the maintenance window.
+     * This parameter is required.
      * @example 02:00Z
      *
      * @var string
@@ -30,6 +31,7 @@ class ModifyDBInstanceMaintainTimeRequest extends Model
     /**
      * @description The start time of the maintenance window. Specify the time in the ISO 8601 standard in the *HH:mm*Z format. The time must be in UTC.
      *
+     * This parameter is required.
      * @example 01:00Z
      *
      * @var string

@@ -12,9 +12,22 @@ use AlibabaCloud\Tea\Model;
 class DBInstance extends Model
 {
     /**
-     * @description The read and write throughput consumed by the instance.
+     * @description The backup retention policy configured for the instance. Valid values:
      *
-     * >  This parameter is returned when the instance is a serverless instance.
+     *   **0**: All backup sets of the instance are immediately deleted when the instance is released.
+     *   **1**: A backup set of the instance is automatically backed up and retained for a long period of time when the instance is released.
+     *   **2**: All backup sets of the instance are automatically backed up and retained for a long period of time when the instance is released.
+     *
+     * @example 1
+     *
+     * @var int
+     */
+    public $backupRetentionPolicy;
+
+    /**
+     * @description The I/O throughput consumed by the instance.
+     *
+     * >  This parameter is required only when the instance is a serverless instance.
      * @example 100
      *
      * @var string
@@ -24,8 +37,8 @@ class DBInstance extends Model
     /**
      * @description The billing method of the instance. Valid values:
      *
-     *   **PrePaid**: subscription.
-     *   **PostPaid**: pay-as-you-go.
+     *   **PrePaid**: subscription
+     *   **PostPaid:** pay-as-you-go
      *
      * @example PrePaid
      *
@@ -61,7 +74,7 @@ class DBInstance extends Model
     public $DBInstanceDescription;
 
     /**
-     * @description The instance ID
+     * @description The instance ID.
      *
      * @example dds-bp18b0934e70****
      *
@@ -70,7 +83,7 @@ class DBInstance extends Model
     public $DBInstanceId;
 
     /**
-     * @description The status of the instance. For more information, see [Instance states](~~63870~~).
+     * @description The status of the instance. For more information, see [Instance states](https://help.aliyun.com/document_detail/63870.html).
      *
      * @example Running
      *
@@ -88,10 +101,10 @@ class DBInstance extends Model
     public $DBInstanceStorage;
 
     /**
-     * @description The architecture of the instance. Valid values:
+     * @description The architecture of the instance.
      *
-     *   **sharding**: sharded cluster instance.
-     *   **replicate**: replica set or standalone instance.
+     *   **sharding**: sharded cluster instance
+     *   **replicate**: replica set or standalone instance
      *
      * @example sharding
      *
@@ -100,10 +113,10 @@ class DBInstance extends Model
     public $DBInstanceType;
 
     /**
-     * @description The time when the instance data was destroyed. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The time when the instance data is destroyed. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
-     * > *   Subscription instances are released 15 days after expiration. After the instances are released, the data of the instances is deleted and cannot be restored.
-     * > *   Pay-as-you-go instances are locked after the payments have been overdue for longer than 24 hours. The instances are released after the payments have been overdue for longer than 15 days. The data of released instances is deleted and cannot be restored.
+     * > *   For a subscription instance, the computing resources of the instance are released on the 16th day after expiration, and the data of the instance is retained for seven days. The data is deleted on the 23th day after expiration and cannot be restored.
+     * > *   For a pay-as-you-go instance, the computing resources of the instance are released on the 16th day after the payment becomes overdue, and the data of the instance is retained for seven days. The data is deleted on the 23th day after the payment becomes overdue and cannot be restored.
      * @example 2021-12-10T16:00:00Z
      *
      * @var string
@@ -111,7 +124,7 @@ class DBInstance extends Model
     public $destroyTime;
 
     /**
-     * @description The database engine of the instance.
+     * @description The engine of the instance.
      *
      * @example MongoDB
      *
@@ -120,8 +133,10 @@ class DBInstance extends Model
     public $engine;
 
     /**
-     * @description The database engine version of the instance.
+     * @description The database engine version of the instance. Valid values:
      *
+     *   **7.0**
+     *   **6.0**
      *   **5.0**
      *   **4.4**
      *   **4.2**
@@ -144,28 +159,28 @@ class DBInstance extends Model
     public $expireTime;
 
     /**
-     * @description The ID of the secondary zone 2 of the instance. Valid values:
+     * @description The secondary zone 2 of the instance in the multi-zone deployment. Valid values:
      *
-     *   **cn-hangzhou-g**: Hangzhou Zone G.
-     *   **cn-hangzhou-h**: Hangzhou Zone H.
-     *   **cn-hangzhou-i**: Hangzhou Zone I.
-     *   **cn-hongkong-b**: Hong Kong Zone B.
-     *   **cn-hongkong-c**: Hong Kong Zone C.
-     *   **cn-hongkong-d**: Hong Kong Zone D.
-     *   **cn-wulanchabu-a**: Ulanqab Zone A.
-     *   **cn-wulanchabu-b**: Ulanqab Zone B.
-     *   **cn-wulanchabu-c**: Ulanqab Zone C.
-     *   **ap-southeast-1a**: Singapore Zone A.
-     *   **ap-southeast-1b**: Singapore Zone B.
-     *   **ap-southeast-1c**: Singapore Zone C.
-     *   **ap-southeast-5a**: Jakarta Zone A.
-     *   **ap-southeast-5b**: Jakarta Zone B.
-     *   **ap-southeast-5c**: Jakarta Zone C.
-     *   **eu-central-1a**: Frankfurt Zone A.
-     *   **eu-central-1b**: Frankfurt Zone B.
-     *   **eu-central-1c**: Frankfurt Zone C.
+     *   **cn-hangzhou-g**: Hangzhou Zone G
+     *   **cn-hangzhou-h**: Hangzhou Zone H
+     *   **cn-hangzhou-i**: Hangzhou Zone I
+     *   **cn-hongkong-b**: Hong Kong Zone B
+     *   **cn-hongkong-c**: Hong Kong Zone C
+     *   **cn-hongkong-d**: Hong Kong Zone D
+     *   **cn-wulanchabu-a**: Ulanqab Zone A
+     *   **cn-wulanchabu-b**: Ulanqab Zone B
+     *   **cn-wulanchabu-c**: Ulanqab Zone C
+     *   **ap-southeast-1a**: Singapore Zone A
+     *   **ap-southeast-1b**: Singapore Zone B
+     *   **ap-southeast-1c**: Singapore Zone C
+     *   **ap-southeast-5a**: Jakarta Zone A
+     *   **ap-southeast-5b**: Jakarta Zone B
+     *   **ap-southeast-5c**: Jakarta Zone C
+     *   **eu-central-1a**: Frankfurt Zone A
+     *   **eu-central-1b**: Frankfurt Zone B
+     *   **eu-central-1c**: Frankfurt Zone C
      *
-     * > *   This parameter is returned if the instance is a replica set or sharded cluster instance that runs MongoDB 4.4 or 5.0 and uses multi-zone deployment.
+     * > *   This parameter is returned only when the instance is a replica set or sharded cluster instance that runs MongoDB 4.4 or 5.0 and uses the multi-zone deployment.
      * > *   This parameter is returned only if you use the China site (aliyun.com).
      * @example cn-hangzhou-h
      *
@@ -176,10 +191,10 @@ class DBInstance extends Model
     /**
      * @description The kind code of the instance. Valid values:
      *
-     *   **0**: physical machine.
-     *   **1**: Elastic Compute Service (ECS) instance.
-     *   **2**: Docker cluster.
-     *   **18**: Kubernetes cluster.
+     *   **0**: physical machine
+     *   **1**: Elastic Compute Service (ECS) instance
+     *   **2**: Docker cluster
+     *   **18**: Kubernetes cluster
      *
      * @example 1
      *
@@ -199,10 +214,10 @@ class DBInstance extends Model
     /**
      * @description The lock status of the instance. Valid values:
      *
-     *   **Unlock**: The instance is not locked.
+     *   **Unlock**: The cluster is unlocked.
      *   **ManualLock**: The instance is manually locked.
      *   **LockByExpiration**: The instance is automatically locked due to instance expiration.
-     *   **LockByRestoration**: The instance is automatically locked before the instance is rolled back.
+     *   **LockByRestoration**: The instance is automatically locked before it is rolled back.
      *   **LockByDiskQuota**: The instance is automatically locked after the storage space is exhausted.
      *   **Released**: The instance is released. After an instance is released, the instance cannot be unlocked. You can only restore the backup data of the instance to a new instance. This process requires a long period of time.
      *
@@ -223,8 +238,8 @@ class DBInstance extends Model
     /**
      * @description The network type of the instance. Valid values:
      *
-     *   **Classic**: classic network.
-     *   **VPC**: VPC.
+     *   **Classic**: classic network
+     *   **VPC**: VPC
      *
      * @example Classic
      *
@@ -240,6 +255,15 @@ class DBInstance extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @description The time when the instance was released.
+     *
+     * @example 2024-06-17T07:01Z
+     *
+     * @var string
+     */
+    public $releaseTime;
 
     /**
      * @description The number of nodes in the instance.
@@ -261,28 +285,28 @@ class DBInstance extends Model
     public $resourceGroupId;
 
     /**
-     * @description The ID of the secondary zone 1 of the instance. Valid values:
+     * @description The secondary zone 1 of the instance in the multi-zone deployment. Valid values:
      *
-     *   **cn-hangzhou-g**: Hangzhou Zone G.
-     *   **cn-hangzhou-h**: Hangzhou Zone H.
-     *   **cn-hangzhou-i**: Hangzhou Zone I.
-     *   **cn-hongkong-b**: Hong Kong Zone B.
-     *   **cn-hongkong-c**: Hong Kong Zone C.
-     *   **cn-hongkong-d**: Hong Kong Zone D.
-     *   **cn-wulanchabu-a**: Ulanqab Zone A.
-     *   **cn-wulanchabu-b**: Ulanqab Zone B.
-     *   **cn-wulanchabu-c**: Ulanqab Zone C.
-     *   **ap-southeast-1a**: Singapore Zone A.
-     *   **ap-southeast-1b**: Singapore Zone B.
-     *   **ap-southeast-1c**: Singapore Zone C.
-     *   **ap-southeast-5a**: Jakarta Zone A.
-     *   **ap-southeast-5b**: Jakarta Zone B.
-     *   **ap-southeast-5c**: Jakarta Zone C.
-     *   **eu-central-1a**: Frankfurt Zone A.
-     *   **eu-central-1b**: Frankfurt Zone B.
-     *   **eu-central-1c**: Frankfurt Zone C.
+     *   **cn-hangzhou-g**: Hangzhou Zone G
+     *   **cn-hangzhou-h**: Hangzhou Zone H
+     *   **cn-hangzhou-i**: Hangzhou Zone I
+     *   **cn-hongkong-b**: Hong Kong Zone B
+     *   **cn-hongkong-c**: Hong Kong Zone C
+     *   **cn-hongkong-d**: Hong Kong Zone D
+     *   **cn-wulanchabu-a**: Ulanqab Zone A
+     *   **cn-wulanchabu-b**: Ulanqab Zone B
+     *   **cn-wulanchabu-c**: Ulanqab Zone C
+     *   **ap-southeast-1a**: Singapore Zone A
+     *   **ap-southeast-1b**: Singapore Zone B
+     *   **ap-southeast-1c**: Singapore Zone C
+     *   **ap-southeast-5a**: Jakarta Zone A
+     *   **ap-southeast-5b**: Jakarta Zone B
+     *   **ap-southeast-5c**: Jakarta Zone C
+     *   **eu-central-1a**: Frankfurt Zone A
+     *   **eu-central-1b**: Frankfurt Zone B
+     *   **eu-central-1c**: Frankfurt Zone C
      *
-     * > *   This parameter is returned if the instance is a replica set or sharded cluster instance that runs MongoDB 4.4 or 5.0 and uses multi-zone deployment.
+     * > *   This parameter is returned only when the instance is a replica set or sharded cluster instance that runs MongoDB 4.4 or 5.0 and uses the multi-zone deployment.
      * > *   This parameter is returned only if you use the China site (aliyun.com).
      * @example cn-hangzhou-i
      *
@@ -301,8 +325,8 @@ class DBInstance extends Model
     /**
      * @description The storage type of the instance. Valid values:
      *
-     *   **cloud_essd**: enhanced SSD (ESSD).
-     *   **local_ssd**: local SSD.
+     *   **cloud_essd**: Enterprise SSD (ESSD)
+     *   **local_ssd**: local SSD
      *
      * @example local_ssd
      *
@@ -311,17 +335,17 @@ class DBInstance extends Model
     public $storageType;
 
     /**
-     * @description The details of the resource tags.
+     * @description The details of the tag.
      *
      * @var tags
      */
     public $tags;
 
     /**
-     * @description Indicates whether password-free access within a virtual private cloud (VPC) is enabled. Valid values:
+     * @description Indicates whether password-free access over virtual private cloud (VPC) is enabled. Valid values:
      *
-     *   **Open**
-     *   **Close**
+     *   **Open**: Password-free access over VPC is enabled.
+     *   **Close**: Password-free access over VPC is disabled.
      *
      * @example Close
      *
@@ -330,7 +354,7 @@ class DBInstance extends Model
     public $vpcAuthMode;
 
     /**
-     * @description The ID of the zone in which the instance resides.
+     * @description The zone ID of the instance.
      *
      * @example cn-hangzhou-g
      *
@@ -338,6 +362,7 @@ class DBInstance extends Model
      */
     public $zoneId;
     protected $_name = [
+        'backupRetentionPolicy' => 'BackupRetentionPolicy',
         'capacityUnit'          => 'CapacityUnit',
         'chargeType'            => 'ChargeType',
         'creationTime'          => 'CreationTime',
@@ -358,6 +383,7 @@ class DBInstance extends Model
         'mongosList'            => 'MongosList',
         'networkType'           => 'NetworkType',
         'regionId'              => 'RegionId',
+        'releaseTime'           => 'ReleaseTime',
         'replicationFactor'     => 'ReplicationFactor',
         'resourceGroupId'       => 'ResourceGroupId',
         'secondaryZoneId'       => 'SecondaryZoneId',
@@ -375,6 +401,9 @@ class DBInstance extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->backupRetentionPolicy) {
+            $res['BackupRetentionPolicy'] = $this->backupRetentionPolicy;
+        }
         if (null !== $this->capacityUnit) {
             $res['CapacityUnit'] = $this->capacityUnit;
         }
@@ -435,6 +464,9 @@ class DBInstance extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+        if (null !== $this->releaseTime) {
+            $res['ReleaseTime'] = $this->releaseTime;
+        }
         if (null !== $this->replicationFactor) {
             $res['ReplicationFactor'] = $this->replicationFactor;
         }
@@ -471,6 +503,9 @@ class DBInstance extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BackupRetentionPolicy'])) {
+            $model->backupRetentionPolicy = $map['BackupRetentionPolicy'];
+        }
         if (isset($map['CapacityUnit'])) {
             $model->capacityUnit = $map['CapacityUnit'];
         }
@@ -530,6 +565,9 @@ class DBInstance extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ReleaseTime'])) {
+            $model->releaseTime = $map['ReleaseTime'];
         }
         if (isset($map['ReplicationFactor'])) {
             $model->replicationFactor = $map['ReplicationFactor'];

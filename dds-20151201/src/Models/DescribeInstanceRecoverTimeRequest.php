@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceRecoverTimeRequest extends Model
 {
     /**
+     * @description The instance ID.
+     *
+     * This parameter is required.
      * @example dds-bpxxxxxxxx
      *
      * @var string

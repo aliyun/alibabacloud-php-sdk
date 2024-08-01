@@ -20,11 +20,22 @@ class DescribeClusterBackupsRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example dds-bp16cb162771****
      *
      * @var string
      */
     public $DBInstanceId;
+
+    /**
+     * @description The region where cross-region backups reside.
+     *
+     * >  This parameter is required if you want to query cross-region backups.
+     * @example cn-shanghai
+     *
+     * @var string
+     */
+    public $destRegion;
 
     /**
      * @description The end of the time range to query. Specify the time in the yyyy-MM-ddTHH:mmZ format. The time must be in UTC. The end time must be later than the start time.
@@ -90,6 +101,21 @@ class DescribeClusterBackupsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The region ID of the instance.
+     *
+     * >
+     *
+     *   This parameter is required if you want to query the backup sets of a released instance.
+     *
+     *   This parameter is required if you want to query cross-region backups.
+     *
+     * @example cn-hangzhou
+     *
+     * @var string
+     */
+    public $srcRegion;
+
+    /**
      * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
      *
      * @example 2019-03-13T12:11:14Z
@@ -100,6 +126,7 @@ class DescribeClusterBackupsRequest extends Model
     protected $_name = [
         'backupId'               => 'BackupId',
         'DBInstanceId'           => 'DBInstanceId',
+        'destRegion'             => 'DestRegion',
         'endTime'                => 'EndTime',
         'isOnlyGetClusterBackUp' => 'IsOnlyGetClusterBackUp',
         'ownerAccount'           => 'OwnerAccount',
@@ -108,6 +135,7 @@ class DescribeClusterBackupsRequest extends Model
         'pageSize'               => 'PageSize',
         'resourceOwnerAccount'   => 'ResourceOwnerAccount',
         'resourceOwnerId'        => 'ResourceOwnerId',
+        'srcRegion'              => 'SrcRegion',
         'startTime'              => 'StartTime',
     ];
 
@@ -123,6 +151,9 @@ class DescribeClusterBackupsRequest extends Model
         }
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
+        }
+        if (null !== $this->destRegion) {
+            $res['DestRegion'] = $this->destRegion;
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
@@ -148,6 +179,9 @@ class DescribeClusterBackupsRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
+        if (null !== $this->srcRegion) {
+            $res['SrcRegion'] = $this->srcRegion;
+        }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
@@ -168,6 +202,9 @@ class DescribeClusterBackupsRequest extends Model
         }
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
+        }
+        if (isset($map['DestRegion'])) {
+            $model->destRegion = $map['DestRegion'];
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
@@ -192,6 +229,9 @@ class DescribeClusterBackupsRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['SrcRegion'])) {
+            $model->srcRegion = $map['SrcRegion'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];

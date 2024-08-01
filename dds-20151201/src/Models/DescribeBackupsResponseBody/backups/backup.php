@@ -18,16 +18,14 @@ class backup extends Model
     public $backupDBNames;
 
     /**
-     * @description The Internet download URL of the backup set. If the download URL is unavailable, this parameter is an empty string.
-     *
-     * @example http://rdsbak-hz-v3.oss-cn-hangzhou.aliyuncs.com/custins5559****\/hins1936****_data_2022052504****_qp.xb?Expires=165361****&OSSAccessKeyId=LTAI4G2wxd32KLGARf****&Signature=lkFPjOY%2F8adB18vnOCbtmT7****&Region=cn-hangzhou
+     * @description The URL that is used to download the backup set over the Internet. If the backup set cannot be downloaded, an empty string is returned.
      *
      * @var string
      */
     public $backupDownloadURL;
 
     /**
-     * @description The end of the backup time range. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The end time of the backup. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2022-01-14T03:57:34Z
      *
@@ -47,14 +45,16 @@ class backup extends Model
     /**
      * @description The internal download URL of the backup set.
      *
-     * > You can use this URL to download the backup set from on the Elastic Compute Service (ECS) instance which is on the same network as the ApsaraDB for MongoDB instance.
-     * @example http://rdsbak-hz-v3.oss-cn-hangzhou-internal.aliyuncs.com/custins5559*****\/hins1936****_data_2022052504****_qp.xb?Expires=165361****&OSSAccessKeyId=LTAI4G2wxd32KLGARfi****&Signature=lkFPjOY%2F8adB18vnOCbtmT7ii****&Region=cn-hangzhou
-     *
+     * >  You can use the URL to download the specified backup set on an Elastic Compute Service (ECS) instance that is in the same Virtual Private Cloud (VPC) as the ApsaraDB for MongoDB instance.
      * @var string
      */
     public $backupIntranetDownloadURL;
 
     /**
+     * @description The ID of the backup task.
+     *
+     * @example 1123xxxx
+     *
      * @var string
      */
     public $backupJobId;
@@ -85,6 +85,16 @@ class backup extends Model
     public $backupMode;
 
     /**
+     * @var string
+     */
+    public $backupName;
+
+    /**
+     * @var string
+     */
+    public $backupScale;
+
+    /**
      * @description The size of the backup set. Unit: bytes.
      *
      * @example 6168576
@@ -94,7 +104,7 @@ class backup extends Model
     public $backupSize;
 
     /**
-     * @description The beginning of the backup time range. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The start time of the backup. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2022-01-14T03:56:17Z
      *
@@ -105,8 +115,8 @@ class backup extends Model
     /**
      * @description The status of the backup task. Valid values:
      *
-     *   **Success**
-     *   **Failed**
+     *   **Success**: The backup task is successful.
+     *   **Failed**: The backup task failed.
      *
      * @example Success
      *
@@ -125,6 +135,11 @@ class backup extends Model
      * @var string
      */
     public $backupType;
+
+    /**
+     * @var bool
+     */
+    public $isAvail;
     protected $_name = [
         'backupDBNames'             => 'BackupDBNames',
         'backupDownloadURL'         => 'BackupDownloadURL',
@@ -134,10 +149,13 @@ class backup extends Model
         'backupJobId'               => 'BackupJobId',
         'backupMethod'              => 'BackupMethod',
         'backupMode'                => 'BackupMode',
+        'backupName'                => 'BackupName',
+        'backupScale'               => 'BackupScale',
         'backupSize'                => 'BackupSize',
         'backupStartTime'           => 'BackupStartTime',
         'backupStatus'              => 'BackupStatus',
         'backupType'                => 'BackupType',
+        'isAvail'                   => 'IsAvail',
     ];
 
     public function validate()
@@ -171,6 +189,12 @@ class backup extends Model
         if (null !== $this->backupMode) {
             $res['BackupMode'] = $this->backupMode;
         }
+        if (null !== $this->backupName) {
+            $res['BackupName'] = $this->backupName;
+        }
+        if (null !== $this->backupScale) {
+            $res['BackupScale'] = $this->backupScale;
+        }
         if (null !== $this->backupSize) {
             $res['BackupSize'] = $this->backupSize;
         }
@@ -182,6 +206,9 @@ class backup extends Model
         }
         if (null !== $this->backupType) {
             $res['BackupType'] = $this->backupType;
+        }
+        if (null !== $this->isAvail) {
+            $res['IsAvail'] = $this->isAvail;
         }
 
         return $res;
@@ -219,6 +246,12 @@ class backup extends Model
         if (isset($map['BackupMode'])) {
             $model->backupMode = $map['BackupMode'];
         }
+        if (isset($map['BackupName'])) {
+            $model->backupName = $map['BackupName'];
+        }
+        if (isset($map['BackupScale'])) {
+            $model->backupScale = $map['BackupScale'];
+        }
         if (isset($map['BackupSize'])) {
             $model->backupSize = $map['BackupSize'];
         }
@@ -230,6 +263,9 @@ class backup extends Model
         }
         if (isset($map['BackupType'])) {
             $model->backupType = $map['BackupType'];
+        }
+        if (isset($map['IsAvail'])) {
+            $model->isAvail = $map['IsAvail'];
         }
 
         return $model;

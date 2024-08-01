@@ -25,6 +25,8 @@ class DescribeParametersRequest extends Model
      * @description The instance ID.
      *
      * >  If you set this parameter to the ID of a sharded cluster instance, you must also specify the **NodeId** parameter.
+     *
+     * This parameter is required.
      * @example dds-bpxxxxxxxx
      *
      * @var string

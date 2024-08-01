@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateAccountRequest extends Model
 {
     /**
-     * @description The name of the database account. The name must be 4 to 16 characters in length. It can contain lowercase letters, digits, and underscores (\_). It must start with a lowercase letter. The account is granted read-only permissions.
+     * @description The name of the database account. The name must be 4 to 16 characters in length. It can contain lowercase letters, digits, and underscores (_). It must start with a lowercase letter. The account is granted read-only permissions.
      *
+     * This parameter is required.
      * @example admin1
      *
      * @var string
@@ -18,8 +19,9 @@ class CreateAccountRequest extends Model
     public $accountName;
 
     /**
-     * @description The password of the database account. The password must be 8 to 32 characters in length. It can contain at least three types of the following characters: uppercase letters, lowercase letters, digits, and special characters. Special characters include ! # $ % ^ & \* ( ) \_ + - =
+     * @description The password of the database account. The password must be 8 to 32 characters in length. It can contain at least three types of the following characters: uppercase letters, lowercase letters, digits, and special characters. Special characters include ! # $ % ^ & \\* ( ) _ + - =
      *
+     * This parameter is required.
      * @example Test123456!
      *
      * @var string
@@ -29,6 +31,7 @@ class CreateAccountRequest extends Model
     /**
      * @description The cluster ID.
      *
+     * This parameter is required.
      * @example dds-uf6e9433e955xxxx
      *
      * @var string

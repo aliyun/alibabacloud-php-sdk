@@ -11,6 +11,7 @@ class ModifyDBInstanceTDERequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example dds-bpxxxxxxxx
      *
      * @var string
@@ -71,7 +72,7 @@ class ModifyDBInstanceTDERequest extends Model
     /**
      * @description The TDE status. When the value of this parameter is set to **Enabled**, TDE is enabled.
      *
-     * > You cannot disable TDE after it is enabled. Proceed with caution.
+     * This parameter is required.
      * @example enabled
      *
      * @var string

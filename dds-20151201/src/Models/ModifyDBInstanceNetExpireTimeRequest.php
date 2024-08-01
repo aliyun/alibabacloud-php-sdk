@@ -11,6 +11,7 @@ class ModifyDBInstanceNetExpireTimeRequest extends Model
     /**
      * @description The retention period of the classic network endpoint of the instance. Valid values: **14**, **30**, **60**, and **120**. Unit: day.
      *
+     * This parameter is required.
      * @example 30
      *
      * @var int
@@ -29,6 +30,7 @@ class ModifyDBInstanceNetExpireTimeRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example dds-bpxxxxxxxx
      *
      * @var string

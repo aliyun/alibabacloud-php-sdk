@@ -6,26 +6,23 @@ namespace AlibabaCloud\SDK\Dds\V20151201\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class RestoreDBInstanceRequest extends Model
+class RestartNodeRequest extends Model
 {
     /**
-     * @description The ID of the backup set.
+     * @description This parameter is required.
      *
-     * > You can call the [DescribeBackups](~~62172~~) operation to query the backup set ID.
-     * @example 22536****
-     *
-     * @var int
-     */
-    public $backupId;
-
-    /**
-     * @description The instance ID.
-     *
-     * @example dds-bp2356****
+     * @example dds-bpxxxxxxxx
      *
      * @var string
      */
     public $DBInstanceId;
+
+    /**
+     * @example d-bp128a003436****
+     *
+     * @var string
+     */
+    public $nodeId;
 
     /**
      * @var string
@@ -46,13 +43,23 @@ class RestoreDBInstanceRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
+
+    /**
+     * @description This parameter is required.
+     *
+     * @example 6025****
+     *
+     * @var string
+     */
+    public $roleId;
     protected $_name = [
-        'backupId'             => 'BackupId',
         'DBInstanceId'         => 'DBInstanceId',
+        'nodeId'               => 'NodeId',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
+        'roleId'               => 'RoleId',
     ];
 
     public function validate()
@@ -62,11 +69,11 @@ class RestoreDBInstanceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->backupId) {
-            $res['BackupId'] = $this->backupId;
-        }
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
+        }
+        if (null !== $this->nodeId) {
+            $res['NodeId'] = $this->nodeId;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
@@ -80,6 +87,9 @@ class RestoreDBInstanceRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
+        if (null !== $this->roleId) {
+            $res['RoleId'] = $this->roleId;
+        }
 
         return $res;
     }
@@ -87,16 +97,16 @@ class RestoreDBInstanceRequest extends Model
     /**
      * @param array $map
      *
-     * @return RestoreDBInstanceRequest
+     * @return RestartNodeRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['BackupId'])) {
-            $model->backupId = $map['BackupId'];
-        }
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
+        }
+        if (isset($map['NodeId'])) {
+            $model->nodeId = $map['NodeId'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
@@ -109,6 +119,9 @@ class RestoreDBInstanceRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['RoleId'])) {
+            $model->roleId = $map['RoleId'];
         }
 
         return $model;

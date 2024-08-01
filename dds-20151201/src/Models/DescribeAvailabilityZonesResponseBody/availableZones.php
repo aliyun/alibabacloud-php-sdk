@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class availableZones extends Model
 {
     /**
-     * @description The ID of the region. You can call the [DescribeRegions](~~61933~~) operation to query the latest available regions.
+     * @description The ID of the region. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61933.html) operation to query the latest available regions.
      *
      * @example cn-beijing
      *

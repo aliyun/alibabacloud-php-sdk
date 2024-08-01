@@ -11,6 +11,7 @@ class DescribeClusterRecoverTimeRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example dds-bp18f7d6b6a7****
      *
      * @var string

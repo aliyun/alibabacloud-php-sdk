@@ -12,6 +12,8 @@ class DescribeErrorLogRecordsRequest extends Model
      * @description The ID of the instance.
      *
      * >  If you set this parameter to the ID of a sharded cluster instance, you must also specify the **NodeId** parameter.
+     *
+     * This parameter is required.
      * @example dds-bp12c5b040dc****
      *
      * @var string
@@ -30,6 +32,7 @@ class DescribeErrorLogRecordsRequest extends Model
     /**
      * @description The end of the time range to query. The end time must be later than the start time and within 24 hours from the start time. Specify the time in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
      *
+     * This parameter is required.
      * @example 2019-01-02T12:10Z
      *
      * @var string
@@ -96,7 +99,7 @@ class DescribeErrorLogRecordsRequest extends Model
     public $queryKeywords;
 
     /**
-     * @description The ID of the resource group. For more information, see [View basic information of a resource group](~~151181~~).
+     * @description The ID of the resource group. For more information, see [View basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
      *
      * @example rg-acfmyiu4ekp****
      *
@@ -130,6 +133,7 @@ class DescribeErrorLogRecordsRequest extends Model
     /**
      * @description The beginning of the time range to query. Specify the time in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
      *
+     * This parameter is required.
      * @example 2019-01-01T12:10Z
      *
      * @var string

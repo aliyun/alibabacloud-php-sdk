@@ -56,7 +56,7 @@ class SQLRecord extends Model
     /**
      * @description The statement that was executed.
      *
-     * @example { \"atype\" : \"createCollection\", \"param\" : { \"ns\" : \"123.test1\" }, \"result\": \"OK\" }
+     * @example { \\"atype\\" : \\"createCollection\\", \\"param\\" : { \\"ns\\" : \\"123.test1\\" }, \\"result\\": \\"OK\\" }
      *
      * @var string
      */

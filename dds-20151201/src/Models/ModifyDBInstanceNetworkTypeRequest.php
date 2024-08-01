@@ -21,6 +21,7 @@ class ModifyDBInstanceNetworkTypeRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example dds-bp11483712c1****
      *
      * @var string
@@ -32,6 +33,7 @@ class ModifyDBInstanceNetworkTypeRequest extends Model
      *
      *   **VPC**
      *
+     * This parameter is required.
      * @example VPC
      *
      * @var string
@@ -97,8 +99,9 @@ class ModifyDBInstanceNetworkTypeRequest extends Model
     public $vpcId;
 
     /**
-     * @description 可用区ID，您可以通过调用[DescribeRegions](~~61933~~)接口查询可用区ID。
+     * @description 可用区ID，您可以通过调用[DescribeRegions](https://help.aliyun.com/document_detail/61933.html)接口查询可用区ID。
      *
+     * This parameter is required.
      * @example cn-hangzhou-b
      *
      * @var string

@@ -12,11 +12,19 @@ use AlibabaCloud\Tea\Model;
 class order extends Model
 {
     /**
+     * @description The order code.
+     *
+     * @example ""
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description Indicates whether the contract promotion is hit.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $contractActivity;
@@ -38,6 +46,8 @@ class order extends Model
     public $currency;
 
     /**
+     * @description The price reduction information.
+     *
      * @var depreciateInfo
      */
     public $depreciateInfo;
@@ -52,16 +62,28 @@ class order extends Model
     public $discountAmount;
 
     /**
+     * @description Indicates whether the contract promotion is hit.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $isContractActivity;
 
     /**
+     * @description The order information.
+     *
+     * @example ""
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The promotional activity information.
+     *
+     * @example [{\\”activityCategory\\”:\\”discount\\”,\\”activityExtInfo\\”:{\\”noUseYouhuiquan\\”:\\”true\\”,\\”activityId\\”:\\”191156098xxxx\\”,\\”activityExtraAttr\\”:\\”{\\\\\\\\”forbiddenCpsProfit\\\\\\\\”:\\\\\\\\”true\\\\\\\\”,\\\\\\\\”forbiddenCouponsRestricted\\\\\\\\”:\\\\\\\\”true\\\\\\\\”,\\\\\\\\”forbiddenAmbassadorProfit\\\\\\\\”:\\\\\\\\”true\\\\\\\\”}\\”,\\”isActivityIdFromWanHuaTong\\”:\\”true\\”,\\”isContractActivity\\”:\\”false\\”},\\”canPromFee\\”:906130,\\”optionCode\\”:\\”wanhua_activity\\”,\\”promotionName\\”:\\”FY24--MongoDB replica set - first-time purchase - \\* discount for a one-year period - first-time purchase benefits\\”,\\”promotionOptionNo\\”:\\”19115609882xxxx\\”,\\”promotionRuleIdList\\”:[2091xxxx],\\”selected\\”:true,\\”targetArticleItemCodes\\”:[]},{\\”activityCategory\\”:\\”discount\\”,\\”activityExtInfo\\”:{\\”activityId\\”:\\”1018040010xxxxx\\”,\\”wanHuaOrderExpireSec\\”:\\”604800\\”,\\”isActivityIdFromWanHuaTong\\”:\\”true\\”,\\”isContractActivity\\”:\\”false\\”},\\”canPromFee\\”:339799,\\”optionCode\\”:\\”wanhua_activity\\”,\\”promotionName\\”:\\”FY24--MongoDB discount for a one-year period \\”,\\”promotionOptionNo\\”:\\”10180400107xxxxx\\”,\\”promotionRuleIdList\\”:[xxxxx],\\”selected\\”:false,\\”targetArticleItemCodes\\”:[]}]”
+     *
      * @var string
      */
     public $optionalPromotions;
@@ -76,6 +98,10 @@ class order extends Model
     public $originalAmount;
 
     /**
+     * @description The promotional activity that is hit.
+     *
+     * @example [{\\”finalPromFee\\”:90xxx,\\”optionCode\\”:\\”wanhua_activity\\”,\\”promType\\”:\\”discount\\”,\\”promotionId\\”:2091xxxx,\\”promotionName\\”:\\”\\* discount is provided for new users who purchase ApsaraDB for MongoDB replica set instances for one year. A new user can purchase an ApsaraDB for MongoDB replica set instance only by using the discount.\\”}]”
+     *
      * @var string
      */
     public $promDetailList;
@@ -88,7 +114,7 @@ class order extends Model
     public $ruleIds;
 
     /**
-     * @description Indicates whether the information of the discount is displayed.
+     * @description Indicates whether the discount information is displayed.
      *
      * @example true
      *
@@ -97,11 +123,19 @@ class order extends Model
     public $showDiscountInfo;
 
     /**
+     * @description The discount.
+     *
+     * @example 0
+     *
      * @var float
      */
     public $standDiscountPrice;
 
     /**
+     * @description The discount.
+     *
+     * @example 0
+     *
      * @var float
      */
     public $standPrice;

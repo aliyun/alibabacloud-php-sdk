@@ -9,46 +9,82 @@ use AlibabaCloud\Tea\Model;
 class depreciateInfo extends Model
 {
     /**
+     * @description The price reduction rate.
+     *
+     * @example 30%
+     *
      * @var float
      */
     public $cheapRate;
 
     /**
+     * @description The new total price displayed on the official website.
+     *
+     * @example 9*
+     *
      * @var float
      */
     public $cheapStandAmount;
 
     /**
+     * @description The price difference displayed in the total order amount.
+     *
+     * @example **
+     *
      * @var float
      */
     public $differential;
 
     /**
+     * @description The name of the price difference.
+     *
+     * @example XXXXX
+     *
      * @var string
      */
     public $differentialName;
 
     /**
+     * @description Indicates whether the contract promotion is hit.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $isContractActivity;
 
     /**
+     * @description Indicates whether the price reduction rate is displayed.
+     *
+     * @example true
+     *
      * @var string
      */
     public $isShow;
 
     /**
+     * @description The list price.
+     *
+     * @example 1*
+     *
      * @var float
      */
     public $listPrice;
 
     /**
+     * @description The monthly price.
+     *
+     * @example **
+     *
      * @var float
      */
     public $monthPrice;
 
     /**
+     * @description The original total price displayed on the official website.
+     *
+     * @example 12*
+     *
      * @var float
      */
     public $originalStandAmount;

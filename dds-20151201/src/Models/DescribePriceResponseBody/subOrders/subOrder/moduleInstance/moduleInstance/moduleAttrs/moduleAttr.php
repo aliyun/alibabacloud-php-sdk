@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class moduleAttr extends Model
 {
     /**
+     * @description The attribute code.
+     *
+     * @example dds_dbtype
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The attribute name.
+     *
+     * @example MongoDB
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The attribute type.
+     *
+     * @example 3
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The attribute value.
+     *
+     * @example MongoDB
+     *
      * @var string
      */
     public $value;

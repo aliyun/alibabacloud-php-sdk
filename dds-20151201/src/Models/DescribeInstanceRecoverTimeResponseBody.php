@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceRecoverTimeResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example F8CA8312-530A-413A-9129-F2BB32A8D404
      *
      * @var string
@@ -17,6 +19,8 @@ class DescribeInstanceRecoverTimeResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The time ranges to which data can be restored. The time ranges include those used for point-in-time data restoration.
+     *
      * @var restoreRanges[]
      */
     public $restoreRanges;

@@ -79,7 +79,7 @@ class coupon extends Model
     public $promotionOptionCode;
 
     /**
-     * @description Details about the rules that match the coupon.
+     * @description The IDs of the rules that correspond to the coupon.
      *
      * @var promotionRuleIdList
      */

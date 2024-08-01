@@ -11,6 +11,7 @@ class DescribeReplicaSetRoleRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example dds-bpxxxxxxxx
      *
      * @var string

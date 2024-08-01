@@ -11,6 +11,7 @@ class DescribeDBInstanceAttributeRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example dds-bp11483712c1****
      *
      * @var string
@@ -27,6 +28,10 @@ class DescribeDBInstanceAttributeRequest extends Model
     public $engine;
 
     /**
+     * @description Specifies whether to delete the instance. Valid values:
+     *
+     * - **false**: queries the details of running instances.
+     * - **true**: queries the details of deleted instances.
      * @example false
      *
      * @var bool
@@ -44,7 +49,7 @@ class DescribeDBInstanceAttributeRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the resource group. For more information, see [View the basic information of a resource group](~~151181~~).
+     * @description The ID of the resource group. For more information, see [View the basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
      *
      * > This parameter is available only if you use the China site (aliyun.com).
      * @example rg-acfmyiu4ekp****

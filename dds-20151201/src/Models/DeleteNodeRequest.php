@@ -20,6 +20,7 @@ class DeleteNodeRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example dds-bpxxxxxxxx
      *
      * @var string
@@ -27,8 +28,9 @@ class DeleteNodeRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description The ID of the shard or mongos node that you want to delete. You can call the [DescribeDBInstanceAttribute](~~61923~~) operation to query node IDs.
+     * @description The ID of the shard or mongos node that you want to delete. You can call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/61923.html) operation to query node IDs.
      *
+     * This parameter is required.
      * @example s-bpxxxxxxxx
      *
      * @var string

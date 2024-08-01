@@ -11,6 +11,7 @@ class DescribeParameterTemplatesRequest extends Model
     /**
      * @description The database engine of the instance. Set the value to **MongoDB**.
      *
+     * This parameter is required.
      * @example mongodb
      *
      * @var string
@@ -26,6 +27,7 @@ class DescribeParameterTemplatesRequest extends Model
      *   **4.0**
      *   **3.4**
      *
+     * This parameter is required.
      * @example 5.0
      *
      * @var string
@@ -43,7 +45,7 @@ class DescribeParameterTemplatesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~61933~~) operation to query the most recent region list.
+     * @description The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61933.html) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *

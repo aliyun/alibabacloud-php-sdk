@@ -12,89 +12,149 @@ use AlibabaCloud\Tea\Model;
 class moduleInstance extends Model
 {
     /**
+     * @description Indicates whether the contract promotion is hit.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $contractActivity;
 
     /**
+     * @description The cycle fee of the module.
+     *
+     * @example 0.0
+     *
      * @var string
      */
     public $cycleFee;
 
     /**
+     * @description The activity information.
+     *
      * @var depreciateInfo
      */
     public $depreciateInfo;
 
     /**
+     * @description The discount.
+     *
+     * @example 0.0
+     *
      * @var string
      */
     public $discountFee;
 
     /**
+     * @description The module attributes.
+     *
      * @var moduleAttrs
      */
     public $moduleAttrs;
 
     /**
+     * @description The module code.
+     *
+     * @example dds_dbtype
+     *
      * @var string
      */
     public $moduleCode;
 
     /**
+     * @description The module ID
+     *
+     * @example 1017110000415xxx
+     *
      * @var int
      */
     public $moduleId;
 
     /**
+     * @description The module name.
+     *
+     * @example database type
+     *
      * @var string
      */
     public $moduleName;
 
     /**
+     * @description Indicates whether the order is paid.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $needOrderPay;
 
     /**
+     * @description The actual amount paid.
+     *
+     * @example 0.0
+     *
      * @var float
      */
     public $payFee;
 
     /**
+     * @description Indicates whether the item is billed.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $pricingModule;
 
     /**
+     * @description The promotion details.
+     *
      * @var promDetailList
      */
     public $promDetailList;
 
     /**
+     * @description The discount.
+     *
+     * @example 451.00
+     *
+     * @var float
+     */
+    public $standDiscountPrice;
+
+    /**
+     * @description The discount.
+     *
+     * @example 0
+     *
      * @var float
      */
     public $standPrice;
 
     /**
+     * @description The original price of the product.
+     *
+     * @example 0.0
+     *
      * @var float
      */
     public $totalProductFee;
     protected $_name = [
-        'contractActivity' => 'ContractActivity',
-        'cycleFee'         => 'CycleFee',
-        'depreciateInfo'   => 'DepreciateInfo',
-        'discountFee'      => 'DiscountFee',
-        'moduleAttrs'      => 'ModuleAttrs',
-        'moduleCode'       => 'ModuleCode',
-        'moduleId'         => 'ModuleId',
-        'moduleName'       => 'ModuleName',
-        'needOrderPay'     => 'NeedOrderPay',
-        'payFee'           => 'PayFee',
-        'pricingModule'    => 'PricingModule',
-        'promDetailList'   => 'PromDetailList',
-        'standPrice'       => 'StandPrice',
-        'totalProductFee'  => 'TotalProductFee',
+        'contractActivity'   => 'ContractActivity',
+        'cycleFee'           => 'CycleFee',
+        'depreciateInfo'     => 'DepreciateInfo',
+        'discountFee'        => 'DiscountFee',
+        'moduleAttrs'        => 'ModuleAttrs',
+        'moduleCode'         => 'ModuleCode',
+        'moduleId'           => 'ModuleId',
+        'moduleName'         => 'ModuleName',
+        'needOrderPay'       => 'NeedOrderPay',
+        'payFee'             => 'PayFee',
+        'pricingModule'      => 'PricingModule',
+        'promDetailList'     => 'PromDetailList',
+        'standDiscountPrice' => 'StandDiscountPrice',
+        'standPrice'         => 'StandPrice',
+        'totalProductFee'    => 'TotalProductFee',
     ];
 
     public function validate()
@@ -139,6 +199,9 @@ class moduleInstance extends Model
         }
         if (null !== $this->promDetailList) {
             $res['PromDetailList'] = null !== $this->promDetailList ? $this->promDetailList->toMap() : null;
+        }
+        if (null !== $this->standDiscountPrice) {
+            $res['StandDiscountPrice'] = $this->standDiscountPrice;
         }
         if (null !== $this->standPrice) {
             $res['StandPrice'] = $this->standPrice;
@@ -193,6 +256,9 @@ class moduleInstance extends Model
         }
         if (isset($map['PromDetailList'])) {
             $model->promDetailList = promDetailList::fromMap($map['PromDetailList']);
+        }
+        if (isset($map['StandDiscountPrice'])) {
+            $model->standDiscountPrice = $map['StandDiscountPrice'];
         }
         if (isset($map['StandPrice'])) {
             $model->standPrice = $map['StandPrice'];

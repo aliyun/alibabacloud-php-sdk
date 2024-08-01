@@ -11,6 +11,7 @@ class DescribeUserEncryptionKeyListRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example dds-bpxxxxxxxx
      *
      * @var string
@@ -38,7 +39,7 @@ class DescribeUserEncryptionKeyListRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The zone ID of the instance. You can call the [DescribeRegions](~~61933~~) operation to query the most recent zone list.
+     * @description The zone ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61933.html) operation to query the most recent zone list.
      *
      * @example cn-shanghai
      *

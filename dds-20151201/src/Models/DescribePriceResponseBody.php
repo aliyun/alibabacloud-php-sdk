@@ -12,7 +12,7 @@ use AlibabaCloud\Tea\Model;
 class DescribePriceResponseBody extends Model
 {
     /**
-     * @description The order.
+     * @description The order information.
      *
      * @var order
      */
@@ -22,7 +22,7 @@ class DescribePriceResponseBody extends Model
      * @description The order parameters.
      *
      * > This parameter is returned only when the **OrderParamOut** parameter is set to **true**.
-     * @example {\"autoPay\":false}"
+     * @example {\\"autoPay\\":false}"
      *
      * @var string
      */

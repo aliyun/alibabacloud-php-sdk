@@ -12,7 +12,7 @@ class TransformToPrePaidRequest extends Model
      * @description Specifies whether to enable automatic payment. Valid values:
      *
      *   **true**: enables automatic payment.
-     *   **false**: disables automatic payment. For more information, see [Renew an ApsaraDB for MongoDB subscription instance](~~85052~~).
+     *   **false**: disables automatic payment. For more information, see [Renew an ApsaraDB for MongoDB subscription instance](https://help.aliyun.com/document_detail/85052.html).
      *
      * >  Default value: **true**.
      * @example true
@@ -55,6 +55,7 @@ class TransformToPrePaidRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example dds-bp1366caac83****
      *
      * @var string
@@ -74,6 +75,7 @@ class TransformToPrePaidRequest extends Model
     /**
      * @description The subscription duration of the instance. Unit: months. Valid values: **1**, **2**, **3**, **4**, **5**, **6**, **7**, **8**, **9**, **12**, **24**, and **36**.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int

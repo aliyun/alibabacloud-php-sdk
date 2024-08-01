@@ -24,7 +24,7 @@ class ModifyParametersRequest extends Model
     /**
      * @description The instance ID.
      *
-     * >  If you set this parameter to the ID of a sharded cluster instance, you must also specify the NodeId parameter.
+     * This parameter is required.
      * @example dds-bp19f409d75****
      *
      * @var string
@@ -54,7 +54,7 @@ class ModifyParametersRequest extends Model
     /**
      * @description The instance parameters that you want to modify and their values. Specify this parameter in a JSON string. Sample format: {"ParameterName1":"ParameterValue1","ParameterName2":"ParameterValue2"}.
      *
-     * >  You can call the [DescribeParameterTemplates](~~67618~~) operation to query a list of default parameter templates.
+     * This parameter is required.
      * @example {"operationProfiling.mode":"all","operationProfiling.slowOpThresholdMs":"200"}
      *
      * @var string
@@ -62,7 +62,7 @@ class ModifyParametersRequest extends Model
     public $parameters;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~61933~~) operation to query the most recent region list.
+     * @description The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61933.html) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *

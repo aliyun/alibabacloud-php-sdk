@@ -72,7 +72,7 @@ class mongosAttribute extends Model
     public $port;
 
     /**
-     * @description The status of the mongos node. For more information, see [Instance states](~~63870~~).
+     * @description The status of the mongos node. For more information, see [Instance states](https://help.aliyun.com/document_detail/63870.html).
      *
      * @example Running
      *
@@ -83,7 +83,7 @@ class mongosAttribute extends Model
     /**
      * @description The VPC ID of the instance.
      *
-     * > This parameter is returned if the network type of the instance is VPC.
+     * >  This parameter is returned if the network type of the instance is VPC.
      * @example vpc-bp1n3i15v90el48nx****
      *
      * @var string
@@ -93,7 +93,7 @@ class mongosAttribute extends Model
     /**
      * @description The vSwitch ID of the instance.
      *
-     * > This parameter is returned if the network type of the instance is VPC.
+     * >  This parameter is returned if the network type of the instance is VPC.
      * @example vsw-bp1vj604nj5a9zz74****
      *
      * @var string

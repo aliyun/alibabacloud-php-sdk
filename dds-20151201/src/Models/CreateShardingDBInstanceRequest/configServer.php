@@ -14,6 +14,7 @@ class configServer extends Model
      *   **mdb.shard.2x.xlarge.d**: 4 cores, 8 GB (dedicated). Only instances that run MongoDB 4.4 and later support this instance type.
      *   **dds.cs.mid** :1 core, 2 GB (general-purpose). Only instances that run MongoDB 4.2 and earlier support this instance type.
      *
+     * This parameter is required.
      * @example mdb.shard.2x.xlarge.d
      *
      * @var string
@@ -23,7 +24,7 @@ class configServer extends Model
     /**
      * @description The storage space of the ConfigServer node. Unit: GB.
      *
-     * > The values that can be specified for this parameter vary based on the instance types. For more information, see [Sharded cluster instance types](~~311414~~).
+     * This parameter is required.
      * @example 20
      *
      * @var int

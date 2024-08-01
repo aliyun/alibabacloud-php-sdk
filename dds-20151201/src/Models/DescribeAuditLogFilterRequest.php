@@ -11,6 +11,7 @@ class DescribeAuditLogFilterRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example dds-bp12c5b040dc****
      *
      * @var string

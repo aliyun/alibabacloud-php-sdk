@@ -60,8 +60,9 @@ class DescribeInstanceAutoRenewalAttributeRequest extends Model
     public $pageSize;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeDBInstanceAttribute](~~62010~~) operation to query the region ID of the instance.
+     * @description The region ID of the instance. You can call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/62010.html) operation to query the region ID of the instance.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

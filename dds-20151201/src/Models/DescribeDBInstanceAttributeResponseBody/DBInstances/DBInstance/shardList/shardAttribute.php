@@ -72,7 +72,7 @@ class shardAttribute extends Model
     public $nodeId;
 
     /**
-     * @description The storage capacity of the shard node.
+     * @description The storage capacity of the shard node. Unit: GB.
      *
      * @example 10
      *
@@ -99,7 +99,7 @@ class shardAttribute extends Model
     public $readonlyReplicas;
 
     /**
-     * @description The status of the shard node. For more information, see [Instance states](~~63870~~).
+     * @description The status of the shard node. For more information, see [Instance states](https://help.aliyun.com/document_detail/63870.html).
      *
      * @example Running
      *

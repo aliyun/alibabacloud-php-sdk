@@ -13,7 +13,7 @@ class logRecords extends Model
      *
      *   NETWORK: network connection log
      *   ACCESS: access control log
-     *   \-: general log
+     *   \\-: general log
      *   COMMAND: slow query log
      *   SHARDING: sharded cluster log
      *   STORAGE: storage engine log

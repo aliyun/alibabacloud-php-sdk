@@ -6,44 +6,76 @@ namespace AlibabaCloud\SDK\Dds\V20151201\Models\DescribePriceResponseBody\subOrd
 
 use AlibabaCloud\Tea\Model;
 
-class promDetal extends Model
+class promDetail extends Model
 {
     /**
+     * @description The additional activity information.
+     *
+     * @example {
+     * }
      * @var mixed[]
      */
     public $activityExtInfo;
 
     /**
+     * @description The sub-type of the promotion.
+     *
+     * @example subPrice
+     *
      * @var string
      */
     public $derivedPromType;
 
     /**
+     * @description The discount amount.
+     *
+     * @example 0.0
+     *
      * @var float
      */
     public $finalPromFee;
 
     /**
+     * @description The code of the coupon.
+     *
+     * @example youhui_quan
+     *
      * @var string
      */
     public $optionCode;
 
     /**
+     * @description The sub-type of the promotion.
+     *
+     * @example discount
+     *
      * @var string
      */
     public $promType;
 
     /**
+     * @description The coupon code.
+     *
+     * @example ali-wood
+     *
      * @var string
      */
     public $promotionCode;
 
     /**
+     * @description The promotion ID.
+     *
+     * @example 233xxxxx
+     *
      * @var int
      */
     public $promotionId;
 
     /**
+     * @description The name of the promotional activity.
+     *
+     * @example [Item with price reduction in x xxxx] ApsaraDB for MongoDB instances of a full range of specifications - xxxxx
+     *
      * @var string
      */
     public $promotionName;
@@ -96,7 +128,7 @@ class promDetal extends Model
     /**
      * @param array $map
      *
-     * @return promDetal
+     * @return promDetail
      */
     public static function fromMap($map = [])
     {

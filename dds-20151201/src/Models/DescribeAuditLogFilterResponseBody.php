@@ -11,7 +11,7 @@ class DescribeAuditLogFilterResponseBody extends Model
     /**
      * @description The type of the audit log entries. Valid values:
      *
-     *   **admin**: O\&M and management operations
+     *   **admin**: O\\&M and management operations
      *   **slow**: slow query logs
      *   **query**: query operations
      *   **insert**: insert operations

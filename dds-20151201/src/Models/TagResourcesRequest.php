@@ -20,8 +20,9 @@ class TagResourcesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeDBInstanceAttribute](~~62010~~) operation to query the region ID of the instance.
+     * @description The region ID of the instance. You can call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/62010.html) operation to query the region ID of the instance.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -40,6 +41,7 @@ class TagResourcesRequest extends Model
     /**
      * @description The details of the tags bound to the instance.
      *
+     * This parameter is required.
      * @example dds-bpxxxxxxxx
      *
      * @var string[]
@@ -59,6 +61,7 @@ class TagResourcesRequest extends Model
     /**
      * @description The resource type. Set the value to **INSTANCE**.
      *
+     * This parameter is required.
      * @example INSTANCE
      *
      * @var string
@@ -68,6 +71,7 @@ class TagResourcesRequest extends Model
     /**
      * @description The tags that are attached to the resources.
      *
+     * This parameter is required.
      * @var tag[]
      */
     public $tag;

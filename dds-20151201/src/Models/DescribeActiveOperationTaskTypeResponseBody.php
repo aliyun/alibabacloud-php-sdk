@@ -19,7 +19,7 @@ class DescribeActiveOperationTaskTypeResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The O\&M tasks.
+     * @description The O\\&M tasks.
      *
      * @var typeList[]
      */

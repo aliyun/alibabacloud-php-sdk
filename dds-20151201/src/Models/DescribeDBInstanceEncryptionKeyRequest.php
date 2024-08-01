@@ -11,6 +11,7 @@ class DescribeDBInstanceEncryptionKeyRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example dds-bp2235****
      *
      * @var string
@@ -18,7 +19,7 @@ class DescribeDBInstanceEncryptionKeyRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description The custom key for the instance. You can call the [DescribeUserEncryptionKeyList](~~151729~~) operation to query the list of custom keys for an ApsaraDB for MongoDB instance.
+     * @description The custom key for the instance. You can call the [DescribeUserEncryptionKeyList](https://help.aliyun.com/document_detail/151729.html) operation to query the list of custom keys for an ApsaraDB for MongoDB instance.
      *
      * @example 2axxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
      *

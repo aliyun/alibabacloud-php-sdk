@@ -210,8 +210,8 @@ use AlibabaCloud\SDK\Dds\V20151201\Models\ResetAccountPasswordRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\ResetAccountPasswordResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\RestartDBInstanceRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\RestartDBInstanceResponse;
-use AlibabaCloud\SDK\Dds\V20151201\Models\RestoreDBInstanceRequest;
-use AlibabaCloud\SDK\Dds\V20151201\Models\RestoreDBInstanceResponse;
+use AlibabaCloud\SDK\Dds\V20151201\Models\RestartNodeRequest;
+use AlibabaCloud\SDK\Dds\V20151201\Models\RestartNodeResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\SwitchDBInstanceHARequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\SwitchDBInstanceHAResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\TagResourcesRequest;
@@ -254,7 +254,7 @@ class Dds extends OpenApiClient
             'cn-chengdu'                  => 'mongodb.cn-chengdu.aliyuncs.com',
             'cn-hongkong'                 => 'mongodb.aliyuncs.com',
             'ap-northeast-1'              => 'mongodb.ap-northeast-1.aliyuncs.com',
-            'ap-southeast-1'              => 'mongodb.aliyuncs.com',
+            'ap-southeast-1'              => 'mongodb.ap-southeast-1.aliyuncs.com',
             'ap-southeast-2'              => 'mongodb.ap-southeast-2.aliyuncs.com',
             'ap-southeast-3'              => 'mongodb.ap-southeast-3.aliyuncs.com',
             'ap-southeast-5'              => 'mongodb.ap-southeast-5.aliyuncs.com',
@@ -329,9 +329,11 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * This operation is applicable only to sharded cluster instances. For more information, see [Apply for an endpoint for a shard or Configserver node](~~134037~~).
-     *   * >  The allocated endpoints can be used only for internal access. To gain Internet access, you must call the [AllocatePublicNetworkAddress](~~67602~~) operation to apply for public endpoints.
-     *   *
+     * @summary Applies for an internal endpoint for a shard or Configserver node in an ApsaraDB for MongoDB sharded cluster instance.
+     *  *
+     * @description This operation is applicable only to sharded cluster instances. For more information, see [Apply for an endpoint for a shard or Configserver node](https://help.aliyun.com/document_detail/134037.html).
+     * >  The allocated endpoints can be used only for internal access. To gain Internet access, you must call the [AllocatePublicNetworkAddress](https://help.aliyun.com/document_detail/67602.html) operation to apply for public endpoints.
+     *  *
      * @param AllocateNodePrivateNetworkAddressRequest $request AllocateNodePrivateNetworkAddressRequest
      * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
@@ -387,9 +389,11 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * This operation is applicable only to sharded cluster instances. For more information, see [Apply for an endpoint for a shard or Configserver node](~~134037~~).
-     *   * >  The allocated endpoints can be used only for internal access. To gain Internet access, you must call the [AllocatePublicNetworkAddress](~~67602~~) operation to apply for public endpoints.
-     *   *
+     * @summary Applies for an internal endpoint for a shard or Configserver node in an ApsaraDB for MongoDB sharded cluster instance.
+     *  *
+     * @description This operation is applicable only to sharded cluster instances. For more information, see [Apply for an endpoint for a shard or Configserver node](https://help.aliyun.com/document_detail/134037.html).
+     * >  The allocated endpoints can be used only for internal access. To gain Internet access, you must call the [AllocatePublicNetworkAddress](https://help.aliyun.com/document_detail/67602.html) operation to apply for public endpoints.
+     *  *
      * @param AllocateNodePrivateNetworkAddressRequest $request AllocateNodePrivateNetworkAddressRequest
      *
      * @return AllocateNodePrivateNetworkAddressResponse AllocateNodePrivateNetworkAddressResponse
@@ -402,10 +406,12 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param AllocatePublicNetworkAddressRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Allocates a public endpoint to an instance.
+     *  *
+     * @param AllocatePublicNetworkAddressRequest $request AllocatePublicNetworkAddressRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return AllocatePublicNetworkAddressResponse
+     * @return AllocatePublicNetworkAddressResponse AllocatePublicNetworkAddressResponse
      */
     public function allocatePublicNetworkAddressWithOptions($request, $runtime)
     {
@@ -448,9 +454,11 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param AllocatePublicNetworkAddressRequest $request
+     * @summary Allocates a public endpoint to an instance.
+     *  *
+     * @param AllocatePublicNetworkAddressRequest $request AllocatePublicNetworkAddressRequest
      *
-     * @return AllocatePublicNetworkAddressResponse
+     * @return AllocatePublicNetworkAddressResponse AllocatePublicNetworkAddressResponse
      */
     public function allocatePublicNetworkAddress($request)
     {
@@ -460,8 +468,10 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Before you enable Transparent Data Encryption (TDE) by calling the [ModifyDBInstanceTDE](~~131267~~) operation, you can call this operation to check whether KMS keys are authorized to ApsaraDB for MongoDB instances.
-     *   *
+     * @summary You can call this operation to check whether KMS keys are authorized to ApsaraDB for MongoDB instances.
+     *  *
+     * @description Before you enable Transparent Data Encryption (TDE) by calling the [ModifyDBInstanceTDE](https://help.aliyun.com/document_detail/131267.html) operation, you can call this operation to check whether KMS keys are authorized to ApsaraDB for MongoDB instances.
+     *  *
      * @param CheckCloudResourceAuthorizedRequest $request CheckCloudResourceAuthorizedRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
@@ -508,8 +518,10 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Before you enable Transparent Data Encryption (TDE) by calling the [ModifyDBInstanceTDE](~~131267~~) operation, you can call this operation to check whether KMS keys are authorized to ApsaraDB for MongoDB instances.
-     *   *
+     * @summary You can call this operation to check whether KMS keys are authorized to ApsaraDB for MongoDB instances.
+     *  *
+     * @description Before you enable Transparent Data Encryption (TDE) by calling the [ModifyDBInstanceTDE](https://help.aliyun.com/document_detail/131267.html) operation, you can call this operation to check whether KMS keys are authorized to ApsaraDB for MongoDB instances.
+     *  *
      * @param CheckCloudResourceAuthorizedRequest $request CheckCloudResourceAuthorizedRequest
      *
      * @return CheckCloudResourceAuthorizedResponse CheckCloudResourceAuthorizedResponse
@@ -522,9 +534,11 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * This operation is applicable to replica set instances and sharded cluster instances.
-     *   * >  After you call this operation to confirm that the data of the instance can be restored, you can call the [CreateDBInstance](~~61763~~) operation to restore data to a new instance.
-     *   *
+     * @summary Queries whether the data of an ApsaraDB for MongoDB instance can be restored.
+     *  *
+     * @description This operation is applicable to replica set instances and sharded cluster instances.
+     * >  After you call this operation to confirm that the data of the instance can be restored, you can call the [CreateDBInstance](https://help.aliyun.com/document_detail/61763.html) operation to restore data to a new instance.
+     *  *
      * @param CheckRecoveryConditionRequest $request CheckRecoveryConditionRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -539,6 +553,12 @@ class Dds extends OpenApiClient
         }
         if (!Utils::isUnset($request->databaseNames)) {
             $query['DatabaseNames'] = $request->databaseNames;
+        }
+        if (!Utils::isUnset($request->destRegion)) {
+            $query['DestRegion'] = $request->destRegion;
+        }
+        if (!Utils::isUnset($request->instanceType)) {
+            $query['InstanceType'] = $request->instanceType;
         }
         if (!Utils::isUnset($request->ownerAccount)) {
             $query['OwnerAccount'] = $request->ownerAccount;
@@ -558,11 +578,17 @@ class Dds extends OpenApiClient
         if (!Utils::isUnset($request->restoreTime)) {
             $query['RestoreTime'] = $request->restoreTime;
         }
+        if (!Utils::isUnset($request->restoreType)) {
+            $query['RestoreType'] = $request->restoreType;
+        }
         if (!Utils::isUnset($request->sourceDBInstance)) {
             $query['SourceDBInstance'] = $request->sourceDBInstance;
         }
         if (!Utils::isUnset($request->sourceDBInstance)) {
             $query['SourceDBInstance'] = $request->sourceDBInstance;
+        }
+        if (!Utils::isUnset($request->srcRegion)) {
+            $query['SrcRegion'] = $request->srcRegion;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -583,9 +609,11 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * This operation is applicable to replica set instances and sharded cluster instances.
-     *   * >  After you call this operation to confirm that the data of the instance can be restored, you can call the [CreateDBInstance](~~61763~~) operation to restore data to a new instance.
-     *   *
+     * @summary Queries whether the data of an ApsaraDB for MongoDB instance can be restored.
+     *  *
+     * @description This operation is applicable to replica set instances and sharded cluster instances.
+     * >  After you call this operation to confirm that the data of the instance can be restored, you can call the [CreateDBInstance](https://help.aliyun.com/document_detail/61763.html) operation to restore data to a new instance.
+     *  *
      * @param CheckRecoveryConditionRequest $request CheckRecoveryConditionRequest
      *
      * @return CheckRecoveryConditionResponse CheckRecoveryConditionResponse
@@ -598,8 +626,11 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Database accounts can be created only for shards in sharded cluster instances that use cloud disks.
-     *   *
+     * @summary Creates an account that is granted read-only permissions for shard nodes in an ApsaraDB for MongoDB sharded cluster instance that uses cloud disks.
+     *  *
+     * @description *   You can create an account for shard nodes only in an ApsaraDB for MongoDB sharded cluster instance that uses cloud disks.
+     * *   The account is granted read-only permissions.
+     *  *
      * @param CreateAccountRequest $request CreateAccountRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -649,8 +680,11 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Database accounts can be created only for shards in sharded cluster instances that use cloud disks.
-     *   *
+     * @summary Creates an account that is granted read-only permissions for shard nodes in an ApsaraDB for MongoDB sharded cluster instance that uses cloud disks.
+     *  *
+     * @description *   You can create an account for shard nodes only in an ApsaraDB for MongoDB sharded cluster instance that uses cloud disks.
+     * *   The account is granted read-only permissions.
+     *  *
      * @param CreateAccountRequest $request CreateAccountRequest
      *
      * @return CreateAccountResponse CreateAccountResponse
@@ -663,8 +697,10 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * When you call this operation, the instance must be in the Running state.
-     *   *
+     * @summary Creates a backup set for an ApsaraDB for MongoDB instance.
+     *  *
+     * @description When you call this operation, the instance must be in the Running state.
+     *  *
      * @param CreateBackupRequest $request CreateBackupRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
@@ -711,8 +747,10 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * When you call this operation, the instance must be in the Running state.
-     *   *
+     * @summary Creates a backup set for an ApsaraDB for MongoDB instance.
+     *  *
+     * @description When you call this operation, the instance must be in the Running state.
+     *  *
      * @param CreateBackupRequest $request CreateBackupRequest
      *
      * @return CreateBackupResponse CreateBackupResponse
@@ -725,10 +763,12 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/mongodb/detail/mongodb_computeudr_dp_cn) of ApsaraDB for MongoDB before you call this operation.
-     *   * For more information about the instance types of ApsaraDB for MongoDB instances, see [Instance types](https://www.alibabacloud.com/help/en/mongodb/product-overview/instance-types-1).
-     *   * To create sharded cluster instances, you can call the [CreateShardingDBInstance](~~CreateShardingDBInstance~~) operation.
-     *   *
+     * @summary Creates or clones an ApsaraDB for MongoDB replica set instance.
+     *  *
+     * @description Make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/mongodb/detail/mongodb_computeudr_dp_cn) of ApsaraDB for MongoDB before you call this operation.
+     * For more information about the instance types of ApsaraDB for MongoDB instances, see [Instance types](https://www.alibabacloud.com/help/en/mongodb/product-overview/instance-types-1).
+     * To create sharded cluster instances, you can call the [CreateShardingDBInstance](~~CreateShardingDBInstance~~) operation.
+     *  *
      * @param CreateDBInstanceRequest $request CreateDBInstanceRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -828,6 +868,9 @@ class Dds extends OpenApiClient
         if (!Utils::isUnset($request->restoreTime)) {
             $query['RestoreTime'] = $request->restoreTime;
         }
+        if (!Utils::isUnset($request->restoreType)) {
+            $query['RestoreType'] = $request->restoreType;
+        }
         if (!Utils::isUnset($request->secondaryZoneId)) {
             $query['SecondaryZoneId'] = $request->secondaryZoneId;
         }
@@ -836,6 +879,9 @@ class Dds extends OpenApiClient
         }
         if (!Utils::isUnset($request->srcDBInstanceId)) {
             $query['SrcDBInstanceId'] = $request->srcDBInstanceId;
+        }
+        if (!Utils::isUnset($request->srcRegion)) {
+            $query['SrcRegion'] = $request->srcRegion;
         }
         if (!Utils::isUnset($request->storageEngine)) {
             $query['StorageEngine'] = $request->storageEngine;
@@ -874,10 +920,12 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/mongodb/detail/mongodb_computeudr_dp_cn) of ApsaraDB for MongoDB before you call this operation.
-     *   * For more information about the instance types of ApsaraDB for MongoDB instances, see [Instance types](https://www.alibabacloud.com/help/en/mongodb/product-overview/instance-types-1).
-     *   * To create sharded cluster instances, you can call the [CreateShardingDBInstance](~~CreateShardingDBInstance~~) operation.
-     *   *
+     * @summary Creates or clones an ApsaraDB for MongoDB replica set instance.
+     *  *
+     * @description Make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/mongodb/detail/mongodb_computeudr_dp_cn) of ApsaraDB for MongoDB before you call this operation.
+     * For more information about the instance types of ApsaraDB for MongoDB instances, see [Instance types](https://www.alibabacloud.com/help/en/mongodb/product-overview/instance-types-1).
+     * To create sharded cluster instances, you can call the [CreateShardingDBInstance](~~CreateShardingDBInstance~~) operation.
+     *  *
      * @param CreateDBInstanceRequest $request CreateDBInstanceRequest
      *
      * @return CreateDBInstanceResponse CreateDBInstanceResponse
@@ -890,10 +938,12 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param CreateGlobalSecurityIPGroupRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Creates a global IP whitelist template.
+     *  *
+     * @param CreateGlobalSecurityIPGroupRequest $request CreateGlobalSecurityIPGroupRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateGlobalSecurityIPGroupResponse
+     * @return CreateGlobalSecurityIPGroupResponse CreateGlobalSecurityIPGroupResponse
      */
     public function createGlobalSecurityIPGroupWithOptions($request, $runtime)
     {
@@ -942,9 +992,11 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param CreateGlobalSecurityIPGroupRequest $request
+     * @summary Creates a global IP whitelist template.
+     *  *
+     * @param CreateGlobalSecurityIPGroupRequest $request CreateGlobalSecurityIPGroupRequest
      *
-     * @return CreateGlobalSecurityIPGroupResponse
+     * @return CreateGlobalSecurityIPGroupResponse CreateGlobalSecurityIPGroupResponse
      */
     public function createGlobalSecurityIPGroup($request)
     {
@@ -954,9 +1006,11 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB.
-     *   * This operation applies only to sharded cluster instances.
-     *   *
+     * @summary Adds a shard or mongos node to an ApsaraDB for MongoDB instance.
+     *  *
+     * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB.
+     * This operation applies only to sharded cluster instances.
+     *  *
      * @param CreateNodeRequest $request CreateNodeRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
@@ -1033,9 +1087,11 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB.
-     *   * This operation applies only to sharded cluster instances.
-     *   *
+     * @summary Adds a shard or mongos node to an ApsaraDB for MongoDB instance.
+     *  *
+     * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB.
+     * This operation applies only to sharded cluster instances.
+     *  *
      * @param CreateNodeRequest $request CreateNodeRequest
      *
      * @return CreateNodeResponse CreateNodeResponse
@@ -1048,9 +1104,11 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB.
-     *   * This operation is applicable only to sharded cluster instances.
-     *   *
+     * @summary Batch adds mongos or shard nodes for a sharded cluster instance.
+     *  *
+     * @description Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB.
+     * This operation is applicable only to sharded cluster instances.
+     *  *
      * @param CreateNodeBatchRequest $request CreateNodeBatchRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -1121,9 +1179,11 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB.
-     *   * This operation is applicable only to sharded cluster instances.
-     *   *
+     * @summary Batch adds mongos or shard nodes for a sharded cluster instance.
+     *  *
+     * @description Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB.
+     * This operation is applicable only to sharded cluster instances.
+     *  *
      * @param CreateNodeBatchRequest $request CreateNodeBatchRequest
      *
      * @return CreateNodeBatchResponse CreateNodeBatchResponse
@@ -1136,10 +1196,12 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * *   Make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/mongodb/detail) of ApsaraDB for MongoDB before you call this operation.
-     *   * *   For more information about the instance types of ApsaraDB for MongoDB, see [Instance types](~~57141~~).
-     *   * *   To create standalone instances and replica set instances, you can call the [CreateDBInstance](~~61763~~) operation.
-     *   *
+     * @summary Creates or clones an ApsaraDB for MongoDB sharded cluster instance.
+     *  *
+     * @description *   Make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/mongodb/detail) of ApsaraDB for MongoDB before you call this operation.
+     * *   For more information about the instance types of ApsaraDB for MongoDB, see [Instance types](https://help.aliyun.com/document_detail/57141.html).
+     * *   To create standalone instances and replica set instances, you can call the [CreateDBInstance](https://help.aliyun.com/document_detail/61763.html) operation.
+     *  *
      * @param CreateShardingDBInstanceRequest $request CreateShardingDBInstanceRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -1155,6 +1217,9 @@ class Dds extends OpenApiClient
         if (!Utils::isUnset($request->autoRenew)) {
             $query['AutoRenew'] = $request->autoRenew;
         }
+        if (!Utils::isUnset($request->backupId)) {
+            $query['BackupId'] = $request->backupId;
+        }
         if (!Utils::isUnset($request->chargeType)) {
             $query['ChargeType'] = $request->chargeType;
         }
@@ -1166,6 +1231,9 @@ class Dds extends OpenApiClient
         }
         if (!Utils::isUnset($request->DBInstanceDescription)) {
             $query['DBInstanceDescription'] = $request->DBInstanceDescription;
+        }
+        if (!Utils::isUnset($request->destRegion)) {
+            $query['DestRegion'] = $request->destRegion;
         }
         if (!Utils::isUnset($request->encrypted)) {
             $query['Encrypted'] = $request->encrypted;
@@ -1224,6 +1292,9 @@ class Dds extends OpenApiClient
         if (!Utils::isUnset($request->restoreTime)) {
             $query['RestoreTime'] = $request->restoreTime;
         }
+        if (!Utils::isUnset($request->restoreType)) {
+            $query['RestoreType'] = $request->restoreType;
+        }
         if (!Utils::isUnset($request->secondaryZoneId)) {
             $query['SecondaryZoneId'] = $request->secondaryZoneId;
         }
@@ -1232,6 +1303,9 @@ class Dds extends OpenApiClient
         }
         if (!Utils::isUnset($request->srcDBInstanceId)) {
             $query['SrcDBInstanceId'] = $request->srcDBInstanceId;
+        }
+        if (!Utils::isUnset($request->srcRegion)) {
+            $query['SrcRegion'] = $request->srcRegion;
         }
         if (!Utils::isUnset($request->storageEngine)) {
             $query['StorageEngine'] = $request->storageEngine;
@@ -1270,10 +1344,12 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * *   Make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/mongodb/detail) of ApsaraDB for MongoDB before you call this operation.
-     *   * *   For more information about the instance types of ApsaraDB for MongoDB, see [Instance types](~~57141~~).
-     *   * *   To create standalone instances and replica set instances, you can call the [CreateDBInstance](~~61763~~) operation.
-     *   *
+     * @summary Creates or clones an ApsaraDB for MongoDB sharded cluster instance.
+     *  *
+     * @description *   Make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/mongodb/detail) of ApsaraDB for MongoDB before you call this operation.
+     * *   For more information about the instance types of ApsaraDB for MongoDB, see [Instance types](https://help.aliyun.com/document_detail/57141.html).
+     * *   To create standalone instances and replica set instances, you can call the [CreateDBInstance](https://help.aliyun.com/document_detail/61763.html) operation.
+     *  *
      * @param CreateShardingDBInstanceRequest $request CreateShardingDBInstanceRequest
      *
      * @return CreateShardingDBInstanceResponse CreateShardingDBInstanceResponse
@@ -1286,11 +1362,13 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that the instance meets the following requirements
-     *   * *   The instance is in the Running state.
-     *   * *   The billing method of the instance is pay-as-you-go.
-     *   * > After an instance is released, all data in the instance is cleared and cannot be recovered. Proceed with caution.
-     *   *
+     * @summary Releases an ApsaraDB for MongoDB instance.
+     *  *
+     * @description Before you call this operation, make sure that the instance meets the following requirements
+     * *   The instance is in the Running state.
+     * *   The billing method of the instance is pay-as-you-go.
+     * > After an instance is released, all data in the instance is cleared and cannot be recovered. Proceed with caution.
+     *  *
      * @param DeleteDBInstanceRequest $request DeleteDBInstanceRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -1337,11 +1415,13 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that the instance meets the following requirements
-     *   * *   The instance is in the Running state.
-     *   * *   The billing method of the instance is pay-as-you-go.
-     *   * > After an instance is released, all data in the instance is cleared and cannot be recovered. Proceed with caution.
-     *   *
+     * @summary Releases an ApsaraDB for MongoDB instance.
+     *  *
+     * @description Before you call this operation, make sure that the instance meets the following requirements
+     * *   The instance is in the Running state.
+     * *   The billing method of the instance is pay-as-you-go.
+     * > After an instance is released, all data in the instance is cleared and cannot be recovered. Proceed with caution.
+     *  *
      * @param DeleteDBInstanceRequest $request DeleteDBInstanceRequest
      *
      * @return DeleteDBInstanceResponse DeleteDBInstanceResponse
@@ -1354,10 +1434,12 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param DeleteGlobalSecurityIPGroupRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Deletes a global IP whitelist template.
+     *  *
+     * @param DeleteGlobalSecurityIPGroupRequest $request DeleteGlobalSecurityIPGroupRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteGlobalSecurityIPGroupResponse
+     * @return DeleteGlobalSecurityIPGroupResponse DeleteGlobalSecurityIPGroupResponse
      */
     public function deleteGlobalSecurityIPGroupWithOptions($request, $runtime)
     {
@@ -1406,9 +1488,11 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param DeleteGlobalSecurityIPGroupRequest $request
+     * @summary Deletes a global IP whitelist template.
+     *  *
+     * @param DeleteGlobalSecurityIPGroupRequest $request DeleteGlobalSecurityIPGroupRequest
      *
-     * @return DeleteGlobalSecurityIPGroupResponse
+     * @return DeleteGlobalSecurityIPGroupResponse DeleteGlobalSecurityIPGroupResponse
      */
     public function deleteGlobalSecurityIPGroup($request)
     {
@@ -1418,12 +1502,14 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that the instance meets the following requirements:
-     *   * *   The instance is in the Running state.
-     *   * *   The instance is a sharded cluster instance.
-     *   * *   The billing method of the instance is pay-as-you-go.
-     *   * *   The number of the shard or mongos nodes in the instance is greater than two.
-     *   *
+     * @summary Deletes a shard or mongos node from an ApsaraDB for MongoDB sharded cluster instance.
+     *  *
+     * @description Before you call this operation, make sure that the instance meets the following requirements:
+     * *   The instance is in the Running state.
+     * *   The instance is a sharded cluster instance.
+     * *   The billing method of the instance is pay-as-you-go.
+     * *   The number of the shard or mongos nodes in the instance is greater than two.
+     *  *
      * @param DeleteNodeRequest $request DeleteNodeRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
@@ -1473,12 +1559,14 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that the instance meets the following requirements:
-     *   * *   The instance is in the Running state.
-     *   * *   The instance is a sharded cluster instance.
-     *   * *   The billing method of the instance is pay-as-you-go.
-     *   * *   The number of the shard or mongos nodes in the instance is greater than two.
-     *   *
+     * @summary Deletes a shard or mongos node from an ApsaraDB for MongoDB sharded cluster instance.
+     *  *
+     * @description Before you call this operation, make sure that the instance meets the following requirements:
+     * *   The instance is in the Running state.
+     * *   The instance is a sharded cluster instance.
+     * *   The billing method of the instance is pay-as-you-go.
+     * *   The number of the shard or mongos nodes in the instance is greater than two.
+     *  *
      * @param DeleteNodeRequest $request DeleteNodeRequest
      *
      * @return DeleteNodeResponse DeleteNodeResponse
@@ -1491,8 +1579,10 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * >  This operation can be used to query only the information of the root account.
-     *   *
+     * @summary Queries the database accounts of an ApsaraDB for MongoDB instance.
+     *  *
+     * @description >  This operation can be used to query only the information of the root account.
+     *  *
      * @param DescribeAccountsRequest $request DescribeAccountsRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -1539,8 +1629,10 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * >  This operation can be used to query only the information of the root account.
-     *   *
+     * @summary Queries the database accounts of an ApsaraDB for MongoDB instance.
+     *  *
+     * @description >  This operation can be used to query only the information of the root account.
+     *  *
      * @param DescribeAccountsRequest $request DescribeAccountsRequest
      *
      * @return DescribeAccountsResponse DescribeAccountsResponse
@@ -1553,10 +1645,12 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param DescribeActiveOperationTaskCountRequest $request
-     * @param RuntimeOptions                          $runtime
+     * @summary Queries the number of operation and maintenance tasks on an ApsaraDB for MongoDB instance.
+     *  *
+     * @param DescribeActiveOperationTaskCountRequest $request DescribeActiveOperationTaskCountRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeActiveOperationTaskCountResponse
+     * @return DescribeActiveOperationTaskCountResponse DescribeActiveOperationTaskCountResponse
      */
     public function describeActiveOperationTaskCountWithOptions($request, $runtime)
     {
@@ -1596,9 +1690,11 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param DescribeActiveOperationTaskCountRequest $request
+     * @summary Queries the number of operation and maintenance tasks on an ApsaraDB for MongoDB instance.
+     *  *
+     * @param DescribeActiveOperationTaskCountRequest $request DescribeActiveOperationTaskCountRequest
      *
-     * @return DescribeActiveOperationTaskCountResponse
+     * @return DescribeActiveOperationTaskCountResponse DescribeActiveOperationTaskCountResponse
      */
     public function describeActiveOperationTaskCount($request)
     {
@@ -1608,8 +1704,10 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * This operation is no longer updated and will be unavailable.
-     *   *
+     * @summary Queries the types of Operation and Maintenance tasks and the number of tasks of each type for an ApsaraDB for MongoDB instance.
+     *  *
+     * @description This operation is no longer updated and will be unavailable.
+     *  *
      * @param DescribeActiveOperationTaskTypeRequest $request DescribeActiveOperationTaskTypeRequest
      * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
@@ -1656,8 +1754,10 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * This operation is no longer updated and will be unavailable.
-     *   *
+     * @summary Queries the types of Operation and Maintenance tasks and the number of tasks of each type for an ApsaraDB for MongoDB instance.
+     *  *
+     * @description This operation is no longer updated and will be unavailable.
+     *  *
      * @param DescribeActiveOperationTaskTypeRequest $request DescribeActiveOperationTaskTypeRequest
      *
      * @return DescribeActiveOperationTaskTypeResponse DescribeActiveOperationTaskTypeResponse
@@ -1670,10 +1770,12 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param DescribeActiveOperationTasksRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Queries a list of operation and maintenance tasks initiated for an ApsaraDB for MongoDB instance.
+     *  *
+     * @param DescribeActiveOperationTasksRequest $request DescribeActiveOperationTasksRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeActiveOperationTasksResponse
+     * @return DescribeActiveOperationTasksResponse DescribeActiveOperationTasksResponse
      */
     public function describeActiveOperationTasksWithOptions($request, $runtime)
     {
@@ -1743,9 +1845,11 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param DescribeActiveOperationTasksRequest $request
+     * @summary Queries a list of operation and maintenance tasks initiated for an ApsaraDB for MongoDB instance.
+     *  *
+     * @param DescribeActiveOperationTasksRequest $request DescribeActiveOperationTasksRequest
      *
-     * @return DescribeActiveOperationTasksResponse
+     * @return DescribeActiveOperationTasksResponse DescribeActiveOperationTasksResponse
      */
     public function describeActiveOperationTasks($request)
     {
@@ -1755,10 +1859,12 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * *   The instance must be in the running state when you call this operation.
-     *   * *   This operation is applicable only to **general-purpose local-disk** and **dedicated local-disk** instances.
-     *   * *   You can call this operation up to 30 times per minute. To call this operation at a higher frequency, use a Logstore. For more information, see [Manage a Logstore](~~48990~~).
-     *   *
+     * @summary Queries the types of entries in the audit log collected for an ApsaraDB for MongoDB instance.
+     *  *
+     * @description *   The instance must be in the running state when you call this operation.
+     * *   This operation is applicable only to **general-purpose local-disk** and **dedicated local-disk** instances.
+     * *   You can call this operation up to 30 times per minute. To call this operation at a higher frequency, use a Logstore. For more information, see [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
+     *  *
      * @param DescribeAuditLogFilterRequest $request DescribeAuditLogFilterRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -1805,10 +1911,12 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * *   The instance must be in the running state when you call this operation.
-     *   * *   This operation is applicable only to **general-purpose local-disk** and **dedicated local-disk** instances.
-     *   * *   You can call this operation up to 30 times per minute. To call this operation at a higher frequency, use a Logstore. For more information, see [Manage a Logstore](~~48990~~).
-     *   *
+     * @summary Queries the types of entries in the audit log collected for an ApsaraDB for MongoDB instance.
+     *  *
+     * @description *   The instance must be in the running state when you call this operation.
+     * *   This operation is applicable only to **general-purpose local-disk** and **dedicated local-disk** instances.
+     * *   You can call this operation up to 30 times per minute. To call this operation at a higher frequency, use a Logstore. For more information, see [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
+     *  *
      * @param DescribeAuditLogFilterRequest $request DescribeAuditLogFilterRequest
      *
      * @return DescribeAuditLogFilterResponse DescribeAuditLogFilterResponse
@@ -1821,10 +1929,12 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * *   The instance must be in the running state when you call this operation.
-     *   * *   This operation is applicable only to **general-purpose local-disk** and **dedicated local-disk** instances.
-     *   * *   You can call this operation up to 30 times per minute. To call this operation at a higher frequency, use a Logstore. For more information, see [Manage a Logstore](~~48990~~).
-     *   *
+     * @summary Queries whether the audit log feature is enabled for an ApsaraDB for MongoDB instance.
+     *  *
+     * @description *   The instance must be in the running state when you call this operation.
+     * *   This operation is applicable only to **general-purpose local-disk** and **dedicated local-disk** instances.
+     * *   You can call this operation up to 30 times per minute. To call this operation at a higher frequency, use a Logstore. For more information, see [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
+     *  *
      * @param DescribeAuditPolicyRequest $request DescribeAuditPolicyRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -1868,10 +1978,12 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * *   The instance must be in the running state when you call this operation.
-     *   * *   This operation is applicable only to **general-purpose local-disk** and **dedicated local-disk** instances.
-     *   * *   You can call this operation up to 30 times per minute. To call this operation at a higher frequency, use a Logstore. For more information, see [Manage a Logstore](~~48990~~).
-     *   *
+     * @summary Queries whether the audit log feature is enabled for an ApsaraDB for MongoDB instance.
+     *  *
+     * @description *   The instance must be in the running state when you call this operation.
+     * *   This operation is applicable only to **general-purpose local-disk** and **dedicated local-disk** instances.
+     * *   You can call this operation up to 30 times per minute. To call this operation at a higher frequency, use a Logstore. For more information, see [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
+     *  *
      * @param DescribeAuditPolicyRequest $request DescribeAuditPolicyRequest
      *
      * @return DescribeAuditPolicyResponse DescribeAuditPolicyResponse
@@ -1884,10 +1996,12 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * *   When you call this operation, ensure that the audit log feature of the instance is enabled. Otherwise, the operation returns an empty audit log.
-     *   * *   This operation is applicable only to **general-purpose local-disk** and **dedicated local-disk** instances.
-     *   * *   You can call this operation up to 30 times per minute. To call this operation at a higher frequency, use a Logstore. For more information, see [Manage a Logstore](~~48990~~).
-     *   *
+     * @summary Queries the audit logs of an ApsaraDB for MongoDB instance.
+     *  *
+     * @description *   When you call this operation, ensure that the audit log feature of the instance is enabled. Otherwise, the operation returns an empty audit log.
+     * *   This operation is applicable only to **general-purpose local-disk** and **dedicated local-disk** instances.
+     * *   You can call this operation up to 30 times per minute. To call this operation at a higher frequency, use a Logstore. For more information, see [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
+     *  *
      * @param DescribeAuditRecordsRequest $request DescribeAuditRecordsRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -1964,10 +2078,12 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * *   When you call this operation, ensure that the audit log feature of the instance is enabled. Otherwise, the operation returns an empty audit log.
-     *   * *   This operation is applicable only to **general-purpose local-disk** and **dedicated local-disk** instances.
-     *   * *   You can call this operation up to 30 times per minute. To call this operation at a higher frequency, use a Logstore. For more information, see [Manage a Logstore](~~48990~~).
-     *   *
+     * @summary Queries the audit logs of an ApsaraDB for MongoDB instance.
+     *  *
+     * @description *   When you call this operation, ensure that the audit log feature of the instance is enabled. Otherwise, the operation returns an empty audit log.
+     * *   This operation is applicable only to **general-purpose local-disk** and **dedicated local-disk** instances.
+     * *   You can call this operation up to 30 times per minute. To call this operation at a higher frequency, use a Logstore. For more information, see [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
+     *  *
      * @param DescribeAuditRecordsRequest $request DescribeAuditRecordsRequest
      *
      * @return DescribeAuditRecordsResponse DescribeAuditRecordsResponse
@@ -1980,8 +2096,10 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Queries the zones in which an ApsaraDB for MongoDB instance can be deployed under specified purchase conditions. The region ID is required in the purchase condition.
-     *   *
+     * @summary Queries a list of the zones that are supported by an ApsaraDB for MongoDB instance.
+     *  *
+     * @description Queries the zones in which an ApsaraDB for MongoDB instance can be deployed under specified purchase conditions. The region ID is required in the purchase condition.
+     *  *
      * @param DescribeAvailabilityZonesRequest $request DescribeAvailabilityZonesRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -2064,8 +2182,10 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Queries the zones in which an ApsaraDB for MongoDB instance can be deployed under specified purchase conditions. The region ID is required in the purchase condition.
-     *   *
+     * @summary Queries a list of the zones that are supported by an ApsaraDB for MongoDB instance.
+     *  *
+     * @description Queries the zones in which an ApsaraDB for MongoDB instance can be deployed under specified purchase conditions. The region ID is required in the purchase condition.
+     *  *
      * @param DescribeAvailabilityZonesRequest $request DescribeAvailabilityZonesRequest
      *
      * @return DescribeAvailabilityZonesResponse DescribeAvailabilityZonesResponse
@@ -2078,10 +2198,12 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param DescribeAvailableEngineVersionRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @summary You can call this operation to query the engine versions to which an ApsaraDB for MongoDB instance can be upgraded.
+     *  *
+     * @param DescribeAvailableEngineVersionRequest $request DescribeAvailableEngineVersionRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAvailableEngineVersionResponse
+     * @return DescribeAvailableEngineVersionResponse DescribeAvailableEngineVersionResponse
      */
     public function describeAvailableEngineVersionWithOptions($request, $runtime)
     {
@@ -2121,9 +2243,11 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param DescribeAvailableEngineVersionRequest $request
+     * @summary You can call this operation to query the engine versions to which an ApsaraDB for MongoDB instance can be upgraded.
+     *  *
+     * @param DescribeAvailableEngineVersionRequest $request DescribeAvailableEngineVersionRequest
      *
-     * @return DescribeAvailableEngineVersionResponse
+     * @return DescribeAvailableEngineVersionResponse DescribeAvailableEngineVersionResponse
      */
     public function describeAvailableEngineVersion($request)
     {
@@ -2133,10 +2257,12 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param DescribeAvailableResourceRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Queries the available resources in the specified zone.
+     *  *
+     * @param DescribeAvailableResourceRequest $request DescribeAvailableResourceRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAvailableResourceResponse
+     * @return DescribeAvailableResourceResponse DescribeAvailableResourceResponse
      */
     public function describeAvailableResourceWithOptions($request, $runtime)
     {
@@ -2200,9 +2326,11 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param DescribeAvailableResourceRequest $request
+     * @summary Queries the available resources in the specified zone.
+     *  *
+     * @param DescribeAvailableResourceRequest $request DescribeAvailableResourceRequest
      *
-     * @return DescribeAvailableResourceResponse
+     * @return DescribeAvailableResourceResponse DescribeAvailableResourceResponse
      */
     public function describeAvailableResource($request)
     {
@@ -2212,14 +2340,16 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * You can call the [CreateDBInstance](~~61763~~) operation to restore a database for an ApsaraDB for MongoDB instance. For more information, see [Restore one database of an ApsaraDB for MongoDB instance](~~112274~~).
-     *   * Before you call this operation, make sure that the instance meets the following requirements:
-     *   * *   The instance was created after March 26, 2019.
-     *   * *   The instance is located in the China (Qingdao), China (Beijing), China (Zhangjiakou), China (Hohhot), China (Hangzhou), China (Shanghai), China (Shenzhen), or Singapore region. Other regions are not supported.
-     *   * *   The instance is a replica set instance.
-     *   * *   The instance runs MongoDB 3.4, MongoDB 4.0, or MongoDB 4.2. In addition, the instance uses local disks to store data.
-     *   * *   The storage engine of the instance is WiredTiger.
-     *   *
+     * @summary Queries the databases at a specified time or the databases in a specified backup set before you restore a database for an ApsaraDB for MongoDB instance.
+     *  *
+     * @description You can call the [CreateDBInstance](https://help.aliyun.com/document_detail/61763.html) operation to restore a database for an ApsaraDB for MongoDB instance. For more information, see [Restore one database of an ApsaraDB for MongoDB instance](https://help.aliyun.com/document_detail/112274.html).
+     * Before you call this operation, make sure that the instance meets the following requirements:
+     * *   The instance was created after March 26, 2019.
+     * *   The instance is located in the China (Qingdao), China (Beijing), China (Zhangjiakou), China (Hohhot), China (Hangzhou), China (Shanghai), China (Shenzhen), or Singapore region. Other regions are not supported.
+     * *   The instance is a replica set instance.
+     * *   The instance runs MongoDB 3.4, MongoDB 4.0, or MongoDB 4.2. In addition, the instance uses local disks to store data.
+     * *   The storage engine of the instance is WiredTiger.
+     *  *
      * @param DescribeBackupDBsRequest $request DescribeBackupDBsRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -2281,14 +2411,16 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * You can call the [CreateDBInstance](~~61763~~) operation to restore a database for an ApsaraDB for MongoDB instance. For more information, see [Restore one database of an ApsaraDB for MongoDB instance](~~112274~~).
-     *   * Before you call this operation, make sure that the instance meets the following requirements:
-     *   * *   The instance was created after March 26, 2019.
-     *   * *   The instance is located in the China (Qingdao), China (Beijing), China (Zhangjiakou), China (Hohhot), China (Hangzhou), China (Shanghai), China (Shenzhen), or Singapore region. Other regions are not supported.
-     *   * *   The instance is a replica set instance.
-     *   * *   The instance runs MongoDB 3.4, MongoDB 4.0, or MongoDB 4.2. In addition, the instance uses local disks to store data.
-     *   * *   The storage engine of the instance is WiredTiger.
-     *   *
+     * @summary Queries the databases at a specified time or the databases in a specified backup set before you restore a database for an ApsaraDB for MongoDB instance.
+     *  *
+     * @description You can call the [CreateDBInstance](https://help.aliyun.com/document_detail/61763.html) operation to restore a database for an ApsaraDB for MongoDB instance. For more information, see [Restore one database of an ApsaraDB for MongoDB instance](https://help.aliyun.com/document_detail/112274.html).
+     * Before you call this operation, make sure that the instance meets the following requirements:
+     * *   The instance was created after March 26, 2019.
+     * *   The instance is located in the China (Qingdao), China (Beijing), China (Zhangjiakou), China (Hohhot), China (Hangzhou), China (Shanghai), China (Shenzhen), or Singapore region. Other regions are not supported.
+     * *   The instance is a replica set instance.
+     * *   The instance runs MongoDB 3.4, MongoDB 4.0, or MongoDB 4.2. In addition, the instance uses local disks to store data.
+     * *   The storage engine of the instance is WiredTiger.
+     *  *
      * @param DescribeBackupDBsRequest $request DescribeBackupDBsRequest
      *
      * @return DescribeBackupDBsResponse DescribeBackupDBsResponse
@@ -2301,10 +2433,12 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupPolicyRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Queries the backup policy of an ApsaraDB for MongoDB instance.
+     *  *
+     * @param DescribeBackupPolicyRequest $request DescribeBackupPolicyRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeBackupPolicyResponse
+     * @return DescribeBackupPolicyResponse DescribeBackupPolicyResponse
      */
     public function describeBackupPolicyWithOptions($request, $runtime)
     {
@@ -2312,6 +2446,9 @@ class Dds extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->DBInstanceId)) {
             $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->instanceType)) {
+            $query['InstanceType'] = $request->instanceType;
         }
         if (!Utils::isUnset($request->ownerAccount)) {
             $query['OwnerAccount'] = $request->ownerAccount;
@@ -2327,6 +2464,9 @@ class Dds extends OpenApiClient
         }
         if (!Utils::isUnset($request->securityToken)) {
             $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->srcRegion)) {
+            $query['SrcRegion'] = $request->srcRegion;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -2347,9 +2487,11 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupPolicyRequest $request
+     * @summary Queries the backup policy of an ApsaraDB for MongoDB instance.
+     *  *
+     * @param DescribeBackupPolicyRequest $request DescribeBackupPolicyRequest
      *
-     * @return DescribeBackupPolicyResponse
+     * @return DescribeBackupPolicyResponse DescribeBackupPolicyResponse
      */
     public function describeBackupPolicy($request)
     {
@@ -2359,10 +2501,12 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupStorageRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Queries the storage used for backup in an ApsaraDB for MongoDB replica set or sharded cluster instance that uses cloud disks. Note that you are charged only for the backup-used storage of each shard in a sharded cluster instance. You can call this operation only to query the storage used by a single shard in the instance for backup.
+     *  *
+     * @param DescribeBackupStorageRequest $request DescribeBackupStorageRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeBackupStorageResponse
+     * @return DescribeBackupStorageResponse DescribeBackupStorageResponse
      */
     public function describeBackupStorageWithOptions($request, $runtime)
     {
@@ -2387,9 +2531,11 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupStorageRequest $request
+     * @summary Queries the storage used for backup in an ApsaraDB for MongoDB replica set or sharded cluster instance that uses cloud disks. Note that you are charged only for the backup-used storage of each shard in a sharded cluster instance. You can call this operation only to query the storage used by a single shard in the instance for backup.
+     *  *
+     * @param DescribeBackupStorageRequest $request DescribeBackupStorageRequest
      *
-     * @return DescribeBackupStorageResponse
+     * @return DescribeBackupStorageResponse DescribeBackupStorageResponse
      */
     public function describeBackupStorage($request)
     {
@@ -2399,10 +2545,12 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupTasksRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries backup tasks running in an ApsaraDB for MongoDB replica set or sharded cluster instance that uses cloud disks.
+     *  *
+     * @param DescribeBackupTasksRequest $request DescribeBackupTasksRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeBackupTasksResponse
+     * @return DescribeBackupTasksResponse DescribeBackupTasksResponse
      */
     public function describeBackupTasksWithOptions($request, $runtime)
     {
@@ -2427,9 +2575,11 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupTasksRequest $request
+     * @summary Queries backup tasks running in an ApsaraDB for MongoDB replica set or sharded cluster instance that uses cloud disks.
+     *  *
+     * @param DescribeBackupTasksRequest $request DescribeBackupTasksRequest
      *
-     * @return DescribeBackupTasksResponse
+     * @return DescribeBackupTasksResponse DescribeBackupTasksResponse
      */
     public function describeBackupTasks($request)
     {
@@ -2439,10 +2589,12 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupsRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Queries the backup sets of an ApsaraDB for MongoDB instance.
+     *  *
+     * @param DescribeBackupsRequest $request DescribeBackupsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeBackupsResponse
+     * @return DescribeBackupsResponse DescribeBackupsResponse
      */
     public function describeBackupsWithOptions($request, $runtime)
     {
@@ -2453,6 +2605,9 @@ class Dds extends OpenApiClient
         }
         if (!Utils::isUnset($request->DBInstanceId)) {
             $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->destRegion)) {
+            $query['DestRegion'] = $request->destRegion;
         }
         if (!Utils::isUnset($request->endTime)) {
             $query['EndTime'] = $request->endTime;
@@ -2478,6 +2633,9 @@ class Dds extends OpenApiClient
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+        if (!Utils::isUnset($request->srcRegion)) {
+            $query['SrcRegion'] = $request->srcRegion;
+        }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
         }
@@ -2500,9 +2658,11 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupsRequest $request
+     * @summary Queries the backup sets of an ApsaraDB for MongoDB instance.
+     *  *
+     * @param DescribeBackupsRequest $request DescribeBackupsRequest
      *
-     * @return DescribeBackupsResponse
+     * @return DescribeBackupsResponse DescribeBackupsResponse
      */
     public function describeBackups($request)
     {
@@ -2512,9 +2672,11 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * For a sharded cluster instance that is created before October 19, 2023 and uses cloud disks, you must call the [TransferClusterBackup](~~2587931~~) operation to switch the instance from the shard backup mode to the cluster backup mode before you call the DescribeClusterBackups operation.
-     *   * By default, cloud disk-based sharded cluster instances that are created after October 19, 2023 are in the cluster backup mode.
-     *   *
+     * @summary Queries the backup sets of an ApsaraDB for MongoDB sharded cluster instance that uses cloud disks.
+     *  *
+     * @description For a sharded cluster instance that is created before October 19, 2023 and uses cloud disks, you must call the [TransferClusterBackup](https://help.aliyun.com/document_detail/2587931.html) operation to switch the instance from the shard backup mode to the cluster backup mode before you call the DescribeClusterBackups operation.
+     * By default, cloud disk-based sharded cluster instances that are created after October 19, 2023 are in the cluster backup mode.
+     *  *
      * @param DescribeClusterBackupsRequest $request DescribeClusterBackupsRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -2529,6 +2691,9 @@ class Dds extends OpenApiClient
         }
         if (!Utils::isUnset($request->DBInstanceId)) {
             $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->destRegion)) {
+            $query['DestRegion'] = $request->destRegion;
         }
         if (!Utils::isUnset($request->endTime)) {
             $query['EndTime'] = $request->endTime;
@@ -2554,6 +2719,9 @@ class Dds extends OpenApiClient
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+        if (!Utils::isUnset($request->srcRegion)) {
+            $query['SrcRegion'] = $request->srcRegion;
+        }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
         }
@@ -2576,9 +2744,11 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * For a sharded cluster instance that is created before October 19, 2023 and uses cloud disks, you must call the [TransferClusterBackup](~~2587931~~) operation to switch the instance from the shard backup mode to the cluster backup mode before you call the DescribeClusterBackups operation.
-     *   * By default, cloud disk-based sharded cluster instances that are created after October 19, 2023 are in the cluster backup mode.
-     *   *
+     * @summary Queries the backup sets of an ApsaraDB for MongoDB sharded cluster instance that uses cloud disks.
+     *  *
+     * @description For a sharded cluster instance that is created before October 19, 2023 and uses cloud disks, you must call the [TransferClusterBackup](https://help.aliyun.com/document_detail/2587931.html) operation to switch the instance from the shard backup mode to the cluster backup mode before you call the DescribeClusterBackups operation.
+     * By default, cloud disk-based sharded cluster instances that are created after October 19, 2023 are in the cluster backup mode.
+     *  *
      * @param DescribeClusterBackupsRequest $request DescribeClusterBackupsRequest
      *
      * @return DescribeClusterBackupsResponse DescribeClusterBackupsResponse
@@ -2591,9 +2761,11 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * *   The instance is an ApsaraDB for MongoDB sharded cluster instance that runs MongoDB 4.4 or later and uses enhanced SSDs (ESSDs) to store data.
-     *   * *   You can call the TransferClusterBackup operation only for instances that are created before October 19, 2023 to switch the instances to the cluster backup mode. The DescribeClusterRecoverTime operation is applicable only to instances that are switched to the cluster backup mode or instances that are created on or after October 19, 2023.
-     *   *
+     * @summary Queries the time range to which you can restore the data of an ApsaraDB for MongoDB sharded cluster instance that uses cloud disks.
+     *  *
+     * @description *   The instance is an ApsaraDB for MongoDB sharded cluster instance that runs MongoDB 4.4 or later and uses enhanced SSDs (ESSDs) to store data.
+     * *   You can call the TransferClusterBackup operation only for instances that are created before October 19, 2023 to switch the instances to the cluster backup mode. The DescribeClusterRecoverTime operation is applicable only to instances that are switched to the cluster backup mode or instances that are created on or after October 19, 2023.
+     *  *
      * @param DescribeClusterRecoverTimeRequest $request DescribeClusterRecoverTimeRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
@@ -2622,9 +2794,11 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * *   The instance is an ApsaraDB for MongoDB sharded cluster instance that runs MongoDB 4.4 or later and uses enhanced SSDs (ESSDs) to store data.
-     *   * *   You can call the TransferClusterBackup operation only for instances that are created before October 19, 2023 to switch the instances to the cluster backup mode. The DescribeClusterRecoverTime operation is applicable only to instances that are switched to the cluster backup mode or instances that are created on or after October 19, 2023.
-     *   *
+     * @summary Queries the time range to which you can restore the data of an ApsaraDB for MongoDB sharded cluster instance that uses cloud disks.
+     *  *
+     * @description *   The instance is an ApsaraDB for MongoDB sharded cluster instance that runs MongoDB 4.4 or later and uses enhanced SSDs (ESSDs) to store data.
+     * *   You can call the TransferClusterBackup operation only for instances that are created before October 19, 2023 to switch the instances to the cluster backup mode. The DescribeClusterRecoverTime operation is applicable only to instances that are switched to the cluster backup mode or instances that are created on or after October 19, 2023.
+     *  *
      * @param DescribeClusterRecoverTimeRequest $request DescribeClusterRecoverTimeRequest
      *
      * @return DescribeClusterRecoverTimeResponse DescribeClusterRecoverTimeResponse
@@ -2637,10 +2811,12 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBInstanceAttributeRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Queries the details of an ApsaraDB for MongoDB instance.
+     *  *
+     * @param DescribeDBInstanceAttributeRequest $request DescribeDBInstanceAttributeRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDBInstanceAttributeResponse
+     * @return DescribeDBInstanceAttributeResponse DescribeDBInstanceAttributeResponse
      */
     public function describeDBInstanceAttributeWithOptions($request, $runtime)
     {
@@ -2692,9 +2868,11 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBInstanceAttributeRequest $request
+     * @summary Queries the details of an ApsaraDB for MongoDB instance.
+     *  *
+     * @param DescribeDBInstanceAttributeRequest $request DescribeDBInstanceAttributeRequest
      *
-     * @return DescribeDBInstanceAttributeResponse
+     * @return DescribeDBInstanceAttributeResponse DescribeDBInstanceAttributeResponse
      */
     public function describeDBInstanceAttribute($request)
     {
@@ -2704,8 +2882,10 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * When you call the DescribeDBInstanceEncryptionKey operation, the instance must have transparent data encryption (TDE) enabled in BYOK mode. You can call the [ModifyDBInstanceTDE](~~131267~~) operation to enable TDE.
-     *   *
+     * @summary Queries the details of a key for an ApsaraDB for MongoDB instance.
+     *  *
+     * @description When you call the DescribeDBInstanceEncryptionKey operation, the instance must have transparent data encryption (TDE) enabled in BYOK mode. You can call the [ModifyDBInstanceTDE](https://help.aliyun.com/document_detail/131267.html) operation to enable TDE.
+     *  *
      * @param DescribeDBInstanceEncryptionKeyRequest $request DescribeDBInstanceEncryptionKeyRequest
      * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
@@ -2752,8 +2932,10 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * When you call the DescribeDBInstanceEncryptionKey operation, the instance must have transparent data encryption (TDE) enabled in BYOK mode. You can call the [ModifyDBInstanceTDE](~~131267~~) operation to enable TDE.
-     *   *
+     * @summary Queries the details of a key for an ApsaraDB for MongoDB instance.
+     *  *
+     * @description When you call the DescribeDBInstanceEncryptionKey operation, the instance must have transparent data encryption (TDE) enabled in BYOK mode. You can call the [ModifyDBInstanceTDE](https://help.aliyun.com/document_detail/131267.html) operation to enable TDE.
+     *  *
      * @param DescribeDBInstanceEncryptionKeyRequest $request DescribeDBInstanceEncryptionKeyRequest
      *
      * @return DescribeDBInstanceEncryptionKeyResponse DescribeDBInstanceEncryptionKeyResponse
@@ -2766,10 +2948,12 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBInstanceMonitorRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Queries the collection frequency of monitoring data for an ApsaraDB for MongoDB instance.
+     *  *
+     * @param DescribeDBInstanceMonitorRequest $request DescribeDBInstanceMonitorRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDBInstanceMonitorResponse
+     * @return DescribeDBInstanceMonitorResponse DescribeDBInstanceMonitorResponse
      */
     public function describeDBInstanceMonitorWithOptions($request, $runtime)
     {
@@ -2809,9 +2993,11 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBInstanceMonitorRequest $request
+     * @summary Queries the collection frequency of monitoring data for an ApsaraDB for MongoDB instance.
+     *  *
+     * @param DescribeDBInstanceMonitorRequest $request DescribeDBInstanceMonitorRequest
      *
-     * @return DescribeDBInstanceMonitorResponse
+     * @return DescribeDBInstanceMonitorResponse DescribeDBInstanceMonitorResponse
      */
     public function describeDBInstanceMonitor($request)
     {
@@ -2821,10 +3007,12 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBInstancePerformanceRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary Queries the performance data of an ApsaraDB for MongoDB instance.
+     *  *
+     * @param DescribeDBInstancePerformanceRequest $request DescribeDBInstancePerformanceRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDBInstancePerformanceResponse
+     * @return DescribeDBInstancePerformanceResponse DescribeDBInstancePerformanceResponse
      */
     public function describeDBInstancePerformanceWithOptions($request, $runtime)
     {
@@ -2835,6 +3023,9 @@ class Dds extends OpenApiClient
         }
         if (!Utils::isUnset($request->endTime)) {
             $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
         }
         if (!Utils::isUnset($request->key)) {
             $query['Key'] = $request->key;
@@ -2882,9 +3073,11 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBInstancePerformanceRequest $request
+     * @summary Queries the performance data of an ApsaraDB for MongoDB instance.
+     *  *
+     * @param DescribeDBInstancePerformanceRequest $request DescribeDBInstancePerformanceRequest
      *
-     * @return DescribeDBInstancePerformanceResponse
+     * @return DescribeDBInstancePerformanceResponse DescribeDBInstancePerformanceResponse
      */
     public function describeDBInstancePerformance($request)
     {
@@ -2894,11 +3087,13 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that the following requirements are met:
-     *   * *   The instance is in the Running state.
-     *   * *   The instance is a replica set instance.
-     *   * *   The instance runs MongoDB 3.4 or later.
-     *   *
+     * @summary Queries the Secure Sockets Layer (SSL) settings of an ApsaraDB for MongoDB instance.
+     *  *
+     * @description Before you call this operation, make sure that the following requirements are met:
+     * *   The instance is in the Running state.
+     * *   The instance is a replica set instance.
+     * *   The instance runs MongoDB 3.4 or later.
+     *  *
      * @param DescribeDBInstanceSSLRequest $request DescribeDBInstanceSSLRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -2942,11 +3137,13 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that the following requirements are met:
-     *   * *   The instance is in the Running state.
-     *   * *   The instance is a replica set instance.
-     *   * *   The instance runs MongoDB 3.4 or later.
-     *   *
+     * @summary Queries the Secure Sockets Layer (SSL) settings of an ApsaraDB for MongoDB instance.
+     *  *
+     * @description Before you call this operation, make sure that the following requirements are met:
+     * *   The instance is in the Running state.
+     * *   The instance is a replica set instance.
+     * *   The instance runs MongoDB 3.4 or later.
+     *  *
      * @param DescribeDBInstanceSSLRequest $request DescribeDBInstanceSSLRequest
      *
      * @return DescribeDBInstanceSSLResponse DescribeDBInstanceSSLResponse
@@ -2959,10 +3156,12 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that the ApsaraDB for MongoDB instance meets the following requirements:
-     *   * *   The instance is a replica set or sharded cluster instance.
-     *   * *   The instance uses local physical disks to store data.
-     *   *
+     * @summary Queries the primary/secondary switching logs of an ApsaraDB for MongoDB instance.
+     *  *
+     * @description Before you call this operation, make sure that the ApsaraDB for MongoDB instance meets the following requirements:
+     * *   The instance is a replica set or sharded cluster instance.
+     * *   The instance uses local physical disks to store data.
+     *  *
      * @param DescribeDBInstanceSwitchLogRequest $request DescribeDBInstanceSwitchLogRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
@@ -3009,10 +3208,12 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that the ApsaraDB for MongoDB instance meets the following requirements:
-     *   * *   The instance is a replica set or sharded cluster instance.
-     *   * *   The instance uses local physical disks to store data.
-     *   *
+     * @summary Queries the primary/secondary switching logs of an ApsaraDB for MongoDB instance.
+     *  *
+     * @description Before you call this operation, make sure that the ApsaraDB for MongoDB instance meets the following requirements:
+     * *   The instance is a replica set or sharded cluster instance.
+     * *   The instance uses local physical disks to store data.
+     *  *
      * @param DescribeDBInstanceSwitchLogRequest $request DescribeDBInstanceSwitchLogRequest
      *
      * @return DescribeDBInstanceSwitchLogResponse DescribeDBInstanceSwitchLogResponse
@@ -3025,12 +3226,14 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * >  For more information about TDE, see [TDE](~~131048~~).
-     *   * Before you call this operation, make sure that the instance meets the following requirements:
-     *   * *   The instance is a replica set or sharded cluster instance.
-     *   * *   The storage engine of the instance is WiredTiger.
-     *   * *   The database engine version of the instance is 4.0 or 4.2. If the database engine version is earlier than 4.0, you can call the [UpgradeDBInstanceEngineVersion](~~67608~~) operation to upgrade the database engine.
-     *   *
+     * @summary Queries whether Transparent Data Encryption (TDE) is enabled for an ApsaraDB for MongoDB instance.
+     *  *
+     * @description >  For more information about TDE, see [TDE](https://help.aliyun.com/document_detail/131048.html).
+     * Before you call this operation, make sure that the instance meets the following requirements:
+     * *   The instance is a replica set or sharded cluster instance.
+     * *   The storage engine of the instance is WiredTiger.
+     * *   The database engine version of the instance is 4.0 or 4.2. If the database engine version is earlier than 4.0, you can call the [UpgradeDBInstanceEngineVersion](https://help.aliyun.com/document_detail/67608.html) operation to upgrade the database engine.
+     *  *
      * @param DescribeDBInstanceTDEInfoRequest $request DescribeDBInstanceTDEInfoRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -3074,12 +3277,14 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * >  For more information about TDE, see [TDE](~~131048~~).
-     *   * Before you call this operation, make sure that the instance meets the following requirements:
-     *   * *   The instance is a replica set or sharded cluster instance.
-     *   * *   The storage engine of the instance is WiredTiger.
-     *   * *   The database engine version of the instance is 4.0 or 4.2. If the database engine version is earlier than 4.0, you can call the [UpgradeDBInstanceEngineVersion](~~67608~~) operation to upgrade the database engine.
-     *   *
+     * @summary Queries whether Transparent Data Encryption (TDE) is enabled for an ApsaraDB for MongoDB instance.
+     *  *
+     * @description >  For more information about TDE, see [TDE](https://help.aliyun.com/document_detail/131048.html).
+     * Before you call this operation, make sure that the instance meets the following requirements:
+     * *   The instance is a replica set or sharded cluster instance.
+     * *   The storage engine of the instance is WiredTiger.
+     * *   The database engine version of the instance is 4.0 or 4.2. If the database engine version is earlier than 4.0, you can call the [UpgradeDBInstanceEngineVersion](https://help.aliyun.com/document_detail/67608.html) operation to upgrade the database engine.
+     *  *
      * @param DescribeDBInstanceTDEInfoRequest $request DescribeDBInstanceTDEInfoRequest
      *
      * @return DescribeDBInstanceTDEInfoResponse DescribeDBInstanceTDEInfoResponse
@@ -3092,8 +3297,10 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * The list of replica set and standalone instances is displayed when the **DBInstanceType** parameter uses the default value **replicate**. To query a list of sharded cluster instances, you must set the **DBInstanceType** parameter to **sharding**.
-     *   *
+     * @summary Queries a list of ApsaraDB for MongoDB instances.
+     *  *
+     * @description The list of replica set and standalone instances is displayed when the **DBInstanceType** parameter uses the default value **replicate**. To query a list of sharded cluster instances, you must set the **DBInstanceType** parameter to **sharding**.
+     *  *
      * @param DescribeDBInstancesRequest $request DescribeDBInstancesRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -3200,8 +3407,10 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * The list of replica set and standalone instances is displayed when the **DBInstanceType** parameter uses the default value **replicate**. To query a list of sharded cluster instances, you must set the **DBInstanceType** parameter to **sharding**.
-     *   *
+     * @summary Queries a list of ApsaraDB for MongoDB instances.
+     *  *
+     * @description The list of replica set and standalone instances is displayed when the **DBInstanceType** parameter uses the default value **replicate**. To query a list of sharded cluster instances, you must set the **DBInstanceType** parameter to **sharding**.
+     *  *
      * @param DescribeDBInstancesRequest $request DescribeDBInstancesRequest
      *
      * @return DescribeDBInstancesResponse DescribeDBInstancesResponse
@@ -3214,9 +3423,11 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * *   If you do not specify an instance when you call this operation, the overview information of all instances in a specific region within this account is returned.
-     *   * *   Paged query is disabled for this operation.
-     *   *
+     * @summary Queries the overview information of one or more ApsaraDB for MongoDB instances.
+     *  *
+     * @description *   If you do not specify an instance when you call this operation, the overview information of all instances in a specific region within this account is returned.
+     * *   Paged query is disabled for this operation.
+     *  *
      * @param DescribeDBInstancesOverviewRequest $request DescribeDBInstancesOverviewRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
@@ -3293,9 +3504,11 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * *   If you do not specify an instance when you call this operation, the overview information of all instances in a specific region within this account is returned.
-     *   * *   Paged query is disabled for this operation.
-     *   *
+     * @summary Queries the overview information of one or more ApsaraDB for MongoDB instances.
+     *  *
+     * @description *   If you do not specify an instance when you call this operation, the overview information of all instances in a specific region within this account is returned.
+     * *   Paged query is disabled for this operation.
+     *  *
      * @param DescribeDBInstancesOverviewRequest $request DescribeDBInstancesOverviewRequest
      *
      * @return DescribeDBInstancesOverviewResponse DescribeDBInstancesOverviewResponse
@@ -3308,9 +3521,11 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * *   This operation is applicable only to **general-purpose local-disk** and **dedicated local-disk** instances.
-     *   * *   You can call this operation up to 30 times per minute. To call this operation at a higher frequency, use a Logstore. For more information, see [Manage a Logstore](~~48990~~).
-     *   *
+     * @summary Queries entries in error logs of an ApsaraDB for MongoDB instance.
+     *  *
+     * @description *   This operation is applicable only to **general-purpose local-disk** and **dedicated local-disk** instances.
+     * *   You can call this operation up to 30 times per minute. To call this operation at a higher frequency, use a Logstore. For more information, see [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
+     *  *
      * @param DescribeErrorLogRecordsRequest $request DescribeErrorLogRecordsRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -3384,9 +3599,11 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * *   This operation is applicable only to **general-purpose local-disk** and **dedicated local-disk** instances.
-     *   * *   You can call this operation up to 30 times per minute. To call this operation at a higher frequency, use a Logstore. For more information, see [Manage a Logstore](~~48990~~).
-     *   *
+     * @summary Queries entries in error logs of an ApsaraDB for MongoDB instance.
+     *  *
+     * @description *   This operation is applicable only to **general-purpose local-disk** and **dedicated local-disk** instances.
+     * *   You can call this operation up to 30 times per minute. To call this operation at a higher frequency, use a Logstore. For more information, see [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
+     *  *
      * @param DescribeErrorLogRecordsRequest $request DescribeErrorLogRecordsRequest
      *
      * @return DescribeErrorLogRecordsResponse DescribeErrorLogRecordsResponse
@@ -3399,10 +3616,12 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param DescribeGlobalSecurityIPGroupRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary Queries the global IP whitelist template of an ApsaraDB for MongoDB instance.
+     *  *
+     * @param DescribeGlobalSecurityIPGroupRequest $request DescribeGlobalSecurityIPGroupRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeGlobalSecurityIPGroupResponse
+     * @return DescribeGlobalSecurityIPGroupResponse DescribeGlobalSecurityIPGroupResponse
      */
     public function describeGlobalSecurityIPGroupWithOptions($request, $runtime)
     {
@@ -3427,9 +3646,11 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param DescribeGlobalSecurityIPGroupRequest $request
+     * @summary Queries the global IP whitelist template of an ApsaraDB for MongoDB instance.
+     *  *
+     * @param DescribeGlobalSecurityIPGroupRequest $request DescribeGlobalSecurityIPGroupRequest
      *
-     * @return DescribeGlobalSecurityIPGroupResponse
+     * @return DescribeGlobalSecurityIPGroupResponse DescribeGlobalSecurityIPGroupResponse
      */
     public function describeGlobalSecurityIPGroup($request)
     {
@@ -3439,10 +3660,12 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param DescribeGlobalSecurityIPGroupRelationRequest $request
-     * @param RuntimeOptions                               $runtime
+     * @summary Queries the global IP whitelist templates associated with an ApsaraDB for MongoDB instance.
+     *  *
+     * @param DescribeGlobalSecurityIPGroupRelationRequest $request DescribeGlobalSecurityIPGroupRelationRequest
+     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeGlobalSecurityIPGroupRelationResponse
+     * @return DescribeGlobalSecurityIPGroupRelationResponse DescribeGlobalSecurityIPGroupRelationResponse
      */
     public function describeGlobalSecurityIPGroupRelationWithOptions($request, $runtime)
     {
@@ -3467,9 +3690,11 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param DescribeGlobalSecurityIPGroupRelationRequest $request
+     * @summary Queries the global IP whitelist templates associated with an ApsaraDB for MongoDB instance.
+     *  *
+     * @param DescribeGlobalSecurityIPGroupRelationRequest $request DescribeGlobalSecurityIPGroupRelationRequest
      *
-     * @return DescribeGlobalSecurityIPGroupRelationResponse
+     * @return DescribeGlobalSecurityIPGroupRelationResponse DescribeGlobalSecurityIPGroupRelationResponse
      */
     public function describeGlobalSecurityIPGroupRelation($request)
     {
@@ -3479,10 +3704,12 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param DescribeHistoryTasksRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Queries a list of tasks in the task center.
+     *  *
+     * @param DescribeHistoryTasksRequest $request DescribeHistoryTasksRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeHistoryTasksResponse
+     * @return DescribeHistoryTasksResponse DescribeHistoryTasksResponse
      */
     public function describeHistoryTasksWithOptions($request, $runtime)
     {
@@ -3549,9 +3776,11 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param DescribeHistoryTasksRequest $request
+     * @summary Queries a list of tasks in the task center.
+     *  *
+     * @param DescribeHistoryTasksRequest $request DescribeHistoryTasksRequest
      *
-     * @return DescribeHistoryTasksResponse
+     * @return DescribeHistoryTasksResponse DescribeHistoryTasksResponse
      */
     public function describeHistoryTasks($request)
     {
@@ -3561,10 +3790,12 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param DescribeHistoryTasksStatRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Queries the overview of a task in the task center.
+     *  *
+     * @param DescribeHistoryTasksStatRequest $request DescribeHistoryTasksStatRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeHistoryTasksStatResponse
+     * @return DescribeHistoryTasksStatResponse DescribeHistoryTasksStatResponse
      */
     public function describeHistoryTasksStatWithOptions($request, $runtime)
     {
@@ -3622,9 +3853,11 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param DescribeHistoryTasksStatRequest $request
+     * @summary Queries the overview of a task in the task center.
+     *  *
+     * @param DescribeHistoryTasksStatRequest $request DescribeHistoryTasksStatRequest
      *
-     * @return DescribeHistoryTasksStatResponse
+     * @return DescribeHistoryTasksStatResponse DescribeHistoryTasksStatResponse
      */
     public function describeHistoryTasksStat($request)
     {
@@ -3634,8 +3867,10 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * This operation is applicable to subscription instances.
-     *   *
+     * @summary You can call this operation to query whether auto-renewal is enabled for an ApsaraDB for MongoDB instance.
+     *  *
+     * @description This operation is applicable to subscription instances.
+     *  *
      * @param DescribeInstanceAutoRenewalAttributeRequest $request DescribeInstanceAutoRenewalAttributeRequest
      * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
      *
@@ -3691,8 +3926,10 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * This operation is applicable to subscription instances.
-     *   *
+     * @summary You can call this operation to query whether auto-renewal is enabled for an ApsaraDB for MongoDB instance.
+     *  *
+     * @description This operation is applicable to subscription instances.
+     *  *
      * @param DescribeInstanceAutoRenewalAttributeRequest $request DescribeInstanceAutoRenewalAttributeRequest
      *
      * @return DescribeInstanceAutoRenewalAttributeResponse DescribeInstanceAutoRenewalAttributeResponse
@@ -3705,10 +3942,12 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceRecoverTimeRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Queries the time required to restore the data of an ApsaraDB for MongoDB replica set instance that uses cloud disks.
+     *  *
+     * @param DescribeInstanceRecoverTimeRequest $request DescribeInstanceRecoverTimeRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeInstanceRecoverTimeResponse
+     * @return DescribeInstanceRecoverTimeResponse DescribeInstanceRecoverTimeResponse
      */
     public function describeInstanceRecoverTimeWithOptions($request, $runtime)
     {
@@ -3733,9 +3972,11 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceRecoverTimeRequest $request
+     * @summary Queries the time required to restore the data of an ApsaraDB for MongoDB replica set instance that uses cloud disks.
+     *  *
+     * @param DescribeInstanceRecoverTimeRequest $request DescribeInstanceRecoverTimeRequest
      *
-     * @return DescribeInstanceRecoverTimeResponse
+     * @return DescribeInstanceRecoverTimeResponse DescribeInstanceRecoverTimeResponse
      */
     public function describeInstanceRecoverTime($request)
     {
@@ -3745,10 +3986,12 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param DescribeKernelReleaseNotesRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Queries the release notes of the minor versions of an ApsaraDB for MongoDB instance.
+     *  *
+     * @param DescribeKernelReleaseNotesRequest $request DescribeKernelReleaseNotesRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeKernelReleaseNotesResponse
+     * @return DescribeKernelReleaseNotesResponse DescribeKernelReleaseNotesResponse
      */
     public function describeKernelReleaseNotesWithOptions($request, $runtime)
     {
@@ -3788,9 +4031,11 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param DescribeKernelReleaseNotesRequest $request
+     * @summary Queries the release notes of the minor versions of an ApsaraDB for MongoDB instance.
+     *  *
+     * @param DescribeKernelReleaseNotesRequest $request DescribeKernelReleaseNotesRequest
      *
-     * @return DescribeKernelReleaseNotesResponse
+     * @return DescribeKernelReleaseNotesResponse DescribeKernelReleaseNotesResponse
      */
     public function describeKernelReleaseNotes($request)
     {
@@ -3800,8 +4045,10 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Queried keys are available only for disk encryption.
-     *   *
+     * @summary Queries Key Management Service (KMS) keys that are available for disk encryption.
+     *  *
+     * @description Queried keys are available only for disk encryption.
+     *  *
      * @param DescribeKmsKeysRequest $request DescribeKmsKeysRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -3842,8 +4089,10 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Queried keys are available only for disk encryption.
-     *   *
+     * @summary Queries Key Management Service (KMS) keys that are available for disk encryption.
+     *  *
+     * @description Queried keys are available only for disk encryption.
+     *  *
      * @param DescribeKmsKeysRequest $request DescribeKmsKeysRequest
      *
      * @return DescribeKmsKeysResponse DescribeKmsKeysResponse
@@ -3856,11 +4105,13 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * This operation is applicable only to **general-purpose local-disk** and **dedicated local-disk** instances.
-     *   * This operation depends on the audit log feature of ApsaraDB for MongoDB. You can enable the audit log feature based on your business requirements. For more information, see [Enable the audit log feature](~~59903~~).
-     *   * *   Starting from January 6, 2022, the official edition of the audit log feature has been launched in all regions, and new applications for the free trial edition have ended. For more information, see [Notice on official launch of the pay-as-you-go audit log feature and no more application for the free trial edition](~~377480~~)
-     *   * *   You are charged for the official edition of the audit log feature based on the storage capacity that is consumed by audit logs and the retention period of the audit logs. For more information, see [Pricing of ApsaraDB for MongoDB instances](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing).
-     *   *
+     * @summary Queries the logging configurations of an ApsaraDB for MongoDB instance.
+     *  *
+     * @description This operation is applicable only to **general-purpose local-disk** and **dedicated local-disk** instances.
+     * This operation depends on the audit log feature of ApsaraDB for MongoDB. You can enable the audit log feature based on your business requirements. For more information, see [Enable the audit log feature](https://help.aliyun.com/document_detail/59903.html).
+     * *   Starting from January 6, 2022, the official edition of the audit log feature has been launched in all regions, and new applications for the free trial edition have ended. For more information, see [Notice on official launch of the pay-as-you-go audit log feature and no more application for the free trial edition](https://help.aliyun.com/document_detail/377480.html)
+     * *   You are charged for the official edition of the audit log feature based on the storage capacity that is consumed by audit logs and the retention period of the audit logs. For more information, see [Pricing of ApsaraDB for MongoDB instances](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing).
+     *  *
      * @param DescribeMongoDBLogConfigRequest $request DescribeMongoDBLogConfigRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -3904,11 +4155,13 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * This operation is applicable only to **general-purpose local-disk** and **dedicated local-disk** instances.
-     *   * This operation depends on the audit log feature of ApsaraDB for MongoDB. You can enable the audit log feature based on your business requirements. For more information, see [Enable the audit log feature](~~59903~~).
-     *   * *   Starting from January 6, 2022, the official edition of the audit log feature has been launched in all regions, and new applications for the free trial edition have ended. For more information, see [Notice on official launch of the pay-as-you-go audit log feature and no more application for the free trial edition](~~377480~~)
-     *   * *   You are charged for the official edition of the audit log feature based on the storage capacity that is consumed by audit logs and the retention period of the audit logs. For more information, see [Pricing of ApsaraDB for MongoDB instances](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing).
-     *   *
+     * @summary Queries the logging configurations of an ApsaraDB for MongoDB instance.
+     *  *
+     * @description This operation is applicable only to **general-purpose local-disk** and **dedicated local-disk** instances.
+     * This operation depends on the audit log feature of ApsaraDB for MongoDB. You can enable the audit log feature based on your business requirements. For more information, see [Enable the audit log feature](https://help.aliyun.com/document_detail/59903.html).
+     * *   Starting from January 6, 2022, the official edition of the audit log feature has been launched in all regions, and new applications for the free trial edition have ended. For more information, see [Notice on official launch of the pay-as-you-go audit log feature and no more application for the free trial edition](https://help.aliyun.com/document_detail/377480.html)
+     * *   You are charged for the official edition of the audit log feature based on the storage capacity that is consumed by audit logs and the retention period of the audit logs. For more information, see [Pricing of ApsaraDB for MongoDB instances](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing).
+     *  *
      * @param DescribeMongoDBLogConfigRequest $request DescribeMongoDBLogConfigRequest
      *
      * @return DescribeMongoDBLogConfigResponse DescribeMongoDBLogConfigResponse
@@ -3921,10 +4174,12 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param DescribeParameterModificationHistoryRequest $request
-     * @param RuntimeOptions                              $runtime
+     * @summary Queries the parameter modification records of an ApsaraDB for MongoDB instance.
+     *  *
+     * @param DescribeParameterModificationHistoryRequest $request DescribeParameterModificationHistoryRequest
+     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeParameterModificationHistoryResponse
+     * @return DescribeParameterModificationHistoryResponse DescribeParameterModificationHistoryResponse
      */
     public function describeParameterModificationHistoryWithOptions($request, $runtime)
     {
@@ -3976,9 +4231,11 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param DescribeParameterModificationHistoryRequest $request
+     * @summary Queries the parameter modification records of an ApsaraDB for MongoDB instance.
+     *  *
+     * @param DescribeParameterModificationHistoryRequest $request DescribeParameterModificationHistoryRequest
      *
-     * @return DescribeParameterModificationHistoryResponse
+     * @return DescribeParameterModificationHistoryResponse DescribeParameterModificationHistoryResponse
      */
     public function describeParameterModificationHistory($request)
     {
@@ -3988,10 +4245,12 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param DescribeParameterTemplatesRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Queries the list of default parameter templates for ApsaraDB for MongoDB instances.
+     *  *
+     * @param DescribeParameterTemplatesRequest $request DescribeParameterTemplatesRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeParameterTemplatesResponse
+     * @return DescribeParameterTemplatesResponse DescribeParameterTemplatesResponse
      */
     public function describeParameterTemplatesWithOptions($request, $runtime)
     {
@@ -4040,9 +4299,11 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param DescribeParameterTemplatesRequest $request
+     * @summary Queries the list of default parameter templates for ApsaraDB for MongoDB instances.
+     *  *
+     * @param DescribeParameterTemplatesRequest $request DescribeParameterTemplatesRequest
      *
-     * @return DescribeParameterTemplatesResponse
+     * @return DescribeParameterTemplatesResponse DescribeParameterTemplatesResponse
      */
     public function describeParameterTemplates($request)
     {
@@ -4052,10 +4313,12 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param DescribeParametersRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Queries the parameter settings of an ApsaraDB for MongoDB instance.
+     *  *
+     * @param DescribeParametersRequest $request DescribeParametersRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeParametersResponse
+     * @return DescribeParametersResponse DescribeParametersResponse
      */
     public function describeParametersWithOptions($request, $runtime)
     {
@@ -4104,9 +4367,11 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param DescribeParametersRequest $request
+     * @summary Queries the parameter settings of an ApsaraDB for MongoDB instance.
+     *  *
+     * @param DescribeParametersRequest $request DescribeParametersRequest
      *
-     * @return DescribeParametersResponse
+     * @return DescribeParametersResponse DescribeParametersResponse
      */
     public function describeParameters($request)
     {
@@ -4116,10 +4381,12 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param DescribePriceRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Queries the fees incurred when you create, upgrade, or renew an ApsaraDB for MongoDB instance.
+     *  *
+     * @param DescribePriceRequest $request DescribePriceRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePriceResponse
+     * @return DescribePriceResponse DescribePriceResponse
      */
     public function describePriceWithOptions($request, $runtime)
     {
@@ -4183,9 +4450,11 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param DescribePriceRequest $request
+     * @summary Queries the fees incurred when you create, upgrade, or renew an ApsaraDB for MongoDB instance.
+     *  *
+     * @param DescribePriceRequest $request DescribePriceRequest
      *
-     * @return DescribePriceResponse
+     * @return DescribePriceResponse DescribePriceResponse
      */
     public function describePrice($request)
     {
@@ -4195,8 +4464,10 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * >  To query available regions and zones in which an ApsaraDB for MongoDB instance can be created, call the [DescribeAvailableResource](~~149719~~) operation.
-     *   *
+     * @summary Queries all regions and zones supported for an ApsaraDB for MongoDB instance.
+     *  *
+     * @description >  To query available regions and zones in which an ApsaraDB for MongoDB instance can be created, call the [DescribeAvailableResource](https://help.aliyun.com/document_detail/149719.html) operation.
+     *  *
      * @param DescribeRegionsRequest $request DescribeRegionsRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -4243,8 +4514,10 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * >  To query available regions and zones in which an ApsaraDB for MongoDB instance can be created, call the [DescribeAvailableResource](~~149719~~) operation.
-     *   *
+     * @summary Queries all regions and zones supported for an ApsaraDB for MongoDB instance.
+     *  *
+     * @description >  To query available regions and zones in which an ApsaraDB for MongoDB instance can be created, call the [DescribeAvailableResource](https://help.aliyun.com/document_detail/149719.html) operation.
+     *  *
      * @param DescribeRegionsRequest $request DescribeRegionsRequest
      *
      * @return DescribeRegionsResponse DescribeRegionsResponse
@@ -4257,8 +4530,10 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * This operation is applicable to subscription instances.
-     *   *
+     * @summary Queries the monthly renewal price of an ApsaraDB for MongoDB instance.
+     *  *
+     * @description This operation is applicable to subscription instances.
+     *  *
      * @param DescribeRenewalPriceRequest $request DescribeRenewalPriceRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -4308,8 +4583,10 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * This operation is applicable to subscription instances.
-     *   *
+     * @summary Queries the monthly renewal price of an ApsaraDB for MongoDB instance.
+     *  *
+     * @description This operation is applicable to subscription instances.
+     *  *
      * @param DescribeRenewalPriceRequest $request DescribeRenewalPriceRequest
      *
      * @return DescribeRenewalPriceResponse DescribeRenewalPriceResponse
@@ -4322,8 +4599,10 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * This operation is applicable to replica set instances and standalone instances, but not to sharded cluster instances.
-     *   *
+     * @summary Queries the role and connection information of an ApsaraDB for MongoDB instance.
+     *  *
+     * @description This operation is applicable to replica set instances and standalone instances, but not to sharded cluster instances.
+     *  *
      * @param DescribeReplicaSetRoleRequest $request DescribeReplicaSetRoleRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -4367,8 +4646,10 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * This operation is applicable to replica set instances and standalone instances, but not to sharded cluster instances.
-     *   *
+     * @summary Queries the role and connection information of an ApsaraDB for MongoDB instance.
+     *  *
+     * @description This operation is applicable to replica set instances and standalone instances, but not to sharded cluster instances.
+     *  *
      * @param DescribeReplicaSetRoleRequest $request DescribeReplicaSetRoleRequest
      *
      * @return DescribeReplicaSetRoleResponse DescribeReplicaSetRoleResponse
@@ -4381,9 +4662,11 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * > For more information, see [View the zone of a node](~~123825~~).
-     *   * This operation is applicable to replica set instances and sharded cluster instances, but cannot be performed on standalone instances.
-     *   *
+     * @summary Queries the role and zone of each node in an ApsaraDB for MongoDB instance.
+     *  *
+     * @description > For more information, see [View the zone of a node](https://help.aliyun.com/document_detail/123825.html).
+     * This operation is applicable to replica set instances and sharded cluster instances, but cannot be performed on standalone instances.
+     *  *
      * @param DescribeRoleZoneInfoRequest $request DescribeRoleZoneInfoRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -4427,9 +4710,11 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * > For more information, see [View the zone of a node](~~123825~~).
-     *   * This operation is applicable to replica set instances and sharded cluster instances, but cannot be performed on standalone instances.
-     *   *
+     * @summary Queries the role and zone of each node in an ApsaraDB for MongoDB instance.
+     *  *
+     * @description > For more information, see [View the zone of a node](https://help.aliyun.com/document_detail/123825.html).
+     * This operation is applicable to replica set instances and sharded cluster instances, but cannot be performed on standalone instances.
+     *  *
      * @param DescribeRoleZoneInfoRequest $request DescribeRoleZoneInfoRequest
      *
      * @return DescribeRoleZoneInfoResponse DescribeRoleZoneInfoResponse
@@ -4442,9 +4727,11 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * *   This operation is applicable only to **general-purpose local-disk** and **dedicated local-disk** instances.
-     *   * *   You can call this operation up to 30 times per minute. To call this operation at a higher frequency, use a Logstore. For more information, see [Manage a Logstore](~~48990~~).
-     *   *
+     * @summary Queries entries in operational logs of an ApsaraDB for MongoDB instance.
+     *  *
+     * @description *   This operation is applicable only to **general-purpose local-disk** and **dedicated local-disk** instances.
+     * *   You can call this operation up to 30 times per minute. To call this operation at a higher frequency, use a Logstore. For more information, see [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
+     *  *
      * @param DescribeRunningLogRecordsRequest $request DescribeRunningLogRecordsRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -4524,9 +4811,11 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * *   This operation is applicable only to **general-purpose local-disk** and **dedicated local-disk** instances.
-     *   * *   You can call this operation up to 30 times per minute. To call this operation at a higher frequency, use a Logstore. For more information, see [Manage a Logstore](~~48990~~).
-     *   *
+     * @summary Queries entries in operational logs of an ApsaraDB for MongoDB instance.
+     *  *
+     * @description *   This operation is applicable only to **general-purpose local-disk** and **dedicated local-disk** instances.
+     * *   You can call this operation up to 30 times per minute. To call this operation at a higher frequency, use a Logstore. For more information, see [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
+     *  *
      * @param DescribeRunningLogRecordsRequest $request DescribeRunningLogRecordsRequest
      *
      * @return DescribeRunningLogRecordsResponse DescribeRunningLogRecordsResponse
@@ -4539,10 +4828,12 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param DescribeSecurityGroupConfigurationRequest $request
-     * @param RuntimeOptions                            $runtime
+     * @summary You can call this operation to query ECS security groups that are bound to an ApsaraDB for MongoDB instance.
+     *  *
+     * @param DescribeSecurityGroupConfigurationRequest $request DescribeSecurityGroupConfigurationRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSecurityGroupConfigurationResponse
+     * @return DescribeSecurityGroupConfigurationResponse DescribeSecurityGroupConfigurationResponse
      */
     public function describeSecurityGroupConfigurationWithOptions($request, $runtime)
     {
@@ -4582,9 +4873,11 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param DescribeSecurityGroupConfigurationRequest $request
+     * @summary You can call this operation to query ECS security groups that are bound to an ApsaraDB for MongoDB instance.
+     *  *
+     * @param DescribeSecurityGroupConfigurationRequest $request DescribeSecurityGroupConfigurationRequest
      *
-     * @return DescribeSecurityGroupConfigurationResponse
+     * @return DescribeSecurityGroupConfigurationResponse DescribeSecurityGroupConfigurationResponse
      */
     public function describeSecurityGroupConfiguration($request)
     {
@@ -4594,10 +4887,12 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param DescribeSecurityIpsRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary You can call this operation to query the IP whitelists of an ApsaraDB for MongoDB instance.
+     *  *
+     * @param DescribeSecurityIpsRequest $request DescribeSecurityIpsRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSecurityIpsResponse
+     * @return DescribeSecurityIpsResponse DescribeSecurityIpsResponse
      */
     public function describeSecurityIpsWithOptions($request, $runtime)
     {
@@ -4640,9 +4935,11 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param DescribeSecurityIpsRequest $request
+     * @summary You can call this operation to query the IP whitelists of an ApsaraDB for MongoDB instance.
+     *  *
+     * @param DescribeSecurityIpsRequest $request DescribeSecurityIpsRequest
      *
-     * @return DescribeSecurityIpsResponse
+     * @return DescribeSecurityIpsResponse DescribeSecurityIpsResponse
      */
     public function describeSecurityIps($request)
     {
@@ -4652,8 +4949,10 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * This operation is applicable only to sharded cluster instances.
-     *   *
+     * @summary Queries connection information about an ApsaraDB for MongoDB sharded cluster instance.
+     *  *
+     * @description This operation is applicable only to sharded cluster instances.
+     *  *
      * @param DescribeShardingNetworkAddressRequest $request DescribeShardingNetworkAddressRequest
      * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
@@ -4700,8 +4999,10 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * This operation is applicable only to sharded cluster instances.
-     *   *
+     * @summary Queries connection information about an ApsaraDB for MongoDB sharded cluster instance.
+     *  *
+     * @description This operation is applicable only to sharded cluster instances.
+     *  *
      * @param DescribeShardingNetworkAddressRequest $request DescribeShardingNetworkAddressRequest
      *
      * @return DescribeShardingNetworkAddressResponse DescribeShardingNetworkAddressResponse
@@ -4714,9 +5015,11 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * *   This operation is applicable only to **general-purpose local-disk** and **dedicated local-disk** instances.
-     *   * *   You can call this operation up to 30 times per minute. To call this operation at a higher frequency, use a Logstore. For more information, see [Manage a Logstore](~~48990~~).
-     *   *
+     * @summary Queries the details of entries in slow query logs of an ApsaraDB for MongoDB instance.
+     *  *
+     * @description *   This operation is applicable only to **general-purpose local-disk** and **dedicated local-disk** instances.
+     * *   You can call this operation up to 30 times per minute. To call this operation at a higher frequency, use a Logstore. For more information, see [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
+     *  *
      * @param DescribeSlowLogRecordsRequest $request DescribeSlowLogRecordsRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -4790,9 +5093,11 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * *   This operation is applicable only to **general-purpose local-disk** and **dedicated local-disk** instances.
-     *   * *   You can call this operation up to 30 times per minute. To call this operation at a higher frequency, use a Logstore. For more information, see [Manage a Logstore](~~48990~~).
-     *   *
+     * @summary Queries the details of entries in slow query logs of an ApsaraDB for MongoDB instance.
+     *  *
+     * @description *   This operation is applicable only to **general-purpose local-disk** and **dedicated local-disk** instances.
+     * *   You can call this operation up to 30 times per minute. To call this operation at a higher frequency, use a Logstore. For more information, see [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
+     *  *
      * @param DescribeSlowLogRecordsRequest $request DescribeSlowLogRecordsRequest
      *
      * @return DescribeSlowLogRecordsResponse DescribeSlowLogRecordsResponse
@@ -4805,10 +5110,12 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param DescribeTagsRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Queries all tags in a specified region.
+     *  *
+     * @param DescribeTagsRequest $request DescribeTagsRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeTagsResponse
+     * @return DescribeTagsResponse DescribeTagsResponse
      */
     public function describeTagsWithOptions($request, $runtime)
     {
@@ -4857,9 +5164,11 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param DescribeTagsRequest $request
+     * @summary Queries all tags in a specified region.
+     *  *
+     * @param DescribeTagsRequest $request DescribeTagsRequest
      *
-     * @return DescribeTagsResponse
+     * @return DescribeTagsResponse DescribeTagsResponse
      */
     public function describeTags($request)
     {
@@ -4869,8 +5178,10 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * You can use the custom key obtained by calling the DescribeUserEncryptionKeyList operation to enable TDE. For more information, see [ModifyDBInstanceTDE](~~131267~~).
-     *   *
+     * @summary Queries the list of custom keys for an ApsaraDB for MongoDB instance.
+     *  *
+     * @description You can use the custom key obtained by calling the DescribeUserEncryptionKeyList operation to enable TDE. For more information, see [ModifyDBInstanceTDE](https://help.aliyun.com/document_detail/131267.html).
+     *  *
      * @param DescribeUserEncryptionKeyListRequest $request DescribeUserEncryptionKeyListRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
@@ -4917,8 +5228,10 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * You can use the custom key obtained by calling the DescribeUserEncryptionKeyList operation to enable TDE. For more information, see [ModifyDBInstanceTDE](~~131267~~).
-     *   *
+     * @summary Queries the list of custom keys for an ApsaraDB for MongoDB instance.
+     *  *
+     * @description You can use the custom key obtained by calling the DescribeUserEncryptionKeyList operation to enable TDE. For more information, see [ModifyDBInstanceTDE](https://help.aliyun.com/document_detail/131267.html).
+     *  *
      * @param DescribeUserEncryptionKeyListRequest $request DescribeUserEncryptionKeyListRequest
      *
      * @return DescribeUserEncryptionKeyListResponse DescribeUserEncryptionKeyListResponse
@@ -4931,13 +5244,15 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that the instance meets the following requirements:
-     *   * *   The instance is a replica set instance or a sharded cluster instance that uses local disks.
-     *   * *   The billing method of the instance is subscription.
-     *   * *   The instance has expired and is in the **Locking** state.
-     *   * **
-     *   * **Warning** Data cannot be restored after the instance is destroyed. Proceed with caution.
-     *   *
+     * @summary Destroys an ApsaraDB for MongoDB instance.
+     *  *
+     * @description Before you call this operation, make sure that the instance meets the following requirements:
+     * *   The instance is a replica set instance or a sharded cluster instance that uses local disks.
+     * *   The billing method of the instance is subscription.
+     * *   The instance has expired and is in the **Locking** state.
+     * **
+     * **Warning** Data cannot be restored after the instance is destroyed. Proceed with caution.
+     *  *
      * @param DestroyInstanceRequest $request DestroyInstanceRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -4990,13 +5305,15 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that the instance meets the following requirements:
-     *   * *   The instance is a replica set instance or a sharded cluster instance that uses local disks.
-     *   * *   The billing method of the instance is subscription.
-     *   * *   The instance has expired and is in the **Locking** state.
-     *   * **
-     *   * **Warning** Data cannot be restored after the instance is destroyed. Proceed with caution.
-     *   *
+     * @summary Destroys an ApsaraDB for MongoDB instance.
+     *  *
+     * @description Before you call this operation, make sure that the instance meets the following requirements:
+     * *   The instance is a replica set instance or a sharded cluster instance that uses local disks.
+     * *   The billing method of the instance is subscription.
+     * *   The instance has expired and is in the **Locking** state.
+     * **
+     * **Warning** Data cannot be restored after the instance is destroyed. Proceed with caution.
+     *  *
      * @param DestroyInstanceRequest $request DestroyInstanceRequest
      *
      * @return DestroyInstanceResponse DestroyInstanceResponse
@@ -5009,9 +5326,11 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * This operation is applicable to replica set instances and sharded cluster instances. You can call this operation to check whether resources are sufficient for creating an instance, upgrading a replica set or sharded cluster instance, or upgrading a single node of the sharded cluster instance.
-     *   * > You can call this operation a maximum of 200 times per minute.
-     *   *
+     * @summary Checks whether sufficient resources are available in a region in which you want to create or upgrade an ApsaraDB for MongoDB instance.
+     *  *
+     * @description This operation is applicable to replica set instances and sharded cluster instances. You can call this operation to check whether resources are sufficient for creating an instance, upgrading a replica set or sharded cluster instance, or upgrading a single node of the sharded cluster instance.
+     * > You can call this operation a maximum of 200 times per minute.
+     *  *
      * @param EvaluateResourceRequest $request EvaluateResourceRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -5082,9 +5401,11 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * This operation is applicable to replica set instances and sharded cluster instances. You can call this operation to check whether resources are sufficient for creating an instance, upgrading a replica set or sharded cluster instance, or upgrading a single node of the sharded cluster instance.
-     *   * > You can call this operation a maximum of 200 times per minute.
-     *   *
+     * @summary Checks whether sufficient resources are available in a region in which you want to create or upgrade an ApsaraDB for MongoDB instance.
+     *  *
+     * @description This operation is applicable to replica set instances and sharded cluster instances. You can call this operation to check whether resources are sufficient for creating an instance, upgrading a replica set or sharded cluster instance, or upgrading a single node of the sharded cluster instance.
+     * > You can call this operation a maximum of 200 times per minute.
+     *  *
      * @param EvaluateResourceRequest $request EvaluateResourceRequest
      *
      * @return EvaluateResourceResponse EvaluateResourceResponse
@@ -5097,10 +5418,12 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param ListTagResourcesRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Queries the relationship between ApsaraDB for MongoDB instances and tags.
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResourcesWithOptions($request, $runtime)
     {
@@ -5152,9 +5475,11 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param ListTagResourcesRequest $request
+     * @summary Queries the relationship between ApsaraDB for MongoDB instances and tags.
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
      *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResources($request)
     {
@@ -5164,12 +5489,14 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * *   This operation is available only for replica set instances that run MongoDB 4.2 or earlier and sharded cluster instances.
-     *   * *   If you have applied for a public endpoint for the ApsaraDB for MongoDB instance, you must call the [ReleasePublicNetworkAddress](~~67604~~) operation to release the public endpoint before you call the MigrateAvailableZone operation.
-     *   * *   Transparent data encryption (TDE) is disabled for the ApsaraDB for MongoDB instance.
-     *   * *   The source zone and the destination zone belong to the same region.
-     *   * *   A vSwitch is created in the destination zone. This prerequisite must be met if the instance resides in a virtual private cloud (VPC). For more information about how to create a vSwitch, see [Work with vSwitches](~~65387~~).
-     *   *
+     * @summary Migrates an ApsaraDB for MongoDB instance to a specific zone.
+     *  *
+     * @description *   This operation is available only for replica set instances that run MongoDB 4.2 or earlier and sharded cluster instances.
+     * *   If you have applied for a public endpoint for the ApsaraDB for MongoDB instance, you must call the [ReleasePublicNetworkAddress](https://help.aliyun.com/document_detail/67604.html) operation to release the public endpoint before you call the MigrateAvailableZone operation.
+     * *   Transparent data encryption (TDE) is disabled for the ApsaraDB for MongoDB instance.
+     * *   The source zone and the destination zone belong to the same region.
+     * *   A vSwitch is created in the destination zone. This prerequisite must be met if the instance resides in a virtual private cloud (VPC). For more information about how to create a vSwitch, see [Work with vSwitches](https://help.aliyun.com/document_detail/65387.html).
+     *  *
      * @param MigrateAvailableZoneRequest $request MigrateAvailableZoneRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -5185,6 +5512,9 @@ class Dds extends OpenApiClient
         if (!Utils::isUnset($request->effectiveTime)) {
             $query['EffectiveTime'] = $request->effectiveTime;
         }
+        if (!Utils::isUnset($request->hiddenZoneId)) {
+            $query['HiddenZoneId'] = $request->hiddenZoneId;
+        }
         if (!Utils::isUnset($request->ownerAccount)) {
             $query['OwnerAccount'] = $request->ownerAccount;
         }
@@ -5196,6 +5526,9 @@ class Dds extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->secondaryZoneId)) {
+            $query['SecondaryZoneId'] = $request->secondaryZoneId;
         }
         if (!Utils::isUnset($request->vswitch)) {
             $query['Vswitch'] = $request->vswitch;
@@ -5222,12 +5555,14 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * *   This operation is available only for replica set instances that run MongoDB 4.2 or earlier and sharded cluster instances.
-     *   * *   If you have applied for a public endpoint for the ApsaraDB for MongoDB instance, you must call the [ReleasePublicNetworkAddress](~~67604~~) operation to release the public endpoint before you call the MigrateAvailableZone operation.
-     *   * *   Transparent data encryption (TDE) is disabled for the ApsaraDB for MongoDB instance.
-     *   * *   The source zone and the destination zone belong to the same region.
-     *   * *   A vSwitch is created in the destination zone. This prerequisite must be met if the instance resides in a virtual private cloud (VPC). For more information about how to create a vSwitch, see [Work with vSwitches](~~65387~~).
-     *   *
+     * @summary Migrates an ApsaraDB for MongoDB instance to a specific zone.
+     *  *
+     * @description *   This operation is available only for replica set instances that run MongoDB 4.2 or earlier and sharded cluster instances.
+     * *   If you have applied for a public endpoint for the ApsaraDB for MongoDB instance, you must call the [ReleasePublicNetworkAddress](https://help.aliyun.com/document_detail/67604.html) operation to release the public endpoint before you call the MigrateAvailableZone operation.
+     * *   Transparent data encryption (TDE) is disabled for the ApsaraDB for MongoDB instance.
+     * *   The source zone and the destination zone belong to the same region.
+     * *   A vSwitch is created in the destination zone. This prerequisite must be met if the instance resides in a virtual private cloud (VPC). For more information about how to create a vSwitch, see [Work with vSwitches](https://help.aliyun.com/document_detail/65387.html).
+     *  *
      * @param MigrateAvailableZoneRequest $request MigrateAvailableZoneRequest
      *
      * @return MigrateAvailableZoneResponse MigrateAvailableZoneResponse
@@ -5240,9 +5575,11 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * This operation is applicable only to replica set instances, but not to standalone instances or sharded cluster instances.
-     *   * >  If you have applied for a public endpoint of the instance, you must first call the [ReleasePublicNetworkAddress](~~67604~~) operation to release the public endpoint.
-     *   *
+     * @summary You can call this operation to migrate an ApsaraDB for MongoDB instance to another zone.
+     *  *
+     * @description This operation is applicable only to replica set instances, but not to standalone instances or sharded cluster instances.
+     * >  If you have applied for a public endpoint of the instance, you must first call the [ReleasePublicNetworkAddress](https://help.aliyun.com/document_detail/67604.html) operation to release the public endpoint.
+     *  *
      * @param MigrateToOtherZoneRequest $request MigrateToOtherZoneRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -5295,9 +5632,11 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * This operation is applicable only to replica set instances, but not to standalone instances or sharded cluster instances.
-     *   * >  If you have applied for a public endpoint of the instance, you must first call the [ReleasePublicNetworkAddress](~~67604~~) operation to release the public endpoint.
-     *   *
+     * @summary You can call this operation to migrate an ApsaraDB for MongoDB instance to another zone.
+     *  *
+     * @description This operation is applicable only to replica set instances, but not to standalone instances or sharded cluster instances.
+     * >  If you have applied for a public endpoint of the instance, you must first call the [ReleasePublicNetworkAddress](https://help.aliyun.com/document_detail/67604.html) operation to release the public endpoint.
+     *  *
      * @param MigrateToOtherZoneRequest $request MigrateToOtherZoneRequest
      *
      * @return MigrateToOtherZoneResponse MigrateToOtherZoneResponse
@@ -5310,10 +5649,12 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param ModifyAccountDescriptionRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Modifies the description of the root account in an ApsaraDB for MongoDB instance.
+     *  *
+     * @param ModifyAccountDescriptionRequest $request ModifyAccountDescriptionRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyAccountDescriptionResponse
+     * @return ModifyAccountDescriptionResponse ModifyAccountDescriptionResponse
      */
     public function modifyAccountDescriptionWithOptions($request, $runtime)
     {
@@ -5359,9 +5700,11 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param ModifyAccountDescriptionRequest $request
+     * @summary Modifies the description of the root account in an ApsaraDB for MongoDB instance.
+     *  *
+     * @param ModifyAccountDescriptionRequest $request ModifyAccountDescriptionRequest
      *
-     * @return ModifyAccountDescriptionResponse
+     * @return ModifyAccountDescriptionResponse ModifyAccountDescriptionResponse
      */
     public function modifyAccountDescription($request)
     {
@@ -5371,10 +5714,12 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param ModifyActiveOperationTasksRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Modifies the switching time of scheduled O\\\\\\&M tasks for an ApsaraDB for MongoDB instance.
+     *  *
+     * @param ModifyActiveOperationTasksRequest $request ModifyActiveOperationTasksRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyActiveOperationTasksResponse
+     * @return ModifyActiveOperationTasksResponse ModifyActiveOperationTasksResponse
      */
     public function modifyActiveOperationTasksWithOptions($request, $runtime)
     {
@@ -5420,9 +5765,11 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param ModifyActiveOperationTasksRequest $request
+     * @summary Modifies the switching time of scheduled O\\\\\\&M tasks for an ApsaraDB for MongoDB instance.
+     *  *
+     * @param ModifyActiveOperationTasksRequest $request ModifyActiveOperationTasksRequest
      *
-     * @return ModifyActiveOperationTasksResponse
+     * @return ModifyActiveOperationTasksResponse ModifyActiveOperationTasksResponse
      */
     public function modifyActiveOperationTasks($request)
     {
@@ -5432,10 +5779,12 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * *   The instance must be in the running state when you call this operation.
-     *   * *   This operation is applicable only to **general-purpose local-disk** or **dedicated local-disk** instances.
-     *   * *   You can call this operation up to 30 times per minute. To call this operation at a higher frequency, use a Logstore. For more information, see [Manage a Logstore](~~48990~~).
-     *   *
+     * @summary Queries the types of logs collected by the audit log feature of an ApsaraDB for MongoDB instance.
+     *  *
+     * @description *   The instance must be in the running state when you call this operation.
+     * *   This operation is applicable only to **general-purpose local-disk** or **dedicated local-disk** instances.
+     * *   You can call this operation up to 30 times per minute. To call this operation at a higher frequency, use a Logstore. For more information, see [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
+     *  *
      * @param ModifyAuditLogFilterRequest $request ModifyAuditLogFilterRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -5485,10 +5834,12 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * *   The instance must be in the running state when you call this operation.
-     *   * *   This operation is applicable only to **general-purpose local-disk** or **dedicated local-disk** instances.
-     *   * *   You can call this operation up to 30 times per minute. To call this operation at a higher frequency, use a Logstore. For more information, see [Manage a Logstore](~~48990~~).
-     *   *
+     * @summary Queries the types of logs collected by the audit log feature of an ApsaraDB for MongoDB instance.
+     *  *
+     * @description *   The instance must be in the running state when you call this operation.
+     * *   This operation is applicable only to **general-purpose local-disk** or **dedicated local-disk** instances.
+     * *   You can call this operation up to 30 times per minute. To call this operation at a higher frequency, use a Logstore. For more information, see [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
+     *  *
      * @param ModifyAuditLogFilterRequest $request ModifyAuditLogFilterRequest
      *
      * @return ModifyAuditLogFilterResponse ModifyAuditLogFilterResponse
@@ -5501,9 +5852,11 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * *   This operation is applicable only to **general-purpose local-disk** and **dedicated local-disk** instances.
-     *   * *   You can call this operation up to 30 times per minute. To call this operation at a higher frequency, use a Logstore. For more information, see [Manage a Logstore](~~48990~~).
-     *   *
+     * @summary Enables or disables the audit log feature or configures the log storage duration for an ApsaraDB for MongoDB instance.
+     *  *
+     * @description *   This operation is applicable only to **general-purpose local-disk** and **dedicated local-disk** instances.
+     * *   You can call this operation up to 30 times per minute. To call this operation at a higher frequency, use a Logstore. For more information, see [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
+     *  *
      * @param ModifyAuditPolicyRequest $request ModifyAuditPolicyRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -5559,9 +5912,11 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * *   This operation is applicable only to **general-purpose local-disk** and **dedicated local-disk** instances.
-     *   * *   You can call this operation up to 30 times per minute. To call this operation at a higher frequency, use a Logstore. For more information, see [Manage a Logstore](~~48990~~).
-     *   *
+     * @summary Enables or disables the audit log feature or configures the log storage duration for an ApsaraDB for MongoDB instance.
+     *  *
+     * @description *   This operation is applicable only to **general-purpose local-disk** and **dedicated local-disk** instances.
+     * *   You can call this operation up to 30 times per minute. To call this operation at a higher frequency, use a Logstore. For more information, see [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
+     *  *
      * @param ModifyAuditPolicyRequest $request ModifyAuditPolicyRequest
      *
      * @return ModifyAuditPolicyResponse ModifyAuditPolicyResponse
@@ -5574,10 +5929,12 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param ModifyBackupPolicyRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Modifies a backup policy for an ApsaraDB for MongoDB instance.
+     *  *
+     * @param ModifyBackupPolicyRequest $request ModifyBackupPolicyRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyBackupPolicyResponse
+     * @return ModifyBackupPolicyResponse ModifyBackupPolicyResponse
      */
     public function modifyBackupPolicyWithOptions($request, $runtime)
     {
@@ -5589,14 +5946,44 @@ class Dds extends OpenApiClient
         if (!Utils::isUnset($request->backupRetentionPeriod)) {
             $query['BackupRetentionPeriod'] = $request->backupRetentionPeriod;
         }
+        if (!Utils::isUnset($request->backupRetentionPolicyOnClusterDeletion)) {
+            $query['BackupRetentionPolicyOnClusterDeletion'] = $request->backupRetentionPolicyOnClusterDeletion;
+        }
+        if (!Utils::isUnset($request->crossBackupPeriod)) {
+            $query['CrossBackupPeriod'] = $request->crossBackupPeriod;
+        }
+        if (!Utils::isUnset($request->crossBackupType)) {
+            $query['CrossBackupType'] = $request->crossBackupType;
+        }
+        if (!Utils::isUnset($request->crossLogRetentionType)) {
+            $query['CrossLogRetentionType'] = $request->crossLogRetentionType;
+        }
+        if (!Utils::isUnset($request->crossLogRetentionValue)) {
+            $query['CrossLogRetentionValue'] = $request->crossLogRetentionValue;
+        }
+        if (!Utils::isUnset($request->crossRetentionType)) {
+            $query['CrossRetentionType'] = $request->crossRetentionType;
+        }
+        if (!Utils::isUnset($request->crossRetentionValue)) {
+            $query['CrossRetentionValue'] = $request->crossRetentionValue;
+        }
         if (!Utils::isUnset($request->DBInstanceId)) {
             $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->destRegion)) {
+            $query['DestRegion'] = $request->destRegion;
         }
         if (!Utils::isUnset($request->enableBackupLog)) {
             $query['EnableBackupLog'] = $request->enableBackupLog;
         }
+        if (!Utils::isUnset($request->enableCrossLogBackup)) {
+            $query['EnableCrossLogBackup'] = $request->enableCrossLogBackup;
+        }
         if (!Utils::isUnset($request->highFrequencyBackupRetention)) {
             $query['HighFrequencyBackupRetention'] = $request->highFrequencyBackupRetention;
+        }
+        if (!Utils::isUnset($request->instanceType)) {
+            $query['InstanceType'] = $request->instanceType;
         }
         if (!Utils::isUnset($request->logBackupRetentionPeriod)) {
             $query['LogBackupRetentionPeriod'] = $request->logBackupRetentionPeriod;
@@ -5622,6 +6009,9 @@ class Dds extends OpenApiClient
         if (!Utils::isUnset($request->snapshotBackupType)) {
             $query['SnapshotBackupType'] = $request->snapshotBackupType;
         }
+        if (!Utils::isUnset($request->srcRegion)) {
+            $query['SrcRegion'] = $request->srcRegion;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -5641,9 +6031,11 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param ModifyBackupPolicyRequest $request
+     * @summary Modifies a backup policy for an ApsaraDB for MongoDB instance.
+     *  *
+     * @param ModifyBackupPolicyRequest $request ModifyBackupPolicyRequest
      *
-     * @return ModifyBackupPolicyResponse
+     * @return ModifyBackupPolicyResponse ModifyBackupPolicyResponse
      */
     public function modifyBackupPolicy($request)
     {
@@ -5653,10 +6045,16 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBInstanceConnectionStringRequest $request
-     * @param RuntimeOptions                          $runtime
+     * @summary Modifies the endpoint that is used to connect to an ApsaraDB for MongoDB instance.
+     *  *
+     * @description You can modify the connection strings and ports of the following instances:
+     * *   You can modify the connection strings of instances that use local or cloud disks.
+     * *   You can only modify the ports of instances that use cloud disks.
+     *  *
+     * @param ModifyDBInstanceConnectionStringRequest $request ModifyDBInstanceConnectionStringRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDBInstanceConnectionStringResponse
+     * @return ModifyDBInstanceConnectionStringResponse ModifyDBInstanceConnectionStringResponse
      */
     public function modifyDBInstanceConnectionStringWithOptions($request, $runtime)
     {
@@ -5708,9 +6106,15 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBInstanceConnectionStringRequest $request
+     * @summary Modifies the endpoint that is used to connect to an ApsaraDB for MongoDB instance.
+     *  *
+     * @description You can modify the connection strings and ports of the following instances:
+     * *   You can modify the connection strings of instances that use local or cloud disks.
+     * *   You can only modify the ports of instances that use cloud disks.
+     *  *
+     * @param ModifyDBInstanceConnectionStringRequest $request ModifyDBInstanceConnectionStringRequest
      *
-     * @return ModifyDBInstanceConnectionStringResponse
+     * @return ModifyDBInstanceConnectionStringResponse ModifyDBInstanceConnectionStringResponse
      */
     public function modifyDBInstanceConnectionString($request)
     {
@@ -5720,10 +6124,12 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBInstanceDescriptionRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Modifies the name of an ApsaraDB for MongoDB instance.
+     *  *
+     * @param ModifyDBInstanceDescriptionRequest $request ModifyDBInstanceDescriptionRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDBInstanceDescriptionResponse
+     * @return ModifyDBInstanceDescriptionResponse ModifyDBInstanceDescriptionResponse
      */
     public function modifyDBInstanceDescriptionWithOptions($request, $runtime)
     {
@@ -5769,9 +6175,11 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBInstanceDescriptionRequest $request
+     * @summary Modifies the name of an ApsaraDB for MongoDB instance.
+     *  *
+     * @param ModifyDBInstanceDescriptionRequest $request ModifyDBInstanceDescriptionRequest
      *
-     * @return ModifyDBInstanceDescriptionResponse
+     * @return ModifyDBInstanceDescriptionResponse ModifyDBInstanceDescriptionResponse
      */
     public function modifyDBInstanceDescription($request)
     {
@@ -5781,10 +6189,12 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBInstanceDiskTypeRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Modifies the disk type of an ApsaraDB for MongoDB instance.
+     *  *
+     * @param ModifyDBInstanceDiskTypeRequest $request ModifyDBInstanceDiskTypeRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDBInstanceDiskTypeResponse
+     * @return ModifyDBInstanceDiskTypeResponse ModifyDBInstanceDiskTypeResponse
      */
     public function modifyDBInstanceDiskTypeWithOptions($request, $runtime)
     {
@@ -5839,9 +6249,11 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBInstanceDiskTypeRequest $request
+     * @summary Modifies the disk type of an ApsaraDB for MongoDB instance.
+     *  *
+     * @param ModifyDBInstanceDiskTypeRequest $request ModifyDBInstanceDiskTypeRequest
      *
-     * @return ModifyDBInstanceDiskTypeResponse
+     * @return ModifyDBInstanceDiskTypeResponse ModifyDBInstanceDiskTypeResponse
      */
     public function modifyDBInstanceDiskType($request)
     {
@@ -5851,10 +6263,12 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBInstanceMaintainTimeRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Modifies the maintenance window of an ApsaraDB for MongoDB instance.
+     *  *
+     * @param ModifyDBInstanceMaintainTimeRequest $request ModifyDBInstanceMaintainTimeRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDBInstanceMaintainTimeResponse
+     * @return ModifyDBInstanceMaintainTimeResponse ModifyDBInstanceMaintainTimeResponse
      */
     public function modifyDBInstanceMaintainTimeWithOptions($request, $runtime)
     {
@@ -5900,9 +6314,11 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBInstanceMaintainTimeRequest $request
+     * @summary Modifies the maintenance window of an ApsaraDB for MongoDB instance.
+     *  *
+     * @param ModifyDBInstanceMaintainTimeRequest $request ModifyDBInstanceMaintainTimeRequest
      *
-     * @return ModifyDBInstanceMaintainTimeResponse
+     * @return ModifyDBInstanceMaintainTimeResponse ModifyDBInstanceMaintainTimeResponse
      */
     public function modifyDBInstanceMaintainTime($request)
     {
@@ -5912,11 +6328,13 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * >  This operation is applicable only to the ApsaraDB for MongoDB console of the previous version due to the change in the feature of adjusting collection intervals of monitoring data.
-     *   * Before you call this operation, make sure that the following requirements are met:
-     *   * *   A replica set or sharded cluster instance is used.
-     *   * *   MongoDB 3.4 (the latest minor version) or MongoDB 4.0 is selected.
-     *   *
+     * @summary You can call this operation to set the monitoring granularity for an ApsaraDB for MongoDB instance.
+     *  *
+     * @description >  This operation is applicable only to the ApsaraDB for MongoDB console of the previous version due to the change in the feature of adjusting collection intervals of monitoring data.
+     * Before you call this operation, make sure that the following requirements are met:
+     * *   A replica set or sharded cluster instance is used.
+     * *   MongoDB 3.4 (the latest minor version) or MongoDB 4.0 is selected.
+     *  *
      * @param ModifyDBInstanceMonitorRequest $request ModifyDBInstanceMonitorRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -5963,11 +6381,13 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * >  This operation is applicable only to the ApsaraDB for MongoDB console of the previous version due to the change in the feature of adjusting collection intervals of monitoring data.
-     *   * Before you call this operation, make sure that the following requirements are met:
-     *   * *   A replica set or sharded cluster instance is used.
-     *   * *   MongoDB 3.4 (the latest minor version) or MongoDB 4.0 is selected.
-     *   *
+     * @summary You can call this operation to set the monitoring granularity for an ApsaraDB for MongoDB instance.
+     *  *
+     * @description >  This operation is applicable only to the ApsaraDB for MongoDB console of the previous version due to the change in the feature of adjusting collection intervals of monitoring data.
+     * Before you call this operation, make sure that the following requirements are met:
+     * *   A replica set or sharded cluster instance is used.
+     * *   MongoDB 3.4 (the latest minor version) or MongoDB 4.0 is selected.
+     *  *
      * @param ModifyDBInstanceMonitorRequest $request ModifyDBInstanceMonitorRequest
      *
      * @return ModifyDBInstanceMonitorResponse ModifyDBInstanceMonitorResponse
@@ -5980,11 +6400,13 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that the instance meets the following requirements:
-     *   * *   The instance is in the Running state.
-     *   * *   The network of the instance is in hybrid access mode.
-     *   * >  This operation is supported by replica set instances and sharded cluster instances. This operation is not supported by standalone instances.
-     *   *
+     * @summary Extends the retention period of the classic network endpoint of an ApsaraDB for MongoDB instance.
+     *  *
+     * @description Before you call this operation, make sure that the instance meets the following requirements:
+     * *   The instance is in the Running state.
+     * *   The network of the instance is in hybrid access mode.
+     * >  This operation is supported by replica set instances and sharded cluster instances. This operation is not supported by standalone instances.
+     *  *
      * @param ModifyDBInstanceNetExpireTimeRequest $request ModifyDBInstanceNetExpireTimeRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
@@ -6034,11 +6456,13 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that the instance meets the following requirements:
-     *   * *   The instance is in the Running state.
-     *   * *   The network of the instance is in hybrid access mode.
-     *   * >  This operation is supported by replica set instances and sharded cluster instances. This operation is not supported by standalone instances.
-     *   *
+     * @summary Extends the retention period of the classic network endpoint of an ApsaraDB for MongoDB instance.
+     *  *
+     * @description Before you call this operation, make sure that the instance meets the following requirements:
+     * *   The instance is in the Running state.
+     * *   The network of the instance is in hybrid access mode.
+     * >  This operation is supported by replica set instances and sharded cluster instances. This operation is not supported by standalone instances.
+     *  *
      * @param ModifyDBInstanceNetExpireTimeRequest $request ModifyDBInstanceNetExpireTimeRequest
      *
      * @return ModifyDBInstanceNetExpireTimeResponse ModifyDBInstanceNetExpireTimeResponse
@@ -6051,8 +6475,10 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * This operation is applicable to replica set instances and sharded cluster instances, but not standalone instances. You can call this operation to change the network of an instance from a classic network to a VPC.
-     *   *
+     * @summary Changes the network type of an ApsaraDB for MongoDB instance.
+     *  *
+     * @description This operation is applicable to replica set instances and sharded cluster instances, but not standalone instances. You can call this operation to change the network of an instance from a classic network to a VPC.
+     *  *
      * @param ModifyDBInstanceNetworkTypeRequest $request ModifyDBInstanceNetworkTypeRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
@@ -6114,8 +6540,10 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * This operation is applicable to replica set instances and sharded cluster instances, but not standalone instances. You can call this operation to change the network of an instance from a classic network to a VPC.
-     *   *
+     * @summary Changes the network type of an ApsaraDB for MongoDB instance.
+     *  *
+     * @description This operation is applicable to replica set instances and sharded cluster instances, but not standalone instances. You can call this operation to change the network of an instance from a classic network to a VPC.
+     *  *
      * @param ModifyDBInstanceNetworkTypeRequest $request ModifyDBInstanceNetworkTypeRequest
      *
      * @return ModifyDBInstanceNetworkTypeResponse ModifyDBInstanceNetworkTypeResponse
@@ -6128,13 +6556,15 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * ## Usage
-     *   * Before you call this operation, make sure that the following requirements are met:
-     *   * *   The instance is in the running state.
-     *   * *   The instance is a replica set instance.
-     *   * *   The engine version of the instance is 3.4 or 4.0.
-     *   * >  When you enable or disable SSL encryption or update the SSL certificate, the instance restarts. We recommend that you call this operation during off-peak hours.
-     *   *
+     * @summary Modifies the SSL settings of an ApsaraDB for MongoDB instance.
+     *  *
+     * @description ## Usage
+     * Before you call this operation, make sure that the following requirements are met:
+     * *   The instance is in the running state.
+     * *   The instance is a replica set instance.
+     * *   The engine version of the instance is 3.4 or 4.0.
+     * >  When you enable or disable SSL encryption or update the SSL certificate, the instance restarts. We recommend that you call this operation during off-peak hours.
+     *  *
      * @param ModifyDBInstanceSSLRequest $request ModifyDBInstanceSSLRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -6181,13 +6611,15 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * ## Usage
-     *   * Before you call this operation, make sure that the following requirements are met:
-     *   * *   The instance is in the running state.
-     *   * *   The instance is a replica set instance.
-     *   * *   The engine version of the instance is 3.4 or 4.0.
-     *   * >  When you enable or disable SSL encryption or update the SSL certificate, the instance restarts. We recommend that you call this operation during off-peak hours.
-     *   *
+     * @summary Modifies the SSL settings of an ApsaraDB for MongoDB instance.
+     *  *
+     * @description ## Usage
+     * Before you call this operation, make sure that the following requirements are met:
+     * *   The instance is in the running state.
+     * *   The instance is a replica set instance.
+     * *   The engine version of the instance is 3.4 or 4.0.
+     * >  When you enable or disable SSL encryption or update the SSL certificate, the instance restarts. We recommend that you call this operation during off-peak hours.
+     *  *
      * @param ModifyDBInstanceSSLRequest $request ModifyDBInstanceSSLRequest
      *
      * @return ModifyDBInstanceSSLResponse ModifyDBInstanceSSLResponse
@@ -6200,9 +6632,11 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB.
-     *   * This operation applies only to standalone and replica set instances. To modify the specifications of sharded cluster instances, you can call the [ModifyNodeSpec](~~61911~~), [CreateNode](~~61922~~), [DeleteNode](~~61816~~), or [ModifyNodeSpecBatch](~~61923~~) operation.
-     *   *
+     * @summary Modifies the specifications or storage space of an ApsaraDB for MongoDB standalone, replica set, or serverless instance. Serverless instances are available only on the China site (aliyun.com).
+     *  *
+     * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB.
+     * This operation applies only to standalone and replica set instances. To modify the specifications of sharded cluster instances, you can call the [ModifyNodeSpec](https://help.aliyun.com/document_detail/61911.html), [CreateNode](https://help.aliyun.com/document_detail/61922.html), [DeleteNode](https://help.aliyun.com/document_detail/61816.html), or [ModifyNodeSpecBatch](https://help.aliyun.com/document_detail/61923.html) operation.
+     *  *
      * @param ModifyDBInstanceSpecRequest $request ModifyDBInstanceSpecRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -6276,9 +6710,11 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB.
-     *   * This operation applies only to standalone and replica set instances. To modify the specifications of sharded cluster instances, you can call the [ModifyNodeSpec](~~61911~~), [CreateNode](~~61922~~), [DeleteNode](~~61816~~), or [ModifyNodeSpecBatch](~~61923~~) operation.
-     *   *
+     * @summary Modifies the specifications or storage space of an ApsaraDB for MongoDB standalone, replica set, or serverless instance. Serverless instances are available only on the China site (aliyun.com).
+     *  *
+     * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB.
+     * This operation applies only to standalone and replica set instances. To modify the specifications of sharded cluster instances, you can call the [ModifyNodeSpec](https://help.aliyun.com/document_detail/61911.html), [CreateNode](https://help.aliyun.com/document_detail/61922.html), [DeleteNode](https://help.aliyun.com/document_detail/61816.html), or [ModifyNodeSpecBatch](https://help.aliyun.com/document_detail/61923.html) operation.
+     *  *
      * @param ModifyDBInstanceSpecRequest $request ModifyDBInstanceSpecRequest
      *
      * @return ModifyDBInstanceSpecResponse ModifyDBInstanceSpecResponse
@@ -6291,14 +6727,16 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * TDE allows you to perform real-time I/O encryption and decryption on data files. Data is encrypted before it is written to a disk and is decrypted when it is read from the disk to the memory. For more information, see [Configure TDE](~~131048~~).
-     *   * >  TDE cannot be disabled after it is enabled.
-     *   * Before you call this operation, make sure that the ApsaraDB for MongoDB instance meets the following requirements:
-     *   * *   A replica set or sharded cluster instance is used.
-     *   * *   The storage engine of the instance is WiredTiger.
-     *   * *   The instance uses local disks to store data.
-     *   * *   The database engine version of the instance is 4.0 or 4.2. If the database engine version is earlier than 4.0, you can call the [UpgradeDBInstanceEngineVersion](~~67608~~) operation to upgrade the database engine.
-     *   *
+     * @summary Modifies the transparent data encryption (TDE) status of an ApsaraDB for MongoDB instance.
+     *  *
+     * @description TDE allows you to perform real-time I/O encryption and decryption on data files. Data is encrypted before it is written to a disk and is decrypted when it is read from the disk to the memory. For more information, see [Configure TDE](https://help.aliyun.com/document_detail/131048.html).
+     * >  TDE cannot be disabled after it is enabled.
+     * Before you call this operation, make sure that the ApsaraDB for MongoDB instance meets the following requirements:
+     * *   A replica set or sharded cluster instance is used.
+     * *   The storage engine of the instance is WiredTiger.
+     * *   The instance uses local disks to store data.
+     * *   The database engine version of the instance is 4.0 or 4.2. If the database engine version is earlier than 4.0, you can call the [UpgradeDBInstanceEngineVersion](https://help.aliyun.com/document_detail/67608.html) operation to upgrade the database engine.
+     *  *
      * @param ModifyDBInstanceTDERequest $request ModifyDBInstanceTDERequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -6354,14 +6792,16 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * TDE allows you to perform real-time I/O encryption and decryption on data files. Data is encrypted before it is written to a disk and is decrypted when it is read from the disk to the memory. For more information, see [Configure TDE](~~131048~~).
-     *   * >  TDE cannot be disabled after it is enabled.
-     *   * Before you call this operation, make sure that the ApsaraDB for MongoDB instance meets the following requirements:
-     *   * *   A replica set or sharded cluster instance is used.
-     *   * *   The storage engine of the instance is WiredTiger.
-     *   * *   The instance uses local disks to store data.
-     *   * *   The database engine version of the instance is 4.0 or 4.2. If the database engine version is earlier than 4.0, you can call the [UpgradeDBInstanceEngineVersion](~~67608~~) operation to upgrade the database engine.
-     *   *
+     * @summary Modifies the transparent data encryption (TDE) status of an ApsaraDB for MongoDB instance.
+     *  *
+     * @description TDE allows you to perform real-time I/O encryption and decryption on data files. Data is encrypted before it is written to a disk and is decrypted when it is read from the disk to the memory. For more information, see [Configure TDE](https://help.aliyun.com/document_detail/131048.html).
+     * >  TDE cannot be disabled after it is enabled.
+     * Before you call this operation, make sure that the ApsaraDB for MongoDB instance meets the following requirements:
+     * *   A replica set or sharded cluster instance is used.
+     * *   The storage engine of the instance is WiredTiger.
+     * *   The instance uses local disks to store data.
+     * *   The database engine version of the instance is 4.0 or 4.2. If the database engine version is earlier than 4.0, you can call the [UpgradeDBInstanceEngineVersion](https://help.aliyun.com/document_detail/67608.html) operation to upgrade the database engine.
+     *  *
      * @param ModifyDBInstanceTDERequest $request ModifyDBInstanceTDERequest
      *
      * @return ModifyDBInstanceTDEResponse ModifyDBInstanceTDEResponse
@@ -6374,10 +6814,12 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param ModifyGlobalSecurityIPGroupRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Modifies the global IP whitelist template associated with an ApsaraDB for MongoDB instance.
+     *  *
+     * @param ModifyGlobalSecurityIPGroupRequest $request ModifyGlobalSecurityIPGroupRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyGlobalSecurityIPGroupResponse
+     * @return ModifyGlobalSecurityIPGroupResponse ModifyGlobalSecurityIPGroupResponse
      */
     public function modifyGlobalSecurityIPGroupWithOptions($request, $runtime)
     {
@@ -6426,9 +6868,11 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param ModifyGlobalSecurityIPGroupRequest $request
+     * @summary Modifies the global IP whitelist template associated with an ApsaraDB for MongoDB instance.
+     *  *
+     * @param ModifyGlobalSecurityIPGroupRequest $request ModifyGlobalSecurityIPGroupRequest
      *
-     * @return ModifyGlobalSecurityIPGroupResponse
+     * @return ModifyGlobalSecurityIPGroupResponse ModifyGlobalSecurityIPGroupResponse
      */
     public function modifyGlobalSecurityIPGroup($request)
     {
@@ -6438,10 +6882,12 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param ModifyGlobalSecurityIPGroupNameRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @summary Modifies the name of a global IP whitelist template associated with an ApsaraDB for MongoDB instance.
+     *  *
+     * @param ModifyGlobalSecurityIPGroupNameRequest $request ModifyGlobalSecurityIPGroupNameRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyGlobalSecurityIPGroupNameResponse
+     * @return ModifyGlobalSecurityIPGroupNameResponse ModifyGlobalSecurityIPGroupNameResponse
      */
     public function modifyGlobalSecurityIPGroupNameWithOptions($request, $runtime)
     {
@@ -6487,9 +6933,11 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param ModifyGlobalSecurityIPGroupNameRequest $request
+     * @summary Modifies the name of a global IP whitelist template associated with an ApsaraDB for MongoDB instance.
+     *  *
+     * @param ModifyGlobalSecurityIPGroupNameRequest $request ModifyGlobalSecurityIPGroupNameRequest
      *
-     * @return ModifyGlobalSecurityIPGroupNameResponse
+     * @return ModifyGlobalSecurityIPGroupNameResponse ModifyGlobalSecurityIPGroupNameResponse
      */
     public function modifyGlobalSecurityIPGroupName($request)
     {
@@ -6499,10 +6947,12 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param ModifyGlobalSecurityIPGroupRelationRequest $request
-     * @param RuntimeOptions                             $runtime
+     * @summary Modifies the mapping between a global whitelist template and an ApsaraDB for MongoDB instance.
+     *  *
+     * @param ModifyGlobalSecurityIPGroupRelationRequest $request ModifyGlobalSecurityIPGroupRelationRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyGlobalSecurityIPGroupRelationResponse
+     * @return ModifyGlobalSecurityIPGroupRelationResponse ModifyGlobalSecurityIPGroupRelationResponse
      */
     public function modifyGlobalSecurityIPGroupRelationWithOptions($request, $runtime)
     {
@@ -6548,9 +6998,11 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param ModifyGlobalSecurityIPGroupRelationRequest $request
+     * @summary Modifies the mapping between a global whitelist template and an ApsaraDB for MongoDB instance.
+     *  *
+     * @param ModifyGlobalSecurityIPGroupRelationRequest $request ModifyGlobalSecurityIPGroupRelationRequest
      *
-     * @return ModifyGlobalSecurityIPGroupRelationResponse
+     * @return ModifyGlobalSecurityIPGroupRelationResponse ModifyGlobalSecurityIPGroupRelationResponse
      */
     public function modifyGlobalSecurityIPGroupRelation($request)
     {
@@ -6560,10 +7012,12 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing).
-     *   * This operation is applicable to subscription instances.
-     *   * >  When auto-renewal is enabled, your payment will be collected nine days before the expiration date of ApsaraDB for MongoDB. Ensure that your account has sufficient balance.
-     *   *
+     * @summary Enables or disables auto-renewal for an ApsaraDB for MongoDB instance.
+     *  *
+     * @description Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing).
+     * This operation is applicable to subscription instances.
+     * >  When auto-renewal is enabled, your payment will be collected nine days before the expiration date of ApsaraDB for MongoDB. Ensure that your account has sufficient balance.
+     *  *
      * @param ModifyInstanceAutoRenewalAttributeRequest $request ModifyInstanceAutoRenewalAttributeRequest
      * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
@@ -6616,10 +7070,12 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing).
-     *   * This operation is applicable to subscription instances.
-     *   * >  When auto-renewal is enabled, your payment will be collected nine days before the expiration date of ApsaraDB for MongoDB. Ensure that your account has sufficient balance.
-     *   *
+     * @summary Enables or disables auto-renewal for an ApsaraDB for MongoDB instance.
+     *  *
+     * @description Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing).
+     * This operation is applicable to subscription instances.
+     * >  When auto-renewal is enabled, your payment will be collected nine days before the expiration date of ApsaraDB for MongoDB. Ensure that your account has sufficient balance.
+     *  *
      * @param ModifyInstanceAutoRenewalAttributeRequest $request ModifyInstanceAutoRenewalAttributeRequest
      *
      * @return ModifyInstanceAutoRenewalAttributeResponse ModifyInstanceAutoRenewalAttributeResponse
@@ -6632,12 +7088,14 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that the ApsaraDB for MongoDB instance meets the following requirements:
-     *   * *   The instance is a replica set or sharded cluster instance.
-     *   * *   The database engine version of the instance is 4.0 (with the minor version of mongodb\\_20190408\\_3.0.11 or later) or 4.2. You can call the [DescribeDBInstanceAttribute](~~62010~~) operation to view the database engine version of the instance. If necessary, you can call the [UpgradeDBInstanceEngineVersion](~~67608~~) operation to upgrade the database engine version of the instance.
-     *   * *   The network type of the instance must be VPC. If the network type of the instance is classic network, you must call the [ModifyDBInstanceNetworkType](~~62138~~) operation to change the network type to VPC.
-     *   * *   You can only disable but not enable password-free access over VPC.
-     *   *
+     * @summary Disables password-free access over Virtual Private Cloud (VPC) for an ApsaraDB for MongoDB instance.
+     *  *
+     * @description Before you call this operation, make sure that the ApsaraDB for MongoDB instance meets the following requirements:
+     * *   The instance is a replica set or sharded cluster instance.
+     * *   The database engine version of the instance is 4.0 (with the minor version of mongodb_20190408_3.0.11 or later) or 4.2. You can call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/62010.html) operation to view the database engine version of the instance. If necessary, you can call the [UpgradeDBInstanceEngineVersion](https://help.aliyun.com/document_detail/67608.html) operation to upgrade the database engine version of the instance.
+     * *   The network type of the instance must be VPC. If the network type of the instance is classic network, you must call the [ModifyDBInstanceNetworkType](https://help.aliyun.com/document_detail/62138.html) operation to change the network type to VPC.
+     * *   You can only disable but not enable password-free access over VPC.
+     *  *
      * @param ModifyInstanceVpcAuthModeRequest $request ModifyInstanceVpcAuthModeRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -6687,12 +7145,14 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that the ApsaraDB for MongoDB instance meets the following requirements:
-     *   * *   The instance is a replica set or sharded cluster instance.
-     *   * *   The database engine version of the instance is 4.0 (with the minor version of mongodb\\_20190408\\_3.0.11 or later) or 4.2. You can call the [DescribeDBInstanceAttribute](~~62010~~) operation to view the database engine version of the instance. If necessary, you can call the [UpgradeDBInstanceEngineVersion](~~67608~~) operation to upgrade the database engine version of the instance.
-     *   * *   The network type of the instance must be VPC. If the network type of the instance is classic network, you must call the [ModifyDBInstanceNetworkType](~~62138~~) operation to change the network type to VPC.
-     *   * *   You can only disable but not enable password-free access over VPC.
-     *   *
+     * @summary Disables password-free access over Virtual Private Cloud (VPC) for an ApsaraDB for MongoDB instance.
+     *  *
+     * @description Before you call this operation, make sure that the ApsaraDB for MongoDB instance meets the following requirements:
+     * *   The instance is a replica set or sharded cluster instance.
+     * *   The database engine version of the instance is 4.0 (with the minor version of mongodb_20190408_3.0.11 or later) or 4.2. You can call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/62010.html) operation to view the database engine version of the instance. If necessary, you can call the [UpgradeDBInstanceEngineVersion](https://help.aliyun.com/document_detail/67608.html) operation to upgrade the database engine version of the instance.
+     * *   The network type of the instance must be VPC. If the network type of the instance is classic network, you must call the [ModifyDBInstanceNetworkType](https://help.aliyun.com/document_detail/62138.html) operation to change the network type to VPC.
+     * *   You can only disable but not enable password-free access over VPC.
+     *  *
      * @param ModifyInstanceVpcAuthModeRequest $request ModifyInstanceVpcAuthModeRequest
      *
      * @return ModifyInstanceVpcAuthModeResponse ModifyInstanceVpcAuthModeResponse
@@ -6705,9 +7165,11 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB.
-     *   * > This operation is applicable only to sharded cluster instances.
-     *   *
+     * @summary Changes the specifications and storage capacity of a node of an ApsaraDB for MongoDB sharded cluster instance.
+     *  *
+     * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB.
+     * > This operation is applicable only to sharded cluster instances.
+     *  *
      * @param ModifyNodeSpecRequest $request ModifyNodeSpecRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -6787,9 +7249,11 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB.
-     *   * > This operation is applicable only to sharded cluster instances.
-     *   *
+     * @summary Changes the specifications and storage capacity of a node of an ApsaraDB for MongoDB sharded cluster instance.
+     *  *
+     * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB.
+     * > This operation is applicable only to sharded cluster instances.
+     *  *
      * @param ModifyNodeSpecRequest $request ModifyNodeSpecRequest
      *
      * @return ModifyNodeSpecResponse ModifyNodeSpecResponse
@@ -6802,10 +7266,12 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB before you call this operation.
-     *   * This operation is applicable only to sharded cluster instances.
-     *   * When you upgrade or downgrade the configurations of multiple sharded cluster instances in batches, the specifications of the instances are limited. For example, if you want to expand the storage capacity of the instances, the storage capacity of the instances after expansion must be greater than the current capacity. When the specifications of multiple sharded cluster instances are different, limits are defined based on the specifications of a random sharded cluster instance. In this case, you may be unable to upgrade or downgrade the configurations of the instances. In this case, we recommend that you call the ModifyNodeSpec operation to individually change the configurations of each sharded cluster instance.
-     *   *
+     * @summary Changes the configurations of mongos or shard nodes in an ApsaraDB for MongoDB sharded cluster instance.
+     *  *
+     * @description Make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB before you call this operation.
+     * This operation is applicable only to sharded cluster instances.
+     * When you upgrade or downgrade the configurations of multiple sharded cluster instances in batches, the specifications of the instances are limited. For example, if you want to expand the storage capacity of the instances, the storage capacity of the instances after expansion must be greater than the current capacity. When the specifications of multiple sharded cluster instances are different, limits are defined based on the specifications of a random sharded cluster instance. In this case, you may be unable to upgrade or downgrade the configurations of the instances. In this case, we recommend that you call the ModifyNodeSpec operation to individually change the configurations of each sharded cluster instance.
+     *  *
      * @param ModifyNodeSpecBatchRequest $request ModifyNodeSpecBatchRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -6873,10 +7339,12 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB before you call this operation.
-     *   * This operation is applicable only to sharded cluster instances.
-     *   * When you upgrade or downgrade the configurations of multiple sharded cluster instances in batches, the specifications of the instances are limited. For example, if you want to expand the storage capacity of the instances, the storage capacity of the instances after expansion must be greater than the current capacity. When the specifications of multiple sharded cluster instances are different, limits are defined based on the specifications of a random sharded cluster instance. In this case, you may be unable to upgrade or downgrade the configurations of the instances. In this case, we recommend that you call the ModifyNodeSpec operation to individually change the configurations of each sharded cluster instance.
-     *   *
+     * @summary Changes the configurations of mongos or shard nodes in an ApsaraDB for MongoDB sharded cluster instance.
+     *  *
+     * @description Make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB before you call this operation.
+     * This operation is applicable only to sharded cluster instances.
+     * When you upgrade or downgrade the configurations of multiple sharded cluster instances in batches, the specifications of the instances are limited. For example, if you want to expand the storage capacity of the instances, the storage capacity of the instances after expansion must be greater than the current capacity. When the specifications of multiple sharded cluster instances are different, limits are defined based on the specifications of a random sharded cluster instance. In this case, you may be unable to upgrade or downgrade the configurations of the instances. In this case, we recommend that you call the ModifyNodeSpec operation to individually change the configurations of each sharded cluster instance.
+     *  *
      * @param ModifyNodeSpecBatchRequest $request ModifyNodeSpecBatchRequest
      *
      * @return ModifyNodeSpecBatchResponse ModifyNodeSpecBatchResponse
@@ -6889,9 +7357,11 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * *   The instance must be in the Running state when you call this operation.
-     *   * *   If you call this operation to modify specific instance parameters and the modification for part of the parameters can take effect only after an instance restart, the instance is automatically restarted after this operation is called. You can call the [DescribeParameterTemplates](~~67618~~) operation to query the parameters that take effect only after the instance is restarted.
-     *   *
+     * @summary Modifies the parameters of an ApsaraDB for MongoDB instance.
+     *  *
+     * @description *   The instance must be in the Running state when you call this operation.
+     * *   If you call this operation to modify specific instance parameters and the modification for part of the parameters can take effect only after an instance restart, the instance is automatically restarted after this operation is called. You can call the [DescribeParameterTemplates](https://help.aliyun.com/document_detail/67618.html) operation to query the parameters that take effect only after the instance is restarted.
+     *  *
      * @param ModifyParametersRequest $request ModifyParametersRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -6947,9 +7417,11 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * *   The instance must be in the Running state when you call this operation.
-     *   * *   If you call this operation to modify specific instance parameters and the modification for part of the parameters can take effect only after an instance restart, the instance is automatically restarted after this operation is called. You can call the [DescribeParameterTemplates](~~67618~~) operation to query the parameters that take effect only after the instance is restarted.
-     *   *
+     * @summary Modifies the parameters of an ApsaraDB for MongoDB instance.
+     *  *
+     * @description *   The instance must be in the Running state when you call this operation.
+     * *   If you call this operation to modify specific instance parameters and the modification for part of the parameters can take effect only after an instance restart, the instance is automatically restarted after this operation is called. You can call the [DescribeParameterTemplates](https://help.aliyun.com/document_detail/67618.html) operation to query the parameters that take effect only after the instance is restarted.
+     *  *
      * @param ModifyParametersRequest $request ModifyParametersRequest
      *
      * @return ModifyParametersResponse ModifyParametersResponse
@@ -6962,8 +7434,10 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Resource Management allows you to build an organizational structure for resources based on your business requirements. You can use resource directories, folders, accounts, and resource groups to hierarchically organize and manage resources. For more information, see [What is Resource Management?](~~94475~~).
-     *   *
+     * @summary Moves an ApsaraDB for MongoDB instance to a specified resource group.
+     *  *
+     * @description Resource Management allows you to build an organizational structure for resources based on your business requirements. You can use resource directories, folders, accounts, and resource groups to hierarchically organize and manage resources. For more information, see [What is Resource Management?](https://help.aliyun.com/document_detail/94475.html)
+     *  *
      * @param ModifyResourceGroupRequest $request ModifyResourceGroupRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -7013,8 +7487,10 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Resource Management allows you to build an organizational structure for resources based on your business requirements. You can use resource directories, folders, accounts, and resource groups to hierarchically organize and manage resources. For more information, see [What is Resource Management?](~~94475~~).
-     *   *
+     * @summary Moves an ApsaraDB for MongoDB instance to a specified resource group.
+     *  *
+     * @description Resource Management allows you to build an organizational structure for resources based on your business requirements. You can use resource directories, folders, accounts, and resource groups to hierarchically organize and manage resources. For more information, see [What is Resource Management?](https://help.aliyun.com/document_detail/94475.html)
+     *  *
      * @param ModifyResourceGroupRequest $request ModifyResourceGroupRequest
      *
      * @return ModifyResourceGroupResponse ModifyResourceGroupResponse
@@ -7027,8 +7503,10 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * >  For a sharded cluster instance, the bound ECS security group takes effect only for mongos nodes.
-     *   *
+     * @summary You can call this operation to modify an ECS Security group that is bound to an ApsaraDB for MongoDB instance.
+     *  *
+     * @description >  For a sharded cluster instance, the bound ECS security group takes effect only for mongos nodes.
+     *  *
      * @param ModifySecurityGroupConfigurationRequest $request ModifySecurityGroupConfigurationRequest
      * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
@@ -7075,8 +7553,10 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * >  For a sharded cluster instance, the bound ECS security group takes effect only for mongos nodes.
-     *   *
+     * @summary You can call this operation to modify an ECS Security group that is bound to an ApsaraDB for MongoDB instance.
+     *  *
+     * @description >  For a sharded cluster instance, the bound ECS security group takes effect only for mongos nodes.
+     *  *
      * @param ModifySecurityGroupConfigurationRequest $request ModifySecurityGroupConfigurationRequest
      *
      * @return ModifySecurityGroupConfigurationResponse ModifySecurityGroupConfigurationResponse
@@ -7089,10 +7569,12 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param ModifySecurityIpsRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Modifies the IP address whitelist of an ApsaraDB for MongoDB instance.
+     *  *
+     * @param ModifySecurityIpsRequest $request ModifySecurityIpsRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifySecurityIpsResponse
+     * @return ModifySecurityIpsResponse ModifySecurityIpsResponse
      */
     public function modifySecurityIpsWithOptions($request, $runtime)
     {
@@ -7144,9 +7626,11 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param ModifySecurityIpsRequest $request
+     * @summary Modifies the IP address whitelist of an ApsaraDB for MongoDB instance.
+     *  *
+     * @param ModifySecurityIpsRequest $request ModifySecurityIpsRequest
      *
-     * @return ModifySecurityIpsResponse
+     * @return ModifySecurityIpsResponse ModifySecurityIpsResponse
      */
     public function modifySecurityIps($request)
     {
@@ -7156,8 +7640,10 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * The actions performed by this operation for a task vary based on the current state of the task. The supported actions for a task can be obtained from the value of the actionInfo parameter in the DescribeHistoryTasks operation.
-     *   *
+     * @summary Modifies the information of a task in the task center for an ApsaraDB for MongoDB instance.
+     *  *
+     * @description The actions performed by this operation for a task vary based on the current state of the task. The supported actions for a task can be obtained from the value of the actionInfo parameter in the DescribeHistoryTasks operation.
+     *  *
      * @param ModifyTaskInfoRequest $request ModifyTaskInfoRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -7207,8 +7693,10 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * The actions performed by this operation for a task vary based on the current state of the task. The supported actions for a task can be obtained from the value of the actionInfo parameter in the DescribeHistoryTasks operation.
-     *   *
+     * @summary Modifies the information of a task in the task center for an ApsaraDB for MongoDB instance.
+     *  *
+     * @description The actions performed by this operation for a task vary based on the current state of the task. The supported actions for a task can be obtained from the value of the actionInfo parameter in the DescribeHistoryTasks operation.
+     *  *
      * @param ModifyTaskInfoRequest $request ModifyTaskInfoRequest
      *
      * @return ModifyTaskInfoResponse ModifyTaskInfoResponse
@@ -7221,9 +7709,11 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * *   This operation can be used to release the internal endpoint of a shard or Configserver node in a sharded cluster instance. For more information, see [Release the endpoint of a shard or Configserver node](~~134067~~).
-     *   * *   To release the public endpoint of a shard or Configserver node in a sharded cluster instance, you can call the [ReleasePublicNetworkAddress](~~67604~~) operation.
-     *   *
+     * @summary Releases the internal endpoint of a shard or Configserver node in a sharded cluster instance.
+     *  *
+     * @description *   This operation can be used to release the internal endpoint of a shard or Configserver node in a sharded cluster instance. For more information, see [Release the endpoint of a shard or Configserver node](https://help.aliyun.com/document_detail/134067.html).
+     * *   To release the public endpoint of a shard or Configserver node in a sharded cluster instance, you can call the [ReleasePublicNetworkAddress](https://help.aliyun.com/document_detail/67604.html) operation.
+     *  *
      * @param ReleaseNodePrivateNetworkAddressRequest $request ReleaseNodePrivateNetworkAddressRequest
      * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
@@ -7276,9 +7766,11 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * *   This operation can be used to release the internal endpoint of a shard or Configserver node in a sharded cluster instance. For more information, see [Release the endpoint of a shard or Configserver node](~~134067~~).
-     *   * *   To release the public endpoint of a shard or Configserver node in a sharded cluster instance, you can call the [ReleasePublicNetworkAddress](~~67604~~) operation.
-     *   *
+     * @summary Releases the internal endpoint of a shard or Configserver node in a sharded cluster instance.
+     *  *
+     * @description *   This operation can be used to release the internal endpoint of a shard or Configserver node in a sharded cluster instance. For more information, see [Release the endpoint of a shard or Configserver node](https://help.aliyun.com/document_detail/134067.html).
+     * *   To release the public endpoint of a shard or Configserver node in a sharded cluster instance, you can call the [ReleasePublicNetworkAddress](https://help.aliyun.com/document_detail/67604.html) operation.
+     *  *
      * @param ReleaseNodePrivateNetworkAddressRequest $request ReleaseNodePrivateNetworkAddressRequest
      *
      * @return ReleaseNodePrivateNetworkAddressResponse ReleaseNodePrivateNetworkAddressResponse
@@ -7291,10 +7783,12 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param ReleasePublicNetworkAddressRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Releases the public endpoint of an ApsaraDB for MongoDB instance.
+     *  *
+     * @param ReleasePublicNetworkAddressRequest $request ReleasePublicNetworkAddressRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ReleasePublicNetworkAddressResponse
+     * @return ReleasePublicNetworkAddressResponse ReleasePublicNetworkAddressResponse
      */
     public function releasePublicNetworkAddressWithOptions($request, $runtime)
     {
@@ -7340,9 +7834,11 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param ReleasePublicNetworkAddressRequest $request
+     * @summary Releases the public endpoint of an ApsaraDB for MongoDB instance.
+     *  *
+     * @param ReleasePublicNetworkAddressRequest $request ReleasePublicNetworkAddressRequest
      *
-     * @return ReleasePublicNetworkAddressResponse
+     * @return ReleasePublicNetworkAddressResponse ReleasePublicNetworkAddressResponse
      */
     public function releasePublicNetworkAddress($request)
     {
@@ -7352,9 +7848,11 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Make sure that you fully understand the billing methods and pricing of ApsaraDB for MongoDB before you call this operation. For more information about the pricing of ApsaraDB for MongoDB, visit the [pricing tab of the product buy page](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing).
-     *   * This operation is only applicable to instances that use the subscription billing method.
-     *   *
+     * @summary Manually renews an ApsaraDB for MongoDB subscription instance.
+     *  *
+     * @description Make sure that you fully understand the billing methods and pricing of ApsaraDB for MongoDB before you call this operation. For more information about the pricing of ApsaraDB for MongoDB, visit the [pricing tab of the product buy page](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing).
+     * This operation is only applicable to instances that use the subscription billing method.
+     *  *
      * @param RenewDBInstanceRequest $request RenewDBInstanceRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -7416,9 +7914,11 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Make sure that you fully understand the billing methods and pricing of ApsaraDB for MongoDB before you call this operation. For more information about the pricing of ApsaraDB for MongoDB, visit the [pricing tab of the product buy page](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing).
-     *   * This operation is only applicable to instances that use the subscription billing method.
-     *   *
+     * @summary Manually renews an ApsaraDB for MongoDB subscription instance.
+     *  *
+     * @description Make sure that you fully understand the billing methods and pricing of ApsaraDB for MongoDB before you call this operation. For more information about the pricing of ApsaraDB for MongoDB, visit the [pricing tab of the product buy page](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing).
+     * This operation is only applicable to instances that use the subscription billing method.
+     *  *
      * @param RenewDBInstanceRequest $request RenewDBInstanceRequest
      *
      * @return RenewDBInstanceResponse RenewDBInstanceResponse
@@ -7431,8 +7931,10 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * >  This operation can be used to reset only the password of the root account of an instance.
-     *   *
+     * @summary Resets the password of the root account in an ApsaraDB for MongoDB instance.
+     *  *
+     * @description >  This operation can be used to reset only the password of the root account of an instance.
+     *  *
      * @param ResetAccountPasswordRequest $request ResetAccountPasswordRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -7485,8 +7987,10 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * >  This operation can be used to reset only the password of the root account of an instance.
-     *   *
+     * @summary Resets the password of the root account in an ApsaraDB for MongoDB instance.
+     *  *
+     * @description >  This operation can be used to reset only the password of the root account of an instance.
+     *  *
      * @param ResetAccountPasswordRequest $request ResetAccountPasswordRequest
      *
      * @return ResetAccountPasswordResponse ResetAccountPasswordResponse
@@ -7499,8 +8003,10 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * This operation can also be used to restart an instance, or restart a shard or mongos node in a sharded cluster instance.
-     *   *
+     * @summary Restarts an ApsaraDB for MongoDB instance.
+     *  *
+     * @description This operation can also be used to restart an instance, or restart a shard or mongos node in a sharded cluster instance.
+     *  *
      * @param RestartDBInstanceRequest $request RestartDBInstanceRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -7547,8 +8053,10 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * This operation can also be used to restart an instance, or restart a shard or mongos node in a sharded cluster instance.
-     *   *
+     * @summary Restarts an ApsaraDB for MongoDB instance.
+     *  *
+     * @description This operation can also be used to restart an instance, or restart a shard or mongos node in a sharded cluster instance.
+     *  *
      * @param RestartDBInstanceRequest $request RestartDBInstanceRequest
      *
      * @return RestartDBInstanceResponse RestartDBInstanceResponse
@@ -7561,23 +8069,22 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * This operation is applicable to replica set instances, but cannot be performed on standalone instances and sharded cluster instances. You can use the following methods to clone an instance: [Create an instance from a backup point](~~55013~~) to clone a standalone instance. Call the [CreateShardingDBInstance](~~61884~~) operation to clone a sharded cluster instance.
-     *   * > This operation overwrites the data of the current instance, and the data cannot be recovered. Proceed with caution.
-     *   *
-     * @param RestoreDBInstanceRequest $request RestoreDBInstanceRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @summary 重启副本集单个节点
+     *  *
+     * @param RestartNodeRequest $request RestartNodeRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return RestoreDBInstanceResponse RestoreDBInstanceResponse
+     * @return RestartNodeResponse RestartNodeResponse
      */
-    public function restoreDBInstanceWithOptions($request, $runtime)
+    public function restartNodeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->backupId)) {
-            $query['BackupId'] = $request->backupId;
-        }
         if (!Utils::isUnset($request->DBInstanceId)) {
             $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
         }
         if (!Utils::isUnset($request->ownerAccount)) {
             $query['OwnerAccount'] = $request->ownerAccount;
@@ -7591,11 +8098,14 @@ class Dds extends OpenApiClient
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+        if (!Utils::isUnset($request->roleId)) {
+            $query['RoleId'] = $request->roleId;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RestoreDBInstance',
+            'action'      => 'RestartNode',
             'version'     => '2015-12-01',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
@@ -7606,30 +8116,31 @@ class Dds extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return RestoreDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RestartNodeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * This operation is applicable to replica set instances, but cannot be performed on standalone instances and sharded cluster instances. You can use the following methods to clone an instance: [Create an instance from a backup point](~~55013~~) to clone a standalone instance. Call the [CreateShardingDBInstance](~~61884~~) operation to clone a sharded cluster instance.
-     *   * > This operation overwrites the data of the current instance, and the data cannot be recovered. Proceed with caution.
-     *   *
-     * @param RestoreDBInstanceRequest $request RestoreDBInstanceRequest
+     * @summary 重启副本集单个节点
+     *  *
+     * @param RestartNodeRequest $request RestartNodeRequest
      *
-     * @return RestoreDBInstanceResponse RestoreDBInstanceResponse
+     * @return RestartNodeResponse RestartNodeResponse
      */
-    public function restoreDBInstance($request)
+    public function restartNode($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->restoreDBInstanceWithOptions($request, $runtime);
+        return $this->restartNodeWithOptions($request, $runtime);
     }
 
     /**
-     * The instance must be running when you call this operation.
-     *   * >
-     *   * *   This operation is applicable to replica set instances and sharded cluster instances, but cannot be performed on standalone instances.
-     *   * *   On replica set instances, the switch is performed between instances. On sharded cluster instances, the switch is performed between shards.
-     *   *
+     * @summary Switches the primary and secondary nodes for an ApsaraDB for MongoDB instance.
+     *  *
+     * @description The instance must be running when you call this operation.
+     * >
+     * *   This operation is applicable to replica set instances and sharded cluster instances, but cannot be performed on standalone instances.
+     * *   On replica set instances, the switch is performed between instances. On sharded cluster instances, the switch is performed between shards.
+     *  *
      * @param SwitchDBInstanceHARequest $request SwitchDBInstanceHARequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -7682,11 +8193,13 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * The instance must be running when you call this operation.
-     *   * >
-     *   * *   This operation is applicable to replica set instances and sharded cluster instances, but cannot be performed on standalone instances.
-     *   * *   On replica set instances, the switch is performed between instances. On sharded cluster instances, the switch is performed between shards.
-     *   *
+     * @summary Switches the primary and secondary nodes for an ApsaraDB for MongoDB instance.
+     *  *
+     * @description The instance must be running when you call this operation.
+     * >
+     * *   This operation is applicable to replica set instances and sharded cluster instances, but cannot be performed on standalone instances.
+     * *   On replica set instances, the switch is performed between instances. On sharded cluster instances, the switch is performed between shards.
+     *  *
      * @param SwitchDBInstanceHARequest $request SwitchDBInstanceHARequest
      *
      * @return SwitchDBInstanceHAResponse SwitchDBInstanceHAResponse
@@ -7699,13 +8212,15 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * If you have a large number of instances, you can create multiple tags, bind the tags to the instances, and filter the instances by tag.
-     *   * *   A tag consists of a key and a value. Each key must be unique in a region for an Alibaba Cloud account. Different keys can be mapped to the same value.
-     *   * *   If the tag that you specify does not exist, this tag is automatically created and bound to the specified instance.
-     *   * *   If a tag that has the same key is already bound to the instance, the new tag overwrites the existing tag.
-     *   * *   You can bind up to 20 tags to each instance.
-     *   * *   You can bind tags to up to 50 instances each time you call the operation.
-     *   *
+     * @summary Binds tags to ApsaraDB for MongoDB instances.
+     *  *
+     * @description If you have a large number of instances, you can create multiple tags, bind the tags to the instances, and filter the instances by tag.
+     * *   A tag consists of a key and a value. Each key must be unique in a region for an Alibaba Cloud account. Different keys can be mapped to the same value.
+     * *   If the tag that you specify does not exist, this tag is automatically created and bound to the specified instance.
+     * *   If a tag that has the same key is already bound to the instance, the new tag overwrites the existing tag.
+     * *   You can bind up to 20 tags to each instance.
+     * *   You can bind tags to up to 50 instances each time you call the operation.
+     *  *
      * @param TagResourcesRequest $request TagResourcesRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
@@ -7761,13 +8276,15 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * If you have a large number of instances, you can create multiple tags, bind the tags to the instances, and filter the instances by tag.
-     *   * *   A tag consists of a key and a value. Each key must be unique in a region for an Alibaba Cloud account. Different keys can be mapped to the same value.
-     *   * *   If the tag that you specify does not exist, this tag is automatically created and bound to the specified instance.
-     *   * *   If a tag that has the same key is already bound to the instance, the new tag overwrites the existing tag.
-     *   * *   You can bind up to 20 tags to each instance.
-     *   * *   You can bind tags to up to 50 instances each time you call the operation.
-     *   *
+     * @summary Binds tags to ApsaraDB for MongoDB instances.
+     *  *
+     * @description If you have a large number of instances, you can create multiple tags, bind the tags to the instances, and filter the instances by tag.
+     * *   A tag consists of a key and a value. Each key must be unique in a region for an Alibaba Cloud account. Different keys can be mapped to the same value.
+     * *   If the tag that you specify does not exist, this tag is automatically created and bound to the specified instance.
+     * *   If a tag that has the same key is already bound to the instance, the new tag overwrites the existing tag.
+     * *   You can bind up to 20 tags to each instance.
+     * *   You can bind tags to up to 50 instances each time you call the operation.
+     *  *
      * @param TagResourcesRequest $request TagResourcesRequest
      *
      * @return TagResourcesResponse TagResourcesResponse
@@ -7780,9 +8297,11 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * *   The instance is an ApsaraDB for MongoDB sharded cluster instance that runs MongoDB 4.4 or later and uses enhanced SSDs (ESSDs) to store data.
-     *   * *   You can call the TransferClusterBackup operation only for instances that are created before October 19, 2023 to switch the instances to the cluster backup mode. Cloud disk-based sharded cluster instances that are created on or after October 19, 2023 are set to the cluster backup mode by default.
-     *   *
+     * @summary Switches the backup mode of an ApsaraDB for MongoDB sharded cluster instance to the cluster backup mode. After the instance is switched to the cluster backup mode, the instance supports high-frequency backup.
+     *  *
+     * @description *   The instance is an ApsaraDB for MongoDB sharded cluster instance that runs MongoDB 4.4 or later and uses enhanced SSDs (ESSDs) to store data.
+     * *   You can call the TransferClusterBackup operation only for instances that are created before October 19, 2023 to switch the instances to the cluster backup mode. Cloud disk-based sharded cluster instances that are created on or after October 19, 2023 are set to the cluster backup mode by default.
+     *  *
      * @param TransferClusterBackupRequest $request TransferClusterBackupRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -7826,9 +8345,11 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * *   The instance is an ApsaraDB for MongoDB sharded cluster instance that runs MongoDB 4.4 or later and uses enhanced SSDs (ESSDs) to store data.
-     *   * *   You can call the TransferClusterBackup operation only for instances that are created before October 19, 2023 to switch the instances to the cluster backup mode. Cloud disk-based sharded cluster instances that are created on or after October 19, 2023 are set to the cluster backup mode by default.
-     *   *
+     * @summary Switches the backup mode of an ApsaraDB for MongoDB sharded cluster instance to the cluster backup mode. After the instance is switched to the cluster backup mode, the instance supports high-frequency backup.
+     *  *
+     * @description *   The instance is an ApsaraDB for MongoDB sharded cluster instance that runs MongoDB 4.4 or later and uses enhanced SSDs (ESSDs) to store data.
+     * *   You can call the TransferClusterBackup operation only for instances that are created before October 19, 2023 to switch the instances to the cluster backup mode. Cloud disk-based sharded cluster instances that are created on or after October 19, 2023 are set to the cluster backup mode by default.
+     *  *
      * @param TransferClusterBackupRequest $request TransferClusterBackupRequest
      *
      * @return TransferClusterBackupResponse TransferClusterBackupResponse
@@ -7841,13 +8362,15 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.aliyun.com/price/product#/mongodb/detail) of ApsaraDB for MongoDB.
-     *   * Before you call this API operation, make sure that the ApsaraDB for MongoDB instance meets the following requirements:
-     *   * *   The instance is in the Running state.
-     *   * *   Your instance has no unpaid billing method change orders.
-     *   * *   The instance type is available for purchase. For more information about unavailable instance types, see [Instance types](~~57141~~).
-     *   * > To change the billing method of an instance whose instance type is no longer available to purchase, call the [ModifyDBInstanceSpec](~~61816~~) or [ModifyNodeSpec](~~61923~~) operation to first change the instance type.
-     *   *
+     * @summary Changes the billing method of an instance from pay-as-you-go to subscription or from subscription to pay-as-you-go.
+     *  *
+     * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.aliyun.com/price/product#/mongodb/detail) of ApsaraDB for MongoDB.
+     * Before you call this API operation, make sure that the ApsaraDB for MongoDB instance meets the following requirements:
+     * *   The instance is in the Running state.
+     * *   Your instance has no unpaid billing method change orders.
+     * *   The instance type is available for purchase. For more information about unavailable instance types, see [Instance types](https://help.aliyun.com/document_detail/57141.html).
+     * > To change the billing method of an instance whose instance type is no longer available to purchase, call the [ModifyDBInstanceSpec](https://help.aliyun.com/document_detail/61816.html) or [ModifyNodeSpec](https://help.aliyun.com/document_detail/61923.html) operation to first change the instance type.
+     *  *
      * @param TransformInstanceChargeTypeRequest $request TransformInstanceChargeTypeRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
@@ -7912,13 +8435,15 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.aliyun.com/price/product#/mongodb/detail) of ApsaraDB for MongoDB.
-     *   * Before you call this API operation, make sure that the ApsaraDB for MongoDB instance meets the following requirements:
-     *   * *   The instance is in the Running state.
-     *   * *   Your instance has no unpaid billing method change orders.
-     *   * *   The instance type is available for purchase. For more information about unavailable instance types, see [Instance types](~~57141~~).
-     *   * > To change the billing method of an instance whose instance type is no longer available to purchase, call the [ModifyDBInstanceSpec](~~61816~~) or [ModifyNodeSpec](~~61923~~) operation to first change the instance type.
-     *   *
+     * @summary Changes the billing method of an instance from pay-as-you-go to subscription or from subscription to pay-as-you-go.
+     *  *
+     * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.aliyun.com/price/product#/mongodb/detail) of ApsaraDB for MongoDB.
+     * Before you call this API operation, make sure that the ApsaraDB for MongoDB instance meets the following requirements:
+     * *   The instance is in the Running state.
+     * *   Your instance has no unpaid billing method change orders.
+     * *   The instance type is available for purchase. For more information about unavailable instance types, see [Instance types](https://help.aliyun.com/document_detail/57141.html).
+     * > To change the billing method of an instance whose instance type is no longer available to purchase, call the [ModifyDBInstanceSpec](https://help.aliyun.com/document_detail/61816.html) or [ModifyNodeSpec](https://help.aliyun.com/document_detail/61923.html) operation to first change the instance type.
+     *  *
      * @param TransformInstanceChargeTypeRequest $request TransformInstanceChargeTypeRequest
      *
      * @return TransformInstanceChargeTypeResponse TransformInstanceChargeTypeResponse
@@ -7931,15 +8456,17 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing).
-     *   * A subscription instance cannot be changed to a pay-as-you-go instance. To avoid wasting resources, proceed with caution.
-     *   * Before you call this API operation, make sure that the ApsaraDB for MongoDB instance meets the following requirements:
-     *   * *   The instance is in the running state.
-     *   * *   The billing method of the instance is pay-as-you-go.
-     *   * *   The instance has no unpaid subscription orders.
-     *   * *   The instance type is available for purchase. For more information about unavailable instance types, see [Instance types](~~57141~~).
-     *   * >  To change the billing method of an instance whose instance type is no longer available to subscription, call the [ModifyDBInstanceSpec](~~61816~~) or [ModifyNodeSpec](~~61923~~) operation to first change the instance type.
-     *   *
+     * @summary Changes the billing method of an ApsaraDB for MongoDB instance from pay-as-you-go to subscription.
+     *  *
+     * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing).
+     * A subscription instance cannot be changed to a pay-as-you-go instance. To avoid wasting resources, proceed with caution.
+     * Before you call this API operation, make sure that the ApsaraDB for MongoDB instance meets the following requirements:
+     * *   The instance is in the running state.
+     * *   The billing method of the instance is pay-as-you-go.
+     * *   The instance has no unpaid subscription orders.
+     * *   The instance type is available for purchase. For more information about unavailable instance types, see [Instance types](https://help.aliyun.com/document_detail/57141.html).
+     * >  To change the billing method of an instance whose instance type is no longer available to subscription, call the [ModifyDBInstanceSpec](https://help.aliyun.com/document_detail/61816.html) or [ModifyNodeSpec](https://help.aliyun.com/document_detail/61923.html) operation to first change the instance type.
+     *  *
      * @param TransformToPrePaidRequest $request TransformToPrePaidRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -7998,15 +8525,17 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing).
-     *   * A subscription instance cannot be changed to a pay-as-you-go instance. To avoid wasting resources, proceed with caution.
-     *   * Before you call this API operation, make sure that the ApsaraDB for MongoDB instance meets the following requirements:
-     *   * *   The instance is in the running state.
-     *   * *   The billing method of the instance is pay-as-you-go.
-     *   * *   The instance has no unpaid subscription orders.
-     *   * *   The instance type is available for purchase. For more information about unavailable instance types, see [Instance types](~~57141~~).
-     *   * >  To change the billing method of an instance whose instance type is no longer available to subscription, call the [ModifyDBInstanceSpec](~~61816~~) or [ModifyNodeSpec](~~61923~~) operation to first change the instance type.
-     *   *
+     * @summary Changes the billing method of an ApsaraDB for MongoDB instance from pay-as-you-go to subscription.
+     *  *
+     * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing).
+     * A subscription instance cannot be changed to a pay-as-you-go instance. To avoid wasting resources, proceed with caution.
+     * Before you call this API operation, make sure that the ApsaraDB for MongoDB instance meets the following requirements:
+     * *   The instance is in the running state.
+     * *   The billing method of the instance is pay-as-you-go.
+     * *   The instance has no unpaid subscription orders.
+     * *   The instance type is available for purchase. For more information about unavailable instance types, see [Instance types](https://help.aliyun.com/document_detail/57141.html).
+     * >  To change the billing method of an instance whose instance type is no longer available to subscription, call the [ModifyDBInstanceSpec](https://help.aliyun.com/document_detail/61816.html) or [ModifyNodeSpec](https://help.aliyun.com/document_detail/61923.html) operation to first change the instance type.
+     *  *
      * @param TransformToPrePaidRequest $request TransformToPrePaidRequest
      *
      * @return TransformToPrePaidResponse TransformToPrePaidResponse
@@ -8019,10 +8548,12 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * >
-     *   * *   You can remove up to 20 tags at a time.
-     *   * *   If you remove a tag from all instances, the tag is automatically deleted.
-     *   *
+     * @summary Removes a tag if the tag is not added to another instance.
+     *  *
+     * @description >
+     * *   You can remove up to 20 tags at a time.
+     * *   If you remove a tag from all instances, the tag is automatically deleted.
+     *  *
      * @param UntagResourcesRequest $request UntagResourcesRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -8081,10 +8612,12 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * >
-     *   * *   You can remove up to 20 tags at a time.
-     *   * *   If you remove a tag from all instances, the tag is automatically deleted.
-     *   *
+     * @summary Removes a tag if the tag is not added to another instance.
+     *  *
+     * @description >
+     * *   You can remove up to 20 tags at a time.
+     * *   If you remove a tag from all instances, the tag is automatically deleted.
+     *  *
      * @param UntagResourcesRequest $request UntagResourcesRequest
      *
      * @return UntagResourcesResponse UntagResourcesResponse
@@ -8097,11 +8630,13 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * The instance must be in the running state when you call this operation.
-     *   * > * The available database versions depend on the storage engine used by the instance. For more information, see [Upgrades of MongoDB major versions](~~398673~~). You can also call the [DescribeAvailableEngineVersion](~~141355~~) operation to query the available database versions.
-     *   * > * You cannot downgrade the MongoDB version of an instance after you upgrade it.
-     *   * > * The instance is automatically restarted for two to three times during the upgrade process. Make sure that you upgrade the instance during off-peak hours.
-     *   *
+     * @summary Upgrades the database version of an ApsaraDB for MongoDB instance.
+     *  *
+     * @description The instance must be in the running state when you call this operation.
+     * > * The available database versions depend on the storage engine used by the instance. For more information, see [Upgrades of MongoDB major versions](https://help.aliyun.com/document_detail/398673.html). You can also call the [DescribeAvailableEngineVersion](https://help.aliyun.com/document_detail/141355.html) operation to query the available database versions.
+     * > * You cannot downgrade the MongoDB version of an instance after you upgrade it.
+     * > * The instance is automatically restarted for two to three times during the upgrade process. Make sure that you upgrade the instance during off-peak hours.
+     *  *
      * @param UpgradeDBInstanceEngineVersionRequest $request UpgradeDBInstanceEngineVersionRequest
      * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
@@ -8148,11 +8683,13 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * The instance must be in the running state when you call this operation.
-     *   * > * The available database versions depend on the storage engine used by the instance. For more information, see [Upgrades of MongoDB major versions](~~398673~~). You can also call the [DescribeAvailableEngineVersion](~~141355~~) operation to query the available database versions.
-     *   * > * You cannot downgrade the MongoDB version of an instance after you upgrade it.
-     *   * > * The instance is automatically restarted for two to three times during the upgrade process. Make sure that you upgrade the instance during off-peak hours.
-     *   *
+     * @summary Upgrades the database version of an ApsaraDB for MongoDB instance.
+     *  *
+     * @description The instance must be in the running state when you call this operation.
+     * > * The available database versions depend on the storage engine used by the instance. For more information, see [Upgrades of MongoDB major versions](https://help.aliyun.com/document_detail/398673.html). You can also call the [DescribeAvailableEngineVersion](https://help.aliyun.com/document_detail/141355.html) operation to query the available database versions.
+     * > * You cannot downgrade the MongoDB version of an instance after you upgrade it.
+     * > * The instance is automatically restarted for two to three times during the upgrade process. Make sure that you upgrade the instance during off-peak hours.
+     *  *
      * @param UpgradeDBInstanceEngineVersionRequest $request UpgradeDBInstanceEngineVersionRequest
      *
      * @return UpgradeDBInstanceEngineVersionResponse UpgradeDBInstanceEngineVersionResponse
@@ -8165,10 +8702,12 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * When you call the UpgradeDBInstanceKernelVersion operation, the instance must be in the Running state.
-     *   * > * The UpgradeDBInstanceKernelVersion operation is applicable to replica set and sharded cluster instances, but not to standalone instances.
-     *   * > * The instance will be restarted once during the upgrade. Call this operation during off-peak hours.
-     *   *
+     * @summary Upgrades the minor version of an ApsaraDB for MongoDB instance.
+     *  *
+     * @description When you call the UpgradeDBInstanceKernelVersion operation, the instance must be in the Running state.
+     * > * The UpgradeDBInstanceKernelVersion operation is applicable to replica set and sharded cluster instances, but not to standalone instances.
+     * > * The instance will be restarted once during the upgrade. Call this operation during off-peak hours.
+     *  *
      * @param UpgradeDBInstanceKernelVersionRequest $request UpgradeDBInstanceKernelVersionRequest
      * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
@@ -8212,10 +8751,12 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * When you call the UpgradeDBInstanceKernelVersion operation, the instance must be in the Running state.
-     *   * > * The UpgradeDBInstanceKernelVersion operation is applicable to replica set and sharded cluster instances, but not to standalone instances.
-     *   * > * The instance will be restarted once during the upgrade. Call this operation during off-peak hours.
-     *   *
+     * @summary Upgrades the minor version of an ApsaraDB for MongoDB instance.
+     *  *
+     * @description When you call the UpgradeDBInstanceKernelVersion operation, the instance must be in the Running state.
+     * > * The UpgradeDBInstanceKernelVersion operation is applicable to replica set and sharded cluster instances, but not to standalone instances.
+     * > * The instance will be restarted once during the upgrade. Call this operation during off-peak hours.
+     *  *
      * @param UpgradeDBInstanceKernelVersionRequest $request UpgradeDBInstanceKernelVersionRequest
      *
      * @return UpgradeDBInstanceKernelVersionResponse UpgradeDBInstanceKernelVersionResponse

@@ -11,7 +11,7 @@ class EvaluateResourceRequest extends Model
     /**
      * @description The type of the instance.
      *
-     * > This parameter is required when you check whether resources are sufficient for creating or upgrading a replica set instance. For more information about instance types, see [Instance types](~~57141~~).
+     * > This parameter is required when you check whether resources are sufficient for creating or upgrading a replica set instance. For more information about instance types, see [Instance types](https://help.aliyun.com/document_detail/57141.html).
      * @example dds.mongo.mid
      *
      * @var string
@@ -37,24 +37,9 @@ class EvaluateResourceRequest extends Model
     public $engine;
 
     /**
-     * @description The version of the database engine. Valid values:
+     * @description The version of the database engine.
      *
-     *   **7.0**
-     *   **6.0**
-     *   **5.0**
-     *   **4.4**
-     *   **4.2**
-     *   **4.0**
-     *
-     * <!---->
-     *
-     *   3.4
-     *   4.0
-     *   4.2
-     *   4.4
-     *   5.0
-     *   6.0
-     *
+     * This parameter is required.
      * @example 4.0
      *
      * @var string
@@ -82,8 +67,9 @@ class EvaluateResourceRequest extends Model
     public $readonlyReplicas;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~61933~~) operation to query the region ID.
+     * @description The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61933.html) operation to query the region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -122,14 +108,14 @@ class EvaluateResourceRequest extends Model
      *   Mongos: the mongos node.
      *   Shards: the shard node.
      *   Storage: the storage space of the node.
-     *   DBInstanceClass: the instance type of the node. For more information, see [Sharded cluster instance types](~~311414~~).
+     *   DBInstanceClass: the instance type of the node. For more information, see [Sharded cluster instance types](https://help.aliyun.com/document_detail/311414.html).
      *
      * {
      * "NodeId": "d-bp147c4d9ca7****", "NodeClass": "dds.shard.standard"
      * Parameters in the example:
      *
      *   NodeId: the ID of the node.
-     *   NodeClass: the instance type of the node. For more information, see [Sharded cluster instance types](~~311414~~).
+     *   NodeClass: the instance type of the node. For more information, see [Sharded cluster instance types](https://help.aliyun.com/document_detail/311414.html).
      *
      * @example {"NodeId": "d-bp147c4d9ca7****", "NodeClass": "dds.shard.standard"}
      *
@@ -148,8 +134,9 @@ class EvaluateResourceRequest extends Model
     public $storage;
 
     /**
-     * @description The zone ID of the instance. You can call the [DescribeRegions](~~61933~~) operation to query the zone ID.
+     * @description The zone ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61933.html) operation to query the zone ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou-h
      *
      * @var string

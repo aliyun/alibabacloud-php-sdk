@@ -71,6 +71,7 @@ class CreateNodeBatchRequest extends Model
     /**
      * @description The ID of the instance for which you want to add nodes.
      *
+     * This parameter is required.
      * @example dds-bp18b0934e70****
      *
      * @var string
@@ -88,9 +89,9 @@ class CreateNodeBatchRequest extends Model
     public $fromApp;
 
     /**
-     * @description The specifications of the mongos or shard node that you want to add. For more information, see [Instance types](~~57141~~).
+     * @description The specifications of the mongos or shard node that you want to add. For more information, see [Instance types](https://help.aliyun.com/document_detail/57141.html).
      *
-     * > Up to 32 mongos or shard nodes are supported for each sharded cluster instance.
+     * This parameter is required.
      * @example {"Shards":[{"DBInstanceClass":"mdb.shard.4x.large.d","Storage":20}]}
      *
      * @var string

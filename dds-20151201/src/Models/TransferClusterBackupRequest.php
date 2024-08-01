@@ -11,6 +11,7 @@ class TransferClusterBackupRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example dds-bp2235****
      *
      * @var string

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackupTasksResponseBody extends Model
 {
     /**
+     * @description The details of the backup task.
+     *
      * @var backupJobs[]
      */
     public $backupJobs;
 
     /**
+     * @description The request ID.
+     *
      * @example D648B367-15B6-1B42-BD4B-47507C9CC****
      *
      * @var string

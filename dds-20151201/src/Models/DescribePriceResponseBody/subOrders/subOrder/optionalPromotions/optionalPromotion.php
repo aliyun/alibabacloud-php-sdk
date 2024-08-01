@@ -4,52 +4,94 @@
 
 namespace AlibabaCloud\SDK\Dds\V20151201\Models\DescribePriceResponseBody\subOrders\subOrder\optionalPromotions;
 
+use AlibabaCloud\SDK\Dds\V20151201\Models\DescribePriceResponseBody\subOrders\subOrder\optionalPromotions\optionalPromotion\promotionRuleIdList;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribePriceResponseBody\subOrders\subOrder\optionalPromotions\optionalPromotion\targetArticleItemCodes;
 use AlibabaCloud\Tea\Model;
 
 class optionalPromotion extends Model
 {
     /**
+     * @description The activity type.
+     *
+     * @example discount
+     *
      * @var string
      */
     public $activityCategory;
 
     /**
+     * @description The additional activity information.
+     *
+     * @example {
+     * }
      * @var mixed[]
      */
     public $activityExtInfo;
 
     /**
+     * @description The amount that can be deducted by using the coupon.
+     *
+     * @example 4560789
+     *
      * @var float
      */
     public $canPromFee;
 
     /**
+     * @description The promotion type.
+     *
+     * @example wanhua_activity
+     *
      * @var string
      */
     public $optionCode;
 
     /**
+     * @description The promotion name.
+     *
+     * @example [Item with price reduction in xxx] ApsaraDB for MongoDB instances of a full range of specifications - xxx
+     *
      * @var string
      */
     public $promotionName;
 
     /**
+     * @description The promotion ID.
+     *
+     * @example 1512010241xxxxx
+     *
      * @var string
      */
     public $promotionOptionNo;
 
     /**
+     * @description The IDs of the rules that correspond to the coupon.
+     *
+     * @var promotionRuleIdList
+     */
+    public $promotionRuleIdList;
+
+    /**
+     * @description Indicates whether
+     *
+     * @example false
+     *
      * @var bool
      */
     public $selected;
 
     /**
+     * @description Indicates whether the discount is displayed.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $show;
 
     /**
+     * @description The specification codes of the product.
+     *
      * @var targetArticleItemCodes
      */
     public $targetArticleItemCodes;
@@ -60,6 +102,7 @@ class optionalPromotion extends Model
         'optionCode'             => 'OptionCode',
         'promotionName'          => 'PromotionName',
         'promotionOptionNo'      => 'PromotionOptionNo',
+        'promotionRuleIdList'    => 'PromotionRuleIdList',
         'selected'               => 'Selected',
         'show'                   => 'Show',
         'targetArticleItemCodes' => 'TargetArticleItemCodes',
@@ -89,6 +132,9 @@ class optionalPromotion extends Model
         }
         if (null !== $this->promotionOptionNo) {
             $res['PromotionOptionNo'] = $this->promotionOptionNo;
+        }
+        if (null !== $this->promotionRuleIdList) {
+            $res['PromotionRuleIdList'] = null !== $this->promotionRuleIdList ? $this->promotionRuleIdList->toMap() : null;
         }
         if (null !== $this->selected) {
             $res['Selected'] = $this->selected;
@@ -128,6 +174,9 @@ class optionalPromotion extends Model
         }
         if (isset($map['PromotionOptionNo'])) {
             $model->promotionOptionNo = $map['PromotionOptionNo'];
+        }
+        if (isset($map['PromotionRuleIdList'])) {
+            $model->promotionRuleIdList = promotionRuleIdList::fromMap($map['PromotionRuleIdList']);
         }
         if (isset($map['Selected'])) {
             $model->selected = $map['Selected'];

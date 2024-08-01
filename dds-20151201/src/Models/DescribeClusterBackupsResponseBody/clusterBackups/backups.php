@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dds\V20151201\Models\DescribeClusterBackupsResponseBody\clusterBackups;
 
+use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeClusterBackupsResponseBody\clusterBackups\backups\extraInfo;
 use AlibabaCloud\Tea\Model;
 
 class backups extends Model
@@ -18,7 +19,7 @@ class backups extends Model
     public $backupDownloadURL;
 
     /**
-     * @description The end of the backup time range. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The end time of the backup. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2023-10-16T19:33:20Z
      *
@@ -63,7 +64,7 @@ class backups extends Model
     public $backupSize;
 
     /**
-     * @description The beginning of the backup time range. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The start time of the backup. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2023-10-16T19:33:20Z
      *
@@ -84,7 +85,14 @@ class backups extends Model
     public $backupStatus;
 
     /**
-     * @description The name of the shard.
+     * @description The information of the node associated with the backup.
+     *
+     * @var extraInfo
+     */
+    public $extraInfo;
+
+    /**
+     * @description The shard name.
      *
      * @example d-bp16cb162771****
      *
@@ -112,6 +120,7 @@ class backups extends Model
         'backupSize'                => 'BackupSize',
         'backupStartTime'           => 'BackupStartTime',
         'backupStatus'              => 'BackupStatus',
+        'extraInfo'                 => 'ExtraInfo',
         'instanceName'              => 'InstanceName',
         'isAvail'                   => 'IsAvail',
     ];
@@ -146,6 +155,9 @@ class backups extends Model
         }
         if (null !== $this->backupStatus) {
             $res['BackupStatus'] = $this->backupStatus;
+        }
+        if (null !== $this->extraInfo) {
+            $res['ExtraInfo'] = null !== $this->extraInfo ? $this->extraInfo->toMap() : null;
         }
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
@@ -188,6 +200,9 @@ class backups extends Model
         }
         if (isset($map['BackupStatus'])) {
             $model->backupStatus = $map['BackupStatus'];
+        }
+        if (isset($map['ExtraInfo'])) {
+            $model->extraInfo = extraInfo::fromMap($map['ExtraInfo']);
         }
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];

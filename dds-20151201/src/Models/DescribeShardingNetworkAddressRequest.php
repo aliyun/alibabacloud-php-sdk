@@ -11,6 +11,7 @@ class DescribeShardingNetworkAddressRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example dds-bpxxxxxxxx
      *
      * @var string
@@ -20,7 +21,7 @@ class DescribeShardingNetworkAddressRequest extends Model
     /**
      * @description The ID of the mongos, shard, or Configserver node in the sharded cluster instance.
      *
-     * >  You can call the [DescribeDBInstanceAttribute](~~62010~~) operation to view the ID of the mongos, shard, or Configserver node.
+     * >  You can call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/62010.html) operation to view the ID of the mongos, shard, or Configserver node.
      * @example d-bpxxxxxxxx
      *
      * @var string

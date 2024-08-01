@@ -6,12 +6,10 @@ namespace AlibabaCloud\SDK\Dds\V20151201\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class RestoreDBInstanceResponseBody extends Model
+class RestartNodeResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 973DCB8F-56B3-4102-8777-3A90495927F7
+     * @example ECBCA991-XXXX-XXXX-834C-B3E8007F33AA
      *
      * @var string
      */
@@ -37,7 +35,7 @@ class RestoreDBInstanceResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return RestoreDBInstanceResponseBody
+     * @return RestartNodeResponseBody
      */
     public static function fromMap($map = [])
     {

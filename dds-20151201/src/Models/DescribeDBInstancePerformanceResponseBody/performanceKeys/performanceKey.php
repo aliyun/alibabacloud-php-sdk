@@ -37,7 +37,7 @@ class performanceKey extends Model
     /**
      * @description The format of the performance metric value. If the performance metric contains multiple fields, the fields are separated with ampersands ( &).
      *
-     * For example, if you query disk space usage, the returned value of the **ValueFormat** parameter is **ins_size\&data_size\&log_size**.
+     * For example, if you query disk space usage, the returned value of the **ValueFormat** parameter is **ins_size\\&data_size\\&log_size**.
      * @example cpu_usage
      *
      * @var string

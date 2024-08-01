@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBInstanceDiskTypeRequest extends Model
 {
     /**
+     * @description Specifies whether to enable automatic payment. Valid values:
+     *
+     *   **true**: enables automatic payment. Make sure that you have sufficient balance within your account.
+     *   **false**: disables automatic payment. You must perform the following operations to pay for the instance: Log on to the ApsaraDB for MongoDB console. In the upper-right corner, click **Expenses** and select **User Center** from the drop-down list. The User Center page appears. In the left-side navigation pane, choose **Order Management** > Renew. On the Renewal tab, find the bill that you want to pay and then click Renew in the Actions column.
+     *
+     * Default value: **true**.
      * @example true
      *
      * @var bool
@@ -16,6 +22,12 @@ class ModifyDBInstanceDiskTypeRequest extends Model
     public $autoPay;
 
     /**
+     * @description Specifies whether to enable auto-renewal. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * Default value: **false**.
      * @example false
      *
      * @var string
@@ -23,6 +35,8 @@ class ModifyDBInstanceDiskTypeRequest extends Model
     public $autoRenew;
 
     /**
+     * @description The business information. This is an additional parameter.
+     *
      * @example {“ActivityId":"000000000"}
      *
      * @var string
@@ -30,6 +44,8 @@ class ModifyDBInstanceDiskTypeRequest extends Model
     public $businessInfo;
 
     /**
+     * @description The coupon code. Default value: `youhuiquan_promotion_option_id_for_blank`.
+     *
      * @example youhuiquan_promotion_option_id_for_blank
      *
      * @var string
@@ -37,6 +53,9 @@ class ModifyDBInstanceDiskTypeRequest extends Model
     public $couponNo;
 
     /**
+     * @description The instance ID.
+     *
+     * This parameter is required.
      * @example dds-bp1fa5efaa93****
      *
      * @var string
@@ -44,6 +63,13 @@ class ModifyDBInstanceDiskTypeRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @description The new disk type. Valid values:
+     *
+     *   **cloud_auto**: ESSD AutoPL disk
+     *   **cloud_essd1**: PL1 ESSD
+     *   **cloud_essd2**: PL2 ESSD
+     *   **cloud_essd3**: PL3 ESSD
+     *
      * @example cloud_auto
      *
      * @var string
@@ -51,6 +77,8 @@ class ModifyDBInstanceDiskTypeRequest extends Model
     public $dbInstanceStorageType;
 
     /**
+     * @description An additional parameter.
+     *
      * @example async
      *
      * @var string
@@ -58,6 +86,12 @@ class ModifyDBInstanceDiskTypeRequest extends Model
     public $extraParam;
 
     /**
+     * @description The type of configuration changes. Valid values:
+     *
+     *   **UPGRADE**
+     *   **DOWNGRADE**
+     *
+     * >  This parameter is valid only when the billing method of the instance is subscription.
      * @example UPGRADE
      *
      * @var string
@@ -65,6 +99,8 @@ class ModifyDBInstanceDiskTypeRequest extends Model
     public $orderType;
 
     /**
+     * @description The provisioned IOPS. Valid values: 0 to 50000.
+     *
      * @example 1960
      *
      * @var int

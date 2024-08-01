@@ -11,6 +11,7 @@ class ModifyDBInstanceSSLRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example dds-bp2235****
      *
      * @var string
@@ -44,6 +45,7 @@ class ModifyDBInstanceSSLRequest extends Model
      *   **Close**: disables SSL encryption.
      *   **Update**: updates the SSL certificate.
      *
+     * This parameter is required.
      * @example Open
      *
      * @var string

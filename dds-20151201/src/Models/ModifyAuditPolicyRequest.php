@@ -23,6 +23,7 @@ class ModifyAuditPolicyRequest extends Model
      *   **enable**
      *   **disabled**
      *
+     * This parameter is required.
      * @example enable
      *
      * @var string
@@ -32,6 +33,7 @@ class ModifyAuditPolicyRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example dds-bp1785659e3f****
      *
      * @var string

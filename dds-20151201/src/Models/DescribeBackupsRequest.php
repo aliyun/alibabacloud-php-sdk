@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackupsRequest extends Model
 {
     /**
-     * @description The ID of the backup set. You can call the [CreateBackup](~~62171~~) operation to query the backup set ID.
+     * @description The ID of the backup set. You can call the [CreateBackup](https://help.aliyun.com/document_detail/62171.html) operation to query the backup set ID.
      *
      * If you set the **DBInstanceId** parameter to the ID of a sharded cluster instance, the number of backup IDs is the same as the number of shard nodes. Multiple backup IDs are separated with commas (,).
      * @example 2072****,2072****,2072****
@@ -22,11 +22,18 @@ class DescribeBackupsRequest extends Model
      * @description The instance ID.
      *
      * > If you set this parameter to the ID of a sharded cluster instance, you must also specify the **NodeId** parameter.
+     *
+     * This parameter is required.
      * @example dds-bp1a7009eb24****
      *
      * @var string
      */
     public $DBInstanceId;
+
+    /**
+     * @var string
+     */
+    public $destRegion;
 
     /**
      * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC. The end time must be later than the start time.
@@ -90,6 +97,11 @@ class DescribeBackupsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @var string
+     */
+    public $srcRegion;
+
+    /**
      * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
      *
      * @example 2022-01-13T13:00Z
@@ -100,6 +112,7 @@ class DescribeBackupsRequest extends Model
     protected $_name = [
         'backupId'             => 'BackupId',
         'DBInstanceId'         => 'DBInstanceId',
+        'destRegion'           => 'DestRegion',
         'endTime'              => 'EndTime',
         'nodeId'               => 'NodeId',
         'ownerAccount'         => 'OwnerAccount',
@@ -108,6 +121,7 @@ class DescribeBackupsRequest extends Model
         'pageSize'             => 'PageSize',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
+        'srcRegion'            => 'SrcRegion',
         'startTime'            => 'StartTime',
     ];
 
@@ -123,6 +137,9 @@ class DescribeBackupsRequest extends Model
         }
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
+        }
+        if (null !== $this->destRegion) {
+            $res['DestRegion'] = $this->destRegion;
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
@@ -148,6 +165,9 @@ class DescribeBackupsRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
+        if (null !== $this->srcRegion) {
+            $res['SrcRegion'] = $this->srcRegion;
+        }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
@@ -168,6 +188,9 @@ class DescribeBackupsRequest extends Model
         }
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
+        }
+        if (isset($map['DestRegion'])) {
+            $model->destRegion = $map['DestRegion'];
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
@@ -192,6 +215,9 @@ class DescribeBackupsRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['SrcRegion'])) {
+            $model->srcRegion = $map['SrcRegion'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];

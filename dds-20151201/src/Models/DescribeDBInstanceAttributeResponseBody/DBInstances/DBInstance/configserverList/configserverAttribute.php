@@ -63,7 +63,7 @@ class configserverAttribute extends Model
     public $nodeId;
 
     /**
-     * @description The storage capacity of the Configserver node.
+     * @description The storage capacity of the Configserver node. Unit: GB.
      *
      * @example 20
      *
@@ -81,7 +81,7 @@ class configserverAttribute extends Model
     public $port;
 
     /**
-     * @description The status of the Configserver node. For more information, see [Instance states](~~63870~~).
+     * @description The status of the Configserver node. For more information, see [Instance states](https://help.aliyun.com/document_detail/63870.html).
      *
      * @example Running
      *

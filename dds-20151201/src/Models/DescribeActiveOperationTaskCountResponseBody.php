@@ -9,10 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeActiveOperationTaskCountResponseBody extends Model
 {
     /**
-     * @description Indicates whether any O\&M tasks need pop-up windows to notify users actions. Valid values:
+     * @description Indicates whether any O\\&M tasks need pop-up windows to notify users actions. Valid values:
      *
-     *   **0**: No O\&M tasks need pop-up windows to notify users actions.
-     *   **1**: Some O\&M tasks need pop-up windows to notify users actions.
+     *   **0**: No O\\&M tasks need pop-up windows to notify users actions.
+     *   **1**: Some O\\&M tasks need pop-up windows to notify users actions.
      *
      * @example 0
      *
@@ -30,7 +30,7 @@ class DescribeActiveOperationTaskCountResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The number of pending O\&M tasks.
+     * @description The number of pending O\\&M tasks.
      *
      * @example 0
      *

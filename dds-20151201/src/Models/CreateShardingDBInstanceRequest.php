@@ -16,7 +16,7 @@ class CreateShardingDBInstanceRequest extends Model
      * @description The password of the root account. The password must meet the following requirements:
      *
      *   The password must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
-     *   The special characters include ! # $ % ^ & \* ( ) \_ + - =
+     *   The special characters include ! # $ % ^ & \\* ( ) _ + - =
      *   The password of the account must be 8 to 32 characters in length.
      *
      * @example 123456Aa
@@ -37,6 +37,11 @@ class CreateShardingDBInstanceRequest extends Model
      * @var string
      */
     public $autoRenew;
+
+    /**
+     * @var string
+     */
+    public $backupId;
 
     /**
      * @description The billing method of the instance. Valid values:
@@ -63,6 +68,7 @@ class CreateShardingDBInstanceRequest extends Model
     /**
      * @description The ConfigServer nodes of the instance.
      *
+     * This parameter is required.
      * @var configServer[]
      */
     public $configServer;
@@ -71,7 +77,7 @@ class CreateShardingDBInstanceRequest extends Model
      * @description The name of the instance. The name of the instance must meet the following requirements:
      *
      *   The name must start with a letter.
-     *   It can contain digits, letters, underscores (\_), and hyphens (-).
+     *   It can contain digits, letters, underscores (_), and hyphens (-).
      *   It must be 2 to 256 characters in length.
      *
      * @example test
@@ -79,6 +85,11 @@ class CreateShardingDBInstanceRequest extends Model
      * @var string
      */
     public $DBInstanceDescription;
+
+    /**
+     * @var string
+     */
+    public $destRegion;
 
     /**
      * @description Specifies whether to enable disk encryption.
@@ -101,6 +112,7 @@ class CreateShardingDBInstanceRequest extends Model
     /**
      * @description The database engine of the instance. Set the value to **MongoDB**.
      *
+     * This parameter is required.
      * @example MongoDB
      *
      * @var string
@@ -117,8 +129,10 @@ class CreateShardingDBInstanceRequest extends Model
      *   **4.0**
      *   **3.4**
      *
-     * > *   For more information about the limits on database versions and storage engines, see [MongoDB versions and storage engines](~~61906~~).
+     * > *   For more information about the limits on database versions and storage engines, see [MongoDB versions and storage engines](https://help.aliyun.com/document_detail/61906.html).
      * > *   If you call this operation to clone an instance, set the value of this parameter to the engine version of the source instance.
+     *
+     * This parameter is required.
      * @example 4.4
      *
      * @var string
@@ -158,7 +172,7 @@ class CreateShardingDBInstanceRequest extends Model
      *
      * > *   This parameter is available and required if you set the value of **EngineVersion** to **4.4** or **5.0**.
      * > *   The value of this parameter cannot be the same as the value of **ZoneId** or **SecondaryZoneId**.
-     * > *   For more information about the multi-zone deployment policy of a sharded cluster instance, see [Create a multi-zone sharded cluster instance](~~117865~~).
+     * > *   For more information about the multi-zone deployment policy of a sharded cluster instance, see [Create a multi-zone sharded cluster instance](https://help.aliyun.com/document_detail/117865.html).
      * @example cn-hangzhou-i
      *
      * @var string
@@ -168,6 +182,7 @@ class CreateShardingDBInstanceRequest extends Model
     /**
      * @description The mongos nodes of the instance.
      *
+     * This parameter is required.
      * @var mongos[]
      */
     public $mongos;
@@ -225,8 +240,9 @@ class CreateShardingDBInstanceRequest extends Model
     public $provisionedIops;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~61933~~) operation to query the most recent region list.
+     * @description The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61933.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -236,12 +252,13 @@ class CreateShardingDBInstanceRequest extends Model
     /**
      * @description The information of the shard node.
      *
+     * This parameter is required.
      * @var replicaSet[]
      */
     public $replicaSet;
 
     /**
-     * @description The resource group ID. For more information, see [View the basic information of a resource group](~~151181~~).
+     * @description The resource group ID. For more information, see [View the basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
      *
      * @example rg-acfmyiu4ekp****
      *
@@ -270,6 +287,11 @@ class CreateShardingDBInstanceRequest extends Model
     public $restoreTime;
 
     /**
+     * @var string
+     */
+    public $restoreType;
+
+    /**
      * @description The ID of secondary zone 1 for multi-zone deployment. Valid values:
      *
      *   **cn-hangzhou-g**: Hangzhou Zone G
@@ -293,7 +315,7 @@ class CreateShardingDBInstanceRequest extends Model
      *
      * > *   This parameter is available and required if you set the value of **EngineVersion** to **4.4** or **5.0**.
      * > *   The value of this parameter cannot be the same as the value of **ZoneId** or **HiddenZoneId**.
-     * > *   For more information about the multi-zone deployment policy of a sharded cluster instance, see [Create a multi-zone sharded cluster instance](~~117865~~).
+     * > *   For more information about the multi-zone deployment policy of a sharded cluster instance, see [Create a multi-zone sharded cluster instance](https://help.aliyun.com/document_detail/117865.html).
      * @example cn-hangzhou-h
      *
      * @var string
@@ -326,10 +348,15 @@ class CreateShardingDBInstanceRequest extends Model
     public $srcDBInstanceId;
 
     /**
+     * @var string
+     */
+    public $srcRegion;
+
+    /**
      * @description The storage engine of the instance. Set the value to **WiredTiger**.
      *
      * > *   If you call this operation to clone an instance, set the value of this parameter to the storage engine of the source instance.
-     * > *   For more information about the limits on database versions and storage engines, see [MongoDB versions and storage engines](~~61906~~).
+     * > *   For more information about the limits on database versions and storage engines, see [MongoDB versions and storage engines](https://help.aliyun.com/document_detail/61906.html).
      * @example WiredTiger
      *
      * @var string
@@ -378,7 +405,7 @@ class CreateShardingDBInstanceRequest extends Model
     public $vpcId;
 
     /**
-     * @description The zone ID of the instance. You can call the [DescribeRegions](~~61933~~) operation to query the most recent zone list.
+     * @description The zone ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61933.html) operation to query the most recent zone list.
      *
      * @example cn-hangzhou-g
      *
@@ -388,10 +415,12 @@ class CreateShardingDBInstanceRequest extends Model
     protected $_name = [
         'accountPassword'        => 'AccountPassword',
         'autoRenew'              => 'AutoRenew',
+        'backupId'               => 'BackupId',
         'chargeType'             => 'ChargeType',
         'clientToken'            => 'ClientToken',
         'configServer'           => 'ConfigServer',
         'DBInstanceDescription'  => 'DBInstanceDescription',
+        'destRegion'             => 'DestRegion',
         'encrypted'              => 'Encrypted',
         'encryptionKey'          => 'EncryptionKey',
         'engine'                 => 'Engine',
@@ -411,9 +440,11 @@ class CreateShardingDBInstanceRequest extends Model
         'resourceOwnerAccount'   => 'ResourceOwnerAccount',
         'resourceOwnerId'        => 'ResourceOwnerId',
         'restoreTime'            => 'RestoreTime',
+        'restoreType'            => 'RestoreType',
         'secondaryZoneId'        => 'SecondaryZoneId',
         'securityIPList'         => 'SecurityIPList',
         'srcDBInstanceId'        => 'SrcDBInstanceId',
+        'srcRegion'              => 'SrcRegion',
         'storageEngine'          => 'StorageEngine',
         'storageType'            => 'StorageType',
         'tag'                    => 'Tag',
@@ -435,6 +466,9 @@ class CreateShardingDBInstanceRequest extends Model
         if (null !== $this->autoRenew) {
             $res['AutoRenew'] = $this->autoRenew;
         }
+        if (null !== $this->backupId) {
+            $res['BackupId'] = $this->backupId;
+        }
         if (null !== $this->chargeType) {
             $res['ChargeType'] = $this->chargeType;
         }
@@ -452,6 +486,9 @@ class CreateShardingDBInstanceRequest extends Model
         }
         if (null !== $this->DBInstanceDescription) {
             $res['DBInstanceDescription'] = $this->DBInstanceDescription;
+        }
+        if (null !== $this->destRegion) {
+            $res['DestRegion'] = $this->destRegion;
         }
         if (null !== $this->encrypted) {
             $res['Encrypted'] = $this->encrypted;
@@ -522,6 +559,9 @@ class CreateShardingDBInstanceRequest extends Model
         if (null !== $this->restoreTime) {
             $res['RestoreTime'] = $this->restoreTime;
         }
+        if (null !== $this->restoreType) {
+            $res['RestoreType'] = $this->restoreType;
+        }
         if (null !== $this->secondaryZoneId) {
             $res['SecondaryZoneId'] = $this->secondaryZoneId;
         }
@@ -530,6 +570,9 @@ class CreateShardingDBInstanceRequest extends Model
         }
         if (null !== $this->srcDBInstanceId) {
             $res['SrcDBInstanceId'] = $this->srcDBInstanceId;
+        }
+        if (null !== $this->srcRegion) {
+            $res['SrcRegion'] = $this->srcRegion;
         }
         if (null !== $this->storageEngine) {
             $res['StorageEngine'] = $this->storageEngine;
@@ -573,6 +616,9 @@ class CreateShardingDBInstanceRequest extends Model
         if (isset($map['AutoRenew'])) {
             $model->autoRenew = $map['AutoRenew'];
         }
+        if (isset($map['BackupId'])) {
+            $model->backupId = $map['BackupId'];
+        }
         if (isset($map['ChargeType'])) {
             $model->chargeType = $map['ChargeType'];
         }
@@ -590,6 +636,9 @@ class CreateShardingDBInstanceRequest extends Model
         }
         if (isset($map['DBInstanceDescription'])) {
             $model->DBInstanceDescription = $map['DBInstanceDescription'];
+        }
+        if (isset($map['DestRegion'])) {
+            $model->destRegion = $map['DestRegion'];
         }
         if (isset($map['Encrypted'])) {
             $model->encrypted = $map['Encrypted'];
@@ -660,6 +709,9 @@ class CreateShardingDBInstanceRequest extends Model
         if (isset($map['RestoreTime'])) {
             $model->restoreTime = $map['RestoreTime'];
         }
+        if (isset($map['RestoreType'])) {
+            $model->restoreType = $map['RestoreType'];
+        }
         if (isset($map['SecondaryZoneId'])) {
             $model->secondaryZoneId = $map['SecondaryZoneId'];
         }
@@ -668,6 +720,9 @@ class CreateShardingDBInstanceRequest extends Model
         }
         if (isset($map['SrcDBInstanceId'])) {
             $model->srcDBInstanceId = $map['SrcDBInstanceId'];
+        }
+        if (isset($map['SrcRegion'])) {
+            $model->srcRegion = $map['SrcRegion'];
         }
         if (isset($map['StorageEngine'])) {
             $model->storageEngine = $map['StorageEngine'];

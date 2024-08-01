@@ -51,6 +51,7 @@ class ModifyNodeSpecBatchRequest extends Model
     /**
      * @description The ID of the instance whose configurations you want to change.
      *
+     * This parameter is required.
      * @example dds-bp1337621e8f****
      *
      * @var string
@@ -65,9 +66,9 @@ class ModifyNodeSpecBatchRequest extends Model
      *
      * >
      *
-     *   You can call the [ModifyDBInstanceMaintainTime](~~62008~~) operation to modify the maintenance window of an instance.
+     *   You can call the [ModifyDBInstanceMaintainTime](https://help.aliyun.com/document_detail/62008.html) operation to modify the maintenance window of an instance.
      *
-     *   You can call the [DescribeDBInstanceAttribute](~~62010~~) operation to view the maintenance window of an instance.
+     *   You can call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/62010.html) operation to view the maintenance window of an instance.
      *
      * Default value: **Immediately**.
      * @example Immediately
@@ -77,8 +78,9 @@ class ModifyNodeSpecBatchRequest extends Model
     public $effectiveTime;
 
     /**
-     * @description The configuration information of the mongos nodes or shard nodes whose configurations you want to change. For more information, see [Instance types](~~57141~~).
+     * @description The configuration information of the mongos nodes or shard nodes whose configurations you want to change. For more information, see [Instance types](https://help.aliyun.com/document_detail/57141.html).
      *
+     * This parameter is required.
      * @example {"Shards":[{"DBInstanceClass":"dds.shard.mid","DBInstanceName":"d-bp14ae4572fd****","Storage":20},{"DBInstanceClass":"dds.shard.mid","DBInstanceName":"d-bp19f4f92dc5****","Storage":30}]}
      *
      * @var string
@@ -109,7 +111,7 @@ class ModifyNodeSpecBatchRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~61933~~) operation to query the most recent region list.
+     * @description The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61933.html) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *

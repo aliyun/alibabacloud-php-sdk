@@ -11,6 +11,22 @@ use AlibabaCloud\Tea\Model;
 class clusterBackups extends Model
 {
     /**
+     * @description The backup status. Valid values:
+     *
+     *   **init**: The backup is being initialized.
+     *   **No_Need**: Log backup is not performed.
+     *   **Running**: Log backup is being performed.
+     *   **Ready**: Log backup is complete.
+     *   **Failed**: Log backup failed.
+     *
+     * >  If the **ClusterBackupStatus** parameter is set to OK, full backup is successful. If you want to perform point-in-time-restoration on an instance for which log backup is enabled or to implement consistency restoration, make sure that log backup is complete.
+     * @example Ready
+     *
+     * @var string
+     */
+    public $attachLogStatus;
+
+    /**
      * @description The collection of the backup sets of each child node in a cluster backup set.
      *
      * @var backups[]
@@ -27,7 +43,7 @@ class clusterBackups extends Model
     public $clusterBackupEndTime;
 
     /**
-     * @description The ID of the cluster backup set.
+     * @description The backup set ID.
      *
      * @example cb-o8c2ugnxo26kx***
      *
@@ -72,7 +88,7 @@ class clusterBackups extends Model
     public $clusterBackupStatus;
 
     /**
-     * @description The additional information in JSON format.
+     * @description The additional information in the JSON format.
      *
      * @var extraInfo
      */
@@ -99,6 +115,7 @@ class clusterBackups extends Model
      */
     public $progress;
     protected $_name = [
+        'attachLogStatus'        => 'AttachLogStatus',
         'backups'                => 'Backups',
         'clusterBackupEndTime'   => 'ClusterBackupEndTime',
         'clusterBackupId'        => 'ClusterBackupId',
@@ -118,6 +135,9 @@ class clusterBackups extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->attachLogStatus) {
+            $res['AttachLogStatus'] = $this->attachLogStatus;
+        }
         if (null !== $this->backups) {
             $res['Backups'] = [];
             if (null !== $this->backups && \is_array($this->backups)) {
@@ -166,6 +186,9 @@ class clusterBackups extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AttachLogStatus'])) {
+            $model->attachLogStatus = $map['AttachLogStatus'];
+        }
         if (isset($map['Backups'])) {
             if (!empty($map['Backups'])) {
                 $model->backups = [];

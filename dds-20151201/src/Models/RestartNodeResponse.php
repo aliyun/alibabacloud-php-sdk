@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Dds\V20151201\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class RestoreDBInstanceResponse extends Model
+class RestartNodeResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class RestoreDBInstanceResponse extends Model
     public $statusCode;
 
     /**
-     * @var RestoreDBInstanceResponseBody
+     * @var RestartNodeResponseBody
      */
     public $body;
     protected $_name = [
@@ -51,7 +51,7 @@ class RestoreDBInstanceResponse extends Model
     /**
      * @param array $map
      *
-     * @return RestoreDBInstanceResponse
+     * @return RestartNodeResponse
      */
     public static function fromMap($map = [])
     {
@@ -63,7 +63,7 @@ class RestoreDBInstanceResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = RestoreDBInstanceResponseBody::fromMap($map['body']);
+            $model->body = RestartNodeResponseBody::fromMap($map['body']);
         }
 
         return $model;

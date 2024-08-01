@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class restoreRanges extends Model
 {
     /**
+     * @description The beginning of the time range to which data can be restored.
+     *
      * @example 2023-10-16T19:33:20Z
      *
      * @var string
@@ -16,6 +18,8 @@ class restoreRanges extends Model
     public $restoreBeginTime;
 
     /**
+     * @description The end of the time range to which data can be restored.
+     *
      * @example 2023-10-16T19:43:20Z
      *
      * @var string
@@ -23,6 +27,10 @@ class restoreRanges extends Model
     public $restoreEndTime;
 
     /**
+     * @description The method used to restore data. Valid value:
+     *
+     *   PointInTime (default): Data is restored to a point in time.
+     *
      * @example PointInTime
      *
      * @var string

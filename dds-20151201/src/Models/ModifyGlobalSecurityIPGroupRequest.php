@@ -11,7 +11,7 @@ class ModifyGlobalSecurityIPGroupRequest extends Model
     /**
      * @description The IP addresses in the whitelist template.
      *
-     * > Separate multiple IP addresses with commas (,). You can create up to 1,000 IP addresses or CIDR blocks for all IP address whitelists.
+     * This parameter is required.
      * @example 27.16.214.10,111.60.117.181
      *
      * @var string
@@ -21,6 +21,7 @@ class ModifyGlobalSecurityIPGroupRequest extends Model
     /**
      * @description The name of the IP whitelist template.
      *
+     * This parameter is required.
      * @example dps
      *
      * @var string
@@ -30,6 +31,7 @@ class ModifyGlobalSecurityIPGroupRequest extends Model
     /**
      * @description The ID of the IP whitelist template.
      *
+     * This parameter is required.
      * @example g-fwjk62egbsrp4sftxmmr
      *
      * @var string
@@ -47,8 +49,9 @@ class ModifyGlobalSecurityIPGroupRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~61933~~) operation to query the most recent region list.
+     * @description The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61933.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

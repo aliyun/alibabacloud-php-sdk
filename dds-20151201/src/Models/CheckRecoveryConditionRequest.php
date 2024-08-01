@@ -11,7 +11,7 @@ class CheckRecoveryConditionRequest extends Model
     /**
      * @description The backup ID.
      *
-     * > *   You can call the [DescribeBackups](~~62172~~) operation to query the backup ID.
+     * > *   You can call the [DescribeBackups](https://help.aliyun.com/document_detail/62172.html) operation to query the backup ID.
      * > *   You must specify one of the **RestoreTime** and BackupId parameters.
      * > *   This parameter is not applicable to sharded cluster instances.
      * @example 5664****
@@ -29,6 +29,30 @@ class CheckRecoveryConditionRequest extends Model
      * @var string
      */
     public $databaseNames;
+
+    /**
+     * @description The region of the backup set used for the cross-region backup and restoration.
+     *
+     * >  This parameter is required when you set the RestoreType parameter to 3.
+     * @example cn-hangzhou
+     *
+     * @var string
+     */
+    public $destRegion;
+
+    /**
+     * @description The instance architecture. Valid values:
+     *
+     *   replicate
+     *   sharding
+     *
+     * > * This parameter is required when you set the RestoreType parameter to 2.
+     * > * This parameter is required when you set the RestoreType parameter to 3.
+     * @example replicate
+     *
+     * @var string
+     */
+    public $instanceType;
 
     /**
      * @var string
@@ -71,6 +95,19 @@ class CheckRecoveryConditionRequest extends Model
     public $restoreTime;
 
     /**
+     * @description The restoration type.
+     *
+     * > * 0: The data of the source instance is restored to a new instance in the same region.
+     * > * 1: The data of the source instance is restored to an earlier point in time.
+     * > * 2: The data of a deleted instance is restored to a new instance from the backup set.
+     * > * 3: The data of a deleted instance is restored to a new instance in another region from the backup set.
+     * @example 0
+     *
+     * @var string
+     */
+    public $restoreType;
+
+    /**
      * @description The ID of the source instance.
      *
      * @example dds-bp1378****
@@ -78,16 +115,31 @@ class CheckRecoveryConditionRequest extends Model
      * @var string
      */
     public $sourceDBInstance;
+
+    /**
+     * @description The region where the source instance resides.
+     *
+     * > * This parameter is required when you set the RestoreType parameter to 2.
+     * > * This parameter is required when you set the RestoreType parameter to 3.
+     * @example cn-beijing
+     *
+     * @var string
+     */
+    public $srcRegion;
     protected $_name = [
         'backupId'             => 'BackupId',
         'databaseNames'        => 'DatabaseNames',
+        'destRegion'           => 'DestRegion',
+        'instanceType'         => 'InstanceType',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'resourceGroupId'      => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'restoreTime'          => 'RestoreTime',
+        'restoreType'          => 'RestoreType',
         'sourceDBInstance'     => 'SourceDBInstance',
+        'srcRegion'            => 'SrcRegion',
     ];
 
     public function validate()
@@ -102,6 +154,12 @@ class CheckRecoveryConditionRequest extends Model
         }
         if (null !== $this->databaseNames) {
             $res['DatabaseNames'] = $this->databaseNames;
+        }
+        if (null !== $this->destRegion) {
+            $res['DestRegion'] = $this->destRegion;
+        }
+        if (null !== $this->instanceType) {
+            $res['InstanceType'] = $this->instanceType;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
@@ -121,8 +179,14 @@ class CheckRecoveryConditionRequest extends Model
         if (null !== $this->restoreTime) {
             $res['RestoreTime'] = $this->restoreTime;
         }
+        if (null !== $this->restoreType) {
+            $res['RestoreType'] = $this->restoreType;
+        }
         if (null !== $this->sourceDBInstance) {
             $res['SourceDBInstance'] = $this->sourceDBInstance;
+        }
+        if (null !== $this->srcRegion) {
+            $res['SrcRegion'] = $this->srcRegion;
         }
 
         return $res;
@@ -142,6 +206,12 @@ class CheckRecoveryConditionRequest extends Model
         if (isset($map['DatabaseNames'])) {
             $model->databaseNames = $map['DatabaseNames'];
         }
+        if (isset($map['DestRegion'])) {
+            $model->destRegion = $map['DestRegion'];
+        }
+        if (isset($map['InstanceType'])) {
+            $model->instanceType = $map['InstanceType'];
+        }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
@@ -160,8 +230,14 @@ class CheckRecoveryConditionRequest extends Model
         if (isset($map['RestoreTime'])) {
             $model->restoreTime = $map['RestoreTime'];
         }
+        if (isset($map['RestoreType'])) {
+            $model->restoreType = $map['RestoreType'];
+        }
         if (isset($map['SourceDBInstance'])) {
             $model->sourceDBInstance = $map['SourceDBInstance'];
+        }
+        if (isset($map['SrcRegion'])) {
+            $model->srcRegion = $map['SrcRegion'];
         }
 
         return $model;

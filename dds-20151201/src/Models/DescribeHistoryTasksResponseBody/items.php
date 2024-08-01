@@ -17,7 +17,7 @@ class items extends Model
      *   cancel: makes a cancellation.
      *   modifySwitchTime: changes the switching or restoration time.
      *
-     * @example `{\"steps\":[{\"action_info\":{\"Waiting\":[\"modifySwitchTime\"]},\"step_name\":\"exec_task\"}]}`
+     * @example `{\\"steps\\":[{\\"action_info\\":{\\"Waiting\\":[\\"modifySwitchTime\\"]},\\"step_name\\":\\"exec_task\\"}]}`
      *
      * @var string
      */
@@ -60,7 +60,7 @@ class items extends Model
     public $dbType;
 
     /**
-     * @description The end time of the performed O\&M task. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     * @description The end time of the performed O\\&M task. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
      *
      * @example 2023-03-16T02:59Z
      *
@@ -141,7 +141,7 @@ class items extends Model
     public $remainTime;
 
     /**
-     * @description The start time of the performed O\&M task. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     * @description The start time of the performed O\\&M task. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
      *
      * @example 2023-02-11T02:33Z
      *
@@ -169,7 +169,7 @@ class items extends Model
     /**
      * @description The details of the task. The task details vary based on the value of the taskType parameter.
      *
-     * @example {\"callerUid\":\"test\"}
+     * @example {\\"callerUid\\":\\"test\\"}
      *
      * @var string
      */

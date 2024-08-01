@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeMongoDBLogConfigRequest extends Model
 {
     /**
-     * @description The instance ID. You can call the [DescribeDBInstances](~~61939~~) operation to query the ID of the instance.
+     * @description The instance ID. You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/61939.html) operation to query the ID of the instance.
      *
+     * This parameter is required.
      * @example dds-bp12c5b040dc****
      *
      * @var string

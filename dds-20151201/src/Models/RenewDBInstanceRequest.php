@@ -67,6 +67,7 @@ class RenewDBInstanceRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example dds-bpxxxxxxxx
      *
      * @var string
@@ -86,6 +87,7 @@ class RenewDBInstanceRequest extends Model
     /**
      * @description The subscription period of the instance. Unit: month. Valid values: **1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 24, and 36**.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int

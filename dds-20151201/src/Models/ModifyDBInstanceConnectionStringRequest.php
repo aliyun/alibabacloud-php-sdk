@@ -11,6 +11,7 @@ class ModifyDBInstanceConnectionStringRequest extends Model
     /**
      * @description The current endpoint that is to be modified.
      *
+     * This parameter is required.
      * @example s-bpxxxxxxxx.mongodb.rds.aliyuncs.com
      *
      * @var string
@@ -21,6 +22,8 @@ class ModifyDBInstanceConnectionStringRequest extends Model
      * @description The instance ID.
      *
      * > If you set this parameter to the ID of a sharded cluster instance, you must also specify the **NodeId** parameter.
+     *
+     * This parameter is required.
      * @example dds-bpxxxxxxxx
      *
      * @var string
@@ -30,7 +33,7 @@ class ModifyDBInstanceConnectionStringRequest extends Model
     /**
      * @description The new endpoint. It must be 8 to 64 characters in length and can contain letters and digits. It must start with a lowercase letter.
      *
-     * > You need only to specify the prefix of the endpoint. The content other than the prefix cannot be modified.
+     * This parameter is required.
      * @example aliyuntest111
      *
      * @var string
@@ -38,8 +41,9 @@ class ModifyDBInstanceConnectionStringRequest extends Model
     public $newConnectionString;
 
     /**
-     * @description 新的端口，端口范围需要在1000~65535之间。
-     * > 当**DBInstanceId**参数传入的是云盘实例ID时，本参数才可用。
+     * @description The new port number of the instance. The port number must be within the range from 1000 to 65535.
+     *
+     * >  This parameter is available only when you set the **DBInstanceId** parameter to the ID of an instance that uses cloud disks.
      * @example 3310
      *
      * @var int

@@ -11,6 +11,7 @@ class DescribeAuditPolicyRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example dds-bp12c5b040dc****
      *
      * @var string

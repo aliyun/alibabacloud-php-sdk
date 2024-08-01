@@ -14,11 +14,17 @@ use AlibabaCloud\Tea\Model;
 class subOrder extends Model
 {
     /**
+     * @description Indicates whether the contract promotion is hit.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $contractActivity;
 
     /**
+     * @description The price reduction information.
+     *
      * @var depreciateInfo
      */
     public $depreciateInfo;
@@ -42,27 +48,39 @@ class subOrder extends Model
     public $instanceId;
 
     /**
+     * @description Indicates whether the contract promotion is hit.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $isContractActivity;
 
     /**
+     * @description Indicates whether the discount is hit.
+     *
+     * @example true
+     *
      * @var string
      */
     public $isNewOfficialActivity;
 
     /**
+     * @description The configuration item of the instance in the order.
+     *
      * @var moduleInstance
      */
     public $moduleInstance;
 
     /**
+     * @description The promotional options that can be configured.
+     *
      * @var optionalPromotions
      */
     public $optionalPromotions;
 
     /**
-     * @description The list price of the order.
+     * @description The original price of the order.
      *
      * @example 322.4
      *
@@ -71,23 +89,33 @@ class subOrder extends Model
     public $originalAmount;
 
     /**
+     * @description The promotion details.
+     *
      * @var promDetailList
      */
     public $promDetailList;
 
     /**
-     * @description The promotion rules.
+     * @description The activity rules.
      *
      * @var ruleIds
      */
     public $ruleIds;
 
     /**
+     * @description The discount.
+     *
+     * @example 8687
+     *
      * @var float
      */
     public $standDiscountPrice;
 
     /**
+     * @description The discount.
+     *
+     * @example 62982
+     *
      * @var float
      */
     public $standPrice;

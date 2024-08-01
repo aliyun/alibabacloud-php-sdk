@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackupsResponseBody extends Model
 {
     /**
-     * @description The details of the backup sets.
+     * @description The details of the backup set.
      *
      * @var backups
      */

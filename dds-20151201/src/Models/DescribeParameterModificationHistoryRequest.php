@@ -26,6 +26,8 @@ class DescribeParameterModificationHistoryRequest extends Model
      * @description The instance ID.
      *
      * >  If you set this parameter to the ID of a sharded cluster instance, you must also specify the **NodeId** parameter.
+     *
+     * This parameter is required.
      * @example dds-bp2235****
      *
      * @var string
@@ -35,6 +37,7 @@ class DescribeParameterModificationHistoryRequest extends Model
     /**
      * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC. The end time must be later than the start time.
      *
+     * This parameter is required.
      * @example 2019-01-02T12:10:10Z
      *
      * @var string
@@ -74,6 +77,7 @@ class DescribeParameterModificationHistoryRequest extends Model
     /**
      * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
      *
+     * This parameter is required.
      * @example 2019-01-01T12:10:10Z
      *
      * @var string

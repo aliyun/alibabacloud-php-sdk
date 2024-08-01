@@ -12,6 +12,8 @@ class DescribeAuditRecordsRequest extends Model
      * @description The instance ID.
      *
      * > If you set this parameter to the ID of a sharded cluster instance, you must also specify the **NodeId** parameter.
+     *
+     * This parameter is required.
      * @example dds-bp12c5b040dc****
      *
      * @var string
@@ -30,7 +32,7 @@ class DescribeAuditRecordsRequest extends Model
     /**
      * @description The end of the time range to query. The end time must be later than the start time. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
      *
-     * > The end time must be within 24 hours from the start time. Otherwise, the query fails.
+     * This parameter is required.
      * @example 2019-03-13T13:11:14Z
      *
      * @var string
@@ -133,6 +135,7 @@ class DescribeAuditRecordsRequest extends Model
     /**
      * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
      *
+     * This parameter is required.
      * @example 2019-03-13T12:11:14Z
      *
      * @var string

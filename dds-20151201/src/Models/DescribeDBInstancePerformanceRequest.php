@@ -12,6 +12,8 @@ class DescribeDBInstancePerformanceRequest extends Model
      * @description The instance ID.
      *
      * >  If you set this parameter to the ID of a sharded cluster instance, you must also specify the **NodeId** parameter.
+     *
+     * This parameter is required.
      * @example dds-bp2635****
      *
      * @var string
@@ -21,6 +23,7 @@ class DescribeDBInstancePerformanceRequest extends Model
     /**
      * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC. The end time must be later than the start time.
      *
+     * This parameter is required.
      * @example 2022-06-13T11:58Z
      *
      * @var string
@@ -28,9 +31,18 @@ class DescribeDBInstancePerformanceRequest extends Model
     public $endTime;
 
     /**
-     * @description The performance metric. For more information about valid values, see [Performance metrics](~~64048~~).
+     * @description The interval at which performance data is collected. Valid values: 5, 30, 60, 600, 1800, 3600, 86400.
      *
-     * >  If you need to specify multiple metrics, separate the metrics with commas (,).
+     * @example 60
+     *
+     * @var string
+     */
+    public $interval;
+
+    /**
+     * @description The performance metric. For more information about valid values, see [Monitoring items and metrics](https://help.aliyun.com/document_detail/216973.html).
+     *
+     * This parameter is required.
      * @example CpuUsage
      *
      * @var string
@@ -58,17 +70,13 @@ class DescribeDBInstancePerformanceRequest extends Model
     public $ownerId;
 
     /**
-     * @description The role of the node in a standalone or replica set instance. Valid values:
+     * @description The role of the node in the standalone or replica set instance. Valid values:
      *
      *   **Primary**
      *   **Secondary**
      *
-     * >
-     *
-     *   This parameter is valid only when you set the **DBInstanceId** parameter to the ID of a standalone instance or a replica set instance.
-     *
-     *   If you set the **DBInstanceId** parameter to the ID of a standalone instance, the value of this parameter can only be **Primary**.
-     *
+     * >  *  This parameter is valid only when you specify the **DBInstanceId** parameter to the ID of a standalone instance or a replica set instance.
+     * > *  This parameter can be set only to **Primary** when you specify the **DBInstanceId** parameter to the ID of a standalone instance.
      * @example Primary
      *
      * @var string
@@ -86,7 +94,7 @@ class DescribeDBInstancePerformanceRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The role ID of the node in a standalone or replica set instance. You can call the [DescribeReplicaSetRole](~~62134~~) operation to query the role ID of the node.
+     * @description The role ID of the node in a standalone or replica set instance. You can call the [DescribeReplicaSetRole](https://help.aliyun.com/document_detail/62134.html) operation to query the role ID of the node.
      *
      * >  This parameter is available when you set the **DBInstanceId** parameter to the ID of a standalone instance or a replica set instance.
      * @example 6025****
@@ -98,6 +106,7 @@ class DescribeDBInstancePerformanceRequest extends Model
     /**
      * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
      *
+     * This parameter is required.
      * @example 2022-06-13T10:58Z
      *
      * @var string
@@ -106,6 +115,7 @@ class DescribeDBInstancePerformanceRequest extends Model
     protected $_name = [
         'DBInstanceId'         => 'DBInstanceId',
         'endTime'              => 'EndTime',
+        'interval'             => 'Interval',
         'key'                  => 'Key',
         'nodeId'               => 'NodeId',
         'ownerAccount'         => 'OwnerAccount',
@@ -129,6 +139,9 @@ class DescribeDBInstancePerformanceRequest extends Model
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
+        }
+        if (null !== $this->interval) {
+            $res['Interval'] = $this->interval;
         }
         if (null !== $this->key) {
             $res['Key'] = $this->key;
@@ -174,6 +187,9 @@ class DescribeDBInstancePerformanceRequest extends Model
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
+        }
+        if (isset($map['Interval'])) {
+            $model->interval = $map['Interval'];
         }
         if (isset($map['Key'])) {
             $model->key = $map['Key'];

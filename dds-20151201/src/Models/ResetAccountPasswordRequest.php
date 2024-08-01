@@ -11,6 +11,7 @@ class ResetAccountPasswordRequest extends Model
     /**
      * @description The account whose password needs to be reset. Set the value to **root**.
      *
+     * This parameter is required.
      * @example root
      *
      * @var string
@@ -23,6 +24,7 @@ class ResetAccountPasswordRequest extends Model
      *   The password must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. Special characters include `! # $ % ^ & * ( ) _ + - =`
      *   The password must be 8 to 32 characters in length.
      *
+     * This parameter is required.
      * @example Ali!123456
      *
      * @var string
@@ -30,10 +32,11 @@ class ResetAccountPasswordRequest extends Model
     public $accountPassword;
 
     /**
-     * @description 实例的角色类型，取值说明
+     * @description The role of the instance.
      *
+     *   If the instance is a sharded cluster instance, this parameter is required. Valid values: db and cs.
+     *   If the instance is a replica set instance, you can leave this parameter empty or set the parameter to normal.
      *
-     * - 当实例类型为副本集时，charactertype 可为空或传入normal。
      * @example db
      *
      * @var string
@@ -43,6 +46,7 @@ class ResetAccountPasswordRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example dds-bpxxxxxxxx
      *
      * @var string

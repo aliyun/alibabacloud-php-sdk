@@ -32,9 +32,9 @@ class DescribeDBInstancesOverviewRequest extends Model
     /**
      * @description The instance type. The instance type varies based on the instance architecture. For more information about instance types supported by different instance architectures, see the following references:
      *
-     *   [Standalone instance types](~~311407~~)
-     *   [Replica set instance types](~~311410~~)
-     *   [Sharded cluster instance types](~~311414~~)
+     *   [Standalone instance types](https://help.aliyun.com/document_detail/311407.html)
+     *   [Replica set instance types](https://help.aliyun.com/document_detail/311410.html)
+     *   [Sharded cluster instance types](https://help.aliyun.com/document_detail/311414.html)
      *
      * @example dds.mongo.2xlarge
      *
@@ -58,7 +58,7 @@ class DescribeDBInstancesOverviewRequest extends Model
     public $instanceIds;
 
     /**
-     * @description The state of the instance. For more information about valid values, see [Instance states](~~63870~~).
+     * @description The state of the instance. For more information about valid values, see [Instance states](https://help.aliyun.com/document_detail/63870.html).
      *
      * @example Running
      *
@@ -107,8 +107,9 @@ class DescribeDBInstancesOverviewRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~61933~~) operation to query the most recent region list.
+     * @description The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61933.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -116,7 +117,7 @@ class DescribeDBInstancesOverviewRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group to which the instance belongs. For more information, see [View the basic information of a resource group](~~151181~~).
+     * @description The ID of the resource group to which the instance belongs. For more information, see [View the basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
      *
      * @example rg-acfmyiu4ekp****
      *

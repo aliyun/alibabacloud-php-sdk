@@ -11,6 +11,7 @@ class ModifyGlobalSecurityIPGroupRelationRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example dds-2ze6069764423m0l
      *
      * @var string
@@ -20,6 +21,7 @@ class ModifyGlobalSecurityIPGroupRelationRequest extends Model
     /**
      * @description The ID of the IP whitelist template.
      *
+     * This parameter is required.
      * @example g-u0qdtybfvxhaxrrhk4n7
      *
      * @var string
@@ -37,8 +39,9 @@ class ModifyGlobalSecurityIPGroupRelationRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~61933~~) operation to query the most recent region list.
+     * @description The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61933.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

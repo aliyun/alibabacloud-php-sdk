@@ -11,6 +11,7 @@ class UpgradeDBInstanceKernelVersionRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example dds-bp2235****
      *
      * @var string

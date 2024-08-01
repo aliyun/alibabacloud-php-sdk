@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackupStorageRequest extends Model
 {
     /**
+     * @description The instance ID.
+     *
+     * This parameter is required.
      * @example dds-2zeb2d64cb46xxxx
      *
      * @var string
@@ -16,6 +19,9 @@ class DescribeBackupStorageRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @description The ID of the shard node in the sharded cluster instance.
+     *
+     * >  This parameter is required only when the **DBInstanceId** parameter is set to the ID of a sharded cluster instance.
      * @example d-2zee48956b4axxxx
      *
      * @var string
@@ -33,6 +39,8 @@ class DescribeBackupStorageRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the instance. You can call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/62010.html) operation to query the most recent region list.
+     *
      * @example cn-bejing
      *
      * @var string

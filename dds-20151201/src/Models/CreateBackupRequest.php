@@ -24,6 +24,7 @@ class CreateBackupRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example d-bp2235****
      *
      * @var string

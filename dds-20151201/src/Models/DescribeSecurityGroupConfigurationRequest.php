@@ -11,6 +11,7 @@ class DescribeSecurityGroupConfigurationRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example dds-bpxxxxxxxx
      *
      * @var string

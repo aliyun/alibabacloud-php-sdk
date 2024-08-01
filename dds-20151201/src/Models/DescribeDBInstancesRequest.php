@@ -22,7 +22,7 @@ class DescribeDBInstancesRequest extends Model
     public $chargeType;
 
     /**
-     * @description The endpoint of the node. You can call the [DescribeDBInstanceAttribute](~~62010~~) operation to query the endpoint of the node.
+     * @description The endpoint of the node. You can call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/62010.html) operation to query the endpoint of the node.
      *
      * @example dds-bp1ea17b41abecf43****.mongodb.rds.aliyuncs.com
      *
@@ -31,7 +31,7 @@ class DescribeDBInstancesRequest extends Model
     public $connectionDomain;
 
     /**
-     * @description The instance type. For more information about valid values, see [Instance types](~~57141~~).
+     * @description The instance type. For more information about valid values, see [Instance types](https://help.aliyun.com/document_detail/57141.html).
      *
      * @example dds.mongo.mid
      *
@@ -43,7 +43,7 @@ class DescribeDBInstancesRequest extends Model
      * @description The name of the instance. The name must meet the following requirements:
      *
      *   The name must start with a letter.
-     *   It can contain digits, letters, underscores (\_), and hyphens (-).
+     *   It can contain digits, letters, underscores (_), and hyphens (-).
      *   It must be 2 to 256 characters in length.
      *
      * @example Test database
@@ -62,7 +62,7 @@ class DescribeDBInstancesRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description The state of the instance. For more information about valid values, see [Instance states](~~63870~~).
+     * @description The state of the instance. For more information about valid values, see [Instance states](https://help.aliyun.com/document_detail/63870.html).
      *
      * @example Running
      *
@@ -183,7 +183,7 @@ class DescribeDBInstancesRequest extends Model
     public $pageSize;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~61933~~) operation to query the most recent region list.
+     * @description The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61933.html) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -249,7 +249,7 @@ class DescribeDBInstancesRequest extends Model
     public $vpcId;
 
     /**
-     * @description The zone ID of the instance. You can call the [DescribeRegions](~~61933~~) operation to query the most recent zone list.
+     * @description The zone ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61933.html) operation to query the most recent zone list.
      *
      * @example cn-hangzhou-b
      *

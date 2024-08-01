@@ -15,6 +15,8 @@ class tag extends Model
      *
      * - **Tag.1.Key** specifies the key of the first tag.
      * - **Tag.2.Key** specifies the key of the second tag.
+     *
+     * This parameter is required.
      * @example Development team
      *
      * @var string
@@ -28,6 +30,8 @@ class tag extends Model
      *
      * - **Tag.1.Value** specifies the value of the first tag.
      * - **Tag.2.Value** specifies the value of the second tag.
+     *
+     * This parameter is required.
      * @example MongoDB 4.0 environment
      *
      * @var string

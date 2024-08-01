@@ -39,7 +39,7 @@ class ModifyDBInstanceSpecRequest extends Model
     public $couponNo;
 
     /**
-     * @description The instance type. For more information, see [Instance types](~~57141~~). You can also call the [DescribeAvailableResource](~~149719~~) operation to view instance types.
+     * @description The instance type. For more information, see [Instance types](https://help.aliyun.com/document_detail/57141.html). You can also call the [DescribeAvailableResource](https://help.aliyun.com/document_detail/149719.html) operation to view instance types.
      *
      * > You must specify at least one of the DBInstanceClass and **DBInstanceStorage** parameters.
      * @example dds.sn4.xlarge.1
@@ -51,6 +51,7 @@ class ModifyDBInstanceSpecRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example dds-bp1ea17b41ab****
      *
      * @var string
@@ -58,7 +59,7 @@ class ModifyDBInstanceSpecRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description The storage capacity of the instance. Valid values: 10 to 3000. The value must be a multiple of 10. Unit: GB. The values that can be specified for this parameter are subject to the instance types. For more information, see [Instance types](~~57141~~).
+     * @description The storage capacity of the instance. Valid values: 10 to 3000. The value must be a multiple of 10. Unit: GB. The values that can be specified for this parameter are subject to the instance types. For more information, see [Instance types](https://help.aliyun.com/document_detail/57141.html).
      *
      * >
      *

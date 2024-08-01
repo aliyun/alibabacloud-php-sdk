@@ -11,11 +11,17 @@ class DescribeBackupPolicyRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example dds-bp16cb162771****
      *
      * @var string
      */
     public $DBInstanceId;
+
+    /**
+     * @var string
+     */
+    public $instanceType;
 
     /**
      * @var string
@@ -41,13 +47,20 @@ class DescribeBackupPolicyRequest extends Model
      * @var string
      */
     public $securityToken;
+
+    /**
+     * @var string
+     */
+    public $srcRegion;
     protected $_name = [
         'DBInstanceId'         => 'DBInstanceId',
+        'instanceType'         => 'InstanceType',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'securityToken'        => 'SecurityToken',
+        'srcRegion'            => 'SrcRegion',
     ];
 
     public function validate()
@@ -59,6 +72,9 @@ class DescribeBackupPolicyRequest extends Model
         $res = [];
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
+        }
+        if (null !== $this->instanceType) {
+            $res['InstanceType'] = $this->instanceType;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
@@ -75,6 +91,9 @@ class DescribeBackupPolicyRequest extends Model
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
+        if (null !== $this->srcRegion) {
+            $res['SrcRegion'] = $this->srcRegion;
+        }
 
         return $res;
     }
@@ -90,6 +109,9 @@ class DescribeBackupPolicyRequest extends Model
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
+        if (isset($map['InstanceType'])) {
+            $model->instanceType = $map['InstanceType'];
+        }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
@@ -104,6 +126,9 @@ class DescribeBackupPolicyRequest extends Model
         }
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
+        }
+        if (isset($map['SrcRegion'])) {
+            $model->srcRegion = $map['SrcRegion'];
         }
 
         return $model;

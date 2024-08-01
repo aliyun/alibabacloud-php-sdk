@@ -61,8 +61,9 @@ class DescribeAvailableResourceRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the region. You can call the [DescribeRegions](~~61933~~) operation to query the latest available regions.
+     * @description The ID of the region. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61933.html) operation to query the latest available regions.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -114,7 +115,7 @@ class DescribeAvailableResourceRequest extends Model
     public $storageType;
 
     /**
-     * @description The ID of the zone. You can call the [DescribeRegions](~~61933~~) operation to query the available zones.
+     * @description The ID of the zone. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61933.html) operation to query the available zones.
      *
      * @example cn-hangzhou-h
      *

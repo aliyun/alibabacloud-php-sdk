@@ -11,6 +11,7 @@ class ModifySecurityGroupConfigurationRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example dds-bpxxxxxxxx
      *
      * @var string
@@ -41,7 +42,9 @@ class ModifySecurityGroupConfigurationRequest extends Model
      * @description The ID of the ECS security group.
      *
      * > * You can bind up to 10 ECS security groups to an ApsaraDB for MongoDB instance.
-     * > * You can call the [DescribeSecurityGroup](~~25556~~) operation of ECS to query the security groups in the specified region.
+     * > * You can call the [DescribeSecurityGroup](https://help.aliyun.com/document_detail/25556.html) operation of ECS to query the security groups in the specified region.
+     *
+     * This parameter is required.
      * @example sg-bpxxxxxxxx
      *
      * @var string

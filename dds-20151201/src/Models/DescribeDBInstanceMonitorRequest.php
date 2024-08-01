@@ -11,6 +11,7 @@ class DescribeDBInstanceMonitorRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example dds-bp1143f90ff3****
      *
      * @var string

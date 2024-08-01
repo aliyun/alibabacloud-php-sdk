@@ -35,9 +35,9 @@ class DescribeActiveOperationTasksRequest extends Model
     /**
      * @description The type of task configuration change. Valid values:
      *
-     *   **all** (default): The configurations of all O\&M tasks are changed.
+     *   **all** (default): The configurations of all O\\&M tasks are changed.
      *   **S0**: The configurations of tasks initiated to fix exceptions are changed.
-     *   **S1**: The configurations of system O\&M tasks are changed.
+     *   **S1**: The configurations of system O\\&M tasks are changed.
      *
      * @example ***
      *

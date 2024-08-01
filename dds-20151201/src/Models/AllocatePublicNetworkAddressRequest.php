@@ -12,6 +12,8 @@ class AllocatePublicNetworkAddressRequest extends Model
      * @description The ID of the instance
      *
      * > If you set this parameter to the ID of a sharded cluster instance, you must also specify the **NodeId** parameter.
+     *
+     * This parameter is required.
      * @example dds-bp11483712c1****
      *
      * @var string
@@ -19,7 +21,7 @@ class AllocatePublicNetworkAddressRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description The ID of the mongos, shard, or Configserver node in the sharded cluster instance. You can call the [DescribeDBInstanceAttribute](~~62010~~) operation to view the ID of the mongos, shard, or Configserver node.
+     * @description The ID of the mongos, shard, or Configserver node in the sharded cluster instance. You can call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/62010.html) operation to view the ID of the mongos, shard, or Configserver node.
      *
      * > This parameter is required only when you specify the **DBInstanceId** parameter to the ID of a sharded cluster instance.
      * @example s-bp18e6d84ae3****

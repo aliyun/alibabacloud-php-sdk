@@ -11,6 +11,7 @@ class ModifyResourceGroupRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example dds-bp1366caac83****
      *
      * @var string
@@ -28,7 +29,7 @@ class ModifyResourceGroupRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~61933~~) operation to query the region ID.
+     * @description The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61933.html) operation to query the region ID.
      *
      * @example cn-hangzhou
      *
@@ -37,8 +38,9 @@ class ModifyResourceGroupRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group. For more information, see [View basic information of a resource group](~~151181~~).
+     * @description The ID of the resource group. For more information, see [View basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
      *
+     * This parameter is required.
      * @example rg-acfmyiu4ekp****
      *
      * @var string

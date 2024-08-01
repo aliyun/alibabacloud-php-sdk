@@ -37,7 +37,10 @@ class DescribePriceRequest extends Model
     public $commodityCode;
 
     /**
-     * @description The coupon code. Default value: **youhuiquan_promotion_option_id_for_blank**.
+     * @description Specifies whether to use coupons. Default value: null. Valid values:
+     *
+     *   **default** or **null**: uses coupons.
+     *   **youhuiquan_promotion_option_id_for_blank**: does not use coupons.
      *
      * @example youhuiquan_promotion_option_id_for_blank
      *
@@ -46,8 +49,9 @@ class DescribePriceRequest extends Model
     public $couponNo;
 
     /**
-     * @description A JSON string that contains the details of the ApsaraDB for MongoDB instance. For more information, see the [DBInstances](~~197291~~) parameter in the DescribePrice operation.
+     * @description A JSON string that contains the details of the instance. For more information about the parameter and sample JSON formats, see [DescribePrice](https://help.aliyun.com/document_detail/197291.html).
      *
+     * This parameter is required.
      * @example [ { "DBInstanceId":"dds-bp1b6e54e7cc****", "RegionId":"cn-hangzhou", "ZoneId":"cn-hangzhou-h", "Engine":"MongoDB", "EngineVersion":" 5.0", "DBInstanceClass":"mdb.shard.2x.xlarge.d", "DBInstanceStorage":30, "ChargeType":"PrePaid", "Period":1, "StorageType":"cloud_essd1" } ]
      *
      * @var string
@@ -73,6 +77,7 @@ class DescribePriceRequest extends Model
      *   **UPGRADE**
      *   **RENEW**
      *
+     * This parameter is required.
      * @example BUY
      *
      * @var string
@@ -99,7 +104,7 @@ class DescribePriceRequest extends Model
     public $productCode;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~61933~~) operation to query the most recent region list.
+     * @description The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61933.html) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -108,7 +113,7 @@ class DescribePriceRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group. For more information, see [View basic information of a resource group](~~151181~~).
+     * @description The ID of the resource group. For more information, see [View basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
      *
      * @example rg-acfmyiu4ekp****
      *

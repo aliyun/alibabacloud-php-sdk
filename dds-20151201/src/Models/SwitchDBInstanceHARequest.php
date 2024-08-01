@@ -11,6 +11,7 @@ class SwitchDBInstanceHARequest extends Model
     /**
      * @description The ID of the instance
      *
+     * This parameter is required.
      * @example dds-bpxxxxxxxx
      *
      * @var string
@@ -48,7 +49,7 @@ class SwitchDBInstanceHARequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The IDs of the roles who switch the primary and secondary nodes for the instance. You can call the [DescribeRoleZoneInfo](~~123802~~) operation to view the IDs and information of roles of nodes.
+     * @description The IDs of the roles who switch the primary and secondary nodes for the instance. You can call the [DescribeRoleZoneInfo](https://help.aliyun.com/document_detail/123802.html) operation to view the IDs and information of roles of nodes.
      *
      * >
      *
@@ -66,7 +67,7 @@ class SwitchDBInstanceHARequest extends Model
      * @description The time when the primary and secondary nodes are switched. Valid values:
      *
      *   0: The primary and secondary nodes are immediately switched.
-     *   1: The primary and secondary nodes are switched during the O\&M time period.
+     *   1: The primary and secondary nodes are switched during the O\\&M time period.
      *
      * @example 0
      *

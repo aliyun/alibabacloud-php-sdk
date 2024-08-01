@@ -83,7 +83,7 @@ class logRecords extends Model
     /**
      * @description The SQL statement that is executed during the slow operation.
      *
-     * @example {\"op\":\"query\",\"ns\":\"mongodbtest.customer\",\"query\":{\"find\":\"customer\",\"filter\":{\"name\":\"jack\"}}}
+     * @example {\\"op\\":\\"query\\",\\"ns\\":\\"mongodbtest.customer\\",\\"query\\":{\\"find\\":\\"customer\\",\\"filter\\":{\\"name\\":\\"jack\\"}}}
      *
      * @var string
      */
