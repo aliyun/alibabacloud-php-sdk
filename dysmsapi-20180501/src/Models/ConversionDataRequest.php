@@ -11,7 +11,7 @@ class ConversionDataRequest extends Model
     /**
      * @description Conversion rate monitoring return value.
      *
-     * >  The value of this parameter is of type double, and the value is between \[0,1].
+     * This parameter is required.
      * @example 0.53
      *
      * @var string

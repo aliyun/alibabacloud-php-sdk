@@ -62,7 +62,7 @@ class SendMessageWithTemplateResponseBody extends Model
     public $segments;
 
     /**
-     * @description The mobile phone number to which the message was sent. The dialing code was added to the beginning of the mobile phone number. Example: 861503871\*\*\*\*.
+     * @description The mobile phone number to which the message was sent. The dialing code was added to the beginning of the mobile phone number. Example: 861503871\\*\\*\\*\\*.
      *
      * @example 861503871****
      *

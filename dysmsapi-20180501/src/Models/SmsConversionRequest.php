@@ -23,6 +23,7 @@ class SmsConversionRequest extends Model
     /**
      * @description Specifies whether customers replied to the OTP message. Valid values: true and false.
      *
+     * This parameter is required.
      * @example true
      *
      * @var bool
@@ -32,6 +33,7 @@ class SmsConversionRequest extends Model
     /**
      * @description The ID of the OTP message.
      *
+     * This parameter is required.
      * @example 1008030300****
      *
      * @var string

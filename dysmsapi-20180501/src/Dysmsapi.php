@@ -66,13 +66,15 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * *   You cannot call the BatchSendMessageToGlobe operation to send messages to the Chinese mainland.
-     *   * *   You can call the BatchSendMessageToGlobe operation to send notifications and promotional messages to a limited number of mobile phone numbers at a time. To send messages to a large number of mobile phone numbers at a time, use the mass messaging feature of the SMS console.
-     *   * *   For time-sensitive related messages, we recommend that you use the [SendMessageToGlobe](https://www.alibabacloud.com/help/zh/sms/developer-reference/api-dysmsapi-2018-05-01-batchsendmessagetoglobe) operation to ensure that messages are delivered on time.
-     *   * *   In each request, you can send messages to up to 1,000 mobile phone numbers.
-     *   * ### [](#qps)QPS limits
-     *   * You can call this operation only once per second. If the number of calls per second exceeds this limit, throttling will be triggered. This can potentially impact your business operations. Therefore, we recommend that you take note of this limit when making calls to this operation.
-     *   *
+     * @summary Sends a message to multiple recipients in countries or regions outside the Chinese mainland.
+     *  *
+     * @description *   You cannot call the BatchSendMessageToGlobe operation to send messages to the Chinese mainland.
+     * *   You can call the BatchSendMessageToGlobe operation to send notifications and promotional messages to a limited number of mobile phone numbers at a time. To send messages to a large number of mobile phone numbers at a time, use the mass messaging feature of the SMS console.
+     * *   For time-sensitive related messages, we recommend that you use the [SendMessageToGlobe](https://www.alibabacloud.com/help/zh/sms/developer-reference/api-dysmsapi-2018-05-01-batchsendmessagetoglobe) operation to ensure that messages are delivered on time.
+     * *   In each request, you can send messages to up to 1,000 mobile phone numbers.
+     * ### [](#qps)QPS limits
+     * You can call this operation only once per second. If the number of calls per second exceeds this limit, throttling will be triggered. This can potentially impact your business operations. Therefore, we recommend that you take note of this limit when making calls to this operation.
+     *  *
      * @param BatchSendMessageToGlobeRequest $request BatchSendMessageToGlobeRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -119,13 +121,15 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * *   You cannot call the BatchSendMessageToGlobe operation to send messages to the Chinese mainland.
-     *   * *   You can call the BatchSendMessageToGlobe operation to send notifications and promotional messages to a limited number of mobile phone numbers at a time. To send messages to a large number of mobile phone numbers at a time, use the mass messaging feature of the SMS console.
-     *   * *   For time-sensitive related messages, we recommend that you use the [SendMessageToGlobe](https://www.alibabacloud.com/help/zh/sms/developer-reference/api-dysmsapi-2018-05-01-batchsendmessagetoglobe) operation to ensure that messages are delivered on time.
-     *   * *   In each request, you can send messages to up to 1,000 mobile phone numbers.
-     *   * ### [](#qps)QPS limits
-     *   * You can call this operation only once per second. If the number of calls per second exceeds this limit, throttling will be triggered. This can potentially impact your business operations. Therefore, we recommend that you take note of this limit when making calls to this operation.
-     *   *
+     * @summary Sends a message to multiple recipients in countries or regions outside the Chinese mainland.
+     *  *
+     * @description *   You cannot call the BatchSendMessageToGlobe operation to send messages to the Chinese mainland.
+     * *   You can call the BatchSendMessageToGlobe operation to send notifications and promotional messages to a limited number of mobile phone numbers at a time. To send messages to a large number of mobile phone numbers at a time, use the mass messaging feature of the SMS console.
+     * *   For time-sensitive related messages, we recommend that you use the [SendMessageToGlobe](https://www.alibabacloud.com/help/zh/sms/developer-reference/api-dysmsapi-2018-05-01-batchsendmessagetoglobe) operation to ensure that messages are delivered on time.
+     * *   In each request, you can send messages to up to 1,000 mobile phone numbers.
+     * ### [](#qps)QPS limits
+     * You can call this operation only once per second. If the number of calls per second exceeds this limit, throttling will be triggered. This can potentially impact your business operations. Therefore, we recommend that you take note of this limit when making calls to this operation.
+     *  *
      * @param BatchSendMessageToGlobeRequest $request BatchSendMessageToGlobeRequest
      *
      * @return BatchSendMessageToGlobeResponse BatchSendMessageToGlobeResponse
@@ -138,11 +142,13 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * Metrics:
-     *   * *   Requested OTP messages
-     *   * *   Verified OTP messages
-     *   * An OTP conversion rate is calculated based on the following formula: OTP conversion rate = Number of verified OTP messages/Number of requested OTP messages.
-     *   *
+     * @summary This API, sends conversion data to the Alibaba SMS service.
+     *  *
+     * @description Metrics:
+     * *   Requested OTP messages
+     * *   Verified OTP messages
+     * An OTP conversion rate is calculated based on the following formula: OTP conversion rate = Number of verified OTP messages/Number of requested OTP messages.
+     *  *
      * @param ConversionDataRequest $request ConversionDataRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -177,11 +183,13 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * Metrics:
-     *   * *   Requested OTP messages
-     *   * *   Verified OTP messages
-     *   * An OTP conversion rate is calculated based on the following formula: OTP conversion rate = Number of verified OTP messages/Number of requested OTP messages.
-     *   *
+     * @summary This API, sends conversion data to the Alibaba SMS service.
+     *  *
+     * @description Metrics:
+     * *   Requested OTP messages
+     * *   Verified OTP messages
+     * An OTP conversion rate is calculated based on the following formula: OTP conversion rate = Number of verified OTP messages/Number of requested OTP messages.
+     *  *
      * @param ConversionDataRequest $request ConversionDataRequest
      *
      * @return ConversionDataResponse ConversionDataResponse
@@ -194,9 +202,11 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * ### QPS limit
-     *   * You can call this operation up to 300 times per second. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
-     *   *
+     * @summary Queries the delivery report of a message.
+     *  *
+     * @description ### QPS limit
+     * You can call this operation up to 300 times per second. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *  *
      * @param QueryMessageRequest $request QueryMessageRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
@@ -228,9 +238,11 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * ### QPS limit
-     *   * You can call this operation up to 300 times per second. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
-     *   *
+     * @summary Queries the delivery report of a message.
+     *  *
+     * @description ### QPS limit
+     * You can call this operation up to 300 times per second. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *  *
      * @param QueryMessageRequest $request QueryMessageRequest
      *
      * @return QueryMessageResponse QueryMessageResponse
@@ -243,11 +255,13 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * ### Usage notes
-     *   * You cannot call the SendMessageToGlobe operation to send messages to the Chinese mainland.
-     *   * ### QPS limit
-     *   * You may call this operation up to 300 times per second. If the number of calls per second exceeds this limit, throttling will be triggered. This can potentially impact your business operations. Therefore, we recommend that you take note of this limit when making calls to this operation.
-     *   *
+     * @summary Sends a message to regions outside the Chinese mainland.
+     *  *
+     * @description ### [](#)Usage notes
+     * The SendMessageToGlobe API operation does not support message delivery to the Chinese mainland.
+     * ### [](#qps-)QPS limit
+     * You can call this operation up to 30 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param SendMessageToGlobeRequest $request SendMessageToGlobeRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -294,11 +308,13 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * ### Usage notes
-     *   * You cannot call the SendMessageToGlobe operation to send messages to the Chinese mainland.
-     *   * ### QPS limit
-     *   * You may call this operation up to 300 times per second. If the number of calls per second exceeds this limit, throttling will be triggered. This can potentially impact your business operations. Therefore, we recommend that you take note of this limit when making calls to this operation.
-     *   *
+     * @summary Sends a message to regions outside the Chinese mainland.
+     *  *
+     * @description ### [](#)Usage notes
+     * The SendMessageToGlobe API operation does not support message delivery to the Chinese mainland.
+     * ### [](#qps-)QPS limit
+     * You can call this operation up to 30 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param SendMessageToGlobeRequest $request SendMessageToGlobeRequest
      *
      * @return SendMessageToGlobeResponse SendMessageToGlobeResponse
@@ -311,9 +327,11 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * ### Usage notes
-     *   * You can call the SendMessageWithTemplate operation to send messages only to the Chinese mainland.
-     *   *
+     * @summary Sends a message to the Chinese mainland by using a message template.
+     *  *
+     * @description ### Usage notes
+     * You can call the SendMessageWithTemplate operation to send messages only to the Chinese mainland.
+     *  *
      * @param SendMessageWithTemplateRequest $request SendMessageWithTemplateRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -363,9 +381,11 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * ### Usage notes
-     *   * You can call the SendMessageWithTemplate operation to send messages only to the Chinese mainland.
-     *   *
+     * @summary Sends a message to the Chinese mainland by using a message template.
+     *  *
+     * @description ### Usage notes
+     * You can call the SendMessageWithTemplate operation to send messages only to the Chinese mainland.
+     *  *
      * @param SendMessageWithTemplateRequest $request SendMessageWithTemplateRequest
      *
      * @return SendMessageWithTemplateResponse SendMessageWithTemplateResponse
@@ -378,14 +398,16 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * Metrics:
-     *   * *   Requested OTP messages
-     *   * *   Verified OTP messages
-     *   * An OTP conversion rate is calculated based on the following formula: OTP conversion rate = Number of verified OTP messages/Number of requested OTP messages.
-     *   * > If you call the SmsConversion operation to query OTP conversion rates, your business may be affected. We recommend that you perform the following operations:
-     *   * > * Call the SmsConversion operation in an asynchronous manner by configuring queues or events.
-     *   * > * Manually degrade your services or use a circuit breaker to automatically degrade services.
-     *   *
+     * @summary Delivers one-time password (OTP) message statuses to Alibaba Cloud, which calculates and monitors OTP conversion rates.
+     *  *
+     * @description Metrics:
+     * *   Requested OTP messages
+     * *   Verified OTP messages
+     * An OTP conversion rate is calculated based on the following formula: OTP conversion rate = Number of verified OTP messages/Number of requested OTP messages.
+     * > If you call the SmsConversion operation to query OTP conversion rates, your business may be affected. We recommend that you perform the following operations:
+     * > * Call the SmsConversion operation in an asynchronous manner by configuring queues or events.
+     * > * Manually degrade your services or use a circuit breaker to automatically degrade services.
+     *  *
      * @param SmsConversionRequest $request SmsConversionRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -423,14 +445,16 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * Metrics:
-     *   * *   Requested OTP messages
-     *   * *   Verified OTP messages
-     *   * An OTP conversion rate is calculated based on the following formula: OTP conversion rate = Number of verified OTP messages/Number of requested OTP messages.
-     *   * > If you call the SmsConversion operation to query OTP conversion rates, your business may be affected. We recommend that you perform the following operations:
-     *   * > * Call the SmsConversion operation in an asynchronous manner by configuring queues or events.
-     *   * > * Manually degrade your services or use a circuit breaker to automatically degrade services.
-     *   *
+     * @summary Delivers one-time password (OTP) message statuses to Alibaba Cloud, which calculates and monitors OTP conversion rates.
+     *  *
+     * @description Metrics:
+     * *   Requested OTP messages
+     * *   Verified OTP messages
+     * An OTP conversion rate is calculated based on the following formula: OTP conversion rate = Number of verified OTP messages/Number of requested OTP messages.
+     * > If you call the SmsConversion operation to query OTP conversion rates, your business may be affected. We recommend that you perform the following operations:
+     * > * Call the SmsConversion operation in an asynchronous manner by configuring queues or events.
+     * > * Manually degrade your services or use a circuit breaker to automatically degrade services.
+     *  *
      * @param SmsConversionRequest $request SmsConversionRequest
      *
      * @return SmsConversionResponse SmsConversionResponse

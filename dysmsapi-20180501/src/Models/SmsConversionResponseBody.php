@@ -18,7 +18,7 @@ class SmsConversionResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The status code. If OK is returned, the request is successful. For more information, see [Error codes](~~180674~~).
+     * @description The status code. If OK is returned, the request is successful. For more information, see [Error codes](https://help.aliyun.com/document_detail/180674.html).
      *
      * @example OK
      *

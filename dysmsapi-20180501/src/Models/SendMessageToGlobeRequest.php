@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class SendMessageToGlobeRequest extends Model
 {
     /**
+     * @description The ID of the channel.
+     *
+     * @example 3790
+     *
      * @var string
      */
     public $channelId;
@@ -25,6 +29,7 @@ class SendMessageToGlobeRequest extends Model
     /**
      * @description The content of the message.
      *
+     * This parameter is required.
      * @example Hello
      *
      * @var string
@@ -41,9 +46,9 @@ class SendMessageToGlobeRequest extends Model
     public $taskId;
 
     /**
-     * @description The mobile phone number to which the message is sent. You must add the dialing code to the beginning of the mobile phone number. Example: 8521245567\*\*\*\*.
+     * @description The mobile phone number to which the message is sent. You must add the dialing code to the beginning of the mobile phone number. Example: 8521245567\\*\\*\\*\\*.
      *
-     * >  You cannot call the SendMessageToGlobe operation to send messages to the Chinese mainland.
+     * This parameter is required.
      * @example 8521245567****
      *
      * @var string

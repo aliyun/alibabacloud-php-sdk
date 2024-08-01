@@ -11,6 +11,7 @@ class QueryMessageRequest extends Model
     /**
      * @description The ID of the message.
      *
+     * This parameter is required.
      * @example 1008030xxx3003
      *
      * @var string

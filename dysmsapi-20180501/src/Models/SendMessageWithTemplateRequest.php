@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class SendMessageWithTemplateRequest extends Model
 {
     /**
+     * @description The ID of the channel.
+     *
+     * @example 5739
+     *
      * @var string
      */
     public $channelId;
@@ -16,6 +20,7 @@ class SendMessageWithTemplateRequest extends Model
     /**
      * @description The signature. To query the signature, log on to the [Short Message Service (SMS) console](https://sms-intl.console.aliyun.com/overview) and navigate to the **Signatures** tab of the **Go China** page.
      *
+     * This parameter is required.
      * @example Alicloud321
      *
      * @var string
@@ -34,6 +39,7 @@ class SendMessageWithTemplateRequest extends Model
     /**
      * @description The code of the message template. To query the code, log on to the [SMS console](https://sms-intl.console.aliyun.com/overview) and navigate to the **Templates** tab of the **Go China** page.
      *
+     * This parameter is required.
      * @example SMS_****
      *
      * @var string
@@ -50,9 +56,9 @@ class SendMessageWithTemplateRequest extends Model
     public $templateParam;
 
     /**
-     * @description The mobile phone number to which the message is sent. You must add the country code to the beginning of the mobile phone number. Example: 861503871\*\*\*\*.
+     * @description The mobile phone number to which the message is sent. You must add the country code to the beginning of the mobile phone number. Example: 861503871\\*\\*\\*\\*.
      *
-     * For more information, see [Dialing codes](https://www.alibabacloud.com/help/zh/short-message-service/latest/dialing-codes).
+     * This parameter is required.
      * @example 861503871****
      *
      * @var string

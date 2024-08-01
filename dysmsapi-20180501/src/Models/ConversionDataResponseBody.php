@@ -18,7 +18,7 @@ class ConversionDataResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Status code. Returning OK means the request was successful. For other error codes, please refer to the [Error codes](~~180674~~) list.
+     * @description Status code. Returning OK means the request was successful. For other error codes, please refer to the [Error codes](https://help.aliyun.com/document_detail/180674.html) list.
      *
      * @example OK
      *

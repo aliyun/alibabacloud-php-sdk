@@ -20,7 +20,8 @@ class BatchSendMessageToGlobeRequest extends Model
     /**
      * @description The content of the message.
      *
-     * @example [\"message to 931520581****\",\"message to 931530581****\",\"message to 931540581****\",\"message to 931550581****\"]
+     * This parameter is required.
+     * @example [\\"message to 931520581****\\",\\"message to 931530581****\\",\\"message to 931540581****\\",\\"message to 931550581****\\"]
      *
      * @var string
      */
@@ -38,8 +39,8 @@ class BatchSendMessageToGlobeRequest extends Model
     /**
      * @description The mobile phone numbers to which the message is sent. You must add the dialing code to the beginning of each mobile phone number.
      *
-     * For more information, see [Dialing codes](https://www.alibabacloud.com/help/zh/short-message-service/latest/dialing-codes).
-     * @example [\"931520581****\",\"931530581****\",\"931540581****\",\"931550581****\"]
+     * This parameter is required.
+     * @example [\\"931520581****\\",\\"931530581****\\",\\"931540581****\\",\\"931550581****\\"]
      *
      * @var string
      */
