@@ -6,6 +6,8 @@ namespace AlibabaCloud\SDK\Pvtz\V20180101;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Pvtz\V20180101\Models\AddCustomLineRequest;
+use AlibabaCloud\SDK\Pvtz\V20180101\Models\AddCustomLineResponse;
 use AlibabaCloud\SDK\Pvtz\V20180101\Models\AddResolverEndpointRequest;
 use AlibabaCloud\SDK\Pvtz\V20180101\Models\AddResolverEndpointResponse;
 use AlibabaCloud\SDK\Pvtz\V20180101\Models\AddResolverRuleRequest;
@@ -20,8 +22,12 @@ use AlibabaCloud\SDK\Pvtz\V20180101\Models\BindResolverRuleVpcRequest;
 use AlibabaCloud\SDK\Pvtz\V20180101\Models\BindResolverRuleVpcResponse;
 use AlibabaCloud\SDK\Pvtz\V20180101\Models\BindZoneVpcRequest;
 use AlibabaCloud\SDK\Pvtz\V20180101\Models\BindZoneVpcResponse;
+use AlibabaCloud\SDK\Pvtz\V20180101\Models\ChangeZoneDnsGroupRequest;
+use AlibabaCloud\SDK\Pvtz\V20180101\Models\ChangeZoneDnsGroupResponse;
 use AlibabaCloud\SDK\Pvtz\V20180101\Models\CheckZoneNameRequest;
 use AlibabaCloud\SDK\Pvtz\V20180101\Models\CheckZoneNameResponse;
+use AlibabaCloud\SDK\Pvtz\V20180101\Models\DeleteCustomLineRequest;
+use AlibabaCloud\SDK\Pvtz\V20180101\Models\DeleteCustomLineResponse;
 use AlibabaCloud\SDK\Pvtz\V20180101\Models\DeleteResolverEndpointRequest;
 use AlibabaCloud\SDK\Pvtz\V20180101\Models\DeleteResolverEndpointResponse;
 use AlibabaCloud\SDK\Pvtz\V20180101\Models\DeleteResolverRuleRequest;
@@ -34,6 +40,10 @@ use AlibabaCloud\SDK\Pvtz\V20180101\Models\DeleteZoneRequest;
 use AlibabaCloud\SDK\Pvtz\V20180101\Models\DeleteZoneResponse;
 use AlibabaCloud\SDK\Pvtz\V20180101\Models\DescribeChangeLogsRequest;
 use AlibabaCloud\SDK\Pvtz\V20180101\Models\DescribeChangeLogsResponse;
+use AlibabaCloud\SDK\Pvtz\V20180101\Models\DescribeCustomLineInfoRequest;
+use AlibabaCloud\SDK\Pvtz\V20180101\Models\DescribeCustomLineInfoResponse;
+use AlibabaCloud\SDK\Pvtz\V20180101\Models\DescribeCustomLinesRequest;
+use AlibabaCloud\SDK\Pvtz\V20180101\Models\DescribeCustomLinesResponse;
 use AlibabaCloud\SDK\Pvtz\V20180101\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\Pvtz\V20180101\Models\DescribeRegionsResponse;
 use AlibabaCloud\SDK\Pvtz\V20180101\Models\DescribeRequestGraphRequest;
@@ -58,6 +68,8 @@ use AlibabaCloud\SDK\Pvtz\V20180101\Models\DescribeUserVpcAuthorizationsRequest;
 use AlibabaCloud\SDK\Pvtz\V20180101\Models\DescribeUserVpcAuthorizationsResponse;
 use AlibabaCloud\SDK\Pvtz\V20180101\Models\DescribeZoneInfoRequest;
 use AlibabaCloud\SDK\Pvtz\V20180101\Models\DescribeZoneInfoResponse;
+use AlibabaCloud\SDK\Pvtz\V20180101\Models\DescribeZoneRecordRequest;
+use AlibabaCloud\SDK\Pvtz\V20180101\Models\DescribeZoneRecordResponse;
 use AlibabaCloud\SDK\Pvtz\V20180101\Models\DescribeZoneRecordsRequest;
 use AlibabaCloud\SDK\Pvtz\V20180101\Models\DescribeZoneRecordsResponse;
 use AlibabaCloud\SDK\Pvtz\V20180101\Models\DescribeZonesRequest;
@@ -68,6 +80,8 @@ use AlibabaCloud\SDK\Pvtz\V20180101\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Pvtz\V20180101\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\Pvtz\V20180101\Models\MoveResourceGroupRequest;
 use AlibabaCloud\SDK\Pvtz\V20180101\Models\MoveResourceGroupResponse;
+use AlibabaCloud\SDK\Pvtz\V20180101\Models\SearchCustomLinesRequest;
+use AlibabaCloud\SDK\Pvtz\V20180101\Models\SearchCustomLinesResponse;
 use AlibabaCloud\SDK\Pvtz\V20180101\Models\SetProxyPatternRequest;
 use AlibabaCloud\SDK\Pvtz\V20180101\Models\SetProxyPatternResponse;
 use AlibabaCloud\SDK\Pvtz\V20180101\Models\SetZoneRecordStatusRequest;
@@ -76,6 +90,8 @@ use AlibabaCloud\SDK\Pvtz\V20180101\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\Pvtz\V20180101\Models\TagResourcesResponse;
 use AlibabaCloud\SDK\Pvtz\V20180101\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\Pvtz\V20180101\Models\UntagResourcesResponse;
+use AlibabaCloud\SDK\Pvtz\V20180101\Models\UpdateCustomLineRequest;
+use AlibabaCloud\SDK\Pvtz\V20180101\Models\UpdateCustomLineResponse;
 use AlibabaCloud\SDK\Pvtz\V20180101\Models\UpdateRecordRemarkRequest;
 use AlibabaCloud\SDK\Pvtz\V20180101\Models\UpdateRecordRemarkResponse;
 use AlibabaCloud\SDK\Pvtz\V20180101\Models\UpdateResolverEndpointRequest;
@@ -125,6 +141,61 @@ class Pvtz extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @param AddCustomLineRequest $request AddCustomLineRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return AddCustomLineResponse AddCustomLineResponse
+     */
+    public function addCustomLineWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dnsCategory)) {
+            $query['DnsCategory'] = $request->dnsCategory;
+        }
+        if (!Utils::isUnset($request->ipv4s)) {
+            $query['Ipv4s'] = $request->ipv4s;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->shareScope)) {
+            $query['ShareScope'] = $request->shareScope;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddCustomLine',
+            'version'     => '2018-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddCustomLineResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AddCustomLineRequest $request AddCustomLineRequest
+     *
+     * @return AddCustomLineResponse AddCustomLineResponse
+     */
+    public function addCustomLine($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addCustomLineWithOptions($request, $runtime);
     }
 
     /**
@@ -568,6 +639,55 @@ class Pvtz extends OpenApiClient
     }
 
     /**
+     * @param ChangeZoneDnsGroupRequest $request ChangeZoneDnsGroupRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ChangeZoneDnsGroupResponse ChangeZoneDnsGroupResponse
+     */
+    public function changeZoneDnsGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dnsGroup)) {
+            $query['DnsGroup'] = $request->dnsGroup;
+        }
+        if (!Utils::isUnset($request->zoneId)) {
+            $query['ZoneId'] = $request->zoneId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ChangeZoneDnsGroup',
+            'version'     => '2018-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ChangeZoneDnsGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ChangeZoneDnsGroupRequest $request ChangeZoneDnsGroupRequest
+     *
+     * @return ChangeZoneDnsGroupResponse ChangeZoneDnsGroupResponse
+     */
+    public function changeZoneDnsGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->changeZoneDnsGroupWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Checks whether the name of a zone is valid based on specific rules.
      *  *
      * @param CheckZoneNameRequest $request CheckZoneNameRequest
@@ -618,6 +738,52 @@ class Pvtz extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->checkZoneNameWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteCustomLineRequest $request DeleteCustomLineRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteCustomLineResponse DeleteCustomLineResponse
+     */
+    public function deleteCustomLineWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->lineId)) {
+            $query['LineId'] = $request->lineId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteCustomLine',
+            'version'     => '2018-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteCustomLineResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteCustomLineRequest $request DeleteCustomLineRequest
+     *
+     * @return DeleteCustomLineResponse DeleteCustomLineResponse
+     */
+    public function deleteCustomLine($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteCustomLineWithOptions($request, $runtime);
     }
 
     /**
@@ -951,6 +1117,101 @@ class Pvtz extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeChangeLogsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeCustomLineInfoRequest $request DescribeCustomLineInfoRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeCustomLineInfoResponse DescribeCustomLineInfoResponse
+     */
+    public function describeCustomLineInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->lineId)) {
+            $query['LineId'] = $request->lineId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCustomLineInfo',
+            'version'     => '2018-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeCustomLineInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeCustomLineInfoRequest $request DescribeCustomLineInfoRequest
+     *
+     * @return DescribeCustomLineInfoResponse DescribeCustomLineInfoResponse
+     */
+    public function describeCustomLineInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCustomLineInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeCustomLinesRequest $request DescribeCustomLinesRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeCustomLinesResponse DescribeCustomLinesResponse
+     */
+    public function describeCustomLinesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCustomLines',
+            'version'     => '2018-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeCustomLinesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeCustomLinesRequest $request DescribeCustomLinesRequest
+     *
+     * @return DescribeCustomLinesResponse DescribeCustomLinesResponse
+     */
+    public function describeCustomLines($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCustomLinesWithOptions($request, $runtime);
     }
 
     /**
@@ -1623,6 +1884,49 @@ class Pvtz extends OpenApiClient
     }
 
     /**
+     * @param DescribeZoneRecordRequest $request DescribeZoneRecordRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeZoneRecordResponse DescribeZoneRecordResponse
+     */
+    public function describeZoneRecordWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->recordId)) {
+            $query['RecordId'] = $request->recordId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeZoneRecord',
+            'version'     => '2018-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeZoneRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeZoneRecordRequest $request DescribeZoneRecordRequest
+     *
+     * @return DescribeZoneRecordResponse DescribeZoneRecordResponse
+     */
+    public function describeZoneRecord($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeZoneRecordWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries a list of Domain Name System (DNS) records for a zone.
      *  *
      * @param DescribeZoneRecordsRequest $request DescribeZoneRecordsRequest
@@ -1940,6 +2244,76 @@ class Pvtz extends OpenApiClient
     }
 
     /**
+     * @param SearchCustomLinesRequest $request SearchCustomLinesRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return SearchCustomLinesResponse SearchCustomLinesResponse
+     */
+    public function searchCustomLinesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->createTimestampEnd)) {
+            $query['CreateTimestampEnd'] = $request->createTimestampEnd;
+        }
+        if (!Utils::isUnset($request->createTimestampStart)) {
+            $query['CreateTimestampStart'] = $request->createTimestampStart;
+        }
+        if (!Utils::isUnset($request->creator)) {
+            $query['Creator'] = $request->creator;
+        }
+        if (!Utils::isUnset($request->ipv4)) {
+            $query['Ipv4'] = $request->ipv4;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->updateTimestampEnd)) {
+            $query['UpdateTimestampEnd'] = $request->updateTimestampEnd;
+        }
+        if (!Utils::isUnset($request->updateTimestampStart)) {
+            $query['UpdateTimestampStart'] = $request->updateTimestampStart;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SearchCustomLines',
+            'version'     => '2018-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SearchCustomLinesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SearchCustomLinesRequest $request SearchCustomLinesRequest
+     *
+     * @return SearchCustomLinesResponse SearchCustomLinesResponse
+     */
+    public function searchCustomLines($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->searchCustomLinesWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Configures the recursive resolution proxy feature.
      *  *
      * @param SetProxyPatternRequest $request SetProxyPatternRequest
@@ -2173,6 +2547,58 @@ class Pvtz extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->untagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateCustomLineRequest $request UpdateCustomLineRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateCustomLineResponse UpdateCustomLineResponse
+     */
+    public function updateCustomLineWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ipv4s)) {
+            $query['Ipv4s'] = $request->ipv4s;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->lineId)) {
+            $query['LineId'] = $request->lineId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateCustomLine',
+            'version'     => '2018-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateCustomLineResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateCustomLineRequest $request UpdateCustomLineRequest
+     *
+     * @return UpdateCustomLineResponse UpdateCustomLineResponse
+     */
+    public function updateCustomLine($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateCustomLineWithOptions($request, $runtime);
     }
 
     /**
