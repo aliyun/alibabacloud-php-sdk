@@ -161,6 +161,9 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\ExportZookeeperDataRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ExportZookeeperDataResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\FetchLosslessRuleListRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\FetchLosslessRuleListResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\GatewayBlackWhiteListRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\GatewayBlackWhiteListResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\GatewayBlackWhiteListShrinkRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetApplicationInstanceListRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetApplicationInstanceListResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetApplicationListRequest;
@@ -1964,6 +1967,9 @@ class Mse extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->acceptLanguage)) {
             $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->dataIds)) {
+            $query['DataIds'] = $request->dataIds;
         }
         if (!Utils::isUnset($request->ids)) {
             $query['Ids'] = $request->ids;
@@ -5396,6 +5402,73 @@ class Mse extends OpenApiClient
     }
 
     /**
+     * @summary 黑白名单列表
+     *  *
+     * @param GatewayBlackWhiteListRequest $tmpReq  GatewayBlackWhiteListRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GatewayBlackWhiteListResponse GatewayBlackWhiteListResponse
+     */
+    public function gatewayBlackWhiteListWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new GatewayBlackWhiteListShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->filterParams)) {
+            $request->filterParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->filterParams, 'FilterParams', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->descSort)) {
+            $query['DescSort'] = $request->descSort;
+        }
+        if (!Utils::isUnset($request->filterParamsShrink)) {
+            $query['FilterParams'] = $request->filterParamsShrink;
+        }
+        if (!Utils::isUnset($request->orderItem)) {
+            $query['OrderItem'] = $request->orderItem;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GatewayBlackWhiteList',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GatewayBlackWhiteListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 黑白名单列表
+     *  *
+     * @param GatewayBlackWhiteListRequest $request GatewayBlackWhiteListRequest
+     *
+     * @return GatewayBlackWhiteListResponse GatewayBlackWhiteListResponse
+     */
+    public function gatewayBlackWhiteList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->gatewayBlackWhiteListWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries information about canary release for messaging of an application.
      *  *
      * @param GetAppMessageQueueRouteRequest $request GetAppMessageQueueRouteRequest
@@ -5600,8 +5673,12 @@ class Mse extends OpenApiClient
     }
 
     /**
+     * @deprecated openAPI GetBlackWhiteList is deprecated, please use mse::2019-05-31::GatewayBlackWhiteList instead
+     *  *
      * @summary Queries the blacklist or whitelist of a gateway.
      *  *
+     * Deprecated
+     *
      * @param GetBlackWhiteListRequest $request GetBlackWhiteListRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -5645,8 +5722,12 @@ class Mse extends OpenApiClient
     }
 
     /**
+     * @deprecated openAPI GetBlackWhiteList is deprecated, please use mse::2019-05-31::GatewayBlackWhiteList instead
+     *  *
      * @summary Queries the blacklist or whitelist of a gateway.
      *  *
+     * Deprecated
+     *
      * @param GetBlackWhiteListRequest $request GetBlackWhiteListRequest
      *
      * @return GetBlackWhiteListResponse GetBlackWhiteListResponse

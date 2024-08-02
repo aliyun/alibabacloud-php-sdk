@@ -21,10 +21,16 @@ class CloneNacosConfigRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @var string
+     */
+    public $dataIds;
+
+    /**
      * @description The data structure.
      *
-     * This parameter is required.
      * @example 253661,253662
+     *
+     * @deprecated
      *
      * @var string
      */
@@ -76,6 +82,7 @@ class CloneNacosConfigRequest extends Model
     public $targetNamespaceId;
     protected $_name = [
         'acceptLanguage'    => 'AcceptLanguage',
+        'dataIds'           => 'DataIds',
         'ids'               => 'Ids',
         'instanceId'        => 'InstanceId',
         'originNamespaceId' => 'OriginNamespaceId',
@@ -92,6 +99,9 @@ class CloneNacosConfigRequest extends Model
         $res = [];
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
+        }
+        if (null !== $this->dataIds) {
+            $res['DataIds'] = $this->dataIds;
         }
         if (null !== $this->ids) {
             $res['Ids'] = $this->ids;
@@ -122,6 +132,9 @@ class CloneNacosConfigRequest extends Model
         $model = new self();
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
+        }
+        if (isset($map['DataIds'])) {
+            $model->dataIds = $map['DataIds'];
         }
         if (isset($map['Ids'])) {
             $model->ids = $map['Ids'];
