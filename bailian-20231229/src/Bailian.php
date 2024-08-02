@@ -34,6 +34,8 @@ use AlibabaCloud\SDK\Bailian\V20231229\Models\ListCategoryRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\ListCategoryResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\ListChunksRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\ListChunksResponse;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\ListFileRequest;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\ListFileResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\ListIndexDocumentsRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\ListIndexDocumentsResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\ListIndicesRequest;
@@ -952,6 +954,64 @@ class Bailian extends OpenApiClient
         $headers = [];
 
         return $this->listChunksWithOptions($WorkspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 获取文档列表
+     *  *
+     * @param string          $WorkspaceId
+     * @param ListFileRequest $request     ListFileRequest
+     * @param string[]        $headers     map
+     * @param RuntimeOptions  $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return ListFileResponse ListFileResponse
+     */
+    public function listFileWithOptions($WorkspaceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->categoryId)) {
+            $query['CategoryId'] = $request->categoryId;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListFile',
+            'version'     => '2023-12-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($WorkspaceId) . '/datacenter/files',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListFileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取文档列表
+     *  *
+     * @param string          $WorkspaceId
+     * @param ListFileRequest $request     ListFileRequest
+     *
+     * @return ListFileResponse ListFileResponse
+     */
+    public function listFile($WorkspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listFileWithOptions($WorkspaceId, $request, $headers, $runtime);
     }
 
     /**
