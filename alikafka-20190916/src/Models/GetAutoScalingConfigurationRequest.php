@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetAutoScalingConfigurationRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The instance ID.
      *
+     * This parameter is required.
      * @example alikafka_serverless-cn-vxxxxxxxx
      *
      * @var string
@@ -18,8 +19,9 @@ class GetAutoScalingConfigurationRequest extends Model
     public $instanceId;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the region where the instance resides.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

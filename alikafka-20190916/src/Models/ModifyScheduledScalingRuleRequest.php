@@ -9,8 +9,12 @@ use AlibabaCloud\Tea\Model;
 class ModifyScheduledScalingRuleRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description Specifies whether to enable the scheduled scaling rule. Valid values:
      *
+     *   **true**
+     *   **false**
+     *
+     * This parameter is required.
      * @example true
      *
      * @var bool
@@ -18,8 +22,9 @@ class ModifyScheduledScalingRuleRequest extends Model
     public $enable;
 
     /**
-     * @description This parameter is required.
+     * @description The instance ID.
      *
+     * This parameter is required.
      * @example alikafka_serverless-cn-vxxxxxxxx
      *
      * @var string
@@ -27,8 +32,9 @@ class ModifyScheduledScalingRuleRequest extends Model
     public $instanceId;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the region where the instance resides.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -36,8 +42,9 @@ class ModifyScheduledScalingRuleRequest extends Model
     public $regionId;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the scheduled scaling rule.
      *
+     * This parameter is required.
      * @example contact-id
      *
      * @var string

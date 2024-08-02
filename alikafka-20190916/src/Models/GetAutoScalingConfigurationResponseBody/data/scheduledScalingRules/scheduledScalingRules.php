@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class scheduledScalingRules extends Model
 {
     /**
+     * @description The duration of a scheduled scaling task. Unit: minutes.
+     *
      * @example 60
      *
      * @var int
@@ -17,6 +19,11 @@ class scheduledScalingRules extends Model
     public $durationMinutes;
 
     /**
+     * @description Indicates whether the scheduled scaling rule is enabled. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -24,6 +31,8 @@ class scheduledScalingRules extends Model
     public $enable;
 
     /**
+     * @description The estimated scale-in duration. Unit: seconds.
+     *
      * @example 780
      *
      * @var int
@@ -31,6 +40,8 @@ class scheduledScalingRules extends Model
     public $estimatedElasticScalingDownTimeSecs;
 
     /**
+     * @description The estimated scale-out duration. Unit: seconds.
+     *
      * @example 780
      *
      * @var int
@@ -38,6 +49,8 @@ class scheduledScalingRules extends Model
     public $estimatedElasticScalingUpTimeSecs;
 
     /**
+     * @description The timestamp that indicates the start time of the scheduled scaling task.
+     *
      * @example 1714467540000
      *
      * @var int
@@ -45,6 +58,12 @@ class scheduledScalingRules extends Model
     public $firstScheduledTime;
 
     /**
+     * @description The frequency at which the scheduled scaling task is executed. This parameter is returned only if ScheduleType is set to repeat. Valid values:
+     *
+     *   Daily: The scheduled scaling task is executed every day.
+     *
+     *   Weekly: The scheduled scaling task is executed every week.
+     *
      * @example Weekly
      *
      * @var string
@@ -52,6 +71,8 @@ class scheduledScalingRules extends Model
     public $repeatType;
 
     /**
+     * @description The reserved production capacity for scheduled scaling. Unit: MB/s.
+     *
      * @example 120
      *
      * @var int
@@ -59,6 +80,8 @@ class scheduledScalingRules extends Model
     public $reservedPubFlow;
 
     /**
+     * @description The reserved consumption capacity for scheduled scaling. Unit: MB/s.
+     *
      * @example 120
      *
      * @var int
@@ -66,6 +89,8 @@ class scheduledScalingRules extends Model
     public $reservedSubFlow;
 
     /**
+     * @description The ID of the scheduled scaling rule.
+     *
      * @example 64
      *
      * @var int
@@ -73,6 +98,8 @@ class scheduledScalingRules extends Model
     public $ruleId;
 
     /**
+     * @description The name of the scheduled scaling rule.
+     *
      * @example test
      *
      * @var string
@@ -80,6 +107,11 @@ class scheduledScalingRules extends Model
     public $ruleName;
 
     /**
+     * @description The type of the scheduled scaling task. Valid values:
+     *
+     *   at: The scheduled scaling task is executed only once.
+     *   repeat: The scheduled scaling task is repeatedly executed.
+     *
      * @example at
      *
      * @var string
@@ -87,6 +119,8 @@ class scheduledScalingRules extends Model
     public $scheduleType;
 
     /**
+     * @description The time zone in Coordinated Universal Time (UTC).
+     *
      * @example GMT+8
      *
      * @var string
@@ -94,6 +128,8 @@ class scheduledScalingRules extends Model
     public $timeZone;
 
     /**
+     * @description The day on which the scheduled scaling task is repeatedly executed. You can specify multiple days for this parameter.
+     *
      * @var weeklyTypes
      */
     public $weeklyTypes;

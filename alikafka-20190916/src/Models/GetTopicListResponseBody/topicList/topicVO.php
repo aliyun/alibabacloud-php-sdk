@@ -134,6 +134,8 @@ class topicVO extends Model
     public $topic;
 
     /**
+     * @description The topic configuration.
+     *
      * @example {"replication-factor":3}
      *
      * @var string

@@ -1,3 +1,8 @@
+2024-08-02 Version: 2.6.1
+- Update API GetConsumerProgress: add param HideLastTimestamp.
+- Update API UpgradePrePayOrder: update response param.
+
+
 2024-05-16 Version: 2.6.0
 - Support API CreateScheduledScalingRule.
 - Support API DeleteScheduledScalingRule.

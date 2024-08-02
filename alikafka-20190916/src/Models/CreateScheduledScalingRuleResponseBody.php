@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateScheduledScalingRuleResponseBody extends Model
 {
     /**
+     * @description The response code. The value 200 indicates that the request was successful.
+     *
      * @example 200
      *
      * @var int
@@ -16,6 +18,8 @@ class CreateScheduledScalingRuleResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned message.
+     *
      * @example operation success
      *
      * @var string
@@ -23,7 +27,7 @@ class CreateScheduledScalingRuleResponseBody extends Model
     public $message;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example DB6F1BEA-903B-4FD8-8809-46E7E9CE***
      *
@@ -32,6 +36,11 @@ class CreateScheduledScalingRuleResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example True
      *
      * @var bool

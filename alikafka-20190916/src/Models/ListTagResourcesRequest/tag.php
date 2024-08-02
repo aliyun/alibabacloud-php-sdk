@@ -9,10 +9,10 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
-     * @description The tag key.
+     * @description The key of the resource tag.
      *
      *   If you leave this parameter empty, the keys of all tags are matched.
-     *   The tag key must be 1 to 128 characters in length and cannot start with acs: or aliyun. The tag key cannot contain http:// or https://.
+     *   The tag key can be up to 128 characters in length and cannot contain http:// or https://. The tag key cannot start with acs: or aliyun.
      *
      * @example FinanceDept
      *
@@ -21,10 +21,10 @@ class tag extends Model
     public $key;
 
     /**
-     * @description The tag value.
+     * @description The value of the resource tag.
      *
-     *   If you do not specify the tag key, you cannot specify the tag value. If you leave this parameter empty, the values of all tags are matched.
-     *   The tag value must be 1 to 128 characters in length and cannot start with acs: or aliyun. The tag value cannot contain http:// or https://.
+     *   If you leave Key empty, you must also leave this parameter empty. If you leave this parameter empty, the values of all tags are matched.
+     *   The tag value can be up to 128 characters in length and cannot contain http:// or https://. The tag value cannot start with acs: or aliyun.
      *
      * @example FinanceJoshua
      *

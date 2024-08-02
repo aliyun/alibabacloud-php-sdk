@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeAclsRequest extends Model
 {
     /**
+     * @description The types of operations allowed by the ACL. Separate multiple operation types with commas (,).
+     * > This parameter is available only for ApsaraMQ for Kafka V3 serverless instances.
      * @example Write
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeAclsRequest extends Model
     public $aclOperationType;
 
     /**
+     * @description The authorization method. Valid values:
+     * > This parameter is available only for ApsaraMQ for Kafka V3 serverless instances.
      * @example DENY
      *
      * @var string
@@ -23,10 +27,10 @@ class DescribeAclsRequest extends Model
     public $aclPermissionType;
 
     /**
-     * @description The name or ID of the resource.
+     * @description The resource name.
      *
-     *   The value can be the name of a topic or a consumer group.
-     *   You can use an asterisk (\\*) to represent the names of all topics or consumer groups.
+     *   The value can be the name of a topic or consumer group.
+     *   You can use an asterisk (\\*) to specify the names of all topics or consumer groups.
      *
      * This parameter is required.
      * @example demo
@@ -61,6 +65,9 @@ class DescribeAclsRequest extends Model
     public $aclResourceType;
 
     /**
+     * @description The source IP address.
+     * >-  You can specify only a specific IP address or use the asterisk (*) wildcard character to specify all IP addresses. CIDR blocks are not supported.
+     * > - This parameter is available only for ApsaraMQ for Kafka V3 serverless instances.
      * @example *
      *
      * @var string
@@ -88,7 +95,11 @@ class DescribeAclsRequest extends Model
     public $regionId;
 
     /**
-     * @description The name of the user.
+     * @description The username.
+     *
+     *   You can use an asterisk (\\*) to specify all users.
+     *
+     * > You can use an asterisk (\\*) to query the authorized users only after you grant the required permissions to all users.
      *
      * This parameter is required.
      * @example test12****

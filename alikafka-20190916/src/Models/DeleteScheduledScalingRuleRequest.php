@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteScheduledScalingRuleRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The instance ID.
      *
+     * This parameter is required.
      * @example alikafka_serverless-cn-vxxxxxxxx
      *
      * @var string
@@ -18,8 +19,9 @@ class DeleteScheduledScalingRuleRequest extends Model
     public $instanceId;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the region where the instance resides.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -27,8 +29,9 @@ class DeleteScheduledScalingRuleRequest extends Model
     public $regionId;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the scheduled scaling rule.
      *
+     * This parameter is required.
      * @example rule-name-test
      *
      * @var string

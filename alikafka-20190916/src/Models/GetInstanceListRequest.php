@@ -47,8 +47,12 @@ class GetInstanceListRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description 实例系列标识，可根据系列号来过滤不同系列的实例。取值如下：
-     * - confluent
+     * @description The instance version. You can use instance versions to filter different versions of instances. Valid values:
+     *
+     *   v2
+     *   v3
+     *   confluent
+     *
      * @example v3
      *
      * @var string

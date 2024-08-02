@@ -101,7 +101,7 @@ class messageList extends Model
     /**
      * @description The truncated size of the message key. Unit: bytes.
      *
-     * >  A maximum of 1 KB content can be displayed for each message. Content that exceeds 1 KB is automatically truncated. For more information, see [Query messages](https://help.aliyun.com/zh/apsaramq-for-kafka/query-messages).
+     * >  A maximum of 1 KB of content can be displayed for each message. Content that exceeds 1 KB is automatically truncated. For more information, see [Query messages](https://help.aliyun.com/document_detail/113172.html).
      * @example 0
      *
      * @var int
@@ -111,7 +111,7 @@ class messageList extends Model
     /**
      * @description The truncated size of the message value. Unit: bytes.
      *
-     * >  A maximum of 1 KB content can be displayed for each message. Content that exceeds 1 KB is automatically truncated. For more information, see [Query messages](https://help.aliyun.com/zh/apsaramq-for-kafka/query-messages).
+     * >  A maximum of 1 KB of content can be displayed for each message. Content that exceeds 1 KB is automatically truncated. For more information, see [Query messages](https://help.aliyun.com/document_detail/113172.html).
      * @example 0
      *
      * @var int

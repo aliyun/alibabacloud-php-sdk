@@ -28,14 +28,9 @@ class UpgradePostPayOrderRequest extends Model
      *   The Internet traffic that you specify must be greater than or equal to the current Internet traffic of the instance.
      *   For information about the valid values of this parameter, see [Billing](https://help.aliyun.com/document_detail/84737.html).
      *
-     * >
-     *
-     *   If you set **EipModel** to **true**, set **EipMax** to a value that is greater than 0.
-     *
-     *   If you set **EipModel** to **false**, set **EipMax** to **0**.
-     *
-     *   When you create an ApsaraMQ for Kafka V3 serverless instance, you do not need to configure this parameter.
-     *
+     * > -  If you set **EipModel** to **true**, set **EipMax** to a value that is greater than 0.
+     * >- If you set **EipModel** to **false**, set **EipMax** to **0**.
+     * >- When you create an ApsaraMQ for Kafka V3 serverless instance, you do not need to configure this parameter.
      * @example 0
      *
      * @var int
@@ -135,7 +130,6 @@ class UpgradePostPayOrderRequest extends Model
      * Valid values for this parameter if you set PaidType to 3:
      *
      *   normal: Serverless Standard Edition
-     *   professional: Serverless Professional Edition
      *
      * For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
      * @example professional

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetAutoScalingConfigurationResponseBody extends Model
 {
     /**
+     * @description The response code. The value 200 indicates that the request was successful.
+     *
      * @example 200
      *
      * @var int
@@ -17,11 +19,15 @@ class GetAutoScalingConfigurationResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned data.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The returned message.
+     *
      * @example operation success.
      *
      * @var string
@@ -29,7 +35,7 @@ class GetAutoScalingConfigurationResponseBody extends Model
     public $message;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example B7A39AE5-0B36-4442-A304-E0885265***
      *
@@ -38,6 +44,8 @@ class GetAutoScalingConfigurationResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
      * @example true
      *
      * @var bool

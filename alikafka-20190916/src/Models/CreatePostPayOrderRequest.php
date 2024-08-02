@@ -150,7 +150,6 @@ class CreatePostPayOrderRequest extends Model
      * Valid values if you set PaidType to 3:
      *
      *   normal: Serverless Standard Edition
-     *   professional: Serverless Professional Edition
      *
      * For more information about the instance editions, see [Billing](https://help.aliyun.com/document_detail/84737.html).
      * @example normal

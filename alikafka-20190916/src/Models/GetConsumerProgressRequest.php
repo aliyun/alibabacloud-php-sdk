@@ -19,6 +19,11 @@ class GetConsumerProgressRequest extends Model
     public $consumerId;
 
     /**
+     * @var bool
+     */
+    public $hideLastTimestamp;
+
+    /**
      * @description The ID of the instance.
      *
      * This parameter is required.
@@ -38,9 +43,10 @@ class GetConsumerProgressRequest extends Model
      */
     public $regionId;
     protected $_name = [
-        'consumerId' => 'ConsumerId',
-        'instanceId' => 'InstanceId',
-        'regionId'   => 'RegionId',
+        'consumerId'        => 'ConsumerId',
+        'hideLastTimestamp' => 'HideLastTimestamp',
+        'instanceId'        => 'InstanceId',
+        'regionId'          => 'RegionId',
     ];
 
     public function validate()
@@ -52,6 +58,9 @@ class GetConsumerProgressRequest extends Model
         $res = [];
         if (null !== $this->consumerId) {
             $res['ConsumerId'] = $this->consumerId;
+        }
+        if (null !== $this->hideLastTimestamp) {
+            $res['HideLastTimestamp'] = $this->hideLastTimestamp;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -73,6 +82,9 @@ class GetConsumerProgressRequest extends Model
         $model = new self();
         if (isset($map['ConsumerId'])) {
             $model->consumerId = $map['ConsumerId'];
+        }
+        if (isset($map['HideLastTimestamp'])) {
+            $model->hideLastTimestamp = $map['HideLastTimestamp'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];

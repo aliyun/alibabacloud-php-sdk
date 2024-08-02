@@ -644,7 +644,9 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary 创建定时伸缩配置
+     * @summary Creates a scheduled scaling rule for a serverless ApsaraMQ for Kafka V3 instance.
+     *  *
+     * @description ###### [](#-v3-serverless-)This operation is supported only by serverless ApsaraMQ for Kafka V3 instances.
      *  *
      * @param CreateScheduledScalingRuleRequest $tmpReq  CreateScheduledScalingRuleRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -715,7 +717,9 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary 创建定时伸缩配置
+     * @summary Creates a scheduled scaling rule for a serverless ApsaraMQ for Kafka V3 instance.
+     *  *
+     * @description ###### [](#-v3-serverless-)This operation is supported only by serverless ApsaraMQ for Kafka V3 instances.
      *  *
      * @param CreateScheduledScalingRuleRequest $request CreateScheduledScalingRuleRequest
      *
@@ -1048,7 +1052,9 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary 删除定时伸缩规则
+     * @summary Deletes a scheduled scaling task for a serverless ApsaraMQ for Kafka V3 instance.
+     *  *
+     * @description ###### [](#-v3-serverless-)This operation is supported only by serverless ApsaraMQ for Kafka V3 instance.
      *  *
      * @param DeleteScheduledScalingRuleRequest $request DeleteScheduledScalingRuleRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -1087,7 +1093,9 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary 删除定时伸缩规则
+     * @summary Deletes a scheduled scaling task for a serverless ApsaraMQ for Kafka V3 instance.
+     *  *
+     * @description ###### [](#-v3-serverless-)This operation is supported only by serverless ApsaraMQ for Kafka V3 instance.
      *  *
      * @param DeleteScheduledScalingRuleRequest $request DeleteScheduledScalingRuleRequest
      *
@@ -1481,7 +1489,9 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary 查询自动伸缩配置
+     * @summary Queries the configurations of the scheduled scaling rule of a serverless ApsaraMQ for Kafka V3 instance.
+     *  *
+     * @description ###### [](#-v3-serverless-)**This operation is supported only by serverless ApsaraMQ for Kafka V3 instances.
      *  *
      * @param GetAutoScalingConfigurationRequest $request GetAutoScalingConfigurationRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
@@ -1517,7 +1527,9 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary 查询自动伸缩配置
+     * @summary Queries the configurations of the scheduled scaling rule of a serverless ApsaraMQ for Kafka V3 instance.
+     *  *
+     * @description ###### [](#-v3-serverless-)**This operation is supported only by serverless ApsaraMQ for Kafka V3 instances.
      *  *
      * @param GetAutoScalingConfigurationRequest $request GetAutoScalingConfigurationRequest
      *
@@ -1603,6 +1615,9 @@ class Alikafka extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->consumerId)) {
             $query['ConsumerId'] = $request->consumerId;
+        }
+        if (!Utils::isUnset($request->hideLastTimestamp)) {
+            $query['HideLastTimestamp'] = $request->hideLastTimestamp;
         }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
@@ -1814,7 +1829,7 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Queries the status information about messages in a specified topic.
+     * @summary Queries the messaging status of a topic.
      *  *
      * @param GetTopicStatusRequest $request GetTopicStatusRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -1853,7 +1868,7 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Queries the status information about messages in a specified topic.
+     * @summary Queries the messaging status of a topic.
      *  *
      * @param GetTopicStatusRequest $request GetTopicStatusRequest
      *
@@ -1867,7 +1882,7 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Obtains the information about a group that subscribes to a topic.
+     * @summary Queries the information about the groups that subscribe to a topic.
      *  *
      * @param GetTopicSubscribeStatusRequest $request GetTopicSubscribeStatusRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -1906,7 +1921,7 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Obtains the information about a group that subscribes to a topic.
+     * @summary Queries the information about the groups that subscribe to a topic.
      *  *
      * @param GetTopicSubscribeStatusRequest $request GetTopicSubscribeStatusRequest
      *
@@ -2032,7 +2047,7 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Changes the number of partitions in a specified topic.
+     * @summary Changes the number of partitions in a topic.
      *  *
      * @param ModifyPartitionNumRequest $request ModifyPartitionNumRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -2074,7 +2089,7 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Changes the number of partitions in a specified topic.
+     * @summary Changes the number of partitions in a topic.
      *  *
      * @param ModifyPartitionNumRequest $request ModifyPartitionNumRequest
      *
@@ -2088,7 +2103,9 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary 修改定时伸缩规则
+     * @summary Modifies a scheduled scaling rule for a serverless ApsaraMQ for Kafka V3 instance.
+     *  *
+     * @description ###### [](#-v3-serverless-)This operation is supported only by serverless ApsaraMQ for Kafka V3 instances.
      *  *
      * @param ModifyScheduledScalingRuleRequest $request ModifyScheduledScalingRuleRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -2130,7 +2147,9 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary 修改定时伸缩规则
+     * @summary Modifies a scheduled scaling rule for a serverless ApsaraMQ for Kafka V3 instance.
+     *  *
+     * @description ###### [](#-v3-serverless-)This operation is supported only by serverless ApsaraMQ for Kafka V3 instances.
      *  *
      * @param ModifyScheduledScalingRuleRequest $request ModifyScheduledScalingRuleRequest
      *
@@ -2244,7 +2263,7 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Releases a pay-as-you-go Message Queue for Apache Kafka instance.
+     * @summary Releases a pay-as-you-go instance.
      *  *
      * @description You cannot call this operation to release a subscription Message Queue for Apache Kafka instance.
      *  *
@@ -2285,7 +2304,7 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Releases a pay-as-you-go Message Queue for Apache Kafka instance.
+     * @summary Releases a pay-as-you-go instance.
      *  *
      * @description You cannot call this operation to release a subscription Message Queue for Apache Kafka instance.
      *  *

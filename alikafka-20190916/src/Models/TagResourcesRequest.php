@@ -29,7 +29,7 @@ class TagResourcesRequest extends Model
     public $regionId;
 
     /**
-     * @description The list of resource IDs.
+     * @description The resource IDs.
      *
      * This parameter is required.
      * @example alikafka_post-cn-v0h1fgs2****

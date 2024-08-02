@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteScheduledScalingRuleResponseBody extends Model
 {
     /**
+     * @description The responses code. The value 200 indicates that the request was successful.
+     *
      * @example 200
      *
      * @var int
@@ -16,6 +18,8 @@ class DeleteScheduledScalingRuleResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned message.
+     *
      * @example operation success.
      *
      * @var string
@@ -23,7 +27,7 @@ class DeleteScheduledScalingRuleResponseBody extends Model
     public $message;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example ABA4A7FD-E10F-45C7-9774-A5236015****
      *
@@ -32,6 +36,8 @@ class DeleteScheduledScalingRuleResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
      * @example True
      *
      * @var bool

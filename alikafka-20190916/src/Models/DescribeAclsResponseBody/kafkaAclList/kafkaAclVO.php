@@ -9,11 +9,8 @@ use AlibabaCloud\Tea\Model;
 class kafkaAclVO extends Model
 {
     /**
-     * @description The operation type. Valid values:
-     *
-     *   **Write**
-     *   **Read**
-     *
+     * @description The types of operations allowed by the ACL. Separate multiple operation types with commas (,).
+     * > This parameter is available only for ApsaraMQ for Kafka V3 serverless instances.
      * @example Write
      *
      * @var string
@@ -21,6 +18,8 @@ class kafkaAclVO extends Model
     public $aclOperationType;
 
     /**
+     * @description The authorization method. Valid values:
+     * > This parameter is available only for ApsaraMQ for Kafka V3 serverless instances.
      * @example DENY
      *
      * @var string

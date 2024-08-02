@@ -52,7 +52,7 @@ class UntagResourcesRequest extends Model
     public $resourceType;
 
     /**
-     * @description The tag key.
+     * @description The key of the resource tag.
      *
      * @example FinanceDept
      *

@@ -11,10 +11,12 @@ class DeleteAclRequest extends Model
     /**
      * @description The operation allowed by the access control list (ACL). Valid values:
      *
-     *   **Write**: data writes
-     *   **Read**: data reads
+     *   **Write**
+     *   **Read**
      *   **Describe**: reads of transactional IDs
      *   **IdempotentWrite**: idempotent data writes to clusters
+     *   **IDEMPOTENT_WRITE**: idempotent data writes to clusters. This value is available only for ApsaraMQ for Kafka V3 instances.
+     *   **DESCRIBE_CONFIGS**: configuration queries. This value is available only for ApsaraMQ for Kafka V3 instances.
      *
      * This parameter is required.
      * @example Write
@@ -30,8 +32,10 @@ class DeleteAclRequest extends Model
      *
      *   **Write**: data writes
      *   **Read**: data reads
-     *   **Describe**: reads of **transactional IDs**
-     *   **IdempotentWrite**: idempotent data writes to **clusters**
+     *   **Describe**: reads of transactional IDs
+     *   **IdempotentWrite**: idempotent data writes to clusters
+     *   **IDEMPOTENT_WRITE**: idempotent data writes to clusters. This value is available only for ApsaraMQ for Kafka V3 instances.
+     *   **DESCRIBE_CONFIGS**: queries of configurations. This value is available only for ApsaraMQ for Kafka V3 instances.
      *
      * >  This parameter is available only for ApsaraMQ for Kafka V3 serverless instances.
      * @example Write,Read
@@ -97,6 +101,8 @@ class DeleteAclRequest extends Model
     /**
      * @description The IP address of the source.
      *
+     * > - You can specify only a specific IP address or use the asterisk (\\*) wildcard character to specify all IP addresses. CIDR blocks are not supported.
+     * >- This parameter is available only for serverless ApsaraMQ for Kafka V3 instances.
      * @example *
      *
      * @var string

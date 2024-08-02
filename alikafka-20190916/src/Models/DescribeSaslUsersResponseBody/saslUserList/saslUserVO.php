@@ -11,7 +11,7 @@ class saslUserVO extends Model
     /**
      * @description The encryption method.
      *
-     * >  This field is available only for ApsaraMQ for Kafka V3 Serverless instances.
+     * >  This field is available only for serverless ApsaraMQ for Kafka V3 instances.
      * @example SCRAM-SHA-256
      *
      * @var string
@@ -28,10 +28,11 @@ class saslUserVO extends Model
     public $password;
 
     /**
-     * @description The type. Valid values:
+     * @description The type of the SASL user. Valid values:
      *
      *   **plain**: a simple mechanism that uses usernames and passwords to verify user identities. ApsaraMQ for Kafka provides an improved PLAIN mechanism that allows you to dynamically add SASL users without the need to restart an instance.
      *   **SCRAM**: a mechanism that uses usernames and passwords to verify user identities. Compared with the PLAIN mechanism, this mechanism provides better security protection. ApsaraMQ for Kafka uses the SCRAM-SHA-256 algorithm.
+     *   **LDAP**: This value is available only for the SASL users of ApsaraMQ for Confluent instances.
      *
      * Default value: **plain**.
      * @example scram

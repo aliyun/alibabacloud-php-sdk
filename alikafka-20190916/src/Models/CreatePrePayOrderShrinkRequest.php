@@ -10,18 +10,20 @@ use AlibabaCloud\Tea\Model;
 class CreatePrePayOrderShrinkRequest extends Model
 {
     /**
-     * @description The configurations of ApsaraMQ for Confluent components.
+     * @description The configurations of Confluent.
      *
+     * >  When you create an ApsaraMQ for Confluent instance, you must configure this parameter.
      * @var string
      */
     public $confluentConfigShrink;
 
     /**
-     * @description The deployment mode of the instance. Valid values:
+     * @description The type of the network in which the instance is deployed. Valid values:
      *
-     *   **4**: deploys the instance that allows access from the Internet and a VPC.
-     *   **5**: deploys the instance that allows access only from a VPC.
+     *   **4**: Internet and virtual private cloud (VPC)
+     *   **5**: VPC
      *
+     * >  If you create an ApsaraMQ for Confluent instance, set the value to 5. After the instance is created, you can specify whether to enable each component.
      * @example 5
      *
      * @var int
@@ -29,9 +31,9 @@ class CreatePrePayOrderShrinkRequest extends Model
     public $deployType;
 
     /**
-     * @description The disk size. Unit: GB.
+     * @description The disk size. Unit: GB
      *
-     * For more information about the valid values, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+     * >  If you create an ApsaraMQ for Confluent instance, you do not need to configure this parameter.
      * @example 500
      *
      * @var int
@@ -44,6 +46,7 @@ class CreatePrePayOrderShrinkRequest extends Model
      *   **0**: ultra disk
      *   **1**: standard SSD
      *
+     * >  If you create an ApsaraMQ for Confluent instance, you do not need to configure this parameter.
      * @example 0
      *
      * @var string
@@ -62,11 +65,12 @@ class CreatePrePayOrderShrinkRequest extends Model
     public $duration;
 
     /**
-     * @description The Internet traffic for the instance.
+     * @description The maximum Internet traffic in the instance.
      *
-     *   This parameter is required if the **DeployType** parameter is set to **4**.
-     *   For more information about the valid values, see [Pay-as-you-go](https://help.aliyun.com/document_detail/72142.html).
+     *   If you set **DeployType** to **4**, you must configure this parameter.
+     *   For information about the valid values, see [Pay-as-you-go](https://help.aliyun.com/document_detail/72142.html).
      *
+     * >  If you create an ApsaraMQ for Confluent instance, you do not need to configure this parameter.
      * @example 0
      *
      * @var int
@@ -74,11 +78,12 @@ class CreatePrePayOrderShrinkRequest extends Model
     public $eipMax;
 
     /**
-     * @description The maximum traffic for the instance. We recommend that you do not configure this parameter.
+     * @description The maximum traffic in the instance. We recommend that you do not configure this parameter.
      *
-     *   You must configure at least one of the **IoMax** and **IoMaxSpec** parameters. If both parameters are configured, the value of the **IoMaxSpec** parameter takes effect. We recommend that you configure only the **IoMaxSpec** parameter.
-     *   For more information about the valid values, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+     *   You must set one of **IoMax** and **IoMaxSpec**. If both parameters are configured, the value of **IoMaxSpec** is used. We recommend that you configure only **IoMaxSpec**.
+     *   For information about the valid values of this parameter, see [Billing](https://help.aliyun.com/document_detail/84737.html).
      *
+     * >  If you create an ApsaraMQ for Confluent instance, you do not need to configure this parameter.
      * @example 20
      *
      * @var int
@@ -88,9 +93,10 @@ class CreatePrePayOrderShrinkRequest extends Model
     /**
      * @description The traffic specification of the instance. We recommend that you configure this parameter.
      *
-     *   You must configure at least one of the **IoMax** and **IoMaxSpec** parameters. If both parameters are configured, the value of the **IoMaxSpec** parameter takes effect. We recommend that you configure only the **IoMaxSpec** parameter.
-     *   For more information about the valid values, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+     *   You must configure one of **IoMax** and **IoMaxSpec**. If both parameters are configured, the value of **IoMaxSpec** is used. We recommend that you configure only **IoMaxSpec**.
+     *   For more information about the valid values of this parameter, see [Billing](https://help.aliyun.com/document_detail/84737.html).
      *
+     * >  If you create an ApsaraMQ for Confluent instance, you do not need to configure this parameter.
      * @example alikafka.hw.2xlarge
      *
      * @var string
@@ -112,10 +118,11 @@ class CreatePrePayOrderShrinkRequest extends Model
     /**
      * @description The number of partitions. We recommend that you configure this parameter.
      *
-     *   You must specify at least one of the PartitionNum and TopicQuota parameters. We recommend that you configure only the PartitionNum parameter.
-     *   If you specify both parameters, the topic-based sales model is used to check whether the PartitionNum value and the TopicQuota value are the same. If they are not the same, a failure response is returned. If they are the same, the order is placed based on the PartitionNum value.
-     *   For more information about the valid values, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+     *   You must configure one of PartitionNum and TopicQuota. We recommend that you configure only PartitionNum.
+     *   If you configure PartitionNum and TopicQuota at the same time, the system verifies whether the price of the partitions equals the price of the topics based on the previous topic-based selling mode. If the price of the partitions does not equal the price of the topics, an error is returned. If the price of the partitions equals the price of the topics, the instance is purchased based on the partition number.
+     *   For information about the valid values of this parameter, see [Billing](https://help.aliyun.com/document_detail/84737.html).
      *
+     * >  If you create an ApsaraMQ for Confluent instance, you do not need to configure this parameter.
      * @example 50
      *
      * @var int
@@ -143,13 +150,13 @@ class CreatePrePayOrderShrinkRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description The edition of the instance. Valid values:
+     * @description The instance edition. Valid values:
      *
      *   **normal**: Standard Edition (High Write)
      *   **professional**: Professional Edition (High Write)
      *   **professionalForHighRead**: Professional Edition (High Read)
      *
-     * For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+     * >  If you create an ApsaraMQ for Confluent instance, you do not need to configure this parameter.
      * @example normal
      *
      * @var string
@@ -166,11 +173,12 @@ class CreatePrePayOrderShrinkRequest extends Model
     /**
      * @description The number of topics. We recommend that you do not configure this parameter.
      *
-     *   You must specify at least one of the PartitionNum and TopicQuota parameters. We recommend that you configure only the PartitionNum parameter.
-     *   If you specify both parameters, the topic-based sales model is used to check whether the PartitionNum value and the TopicQuota value are the same. If they are not the same, a failure response is returned. If they are the same, the order is placed based on the PartitionNum value.
-     *   The default value of the TopicQuota parameter varies based on the value of the IoMaxSpec parameter. If the number of topics that you consume exceeds the default value, you are charged additional fees.
-     *   For more information about the valid values, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+     *   You must configure one of PartitionNum and TopicQuota. We recommend that you configure only PartitionNum.
+     *   If you configure PartitionNum and TopicQuota at the same time, the system verifies whether the price of the partitions equals the price of the topics based on the previous topic-based selling mode. If the price of the partitions does not equal the price of the topics, an error is returned. If the price of the partitions equals the price of the topics, the instance is purchased based on the partition number.
+     *   The default value of TopicQuota varies based on the value of IoMaxSpec. If the number of topics that you use exceeds the default value, you are charged additional fees.
+     *   For information about the valid values of this parameter, see [Billing](https://help.aliyun.com/document_detail/84737.html).
      *
+     * >  If you create an ApsaraMQ for Confluent instance, you do not need to configure this parameter.
      * @example 50
      *
      * @var int

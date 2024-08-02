@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateScheduledScalingRuleShrinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The duration of each scheduled scaling task. Unit: minutes.
      *
+     * This parameter is required.
      * @example 60
      *
      * @var int
@@ -18,6 +19,11 @@ class CreateScheduledScalingRuleShrinkRequest extends Model
     public $durationMinutes;
 
     /**
+     * @description Specifies whether to enable the scheduled scaling rule. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -25,8 +31,9 @@ class CreateScheduledScalingRuleShrinkRequest extends Model
     public $enable;
 
     /**
-     * @description This parameter is required.
+     * @description The time when the scheduled scaling task is executed.
      *
+     * This parameter is required.
      * @example 1714467540000
      *
      * @var int
@@ -34,8 +41,9 @@ class CreateScheduledScalingRuleShrinkRequest extends Model
     public $firstScheduledTime;
 
     /**
-     * @description This parameter is required.
+     * @description The instance ID.
      *
+     * This parameter is required.
      * @example alikafka_serverless-cn-vxxxxxxxx
      *
      * @var string
@@ -43,8 +51,9 @@ class CreateScheduledScalingRuleShrinkRequest extends Model
     public $instanceId;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the region where the instance resides.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -52,6 +61,12 @@ class CreateScheduledScalingRuleShrinkRequest extends Model
     public $regionId;
 
     /**
+     * @description The frequency to execute the scheduled scaling task. This parameter is required only if you set ScheduleType to repeat. Valid values:
+     *
+     *   Daily: The scheduled scaling task is executed every day.
+     *
+     *   Weekly: The scheduled scaling task is executed every week.
+     *
      * @example Weekly
      *
      * @var string
@@ -59,8 +74,9 @@ class CreateScheduledScalingRuleShrinkRequest extends Model
     public $repeatType;
 
     /**
-     * @description This parameter is required.
+     * @description The reserved production capacity for scheduled scaling. Unit: MB/s.
      *
+     * This parameter is required.
      * @example 120
      *
      * @var int
@@ -68,8 +84,9 @@ class CreateScheduledScalingRuleShrinkRequest extends Model
     public $reservedPubFlow;
 
     /**
-     * @description This parameter is required.
+     * @description The reserved consumption capacity for scheduled scaling. Unit: MB/s.
      *
+     * This parameter is required.
      * @example 120
      *
      * @var int
@@ -77,8 +94,9 @@ class CreateScheduledScalingRuleShrinkRequest extends Model
     public $reservedSubFlow;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the scheduled scaling rule.
      *
+     * This parameter is required.
      * @example test
      *
      * @var string
@@ -86,8 +104,12 @@ class CreateScheduledScalingRuleShrinkRequest extends Model
     public $ruleName;
 
     /**
-     * @description This parameter is required.
+     * @description The type of the scheduled scaling task. Valid values:
      *
+     *   at: The scheduled scaling task is executed only once.
+     *   repeat: The scheduled scaling task is repeatedly executed.
+     *
+     * This parameter is required.
      * @example at
      *
      * @var string
@@ -95,8 +117,9 @@ class CreateScheduledScalingRuleShrinkRequest extends Model
     public $scheduleType;
 
     /**
-     * @description This parameter is required.
+     * @description The time zone in Coordinated Universal Time (UTC).
      *
+     * This parameter is required.
      * @example GMT+8
      *
      * @var string
@@ -104,6 +127,8 @@ class CreateScheduledScalingRuleShrinkRequest extends Model
     public $timeZone;
 
     /**
+     * @description The day on which the scheduled scaling task is executed every week. You can specify multiple days.
+     *
      * @var string
      */
     public $weeklyTypesShrink;

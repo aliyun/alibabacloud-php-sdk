@@ -58,7 +58,7 @@ class instanceVO extends Model
     public $diskSize;
 
     /**
-     * @description The disk type. Valid values:
+     * @description The disk type of the instance. Valid values:
      *
      *   **0**: ultra disk
      *   **1**: standard SSD
@@ -227,7 +227,7 @@ class instanceVO extends Model
     public $reservedSubscribeCapacity;
 
     /**
-     * @description The resource group ID.
+     * @description The ID of the resource group.
      *
      * @example rg-ac***********7q
      *
@@ -260,7 +260,7 @@ class instanceVO extends Model
     public $securityGroup;
 
     /**
-     * @description 实例系列标识。返回值有 v2 ，v3，confluent。
+     * @description The instance version. Valid values: v2, v3, and confluent.
      *
      * @example v3
      *

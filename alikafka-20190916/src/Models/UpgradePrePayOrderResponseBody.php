@@ -27,6 +27,11 @@ class UpgradePrePayOrderResponseBody extends Model
     public $message;
 
     /**
+     * @var string
+     */
+    public $orderId;
+
+    /**
      * @description The ID of the request.
      *
      * @example ABA4A7FD-E10F-45C7-9774-A5236015***
@@ -46,6 +51,7 @@ class UpgradePrePayOrderResponseBody extends Model
     protected $_name = [
         'code'      => 'Code',
         'message'   => 'Message',
+        'orderId'   => 'OrderId',
         'requestId' => 'RequestId',
         'success'   => 'Success',
     ];
@@ -62,6 +68,9 @@ class UpgradePrePayOrderResponseBody extends Model
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
+        }
+        if (null !== $this->orderId) {
+            $res['OrderId'] = $this->orderId;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -86,6 +95,9 @@ class UpgradePrePayOrderResponseBody extends Model
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
+        }
+        if (isset($map['OrderId'])) {
+            $model->orderId = $map['OrderId'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
