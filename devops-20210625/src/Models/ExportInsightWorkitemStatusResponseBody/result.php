@@ -147,6 +147,11 @@ class result extends Model
     public $projectId;
 
     /**
+     * @var int
+     */
+    public $serialNumber;
+
+    /**
      * @example projex
      *
      * @var string
@@ -251,6 +256,7 @@ class result extends Model
         'priority'         => 'priority',
         'productId'        => 'productId',
         'projectId'        => 'projectId',
+        'serialNumber'     => 'serialNumber',
         'source'           => 'source',
         'sprintId'         => 'sprintId',
         'stage'            => 'stage',
@@ -332,6 +338,9 @@ class result extends Model
         }
         if (null !== $this->projectId) {
             $res['projectId'] = $this->projectId;
+        }
+        if (null !== $this->serialNumber) {
+            $res['serialNumber'] = $this->serialNumber;
         }
         if (null !== $this->source) {
             $res['source'] = $this->source;
@@ -443,6 +452,9 @@ class result extends Model
         }
         if (isset($map['projectId'])) {
             $model->projectId = $map['projectId'];
+        }
+        if (isset($map['serialNumber'])) {
+            $model->serialNumber = $map['serialNumber'];
         }
         if (isset($map['source'])) {
             $model->source = $map['source'];

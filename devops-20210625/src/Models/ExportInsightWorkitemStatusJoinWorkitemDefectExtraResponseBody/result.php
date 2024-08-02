@@ -185,6 +185,11 @@ class result extends Model
     /**
      * @var int
      */
+    public $serialNumber;
+
+    /**
+     * @var int
+     */
     public $seriousLevel;
 
     /**
@@ -310,6 +315,7 @@ class result extends Model
         'productId'        => 'productId',
         'projectId'        => 'projectId',
         'reopenNum'        => 'reopenNum',
+        'serialNumber'     => 'serialNumber',
         'seriousLevel'     => 'seriousLevel',
         'solution'         => 'solution',
         'source'           => 'source',
@@ -412,6 +418,9 @@ class result extends Model
         }
         if (null !== $this->reopenNum) {
             $res['reopenNum'] = $this->reopenNum;
+        }
+        if (null !== $this->serialNumber) {
+            $res['serialNumber'] = $this->serialNumber;
         }
         if (null !== $this->seriousLevel) {
             $res['seriousLevel'] = $this->seriousLevel;
@@ -550,6 +559,9 @@ class result extends Model
         }
         if (isset($map['reopenNum'])) {
             $model->reopenNum = $map['reopenNum'];
+        }
+        if (isset($map['serialNumber'])) {
+            $model->serialNumber = $map['serialNumber'];
         }
         if (isset($map['seriousLevel'])) {
             $model->seriousLevel = $map['seriousLevel'];
