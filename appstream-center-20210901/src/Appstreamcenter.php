@@ -103,6 +103,7 @@ use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\UpdateAccessPageStateReque
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\UpdateAccessPageStateResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\UpdateAppInstanceGroupImageRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\UpdateAppInstanceGroupImageResponse;
+use AlibabaCloud\Tea\Tea;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -444,16 +445,18 @@ class Appstreamcenter extends OpenApiClient
         if (!Utils::isUnset($request->appInstanceGroupId)) {
             $body['AppInstanceGroupId'] = $request->appInstanceGroupId;
         }
+        $bodyFlat = [];
         if (!Utils::isUnset($request->authorizeUserIds)) {
-            $body['AuthorizeUserIds'] = $request->authorizeUserIds;
+            $bodyFlat['AuthorizeUserIds'] = $request->authorizeUserIds;
         }
         if (!Utils::isUnset($request->productType)) {
             $body['ProductType'] = $request->productType;
         }
         if (!Utils::isUnset($request->unAuthorizeUserIds)) {
-            $body['UnAuthorizeUserIds'] = $request->unAuthorizeUserIds;
+            $bodyFlat['UnAuthorizeUserIds'] = $request->unAuthorizeUserIds;
         }
-        $req = new OpenApiRequest([
+        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
+        $req  = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
@@ -1990,6 +1993,9 @@ class Appstreamcenter extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->bizSource)) {
+            $query['BizSource'] = $request->bizSource;
+        }
         if (!Utils::isUnset($request->productType)) {
             $query['ProductType'] = $request->productType;
         }
