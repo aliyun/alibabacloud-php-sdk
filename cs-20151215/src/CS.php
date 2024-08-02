@@ -221,6 +221,7 @@ use AlibabaCloud\SDK\CS\V20151215\Models\UntagResourcesResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\UntagResourcesShrinkRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\UpdateClusterAuditLogConfigRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\UpdateClusterAuditLogConfigResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\UpdateContactGroupForAlertRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\UpdateContactGroupForAlertResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\UpdateControlPlaneLogRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\UpdateControlPlaneLogResponse;
@@ -1744,6 +1745,8 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary 删除ACK报警联系人
+     *  *
      * @param DeleteAlertContactRequest $tmpReq  DeleteAlertContactRequest
      * @param string[]                  $headers map
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -1782,6 +1785,8 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary 删除ACK报警联系人
+     *  *
      * @param DeleteAlertContactRequest $request DeleteAlertContactRequest
      *
      * @return DeleteAlertContactResponse DeleteAlertContactResponse
@@ -1795,6 +1800,8 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary 删除ACK报警联系人分组
+     *  *
      * @param DeleteAlertContactGroupRequest $tmpReq  DeleteAlertContactGroupRequest
      * @param string[]                       $headers map
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -1833,6 +1840,8 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary 删除ACK报警联系人分组
+     *  *
      * @param DeleteAlertContactGroupRequest $request DeleteAlertContactGroupRequest
      *
      * @return DeleteAlertContactGroupResponse DeleteAlertContactGroupResponse
@@ -7822,16 +7831,34 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string         $ClusterId
-     * @param string[]       $headers   map
-     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
+     * @summary 为集群中报警规则集设置订阅的通知对象联系人组
+     *  *
+     * @param string                            $ClusterId
+     * @param UpdateContactGroupForAlertRequest $request   UpdateContactGroupForAlertRequest
+     * @param string[]                          $headers   map
+     * @param RuntimeOptions                    $runtime   runtime options for this request RuntimeOptions
      *
      * @return UpdateContactGroupForAlertResponse UpdateContactGroupForAlertResponse
      */
-    public function updateContactGroupForAlertWithOptions($ClusterId, $headers, $runtime)
+    public function updateContactGroupForAlertWithOptions($ClusterId, $request, $headers, $runtime)
     {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->alertRuleGroupName)) {
+            $body['alert_rule_group_name'] = $request->alertRuleGroupName;
+        }
+        if (!Utils::isUnset($request->contactGroupIds)) {
+            $body['contact_group_ids'] = $request->contactGroupIds;
+        }
+        if (!Utils::isUnset($request->crName)) {
+            $body['cr_name'] = $request->crName;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $body['namespace'] = $request->namespace_;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateContactGroupForAlert',
@@ -7842,23 +7869,26 @@ class CS extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType'    => 'json',
         ]);
 
         return UpdateContactGroupForAlertResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param string $ClusterId
+     * @summary 为集群中报警规则集设置订阅的通知对象联系人组
+     *  *
+     * @param string                            $ClusterId
+     * @param UpdateContactGroupForAlertRequest $request   UpdateContactGroupForAlertRequest
      *
      * @return UpdateContactGroupForAlertResponse UpdateContactGroupForAlertResponse
      */
-    public function updateContactGroupForAlert($ClusterId)
+    public function updateContactGroupForAlert($ClusterId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateContactGroupForAlertWithOptions($ClusterId, $headers, $runtime);
+        return $this->updateContactGroupForAlertWithOptions($ClusterId, $request, $headers, $runtime);
     }
 
     /**

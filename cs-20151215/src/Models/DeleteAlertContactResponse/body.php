@@ -9,11 +9,23 @@ use AlibabaCloud\Tea\Model;
 class body extends Model
 {
     /**
-     * @var \AlibabaCloud\SDK\CS\V20151215\Models\DeleteAlertContactResponse\body\body[]
+     * @var bool
      */
-    public $body;
+    public $status;
+
+    /**
+     * @var string
+     */
+    public $msg;
+
+    /**
+     * @var string
+     */
+    public $contactId;
     protected $_name = [
-        'body' => 'body',
+        'status'    => 'status',
+        'msg'       => 'msg',
+        'contactId' => 'contact_id',
     ];
 
     public function validate()
@@ -23,14 +35,14 @@ class body extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->body) {
-            $res['body'] = [];
-            if (null !== $this->body && \is_array($this->body)) {
-                $n = 0;
-                foreach ($this->body as $item) {
-                    $res['body'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->status) {
+            $res['status'] = $this->status;
+        }
+        if (null !== $this->msg) {
+            $res['msg'] = $this->msg;
+        }
+        if (null !== $this->contactId) {
+            $res['contact_id'] = $this->contactId;
         }
 
         return $res;
@@ -44,14 +56,14 @@ class body extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['body'])) {
-            if (!empty($map['body'])) {
-                $model->body = [];
-                $n           = 0;
-                foreach ($map['body'] as $item) {
-                    $model->body[$n++] = null !== $item ? \AlibabaCloud\SDK\CS\V20151215\Models\DeleteAlertContactResponse\body\body::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['status'])) {
+            $model->status = $map['status'];
+        }
+        if (isset($map['msg'])) {
+            $model->msg = $map['msg'];
+        }
+        if (isset($map['contact_id'])) {
+            $model->contactId = $map['contact_id'];
         }
 
         return $model;
