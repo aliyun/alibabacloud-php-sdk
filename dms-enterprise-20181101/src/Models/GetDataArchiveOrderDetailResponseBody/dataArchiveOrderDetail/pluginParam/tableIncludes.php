@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class tableIncludes extends Model
 {
     /**
-     * @description The name of the table.
+     * @description The table name.
      *
      * @example tm_insured_cb
      *
@@ -18,7 +18,7 @@ class tableIncludes extends Model
     public $tableName;
 
     /**
-     * @description The filter conditions.
+     * @description The filter condition.
      *
      * @example id<1000 or gmt_create<\\"2023-05-14 16:00:57\\"
      *

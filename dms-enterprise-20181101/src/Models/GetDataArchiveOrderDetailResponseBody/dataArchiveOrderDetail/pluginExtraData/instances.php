@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class instances extends Model
 {
     /**
-     * @description The business time of the task flow. The time is in the yyyy-MM-DD HH:mm:ss format.
+     * @description The business time of the task flow. The time is displayed in the yyyy-MM-DD HH:mm:ss format.
      *
      * @example 2023-05-14 16:00:57
      *
@@ -18,7 +18,7 @@ class instances extends Model
     public $businessTime;
 
     /**
-     * @description The ID of the task. You can call the [ListTaskFlow](https://help.aliyun.com/document_detail/424565.html) or [ListLhTaskFlowAndScenario](https://help.aliyun.com/document_detail/426672.html) operation to query the task flow ID.
+     * @description The task flow ID. You can call the [ListTaskFlow](https://help.aliyun.com/document_detail/424565.html) or [ListLhTaskFlowAndScenario](https://help.aliyun.com/document_detail/426672.html) operation to obtain the value of this parameter.
      *
      * @example 37***
      *
@@ -27,7 +27,7 @@ class instances extends Model
     public $dagId;
 
     /**
-     * @description The end time of the task flow. The time is in the yyyy-MM-DD HH:mm:ss format.
+     * @description The time when the task flow ended. The time is displayed in the yyyy-MM-DD HH:mm:ss format.
      *
      * @example 2022-06-04 15:14:00
      *
@@ -63,7 +63,7 @@ class instances extends Model
     public $historyDagId;
 
     /**
-     * @description The instance ID of the running task flow.
+     * @description The ID of the instance in the task flow that is executed.
      *
      * @example 24***
      *
@@ -72,7 +72,7 @@ class instances extends Model
     public $id;
 
     /**
-     * @description The running scenario of the last task flow.
+     * @description The context of the previous execution of the task flow.
      *
      * @example {
      * "nodes": [
@@ -83,7 +83,7 @@ class instances extends Model
     public $lastRunningContext;
 
     /**
-     * @description The running details of the task.
+     * @description The context of the current execution of the task flow.
      *
      * @example 2023-05-15 16:37:48[GMT+08:00] INFO - Resource Control is active!\\n2023-05-15 16:37:48[GMT+08:00] INFO - Starting job j_4834 at Mon May 15 16:37:48 CST 2023
      *
@@ -94,12 +94,12 @@ class instances extends Model
     /**
      * @description The status of the task. Valid values:
      *
-     *   **0**: waiting for execution.
-     *   **1**: running.
-     *   **2**: suspended.
-     *   **3**: failed.
-     *   **4**: successful.
-     *   **5**: complete.
+     *   **0**: The task is waiting for execution.
+     *   **1**: The task is in progress.
+     *   **2**: The task is suspended.
+     *   **3**: The task failed.
+     *   **4**: The task is successful.
+     *   **5**: The task is complete.
      *
      * @example 4
      *

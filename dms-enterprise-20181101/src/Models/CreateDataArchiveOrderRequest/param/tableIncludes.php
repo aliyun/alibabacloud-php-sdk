@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class tableIncludes extends Model
 {
     /**
-     * @description The name of the table.
+     * @description The table name.
      *
      * This parameter is required.
      * @example table1
@@ -19,7 +19,7 @@ class tableIncludes extends Model
     public $tableName;
 
     /**
-     * @description The filter condition specified by the WHERE clause of the archiving configuration. If a time variable is used in the filter condition, the filter condition is specified in the following format: field name <=\\"${variable name}\\". The variable name in the filter condition must be the same as the Name value of Variables.
+     * @description The filter condition that is specified by the WHERE clause of the archiving configuration. If a time variable is used in the filter condition, the filter condition is specified in the following format: field name <=\\"${variable name}\\". The variable name in the filter condition must be the same as the time variable name that is specified in the Variables parameter.
      *
      * @example gmt_modified<\\"${time}\\"
      *

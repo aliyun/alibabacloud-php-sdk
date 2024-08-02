@@ -44,10 +44,10 @@ class GetDataArchiveOrderDetailResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful. Valid values:
+     * @description Indicates whether the request was successful. Valid values:
      *
-     *   true
-     *   false
+     *   **true**
+     *   **false**
      *
      * @example true
      *

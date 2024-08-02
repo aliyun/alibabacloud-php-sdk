@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The number of failed archiving tickets.
+     * @description The number of tickets that data archiving failed.
      *
      * @example 1**
      *
@@ -18,7 +18,7 @@ class data extends Model
     public $failCount;
 
     /**
-     * @description The number of in-progress archiving tickets.
+     * @description The number of tickets that data archiving is in progress.
      *
      * @example 2**
      *
@@ -27,7 +27,7 @@ class data extends Model
     public $processingCount;
 
     /**
-     * @description The number of successful archiving tickets.
+     * @description The number of tickets that data archiving is successful.
      *
      * @example 3**
      *
@@ -36,7 +36,7 @@ class data extends Model
     public $successCount;
 
     /**
-     * @description The total number of archiving tickets.
+     * @description The total number of data archiving tickets.
      *
      * @example 6**
      *
