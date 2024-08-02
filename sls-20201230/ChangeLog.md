@@ -1,3 +1,10 @@
+2024-08-02 Version: 4.4.0
+- Support API CreateDownloadJob.
+- Support API DeleteDownloadJob.
+- Support API GetDownloadJob.
+- Support API ListDownloadJobs.
+
+
 2024-07-25 Version: 4.3.2
 - Update API ConsumerGroupUpdateCheckPoint: update param body.
 - Update API CreateIndex: update param body.

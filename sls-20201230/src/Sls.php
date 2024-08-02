@@ -26,6 +26,8 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\CreateDashboardRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateDashboardResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateDomainRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateDomainResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\CreateDownloadJobRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\CreateDownloadJobResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateETLRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateETLResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateIndexRequest;
@@ -70,6 +72,7 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteConfigResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteConsumerGroupResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteDashboardResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteDomainResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteDownloadJobResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteETLResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteExternalStoreResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteIndexResponse;
@@ -107,6 +110,7 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\GetCursorResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetCursorTimeRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetCursorTimeResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetDashboardResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\GetDownloadJobResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetETLResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetExternalStoreResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetHistogramsRequest;
@@ -155,6 +159,8 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\ListDashboardRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListDashboardResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListDomainsRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListDomainsResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\ListDownloadJobsRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\ListDownloadJobsResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListETLsRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListETLsResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListLogStoresRequest;
@@ -972,6 +978,70 @@ class Sls extends OpenApiClient
         $headers = [];
 
         return $this->createDomainWithOptions($project, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 创建下载任务
+     *  *
+     * @param string                   $project
+     * @param CreateDownloadJobRequest $request CreateDownloadJobRequest
+     * @param string[]                 $headers map
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateDownloadJobResponse CreateDownloadJobResponse
+     */
+    public function createDownloadJobWithOptions($project, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $body               = [];
+        if (!Utils::isUnset($request->configuration)) {
+            $body['configuration'] = $request->configuration;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $body['description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->displayName)) {
+            $body['displayName'] = $request->displayName;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['name'] = $request->name;
+        }
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDownloadJob',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/downloadjobs',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return CreateDownloadJobResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建下载任务
+     *  *
+     * @param string                   $project
+     * @param CreateDownloadJobRequest $request CreateDownloadJobRequest
+     *
+     * @return CreateDownloadJobResponse CreateDownloadJobResponse
+     */
+    public function createDownloadJob($project, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createDownloadJobWithOptions($project, $request, $headers, $runtime);
     }
 
     /**
@@ -2603,6 +2673,55 @@ class Sls extends OpenApiClient
         $headers = [];
 
         return $this->deleteDomainWithOptions($project, $domainName, $headers, $runtime);
+    }
+
+    /**
+     * @summary 删除下载任务
+     *  *
+     * @param string         $project
+     * @param string         $downloadJobName
+     * @param string[]       $headers         map
+     * @param RuntimeOptions $runtime         runtime options for this request RuntimeOptions
+     *
+     * @return DeleteDownloadJobResponse DeleteDownloadJobResponse
+     */
+    public function deleteDownloadJobWithOptions($project, $downloadJobName, $headers, $runtime)
+    {
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $req                = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDownloadJob',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/downloadjobs/' . $downloadJobName . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return DeleteDownloadJobResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除下载任务
+     *  *
+     * @param string $project
+     * @param string $downloadJobName
+     *
+     * @return DeleteDownloadJobResponse DeleteDownloadJobResponse
+     */
+    public function deleteDownloadJob($project, $downloadJobName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteDownloadJobWithOptions($project, $downloadJobName, $headers, $runtime);
     }
 
     /**
@@ -4304,6 +4423,55 @@ class Sls extends OpenApiClient
         $headers = [];
 
         return $this->getDashboardWithOptions($project, $dashboardName, $headers, $runtime);
+    }
+
+    /**
+     * @summary 获取下载任务信息
+     *  *
+     * @param string         $project
+     * @param string         $downloadJobName
+     * @param string[]       $headers         map
+     * @param RuntimeOptions $runtime         runtime options for this request RuntimeOptions
+     *
+     * @return GetDownloadJobResponse GetDownloadJobResponse
+     */
+    public function getDownloadJobWithOptions($project, $downloadJobName, $headers, $runtime)
+    {
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $req                = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'GetDownloadJob',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/downloadjobs/' . $downloadJobName . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetDownloadJobResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取下载任务信息
+     *  *
+     * @param string $project
+     * @param string $downloadJobName
+     *
+     * @return GetDownloadJobResponse GetDownloadJobResponse
+     */
+    public function getDownloadJob($project, $downloadJobName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getDownloadJobWithOptions($project, $downloadJobName, $headers, $runtime);
     }
 
     /**
@@ -6302,6 +6470,67 @@ class Sls extends OpenApiClient
         $headers = [];
 
         return $this->listDomainsWithOptions($project, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 列举下载任务
+     *  *
+     * @param string                  $project
+     * @param ListDownloadJobsRequest $request ListDownloadJobsRequest
+     * @param string[]                $headers map
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListDownloadJobsResponse ListDownloadJobsResponse
+     */
+    public function listDownloadJobsWithOptions($project, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $query              = [];
+        if (!Utils::isUnset($request->logstore)) {
+            $query['logstore'] = $request->logstore;
+        }
+        if (!Utils::isUnset($request->offset)) {
+            $query['offset'] = $request->offset;
+        }
+        if (!Utils::isUnset($request->size)) {
+            $query['size'] = $request->size;
+        }
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDownloadJobs',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/downloadjobs',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDownloadJobsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 列举下载任务
+     *  *
+     * @param string                  $project
+     * @param ListDownloadJobsRequest $request ListDownloadJobsRequest
+     *
+     * @return ListDownloadJobsResponse ListDownloadJobsResponse
+     */
+    public function listDownloadJobs($project, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listDownloadJobsWithOptions($project, $request, $headers, $runtime);
     }
 
     /**
