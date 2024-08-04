@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListSecretsResponseBody extends Model
 {
     /**
+     * @description The number of access credentials.
+     *
      * @example 4
      *
      * @var int
@@ -17,6 +19,8 @@ class ListSecretsResponseBody extends Model
     public $count;
 
     /**
+     * @description The returned message.
+     *
      * @example Successful
      *
      * @var string
@@ -24,6 +28,8 @@ class ListSecretsResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example ABB39CC3-4488-4857-905D-2E4A051D0521
      *
      * @var string
@@ -31,11 +37,18 @@ class ListSecretsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The queried access credentials.
+     *
      * @var secrets
      */
     public $secrets;
 
     /**
+     * @description The status of the operation. Valid values:
+     *
+     *   **success**
+     *   **fail**
+     *
      * @example success
      *
      * @var string

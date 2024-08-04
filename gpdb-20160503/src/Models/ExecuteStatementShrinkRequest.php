@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ExecuteStatementShrinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The instance ID.
      *
+     * This parameter is required.
      * @example gp-xxxxxxxxx
      *
      * @var string
@@ -18,8 +19,9 @@ class ExecuteStatementShrinkRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the database.
      *
+     * This parameter is required.
      * @example adbtest
      *
      * @var string
@@ -32,13 +34,16 @@ class ExecuteStatementShrinkRequest extends Model
     public $ownerId;
 
     /**
+     * @description The configuration parameters.
+     *
      * @var string
      */
     public $parametersShrink;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID of the instance.
      *
+     * This parameter is required.
      * @example cn-beijing
      *
      * @var string
@@ -46,6 +51,11 @@ class ExecuteStatementShrinkRequest extends Model
     public $regionId;
 
     /**
+     * @description The execution type. Valid values:
+     *
+     *   synchronous
+     *   asynchronous (not supported)
+     *
      * @example synchronous
      *
      * @var string
@@ -53,8 +63,9 @@ class ExecuteStatementShrinkRequest extends Model
     public $runType;
 
     /**
-     * @description This parameter is required.
+     * @description The Alibaba Cloud Resource Name (ARN) of the access credential for the created Data API account. You can call the CreateSecret operation to create an access credential.
      *
+     * This parameter is required.
      * @example acs:gpdb:cn-beijing:1033**:secret/testsecret-eG2AQGRIwQ0zFp4VA7mYL3uiCXTfDQbQ
      *
      * @var string
@@ -62,6 +73,8 @@ class ExecuteStatementShrinkRequest extends Model
     public $secretArn;
 
     /**
+     * @description The SQL statements that you want to execute.
+     *
      * @example select * from table1
      *
      * @var string
@@ -69,11 +82,15 @@ class ExecuteStatementShrinkRequest extends Model
     public $sql;
 
     /**
+     * @description The SQL statements.
+     *
      * @var string
      */
     public $sqlsShrink;
 
     /**
+     * @description The name of the set of SQL statements that you want to execute.
+     *
      * @example test
      *
      * @var string

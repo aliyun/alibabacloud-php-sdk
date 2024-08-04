@@ -21,7 +21,7 @@ class UpsertCollectionDataShrinkRequest extends Model
     /**
      * @description The instance ID.
      *
-     * This parameter is required.
+     * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
      * @example gp-xxxxxxxxx
      *
      * @var string
@@ -66,6 +66,11 @@ class UpsertCollectionDataShrinkRequest extends Model
      * @var string
      */
     public $rowsShrink;
+
+    /**
+     * @var string
+     */
+    public $workspaceId;
     protected $_name = [
         'collection'        => 'Collection',
         'DBInstanceId'      => 'DBInstanceId',
@@ -74,6 +79,7 @@ class UpsertCollectionDataShrinkRequest extends Model
         'ownerId'           => 'OwnerId',
         'regionId'          => 'RegionId',
         'rowsShrink'        => 'Rows',
+        'workspaceId'       => 'WorkspaceId',
     ];
 
     public function validate()
@@ -103,6 +109,9 @@ class UpsertCollectionDataShrinkRequest extends Model
         }
         if (null !== $this->rowsShrink) {
             $res['Rows'] = $this->rowsShrink;
+        }
+        if (null !== $this->workspaceId) {
+            $res['WorkspaceId'] = $this->workspaceId;
         }
 
         return $res;
@@ -136,6 +145,9 @@ class UpsertCollectionDataShrinkRequest extends Model
         }
         if (isset($map['Rows'])) {
             $model->rowsShrink = $map['Rows'];
+        }
+        if (isset($map['WorkspaceId'])) {
+            $model->workspaceId = $map['WorkspaceId'];
         }
 
         return $model;

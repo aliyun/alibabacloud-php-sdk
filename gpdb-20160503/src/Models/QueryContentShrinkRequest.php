@@ -82,6 +82,8 @@ class QueryContentShrinkRequest extends Model
     public $hybridSearchArgsShrink;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $includeFileUrl;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteSecretResponseBody extends Model
 {
     /**
+     * @description The returned message.
+     *
      * @example success
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteSecretResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example ABB39CC3-4488-4857-905D-2E4A051D0521
      *
      * @var string
@@ -23,6 +27,8 @@ class DeleteSecretResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ARN of the access credential for the created Data API account. Format: `acs:gpdb:{{region}}:{{accountId}}:secret/{{secretName}}-{{32 digits random string}`.
+     *
      * @example acs:gpdb:cn-beijing:1033**:secret/testsecret-eG2AQGRIwQ0zFp4VA7mYL3uiCXTfDQbQ
      *
      * @var string
@@ -30,6 +36,11 @@ class DeleteSecretResponseBody extends Model
     public $secretArn;
 
     /**
+     * @description The status of the operation. Valid values:
+     *
+     *   **fail**
+     *   **success**
+     *
      * @example success
      *
      * @var string

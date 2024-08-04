@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListDatabasesResponseBody extends Model
 {
     /**
+     * @description The queried databases.
+     *
      * @var databases
      */
     public $databases;
 
     /**
+     * @description The returned message.
+     *
      * @example success
      *
      * @var string
@@ -22,6 +26,8 @@ class ListDatabasesResponseBody extends Model
     public $message;
 
     /**
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+     *
      * @example caeba0bbb2be03f84eb48b699f0a4883
      *
      * @var string
@@ -29,6 +35,8 @@ class ListDatabasesResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The request ID.
+     *
      * @example ABB39CC3-4488-4857-905D-2E4A051D0521
      *
      * @var string
@@ -36,6 +44,11 @@ class ListDatabasesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The status of the operation. Valid values:
+     *
+     *   **success**
+     *   **fail**
+     *
      * @example success
      *
      * @var string

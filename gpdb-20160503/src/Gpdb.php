@@ -672,6 +672,9 @@ class Gpdb extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
+        }
         $body = [];
         if (!Utils::isUnset($request->collection)) {
             $body['Collection'] = $request->collection;
@@ -1061,6 +1064,9 @@ class Gpdb extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -1791,6 +1797,9 @@ class Gpdb extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -1880,7 +1889,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary 创建实例的用户凭证
+     * @summary Creates an access credential for an AnalyticDB for PostgreSQL instance by using the name and password of a database account.
      *  *
      * @param CreateSecretRequest $request CreateSecretRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
@@ -1934,7 +1943,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary 创建实例的用户凭证
+     * @summary Creates an access credential for an AnalyticDB for PostgreSQL instance by using the name and password of a database account.
      *  *
      * @param CreateSecretRequest $request CreateSecretRequest
      *
@@ -2355,6 +2364,9 @@ class Gpdb extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -2422,6 +2434,9 @@ class Gpdb extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -3007,6 +3022,9 @@ class Gpdb extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -3040,7 +3058,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary 删除实例的用户凭证
+     * @summary Deletes the access credentials of an AnalyticDB for PostgreSQL instance.
      *  *
      * @param DeleteSecretRequest $request DeleteSecretRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
@@ -3085,7 +3103,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary 删除实例的用户凭证
+     * @summary Deletes the access credentials of an AnalyticDB for PostgreSQL instance.
      *  *
      * @param DeleteSecretRequest $request DeleteSecretRequest
      *
@@ -3592,6 +3610,9 @@ class Gpdb extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -5962,6 +5983,9 @@ class Gpdb extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -6856,7 +6880,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary 查看所有的schema
+     * @summary Queries the information about a table.
      *  *
      * @param DescribeTableRequest $request DescribeTableRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -6907,7 +6931,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary 查看所有的schema
+     * @summary Queries the information about a table.
      *  *
      * @param DescribeTableRequest $request DescribeTableRequest
      *
@@ -7468,7 +7492,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary 运行SQL语句
+     * @summary Executes SQL statements.
      *  *
      * @param ExecuteStatementRequest $tmpReq  ExecuteStatementRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -7538,7 +7562,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary 运行SQL语句
+     * @summary Executes SQL statements.
      *  *
      * @param ExecuteStatementRequest $request ExecuteStatementRequest
      *
@@ -7552,7 +7576,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary 查看实例的用户凭证里数据
+     * @summary Queries the information about an access credential.
      *  *
      * @param GetSecretValueRequest $request GetSecretValueRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -7597,7 +7621,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary 查看实例的用户凭证里数据
+     * @summary Queries the information about an access credential.
      *  *
      * @param GetSecretValueRequest $request GetSecretValueRequest
      *
@@ -7708,6 +7732,9 @@ class Gpdb extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
         }
         $body = [];
         if (!Utils::isUnset($request->collection)) {
@@ -7909,6 +7936,9 @@ class Gpdb extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -7968,6 +7998,9 @@ class Gpdb extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -8001,7 +8034,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary 查看所有库
+     * @summary Queries a list of databases.
      *  *
      * @param ListDatabasesRequest $request ListDatabasesRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -8052,7 +8085,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary 查看所有库
+     * @summary Queries a list of databases.
      *  *
      * @param ListDatabasesRequest $request ListDatabasesRequest
      *
@@ -8393,6 +8426,9 @@ class Gpdb extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -8426,7 +8462,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary 查看所有的schema
+     * @summary Queries a list of schemas.
      *  *
      * @param ListSchemasRequest $request ListSchemasRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
@@ -8480,7 +8516,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary 查看所有的schema
+     * @summary Queries a list of schemas.
      *  *
      * @param ListSchemasRequest $request ListSchemasRequest
      *
@@ -8494,7 +8530,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary 查询实例的用户凭证列表
+     * @summary Queries a list of access credentials.
      *  *
      * @param ListSecretsRequest $request ListSecretsRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
@@ -8533,7 +8569,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary 查询实例的用户凭证列表
+     * @summary Queries a list of access credentials.
      *  *
      * @param ListSecretsRequest $request ListSecretsRequest
      *
@@ -8715,7 +8751,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary 查看所有表
+     * @summary Queries a list of tables in a database.
      *  *
      * @param ListTablesRequest $request ListTablesRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
@@ -8772,7 +8808,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary 查看所有表
+     * @summary Queries a list of tables in a database.
      *  *
      * @param ListTablesRequest $request ListTablesRequest
      *
@@ -10316,6 +10352,9 @@ class Gpdb extends OpenApiClient
         if (!Utils::isUnset($request->vectorShrink)) {
             $query['Vector'] = $request->vectorShrink;
         }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -11410,6 +11449,9 @@ class Gpdb extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -12037,6 +12079,9 @@ class Gpdb extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
+        }
         $body = [];
         if (!Utils::isUnset($request->rowsShrink)) {
             $body['Rows'] = $request->rowsShrink;
@@ -12100,6 +12145,9 @@ class Gpdb extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
         }
         $body = [];
         if (!Utils::isUnset($request->collection)) {

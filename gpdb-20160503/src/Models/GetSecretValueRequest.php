@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetSecretValueRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The instance ID.
      *
+     * This parameter is required.
      * @example gp-xxxxxxxxx
      *
      * @var string
@@ -23,8 +24,9 @@ class GetSecretValueRequest extends Model
     public $ownerId;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID of the instance.
      *
+     * This parameter is required.
      * @example cn-beijing
      *
      * @var string
@@ -32,6 +34,9 @@ class GetSecretValueRequest extends Model
     public $regionId;
 
     /**
+     * @description The Alibaba Cloud Resource Name (ARN) of the access credential for the created Data API account. Format: `acs:gpdb:{{region}}:{{accountId}}:secret/{{secretName}}-{{32 digits random string}`.
+     *
+     * >  You must specify one of the SecretArn and SecretName parameters.
      * @example acs:gpdb:cn-beijing:1033**:secret/testsecret-eG2AQGRIwQ0zFp4VA7mYL3uiCXTfDQbQ
      *
      * @var string
@@ -39,6 +44,9 @@ class GetSecretValueRequest extends Model
     public $secretArn;
 
     /**
+     * @description The name of the access credential.
+     *
+     * >  You must specify one of the SecretArn and SecretName parameters.
      * @example testsecret
      *
      * @var string

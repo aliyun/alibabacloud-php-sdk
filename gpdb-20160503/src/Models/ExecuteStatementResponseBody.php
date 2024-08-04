@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ExecuteStatementResponseBody extends Model
 {
     /**
+     * @description The time when the SQL statements were created.
+     *
      * @example 2023-12-04T10:08:47+0800
      *
      * @var string
@@ -17,6 +19,8 @@ class ExecuteStatementResponseBody extends Model
     public $createdAt;
 
     /**
+     * @description The instance ID.
+     *
      * @example gp-xxxxxxxxx
      *
      * @var string
@@ -24,11 +28,15 @@ class ExecuteStatementResponseBody extends Model
     public $DBInstanceId;
 
     /**
+     * @description The returned results of the synchronous call.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The name of the database.
+     *
      * @example adbtest
      *
      * @var string
@@ -36,6 +44,8 @@ class ExecuteStatementResponseBody extends Model
     public $database;
 
     /**
+     * @description The ID of the job for asynchronously executing the SQL statements.
+     *
      * @example ABB39CC3
      *
      * @var string
@@ -43,6 +53,8 @@ class ExecuteStatementResponseBody extends Model
     public $id;
 
     /**
+     * @description The returned message.
+     *
      * @example success
      *
      * @var string
@@ -50,6 +62,8 @@ class ExecuteStatementResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example ABB39CC3-4488-4857-905D-2E4A051D0521
      *
      * @var string
@@ -57,6 +71,8 @@ class ExecuteStatementResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ARN of the access credential for the created Data API account.
+     *
      * @example acs:gpdb:cn-beijing:1033**:secret/testsecret-eG2AQGRIwQ0zFp4VA7mYL3uiCXTfDQbQ
      *
      * @var string
@@ -64,6 +80,11 @@ class ExecuteStatementResponseBody extends Model
     public $secretArn;
 
     /**
+     * @description The status of the operation. Valid values:
+     *
+     *   **success**
+     *   **fail**
+     *
      * @example success
      *
      * @var string

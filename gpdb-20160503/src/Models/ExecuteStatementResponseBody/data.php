@@ -11,16 +11,22 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The metadata of the columns.
+     *
      * @var columnMetadata
      */
     public $columnMetadata;
 
     /**
+     * @description The rows of data.
+     *
      * @var records
      */
     public $records;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 10
      *
      * @var int

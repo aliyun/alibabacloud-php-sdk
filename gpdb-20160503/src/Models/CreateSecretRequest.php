@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateSecretRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The instance ID.
      *
+     * This parameter is required.
      * @example gp-xxxxxxxxx
      *
      * @var string
@@ -18,6 +19,8 @@ class CreateSecretRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @description The description of the access credential.
+     *
      * @example test
      *
      * @var string
@@ -30,8 +33,9 @@ class CreateSecretRequest extends Model
     public $ownerId;
 
     /**
-     * @description This parameter is required.
+     * @description The password of the database account that is used to access the instance.
      *
+     * This parameter is required.
      * @example pwd123
      *
      * @var string
@@ -39,8 +43,9 @@ class CreateSecretRequest extends Model
     public $password;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID of the instance.
      *
+     * This parameter is required.
      * @example cn-beijing
      *
      * @var string
@@ -48,6 +53,8 @@ class CreateSecretRequest extends Model
     public $regionId;
 
     /**
+     * @description The name of the access credential. The name must be 1 to 16 characters in length and can contain letters, digits, and underscores (_). If you leave this parameter empty, the value of the Username parameter is used.
+     *
      * @example testsecret
      *
      * @var string
@@ -55,6 +62,8 @@ class CreateSecretRequest extends Model
     public $secretName;
 
     /**
+     * @description Specifies whether to check the connectivity to the instance by using the name and password of the database account.
+     *
      * @example true
      *
      * @var bool
@@ -62,8 +71,9 @@ class CreateSecretRequest extends Model
     public $testConnection;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the database account that is used to access the instance.
      *
+     * This parameter is required.
      * @example testacc
      *
      * @var string

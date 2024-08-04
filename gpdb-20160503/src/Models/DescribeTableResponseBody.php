@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeTableResponseBody extends Model
 {
     /**
+     * @description The columns of the table.
+     *
      * @var columnList
      */
     public $columnList;
 
     /**
+     * @description The returned message.
+     *
      * @example success
      *
      * @var string
@@ -22,6 +26,8 @@ class DescribeTableResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example ABB39CC3-4488-4857-905D-2E4A051D0521
      *
      * @var string
@@ -29,6 +35,11 @@ class DescribeTableResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The status of the operation. Valid values:
+     *
+     *   **success**
+     *   **fail**
+     *
      * @example success
      *
      * @var string

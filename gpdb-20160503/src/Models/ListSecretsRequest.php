@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListSecretsRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The instance ID.
      *
+     * This parameter is required.
      * @example gp-xxxxxxxxx
      *
      * @var string
@@ -23,8 +24,9 @@ class ListSecretsRequest extends Model
     public $ownerId;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID of the instance.
      *
+     * This parameter is required.
      * @example cn-beijing
      *
      * @var string

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListDatabasesRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The instance ID.
      *
+     * This parameter is required.
      * @example gp-xxxxxxxxx
      *
      * @var string
@@ -18,8 +19,9 @@ class ListDatabasesRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the database.
      *
+     * This parameter is required.
      * @example testdb
      *
      * @var string
@@ -27,6 +29,8 @@ class ListDatabasesRequest extends Model
     public $database;
 
     /**
+     * @description The maximum number of entries per page. Valid values: 1 to 100.
+     *
      * @example 50
      *
      * @var int
@@ -34,6 +38,8 @@ class ListDatabasesRequest extends Model
     public $maxResults;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+     *
      * @example caeba0bbb2be03f84eb48b699f0a4883
      *
      * @var string
@@ -46,8 +52,9 @@ class ListDatabasesRequest extends Model
     public $ownerId;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID of the instance.
      *
+     * This parameter is required.
      * @example cn-beijing
      *
      * @var string
@@ -55,8 +62,9 @@ class ListDatabasesRequest extends Model
     public $regionId;
 
     /**
-     * @description This parameter is required.
+     * @description The Alibaba Cloud Resource Name (ARN) of the access credential for the created Data API account. You can call the CreateSecret operation to create an access credential.
      *
+     * This parameter is required.
      * @example acs:gpdb:cn-beijing:1033**:secret/testsecret-eG2AQGRIwQ0zFp4VA7mYL3uiCXTfDQbQ
      *
      * @var string

@@ -29,8 +29,6 @@ class QueryCollectionDataRequest extends Model
     public $content;
 
     /**
-     * @description This parameter is required.
-     *
      * @example gp-xxxxxxxxx
      *
      * @var string
@@ -188,6 +186,11 @@ class QueryCollectionDataRequest extends Model
      * @var float[]
      */
     public $vector;
+
+    /**
+     * @var string
+     */
+    public $workspaceId;
     protected $_name = [
         'collection'            => 'Collection',
         'content'               => 'Content',
@@ -206,6 +209,7 @@ class QueryCollectionDataRequest extends Model
         'regionId'              => 'RegionId',
         'topK'                  => 'TopK',
         'vector'                => 'Vector',
+        'workspaceId'           => 'WorkspaceId',
     ];
 
     public function validate()
@@ -265,6 +269,9 @@ class QueryCollectionDataRequest extends Model
         }
         if (null !== $this->vector) {
             $res['Vector'] = $this->vector;
+        }
+        if (null !== $this->workspaceId) {
+            $res['WorkspaceId'] = $this->workspaceId;
         }
 
         return $res;
@@ -330,6 +337,9 @@ class QueryCollectionDataRequest extends Model
             if (!empty($map['Vector'])) {
                 $model->vector = $map['Vector'];
             }
+        }
+        if (isset($map['WorkspaceId'])) {
+            $model->workspaceId = $map['WorkspaceId'];
         }
 
         return $model;

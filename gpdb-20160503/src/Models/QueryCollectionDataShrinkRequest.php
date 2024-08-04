@@ -29,8 +29,6 @@ class QueryCollectionDataShrinkRequest extends Model
     public $content;
 
     /**
-     * @description This parameter is required.
-     *
      * @example gp-xxxxxxxxx
      *
      * @var string
@@ -188,6 +186,11 @@ class QueryCollectionDataShrinkRequest extends Model
      * @var string
      */
     public $vectorShrink;
+
+    /**
+     * @var string
+     */
+    public $workspaceId;
     protected $_name = [
         'collection'             => 'Collection',
         'content'                => 'Content',
@@ -206,6 +209,7 @@ class QueryCollectionDataShrinkRequest extends Model
         'regionId'               => 'RegionId',
         'topK'                   => 'TopK',
         'vectorShrink'           => 'Vector',
+        'workspaceId'            => 'WorkspaceId',
     ];
 
     public function validate()
@@ -265,6 +269,9 @@ class QueryCollectionDataShrinkRequest extends Model
         }
         if (null !== $this->vectorShrink) {
             $res['Vector'] = $this->vectorShrink;
+        }
+        if (null !== $this->workspaceId) {
+            $res['WorkspaceId'] = $this->workspaceId;
         }
 
         return $res;
@@ -328,6 +335,9 @@ class QueryCollectionDataShrinkRequest extends Model
         }
         if (isset($map['Vector'])) {
             $model->vectorShrink = $map['Vector'];
+        }
+        if (isset($map['WorkspaceId'])) {
+            $model->workspaceId = $map['WorkspaceId'];
         }
 
         return $model;

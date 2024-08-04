@@ -82,6 +82,8 @@ class QueryContentRequest extends Model
     public $hybridSearchArgs;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $includeFileUrl;

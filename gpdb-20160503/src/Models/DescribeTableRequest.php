@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeTableRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The instance ID.
      *
+     * This parameter is required.
      * @example gp-xxxxxxxxx
      *
      * @var string
@@ -18,8 +19,9 @@ class DescribeTableRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the database.
      *
+     * This parameter is required.
      * @example adbtest
      *
      * @var string
@@ -32,8 +34,9 @@ class DescribeTableRequest extends Model
     public $ownerId;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID of the instance.
      *
+     * This parameter is required.
      * @example cn-beijing
      *
      * @var string
@@ -41,8 +44,9 @@ class DescribeTableRequest extends Model
     public $regionId;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the schema to which the table belongs.
      *
+     * This parameter is required.
      * @example public
      *
      * @var string
@@ -50,8 +54,9 @@ class DescribeTableRequest extends Model
     public $schema;
 
     /**
-     * @description This parameter is required.
+     * @description The Alibaba Cloud Resource Name (ARN) of the access credential for the created Data API account. You can call the CreateSecret operation to create an access credential.
      *
+     * This parameter is required.
      * @example acs:gpdb:cn-beijing:1033**:secret/testsecret-eG2AQGRIwQ0zFp4VA7mYL3uiCXTfDQbQ
      *
      * @var string
@@ -59,8 +64,9 @@ class DescribeTableRequest extends Model
     public $secretArn;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the table.
      *
+     * This parameter is required.
      * @example mytable
      *
      * @var string

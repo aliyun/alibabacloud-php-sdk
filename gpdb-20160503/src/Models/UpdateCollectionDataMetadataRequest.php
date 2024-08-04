@@ -21,7 +21,7 @@ class UpdateCollectionDataMetadataRequest extends Model
     /**
      * @description The instance ID.
      *
-     * This parameter is required.
+     * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
      * @example gp-xxxxxxxxx
      *
      * @var string
@@ -87,6 +87,11 @@ class UpdateCollectionDataMetadataRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $workspaceId;
     protected $_name = [
         'collection'        => 'Collection',
         'DBInstanceId'      => 'DBInstanceId',
@@ -97,6 +102,7 @@ class UpdateCollectionDataMetadataRequest extends Model
         'namespacePassword' => 'NamespacePassword',
         'ownerId'           => 'OwnerId',
         'regionId'          => 'RegionId',
+        'workspaceId'       => 'WorkspaceId',
     ];
 
     public function validate()
@@ -132,6 +138,9 @@ class UpdateCollectionDataMetadataRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->workspaceId) {
+            $res['WorkspaceId'] = $this->workspaceId;
         }
 
         return $res;
@@ -173,6 +182,9 @@ class UpdateCollectionDataMetadataRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['WorkspaceId'])) {
+            $model->workspaceId = $map['WorkspaceId'];
         }
 
         return $model;

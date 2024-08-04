@@ -39,7 +39,7 @@ class DeleteCollectionDataRequest extends Model
     /**
      * @description The instance ID.
      *
-     * This parameter is required.
+     * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the IDs of all AnalyticDB for PostgreSQL instances within a region.
      * @example gp-xxxxxxxxx
      *
      * @var string
@@ -79,6 +79,11 @@ class DeleteCollectionDataRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $workspaceId;
     protected $_name = [
         'collection'           => 'Collection',
         'collectionData'       => 'CollectionData',
@@ -88,6 +93,7 @@ class DeleteCollectionDataRequest extends Model
         'namespacePassword'    => 'NamespacePassword',
         'ownerId'              => 'OwnerId',
         'regionId'             => 'RegionId',
+        'workspaceId'          => 'WorkspaceId',
     ];
 
     public function validate()
@@ -120,6 +126,9 @@ class DeleteCollectionDataRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->workspaceId) {
+            $res['WorkspaceId'] = $this->workspaceId;
         }
 
         return $res;
@@ -156,6 +165,9 @@ class DeleteCollectionDataRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['WorkspaceId'])) {
+            $model->workspaceId = $map['WorkspaceId'];
         }
 
         return $model;

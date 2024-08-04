@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetSecretValueResponseBody extends Model
 {
     /**
+     * @description The error code.
+     *
      * @example Secret.NotFound
      *
      * @var string
@@ -16,6 +18,8 @@ class GetSecretValueResponseBody extends Model
     public $code;
 
     /**
+     * @description The instance ID.
+     *
      * @example gp-xxxxxxxxx
      *
      * @var string
@@ -23,6 +27,8 @@ class GetSecretValueResponseBody extends Model
     public $DBInstanceId;
 
     /**
+     * @description The description of the access credential.
+     *
      * @example test secret
      *
      * @var string
@@ -30,6 +36,8 @@ class GetSecretValueResponseBody extends Model
     public $description;
 
     /**
+     * @description The returned message.
+     *
      * @example success
      *
      * @var string
@@ -37,6 +45,8 @@ class GetSecretValueResponseBody extends Model
     public $message;
 
     /**
+     * @description The password of the database account.
+     *
      * @example pwd123
      *
      * @var string
@@ -44,6 +54,8 @@ class GetSecretValueResponseBody extends Model
     public $password;
 
     /**
+     * @description The request ID.
+     *
      * @example ABB39CC3-4488-4857-905D-2E4A051D0521
      *
      * @var string
@@ -51,6 +63,8 @@ class GetSecretValueResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ARN of the access credential for the created Data API account. Format: `acs:gpdb:{{region}}:{{accountId}}:secret/{{secretName}}-{{32 digits random string}`.
+     *
      * @example acs:gpdb:cn-beijing:1033**:secret/testsecret-eG2AQGRIwQ0zFp4VA7mYL3uiCXTfDQbQ
      *
      * @var string
@@ -58,6 +72,8 @@ class GetSecretValueResponseBody extends Model
     public $secretArn;
 
     /**
+     * @description The name of the access credential.
+     *
      * @example testsecret
      *
      * @var string
@@ -65,6 +81,11 @@ class GetSecretValueResponseBody extends Model
     public $secretName;
 
     /**
+     * @description The status of the operation. Valid values:
+     *
+     *   **success**
+     *   **fail**
+     *
      * @example success
      *
      * @var string
@@ -72,6 +93,8 @@ class GetSecretValueResponseBody extends Model
     public $status;
 
     /**
+     * @description The name of the database account.
+     *
      * @example testacc
      *
      * @var string

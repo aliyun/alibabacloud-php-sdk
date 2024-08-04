@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class ListDocumentsResponseBody extends Model
 {
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @description The queried documents.
+     *
      * @var items
      */
     public $items;
@@ -27,6 +33,10 @@ class ListDocumentsResponseBody extends Model
     public $message;
 
     /**
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+     *
+     * @example caeba0bbb2be03f84eb48b699f0a4883
+     *
      * @var string
      */
     public $nextToken;

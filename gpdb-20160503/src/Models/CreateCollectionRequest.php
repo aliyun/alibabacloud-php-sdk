@@ -19,8 +19,6 @@ class CreateCollectionRequest extends Model
     public $collection;
 
     /**
-     * @description This parameter is required.
-     *
      * @example gp-xxxxxxxxx
      *
      * @var string
@@ -165,6 +163,11 @@ class CreateCollectionRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $workspaceId;
     protected $_name = [
         'collection'              => 'Collection',
         'DBInstanceId'            => 'DBInstanceId',
@@ -181,6 +184,7 @@ class CreateCollectionRequest extends Model
         'parser'                  => 'Parser',
         'pqEnable'                => 'PqEnable',
         'regionId'                => 'RegionId',
+        'workspaceId'             => 'WorkspaceId',
     ];
 
     public function validate()
@@ -234,6 +238,9 @@ class CreateCollectionRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->workspaceId) {
+            $res['WorkspaceId'] = $this->workspaceId;
         }
 
         return $res;
@@ -291,6 +298,9 @@ class CreateCollectionRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['WorkspaceId'])) {
+            $model->workspaceId = $map['WorkspaceId'];
         }
 
         return $model;
