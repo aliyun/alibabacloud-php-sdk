@@ -9,66 +9,92 @@ use AlibabaCloud\Tea\Model;
 class trafficControlTargets extends Model
 {
     /**
+     * @example 2024-04-25
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example click
+     *
      * @var string
      */
     public $event;
 
     /**
+     * @example [{\\"field\\":\\"status\\",\\"option\\":\\"=\\",\\"value\\":\\"1\\"}]
+     *
      * @var string
      */
     public $itemConditionArray;
 
     /**
+     * @example status=1
+     *
      * @var string
      */
     public $itemConditionExpress;
 
     /**
+     * @example Array
+     *
      * @var string
      */
     public $itemConditionType;
 
     /**
+     * @example target_1
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $newProductRegulation;
 
     /**
+     * @example recall_1
+     *
      * @var string
      */
     public $recallName;
 
     /**
+     * @example 2024-03-25
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example Daily
+     *
      * @var string
      */
     public $statisPeriod;
 
     /**
+     * @example Opened
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $toleranceValue;
 
     /**
+     * @example 100
+     *
      * @var float
      */
     public $value;

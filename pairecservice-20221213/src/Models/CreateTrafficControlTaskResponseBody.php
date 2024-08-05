@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateTrafficControlTaskResponseBody extends Model
 {
     /**
+     * @example 42391E6D-822C-58F8-9F7E-D991BB86D6AD
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $trafficControlTaskId;

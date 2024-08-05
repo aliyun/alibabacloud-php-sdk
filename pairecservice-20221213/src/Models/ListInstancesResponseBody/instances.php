@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\PaiRecService\V20221213\Models\ListInstancesResponseBody;
 
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ListInstancesResponseBody\instances\config;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ListInstancesResponseBody\instances\operatingTool;
 use AlibabaCloud\Tea\Model;
 
 class instances extends Model
@@ -57,6 +58,11 @@ class instances extends Model
     public $instanceId;
 
     /**
+     * @var operatingTool
+     */
+    public $operatingTool;
+
+    /**
      * @example cn-shenzhen
      *
      * @var string
@@ -84,6 +90,7 @@ class instances extends Model
         'gmtCreateTime'   => 'GmtCreateTime',
         'gmtModifiedTime' => 'GmtModifiedTime',
         'instanceId'      => 'InstanceId',
+        'operatingTool'   => 'OperatingTool',
         'regionId'        => 'RegionId',
         'status'          => 'Status',
         'type'            => 'Type',
@@ -116,6 +123,9 @@ class instances extends Model
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->operatingTool) {
+            $res['OperatingTool'] = null !== $this->operatingTool ? $this->operatingTool->toMap() : null;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -158,6 +168,9 @@ class instances extends Model
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['OperatingTool'])) {
+            $model->operatingTool = operatingTool::fromMap($map['OperatingTool']);
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

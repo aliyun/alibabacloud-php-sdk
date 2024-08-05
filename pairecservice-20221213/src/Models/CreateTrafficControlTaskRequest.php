@@ -10,91 +10,127 @@ use AlibabaCloud\Tea\Model;
 class CreateTrafficControlTaskRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var string
      */
     public $behaviorTableMetaId;
 
     /**
+     * @example Global
+     *
      * @var string
      */
     public $controlGranularity;
 
     /**
+     * @example Guaranteed
+     *
      * @var string
      */
     public $controlLogic;
 
     /**
+     * @example Percent
+     *
      * @var string
      */
     public $controlType;
 
     /**
+     * @example this is a test task
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 2024-03-26
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example TimeRange
+     *
      * @var string
      */
     public $executionTime;
 
     /**
+     * @example pairec-cn-***test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example [{\\"field\\":\\"status\\",\\"option\\":\\"=\\",\\"value\\":\\"1\\"}]
+     *
      * @var string
      */
     public $itemConditionArray;
 
     /**
+     * @example status=1
+     *
      * @var string
      */
     public $itemConditionExpress;
 
     /**
+     * @example Array
+     *
      * @var string
      */
     public $itemConditionType;
 
     /**
+     * @example 3
+     *
      * @var string
      */
     public $itemTableMetaId;
 
     /**
+     * @example task-1
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $sceneId;
 
     /**
+     * @example 2024-03-25
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example [{\\"field\\":\\"click\\",\\"option\\":\\"<=\\",\\"value\\":\\"30\\"}]
+     *
      * @var string
      */
     public $statisBehaviorConditionArray;
 
     /**
+     * @example click=30
+     *
      * @var string
      */
     public $statisBehaviorConditionExpress;
 
     /**
+     * @example Array
+     *
      * @var string
      */
     public $statisBehaviorConditionType;
@@ -105,21 +141,29 @@ class CreateTrafficControlTaskRequest extends Model
     public $trafficControlTargets;
 
     /**
+     * @example [{\\"field\\":\\"gender\\",\\"option\\":\\"=\\",\\"value\\":\\"male\\"}]
+     *
      * @var string
      */
     public $userConditionArray;
 
     /**
+     * @example age<=30&&(3<=level<=6)&&gender=male
+     *
      * @var string
      */
     public $userConditionExpress;
 
     /**
+     * @example Array
+     *
      * @var string
      */
     public $userConditionType;
 
     /**
+     * @example 2
+     *
      * @var string
      */
     public $userTableMetaId;
