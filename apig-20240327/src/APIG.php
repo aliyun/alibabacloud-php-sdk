@@ -1704,6 +1704,9 @@ class APIG extends OpenApiClient
         if (!Utils::isUnset($request->method)) {
             $query['method'] = $request->method;
         }
+        if (!Utils::isUnset($request->name)) {
+            $query['name'] = $request->name;
+        }
         if (!Utils::isUnset($request->nameLike)) {
             $query['nameLike'] = $request->nameLike;
         }
@@ -1766,6 +1769,9 @@ class APIG extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->keyword)) {
             $query['keyword'] = $request->keyword;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['name'] = $request->name;
         }
         if (!Utils::isUnset($request->pageNumber)) {
             $query['pageNumber'] = $request->pageNumber;

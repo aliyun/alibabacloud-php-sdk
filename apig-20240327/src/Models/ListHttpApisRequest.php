@@ -16,6 +16,11 @@ class ListHttpApisRequest extends Model
     public $keyword;
 
     /**
+     * @var string
+     */
+    public $name;
+
+    /**
      * @example 1
      *
      * @var int
@@ -35,6 +40,7 @@ class ListHttpApisRequest extends Model
     public $publishedOnly;
     protected $_name = [
         'keyword'       => 'keyword',
+        'name'          => 'name',
         'pageNumber'    => 'pageNumber',
         'pageSize'      => 'pageSize',
         'publishedOnly' => 'publishedOnly',
@@ -49,6 +55,9 @@ class ListHttpApisRequest extends Model
         $res = [];
         if (null !== $this->keyword) {
             $res['keyword'] = $this->keyword;
+        }
+        if (null !== $this->name) {
+            $res['name'] = $this->name;
         }
         if (null !== $this->pageNumber) {
             $res['pageNumber'] = $this->pageNumber;
@@ -73,6 +82,9 @@ class ListHttpApisRequest extends Model
         $model = new self();
         if (isset($map['keyword'])) {
             $model->keyword = $map['keyword'];
+        }
+        if (isset($map['name'])) {
+            $model->name = $map['name'];
         }
         if (isset($map['pageNumber'])) {
             $model->pageNumber = $map['pageNumber'];

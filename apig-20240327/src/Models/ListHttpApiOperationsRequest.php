@@ -16,6 +16,11 @@ class ListHttpApiOperationsRequest extends Model
     public $method;
 
     /**
+     * @var string
+     */
+    public $name;
+
+    /**
      * @example GetUser
      *
      * @var string
@@ -44,6 +49,7 @@ class ListHttpApiOperationsRequest extends Model
     public $pathLike;
     protected $_name = [
         'method'     => 'method',
+        'name'       => 'name',
         'nameLike'   => 'nameLike',
         'pageNumber' => 'pageNumber',
         'pageSize'   => 'pageSize',
@@ -59,6 +65,9 @@ class ListHttpApiOperationsRequest extends Model
         $res = [];
         if (null !== $this->method) {
             $res['method'] = $this->method;
+        }
+        if (null !== $this->name) {
+            $res['name'] = $this->name;
         }
         if (null !== $this->nameLike) {
             $res['nameLike'] = $this->nameLike;
@@ -86,6 +95,9 @@ class ListHttpApiOperationsRequest extends Model
         $model = new self();
         if (isset($map['method'])) {
             $model->method = $map['method'];
+        }
+        if (isset($map['name'])) {
+            $model->name = $map['name'];
         }
         if (isset($map['nameLike'])) {
             $model->nameLike = $map['nameLike'];
