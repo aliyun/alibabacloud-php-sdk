@@ -4,12 +4,18 @@
 
 namespace AlibabaCloud\SDK\Foasconsole\V20211028\Models\DescribeInstancesResponseBody;
 
+use AlibabaCloud\SDK\Foasconsole\V20211028\Models\DescribeInstancesResponseBody\instances\clusterState;
+use AlibabaCloud\SDK\Foasconsole\V20211028\Models\DescribeInstancesResponseBody\instances\clusterUsedResources;
 use AlibabaCloud\SDK\Foasconsole\V20211028\Models\DescribeInstancesResponseBody\instances\clusterUsedStorage;
 use AlibabaCloud\SDK\Foasconsole\V20211028\Models\DescribeInstancesResponseBody\instances\haResourceSpec;
+use AlibabaCloud\SDK\Foasconsole\V20211028\Models\DescribeInstancesResponseBody\instances\haVSwitchInfo;
 use AlibabaCloud\SDK\Foasconsole\V20211028\Models\DescribeInstancesResponseBody\instances\hostAliases;
+use AlibabaCloud\SDK\Foasconsole\V20211028\Models\DescribeInstancesResponseBody\instances\ossInfo;
 use AlibabaCloud\SDK\Foasconsole\V20211028\Models\DescribeInstancesResponseBody\instances\resourceSpec;
 use AlibabaCloud\SDK\Foasconsole\V20211028\Models\DescribeInstancesResponseBody\instances\storage;
 use AlibabaCloud\SDK\Foasconsole\V20211028\Models\DescribeInstancesResponseBody\instances\tags;
+use AlibabaCloud\SDK\Foasconsole\V20211028\Models\DescribeInstancesResponseBody\instances\vpcInfo;
+use AlibabaCloud\SDK\Foasconsole\V20211028\Models\DescribeInstancesResponseBody\instances\vSwitchInfo;
 use AlibabaCloud\Tea\Model;
 
 class instances extends Model
@@ -32,11 +38,21 @@ class instances extends Model
     public $chargeType;
 
     /**
+     * @var clusterState
+     */
+    public $clusterState;
+
+    /**
      * @example RUNNING
      *
      * @var string
      */
     public $clusterStatus;
+
+    /**
+     * @var clusterUsedResources[]
+     */
+    public $clusterUsedResources;
 
     /**
      * @var clusterUsedStorage
@@ -57,6 +73,11 @@ class instances extends Model
      * @var string[]
      */
     public $haVSwitchIds;
+
+    /**
+     * @var haVSwitchInfo[]
+     */
+    public $haVSwitchInfo;
 
     /**
      * @var string
@@ -95,6 +116,11 @@ class instances extends Model
      * @var string
      */
     public $orderState;
+
+    /**
+     * @var ossInfo
+     */
+    public $ossInfo;
 
     /**
      * @example cn-beijing
@@ -157,11 +183,21 @@ class instances extends Model
     public $vSwitchIds;
 
     /**
+     * @var vSwitchInfo[]
+     */
+    public $vSwitchInfo;
+
+    /**
      * @example vpc-2ze9*******nxfmfcdi
      *
      * @var string
      */
     public $vpcId;
+
+    /**
+     * @var vpcInfo
+     */
+    public $vpcInfo;
 
     /**
      * @example cn-beijing-g
@@ -170,32 +206,38 @@ class instances extends Model
      */
     public $zoneId;
     protected $_name = [
-        'architectureType'    => 'ArchitectureType',
-        'askClusterId'        => 'AskClusterId',
-        'chargeType'          => 'ChargeType',
-        'clusterStatus'       => 'ClusterStatus',
-        'clusterUsedStorage'  => 'ClusterUsedStorage',
-        'ha'                  => 'Ha',
-        'haResourceSpec'      => 'HaResourceSpec',
-        'haVSwitchIds'        => 'HaVSwitchIds',
-        'haZoneId'            => 'HaZoneId',
-        'hostAliases'         => 'HostAliases',
-        'instanceId'          => 'InstanceId',
-        'instanceName'        => 'InstanceName',
-        'monitorType'         => 'MonitorType',
-        'orderState'          => 'OrderState',
-        'region'              => 'Region',
-        'resourceCreateTime'  => 'ResourceCreateTime',
-        'resourceExpiredTime' => 'ResourceExpiredTime',
-        'resourceGroupId'     => 'ResourceGroupId',
-        'resourceId'          => 'ResourceId',
-        'resourceSpec'        => 'ResourceSpec',
-        'storage'             => 'Storage',
-        'tags'                => 'Tags',
-        'uid'                 => 'Uid',
-        'vSwitchIds'          => 'VSwitchIds',
-        'vpcId'               => 'VpcId',
-        'zoneId'              => 'ZoneId',
+        'architectureType'     => 'ArchitectureType',
+        'askClusterId'         => 'AskClusterId',
+        'chargeType'           => 'ChargeType',
+        'clusterState'         => 'ClusterState',
+        'clusterStatus'        => 'ClusterStatus',
+        'clusterUsedResources' => 'ClusterUsedResources',
+        'clusterUsedStorage'   => 'ClusterUsedStorage',
+        'ha'                   => 'Ha',
+        'haResourceSpec'       => 'HaResourceSpec',
+        'haVSwitchIds'         => 'HaVSwitchIds',
+        'haVSwitchInfo'        => 'HaVSwitchInfo',
+        'haZoneId'             => 'HaZoneId',
+        'hostAliases'          => 'HostAliases',
+        'instanceId'           => 'InstanceId',
+        'instanceName'         => 'InstanceName',
+        'monitorType'          => 'MonitorType',
+        'orderState'           => 'OrderState',
+        'ossInfo'              => 'OssInfo',
+        'region'               => 'Region',
+        'resourceCreateTime'   => 'ResourceCreateTime',
+        'resourceExpiredTime'  => 'ResourceExpiredTime',
+        'resourceGroupId'      => 'ResourceGroupId',
+        'resourceId'           => 'ResourceId',
+        'resourceSpec'         => 'ResourceSpec',
+        'storage'              => 'Storage',
+        'tags'                 => 'Tags',
+        'uid'                  => 'Uid',
+        'vSwitchIds'           => 'VSwitchIds',
+        'vSwitchInfo'          => 'VSwitchInfo',
+        'vpcId'                => 'VpcId',
+        'vpcInfo'              => 'VpcInfo',
+        'zoneId'               => 'ZoneId',
     ];
 
     public function validate()
@@ -214,8 +256,20 @@ class instances extends Model
         if (null !== $this->chargeType) {
             $res['ChargeType'] = $this->chargeType;
         }
+        if (null !== $this->clusterState) {
+            $res['ClusterState'] = null !== $this->clusterState ? $this->clusterState->toMap() : null;
+        }
         if (null !== $this->clusterStatus) {
             $res['ClusterStatus'] = $this->clusterStatus;
+        }
+        if (null !== $this->clusterUsedResources) {
+            $res['ClusterUsedResources'] = [];
+            if (null !== $this->clusterUsedResources && \is_array($this->clusterUsedResources)) {
+                $n = 0;
+                foreach ($this->clusterUsedResources as $item) {
+                    $res['ClusterUsedResources'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->clusterUsedStorage) {
             $res['ClusterUsedStorage'] = null !== $this->clusterUsedStorage ? $this->clusterUsedStorage->toMap() : null;
@@ -228,6 +282,15 @@ class instances extends Model
         }
         if (null !== $this->haVSwitchIds) {
             $res['HaVSwitchIds'] = $this->haVSwitchIds;
+        }
+        if (null !== $this->haVSwitchInfo) {
+            $res['HaVSwitchInfo'] = [];
+            if (null !== $this->haVSwitchInfo && \is_array($this->haVSwitchInfo)) {
+                $n = 0;
+                foreach ($this->haVSwitchInfo as $item) {
+                    $res['HaVSwitchInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->haZoneId) {
             $res['HaZoneId'] = $this->haZoneId;
@@ -252,6 +315,9 @@ class instances extends Model
         }
         if (null !== $this->orderState) {
             $res['OrderState'] = $this->orderState;
+        }
+        if (null !== $this->ossInfo) {
+            $res['OssInfo'] = null !== $this->ossInfo ? $this->ossInfo->toMap() : null;
         }
         if (null !== $this->region) {
             $res['Region'] = $this->region;
@@ -289,8 +355,20 @@ class instances extends Model
         if (null !== $this->vSwitchIds) {
             $res['VSwitchIds'] = $this->vSwitchIds;
         }
+        if (null !== $this->vSwitchInfo) {
+            $res['VSwitchInfo'] = [];
+            if (null !== $this->vSwitchInfo && \is_array($this->vSwitchInfo)) {
+                $n = 0;
+                foreach ($this->vSwitchInfo as $item) {
+                    $res['VSwitchInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
+        }
+        if (null !== $this->vpcInfo) {
+            $res['VpcInfo'] = null !== $this->vpcInfo ? $this->vpcInfo->toMap() : null;
         }
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
@@ -316,8 +394,20 @@ class instances extends Model
         if (isset($map['ChargeType'])) {
             $model->chargeType = $map['ChargeType'];
         }
+        if (isset($map['ClusterState'])) {
+            $model->clusterState = clusterState::fromMap($map['ClusterState']);
+        }
         if (isset($map['ClusterStatus'])) {
             $model->clusterStatus = $map['ClusterStatus'];
+        }
+        if (isset($map['ClusterUsedResources'])) {
+            if (!empty($map['ClusterUsedResources'])) {
+                $model->clusterUsedResources = [];
+                $n                           = 0;
+                foreach ($map['ClusterUsedResources'] as $item) {
+                    $model->clusterUsedResources[$n++] = null !== $item ? clusterUsedResources::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['ClusterUsedStorage'])) {
             $model->clusterUsedStorage = clusterUsedStorage::fromMap($map['ClusterUsedStorage']);
@@ -331,6 +421,15 @@ class instances extends Model
         if (isset($map['HaVSwitchIds'])) {
             if (!empty($map['HaVSwitchIds'])) {
                 $model->haVSwitchIds = $map['HaVSwitchIds'];
+            }
+        }
+        if (isset($map['HaVSwitchInfo'])) {
+            if (!empty($map['HaVSwitchInfo'])) {
+                $model->haVSwitchInfo = [];
+                $n                    = 0;
+                foreach ($map['HaVSwitchInfo'] as $item) {
+                    $model->haVSwitchInfo[$n++] = null !== $item ? haVSwitchInfo::fromMap($item) : $item;
+                }
             }
         }
         if (isset($map['HaZoneId'])) {
@@ -356,6 +455,9 @@ class instances extends Model
         }
         if (isset($map['OrderState'])) {
             $model->orderState = $map['OrderState'];
+        }
+        if (isset($map['OssInfo'])) {
+            $model->ossInfo = ossInfo::fromMap($map['OssInfo']);
         }
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
@@ -395,8 +497,20 @@ class instances extends Model
                 $model->vSwitchIds = $map['VSwitchIds'];
             }
         }
+        if (isset($map['VSwitchInfo'])) {
+            if (!empty($map['VSwitchInfo'])) {
+                $model->vSwitchInfo = [];
+                $n                  = 0;
+                foreach ($map['VSwitchInfo'] as $item) {
+                    $model->vSwitchInfo[$n++] = null !== $item ? vSwitchInfo::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
+        }
+        if (isset($map['VpcInfo'])) {
+            $model->vpcInfo = vpcInfo::fromMap($map['VpcInfo']);
         }
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
