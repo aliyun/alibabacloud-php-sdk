@@ -39,11 +39,15 @@ class DescribeScheduledTasksRequest extends Model
     public $pageSize;
 
     /**
+     * @example Weekly
+     *
      * @var string
      */
     public $recurrenceType;
 
     /**
+     * @example 1,2,3
+     *
      * @var string
      */
     public $recurrenceValue;
@@ -99,11 +103,15 @@ class DescribeScheduledTasksRequest extends Model
     public $scheduledTaskNames;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $taskEnabled;
 
     /**
+     * @example scheduled****
+     *
      * @var string
      */
     public $taskName;

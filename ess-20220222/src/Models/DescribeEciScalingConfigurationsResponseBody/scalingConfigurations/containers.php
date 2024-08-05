@@ -19,14 +19,14 @@ class containers extends Model
     public $args;
 
     /**
-     * @description The container startup commands. You can specify up to 20 commands. Each command contains up to 256 characters.
+     * @description The container startup commands. You can specify up to 20 commands. Each command can contain up to 256 characters.
      *
      * @var string[]
      */
     public $commands;
 
     /**
-     * @description The number of vCPUs that are allocated to the container.
+     * @description The number of vCPUs per container.
      *
      * @example 2.0
      *
@@ -51,7 +51,7 @@ class containers extends Model
     public $gpu;
 
     /**
-     * @description The image of the container.
+     * @description The container image.
      *
      * @example mysql
      *
@@ -62,7 +62,7 @@ class containers extends Model
     /**
      * @description The image pulling policy. Valid values:
      *
-     *   Always: Each time instances are created, image pulling is performed.
+     *   Always: Each time image pulling is performed.
      *   IfNotPresent: Image pulling is performed as needed. On-premises images are preferentially used. If no on-premises images are available, image pulling is performed.
      *   Never: On-premises images are always used. Image pulling is not performed.
      *
@@ -73,11 +73,15 @@ class containers extends Model
     public $imagePullPolicy;
 
     /**
+     * @description The commands that are run for configuring the postStart callback function by using the CLI within the container.
+     *
      * @var string[]
      */
     public $lifecyclePostStartHandlerExecs;
 
     /**
+     * @description The IP address of the host to which HTTP GET requests for configuring the postStart callback function are sent.
+     *
      * @example 10.0.XX.XX
      *
      * @var string
@@ -85,6 +89,8 @@ class containers extends Model
     public $lifecyclePostStartHandlerHttpGetHost;
 
     /**
+     * @description The path to which HTTP GET requests for configuring the postStart callback function are sent.
+     *
      * @example /healthyz
      *
      * @var string
@@ -92,6 +98,8 @@ class containers extends Model
     public $lifecyclePostStartHandlerHttpGetPath;
 
     /**
+     * @description The port over which HTTP GET requests for configuring the postStart callback function are sent.
+     *
      * @example 80
      *
      * @var int
@@ -99,6 +107,8 @@ class containers extends Model
     public $lifecyclePostStartHandlerHttpGetPort;
 
     /**
+     * @description The protocol type of the HTTP GET requests that are sent for configuring the postStart callback function.
+     *
      * @example HTTP
      *
      * @var string
@@ -106,6 +116,8 @@ class containers extends Model
     public $lifecyclePostStartHandlerHttpGetScheme;
 
     /**
+     * @description The IP address of the host detected by the TCP sockets used for configuring the postStart callback function.
+     *
      * @example 10.0.XX.XX
      *
      * @var string
@@ -113,6 +125,8 @@ class containers extends Model
     public $lifecyclePostStartHandlerTcpSocketHost;
 
     /**
+     * @description The port detected by the TCP sockets used for configuring the postStart callback function.
+     *
      * @example 80
      *
      * @var int
@@ -120,11 +134,15 @@ class containers extends Model
     public $lifecyclePostStartHandlerTcpSocketPort;
 
     /**
+     * @description The commands that are run for configuring the preStop callback function by using the CLI within the container.
+     *
      * @var string[]
      */
     public $lifecyclePreStopHandlerExecs;
 
     /**
+     * @description The IP address of the host to which HTTP GET requests for configuring the preStop callback function are sent.
+     *
      * @example 10.0.XX.XX
      *
      * @var string
@@ -132,6 +150,8 @@ class containers extends Model
     public $lifecyclePreStopHandlerHttpGetHost;
 
     /**
+     * @description The path to which HTTP GET requests for configuring the preStop callback function are sent.
+     *
      * @example /healthyz
      *
      * @var string
@@ -139,6 +159,8 @@ class containers extends Model
     public $lifecyclePreStopHandlerHttpGetPath;
 
     /**
+     * @description The port over which HTTP GET requests for configuring the preStop callback function are sent.
+     *
      * @example 80
      *
      * @var int
@@ -146,6 +168,8 @@ class containers extends Model
     public $lifecyclePreStopHandlerHttpGetPort;
 
     /**
+     * @description The protocol type of the HTTP Get requests that are sent for configuring the preStop callback function.
+     *
      * @example HTTP
      *
      * @var string
@@ -153,6 +177,8 @@ class containers extends Model
     public $lifecyclePreStopHandlerHttpGetScheme;
 
     /**
+     * @description The IP address of the host detected by the TCP sockets used for configuring the preStop callback function.
+     *
      * @example 10.0.XX.XX
      *
      * @var string
@@ -160,6 +186,8 @@ class containers extends Model
     public $lifecyclePreStopHandlerTcpSocketHost;
 
     /**
+     * @description The port detected by the TCP sockets used for configuring the preStop callback function.
+     *
      * @example 80
      *
      * @var int
@@ -184,7 +212,7 @@ class containers extends Model
     public $livenessProbeFailureThreshold;
 
     /**
-     * @description The path to which HTTP Get requests are sent when you use the HTTP Get requests to perform liveness probes.
+     * @description The path to which HTTP GET requests are sent when you use the HTTP GET requests to perform liveness probes.
      *
      * @example /usr/nginx/
      *
@@ -193,7 +221,7 @@ class containers extends Model
     public $livenessProbeHttpGetPath;
 
     /**
-     * @description The port detected by HTTP Get requests when you use the HTTP requests to perform liveness probes.
+     * @description The port to which HTTP GET requests are sent to perform liveness probes.
      *
      * @example 80
      *
@@ -202,7 +230,7 @@ class containers extends Model
     public $livenessProbeHttpGetPort;
 
     /**
-     * @description The protocol type of HTTP GET requests when you use the HTTP requests to perform liveness probes. Valid values:
+     * @description The protocol type of HTTP GET requests when you use the HTTP GET requests to perform liveness probes. Valid values:
      *
      *   HTTP
      *   HTTPS
@@ -214,7 +242,7 @@ class containers extends Model
     public $livenessProbeHttpGetScheme;
 
     /**
-     * @description The number of seconds that elapse from the startup of the container to the start time of a liveness probe.
+     * @description The number of seconds that elapses from the startup of the container to the start time of a liveness probe.
      *
      * @example 10
      *
@@ -250,7 +278,7 @@ class containers extends Model
     public $livenessProbeTcpSocketPort;
 
     /**
-     * @description The timeout period of the liveness probe. Default value: 1. Minimum value: 1. Unit: seconds.
+     * @description The timeout period of a liveness probe. Default value: 1. Minimum value: 1. Unit: seconds.
      *
      * @example 10
      *
@@ -259,7 +287,7 @@ class containers extends Model
     public $livenessProbeTimeoutSeconds;
 
     /**
-     * @description The memory size of the container.
+     * @description The memory size per container.
      *
      * @example 2.0
      *
@@ -268,7 +296,7 @@ class containers extends Model
     public $memory;
 
     /**
-     * @description The container name.
+     * @description The custom name of the container.
      *
      * @example nginx
      *
@@ -277,7 +305,7 @@ class containers extends Model
     public $name;
 
     /**
-     * @description The exposed ports and protocols of the container.
+     * @description The exposed ports and protocols.
      *
      * @var ports[]
      */
@@ -301,7 +329,7 @@ class containers extends Model
     public $readinessProbeFailureThreshold;
 
     /**
-     * @description The path to which HTTP Get requests are sent when you use the HTTP requests to perform readiness probes.
+     * @description The path to which HTTP GET requests are sent when you use the HTTP GET requests to perform readiness probes.
      *
      * @example /usr/local
      *
@@ -310,7 +338,7 @@ class containers extends Model
     public $readinessProbeHttpGetPath;
 
     /**
-     * @description The path to which HTTP Get requests are sent when you use the HTTP Get requests to perform readiness probes.
+     * @description The path to which HTTP GET requests are sent when you use the HTTP GET requests to perform readiness probes.
      *
      * @example /usr/nginx/
      *
@@ -331,7 +359,7 @@ class containers extends Model
     public $readinessProbeHttpGetScheme;
 
     /**
-     * @description The number of seconds that elapse from the startup of the container to the start time of a readiness probe.
+     * @description The number of seconds that elapses from the startup of the container to the start time of a readiness probe.
      *
      * @example 5
      *
@@ -367,7 +395,7 @@ class containers extends Model
     public $readinessProbeTcpSocketPort;
 
     /**
-     * @description The timeout period of the readiness probe. Default value: 1. Minimum value: 1. Unit: seconds.
+     * @description The timeout period of a readiness probe. Default value: 1. Minimum value: 1. Unit: seconds.
      *
      * @example 5
      *
@@ -402,7 +430,7 @@ class containers extends Model
     public $securityContextRunAsUser;
 
     /**
-     * @description Indicates whether the container allocates buffer resources to standard input streams when the container is run. If you do not specify this parameter, an end-of-file (EOF) error may occur when standard input streams in the container are read. Default value: false.
+     * @description Indicates whether the container allocates buffer resources to standard input streams when the container is running. If this parameter is not specified, an end-of-file (EOF) error may occur when standard input streams in the container are read. Default value: false.
      *
      * @example true
      *
@@ -413,7 +441,7 @@ class containers extends Model
     /**
      * @description Indicates whether standard input streams are disconnected after a client is disconnected. If Stdin is set to true, standard input streams remain connected among multiple sessions.
      *
-     * If StdinOnce is set to true, standard input streams are connected after the container is started, and remain idle until a client is connected to receive data. After the client is disconnected, streams are also disconnected, and remain disconnected until the container is restarted.
+     * If StdinOnce is set to true, standard input streams are connected after the container is started, and remain idle until a client is connected to receive data. After the client is disconnected, streams are also disconnected, and remain disconnected until the container restarts.
      * @example true
      *
      * @var bool
@@ -421,7 +449,7 @@ class containers extends Model
     public $stdinOnce;
 
     /**
-     * @description Indicates whether interaction is enabled. Valid values:
+     * @description Indicates whether the Interaction feature is enabled. Valid values:
      *
      *   true
      *   false
@@ -434,14 +462,14 @@ class containers extends Model
     public $tty;
 
     /**
-     * @description The volumes that are mounted to the container.
+     * @description The mounted volumes.
      *
      * @var volumeMounts[]
      */
     public $volumeMounts;
 
     /**
-     * @description The working directory of the container.
+     * @description The working directory.
      *
      * @example /usr/local/nginx
      *

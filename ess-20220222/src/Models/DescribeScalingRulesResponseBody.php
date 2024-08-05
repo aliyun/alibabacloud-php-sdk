@@ -37,7 +37,7 @@ class DescribeScalingRulesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Details of the scaling rules.
+     * @description The scaling rules.
      *
      * @var scalingRules[]
      */

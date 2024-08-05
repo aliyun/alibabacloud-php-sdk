@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class alarmDimensions extends Model
 {
     /**
-     * @description 监控项关联的维度信息键。
+     * @description The dimension key of the metric.
      *
      * @example rulePool
      *
@@ -18,7 +18,7 @@ class alarmDimensions extends Model
     public $dimensionKey;
 
     /**
-     * @description 监控项关联的维度信息值。
+     * @description The dimension value of the metric.
      *
      * @example sgp-l1cbirz451yxu2dxxx
      *

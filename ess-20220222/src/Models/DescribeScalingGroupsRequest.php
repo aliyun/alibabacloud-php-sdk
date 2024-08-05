@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeScalingGroupsRequest extends Model
 {
     /**
+     * @description The type of instances that are managed by the scaling group. Valid values:
+     *
+     *   ECS: ECS instances
+     *   ECI: elastic container instances
+     *
      * @example ECS
      *
      * @var string

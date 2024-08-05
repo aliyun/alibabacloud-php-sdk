@@ -40,14 +40,14 @@ class volumes extends Model
     public $NFSVolume;
 
     /**
-     * @description The paths to the configuration files.
+     * @description The paths to configuration files.
      *
      * @var configFileVolumeConfigFileToPath[]
      */
     public $configFileVolumeConfigFileToPath;
 
     /**
-     * @description The default permissions on ConfigFileVolume.
+     * @description The default permissions on the ConfigFile volume.
      *
      * @example 0644
      *
@@ -56,7 +56,7 @@ class volumes extends Model
     public $configFileVolumeDefaultMode;
 
     /**
-     * @description The name of the volume.
+     * @description The volume name.
      *
      * @example default-volume1
      *
@@ -65,7 +65,7 @@ class volumes extends Model
     public $name;
 
     /**
-     * @description The type of HostPathVolume. Examples: File, Directory, and Socket.
+     * @description The type of the Host directory. Examples: File, Directory, and Socket.
      *
      * @example EmptyDirVolume
      *

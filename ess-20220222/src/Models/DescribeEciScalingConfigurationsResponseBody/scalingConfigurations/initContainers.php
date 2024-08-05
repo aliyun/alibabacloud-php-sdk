@@ -12,7 +12,7 @@ use AlibabaCloud\Tea\Model;
 class initContainers extends Model
 {
     /**
-     * @description The number of vCPUs that are allocated to the init container.
+     * @description The number of vCPUs per init container.
      *
      * @example 0.5
      *
@@ -21,7 +21,7 @@ class initContainers extends Model
     public $cpu;
 
     /**
-     * @description The number of GPUs that are allocated to the init container.
+     * @description The number of GPUs per init container.
      *
      * @example 1
      *
@@ -48,14 +48,14 @@ class initContainers extends Model
     public $imagePullPolicy;
 
     /**
-     * @description The startup arguments of the init container.
+     * @description The container startup arguments.
      *
      * @var string[]
      */
     public $initContainerArgs;
 
     /**
-     * @description The startup commands of the init container.
+     * @description The container startup commands.
      *
      * @var string[]
      */
@@ -76,14 +76,14 @@ class initContainers extends Model
     public $initContainerPorts;
 
     /**
-     * @description The volumes that are mounted on the init container.
+     * @description The volumes that are mounted to the init container.
      *
      * @var initContainerVolumeMounts[]
      */
     public $initContainerVolumeMounts;
 
     /**
-     * @description The memory size of the init container.
+     * @description The memory size per init container.
      *
      * @example 1.0
      *
@@ -127,7 +127,7 @@ class initContainers extends Model
     public $securityContextRunAsUser;
 
     /**
-     * @description The working directory of the init container.
+     * @description The working directory.
      *
      * @example /usr/local
      *

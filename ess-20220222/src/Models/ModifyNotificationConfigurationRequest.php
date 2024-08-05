@@ -65,6 +65,11 @@ class ModifyNotificationConfigurationRequest extends Model
      * @var string
      */
     public $scalingGroupId;
+
+    /**
+     * @var string
+     */
+    public $timeZone;
     protected $_name = [
         'notificationArn'      => 'NotificationArn',
         'notificationTypes'    => 'NotificationTypes',
@@ -72,6 +77,7 @@ class ModifyNotificationConfigurationRequest extends Model
         'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'scalingGroupId'       => 'ScalingGroupId',
+        'timeZone'             => 'TimeZone',
     ];
 
     public function validate()
@@ -98,6 +104,9 @@ class ModifyNotificationConfigurationRequest extends Model
         }
         if (null !== $this->scalingGroupId) {
             $res['ScalingGroupId'] = $this->scalingGroupId;
+        }
+        if (null !== $this->timeZone) {
+            $res['TimeZone'] = $this->timeZone;
         }
 
         return $res;
@@ -130,6 +139,9 @@ class ModifyNotificationConfigurationRequest extends Model
         }
         if (isset($map['ScalingGroupId'])) {
             $model->scalingGroupId = $map['ScalingGroupId'];
+        }
+        if (isset($map['TimeZone'])) {
+            $model->timeZone = $map['TimeZone'];
         }
 
         return $model;

@@ -59,15 +59,15 @@ class DescribeEciScalingConfigurationsRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The IDs of the scaling configurations that you want to query.
+     * @description The IDs of the scaling configurations that you want to query. You can specify 1 to 10 scaling configuration IDs.
      *
-     * The IDs of active and inactive scaling configurations are displayed in the query results. You can differentiate between active and inactive scaling configurations based on the value of the `LifecycleState` parameter.
+     * The IDs of active and inactive scaling configurations are displayed in the query results. You can distinguish between active and inactive scaling configurations based on the value of `LifecycleState`.
      * @var string[]
      */
     public $scalingConfigurationIds;
 
     /**
-     * @description The names of the scaling configurations that you want to query.
+     * @description The names of the scaling configurations that you want to query. You can specify 1 to 10 scaling configuration names.
      *
      * The names of inactive scaling configurations are not displayed in the query results, and no error is reported.
      * @var string[]

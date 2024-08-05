@@ -182,7 +182,7 @@ class ModifyScalingConfigurationShrinkRequest extends Model
     public $instanceName;
 
     /**
-     * @description The intelligent configuration settings, which determines the range of instance types that meet the specified criteria.
+     * @description The intelligent configuration settings, which determine the available instance types.
      *
      * @var instancePatternInfos[]
      */
@@ -307,6 +307,8 @@ class ModifyScalingConfigurationShrinkRequest extends Model
     public $ownerId;
 
     /**
+     * @example 123abc****
+     *
      * @var string
      */
     public $password;

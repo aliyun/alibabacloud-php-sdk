@@ -89,7 +89,7 @@ class volumes extends Model
     public $flexVolumeFsType;
 
     /**
-     * @description The options of the FlexVolume object. Each option is a key-value pair in a JSON string.
+     * @description The FlexVolume options. Each option is a key-value pair in a JSON string.
      *
      * For example, if you use FlexVolume to mount a disk, the format of Options is `{"volumeId":"d-2zehdahrwoa7srg****","performanceLevel": "PL2"}`.
      * @example {"volumeId":"d-2zehdahrwoa7srg****","performanceLevel": "PL2"}

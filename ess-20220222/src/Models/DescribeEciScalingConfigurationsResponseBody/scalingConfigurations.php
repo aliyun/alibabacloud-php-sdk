@@ -34,7 +34,7 @@ class scalingConfigurations extends Model
     public $activeDeadlineSeconds;
 
     /**
-     * @description Indicates whether an elastic IP address (EIP) is automatically created and bound to the elastic container instance.
+     * @description Indicates whether elastic IP addresses (EIPs) are automatically created and bound to elastic container instances.
      *
      * @example true
      *
@@ -52,7 +52,7 @@ class scalingConfigurations extends Model
     public $autoMatchImageCache;
 
     /**
-     * @description The name of the elastic container instance or the name of the container group.
+     * @description The name series of elastic container instances.
      *
      * @example test
      *
@@ -61,7 +61,7 @@ class scalingConfigurations extends Model
     public $containerGroupName;
 
     /**
-     * @description The containers in the elastic container instance.
+     * @description The containers in an elastic container instance.
      *
      * @var containers[]
      */
@@ -80,7 +80,7 @@ class scalingConfigurations extends Model
     public $costOptimization;
 
     /**
-     * @description The number of vCPUs that are allocated to the elastic container instance.
+     * @description The number of vCPUs per elastic container instance.
      *
      * @example 2.0
      *
@@ -89,7 +89,7 @@ class scalingConfigurations extends Model
     public $cpu;
 
     /**
-     * @description The number of physical CPU cores. You can specify this parameter for only specific instance types. For more information, see [Specify CPU options](https://help.aliyun.com/document_detail/197781.html).
+     * @description The number of physical CPU cores. This parameter can be specified for only specific instance types. For more information, see [Specify CPU options](https://help.aliyun.com/document_detail/197781.html).
      *
      * @example 2
      *
@@ -98,7 +98,7 @@ class scalingConfigurations extends Model
     public $cpuOptionsCore;
 
     /**
-     * @description The number of threads per core. You can specify this parameter for only specific instance types. A value of 1 indicates that Hyper-Threading is disabled. For more information, see [Specify CPU options](https://help.aliyun.com/document_detail/197781.html).
+     * @description The number of threads per core. This parameter can be specified for only specific instance types. A value of 1 indicates that Hyper-Threading is disabled. For more information, see [Specify CPU options](https://help.aliyun.com/document_detail/197781.html).
      *
      * @example 2
      *
@@ -116,7 +116,7 @@ class scalingConfigurations extends Model
     public $creationTime;
 
     /**
-     * @description The bucket that caches data.
+     * @description The bucket that stores the data cache.
      *
      * @example default
      *
@@ -125,7 +125,7 @@ class scalingConfigurations extends Model
     public $dataCacheBucket;
 
     /**
-     * @description Indicates whether the Performance Burst feature is enabled for the ESSD AutoPL disk that caches data. Valid values:
+     * @description Indicates whether the Performance Burst feature is enabled for the ESSD AutoPL disk that stores the data cache. Valid values:
      *
      *   true
      *   false
@@ -138,12 +138,12 @@ class scalingConfigurations extends Model
     public $dataCacheBurstingEnabled;
 
     /**
-     * @description The performance level (PL) of the cloud disk that caches data. We recommend that you use enhanced SSDs (ESSDs). Valid values:
+     * @description The performance level (PL) of the cloud disk that stores the data cache. We recommend that you use enterprise SSDs (ESSDs). Valid values:
      *
-     *   PL0: An ESSD can deliver up to 10,000 random read/write IOPS.
-     *   PL1: An ESSD can deliver up to 50,000 random read/write IOPS.
-     *   PL2: An ESSD can deliver up to 100,000 random read/write IOPS.
-     *   PL3: An ESSD can deliver up to 1,000,000 random read/write IOPS.
+     *   PL0: An ESSD can provide up to 10,000 random read/write IOPS.
+     *   PL1: An ESSD can provide up to 50,000 random read/write IOPS.
+     *   PL2: An ESSD can provide up to 100,000 random read/write IOPS.
+     *   PL3: An ESSD can provide up to 1,000,000 random read/write IOPS.
      *
      * >  For more information about ESSDs, see [ESSDs](https://help.aliyun.com/document_detail/122389.html).
      * @example PL1
@@ -153,7 +153,7 @@ class scalingConfigurations extends Model
     public $dataCachePL;
 
     /**
-     * @description The provisioned read/write IOPS of the ESSD AutoPL disk that caches data. Valid values: 0 to min{50,000, 1000 x *Capacity - Baseline IOPS}. Baseline IOPS = min{1,800 + 50* x Capacity, 50,000}.
+     * @description The provisioned read/write IOPS of the ESSD AutoPL disk that stores the data cache. Valid values: 0 to min{50,000, 1000 x *Capacity - Baseline IOPS}. Baseline IOPS = min{1,800 + 50* x Capacity, 50,000}.
      *
      * >  For more information about ESSD AutoPL disks, see [ESSD AutoPL disks](https://help.aliyun.com/document_detail/368372.html).
      * @example 40000
@@ -179,14 +179,14 @@ class scalingConfigurations extends Model
     public $dnsConfigNameServers;
 
     /**
-     * @description The objects. Each object is a name-value pair. The value is optional.
+     * @description The options. Each option is a name-value pair. The value in the name-value pair is optional.
      *
      * @var dnsConfigOptions[]
      */
     public $dnsConfigOptions;
 
     /**
-     * @description The search domains of the DNS server.
+     * @description The search domains of the DNS servers.
      *
      * @var string[]
      */
@@ -202,7 +202,7 @@ class scalingConfigurations extends Model
     public $dnsPolicy;
 
     /**
-     * @description The maximum outbound bandwidth. Unit: bit/s.
+     * @description The maximum outbound public bandwidth. Unit: bit/s.
      *
      * @example 1024000
      *
@@ -211,7 +211,7 @@ class scalingConfigurations extends Model
     public $egressBandwidth;
 
     /**
-     * @description The bandwidth of the EIP. Default value: 5. Unit: Mbit/s.
+     * @description The EIP bandwidth. Default value: 5. Unit: Mbit/s.
      *
      * @example 5
      *
@@ -220,7 +220,7 @@ class scalingConfigurations extends Model
     public $eipBandwidth;
 
     /**
-     * @description The size of the temporary storage space. Unit: GiB.
+     * @description The capacity of the ephemeral storage. Unit: GiB.
      *
      * @example 20
      *
@@ -229,14 +229,14 @@ class scalingConfigurations extends Model
     public $ephemeralStorage;
 
     /**
-     * @description The hostname aliases in a container.
+     * @description The hostnames and IP addresses for a container that are added to the hosts file of the elastic container instance.
      *
      * @var hostAliases[]
      */
     public $hostAliases;
 
     /**
-     * @description The hostname.
+     * @description The hostname series.
      *
      * @example [\\"hehe.com\\", \\"haha.com\\"]
      *
@@ -245,7 +245,7 @@ class scalingConfigurations extends Model
     public $hostName;
 
     /**
-     * @description The image repositories.
+     * @description The information about the image repository.
      *
      * @var imageRegistryCredentials[]
      */
@@ -261,7 +261,7 @@ class scalingConfigurations extends Model
     public $imageSnapshotId;
 
     /**
-     * @description The maximum inbound bandwidth. Unit: bit/s.
+     * @description The maximum inbound public bandwidth. Unit: bit/s.
      *
      * @example 1024000
      *
@@ -277,11 +277,11 @@ class scalingConfigurations extends Model
     public $initContainers;
 
     /**
-     * @description The level of the instance family, which is used to filter instance types that meet the specified criteria. This parameter takes effect only if `CostOptimization` is set to true. Valid values:
+     * @description The level of the instance family, which is used to filter the available instance types that meet the specified requirements. This parameter takes effect only if `CostOptimization` is set to true. Valid values:
      *
-     *   EntryLevel: entry level (shared instance types) Instance types of this level are the most cost-effective but may not provide stable computing performance in a consistent manner. This level is suitable for business scenarios in which the CPU utilization is low. For more information, see [Shared instance families](https://help.aliyun.com/document_detail/108489.html).
-     *   EnterpriseLevel: enterprise level. Instance types of this level provide stable performance and dedicated resources and are suitable for business scenarios that require high stability. For more information, see [Overview of instance families](https://help.aliyun.com/document_detail/25378.html).
-     *   CreditEntryLevel: credit entry level (burstable instance types). CPU credits are used to ensure computing performance. Instance types of this level are suitable for scenarios in which the CPU utilization is low but may fluctuate in specific cases. For more information, see [Overview of burstable instances](https://help.aliyun.com/document_detail/59977.html).
+     *   EntryLevel: entry level (shared instance types). Instance types of this level are the most cost-effective but may not provide stable computing performance. Instance types of this level are suitable for scenarios in which the CPU utilization is low. For more information, see [Shared instance families](https://help.aliyun.com/document_detail/108489.html).
+     *   EnterpriseLevel: enterprise level. Instance types of this level provide stable performance and dedicated resources, and are suitable for business scenarios that require high stability. For more information, see [Overview of instance families](https://help.aliyun.com/document_detail/25378.html).
+     *   CreditEntryLevel: credit-based entry level (burstable instance types). CPU credits are used to ensure computing performance. Instance types of this level are suitable for scenarios in which the CPU utilization is low but may fluctuate in specific cases. For more information, see [Overview of burstable instances](https://help.aliyun.com/document_detail/59977.html).
      *
      * @example EnterpriseLevel
      *
@@ -308,8 +308,8 @@ class scalingConfigurations extends Model
     /**
      * @description The status of the scaling configuration in the scaling group. Valid values:
      *
-     *   Active: The scaling configuration is active in the scaling group. Auto Scaling uses the active scaling configuration to automatically create elastic container instances.
-     *   Inactive: The scaling configuration is inactive in the scaling group. Inactive scaling configurations are retained in scaling groups. However, Auto Scaling does not use inactive scaling groups to create elastic container instances.
+     *   Active: The scaling configuration is active in the scaling group. Auto Scaling uses the scaling configuration that is in the Active state to create instances during scale-out events.
+     *   Inactive: The scaling configuration is inactive in the scaling group. Scaling configurations that are in the Inactive state are still contained in the scaling group, but Auto Scaling does not use the inactive scaling configurations to create instances during scale-out events.
      *
      * @example Active
      *
@@ -318,7 +318,7 @@ class scalingConfigurations extends Model
     public $lifecycleState;
 
     /**
-     * @description The weight of the elastic container instance as a backend server. Valid values: 1 to 100.
+     * @description The load balancing weight of each elastic container instance as a backend server. Valid values: 1 to 100.
      *
      * @example 1
      *
@@ -329,7 +329,7 @@ class scalingConfigurations extends Model
     /**
      * @description The memory size.
      *
-     * >  You can specify CPU and Memory to filter instance types only if Scaling Policy is set to Cost Optimization Policy and no instance type is specified in the scaling configuration.
+     * >  You can specify CPU and Memory to define instance types only if you set Scaling Policy to Cost Optimization and no instance type is specified in the scaling configuration.
      * @example 16
      *
      * @var float
@@ -344,7 +344,7 @@ class scalingConfigurations extends Model
     public $ntpServers;
 
     /**
-     * @description The Resource Access Management (RAM) role of the elastic container instance. Elastic container instances and Elastic Compute Service (ECS) instances can share the same RAM role. For more information, see [Use the instance RAM role by calling APIs](https://help.aliyun.com/document_detail/61178.html).
+     * @description The Resource Access Management (RAM) role of elastic container instances. Elastic container instances and Elastic Compute Service (ECS) instances can share the same RAM role. For more information, see [Use an instance RAM role by calling API operations](https://help.aliyun.com/document_detail/61178.html).
      *
      * @example ram:PassRole
      *
@@ -353,7 +353,7 @@ class scalingConfigurations extends Model
     public $ramRoleName;
 
     /**
-     * @description The region ID of the elastic container instance.
+     * @description The region ID of elastic container instances.
      *
      * @example cn-hangzhou
      *
@@ -371,11 +371,11 @@ class scalingConfigurations extends Model
     public $resourceGroupId;
 
     /**
-     * @description The restart policy of the elastic container instance. Valid values:
+     * @description The restart policy of elastic container instances. Valid values:
      *
-     *   Never: The elastic container instance is never restarted.
-     *   Always: The elastic container instance is always restarted.
-     *   OnFailure: The elastic container instance is restarted upon failures.
+     *   Never: Elastic container instances are never restarted.
+     *   Always: Elastic container instances are always restarted.
+     *   OnFailure: Elastic container instances are restarted upon failures.
      *
      * @example Never
      *
@@ -402,7 +402,7 @@ class scalingConfigurations extends Model
     public $scalingConfigurationName;
 
     /**
-     * @description The region ID of the scaling group to which the scaling configuration belongs.
+     * @description The ID of the scaling group to which the scaling configuration belongs.
      *
      * @example asg-bp17pelvl720x3v7****
      *
@@ -418,7 +418,7 @@ class scalingConfigurations extends Model
     public $securityContextSysCtls;
 
     /**
-     * @description The ID of the security group with which the elastic container instance is associated. Elastic container instances that are associated with the same security group can access each other.
+     * @description The ID of the security group with which elastic container instances are associated. Elastic container instances that are associated with the same security group can communicate with each other.
      *
      * @example sg-bp18kz60mefs****
      *
@@ -436,9 +436,9 @@ class scalingConfigurations extends Model
     public $slsEnable;
 
     /**
-     * @description The maximum hourly price for the preemptible elastic container instance.
+     * @description The maximum hourly price for preemptible elastic container instances.
      *
-     * This parameter is returned only when SpotStrategy is set to SpotWithPriceLimit.
+     * This parameter is returned only if you set SpotStrategy to SpotWithPriceLimit.
      * @example 0.025
      *
      * @var float
@@ -446,11 +446,11 @@ class scalingConfigurations extends Model
     public $spotPriceLimit;
 
     /**
-     * @description The bidding policy for the instance. Valid values:
+     * @description The bidding policy for elastic container instances. Valid values:
      *
-     *   NoSpot: The instance is created as a regular pay-as-you-go instance.
-     *   SpotWithPriceLimit: The instance is a preemptible instance with a user-defined maximum hourly price.
-     *   SpotAsPriceGo: The instance is a preemptible instance for which the market price at the time of purchase is automatically used as the bid price.
+     *   NoSpot: The instances are created as regular pay-as-you-go instances.
+     *   SpotWithPriceLimit: The instances are created as preemptible instances with a user-defined maximum hourly price.
+     *   SpotAsPriceGo: The instances are created as preemptible instances for which the market price at the time of purchase is automatically used as the bid price.
      *
      * @example NoSpot
      *
@@ -459,7 +459,7 @@ class scalingConfigurations extends Model
     public $spotStrategy;
 
     /**
-     * @description The tags of the elastic container instance. The tags are specified in the key-value format.
+     * @description The tags of elastic container instances. Tags are specified in the key-value format.
      *
      * @var tags[]
      */

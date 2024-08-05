@@ -11,8 +11,8 @@ class dimensions extends Model
     /**
      * @description The key of the dimension that is associated with the metric. Valid values:
      *
-     *   scaling_group: the ID of the scaling group
-     *   userId: the ID of the Alibaba Cloud account
+     *   ScalingGroupId: the ID of the scaling group.
+     *   userId: the ID of the user account.
      *
      * @example scaling_group
      *

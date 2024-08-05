@@ -65,7 +65,7 @@ class CreateEciScalingConfigurationRequest extends Model
     public $containerGroupName;
 
     /**
-     * @description The containers in the elastic container instance.
+     * @description The containers per elastic container instance.
      *
      * @var containers[]
      */
@@ -252,7 +252,7 @@ class CreateEciScalingConfigurationRequest extends Model
     public $hostName;
 
     /**
-     * @description Information about the image repository.
+     * @description The image repositories.
      *
      * @var imageRegistryCredentials[]
      */
@@ -426,11 +426,11 @@ class CreateEciScalingConfigurationRequest extends Model
     public $spotPriceLimit;
 
     /**
-     * @description The bidding policy for the elastic container instance. Valid values:
+     * @description The instance bidding policy. Valid values:
      *
-     *   NoSpot: The instance is a pay-as-you-go instance.
-     *   SpotWithPriceLimit: The instance is a preemptible instance with a user-defined maximum hourly price.
-     *   SpotAsPriceGo: The instance is a preemptible instance for which the market price at the time of purchase is used as the bid price.
+     *   NoSpot: The instances are created as pay-as-you-go instances.
+     *   SpotWithPriceLimit: The instances are preemptible instances for which you can specify the maximum hourly price.
+     *   SpotAsPriceGo: The instances are created as preemptible instances for which the market price at the time of purchase is used as the bid price.
      *
      * Default value: NoSpot.
      * @example SpotPriceLimit

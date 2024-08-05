@@ -216,7 +216,7 @@ class scalingConfigurations extends Model
     public $instanceName;
 
     /**
-     * @description The information about the intelligent configuration settings, which determines the available instance types.
+     * @description The intelligent configuration settings, which determine the available instance types.
      *
      * @var instancePatternInfos[]
      */

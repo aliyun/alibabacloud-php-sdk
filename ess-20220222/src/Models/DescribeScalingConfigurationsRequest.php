@@ -19,9 +19,9 @@ class DescribeScalingConfigurationsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return. Pages start from page 1.
+     * @description The page number. Pages start from page 1.
      *
-     * Default value: 1
+     * Default value: 1.
      * @example 1
      *
      * @var int
@@ -29,9 +29,9 @@ class DescribeScalingConfigurationsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Maximum value: 50.
+     * @description The number of entries per page. Maximum value: 50.
      *
-     * Default value: 10
+     * Default value: 10.
      * @example 50
      *
      * @var int

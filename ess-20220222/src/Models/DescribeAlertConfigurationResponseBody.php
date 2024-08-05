@@ -18,7 +18,7 @@ class DescribeAlertConfigurationResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The status of the scaling activities that prompt text message or email notifications.
+     * @description The status of the scaling activities that trigger text message, internal message, or email-based notifications.
      *
      * @var string[]
      */

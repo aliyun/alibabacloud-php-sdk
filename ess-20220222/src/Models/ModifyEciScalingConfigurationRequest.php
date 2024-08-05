@@ -445,7 +445,7 @@ class ModifyEciScalingConfigurationRequest extends Model
     public $terminationGracePeriodSeconds;
 
     /**
-     * @description Information about the volumes.
+     * @description The volumes.
      *
      * @var volumes[]
      */

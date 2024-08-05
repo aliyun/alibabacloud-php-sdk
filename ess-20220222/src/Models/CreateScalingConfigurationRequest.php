@@ -198,7 +198,7 @@ class CreateScalingConfigurationRequest extends Model
     public $instanceName;
 
     /**
-     * @description Details of the intelligent configuration settings that determine the range of instance types that meet the specified criteria.
+     * @description The information about the intelligent configuration settings, which determine the available instance types.
      *
      * @var instancePatternInfos[]
      */

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class stepAdjustments extends Model
 {
     /**
-     * @description The lower limit that is specified in a step adjustment. Valid values: -9.999999E18 to 9.999999E18.
+     * @description The lower limit of a step adjustment. Valid values: -9.999999E18 to 9.999999E18.
      *
      * @example 1.0
      *
@@ -18,7 +18,7 @@ class stepAdjustments extends Model
     public $metricIntervalLowerBound;
 
     /**
-     * @description The upper limit that is specified in a step adjustment. Valid values: -9.999999E18 to 9.999999E18.
+     * @description The upper limit of a step adjustment. Valid values: -9.999999E18 to 9.999999E18.
      *
      * @example 5.0
      *

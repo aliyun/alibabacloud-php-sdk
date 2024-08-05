@@ -28,12 +28,12 @@ class alarms extends Model
     public $alarmTaskName;
 
     /**
-     * @description The comparison operator between the metric value and the threshold for the event-triggered task that is associated with the scaling rule. The comparison operator indicates the relationship between the metric value and the threshold that is required to meet the condition.
+     * @description The comparison operator between the statistical value and the threshold of the metric of the event-triggered task that is associated with the scaling rule. The comparison operator indicates the relationship in which the metric value and the metric threshold can meet the alert condition.
      *
-     *   Valid value if the metric value is greater than or equal to the threshold: >=.
-     *   Valid value if the metric value is less than or equal to the threshold: <=.
-     *   Valid value if the metric value is greater than the threshold: >.
-     *   Valid value if the metric value is less than the threshold: <.
+     *   Valid value if the metric value is greater than or equal to the threshold: >=
+     *   Valid value if the metric value is less than or equal to the threshold: <=
+     *   Valid value if the metric value is greater than the threshold: >
+     *   Valid value if the metric value is less than the threshold: <
      *
      * @example >=
      *
@@ -49,7 +49,7 @@ class alarms extends Model
     public $dimensions;
 
     /**
-     * @description The number of consecutive times for which the event-triggered task that is associated with the scaling rule meets the threshold expressions before an alert is triggered.
+     * @description The number of consecutive times when the event-triggered task that is associated with the scaling rule must meet the alert condition before an alert is triggered.
      *
      * @example 3
      *
@@ -67,10 +67,10 @@ class alarms extends Model
     public $metricName;
 
     /**
-     * @description The type of the event-triggered task that is associated with the scaling rule. Valid values:
+     * @description The type of the metric of the event-triggered task that is associated with the scaling rule. Valid values:
      *
-     *   system: system monitoring event-triggered tasks
-     *   custom: custom monitoring event-triggered tasks
+     *   system: system metrics
+     *   custom: custom metrics
      *
      * @example system
      *
