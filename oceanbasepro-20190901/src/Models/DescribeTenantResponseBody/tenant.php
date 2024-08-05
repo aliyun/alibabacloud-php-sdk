@@ -159,7 +159,7 @@ class tenant extends Model
     public $instanceType;
 
     /**
-     * @var int[]
+     * @var int
      */
     public $lowerCaseTableNames;
 
