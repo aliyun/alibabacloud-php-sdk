@@ -14,7 +14,7 @@ class QueryCommercialUsageResponseBody extends Model
      *
      * @example 200
      *
-     * @var string
+     * @var int
      */
     public $code;
 
@@ -24,6 +24,11 @@ class QueryCommercialUsageResponseBody extends Model
      * @var data
      */
     public $data;
+
+    /**
+     * @var int
+     */
+    public $httpStatusCode;
 
     /**
      * @description The error message returned if the request failed.
@@ -55,11 +60,12 @@ class QueryCommercialUsageResponseBody extends Model
      */
     public $success;
     protected $_name = [
-        'code'      => 'Code',
-        'data'      => 'Data',
-        'message'   => 'Message',
-        'requestId' => 'RequestId',
-        'success'   => 'Success',
+        'code'           => 'Code',
+        'data'           => 'Data',
+        'httpStatusCode' => 'HttpStatusCode',
+        'message'        => 'Message',
+        'requestId'      => 'RequestId',
+        'success'        => 'Success',
     ];
 
     public function validate()
@@ -74,6 +80,9 @@ class QueryCommercialUsageResponseBody extends Model
         }
         if (null !== $this->data) {
             $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+        }
+        if (null !== $this->httpStatusCode) {
+            $res['HttpStatusCode'] = $this->httpStatusCode;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -101,6 +110,9 @@ class QueryCommercialUsageResponseBody extends Model
         }
         if (isset($map['Data'])) {
             $model->data = data::fromMap($map['Data']);
+        }
+        if (isset($map['HttpStatusCode'])) {
+            $model->httpStatusCode = $map['HttpStatusCode'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];

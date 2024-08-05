@@ -69,6 +69,16 @@ class data extends Model
     public $clusterType;
 
     /**
+     * @var string
+     */
+    public $dbInstanceStatus;
+
+    /**
+     * @var string
+     */
+    public $enableAuthToken;
+
+    /**
      * @description The ID of the Grafana workspace.
      *
      * @example grafana-rnggfvhlcdl6m71***
@@ -106,6 +116,11 @@ class data extends Model
      * @var string
      */
     public $paymentType;
+
+    /**
+     * @var string
+     */
+    public $product;
 
     /**
      * @description The public URL for Pushgateway.
@@ -216,6 +231,11 @@ class data extends Model
     public $subClustersJson;
 
     /**
+     * @var string[]
+     */
+    public $surpportAuthTypes;
+
+    /**
      * @description The tags of the instance.
      *
      * @var tags[]
@@ -255,10 +275,13 @@ class data extends Model
         'clusterId'           => 'ClusterId',
         'clusterName'         => 'ClusterName',
         'clusterType'         => 'ClusterType',
+        'dbInstanceStatus'    => 'DbInstanceStatus',
+        'enableAuthToken'     => 'EnableAuthToken',
         'grafanaInstanceId'   => 'GrafanaInstanceId',
         'httpApiInterUrl'     => 'HttpApiInterUrl',
         'httpApiIntraUrl'     => 'HttpApiIntraUrl',
         'paymentType'         => 'PaymentType',
+        'product'             => 'Product',
         'pushGatewayInterUrl' => 'PushGatewayInterUrl',
         'pushGatewayIntraUrl' => 'PushGatewayIntraUrl',
         'regionId'            => 'RegionId',
@@ -271,6 +294,7 @@ class data extends Model
         'securityGroupId'     => 'SecurityGroupId',
         'storageDuration'     => 'StorageDuration',
         'subClustersJson'     => 'SubClustersJson',
+        'surpportAuthTypes'   => 'SurpportAuthTypes',
         'tags'                => 'Tags',
         'userId'              => 'UserId',
         'vSwitchId'           => 'VSwitchId',
@@ -302,6 +326,12 @@ class data extends Model
         if (null !== $this->clusterType) {
             $res['ClusterType'] = $this->clusterType;
         }
+        if (null !== $this->dbInstanceStatus) {
+            $res['DbInstanceStatus'] = $this->dbInstanceStatus;
+        }
+        if (null !== $this->enableAuthToken) {
+            $res['EnableAuthToken'] = $this->enableAuthToken;
+        }
         if (null !== $this->grafanaInstanceId) {
             $res['GrafanaInstanceId'] = $this->grafanaInstanceId;
         }
@@ -313,6 +343,9 @@ class data extends Model
         }
         if (null !== $this->paymentType) {
             $res['PaymentType'] = $this->paymentType;
+        }
+        if (null !== $this->product) {
+            $res['Product'] = $this->product;
         }
         if (null !== $this->pushGatewayInterUrl) {
             $res['PushGatewayInterUrl'] = $this->pushGatewayInterUrl;
@@ -349,6 +382,9 @@ class data extends Model
         }
         if (null !== $this->subClustersJson) {
             $res['SubClustersJson'] = $this->subClustersJson;
+        }
+        if (null !== $this->surpportAuthTypes) {
+            $res['SurpportAuthTypes'] = $this->surpportAuthTypes;
         }
         if (null !== $this->tags) {
             $res['Tags'] = [];
@@ -398,6 +434,12 @@ class data extends Model
         if (isset($map['ClusterType'])) {
             $model->clusterType = $map['ClusterType'];
         }
+        if (isset($map['DbInstanceStatus'])) {
+            $model->dbInstanceStatus = $map['DbInstanceStatus'];
+        }
+        if (isset($map['EnableAuthToken'])) {
+            $model->enableAuthToken = $map['EnableAuthToken'];
+        }
         if (isset($map['GrafanaInstanceId'])) {
             $model->grafanaInstanceId = $map['GrafanaInstanceId'];
         }
@@ -409,6 +451,9 @@ class data extends Model
         }
         if (isset($map['PaymentType'])) {
             $model->paymentType = $map['PaymentType'];
+        }
+        if (isset($map['Product'])) {
+            $model->product = $map['Product'];
         }
         if (isset($map['PushGatewayInterUrl'])) {
             $model->pushGatewayInterUrl = $map['PushGatewayInterUrl'];
@@ -445,6 +490,11 @@ class data extends Model
         }
         if (isset($map['SubClustersJson'])) {
             $model->subClustersJson = $map['SubClustersJson'];
+        }
+        if (isset($map['SurpportAuthTypes'])) {
+            if (!empty($map['SurpportAuthTypes'])) {
+                $model->surpportAuthTypes = $map['SurpportAuthTypes'];
+            }
         }
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {

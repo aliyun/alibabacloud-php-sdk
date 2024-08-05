@@ -35,10 +35,20 @@ class GetRumUploadFilesRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @description The version ID. When this field is not provided, the default response includes all versions.
+     *
+     * @example 1.0.0
+     *
+     * @var string
+     */
+    public $versionId;
     protected $_name = [
-        'appType'  => 'AppType',
-        'pid'      => 'Pid',
-        'regionId' => 'RegionId',
+        'appType'   => 'AppType',
+        'pid'       => 'Pid',
+        'regionId'  => 'RegionId',
+        'versionId' => 'VersionId',
     ];
 
     public function validate()
@@ -56,6 +66,9 @@ class GetRumUploadFilesRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->versionId) {
+            $res['VersionId'] = $this->versionId;
         }
 
         return $res;
@@ -77,6 +90,9 @@ class GetRumUploadFilesRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['VersionId'])) {
+            $model->versionId = $map['VersionId'];
         }
 
         return $model;

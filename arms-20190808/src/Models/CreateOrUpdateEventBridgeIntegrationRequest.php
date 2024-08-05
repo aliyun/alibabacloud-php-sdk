@@ -77,6 +77,7 @@ class CreateOrUpdateEventBridgeIntegrationRequest extends Model
     /**
      * @description The name of the EventBridge integration.
      *
+     * This parameter is required.
      * @example EventBridge_Test
      *
      * @var string

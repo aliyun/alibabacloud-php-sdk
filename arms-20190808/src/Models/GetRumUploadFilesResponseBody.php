@@ -37,6 +37,8 @@ class GetRumUploadFilesResponseBody extends Model
     /**
      * @description The error message returned if the request failed.
      *
+     * @example success
+     *
      * @var string
      */
     public $message;

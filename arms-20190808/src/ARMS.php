@@ -20,8 +20,6 @@ use AlibabaCloud\SDK\ARMS\V20190808\Models\AddPrometheusInstanceRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\AddPrometheusInstanceResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\AddPrometheusIntegrationRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\AddPrometheusIntegrationResponse;
-use AlibabaCloud\SDK\ARMS\V20190808\Models\AddPrometheusRemoteWriteRequest;
-use AlibabaCloud\SDK\ARMS\V20190808\Models\AddPrometheusRemoteWriteResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\AddRecordingRuleRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\AddRecordingRuleResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\AddTagToFlinkClusterRequest;
@@ -159,8 +157,6 @@ use AlibabaCloud\SDK\ARMS\V20190808\Models\DeletePrometheusIntegrationRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DeletePrometheusIntegrationResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DeletePrometheusMonitoringRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DeletePrometheusMonitoringResponse;
-use AlibabaCloud\SDK\ARMS\V20190808\Models\DeletePrometheusRemoteWriteRequest;
-use AlibabaCloud\SDK\ARMS\V20190808\Models\DeletePrometheusRemoteWriteResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DeleteRetcodeAppRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DeleteRetcodeAppResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DeleteRumAppRequest;
@@ -251,8 +247,6 @@ use AlibabaCloud\SDK\ARMS\V20190808\Models\GetPrometheusIntegrationRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetPrometheusIntegrationResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetPrometheusMonitoringRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetPrometheusMonitoringResponse;
-use AlibabaCloud\SDK\ARMS\V20190808\Models\GetPrometheusRemoteWriteRequest;
-use AlibabaCloud\SDK\ARMS\V20190808\Models\GetPrometheusRemoteWriteResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetRecordingRuleRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetRecordingRuleResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetRetcodeAppByPidRequest;
@@ -372,8 +366,6 @@ use AlibabaCloud\SDK\ARMS\V20190808\Models\ListPrometheusIntegrationRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListPrometheusIntegrationResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListPrometheusMonitoringRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListPrometheusMonitoringResponse;
-use AlibabaCloud\SDK\ARMS\V20190808\Models\ListPrometheusRemoteWritesRequest;
-use AlibabaCloud\SDK\ARMS\V20190808\Models\ListPrometheusRemoteWritesResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListRetcodeAppsRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListRetcodeAppsResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListScenarioRequest;
@@ -503,8 +495,6 @@ use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdatePrometheusMonitoringRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdatePrometheusMonitoringResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdatePrometheusMonitoringStatusRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdatePrometheusMonitoringStatusResponse;
-use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdatePrometheusRemoteWriteRequest;
-use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdatePrometheusRemoteWriteResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdateRumAppRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdateRumAppResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdateRumFileStatusRequest;
@@ -987,61 +977,6 @@ class ARMS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addPrometheusIntegrationWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary Adds a remote write configuration item to a Prometheus instance.
-     *  *
-     * @param AddPrometheusRemoteWriteRequest $request AddPrometheusRemoteWriteRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
-     *
-     * @return AddPrometheusRemoteWriteResponse AddPrometheusRemoteWriteResponse
-     */
-    public function addPrometheusRemoteWriteWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->remoteWriteYaml)) {
-            $body['RemoteWriteYaml'] = $request->remoteWriteYaml;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'AddPrometheusRemoteWrite',
-            'version'     => '2019-08-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return AddPrometheusRemoteWriteResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary Adds a remote write configuration item to a Prometheus instance.
-     *  *
-     * @param AddPrometheusRemoteWriteRequest $request AddPrometheusRemoteWriteRequest
-     *
-     * @return AddPrometheusRemoteWriteResponse AddPrometheusRemoteWriteResponse
-     */
-    public function addPrometheusRemoteWrite($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->addPrometheusRemoteWriteWithOptions($request, $runtime);
     }
 
     /**
@@ -5095,59 +5030,6 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Deletes remote write configuration items from a Prometheus instance.
-     *  *
-     * @param DeletePrometheusRemoteWriteRequest $request DeletePrometheusRemoteWriteRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
-     *
-     * @return DeletePrometheusRemoteWriteResponse DeletePrometheusRemoteWriteResponse
-     */
-    public function deletePrometheusRemoteWriteWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->remoteWriteNames)) {
-            $query['RemoteWriteNames'] = $request->remoteWriteNames;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DeletePrometheusRemoteWrite',
-            'version'     => '2019-08-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DeletePrometheusRemoteWriteResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary Deletes remote write configuration items from a Prometheus instance.
-     *  *
-     * @param DeletePrometheusRemoteWriteRequest $request DeletePrometheusRemoteWriteRequest
-     *
-     * @return DeletePrometheusRemoteWriteResponse DeletePrometheusRemoteWriteResponse
-     */
-    public function deletePrometheusRemoteWrite($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deletePrometheusRemoteWriteWithOptions($request, $runtime);
-    }
-
-    /**
      * @summary Deletes a Browser Monitoring task.
      *  *
      * @param DeleteRetcodeAppRequest $request DeleteRetcodeAppRequest
@@ -7101,8 +6983,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
+     * @deprecated OpenAPI GetManagedPrometheusStatus is deprecated
+     *  *
      * @summary Queries the installation status of a Prometheus agent in a serverless Kubernetes (ASK) cluster or an Elastic Compute Service (ECS) cluster.
      *  *
+     * Deprecated
+     *
      * @param GetManagedPrometheusStatusRequest $request GetManagedPrometheusStatusRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
@@ -7146,8 +7032,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
+     * @deprecated OpenAPI GetManagedPrometheusStatus is deprecated
+     *  *
      * @summary Queries the installation status of a Prometheus agent in a serverless Kubernetes (ASK) cluster or an Elastic Compute Service (ECS) cluster.
      *  *
+     * Deprecated
+     *
      * @param GetManagedPrometheusStatusRequest $request GetManagedPrometheusStatusRequest
      *
      * @return GetManagedPrometheusStatusResponse GetManagedPrometheusStatusResponse
@@ -7520,59 +7410,6 @@ class ARMS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getPrometheusMonitoringWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary Queries a remote write configuration item of a Prometheus instance for Container Service or a Prometheus instance for ECS.
-     *  *
-     * @param GetPrometheusRemoteWriteRequest $request GetPrometheusRemoteWriteRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
-     *
-     * @return GetPrometheusRemoteWriteResponse GetPrometheusRemoteWriteResponse
-     */
-    public function getPrometheusRemoteWriteWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->remoteWriteName)) {
-            $query['RemoteWriteName'] = $request->remoteWriteName;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetPrometheusRemoteWrite',
-            'version'     => '2019-08-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetPrometheusRemoteWriteResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary Queries a remote write configuration item of a Prometheus instance for Container Service or a Prometheus instance for ECS.
-     *  *
-     * @param GetPrometheusRemoteWriteRequest $request GetPrometheusRemoteWriteRequest
-     *
-     * @return GetPrometheusRemoteWriteResponse GetPrometheusRemoteWriteResponse
-     */
-    public function getPrometheusRemoteWrite($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getPrometheusRemoteWriteWithOptions($request, $runtime);
     }
 
     /**
@@ -8157,6 +7994,9 @@ class ARMS extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->versionId)) {
+            $query['VersionId'] = $request->versionId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -9066,10 +8906,14 @@ class ARMS extends OpenApiClient
     }
 
     /**
+     * @deprecated OpenAPI InstallManagedPrometheus is deprecated
+     *  *
      * @summary Installs a Prometheus agent for serverless Kubernetes (ASK) clusters or Elastic Compute Service (ECS) clusters.
      *  *
      * @description You can call this operation only if the following conditions are met: The resources that you want to monitor are ASK clusters or ECS clusters. No Prometheus agents are installed in the ASK or ECS clusters. Take note that Prometheus agents can be installed only on the cloud service side, not in user clusters.
      *  *
+     * Deprecated
+     *
      * @param InstallManagedPrometheusRequest $request InstallManagedPrometheusRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -9128,10 +8972,14 @@ class ARMS extends OpenApiClient
     }
 
     /**
+     * @deprecated OpenAPI InstallManagedPrometheus is deprecated
+     *  *
      * @summary Installs a Prometheus agent for serverless Kubernetes (ASK) clusters or Elastic Compute Service (ECS) clusters.
      *  *
      * @description You can call this operation only if the following conditions are met: The resources that you want to monitor are ASK clusters or ECS clusters. No Prometheus agents are installed in the ASK or ECS clusters. Take note that Prometheus agents can be installed only on the cloud service side, not in user clusters.
      *  *
+     * Deprecated
+     *
      * @param InstallManagedPrometheusRequest $request InstallManagedPrometheusRequest
      *
      * @return InstallManagedPrometheusResponse InstallManagedPrometheusResponse
@@ -9402,6 +9250,9 @@ class ARMS extends OpenApiClient
         }
         if (!Utils::isUnset($request->integrationType)) {
             $query['IntegrationType'] = $request->integrationType;
+        }
+        if (!Utils::isUnset($request->owner)) {
+            $query['Owner'] = $request->owner;
         }
         if (!Utils::isUnset($request->page)) {
             $query['Page'] = $request->page;
@@ -10049,6 +9900,9 @@ class ARMS extends OpenApiClient
         }
         if (!Utils::isUnset($request->feePackage)) {
             $query['FeePackage'] = $request->feePackage;
+        }
+        if (!Utils::isUnset($request->filterRegionIds)) {
+            $query['FilterRegionIds'] = $request->filterRegionIds;
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
@@ -10824,56 +10678,6 @@ class ARMS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listPrometheusMonitoringWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary Queries the remote write configuration items of a Prometheus instance.
-     *  *
-     * @param ListPrometheusRemoteWritesRequest $request ListPrometheusRemoteWritesRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
-     *
-     * @return ListPrometheusRemoteWritesResponse ListPrometheusRemoteWritesResponse
-     */
-    public function listPrometheusRemoteWritesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListPrometheusRemoteWrites',
-            'version'     => '2019-08-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ListPrometheusRemoteWritesResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary Queries the remote write configuration items of a Prometheus instance.
-     *  *
-     * @param ListPrometheusRemoteWritesRequest $request ListPrometheusRemoteWritesRequest
-     *
-     * @return ListPrometheusRemoteWritesResponse ListPrometheusRemoteWritesResponse
-     */
-    public function listPrometheusRemoteWrites($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listPrometheusRemoteWritesWithOptions($request, $runtime);
     }
 
     /**
@@ -13327,10 +13131,14 @@ class ARMS extends OpenApiClient
     }
 
     /**
+     * @deprecated OpenAPI UninstallManagedPrometheus is deprecated
+     *  *
      * @summary Removes a Prometheus instance from a serverless Kubernetes (ASK) cluster or an Elastic Compute Service (ECS) instance.
      *  *
      * @description Make sure that the ASK cluster or ECS instance is monitored in Managed Service for Prometheus.
      *  *
+     * Deprecated
+     *
      * @param UninstallManagedPrometheusRequest $request UninstallManagedPrometheusRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
@@ -13374,10 +13182,14 @@ class ARMS extends OpenApiClient
     }
 
     /**
+     * @deprecated OpenAPI UninstallManagedPrometheus is deprecated
+     *  *
      * @summary Removes a Prometheus instance from a serverless Kubernetes (ASK) cluster or an Elastic Compute Service (ECS) instance.
      *  *
      * @description Make sure that the ASK cluster or ECS instance is monitored in Managed Service for Prometheus.
      *  *
+     * Deprecated
+     *
      * @param UninstallManagedPrometheusRequest $request UninstallManagedPrometheusRequest
      *
      * @return UninstallManagedPrometheusResponse UninstallManagedPrometheusResponse
@@ -14630,64 +14442,6 @@ class ARMS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updatePrometheusMonitoringStatusWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary Modifies a remote write configuration item of a Prometheus instance for Container Service or a Prometheus instance for ECS.
-     *  *
-     * @param UpdatePrometheusRemoteWriteRequest $request UpdatePrometheusRemoteWriteRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
-     *
-     * @return UpdatePrometheusRemoteWriteResponse UpdatePrometheusRemoteWriteResponse
-     */
-    public function updatePrometheusRemoteWriteWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->remoteWriteName)) {
-            $query['RemoteWriteName'] = $request->remoteWriteName;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->remoteWriteYaml)) {
-            $body['RemoteWriteYaml'] = $request->remoteWriteYaml;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdatePrometheusRemoteWrite',
-            'version'     => '2019-08-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return UpdatePrometheusRemoteWriteResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary Modifies a remote write configuration item of a Prometheus instance for Container Service or a Prometheus instance for ECS.
-     *  *
-     * @param UpdatePrometheusRemoteWriteRequest $request UpdatePrometheusRemoteWriteRequest
-     *
-     * @return UpdatePrometheusRemoteWriteResponse UpdatePrometheusRemoteWriteResponse
-     */
-    public function updatePrometheusRemoteWrite($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updatePrometheusRemoteWriteWithOptions($request, $runtime);
     }
 
     /**

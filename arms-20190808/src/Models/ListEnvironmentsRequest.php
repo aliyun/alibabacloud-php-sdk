@@ -67,6 +67,11 @@ class ListEnvironmentsRequest extends Model
     public $feePackage;
 
     /**
+     * @var string
+     */
+    public $filterRegionIds;
+
+    /**
      * @description The region ID.
      *
      * @example cn-hangzhou
@@ -95,6 +100,7 @@ class ListEnvironmentsRequest extends Model
         'bindResourceId'  => 'BindResourceId',
         'environmentType' => 'EnvironmentType',
         'feePackage'      => 'FeePackage',
+        'filterRegionIds' => 'FilterRegionIds',
         'regionId'        => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
         'tag'             => 'Tag',
@@ -118,6 +124,9 @@ class ListEnvironmentsRequest extends Model
         }
         if (null !== $this->feePackage) {
             $res['FeePackage'] = $this->feePackage;
+        }
+        if (null !== $this->filterRegionIds) {
+            $res['FilterRegionIds'] = $this->filterRegionIds;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -157,6 +166,9 @@ class ListEnvironmentsRequest extends Model
         }
         if (isset($map['FeePackage'])) {
             $model->feePackage = $map['FeePackage'];
+        }
+        if (isset($map['FilterRegionIds'])) {
+            $model->filterRegionIds = $map['FilterRegionIds'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

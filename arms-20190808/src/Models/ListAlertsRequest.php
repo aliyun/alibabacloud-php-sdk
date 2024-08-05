@@ -65,6 +65,11 @@ class ListAlertsRequest extends Model
     public $integrationType;
 
     /**
+     * @var string
+     */
+    public $owner;
+
+    /**
      * @description The number of the page to return.
      *
      * This parameter is required.
@@ -152,6 +157,7 @@ class ListAlertsRequest extends Model
         'dispatchRuleId'  => 'DispatchRuleId',
         'endTime'         => 'EndTime',
         'integrationType' => 'IntegrationType',
+        'owner'           => 'Owner',
         'page'            => 'Page',
         'regionId'        => 'RegionId',
         'severity'        => 'Severity',
@@ -180,6 +186,9 @@ class ListAlertsRequest extends Model
         }
         if (null !== $this->integrationType) {
             $res['IntegrationType'] = $this->integrationType;
+        }
+        if (null !== $this->owner) {
+            $res['Owner'] = $this->owner;
         }
         if (null !== $this->page) {
             $res['Page'] = $this->page;
@@ -228,6 +237,9 @@ class ListAlertsRequest extends Model
         }
         if (isset($map['IntegrationType'])) {
             $model->integrationType = $map['IntegrationType'];
+        }
+        if (isset($map['Owner'])) {
+            $model->owner = $map['Owner'];
         }
         if (isset($map['Page'])) {
             $model->page = $map['Page'];
