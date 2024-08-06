@@ -20,7 +20,7 @@ class flows extends Model
     /**
      * @description The definition of the flow. The definition must comply with the Flow Definition Language (FDL) syntax.
      *
-     * @example version: v1.0\ntype: flow\nname: test\nsteps:\n - type: pass\n name: mypass
+     * @example version: v1.0\\ntype: flow\\nname: test\\nsteps:\\n - type: pass\\n name: mypass
      *
      * @var string
      */

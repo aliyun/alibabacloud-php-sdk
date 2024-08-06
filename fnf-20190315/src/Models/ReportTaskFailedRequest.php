@@ -20,6 +20,7 @@ class ReportTaskFailedRequest extends Model
     /**
      * @description The error code for the failed task. The value must be 1 to 128 characters in length.
      *
+     * This parameter is required.
      * @example nill
      *
      * @var string
@@ -27,8 +28,9 @@ class ReportTaskFailedRequest extends Model
     public $error;
 
     /**
-     * @description The token of the specified task that you want to report. If this parameter appears in **waitforCallback** mode, the parameter is passed to the called service, such as Message Service (MNS) or Function Compute. For MNS, the value of this parameter can be obtained from a message. For Function Compute, the value of this parameter can be obtained from an event.
+     * @description The token of the task whose execution you want to report. The task token is passed to the called service, such as Message Service (MNS) or Function Compute. For MNS, the value of this parameter can be obtained from a message. For Function Compute, the value of this parameter can be obtained from an event. For more information, see [Service integration modes](https://help.aliyun.com/document_detail/2592915.html).
      *
+     * This parameter is required.
      * @example emptyString
      *
      * @var string

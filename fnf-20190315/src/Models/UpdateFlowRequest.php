@@ -9,9 +9,10 @@ use AlibabaCloud\Tea\Model;
 class UpdateFlowRequest extends Model
 {
     /**
-     * @description The flow definition, which follows the flow definition language (FDL) syntax standard. Considering compatibility, the system supports the two flow definition specifications.
+     * @description The definition of the workflow. The definition must comply with the flow definition language (FDL) syntax. Considering compatibility, the system supports the two workflow definition specifications.
      *
-     * @example version: v1.0\ntype: flow\nname: test\nsteps:\n  - type: pass\n    name: mypass
+     * >  In the preceding workflow definition example, Name:my_flow_name is the workflow name, which must be consistent with the input parameter Name
+     * @example version: v1.0\\ntype: flow\\nname: test\\nsteps:\\n  - type: pass\\n    name: mypass
      *
      * @var string
      */
@@ -27,13 +28,9 @@ class UpdateFlowRequest extends Model
     public $description;
 
     /**
-     * @description The name of the flow. The name must be unique within the region and cannot be modified after the flow is created. The name must meet the following conventions:
+     * @description The name of the workflow.
      *
-     *   The name can contain letters, digits, underscores (\_), and hyphens (-).
-     *   The name must start with a letter or an underscore (\_).
-     *   The name is case-sensitive.
-     *   The name must be 1 to 128 characters in length.
-     *
+     * This parameter is required.
      * @example flow
      *
      * @var string

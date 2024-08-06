@@ -20,7 +20,7 @@ class DescribeFlowResponseBody extends Model
     /**
      * @description The flow definition, which follows the flow definition language (FDL) syntax standard. Considering compatibility, the system supports the two flow definition specifications.
      *
-     * @example version: v1.0\ntype: flow\nname: test\nsteps:\n - type: pass\n name: mypass
+     * @example version: v1.0\\ntype: flow\\nname: test\\nsteps:\\n - type: pass\\n name: mypass
      *
      * @var string
      */
@@ -90,7 +90,7 @@ class DescribeFlowResponseBody extends Model
     public $roleArn;
 
     /**
-     * @description The type of the flow. Valid value: **FDL**.
+     * @description The type of the workflow.
      *
      * @example FDL
      *

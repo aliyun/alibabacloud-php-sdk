@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateFlowRequest extends Model
 {
     /**
-     * @description The definition of the flow. The definition must comply with the flow definition language (FDL) syntax. Considering compatibility, the system supports two flow definition specifications.
+     * @description The definition of the workflow. The definition must comply with the flow definition language (FDL) syntax. Considering compatibility, the system supports two flow definition specifications.
      *
+     * This parameter is required.
      * @example version:&nbsp;v1.0<br/>type:&nbsp;flow<br/>steps:<br/>&nbsp;-&nbsp;type:&nbsp;pass<br/>&nbsp;name:&nbsp;mypass
      *
      * @var string
@@ -20,6 +21,7 @@ class CreateFlowRequest extends Model
     /**
      * @description The description of the flow.
      *
+     * This parameter is required.
      * @example test flow
      *
      * @var string
@@ -47,11 +49,12 @@ class CreateFlowRequest extends Model
     /**
      * @description The name of the flow. The name is unique within the same region and cannot be modified after the flow is created. Set this parameter based on the following rules:
      *
-     *   The name can contain letters, digits, underscores (\_), and hyphens (-).
-     *   The name must start with a letter or an underscore (\_).
+     *   The name can contain letters, digits, underscores (_), and hyphens (-).
+     *   The name must start with a letter or an underscore (_).
      *   The name is case-sensitive.
      *   The name must be 1 to 128 characters in length.
      *
+     * This parameter is required.
      * @example flow
      *
      * @var string
@@ -70,6 +73,7 @@ class CreateFlowRequest extends Model
     /**
      * @description The type of the flow. Set this parameter to **FDL**.
      *
+     * This parameter is required.
      * @example FDL
      *
      * @var string

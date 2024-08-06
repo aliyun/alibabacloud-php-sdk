@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListFlowsRequest extends Model
 {
     /**
-     * @description The number of flows to be queried. Valid values: 1 to 1000.
+     * @description The number of workflows that you want to query. Valid values: 1 - 999. Default value: 60.
      *
      * @example 1
      *

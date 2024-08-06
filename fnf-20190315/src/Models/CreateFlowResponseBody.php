@@ -20,7 +20,7 @@ class CreateFlowResponseBody extends Model
     /**
      * @description Considering compatibility, the system supports two flow definition specifications.
      *
-     * @example version: v1.0\ntype: flow\nname: test\nsteps:\n - type: pass\n name: mypass
+     * @example version: v1.0\\ntype: flow\\nname: test\\nsteps:\\n - type: pass\\n name: mypass
      *
      * @var string
      */

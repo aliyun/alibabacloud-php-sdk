@@ -11,7 +11,7 @@ class StopExecutionResponseBody extends Model
     /**
      * @description The definition of the flow.
      *
-     * @example version: v1.0\ntype: flow\nname: test\nsteps:\n - type: pass\n name: mypass
+     * @example version: v1.0\\ntype: flow\\nname: test\\nsteps:\\n - type: pass\\n name: mypass
      *
      * @var string
      */
@@ -63,6 +63,11 @@ class StopExecutionResponseBody extends Model
     public $requestId;
 
     /**
+     * @var string
+     */
+    public $roleArn;
+
+    /**
      * @description The time when the execution started.
      *
      * @example 2019-01-01T01:01:01.001Z
@@ -102,6 +107,7 @@ class StopExecutionResponseBody extends Model
         'name'           => 'Name',
         'output'         => 'Output',
         'requestId'      => 'RequestId',
+        'roleArn'        => 'RoleArn',
         'startedTime'    => 'StartedTime',
         'status'         => 'Status',
         'stoppedTime'    => 'StoppedTime',
@@ -131,6 +137,9 @@ class StopExecutionResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->roleArn) {
+            $res['RoleArn'] = $this->roleArn;
         }
         if (null !== $this->startedTime) {
             $res['StartedTime'] = $this->startedTime;
@@ -170,6 +179,9 @@ class StopExecutionResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['RoleArn'])) {
+            $model->roleArn = $map['RoleArn'];
         }
         if (isset($map['StartedTime'])) {
             $model->startedTime = $map['StartedTime'];

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteScheduleRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $flowName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $scheduleName;

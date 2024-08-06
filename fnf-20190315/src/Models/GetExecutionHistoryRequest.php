@@ -9,13 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetExecutionHistoryRequest extends Model
 {
     /**
-     * @description The name of the execution, which is unique within a flow. The name must meet the following conventions:
+     * @description The name of the execution.
      *
-     *   The name can contain letters, digits, underscores (\_), and hyphens (-).
-     *   The name must start with a letter or an underscore (\_).
-     *   The name is case-sensitive.
-     *   The name must be 1 to 128 characters in length.
-     *
+     * This parameter is required.
      * @example exec
      *
      * @var string
@@ -23,13 +19,9 @@ class GetExecutionHistoryRequest extends Model
     public $executionName;
 
     /**
-     * @description The name of the flow. The name must be unique within the region and cannot be modified after the flow is created. The name must meet the following conventions:
+     * @description The name of the workflow.
      *
-     *   The name can contain letters, digits, underscores (\_), and hyphens (-).
-     *   The name must start with a letter or an underscore (\_).
-     *   The name is case-sensitive.
-     *   The name must be 1 to 128 characters in length.
-     *
+     * This parameter is required.
      * @example flow
      *
      * @var string
@@ -37,7 +29,7 @@ class GetExecutionHistoryRequest extends Model
     public $flowName;
 
     /**
-     * @description The maximum number of steps to be queried. Valid values: 1 to 1000.
+     * @description The number of workflows that you want to query. Valid values: 1-999. Default value: 60.
      *
      * @example 1
      *

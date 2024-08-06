@@ -11,6 +11,7 @@ class DescribeFlowRequest extends Model
     /**
      * @description The name of the flow.
      *
+     * This parameter is required.
      * @example flow
      *
      * @var string

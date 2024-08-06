@@ -11,7 +11,7 @@ class executions extends Model
     /**
      * @description The definition of the flow.
      *
-     * @example version: v1.0\ntype: flow\nname: test\nsteps:\n  - type: pass\n    name: mypass
+     * @example version: v1.0\\ntype: flow\\nname: test\\nsteps:\\n  - type: pass\\n    name: mypass
      *
      * @var string
      */

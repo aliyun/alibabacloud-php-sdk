@@ -11,6 +11,7 @@ class CreateScheduleRequest extends Model
     /**
      * @description The CRON expression.
      *
+     * This parameter is required.
      * @example 0 * * * * *
      *
      * @var string
@@ -39,8 +40,9 @@ class CreateScheduleRequest extends Model
     public $enable;
 
     /**
-     * @description The name of the flow that is bound to the time-based schedule.
+     * @description The name of the workflow that is associated with the time-based schedule.
      *
+     * This parameter is required.
      * @example flow
      *
      * @var string
@@ -57,13 +59,14 @@ class CreateScheduleRequest extends Model
     public $payload;
 
     /**
-     * @description The name of the time-based schedule. Configure this parameter based on the following rules:
+     * @description The name of the time-based schedule. The name must meet the following conventions:
      *
-     *   The name can contain letters, digits, underscores (\_), and hyphens (-).
-     *   The name must start with a letter or an underscore (\_).
-     *   The name is case-sensitive.
+     *   The name can contain letters, digits, underscores (_), and hyphens (-).
+     *   The name must start with a letter or an underscore (_).
+     *   It is case-sensitive.
      *   The name must be 1 to 128 characters in length.
      *
+     * This parameter is required.
      * @example testScheduleName
      *
      * @var string

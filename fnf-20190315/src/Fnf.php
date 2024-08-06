@@ -89,10 +89,12 @@ class Fnf extends OpenApiClient
     }
 
     /**
-     * ## [](#)Usage notes
-     *   * *   The number of flows that each user can create is restricted by resources. For more information, see [Limits](~~122093~~). If you want to create more flows, submit a ticket.
-     *   * *   At the user level, flows are distinguished by name. The name of a flow within one account must be unique.
-     *   *
+     * @summary Creates a flow.
+     *  *
+     * @description ## [](#)Usage notes
+     * *   The number of flows that each user can create is restricted by resources. For more information, see [Limits](https://help.aliyun.com/document_detail/122093.html). If you want to create more flows, submit a ticket.
+     * *   At the user level, flows are distinguished by name. The name of a flow within one account must be unique.
+     *  *
      * @param CreateFlowRequest $request CreateFlowRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
@@ -142,10 +144,12 @@ class Fnf extends OpenApiClient
     }
 
     /**
-     * ## [](#)Usage notes
-     *   * *   The number of flows that each user can create is restricted by resources. For more information, see [Limits](~~122093~~). If you want to create more flows, submit a ticket.
-     *   * *   At the user level, flows are distinguished by name. The name of a flow within one account must be unique.
-     *   *
+     * @summary Creates a flow.
+     *  *
+     * @description ## [](#)Usage notes
+     * *   The number of flows that each user can create is restricted by resources. For more information, see [Limits](https://help.aliyun.com/document_detail/122093.html). If you want to create more flows, submit a ticket.
+     * *   At the user level, flows are distinguished by name. The name of a flow within one account must be unique.
+     *  *
      * @param CreateFlowRequest $request CreateFlowRequest
      *
      * @return CreateFlowResponse CreateFlowResponse
@@ -158,10 +162,12 @@ class Fnf extends OpenApiClient
     }
 
     /**
-     * @param CreateScheduleRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Creates a time-based schedule.
+     *  *
+     * @param CreateScheduleRequest $request CreateScheduleRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateScheduleResponse
+     * @return CreateScheduleResponse CreateScheduleResponse
      */
     public function createScheduleWithOptions($request, $runtime)
     {
@@ -209,9 +215,11 @@ class Fnf extends OpenApiClient
     }
 
     /**
-     * @param CreateScheduleRequest $request
+     * @summary Creates a time-based schedule.
+     *  *
+     * @param CreateScheduleRequest $request CreateScheduleRequest
      *
-     * @return CreateScheduleResponse
+     * @return CreateScheduleResponse CreateScheduleResponse
      */
     public function createSchedule($request)
     {
@@ -221,9 +229,11 @@ class Fnf extends OpenApiClient
     }
 
     /**
-     * ## [](#)Usage notes
-     *   * A delete operation is asynchronous. If this operation is successful, the system returns a successful response. If an existing flow is pending to be deleted, a new flow of the same name will not be affected by the existing one. After you delete a flow, you cannot query its historical executions. All executions in progress will stop after their most recent steps are complete.
-     *   *
+     * @summary Deletes an existing flow.
+     *  *
+     * @description ## [](#)Usage notes
+     * A delete operation is asynchronous. If this operation is successful, the system returns a successful response. If an existing flow is pending to be deleted, a new flow of the same name will not be affected by the existing one. After you delete a flow, you cannot query its historical executions. All executions in progress will stop after their most recent steps are complete.
+     *  *
      * @param DeleteFlowRequest $request DeleteFlowRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
@@ -255,9 +265,11 @@ class Fnf extends OpenApiClient
     }
 
     /**
-     * ## [](#)Usage notes
-     *   * A delete operation is asynchronous. If this operation is successful, the system returns a successful response. If an existing flow is pending to be deleted, a new flow of the same name will not be affected by the existing one. After you delete a flow, you cannot query its historical executions. All executions in progress will stop after their most recent steps are complete.
-     *   *
+     * @summary Deletes an existing flow.
+     *  *
+     * @description ## [](#)Usage notes
+     * A delete operation is asynchronous. If this operation is successful, the system returns a successful response. If an existing flow is pending to be deleted, a new flow of the same name will not be affected by the existing one. After you delete a flow, you cannot query its historical executions. All executions in progress will stop after their most recent steps are complete.
+     *  *
      * @param DeleteFlowRequest $request DeleteFlowRequest
      *
      * @return DeleteFlowResponse DeleteFlowResponse
@@ -270,10 +282,12 @@ class Fnf extends OpenApiClient
     }
 
     /**
-     * @param DeleteScheduleRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Deletes a time-based scheduling task.
+     *  *
+     * @param DeleteScheduleRequest $request DeleteScheduleRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteScheduleResponse
+     * @return DeleteScheduleResponse DeleteScheduleResponse
      */
     public function deleteScheduleWithOptions($request, $runtime)
     {
@@ -304,9 +318,11 @@ class Fnf extends OpenApiClient
     }
 
     /**
-     * @param DeleteScheduleRequest $request
+     * @summary Deletes a time-based scheduling task.
+     *  *
+     * @param DeleteScheduleRequest $request DeleteScheduleRequest
      *
-     * @return DeleteScheduleResponse
+     * @return DeleteScheduleResponse DeleteScheduleResponse
      */
     public function deleteSchedule($request)
     {
@@ -316,10 +332,12 @@ class Fnf extends OpenApiClient
     }
 
     /**
-     * @param DescribeExecutionRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Queries an execution in a flow. The long polling mode is supported. The maximum waiting period for long polling depends on the value of the WaitTimeSeconds parameter.
+     *  *
+     * @param DescribeExecutionRequest $request DescribeExecutionRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeExecutionResponse
+     * @return DescribeExecutionResponse DescribeExecutionResponse
      */
     public function describeExecutionWithOptions($request, $runtime)
     {
@@ -344,9 +362,11 @@ class Fnf extends OpenApiClient
     }
 
     /**
-     * @param DescribeExecutionRequest $request
+     * @summary Queries an execution in a flow. The long polling mode is supported. The maximum waiting period for long polling depends on the value of the WaitTimeSeconds parameter.
+     *  *
+     * @param DescribeExecutionRequest $request DescribeExecutionRequest
      *
-     * @return DescribeExecutionResponse
+     * @return DescribeExecutionResponse DescribeExecutionResponse
      */
     public function describeExecution($request)
     {
@@ -356,10 +376,12 @@ class Fnf extends OpenApiClient
     }
 
     /**
-     * @param DescribeFlowRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Queries the information about a flow.
+     *  *
+     * @param DescribeFlowRequest $request DescribeFlowRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeFlowResponse
+     * @return DescribeFlowResponse DescribeFlowResponse
      */
     public function describeFlowWithOptions($request, $runtime)
     {
@@ -384,9 +406,11 @@ class Fnf extends OpenApiClient
     }
 
     /**
-     * @param DescribeFlowRequest $request
+     * @summary Queries the information about a flow.
+     *  *
+     * @param DescribeFlowRequest $request DescribeFlowRequest
      *
-     * @return DescribeFlowResponse
+     * @return DescribeFlowResponse DescribeFlowResponse
      */
     public function describeFlow($request)
     {
@@ -396,10 +420,12 @@ class Fnf extends OpenApiClient
     }
 
     /**
-     * @param DescribeScheduleRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Queries the detailed information about a time-based schedule.
+     *  *
+     * @param DescribeScheduleRequest $request DescribeScheduleRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeScheduleResponse
+     * @return DescribeScheduleResponse DescribeScheduleResponse
      */
     public function describeScheduleWithOptions($request, $runtime)
     {
@@ -424,9 +450,11 @@ class Fnf extends OpenApiClient
     }
 
     /**
-     * @param DescribeScheduleRequest $request
+     * @summary Queries the detailed information about a time-based schedule.
+     *  *
+     * @param DescribeScheduleRequest $request DescribeScheduleRequest
      *
-     * @return DescribeScheduleResponse
+     * @return DescribeScheduleResponse DescribeScheduleResponse
      */
     public function describeSchedule($request)
     {
@@ -436,10 +464,12 @@ class Fnf extends OpenApiClient
     }
 
     /**
-     * @param GetExecutionHistoryRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries the details about each step in an execution process.
+     *  *
+     * @param GetExecutionHistoryRequest $request GetExecutionHistoryRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetExecutionHistoryResponse
+     * @return GetExecutionHistoryResponse GetExecutionHistoryResponse
      */
     public function getExecutionHistoryWithOptions($request, $runtime)
     {
@@ -464,9 +494,11 @@ class Fnf extends OpenApiClient
     }
 
     /**
-     * @param GetExecutionHistoryRequest $request
+     * @summary Queries the details about each step in an execution process.
+     *  *
+     * @param GetExecutionHistoryRequest $request GetExecutionHistoryRequest
      *
-     * @return GetExecutionHistoryResponse
+     * @return GetExecutionHistoryResponse GetExecutionHistoryResponse
      */
     public function getExecutionHistory($request)
     {
@@ -476,9 +508,11 @@ class Fnf extends OpenApiClient
     }
 
     /**
-     * ## [](#)Usage notes
-     *   * After you delete a flow, you cannot query its historical executions, even if you create a flow of the same name.
-     *   *
+     * @summary Queries all historical executions of a flow.
+     *  *
+     * @description ## [](#)Usage notes
+     * After you delete a flow, you cannot query its historical executions, even if you create a flow of the same name.
+     *  *
      * @param ListExecutionsRequest $request ListExecutionsRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -507,9 +541,11 @@ class Fnf extends OpenApiClient
     }
 
     /**
-     * ## [](#)Usage notes
-     *   * After you delete a flow, you cannot query its historical executions, even if you create a flow of the same name.
-     *   *
+     * @summary Queries all historical executions of a flow.
+     *  *
+     * @description ## [](#)Usage notes
+     * After you delete a flow, you cannot query its historical executions, even if you create a flow of the same name.
+     *  *
      * @param ListExecutionsRequest $request ListExecutionsRequest
      *
      * @return ListExecutionsResponse ListExecutionsResponse
@@ -522,10 +558,12 @@ class Fnf extends OpenApiClient
     }
 
     /**
-     * @param ListFlowsRequest $request
-     * @param RuntimeOptions   $runtime
+     * @summary Queries a list of flows.
+     *  *
+     * @param ListFlowsRequest $request ListFlowsRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListFlowsResponse
+     * @return ListFlowsResponse ListFlowsResponse
      */
     public function listFlowsWithOptions($request, $runtime)
     {
@@ -550,9 +588,11 @@ class Fnf extends OpenApiClient
     }
 
     /**
-     * @param ListFlowsRequest $request
+     * @summary Queries a list of flows.
+     *  *
+     * @param ListFlowsRequest $request ListFlowsRequest
      *
-     * @return ListFlowsResponse
+     * @return ListFlowsResponse ListFlowsResponse
      */
     public function listFlows($request)
     {
@@ -562,10 +602,12 @@ class Fnf extends OpenApiClient
     }
 
     /**
-     * @param ListSchedulesRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Queries time-based schedules in a flow.
+     *  *
+     * @param ListSchedulesRequest $request ListSchedulesRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListSchedulesResponse
+     * @return ListSchedulesResponse ListSchedulesResponse
      */
     public function listSchedulesWithOptions($request, $runtime)
     {
@@ -590,9 +632,11 @@ class Fnf extends OpenApiClient
     }
 
     /**
-     * @param ListSchedulesRequest $request
+     * @summary Queries time-based schedules in a flow.
+     *  *
+     * @param ListSchedulesRequest $request ListSchedulesRequest
      *
-     * @return ListSchedulesResponse
+     * @return ListSchedulesResponse ListSchedulesResponse
      */
     public function listSchedules($request)
     {
@@ -602,10 +646,12 @@ class Fnf extends OpenApiClient
     }
 
     /**
-     * ## [](#)Usage notes
-     *   * In the old version of CloudFlow, the task step that ReportTaskFailed is used to call back `pattern: waitForCallback` indicates that the current task fails to be executed.
-     *   * In the new version of CloudFlow, the task step that ReportTaskFailed is used to call back `TaskMode: WaitForCustomCallback` indicates that the current task fails to be executed.
-     *   *
+     * @summary Reports a failed task.
+     *  *
+     * @description ## [](#)Usage notes
+     * In the previous service (Serverless Workflow), the task step that ReportTaskFailed is used to call back `pattern: waitForCallback` indicates that the current task fails to be executed.
+     * In the new service (CloudFlow), the task step that ReportTaskFailed is used to call back `TaskMode: WaitForCustomCallback` indicates that the current task fails to be executed.
+     *  *
      * @param ReportTaskFailedRequest $request ReportTaskFailedRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -645,10 +691,12 @@ class Fnf extends OpenApiClient
     }
 
     /**
-     * ## [](#)Usage notes
-     *   * In the old version of CloudFlow, the task step that ReportTaskFailed is used to call back `pattern: waitForCallback` indicates that the current task fails to be executed.
-     *   * In the new version of CloudFlow, the task step that ReportTaskFailed is used to call back `TaskMode: WaitForCustomCallback` indicates that the current task fails to be executed.
-     *   *
+     * @summary Reports a failed task.
+     *  *
+     * @description ## [](#)Usage notes
+     * In the previous service (Serverless Workflow), the task step that ReportTaskFailed is used to call back `pattern: waitForCallback` indicates that the current task fails to be executed.
+     * In the new service (CloudFlow), the task step that ReportTaskFailed is used to call back `TaskMode: WaitForCustomCallback` indicates that the current task fails to be executed.
+     *  *
      * @param ReportTaskFailedRequest $request ReportTaskFailedRequest
      *
      * @return ReportTaskFailedResponse ReportTaskFailedResponse
@@ -661,10 +709,12 @@ class Fnf extends OpenApiClient
     }
 
     /**
-     * ## [](#)Usage notes
-     *   * In the old version of CloudFlow, the task step that ReportTaskSucceeded is used to call back pattern: waitForCallback indicates that the current task is successfully executed.
-     *   * In the new version of CloudFlow, the task step that ReportTaskSucceeded is used to call back TaskMode: WaitForCustomCallback indicates that the current task is successfully executed.
-     *   *
+     * @summary Reports a successful task.
+     *  *
+     * @description ## [](#)Usage notes
+     * In the previous service (Serverless Workflow), the task step that ReportTaskSucceeded is used to call back pattern: waitForCallback indicates that the current task is successfully executed.
+     * In the new service (CloudFlow), the task step that ReportTaskSucceeded is used to call back TaskMode: WaitForCustomCallback indicates that the current task is successfully executed.
+     *  *
      * @param ReportTaskSucceededRequest $request ReportTaskSucceededRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -701,10 +751,12 @@ class Fnf extends OpenApiClient
     }
 
     /**
-     * ## [](#)Usage notes
-     *   * In the old version of CloudFlow, the task step that ReportTaskSucceeded is used to call back pattern: waitForCallback indicates that the current task is successfully executed.
-     *   * In the new version of CloudFlow, the task step that ReportTaskSucceeded is used to call back TaskMode: WaitForCustomCallback indicates that the current task is successfully executed.
-     *   *
+     * @summary Reports a successful task.
+     *  *
+     * @description ## [](#)Usage notes
+     * In the previous service (Serverless Workflow), the task step that ReportTaskSucceeded is used to call back pattern: waitForCallback indicates that the current task is successfully executed.
+     * In the new service (CloudFlow), the task step that ReportTaskSucceeded is used to call back TaskMode: WaitForCustomCallback indicates that the current task is successfully executed.
+     *  *
      * @param ReportTaskSucceededRequest $request ReportTaskSucceededRequest
      *
      * @return ReportTaskSucceededResponse ReportTaskSucceededResponse
@@ -717,13 +769,15 @@ class Fnf extends OpenApiClient
     }
 
     /**
-     * ## [](#)Usage notes
-     *   * *   The flow is created. A flow only in standard mode is supported.
-     *   * *   If you do not specify an execution, the system automatically generates an execution and starts the execution.
-     *   * *   If an ongoing execution has the same name as that of the execution to be started, the system directly returns the ongoing execution.
-     *   * *   If the ongoing execution with the same name has ended (succeeded or failed), `ExecutionAlreadyExists` is returned.
-     *   * *   If no execution with the same name exists, the system starts a new execution.
-     *   *
+     * @summary Starts the execution of a workflow.
+     *  *
+     * @description ## [](#)Usage notes
+     * *   The flow is created. A flow only in standard mode is supported.
+     * *   If you do not specify an execution, the system automatically generates an execution and starts the execution.
+     * *   If an ongoing execution has the same name as that of the execution to be started, the system directly returns the ongoing execution.
+     * *   If the ongoing execution with the same name has ended (succeeded or failed), `ExecutionAlreadyExists` is returned.
+     * *   If no execution with the same name exists, the system starts a new execution.
+     *  *
      * @param StartExecutionRequest $request StartExecutionRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -764,13 +818,15 @@ class Fnf extends OpenApiClient
     }
 
     /**
-     * ## [](#)Usage notes
-     *   * *   The flow is created. A flow only in standard mode is supported.
-     *   * *   If you do not specify an execution, the system automatically generates an execution and starts the execution.
-     *   * *   If an ongoing execution has the same name as that of the execution to be started, the system directly returns the ongoing execution.
-     *   * *   If the ongoing execution with the same name has ended (succeeded or failed), `ExecutionAlreadyExists` is returned.
-     *   * *   If no execution with the same name exists, the system starts a new execution.
-     *   *
+     * @summary Starts the execution of a workflow.
+     *  *
+     * @description ## [](#)Usage notes
+     * *   The flow is created. A flow only in standard mode is supported.
+     * *   If you do not specify an execution, the system automatically generates an execution and starts the execution.
+     * *   If an ongoing execution has the same name as that of the execution to be started, the system directly returns the ongoing execution.
+     * *   If the ongoing execution with the same name has ended (succeeded or failed), `ExecutionAlreadyExists` is returned.
+     * *   If no execution with the same name exists, the system starts a new execution.
+     *  *
      * @param StartExecutionRequest $request StartExecutionRequest
      *
      * @return StartExecutionResponse StartExecutionResponse
@@ -783,8 +839,10 @@ class Fnf extends OpenApiClient
     }
 
     /**
-     * *   Only flows of the express execution mode are supported.
-     *   *
+     * @summary Synchronously starts an execution in a flow.
+     *  *
+     * @description *   Only flows of the express execution mode are supported.
+     *  *
      * @param StartSyncExecutionRequest $request StartSyncExecutionRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -822,8 +880,10 @@ class Fnf extends OpenApiClient
     }
 
     /**
-     * *   Only flows of the express execution mode are supported.
-     *   *
+     * @summary Synchronously starts an execution in a flow.
+     *  *
+     * @description *   Only flows of the express execution mode are supported.
+     *  *
      * @param StartSyncExecutionRequest $request StartSyncExecutionRequest
      *
      * @return StartSyncExecutionResponse StartSyncExecutionResponse
@@ -836,9 +896,11 @@ class Fnf extends OpenApiClient
     }
 
     /**
-     * ## [](#)Usage notes
-     *   * The flow must be in progress.
-     *   *
+     * @summary Stops an execution that is in progress in a flow.
+     *  *
+     * @description ## [](#)Usage notes
+     * The flow must be in progress.
+     *  *
      * @param StopExecutionRequest $request StopExecutionRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -879,9 +941,11 @@ class Fnf extends OpenApiClient
     }
 
     /**
-     * ## [](#)Usage notes
-     *   * The flow must be in progress.
-     *   *
+     * @summary Stops an execution that is in progress in a flow.
+     *  *
+     * @description ## [](#)Usage notes
+     * The flow must be in progress.
+     *  *
      * @param StopExecutionRequest $request StopExecutionRequest
      *
      * @return StopExecutionResponse StopExecutionResponse
@@ -894,10 +958,12 @@ class Fnf extends OpenApiClient
     }
 
     /**
-     * @param UpdateFlowRequest $request
-     * @param RuntimeOptions    $runtime
+     * @summary Updates a flow.
+     *  *
+     * @param UpdateFlowRequest $request UpdateFlowRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateFlowResponse
+     * @return UpdateFlowResponse UpdateFlowResponse
      */
     public function updateFlowWithOptions($request, $runtime)
     {
@@ -937,9 +1003,11 @@ class Fnf extends OpenApiClient
     }
 
     /**
-     * @param UpdateFlowRequest $request
+     * @summary Updates a flow.
+     *  *
+     * @param UpdateFlowRequest $request UpdateFlowRequest
      *
-     * @return UpdateFlowResponse
+     * @return UpdateFlowResponse UpdateFlowResponse
      */
     public function updateFlow($request)
     {
@@ -949,10 +1017,12 @@ class Fnf extends OpenApiClient
     }
 
     /**
-     * @param UpdateScheduleRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Updates a time-based schedule.
+     *  *
+     * @param UpdateScheduleRequest $request UpdateScheduleRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateScheduleResponse
+     * @return UpdateScheduleResponse UpdateScheduleResponse
      */
     public function updateScheduleWithOptions($request, $runtime)
     {
@@ -995,9 +1065,11 @@ class Fnf extends OpenApiClient
     }
 
     /**
-     * @param UpdateScheduleRequest $request
+     * @summary Updates a time-based schedule.
+     *  *
+     * @param UpdateScheduleRequest $request UpdateScheduleRequest
      *
-     * @return UpdateScheduleResponse
+     * @return UpdateScheduleResponse UpdateScheduleResponse
      */
     public function updateSchedule($request)
     {

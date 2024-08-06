@@ -20,8 +20,8 @@ class StartExecutionRequest extends Model
     /**
      * @description The name of the execution. The execution name is unique within a workflow. Configure this parameter based on the following rules:
      *
-     *   The name can contain letters, digits, underscores (\_), and hyphens (-).
-     *   The name must start with a letter or an underscore (\_).
+     *   The name must start with a letter or an underscore (_).
+     *   The name can contain letters, digits, underscores (_), and hyphens (-).
      *   The name is case-sensitive.
      *   The name must be 1 to 128 characters in length.
      *
@@ -32,13 +32,9 @@ class StartExecutionRequest extends Model
     public $executionName;
 
     /**
-     * @description The name of the workflow to be executed. The name is unique within a region and cannot be modified after the workflow is created. Configure this parameter based on the following rules:
+     * @description The name of the workflow to be executed.
      *
-     *   The name can contain letters, digits, underscores (\_), and hyphens (-).
-     *   The name must start with a letter or an underscore (\_).
-     *   The name is case-sensitive.
-     *   The name must be 1 to 128 characters in length.
-     *
+     * This parameter is required.
      * @example flow
      *
      * @var string

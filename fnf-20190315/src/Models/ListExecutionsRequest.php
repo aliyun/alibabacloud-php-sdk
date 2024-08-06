@@ -20,11 +20,12 @@ class ListExecutionsRequest extends Model
     /**
      * @description The name of the flow. The name must be unique within the region and cannot be modified after the flow is created. The name must meet the following conventions:
      *
-     *   The name can contain letters, digits, underscores (\_), and hyphens (-).
-     *   The name must start with a letter or an underscore (\_).
+     *   The name can contain letters, digits, underscores (_), and hyphens (-).
+     *   The name must start with a letter or an underscore (_).
      *   The name is case-sensitive.
      *   The name must be 1 to 128 characters in length.
      *
+     * This parameter is required.
      * @example flow
      *
      * @var string
@@ -32,7 +33,7 @@ class ListExecutionsRequest extends Model
     public $flowName;
 
     /**
-     * @description The maximum number of executions to be queried. Valid values: 1 to 100.
+     * @description The number of executions that you want to query. Valid values: 1-99. Default value: 60.
      *
      * @example 1
      *
