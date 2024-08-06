@@ -1,3 +1,6 @@
+2024-08-06 Version: 1.5.4
+- Generated php 2022-02-22 for Ess.
+
 2024-08-05 Version: 1.5.3
 - Update API CreateNotificationConfiguration: add param TimeZone.
 - Update API DescribeNotificationConfigurations: update response param.
