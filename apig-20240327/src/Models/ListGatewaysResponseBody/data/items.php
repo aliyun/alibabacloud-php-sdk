@@ -5,6 +5,10 @@
 namespace AlibabaCloud\SDK\APIG\V20240327\Models\ListGatewaysResponseBody\data;
 
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListGatewaysResponseBody\data\items\loadBalancers;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListGatewaysResponseBody\data\items\securityGroup;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListGatewaysResponseBody\data\items\vpc;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListGatewaysResponseBody\data\items\vSwitch;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListGatewaysResponseBody\data\items\zones;
 use AlibabaCloud\Tea\Model;
 
 class items extends Model
@@ -64,6 +68,11 @@ class items extends Model
     public $replicas;
 
     /**
+     * @var securityGroup
+     */
+    public $securityGroup;
+
+    /**
      * @example apigw.small.x1
      *
      * @var string
@@ -92,11 +101,26 @@ class items extends Model
     public $updateTimestamp;
 
     /**
+     * @var vSwitch
+     */
+    public $vSwitch;
+
+    /**
      * @example 2.0.2
      *
      * @var string
      */
     public $version;
+
+    /**
+     * @var vpc
+     */
+    public $vpc;
+
+    /**
+     * @var zones[]
+     */
+    public $zones;
     protected $_name = [
         'chargeType'      => 'chargeType',
         'createFrom'      => 'createFrom',
@@ -106,11 +130,15 @@ class items extends Model
         'loadBalancers'   => 'loadBalancers',
         'name'            => 'name',
         'replicas'        => 'replicas',
+        'securityGroup'   => 'securityGroup',
         'spec'            => 'spec',
         'status'          => 'status',
         'targetVersion'   => 'targetVersion',
         'updateTimestamp' => 'updateTimestamp',
+        'vSwitch'         => 'vSwitch',
         'version'         => 'version',
+        'vpc'             => 'vpc',
+        'zones'           => 'zones',
     ];
 
     public function validate()
@@ -150,6 +178,9 @@ class items extends Model
         if (null !== $this->replicas) {
             $res['replicas'] = $this->replicas;
         }
+        if (null !== $this->securityGroup) {
+            $res['securityGroup'] = null !== $this->securityGroup ? $this->securityGroup->toMap() : null;
+        }
         if (null !== $this->spec) {
             $res['spec'] = $this->spec;
         }
@@ -162,8 +193,23 @@ class items extends Model
         if (null !== $this->updateTimestamp) {
             $res['updateTimestamp'] = $this->updateTimestamp;
         }
+        if (null !== $this->vSwitch) {
+            $res['vSwitch'] = null !== $this->vSwitch ? $this->vSwitch->toMap() : null;
+        }
         if (null !== $this->version) {
             $res['version'] = $this->version;
+        }
+        if (null !== $this->vpc) {
+            $res['vpc'] = null !== $this->vpc ? $this->vpc->toMap() : null;
+        }
+        if (null !== $this->zones) {
+            $res['zones'] = [];
+            if (null !== $this->zones && \is_array($this->zones)) {
+                $n = 0;
+                foreach ($this->zones as $item) {
+                    $res['zones'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -207,6 +253,9 @@ class items extends Model
         if (isset($map['replicas'])) {
             $model->replicas = $map['replicas'];
         }
+        if (isset($map['securityGroup'])) {
+            $model->securityGroup = securityGroup::fromMap($map['securityGroup']);
+        }
         if (isset($map['spec'])) {
             $model->spec = $map['spec'];
         }
@@ -219,8 +268,23 @@ class items extends Model
         if (isset($map['updateTimestamp'])) {
             $model->updateTimestamp = $map['updateTimestamp'];
         }
+        if (isset($map['vSwitch'])) {
+            $model->vSwitch = vSwitch::fromMap($map['vSwitch']);
+        }
         if (isset($map['version'])) {
             $model->version = $map['version'];
+        }
+        if (isset($map['vpc'])) {
+            $model->vpc = vpc::fromMap($map['vpc']);
+        }
+        if (isset($map['zones'])) {
+            if (!empty($map['zones'])) {
+                $model->zones = [];
+                $n            = 0;
+                foreach ($map['zones'] as $item) {
+                    $model->zones[$n++] = null !== $item ? zones::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;
