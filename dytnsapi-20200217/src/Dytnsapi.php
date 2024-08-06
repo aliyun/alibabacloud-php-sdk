@@ -6,6 +6,8 @@ namespace AlibabaCloud\SDK\Dytnsapi\V20200217;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\CertNoThreeElementVerificationRequest;
+use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\CertNoThreeElementVerificationResponse;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\CertNoTwoElementVerificationRequest;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\CertNoTwoElementVerificationResponse;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\CompanyFourElementsVerificationRequest;
@@ -115,6 +117,74 @@ class Dytnsapi extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @summary 身份证三要素
+     *  *
+     * @param CertNoThreeElementVerificationRequest $request CertNoThreeElementVerificationRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CertNoThreeElementVerificationResponse CertNoThreeElementVerificationResponse
+     */
+    public function certNoThreeElementVerificationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->authCode)) {
+            $query['AuthCode'] = $request->authCode;
+        }
+        if (!Utils::isUnset($request->certName)) {
+            $query['CertName'] = $request->certName;
+        }
+        if (!Utils::isUnset($request->certNo)) {
+            $query['CertNo'] = $request->certNo;
+        }
+        if (!Utils::isUnset($request->certPicture)) {
+            $query['CertPicture'] = $request->certPicture;
+        }
+        if (!Utils::isUnset($request->mask)) {
+            $query['Mask'] = $request->mask;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CertNoThreeElementVerification',
+            'version'     => '2020-02-17',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CertNoThreeElementVerificationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 身份证三要素
+     *  *
+     * @param CertNoThreeElementVerificationRequest $request CertNoThreeElementVerificationRequest
+     *
+     * @return CertNoThreeElementVerificationResponse CertNoThreeElementVerificationResponse
+     */
+    public function certNoThreeElementVerification($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->certNoThreeElementVerificationWithOptions($request, $runtime);
     }
 
     /**
