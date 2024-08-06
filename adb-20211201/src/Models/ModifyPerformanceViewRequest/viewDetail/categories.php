@@ -10,6 +10,13 @@ use AlibabaCloud\Tea\Model;
 class categories extends Model
 {
     /**
+     * @description The name of the metric category. Valid values:
+     *
+     *   **Node**
+     *   **DiskData**
+     *   **WorkLoad**
+     *   **ResourceGroup**
+     *
      * @example Node
      *
      * @var string
@@ -17,6 +24,8 @@ class categories extends Model
     public $category;
 
     /**
+     * @description The metrics.
+     *
      * @var keys[]
      */
     public $keys;

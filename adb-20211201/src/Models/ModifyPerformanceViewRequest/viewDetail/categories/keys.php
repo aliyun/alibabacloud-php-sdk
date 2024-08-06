@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class keys extends Model
 {
     /**
+     * @description The name of the metric.
+     *
      * @example AnalyticDB_CPU
      *
      * @var string
@@ -16,6 +18,11 @@ class keys extends Model
     public $keyName;
 
     /**
+     * @description Specifies whether to select the metric. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

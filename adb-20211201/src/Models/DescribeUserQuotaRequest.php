@@ -19,7 +19,7 @@ class DescribeUserQuotaRequest extends Model
     public $DBClusterId;
 
     /**
-     * @description The region ID of the cluster.
+     * @description The region ID.
      *
      * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/454314.html) operation to query the most recent region list.
      * @example cn-hangzhou

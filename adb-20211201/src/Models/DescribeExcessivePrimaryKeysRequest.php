@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeExcessivePrimaryKeysRequest extends Model
 {
     /**
-     * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V5.0) cluster.
+     * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
      *
      * This parameter is required.
      * @example am-bp1xxxxxxxx47

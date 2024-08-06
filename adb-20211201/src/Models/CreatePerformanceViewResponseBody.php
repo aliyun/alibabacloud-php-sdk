@@ -20,6 +20,11 @@ class CreatePerformanceViewResponseBody extends Model
     public $accessDeniedDetail;
 
     /**
+     * @description The creation result. Valid values:
+     *
+     *   **SUCCESS**
+     *   **FAILED**
+     *
      * @example SUCCESS
      *
      * @var string

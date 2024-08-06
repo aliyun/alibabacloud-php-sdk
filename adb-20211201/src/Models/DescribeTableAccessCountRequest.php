@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeTableAccessCountRequest extends Model
 {
     /**
-     * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+     * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
      *
      * This parameter is required.
      * @example amv-2ze627uzpkh8a8****

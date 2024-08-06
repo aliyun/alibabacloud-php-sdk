@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeletePerformanceViewRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
      *
+     * This parameter is required.
      * @example amv-uf6wjk5xxxxxxxxxx
      *
      * @var string
@@ -28,8 +29,9 @@ class DeletePerformanceViewRequest extends Model
     public $ownerId;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

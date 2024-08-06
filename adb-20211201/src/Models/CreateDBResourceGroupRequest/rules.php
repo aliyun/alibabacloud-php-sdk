@@ -15,6 +15,8 @@ class rules extends Model
      *   The name must start with a letter or digit.
      *   The name can contain letters, digits, hyphens (-), and underscores (_).
      *
+     * @example test_group
+     *
      * @var string
      */
     public $groupName;
@@ -22,12 +24,16 @@ class rules extends Model
     /**
      * @description The execution duration of the query. Unit: milliseconds.
      *
+     * @example 180000
+     *
      * @var string
      */
     public $queryTime;
 
     /**
-     * @description The name of the destination resource group.
+     * @description The name of the resource group to which you want to resubmit the query job.
+     *
+     * @example job
      *
      * @var string
      */

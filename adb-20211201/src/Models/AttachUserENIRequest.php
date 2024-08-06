@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class AttachUserENIRequest extends Model
 {
     /**
-     * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+     * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
      *
      * This parameter is required.
      * @example am-bp11q28kvl688****

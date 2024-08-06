@@ -66,7 +66,7 @@ class backup extends Model
     public $backupType;
 
     /**
-     * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+     * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
      *
      * @example am-bp11q28kvl688****
      *

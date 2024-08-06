@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeJobResourceUsageRequest extends Model
 {
     /**
-     * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+     * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
      *
      * This parameter is required.
      * @example am-uf6g8w25jacm7****

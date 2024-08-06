@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribePerformanceViewsRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
      *
+     * This parameter is required.
      * @example amv-bp1ub9grke1****
      *
      * @var string
@@ -28,8 +29,9 @@ class DescribePerformanceViewsRequest extends Model
     public $ownerId;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

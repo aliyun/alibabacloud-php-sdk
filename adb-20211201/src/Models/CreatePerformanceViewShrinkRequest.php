@@ -16,8 +16,9 @@ class CreatePerformanceViewShrinkRequest extends Model
     public $createFromViewType;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
      *
+     * This parameter is required.
      * @example amv-bp1ub9grke1****
      *
      * @var string
@@ -25,6 +26,11 @@ class CreatePerformanceViewShrinkRequest extends Model
     public $DBClusterId;
 
     /**
+     * @description Specifies whether to populate the names of the metrics in the original monitoring view when you view the monitoring view. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -42,8 +48,9 @@ class CreatePerformanceViewShrinkRequest extends Model
     public $ownerId;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-beijing
      *
      * @var string
@@ -61,8 +68,9 @@ class CreatePerformanceViewShrinkRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description This parameter is required.
+     * @description The information about the monitoring view.
      *
+     * This parameter is required.
      * @var string
      */
     public $viewDetailShrink;

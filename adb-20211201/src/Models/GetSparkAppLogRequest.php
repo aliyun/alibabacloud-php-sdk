@@ -19,9 +19,9 @@ class GetSparkAppLogRequest extends Model
     public $appId;
 
     /**
-     * @description The cluster ID.
+     * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
      *
-     * >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/454250.html) operation to query the IDs of all AnalyticDB for MySQL Data Lakehouse Edition (V3.0) clusters within a region.
+     * >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/454250.html) operation to query the IDs of all AnalyticDB for MySQL clusters within a region.
      * @example amv-2ze6fl8ud7t***
      *
      * @var string

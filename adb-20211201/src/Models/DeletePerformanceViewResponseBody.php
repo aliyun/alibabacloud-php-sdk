@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeletePerformanceViewResponseBody extends Model
 {
     /**
+     * @description The details about the access denial.
+     *
+     * >  This parameter is returned only if Resource Access Management (RAM) permission verification failed.
      * @example {
      * "PolicyType": "AccountLevelIdentityBasedPolicy",
      * "AuthPrincipalOwnerId": "1*****************7",

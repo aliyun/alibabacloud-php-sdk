@@ -22,7 +22,6 @@ class DescribeExcessivePrimaryKeysResponseBody extends Model
     /**
      * @description The cluster ID.
      *
-     * >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the IDs of all AnalyticDB for MySQL clusters within a region.
      * @example am-bp1ub9grke1****
      *
      * @var string

@@ -29,7 +29,7 @@ class DescribeElasticPlansRequest extends Model
     public $elasticPlanName;
 
     /**
-     * @description Indicates whether the scaling plan was immediately enabled after the plan is created. Valid values:
+     * @description Specifies whether to query the scaling plans that are immediately enabled after the plans are created. Valid values:
      *
      *   true
      *   false
@@ -74,9 +74,7 @@ class DescribeElasticPlansRequest extends Model
     /**
      * @description The type of the scaling plan. Valid values:
      *
-     *   EXECUTOR: interactive resource groups, which fall into the computing resource category.
-     *   WORKER: EIUs.
-     *
+     * EXECUTOR: the interactive resource group type, which specifies the computing resource type. WORKER: the EIU type.
      * @example EXECUTOR
      *
      * @var string

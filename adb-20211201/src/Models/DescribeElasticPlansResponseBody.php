@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeElasticPlansResponseBody extends Model
 {
     /**
-     * @description The scaling plans.
+     * @description The queried scaling plans.
      *
      * @var elasticPlans[]
      */

@@ -10,8 +10,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyPerformanceViewRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
      *
+     * This parameter is required.
      * @example amv-bp1ub9grke1****
      *
      * @var string
@@ -29,8 +30,9 @@ class ModifyPerformanceViewRequest extends Model
     public $ownerId;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -48,15 +50,17 @@ class ModifyPerformanceViewRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description This parameter is required.
+     * @description The new information about the monitoring view.
      *
+     * This parameter is required.
      * @var viewDetail
      */
     public $viewDetail;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the monitoring view.
      *
+     * This parameter is required.
      * @var string
      */
     public $viewName;
