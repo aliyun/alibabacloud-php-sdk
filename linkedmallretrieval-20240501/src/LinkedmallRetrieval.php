@@ -8,6 +8,8 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\LinkedmallRetrieval\V20240501\Models\AISearchRequest;
 use AlibabaCloud\SDK\LinkedmallRetrieval\V20240501\Models\AISearchResponse;
+use AlibabaCloud\SDK\LinkedmallRetrieval\V20240501\Models\AISearchV2Request;
+use AlibabaCloud\SDK\LinkedmallRetrieval\V20240501\Models\AISearchV2Response;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -98,5 +100,58 @@ class LinkedmallRetrieval extends OpenApiClient
         $headers = [];
 
         return $this->aISearchWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 提供通用检索与检索后处理的多阶段优化结果，为开放域QA提供信源
+     *  *
+     * @param AISearchV2Request $request AISearchV2Request
+     * @param string[]          $headers map
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return AISearchV2Response AISearchV2Response
+     */
+    public function aISearchV2WithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->query)) {
+            $query['query'] = $request->query;
+        }
+        if (!Utils::isUnset($request->sessionId)) {
+            $query['sessionId'] = $request->sessionId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AISearchV2',
+            'version'     => '2024-05-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/linked-retrieval/linked-retrieval-entry/v2/linkedRetrieval/commands/aiSearch',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return AISearchV2Response::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 提供通用检索与检索后处理的多阶段优化结果，为开放域QA提供信源
+     *  *
+     * @param AISearchV2Request $request AISearchV2Request
+     *
+     * @return AISearchV2Response AISearchV2Response
+     */
+    public function aISearchV2($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->aISearchV2WithOptions($request, $headers, $runtime);
     }
 }
