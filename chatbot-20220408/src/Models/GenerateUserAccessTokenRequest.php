@@ -35,6 +35,8 @@ class GenerateUserAccessTokenRequest extends Model
     public $extraInfo;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 8882022040000000171
      *
      * @var string
@@ -42,6 +44,8 @@ class GenerateUserAccessTokenRequest extends Model
     public $foreignId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $nick;
