@@ -10251,6 +10251,9 @@ class Elasticsearch extends OpenApiClient
         if (!Utils::isUnset($request->endpoints)) {
             $body['endpoints'] = $request->endpoints;
         }
+        if (!Utils::isUnset($request->esInstanceId)) {
+            $body['esInstanceId'] = $request->esInstanceId;
+        }
         if (!Utils::isUnset($request->password)) {
             $body['password'] = $request->password;
         }

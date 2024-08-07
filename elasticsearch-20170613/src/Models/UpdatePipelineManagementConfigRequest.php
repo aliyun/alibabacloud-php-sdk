@@ -14,6 +14,11 @@ class UpdatePipelineManagementConfigRequest extends Model
     public $endpoints;
 
     /**
+     * @var string
+     */
+    public $esInstanceId;
+
+    /**
      * @example ******
      *
      * @var string
@@ -47,6 +52,7 @@ class UpdatePipelineManagementConfigRequest extends Model
     public $clientToken;
     protected $_name = [
         'endpoints'              => 'endpoints',
+        'esInstanceId'           => 'esInstanceId',
         'password'               => 'password',
         'pipelineIds'            => 'pipelineIds',
         'pipelineManagementType' => 'pipelineManagementType',
@@ -63,6 +69,9 @@ class UpdatePipelineManagementConfigRequest extends Model
         $res = [];
         if (null !== $this->endpoints) {
             $res['endpoints'] = $this->endpoints;
+        }
+        if (null !== $this->esInstanceId) {
+            $res['esInstanceId'] = $this->esInstanceId;
         }
         if (null !== $this->password) {
             $res['password'] = $this->password;
@@ -95,6 +104,9 @@ class UpdatePipelineManagementConfigRequest extends Model
             if (!empty($map['endpoints'])) {
                 $model->endpoints = $map['endpoints'];
             }
+        }
+        if (isset($map['esInstanceId'])) {
+            $model->esInstanceId = $map['esInstanceId'];
         }
         if (isset($map['password'])) {
             $model->password = $map['password'];
