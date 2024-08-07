@@ -138,6 +138,8 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\GetCampaignRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetCampaignResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetCaseFileUploadUrlRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetCaseFileUploadUrlResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\GetChatMediaUrlRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\GetChatMediaUrlResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetContactFlowRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetContactFlowResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetConversationDetailRequest;
@@ -3913,6 +3915,55 @@ class CCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getCaseFileUploadUrlWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetChatMediaUrlRequest $request GetChatMediaUrlRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetChatMediaUrlResponse GetChatMediaUrlResponse
+     */
+    public function getChatMediaUrlWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->mediaId)) {
+            $body['MediaId'] = $request->mediaId;
+        }
+        if (!Utils::isUnset($request->requestId)) {
+            $body['RequestId'] = $request->requestId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetChatMediaUrl',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetChatMediaUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetChatMediaUrlRequest $request GetChatMediaUrlRequest
+     *
+     * @return GetChatMediaUrlResponse GetChatMediaUrlResponse
+     */
+    public function getChatMediaUrl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getChatMediaUrlWithOptions($request, $runtime);
     }
 
     /**
