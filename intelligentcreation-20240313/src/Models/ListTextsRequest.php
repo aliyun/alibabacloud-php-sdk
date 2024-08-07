@@ -23,6 +23,11 @@ class ListTextsRequest extends Model
     public $industry;
 
     /**
+     * @var string
+     */
+    public $keyword;
+
+    /**
      * @example 1
      *
      * @var int
@@ -59,6 +64,7 @@ class ListTextsRequest extends Model
     protected $_name = [
         'generationSource' => 'generationSource',
         'industry'         => 'industry',
+        'keyword'          => 'keyword',
         'pageNumber'       => 'pageNumber',
         'pageSize'         => 'pageSize',
         'publishStatus'    => 'publishStatus',
@@ -78,6 +84,9 @@ class ListTextsRequest extends Model
         }
         if (null !== $this->industry) {
             $res['industry'] = $this->industry;
+        }
+        if (null !== $this->keyword) {
+            $res['keyword'] = $this->keyword;
         }
         if (null !== $this->pageNumber) {
             $res['pageNumber'] = $this->pageNumber;
@@ -111,6 +120,9 @@ class ListTextsRequest extends Model
         }
         if (isset($map['industry'])) {
             $model->industry = $map['industry'];
+        }
+        if (isset($map['keyword'])) {
+            $model->keyword = $map['keyword'];
         }
         if (isset($map['pageNumber'])) {
             $model->pageNumber = $map['pageNumber'];

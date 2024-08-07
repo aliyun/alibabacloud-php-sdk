@@ -10,6 +10,8 @@ use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\AddTextFeedbackRequest
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\AddTextFeedbackResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CheckSessionRequest;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CheckSessionResponse;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CountTextRequest;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CountTextResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CreateIllustrationTaskRequest;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CreateIllustrationTaskResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CreateTextTaskRequest;
@@ -194,6 +196,65 @@ class IntelligentCreation extends OpenApiClient
         $headers = [];
 
         return $this->checkSessionWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 文本数量统计
+     *  *
+     * @param CountTextRequest $request CountTextRequest
+     * @param string[]         $headers map
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CountTextResponse CountTextResponse
+     */
+    public function countTextWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->generationSource)) {
+            $query['generationSource'] = $request->generationSource;
+        }
+        if (!Utils::isUnset($request->industry)) {
+            $query['industry'] = $request->industry;
+        }
+        if (!Utils::isUnset($request->publishStatus)) {
+            $query['publishStatus'] = $request->publishStatus;
+        }
+        if (!Utils::isUnset($request->style)) {
+            $query['style'] = $request->style;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CountText',
+            'version'     => '2024-03-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/yic/yic-console/openService/v1/countText',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CountTextResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 文本数量统计
+     *  *
+     * @param CountTextRequest $request CountTextRequest
+     *
+     * @return CountTextResponse CountTextResponse
+     */
+    public function countText($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->countTextWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -760,6 +821,9 @@ class IntelligentCreation extends OpenApiClient
         if (!Utils::isUnset($request->industry)) {
             $query['industry'] = $request->industry;
         }
+        if (!Utils::isUnset($request->keyword)) {
+            $query['keyword'] = $request->keyword;
+        }
         if (!Utils::isUnset($request->pageNumber)) {
             $query['pageNumber'] = $request->pageNumber;
         }
@@ -1257,6 +1321,9 @@ class IntelligentCreation extends OpenApiClient
         }
         if (!Utils::isUnset($request->subtitleTag)) {
             $body['subtitleTag'] = $request->subtitleTag;
+        }
+        if (!Utils::isUnset($request->transparentBackground)) {
+            $body['transparentBackground'] = $request->transparentBackground;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,

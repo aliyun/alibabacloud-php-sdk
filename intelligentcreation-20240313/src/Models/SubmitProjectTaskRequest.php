@@ -29,10 +29,16 @@ class SubmitProjectTaskRequest extends Model
      * @var int
      */
     public $subtitleTag;
+
+    /**
+     * @var int
+     */
+    public $transparentBackground;
     protected $_name = [
-        'frames'      => 'frames',
-        'scaleType'   => 'scaleType',
-        'subtitleTag' => 'subtitleTag',
+        'frames'                => 'frames',
+        'scaleType'             => 'scaleType',
+        'subtitleTag'           => 'subtitleTag',
+        'transparentBackground' => 'transparentBackground',
     ];
 
     public function validate()
@@ -56,6 +62,9 @@ class SubmitProjectTaskRequest extends Model
         }
         if (null !== $this->subtitleTag) {
             $res['subtitleTag'] = $this->subtitleTag;
+        }
+        if (null !== $this->transparentBackground) {
+            $res['transparentBackground'] = $this->transparentBackground;
         }
 
         return $res;
@@ -83,6 +92,9 @@ class SubmitProjectTaskRequest extends Model
         }
         if (isset($map['subtitleTag'])) {
             $model->subtitleTag = $map['subtitleTag'];
+        }
+        if (isset($map['transparentBackground'])) {
+            $model->transparentBackground = $map['transparentBackground'];
         }
 
         return $model;
