@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeGreyTagRouteRequest extends Model
 {
     /**
-     * @description 1
+     * @description The ID of the canary release rule.
      *
      * This parameter is required.
      * @example 1

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The ID of the application.
+     * @description The application ID.
      *
      * @example 7171a6ca-d1cd-4928-8642-7d5cfe69****
      *
@@ -36,7 +36,7 @@ class data extends Model
     public $errorPercent;
 
     /**
-     * @description The name of the application.
+     * @description The application name.
      *
      * @example test
      *
@@ -45,7 +45,7 @@ class data extends Model
     public $name;
 
     /**
-     * @description The ID of the namespace.
+     * @description The namespace ID.
      *
      * @example cn-hangzhou
      *

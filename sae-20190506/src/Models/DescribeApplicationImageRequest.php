@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeApplicationImageRequest extends Model
 {
     /**
-     * @description d700e680-aa4d-4ec1-afc2-6566b5ff\\*\\*\\*\\*
+     * @description The ID of the application.
      *
      * This parameter is required.
      * @example d700e680-aa4d-4ec1-afc2-6566b5ff****
@@ -19,7 +19,7 @@ class DescribeApplicationImageRequest extends Model
     public $appId;
 
     /**
-     * @description registry-vpc.cn-hangzhou.aliyuncs.com/demo/demo:latest
+     * @description The URL of the image.
      *
      * This parameter is required.
      * @example registry-vpc.cn-hangzhou.aliyuncs.com/demo/demo:latest

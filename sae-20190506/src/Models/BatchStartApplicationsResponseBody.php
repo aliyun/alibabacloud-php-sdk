@@ -10,6 +10,12 @@ use AlibabaCloud\Tea\Model;
 class BatchStartApplicationsResponseBody extends Model
 {
     /**
+     * @description The HTTP status code. Take note of the following rules:
+     *
+     * - **2xx**: The call was successful.
+     * - **3xx**: The call was redirected.
+     * - **4xx**: The call failed.
+     * - **5xx**: A server error occurred.
      * @example 200
      *
      * @var string
@@ -27,10 +33,10 @@ class BatchStartApplicationsResponseBody extends Model
     public $data;
 
     /**
-     * @description Indicates whether the specified applications are successfully started. Valid values:
+     * @description The error code returned if the request failed. Take note of the following rules:
      *
-     *   **true**
-     *   **false**
+     * - If the call fails, the ErrorCode parameter is returned. For more information, see the "Error codes" section of this topic.
+     * @example NULL
      *
      * @var string
      */
@@ -55,6 +61,10 @@ class BatchStartApplicationsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the application deployment is successful. Take note of the following rules:
+     *
+     * - **true**
+     * - **false**
      * @example true
      *
      * @var bool

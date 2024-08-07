@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class albRules extends Model
 {
     /**
+     * @description The condition mode of the canary release rule. Valid value: AND. This value indicates that that all conditions must be met.
+     *
      * @example AND
      *
      * @var string
@@ -17,6 +19,8 @@ class albRules extends Model
     public $condition;
 
     /**
+     * @description The ID of the gateway routing rule.
+     *
      * @example 23
      *
      * @var string
@@ -29,6 +33,8 @@ class albRules extends Model
     public $items;
 
     /**
+     * @description The service ID.
+     *
      * @example 22
      *
      * @var string

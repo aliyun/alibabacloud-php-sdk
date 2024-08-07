@@ -12,10 +12,10 @@ class DescribeApplicationImageResponseBody extends Model
     /**
      * @description The HTTP status code. Valid values:
      *
-     *   **2xx**: indicates that the request was successful.
-     *   **3xx**: indicates that the request was redirected.
-     *   **4xx**: indicates that the request was invalid.
-     *   **5xx**: indicates that a server error occurred.
+     *   **2xx**: The call was successful.
+     *   **3xx**: The call was redirected.
+     *   **4xx**: The call failed.
+     *   **5xx**: A server error occurred.
      *
      * @example 200
      *
@@ -24,27 +24,27 @@ class DescribeApplicationImageResponseBody extends Model
     public $code;
 
     /**
-     * @description The information about the image of an application.
+     * @description The information about the image of the application.
      *
      * @var data
      */
     public $data;
 
     /**
-     * @description The error code.
+     * @description The error code. Valid values:
      *
-     *   The **ErrorCode** parameter is not returned when the request succeeds.
-     *   The **ErrorCode** parameter is returned when the request fails. For more information, see **Error codes** in this topic.
+     *   If the call is successful, the **ErrorCode** parameter is not returned.
+     *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
      *
      * @var string
      */
     public $errorCode;
 
     /**
-     * @description The returned message.
+     * @description The returned message. Valid values:
      *
-     *   **success** is returned when the request succeeds.
-     *   An error code is returned when the request fails.
+     *   success: If the call is successful, **success** is returned.
+     *   An error code: If the call fails, an error code is returned.
      *
      * @example success
      *
@@ -53,7 +53,7 @@ class DescribeApplicationImageResponseBody extends Model
     public $message;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
      *
@@ -62,10 +62,10 @@ class DescribeApplicationImageResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the image information was obtained. Valid values:
+     * @description Indicates whether the information about the image was obtained. Valid values:
      *
-     *   **true**: indicates that the information was obtained.
-     *   **false**: indicates that the information could not be obtained.
+     *   **true**: The information was obtained.
+     *   **false**: The information failed to be obtained.
      *
      * @example true
      *
@@ -74,7 +74,7 @@ class DescribeApplicationImageResponseBody extends Model
     public $success;
 
     /**
-     * @description The ID of the trace. It is used to query the details of a request.
+     * @description The trace ID that is used to query the details of the request.
      *
      * @example 0a98a02315955564772843261e****
      *

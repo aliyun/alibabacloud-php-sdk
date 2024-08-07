@@ -443,6 +443,8 @@ class Sae extends OpenApiClient
     }
 
     /**
+     * @summary Stops multiple applications at a time.
+     *  *
      * @param BatchStopApplicationsRequest $request BatchStopApplicationsRequest
      * @param string[]                     $headers map
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -482,6 +484,8 @@ class Sae extends OpenApiClient
     }
 
     /**
+     * @summary Stops multiple applications at a time.
+     *  *
      * @param BatchStopApplicationsRequest $request BatchStopApplicationsRequest
      *
      * @return BatchStopApplicationsResponse BatchStopApplicationsResponse
@@ -511,11 +515,17 @@ class Sae extends OpenApiClient
         if (!Utils::isUnset($request->internet)) {
             $query['Internet'] = $request->internet;
         }
+        if (!Utils::isUnset($request->internetSlbChargeType)) {
+            $query['InternetSlbChargeType'] = $request->internetSlbChargeType;
+        }
         if (!Utils::isUnset($request->internetSlbId)) {
             $query['InternetSlbId'] = $request->internetSlbId;
         }
         if (!Utils::isUnset($request->intranet)) {
             $query['Intranet'] = $request->intranet;
+        }
+        if (!Utils::isUnset($request->intranetSlbChargeType)) {
+            $query['IntranetSlbChargeType'] = $request->intranetSlbChargeType;
         }
         if (!Utils::isUnset($request->intranetSlbId)) {
             $query['IntranetSlbId'] = $request->intranetSlbId;
@@ -1333,7 +1343,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @summary desc
+     * @summary Creates a namespace.
      *  *
      * @param CreateNamespaceRequest $request CreateNamespaceRequest
      * @param string[]               $headers map
@@ -1380,7 +1390,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @summary desc
+     * @summary Creates a namespace.
      *  *
      * @param CreateNamespaceRequest $request CreateNamespaceRequest
      *
@@ -2462,6 +2472,8 @@ class Sae extends OpenApiClient
     }
 
     /**
+     * @summary Queries the configurations of an application.
+     *  *
      * @param DescribeApplicationConfigRequest $request DescribeApplicationConfigRequest
      * @param string[]                         $headers map
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -2498,6 +2510,8 @@ class Sae extends OpenApiClient
     }
 
     /**
+     * @summary Queries the configurations of an application.
+     *  *
      * @param DescribeApplicationConfigRequest $request DescribeApplicationConfigRequest
      *
      * @return DescribeApplicationConfigResponse DescribeApplicationConfigResponse
@@ -2563,6 +2577,8 @@ class Sae extends OpenApiClient
     }
 
     /**
+     * @summary Queries the information about the image of an application.
+     *  *
      * @param DescribeApplicationImageRequest $request DescribeApplicationImageRequest
      * @param string[]                        $headers map
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -2599,6 +2615,8 @@ class Sae extends OpenApiClient
     }
 
     /**
+     * @summary Queries the information about the image of an application.
+     *  *
      * @param DescribeApplicationImageRequest $request DescribeApplicationImageRequest
      *
      * @return DescribeApplicationImageResponse DescribeApplicationImageResponse
@@ -3500,6 +3518,8 @@ class Sae extends OpenApiClient
     }
 
     /**
+     * @summary Queries a list of namespaces.
+     *  *
      * @param DescribeNamespaceListRequest $request DescribeNamespaceListRequest
      * @param string[]                     $headers map
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -3536,6 +3556,8 @@ class Sae extends OpenApiClient
     }
 
     /**
+     * @summary Queries a list of namespaces.
+     *  *
      * @param DescribeNamespaceListRequest $request DescribeNamespaceListRequest
      *
      * @return DescribeNamespaceListResponse DescribeNamespaceListResponse

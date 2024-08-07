@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class CreateNamespaceResponseBody extends Model
 {
     /**
-     * @description The ID of the trace. It can be used to query the details of a request.
+     * @description bucketPath
      *
      * @example 200
      *
@@ -26,16 +26,16 @@ class CreateNamespaceResponseBody extends Model
     public $data;
 
     /**
-     * @description The ID of the request.
+     * @description http://sae_pop_pre/#vpc
      *
-     * @example The returned message.
+     * @example bucketName
      *
      * @var string
      */
     public $errorCode;
 
     /**
-     * @description name
+     * @description The ID of the namespace.
      *
      * @example success
      *
@@ -44,7 +44,7 @@ class CreateNamespaceResponseBody extends Model
     public $message;
 
     /**
-     * @description The description of the namespace.
+     * @description The description of the custom namespace.
      *
      * @example 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
      *
@@ -53,7 +53,7 @@ class CreateNamespaceResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The information of the namespace.
+     * @description mountDir
      *
      * @example true
      *
@@ -62,7 +62,7 @@ class CreateNamespaceResponseBody extends Model
     public $success;
 
     /**
-     * @description The ID of the trace. It can be used to query the details of a request.
+     * @description The name of the namespace.
      *
      * @example 0a981dd515966966104121683d****
      *

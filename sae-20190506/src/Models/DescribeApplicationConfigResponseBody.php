@@ -24,7 +24,7 @@ class DescribeApplicationConfigResponseBody extends Model
     public $code;
 
     /**
-     * @description The details of the application.
+     * @description The information about the application.
      *
      * @var data
      */

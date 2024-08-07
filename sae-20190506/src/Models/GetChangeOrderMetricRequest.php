@@ -9,37 +9,65 @@ use AlibabaCloud\Tea\Model;
 class GetChangeOrderMetricRequest extends Model
 {
     /**
+     * @description The SAE application type. Valid values:
+     *
+     *   **micro_service**
+     *   **web**
+     *   **job**
+     *
+     * @example micro_service
+     *
      * @var string
      */
     public $appSource;
 
     /**
+     * @description The CPU allocation policy. Valid values:
+     *
+     *   **request**: CPU cores are allocated only when a request is initiated.
+     *   **always**: Fixed CPU cores are always allocated.
+     *
+     * @example always
+     *
      * @var string
      */
     public $cpuStrategy;
 
     /**
-     * @description This parameter is required.
+     * @description The start time when the change order was created.
+     *
+     * This parameter is required.
+     * @example 1661152748883
      *
      * @var string
      */
     public $createTime;
 
     /**
-     * @description This parameter is required.
+     * @description The number of entries to return. Valid values: 0 to 100.
+     *
+     * This parameter is required.
+     * @example 10
      *
      * @var int
      */
     public $limit;
 
     /**
-     * @description This parameter is required.
+     * @description The field based on which you want to sort the returned entries.
+     *
+     * This parameter is required.
+     * @example errorPercent
      *
      * @var string
      */
     public $orderBy;
 
     /**
+     * @description The region ID.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

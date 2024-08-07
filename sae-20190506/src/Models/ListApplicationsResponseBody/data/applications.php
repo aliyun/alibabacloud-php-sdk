@@ -11,7 +11,10 @@ use AlibabaCloud\Tea\Model;
 class applications extends Model
 {
     /**
-     * @description demo-app
+     * @description Indicates whether the application is being deleted. Valid values:
+     *
+     *   **true**: The application is being deleted.
+     *   **false**: The application is not being deleted.
      *
      * @example false
      *
@@ -20,7 +23,7 @@ class applications extends Model
     public $appDeletingStatus;
 
     /**
-     * @description [{"key":"key","value":"value"}]
+     * @description The description of the application.
      *
      * @example description
      *
@@ -29,7 +32,7 @@ class applications extends Model
     public $appDescription;
 
     /**
-     * @description The total number of applications.
+     * @description The application ID.
      *
      * @example f7730764-d88f-4b9a-8d8e-cd8efbfe****
      *
@@ -38,7 +41,7 @@ class applications extends Model
     public $appId;
 
     /**
-     * @description The ID of the application.
+     * @description The application name.
      *
      * @example demo-app
      *
@@ -57,12 +60,24 @@ class applications extends Model
     public $children;
 
     /**
+     * @description The CPU specifications that are required for each instance. Unit: millicores. This parameter cannot be set to 0. Valid values:
+     *
+     *   **500**
+     *   **1000**
+     *   **2000**
+     *   **4000**
+     *   **8000**
+     *   **16000**
+     *   **32000**
+     *
+     * @example 1000
+     *
      * @var int
      */
     public $cpu;
 
     /**
-     * @description The total number of applications.
+     * @description The number of application instances.
      *
      * @example 2
      *
@@ -71,6 +86,21 @@ class applications extends Model
     public $instances;
 
     /**
+     * @description The memory size that is required by each instance. Unit: MB. This parameter cannot be set to 0. The values of this parameter correspond to the values of the Cpu parameter:
+     *
+     *   This parameter is set to **1024** if the Cpu parameter is set to 500 or 1000.
+     *   This parameter is set to **2048** if the Cpu parameter is set to 500, 1000, or 2000.
+     *   This parameter is set to **4096** if the Cpu parameter is set to 1000, 2000, or 4000.
+     *   This parameter is set to **8192** if the Cpu parameter is set to 2000, 4000, or 8000.
+     *   This parameter is set to **12288** if the Cpu parameter is set to 12000.
+     *   This parameter is set to **16384** if the Cpu parameter is set to 4000, 8000, or 16000.
+     *   This parameter is set to **24576** if the Cpu parameter is set to 12000.
+     *   This parameter is set to **32768** if the Cpu parameter is set to 16000.
+     *   This parameter is set to **65536** if the Cpu parameter is set to 8000, 16000, or 32000.
+     *   This parameter is set to **131072** if the Cpu parameter is set to 32000.
+     *
+     * @example 1024
+     *
      * @var int
      */
     public $mem;
@@ -86,7 +116,7 @@ class applications extends Model
     public $mseNamespaceId;
 
     /**
-     * @description demo-app
+     * @description The namespace ID.
      *
      * @example cn-beijing:demo
      *
@@ -100,7 +130,7 @@ class applications extends Model
     public $programmingLanguage;
 
     /**
-     * @description The number of running instances.
+     * @description The region ID.
      *
      * @example cn-beijing
      *
@@ -109,7 +139,7 @@ class applications extends Model
     public $regionId;
 
     /**
-     * @description The value of the tag.
+     * @description The number of running instances.
      *
      * @example 2
      *
@@ -118,7 +148,7 @@ class applications extends Model
     public $runningInstances;
 
     /**
-     * @description cn-beijing:demo
+     * @description The tags of the application.
      *
      * @var tags[]
      */

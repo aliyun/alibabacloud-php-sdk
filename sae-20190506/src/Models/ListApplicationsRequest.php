@@ -23,6 +23,13 @@ class ListApplicationsRequest extends Model
     public $appName;
 
     /**
+     * @description The SAE application type. Valid values:
+     *
+     * - **micro_service**
+     * - **web**
+     * - **job**
+     * @example micro_service
+     *
      * @var string
      */
     public $appSource;

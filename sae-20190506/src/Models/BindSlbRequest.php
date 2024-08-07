@@ -28,6 +28,11 @@ class BindSlbRequest extends Model
     public $internet;
 
     /**
+     * @var string
+     */
+    public $internetSlbChargeType;
+
+    /**
      * @description lb-bp1tg0k6d9nqaw7l1\\*\\*\\*\\*
      *
      * @example lb-bp1tg0k6d9nqaw7l1****
@@ -46,6 +51,11 @@ class BindSlbRequest extends Model
     public $intranet;
 
     /**
+     * @var string
+     */
+    public $intranetSlbChargeType;
+
+    /**
      * @description lb-bp1tg0k6d9nqaw7l1\\*\\*\\*\\*
      *
      * @example lb-bp1tg0k6d9nqaw7l1****
@@ -54,11 +64,13 @@ class BindSlbRequest extends Model
      */
     public $intranetSlbId;
     protected $_name = [
-        'appId'         => 'AppId',
-        'internet'      => 'Internet',
-        'internetSlbId' => 'InternetSlbId',
-        'intranet'      => 'Intranet',
-        'intranetSlbId' => 'IntranetSlbId',
+        'appId'                 => 'AppId',
+        'internet'              => 'Internet',
+        'internetSlbChargeType' => 'InternetSlbChargeType',
+        'internetSlbId'         => 'InternetSlbId',
+        'intranet'              => 'Intranet',
+        'intranetSlbChargeType' => 'IntranetSlbChargeType',
+        'intranetSlbId'         => 'IntranetSlbId',
     ];
 
     public function validate()
@@ -74,11 +86,17 @@ class BindSlbRequest extends Model
         if (null !== $this->internet) {
             $res['Internet'] = $this->internet;
         }
+        if (null !== $this->internetSlbChargeType) {
+            $res['InternetSlbChargeType'] = $this->internetSlbChargeType;
+        }
         if (null !== $this->internetSlbId) {
             $res['InternetSlbId'] = $this->internetSlbId;
         }
         if (null !== $this->intranet) {
             $res['Intranet'] = $this->intranet;
+        }
+        if (null !== $this->intranetSlbChargeType) {
+            $res['IntranetSlbChargeType'] = $this->intranetSlbChargeType;
         }
         if (null !== $this->intranetSlbId) {
             $res['IntranetSlbId'] = $this->intranetSlbId;
@@ -101,11 +119,17 @@ class BindSlbRequest extends Model
         if (isset($map['Internet'])) {
             $model->internet = $map['Internet'];
         }
+        if (isset($map['InternetSlbChargeType'])) {
+            $model->internetSlbChargeType = $map['InternetSlbChargeType'];
+        }
         if (isset($map['InternetSlbId'])) {
             $model->internetSlbId = $map['InternetSlbId'];
         }
         if (isset($map['Intranet'])) {
             $model->intranet = $map['Intranet'];
+        }
+        if (isset($map['IntranetSlbChargeType'])) {
+            $model->intranetSlbChargeType = $map['IntranetSlbChargeType'];
         }
         if (isset($map['IntranetSlbId'])) {
             $model->intranetSlbId = $map['IntranetSlbId'];

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ossMountDescs extends Model
 {
     /**
-     * @description The name of the bucket.
+     * @description The name of the OSS bucket.
      *
      * @example oss-bucket
      *
@@ -18,7 +18,7 @@ class ossMountDescs extends Model
     public $bucketName;
 
     /**
-     * @description The directory or object that you created in the OSS bucket. If the specified object or directory is invalid, an exception occurs.
+     * @description The directory or object in OSS. If the specified directory or object does not exist, an error is returned.
      *
      * @example data/user.data
      *
@@ -27,7 +27,7 @@ class ossMountDescs extends Model
     public $bucketPath;
 
     /**
-     * @description The directory of your container in SAE. The parameter value that you specified overwrites the original value. If the specified directory does not exist, SAE automatically creates the directory.
+     * @description The path of the container in SAE. The parameter value that you specified overwrites the original value. If the specified path does not exist, SAE automatically creates the path.
      *
      * @example /usr/data/user.data
      *
@@ -36,10 +36,10 @@ class ossMountDescs extends Model
     public $mountPath;
 
     /**
-     * @description Indicates whether the application can use the container directory to read data from or write data to resources in the directory of the OSS bucket. Valid values:
+     * @description Indicates whether the application can use the container path to read data from or write data to resources in the directory of the OSS bucket. Valid values:
      *
-     *   **true**: The application has read-only permissions.
-     *   **false**: The application has read and write permissions.
+     *   **true**: The application has the read-only permissions.
+     *   **false**: The application has the read and write permissions.
      *
      * @example true
      *

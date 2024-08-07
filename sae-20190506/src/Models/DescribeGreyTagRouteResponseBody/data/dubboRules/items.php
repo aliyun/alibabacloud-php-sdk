@@ -20,12 +20,13 @@ class items extends Model
     /**
      * @description The expression that is used to obtain the value of the parameter. Valid values:
      *
-     * - **Empty**: obtains the value of the parameter.
-     * - **.name**: obtains the name property of the parameter. This expression works the same way as args0.getName().
-     * - **.isEnabled()**: obtains the enabled property of the parameter. This expression works the same way as args0.isEnabled().
-     * - **[0]**: indicates that the value of the parameter is an array and obtains the first value of the array. This expression works the same way as args0[0]. This expression does not start with a period (.).
-     * - **.get(0)**: indicates that the value of the parameter is a list and obtains the first value of the list. This expression works the same way as args0.get(0).
-     * - **.get("key")**: indicates that the value of the parameter is a map and obtains the value of the key in the map. This expression works the same way as args0.get("key").
+     *   **Empty**: obtains the value of the parameter.
+     *   **.name**: obtains the name property of the parameter. This expression works the same way as args0.getName().
+     *   **.isEnabled()**: obtains the enabled property of the parameter. This expression works the same way as args0.isEnabled().
+     *   **[0]**: indicates that the value of the parameter is an array and obtains the first value of the array. This expression works the same way as args0[0]. This expression does not start with a period (.).
+     *   **.get(0)**: indicates that the value of the parameter is a list and obtains the first value of the list. This expression works the same way as args0.get(0).
+     *   **.get("key")**: indicates that the value of the parameter is a map and obtains the value of the key in the map. This expression works the same way as args0.get("key").
+     *
      * @example .name
      *
      * @var string
@@ -53,10 +54,11 @@ class items extends Model
     /**
      * @description The operator. Valid values:
      *
-     * - **rawvalue**: direct comparison.
-     * - **list**: whitelist.
-     * - **mod**: mods 100.
-     * - **deterministic_proportional_steaming_division**: percentage.
+     *   **rawvalue**: direct comparison.
+     *   **list**: whitelist.
+     *   **mod**: mods 100.
+     *   **deterministic_proportional_steaming_division**: percentage.
+     *
      * @example rawvalue
      *
      * @var string

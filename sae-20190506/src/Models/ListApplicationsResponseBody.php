@@ -28,7 +28,7 @@ class ListApplicationsResponseBody extends Model
     public $currentPage;
 
     /**
-     * @description The number of the returned page.
+     * @description The queried applications.
      *
      * @var data
      */

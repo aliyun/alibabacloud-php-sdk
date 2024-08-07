@@ -56,6 +56,10 @@ class data extends Model
     public $appName;
 
     /**
+     * @description The SAE application type.
+     *
+     * @example micro_service
+     *
      * @var string
      */
     public $appSource;
@@ -365,6 +369,8 @@ class data extends Model
     public $mseApplicationId;
 
     /**
+     * @example cn-shenzhen-alb-demo-5c****
+     *
      * @var string
      */
     public $mseApplicationName;
@@ -465,6 +471,8 @@ class data extends Model
     public $packageVersion;
 
     /**
+     * @example PHP-FPM 7.0
+     *
      * @var string
      */
     public $php;

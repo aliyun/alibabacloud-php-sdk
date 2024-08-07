@@ -9,7 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeNamespaceListRequest extends Model
 {
     /**
-     * @description true
+     * @description Specifies whether to return custom namespaces. Valid values:
+     *
+     *   **true**: The system returns custom namespaces.
+     *   **false**: The system does not return custom namespaces.
      *
      * @example true
      *
@@ -18,8 +21,10 @@ class DescribeNamespaceListRequest extends Model
     public $containCustom;
 
     /**
-     * @description true
+     * @description Specifies whether to exclude hybrid cloud namespaces from the result. Valid values:
      *
+     * - **true**: The system excludes hybrid cloud namespaces from the result.
+     * - **false**: The system does not exclude hybrid cloud namespaces from the result.
      * @example true
      *
      * @var bool

@@ -14,6 +14,8 @@ class rules extends Model
     public $name;
 
     /**
+     * @example 2000010******
+     *
      * @var float
      */
     public $ruleDescId;

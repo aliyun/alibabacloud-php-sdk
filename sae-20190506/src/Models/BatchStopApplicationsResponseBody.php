@@ -10,11 +10,12 @@ use AlibabaCloud\Tea\Model;
 class BatchStopApplicationsResponseBody extends Model
 {
     /**
-     * @description Indicates whether the specified applications are stopped. Valid values:
+     * @description The HTTP status code. Take note of the following rules:
      *
-     *   **true**
-     *   **false**
-     *
+     * - **2xx**: The call was successful.
+     * - **3xx**: The call was redirected.
+     * - **4xx**: The call failed.
+     * - **5xx**: A server error occurred.
      * @example 200
      *
      * @var string
@@ -29,12 +30,10 @@ class BatchStopApplicationsResponseBody extends Model
     public $data;
 
     /**
-     * @description The HTTP status code. Valid values:
+     * @description The error code returned if the request failed. Take note of the following rules:
      *
-     *   **2xx**: indicates that the request was successful.
-     *   **3xx**: indicates that the request was redirected.
-     *   **4xx**: indicates that the request was invalid.
-     *   **5xx**: indicates that a server error occurred.
+     * - If the call fails, the ErrorCode parameter is returned. For more information, see the "Error codes" section of this topic.
+     * @example Null
      *
      * @var string
      */
@@ -62,6 +61,10 @@ class BatchStopApplicationsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the application is created. Valid values
+     *
+     * - **true**
+     * - **false**
      * @example true
      *
      * @var bool

@@ -74,6 +74,11 @@ class Application extends Model
     public $customHealthCheckConfig;
 
     /**
+     * @var CustomHostAlias
+     */
+    public $customHostAlias;
+
+    /**
      * @var CustomRuntimeConfig
      */
     public $customRuntimeConfig;
@@ -276,6 +281,7 @@ class Application extends Model
         'customDNS'               => 'customDNS',
         'customDomainName'        => 'customDomainName',
         'customHealthCheckConfig' => 'customHealthCheckConfig',
+        'customHostAlias'         => 'customHostAlias',
         'customRuntimeConfig'     => 'customRuntimeConfig',
         'description'             => 'description',
         'diskSize'                => 'diskSize',
@@ -361,6 +367,9 @@ class Application extends Model
         }
         if (null !== $this->customHealthCheckConfig) {
             $res['customHealthCheckConfig'] = null !== $this->customHealthCheckConfig ? $this->customHealthCheckConfig->toMap() : null;
+        }
+        if (null !== $this->customHostAlias) {
+            $res['customHostAlias'] = null !== $this->customHostAlias ? $this->customHostAlias->toMap() : null;
         }
         if (null !== $this->customRuntimeConfig) {
             $res['customRuntimeConfig'] = null !== $this->customRuntimeConfig ? $this->customRuntimeConfig->toMap() : null;
@@ -526,6 +535,9 @@ class Application extends Model
         }
         if (isset($map['customHealthCheckConfig'])) {
             $model->customHealthCheckConfig = CustomHealthCheckConfig::fromMap($map['customHealthCheckConfig']);
+        }
+        if (isset($map['customHostAlias'])) {
+            $model->customHostAlias = CustomHostAlias::fromMap($map['customHostAlias']);
         }
         if (isset($map['customRuntimeConfig'])) {
             $model->customRuntimeConfig = CustomRuntimeConfig::fromMap($map['customRuntimeConfig']);

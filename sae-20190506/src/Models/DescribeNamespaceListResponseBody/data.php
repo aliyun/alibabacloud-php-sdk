@@ -39,7 +39,7 @@ class data extends Model
     public $custom;
 
     /**
-     * @description Specifies whether hybrid cloud namespaces are excluded. Valid values:
+     * @description Indicates whether hybrid cloud namespaces are excluded. Valid values:
      *
      *   **true**: Hybrid cloud namespaces are excluded.
      *   **false**: Hybrid cloud namespaces are included.
@@ -51,6 +51,8 @@ class data extends Model
     public $hybridCloudEnable;
 
     /**
+     * @description The short ID of the namespace.
+     *
      * @example test
      *
      * @var string

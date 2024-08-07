@@ -27,6 +27,11 @@ class data extends Model
     public $internetIp;
 
     /**
+     * @var string
+     */
+    public $internetSlbChargeType;
+
+    /**
      * @var bool
      */
     public $internetSlbExpired;
@@ -60,6 +65,11 @@ class data extends Model
     public $intranetIp;
 
     /**
+     * @var string
+     */
+    public $intranetSlbChargeType;
+
+    /**
      * @var bool
      */
     public $intranetSlbExpired;
@@ -73,14 +83,16 @@ class data extends Model
      */
     public $intranetSlbId;
     protected $_name = [
-        'internet'           => 'Internet',
-        'internetIp'         => 'InternetIp',
-        'internetSlbExpired' => 'InternetSlbExpired',
-        'internetSlbId'      => 'InternetSlbId',
-        'intranet'           => 'Intranet',
-        'intranetIp'         => 'IntranetIp',
-        'intranetSlbExpired' => 'IntranetSlbExpired',
-        'intranetSlbId'      => 'IntranetSlbId',
+        'internet'              => 'Internet',
+        'internetIp'            => 'InternetIp',
+        'internetSlbChargeType' => 'InternetSlbChargeType',
+        'internetSlbExpired'    => 'InternetSlbExpired',
+        'internetSlbId'         => 'InternetSlbId',
+        'intranet'              => 'Intranet',
+        'intranetIp'            => 'IntranetIp',
+        'intranetSlbChargeType' => 'IntranetSlbChargeType',
+        'intranetSlbExpired'    => 'IntranetSlbExpired',
+        'intranetSlbId'         => 'IntranetSlbId',
     ];
 
     public function validate()
@@ -102,6 +114,9 @@ class data extends Model
         if (null !== $this->internetIp) {
             $res['InternetIp'] = $this->internetIp;
         }
+        if (null !== $this->internetSlbChargeType) {
+            $res['InternetSlbChargeType'] = $this->internetSlbChargeType;
+        }
         if (null !== $this->internetSlbExpired) {
             $res['InternetSlbExpired'] = $this->internetSlbExpired;
         }
@@ -119,6 +134,9 @@ class data extends Model
         }
         if (null !== $this->intranetIp) {
             $res['IntranetIp'] = $this->intranetIp;
+        }
+        if (null !== $this->intranetSlbChargeType) {
+            $res['IntranetSlbChargeType'] = $this->intranetSlbChargeType;
         }
         if (null !== $this->intranetSlbExpired) {
             $res['IntranetSlbExpired'] = $this->intranetSlbExpired;
@@ -150,6 +168,9 @@ class data extends Model
         if (isset($map['InternetIp'])) {
             $model->internetIp = $map['InternetIp'];
         }
+        if (isset($map['InternetSlbChargeType'])) {
+            $model->internetSlbChargeType = $map['InternetSlbChargeType'];
+        }
         if (isset($map['InternetSlbExpired'])) {
             $model->internetSlbExpired = $map['InternetSlbExpired'];
         }
@@ -167,6 +188,9 @@ class data extends Model
         }
         if (isset($map['IntranetIp'])) {
             $model->intranetIp = $map['IntranetIp'];
+        }
+        if (isset($map['IntranetSlbChargeType'])) {
+            $model->intranetSlbChargeType = $map['IntranetSlbChargeType'];
         }
         if (isset($map['IntranetSlbExpired'])) {
             $model->intranetSlbExpired = $map['IntranetSlbExpired'];

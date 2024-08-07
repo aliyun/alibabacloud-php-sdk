@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class bagUsage extends Model
 {
     /**
+     * @example 497570.450009
+     *
      * @var float
      */
     public $cpu;
 
     /**
+     * @example 989802.563546
+     *
      * @var float
      */
     public $mem;

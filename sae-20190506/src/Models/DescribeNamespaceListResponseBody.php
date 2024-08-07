@@ -24,24 +24,26 @@ class DescribeNamespaceListResponseBody extends Model
     public $code;
 
     /**
-     * @description The list of namespaces.
+     * @description The namespaces.
      *
      * @var data[]
      */
     public $data;
 
     /**
-     * @description The returned error code. Valid values:
+     * @description The error code. Valid values:
      *
      *   If the call is successful, the **ErrorCode** parameter is not returned.
-     *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section of this topic.
+     *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
+     *
+     * @example NULL
      *
      * @var string
      */
     public $errorCode;
 
     /**
-     * @description The returned information. Valid values:
+     * @description The returned message. Valid values:
      *
      *   success: If the call is successful, **success** is returned.
      *   An error code: If the call fails, an error code is returned.
@@ -53,7 +55,7 @@ class DescribeNamespaceListResponseBody extends Model
     public $message;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 30375C38-F4ED-4135-A0AE-5C75DC7F****
      *
@@ -62,10 +64,10 @@ class DescribeNamespaceListResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the namespaces were obtained. Valid values:
+     * @description Indicates whether the list of namespaces was queried. Valid values:
      *
-     *   **true**: The namespaces were obtained.
-     *   **false**: The namespaces failed to be obtained.
+     *   **true**: The list was queried.
+     *   **false**: The list failed to be queried.
      *
      * @example true
      *

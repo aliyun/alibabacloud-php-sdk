@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @description Valid value: ==.
+     *
      * @example ==
      *
      * @var string
@@ -16,6 +18,8 @@ class items extends Model
     public $cond;
 
     /**
+     * @description This parameter is not returned for applications that are associated with ALB instances.
+     *
      * @example N/A
      *
      * @var string
@@ -23,6 +27,8 @@ class items extends Model
     public $expr;
 
     /**
+     * @description This parameter is not returned for applications that are associated with Application Load Balancer (ALB) instances.
+     *
      * @example N/A
      *
      * @var int
@@ -30,6 +36,8 @@ class items extends Model
     public $index;
 
     /**
+     * @description The name of the parameter.
+     *
      * @example example
      *
      * @var string
@@ -37,6 +45,8 @@ class items extends Model
     public $name;
 
     /**
+     * @description The operator. Valid value: **rawvalue**. This value indicates direct comparison.
+     *
      * @example rawvalue
      *
      * @var string
@@ -44,6 +54,12 @@ class items extends Model
     public $operator;
 
     /**
+     * @description The type of the comparison. Valid values:
+     *
+     *   **sourceIp**: SourceIp
+     *   **cookie**: cookie
+     *   **header**: header
+     *
      * @example cookie
      *
      * @var string
@@ -51,6 +67,8 @@ class items extends Model
     public $type;
 
     /**
+     * @description The value of the parameter. This value is compared with the value that is obtained based on the type and name parameters.
+     *
      * @example test
      *
      * @var string

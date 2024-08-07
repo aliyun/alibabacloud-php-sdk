@@ -28,6 +28,10 @@ class BatchStopApplicationsRequest extends Model
     public $namespaceId;
 
     /**
+     * @description The application version.
+     *
+     * @example 1.0
+     *
      * @var string
      */
     public $version;

@@ -23,7 +23,7 @@ class data extends Model
     public $logo;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID.
      *
      * @example cn-beijing
      *
@@ -41,7 +41,7 @@ class data extends Model
     public $repoName;
 
     /**
-     * @description The name of the namespace to which the repository belongs.
+     * @description The name of the namespace to which the image repository belongs.
      *
      * @example demo
      *

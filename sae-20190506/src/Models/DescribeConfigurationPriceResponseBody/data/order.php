@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class order extends Model
 {
     /**
+     * @example 0.0018518
+     *
      * @var float
      */
     public $discountAmount;
 
     /**
+     * @example 0.0092592
+     *
      * @var float
      */
     public $originalAmount;
@@ -24,6 +28,8 @@ class order extends Model
     public $ruleIds;
 
     /**
+     * @example 0.0074074
+     *
      * @var float
      */
     public $tradeAmount;

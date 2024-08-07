@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeConfigurationPriceResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
@@ -25,21 +27,29 @@ class DescribeConfigurationPriceResponseBody extends Model
     public $errorCode;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example ADCEC067-86AD-19E2-BD43-E83F3841****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example 1a0dcc771722848598056771******
+     *
      * @var string
      */
     public $traceId;

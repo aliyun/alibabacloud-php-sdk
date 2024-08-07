@@ -14,7 +14,7 @@ class CreateNamespaceRequest extends Model
     public $enableMicroRegistration;
 
     /**
-     * @description The returned message.
+     * @description The trace ID that is used to query the details of the request.
      *
      * @example test
      *
@@ -23,7 +23,7 @@ class CreateNamespaceRequest extends Model
     public $nameSpaceShortId;
 
     /**
-     * @description The name of the namespace.
+     * @description The message returned for the operation.
      *
      * @example desc
      *
@@ -32,12 +32,7 @@ class CreateNamespaceRequest extends Model
     public $namespaceDescription;
 
     /**
-     * @description The HTTP status code. Valid values:
-     *
-     *   **2xx**: indicates that the request was successful.
-     *   **3xx**: indicates that the request was redirected.
-     *   **4xx**: indicates that the request was invalid.
-     *   **5xx**: indicates that a server error occurred.
+     * @description The data returned.
      *
      * @example cn-beijing:test
      *
@@ -46,7 +41,7 @@ class CreateNamespaceRequest extends Model
     public $namespaceId;
 
     /**
-     * @description cn-beijing:test
+     * @description The ID of the request.
      *
      * This parameter is required.
      * @example name

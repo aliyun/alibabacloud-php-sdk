@@ -11,6 +11,8 @@ class DescribeConfigurationPriceRequest extends Model
     /**
      * @description This parameter is required.
      *
+     * @example 2000
+     *
      * @var int
      */
     public $cpu;
@@ -18,11 +20,15 @@ class DescribeConfigurationPriceRequest extends Model
     /**
      * @description This parameter is required.
      *
+     * @example 4096
+     *
      * @var int
      */
     public $memory;
 
     /**
+     * @example Web
+     *
      * @var string
      */
     public $workload;
