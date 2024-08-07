@@ -3381,8 +3381,11 @@ class Config extends OpenApiClient
     public function getAggregateConfigRuleSummaryByRiskLevelWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->aggregatorId)) {
+            $query['AggregatorId'] = $request->aggregatorId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3390,7 +3393,7 @@ class Config extends OpenApiClient
             'version'     => '2020-09-07',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',
@@ -4384,7 +4387,7 @@ class Config extends OpenApiClient
             'version'     => '2020-09-07',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',
