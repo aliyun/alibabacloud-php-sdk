@@ -103,16 +103,24 @@ use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListWorkspaceRoleUsersReques
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListWorkspaceRoleUsersResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ModifyApiDatasourceParametersRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ModifyApiDatasourceParametersResponse;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ModifyCopilotEmbedConfigRequest;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ModifyCopilotEmbedConfigResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryApprovalInfoRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryApprovalInfoResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryAuditLogRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryAuditLogResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryComponentPerformanceRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryComponentPerformanceResponse;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryCopilotEmbedConfigRequest;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryCopilotEmbedConfigResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryCubeOptimizationRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryCubeOptimizationResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryCubePerformanceRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryCubePerformanceResponse;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryDataRangeRequest;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryDataRangeResponse;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryDataRequest;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryDataResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryDataServiceListRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryDataServiceListResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryDataServiceRequest;
@@ -2799,6 +2807,62 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
+     * @summary 修改智能问数嵌入配置
+     *  *
+     * @param ModifyCopilotEmbedConfigRequest $request ModifyCopilotEmbedConfigRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyCopilotEmbedConfigResponse ModifyCopilotEmbedConfigResponse
+     */
+    public function modifyCopilotEmbedConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentName)) {
+            $query['AgentName'] = $request->agentName;
+        }
+        if (!Utils::isUnset($request->copilotId)) {
+            $query['CopilotId'] = $request->copilotId;
+        }
+        if (!Utils::isUnset($request->dataRange)) {
+            $query['DataRange'] = $request->dataRange;
+        }
+        if (!Utils::isUnset($request->moduleName)) {
+            $query['ModuleName'] = $request->moduleName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyCopilotEmbedConfig',
+            'version'     => '2022-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyCopilotEmbedConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 修改智能问数嵌入配置
+     *  *
+     * @param ModifyCopilotEmbedConfigRequest $request ModifyCopilotEmbedConfigRequest
+     *
+     * @return ModifyCopilotEmbedConfigResponse ModifyCopilotEmbedConfigResponse
+     */
+    public function modifyCopilotEmbedConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyCopilotEmbedConfigWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 根据审批人获取相应的审批流信息
      *  *
      * @param QueryApprovalInfoRequest $request QueryApprovalInfoRequest
@@ -2985,6 +3049,53 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
+     * @summary 获取开通小Q嵌入的配置列表
+     *  *
+     * @param QueryCopilotEmbedConfigRequest $request QueryCopilotEmbedConfigRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return QueryCopilotEmbedConfigResponse QueryCopilotEmbedConfigResponse
+     */
+    public function queryCopilotEmbedConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->keyword)) {
+            $query['Keyword'] = $request->keyword;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryCopilotEmbedConfig',
+            'version'     => '2022-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryCopilotEmbedConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取开通小Q嵌入的配置列表
+     *  *
+     * @param QueryCopilotEmbedConfigRequest $request QueryCopilotEmbedConfigRequest
+     *
+     * @return QueryCopilotEmbedConfigResponse QueryCopilotEmbedConfigResponse
+     */
+    public function queryCopilotEmbedConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryCopilotEmbedConfigWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 查询数据集优化建议
      *  *
      * @param QueryCubeOptimizationRequest $request QueryCubeOptimizationRequest
@@ -3091,6 +3202,112 @@ class Quickbipublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryCubePerformanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 调用开放数据服务API
+     *  *
+     * @param QueryDataRequest $request QueryDataRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return QueryDataResponse QueryDataResponse
+     */
+    public function queryDataWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->apiId)) {
+            $query['ApiId'] = $request->apiId;
+        }
+        if (!Utils::isUnset($request->conditions)) {
+            $query['Conditions'] = $request->conditions;
+        }
+        if (!Utils::isUnset($request->returnFields)) {
+            $query['ReturnFields'] = $request->returnFields;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryData',
+            'version'     => '2022-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 调用开放数据服务API
+     *  *
+     * @param QueryDataRequest $request QueryDataRequest
+     *
+     * @return QueryDataResponse QueryDataResponse
+     */
+    public function queryData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryDataWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取数据范围目录列表
+     *  *
+     * @param QueryDataRangeRequest $request QueryDataRangeRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return QueryDataRangeResponse QueryDataRangeResponse
+     */
+    public function queryDataRangeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->keyword)) {
+            $query['Keyword'] = $request->keyword;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryDataRange',
+            'version'     => '2022-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryDataRangeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取数据范围目录列表
+     *  *
+     * @param QueryDataRangeRequest $request QueryDataRangeRequest
+     *
+     * @return QueryDataRangeResponse QueryDataRangeResponse
+     */
+    public function queryDataRange($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryDataRangeWithOptions($request, $runtime);
     }
 
     /**
