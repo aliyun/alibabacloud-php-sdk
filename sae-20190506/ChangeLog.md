@@ -4,6 +4,12 @@
 - Update API DescribeApplicationSlbs: update response param.
 
 
+2024-08-07 Version: 1.22.2
+- Update API BindSlb: add param InternetSlbChargeType.
+- Update API BindSlb: add param IntranetSlbChargeType.
+- Update API DescribeApplicationSlbs: update response param.
+
+
 2024-07-19 Version: 1.22.1
 - Generated php 2019-05-06 for sae.
 
