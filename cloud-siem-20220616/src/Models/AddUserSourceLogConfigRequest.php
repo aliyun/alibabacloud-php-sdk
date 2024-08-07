@@ -11,7 +11,7 @@ class AddUserSourceLogConfigRequest extends Model
     /**
      * @description Specifies whether to add logs or delete added logs. Valid values:
      *
-     *   \-1: deletes added logs.
+     *   \\-1: deletes added logs.
      *   0: adds logs.
      *
      * @example 0
@@ -53,6 +53,7 @@ class AddUserSourceLogConfigRequest extends Model
     /**
      * @description The details of the Logstore that you want to use in the JSON string format.
      *
+     * This parameter is required.
      * @example {"project":"wafnew-project-1335759343513432-cn-hangzhou","logStore":"wafnew-logstore","regionCode":"cn-hangzhou","prodCode":"waf"}
      *
      * @var string
@@ -71,6 +72,7 @@ class AddUserSourceLogConfigRequest extends Model
     /**
      * @description The ID of the Alibaba Cloud account.
      *
+     * This parameter is required.
      * @example 123XXXXXX
      *
      * @var int

@@ -11,6 +11,7 @@ class GetHistogramsRequest extends Model
     /**
      * @description The start time of the subinterval. The value is a UNIX timestamp representing the number of seconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC. The time range that is specified in this operation is a left-closed, right-open interval. The interval includes the start time specified by the from parameter, but does not include the end time specified by the to parameter. If you specify the same value for the from and to parameters, the interval is invalid, and an error message is returned.
      *
+     * This parameter is required.
      * @example 1409529600
      *
      * @var int
@@ -18,7 +19,7 @@ class GetHistogramsRequest extends Model
     public $from;
 
     /**
-     * @description The SQL statement. Only search statements are supported. Analytic statements are not supported. For more information about the syntax and limits of search statements, see [Log search overview](~~29060~~).
+     * @description The SQL statement. Only search statements are supported. Analytic statements are not supported. For more information about the syntax and limits of search statements, see [Log search overview](https://help.aliyun.com/document_detail/29060.html).
      *
      * @example * and status: 401
      *
@@ -41,6 +42,7 @@ class GetHistogramsRequest extends Model
     /**
      * @description The end time of the subinterval. The value is a UNIX timestamp representing the number of seconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC. The time range that is specified in this operation is a left-closed, right-open interval. The interval includes the start time specified by the from parameter, but does not include the end time specified by the to parameter. If you specify the same value for the from and to parameters, the interval is invalid, and an error message is returned.
      *
+     * This parameter is required.
      * @example 1409569200
      *
      * @var int

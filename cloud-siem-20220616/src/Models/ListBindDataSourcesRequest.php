@@ -11,6 +11,7 @@ class ListBindDataSourcesRequest extends Model
     /**
      * @description The ID of the cloud account.
      *
+     * This parameter is required.
      * @example 123xxxxxxx
      *
      * @var string
@@ -26,6 +27,7 @@ class ListBindDataSourcesRequest extends Model
      *   hcloud
      *   aliyun
      *
+     * This parameter is required.
      * @example hcloud
      *
      * @var string

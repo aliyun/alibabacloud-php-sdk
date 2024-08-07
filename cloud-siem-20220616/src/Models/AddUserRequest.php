@@ -11,6 +11,7 @@ class AddUserRequest extends Model
     /**
      * @description The ID of the cloud account.
      *
+     * This parameter is required.
      * @example 123XXXXXXXX
      *
      * @var int

@@ -163,7 +163,7 @@ class data extends Model
     public $assetName;
 
     /**
-     * @description The tag of the ATT\&CK attack.
+     * @description The tag of the ATT\\&CK attack.
      *
      * @example T1595.002 Vulnerability Scanning
      *

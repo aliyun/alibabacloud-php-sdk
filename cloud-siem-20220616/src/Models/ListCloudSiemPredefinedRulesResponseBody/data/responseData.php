@@ -18,11 +18,21 @@ class responseData extends Model
     public $alertType;
 
     /**
+     * @description The alert additional field for ATT\\&CK.
+     *
+     * @example T1595.002 Vulnerability Scanning
+     *
      * @var string
      */
     public $attCk;
 
     /**
+     * @description The method that is used to generate an event. Valid values:
+     *
+     *   default: built-in method.
+     *   singleToSingle: The system generates an event for each alert.
+     *   allToSingle: The system generates an event for alerts within a period of time.
+     *
      * @example allToSingle
      *
      * @var string
@@ -75,6 +85,8 @@ class responseData extends Model
     public $ruleName;
 
     /**
+     * @description The rule name in Chinese.
+     *
      * @example siem_base64-command-exec_aegis-proc
      *
      * @var string
@@ -82,6 +94,8 @@ class responseData extends Model
     public $ruleNameCn;
 
     /**
+     * @description The rule name in English.
+     *
      * @example siem_base64-command-exec_aegis-proc
      *
      * @var string
@@ -119,11 +133,11 @@ class responseData extends Model
     public $status;
 
     /**
-     * @description The threat level. Valid values:
+     * @description The risk level. Valid values:
      *
-     *   serious: high
-     *   suspicious: medium
-     *   remind: low
+     *   serious: high.
+     *   suspicious: medium.
+     *   remind: low.
      *
      * @example remind
      *

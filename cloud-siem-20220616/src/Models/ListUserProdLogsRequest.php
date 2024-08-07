@@ -21,11 +21,20 @@ class ListUserProdLogsRequest extends Model
     public $regionId;
 
     /**
+     * @description 管理员切换成其他成员视角的用户ID。
+     *
+     * @example 113091674488****
+     *
      * @var int
      */
     public $roleFor;
 
     /**
+     * @description 视图类型。
+     *
+     * - 1：企业下所有账号的视图。
+     * @example 1
+     *
      * @var int
      */
     public $roleType;
@@ -33,6 +42,7 @@ class ListUserProdLogsRequest extends Model
     /**
      * @description The log code.
      *
+     * This parameter is required.
      * @example cloud_siem_aegis_proc
      *
      * @var string
@@ -42,6 +52,7 @@ class ListUserProdLogsRequest extends Model
     /**
      * @description The code of the cloud service.
      *
+     * This parameter is required.
      * @example sas
      *
      * @var string

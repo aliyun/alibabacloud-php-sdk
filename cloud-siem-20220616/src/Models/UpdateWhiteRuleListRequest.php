@@ -11,6 +11,7 @@ class UpdateWhiteRuleListRequest extends Model
     /**
      * @description The alert whitelist rule. The value is a JSON object.
      *
+     * This parameter is required.
      * @example [
      * ]
      * @var string
@@ -51,6 +52,7 @@ class UpdateWhiteRuleListRequest extends Model
     /**
      * @description The unique ID of the whitelist rule.
      *
+     * This parameter is required.
      * @example 123456789
      *
      * @var int

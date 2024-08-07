@@ -11,6 +11,7 @@ class DoQuickFieldRequest extends Model
     /**
      * @description The time when the quick analysis starts. This value is a UNIX timestamp representing the number of seconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
+     * This parameter is required.
      * @example 1684376244
      *
      * @var int
@@ -20,6 +21,7 @@ class DoQuickFieldRequest extends Model
     /**
      * @description The index field.
      *
+     * This parameter is required.
      * @example alert_level
      *
      * @var string
@@ -68,6 +70,7 @@ class DoQuickFieldRequest extends Model
     /**
      * @description The time when the quick analysis ends. This value is a UNIX timestamp representing the number of seconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
+     * This parameter is required.
      * @example 1684378090
      *
      * @var int

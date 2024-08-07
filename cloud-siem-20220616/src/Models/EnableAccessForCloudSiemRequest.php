@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class EnableAccessForCloudSiemRequest extends Model
 {
     /**
+     * @description Whether import the log of SAS alert, the log of WAF alert, the log of CFW alert or not. Valid values:
+     * - 1: imported automatically
+     * @example 1
+     *
      * @var int
      */
     public $autoSubmit;
@@ -26,11 +30,19 @@ class EnableAccessForCloudSiemRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the account that you switch from the management account.
+     *
+     * @example 113091674488****
+     *
      * @var int
      */
     public $roleFor;
 
     /**
+     * @description The type of the view. Valid values:
+     * - 1: the global account
+     * @example 1
+     *
      * @var int
      */
     public $roleType;

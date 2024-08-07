@@ -42,11 +42,19 @@ class PostRuleStatusChangeRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the account that you switch from the management account.
+     *
+     * @example 113091674488****
+     *
      * @var int
      */
     public $roleFor;
 
     /**
+     * @description The type of the view. Valid values:
+     * - 1: the global account
+     * @example 1
+     *
      * @var int
      */
     public $roleType;

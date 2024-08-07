@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class responseData extends Model
 {
     /**
-     * @description The configuration of the action that is performed after the rule is hit. The value is in JSON format.
+     * @description The configuration of the action that is performed after the automated response rule is hit. The value is in the JSON format.
      *
      * @example [
      * ]
@@ -20,9 +20,9 @@ class responseData extends Model
     /**
      * @description The type of the handling action. Multiple types are separated by commas (,). Valid values:
      *
-     *   doPlaybook: runs a playbook.
-     *   changeEventStatus: changes the status of an event.
-     *   changeThreatLevel: changes the risk level of an event.
+     *   **doPlaybook**: runs the playbook.
+     *   **changeEventStatus**: changes the event status.
+     *   **changeThreatLevel**: changes the risk level of the event.
      *
      * @example doPlaybook,changeEventStatus
      *
@@ -42,8 +42,8 @@ class responseData extends Model
     /**
      * @description The type of the automated response rule. Valid values:
      *
-     *   event
-     *   alert
+     *   **event**
+     *   **alert**
      *
      * @example event
      *
@@ -52,12 +52,17 @@ class responseData extends Model
     public $autoResponseType;
 
     /**
+     * @description The type of the view. Valid values:
+     *
+     * 1: the global account
+     * @example 1
+     *
      * @var int
      */
     public $dataType;
 
     /**
-     * @description The trigger condition of the rule. The value is in the JSON format.
+     * @description The trigger condition of the automated response rule. The value is in the JSON format.
      *
      * @example [{"left":{"value":"alert_name"},"operator":"containsString","right":{"value":"webshell_online"}}]
      *
@@ -104,8 +109,8 @@ class responseData extends Model
     /**
      * @description The status of the rule. Valid values:
      *
-     *   0: disabled
-     *   100: enabled
+     *   **0**: disabled.
+     *   **100**: enabled.
      *
      * @example 0
      *

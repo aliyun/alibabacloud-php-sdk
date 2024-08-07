@@ -23,6 +23,7 @@ class ListProjectLogStoresRequest extends Model
     /**
      * @description The log code.
      *
+     * This parameter is required.
      * @example cloud_siem_aegis_proc
      *
      * @var string
@@ -32,6 +33,7 @@ class ListProjectLogStoresRequest extends Model
     /**
      * @description The code of the cloud service.
      *
+     * This parameter is required.
      * @example sas
      *
      * @var string
@@ -41,6 +43,7 @@ class ListProjectLogStoresRequest extends Model
     /**
      * @description The ID of the Alibaba Cloud account.
      *
+     * This parameter is required.
      * @example 123XXXXXXXX
      *
      * @var int

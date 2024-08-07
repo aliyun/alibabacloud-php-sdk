@@ -11,6 +11,7 @@ class DoSelfDelegateRequest extends Model
     /**
      * @description The Alibaba Cloud account of an ordinary member of the threat analysis feature.
      *
+     * This parameter is required.
      * @example 104423523217****
      *
      * @var int
@@ -23,6 +24,7 @@ class DoSelfDelegateRequest extends Model
      *   1: use a delegated administrator account.
      *   0: do not use a delegated administrator account.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int

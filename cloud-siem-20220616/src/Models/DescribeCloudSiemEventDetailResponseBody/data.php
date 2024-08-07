@@ -36,7 +36,7 @@ class data extends Model
     public $assetNum;
 
     /**
-     * @description The tags of the ATT\&CK attacks.
+     * @description The tags of the ATT\\&CK attacks.
      *
      * @example ["T1595.002 Vulnerability Scanning"]
      *
@@ -126,6 +126,8 @@ class data extends Model
     public $incidentUuid;
 
     /**
+     * @description Users associated with the event.
+     *
      * @var string
      */
     public $referAccount;

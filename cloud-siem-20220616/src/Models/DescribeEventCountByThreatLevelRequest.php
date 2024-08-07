@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeEventCountByThreatLevelRequest extends Model
 {
     /**
+     * @description The end of the time range to query. Unit: milliseconds.
+     *
      * @example 1577808000000
      *
      * @var int
@@ -28,16 +30,29 @@ class DescribeEventCountByThreatLevelRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the member in the resource directory.
+     *
+     * @example 113091674488****
+     *
      * @var int
      */
     public $roleFor;
 
     /**
+     * @description The type of the view.
+     *
+     *   0: view of the current Alibaba Cloud account.
+     *   1: view of all accounts for the enterprise.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $roleType;
 
     /**
+     * @description The beginning of the time range to query. Unit: milliseconds.
+     *
      * @example 1577808000000
      *
      * @var int

@@ -44,6 +44,7 @@ class CloseDeliveryRequest extends Model
      *   oss
      *   polardb
      *
+     * This parameter is required.
      * @example sas
      *
      * @var string
@@ -53,8 +54,8 @@ class CloseDeliveryRequest extends Model
     /**
      * @description The region in which the data management center of the threat analysis feature resides. Specify this parameter based on the region where your assets reside. Valid values:
      *
-     *   cn-hangzhou: Your assets reside in regions inside the Chinese mainland or in the China (Hong Kong) region.
-     *   ap-southeast-1: Your assets reside in regions outside the Chinese mainland, excluding the China (Hong Kong) region.
+     *   cn-hangzhou: Your assets reside in regions in China.
+     *   ap-southeast-1: Your assets reside in regions outside China.
      *
      * @example cn-hangzhou
      *
@@ -63,11 +64,19 @@ class CloseDeliveryRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the account that you switch from the management account.
+     *
+     * @example 113091674488****
+     *
      * @var int
      */
     public $roleFor;
 
     /**
+     * @description The type of the view. Valid values:
+     * - 1: the global account
+     * @example 1
+     *
      * @var int
      */
     public $roleType;

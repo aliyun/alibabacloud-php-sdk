@@ -57,9 +57,9 @@ class responseData extends Model
     /**
      * @description The risk level. Valid values:
      *
-     *   serious: high
-     *   suspicious: medium
-     *   remind: low
+     *   serious: high.
+     *   suspicious: medium.
+     *   remind: low.
      *
      * @example remind
      *
@@ -182,7 +182,7 @@ class responseData extends Model
     public $assetList;
 
     /**
-     * @description The tag of the ATT\&CK attack.
+     * @description The tag of the ATT\\&CK technique.
      *
      * @example T1595.002 Vulnerability Scanning
      *
@@ -191,11 +191,11 @@ class responseData extends Model
     public $attCk;
 
     /**
-     * @description The cloud code. Valid values:
+     * @description The code of the cloud service provider. Valid values:
      *
-     *   aliyun: Alibaba Cloud
-     *   qcloud: Tencent Cloud
-     *   hcloud: Huawei Cloud
+     *   aliyun: Alibaba Cloud.
+     *   qcloud: Tencent Cloud.
+     *   hcloud: Huawei Cloud.
      *
      * @example aliyun
      *
@@ -213,6 +213,10 @@ class responseData extends Model
     public $endTime;
 
     /**
+     * @description The details of the entity.
+     *
+     * @example [{&quot;entity_user_id&quot;:&quot;198921674491****&quot;,&quot;entity_account_id&quot;:&quot;N/A&quot;,&quot;entity_uuid&quot;:&quot;6245f979d5dd9ef8dd19bdc72228****&quot;,&quot;entity_type&quot;:&quot;host&quot;,&quot;entity_name&quot;:&quot;zhh-test-20240409&quot;,&quot;is_comprised&quot;:&quot;1&quot;,&quot;os_type&quot;:&quot;linux&quot;,&quot;entity_id&quot;:&quot;a88f44dd-b8d4-4ded-831c-77a4835****&quot;,&quot;host_uuid&quot;:&quot;a88f44dd-b8d4-4ded-831c-77a4835****&quot;,&quot;host_name&quot;:&quot;zhh-test-2024****&quot;}]
+     *
      * @var string
      */
     public $entityList;
@@ -254,10 +258,10 @@ class responseData extends Model
     public $incidentUuid;
 
     /**
-     * @description Indicates whether an attack is defended. Valid values:
+     * @description Indicates whether an attack is defended against. Valid values:
      *
-     *   0: detected
-     *   1: blocked
+     *   0: detected.
+     *   1: blocked.
      *
      * @example 1
      *

@@ -19,14 +19,14 @@ class data extends Model
     public $configId;
 
     /**
-     * @description The list of failed task.
+     * @description The list of failed tasks. The value contains the Alibaba Cloud account and service code of each failed task.
      *
      * @var errTaskList[]
      */
     public $errTaskList;
 
     /**
-     * @description The number of failed tasks.
+     * @description The total number of tasks that fail.
      *
      * @example 8
      *
@@ -35,7 +35,7 @@ class data extends Model
     public $failedCount;
 
     /**
-     * @description The number of scan tasks that are complete.
+     * @description The total number of tasks that are complete.
      *
      * @example 52
      *
@@ -44,7 +44,7 @@ class data extends Model
     public $finishCount;
 
     /**
-     * @description The ID of the folder.
+     * @description The ID of the resource directory folder.
      *
      * @example fd-xxxxx
      *
@@ -53,7 +53,7 @@ class data extends Model
     public $folderId;
 
     /**
-     * @description The number of existing tasks that are created to add logs within the data source.
+     * @description The total number of collection tasks that are created.
      *
      * @example 60
      *
@@ -62,8 +62,17 @@ class data extends Model
     public $taskCount;
 
     /**
-     * @description The status of submitted task.
+     * @description The status of the submitted task.
      *
+     * Valid values:
+     *
+     *   submit
+     *
+     * <!-- -->
+     *
+     *   finish
+     *
+     * <!-- -->
      * @example finish
      *
      * @var string

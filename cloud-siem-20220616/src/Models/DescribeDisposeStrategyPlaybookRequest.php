@@ -11,6 +11,7 @@ class DescribeDisposeStrategyPlaybookRequest extends Model
     /**
      * @description The end of the time range to query. Unit: milliseconds.
      *
+     * This parameter is required.
      * @example 1577808000000
      *
      * @var int
@@ -30,11 +31,19 @@ class DescribeDisposeStrategyPlaybookRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the account that you switch from the management account.
+     *
+     * @example 113091674488****
+     *
      * @var int
      */
     public $roleFor;
 
     /**
+     * @description The type of the view. Valid values:
+     * - 1: the global account
+     * @example 1
+     *
      * @var int
      */
     public $roleType;
@@ -42,6 +51,7 @@ class DescribeDisposeStrategyPlaybookRequest extends Model
     /**
      * @description The beginning of the time range to query. Unit: milliseconds.
      *
+     * This parameter is required.
      * @example 1577808000000
      *
      * @var int

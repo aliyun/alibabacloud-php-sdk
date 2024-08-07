@@ -11,6 +11,7 @@ class BindAccountRequest extends Model
     /**
      * @description The AccessKey ID of the cloud account.
      *
+     * This parameter is required.
      * @example ABCXXXXXXXX
      *
      * @var string
@@ -20,6 +21,7 @@ class BindAccountRequest extends Model
     /**
      * @description The ID of the cloud account.
      *
+     * This parameter is required.
      * @example 123xxxxxxx
      *
      * @var string
@@ -29,6 +31,7 @@ class BindAccountRequest extends Model
     /**
      * @description The username of the cloud account.
      *
+     * This parameter is required.
      * @example xxxx
      *
      * @var string
@@ -36,13 +39,13 @@ class BindAccountRequest extends Model
     public $accountName;
 
     /**
-     * @description The code of the cloud service provider.
+     * @description The code of the cloud service provider. Valid values:
      *
-     * Valid values:
+     *   aliyun: Alibaba Cloud
+     *   hcloud: Huawei Cloud
+     *   qcloud: Tencent Cloud
      *
-     *   qcloud
-     *   hcloud
-     *
+     * This parameter is required.
      * @example hcloud
      *
      * @var string
@@ -60,12 +63,24 @@ class BindAccountRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var int
+     */
+    public $roleFor;
+
+    /**
+     * @var int
+     */
+    public $roleType;
     protected $_name = [
         'accessId'    => 'AccessId',
         'accountId'   => 'AccountId',
         'accountName' => 'AccountName',
         'cloudCode'   => 'CloudCode',
         'regionId'    => 'RegionId',
+        'roleFor'     => 'RoleFor',
+        'roleType'    => 'RoleType',
     ];
 
     public function validate()
@@ -89,6 +104,12 @@ class BindAccountRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->roleFor) {
+            $res['RoleFor'] = $this->roleFor;
+        }
+        if (null !== $this->roleType) {
+            $res['RoleType'] = $this->roleType;
         }
 
         return $res;
@@ -116,6 +137,12 @@ class BindAccountRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['RoleFor'])) {
+            $model->roleFor = $map['RoleFor'];
+        }
+        if (isset($map['RoleType'])) {
+            $model->roleType = $map['RoleType'];
         }
 
         return $model;

@@ -41,12 +41,12 @@ class conditions extends Model
     /**
      * @description The logical operator of the rule condition. Valid values:
      *
-     *   `=`: equals to
-     *   `<>`: does not equal to
-     *   `in`: contains
-     *   `not in`: does not contain
-     *   `REGEXP`: matches a regular expression
-     *   `NOT REGEXP`: does not match a regular expression
+     *   `=`: equals to.
+     *   `<>`: does not equal to.
+     *   `in`: contains.
+     *   `not in`: does not contain.
+     *   `REGEXP`: matches a regular expression.
+     *   `NOT REGEXP`: does not match a regular expression.
      *
      * @example REGEXP
      *

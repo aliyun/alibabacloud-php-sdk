@@ -36,7 +36,7 @@ class responseData extends Model
     public $assetNum;
 
     /**
-     * @description The tags of the ATT\&CK attack.
+     * @description The tags of the ATT\\&CK techniques.
      *
      * @example ["T1595.002 Vulnerability Scanning"]
      *
@@ -126,6 +126,10 @@ class responseData extends Model
     public $incidentUuid;
 
     /**
+     * @description the refer account info.
+     *
+     * @example 127608589417****
+     *
      * @var string
      */
     public $referAccount;
@@ -142,10 +146,10 @@ class responseData extends Model
     /**
      * @description The status of the event. Valid values:
      *
-     *   0: unhandled
-     *   1: handling
-     *   5: handling failed
-     *   10: handled
+     *   0: unhandled.
+     *   1: handling.
+     *   5: handling failed.
+     *   10: handled.
      *
      * @example 0
      *
@@ -156,9 +160,9 @@ class responseData extends Model
     /**
      * @description The risk level. Valid values:
      *
-     *   serious: high
-     *   suspicious: medium
-     *   remind: low
+     *   serious: high.
+     *   suspicious: medium.
+     *   remind: low.
      *
      * @example remind
      *

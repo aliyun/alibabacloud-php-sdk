@@ -11,6 +11,7 @@ class SaveQuickQueryRequest extends Model
     /**
      * @description The name of the saved search.
      *
+     * This parameter is required.
      * @example no_1_created_search_used_for_dispaly_ip
      *
      * @var string
@@ -20,6 +21,7 @@ class SaveQuickQueryRequest extends Model
     /**
      * @description The query statement.
      *
+     * This parameter is required.
      * @example * and dst_ip : "121.43.234.***"
      *
      * @var string

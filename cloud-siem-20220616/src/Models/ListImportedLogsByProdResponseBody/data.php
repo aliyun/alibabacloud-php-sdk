@@ -11,8 +11,8 @@ class data extends Model
     /**
      * @description Indicates whether the log is automatically added to the threat analysis feature within newly added accounts. Valid values:
      *
-     *   1: yes
-     *   0: no
+     *   1: yes.
+     *   0: no.
      *
      * @example 2023-11-23 12:30:00
      *
@@ -23,9 +23,9 @@ class data extends Model
     /**
      * @description The code of the cloud service provider. Valid values:
      *
-     *   qcloud: Tencent Cloud
-     *   aliyun: Alibaba Cloud
-     *   hcloud: Huawei Cloud
+     *   qcloud: Tencent Cloud.
+     *   aliyun: Alibaba Cloud.
+     *   hcloud: Huawei Cloud.
      *
      * @example hcloud
      *
@@ -36,8 +36,8 @@ class data extends Model
     /**
      * @description Indicates whether the log is added to the threat analysis feature. Valid values:
      *
-     *   1: yes
-     *   0: no
+     *   1: yes.
+     *   0: no.
      *
      * @example 2023-11-23 12:30:00
      *
@@ -55,7 +55,7 @@ class data extends Model
     public $importedUserCount;
 
     /**
-     * @description The log code.
+     * @description The code of the log.
      *
      * @example cloud_siem_waf_xxxxx
      *
@@ -64,7 +64,7 @@ class data extends Model
     public $logCode;
 
     /**
-     * @description The display log code.
+     * @description The display code of the log.
      *
      * @example ${siem.prod. cloud_siem_waf_xxxxx}
      *
@@ -73,7 +73,9 @@ class data extends Model
     public $logMdsCode;
 
     /**
-     * @example 2023-11-23 12:30:00
+     * @description The type of log. Valid values:
+     * - 3: the custom log
+     * @example 1
      *
      * @var int
      */

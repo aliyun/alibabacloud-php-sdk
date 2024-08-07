@@ -18,9 +18,9 @@ class DescribeAlertSourceWithEventRequest extends Model
     public $incidentUuid;
 
     /**
-     * @description The region in which the data management center of the threat analysis feature resides. Specify this parameter based on the regions in which your assets reside. Valid values:
+     * @description The region in which the data management center of the threat analysis feature resides. Specify this parameter based on the region where your assets reside. Valid values:
      *
-     *   cn-hangzhou: Your assets reside in regions in China.
+     *   Valid values: Your assets reside in regions in China.
      *   ap-southeast-1: Your assets reside in regions outside China.
      *
      * @example cn-hangzhou
@@ -30,11 +30,19 @@ class DescribeAlertSourceWithEventRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the account that you switch from the management account.
+     *
+     * @example 113091674488****
+     *
      * @var int
      */
     public $roleFor;
 
     /**
+     * @description The type of the view. Valid values:
+     * - 1: the global account
+     * @example 1
+     *
      * @var int
      */
     public $roleType;

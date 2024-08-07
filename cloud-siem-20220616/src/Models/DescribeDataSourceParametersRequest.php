@@ -17,6 +17,7 @@ class DescribeDataSourceParametersRequest extends Model
      *   hcloud
      *   aliyun
      *
+     * This parameter is required.
      * @example hcloud
      *
      * @var string
@@ -30,6 +31,7 @@ class DescribeDataSourceParametersRequest extends Model
      *   **obs**: Huawei Cloud Object Storage Service (OBS)
      *   **wafApi**: download API of Tencent Cloud Web Application Firewall (WAF)
      *
+     * This parameter is required.
      * @example obs
      *
      * @var string

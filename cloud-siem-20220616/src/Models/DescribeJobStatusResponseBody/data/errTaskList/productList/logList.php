@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class logList extends Model
 {
     /**
-     * @description The error code.
+     * @description The reason for the failure.
      *
      * @example ProjectLogStoreNotFound
      *
@@ -18,7 +18,7 @@ class logList extends Model
     public $errorCode;
 
     /**
-     * @description The log code.
+     * @description The code of the logs.
      *
      * @example cloud_siem_aegis_proc
      *
@@ -27,7 +27,7 @@ class logList extends Model
     public $logCode;
 
     /**
-     * @description The pattern of SLS logstore name.
+     * @description The pattern for the name of the Simple Log Service Logstore from which logs are collected.
      *
      * @example vpc_project_test
      *
@@ -36,7 +36,7 @@ class logList extends Model
     public $logStoreNamePattern;
 
     /**
-     * @description The code of product.
+     * @description The code of the service.
      *
      * @example sas
      *
@@ -45,7 +45,7 @@ class logList extends Model
     public $productCode;
 
     /**
-     * @description The pattern of SLS project name.
+     * @description The pattern for the name of the Simple Log Service project from which logs are collected.
      *
      * @example vpc-project-test
      *
@@ -54,7 +54,7 @@ class logList extends Model
     public $projectNamePattern;
 
     /**
-     * @description The ID of the region in which the instance resides.
+     * @description The ID of the region.
      *
      * @example cn-shanghai
      *

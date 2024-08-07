@@ -26,6 +26,7 @@ class AddDataSourceRequest extends Model
      *   hcloud
      *   aliyun
      *
+     * This parameter is required.
      * @example hcloud
      *
      * @var string

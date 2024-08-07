@@ -9,10 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeStorageRequest extends Model
 {
     /**
-     * @description The region in which the data management center of the threat analysis feature resides. Specify this parameter based on the region where your assets reside. Valid values:
+     * @description The region in which the data management center of the threat analysis feature resides. Specify this parameter based on the regions in which your assets reside. Valid values:
      *
-     *   cn-hangzhou: Your assets reside in regions inside the Chinese mainland or in the China (Hong Kong) region.
-     *   ap-southeast-1: Your assets reside in regions outside the Chinese mainland, excluding the China (Hong Kong) region.
+     *   cn-hangzhou: Your assets reside in regions in China.
+     *   ap-southeast-1: Your assets reside in regions outside China.
      *
      * @example cn-hangzhou
      *
@@ -21,11 +21,19 @@ class DescribeStorageRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the account that you switch from the management account.
+     *
+     * @example 137820528780****
+     *
      * @var int
      */
     public $roleFor;
 
     /**
+     * @description The type of the view. Valid values:
+     * - 1: the global account
+     * @example 1
+     *
      * @var int
      */
     public $roleType;

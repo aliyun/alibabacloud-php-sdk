@@ -24,6 +24,7 @@ class ModifyDataSourceLogRequest extends Model
      *   aliyun: Alibaba Cloud
      *   hcloud: Huawei Cloud
      *
+     * This parameter is required.
      * @example hcloud
      *
      * @var string
@@ -31,8 +32,9 @@ class ModifyDataSourceLogRequest extends Model
     public $cloudCode;
 
     /**
-     * @description The ID of the data source. The ID is an MD5 hash value that is calculated by the threat analysis feature based on specific parameters. You can call the [DescribeDataSourceInstance](https://api.aliyun-inc.com/#/publishment/document/cloud-siem/863fdf54478f4cc5877e27c2a5fe9e44?tenantUuid=f382fccd88b94c5c8c864def6815b854\&activeTabKey=api%7CDescribeDataSourceInstance) operation to query the IDs of data sources.
+     * @description The ID of the data source. The ID is an MD5 hash value that is calculated by the threat analysis feature based on specific parameters. You can call the [DescribeDataSourceInstance](https://api.aliyun-inc.com/#/publishment/document/cloud-siem/863fdf54478f4cc5877e27c2a5fe9e44?tenantUuid=f382fccd88b94c5c8c864def6815b854\\&activeTabKey=api%7CDescribeDataSourceInstance) operation to query the IDs of data sources.
      *
+     * This parameter is required.
      * @example ef33097c9d1fdb0b9c7e8c7ca320pkl1
      *
      * @var string
@@ -42,7 +44,8 @@ class ModifyDataSourceLogRequest extends Model
     /**
      * @description The parameters of the data source. Set this parameter to a JSON string.
      *
-     * @example [{"LogCode":"cloud_siem_qcloud_waf_alert_log","LogParas":"[{\"ParaCode\":\"api_name\",\"ParaValue\":\"GetAttackDownloadRecords\"}]"}]
+     * This parameter is required.
+     * @example [{"LogCode":"cloud_siem_qcloud_waf_alert_log","LogParas":"[{\\"ParaCode\\":\\"api_name\\",\\"ParaValue\\":\\"GetAttackDownloadRecords\\"}]"}]
      *
      * @var string
      */
@@ -71,8 +74,9 @@ class ModifyDataSourceLogRequest extends Model
     public $logCode;
 
     /**
-     * @description The ID of the log. The ID is an MD5 hash value that is calculated by the threat analysis feature based on specific parameters. You can call the [ListDataSourceLogs](https://api.aliyun-inc.com/#/publishment/document/cloud-siem/863fdf54478f4cc5877e27c2a5fe9e44?tenantUuid=f382fccd88b94c5c8c864def6815b854\&activeTabKey=api%7CListDataSourceLogs) to query log IDs.
+     * @description The ID of the log. The ID is an MD5 hash value that is calculated by the threat analysis feature based on specific parameters. You can call the [ListDataSourceLogs](https://api.aliyun-inc.com/#/publishment/document/cloud-siem/863fdf54478f4cc5877e27c2a5fe9e44?tenantUuid=f382fccd88b94c5c8c864def6815b854\\&activeTabKey=api%7CListDataSourceLogs) to query log IDs.
      *
+     * This parameter is required.
      * @example ef33097c9d1fdb0b9c7e8c7ca320pkl1
      *
      * @var string

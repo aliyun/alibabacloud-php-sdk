@@ -11,6 +11,7 @@ class DeleteWhiteRuleListRequest extends Model
     /**
      * @description The unique ID of the whitelist rule.
      *
+     * This parameter is required.
      * @example 123456789
      *
      * @var int
@@ -30,11 +31,19 @@ class DeleteWhiteRuleListRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the account that you switch from the management account.
+     *
+     * @example 113091674488****
+     *
      * @var int
      */
     public $roleFor;
 
     /**
+     * @description The type of the view. Valid values:
+     * - 1: the global account
+     * @example 1
+     *
      * @var int
      */
     public $roleType;

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class responseData extends Model
 {
     /**
-     * @description The threat type.
+     * @description The type of the risk.
      *
      * @example WEBSHELL
      *
@@ -18,7 +18,7 @@ class responseData extends Model
     public $alertType;
 
     /**
-     * @description The internal code of the threat type.
+     * @description The internal code of the risk type.
      *
      * @example ${siem_rule_type_process_abnormal_command}
      *
@@ -36,11 +36,20 @@ class responseData extends Model
     public $aliuid;
 
     /**
+     * @description The alert additional field for ATT\\&CK.
+     *
+     * @example T1595.002 Vulnerability Scanning
+     *
      * @var string
      */
     public $attCk;
 
     /**
+     * @description The type of the view. Valid values:
+     *
+     * 0: view of the current Alibaba Cloud account. 1: view of all accounts for the enterprise.
+     * @example 1
+     *
      * @var int
      */
     public $dataType;
@@ -69,7 +78,7 @@ class responseData extends Model
     /**
      * @description The method that is used to generate an event. Valid values:
      *
-     *   **default**: The default method is used.
+     *   **default**: built-in method.
      *   **singleToSingle**: The system generates an event for each alert.
      *   **allToSingle**: The system generates an event for alerts within a period of time.
      *
@@ -224,7 +233,7 @@ class responseData extends Model
     public $status;
 
     /**
-     * @description The threat level. Valid values:
+     * @description The risk level. Valid values:
      *
      *   **serious**: high-risk.
      *   **suspicious**: medium-risk.

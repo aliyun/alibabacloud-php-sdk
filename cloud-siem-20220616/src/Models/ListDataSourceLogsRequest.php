@@ -11,6 +11,7 @@ class ListDataSourceLogsRequest extends Model
     /**
      * @description The ID of the cloud account.
      *
+     * This parameter is required.
      * @example 123xxxxxx
      *
      * @var string
@@ -24,6 +25,7 @@ class ListDataSourceLogsRequest extends Model
      *   aliyun: Alibaba Cloud
      *   hcloud: Huawei Cloud
      *
+     * This parameter is required.
      * @example hcloud
      *
      * @var string
@@ -33,6 +35,7 @@ class ListDataSourceLogsRequest extends Model
     /**
      * @description The ID of the data source. The value is obtained after the threat analysis feature calculates the MD5 hash value of a parameter.
      *
+     * This parameter is required.
      * @example 220ba97c9d1fdb0b9c7e8c7ca328d7ea
      *
      * @var string

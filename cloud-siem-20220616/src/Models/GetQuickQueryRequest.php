@@ -23,6 +23,7 @@ class GetQuickQueryRequest extends Model
     /**
      * @description The name of the saved search.
      *
+     * This parameter is required.
      * @example display_login_ip_search
      *
      * @var string

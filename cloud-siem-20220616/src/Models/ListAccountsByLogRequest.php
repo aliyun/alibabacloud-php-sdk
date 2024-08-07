@@ -11,12 +11,7 @@ class ListAccountsByLogRequest extends Model
     /**
      * @description The code that is used for multi-cloud environments.
      *
-     * Valid values:
-     *
-     *   qcloud
-     *   hcloud
-     *   aliyun
-     *
+     * This parameter is required.
      * @example hcloud
      *
      * @var string
@@ -26,6 +21,7 @@ class ListAccountsByLogRequest extends Model
     /**
      * @description The codes of logs. The value is a JSON array.
      *
+     * This parameter is required.
      * @example ["cloud_siem_hcloud_waf_alert_log"]
      *
      * @var string[]
@@ -35,6 +31,7 @@ class ListAccountsByLogRequest extends Model
     /**
      * @description The code of the service.
      *
+     * This parameter is required.
      * @example qcloud_waf
      *
      * @var string
@@ -54,11 +51,19 @@ class ListAccountsByLogRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the account that you switch from the management account.
+     *
+     * @example 113091674488****
+     *
      * @var int
      */
     public $roleFor;
 
     /**
+     * @description The type of the view. Valid values:
+     * - 1: the global account
+     * @example 1
+     *
      * @var int
      */
     public $roleType;

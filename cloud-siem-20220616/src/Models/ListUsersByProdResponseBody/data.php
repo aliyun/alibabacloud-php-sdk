@@ -11,9 +11,9 @@ class data extends Model
     /**
      * @description The code of the cloud service provider. Valid values:
      *
-     *   qcloud: Tencent Cloud
-     *   aliyun: Alibaba Cloud
-     *   hcloud: Huawei Cloud
+     *   qcloud: Tencent Cloud.
+     *   aliyun: Alibaba Cloud.
+     *   hcloud: Huawei Cloud.
      *
      * @example hcloud
      *
@@ -31,7 +31,7 @@ class data extends Model
     public $imported;
 
     /**
-     * @description The display log code. The value is based on your console settings.
+     * @description The display log code. The value varies based on your console settings.
      *
      * @example ${siem.xxx.xxxxxxxxx}
      *
@@ -76,7 +76,7 @@ class data extends Model
     public $sourceProdCode;
 
     /**
-     * @description The ID of the Alibaba Cloud account that can be used to perform operations supported by the threat analysis feature.
+     * @description The ID of the Alibaba Cloud account for threat analysis.
      *
      * @example 123XXXXXXXX
      *
@@ -85,7 +85,7 @@ class data extends Model
     public $subUserId;
 
     /**
-     * @description The username of the Alibaba Cloud account that can be used to perform operations supported by the threat analysis feature.
+     * @description The display name of the Alibaba Cloud account for threat analysis.
      *
      * @example sas_account_xxx
      *

@@ -20,7 +20,7 @@ class responseData extends Model
     /**
      * @description The alert details in the JSON format.
      *
-     * @example {"main_user_id": "1652956297921019";"log_uuid_count": "99";"attack_ip": "218.92.0.97"}
+     * @example {"main_user_id": "165295629792****";"log_uuid_count": "99";"attack_ip": "218.92.XX.XX"}
      *
      * @var string
      */
@@ -45,7 +45,7 @@ class responseData extends Model
     public $alertSrcProdModule;
 
     /**
-     * @description The tag of the ATT\&CK attack.
+     * @description The tag of the ATT\\&CK attack.
      *
      * @example T1595.002 Vulnerability Scanning
      *

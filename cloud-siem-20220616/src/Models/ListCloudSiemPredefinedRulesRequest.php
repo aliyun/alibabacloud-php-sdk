@@ -18,6 +18,10 @@ class ListCloudSiemPredefinedRulesRequest extends Model
     public $alertType;
 
     /**
+     * @description The ATT\\&CK information.
+     *
+     * @example T1595.002 Vulnerability Scanning
+     *
      * @var string
      */
     public $attCk;
@@ -25,6 +29,7 @@ class ListCloudSiemPredefinedRulesRequest extends Model
     /**
      * @description The page number. Pages start from page 1.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -41,6 +46,12 @@ class ListCloudSiemPredefinedRulesRequest extends Model
     public $endTime;
 
     /**
+     * @description The method that is used to generate an event. Valid values:
+     *
+     *   default: built-in method.
+     *   singleToSingle: The system generates an event for each alert.
+     *   allToSingle: The system generates an event for alerts within a period of time.
+     *
      * @example allToSingle
      *
      * @var string
@@ -57,11 +68,20 @@ class ListCloudSiemPredefinedRulesRequest extends Model
     public $id;
 
     /**
+     * @description The log source.
+     *
+     * @example cloud_siem_aegis_sas_alert
+     *
      * @var string
      */
     public $logSource;
 
     /**
+     * @description The sort method. Valid values:
+     *
+     *   desc: descending order.
+     *   asc: ascending order.
+     *
      * @example desc
      *
      * @var string
@@ -69,6 +89,11 @@ class ListCloudSiemPredefinedRulesRequest extends Model
     public $order;
 
     /**
+     * @description The field that is used to sort the rules. Valid values:
+     *
+     *   GmtModified: The rules are sorted based on the modification time.
+     *   Id (default): The rules are sorted based on the rule ID.
+     *
      * @example Id
      *
      * @var string
@@ -78,6 +103,7 @@ class ListCloudSiemPredefinedRulesRequest extends Model
     /**
      * @description The number of entries per page. Maximum value: 100.
      *
+     * This parameter is required.
      * @example 10
      *
      * @var int
@@ -97,17 +123,28 @@ class ListCloudSiemPredefinedRulesRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the destination account to which you switch the view from the management account.
+     *
+     * @example 113091674488****
+     *
      * @var int
      */
     public $roleFor;
 
     /**
+     * @description The type of the view.
+     *
+     *   0: view of the current Alibaba Cloud account.
+     *   1: view of all accounts for the enterprise.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $roleType;
 
     /**
-     * @description The name of the rule. The name can contain letters, digits, underscores (\_), and periods (.).
+     * @description The name of the rule. The name can contain letters, digits, underscores (_), and periods (.).
      *
      * @example waf_scan
      *

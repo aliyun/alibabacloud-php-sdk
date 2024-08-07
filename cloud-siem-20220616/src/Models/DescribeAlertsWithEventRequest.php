@@ -20,6 +20,7 @@ class DescribeAlertsWithEventRequest extends Model
     /**
      * @description The page number. Pages start from page 1.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -63,6 +64,7 @@ class DescribeAlertsWithEventRequest extends Model
     /**
      * @description The number of entries per page. Maximum value: 100.
      *
+     * This parameter is required.
      * @example 10
      *
      * @var int
@@ -82,11 +84,22 @@ class DescribeAlertsWithEventRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the member in the resource directory.
+     *
+     * @example 113091674488****
+     *
      * @var int
      */
     public $roleFor;
 
     /**
+     * @description The type of the view.
+     *
+     *   0: view of the current Alibaba Cloud account.
+     *   1: view of all accounts for the enterprise.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $roleType;

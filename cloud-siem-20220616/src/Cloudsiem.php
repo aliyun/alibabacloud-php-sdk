@@ -14,8 +14,6 @@ use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\AddUserRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\AddUserResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\AddUserSourceLogConfigRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\AddUserSourceLogConfigResponse;
-use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\BatchJobCheckRequest;
-use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\BatchJobCheckResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\BatchJobSubmitRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\BatchJobSubmitResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\BindAccountRequest;
@@ -32,8 +30,6 @@ use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DeleteDataSourceLogRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DeleteDataSourceLogResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DeleteDataSourceRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DeleteDataSourceResponse;
-use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DeleteQuickQueryRequest;
-use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DeleteQuickQueryResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DeleteUserRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DeleteUserResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DeleteWhiteRuleListRequest;
@@ -80,8 +76,6 @@ use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeCsImportedProdStatusByUs
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeCsImportedProdStatusByUserResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeCustomizeRuleCountRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeCustomizeRuleCountResponse;
-use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeCustomizeRuleRequest;
-use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeCustomizeRuleResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeCustomizeRuleTestHistogramRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeCustomizeRuleTestHistogramResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeCustomizeRuleTestRequest;
@@ -264,10 +258,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param AddDataSourceRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Adds a data source to a cloud account that is added to the threat analysis feature.
+     *  *
+     * @param AddDataSourceRequest $request AddDataSourceRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddDataSourceResponse
+     * @return AddDataSourceResponse AddDataSourceResponse
      */
     public function addDataSourceWithOptions($request, $runtime)
     {
@@ -313,9 +309,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param AddDataSourceRequest $request
+     * @summary Adds a data source to a cloud account that is added to the threat analysis feature.
+     *  *
+     * @param AddDataSourceRequest $request AddDataSourceRequest
      *
-     * @return AddDataSourceResponse
+     * @return AddDataSourceResponse AddDataSourceResponse
      */
     public function addDataSource($request)
     {
@@ -325,10 +323,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param AddDataSourceLogRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Adds logs of a cloud account to the threat analysis feature.
+     *  *
+     * @param AddDataSourceLogRequest $request AddDataSourceLogRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddDataSourceLogResponse
+     * @return AddDataSourceLogResponse AddDataSourceLogResponse
      */
     public function addDataSourceLogWithOptions($request, $runtime)
     {
@@ -371,9 +371,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param AddDataSourceLogRequest $request
+     * @summary Adds logs of a cloud account to the threat analysis feature.
+     *  *
+     * @param AddDataSourceLogRequest $request AddDataSourceLogRequest
      *
-     * @return AddDataSourceLogResponse
+     * @return AddDataSourceLogResponse AddDataSourceLogResponse
      */
     public function addDataSourceLog($request)
     {
@@ -383,10 +385,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param AddUserRequest $request
-     * @param RuntimeOptions $runtime
+     * @summary Adds a cloud account to the threat analysis feature for centralized management. After you add the account, you can use the account to perform operations that are supported by the threat analysis feature. For example, you can add logs of the account to the threat analysis feature.
+     *  *
+     * @param AddUserRequest $request AddUserRequest
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddUserResponse
+     * @return AddUserResponse AddUserResponse
      */
     public function addUserWithOptions($request, $runtime)
     {
@@ -417,9 +421,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param AddUserRequest $request
+     * @summary Adds a cloud account to the threat analysis feature for centralized management. After you add the account, you can use the account to perform operations that are supported by the threat analysis feature. For example, you can add logs of the account to the threat analysis feature.
+     *  *
+     * @param AddUserRequest $request AddUserRequest
      *
-     * @return AddUserResponse
+     * @return AddUserResponse AddUserResponse
      */
     public function addUser($request)
     {
@@ -429,10 +435,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param AddUserSourceLogConfigRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Adds the logs of a cloud service within a cloud account to the threat analysis feature for alert and event anslysis.
+     *  *
+     * @param AddUserSourceLogConfigRequest $request AddUserSourceLogConfigRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddUserSourceLogConfigResponse
+     * @return AddUserSourceLogConfigResponse AddUserSourceLogConfigResponse
      */
     public function addUserSourceLogConfigWithOptions($request, $runtime)
     {
@@ -478,9 +486,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param AddUserSourceLogConfigRequest $request
+     * @summary Adds the logs of a cloud service within a cloud account to the threat analysis feature for alert and event anslysis.
+     *  *
+     * @param AddUserSourceLogConfigRequest $request AddUserSourceLogConfigRequest
      *
-     * @return AddUserSourceLogConfigResponse
+     * @return AddUserSourceLogConfigResponse AddUserSourceLogConfigResponse
      */
     public function addUserSourceLogConfig($request)
     {
@@ -490,56 +500,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param BatchJobCheckRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Configures log collection tasks based on resource directories.
+     *  *
+     * @param BatchJobSubmitRequest $request BatchJobSubmitRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchJobCheckResponse
-     */
-    public function batchJobCheckWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->submitId)) {
-            $body['SubmitId'] = $request->submitId;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'BatchJobCheck',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return BatchJobCheckResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param BatchJobCheckRequest $request
-     *
-     * @return BatchJobCheckResponse
-     */
-    public function batchJobCheck($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->batchJobCheckWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param BatchJobSubmitRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return BatchJobSubmitResponse
+     * @return BatchJobSubmitResponse BatchJobSubmitResponse
      */
     public function batchJobSubmitWithOptions($request, $runtime)
     {
@@ -570,9 +536,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param BatchJobSubmitRequest $request
+     * @summary Configures log collection tasks based on resource directories.
+     *  *
+     * @param BatchJobSubmitRequest $request BatchJobSubmitRequest
      *
-     * @return BatchJobSubmitResponse
+     * @return BatchJobSubmitResponse BatchJobSubmitResponse
      */
     public function batchJobSubmit($request)
     {
@@ -582,10 +550,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param BindAccountRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary Adds a third-party cloud account that is displayed on the Multi-cloud assets tab of the Feature Settings page to the threat analysis feature.
+     *  *
+     * @param BindAccountRequest $request BindAccountRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return BindAccountResponse
+     * @return BindAccountResponse BindAccountResponse
      */
     public function bindAccountWithOptions($request, $runtime)
     {
@@ -606,6 +576,12 @@ class Cloudsiem extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $body['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->roleFor)) {
+            $body['RoleFor'] = $request->roleFor;
+        }
+        if (!Utils::isUnset($request->roleType)) {
+            $body['RoleType'] = $request->roleType;
+        }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
@@ -625,9 +601,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param BindAccountRequest $request
+     * @summary Adds a third-party cloud account that is displayed on the Multi-cloud assets tab of the Feature Settings page to the threat analysis feature.
+     *  *
+     * @param BindAccountRequest $request BindAccountRequest
      *
-     * @return BindAccountResponse
+     * @return BindAccountResponse BindAccountResponse
      */
     public function bindAccount($request)
     {
@@ -637,10 +615,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param CloseDeliveryRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Disables the log delivery feature for a cloud service.
+     *  *
+     * @param CloseDeliveryRequest $request CloseDeliveryRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return CloseDeliveryResponse
+     * @return CloseDeliveryResponse CloseDeliveryResponse
      */
     public function closeDeliveryWithOptions($request, $runtime)
     {
@@ -680,9 +660,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param CloseDeliveryRequest $request
+     * @summary Disables the log delivery feature for a cloud service.
+     *  *
+     * @param CloseDeliveryRequest $request CloseDeliveryRequest
      *
-     * @return CloseDeliveryResponse
+     * @return CloseDeliveryResponse CloseDeliveryResponse
      */
     public function closeDelivery($request)
     {
@@ -692,10 +674,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DeleteAutomateResponseConfigRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Deletes the automated response rule with a specified ID.
+     *  *
+     * @param DeleteAutomateResponseConfigRequest $request DeleteAutomateResponseConfigRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteAutomateResponseConfigResponse
+     * @return DeleteAutomateResponseConfigResponse DeleteAutomateResponseConfigResponse
      */
     public function deleteAutomateResponseConfigWithOptions($request, $runtime)
     {
@@ -732,9 +716,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DeleteAutomateResponseConfigRequest $request
+     * @summary Deletes the automated response rule with a specified ID.
+     *  *
+     * @param DeleteAutomateResponseConfigRequest $request DeleteAutomateResponseConfigRequest
      *
-     * @return DeleteAutomateResponseConfigResponse
+     * @return DeleteAutomateResponseConfigResponse DeleteAutomateResponseConfigResponse
      */
     public function deleteAutomateResponseConfig($request)
     {
@@ -744,10 +730,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DeleteBindAccountRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Removes a third-party cloud account that is added to the threat analysis feature by using its AccessKey ID. You can add another cloud account based on your business requirements.
+     *  *
+     * @param DeleteBindAccountRequest $request DeleteBindAccountRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteBindAccountResponse
+     * @return DeleteBindAccountResponse DeleteBindAccountResponse
      */
     public function deleteBindAccountWithOptions($request, $runtime)
     {
@@ -768,6 +756,12 @@ class Cloudsiem extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $body['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->roleFor)) {
+            $body['RoleFor'] = $request->roleFor;
+        }
+        if (!Utils::isUnset($request->roleType)) {
+            $body['RoleType'] = $request->roleType;
+        }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
@@ -787,9 +781,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DeleteBindAccountRequest $request
+     * @summary Removes a third-party cloud account that is added to the threat analysis feature by using its AccessKey ID. You can add another cloud account based on your business requirements.
+     *  *
+     * @param DeleteBindAccountRequest $request DeleteBindAccountRequest
      *
-     * @return DeleteBindAccountResponse
+     * @return DeleteBindAccountResponse DeleteBindAccountResponse
      */
     public function deleteBindAccount($request)
     {
@@ -799,10 +795,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DeleteCustomizeRuleRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Deletes a rule by rule ID.
+     *  *
+     * @param DeleteCustomizeRuleRequest $request DeleteCustomizeRuleRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteCustomizeRuleResponse
+     * @return DeleteCustomizeRuleResponse DeleteCustomizeRuleResponse
      */
     public function deleteCustomizeRuleWithOptions($request, $runtime)
     {
@@ -839,9 +837,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DeleteCustomizeRuleRequest $request
+     * @summary Deletes a rule by rule ID.
+     *  *
+     * @param DeleteCustomizeRuleRequest $request DeleteCustomizeRuleRequest
      *
-     * @return DeleteCustomizeRuleResponse
+     * @return DeleteCustomizeRuleResponse DeleteCustomizeRuleResponse
      */
     public function deleteCustomizeRule($request)
     {
@@ -851,10 +851,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DeleteDataSourceRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Removes a data source that is no longer required.
+     *  *
+     * @param DeleteDataSourceRequest $request DeleteDataSourceRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteDataSourceResponse
+     * @return DeleteDataSourceResponse DeleteDataSourceResponse
      */
     public function deleteDataSourceWithOptions($request, $runtime)
     {
@@ -891,9 +893,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DeleteDataSourceRequest $request
+     * @summary Removes a data source that is no longer required.
+     *  *
+     * @param DeleteDataSourceRequest $request DeleteDataSourceRequest
      *
-     * @return DeleteDataSourceResponse
+     * @return DeleteDataSourceResponse DeleteDataSourceResponse
      */
     public function deleteDataSource($request)
     {
@@ -903,10 +907,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DeleteDataSourceLogRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Removes a log.
+     *  *
+     * @param DeleteDataSourceLogRequest $request DeleteDataSourceLogRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteDataSourceLogResponse
+     * @return DeleteDataSourceLogResponse DeleteDataSourceLogResponse
      */
     public function deleteDataSourceLogWithOptions($request, $runtime)
     {
@@ -946,9 +952,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DeleteDataSourceLogRequest $request
+     * @summary Removes a log.
+     *  *
+     * @param DeleteDataSourceLogRequest $request DeleteDataSourceLogRequest
      *
-     * @return DeleteDataSourceLogResponse
+     * @return DeleteDataSourceLogResponse DeleteDataSourceLogResponse
      */
     public function deleteDataSourceLog($request)
     {
@@ -958,56 +966,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DeleteQuickQueryRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Removes an Alibaba Cloud account that is added to the threat analysis feature for centralized management. You can add the account to the feature again if required.
+     *  *
+     * @param DeleteUserRequest $request DeleteUserRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteQuickQueryResponse
-     */
-    public function deleteQuickQueryWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->searchName)) {
-            $body['SearchName'] = $request->searchName;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteQuickQuery',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DeleteQuickQueryResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DeleteQuickQueryRequest $request
-     *
-     * @return DeleteQuickQueryResponse
-     */
-    public function deleteQuickQuery($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteQuickQueryWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteUserRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return DeleteUserResponse
+     * @return DeleteUserResponse DeleteUserResponse
      */
     public function deleteUserWithOptions($request, $runtime)
     {
@@ -1038,9 +1002,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DeleteUserRequest $request
+     * @summary Removes an Alibaba Cloud account that is added to the threat analysis feature for centralized management. You can add the account to the feature again if required.
+     *  *
+     * @param DeleteUserRequest $request DeleteUserRequest
      *
-     * @return DeleteUserResponse
+     * @return DeleteUserResponse DeleteUserResponse
      */
     public function deleteUser($request)
     {
@@ -1050,10 +1016,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DeleteWhiteRuleListRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Deletes an alert whitelist rule with a specified ID.
+     *  *
+     * @param DeleteWhiteRuleListRequest $request DeleteWhiteRuleListRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteWhiteRuleListResponse
+     * @return DeleteWhiteRuleListResponse DeleteWhiteRuleListResponse
      */
     public function deleteWhiteRuleListWithOptions($request, $runtime)
     {
@@ -1090,9 +1058,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DeleteWhiteRuleListRequest $request
+     * @summary Deletes an alert whitelist rule with a specified ID.
+     *  *
+     * @param DeleteWhiteRuleListRequest $request DeleteWhiteRuleListRequest
      *
-     * @return DeleteWhiteRuleListResponse
+     * @return DeleteWhiteRuleListResponse DeleteWhiteRuleListResponse
      */
     public function deleteWhiteRuleList($request)
     {
@@ -1102,10 +1072,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DescribeAggregateFunctionRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Queries the aggregate functions that are supported for a custom rule.
+     *  *
+     * @param DescribeAggregateFunctionRequest $request DescribeAggregateFunctionRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAggregateFunctionResponse
+     * @return DescribeAggregateFunctionResponse DescribeAggregateFunctionResponse
      */
     public function describeAggregateFunctionWithOptions($request, $runtime)
     {
@@ -1139,9 +1111,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DescribeAggregateFunctionRequest $request
+     * @summary Queries the aggregate functions that are supported for a custom rule.
+     *  *
+     * @param DescribeAggregateFunctionRequest $request DescribeAggregateFunctionRequest
      *
-     * @return DescribeAggregateFunctionResponse
+     * @return DescribeAggregateFunctionResponse DescribeAggregateFunctionResponse
      */
     public function describeAggregateFunction($request)
     {
@@ -1151,10 +1125,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DescribeAlertSceneRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Queries the scenarios in which an alert needs to be added to the whitelist.
+     *  *
+     * @param DescribeAlertSceneRequest $request DescribeAlertSceneRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAlertSceneResponse
+     * @return DescribeAlertSceneResponse DescribeAlertSceneResponse
      */
     public function describeAlertSceneWithOptions($request, $runtime)
     {
@@ -1188,9 +1164,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DescribeAlertSceneRequest $request
+     * @summary Queries the scenarios in which an alert needs to be added to the whitelist.
+     *  *
+     * @param DescribeAlertSceneRequest $request DescribeAlertSceneRequest
      *
-     * @return DescribeAlertSceneResponse
+     * @return DescribeAlertSceneResponse DescribeAlertSceneResponse
      */
     public function describeAlertScene($request)
     {
@@ -1200,10 +1178,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DescribeAlertSceneByEventRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Queries the scenarios and objects that can be added to an alert whitelist rule.
+     *  *
+     * @param DescribeAlertSceneByEventRequest $request DescribeAlertSceneByEventRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAlertSceneByEventResponse
+     * @return DescribeAlertSceneByEventResponse DescribeAlertSceneByEventResponse
      */
     public function describeAlertSceneByEventWithOptions($request, $runtime)
     {
@@ -1240,9 +1220,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DescribeAlertSceneByEventRequest $request
+     * @summary Queries the scenarios and objects that can be added to an alert whitelist rule.
+     *  *
+     * @param DescribeAlertSceneByEventRequest $request DescribeAlertSceneByEventRequest
      *
-     * @return DescribeAlertSceneByEventResponse
+     * @return DescribeAlertSceneByEventResponse DescribeAlertSceneByEventResponse
      */
     public function describeAlertSceneByEvent($request)
     {
@@ -1252,10 +1234,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DescribeAlertSourceRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries alert data sources.
+     *  *
+     * @param DescribeAlertSourceRequest $request DescribeAlertSourceRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAlertSourceResponse
+     * @return DescribeAlertSourceResponse DescribeAlertSourceResponse
      */
     public function describeAlertSourceWithOptions($request, $runtime)
     {
@@ -1298,9 +1282,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DescribeAlertSourceRequest $request
+     * @summary Queries alert data sources.
+     *  *
+     * @param DescribeAlertSourceRequest $request DescribeAlertSourceRequest
      *
-     * @return DescribeAlertSourceResponse
+     * @return DescribeAlertSourceResponse DescribeAlertSourceResponse
      */
     public function describeAlertSource($request)
     {
@@ -1310,10 +1296,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DescribeAlertSourceWithEventRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Queries the data sources of the alert that is associated with an event.
+     *  *
+     * @param DescribeAlertSourceWithEventRequest $request DescribeAlertSourceWithEventRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAlertSourceWithEventResponse
+     * @return DescribeAlertSourceWithEventResponse DescribeAlertSourceWithEventResponse
      */
     public function describeAlertSourceWithEventWithOptions($request, $runtime)
     {
@@ -1350,9 +1338,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DescribeAlertSourceWithEventRequest $request
+     * @summary Queries the data sources of the alert that is associated with an event.
+     *  *
+     * @param DescribeAlertSourceWithEventRequest $request DescribeAlertSourceWithEventRequest
      *
-     * @return DescribeAlertSourceWithEventResponse
+     * @return DescribeAlertSourceWithEventResponse DescribeAlertSourceWithEventResponse
      */
     public function describeAlertSourceWithEvent($request)
     {
@@ -1362,10 +1352,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DescribeAlertTypeRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Queries the threat types that you can select when you create a custom rule.
+     *  *
+     * @param DescribeAlertTypeRequest $request DescribeAlertTypeRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAlertTypeResponse
+     * @return DescribeAlertTypeResponse DescribeAlertTypeResponse
      */
     public function describeAlertTypeWithOptions($request, $runtime)
     {
@@ -1402,9 +1394,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DescribeAlertTypeRequest $request
+     * @summary Queries the threat types that you can select when you create a custom rule.
+     *  *
+     * @param DescribeAlertTypeRequest $request DescribeAlertTypeRequest
      *
-     * @return DescribeAlertTypeResponse
+     * @return DescribeAlertTypeResponse DescribeAlertTypeResponse
      */
     public function describeAlertType($request)
     {
@@ -1414,10 +1408,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DescribeAlertsRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Queries alerts within your account.
+     *  *
+     * @param DescribeAlertsRequest $request DescribeAlertsRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAlertsResponse
+     * @return DescribeAlertsResponse DescribeAlertsResponse
      */
     public function describeAlertsWithOptions($request, $runtime)
     {
@@ -1481,9 +1477,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DescribeAlertsRequest $request
+     * @summary Queries alerts within your account.
+     *  *
+     * @param DescribeAlertsRequest $request DescribeAlertsRequest
      *
-     * @return DescribeAlertsResponse
+     * @return DescribeAlertsResponse DescribeAlertsResponse
      */
     public function describeAlerts($request)
     {
@@ -1493,10 +1491,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DescribeAlertsCountRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries the number of alerts of different severities.
+     *  *
+     * @param DescribeAlertsCountRequest $request DescribeAlertsCountRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAlertsCountResponse
+     * @return DescribeAlertsCountResponse DescribeAlertsCountResponse
      */
     public function describeAlertsCountWithOptions($request, $runtime)
     {
@@ -1536,9 +1536,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DescribeAlertsCountRequest $request
+     * @summary Queries the number of alerts of different severities.
+     *  *
+     * @param DescribeAlertsCountRequest $request DescribeAlertsCountRequest
      *
-     * @return DescribeAlertsCountResponse
+     * @return DescribeAlertsCountResponse DescribeAlertsCountResponse
      */
     public function describeAlertsCount($request)
     {
@@ -1548,10 +1550,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DescribeAlertsWithEntityRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Queries the alerts that are associated with an entity.
+     *  *
+     * @param DescribeAlertsWithEntityRequest $request DescribeAlertsWithEntityRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAlertsWithEntityResponse
+     * @return DescribeAlertsWithEntityResponse DescribeAlertsWithEntityResponse
      */
     public function describeAlertsWithEntityWithOptions($request, $runtime)
     {
@@ -1600,9 +1604,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DescribeAlertsWithEntityRequest $request
+     * @summary Queries the alerts that are associated with an entity.
+     *  *
+     * @param DescribeAlertsWithEntityRequest $request DescribeAlertsWithEntityRequest
      *
-     * @return DescribeAlertsWithEntityResponse
+     * @return DescribeAlertsWithEntityResponse DescribeAlertsWithEntityResponse
      */
     public function describeAlertsWithEntity($request)
     {
@@ -1612,10 +1618,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DescribeAlertsWithEventRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries the alerts that are associated with an event.
+     *  *
+     * @param DescribeAlertsWithEventRequest $request DescribeAlertsWithEventRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAlertsWithEventResponse
+     * @return DescribeAlertsWithEventResponse DescribeAlertsWithEventResponse
      */
     public function describeAlertsWithEventWithOptions($request, $runtime)
     {
@@ -1673,9 +1681,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DescribeAlertsWithEventRequest $request
+     * @summary Queries the alerts that are associated with an event.
+     *  *
+     * @param DescribeAlertsWithEventRequest $request DescribeAlertsWithEventRequest
      *
-     * @return DescribeAlertsWithEventResponse
+     * @return DescribeAlertsWithEventResponse DescribeAlertsWithEventResponse
      */
     public function describeAlertsWithEvent($request)
     {
@@ -1685,10 +1695,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DescribeAttackTimeLineRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Queries the timeline of the alerts that are associated with an event.
+     *  *
+     * @param DescribeAttackTimeLineRequest $request DescribeAttackTimeLineRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAttackTimeLineResponse
+     * @return DescribeAttackTimeLineResponse DescribeAttackTimeLineResponse
      */
     public function describeAttackTimeLineWithOptions($request, $runtime)
     {
@@ -1734,9 +1746,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DescribeAttackTimeLineRequest $request
+     * @summary Queries the timeline of the alerts that are associated with an event.
+     *  *
+     * @param DescribeAttackTimeLineRequest $request DescribeAttackTimeLineRequest
      *
-     * @return DescribeAttackTimeLineResponse
+     * @return DescribeAttackTimeLineResponse DescribeAttackTimeLineResponse
      */
     public function describeAttackTimeLine($request)
     {
@@ -1746,10 +1760,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DescribeAuthRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Checks whether the security information and event management (SIEM) system is granted the required permissions to access other cloud resources within your Alibaba Cloud account and whether the AliyunServiceRoleForSasCloudSiem service-linked role is created.
+     *  *
+     * @param DescribeAuthRequest $request DescribeAuthRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAuthResponse
+     * @return DescribeAuthResponse DescribeAuthResponse
      */
     public function describeAuthWithOptions($request, $runtime)
     {
@@ -1777,9 +1793,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DescribeAuthRequest $request
+     * @summary Checks whether the security information and event management (SIEM) system is granted the required permissions to access other cloud resources within your Alibaba Cloud account and whether the AliyunServiceRoleForSasCloudSiem service-linked role is created.
+     *  *
+     * @param DescribeAuthRequest $request DescribeAuthRequest
      *
-     * @return DescribeAuthResponse
+     * @return DescribeAuthResponse DescribeAuthResponse
      */
     public function describeAuth($request)
     {
@@ -1789,10 +1807,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DescribeAutomateResponseConfigCounterRequest $request
-     * @param RuntimeOptions                               $runtime
+     * @summary Queries the number of automated response rules.
+     *  *
+     * @param DescribeAutomateResponseConfigCounterRequest $request DescribeAutomateResponseConfigCounterRequest
+     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAutomateResponseConfigCounterResponse
+     * @return DescribeAutomateResponseConfigCounterResponse DescribeAutomateResponseConfigCounterResponse
      */
     public function describeAutomateResponseConfigCounterWithOptions($request, $runtime)
     {
@@ -1826,9 +1846,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DescribeAutomateResponseConfigCounterRequest $request
+     * @summary Queries the number of automated response rules.
+     *  *
+     * @param DescribeAutomateResponseConfigCounterRequest $request DescribeAutomateResponseConfigCounterRequest
      *
-     * @return DescribeAutomateResponseConfigCounterResponse
+     * @return DescribeAutomateResponseConfigCounterResponse DescribeAutomateResponseConfigCounterResponse
      */
     public function describeAutomateResponseConfigCounter($request)
     {
@@ -1838,10 +1860,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DescribeAutomateResponseConfigFeatureRequest $request
-     * @param RuntimeOptions                               $runtime
+     * @summary Queries the configurable fields and operators of an automated response rule.
+     *  *
+     * @param DescribeAutomateResponseConfigFeatureRequest $request DescribeAutomateResponseConfigFeatureRequest
+     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAutomateResponseConfigFeatureResponse
+     * @return DescribeAutomateResponseConfigFeatureResponse DescribeAutomateResponseConfigFeatureResponse
      */
     public function describeAutomateResponseConfigFeatureWithOptions($request, $runtime)
     {
@@ -1878,9 +1902,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DescribeAutomateResponseConfigFeatureRequest $request
+     * @summary Queries the configurable fields and operators of an automated response rule.
+     *  *
+     * @param DescribeAutomateResponseConfigFeatureRequest $request DescribeAutomateResponseConfigFeatureRequest
      *
-     * @return DescribeAutomateResponseConfigFeatureResponse
+     * @return DescribeAutomateResponseConfigFeatureResponse DescribeAutomateResponseConfigFeatureResponse
      */
     public function describeAutomateResponseConfigFeature($request)
     {
@@ -1890,10 +1916,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DescribeAutomateResponseConfigPlayBooksRequest $request
-     * @param RuntimeOptions                                 $runtime
+     * @summary Queries user-defined playbooks.
+     *  *
+     * @param DescribeAutomateResponseConfigPlayBooksRequest $request DescribeAutomateResponseConfigPlayBooksRequest
+     * @param RuntimeOptions                                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAutomateResponseConfigPlayBooksResponse
+     * @return DescribeAutomateResponseConfigPlayBooksResponse DescribeAutomateResponseConfigPlayBooksResponse
      */
     public function describeAutomateResponseConfigPlayBooksWithOptions($request, $runtime)
     {
@@ -1933,9 +1961,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DescribeAutomateResponseConfigPlayBooksRequest $request
+     * @summary Queries user-defined playbooks.
+     *  *
+     * @param DescribeAutomateResponseConfigPlayBooksRequest $request DescribeAutomateResponseConfigPlayBooksRequest
      *
-     * @return DescribeAutomateResponseConfigPlayBooksResponse
+     * @return DescribeAutomateResponseConfigPlayBooksResponse DescribeAutomateResponseConfigPlayBooksResponse
      */
     public function describeAutomateResponseConfigPlayBooks($request)
     {
@@ -1945,10 +1975,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DescribeCloudSiemAssetsRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries the assets that are associated with an event.
+     *  *
+     * @param DescribeCloudSiemAssetsRequest $request DescribeCloudSiemAssetsRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeCloudSiemAssetsResponse
+     * @return DescribeCloudSiemAssetsResponse DescribeCloudSiemAssetsResponse
      */
     public function describeCloudSiemAssetsWithOptions($request, $runtime)
     {
@@ -1994,9 +2026,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DescribeCloudSiemAssetsRequest $request
+     * @summary Queries the assets that are associated with an event.
+     *  *
+     * @param DescribeCloudSiemAssetsRequest $request DescribeCloudSiemAssetsRequest
      *
-     * @return DescribeCloudSiemAssetsResponse
+     * @return DescribeCloudSiemAssetsResponse DescribeCloudSiemAssetsResponse
      */
     public function describeCloudSiemAssets($request)
     {
@@ -2006,10 +2040,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DescribeCloudSiemAssetsCounterRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @summary Queries the number of assets that are associated with an event by asset type.
+     *  *
+     * @param DescribeCloudSiemAssetsCounterRequest $request DescribeCloudSiemAssetsCounterRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeCloudSiemAssetsCounterResponse
+     * @return DescribeCloudSiemAssetsCounterResponse DescribeCloudSiemAssetsCounterResponse
      */
     public function describeCloudSiemAssetsCounterWithOptions($request, $runtime)
     {
@@ -2046,9 +2082,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DescribeCloudSiemAssetsCounterRequest $request
+     * @summary Queries the number of assets that are associated with an event by asset type.
+     *  *
+     * @param DescribeCloudSiemAssetsCounterRequest $request DescribeCloudSiemAssetsCounterRequest
      *
-     * @return DescribeCloudSiemAssetsCounterResponse
+     * @return DescribeCloudSiemAssetsCounterResponse DescribeCloudSiemAssetsCounterResponse
      */
     public function describeCloudSiemAssetsCounter($request)
     {
@@ -2058,10 +2096,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DescribeCloudSiemEventDetailRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Queries the details of an event.
+     *  *
+     * @param DescribeCloudSiemEventDetailRequest $request DescribeCloudSiemEventDetailRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeCloudSiemEventDetailResponse
+     * @return DescribeCloudSiemEventDetailResponse DescribeCloudSiemEventDetailResponse
      */
     public function describeCloudSiemEventDetailWithOptions($request, $runtime)
     {
@@ -2098,9 +2138,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DescribeCloudSiemEventDetailRequest $request
+     * @summary Queries the details of an event.
+     *  *
+     * @param DescribeCloudSiemEventDetailRequest $request DescribeCloudSiemEventDetailRequest
      *
-     * @return DescribeCloudSiemEventDetailResponse
+     * @return DescribeCloudSiemEventDetailResponse DescribeCloudSiemEventDetailResponse
      */
     public function describeCloudSiemEventDetail($request)
     {
@@ -2110,10 +2152,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DescribeCloudSiemEventsRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries events in SIEM.
+     *  *
+     * @param DescribeCloudSiemEventsRequest $request DescribeCloudSiemEventsRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeCloudSiemEventsResponse
+     * @return DescribeCloudSiemEventsResponse DescribeCloudSiemEventsResponse
      */
     public function describeCloudSiemEventsWithOptions($request, $runtime)
     {
@@ -2180,9 +2224,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DescribeCloudSiemEventsRequest $request
+     * @summary Queries events in SIEM.
+     *  *
+     * @param DescribeCloudSiemEventsRequest $request DescribeCloudSiemEventsRequest
      *
-     * @return DescribeCloudSiemEventsResponse
+     * @return DescribeCloudSiemEventsResponse DescribeCloudSiemEventsResponse
      */
     public function describeCloudSiemEvents($request)
     {
@@ -2192,10 +2238,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DescribeCsImportedProdStatusByUserRequest $request
-     * @param RuntimeOptions                            $runtime
+     * @summary Checks whether an Alibaba Cloud service is activated for an Alibaba Cloud account.
+     *  *
+     * @param DescribeCsImportedProdStatusByUserRequest $request DescribeCsImportedProdStatusByUserRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeCsImportedProdStatusByUserResponse
+     * @return DescribeCsImportedProdStatusByUserResponse DescribeCsImportedProdStatusByUserResponse
      */
     public function describeCsImportedProdStatusByUserWithOptions($request, $runtime)
     {
@@ -2229,9 +2277,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DescribeCsImportedProdStatusByUserRequest $request
+     * @summary Checks whether an Alibaba Cloud service is activated for an Alibaba Cloud account.
+     *  *
+     * @param DescribeCsImportedProdStatusByUserRequest $request DescribeCsImportedProdStatusByUserRequest
      *
-     * @return DescribeCsImportedProdStatusByUserResponse
+     * @return DescribeCsImportedProdStatusByUserResponse DescribeCsImportedProdStatusByUserResponse
      */
     public function describeCsImportedProdStatusByUser($request)
     {
@@ -2241,56 +2291,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DescribeCustomizeRuleRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Queries the number of custom rules.
+     *  *
+     * @param DescribeCustomizeRuleCountRequest $request DescribeCustomizeRuleCountRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeCustomizeRuleResponse
-     */
-    public function describeCustomizeRuleWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->ruleId)) {
-            $body['RuleId'] = $request->ruleId;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeCustomizeRule',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeCustomizeRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeCustomizeRuleRequest $request
-     *
-     * @return DescribeCustomizeRuleResponse
-     */
-    public function describeCustomizeRule($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeCustomizeRuleWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeCustomizeRuleCountRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return DescribeCustomizeRuleCountResponse
+     * @return DescribeCustomizeRuleCountResponse DescribeCustomizeRuleCountResponse
      */
     public function describeCustomizeRuleCountWithOptions($request, $runtime)
     {
@@ -2324,9 +2330,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DescribeCustomizeRuleCountRequest $request
+     * @summary Queries the number of custom rules.
+     *  *
+     * @param DescribeCustomizeRuleCountRequest $request DescribeCustomizeRuleCountRequest
      *
-     * @return DescribeCustomizeRuleCountResponse
+     * @return DescribeCustomizeRuleCountResponse DescribeCustomizeRuleCountResponse
      */
     public function describeCustomizeRuleCount($request)
     {
@@ -2336,10 +2344,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DescribeCustomizeRuleTestRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Queries the historical simulation data that is used in a simulation test scenario.
+     *  *
+     * @param DescribeCustomizeRuleTestRequest $request DescribeCustomizeRuleTestRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeCustomizeRuleTestResponse
+     * @return DescribeCustomizeRuleTestResponse DescribeCustomizeRuleTestResponse
      */
     public function describeCustomizeRuleTestWithOptions($request, $runtime)
     {
@@ -2376,9 +2386,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DescribeCustomizeRuleTestRequest $request
+     * @summary Queries the historical simulation data that is used in a simulation test scenario.
+     *  *
+     * @param DescribeCustomizeRuleTestRequest $request DescribeCustomizeRuleTestRequest
      *
-     * @return DescribeCustomizeRuleTestResponse
+     * @return DescribeCustomizeRuleTestResponse DescribeCustomizeRuleTestResponse
      */
     public function describeCustomizeRuleTest($request)
     {
@@ -2388,10 +2400,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DescribeCustomizeRuleTestHistogramRequest $request
-     * @param RuntimeOptions                            $runtime
+     * @summary Queries the chart that displays the test results of business data for a custom rule.
+     *  *
+     * @param DescribeCustomizeRuleTestHistogramRequest $request DescribeCustomizeRuleTestHistogramRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeCustomizeRuleTestHistogramResponse
+     * @return DescribeCustomizeRuleTestHistogramResponse DescribeCustomizeRuleTestHistogramResponse
      */
     public function describeCustomizeRuleTestHistogramWithOptions($request, $runtime)
     {
@@ -2428,9 +2442,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DescribeCustomizeRuleTestHistogramRequest $request
+     * @summary Queries the chart that displays the test results of business data for a custom rule.
+     *  *
+     * @param DescribeCustomizeRuleTestHistogramRequest $request DescribeCustomizeRuleTestHistogramRequest
      *
-     * @return DescribeCustomizeRuleTestHistogramResponse
+     * @return DescribeCustomizeRuleTestHistogramResponse DescribeCustomizeRuleTestHistogramResponse
      */
     public function describeCustomizeRuleTestHistogram($request)
     {
@@ -2440,10 +2456,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DescribeDataSourceInstanceRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Queries the details of a data source.
+     *  *
+     * @param DescribeDataSourceInstanceRequest $request DescribeDataSourceInstanceRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDataSourceInstanceResponse
+     * @return DescribeDataSourceInstanceResponse DescribeDataSourceInstanceResponse
      */
     public function describeDataSourceInstanceWithOptions($request, $runtime)
     {
@@ -2480,9 +2498,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DescribeDataSourceInstanceRequest $request
+     * @summary Queries the details of a data source.
+     *  *
+     * @param DescribeDataSourceInstanceRequest $request DescribeDataSourceInstanceRequest
      *
-     * @return DescribeDataSourceInstanceResponse
+     * @return DescribeDataSourceInstanceResponse DescribeDataSourceInstanceResponse
      */
     public function describeDataSourceInstance($request)
     {
@@ -2492,10 +2512,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DescribeDataSourceParametersRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Queries the parameters of a data source.
+     *  *
+     * @param DescribeDataSourceParametersRequest $request DescribeDataSourceParametersRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDataSourceParametersResponse
+     * @return DescribeDataSourceParametersResponse DescribeDataSourceParametersResponse
      */
     public function describeDataSourceParametersWithOptions($request, $runtime)
     {
@@ -2529,9 +2551,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DescribeDataSourceParametersRequest $request
+     * @summary Queries the parameters of a data source.
+     *  *
+     * @param DescribeDataSourceParametersRequest $request DescribeDataSourceParametersRequest
      *
-     * @return DescribeDataSourceParametersResponse
+     * @return DescribeDataSourceParametersResponse DescribeDataSourceParametersResponse
      */
     public function describeDataSourceParameters($request)
     {
@@ -2541,10 +2565,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DescribeDisposeAndPlaybookRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Queries the list of entities and playbooks that need to be handled.
+     *  *
+     * @param DescribeDisposeAndPlaybookRequest $request DescribeDisposeAndPlaybookRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDisposeAndPlaybookResponse
+     * @return DescribeDisposeAndPlaybookResponse DescribeDisposeAndPlaybookResponse
      */
     public function describeDisposeAndPlaybookWithOptions($request, $runtime)
     {
@@ -2590,9 +2616,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DescribeDisposeAndPlaybookRequest $request
+     * @summary Queries the list of entities and playbooks that need to be handled.
+     *  *
+     * @param DescribeDisposeAndPlaybookRequest $request DescribeDisposeAndPlaybookRequest
      *
-     * @return DescribeDisposeAndPlaybookResponse
+     * @return DescribeDisposeAndPlaybookResponse DescribeDisposeAndPlaybookResponse
      */
     public function describeDisposeAndPlaybook($request)
     {
@@ -2602,10 +2630,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DescribeDisposeStrategyPlaybookRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @summary Queries the list of playbooks that are used by a handling policy.
+     *  *
+     * @param DescribeDisposeStrategyPlaybookRequest $request DescribeDisposeStrategyPlaybookRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDisposeStrategyPlaybookResponse
+     * @return DescribeDisposeStrategyPlaybookResponse DescribeDisposeStrategyPlaybookResponse
      */
     public function describeDisposeStrategyPlaybookWithOptions($request, $runtime)
     {
@@ -2645,9 +2675,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DescribeDisposeStrategyPlaybookRequest $request
+     * @summary Queries the list of playbooks that are used by a handling policy.
+     *  *
+     * @param DescribeDisposeStrategyPlaybookRequest $request DescribeDisposeStrategyPlaybookRequest
      *
-     * @return DescribeDisposeStrategyPlaybookResponse
+     * @return DescribeDisposeStrategyPlaybookResponse DescribeDisposeStrategyPlaybookResponse
      */
     public function describeDisposeStrategyPlaybook($request)
     {
@@ -2657,10 +2689,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DescribeEntityInfoRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Queries the details of an entity.
+     *  *
+     * @param DescribeEntityInfoRequest $request DescribeEntityInfoRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeEntityInfoResponse
+     * @return DescribeEntityInfoResponse DescribeEntityInfoResponse
      */
     public function describeEntityInfoWithOptions($request, $runtime)
     {
@@ -2706,9 +2740,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DescribeEntityInfoRequest $request
+     * @summary Queries the details of an entity.
+     *  *
+     * @param DescribeEntityInfoRequest $request DescribeEntityInfoRequest
      *
-     * @return DescribeEntityInfoResponse
+     * @return DescribeEntityInfoResponse DescribeEntityInfoResponse
      */
     public function describeEntityInfo($request)
     {
@@ -2718,10 +2754,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DescribeEventCountByThreatLevelRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @summary Queries the number of events by type.
+     *  *
+     * @param DescribeEventCountByThreatLevelRequest $request DescribeEventCountByThreatLevelRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeEventCountByThreatLevelResponse
+     * @return DescribeEventCountByThreatLevelResponse DescribeEventCountByThreatLevelResponse
      */
     public function describeEventCountByThreatLevelWithOptions($request, $runtime)
     {
@@ -2761,9 +2799,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DescribeEventCountByThreatLevelRequest $request
+     * @summary Queries the number of events by type.
+     *  *
+     * @param DescribeEventCountByThreatLevelRequest $request DescribeEventCountByThreatLevelRequest
      *
-     * @return DescribeEventCountByThreatLevelResponse
+     * @return DescribeEventCountByThreatLevelResponse DescribeEventCountByThreatLevelResponse
      */
     public function describeEventCountByThreatLevel($request)
     {
@@ -2773,10 +2813,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DescribeEventDisposeRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Queries the handling policies of a historical event.
+     *  *
+     * @param DescribeEventDisposeRequest $request DescribeEventDisposeRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeEventDisposeResponse
+     * @return DescribeEventDisposeResponse DescribeEventDisposeResponse
      */
     public function describeEventDisposeWithOptions($request, $runtime)
     {
@@ -2819,9 +2861,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DescribeEventDisposeRequest $request
+     * @summary Queries the handling policies of a historical event.
+     *  *
+     * @param DescribeEventDisposeRequest $request DescribeEventDisposeRequest
      *
-     * @return DescribeEventDisposeResponse
+     * @return DescribeEventDisposeResponse DescribeEventDisposeResponse
      */
     public function describeEventDispose($request)
     {
@@ -2831,10 +2875,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DescribeImportedLogCountRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Queries the number of logs that are added to the threat analysis feature.
+     *  *
+     * @param DescribeImportedLogCountRequest $request DescribeImportedLogCountRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeImportedLogCountResponse
+     * @return DescribeImportedLogCountResponse DescribeImportedLogCountResponse
      */
     public function describeImportedLogCountWithOptions($request, $runtime)
     {
@@ -2842,6 +2888,12 @@ class Cloudsiem extends OpenApiClient
         $body = [];
         if (!Utils::isUnset($request->regionId)) {
             $body['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->roleFor)) {
+            $body['RoleFor'] = $request->roleFor;
+        }
+        if (!Utils::isUnset($request->roleType)) {
+            $body['RoleType'] = $request->roleType;
         }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
@@ -2862,9 +2914,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DescribeImportedLogCountRequest $request
+     * @summary Queries the number of logs that are added to the threat analysis feature.
+     *  *
+     * @param DescribeImportedLogCountRequest $request DescribeImportedLogCountRequest
      *
-     * @return DescribeImportedLogCountResponse
+     * @return DescribeImportedLogCountResponse DescribeImportedLogCountResponse
      */
     public function describeImportedLogCount($request)
     {
@@ -2874,10 +2928,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DescribeJobStatusRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Queries the status of collection tasks by using the submitId parameter of the tasks.
+     *  *
+     * @param DescribeJobStatusRequest $request DescribeJobStatusRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeJobStatusResponse
+     * @return DescribeJobStatusResponse DescribeJobStatusResponse
      */
     public function describeJobStatusWithOptions($request, $runtime)
     {
@@ -2908,9 +2964,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DescribeJobStatusRequest $request
+     * @summary Queries the status of collection tasks by using the submitId parameter of the tasks.
+     *  *
+     * @param DescribeJobStatusRequest $request DescribeJobStatusRequest
      *
-     * @return DescribeJobStatusResponse
+     * @return DescribeJobStatusResponse DescribeJobStatusResponse
      */
     public function describeJobStatus($request)
     {
@@ -2920,10 +2978,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DescribeLogFieldsRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Queries the fields that can be configured for a custom rule.
+     *  *
+     * @param DescribeLogFieldsRequest $request DescribeLogFieldsRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeLogFieldsResponse
+     * @return DescribeLogFieldsResponse DescribeLogFieldsResponse
      */
     public function describeLogFieldsWithOptions($request, $runtime)
     {
@@ -2963,9 +3023,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DescribeLogFieldsRequest $request
+     * @summary Queries the fields that can be configured for a custom rule.
+     *  *
+     * @param DescribeLogFieldsRequest $request DescribeLogFieldsRequest
      *
-     * @return DescribeLogFieldsResponse
+     * @return DescribeLogFieldsResponse DescribeLogFieldsResponse
      */
     public function describeLogFields($request)
     {
@@ -2975,10 +3037,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DescribeLogSourceRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Queries the log sources that can be configured for a custom rule.
+     *  *
+     * @param DescribeLogSourceRequest $request DescribeLogSourceRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeLogSourceResponse
+     * @return DescribeLogSourceResponse DescribeLogSourceResponse
      */
     public function describeLogSourceWithOptions($request, $runtime)
     {
@@ -3015,9 +3079,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DescribeLogSourceRequest $request
+     * @summary Queries the log sources that can be configured for a custom rule.
+     *  *
+     * @param DescribeLogSourceRequest $request DescribeLogSourceRequest
      *
-     * @return DescribeLogSourceResponse
+     * @return DescribeLogSourceResponse DescribeLogSourceResponse
      */
     public function describeLogSource($request)
     {
@@ -3027,10 +3093,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DescribeLogStoreRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Queries the information about a Logstore that is used in the threat analysis feature of Simple Log Service on the user side. The information may be the Logstore name or the time-to-live (TTL) period of data in the Logstore.
+     *  *
+     * @param DescribeLogStoreRequest $request DescribeLogStoreRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeLogStoreResponse
+     * @return DescribeLogStoreResponse DescribeLogStoreResponse
      */
     public function describeLogStoreWithOptions($request, $runtime)
     {
@@ -3058,9 +3126,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DescribeLogStoreRequest $request
+     * @summary Queries the information about a Logstore that is used in the threat analysis feature of Simple Log Service on the user side. The information may be the Logstore name or the time-to-live (TTL) period of data in the Logstore.
+     *  *
+     * @param DescribeLogStoreRequest $request DescribeLogStoreRequest
      *
-     * @return DescribeLogStoreResponse
+     * @return DescribeLogStoreResponse DescribeLogStoreResponse
      */
     public function describeLogStore($request)
     {
@@ -3070,10 +3140,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DescribeLogTypeRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Queries the log types that can be configured for a custom rule.
+     *  *
+     * @param DescribeLogTypeRequest $request DescribeLogTypeRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeLogTypeResponse
+     * @return DescribeLogTypeResponse DescribeLogTypeResponse
      */
     public function describeLogTypeWithOptions($request, $runtime)
     {
@@ -3107,9 +3179,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DescribeLogTypeRequest $request
+     * @summary Queries the log types that can be configured for a custom rule.
+     *  *
+     * @param DescribeLogTypeRequest $request DescribeLogTypeRequest
      *
-     * @return DescribeLogTypeResponse
+     * @return DescribeLogTypeResponse DescribeLogTypeResponse
      */
     public function describeLogType($request)
     {
@@ -3119,10 +3193,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DescribeOperatorsRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Queries the operator of a custom rule.
+     *  *
+     * @param DescribeOperatorsRequest $request DescribeOperatorsRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeOperatorsResponse
+     * @return DescribeOperatorsResponse DescribeOperatorsResponse
      */
     public function describeOperatorsWithOptions($request, $runtime)
     {
@@ -3159,9 +3235,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DescribeOperatorsRequest $request
+     * @summary Queries the operator of a custom rule.
+     *  *
+     * @param DescribeOperatorsRequest $request DescribeOperatorsRequest
      *
-     * @return DescribeOperatorsResponse
+     * @return DescribeOperatorsResponse DescribeOperatorsResponse
      */
     public function describeOperators($request)
     {
@@ -3171,10 +3249,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DescribeProdCountRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Queries the number of services that can be added to the threat analysis feature in Alibaba Cloud, Tenant Cloud, and Huawei Cloud.
+     *  *
+     * @param DescribeProdCountRequest $request DescribeProdCountRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeProdCountResponse
+     * @return DescribeProdCountResponse DescribeProdCountResponse
      */
     public function describeProdCountWithOptions($request, $runtime)
     {
@@ -3182,6 +3262,12 @@ class Cloudsiem extends OpenApiClient
         $body = [];
         if (!Utils::isUnset($request->regionId)) {
             $body['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->roleFor)) {
+            $body['RoleFor'] = $request->roleFor;
+        }
+        if (!Utils::isUnset($request->roleType)) {
+            $body['RoleType'] = $request->roleType;
         }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
@@ -3202,9 +3288,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DescribeProdCountRequest $request
+     * @summary Queries the number of services that can be added to the threat analysis feature in Alibaba Cloud, Tenant Cloud, and Huawei Cloud.
+     *  *
+     * @param DescribeProdCountRequest $request DescribeProdCountRequest
      *
-     * @return DescribeProdCountResponse
+     * @return DescribeProdCountResponse DescribeProdCountResponse
      */
     public function describeProdCount($request)
     {
@@ -3214,10 +3302,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DescribeScopeUsersRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Queries the list of users in the playbook scope.
+     *  *
+     * @param DescribeScopeUsersRequest $request DescribeScopeUsersRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeScopeUsersResponse
+     * @return DescribeScopeUsersResponse DescribeScopeUsersResponse
      */
     public function describeScopeUsersWithOptions($request, $runtime)
     {
@@ -3251,9 +3341,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DescribeScopeUsersRequest $request
+     * @summary Queries the list of users in the playbook scope.
+     *  *
+     * @param DescribeScopeUsersRequest $request DescribeScopeUsersRequest
      *
-     * @return DescribeScopeUsersResponse
+     * @return DescribeScopeUsersResponse DescribeScopeUsersResponse
      */
     public function describeScopeUsers($request)
     {
@@ -3263,10 +3355,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DescribeServiceStatusRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Checks whether the threat analysis feature is authorized to access a resource directory.
+     *  *
+     * @param DescribeServiceStatusRequest $request DescribeServiceStatusRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeServiceStatusResponse
+     * @return DescribeServiceStatusResponse DescribeServiceStatusResponse
      */
     public function describeServiceStatusWithOptions($request, $runtime)
     {
@@ -3294,9 +3388,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DescribeServiceStatusRequest $request
+     * @summary Checks whether the threat analysis feature is authorized to access a resource directory.
+     *  *
+     * @param DescribeServiceStatusRequest $request DescribeServiceStatusRequest
      *
-     * @return DescribeServiceStatusResponse
+     * @return DescribeServiceStatusResponse DescribeServiceStatusResponse
      */
     public function describeServiceStatus($request)
     {
@@ -3306,10 +3402,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DescribeStorageRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Queries the status of the Logstores for the threat analysis feature in Simple Log Service on the user side.
+     *  *
+     * @param DescribeStorageRequest $request DescribeStorageRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeStorageResponse
+     * @return DescribeStorageResponse DescribeStorageResponse
      */
     public function describeStorageWithOptions($request, $runtime)
     {
@@ -3343,9 +3441,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DescribeStorageRequest $request
+     * @summary Queries the status of the Logstores for the threat analysis feature in Simple Log Service on the user side.
+     *  *
+     * @param DescribeStorageRequest $request DescribeStorageRequest
      *
-     * @return DescribeStorageResponse
+     * @return DescribeStorageResponse DescribeStorageResponse
      */
     public function describeStorage($request)
     {
@@ -3355,10 +3455,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DescribeUserBuyStatusRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Checks whether the current Alibaba Cloud account or the management account of a resource directory is used to purchase the threat analysis feature.
+     *  *
+     * @param DescribeUserBuyStatusRequest $request DescribeUserBuyStatusRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeUserBuyStatusResponse
+     * @return DescribeUserBuyStatusResponse DescribeUserBuyStatusResponse
      */
     public function describeUserBuyStatusWithOptions($request, $runtime)
     {
@@ -3389,9 +3491,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DescribeUserBuyStatusRequest $request
+     * @summary Checks whether the current Alibaba Cloud account or the management account of a resource directory is used to purchase the threat analysis feature.
+     *  *
+     * @param DescribeUserBuyStatusRequest $request DescribeUserBuyStatusRequest
      *
-     * @return DescribeUserBuyStatusResponse
+     * @return DescribeUserBuyStatusResponse DescribeUserBuyStatusResponse
      */
     public function describeUserBuyStatus($request)
     {
@@ -3401,10 +3505,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DescribeWafScopeRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Queries the protected domain names of the WAF instance for a user to which an entity belongs.
+     *  *
+     * @param DescribeWafScopeRequest $request DescribeWafScopeRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeWafScopeResponse
+     * @return DescribeWafScopeResponse DescribeWafScopeResponse
      */
     public function describeWafScopeWithOptions($request, $runtime)
     {
@@ -3441,9 +3547,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DescribeWafScopeRequest $request
+     * @summary Queries the protected domain names of the WAF instance for a user to which an entity belongs.
+     *  *
+     * @param DescribeWafScopeRequest $request DescribeWafScopeRequest
      *
-     * @return DescribeWafScopeResponse
+     * @return DescribeWafScopeResponse DescribeWafScopeResponse
      */
     public function describeWafScope($request)
     {
@@ -3453,10 +3561,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DescribeWhiteRuleListRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Queries a list of whitelist rules for alerts.
+     *  *
+     * @param DescribeWhiteRuleListRequest $request DescribeWhiteRuleListRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeWhiteRuleListResponse
+     * @return DescribeWhiteRuleListResponse DescribeWhiteRuleListResponse
      */
     public function describeWhiteRuleListWithOptions($request, $runtime)
     {
@@ -3505,9 +3615,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DescribeWhiteRuleListRequest $request
+     * @summary Queries a list of whitelist rules for alerts.
+     *  *
+     * @param DescribeWhiteRuleListRequest $request DescribeWhiteRuleListRequest
      *
-     * @return DescribeWhiteRuleListResponse
+     * @return DescribeWhiteRuleListResponse DescribeWhiteRuleListResponse
      */
     public function describeWhiteRuleList($request)
     {
@@ -3517,10 +3629,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DoQuickFieldRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Queries and analyzes the distribution of specific fields by using quick analysis.
+     *  *
+     * @param DoQuickFieldRequest $request DoQuickFieldRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DoQuickFieldResponse
+     * @return DoQuickFieldResponse DoQuickFieldResponse
      */
     public function doQuickFieldWithOptions($request, $runtime)
     {
@@ -3566,9 +3680,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DoQuickFieldRequest $request
+     * @summary Queries and analyzes the distribution of specific fields by using quick analysis.
+     *  *
+     * @param DoQuickFieldRequest $request DoQuickFieldRequest
      *
-     * @return DoQuickFieldResponse
+     * @return DoQuickFieldResponse DoQuickFieldResponse
      */
     public function doQuickField($request)
     {
@@ -3578,10 +3694,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DoSelfDelegateRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Grants permissions to or revokes permissions from a regular member on the threat analysis feature. This helps manage the authorization to view information such as log analysis and alerts.
+     *  *
+     * @param DoSelfDelegateRequest $request DoSelfDelegateRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DoSelfDelegateResponse
+     * @return DoSelfDelegateResponse DoSelfDelegateResponse
      */
     public function doSelfDelegateWithOptions($request, $runtime)
     {
@@ -3615,9 +3733,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param DoSelfDelegateRequest $request
+     * @summary Grants permissions to or revokes permissions from a regular member on the threat analysis feature. This helps manage the authorization to view information such as log analysis and alerts.
+     *  *
+     * @param DoSelfDelegateRequest $request DoSelfDelegateRequest
      *
-     * @return DoSelfDelegateResponse
+     * @return DoSelfDelegateResponse DoSelfDelegateResponse
      */
     public function doSelfDelegate($request)
     {
@@ -3627,10 +3747,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param EnableAccessForCloudSiemRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Creates a service-linked role named AliyunServiceRoleForSasCloudSiem for the threat analysis feature. The feature can assume this role to access cloud services.
+     *  *
+     * @param EnableAccessForCloudSiemRequest $request EnableAccessForCloudSiemRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return EnableAccessForCloudSiemResponse
+     * @return EnableAccessForCloudSiemResponse EnableAccessForCloudSiemResponse
      */
     public function enableAccessForCloudSiemWithOptions($request, $runtime)
     {
@@ -3667,9 +3789,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param EnableAccessForCloudSiemRequest $request
+     * @summary Creates a service-linked role named AliyunServiceRoleForSasCloudSiem for the threat analysis feature. The feature can assume this role to access cloud services.
+     *  *
+     * @param EnableAccessForCloudSiemRequest $request EnableAccessForCloudSiemRequest
      *
-     * @return EnableAccessForCloudSiemResponse
+     * @return EnableAccessForCloudSiemResponse EnableAccessForCloudSiemResponse
      */
     public function enableAccessForCloudSiem($request)
     {
@@ -3679,10 +3803,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param EnableServiceForCloudSiemRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Authorizes the threat analysis feature to access a resource directory. This operation must be called by the management account of the resource directory.
+     *  *
+     * @param EnableServiceForCloudSiemRequest $request EnableServiceForCloudSiemRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return EnableServiceForCloudSiemResponse
+     * @return EnableServiceForCloudSiemResponse EnableServiceForCloudSiemResponse
      */
     public function enableServiceForCloudSiemWithOptions($request, $runtime)
     {
@@ -3710,9 +3836,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param EnableServiceForCloudSiemRequest $request
+     * @summary Authorizes the threat analysis feature to access a resource directory. This operation must be called by the management account of the resource directory.
+     *  *
+     * @param EnableServiceForCloudSiemRequest $request EnableServiceForCloudSiemRequest
      *
-     * @return EnableServiceForCloudSiemResponse
+     * @return EnableServiceForCloudSiemResponse EnableServiceForCloudSiemResponse
      */
     public function enableServiceForCloudSiem($request)
     {
@@ -3722,10 +3850,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param GetCapacityRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary Queries the storage capacity usage of the threat analysis feature and the purchased storage capacity
+     *  *
+     * @param GetCapacityRequest $request GetCapacityRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetCapacityResponse
+     * @return GetCapacityResponse GetCapacityResponse
      */
     public function getCapacityWithOptions($request, $runtime)
     {
@@ -3759,9 +3889,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param GetCapacityRequest $request
+     * @summary Queries the storage capacity usage of the threat analysis feature and the purchased storage capacity
+     *  *
+     * @param GetCapacityRequest $request GetCapacityRequest
      *
-     * @return GetCapacityResponse
+     * @return GetCapacityResponse GetCapacityResponse
      */
     public function getCapacity($request)
     {
@@ -3771,10 +3903,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param GetHistogramsRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Queries the results of of search statements that are displayed in histograms.
+     *  *
+     * @param GetHistogramsRequest $request GetHistogramsRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetHistogramsResponse
+     * @return GetHistogramsResponse GetHistogramsResponse
      */
     public function getHistogramsWithOptions($request, $runtime)
     {
@@ -3811,9 +3945,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param GetHistogramsRequest $request
+     * @summary Queries the results of of search statements that are displayed in histograms.
+     *  *
+     * @param GetHistogramsRequest $request GetHistogramsRequest
      *
-     * @return GetHistogramsResponse
+     * @return GetHistogramsResponse GetHistogramsResponse
      */
     public function getHistograms($request)
     {
@@ -3823,10 +3959,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param GetLogsRequest $request
-     * @param RuntimeOptions $runtime
+     * @summary Queries the results of a log query by using SQL statements.
+     *  *
+     * @param GetLogsRequest $request GetLogsRequest
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetLogsResponse
+     * @return GetLogsResponse GetLogsResponse
      */
     public function getLogsWithOptions($request, $runtime)
     {
@@ -3875,9 +4013,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param GetLogsRequest $request
+     * @summary Queries the results of a log query by using SQL statements.
+     *  *
+     * @param GetLogsRequest $request GetLogsRequest
      *
-     * @return GetLogsResponse
+     * @return GetLogsResponse GetLogsResponse
      */
     public function getLogs($request)
     {
@@ -3887,10 +4027,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param GetQuickQueryRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Queries a query statement that is saved as a saved search in log analysis by name.
+     *  *
+     * @param GetQuickQueryRequest $request GetQuickQueryRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetQuickQueryResponse
+     * @return GetQuickQueryResponse GetQuickQueryResponse
      */
     public function getQuickQueryWithOptions($request, $runtime)
     {
@@ -3921,9 +4063,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param GetQuickQueryRequest $request
+     * @summary Queries a query statement that is saved as a saved search in log analysis by name.
+     *  *
+     * @param GetQuickQueryRequest $request GetQuickQueryRequest
      *
-     * @return GetQuickQueryResponse
+     * @return GetQuickQueryResponse GetQuickQueryResponse
      */
     public function getQuickQuery($request)
     {
@@ -3933,10 +4077,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param GetStorageRequest $request
-     * @param RuntimeOptions    $runtime
+     * @summary Queries the storage configurations for the threat analysis feature on the user side.
+     *  *
+     * @param GetStorageRequest $request GetStorageRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetStorageResponse
+     * @return GetStorageResponse GetStorageResponse
      */
     public function getStorageWithOptions($request, $runtime)
     {
@@ -3970,9 +4116,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param GetStorageRequest $request
+     * @summary Queries the storage configurations for the threat analysis feature on the user side.
+     *  *
+     * @param GetStorageRequest $request GetStorageRequest
      *
-     * @return GetStorageResponse
+     * @return GetStorageResponse GetStorageResponse
      */
     public function getStorage($request)
     {
@@ -3982,10 +4130,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param ListAccountAccessIdRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries a list of AccessKey IDs of third-party cloud accounts that are added to the threat analysis feature.
+     *  *
+     * @param ListAccountAccessIdRequest $request ListAccountAccessIdRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListAccountAccessIdResponse
+     * @return ListAccountAccessIdResponse ListAccountAccessIdResponse
      */
     public function listAccountAccessIdWithOptions($request, $runtime)
     {
@@ -3996,6 +4146,12 @@ class Cloudsiem extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $body['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->roleFor)) {
+            $body['RoleFor'] = $request->roleFor;
+        }
+        if (!Utils::isUnset($request->roleType)) {
+            $body['RoleType'] = $request->roleType;
         }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
@@ -4016,9 +4172,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param ListAccountAccessIdRequest $request
+     * @summary Queries a list of AccessKey IDs of third-party cloud accounts that are added to the threat analysis feature.
+     *  *
+     * @param ListAccountAccessIdRequest $request ListAccountAccessIdRequest
      *
-     * @return ListAccountAccessIdResponse
+     * @return ListAccountAccessIdResponse ListAccountAccessIdResponse
      */
     public function listAccountAccessId($request)
     {
@@ -4028,10 +4186,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param ListAccountsByLogRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Query accounts by log.
+     *  *
+     * @param ListAccountsByLogRequest $request ListAccountsByLogRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListAccountsByLogResponse
+     * @return ListAccountsByLogResponse ListAccountsByLogResponse
      */
     public function listAccountsByLogWithOptions($request, $runtime)
     {
@@ -4074,9 +4234,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param ListAccountsByLogRequest $request
+     * @summary Query accounts by log.
+     *  *
+     * @param ListAccountsByLogRequest $request ListAccountsByLogRequest
      *
-     * @return ListAccountsByLogResponse
+     * @return ListAccountsByLogResponse ListAccountsByLogResponse
      */
     public function listAccountsByLog($request)
     {
@@ -4086,10 +4248,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param ListAllProdsRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Queries a list of cloud services that can be added to the threat analysis feature.
+     *  *
+     * @param ListAllProdsRequest $request ListAllProdsRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListAllProdsResponse
+     * @return ListAllProdsResponse ListAllProdsResponse
      */
     public function listAllProdsWithOptions($request, $runtime)
     {
@@ -4123,9 +4287,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param ListAllProdsRequest $request
+     * @summary Queries a list of cloud services that can be added to the threat analysis feature.
+     *  *
+     * @param ListAllProdsRequest $request ListAllProdsRequest
      *
-     * @return ListAllProdsResponse
+     * @return ListAllProdsResponse ListAllProdsResponse
      */
     public function listAllProds($request)
     {
@@ -4135,10 +4301,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param ListAutomateResponseConfigsRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Queries automated response rules.
+     *  *
+     * @param ListAutomateResponseConfigsRequest $request ListAutomateResponseConfigsRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListAutomateResponseConfigsResponse
+     * @return ListAutomateResponseConfigsResponse ListAutomateResponseConfigsResponse
      */
     public function listAutomateResponseConfigsWithOptions($request, $runtime)
     {
@@ -4199,9 +4367,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param ListAutomateResponseConfigsRequest $request
+     * @summary Queries automated response rules.
+     *  *
+     * @param ListAutomateResponseConfigsRequest $request ListAutomateResponseConfigsRequest
      *
-     * @return ListAutomateResponseConfigsResponse
+     * @return ListAutomateResponseConfigsResponse ListAutomateResponseConfigsResponse
      */
     public function listAutomateResponseConfigs($request)
     {
@@ -4211,10 +4381,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param ListBindAccountRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Queries a list of cloud accounts that are added to the threat analysis feature.
+     *  *
+     * @param ListBindAccountRequest $request ListBindAccountRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListBindAccountResponse
+     * @return ListBindAccountResponse ListBindAccountResponse
      */
     public function listBindAccountWithOptions($request, $runtime)
     {
@@ -4225,6 +4397,12 @@ class Cloudsiem extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $body['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->roleFor)) {
+            $body['RoleFor'] = $request->roleFor;
+        }
+        if (!Utils::isUnset($request->roleType)) {
+            $body['RoleType'] = $request->roleType;
         }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
@@ -4245,9 +4423,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param ListBindAccountRequest $request
+     * @summary Queries a list of cloud accounts that are added to the threat analysis feature.
+     *  *
+     * @param ListBindAccountRequest $request ListBindAccountRequest
      *
-     * @return ListBindAccountResponse
+     * @return ListBindAccountResponse ListBindAccountResponse
      */
     public function listBindAccount($request)
     {
@@ -4257,10 +4437,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param ListBindDataSourcesRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries a list of data sources that are added to the threat analysis feature.
+     *  *
+     * @param ListBindDataSourcesRequest $request ListBindDataSourcesRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListBindDataSourcesResponse
+     * @return ListBindDataSourcesResponse ListBindDataSourcesResponse
      */
     public function listBindDataSourcesWithOptions($request, $runtime)
     {
@@ -4294,9 +4476,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param ListBindDataSourcesRequest $request
+     * @summary Queries a list of data sources that are added to the threat analysis feature.
+     *  *
+     * @param ListBindDataSourcesRequest $request ListBindDataSourcesRequest
      *
-     * @return ListBindDataSourcesResponse
+     * @return ListBindDataSourcesResponse ListBindDataSourcesResponse
      */
     public function listBindDataSources($request)
     {
@@ -4306,10 +4490,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param ListCloudSiemCustomizeRulesRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Queries custom rules.
+     *  *
+     * @param ListCloudSiemCustomizeRulesRequest $request ListCloudSiemCustomizeRulesRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListCloudSiemCustomizeRulesResponse
+     * @return ListCloudSiemCustomizeRulesResponse ListCloudSiemCustomizeRulesResponse
      */
     public function listCloudSiemCustomizeRulesWithOptions($request, $runtime)
     {
@@ -4379,9 +4565,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param ListCloudSiemCustomizeRulesRequest $request
+     * @summary Queries custom rules.
+     *  *
+     * @param ListCloudSiemCustomizeRulesRequest $request ListCloudSiemCustomizeRulesRequest
      *
-     * @return ListCloudSiemCustomizeRulesResponse
+     * @return ListCloudSiemCustomizeRulesResponse ListCloudSiemCustomizeRulesResponse
      */
     public function listCloudSiemCustomizeRules($request)
     {
@@ -4391,10 +4579,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param ListCloudSiemPredefinedRulesRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Queries predefined rules.
+     *  *
+     * @param ListCloudSiemPredefinedRulesRequest $request ListCloudSiemPredefinedRulesRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListCloudSiemPredefinedRulesResponse
+     * @return ListCloudSiemPredefinedRulesResponse ListCloudSiemPredefinedRulesResponse
      */
     public function listCloudSiemPredefinedRulesWithOptions($request, $runtime)
     {
@@ -4473,9 +4663,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param ListCloudSiemPredefinedRulesRequest $request
+     * @summary Queries predefined rules.
+     *  *
+     * @param ListCloudSiemPredefinedRulesRequest $request ListCloudSiemPredefinedRulesRequest
      *
-     * @return ListCloudSiemPredefinedRulesResponse
+     * @return ListCloudSiemPredefinedRulesResponse ListCloudSiemPredefinedRulesResponse
      */
     public function listCloudSiemPredefinedRules($request)
     {
@@ -4485,10 +4677,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param ListCustomizeRuleTestResultRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Queries the test results of a custom rule.
+     *  *
+     * @param ListCustomizeRuleTestResultRequest $request ListCustomizeRuleTestResultRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListCustomizeRuleTestResultResponse
+     * @return ListCustomizeRuleTestResultResponse ListCustomizeRuleTestResultResponse
      */
     public function listCustomizeRuleTestResultWithOptions($request, $runtime)
     {
@@ -4531,9 +4725,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param ListCustomizeRuleTestResultRequest $request
+     * @summary Queries the test results of a custom rule.
+     *  *
+     * @param ListCustomizeRuleTestResultRequest $request ListCustomizeRuleTestResultRequest
      *
-     * @return ListCustomizeRuleTestResultResponse
+     * @return ListCustomizeRuleTestResultResponse ListCustomizeRuleTestResultResponse
      */
     public function listCustomizeRuleTestResult($request)
     {
@@ -4543,10 +4739,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param ListDataSourceLogsRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Queries the logs of a data source.
+     *  *
+     * @param ListDataSourceLogsRequest $request ListDataSourceLogsRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListDataSourceLogsResponse
+     * @return ListDataSourceLogsResponse ListDataSourceLogsResponse
      */
     public function listDataSourceLogsWithOptions($request, $runtime)
     {
@@ -4583,9 +4781,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param ListDataSourceLogsRequest $request
+     * @summary Queries the logs of a data source.
+     *  *
+     * @param ListDataSourceLogsRequest $request ListDataSourceLogsRequest
      *
-     * @return ListDataSourceLogsResponse
+     * @return ListDataSourceLogsResponse ListDataSourceLogsResponse
      */
     public function listDataSourceLogs($request)
     {
@@ -4595,10 +4795,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param ListDataSourceTypesRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries a list of data source types in third-party cloud services that can be added to the threat analysis feature.
+     *  *
+     * @param ListDataSourceTypesRequest $request ListDataSourceTypesRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListDataSourceTypesResponse
+     * @return ListDataSourceTypesResponse ListDataSourceTypesResponse
      */
     public function listDataSourceTypesWithOptions($request, $runtime)
     {
@@ -4629,9 +4831,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param ListDataSourceTypesRequest $request
+     * @summary Queries a list of data source types in third-party cloud services that can be added to the threat analysis feature.
+     *  *
+     * @param ListDataSourceTypesRequest $request ListDataSourceTypesRequest
      *
-     * @return ListDataSourceTypesResponse
+     * @return ListDataSourceTypesResponse ListDataSourceTypesResponse
      */
     public function listDataSourceTypes($request)
     {
@@ -4641,10 +4845,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param ListDeliveryRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Queries the information about the cloud services that are integrated with the threat analysis feature, the logs of the cloud services, and the delivery of the logs.
+     *  *
+     * @param ListDeliveryRequest $request ListDeliveryRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListDeliveryResponse
+     * @return ListDeliveryResponse ListDeliveryResponse
      */
     public function listDeliveryWithOptions($request, $runtime)
     {
@@ -4678,9 +4884,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param ListDeliveryRequest $request
+     * @summary Queries the information about the cloud services that are integrated with the threat analysis feature, the logs of the cloud services, and the delivery of the logs.
+     *  *
+     * @param ListDeliveryRequest $request ListDeliveryRequest
      *
-     * @return ListDeliveryResponse
+     * @return ListDeliveryResponse ListDeliveryResponse
      */
     public function listDelivery($request)
     {
@@ -4690,10 +4898,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param ListDisposeStrategyRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries handling policies.
+     *  *
+     * @param ListDisposeStrategyRequest $request ListDisposeStrategyRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListDisposeStrategyResponse
+     * @return ListDisposeStrategyResponse ListDisposeStrategyResponse
      */
     public function listDisposeStrategyWithOptions($request, $runtime)
     {
@@ -4766,9 +4976,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param ListDisposeStrategyRequest $request
+     * @summary Queries handling policies.
+     *  *
+     * @param ListDisposeStrategyRequest $request ListDisposeStrategyRequest
      *
-     * @return ListDisposeStrategyResponse
+     * @return ListDisposeStrategyResponse ListDisposeStrategyResponse
      */
     public function listDisposeStrategy($request)
     {
@@ -4778,10 +4990,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param ListImportedLogsByProdRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Queries the details of the logs in a cloud service that is added to the threat analysis feature.
+     *  *
+     * @param ListImportedLogsByProdRequest $request ListImportedLogsByProdRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListImportedLogsByProdResponse
+     * @return ListImportedLogsByProdResponse ListImportedLogsByProdResponse
      */
     public function listImportedLogsByProdWithOptions($request, $runtime)
     {
@@ -4821,9 +5035,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param ListImportedLogsByProdRequest $request
+     * @summary Queries the details of the logs in a cloud service that is added to the threat analysis feature.
+     *  *
+     * @param ListImportedLogsByProdRequest $request ListImportedLogsByProdRequest
      *
-     * @return ListImportedLogsByProdResponse
+     * @return ListImportedLogsByProdResponse ListImportedLogsByProdResponse
      */
     public function listImportedLogsByProd($request)
     {
@@ -4833,10 +5049,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param ListOperationRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Queries the resource-related permissions granted to the current user. The threat analysis feature supports two types of identities: administrators and common members. An administrator is granted all permissions, and a common member is granted permissions to access only specific resources.
+     *  *
+     * @param ListOperationRequest $request ListOperationRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListOperationResponse
+     * @return ListOperationResponse ListOperationResponse
      */
     public function listOperationWithOptions($request, $runtime)
     {
@@ -4864,9 +5082,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param ListOperationRequest $request
+     * @summary Queries the resource-related permissions granted to the current user. The threat analysis feature supports two types of identities: administrators and common members. An administrator is granted all permissions, and a common member is granted permissions to access only specific resources.
+     *  *
+     * @param ListOperationRequest $request ListOperationRequest
      *
-     * @return ListOperationResponse
+     * @return ListOperationResponse ListOperationResponse
      */
     public function listOperation($request)
     {
@@ -4876,10 +5096,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param ListProjectLogStoresRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Queries the dedicated Simple Log Service project and Logstore for a cloud service based on the patterns of the project and Logstore names.
+     *  *
+     * @param ListProjectLogStoresRequest $request ListProjectLogStoresRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListProjectLogStoresResponse
+     * @return ListProjectLogStoresResponse ListProjectLogStoresResponse
      */
     public function listProjectLogStoresWithOptions($request, $runtime)
     {
@@ -4916,9 +5138,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param ListProjectLogStoresRequest $request
+     * @summary Queries the dedicated Simple Log Service project and Logstore for a cloud service based on the patterns of the project and Logstore names.
+     *  *
+     * @param ListProjectLogStoresRequest $request ListProjectLogStoresRequest
      *
-     * @return ListProjectLogStoresResponse
+     * @return ListProjectLogStoresResponse ListProjectLogStoresResponse
      */
     public function listProjectLogStores($request)
     {
@@ -4928,10 +5152,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param ListQuickQueryRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Queries the saved searches of the Logstore.
+     *  *
+     * @param ListQuickQueryRequest $request ListQuickQueryRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListQuickQueryResponse
+     * @return ListQuickQueryResponse ListQuickQueryResponse
      */
     public function listQuickQueryWithOptions($request, $runtime)
     {
@@ -4965,9 +5191,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param ListQuickQueryRequest $request
+     * @summary Queries the saved searches of the Logstore.
+     *  *
+     * @param ListQuickQueryRequest $request ListQuickQueryRequest
      *
-     * @return ListQuickQueryResponse
+     * @return ListQuickQueryResponse ListQuickQueryResponse
      */
     public function listQuickQuery($request)
     {
@@ -4977,10 +5205,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param ListRdUsersRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary Queries a list of Alibaba Cloud accounts that are added to the threat analysis feature for centralized management. These accounts can be used to perform operations supported by the threat analysis feature, such as adding logs and handling events.
+     *  *
+     * @param ListRdUsersRequest $request ListRdUsersRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListRdUsersResponse
+     * @return ListRdUsersResponse ListRdUsersResponse
      */
     public function listRdUsersWithOptions($request, $runtime)
     {
@@ -5008,9 +5238,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param ListRdUsersRequest $request
+     * @summary Queries a list of Alibaba Cloud accounts that are added to the threat analysis feature for centralized management. These accounts can be used to perform operations supported by the threat analysis feature, such as adding logs and handling events.
+     *  *
+     * @param ListRdUsersRequest $request ListRdUsersRequest
      *
-     * @return ListRdUsersResponse
+     * @return ListRdUsersResponse ListRdUsersResponse
      */
     public function listRdUsers($request)
     {
@@ -5020,10 +5252,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param ListUserProdLogsRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Queries a list of logs that are added to the threat analysis feature by cloud service.
+     *  *
+     * @param ListUserProdLogsRequest $request ListUserProdLogsRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListUserProdLogsResponse
+     * @return ListUserProdLogsResponse ListUserProdLogsResponse
      */
     public function listUserProdLogsWithOptions($request, $runtime)
     {
@@ -5063,9 +5297,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param ListUserProdLogsRequest $request
+     * @summary Queries a list of logs that are added to the threat analysis feature by cloud service.
+     *  *
+     * @param ListUserProdLogsRequest $request ListUserProdLogsRequest
      *
-     * @return ListUserProdLogsResponse
+     * @return ListUserProdLogsResponse ListUserProdLogsResponse
      */
     public function listUserProdLogs($request)
     {
@@ -5075,10 +5311,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param ListUsersByProdRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Queries the details of the logs that are added to the threat analysis feature by cloud service.
+     *  *
+     * @param ListUsersByProdRequest $request ListUsersByProdRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListUsersByProdResponse
+     * @return ListUsersByProdResponse ListUsersByProdResponse
      */
     public function listUsersByProdWithOptions($request, $runtime)
     {
@@ -5115,9 +5353,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param ListUsersByProdRequest $request
+     * @summary Queries the details of the logs that are added to the threat analysis feature by cloud service.
+     *  *
+     * @param ListUsersByProdRequest $request ListUsersByProdRequest
      *
-     * @return ListUsersByProdResponse
+     * @return ListUsersByProdResponse ListUsersByProdResponse
      */
     public function listUsersByProd($request)
     {
@@ -5127,10 +5367,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param ModifyBindAccountRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Modifies a third-party cloud account that is added to the threat analysis feature.
+     *  *
+     * @param ModifyBindAccountRequest $request ModifyBindAccountRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyBindAccountResponse
+     * @return ModifyBindAccountResponse ModifyBindAccountResponse
      */
     public function modifyBindAccountWithOptions($request, $runtime)
     {
@@ -5154,6 +5396,12 @@ class Cloudsiem extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $body['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->roleFor)) {
+            $body['RoleFor'] = $request->roleFor;
+        }
+        if (!Utils::isUnset($request->roleType)) {
+            $body['RoleType'] = $request->roleType;
+        }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
@@ -5173,9 +5421,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param ModifyBindAccountRequest $request
+     * @summary Modifies a third-party cloud account that is added to the threat analysis feature.
+     *  *
+     * @param ModifyBindAccountRequest $request ModifyBindAccountRequest
      *
-     * @return ModifyBindAccountResponse
+     * @return ModifyBindAccountResponse ModifyBindAccountResponse
      */
     public function modifyBindAccount($request)
     {
@@ -5185,10 +5435,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param ModifyDataSourceRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Modifies a data source that is added to the threat analysis feature.
+     *  *
+     * @param ModifyDataSourceRequest $request ModifyDataSourceRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDataSourceResponse
+     * @return ModifyDataSourceResponse ModifyDataSourceResponse
      */
     public function modifyDataSourceWithOptions($request, $runtime)
     {
@@ -5237,9 +5489,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param ModifyDataSourceRequest $request
+     * @summary Modifies a data source that is added to the threat analysis feature.
+     *  *
+     * @param ModifyDataSourceRequest $request ModifyDataSourceRequest
      *
-     * @return ModifyDataSourceResponse
+     * @return ModifyDataSourceResponse ModifyDataSourceResponse
      */
     public function modifyDataSource($request)
     {
@@ -5249,10 +5503,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param ModifyDataSourceLogRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Modifies the description of the logs that are added to the threat analysis feature for a data source within a cloud account.
+     *  *
+     * @param ModifyDataSourceLogRequest $request ModifyDataSourceLogRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDataSourceLogResponse
+     * @return ModifyDataSourceLogResponse ModifyDataSourceLogResponse
      */
     public function modifyDataSourceLogWithOptions($request, $runtime)
     {
@@ -5301,9 +5557,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param ModifyDataSourceLogRequest $request
+     * @summary Modifies the description of the logs that are added to the threat analysis feature for a data source within a cloud account.
+     *  *
+     * @param ModifyDataSourceLogRequest $request ModifyDataSourceLogRequest
      *
-     * @return ModifyDataSourceLogResponse
+     * @return ModifyDataSourceLogResponse ModifyDataSourceLogResponse
      */
     public function modifyDataSourceLog($request)
     {
@@ -5313,10 +5571,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param OpenDeliveryRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Enables the log delivery feature for a cloud service that is integrated with Simple Log Service.
+     *  *
+     * @param OpenDeliveryRequest $request OpenDeliveryRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return OpenDeliveryResponse
+     * @return OpenDeliveryResponse OpenDeliveryResponse
      */
     public function openDeliveryWithOptions($request, $runtime)
     {
@@ -5356,9 +5616,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param OpenDeliveryRequest $request
+     * @summary Enables the log delivery feature for a cloud service that is integrated with Simple Log Service.
+     *  *
+     * @param OpenDeliveryRequest $request OpenDeliveryRequest
      *
-     * @return OpenDeliveryResponse
+     * @return OpenDeliveryResponse OpenDeliveryResponse
      */
     public function openDelivery($request)
     {
@@ -5368,10 +5630,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param PostAutomateResponseConfigRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Creates or updates an automatic response rule.
+     *  *
+     * @param PostAutomateResponseConfigRequest $request PostAutomateResponseConfigRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return PostAutomateResponseConfigResponse
+     * @return PostAutomateResponseConfigResponse PostAutomateResponseConfigResponse
      */
     public function postAutomateResponseConfigWithOptions($request, $runtime)
     {
@@ -5426,9 +5690,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param PostAutomateResponseConfigRequest $request
+     * @summary Creates or updates an automatic response rule.
+     *  *
+     * @param PostAutomateResponseConfigRequest $request PostAutomateResponseConfigRequest
      *
-     * @return PostAutomateResponseConfigResponse
+     * @return PostAutomateResponseConfigResponse PostAutomateResponseConfigResponse
      */
     public function postAutomateResponseConfig($request)
     {
@@ -5438,10 +5704,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param PostCustomizeRuleRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Creates or updates a custom rule.
+     *  *
+     * @param PostCustomizeRuleRequest $request PostCustomizeRuleRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return PostCustomizeRuleResponse
+     * @return PostCustomizeRuleResponse PostCustomizeRuleResponse
      */
     public function postCustomizeRuleWithOptions($request, $runtime)
     {
@@ -5529,9 +5797,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param PostCustomizeRuleRequest $request
+     * @summary Creates or updates a custom rule.
+     *  *
+     * @param PostCustomizeRuleRequest $request PostCustomizeRuleRequest
      *
-     * @return PostCustomizeRuleResponse
+     * @return PostCustomizeRuleResponse PostCustomizeRuleResponse
      */
     public function postCustomizeRule($request)
     {
@@ -5541,10 +5811,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param PostCustomizeRuleTestRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Submits a custom rule for testing.
+     *  *
+     * @param PostCustomizeRuleTestRequest $request PostCustomizeRuleTestRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return PostCustomizeRuleTestResponse
+     * @return PostCustomizeRuleTestResponse PostCustomizeRuleTestResponse
      */
     public function postCustomizeRuleTestWithOptions($request, $runtime)
     {
@@ -5587,9 +5859,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param PostCustomizeRuleTestRequest $request
+     * @summary Submits a custom rule for testing.
+     *  *
+     * @param PostCustomizeRuleTestRequest $request PostCustomizeRuleTestRequest
      *
-     * @return PostCustomizeRuleTestResponse
+     * @return PostCustomizeRuleTestResponse PostCustomizeRuleTestResponse
      */
     public function postCustomizeRuleTest($request)
     {
@@ -5599,10 +5873,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param PostEventDisposeAndWhiteruleListRequest $request
-     * @param RuntimeOptions                          $runtime
+     * @summary Submits event handling information.
+     *  *
+     * @param PostEventDisposeAndWhiteruleListRequest $request PostEventDisposeAndWhiteruleListRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return PostEventDisposeAndWhiteruleListResponse
+     * @return PostEventDisposeAndWhiteruleListResponse PostEventDisposeAndWhiteruleListResponse
      */
     public function postEventDisposeAndWhiteruleListWithOptions($request, $runtime)
     {
@@ -5651,9 +5927,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param PostEventDisposeAndWhiteruleListRequest $request
+     * @summary Submits event handling information.
+     *  *
+     * @param PostEventDisposeAndWhiteruleListRequest $request PostEventDisposeAndWhiteruleListRequest
      *
-     * @return PostEventDisposeAndWhiteruleListResponse
+     * @return PostEventDisposeAndWhiteruleListResponse PostEventDisposeAndWhiteruleListResponse
      */
     public function postEventDisposeAndWhiteruleList($request)
     {
@@ -5663,10 +5941,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param PostEventWhiteruleListRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Submits an alert whitelist rule.
+     *  *
+     * @param PostEventWhiteruleListRequest $request PostEventWhiteruleListRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return PostEventWhiteruleListResponse
+     * @return PostEventWhiteruleListResponse PostEventWhiteruleListResponse
      */
     public function postEventWhiteruleListWithOptions($request, $runtime)
     {
@@ -5706,9 +5986,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param PostEventWhiteruleListRequest $request
+     * @summary Submits an alert whitelist rule.
+     *  *
+     * @param PostEventWhiteruleListRequest $request PostEventWhiteruleListRequest
      *
-     * @return PostEventWhiteruleListResponse
+     * @return PostEventWhiteruleListResponse PostEventWhiteruleListResponse
      */
     public function postEventWhiteruleList($request)
     {
@@ -5718,10 +6000,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param PostFinishCustomizeRuleTestRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Ends the test of a custom rule.
+     *  *
+     * @param PostFinishCustomizeRuleTestRequest $request PostFinishCustomizeRuleTestRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return PostFinishCustomizeRuleTestResponse
+     * @return PostFinishCustomizeRuleTestResponse PostFinishCustomizeRuleTestResponse
      */
     public function postFinishCustomizeRuleTestWithOptions($request, $runtime)
     {
@@ -5758,9 +6042,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param PostFinishCustomizeRuleTestRequest $request
+     * @summary Ends the test of a custom rule.
+     *  *
+     * @param PostFinishCustomizeRuleTestRequest $request PostFinishCustomizeRuleTestRequest
      *
-     * @return PostFinishCustomizeRuleTestResponse
+     * @return PostFinishCustomizeRuleTestResponse PostFinishCustomizeRuleTestResponse
      */
     public function postFinishCustomizeRuleTest($request)
     {
@@ -5770,10 +6056,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param PostRuleStatusChangeRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Updates the status of a custom rule.
+     *  *
+     * @param PostRuleStatusChangeRequest $request PostRuleStatusChangeRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return PostRuleStatusChangeResponse
+     * @return PostRuleStatusChangeResponse PostRuleStatusChangeResponse
      */
     public function postRuleStatusChangeWithOptions($request, $runtime)
     {
@@ -5816,9 +6104,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param PostRuleStatusChangeRequest $request
+     * @summary Updates the status of a custom rule.
+     *  *
+     * @param PostRuleStatusChangeRequest $request PostRuleStatusChangeRequest
      *
-     * @return PostRuleStatusChangeResponse
+     * @return PostRuleStatusChangeResponse PostRuleStatusChangeResponse
      */
     public function postRuleStatusChange($request)
     {
@@ -5828,10 +6118,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param RestoreCapacityRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Releases storage to reduce the storage usage. The release operation is irreversible and may cause data loss. Proceed with caution.
+     *  *
+     * @param RestoreCapacityRequest $request RestoreCapacityRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return RestoreCapacityResponse
+     * @return RestoreCapacityResponse RestoreCapacityResponse
      */
     public function restoreCapacityWithOptions($request, $runtime)
     {
@@ -5865,9 +6157,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param RestoreCapacityRequest $request
+     * @summary Releases storage to reduce the storage usage. The release operation is irreversible and may cause data loss. Proceed with caution.
+     *  *
+     * @param RestoreCapacityRequest $request RestoreCapacityRequest
      *
-     * @return RestoreCapacityResponse
+     * @return RestoreCapacityResponse RestoreCapacityResponse
      */
     public function restoreCapacity($request)
     {
@@ -5877,10 +6171,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param SaveQuickQueryRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Saves a query statement in log analysis as a saved search. This helps save the time required to write the query statement.
+     *  *
+     * @param SaveQuickQueryRequest $request SaveQuickQueryRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return SaveQuickQueryResponse
+     * @return SaveQuickQueryResponse SaveQuickQueryResponse
      */
     public function saveQuickQueryWithOptions($request, $runtime)
     {
@@ -5914,9 +6210,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param SaveQuickQueryRequest $request
+     * @summary Saves a query statement in log analysis as a saved search. This helps save the time required to write the query statement.
+     *  *
+     * @param SaveQuickQueryRequest $request SaveQuickQueryRequest
      *
-     * @return SaveQuickQueryResponse
+     * @return SaveQuickQueryResponse SaveQuickQueryResponse
      */
     public function saveQuickQuery($request)
     {
@@ -5926,10 +6224,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param SetStorageRequest $request
-     * @param RuntimeOptions    $runtime
+     * @summary Configures the settings of log storage, such as the storage duration and storage region.
+     *  *
+     * @param SetStorageRequest $request SetStorageRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetStorageResponse
+     * @return SetStorageResponse SetStorageResponse
      */
     public function setStorageWithOptions($request, $runtime)
     {
@@ -5969,9 +6269,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param SetStorageRequest $request
+     * @summary Configures the settings of log storage, such as the storage duration and storage region.
+     *  *
+     * @param SetStorageRequest $request SetStorageRequest
      *
-     * @return SetStorageResponse
+     * @return SetStorageResponse SetStorageResponse
      */
     public function setStorage($request)
     {
@@ -5981,10 +6283,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param ShowQuickAnalysisRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Configures index fields to display in log analysis. The index fields can be used for quick analysis.
+     *  *
+     * @param ShowQuickAnalysisRequest $request ShowQuickAnalysisRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ShowQuickAnalysisResponse
+     * @return ShowQuickAnalysisResponse ShowQuickAnalysisResponse
      */
     public function showQuickAnalysisWithOptions($request, $runtime)
     {
@@ -6012,9 +6316,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param ShowQuickAnalysisRequest $request
+     * @summary Configures index fields to display in log analysis. The index fields can be used for quick analysis.
+     *  *
+     * @param ShowQuickAnalysisRequest $request ShowQuickAnalysisRequest
      *
-     * @return ShowQuickAnalysisResponse
+     * @return ShowQuickAnalysisResponse ShowQuickAnalysisResponse
      */
     public function showQuickAnalysis($request)
     {
@@ -6024,10 +6330,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param SubmitImportLogTasksRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Submits log collection tasks at a time.
+     *  *
+     * @param SubmitImportLogTasksRequest $request SubmitImportLogTasksRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubmitImportLogTasksResponse
+     * @return SubmitImportLogTasksResponse SubmitImportLogTasksResponse
      */
     public function submitImportLogTasksWithOptions($request, $runtime)
     {
@@ -6051,6 +6359,12 @@ class Cloudsiem extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $body['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->roleFor)) {
+            $body['RoleFor'] = $request->roleFor;
+        }
+        if (!Utils::isUnset($request->roleType)) {
+            $body['RoleType'] = $request->roleType;
+        }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
@@ -6070,9 +6384,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param SubmitImportLogTasksRequest $request
+     * @summary Submits log collection tasks at a time.
+     *  *
+     * @param SubmitImportLogTasksRequest $request SubmitImportLogTasksRequest
      *
-     * @return SubmitImportLogTasksResponse
+     * @return SubmitImportLogTasksResponse SubmitImportLogTasksResponse
      */
     public function submitImportLogTasks($request)
     {
@@ -6082,10 +6398,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param SubmitJobsRequest $request
-     * @param RuntimeOptions    $runtime
+     * @summary Submits multiple tasks that add logs to the threat analysis feature at a time. After the logs are added, you can perform alert and event analysis.
+     *  *
+     * @param SubmitJobsRequest $request SubmitJobsRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubmitJobsResponse
+     * @return SubmitJobsResponse SubmitJobsResponse
      */
     public function submitJobsWithOptions($request, $runtime)
     {
@@ -6116,9 +6434,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param SubmitJobsRequest $request
+     * @summary Submits multiple tasks that add logs to the threat analysis feature at a time. After the logs are added, you can perform alert and event analysis.
+     *  *
+     * @param SubmitJobsRequest $request SubmitJobsRequest
      *
-     * @return SubmitJobsResponse
+     * @return SubmitJobsResponse SubmitJobsResponse
      */
     public function submitJobs($request)
     {
@@ -6128,10 +6448,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param UpdateAutomateResponseConfigStatusRequest $request
-     * @param RuntimeOptions                            $runtime
+     * @summary Updates the status of an automatic response rule.
+     *  *
+     * @param UpdateAutomateResponseConfigStatusRequest $request UpdateAutomateResponseConfigStatusRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateAutomateResponseConfigStatusResponse
+     * @return UpdateAutomateResponseConfigStatusResponse UpdateAutomateResponseConfigStatusResponse
      */
     public function updateAutomateResponseConfigStatusWithOptions($request, $runtime)
     {
@@ -6171,9 +6493,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param UpdateAutomateResponseConfigStatusRequest $request
+     * @summary Updates the status of an automatic response rule.
+     *  *
+     * @param UpdateAutomateResponseConfigStatusRequest $request UpdateAutomateResponseConfigStatusRequest
      *
-     * @return UpdateAutomateResponseConfigStatusResponse
+     * @return UpdateAutomateResponseConfigStatusResponse UpdateAutomateResponseConfigStatusResponse
      */
     public function updateAutomateResponseConfigStatus($request)
     {
@@ -6183,10 +6507,12 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param UpdateWhiteRuleListRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Creates or updates an alert whitelist rule.
+     *  *
+     * @param UpdateWhiteRuleListRequest $request UpdateWhiteRuleListRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateWhiteRuleListResponse
+     * @return UpdateWhiteRuleListResponse UpdateWhiteRuleListResponse
      */
     public function updateWhiteRuleListWithOptions($request, $runtime)
     {
@@ -6229,9 +6555,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @param UpdateWhiteRuleListRequest $request
+     * @summary Creates or updates an alert whitelist rule.
+     *  *
+     * @param UpdateWhiteRuleListRequest $request UpdateWhiteRuleListRequest
      *
-     * @return UpdateWhiteRuleListResponse
+     * @return UpdateWhiteRuleListResponse UpdateWhiteRuleListResponse
      */
     public function updateWhiteRuleList($request)
     {

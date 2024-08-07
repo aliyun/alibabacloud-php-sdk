@@ -11,6 +11,7 @@ class GetLogsRequest extends Model
     /**
      * @description The time when the query starts. The value is a UNIX timestamp representing the number of seconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
      *
+     * This parameter is required.
      * @example 1684377190
      *
      * @var int
@@ -20,6 +21,7 @@ class GetLogsRequest extends Model
     /**
      * @description The page number. Pages start from page 1.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -29,6 +31,7 @@ class GetLogsRequest extends Model
     /**
      * @description The number of entries per page. Valid values: 0 to 100.
      *
+     * This parameter is required.
      * @example 10
      *
      * @var int
@@ -36,7 +39,7 @@ class GetLogsRequest extends Model
     public $pageSize;
 
     /**
-     * @description The search statement or the analytic statement. For more information, see [Log search overview](~~43772~~) and [Log analysis overview](~~53608~~).
+     * @description The search statement or the analytic statement. For more information, see [Log search overview](https://help.aliyun.com/document_detail/43772.html) and [Log analysis overview](https://help.aliyun.com/document_detail/53608.html).
      *
      * @example status: 401 | SELECT remote_addr,COUNT(*) as pv GROUP by remote_addr ORDER by pv desc limit 5
      *
@@ -71,6 +74,7 @@ class GetLogsRequest extends Model
     /**
      * @description The time when the query ends. The value is a UNIX timestamp representing the number of seconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
      *
+     * This parameter is required.
      * @example 1684378326
      *
      * @var int

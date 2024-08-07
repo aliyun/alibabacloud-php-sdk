@@ -111,8 +111,8 @@ class responseData extends Model
     /**
      * @description The status of the whitelist rule. Valid values:
      *
-     *   1: enabled
-     *   0: disabled
+     *   1: enabled.
+     *   0: disabled.
      *
      * @example 1
      *

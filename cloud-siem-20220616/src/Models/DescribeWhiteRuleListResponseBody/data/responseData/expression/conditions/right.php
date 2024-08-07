@@ -11,8 +11,8 @@ class right extends Model
     /**
      * @description Indicates whether the right operand is a constant or a runtime variable that is obtained from the runtime context. Valid values:
      *
-     *   true: runtime variable
-     *   false: constant
+     *   true: runtime variable.
+     *   false: constant.
      *
      * @example false
      *

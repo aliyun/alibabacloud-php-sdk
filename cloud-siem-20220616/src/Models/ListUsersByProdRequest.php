@@ -21,11 +21,15 @@ class ListUsersByProdRequest extends Model
     public $regionId;
 
     /**
+     * @example 113091674488****
+     *
      * @var int
      */
     public $roleFor;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $roleType;
@@ -33,6 +37,7 @@ class ListUsersByProdRequest extends Model
     /**
      * @description The code of the cloud service.
      *
+     * This parameter is required.
      * @example sas
      *
      * @var string

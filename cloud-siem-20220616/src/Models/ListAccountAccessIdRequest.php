@@ -16,6 +16,7 @@ class ListAccountAccessIdRequest extends Model
      *   qcloud
      *   hcloud
      *
+     * This parameter is required.
      * @example hcloud
      *
      * @var string
@@ -33,9 +34,29 @@ class ListAccountAccessIdRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @description The ID of the account that you switch from the management account.
+     *
+     * @example 113091674488****
+     *
+     * @var int
+     */
+    public $roleFor;
+
+    /**
+     * @description The type of the view. Valid values:
+     * - 1: the global account
+     * @example 0
+     *
+     * @var int
+     */
+    public $roleType;
     protected $_name = [
         'cloudCode' => 'CloudCode',
         'regionId'  => 'RegionId',
+        'roleFor'   => 'RoleFor',
+        'roleType'  => 'RoleType',
     ];
 
     public function validate()
@@ -50,6 +71,12 @@ class ListAccountAccessIdRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->roleFor) {
+            $res['RoleFor'] = $this->roleFor;
+        }
+        if (null !== $this->roleType) {
+            $res['RoleType'] = $this->roleType;
         }
 
         return $res;
@@ -68,6 +95,12 @@ class ListAccountAccessIdRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['RoleFor'])) {
+            $model->roleFor = $map['RoleFor'];
+        }
+        if (isset($map['RoleType'])) {
+            $model->roleType = $map['RoleType'];
         }
 
         return $model;

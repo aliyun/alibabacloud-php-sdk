@@ -11,9 +11,9 @@ class prodList extends Model
     /**
      * @description The code of the cloud service provider. Valid values:
      *
-     *   qcloud: Tencent Cloud
-     *   aliyun: Alibaba Cloud
-     *   hcloud: Huawei Cloud
+     *   qcloud: Tencent Cloud.
+     *   aliyun: Alibaba Cloud.
+     *   hcloud: Huawei Cloud.
      *
      * @example hcloud
      *

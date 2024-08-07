@@ -20,6 +20,7 @@ class ListCloudSiemCustomizeRulesRequest extends Model
     /**
      * @description The page number. Pages start from page 1.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -45,6 +46,11 @@ class ListCloudSiemCustomizeRulesRequest extends Model
     public $id;
 
     /**
+     * @description The sort method. Valid values:
+     *
+     *   desc: descending order.
+     *   asc: ascending order.
+     *
      * @example desc
      *
      * @var string
@@ -52,6 +58,11 @@ class ListCloudSiemCustomizeRulesRequest extends Model
     public $order;
 
     /**
+     * @description The field that is used to sort the rules. Valid values:
+     *
+     *   GmtModified: The rules are sorted based on the modification time.
+     *   Id (default): The rules are sorted based on the rule ID.
+     *
      * @example Id
      *
      * @var string
@@ -61,6 +72,7 @@ class ListCloudSiemCustomizeRulesRequest extends Model
     /**
      * @description The number of entries per page. The value can be up to 100.
      *
+     * This parameter is required.
      * @example 10
      *
      * @var int
@@ -80,17 +92,28 @@ class ListCloudSiemCustomizeRulesRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the destination account to which you switch the view from the management account.
+     *
+     * @example 113091674488****
+     *
      * @var int
      */
     public $roleFor;
 
     /**
+     * @description The type of the view. Valid values:
+     *
+     *   0: view of the current Alibaba Cloud account.
+     *   1: view of all accounts for the enterprise.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $roleType;
 
     /**
-     * @description The name of the rule. The name can contain letters, digits, underscores (\_), and periods (.).
+     * @description The name of the rule. The name can contain letters, digits, underscores (_), and periods (.).
      *
      * @example waf_scan
      *

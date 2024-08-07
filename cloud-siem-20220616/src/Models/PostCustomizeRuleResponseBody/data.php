@@ -36,11 +36,19 @@ class data extends Model
     public $aliuid;
 
     /**
+     * @description 告警附加字段attck
+     *
+     * @example T1595.002 Vulnerability Scanning
+     *
      * @var string
      */
     public $attCk;
 
     /**
+     * @description 自动化响应规则条件字段数据类型。
+     *
+     * @example varchar
+     *
      * @var int
      */
     public $dataType;

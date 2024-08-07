@@ -9,10 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeJobStatusRequest extends Model
 {
     /**
-     * @description The region in which the data management center of the threat analysis feature resides. Specify this parameter based on the regions in which your assets reside. Valid values:
-     *
-     *   cn-hangzhou: Your assets reside in regions in China.
-     *   ap-southeast-1: Your assets reside in regions outside China.
+     * @description The region where the service resides. Default value: cn-shanghai.
      *
      * @example cn-shanghai
      *
@@ -21,8 +18,9 @@ class DescribeJobStatusRequest extends Model
     public $regionId;
 
     /**
-     * @description The id of collection task.
+     * @description The ID of the collection task. The ID is the value of the submitId parameter in the response of the [BatchJobSubmit](https://next.api.aliyun.com/api/cloud-siem/2022-06-16/BatchSubmitJob?lang=JAVA\\&useCommon=true) operation.
      *
+     * This parameter is required.
      * @example xxxxx_folder_xxxxxx
      *
      * @var string

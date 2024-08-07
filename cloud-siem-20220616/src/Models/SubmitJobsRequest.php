@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class SubmitJobsRequest extends Model
 {
     /**
-     * @description The parameters of the logs that you want to add. The value is a JSON array, which contains the following parameters:\
+     * @description The parameters of the logs that you want to add. The value is a JSON array, which contains the following parameters:\\
      *
      *
      *   SourceProdCode: the code of the cloud service.
@@ -21,6 +21,7 @@ class SubmitJobsRequest extends Model
      *   0: yes
      *   1: no
      *
+     * This parameter is required.
      * @example [{"SourceLogCode":"cloud_siem_aegis_health_check","SourceProdCode":"sas","SubUserId":120xxxxxxx,"Deleted":0},{"SourceLogCode":"cloud_siem_aegis_health_check","SourceProdCode":"sas","SubUserId":121xxxxxxxx,"Deleted":0},{"SourceLogCode":"cloud_siem_aegis_health_check","SourceProdCode":"sas","SubUserId":122xxxxxxx,"Deleted":1}]
      *
      * @var string

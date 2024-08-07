@@ -20,6 +20,7 @@ class ListQuickQueryRequest extends Model
     /**
      * @description The number of entries per page. Valid values: 1 to 500.
      *
+     * This parameter is required.
      * @example 50
      *
      * @var int

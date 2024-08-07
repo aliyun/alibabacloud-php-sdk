@@ -18,6 +18,8 @@ class data extends Model
     public $aliUid;
 
     /**
+     * @description 云code。  取值：
+     * - hcloud：华为云
      * @example qcloud
      *
      * @var string
@@ -43,6 +45,8 @@ class data extends Model
     public $instanceId;
 
     /**
+     * @description 多云用户ID。
+     *
      * @example 123456789****
      *
      * @var string

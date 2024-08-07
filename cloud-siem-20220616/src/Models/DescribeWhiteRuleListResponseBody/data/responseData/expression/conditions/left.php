@@ -11,8 +11,8 @@ class left extends Model
     /**
      * @description Indicates whether the left operand is a variable. Valid values:
      *
-     *   true: variable
-     *   false: constant
+     *   true: variable.
+     *   false: constant.
      *
      * @example true
      *
@@ -21,7 +21,7 @@ class left extends Model
     public $isVar;
 
     /**
-     * @description The remarks on the left operand.
+     * @description The remarks on the right operand.
      *
      * @example length
      *

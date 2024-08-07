@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description 同类聚合规则数。
+     *
+     * @example 3
+     *
      * @var int
      */
     public $aggregationRuleNum;
 
     /**
+     * @description 自定义规则数。
+     *
+     * @example 10
+     *
      * @var int
      */
     public $customizeRuleNum;
 
     /**
+     * @description 专家规则数。
+     *
+     * @example 7
+     *
      * @var int
      */
     public $expertRuleNum;
 
     /**
+     * @description 图计算规则数。
+     *
+     * @example 2
+     *
      * @var int
      */
     public $graphComputingRuleNum;
@@ -65,21 +81,37 @@ class data extends Model
     public $mediumRuleNum;
 
     /**
+     * @description 预定义规则数。
+     *
+     * @example 10
+     *
      * @var int
      */
     public $predefinedRuleNum;
 
     /**
+     * @description 告警透传规则数。
+     *
+     * @example 3
+     *
      * @var int
      */
     public $singleAlertRuleNum;
 
     /**
+     * @description 总规则数。
+     *
+     * @example 10
+     *
      * @var int
      */
     public $totalRuleNum;
 
     /**
+     * @description 不产生事件规则数。
+     *
+     * @example 3
+     *
      * @var int
      */
     public $unEventRuleNum;

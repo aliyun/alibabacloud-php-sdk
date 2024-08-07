@@ -20,6 +20,7 @@ class DescribeCloudSiemEventsRequest extends Model
     /**
      * @description The page number. Pages start from page 1.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -80,6 +81,7 @@ class DescribeCloudSiemEventsRequest extends Model
     /**
      * @description The number of entries per page. Maximum value: 100.
      *
+     * This parameter is required.
      * @example 10
      *
      * @var int
@@ -99,11 +101,19 @@ class DescribeCloudSiemEventsRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the account that you switch from the management account.
+     *
+     * @example 113091674488****
+     *
      * @var int
      */
     public $roleFor;
 
     /**
+     * @description The type of the view. Valid values:
+     * - 1: the global account
+     * @example 1
+     *
      * @var int
      */
     public $roleType;

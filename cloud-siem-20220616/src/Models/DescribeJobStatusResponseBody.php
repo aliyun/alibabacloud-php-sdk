@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeJobStatusResponseBody extends Model
 {
     /**
-     * @description The HTTP status code.
+     * @description The HTTP status code. If the request is successful, 200 is returned.
      *
      * @example 200
      *
@@ -19,14 +19,14 @@ class DescribeJobStatusResponseBody extends Model
     public $code;
 
     /**
-     * @description The data returned.
+     * @description The returned data.
      *
      * @var data
      */
     public $data;
 
     /**
-     * @description The error code.
+     * @description The error code. If the request is successful, the parameter is empty. If the request fails, an error code is returned.
      *
      * @example ServerError
      *
@@ -35,7 +35,7 @@ class DescribeJobStatusResponseBody extends Model
     public $errCode;
 
     /**
-     * @description The returned message.
+     * @description The error message. If the request is successful, the parameter is empty. If the request fails, the reason for the failure is returned.
      *
      * @example success
      *
@@ -55,8 +55,8 @@ class DescribeJobStatusResponseBody extends Model
     /**
      * @description Indicates whether the request was successful. Valid values:
      *
-     *   true
-     *   false
+     *   **true**
+     *   **false**
      *
      * @example true
      *

@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class productList extends Model
 {
     /**
-     * @description The list of log.
+     * @description The list of logs that fail to be collected.
      *
      * @var logList[]
      */
     public $logList;
 
     /**
-     * @description The code of product.
+     * @description The code of the service.
      *
      * @example sas
      *

@@ -11,6 +11,7 @@ class DeleteBindAccountRequest extends Model
     /**
      * @description The AccessKey ID of the cloud account.
      *
+     * This parameter is required.
      * @example ABCXXXXXXXX
      *
      * @var string
@@ -20,6 +21,7 @@ class DeleteBindAccountRequest extends Model
     /**
      * @description The ID of the cloud account.
      *
+     * This parameter is required.
      * @example 123xxxxxxx
      *
      * @var string
@@ -27,7 +29,7 @@ class DeleteBindAccountRequest extends Model
     public $accountId;
 
     /**
-     * @description The ID generated when the account is added to the threat analysis feature. You can call the [ListBindAccount](https://api.aliyun-inc.com/#/publishment/document/cloud-siem/863fdf54478f4cc5877e27c2a5fe9e44?tenantUuid=f382fccd88b94c5c8c864def6815b854\&activeTabKey=api%7CListBindAccount) operation to query the ID.
+     * @description The ID generated when the account is added to the threat analysis feature. You can call the [ListBindAccount](https://api.aliyun-inc.com/#/publishment/document/cloud-siem/863fdf54478f4cc5877e27c2a5fe9e44?tenantUuid=f382fccd88b94c5c8c864def6815b854\\&activeTabKey=api%7CListBindAccount) operation to query the ID.
      *
      * @example 10
      *
@@ -42,6 +44,7 @@ class DeleteBindAccountRequest extends Model
      *   aliyun: Alibaba Cloud
      *   hcloud: Huawei Cloud
      *
+     * This parameter is required.
      * @example hcloud
      *
      * @var string
@@ -59,12 +62,24 @@ class DeleteBindAccountRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var int
+     */
+    public $roleFor;
+
+    /**
+     * @var int
+     */
+    public $roleType;
     protected $_name = [
         'accessId'  => 'AccessId',
         'accountId' => 'AccountId',
         'bindId'    => 'BindId',
         'cloudCode' => 'CloudCode',
         'regionId'  => 'RegionId',
+        'roleFor'   => 'RoleFor',
+        'roleType'  => 'RoleType',
     ];
 
     public function validate()
@@ -88,6 +103,12 @@ class DeleteBindAccountRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->roleFor) {
+            $res['RoleFor'] = $this->roleFor;
+        }
+        if (null !== $this->roleType) {
+            $res['RoleType'] = $this->roleType;
         }
 
         return $res;
@@ -115,6 +136,12 @@ class DeleteBindAccountRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['RoleFor'])) {
+            $model->roleFor = $map['RoleFor'];
+        }
+        if (isset($map['RoleType'])) {
+            $model->roleType = $map['RoleType'];
         }
 
         return $model;

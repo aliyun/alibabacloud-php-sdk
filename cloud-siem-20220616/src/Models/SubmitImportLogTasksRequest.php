@@ -37,14 +37,13 @@ class SubmitImportLogTasksRequest extends Model
     public $autoImported;
 
     /**
-     * @description The code that is used for multi-cloud environments.
+     * @description The code that is used for multi-cloud environments. Valid values:
      *
-     * Valid values:
+     *   qcloud: Tencent Cloud
+     *   aliyun: Alibaba Cloud
+     *   hcloud: Huawei Cloud
      *
-     *   qcloud.
-     *   hcloud.
-     *   aliyun.
-     *
+     * This parameter is required.
      * @example hcloud
      *
      * @var string
@@ -63,6 +62,7 @@ class SubmitImportLogTasksRequest extends Model
     /**
      * @description The code of the service.
      *
+     * This parameter is required.
      * @example qcloud_waf
      *
      * @var string
@@ -80,6 +80,24 @@ class SubmitImportLogTasksRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @description The ID of the account that you switch from the management account.
+     *
+     * @example 113091674488****
+     *
+     * @var int
+     */
+    public $roleFor;
+
+    /**
+     * @description The type of the view. Valid values:
+     * - 1: the global account
+     * @example 0
+     *
+     * @var int
+     */
+    public $roleType;
     protected $_name = [
         'accounts'     => 'Accounts',
         'autoImported' => 'AutoImported',
@@ -87,6 +105,8 @@ class SubmitImportLogTasksRequest extends Model
         'logCodes'     => 'LogCodes',
         'prodCode'     => 'ProdCode',
         'regionId'     => 'RegionId',
+        'roleFor'      => 'RoleFor',
+        'roleType'     => 'RoleType',
     ];
 
     public function validate()
@@ -113,6 +133,12 @@ class SubmitImportLogTasksRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->roleFor) {
+            $res['RoleFor'] = $this->roleFor;
+        }
+        if (null !== $this->roleType) {
+            $res['RoleType'] = $this->roleType;
         }
 
         return $res;
@@ -143,6 +169,12 @@ class SubmitImportLogTasksRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['RoleFor'])) {
+            $model->roleFor = $map['RoleFor'];
+        }
+        if (isset($map['RoleType'])) {
+            $model->roleType = $map['RoleType'];
         }
 
         return $model;

@@ -16,6 +16,7 @@ class ListDataSourceTypesRequest extends Model
      *   qcloud
      *   hcloud
      *
+     * This parameter is required.
      * @example hcloud
      *
      * @var string

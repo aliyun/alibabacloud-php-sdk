@@ -20,7 +20,7 @@ class quickQueryList extends Model
     /**
      * @description The query statement corresponding to the saved search.
      *
-     * @example * and SamplerAddress:\"172.18.1.1\" and OutIf:\"105\"
+     * @example * and SamplerAddress:\\"172.18.1.1\\" and OutIf:\\"105\\"
      *
      * @var string
      */
