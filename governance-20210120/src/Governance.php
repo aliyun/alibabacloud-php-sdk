@@ -24,6 +24,16 @@ use AlibabaCloud\SDK\Governance\V20210120\Models\ListAccountFactoryBaselinesRequ
 use AlibabaCloud\SDK\Governance\V20210120\Models\ListAccountFactoryBaselinesResponse;
 use AlibabaCloud\SDK\Governance\V20210120\Models\ListEnrolledAccountsRequest;
 use AlibabaCloud\SDK\Governance\V20210120\Models\ListEnrolledAccountsResponse;
+use AlibabaCloud\SDK\Governance\V20210120\Models\ListEvaluationMetadataRequest;
+use AlibabaCloud\SDK\Governance\V20210120\Models\ListEvaluationMetadataResponse;
+use AlibabaCloud\SDK\Governance\V20210120\Models\ListEvaluationMetricDetailsRequest;
+use AlibabaCloud\SDK\Governance\V20210120\Models\ListEvaluationMetricDetailsResponse;
+use AlibabaCloud\SDK\Governance\V20210120\Models\ListEvaluationResultsRequest;
+use AlibabaCloud\SDK\Governance\V20210120\Models\ListEvaluationResultsResponse;
+use AlibabaCloud\SDK\Governance\V20210120\Models\ListEvaluationScoreHistoryRequest;
+use AlibabaCloud\SDK\Governance\V20210120\Models\ListEvaluationScoreHistoryResponse;
+use AlibabaCloud\SDK\Governance\V20210120\Models\RunEvaluationRequest;
+use AlibabaCloud\SDK\Governance\V20210120\Models\RunEvaluationResponse;
 use AlibabaCloud\SDK\Governance\V20210120\Models\UpdateAccountFactoryBaselineRequest;
 use AlibabaCloud\SDK\Governance\V20210120\Models\UpdateAccountFactoryBaselineResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -570,6 +580,271 @@ class Governance extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listEnrolledAccountsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查看治理检测定义
+     *  *
+     * @param ListEvaluationMetadataRequest $request ListEvaluationMetadataRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListEvaluationMetadataResponse ListEvaluationMetadataResponse
+     */
+    public function listEvaluationMetadataWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->language)) {
+            $query['Language'] = $request->language;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListEvaluationMetadata',
+            'version'     => '2021-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListEvaluationMetadataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查看治理检测定义
+     *  *
+     * @param ListEvaluationMetadataRequest $request ListEvaluationMetadataRequest
+     *
+     * @return ListEvaluationMetadataResponse ListEvaluationMetadataResponse
+     */
+    public function listEvaluationMetadata($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listEvaluationMetadataWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取云治理中心治理检测项结果详情
+     *  *
+     * @param ListEvaluationMetricDetailsRequest $request ListEvaluationMetricDetailsRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListEvaluationMetricDetailsResponse ListEvaluationMetricDetailsResponse
+     */
+    public function listEvaluationMetricDetailsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListEvaluationMetricDetails',
+            'version'     => '2021-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListEvaluationMetricDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取云治理中心治理检测项结果详情
+     *  *
+     * @param ListEvaluationMetricDetailsRequest $request ListEvaluationMetricDetailsRequest
+     *
+     * @return ListEvaluationMetricDetailsResponse ListEvaluationMetricDetailsResponse
+     */
+    public function listEvaluationMetricDetails($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listEvaluationMetricDetailsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查看检测结果
+     *  *
+     * @param ListEvaluationResultsRequest $request ListEvaluationResultsRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListEvaluationResultsResponse ListEvaluationResultsResponse
+     */
+    public function listEvaluationResultsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListEvaluationResults',
+            'version'     => '2021-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListEvaluationResultsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查看检测结果
+     *  *
+     * @param ListEvaluationResultsRequest $request ListEvaluationResultsRequest
+     *
+     * @return ListEvaluationResultsResponse ListEvaluationResultsResponse
+     */
+    public function listEvaluationResults($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listEvaluationResultsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查看治理检测定义
+     *  *
+     * @param ListEvaluationScoreHistoryRequest $request ListEvaluationScoreHistoryRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListEvaluationScoreHistoryResponse ListEvaluationScoreHistoryResponse
+     */
+    public function listEvaluationScoreHistoryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endDate)) {
+            $query['EndDate'] = $request->endDate;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->startDate)) {
+            $query['StartDate'] = $request->startDate;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListEvaluationScoreHistory',
+            'version'     => '2021-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListEvaluationScoreHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查看治理检测定义
+     *  *
+     * @param ListEvaluationScoreHistoryRequest $request ListEvaluationScoreHistoryRequest
+     *
+     * @return ListEvaluationScoreHistoryResponse ListEvaluationScoreHistoryResponse
+     */
+    public function listEvaluationScoreHistory($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listEvaluationScoreHistoryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 运行云治理中心治理检测
+     *  *
+     * @param RunEvaluationRequest $request RunEvaluationRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return RunEvaluationResponse RunEvaluationResponse
+     */
+    public function runEvaluationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->scope)) {
+            $query['Scope'] = $request->scope;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RunEvaluation',
+            'version'     => '2021-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RunEvaluationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 运行云治理中心治理检测
+     *  *
+     * @param RunEvaluationRequest $request RunEvaluationRequest
+     *
+     * @return RunEvaluationResponse RunEvaluationResponse
+     */
+    public function runEvaluation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->runEvaluationWithOptions($request, $runtime);
     }
 
     /**
