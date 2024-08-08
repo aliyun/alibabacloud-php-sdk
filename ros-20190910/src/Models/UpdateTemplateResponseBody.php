@@ -25,9 +25,15 @@ class UpdateTemplateResponseBody extends Model
      * @var string
      */
     public $templateId;
+
+    /**
+     * @var string
+     */
+    public $templateVersion;
     protected $_name = [
-        'requestId'  => 'RequestId',
-        'templateId' => 'TemplateId',
+        'requestId'       => 'RequestId',
+        'templateId'      => 'TemplateId',
+        'templateVersion' => 'TemplateVersion',
     ];
 
     public function validate()
@@ -42,6 +48,9 @@ class UpdateTemplateResponseBody extends Model
         }
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
+        }
+        if (null !== $this->templateVersion) {
+            $res['TemplateVersion'] = $this->templateVersion;
         }
 
         return $res;
@@ -60,6 +69,9 @@ class UpdateTemplateResponseBody extends Model
         }
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
+        }
+        if (isset($map['TemplateVersion'])) {
+            $model->templateVersion = $map['TemplateVersion'];
         }
 
         return $model;
