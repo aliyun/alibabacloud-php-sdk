@@ -19,6 +19,11 @@ class GetDocContentTakIdRequest extends Model
     public $dentryUuid;
 
     /**
+     * @var bool
+     */
+    public $generateCp;
+
+    /**
      * @example markdown
      *
      * @var string
@@ -31,6 +36,7 @@ class GetDocContentTakIdRequest extends Model
     public $tenantContext;
     protected $_name = [
         'dentryUuid'    => 'DentryUuid',
+        'generateCp'    => 'GenerateCp',
         'targetFormat'  => 'TargetFormat',
         'tenantContext' => 'TenantContext',
     ];
@@ -44,6 +50,9 @@ class GetDocContentTakIdRequest extends Model
         $res = [];
         if (null !== $this->dentryUuid) {
             $res['DentryUuid'] = $this->dentryUuid;
+        }
+        if (null !== $this->generateCp) {
+            $res['GenerateCp'] = $this->generateCp;
         }
         if (null !== $this->targetFormat) {
             $res['TargetFormat'] = $this->targetFormat;
@@ -65,6 +74,9 @@ class GetDocContentTakIdRequest extends Model
         $model = new self();
         if (isset($map['DentryUuid'])) {
             $model->dentryUuid = $map['DentryUuid'];
+        }
+        if (isset($map['GenerateCp'])) {
+            $model->generateCp = $map['GenerateCp'];
         }
         if (isset($map['TargetFormat'])) {
             $model->targetFormat = $map['TargetFormat'];

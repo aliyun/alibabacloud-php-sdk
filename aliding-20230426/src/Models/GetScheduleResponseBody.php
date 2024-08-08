@@ -4,13 +4,12 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetScheduleResponseBody\scheduleInformation;
 use AlibabaCloud\Tea\Model;
 
-class InviteUsersResponseBody extends Model
+class GetScheduleResponseBody extends Model
 {
     /**
-     * @description requestId
-     *
      * @example 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
      *
      * @var string
@@ -18,26 +17,28 @@ class InviteUsersResponseBody extends Model
     public $requestId;
 
     /**
-     * @example true
-     *
-     * @var bool
+     * @var scheduleInformation[]
      */
-    public $success;
+    public $scheduleInformation;
 
     /**
+     * @example 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+     *
      * @var string
      */
     public $vendorRequestId;
 
     /**
+     * @example dingtalk
+     *
      * @var string
      */
     public $vendorType;
     protected $_name = [
-        'requestId'       => 'requestId',
-        'success'         => 'success',
-        'vendorRequestId' => 'vendorRequestId',
-        'vendorType'      => 'vendorType',
+        'requestId'           => 'requestId',
+        'scheduleInformation' => 'scheduleInformation',
+        'vendorRequestId'     => 'vendorRequestId',
+        'vendorType'          => 'vendorType',
     ];
 
     public function validate()
@@ -50,8 +51,14 @@ class InviteUsersResponseBody extends Model
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
-        if (null !== $this->success) {
-            $res['success'] = $this->success;
+        if (null !== $this->scheduleInformation) {
+            $res['scheduleInformation'] = [];
+            if (null !== $this->scheduleInformation && \is_array($this->scheduleInformation)) {
+                $n = 0;
+                foreach ($this->scheduleInformation as $item) {
+                    $res['scheduleInformation'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->vendorRequestId) {
             $res['vendorRequestId'] = $this->vendorRequestId;
@@ -66,7 +73,7 @@ class InviteUsersResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return InviteUsersResponseBody
+     * @return GetScheduleResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -74,8 +81,14 @@ class InviteUsersResponseBody extends Model
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
-        if (isset($map['success'])) {
-            $model->success = $map['success'];
+        if (isset($map['scheduleInformation'])) {
+            if (!empty($map['scheduleInformation'])) {
+                $model->scheduleInformation = [];
+                $n                          = 0;
+                foreach ($map['scheduleInformation'] as $item) {
+                    $model->scheduleInformation[$n++] = null !== $item ? scheduleInformation::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['vendorRequestId'])) {
             $model->vendorRequestId = $map['vendorRequestId'];

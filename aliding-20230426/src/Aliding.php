@@ -99,6 +99,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\CommentListReportRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CommentListReportResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CommentListReportShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CommentListReportShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CommitFileHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CommitFileRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CommitFileResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CommitFileShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CommitFileShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateDeliveryPlanHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateDeliveryPlanRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateDeliveryPlanResponse;
@@ -329,6 +334,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\GetFileDownloadInfoRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetFileDownloadInfoResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetFileDownloadInfoShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetFileDownloadInfoShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetFileUploadInfoHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetFileUploadInfoRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetFileUploadInfoResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetFileUploadInfoShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetFileUploadInfoShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetFormComponentDefinitionListHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetFormComponentDefinitionListRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetFormComponentDefinitionListResponse;
@@ -380,6 +390,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\GetMineWorkspaceRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetMineWorkspaceResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetMineWorkspaceShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetMineWorkspaceShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetMultipartFileUploadInfosHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetMultipartFileUploadInfosRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetMultipartFileUploadInfosResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetMultipartFileUploadInfosShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetMultipartFileUploadInfosShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetNewestInnerGroupsHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetNewestInnerGroupsRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetNewestInnerGroupsResponse;
@@ -440,6 +455,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\GetRunningTasksHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetRunningTasksRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetRunningTasksResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetRunningTasksShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetScheduleHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetScheduleRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetScheduleResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetScheduleShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetScheduleShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetSheetHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetSheetRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetSheetResponse;
@@ -488,6 +508,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\GrantHonorRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GrantHonorResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GrantHonorShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GrantHonorShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\InitMultipartFileUploadHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\InitMultipartFileUploadRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\InitMultipartFileUploadResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\InitMultipartFileUploadShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\InitMultipartFileUploadShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\InsertColumnsBeforeHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\InsertColumnsBeforeRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\InsertColumnsBeforeResponse;
@@ -2386,6 +2411,88 @@ class Aliding extends OpenApiClient
         $headers = new CommentListReportHeaders([]);
 
         return $this->commentListReportWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 提交文件
+     *  *
+     * @param CommitFileRequest $tmpReq    CommitFileRequest
+     * @param CommitFileHeaders $tmpHeader CommitFileHeaders
+     * @param RuntimeOptions    $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return CommitFileResponse CommitFileResponse
+     */
+    public function commitFileWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CommitFileShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        $headers = new CommitFileShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->option)) {
+            $request->optionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->option, 'Option', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tenantContext)) {
+            $request->tenantContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->optionShrink)) {
+            $body['Option'] = $request->optionShrink;
+        }
+        if (!Utils::isUnset($request->parentDentryUuid)) {
+            $body['ParentDentryUuid'] = $request->parentDentryUuid;
+        }
+        if (!Utils::isUnset($request->tenantContextShrink)) {
+            $body['TenantContext'] = $request->tenantContextShrink;
+        }
+        if (!Utils::isUnset($request->uploadKey)) {
+            $body['UploadKey'] = $request->uploadKey;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CommitFile',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dingtalk/v1/documents/commitFile',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CommitFileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 提交文件
+     *  *
+     * @param CommitFileRequest $request CommitFileRequest
+     *
+     * @return CommitFileResponse CommitFileResponse
+     */
+    public function commitFile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new CommitFileHeaders([]);
+
+        return $this->commitFileWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -6076,6 +6183,9 @@ class Aliding extends OpenApiClient
         if (!Utils::isUnset($request->dentryUuid)) {
             $body['DentryUuid'] = $request->dentryUuid;
         }
+        if (!Utils::isUnset($request->generateCp)) {
+            $body['GenerateCp'] = $request->generateCp;
+        }
         if (!Utils::isUnset($request->targetFormat)) {
             $body['TargetFormat'] = $request->targetFormat;
         }
@@ -6338,6 +6448,85 @@ class Aliding extends OpenApiClient
         $headers = new GetFileDownloadInfoHeaders([]);
 
         return $this->getFileDownloadInfoWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 获取文件上传信息
+     *  *
+     * @param GetFileUploadInfoRequest $tmpReq    GetFileUploadInfoRequest
+     * @param GetFileUploadInfoHeaders $tmpHeader GetFileUploadInfoHeaders
+     * @param RuntimeOptions           $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return GetFileUploadInfoResponse GetFileUploadInfoResponse
+     */
+    public function getFileUploadInfoWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new GetFileUploadInfoShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        $headers = new GetFileUploadInfoShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->option)) {
+            $request->optionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->option, 'Option', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tenantContext)) {
+            $request->tenantContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->optionShrink)) {
+            $body['Option'] = $request->optionShrink;
+        }
+        if (!Utils::isUnset($request->parentDentryUuid)) {
+            $body['ParentDentryUuid'] = $request->parentDentryUuid;
+        }
+        if (!Utils::isUnset($request->protocol)) {
+            $body['Protocol'] = $request->protocol;
+        }
+        if (!Utils::isUnset($request->tenantContextShrink)) {
+            $body['TenantContext'] = $request->tenantContextShrink;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetFileUploadInfo',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dingtalk/v1/documents/getFileUploadInfo',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetFileUploadInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取文件上传信息
+     *  *
+     * @param GetFileUploadInfoRequest $request GetFileUploadInfoRequest
+     *
+     * @return GetFileUploadInfoResponse GetFileUploadInfoResponse
+     */
+    public function getFileUploadInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new GetFileUploadInfoHeaders([]);
+
+        return $this->getFileUploadInfoWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -7280,6 +7469,88 @@ class Aliding extends OpenApiClient
         $headers = new GetMineWorkspaceHeaders([]);
 
         return $this->getMineWorkspaceWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 获取文件分片上传信息
+     *  *
+     * @param GetMultipartFileUploadInfosRequest $tmpReq    GetMultipartFileUploadInfosRequest
+     * @param GetMultipartFileUploadInfosHeaders $tmpHeader GetMultipartFileUploadInfosHeaders
+     * @param RuntimeOptions                     $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return GetMultipartFileUploadInfosResponse GetMultipartFileUploadInfosResponse
+     */
+    public function getMultipartFileUploadInfosWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new GetMultipartFileUploadInfosShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        $headers = new GetMultipartFileUploadInfosShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->option)) {
+            $request->optionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->option, 'Option', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->partNumbers)) {
+            $request->partNumbersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->partNumbers, 'PartNumbers', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tenantContext)) {
+            $request->tenantContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->optionShrink)) {
+            $body['Option'] = $request->optionShrink;
+        }
+        if (!Utils::isUnset($request->partNumbersShrink)) {
+            $body['PartNumbers'] = $request->partNumbersShrink;
+        }
+        if (!Utils::isUnset($request->tenantContextShrink)) {
+            $body['TenantContext'] = $request->tenantContextShrink;
+        }
+        if (!Utils::isUnset($request->uploadKey)) {
+            $body['UploadKey'] = $request->uploadKey;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetMultipartFileUploadInfos',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/GetMultipartFileUploadInfos',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetMultipartFileUploadInfosResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取文件分片上传信息
+     *  *
+     * @param GetMultipartFileUploadInfosRequest $request GetMultipartFileUploadInfosRequest
+     *
+     * @return GetMultipartFileUploadInfosResponse GetMultipartFileUploadInfosResponse
+     */
+    public function getMultipartFileUploadInfos($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new GetMultipartFileUploadInfosHeaders([]);
+
+        return $this->getMultipartFileUploadInfosWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -8273,6 +8544,85 @@ class Aliding extends OpenApiClient
     }
 
     /**
+     * @summary 获取用户忙闲信息
+     *  *
+     * @param GetScheduleRequest $tmpReq    GetScheduleRequest
+     * @param GetScheduleHeaders $tmpHeader GetScheduleHeaders
+     * @param RuntimeOptions     $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return GetScheduleResponse GetScheduleResponse
+     */
+    public function getScheduleWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new GetScheduleShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        $headers = new GetScheduleShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tenantContext)) {
+            $request->tenantContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->userIds)) {
+            $request->userIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userIds, 'UserIds', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $body['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $body['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->tenantContextShrink)) {
+            $body['TenantContext'] = $request->tenantContextShrink;
+        }
+        if (!Utils::isUnset($request->userIdsShrink)) {
+            $body['UserIds'] = $request->userIdsShrink;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetSchedule',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dingtalk/v1/calendar/getSchedule',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetScheduleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取用户忙闲信息
+     *  *
+     * @param GetScheduleRequest $request GetScheduleRequest
+     *
+     * @return GetScheduleResponse GetScheduleResponse
+     */
+    public function getSchedule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new GetScheduleHeaders([]);
+
+        return $this->getScheduleWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @summary 获取工作表
      *  *
      * @param GetSheetRequest $tmpReq    GetSheetRequest
@@ -9035,6 +9385,82 @@ class Aliding extends OpenApiClient
         $headers = new GrantHonorHeaders([]);
 
         return $this->grantHonorWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 初始化文件分片上传
+     *  *
+     * @param InitMultipartFileUploadRequest $tmpReq    InitMultipartFileUploadRequest
+     * @param InitMultipartFileUploadHeaders $tmpHeader InitMultipartFileUploadHeaders
+     * @param RuntimeOptions                 $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return InitMultipartFileUploadResponse InitMultipartFileUploadResponse
+     */
+    public function initMultipartFileUploadWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new InitMultipartFileUploadShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        $headers = new InitMultipartFileUploadShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->option)) {
+            $request->optionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->option, 'Option', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tenantContext)) {
+            $request->tenantContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->optionShrink)) {
+            $body['Option'] = $request->optionShrink;
+        }
+        if (!Utils::isUnset($request->parentDentryUuid)) {
+            $body['ParentDentryUuid'] = $request->parentDentryUuid;
+        }
+        if (!Utils::isUnset($request->tenantContextShrink)) {
+            $body['TenantContext'] = $request->tenantContextShrink;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'InitMultipartFileUpload',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dingtalk/v1/documents/initMultipartFileUpload',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return InitMultipartFileUploadResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 初始化文件分片上传
+     *  *
+     * @param InitMultipartFileUploadRequest $request InitMultipartFileUploadRequest
+     *
+     * @return InitMultipartFileUploadResponse InitMultipartFileUploadResponse
+     */
+    public function initMultipartFileUpload($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new InitMultipartFileUploadHeaders([]);
+
+        return $this->initMultipartFileUploadWithOptions($request, $headers, $runtime);
     }
 
     /**

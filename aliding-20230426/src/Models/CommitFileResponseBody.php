@@ -4,13 +4,17 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CommitFileResponseBody\dentry;
 use AlibabaCloud\Tea\Model;
 
-class InviteUsersResponseBody extends Model
+class CommitFileResponseBody extends Model
 {
     /**
-     * @description requestId
-     *
+     * @var dentry
+     */
+    public $dentry;
+
+    /**
      * @example 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
      *
      * @var string
@@ -18,24 +22,21 @@ class InviteUsersResponseBody extends Model
     public $requestId;
 
     /**
-     * @example true
+     * @example 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
      *
-     * @var bool
-     */
-    public $success;
-
-    /**
      * @var string
      */
     public $vendorRequestId;
 
     /**
+     * @example dingtalk
+     *
      * @var string
      */
     public $vendorType;
     protected $_name = [
+        'dentry'          => 'dentry',
         'requestId'       => 'requestId',
-        'success'         => 'success',
         'vendorRequestId' => 'vendorRequestId',
         'vendorType'      => 'vendorType',
     ];
@@ -47,11 +48,11 @@ class InviteUsersResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->dentry) {
+            $res['dentry'] = null !== $this->dentry ? $this->dentry->toMap() : null;
+        }
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
-        }
-        if (null !== $this->success) {
-            $res['success'] = $this->success;
         }
         if (null !== $this->vendorRequestId) {
             $res['vendorRequestId'] = $this->vendorRequestId;
@@ -66,16 +67,16 @@ class InviteUsersResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return InviteUsersResponseBody
+     * @return CommitFileResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['dentry'])) {
+            $model->dentry = dentry::fromMap($map['dentry']);
+        }
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
-        }
-        if (isset($map['success'])) {
-            $model->success = $map['success'];
         }
         if (isset($map['vendorRequestId'])) {
             $model->vendorRequestId = $map['vendorRequestId'];

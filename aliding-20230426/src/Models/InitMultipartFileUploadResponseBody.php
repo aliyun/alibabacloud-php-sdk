@@ -6,11 +6,9 @@ namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class InviteUsersResponseBody extends Model
+class InitMultipartFileUploadResponseBody extends Model
 {
     /**
-     * @description requestId
-     *
      * @example 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
      *
      * @var string
@@ -18,24 +16,36 @@ class InviteUsersResponseBody extends Model
     public $requestId;
 
     /**
-     * @example true
+     * @example DINGTALK
      *
-     * @var bool
+     * @var string
      */
-    public $success;
+    public $storageDriver;
 
     /**
+     * @example xhy89xxxxx
+     *
+     * @var string
+     */
+    public $uploadKey;
+
+    /**
+     * @example 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+     *
      * @var string
      */
     public $vendorRequestId;
 
     /**
+     * @example dingtalk
+     *
      * @var string
      */
     public $vendorType;
     protected $_name = [
         'requestId'       => 'requestId',
-        'success'         => 'success',
+        'storageDriver'   => 'storageDriver',
+        'uploadKey'       => 'uploadKey',
         'vendorRequestId' => 'vendorRequestId',
         'vendorType'      => 'vendorType',
     ];
@@ -50,8 +60,11 @@ class InviteUsersResponseBody extends Model
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
-        if (null !== $this->success) {
-            $res['success'] = $this->success;
+        if (null !== $this->storageDriver) {
+            $res['storageDriver'] = $this->storageDriver;
+        }
+        if (null !== $this->uploadKey) {
+            $res['uploadKey'] = $this->uploadKey;
         }
         if (null !== $this->vendorRequestId) {
             $res['vendorRequestId'] = $this->vendorRequestId;
@@ -66,7 +79,7 @@ class InviteUsersResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return InviteUsersResponseBody
+     * @return InitMultipartFileUploadResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -74,8 +87,11 @@ class InviteUsersResponseBody extends Model
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
-        if (isset($map['success'])) {
-            $model->success = $map['success'];
+        if (isset($map['storageDriver'])) {
+            $model->storageDriver = $map['storageDriver'];
+        }
+        if (isset($map['uploadKey'])) {
+            $model->uploadKey = $map['uploadKey'];
         }
         if (isset($map['vendorRequestId'])) {
             $model->vendorRequestId = $map['vendorRequestId'];
