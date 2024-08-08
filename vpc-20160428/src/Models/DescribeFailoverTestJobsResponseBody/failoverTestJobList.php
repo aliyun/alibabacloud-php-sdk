@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class failoverTestJobList extends Model
 {
     /**
+     * @description The description of the failover test.
+     *
+     * The description must be 0 to 256 characters in length and cannot start with \\*\\*http:// **or** https://\\*\\*.
      * @example test
      *
      * @var string
@@ -16,6 +19,8 @@ class failoverTestJobList extends Model
     public $description;
 
     /**
+     * @description The duration of the failover test. Unit: minutes. Valid values: **1 to 4320**.
+     *
      * @example 60
      *
      * @var string
@@ -23,6 +28,8 @@ class failoverTestJobList extends Model
     public $jobDuration;
 
     /**
+     * @description The ID of the failover test.
+     *
      * @example ftj-xxxxxxxxx
      *
      * @var string
@@ -30,6 +37,11 @@ class failoverTestJobList extends Model
     public $jobId;
 
     /**
+     * @description Indicates whether the failover test is performed immediately. Valid values:
+     *
+     *   **StartNow**
+     *   **StartLater**
+     *
      * @example StartNow
      *
      * @var string
@@ -37,6 +49,9 @@ class failoverTestJobList extends Model
     public $jobType;
 
     /**
+     * @description The name of the failover test.
+     *
+     * The name must be 0 to 128 characters in length and cannot start with `http://` or `https://`.
      * @example test
      *
      * @var string
@@ -44,11 +59,15 @@ class failoverTestJobList extends Model
     public $name;
 
     /**
+     * @description The IDs of the failover test resources.
+     *
      * @var string[]
      */
     public $resourceId;
 
     /**
+     * @description The type of the failover test resource. Only **PHYSICALCONNECTION** is returned.
+     *
      * @example PHYSICALCONNECTION
      *
      * @var string
@@ -63,6 +82,14 @@ class failoverTestJobList extends Model
     public $startTime;
 
     /**
+     * @description The status of the failover test. Valid values:
+     *
+     *   **Init**
+     *   **Starting**
+     *   **Testing**
+     *   **Stopping**
+     *   **Stopped**
+     *
      * @example Init
      *
      * @var string

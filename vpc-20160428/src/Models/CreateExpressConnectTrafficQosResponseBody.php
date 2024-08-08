@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateExpressConnectTrafficQosResponseBody extends Model
 {
     /**
+     * @description The ID of the QoS policy.
+     *
      * @example qos-2giu0a6vd5x0mv4700
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateExpressConnectTrafficQosResponseBody extends Model
     public $qosId;
 
     /**
+     * @description The ID of the request.
+     *
      * @example DC668356-BCB4-42FD-9BC3-FA2B2E04B634
      *
      * @var string

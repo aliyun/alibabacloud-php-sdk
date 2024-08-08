@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class removeInstanceList extends Model
 {
     /**
+     * @description The ID of the associated instance.
+     *
+     * @example pc-bp1j37am632492qzw****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The type of the associated instance. Set the value to **PHYSICALCONNECTION**.
+     *
+     * @example PHYSICALCONNECTION
+     *
      * @var string
      */
     public $instanceType;

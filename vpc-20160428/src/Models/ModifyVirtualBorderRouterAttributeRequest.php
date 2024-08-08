@@ -206,6 +206,8 @@ class ModifyVirtualBorderRouterAttributeRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $sitelinkEnable;

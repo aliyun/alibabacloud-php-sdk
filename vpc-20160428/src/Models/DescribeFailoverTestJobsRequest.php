@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeFailoverTestJobsRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
+     *
+     * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -17,11 +22,15 @@ class DescribeFailoverTestJobsRequest extends Model
     public $clientToken;
 
     /**
+     * @description The filter information.
+     *
      * @var filter[]
      */
     public $filter;
 
     /**
+     * @description The number of entries per page. Valid values: **1 to 100**. Default value: 20.
+     *
      * @example 20
      *
      * @var int
@@ -46,6 +55,9 @@ class DescribeFailoverTestJobsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region where you want to perform the failover test.
+     *
+     * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string

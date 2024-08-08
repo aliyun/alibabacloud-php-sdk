@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteExpressConnectTrafficQosRuleRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
      * @example 02fb3da4-130e-11e9-8e44-00****
      *
      * @var string
@@ -26,8 +29,9 @@ class DeleteExpressConnectTrafficQosRuleRequest extends Model
     public $ownerId;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the QoS policy.
      *
+     * This parameter is required.
      * @example qos-2giu0a6vd5x0mv4700
      *
      * @var string
@@ -35,8 +39,9 @@ class DeleteExpressConnectTrafficQosRuleRequest extends Model
     public $qosId;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the QoS queue.
      *
+     * This parameter is required.
      * @example qos-queue-9nyx2u7n71s2rcy4n5
      *
      * @var string
@@ -44,8 +49,9 @@ class DeleteExpressConnectTrafficQosRuleRequest extends Model
     public $queueId;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID of the QoS policy.
      *
+     * This parameter is required.
      * @example cn-shanghai
      *
      * @var string
@@ -58,8 +64,9 @@ class DeleteExpressConnectTrafficQosRuleRequest extends Model
     public $resourceOwnerAccount;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the QoS rule.
      *
+     * This parameter is required.
      * @example qos-rule-iugg0l9x27f2nocouj
      *
      * @var string

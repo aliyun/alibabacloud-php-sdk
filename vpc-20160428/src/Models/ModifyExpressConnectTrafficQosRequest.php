@@ -11,11 +11,18 @@ use AlibabaCloud\Tea\Model;
 class ModifyExpressConnectTrafficQosRequest extends Model
 {
     /**
+     * @description The instances to be added. Ignore this parameter if no instances are to be added.
+     *
      * @var addInstanceList[]
      */
     public $addInstanceList;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+     *
+     * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
      * @example 0c593ea1-3bea-11e9-b96b-88e9fe637760
      *
      * @var string
@@ -33,6 +40,8 @@ class ModifyExpressConnectTrafficQosRequest extends Model
     public $ownerId;
 
     /**
+     * @description The description of the QoS policy.
+     *
      * @example qos-test
      *
      * @var string
@@ -40,8 +49,9 @@ class ModifyExpressConnectTrafficQosRequest extends Model
     public $qosDescription;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the QoS policy.
      *
+     * This parameter is required.
      * @example qos-2giu0a6vd5x0mv4700
      *
      * @var string
@@ -49,6 +59,8 @@ class ModifyExpressConnectTrafficQosRequest extends Model
     public $qosId;
 
     /**
+     * @description The name of the QoS policy.
+     *
      * @example qos-test
      *
      * @var string
@@ -56,8 +68,9 @@ class ModifyExpressConnectTrafficQosRequest extends Model
     public $qosName;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID of the resource.
      *
+     * This parameter is required.
      * @example cn-shanghai
      *
      * @var string
@@ -65,6 +78,8 @@ class ModifyExpressConnectTrafficQosRequest extends Model
     public $regionId;
 
     /**
+     * @description The instances to be removed. Ignore this parameter if no instances are to be removed.
+     *
      * @var removeInstanceList[]
      */
     public $removeInstanceList;

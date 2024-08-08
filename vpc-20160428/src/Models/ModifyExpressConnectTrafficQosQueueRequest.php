@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ModifyExpressConnectTrafficQosQueueRequest extends Model
 {
     /**
+     * @description The percentage of bandwidth allocated to the QoS queue.
+     *
+     *   If QueueType is set to **Medium**, this parameter is required. Valid values: 1 to 100.
+     *   If QueueType is set to **Default**, a value of - is returned.
+     *
      * @example 100
      *
      * @var string
@@ -16,6 +21,11 @@ class ModifyExpressConnectTrafficQosQueueRequest extends Model
     public $bandwidthPercent;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must ensure that the value is unique among all requests. The client token can contain only ASCII characters.
+     *
+     * >  If you do not set this parameter, the system uses **RequestId** as **ClientToken**. **RequestId** might be different for each API request.
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -33,8 +43,9 @@ class ModifyExpressConnectTrafficQosQueueRequest extends Model
     public $ownerId;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the QoS policy.
      *
+     * This parameter is required.
      * @example qos-2giu0a6vd5x0mv4700
      *
      * @var string
@@ -42,6 +53,9 @@ class ModifyExpressConnectTrafficQosQueueRequest extends Model
     public $qosId;
 
     /**
+     * @description The description of the QoS queue.
+     *
+     * The description must be 0 to 256 characters in length and cannot start with `http://` or `https://`.
      * @example qos-queue-test
      *
      * @var string
@@ -49,8 +63,9 @@ class ModifyExpressConnectTrafficQosQueueRequest extends Model
     public $queueDescription;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the QoS queue.
      *
+     * This parameter is required.
      * @example qos-queue-9nyx2u7n71s2rcy4n5
      *
      * @var string
@@ -58,6 +73,9 @@ class ModifyExpressConnectTrafficQosQueueRequest extends Model
     public $queueId;
 
     /**
+     * @description The name of the QoS queue.
+     *
+     * The name must be 0 to 128 characters in length and cannot start with `http://` or `https://`.
      * @example qos-queue-test
      *
      * @var string
@@ -65,8 +83,9 @@ class ModifyExpressConnectTrafficQosQueueRequest extends Model
     public $queueName;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID of the QoS policy.
      *
+     * This parameter is required.
      * @example cn-shanghai
      *
      * @var string

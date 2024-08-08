@@ -44,7 +44,7 @@ class DescribeVirtualBorderRoutersRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries per page. Valid values: **1 to 50**. Default value: **10**.
+     * @description The number of entries per page. Maximum value: **50**. Default value: **10**.
      *
      * @example 10
      *

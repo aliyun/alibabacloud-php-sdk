@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class addInstanceList extends Model
 {
     /**
+     * @description The ID of the instance to be associated.
+     *
+     * @example pc-bp159zj8zujwy3p07****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The type of instance to be associated. Set the value to **PHYSICALCONNECTION**.
+     *
+     * @example PHYSICALCONNECTION
+     *
      * @var string
      */
     public $instanceType;

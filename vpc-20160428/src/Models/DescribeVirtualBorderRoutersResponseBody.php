@@ -46,7 +46,7 @@ class DescribeVirtualBorderRoutersResponseBody extends Model
     public $totalCount;
 
     /**
-     * @description The information about the queried VBR.
+     * @description The information about the VBR.
      *
      * @var virtualBorderRouterSet
      */

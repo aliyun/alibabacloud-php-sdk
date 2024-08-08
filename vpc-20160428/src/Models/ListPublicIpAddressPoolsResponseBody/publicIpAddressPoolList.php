@@ -198,7 +198,7 @@ class publicIpAddressPoolList extends Model
      *
      * @example admin
      *
-     * @var bool
+     * @var string
      */
     public $userType;
 

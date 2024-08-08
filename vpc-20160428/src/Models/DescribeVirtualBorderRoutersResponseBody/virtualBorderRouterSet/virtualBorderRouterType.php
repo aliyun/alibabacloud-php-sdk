@@ -21,7 +21,7 @@ class virtualBorderRouterType extends Model
     public $accessPointId;
 
     /**
-     * @description The time when the VBR was first activated.
+     * @description The time when the VBR was activated for the first time.
      *
      * @example 2021-06-08T12:20:55
      *
@@ -44,7 +44,7 @@ class virtualBorderRouterType extends Model
     public $associatedPhysicalConnections;
 
     /**
-     * @description The bandwidth of the VBR. Unit: Mbit/s.
+     * @description The bandwidth value of the VBR. Unit: Mbit/s.
      *
      * @example 50
      *
@@ -53,7 +53,7 @@ class virtualBorderRouterType extends Model
     public $bandwidth;
 
     /**
-     * @description The circuit code of the Express Connect circuit. The circuit code is provided by the Internet service provider (ISP).
+     * @description The circuit code of the Express Connect circuit, which is provided by the connectivity provider.
      *
      * @example longtel0****
      *
@@ -101,7 +101,7 @@ class virtualBorderRouterType extends Model
     public $detectMultiplier;
 
     /**
-     * @description The ID of the ECC instance.
+     * @description The ID of the Express Cloud Connect (ECC) instance.
      *
      * @example ecc-h****
      *
@@ -110,11 +110,25 @@ class virtualBorderRouterType extends Model
     public $eccId;
 
     /**
+     * @description The status of the ECR. Valid values:
+     *
+     *   **Attached**
+     *   **Attaching**
+     *   **Detached**
+     *   **Detaching**
+     *   If no value is returned, the VBR is not attached to a CEN instance.
+     *
+     * @example Attached
+     *
      * @var string
      */
     public $ecrAttatchStatus;
 
     /**
+     * @description The ID of the Express Connect Router (ECR).
+     *
+     * @example ecr-7vrbqv9lcgvzqbwwkm
+     *
      * @var string
      */
     public $ecrId;
@@ -137,7 +151,7 @@ class virtualBorderRouterType extends Model
     public $enableIpv6;
 
     /**
-     * @description The IPv4 address of the gateway device on the Alibaba Cloud side.
+     * @description The IPv4 address of the VBR on the Alibaba Cloud side.
      *
      * @example 192.168.XX.XX
      *
@@ -146,7 +160,7 @@ class virtualBorderRouterType extends Model
     public $localGatewayIp;
 
     /**
-     * @description The IPv6 address of the gateway device on the Alibaba Cloud side.
+     * @description The IPv6 address of the VBR on the Alibaba Cloud side.
      *
      * @example 2001:XXXX:3c4d:0015:0000:0000:0000:1a2b
      *
@@ -173,7 +187,7 @@ class virtualBorderRouterType extends Model
     public $minTxInterval;
 
     /**
-     * @description The name of the VBR.
+     * @description The VBR name.
      *
      * @example test
      *
@@ -184,8 +198,8 @@ class virtualBorderRouterType extends Model
     /**
      * @description The billing method of the VBR. Valid values:
      *
-     *   **PrePaid**: subscription. If you choose this billing method, make sure that your Alibaba Cloud account supports balance payments or credit payments.
-     *   **PostPaid**: pay-as-you-go
+     *   **PrePaid:** subscription. If you choose this billing method, make sure that your account supports balance payments or credit payments.
+     *   **PostPaid:** pay-as-you-go.
      *
      * @example PrePaid
      *
@@ -203,7 +217,7 @@ class virtualBorderRouterType extends Model
     public $PConnVbrExpireTime;
 
     /**
-     * @description The IPv4 address of the gateway device on the user side.
+     * @description The IPv4 address of the VBR on the user side.
      *
      * @example 192.168.XX.XX
      *
@@ -212,7 +226,7 @@ class virtualBorderRouterType extends Model
     public $peerGatewayIp;
 
     /**
-     * @description The IPv6 address of the gateway device on the user side.
+     * @description The IPv6 address of the VBR on the user side.
      *
      * @example 2001:XXXX:3c4d:0015:0000:0000:0000:1a2b
      *
@@ -221,7 +235,7 @@ class virtualBorderRouterType extends Model
     public $peerIpv6GatewayIp;
 
     /**
-     * @description The subnet mask of the IPv6 addresses configured on the user side and Alibaba Cloud side.
+     * @description The subnet mask for the IPv6 addresses on the user side and on the Alibaba Cloud side.
      *
      * @example 2000:1234:0:a000::/55
      *
@@ -230,7 +244,7 @@ class virtualBorderRouterType extends Model
     public $peeringIpv6SubnetMask;
 
     /**
-     * @description The subnet mask of the IPv4 addresses configured on the user side and Alibaba Cloud side.
+     * @description The subnet mask for the IPv4 addresses on the Alibaba Cloud side and on the user side.
      *
      * @example 255.255.255.252
      *
@@ -239,9 +253,9 @@ class virtualBorderRouterType extends Model
     public $peeringSubnetMask;
 
     /**
-     * @description The business status of the Express Connect circuit.
+     * @description The business status of the Express Connect circuit. Valid values:
      *
-     *   **Normal:** The Express Connect circuit is running asnormal.
+     *   **Normal:** The Express Connect circuit is running as normal.
      *   **FinancialLocked:** The Express Connect circuit is locked due to overdue payments.
      *
      * @example Normal
@@ -260,7 +274,7 @@ class virtualBorderRouterType extends Model
     public $physicalConnectionId;
 
     /**
-     * @description The ID of the Alibaba Cloud account to which the Express Connect circuit belongs.
+     * @description The ID of the account to which the Express Connect circuit belongs.
      *
      * @example 1688000000000****
      *
@@ -269,7 +283,7 @@ class virtualBorderRouterType extends Model
     public $physicalConnectionOwnerUid;
 
     /**
-     * @description The status of the Express Connect circuit.
+     * @description The status of the Express Connect circuit. Valid values:
      *
      *   **Initial:** The application is under review.
      *   **Approved**: The application is approved.
@@ -289,7 +303,7 @@ class virtualBorderRouterType extends Model
     public $physicalConnectionStatus;
 
     /**
-     * @description The time when the status of the VBR last changed from **terminated** to **active**.
+     * @description The last time when the status of the VBR changed from **terminated** to **active**.
      *
      * @example 2021-05-08T12:20:55
      *
@@ -298,8 +312,9 @@ class virtualBorderRouterType extends Model
     public $recoveryTime;
 
     /**
-     * @description The ID of the resource group.
+     * @description The resource group ID.
      *
+     * For more information about resource groups, see [Resource groups](https://help.aliyun.com/document_detail/94475.html).
      * @example rg-acfmxazb4ph6aiy****
      *
      * @var string
@@ -307,7 +322,7 @@ class virtualBorderRouterType extends Model
     public $resourceGroupId;
 
     /**
-     * @description The ID of the VBR route table.
+     * @description The ID of the route table of the VBR.
      *
      * @example rtb-bp1****
      *
@@ -316,6 +331,14 @@ class virtualBorderRouterType extends Model
     public $routeTableId;
 
     /**
+     * @description Indicates whether to allow service access between data centers. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * >  If no value is returned, service access between data centers is not allowed.
+     * @example false
+     *
      * @var bool
      */
     public $sitelinkEnable;
@@ -328,7 +351,7 @@ class virtualBorderRouterType extends Model
      *   **terminating**
      *   **terminated**
      *   **recovering**
-     *   **deleting**
+     *   **deleting:**
      *
      * @example active
      *
@@ -337,14 +360,14 @@ class virtualBorderRouterType extends Model
     public $status;
 
     /**
-     * @description The tags.
+     * @description The tag of the resource.
      *
      * @var tags
      */
     public $tags;
 
     /**
-     * @description The time when the VBR was last disabled.
+     * @description The last time when the VBR was terminated.
      *
      * @example 2021-06-08T12:20:55
      *
@@ -353,7 +376,7 @@ class virtualBorderRouterType extends Model
     public $terminationTime;
 
     /**
-     * @description The type of the VBR.
+     * @description The VBR type.
      *
      * @example pconnVBR
      *

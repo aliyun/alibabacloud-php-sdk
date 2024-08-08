@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeExpressConnectTrafficQosRuleRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must make sure that it is unique among different requests. The client token can contain only ASCII characters.
+     *
+     * >  If you do not set this parameter, the system uses **RequestId** as **ClientToken**. **RequestId** may be different for each API request.
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -26,6 +31,8 @@ class DescribeExpressConnectTrafficQosRuleRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the QoS policy.
+     *
      * @example qos-2giu0a6vd5x0mv4700
      *
      * @var string
@@ -33,6 +40,8 @@ class DescribeExpressConnectTrafficQosRuleRequest extends Model
     public $qosId;
 
     /**
+     * @description The ID of the QoS queue.
+     *
      * @example qos-queue-9nyx2u7n71s2rcy4n5
      *
      * @var string
@@ -40,8 +49,9 @@ class DescribeExpressConnectTrafficQosRuleRequest extends Model
     public $queueId;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID of the QoS policy.
      *
+     * This parameter is required.
      * @example cn-shanghai
      *
      * @var string
@@ -54,11 +64,15 @@ class DescribeExpressConnectTrafficQosRuleRequest extends Model
     public $resourceOwnerAccount;
 
     /**
+     * @description The list of QoS rule IDs.
+     *
      * @var string[]
      */
     public $ruleIdList;
 
     /**
+     * @description The list of QoS rule names.
+     *
      * @var string[]
      */
     public $ruleNameList;

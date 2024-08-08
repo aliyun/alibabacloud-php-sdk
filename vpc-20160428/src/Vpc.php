@@ -3561,7 +3561,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @summary 增加LOA运维信息
+     * @summary Generates a report for an installed Express Connect circuit.
      *  *
      * @param CompletePhysicalConnectionLOARequest $request CompletePhysicalConnectionLOARequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
@@ -3630,7 +3630,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @summary 增加LOA运维信息
+     * @summary Generates a report for an installed Express Connect circuit.
      *  *
      * @param CompletePhysicalConnectionLOARequest $request CompletePhysicalConnectionLOARequest
      *
@@ -4671,7 +4671,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @summary 创建高速通道Qos
+     * @summary Creates a quality of service (QoS) policy.
      *  *
      * @param CreateExpressConnectTrafficQosRequest $request CreateExpressConnectTrafficQosRequest
      * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
@@ -4725,7 +4725,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @summary 创建高速通道Qos
+     * @summary Creates a quality of service (QoS) policy.
      *  *
      * @param CreateExpressConnectTrafficQosRequest $request CreateExpressConnectTrafficQosRequest
      *
@@ -4739,7 +4739,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @summary 创建高速通道Qos队列
+     * @summary Creates a quality of service (QoS) queue.
      *  *
      * @param CreateExpressConnectTrafficQosQueueRequest $request CreateExpressConnectTrafficQosQueueRequest
      * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
@@ -4802,7 +4802,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @summary 创建高速通道Qos队列
+     * @summary Creates a quality of service (QoS) queue.
      *  *
      * @param CreateExpressConnectTrafficQosQueueRequest $request CreateExpressConnectTrafficQosQueueRequest
      *
@@ -4816,7 +4816,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @summary 创建高速通道Qos规则
+     * @summary Creates a quality of service (QoS) rule.
      *  *
      * @param CreateExpressConnectTrafficQosRuleRequest $request CreateExpressConnectTrafficQosRuleRequest
      * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
@@ -4906,7 +4906,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @summary 创建高速通道Qos规则
+     * @summary Creates a quality of service (QoS) rule.
      *  *
      * @param CreateExpressConnectTrafficQosRuleRequest $request CreateExpressConnectTrafficQosRuleRequest
      *
@@ -6799,7 +6799,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @summary 创建端口初装费订单
+     * @summary Creates an order for initial installation of an Express Connect circuit.
      *  *
      * @param CreatePhysicalConnectionSetupOrderRequest $request CreatePhysicalConnectionSetupOrderRequest
      * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
@@ -6865,7 +6865,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @summary 创建端口初装费订单
+     * @summary Creates an order for initial installation of an Express Connect circuit.
      *  *
      * @param CreatePhysicalConnectionSetupOrderRequest $request CreatePhysicalConnectionSetupOrderRequest
      *
@@ -10087,7 +10087,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @summary 删除高速通道Qos
+     * @summary Deletes a quality of service (QoS) policy.
      *  *
      * @param DeleteExpressConnectTrafficQosRequest $request DeleteExpressConnectTrafficQosRequest
      * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
@@ -10138,7 +10138,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @summary 删除高速通道Qos
+     * @summary Deletes a quality of service (QoS) policy.
      *  *
      * @param DeleteExpressConnectTrafficQosRequest $request DeleteExpressConnectTrafficQosRequest
      *
@@ -10220,7 +10220,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @summary 删除高速通道Qos规则
+     * @summary Deletes a quality of service (QoS) rule.
      *  *
      * @param DeleteExpressConnectTrafficQosRuleRequest $request DeleteExpressConnectTrafficQosRuleRequest
      * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
@@ -10277,7 +10277,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @summary 删除高速通道Qos规则
+     * @summary Deletes a quality of service (QoS) rule.
      *  *
      * @param DeleteExpressConnectTrafficQosRuleRequest $request DeleteExpressConnectTrafficQosRuleRequest
      *
@@ -10291,7 +10291,9 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @summary 删除故障演练任务
+     * @summary Deletes a failover test.
+     *  *
+     * @description You can delete only failover tests that are in the **Pending** or **Complete** state.
      *  *
      * @param DeleteFailoverTestJobRequest $request DeleteFailoverTestJobRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -10342,7 +10344,9 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @summary 删除故障演练任务
+     * @summary Deletes a failover test.
+     *  *
+     * @description You can delete only failover tests that are in the **Pending** or **Complete** state.
      *  *
      * @param DeleteFailoverTestJobRequest $request DeleteFailoverTestJobRequest
      *
@@ -14894,7 +14898,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @summary 查询高速通道Qos规则
+     * @summary Queries quality of service (QoS) rules. Paging parameters are not supported.
      *  *
      * @param DescribeExpressConnectTrafficQosRuleRequest $request DescribeExpressConnectTrafficQosRuleRequest
      * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
@@ -14954,7 +14958,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @summary 查询高速通道Qos规则
+     * @summary Queries quality of service (QoS) rules. Paging parameters are not supported.
      *  *
      * @param DescribeExpressConnectTrafficQosRuleRequest $request DescribeExpressConnectTrafficQosRuleRequest
      *
@@ -14968,7 +14972,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @summary 查询故障演练任务详情
+     * @summary Queries failover tests.
      *  *
      * @param DescribeFailoverTestJobRequest $request DescribeFailoverTestJobRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -15019,7 +15023,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @summary 查询故障演练任务详情
+     * @summary Queries failover tests.
      *  *
      * @param DescribeFailoverTestJobRequest $request DescribeFailoverTestJobRequest
      *
@@ -15033,7 +15037,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @summary 批量查询故障演练任务
+     * @summary Queries failover tests for Express Connect.
      *  *
      * @param DescribeFailoverTestJobsRequest $request DescribeFailoverTestJobsRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -15090,7 +15094,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @summary 批量查询故障演练任务
+     * @summary Queries failover tests for Express Connect.
      *  *
      * @param DescribeFailoverTestJobsRequest $request DescribeFailoverTestJobsRequest
      *
@@ -23811,7 +23815,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @summary 修改高速通道Qos
+     * @summary Modifies a quality of service (QoS) policy or associates a QoS policy with a dedicated Express Connect circuit.
      *  *
      * @param ModifyExpressConnectTrafficQosRequest $request ModifyExpressConnectTrafficQosRequest
      * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
@@ -23874,7 +23878,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @summary 修改高速通道Qos
+     * @summary Modifies a quality of service (QoS) policy or associates a QoS policy with a dedicated Express Connect circuit.
      *  *
      * @param ModifyExpressConnectTrafficQosRequest $request ModifyExpressConnectTrafficQosRequest
      *
@@ -23888,7 +23892,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @summary 修改高速通道Qos队列
+     * @summary Modifies a quality of service (QoS) queue.
      *  *
      * @param ModifyExpressConnectTrafficQosQueueRequest $request ModifyExpressConnectTrafficQosQueueRequest
      * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
@@ -23951,7 +23955,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @summary 修改高速通道Qos队列
+     * @summary Modifies a quality of service (QoS) queue.
      *  *
      * @param ModifyExpressConnectTrafficQosQueueRequest $request ModifyExpressConnectTrafficQosQueueRequest
      *
@@ -23965,7 +23969,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @summary 修改高速通道Qos规则
+     * @summary Modifies a quality of service (QoS) rule.
      *  *
      * @param ModifyExpressConnectTrafficQosRuleRequest $request ModifyExpressConnectTrafficQosRuleRequest
      * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
@@ -24058,7 +24062,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @summary 修改高速通道Qos规则
+     * @summary Modifies a quality of service (QoS) rule.
      *  *
      * @param ModifyExpressConnectTrafficQosRuleRequest $request ModifyExpressConnectTrafficQosRuleRequest
      *
@@ -27944,7 +27948,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @summary 开通出云流量服务
+     * @summary Enables billing for outbound data transfer.
      *  *
      * @param OpenPhysicalConnectionServiceRequest $request OpenPhysicalConnectionServiceRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
@@ -27989,7 +27993,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @summary 开通出云流量服务
+     * @summary Enables billing for outbound data transfer.
      *  *
      * @param OpenPhysicalConnectionServiceRequest $request OpenPhysicalConnectionServiceRequest
      *
@@ -29341,7 +29345,9 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @summary 开始故障演练任务
+     * @summary Performs a failover test.
+     *  *
+     * @description You can perform only failover tests that are in the **Pending** state.
      *  *
      * @param StartFailoverTestJobRequest $request StartFailoverTestJobRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -29392,7 +29398,9 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @summary 开始故障演练任务
+     * @summary Performs a failover test.
+     *  *
+     * @description You can perform only failover tests that are in the **Pending** state.
      *  *
      * @param StartFailoverTestJobRequest $request StartFailoverTestJobRequest
      *

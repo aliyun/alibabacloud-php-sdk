@@ -20,7 +20,7 @@ class businessAccessPoints extends Model
     /**
      * @description The name of the access point.
      *
-     * @example 美国-弗吉尼亚-C
+     * @example hangzhou-xs-B
      *
      * @var string
      */

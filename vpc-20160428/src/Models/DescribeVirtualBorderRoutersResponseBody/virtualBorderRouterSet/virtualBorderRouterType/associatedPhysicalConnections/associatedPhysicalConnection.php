@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class associatedPhysicalConnection extends Model
 {
     /**
-     * @description The circuit code of the Express Connect circuit. The circuit code is provided by the ISP.
+     * @description The circuit code of the Express Connect circuit, which is provided by the connectivity provider.
      *
      * @example longtel0**
      *
@@ -30,7 +30,7 @@ class associatedPhysicalConnection extends Model
     public $enableIpv6;
 
     /**
-     * @description The IPv4 address of the gateway device on the Alibaba Cloud side.
+     * @description The IPv4 address of the VBR on the Alibaba Cloud side.
      *
      * @example 192.168.XX.XX
      *
@@ -39,7 +39,7 @@ class associatedPhysicalConnection extends Model
     public $localGatewayIp;
 
     /**
-     * @description The IPv6 address of the gateway device on the Alibaba Cloud side.
+     * @description The IPv6 address of the VBR on the Alibaba Cloud side.
      *
      * @example 2001:XXXX:3c4d:0015:0000:0000:0000:1a2b
      *
@@ -48,7 +48,7 @@ class associatedPhysicalConnection extends Model
     public $localIpv6GatewayIp;
 
     /**
-     * @description The IPv4 address of the gateway device on the user side.
+     * @description The IPv4 address of the VBR on the user side.
      *
      * @example 116.62.XX.XX
      *
@@ -57,7 +57,7 @@ class associatedPhysicalConnection extends Model
     public $peerGatewayIp;
 
     /**
-     * @description The IPv6 address of the gateway device on the user side.
+     * @description The IPv6 address of the VBR on the user side.
      *
      * @example 2001:XXXX:3c4d:0015:0000:0000:0000:1a2b
      *
@@ -66,9 +66,9 @@ class associatedPhysicalConnection extends Model
     public $peerIpv6GatewayIp;
 
     /**
-     * @description The subnet mask for the IPv6 addresses of the gateway devices on the Alibaba Cloud side and on the user side.
+     * @description The subnet mask for the IPv6 addresses on the user side and on the Alibaba Cloud side.
      *
-     * The two IPv6 addresses must fall within the same subnet.
+     * Both IPv6 addresses must belong to the same subnet.
      * @example 2408:4004:cc:400::/56
      *
      * @var string
@@ -76,9 +76,9 @@ class associatedPhysicalConnection extends Model
     public $peeringIpv6SubnetMask;
 
     /**
-     * @description The subnet mask for the IPv4 addresses of the gateway devices on the Alibaba Cloud side and on the user side.
+     * @description The subnet mask for the IPv4 addresses of the VBR on the user side and on the Alibaba Cloud side.
      *
-     * The two IPv4 addresses must fall within the same subnet.
+     * Both IPv4 addresses must belong to the same subnet.
      * @example 255.255.255.252
      *
      * @var string
@@ -86,7 +86,7 @@ class associatedPhysicalConnection extends Model
     public $peeringSubnetMask;
 
     /**
-     * @description The business status of the Express Connect circuit.
+     * @description The business status of the Express Connect circuit. Valid values:
      *
      *   **Normal:** The Express Connect circuit is running as normal.
      *   **FinancialLocked:** The Express Connect circuit is locked due to overdue payments.
@@ -107,7 +107,7 @@ class associatedPhysicalConnection extends Model
     public $physicalConnectionId;
 
     /**
-     * @description The ID of the Alibaba Cloud account to which the Express Connect circuit belongs.
+     * @description The ID of the account to which the Express Connect circuit belongs.
      *
      * @example 12345678****
      *
@@ -116,7 +116,7 @@ class associatedPhysicalConnection extends Model
     public $physicalConnectionOwnerUid;
 
     /**
-     * @description The status of the Express Connect circuit.
+     * @description The status of the Express Connect circuit. Valid values:
      *
      *   **Initial:** The application is under review.
      *   **Approved**: The application is approved.
@@ -139,11 +139,11 @@ class associatedPhysicalConnection extends Model
      * @description The status of the VBR. Valid values:
      *
      *   **unconfirmed**
-     *   **active**
+     *   **active:**
      *   **terminating**
      *   **terminated**
      *   **recovering**
-     *   **deleting**
+     *   **deleting:**
      *
      * @example active
      *
@@ -161,7 +161,7 @@ class associatedPhysicalConnection extends Model
     public $vlanId;
 
     /**
-     * @description The ID of the VBR interface, which can be used as the next hop of a VBR route.
+     * @description The ID of the VBR interface, which can be used as a next hop of a VBR route.
      *
      * @example ri-kojok19x3j0q6k****
      *

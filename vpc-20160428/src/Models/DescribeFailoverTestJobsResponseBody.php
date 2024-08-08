@@ -17,11 +17,15 @@ class DescribeFailoverTestJobsResponseBody extends Model
     public $count;
 
     /**
+     * @description The list of failover tests.
+     *
      * @var failoverTestJobList[]
      */
     public $failoverTestJobList;
 
     /**
+     * @description The number of entries per page. Valid values: **1 to 100**. Default value: 20.
+     *
      * @example 20
      *
      * @var int

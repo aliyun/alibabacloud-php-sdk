@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class physicalConnectionType extends Model
 {
     /**
-     * @description The ID of the access point.
+     * @description The ID of the Express Connect circuit.
      *
      * @example ap-cn-hangzhou-finance-yh-E
      *
@@ -30,7 +30,7 @@ class physicalConnectionType extends Model
     /**
      * @description The information about the data center and rack.
      *
-     * @example 浙江省杭州市XX区XX镇XX路10号, XX机房, ET135ET135-XX-2包间, JXX机柜,  position30
+     * @example Position 30, Server Rack JXX, Booth ET135ET135-XX-2, Room XX, Building 10, XX Road, XX Town, XX District, Hangzhou, Zhejiang Province
      *
      * @var string
      */
@@ -48,7 +48,7 @@ class physicalConnectionType extends Model
     /**
      * @description The maximum bandwidth of the Express Connect circuit.
      *
-     * Unit: Gbit/s.
+     * Unit: Mbit/s.
      * @example 10
      *
      * @var int
@@ -58,9 +58,9 @@ class physicalConnectionType extends Model
     /**
      * @description The status of the Express Connect circuit. Valid values:
      *
-     *   **Normal**
-     *   **FinancialLocked**
-     *   **SecurityLocked**
+     *   **Normal**: enabled
+     *   **FinancialLocked**: locked due to overdue payments
+     *   **SecurityLocked**: locked for security reasons
      *
      * @example Normal
      *
@@ -106,7 +106,7 @@ class physicalConnectionType extends Model
     public $description;
 
     /**
-     * @description The time when the Express Connect circuit is enabled.
+     * @description The time when the Express Connect circuit was enabled.
      *
      * @example 2021-08-24T07:33:18Z
      *
@@ -126,8 +126,7 @@ class physicalConnectionType extends Model
     /**
      * @description The estimated maximum bandwidth of the shared Express Connect circuit. The estimated bandwidth takes effect after you complete the payment.
      *
-     **M** indicates Mbit/s and **G** indicates Gbit/s.
-     *
+     * Unit: **M** (Mbit/s) and **G** (Gbit/s).
      * @example 50M
      *
      * @var string
@@ -165,13 +164,13 @@ class physicalConnectionType extends Model
     /**
      * @description The status of the letter of authorization (LOA). Valid values:
      *
-     *   **Applying**
-     *   **Accept**
-     *   **Available**
-     *   **Rejected**
-     *   **Completing**
-     *   **Complete**
-     *   **Deleted**
+     *   **Applying**: The LOA is pending for approval.
+     *   **Accept**: The LOA is approved.
+     *   **Available**: The LOA is available.
+     *   **Rejected**: The LOA is rejected.
+     *   **Completing**: The Express Connect circuit is under construction.
+     *   **Complete**: The Express Connect circuit is installed.
+     *   **Deleted**: The LOA is deleted.
      *
      * @example Available
      *
@@ -189,7 +188,7 @@ class physicalConnectionType extends Model
     public $name;
 
     /**
-     * @description The payer for the shared Express Connect circuit. Valid values:
+     * @description The payer for the hosted connection. Valid values:
      *
      *   **PayByPhysicalConnectionOwner**: The partner pays for the shared Express Connect circuit.
      *   **PayByVirtualPhysicalConnectionOwner**: The tenant pays for the shared Express Connect circuit.
@@ -201,7 +200,7 @@ class physicalConnectionType extends Model
     public $orderMode;
 
     /**
-     * @description The ID of the Alibaba Cloud account to which the shared Express Connect circuit belongs.
+     * @description The ID of the Alibaba Cloud account to which the parent Express Connect circuit belongs.
      *
      * @example 283117732402483989
      *
@@ -210,7 +209,7 @@ class physicalConnectionType extends Model
     public $parentPhysicalConnectionAliUid;
 
     /**
-     * @description The ID of the Express Connect circuit that is used to create the hosted connection.
+     * @description The ID of the parent Express Connect circuit.
      *
      * @example pc-bp1ciz7ekd2grn1as****
      *
@@ -246,7 +245,7 @@ class physicalConnectionType extends Model
     public $portNumber;
 
     /**
-     * @description The port type. Valid values:
+     * @description The port type of the Express Connect circuit. Valid values:
      *
      *   **100Base-T**: 100 Mbit/s copper Ethernet port
      *   **1000Base-T**: 1,000 Mbit/s copper Ethernet port
@@ -256,7 +255,7 @@ class physicalConnectionType extends Model
      *   **40GBase-LR**: 40,000 Mbit/s single-mode optical port
      *   **100GBase-LR**: 100,000 Mbit/s single-mode optical port
      *
-     * >  To create ports of 40GBase-LR and 100GBase-LR, you must first contact your account manager.
+     * > Whether 40GBase-LR and 100GBase-LR ports can be created depends on resource supplies. For more information, contact your account manager.
      * @example 10GBase-LR
      *
      * @var string
@@ -276,12 +275,16 @@ class physicalConnectionType extends Model
     public $productType;
 
     /**
+     * @description The ID of the QoS policy.
+     *
+     * @example qos-bp10s3szn8rgnxuw7****
+     *
      * @var string
      */
     public $qosId;
 
     /**
-     * @description The ID of the redundant Express Connect circuit.
+     * @description The ID of the standby Express Connect circuit.
      *
      * @example pc-119mfjzm****
      *
@@ -311,7 +314,7 @@ class physicalConnectionType extends Model
     /**
      * @description The type of the pending order.
      *
-     * If the value is set to **RENEW**, it indicates that the order is placed for service renewal.
+     * If the value is **RENEW**, it indicates that the order is placed for service renewal.
      * @example RENEW
      *
      * @var string
@@ -319,7 +322,7 @@ class physicalConnectionType extends Model
     public $reservationOrderType;
 
     /**
-     * @description The ID of the resource group to which the ACL belongs.
+     * @description The resource group ID to which the instance belongs.
      *
      * @example rg-acfmwu3k52prgdi
      *
@@ -340,17 +343,17 @@ class physicalConnectionType extends Model
     /**
      * @description The status of the Express Connect circuit. Valid values:
      *
-     *   **Initial**: The application is under review.
-     *   **Approved**: The application is approved.
-     *   **Allocating**: The system is allocating resources.
-     *   **Allocated**: The Express Connect circuit is under construction.
-     *   **Confirmed**: The Express Connect circuit is pending for user confirmation.
-     *   **Enabled**: The Express Connect circuit is enabled.
-     *   **Rejected**: The application is rejected.
-     *   **Canceled**: The application is canceled.
-     *   **Allocation Failed**: The system failed to allocate resources.
-     *   **Terminating**: The Express Connect circuit is being disabled.
-     *   **Terminated**: The Express Connect circuit is disabled.
+     *   **Initial**
+     *   **Approved**
+     *   **Allocating**
+     *   **Allocated**
+     *   **Confirmed**
+     *   **Enabled**
+     *   **Rejected**
+     *   **Canceled**
+     *   **Allocation Failed**
+     *   **Terminating**
+     *   **Terminated**
      *
      * @example Enabled
      *
@@ -359,7 +362,7 @@ class physicalConnectionType extends Model
     public $status;
 
     /**
-     * @description The tag list.
+     * @description The tags that are added to the cluster.
      *
      * @var tags
      */
@@ -375,7 +378,7 @@ class physicalConnectionType extends Model
     public $type;
 
     /**
-     * @description The number of hosted connections that are established over the Express Connect circuit.
+     * @description The number of Express Connect circuits that are established.
      *
      * @example 0
      *
@@ -393,7 +396,7 @@ class physicalConnectionType extends Model
     public $vlanId;
 
     /**
-     * @description The status of the hosted connection. Valid values:
+     * @description The status of the shared Express Connect circuit. Valid values:
      *
      *   **Confirmed**
      *   **UnConfirmed**

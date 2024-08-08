@@ -10,6 +10,13 @@ use AlibabaCloud\Tea\Model;
 class AllocateIpv6AddressRequest extends Model
 {
     /**
+     * @description The type of the IPv6 address. Valid values:
+     *
+     *   IPv6Address (default): an IPv6 address.
+     *   IPv6Prefix: an IPv6 CIDR block.
+     *
+     * @example IPv6Address
+     *
      * @var string
      */
     public $addressType;

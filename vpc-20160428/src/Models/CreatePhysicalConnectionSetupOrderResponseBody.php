@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreatePhysicalConnectionSetupOrderResponseBody extends Model
 {
     /**
-     * @description The ID of the order.
+     * @description The order ID.
      *
      * @example 202844382740728
      *
@@ -27,7 +27,7 @@ class CreatePhysicalConnectionSetupOrderResponseBody extends Model
     public $physicalConnectionId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example F7A6301A-64BA-41EC-8284-8F4838C15D1F
      *
