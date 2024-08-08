@@ -19,6 +19,8 @@ class odpsConfig extends Model
     public $odpsAccessKey;
 
     /**
+     * @description This parameter is required.
+     *
      * @example http://service.cn-beijing.maxcompute.aliyun.com/api
      *
      * @var string
@@ -26,11 +28,15 @@ class odpsConfig extends Model
     public $odpsEndpoint;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $odpsProjectName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-beijing
      *
      * @var string

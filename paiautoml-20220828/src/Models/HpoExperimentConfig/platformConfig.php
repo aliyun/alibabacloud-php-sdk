@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class platformConfig extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $cmd;
 
     /**
+     * @description This parameter is required.
+     *
      * @example DLC, MC,paiflow, etc
      *
      * @var string

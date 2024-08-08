@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListHpoTrialsRequest extends Model
 {
     /**
+     * @description The trial results order.
+     *
      * @example ASC
      *
      * @var string
@@ -16,6 +18,8 @@ class ListHpoTrialsRequest extends Model
     public $order;
 
     /**
+     * @description The number of the page to return.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +27,8 @@ class ListHpoTrialsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
      * @example 10
      *
      * @var int
@@ -30,6 +36,10 @@ class ListHpoTrialsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The results to be sorted by which column.
+     *
+     * @example GmtCreateTime
+     *
      * @var string
      */
     public $sortBy;

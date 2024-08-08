@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListHpoTrialsResponseBody extends Model
 {
     /**
+     * @description Error code.
+     *
      * @example INVALID_USER_OR_EXP
      *
      * @var string
@@ -17,18 +19,24 @@ class ListHpoTrialsResponseBody extends Model
     public $code;
 
     /**
+     * @description Extra error information.
+     *
      * @var string[]
      */
     public $detail;
 
     /**
-     * @example Missing \"user_id\" in request.
+     * @description The error message returned.
+     *
+     * @example Missing \\"user_id\\" in request.
      *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 3F190916-B3E5-5D1E-AD0C-35C0DF105F51
      *
      * @var string
@@ -36,6 +44,8 @@ class ListHpoTrialsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries qualified.
+     *
      * @example 5
      *
      * @var int
@@ -43,6 +53,8 @@ class ListHpoTrialsResponseBody extends Model
     public $totalCount;
 
     /**
+     * @description Trial array.
+     *
      * @var trials[]
      */
     public $trials;

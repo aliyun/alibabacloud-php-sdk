@@ -9,26 +9,42 @@ use AlibabaCloud\Tea\Model;
 class RestartHpoTrialsResponseBody extends Model
 {
     /**
+     * @description Response code.
+     *
+     * @example INVALID_USER_OR_EXP
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description Extra error information.
+     *
      * @var string[]
      */
     public $detail;
 
     /**
+     * @description Error message.
+     *
+     * @example Missing \\"user_id\\" in request.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description Id of the request
+     *
+     * @example 3F190916-B3E5-5D1E-AD0C-35C0DF105F51
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Restart status of all the trial IDs.
+     *
      * @example {
      * }
      * @var mixed[]

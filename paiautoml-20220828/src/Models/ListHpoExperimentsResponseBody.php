@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListHpoExperimentsResponseBody extends Model
 {
     /**
+     * @description Error code.
+     *
      * @example INVALID_INPUT_PARAMS
      *
      * @var string
@@ -17,23 +19,31 @@ class ListHpoExperimentsResponseBody extends Model
     public $code;
 
     /**
+     * @description Extra error information.
+     *
      * @var string[]
      */
     public $detail;
 
     /**
+     * @description experiment array.
+     *
      * @var experiments[]
      */
     public $experiments;
 
     /**
-     * @example Missing \"user_id\" in request.
+     * @description Error message.
+     *
+     * @example Missing \\"user_id\\" in request.
      *
      * @var string
      */
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 3F190916-B3E5-5D1E-AD0C-35C0DF105F51
      *
      * @var string
@@ -41,6 +51,10 @@ class ListHpoExperimentsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Total qualified experiment count.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $totalCount;

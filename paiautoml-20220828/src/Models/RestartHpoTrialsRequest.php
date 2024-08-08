@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class RestartHpoTrialsRequest extends Model
 {
     /**
+     * @description A hyperparameter combination instance.
+     *
+     * @example ‘{"${batch_size}": "32", "${lr}": "0.01"}\\"
+     *
      * @var string
      */
     public $trialHyperParameters;
 
     /**
+     * @description Trial ID array.
+     *
      * @var string[]
      */
     public $trialIds;

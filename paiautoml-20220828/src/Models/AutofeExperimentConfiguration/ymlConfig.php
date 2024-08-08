@@ -40,6 +40,8 @@ class ymlConfig extends Model
     public $dataPartition;
 
     /**
+     * @description This parameter is required.
+     *
      * @example odps_table_name
      *
      * @var string
@@ -85,6 +87,8 @@ class ymlConfig extends Model
     public $ivThresh;
 
     /**
+     * @description This parameter is required.
+     *
      * @example label
      *
      * @var string
@@ -99,6 +103,8 @@ class ymlConfig extends Model
     public $memory;
 
     /**
+     * @description This parameter is required.
+     *
      * @example oss://bucket_name/
      *
      * @var string
@@ -151,6 +157,8 @@ class ymlConfig extends Model
     public $workers;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $workspaceName;

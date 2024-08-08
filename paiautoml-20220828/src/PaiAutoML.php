@@ -6,11 +6,16 @@ namespace AlibabaCloud\SDK\PaiAutoML\V20220828;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\PaiAutoML\V20220828\Models\CreateAutofeExperimentRequest;
+use AlibabaCloud\SDK\PaiAutoML\V20220828\Models\CreateAutofeExperimentResponse;
 use AlibabaCloud\SDK\PaiAutoML\V20220828\Models\CreateHpoExperimentRequest;
 use AlibabaCloud\SDK\PaiAutoML\V20220828\Models\CreateHpoExperimentResponse;
+use AlibabaCloud\SDK\PaiAutoML\V20220828\Models\CreateServiceIdentityRoleResponse;
 use AlibabaCloud\SDK\PaiAutoML\V20220828\Models\DeleteHpoExperimentResponse;
+use AlibabaCloud\SDK\PaiAutoML\V20220828\Models\GetAutofeExperimentResponse;
 use AlibabaCloud\SDK\PaiAutoML\V20220828\Models\GetHpoExperimentResponse;
 use AlibabaCloud\SDK\PaiAutoML\V20220828\Models\GetHpoTrialResponse;
+use AlibabaCloud\SDK\PaiAutoML\V20220828\Models\GetServiceIdentityRoleResponse;
 use AlibabaCloud\SDK\PaiAutoML\V20220828\Models\ListHpoExperimentLogsRequest;
 use AlibabaCloud\SDK\PaiAutoML\V20220828\Models\ListHpoExperimentLogsResponse;
 use AlibabaCloud\SDK\PaiAutoML\V20220828\Models\ListHpoExperimentsRequest;
@@ -68,11 +73,75 @@ class PaiAutoML extends OpenApiClient
     }
 
     /**
-     * @param CreateHpoExperimentRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @summary CreateAutofeExperiment
+     *  *
+     * @param CreateAutofeExperimentRequest $request CreateAutofeExperimentRequest
+     * @param string[]                      $headers map
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateHpoExperimentResponse
+     * @return CreateAutofeExperimentResponse CreateAutofeExperimentResponse
+     */
+    public function createAutofeExperimentWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->accessibility)) {
+            $body['Accessibility'] = $request->accessibility;
+        }
+        if (!Utils::isUnset($request->autofeExperimentConfiguration)) {
+            $body['AutofeExperimentConfiguration'] = $request->autofeExperimentConfiguration;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $body['WorkspaceId'] = $request->workspaceId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateAutofeExperiment',
+            'version'     => '2022-08-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/automl/v1/autofe/experiment',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateAutofeExperimentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary CreateAutofeExperiment
+     *  *
+     * @param CreateAutofeExperimentRequest $request CreateAutofeExperimentRequest
+     *
+     * @return CreateAutofeExperimentResponse CreateAutofeExperimentResponse
+     */
+    public function createAutofeExperiment($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createAutofeExperimentWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary Create an HyperParameter Optimization experiment.
+     *  *
+     * @param CreateHpoExperimentRequest $request CreateHpoExperimentRequest
+     * @param string[]                   $headers map
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateHpoExperimentResponse CreateHpoExperimentResponse
      */
     public function createHpoExperimentWithOptions($request, $headers, $runtime)
     {
@@ -113,9 +182,11 @@ class PaiAutoML extends OpenApiClient
     }
 
     /**
-     * @param CreateHpoExperimentRequest $request
+     * @summary Create an HyperParameter Optimization experiment.
+     *  *
+     * @param CreateHpoExperimentRequest $request CreateHpoExperimentRequest
      *
-     * @return CreateHpoExperimentResponse
+     * @return CreateHpoExperimentResponse CreateHpoExperimentResponse
      */
     public function createHpoExperiment($request)
     {
@@ -126,11 +197,54 @@ class PaiAutoML extends OpenApiClient
     }
 
     /**
-     * @param string         $ExperimentId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @summary CreateServiceIdentityRole
+     *  *
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteHpoExperimentResponse
+     * @return CreateServiceIdentityRoleResponse CreateServiceIdentityRoleResponse
+     */
+    public function createServiceIdentityRoleWithOptions($headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'CreateServiceIdentityRole',
+            'version'     => '2022-08-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/automl/v1/serviceidentityrole',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateServiceIdentityRoleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary CreateServiceIdentityRole
+     *  *
+     * @return CreateServiceIdentityRoleResponse CreateServiceIdentityRoleResponse
+     */
+    public function createServiceIdentityRole()
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createServiceIdentityRoleWithOptions($headers, $runtime);
+    }
+
+    /**
+     * @summary Delete an HPO experiment
+     *  *
+     * @param string         $ExperimentId
+     * @param string[]       $headers      map
+     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
+     *
+     * @return DeleteHpoExperimentResponse DeleteHpoExperimentResponse
      */
     public function deleteHpoExperimentWithOptions($ExperimentId, $headers, $runtime)
     {
@@ -153,9 +267,11 @@ class PaiAutoML extends OpenApiClient
     }
 
     /**
+     * @summary Delete an HPO experiment
+     *  *
      * @param string $ExperimentId
      *
-     * @return DeleteHpoExperimentResponse
+     * @return DeleteHpoExperimentResponse DeleteHpoExperimentResponse
      */
     public function deleteHpoExperiment($ExperimentId)
     {
@@ -166,11 +282,57 @@ class PaiAutoML extends OpenApiClient
     }
 
     /**
+     * @summary Get AutoFE Experiment。
+     *  *
      * @param string         $ExperimentId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers      map
+     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
      *
-     * @return GetHpoExperimentResponse
+     * @return GetAutofeExperimentResponse GetAutofeExperimentResponse
+     */
+    public function getAutofeExperimentWithOptions($ExperimentId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'GetAutofeExperiment',
+            'version'     => '2022-08-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/automl/v1/autofe/experiment/' . OpenApiUtilClient::getEncodeParam($ExperimentId) . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetAutofeExperimentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Get AutoFE Experiment。
+     *  *
+     * @param string $ExperimentId
+     *
+     * @return GetAutofeExperimentResponse GetAutofeExperimentResponse
+     */
+    public function getAutofeExperiment($ExperimentId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getAutofeExperimentWithOptions($ExperimentId, $headers, $runtime);
+    }
+
+    /**
+     * @summary get hpo experiment by user id and exp id
+     *  *
+     * @param string         $ExperimentId
+     * @param string[]       $headers      map
+     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
+     *
+     * @return GetHpoExperimentResponse GetHpoExperimentResponse
      */
     public function getHpoExperimentWithOptions($ExperimentId, $headers, $runtime)
     {
@@ -193,9 +355,11 @@ class PaiAutoML extends OpenApiClient
     }
 
     /**
+     * @summary get hpo experiment by user id and exp id
+     *  *
      * @param string $ExperimentId
      *
-     * @return GetHpoExperimentResponse
+     * @return GetHpoExperimentResponse GetHpoExperimentResponse
      */
     public function getHpoExperiment($ExperimentId)
     {
@@ -206,12 +370,14 @@ class PaiAutoML extends OpenApiClient
     }
 
     /**
+     * @summary Get trial detail information
+     *  *
      * @param string         $ExperimentId
      * @param string         $TrialId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers      map
+     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
      *
-     * @return GetHpoTrialResponse
+     * @return GetHpoTrialResponse GetHpoTrialResponse
      */
     public function getHpoTrialWithOptions($ExperimentId, $TrialId, $headers, $runtime)
     {
@@ -234,10 +400,12 @@ class PaiAutoML extends OpenApiClient
     }
 
     /**
+     * @summary Get trial detail information
+     *  *
      * @param string $ExperimentId
      * @param string $TrialId
      *
-     * @return GetHpoTrialResponse
+     * @return GetHpoTrialResponse GetHpoTrialResponse
      */
     public function getHpoTrial($ExperimentId, $TrialId)
     {
@@ -248,12 +416,55 @@ class PaiAutoML extends OpenApiClient
     }
 
     /**
-     * @param string                       $ExperimentId
-     * @param ListHpoExperimentLogsRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @summary GetServiceIdentityRole, return role name if SLR exists, empty otherwise
+     *  *
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListHpoExperimentLogsResponse
+     * @return GetServiceIdentityRoleResponse GetServiceIdentityRoleResponse
+     */
+    public function getServiceIdentityRoleWithOptions($headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'GetServiceIdentityRole',
+            'version'     => '2022-08-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/automl/v1/serviceidentityrole',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetServiceIdentityRoleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary GetServiceIdentityRole, return role name if SLR exists, empty otherwise
+     *  *
+     * @return GetServiceIdentityRoleResponse GetServiceIdentityRoleResponse
+     */
+    public function getServiceIdentityRole()
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getServiceIdentityRoleWithOptions($headers, $runtime);
+    }
+
+    /**
+     * @summary list the content of a specified hpo experiment log
+     *  *
+     * @param string                       $ExperimentId
+     * @param ListHpoExperimentLogsRequest $request      ListHpoExperimentLogsRequest
+     * @param string[]                     $headers      map
+     * @param RuntimeOptions               $runtime      runtime options for this request RuntimeOptions
+     *
+     * @return ListHpoExperimentLogsResponse ListHpoExperimentLogsResponse
      */
     public function listHpoExperimentLogsWithOptions($ExperimentId, $request, $headers, $runtime)
     {
@@ -288,10 +499,12 @@ class PaiAutoML extends OpenApiClient
     }
 
     /**
+     * @summary list the content of a specified hpo experiment log
+     *  *
      * @param string                       $ExperimentId
-     * @param ListHpoExperimentLogsRequest $request
+     * @param ListHpoExperimentLogsRequest $request      ListHpoExperimentLogsRequest
      *
-     * @return ListHpoExperimentLogsResponse
+     * @return ListHpoExperimentLogsResponse ListHpoExperimentLogsResponse
      */
     public function listHpoExperimentLogs($ExperimentId, $request)
     {
@@ -302,11 +515,13 @@ class PaiAutoML extends OpenApiClient
     }
 
     /**
-     * @param ListHpoExperimentsRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @summary List HPO experiments
+     *  *
+     * @param ListHpoExperimentsRequest $request ListHpoExperimentsRequest
+     * @param string[]                  $headers map
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListHpoExperimentsResponse
+     * @return ListHpoExperimentsResponse ListHpoExperimentsResponse
      */
     public function listHpoExperimentsWithOptions($request, $headers, $runtime)
     {
@@ -368,9 +583,11 @@ class PaiAutoML extends OpenApiClient
     }
 
     /**
-     * @param ListHpoExperimentsRequest $request
+     * @summary List HPO experiments
+     *  *
+     * @param ListHpoExperimentsRequest $request ListHpoExperimentsRequest
      *
-     * @return ListHpoExperimentsResponse
+     * @return ListHpoExperimentsResponse ListHpoExperimentsResponse
      */
     public function listHpoExperiments($request)
     {
@@ -381,12 +598,14 @@ class PaiAutoML extends OpenApiClient
     }
 
     /**
+     * @summary 返回一个trial所对应的任务里所有已经执行的命令
+     *  *
      * @param string         $ExperimentId
      * @param string         $TrialId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers      map
+     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
      *
-     * @return ListHpoTrialCommandsResponse
+     * @return ListHpoTrialCommandsResponse ListHpoTrialCommandsResponse
      */
     public function listHpoTrialCommandsWithOptions($ExperimentId, $TrialId, $headers, $runtime)
     {
@@ -409,10 +628,12 @@ class PaiAutoML extends OpenApiClient
     }
 
     /**
+     * @summary 返回一个trial所对应的任务里所有已经执行的命令
+     *  *
      * @param string $ExperimentId
      * @param string $TrialId
      *
-     * @return ListHpoTrialCommandsResponse
+     * @return ListHpoTrialCommandsResponse ListHpoTrialCommandsResponse
      */
     public function listHpoTrialCommands($ExperimentId, $TrialId)
     {
@@ -423,12 +644,14 @@ class PaiAutoML extends OpenApiClient
     }
 
     /**
+     * @summary List all log file names a trial have.
+     *  *
      * @param string         $ExperimentId
      * @param string         $TrialId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers      map
+     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
      *
-     * @return ListHpoTrialLogNamesResponse
+     * @return ListHpoTrialLogNamesResponse ListHpoTrialLogNamesResponse
      */
     public function listHpoTrialLogNamesWithOptions($ExperimentId, $TrialId, $headers, $runtime)
     {
@@ -451,10 +674,12 @@ class PaiAutoML extends OpenApiClient
     }
 
     /**
+     * @summary List all log file names a trial have.
+     *  *
      * @param string $ExperimentId
      * @param string $TrialId
      *
-     * @return ListHpoTrialLogNamesResponse
+     * @return ListHpoTrialLogNamesResponse ListHpoTrialLogNamesResponse
      */
     public function listHpoTrialLogNames($ExperimentId, $TrialId)
     {
@@ -465,13 +690,15 @@ class PaiAutoML extends OpenApiClient
     }
 
     /**
+     * @summary List Trial log lines
+     *  *
      * @param string                  $ExperimentId
      * @param string                  $TrialId
-     * @param ListHpoTrialLogsRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @param ListHpoTrialLogsRequest $request      ListHpoTrialLogsRequest
+     * @param string[]                $headers      map
+     * @param RuntimeOptions          $runtime      runtime options for this request RuntimeOptions
      *
-     * @return ListHpoTrialLogsResponse
+     * @return ListHpoTrialLogsResponse ListHpoTrialLogsResponse
      */
     public function listHpoTrialLogsWithOptions($ExperimentId, $TrialId, $request, $headers, $runtime)
     {
@@ -506,11 +733,13 @@ class PaiAutoML extends OpenApiClient
     }
 
     /**
+     * @summary List Trial log lines
+     *  *
      * @param string                  $ExperimentId
      * @param string                  $TrialId
-     * @param ListHpoTrialLogsRequest $request
+     * @param ListHpoTrialLogsRequest $request      ListHpoTrialLogsRequest
      *
-     * @return ListHpoTrialLogsResponse
+     * @return ListHpoTrialLogsResponse ListHpoTrialLogsResponse
      */
     public function listHpoTrialLogs($ExperimentId, $TrialId, $request)
     {
@@ -521,12 +750,14 @@ class PaiAutoML extends OpenApiClient
     }
 
     /**
+     * @summary List HPO trials
+     *  *
      * @param string               $ExperimentId
-     * @param ListHpoTrialsRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @param ListHpoTrialsRequest $request      ListHpoTrialsRequest
+     * @param string[]             $headers      map
+     * @param RuntimeOptions       $runtime      runtime options for this request RuntimeOptions
      *
-     * @return ListHpoTrialsResponse
+     * @return ListHpoTrialsResponse ListHpoTrialsResponse
      */
     public function listHpoTrialsWithOptions($ExperimentId, $request, $headers, $runtime)
     {
@@ -564,10 +795,12 @@ class PaiAutoML extends OpenApiClient
     }
 
     /**
+     * @summary List HPO trials
+     *  *
      * @param string               $ExperimentId
-     * @param ListHpoTrialsRequest $request
+     * @param ListHpoTrialsRequest $request      ListHpoTrialsRequest
      *
-     * @return ListHpoTrialsResponse
+     * @return ListHpoTrialsResponse ListHpoTrialsResponse
      */
     public function listHpoTrials($ExperimentId, $request)
     {
@@ -578,12 +811,14 @@ class PaiAutoML extends OpenApiClient
     }
 
     /**
+     * @summary Restart HPO trials
+     *  *
      * @param string                  $ExperimentId
-     * @param RestartHpoTrialsRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @param RestartHpoTrialsRequest $request      RestartHpoTrialsRequest
+     * @param string[]                $headers      map
+     * @param RuntimeOptions          $runtime      runtime options for this request RuntimeOptions
      *
-     * @return RestartHpoTrialsResponse
+     * @return RestartHpoTrialsResponse RestartHpoTrialsResponse
      */
     public function restartHpoTrialsWithOptions($ExperimentId, $request, $headers, $runtime)
     {
@@ -615,10 +850,12 @@ class PaiAutoML extends OpenApiClient
     }
 
     /**
+     * @summary Restart HPO trials
+     *  *
      * @param string                  $ExperimentId
-     * @param RestartHpoTrialsRequest $request
+     * @param RestartHpoTrialsRequest $request      RestartHpoTrialsRequest
      *
-     * @return RestartHpoTrialsResponse
+     * @return RestartHpoTrialsResponse RestartHpoTrialsResponse
      */
     public function restartHpoTrials($ExperimentId, $request)
     {
@@ -629,11 +866,13 @@ class PaiAutoML extends OpenApiClient
     }
 
     /**
+     * @summary calling hpo StopExperiment
+     *  *
      * @param string         $ExperimentId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers      map
+     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
      *
-     * @return StopHpoExperimentResponse
+     * @return StopHpoExperimentResponse StopHpoExperimentResponse
      */
     public function stopHpoExperimentWithOptions($ExperimentId, $headers, $runtime)
     {
@@ -656,9 +895,11 @@ class PaiAutoML extends OpenApiClient
     }
 
     /**
+     * @summary calling hpo StopExperiment
+     *  *
      * @param string $ExperimentId
      *
-     * @return StopHpoExperimentResponse
+     * @return StopHpoExperimentResponse StopHpoExperimentResponse
      */
     public function stopHpoExperiment($ExperimentId)
     {
@@ -669,12 +910,14 @@ class PaiAutoML extends OpenApiClient
     }
 
     /**
+     * @summary Stop an HPO trial.
+     *  *
      * @param string               $ExperimentId
-     * @param StopHpoTrialsRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @param StopHpoTrialsRequest $request      StopHpoTrialsRequest
+     * @param string[]             $headers      map
+     * @param RuntimeOptions       $runtime      runtime options for this request RuntimeOptions
      *
-     * @return StopHpoTrialsResponse
+     * @return StopHpoTrialsResponse StopHpoTrialsResponse
      */
     public function stopHpoTrialsWithOptions($ExperimentId, $request, $headers, $runtime)
     {
@@ -703,10 +946,12 @@ class PaiAutoML extends OpenApiClient
     }
 
     /**
+     * @summary Stop an HPO trial.
+     *  *
      * @param string               $ExperimentId
-     * @param StopHpoTrialsRequest $request
+     * @param StopHpoTrialsRequest $request      StopHpoTrialsRequest
      *
-     * @return StopHpoTrialsResponse
+     * @return StopHpoTrialsResponse StopHpoTrialsResponse
      */
     public function stopHpoTrials($ExperimentId, $request)
     {
@@ -717,12 +962,14 @@ class PaiAutoML extends OpenApiClient
     }
 
     /**
+     * @summary Update a running HPO experiment\\"s configuration
+     *  *
      * @param string                     $ExperimentId
-     * @param UpdateHpoExperimentRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @param UpdateHpoExperimentRequest $request      UpdateHpoExperimentRequest
+     * @param string[]                   $headers      map
+     * @param RuntimeOptions             $runtime      runtime options for this request RuntimeOptions
      *
-     * @return UpdateHpoExperimentResponse
+     * @return UpdateHpoExperimentResponse UpdateHpoExperimentResponse
      */
     public function updateHpoExperimentWithOptions($ExperimentId, $request, $headers, $runtime)
     {
@@ -763,10 +1010,12 @@ class PaiAutoML extends OpenApiClient
     }
 
     /**
+     * @summary Update a running HPO experiment\\"s configuration
+     *  *
      * @param string                     $ExperimentId
-     * @param UpdateHpoExperimentRequest $request
+     * @param UpdateHpoExperimentRequest $request      UpdateHpoExperimentRequest
      *
-     * @return UpdateHpoExperimentResponse
+     * @return UpdateHpoExperimentResponse UpdateHpoExperimentResponse
      */
     public function updateHpoExperiment($ExperimentId, $request)
     {

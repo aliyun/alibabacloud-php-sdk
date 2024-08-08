@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListHpoTrialLogsRequest extends Model
 {
     /**
+     * @description Log file name.
+     *
      * @example trial.log
      *
      * @var string
@@ -16,6 +18,8 @@ class ListHpoTrialLogsRequest extends Model
     public $logName;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +27,8 @@ class ListHpoTrialLogsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
      * @example 10
      *
      * @var int

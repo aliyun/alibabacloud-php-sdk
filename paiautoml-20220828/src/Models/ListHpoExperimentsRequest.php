@@ -9,61 +9,110 @@ use AlibabaCloud\Tea\Model;
 class ListHpoExperimentsRequest extends Model
 {
     /**
+     * @description The accessibility of the experiments to be listed.
+     *
+     * @example PRIVATE
+     *
      * @var string
      */
     public $accessibility;
 
     /**
+     * @description Who created the expriment.
+     *
+     * @example 266977839132045194
+     *
      * @var string
      */
     public $creator;
 
     /**
+     * @description Return experiment detailed configuration or not.
+     *
+     * @example True, False
+     *
      * @var string
      */
     public $includeConfigData;
 
     /**
+     * @description The maximum create time of the experiment.
+     *
+     * @example yyyy-mm-dd hh:mm:ss或着yyyy-mm-dd，比如2023-03-31 10:29:30
+     *
      * @var string
      */
     public $maxCreateTime;
 
     /**
+     * @description The minimum create time of the experiment.
+     *
+     * @example yyyy-mm-dd hh:mm:ss或着yyyy-mm-dd，比如2023-03-31 10:29:30
+     *
      * @var string
      */
     public $minCreateTime;
 
     /**
+     * @description Experiment name filter.
+     *
+     * @example my_hpo_exp_1
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description ASC, DESC.
+     *
+     * @example ASC, DESC.
+     *
      * @var string
      */
     public $order;
 
     /**
+     * @description The page number.
+     *
+     * Default value: 1.
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description Record number on each page
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The returned experiments to be sorted by this column.
+     *
+     * @example GmtCreateTime
+     *
      * @var string
      */
     public $sortBy;
 
     /**
+     * @description Experiment status to be listed.
+     *
+     * @example CREATED, RUNNING, FINISHED, FAILED, EARLY_STOPPED, USER_CANCELED, SYS_CANCELED, WAITING, NO_MORE_TRIAL, UNKNOWN
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The AI workspace ID the experiments belongs to.
+     *
+     * @example default
+     *
      * @var string
      */
     public $workspaceId;

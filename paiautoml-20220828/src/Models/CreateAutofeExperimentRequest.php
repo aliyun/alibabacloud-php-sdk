@@ -6,35 +6,29 @@ namespace AlibabaCloud\SDK\PaiAutoML\V20220828\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateHpoExperimentRequest extends Model
+class CreateAutofeExperimentRequest extends Model
 {
     /**
-     * @description Experiment accesibility, public or private.
-     *
-     * @example PRIVATE
+     * @example PUBLIC
      *
      * @var string
      */
     public $accessibility;
 
     /**
-     * @description Experiment description.
-     *
-     * @example This is an AutoML HPO experiment.
+     * @var AutofeExperimentConfiguration
+     */
+    public $autofeExperimentConfiguration;
+
+    /**
+     * @example This is an AutoFE experiment.
      *
      * @var string
      */
     public $description;
 
     /**
-     * @description The config object of the expriment.
-     *
-     * @var HpoExperimentConfig
-     */
-    public $hpoExperimentConfiguration;
-
-    /**
-     * @description Experiment Name
+     * @description This parameter is required.
      *
      * @example my experiment x
      *
@@ -43,19 +37,17 @@ class CreateHpoExperimentRequest extends Model
     public $name;
 
     /**
-     * @description AI Workspace ID
-     *
-     * @example default
+     * @example 283301
      *
      * @var string
      */
     public $workspaceId;
     protected $_name = [
-        'accessibility'              => 'Accessibility',
-        'description'                => 'Description',
-        'hpoExperimentConfiguration' => 'HpoExperimentConfiguration',
-        'name'                       => 'Name',
-        'workspaceId'                => 'WorkspaceId',
+        'accessibility'                 => 'Accessibility',
+        'autofeExperimentConfiguration' => 'AutofeExperimentConfiguration',
+        'description'                   => 'Description',
+        'name'                          => 'Name',
+        'workspaceId'                   => 'WorkspaceId',
     ];
 
     public function validate()
@@ -68,11 +60,11 @@ class CreateHpoExperimentRequest extends Model
         if (null !== $this->accessibility) {
             $res['Accessibility'] = $this->accessibility;
         }
+        if (null !== $this->autofeExperimentConfiguration) {
+            $res['AutofeExperimentConfiguration'] = null !== $this->autofeExperimentConfiguration ? $this->autofeExperimentConfiguration->toMap() : null;
+        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
-        }
-        if (null !== $this->hpoExperimentConfiguration) {
-            $res['HpoExperimentConfiguration'] = null !== $this->hpoExperimentConfiguration ? $this->hpoExperimentConfiguration->toMap() : null;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -87,7 +79,7 @@ class CreateHpoExperimentRequest extends Model
     /**
      * @param array $map
      *
-     * @return CreateHpoExperimentRequest
+     * @return CreateAutofeExperimentRequest
      */
     public static function fromMap($map = [])
     {
@@ -95,11 +87,11 @@ class CreateHpoExperimentRequest extends Model
         if (isset($map['Accessibility'])) {
             $model->accessibility = $map['Accessibility'];
         }
+        if (isset($map['AutofeExperimentConfiguration'])) {
+            $model->autofeExperimentConfiguration = AutofeExperimentConfiguration::fromMap($map['AutofeExperimentConfiguration']);
+        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
-        }
-        if (isset($map['HpoExperimentConfiguration'])) {
-            $model->hpoExperimentConfiguration = HpoExperimentConfig::fromMap($map['HpoExperimentConfiguration']);
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

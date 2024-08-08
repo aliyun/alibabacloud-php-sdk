@@ -19,6 +19,8 @@ class ossConfig extends Model
     public $ossAccessKey;
 
     /**
+     * @description This parameter is required.
+     *
      * @example autofe-service
      *
      * @var string
@@ -26,6 +28,8 @@ class ossConfig extends Model
     public $ossBucket;
 
     /**
+     * @description This parameter is required.
+     *
      * @example oss-cn-beijing.aliyuncs.com
      *
      * @var string

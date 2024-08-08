@@ -9,26 +9,42 @@ use AlibabaCloud\Tea\Model;
 class StopHpoTrialsResponseBody extends Model
 {
     /**
+     * @description Error code.
+     *
+     * @example INVALID_USER_OR_EXP
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description Extra error information.
+     *
      * @var string[]
      */
     public $detail;
 
     /**
+     * @description Error message.
+     *
+     * @example failed to stop any trial
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The request ID.
+     *
+     * @example 071A904D-5A49-597F-9F69-81C7701D04AC
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The results of trial stop.
+     *
      * @example {
      * }
      * @var mixed[]

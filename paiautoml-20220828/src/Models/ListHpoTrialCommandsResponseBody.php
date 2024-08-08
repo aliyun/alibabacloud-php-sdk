@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListHpoTrialCommandsResponseBody extends Model
 {
     /**
+     * @description The status code.
+     *
      * @example INVALID_USER_OR_EXP
      *
      * @var string
@@ -17,23 +19,31 @@ class ListHpoTrialCommandsResponseBody extends Model
     public $code;
 
     /**
+     * @description The list of commands.
+     *
      * @var commands[]
      */
     public $commands;
 
     /**
+     * @description Extra error information.
+     *
      * @var string[]
      */
     public $detail;
 
     /**
-     * @example Missing \"user_id\" in request.
+     * @description The error message returned.
+     *
+     * @example Missing \\"user_id\\" in request.
      *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 071A904D-5A49-597F-9F69-81C7701D04AC
      *
      * @var string

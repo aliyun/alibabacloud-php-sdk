@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class experiments extends Model
 {
     /**
+     * @description Experiment accessibility, private or public.
+     *
      * @example PUBLIC
      *
      * @var string
@@ -16,6 +18,8 @@ class experiments extends Model
     public $accessibility;
 
     /**
+     * @description Experiment job run environment configurations.
+     *
      * @example [odps_config]
      * key2 = value2
      * @var string
@@ -23,6 +27,8 @@ class experiments extends Model
     public $configIni;
 
     /**
+     * @description HPO experiment run configuration.
+     *
      * @example experimentName: dlc_oss_mnist
      * start_step: 2
      * @var string
@@ -30,16 +36,26 @@ class experiments extends Model
     public $configYml;
 
     /**
+     * @description The one who created the experiment.
+     *
+     * @example 1049310008714189
+     *
      * @var string
      */
     public $creator;
 
     /**
+     * @description If the experiment is deleted.
+     *
+     * @example 1
+     *
      * @var bool
      */
     public $deleted;
 
     /**
+     * @description The description of the experiment.
+     *
      * @example desc
      *
      * @var string
@@ -47,21 +63,35 @@ class experiments extends Model
     public $description;
 
     /**
+     * @description Experiment ID.
+     *
+     * @example sORVEck
+     *
      * @var string
      */
     public $experimentId;
 
     /**
+     * @description Experiment Create Time.
+     *
+     * @example 2023-03-31T10:29:30Z
+     *
      * @var string
      */
     public $gmtCreateTime;
 
     /**
+     * @description Last modified time.
+     *
+     * @example 2022-10-27T00:55:54Z
+     *
      * @var string
      */
     public $gmtModifiedTime;
 
     /**
+     * @description Experimetn job type.
+     *
      * @example 1
      *
      * @var string
@@ -69,6 +99,8 @@ class experiments extends Model
     public $jobType;
 
     /**
+     * @description Experiment name
+     *
      * @example my experiment x
      *
      * @var string
@@ -76,13 +108,17 @@ class experiments extends Model
     public $name;
 
     /**
-     * @example {\"foo\":\"bar\"}
+     * @description Experiment hyperparameter search space.
+     *
+     * @example {\\"foo\\":\\"bar\\"}
      *
      * @var string
      */
     public $searchSpace;
 
     /**
+     * @description Experiment status.
+     *
      * @example CREATED, RUNNING, FINISHED, FAILED, EARLY_STOPPED, USER_CANCELED, SYS_CANCELED, WAITING, NO_MORE_TRIAL, UNKNOWN
      *
      * @var string
@@ -90,6 +126,8 @@ class experiments extends Model
     public $status;
 
     /**
+     * @description How many trials the experiment have.
+     *
      * @example 20
      *
      * @var int
@@ -97,11 +135,15 @@ class experiments extends Model
     public $trialCount;
 
     /**
+     * @description Trial status map.
+     *
      * @var string[]
      */
     public $trialStatus;
 
     /**
+     * @description The ID of the AI workspace.
+     *
      * @example foo
      *
      * @var string

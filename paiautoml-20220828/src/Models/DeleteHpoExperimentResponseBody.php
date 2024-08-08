@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteHpoExperimentResponseBody extends Model
 {
     /**
+     * @description The error code when the API call is not successful.
+     *
      * @example INVALID_USER_OR_EXP
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteHpoExperimentResponseBody extends Model
     public $code;
 
     /**
+     * @description Extra info on the execution failure.
+     *
      * @example {}
      *
      * @var mixed[]
@@ -23,13 +27,17 @@ class DeleteHpoExperimentResponseBody extends Model
     public $detail;
 
     /**
-     * @example Missing \"user_id\" in request.
+     * @description The error message returned.
+     *
+     * @example Missing \\"user_id\\" in request.
      *
      * @var string
      */
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 3F190916-B3E5-5D1E-AD0C-35C0DF105F51
      *
      * @var string

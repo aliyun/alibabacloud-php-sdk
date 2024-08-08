@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateHpoExperimentRequest extends Model
 {
     /**
+     * @description Experiment accessibility, private or public.
+     *
      * @example PRIVATE
      *
      * @var string
@@ -16,6 +18,8 @@ class UpdateHpoExperimentRequest extends Model
     public $accessibility;
 
     /**
+     * @description Experiment description.
+     *
      * @example This is an AutoML HPO experiment.
      *
      * @var string
@@ -23,11 +27,15 @@ class UpdateHpoExperimentRequest extends Model
     public $description;
 
     /**
+     * @description Experiment configuration.
+     *
      * @var HpoExperimentConfig
      */
     public $hpoExperimentConfiguration;
 
     /**
+     * @description Experiment name.
+     *
      * @example my experiment x
      *
      * @var string
@@ -35,6 +43,8 @@ class UpdateHpoExperimentRequest extends Model
     public $name;
 
     /**
+     * @description Expeirment\\"s AI workspace ID.
+     *
      * @example 12345
      *
      * @var string

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class metricConfig extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $finalMode;
 
     /**
+     * @description This parameter is required.
+     *
      * @var mixed[]
      */
     public $metricDict;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $metricSource;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $metricType;

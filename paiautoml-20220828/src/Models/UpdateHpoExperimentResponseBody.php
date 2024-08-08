@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateHpoExperimentResponseBody extends Model
 {
     /**
+     * @description Error code.
+     *
      * @example SUCCESS
      *
      * @var string
@@ -16,6 +18,8 @@ class UpdateHpoExperimentResponseBody extends Model
     public $code;
 
     /**
+     * @description Extra error information.
+     *
      * @example {}
      *
      * @var mixed[]
@@ -23,13 +27,17 @@ class UpdateHpoExperimentResponseBody extends Model
     public $detail;
 
     /**
-     * @example Missing \"user_id\" in request.
+     * @description Error message.
+     *
+     * @example Missing \\"user_id\\" in request.
      *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 3F190916-B3E5-5D1E-AD0C-35C0DF105F51
      *
      * @var string

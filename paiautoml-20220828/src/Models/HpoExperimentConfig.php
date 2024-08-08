@@ -32,6 +32,8 @@ class HpoExperimentConfig extends Model
     public $k8sConfig;
 
     /**
+     * @description This parameter is required.
+     *
      * @var metricConfig
      */
     public $metricConfig;
@@ -67,6 +69,8 @@ class HpoExperimentConfig extends Model
     public $paramsConfig;
 
     /**
+     * @description This parameter is required.
+     *
      * @var platformConfig
      */
     public $platformConfig;

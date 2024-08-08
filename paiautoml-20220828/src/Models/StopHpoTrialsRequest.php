@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class StopHpoTrialsRequest extends Model
 {
     /**
+     * @description Trial Ids to be stopped.
+     *
      * @var string[]
      */
     public $trialIds;

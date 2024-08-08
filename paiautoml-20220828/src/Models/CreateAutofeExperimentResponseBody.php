@@ -6,20 +6,16 @@ namespace AlibabaCloud\SDK\PaiAutoML\V20220828\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListHpoTrialLogsResponseBody extends Model
+class CreateAutofeExperimentResponseBody extends Model
 {
     /**
-     * @description Error code.
-     *
-     * @example SUCCESS
+     * @example INVALID_INPUT_PARAMS
      *
      * @var string
      */
     public $code;
 
     /**
-     * @description Extra error information.
-     *
      * @example {}
      *
      * @var mixed[]
@@ -27,15 +23,13 @@ class ListHpoTrialLogsResponseBody extends Model
     public $detail;
 
     /**
-     * @description The log.
+     * @example t8cNdMO
      *
-     * @var string[]
+     * @var string
      */
-    public $logs;
+    public $experimentId;
 
     /**
-     * @description Error message.
-     *
      * @example Missing \\"user_id\\" in request.
      *
      * @var string
@@ -43,29 +37,17 @@ class ListHpoTrialLogsResponseBody extends Model
     public $message;
 
     /**
-     * @description The request ID.
-     *
-     * @example 3F190916-B3E5-5D1E-AD0C-35C0DF105F51
+     * @example 22A1EC4E-15A2-51FF-BFA3-10D6735BAA69
      *
      * @var string
      */
     public $requestId;
-
-    /**
-     * @description The total number of entries returned.
-     *
-     * @example 123
-     *
-     * @var int
-     */
-    public $totalCount;
     protected $_name = [
-        'code'       => 'Code',
-        'detail'     => 'Detail',
-        'logs'       => 'Logs',
-        'message'    => 'Message',
-        'requestId'  => 'RequestId',
-        'totalCount' => 'TotalCount',
+        'code'         => 'Code',
+        'detail'       => 'Detail',
+        'experimentId' => 'ExperimentId',
+        'message'      => 'Message',
+        'requestId'    => 'RequestId',
     ];
 
     public function validate()
@@ -81,17 +63,14 @@ class ListHpoTrialLogsResponseBody extends Model
         if (null !== $this->detail) {
             $res['Detail'] = $this->detail;
         }
-        if (null !== $this->logs) {
-            $res['Logs'] = $this->logs;
+        if (null !== $this->experimentId) {
+            $res['ExperimentId'] = $this->experimentId;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -100,7 +79,7 @@ class ListHpoTrialLogsResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ListHpoTrialLogsResponseBody
+     * @return CreateAutofeExperimentResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -111,19 +90,14 @@ class ListHpoTrialLogsResponseBody extends Model
         if (isset($map['Detail'])) {
             $model->detail = $map['Detail'];
         }
-        if (isset($map['Logs'])) {
-            if (!empty($map['Logs'])) {
-                $model->logs = $map['Logs'];
-            }
+        if (isset($map['ExperimentId'])) {
+            $model->experimentId = $map['ExperimentId'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

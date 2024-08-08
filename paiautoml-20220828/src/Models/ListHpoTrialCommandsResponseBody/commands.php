@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class commands extends Model
 {
     /**
+     * @description The command that you want to run.
+     *
      * @example dlc submit pytorch --name=test_nni_foo_bar
      *
      * @var string
@@ -16,6 +18,8 @@ class commands extends Model
     public $command;
 
     /**
+     * @description The id of the command.
+     *
      * @example 1
      *
      * @var int
@@ -23,7 +27,9 @@ class commands extends Model
     public $id;
 
     /**
-     * @example foo
+     * @description The output of the above command
+     *
+     * @example dlc job submitted.
      *
      * @var string
      */

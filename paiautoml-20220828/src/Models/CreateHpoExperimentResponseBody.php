@@ -9,26 +9,44 @@ use AlibabaCloud\Tea\Model;
 class CreateHpoExperimentResponseBody extends Model
 {
     /**
+     * @description The HTTP status code. The status code 200 indicates that the request was successful.
+     *
+     * @example INVALID_INPUT_PARAMS
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description Detailed information of the failure.
+     *
      * @var string[]
      */
     public $detail;
 
     /**
+     * @description Id of the request
+     *
+     * @example sORVEck
+     *
      * @var string
      */
     public $experimentId;
 
     /**
+     * @description The error message returned.
+     *
+     * @example Missing \\"user_id\\" in request.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The request ID.
+     *
+     * @example 3F190916-B3E5-5D1E-AD0C-35C0DF105F51
+     *
      * @var string
      */
     public $requestId;

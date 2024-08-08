@@ -9,108 +9,190 @@ use AlibabaCloud\Tea\Model;
 class GetHpoExperimentResponseBody extends Model
 {
     /**
+     * @description Accessibility of expriment, public or private.
+     *
+     * @example PRIVATE
+     *
      * @var string
      */
     public $accessibility;
 
     /**
+     * @description Error when the API call is not success.
+     *
+     * @example INVALID_INPUT_PARAMS
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description Experiment run environment configurations.
+     *
+     * @example [odps_config]
+     * project_name=my_project
      * @var string
      */
     public $configIni;
 
     /**
+     * @description HPO search config yaml.
+     *
+     * @example assessor:
+     * name: TPE
      * @var string
      */
     public $configYml;
 
     /**
+     * @description The one who created the experiment.
+     *
+     * @example 123456789
+     *
      * @var string
      */
     public $creator;
 
     /**
+     * @description If the Experiment if deleted.
+     *
+     * @example 0
+     *
      * @var bool
      */
     public $deleted;
 
     /**
+     * @description Description of the experiment.
+     *
+     * @example This is experiment is for tune the LR of model.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description Extra error message info.
+     *
+     * @example TBD
+     *
      * @var mixed[]
      */
     public $detail;
 
     /**
+     * @description Experiment ID.
+     *
+     * @example sX5O9Q8
+     *
      * @var string
      */
     public $experimentId;
 
     /**
+     * @description Experiment create time.
+     *
+     * @example 2024-01-01 08:30:11
+     *
      * @var string
      */
     public $gmtCreateTime;
 
     /**
+     * @description Experiment last update time.
+     *
+     * @example 2024-01-01 08:30:11
+     *
      * @var string
      */
     public $gmtModifiedTime;
 
     /**
+     * @description Experiment configuration in json format.
+     *
+     * @example {
+     * "metric_source": [
+     * "select * from my_metrics where pt=\\"${exp_id}_${trial_id}\\";"
+     * }
      * @var mixed[]
      */
     public $hpoExperimentConfiguration;
 
     /**
+     * @description Experiment  Job type.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $jobType;
 
     /**
+     * @description Error message.
+     *
+     * @example Missing \\"user_id\\" in request.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description Experiment name.
+     *
+     * @example my_hpo_exp_1
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 3F190916-B3E5-5D1E-AD0C-35C0DF105F51
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description HPO hyperparameter search space.
+     *
+     * @example {"${centerCount}":{"_type":"choice","_value":[2,3,4,5]},"${distanceType}":{"_type":"choice","_value":["euclidean","cosine","cityblock"]}}
+     *
      * @var string
      */
     public $searchSpace;
 
     /**
-     * @example SUCCESS, FAILED_CREATE_EXP
+     * @description Experiment status.
+     *
+     * @example INVALID_USER_OR_EXP, SUCCESS, or EXECUTION_FAILURE
      *
      * @var string
      */
     public $status;
 
     /**
+     * @description Trials amount run till now.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $trialCount;
 
     /**
+     * @description Status if a trial
+     *
      * @var string[]
      */
     public $trialStatus;
 
     /**
+     * @description AI Workspace ID.
+     *
+     * @example 12345
+     *
      * @var string
      */
     public $workspaceId;

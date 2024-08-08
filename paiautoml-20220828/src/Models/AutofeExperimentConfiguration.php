@@ -12,16 +12,22 @@ use AlibabaCloud\Tea\Model;
 class AutofeExperimentConfiguration extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var odpsConfig
      */
     public $odpsConfig;
 
     /**
+     * @description This parameter is required.
+     *
      * @var ossConfig
      */
     public $ossConfig;
 
     /**
+     * @description This parameter is required.
+     *
      * @var ymlConfig
      */
     public $ymlConfig;
