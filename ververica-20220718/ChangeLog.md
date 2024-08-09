@@ -1,3 +1,6 @@
+2024-08-09 Version: 1.3.2
+- Generated php 2022-07-18 for ververica.
+
 2024-07-23 Version: 1.3.1
 - Update API CreateDeployment: update response param.
 - Update API CreateVariable: update response param.

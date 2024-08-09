@@ -6,17 +6,14 @@ namespace AlibabaCloud\SDK\Ververica\V20220718\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class StartJobRequest extends Model
+class UpdateJobConfigParam extends Model
 {
     /**
-     * @description The parameter that is used to start the job.
-     *
-     * This parameter is required.
-     * @var StartJobRequestBody
+     * @var mixed[]
      */
-    public $body;
+    public $newFlinkConf;
     protected $_name = [
-        'body' => 'body',
+        'newFlinkConf' => 'newFlinkConf',
     ];
 
     public function validate()
@@ -26,8 +23,8 @@ class StartJobRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        if (null !== $this->newFlinkConf) {
+            $res['newFlinkConf'] = $this->newFlinkConf;
         }
 
         return $res;
@@ -36,13 +33,13 @@ class StartJobRequest extends Model
     /**
      * @param array $map
      *
-     * @return StartJobRequest
+     * @return UpdateJobConfigParam
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['body'])) {
-            $model->body = StartJobRequestBody::fromMap($map['body']);
+        if (isset($map['newFlinkConf'])) {
+            $model->newFlinkConf = $map['newFlinkConf'];
         }
 
         return $model;

@@ -1579,7 +1579,7 @@ class Ververica extends OpenApiClient
     /**
      * @deprecated OpenAPI StartJob is deprecated
      *  *
-     * @summary start job
+     * @summary Creates and starts a job.
      *  *
      * Deprecated
      *
@@ -1622,7 +1622,7 @@ class Ververica extends OpenApiClient
     /**
      * @deprecated OpenAPI StartJob is deprecated
      *  *
-     * @summary start job
+     * @summary Creates and starts a job.
      *  *
      * Deprecated
      *

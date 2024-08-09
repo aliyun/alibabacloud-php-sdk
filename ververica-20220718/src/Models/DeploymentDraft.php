@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Ververica\V20220718\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class Deployment extends Model
+class DeploymentDraft extends Model
 {
     /**
      * @var Artifact
@@ -14,12 +14,7 @@ class Deployment extends Model
     public $artifact;
 
     /**
-     * @var BatchResourceSetting
-     */
-    public $batchResourceSetting;
-
-    /**
-     * @var string
+     * @var int
      */
     public $createdAt;
 
@@ -38,56 +33,25 @@ class Deployment extends Model
     public $creatorName;
 
     /**
-     * @example true
-     *
-     * @var bool
-     */
-    public $deploymentHasChanged;
-
-    /**
-     * @example 00000000-0000-0000-0000-000000000001
+     * @example 00000000-0000-0000-0000-00000012****
      *
      * @var string
      */
-    public $deploymentId;
+    public $deploymentDraftId;
 
     /**
-     * @var BriefDeploymentTarget
-     */
-    public $deploymentTarget;
-
-    /**
-     * @example this is a deployment description
-     *
-     * @var string
-     */
-    public $description;
-
-    /**
-     * @example vvr-6.0.0-flink-1.15
+     * @example vvr-6.0.7-flink-1.15
      *
      * @var string
      */
     public $engineVersion;
 
     /**
-     * @example STREAMING | BATCH
+     * @example STREAMING
      *
      * @var string
      */
     public $executionMode;
-
-    /**
-     * @example {"taskmanager.numberOfTaskSlots":"1"}
-     *
-     * @var mixed[]
-     */
-    public $flinkConf;
-
-    /**
-     * @var JobSummary
-     */
-    public $jobSummary;
 
     /**
      * @var mixed[]
@@ -100,12 +64,12 @@ class Deployment extends Model
     public $localVariables;
 
     /**
-     * @var Logging
+     * @var Lock
      */
-    public $logging;
+    public $lock;
 
     /**
-     * @var string
+     * @var int
      */
     public $modifiedAt;
 
@@ -124,7 +88,7 @@ class Deployment extends Model
     public $modifierName;
 
     /**
-     * @example deploymentName
+     * @example test-draft
      *
      * @var string
      */
@@ -138,16 +102,18 @@ class Deployment extends Model
     public $namespace;
 
     /**
-     * @example 00000000-0000-0000-0000-000000000003
+     * @example 00000000-0000-0000-0000-00000013****
      *
      * @var string
      */
-    public $referencedDeploymentDraftId;
+    public $parentId;
 
     /**
-     * @var StreamingResourceSetting
+     * @example 00000000-0000-0000-0000-0000012312****
+     *
+     * @var string
      */
-    public $streamingResourceSetting;
+    public $referencedDeploymentId;
 
     /**
      * @example edcef******b4f
@@ -156,30 +122,24 @@ class Deployment extends Model
      */
     public $workspace;
     protected $_name = [
-        'artifact'                    => 'artifact',
-        'batchResourceSetting'        => 'batchResourceSetting',
-        'createdAt'                   => 'createdAt',
-        'creator'                     => 'creator',
-        'creatorName'                 => 'creatorName',
-        'deploymentHasChanged'        => 'deploymentHasChanged',
-        'deploymentId'                => 'deploymentId',
-        'deploymentTarget'            => 'deploymentTarget',
-        'description'                 => 'description',
-        'engineVersion'               => 'engineVersion',
-        'executionMode'               => 'executionMode',
-        'flinkConf'                   => 'flinkConf',
-        'jobSummary'                  => 'jobSummary',
-        'labels'                      => 'labels',
-        'localVariables'              => 'localVariables',
-        'logging'                     => 'logging',
-        'modifiedAt'                  => 'modifiedAt',
-        'modifier'                    => 'modifier',
-        'modifierName'                => 'modifierName',
-        'name'                        => 'name',
-        'namespace'                   => 'namespace',
-        'referencedDeploymentDraftId' => 'referencedDeploymentDraftId',
-        'streamingResourceSetting'    => 'streamingResourceSetting',
-        'workspace'                   => 'workspace',
+        'artifact'               => 'artifact',
+        'createdAt'              => 'createdAt',
+        'creator'                => 'creator',
+        'creatorName'            => 'creatorName',
+        'deploymentDraftId'      => 'deploymentDraftId',
+        'engineVersion'          => 'engineVersion',
+        'executionMode'          => 'executionMode',
+        'labels'                 => 'labels',
+        'localVariables'         => 'localVariables',
+        'lock'                   => 'lock',
+        'modifiedAt'             => 'modifiedAt',
+        'modifier'               => 'modifier',
+        'modifierName'           => 'modifierName',
+        'name'                   => 'name',
+        'namespace'              => 'namespace',
+        'parentId'               => 'parentId',
+        'referencedDeploymentId' => 'referencedDeploymentId',
+        'workspace'              => 'workspace',
     ];
 
     public function validate()
@@ -192,9 +152,6 @@ class Deployment extends Model
         if (null !== $this->artifact) {
             $res['artifact'] = null !== $this->artifact ? $this->artifact->toMap() : null;
         }
-        if (null !== $this->batchResourceSetting) {
-            $res['batchResourceSetting'] = null !== $this->batchResourceSetting ? $this->batchResourceSetting->toMap() : null;
-        }
         if (null !== $this->createdAt) {
             $res['createdAt'] = $this->createdAt;
         }
@@ -204,29 +161,14 @@ class Deployment extends Model
         if (null !== $this->creatorName) {
             $res['creatorName'] = $this->creatorName;
         }
-        if (null !== $this->deploymentHasChanged) {
-            $res['deploymentHasChanged'] = $this->deploymentHasChanged;
-        }
-        if (null !== $this->deploymentId) {
-            $res['deploymentId'] = $this->deploymentId;
-        }
-        if (null !== $this->deploymentTarget) {
-            $res['deploymentTarget'] = null !== $this->deploymentTarget ? $this->deploymentTarget->toMap() : null;
-        }
-        if (null !== $this->description) {
-            $res['description'] = $this->description;
+        if (null !== $this->deploymentDraftId) {
+            $res['deploymentDraftId'] = $this->deploymentDraftId;
         }
         if (null !== $this->engineVersion) {
             $res['engineVersion'] = $this->engineVersion;
         }
         if (null !== $this->executionMode) {
             $res['executionMode'] = $this->executionMode;
-        }
-        if (null !== $this->flinkConf) {
-            $res['flinkConf'] = $this->flinkConf;
-        }
-        if (null !== $this->jobSummary) {
-            $res['jobSummary'] = null !== $this->jobSummary ? $this->jobSummary->toMap() : null;
         }
         if (null !== $this->labels) {
             $res['labels'] = $this->labels;
@@ -240,8 +182,8 @@ class Deployment extends Model
                 }
             }
         }
-        if (null !== $this->logging) {
-            $res['logging'] = null !== $this->logging ? $this->logging->toMap() : null;
+        if (null !== $this->lock) {
+            $res['lock'] = null !== $this->lock ? $this->lock->toMap() : null;
         }
         if (null !== $this->modifiedAt) {
             $res['modifiedAt'] = $this->modifiedAt;
@@ -258,11 +200,11 @@ class Deployment extends Model
         if (null !== $this->namespace) {
             $res['namespace'] = $this->namespace;
         }
-        if (null !== $this->referencedDeploymentDraftId) {
-            $res['referencedDeploymentDraftId'] = $this->referencedDeploymentDraftId;
+        if (null !== $this->parentId) {
+            $res['parentId'] = $this->parentId;
         }
-        if (null !== $this->streamingResourceSetting) {
-            $res['streamingResourceSetting'] = null !== $this->streamingResourceSetting ? $this->streamingResourceSetting->toMap() : null;
+        if (null !== $this->referencedDeploymentId) {
+            $res['referencedDeploymentId'] = $this->referencedDeploymentId;
         }
         if (null !== $this->workspace) {
             $res['workspace'] = $this->workspace;
@@ -274,16 +216,13 @@ class Deployment extends Model
     /**
      * @param array $map
      *
-     * @return Deployment
+     * @return DeploymentDraft
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['artifact'])) {
             $model->artifact = Artifact::fromMap($map['artifact']);
-        }
-        if (isset($map['batchResourceSetting'])) {
-            $model->batchResourceSetting = BatchResourceSetting::fromMap($map['batchResourceSetting']);
         }
         if (isset($map['createdAt'])) {
             $model->createdAt = $map['createdAt'];
@@ -294,29 +233,14 @@ class Deployment extends Model
         if (isset($map['creatorName'])) {
             $model->creatorName = $map['creatorName'];
         }
-        if (isset($map['deploymentHasChanged'])) {
-            $model->deploymentHasChanged = $map['deploymentHasChanged'];
-        }
-        if (isset($map['deploymentId'])) {
-            $model->deploymentId = $map['deploymentId'];
-        }
-        if (isset($map['deploymentTarget'])) {
-            $model->deploymentTarget = BriefDeploymentTarget::fromMap($map['deploymentTarget']);
-        }
-        if (isset($map['description'])) {
-            $model->description = $map['description'];
+        if (isset($map['deploymentDraftId'])) {
+            $model->deploymentDraftId = $map['deploymentDraftId'];
         }
         if (isset($map['engineVersion'])) {
             $model->engineVersion = $map['engineVersion'];
         }
         if (isset($map['executionMode'])) {
             $model->executionMode = $map['executionMode'];
-        }
-        if (isset($map['flinkConf'])) {
-            $model->flinkConf = $map['flinkConf'];
-        }
-        if (isset($map['jobSummary'])) {
-            $model->jobSummary = JobSummary::fromMap($map['jobSummary']);
         }
         if (isset($map['labels'])) {
             $model->labels = $map['labels'];
@@ -330,8 +254,8 @@ class Deployment extends Model
                 }
             }
         }
-        if (isset($map['logging'])) {
-            $model->logging = Logging::fromMap($map['logging']);
+        if (isset($map['lock'])) {
+            $model->lock = Lock::fromMap($map['lock']);
         }
         if (isset($map['modifiedAt'])) {
             $model->modifiedAt = $map['modifiedAt'];
@@ -348,11 +272,11 @@ class Deployment extends Model
         if (isset($map['namespace'])) {
             $model->namespace = $map['namespace'];
         }
-        if (isset($map['referencedDeploymentDraftId'])) {
-            $model->referencedDeploymentDraftId = $map['referencedDeploymentDraftId'];
+        if (isset($map['parentId'])) {
+            $model->parentId = $map['parentId'];
         }
-        if (isset($map['streamingResourceSetting'])) {
-            $model->streamingResourceSetting = StreamingResourceSetting::fromMap($map['streamingResourceSetting']);
+        if (isset($map['referencedDeploymentId'])) {
+            $model->referencedDeploymentId = $map['referencedDeploymentId'];
         }
         if (isset($map['workspace'])) {
             $model->workspace = $map['workspace'];
