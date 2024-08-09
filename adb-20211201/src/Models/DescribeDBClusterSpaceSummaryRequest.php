@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBClusterSpaceSummaryRequest extends Model
 {
     /**
-     * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+     * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
      *
      * This parameter is required.
      * @example amv-wz9v5sa7mm79z4l2

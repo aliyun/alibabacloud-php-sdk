@@ -2193,7 +2193,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @summary Queries the logs of a real-time data ingestion job for an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+     * @summary Queries the logs of a real-time data ingestion job for an AnalyticDB for MySQL cluster.
      *  *
      * @description *   General endpoint: `adb.aliyuncs.com`.
      * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
@@ -2269,7 +2269,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @summary Queries the logs of a real-time data ingestion job for an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+     * @summary Queries the logs of a real-time data ingestion job for an AnalyticDB for MySQL cluster.
      *  *
      * @description *   General endpoint: `adb.aliyuncs.com`.
      * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
@@ -2962,9 +2962,9 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @summary Queries the health status of an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+     * @summary Queries the health status of an AnalyticDB for MySQL cluster.
      *  *
-     * @description For information about the endpoints of AnalyticDB for MySQL, see Endpoints.
+     * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *  *
      * @param DescribeDBClusterHealthStatusRequest $request DescribeDBClusterHealthStatusRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
@@ -3000,9 +3000,9 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @summary Queries the health status of an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+     * @summary Queries the health status of an AnalyticDB for MySQL cluster.
      *  *
-     * @description For information about the endpoints of AnalyticDB for MySQL, see Endpoints.
+     * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *  *
      * @param DescribeDBClusterHealthStatusRequest $request DescribeDBClusterHealthStatusRequest
      *
@@ -3018,7 +3018,7 @@ class Adb extends OpenApiClient
     /**
      * @summary Queries the performance data of an AnalyticDB for MySQL cluster.
      *  *
-     * @description For information about the endpoints of AnalyticDB for MySQL, see Endpoints.
+     * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *  *
      * @param DescribeDBClusterPerformanceRequest $request DescribeDBClusterPerformanceRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
@@ -3068,7 +3068,7 @@ class Adb extends OpenApiClient
     /**
      * @summary Queries the performance data of an AnalyticDB for MySQL cluster.
      *  *
-     * @description For information about the endpoints of AnalyticDB for MySQL, see Endpoints.
+     * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *  *
      * @param DescribeDBClusterPerformanceRequest $request DescribeDBClusterPerformanceRequest
      *
@@ -4046,7 +4046,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about performance metrics of an SQL pattern such as the query duration and average memory usage for an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster within a time range.
+     * @summary Queries the information about performance metrics of an SQL pattern such as the query duration and average memory usage for an AnalyticDB for MySQL cluster within a time range.
      *  *
      * @description *   General endpoint: `adb.aliyuncs.com`.
      * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
@@ -4095,7 +4095,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about performance metrics of an SQL pattern such as the query duration and average memory usage for an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster within a time range.
+     * @summary Queries the information about performance metrics of an SQL pattern such as the query duration and average memory usage for an AnalyticDB for MySQL cluster within a time range.
      *  *
      * @description *   General endpoint: `adb.aliyuncs.com`.
      * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
@@ -6573,9 +6573,9 @@ class Adb extends OpenApiClient
     /**
      * @summary Shuts down a Spark SQL engine.
      *  *
-     * @description *   General endpoint: `adb.aliyuncs.com`.
-     * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     * @description *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
      * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     * >  If HTTP status code 409 is returned when you call this operation in the China (Qingdao), China (Shenzhen), China (Guangzhou), or China (Hong Kong) region, contact technical support.
      *  *
      * @param KillSparkSQLEngineRequest $request KillSparkSQLEngineRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -6613,9 +6613,9 @@ class Adb extends OpenApiClient
     /**
      * @summary Shuts down a Spark SQL engine.
      *  *
-     * @description *   General endpoint: `adb.aliyuncs.com`.
-     * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     * @description *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
      * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     * >  If HTTP status code 409 is returned when you call this operation in the China (Qingdao), China (Shenzhen), China (Guangzhou), or China (Hong Kong) region, contact technical support.
      *  *
      * @param KillSparkSQLEngineRequest $request KillSparkSQLEngineRequest
      *
@@ -7455,7 +7455,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the maintenance window of an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+     * @summary Modifies the maintenance window of an AnalyticDB for MySQL cluster.
      *  *
      * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *  *
@@ -7493,7 +7493,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the maintenance window of an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+     * @summary Modifies the maintenance window of an AnalyticDB for MySQL cluster.
      *  *
      * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *  *
