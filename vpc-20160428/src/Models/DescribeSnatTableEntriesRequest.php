@@ -19,6 +19,11 @@ class DescribeSnatTableEntriesRequest extends Model
     public $natGatewayId;
 
     /**
+     * @var string[]
+     */
+    public $networkInterfaceIds;
+
+    /**
      * @var string
      */
     public $ownerAccount;
@@ -127,6 +132,7 @@ class DescribeSnatTableEntriesRequest extends Model
     public $sourceVSwitchId;
     protected $_name = [
         'natGatewayId'         => 'NatGatewayId',
+        'networkInterfaceIds'  => 'NetworkInterfaceIds',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'pageNumber'           => 'PageNumber',
@@ -151,6 +157,9 @@ class DescribeSnatTableEntriesRequest extends Model
         $res = [];
         if (null !== $this->natGatewayId) {
             $res['NatGatewayId'] = $this->natGatewayId;
+        }
+        if (null !== $this->networkInterfaceIds) {
+            $res['NetworkInterfaceIds'] = $this->networkInterfaceIds;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
@@ -205,6 +214,11 @@ class DescribeSnatTableEntriesRequest extends Model
         $model = new self();
         if (isset($map['NatGatewayId'])) {
             $model->natGatewayId = $map['NatGatewayId'];
+        }
+        if (isset($map['NetworkInterfaceIds'])) {
+            if (!empty($map['NetworkInterfaceIds'])) {
+                $model->networkInterfaceIds = $map['NetworkInterfaceIds'];
+            }
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];

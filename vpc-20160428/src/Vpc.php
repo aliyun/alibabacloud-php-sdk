@@ -7469,6 +7469,9 @@ class Vpc extends OpenApiClient
         if (!Utils::isUnset($request->eipAffinity)) {
             $query['EipAffinity'] = $request->eipAffinity;
         }
+        if (!Utils::isUnset($request->networkInterfaceId)) {
+            $query['NetworkInterfaceId'] = $request->networkInterfaceId;
+        }
         if (!Utils::isUnset($request->ownerAccount)) {
             $query['OwnerAccount'] = $request->ownerAccount;
         }
@@ -17349,6 +17352,9 @@ class Vpc extends OpenApiClient
         if (!Utils::isUnset($request->natGatewayId)) {
             $query['NatGatewayId'] = $request->natGatewayId;
         }
+        if (!Utils::isUnset($request->networkInterfaceIds)) {
+            $query['NetworkInterfaceIds'] = $request->networkInterfaceIds;
+        }
         if (!Utils::isUnset($request->ownerAccount)) {
             $query['OwnerAccount'] = $request->ownerAccount;
         }
@@ -26067,6 +26073,9 @@ class Vpc extends OpenApiClient
         }
         if (!Utils::isUnset($request->eipAffinity)) {
             $query['EipAffinity'] = $request->eipAffinity;
+        }
+        if (!Utils::isUnset($request->networkInterfaceId)) {
+            $query['NetworkInterfaceId'] = $request->networkInterfaceId;
         }
         if (!Utils::isUnset($request->ownerAccount)) {
             $query['OwnerAccount'] = $request->ownerAccount;

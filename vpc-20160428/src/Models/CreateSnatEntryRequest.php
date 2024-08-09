@@ -40,6 +40,11 @@ class CreateSnatEntryRequest extends Model
     /**
      * @var string
      */
+    public $networkInterfaceId;
+
+    /**
+     * @var string
+     */
     public $ownerAccount;
 
     /**
@@ -88,7 +93,6 @@ class CreateSnatEntryRequest extends Model
      *
      *   When you add SNAT entries for a VPC NAT gateway, this parameter specifies the NAT IP addresses in the SNAT entry. Separate multiple NAT IP addresses with commas (,).
      *
-     * This parameter is required.
      * @example 47.98.XX.XX
      *
      * @var string
@@ -140,6 +144,7 @@ class CreateSnatEntryRequest extends Model
     protected $_name = [
         'clientToken'          => 'ClientToken',
         'eipAffinity'          => 'EipAffinity',
+        'networkInterfaceId'   => 'NetworkInterfaceId',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'regionId'             => 'RegionId',
@@ -164,6 +169,9 @@ class CreateSnatEntryRequest extends Model
         }
         if (null !== $this->eipAffinity) {
             $res['EipAffinity'] = $this->eipAffinity;
+        }
+        if (null !== $this->networkInterfaceId) {
+            $res['NetworkInterfaceId'] = $this->networkInterfaceId;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
@@ -212,6 +220,9 @@ class CreateSnatEntryRequest extends Model
         }
         if (isset($map['EipAffinity'])) {
             $model->eipAffinity = $map['EipAffinity'];
+        }
+        if (isset($map['NetworkInterfaceId'])) {
+            $model->networkInterfaceId = $map['NetworkInterfaceId'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];

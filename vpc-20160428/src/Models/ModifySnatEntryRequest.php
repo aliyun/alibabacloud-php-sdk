@@ -28,6 +28,11 @@ class ModifySnatEntryRequest extends Model
     /**
      * @var string
      */
+    public $networkInterfaceId;
+
+    /**
+     * @var string
+     */
     public $ownerAccount;
 
     /**
@@ -100,6 +105,7 @@ class ModifySnatEntryRequest extends Model
     protected $_name = [
         'clientToken'          => 'ClientToken',
         'eipAffinity'          => 'EipAffinity',
+        'networkInterfaceId'   => 'NetworkInterfaceId',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'regionId'             => 'RegionId',
@@ -123,6 +129,9 @@ class ModifySnatEntryRequest extends Model
         }
         if (null !== $this->eipAffinity) {
             $res['EipAffinity'] = $this->eipAffinity;
+        }
+        if (null !== $this->networkInterfaceId) {
+            $res['NetworkInterfaceId'] = $this->networkInterfaceId;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
@@ -168,6 +177,9 @@ class ModifySnatEntryRequest extends Model
         }
         if (isset($map['EipAffinity'])) {
             $model->eipAffinity = $map['EipAffinity'];
+        }
+        if (isset($map['NetworkInterfaceId'])) {
+            $model->networkInterfaceId = $map['NetworkInterfaceId'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];

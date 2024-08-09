@@ -23,6 +23,11 @@ class snatTableEntry extends Model
     public $natGatewayId;
 
     /**
+     * @var string
+     */
+    public $networkInterfaceId;
+
+    /**
      * @description The ID of the SNAT entry.
      *
      * @example snat-kmd6nv8fy****
@@ -91,15 +96,16 @@ class snatTableEntry extends Model
      */
     public $status;
     protected $_name = [
-        'eipAffinity'     => 'EipAffinity',
-        'natGatewayId'    => 'NatGatewayId',
-        'snatEntryId'     => 'SnatEntryId',
-        'snatEntryName'   => 'SnatEntryName',
-        'snatIp'          => 'SnatIp',
-        'snatTableId'     => 'SnatTableId',
-        'sourceCIDR'      => 'SourceCIDR',
-        'sourceVSwitchId' => 'SourceVSwitchId',
-        'status'          => 'Status',
+        'eipAffinity'        => 'EipAffinity',
+        'natGatewayId'       => 'NatGatewayId',
+        'networkInterfaceId' => 'NetworkInterfaceId',
+        'snatEntryId'        => 'SnatEntryId',
+        'snatEntryName'      => 'SnatEntryName',
+        'snatIp'             => 'SnatIp',
+        'snatTableId'        => 'SnatTableId',
+        'sourceCIDR'         => 'SourceCIDR',
+        'sourceVSwitchId'    => 'SourceVSwitchId',
+        'status'             => 'Status',
     ];
 
     public function validate()
@@ -114,6 +120,9 @@ class snatTableEntry extends Model
         }
         if (null !== $this->natGatewayId) {
             $res['NatGatewayId'] = $this->natGatewayId;
+        }
+        if (null !== $this->networkInterfaceId) {
+            $res['NetworkInterfaceId'] = $this->networkInterfaceId;
         }
         if (null !== $this->snatEntryId) {
             $res['SnatEntryId'] = $this->snatEntryId;
@@ -153,6 +162,9 @@ class snatTableEntry extends Model
         }
         if (isset($map['NatGatewayId'])) {
             $model->natGatewayId = $map['NatGatewayId'];
+        }
+        if (isset($map['NetworkInterfaceId'])) {
+            $model->networkInterfaceId = $map['NetworkInterfaceId'];
         }
         if (isset($map['SnatEntryId'])) {
             $model->snatEntryId = $map['SnatEntryId'];
