@@ -177,6 +177,11 @@ class items extends Model
     public $lastFinishedTime;
 
     /**
+     * @var int
+     */
+    public $lastStartTime;
+
+    /**
      * @description The region in which the data asset resides.
      *
      * @example China (Hangzhou)
@@ -435,6 +440,7 @@ class items extends Model
         'instanceDescription' => 'InstanceDescription',
         'instanceId'          => 'InstanceId',
         'lastFinishedTime'    => 'LastFinishedTime',
+        'lastStartTime'       => 'LastStartTime',
         'localName'           => 'LocalName',
         'logStoreDay'         => 'LogStoreDay',
         'memberAccount'       => 'MemberAccount',
@@ -515,6 +521,9 @@ class items extends Model
         }
         if (null !== $this->lastFinishedTime) {
             $res['LastFinishedTime'] = $this->lastFinishedTime;
+        }
+        if (null !== $this->lastStartTime) {
+            $res['LastStartTime'] = $this->lastStartTime;
         }
         if (null !== $this->localName) {
             $res['LocalName'] = $this->localName;
@@ -647,6 +656,9 @@ class items extends Model
         }
         if (isset($map['LastFinishedTime'])) {
             $model->lastFinishedTime = $map['LastFinishedTime'];
+        }
+        if (isset($map['LastStartTime'])) {
+            $model->lastStartTime = $map['LastStartTime'];
         }
         if (isset($map['LocalName'])) {
             $model->localName = $map['LocalName'];
