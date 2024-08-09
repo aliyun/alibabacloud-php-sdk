@@ -14,6 +14,11 @@ class ExtraPodSpec extends Model
     public $initContainers;
 
     /**
+     * @var Lifecycle
+     */
+    public $lifecycle;
+
+    /**
      * @var string[]
      */
     public $podAnnotations;
@@ -34,6 +39,7 @@ class ExtraPodSpec extends Model
     public $sideCarContainers;
     protected $_name = [
         'initContainers'         => 'InitContainers',
+        'lifecycle'              => 'Lifecycle',
         'podAnnotations'         => 'PodAnnotations',
         'podLabels'              => 'PodLabels',
         'sharedVolumeMountPaths' => 'SharedVolumeMountPaths',
@@ -55,6 +61,9 @@ class ExtraPodSpec extends Model
                     $res['InitContainers'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->lifecycle) {
+            $res['Lifecycle'] = null !== $this->lifecycle ? $this->lifecycle->toMap() : null;
         }
         if (null !== $this->podAnnotations) {
             $res['PodAnnotations'] = $this->podAnnotations;
@@ -94,6 +103,9 @@ class ExtraPodSpec extends Model
                     $model->initContainers[$n++] = null !== $item ? ContainerSpec::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Lifecycle'])) {
+            $model->lifecycle = Lifecycle::fromMap($map['Lifecycle']);
         }
         if (isset($map['PodAnnotations'])) {
             $model->podAnnotations = $map['PodAnnotations'];
