@@ -16,6 +16,21 @@ class PushRequest extends Model
     public $androidActivity;
 
     /**
+     * @var int
+     */
+    public $androidBadgeAddNum;
+
+    /**
+     * @var string
+     */
+    public $androidBadgeClass;
+
+    /**
+     * @var int
+     */
+    public $androidBadgeSetNum;
+
+    /**
      * @var string
      */
     public $androidBigBody;
@@ -589,6 +604,9 @@ class PushRequest extends Model
     public $iOSSubtitle;
     protected $_name = [
         'androidActivity'                  => 'AndroidActivity',
+        'androidBadgeAddNum'               => 'AndroidBadgeAddNum',
+        'androidBadgeClass'                => 'AndroidBadgeClass',
+        'androidBadgeSetNum'               => 'AndroidBadgeSetNum',
         'androidBigBody'                   => 'AndroidBigBody',
         'androidBigPictureUrl'             => 'AndroidBigPictureUrl',
         'androidBigTitle'                  => 'AndroidBigTitle',
@@ -687,6 +705,15 @@ class PushRequest extends Model
         $res = [];
         if (null !== $this->androidActivity) {
             $res['AndroidActivity'] = $this->androidActivity;
+        }
+        if (null !== $this->androidBadgeAddNum) {
+            $res['AndroidBadgeAddNum'] = $this->androidBadgeAddNum;
+        }
+        if (null !== $this->androidBadgeClass) {
+            $res['AndroidBadgeClass'] = $this->androidBadgeClass;
+        }
+        if (null !== $this->androidBadgeSetNum) {
+            $res['AndroidBadgeSetNum'] = $this->androidBadgeSetNum;
         }
         if (null !== $this->androidBigBody) {
             $res['AndroidBigBody'] = $this->androidBigBody;
@@ -963,6 +990,15 @@ class PushRequest extends Model
         $model = new self();
         if (isset($map['AndroidActivity'])) {
             $model->androidActivity = $map['AndroidActivity'];
+        }
+        if (isset($map['AndroidBadgeAddNum'])) {
+            $model->androidBadgeAddNum = $map['AndroidBadgeAddNum'];
+        }
+        if (isset($map['AndroidBadgeClass'])) {
+            $model->androidBadgeClass = $map['AndroidBadgeClass'];
+        }
+        if (isset($map['AndroidBadgeSetNum'])) {
+            $model->androidBadgeSetNum = $map['AndroidBadgeSetNum'];
         }
         if (isset($map['AndroidBigBody'])) {
             $model->androidBigBody = $map['AndroidBigBody'];

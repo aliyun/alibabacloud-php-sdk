@@ -744,6 +744,15 @@ class Push extends OpenApiClient
         if (!Utils::isUnset($request->androidActivity)) {
             $query['AndroidActivity'] = $request->androidActivity;
         }
+        if (!Utils::isUnset($request->androidBadgeAddNum)) {
+            $query['AndroidBadgeAddNum'] = $request->androidBadgeAddNum;
+        }
+        if (!Utils::isUnset($request->androidBadgeClass)) {
+            $query['AndroidBadgeClass'] = $request->androidBadgeClass;
+        }
+        if (!Utils::isUnset($request->androidBadgeSetNum)) {
+            $query['AndroidBadgeSetNum'] = $request->androidBadgeSetNum;
+        }
         if (!Utils::isUnset($request->androidBigBody)) {
             $query['AndroidBigBody'] = $request->androidBigBody;
         }
