@@ -261,6 +261,10 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\ListDocumentsResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListDocumentsShrinkRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListDoNotCallNumbersRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListDoNotCallNumbersResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListFlashSmsApplicationsRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListFlashSmsApplicationsResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListFlashSmsTemplatesRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListFlashSmsTemplatesResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListGroupChatMessagesRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListGroupChatMessagesResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListHistoricalAgentReportRequest;
@@ -7241,6 +7245,110 @@ class CCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listDocumentsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListFlashSmsApplicationsRequest $request ListFlashSmsApplicationsRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListFlashSmsApplicationsResponse ListFlashSmsApplicationsResponse
+     */
+    public function listFlashSmsApplicationsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->providerId)) {
+            $query['ProviderId'] = $request->providerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListFlashSmsApplications',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListFlashSmsApplicationsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListFlashSmsApplicationsRequest $request ListFlashSmsApplicationsRequest
+     *
+     * @return ListFlashSmsApplicationsResponse ListFlashSmsApplicationsResponse
+     */
+    public function listFlashSmsApplications($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listFlashSmsApplicationsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListFlashSmsTemplatesRequest $request ListFlashSmsTemplatesRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListFlashSmsTemplatesResponse ListFlashSmsTemplatesResponse
+     */
+    public function listFlashSmsTemplatesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->applicationId)) {
+            $query['ApplicationId'] = $request->applicationId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->providerId)) {
+            $query['ProviderId'] = $request->providerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListFlashSmsTemplates',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListFlashSmsTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListFlashSmsTemplatesRequest $request ListFlashSmsTemplatesRequest
+     *
+     * @return ListFlashSmsTemplatesResponse ListFlashSmsTemplatesResponse
+     */
+    public function listFlashSmsTemplates($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listFlashSmsTemplatesWithOptions($request, $runtime);
     }
 
     /**
