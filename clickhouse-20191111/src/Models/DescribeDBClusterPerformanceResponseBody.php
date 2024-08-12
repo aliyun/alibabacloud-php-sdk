@@ -19,7 +19,7 @@ class DescribeDBClusterPerformanceResponseBody extends Model
     public $DBClusterId;
 
     /**
-     * @description The end of the time range to query. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in Coordinated Universal Time (UTC).
+     * @description The end of the time range to query. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format. The time is displayed in Coordinated Universal Time (UTC).
      *
      * @example 2021-11-27T16:38Z
      *
@@ -44,7 +44,7 @@ class DescribeDBClusterPerformanceResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The beginning of the time range to query. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     * @description The beginning of the time range to query. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format. The time is displayed in UTC.
      *
      * @example 2021-11-27T16:37Z
      *

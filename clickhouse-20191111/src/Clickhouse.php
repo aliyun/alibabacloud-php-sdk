@@ -4355,6 +4355,9 @@ class Clickhouse extends OpenApiClient
         if (!Utils::isUnset($request->DBClusterId)) {
             $query['DBClusterId'] = $request->DBClusterId;
         }
+        if (!Utils::isUnset($request->disableWriteWindows)) {
+            $query['DisableWriteWindows'] = $request->disableWriteWindows;
+        }
         if (!Utils::isUnset($request->ownerAccount)) {
             $query['OwnerAccount'] = $request->ownerAccount;
         }

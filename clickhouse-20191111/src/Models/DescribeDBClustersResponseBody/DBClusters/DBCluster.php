@@ -165,6 +165,11 @@ class DBCluster extends Model
     public $DBNodeStorage;
 
     /**
+     * @var string
+     */
+    public $dbVersion;
+
+    /**
      * @description The time when the cluster expired. The time is in the yyyy-MM-ddTHH:mm:ssZ format.
      *
      * >  Pay-as-you-go clusters never expire. If the cluster is a pay-as-you-go cluster, an empty string is returned for this parameter.
@@ -352,6 +357,7 @@ class DBCluster extends Model
         'DBNodeClass'          => 'DBNodeClass',
         'DBNodeCount'          => 'DBNodeCount',
         'DBNodeStorage'        => 'DBNodeStorage',
+        'dbVersion'            => 'DbVersion',
         'expireTime'           => 'ExpireTime',
         'extStorageSize'       => 'ExtStorageSize',
         'extStorageType'       => 'ExtStorageType',
@@ -419,6 +425,9 @@ class DBCluster extends Model
         }
         if (null !== $this->DBNodeStorage) {
             $res['DBNodeStorage'] = $this->DBNodeStorage;
+        }
+        if (null !== $this->dbVersion) {
+            $res['DbVersion'] = $this->dbVersion;
         }
         if (null !== $this->expireTime) {
             $res['ExpireTime'] = $this->expireTime;
@@ -524,6 +533,9 @@ class DBCluster extends Model
         }
         if (isset($map['DBNodeStorage'])) {
             $model->DBNodeStorage = $map['DBNodeStorage'];
+        }
+        if (isset($map['DbVersion'])) {
+            $model->dbVersion = $map['DbVersion'];
         }
         if (isset($map['ExpireTime'])) {
             $model->expireTime = $map['ExpireTime'];

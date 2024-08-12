@@ -21,6 +21,11 @@ class TransferVersionRequest extends Model
     /**
      * @var string
      */
+    public $disableWriteWindows;
+
+    /**
+     * @var string
+     */
     public $ownerAccount;
 
     /**
@@ -121,6 +126,7 @@ class TransferVersionRequest extends Model
     public $targetPassword;
     protected $_name = [
         'DBClusterId'          => 'DBClusterId',
+        'disableWriteWindows'  => 'DisableWriteWindows',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'pageNumber'           => 'PageNumber',
@@ -144,6 +150,9 @@ class TransferVersionRequest extends Model
         $res = [];
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
+        }
+        if (null !== $this->disableWriteWindows) {
+            $res['DisableWriteWindows'] = $this->disableWriteWindows;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
@@ -195,6 +204,9 @@ class TransferVersionRequest extends Model
         $model = new self();
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
+        }
+        if (isset($map['DisableWriteWindows'])) {
+            $model->disableWriteWindows = $map['DisableWriteWindows'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];

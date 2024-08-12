@@ -1,3 +1,9 @@
+2024-08-12 Version: 4.0.6
+- Update API DescribeDBClusters: update response param.
+- Update API DescribeTransferHistory: update response param.
+- Update API TransferVersion: add param DisableWriteWindows.
+
+
 2024-05-20 Version: 4.0.5
 - Update API CreateDBInstance: add param AutoRenew.
 - Update API DescribeDBClusterAttribute: update response param.

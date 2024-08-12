@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class historyDetail extends Model
 {
     /**
+     * @var string
+     */
+    public $disableWriteWindows;
+
+    /**
      * @description The progress of the data migration.
      *
      * @example 100%
@@ -16,6 +21,11 @@ class historyDetail extends Model
      * @var string
      */
     public $progress;
+
+    /**
+     * @var string
+     */
+    public $sourceControlVersion;
 
     /**
      * @description The ID of the source cluster.
@@ -39,6 +49,11 @@ class historyDetail extends Model
     public $status;
 
     /**
+     * @var string
+     */
+    public $targetControlVersion;
+
+    /**
      * @description The ID of the destination cluster.
      *
      * @example cc-bp13zkh9uw523****
@@ -47,10 +62,13 @@ class historyDetail extends Model
      */
     public $targetDBCluster;
     protected $_name = [
-        'progress'        => 'Progress',
-        'sourceDBCluster' => 'SourceDBCluster',
-        'status'          => 'Status',
-        'targetDBCluster' => 'TargetDBCluster',
+        'disableWriteWindows'  => 'DisableWriteWindows',
+        'progress'             => 'Progress',
+        'sourceControlVersion' => 'SourceControlVersion',
+        'sourceDBCluster'      => 'SourceDBCluster',
+        'status'               => 'Status',
+        'targetControlVersion' => 'TargetControlVersion',
+        'targetDBCluster'      => 'TargetDBCluster',
     ];
 
     public function validate()
@@ -60,14 +78,23 @@ class historyDetail extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->disableWriteWindows) {
+            $res['DisableWriteWindows'] = $this->disableWriteWindows;
+        }
         if (null !== $this->progress) {
             $res['Progress'] = $this->progress;
+        }
+        if (null !== $this->sourceControlVersion) {
+            $res['SourceControlVersion'] = $this->sourceControlVersion;
         }
         if (null !== $this->sourceDBCluster) {
             $res['SourceDBCluster'] = $this->sourceDBCluster;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->targetControlVersion) {
+            $res['TargetControlVersion'] = $this->targetControlVersion;
         }
         if (null !== $this->targetDBCluster) {
             $res['TargetDBCluster'] = $this->targetDBCluster;
@@ -84,14 +111,23 @@ class historyDetail extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DisableWriteWindows'])) {
+            $model->disableWriteWindows = $map['DisableWriteWindows'];
+        }
         if (isset($map['Progress'])) {
             $model->progress = $map['Progress'];
+        }
+        if (isset($map['SourceControlVersion'])) {
+            $model->sourceControlVersion = $map['SourceControlVersion'];
         }
         if (isset($map['SourceDBCluster'])) {
             $model->sourceDBCluster = $map['SourceDBCluster'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['TargetControlVersion'])) {
+            $model->targetControlVersion = $map['TargetControlVersion'];
         }
         if (isset($map['TargetDBCluster'])) {
             $model->targetDBCluster = $map['TargetDBCluster'];
