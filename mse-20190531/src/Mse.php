@@ -178,6 +178,8 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\GetGatewayAuthConsumerDetailRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetGatewayAuthConsumerDetailResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetGatewayAuthDetailRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetGatewayAuthDetailResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\GetGatewayConfigRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\GetGatewayConfigResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetGatewayDomainDetailRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetGatewayDomainDetailResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetGatewayOptionRequest;
@@ -5952,6 +5954,56 @@ class Mse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getGatewayAuthDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取网关全局配置
+     *  *
+     * @param GetGatewayConfigRequest $request GetGatewayConfigRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetGatewayConfigResponse GetGatewayConfigResponse
+     */
+    public function getGatewayConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->gatewayUniqueId)) {
+            $query['GatewayUniqueId'] = $request->gatewayUniqueId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetGatewayConfig',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetGatewayConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取网关全局配置
+     *  *
+     * @param GetGatewayConfigRequest $request GetGatewayConfigRequest
+     *
+     * @return GetGatewayConfigResponse GetGatewayConfigResponse
+     */
+    public function getGatewayConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getGatewayConfigWithOptions($request, $runtime);
     }
 
     /**
