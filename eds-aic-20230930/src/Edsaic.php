@@ -2257,6 +2257,8 @@ class Edsaic extends OpenApiClient
     }
 
     /**
+     * @summary 文件恢复
+     *  *
      * @param RecoveryFileRequest $request RecoveryFileRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
@@ -2300,6 +2302,8 @@ class Edsaic extends OpenApiClient
     }
 
     /**
+     * @summary 文件恢复
+     *  *
      * @param RecoveryFileRequest $request RecoveryFileRequest
      *
      * @return RecoveryFileResponse RecoveryFileResponse

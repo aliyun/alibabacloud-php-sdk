@@ -16,8 +16,6 @@ class RecoveryFileRequest extends Model
     public $androidInstanceIdList;
 
     /**
-     * @description This parameter is required.
-     *
      * @example bf-azhps4rdyi2th****
      *
      * @var string
@@ -25,8 +23,6 @@ class RecoveryFileRequest extends Model
     public $backupFileId;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $backupFilePath;
