@@ -27,15 +27,6 @@ class DescribeFirewallTemplateApplyResultsRequest extends Model
     public $firewallTemplateId;
 
     /**
-     * @description The ID of the simple application server to which the template belongs.
-     *
-     * @example ace0706b2ac4454d984295a94213****
-     *
-     * @var string
-     */
-    public $instanceId;
-
-    /**
      * @description The page number.
      *
      * @example 1
@@ -72,7 +63,6 @@ class DescribeFirewallTemplateApplyResultsRequest extends Model
     protected $_name = [
         'clientToken'        => 'ClientToken',
         'firewallTemplateId' => 'FirewallTemplateId',
-        'instanceId'         => 'InstanceId',
         'pageNumber'         => 'PageNumber',
         'pageSize'           => 'PageSize',
         'regionId'           => 'RegionId',
@@ -91,9 +81,6 @@ class DescribeFirewallTemplateApplyResultsRequest extends Model
         }
         if (null !== $this->firewallTemplateId) {
             $res['FirewallTemplateId'] = $this->firewallTemplateId;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -124,9 +111,6 @@ class DescribeFirewallTemplateApplyResultsRequest extends Model
         }
         if (isset($map['FirewallTemplateId'])) {
             $model->firewallTemplateId = $map['FirewallTemplateId'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];

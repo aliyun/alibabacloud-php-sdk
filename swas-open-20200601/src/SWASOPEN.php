@@ -249,7 +249,10 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary 共享镜像给用户
+     * @summary Shares a custom image with other Alibaba Cloud accounts in the same region to quickly deploy the same environment configurations for multiple simple application servers at a time. This improves deployment efficiency.
+     *  *
+     * @description *   Before you share a custom image, make sure that all sensitive data and files are removed from the image.
+     * *   The IDs of the Alibaba Cloud accounts with which you want to share the image is obtained. Move the pointer over the profile in the upper-right corner of the Simple Application Server console. In the card that appears, if Main Account is displayed, the showed account ID is the Alibaba Cloud account ID.
      *  *
      * @param AddCustomImageShareAccountRequest $request AddCustomImageShareAccountRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -291,7 +294,10 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary 共享镜像给用户
+     * @summary Shares a custom image with other Alibaba Cloud accounts in the same region to quickly deploy the same environment configurations for multiple simple application servers at a time. This improves deployment efficiency.
+     *  *
+     * @description *   Before you share a custom image, make sure that all sensitive data and files are removed from the image.
+     * *   The IDs of the Alibaba Cloud accounts with which you want to share the image is obtained. Move the pointer over the profile in the upper-right corner of the Simple Application Server console. In the card that appears, if Main Account is displayed, the showed account ID is the Alibaba Cloud account ID.
      *  *
      * @param AddCustomImageShareAccountRequest $request AddCustomImageShareAccountRequest
      *
@@ -384,9 +390,6 @@ class SWASOPEN extends OpenApiClient
         }
         if (!Utils::isUnset($request->firewallTemplateId)) {
             $query['FirewallTemplateId'] = $request->firewallTemplateId;
-        }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
         }
         if (!Utils::isUnset($request->instanceIds)) {
             $query['InstanceIds'] = $request->instanceIds;
@@ -604,8 +607,8 @@ class SWASOPEN extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resoureGroupId)) {
-            $query['ResoureGroupId'] = $request->resoureGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         if (!Utils::isUnset($request->systemSnapshotId)) {
             $query['SystemSnapshotId'] = $request->systemSnapshotId;
@@ -1525,9 +1528,6 @@ class SWASOPEN extends OpenApiClient
         if (!Utils::isUnset($request->firewallTemplateRuleId)) {
             $query['FirewallTemplateRuleId'] = $request->firewallTemplateRuleId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
@@ -1584,9 +1584,6 @@ class SWASOPEN extends OpenApiClient
         }
         if (!Utils::isUnset($request->firewallTemplateId)) {
             $query['FirewallTemplateId'] = $request->firewallTemplateId;
-        }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
@@ -2514,9 +2511,6 @@ class SWASOPEN extends OpenApiClient
         }
         if (!Utils::isUnset($request->firewallTemplateId)) {
             $query['FirewallTemplateId'] = $request->firewallTemplateId;
-        }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
         }
         if (!Utils::isUnset($request->pageNumber)) {
             $query['PageNumber'] = $request->pageNumber;
@@ -3524,7 +3518,7 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary 查询镜像共享给的用户
+     * @summary Queries information about custom images that are shared across Alibaba Cloud accounts in a region.
      *  *
      * @param ListCustomImageShareAccountsRequest $request ListCustomImageShareAccountsRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
@@ -3569,7 +3563,7 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary 查询镜像共享给的用户
+     * @summary Queries information about custom images that are shared across Alibaba Cloud accounts in a region.
      *  *
      * @param ListCustomImageShareAccountsRequest $request ListCustomImageShareAccountsRequest
      *
@@ -4720,9 +4714,6 @@ class SWASOPEN extends OpenApiClient
         if (!Utils::isUnset($request->firewallTemplateRule)) {
             $query['FirewallTemplateRule'] = $request->firewallTemplateRule;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
         if (!Utils::isUnset($request->name)) {
             $query['Name'] = $request->name;
         }
@@ -5072,7 +5063,7 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary 取消共享镜像到用户
+     * @summary Unshares a custom image that is shared across Alibaba Cloud accounts.
      *  *
      * @param RemoveCustomImageShareAccountRequest $request RemoveCustomImageShareAccountRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
@@ -5114,7 +5105,7 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary 取消共享镜像到用户
+     * @summary Unshares a custom image that is shared across Alibaba Cloud accounts.
      *  *
      * @param RemoveCustomImageShareAccountRequest $request RemoveCustomImageShareAccountRequest
      *

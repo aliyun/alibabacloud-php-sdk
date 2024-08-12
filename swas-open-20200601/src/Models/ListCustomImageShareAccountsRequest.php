@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListCustomImageShareAccountsRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure the idempotence of a request?](https://help.aliyun.com/document_detail/25693.html)
+     *
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -16,8 +18,9 @@ class ListCustomImageShareAccountsRequest extends Model
     public $clientToken;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the shared custom image.
      *
+     * This parameter is required.
      * @example m-2zehv38jjmwva1ee****
      *
      * @var string
@@ -25,6 +28,8 @@ class ListCustomImageShareAccountsRequest extends Model
     public $imageId;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -32,6 +37,9 @@ class ListCustomImageShareAccountsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
+     * Default value: 10.
      * @example 10
      *
      * @var int
@@ -39,8 +47,9 @@ class ListCustomImageShareAccountsRequest extends Model
     public $pageSize;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID. You can call the [ListRegions](https://help.aliyun.com/document_detail/189315.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

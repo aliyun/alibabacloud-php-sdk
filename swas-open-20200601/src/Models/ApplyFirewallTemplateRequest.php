@@ -28,15 +28,6 @@ class ApplyFirewallTemplateRequest extends Model
     public $firewallTemplateId;
 
     /**
-     * @description The ID of the simple application server.
-     *
-     * @example ace0706b2ac4454d984295a94213****
-     *
-     * @var string
-     */
-    public $instanceId;
-
-    /**
      * @description The IDs of the simple application servers.
      *
      * This parameter is required.
@@ -56,7 +47,6 @@ class ApplyFirewallTemplateRequest extends Model
     protected $_name = [
         'clientToken'        => 'ClientToken',
         'firewallTemplateId' => 'FirewallTemplateId',
-        'instanceId'         => 'InstanceId',
         'instanceIds'        => 'InstanceIds',
         'regionId'           => 'RegionId',
     ];
@@ -73,9 +63,6 @@ class ApplyFirewallTemplateRequest extends Model
         }
         if (null !== $this->firewallTemplateId) {
             $res['FirewallTemplateId'] = $this->firewallTemplateId;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->instanceIds) {
             $res['InstanceIds'] = $this->instanceIds;
@@ -100,9 +87,6 @@ class ApplyFirewallTemplateRequest extends Model
         }
         if (isset($map['FirewallTemplateId'])) {
             $model->firewallTemplateId = $map['FirewallTemplateId'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['InstanceIds'])) {
             if (!empty($map['InstanceIds'])) {

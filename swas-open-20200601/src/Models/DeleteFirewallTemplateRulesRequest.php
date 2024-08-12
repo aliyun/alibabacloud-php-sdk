@@ -36,15 +36,6 @@ class DeleteFirewallTemplateRulesRequest extends Model
     public $firewallTemplateRuleId;
 
     /**
-     * @description The ID of the simple application server to which the firewall template is applied.
-     *
-     * @example 9ae7106e68eb4402b0dcbd48a9de****
-     *
-     * @var string
-     */
-    public $instanceId;
-
-    /**
      * @description The region ID of the simple application server. You can call the [ListRegions](https://help.aliyun.com/document_detail/189315.html) operation to query the most recent region list.
      *
      * This parameter is required.
@@ -57,7 +48,6 @@ class DeleteFirewallTemplateRulesRequest extends Model
         'clientToken'            => 'ClientToken',
         'firewallTemplateId'     => 'FirewallTemplateId',
         'firewallTemplateRuleId' => 'FirewallTemplateRuleId',
-        'instanceId'             => 'InstanceId',
         'regionId'               => 'RegionId',
     ];
 
@@ -76,9 +66,6 @@ class DeleteFirewallTemplateRulesRequest extends Model
         }
         if (null !== $this->firewallTemplateRuleId) {
             $res['FirewallTemplateRuleId'] = $this->firewallTemplateRuleId;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -105,9 +92,6 @@ class DeleteFirewallTemplateRulesRequest extends Model
             if (!empty($map['FirewallTemplateRuleId'])) {
                 $model->firewallTemplateRuleId = $map['FirewallTemplateRuleId'];
             }
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

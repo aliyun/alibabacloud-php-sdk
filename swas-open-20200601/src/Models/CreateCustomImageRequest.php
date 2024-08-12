@@ -67,13 +67,9 @@ class CreateCustomImageRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group.
-     *
-     * @example rg-aek2bti7cf7****
-     *
      * @var string
      */
-    public $resoureGroupId;
+    public $resourceGroupId;
 
     /**
      * @description The ID of the system disk snapshot.
@@ -97,7 +93,7 @@ class CreateCustomImageRequest extends Model
         'imageName'        => 'ImageName',
         'instanceId'       => 'InstanceId',
         'regionId'         => 'RegionId',
-        'resoureGroupId'   => 'ResoureGroupId',
+        'resourceGroupId'  => 'ResourceGroupId',
         'systemSnapshotId' => 'SystemSnapshotId',
         'tag'              => 'Tag',
     ];
@@ -127,8 +123,8 @@ class CreateCustomImageRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->resoureGroupId) {
-            $res['ResoureGroupId'] = $this->resoureGroupId;
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->systemSnapshotId) {
             $res['SystemSnapshotId'] = $this->systemSnapshotId;
@@ -172,8 +168,8 @@ class CreateCustomImageRequest extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-        if (isset($map['ResoureGroupId'])) {
-            $model->resoureGroupId = $map['ResoureGroupId'];
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['SystemSnapshotId'])) {
             $model->systemSnapshotId = $map['SystemSnapshotId'];

@@ -45,15 +45,6 @@ class ModifyFirewallTemplateRequest extends Model
     public $firewallTemplateRule;
 
     /**
-     * @description The ID of the simple application server to which the firewall template is applied.
-     *
-     * @example 2ad1ae67295445f598017499dc****
-     *
-     * @var string
-     */
-    public $instanceId;
-
-    /**
      * @description The name of the firewall template.
      *
      * @example testName
@@ -76,7 +67,6 @@ class ModifyFirewallTemplateRequest extends Model
         'description'          => 'Description',
         'firewallTemplateId'   => 'FirewallTemplateId',
         'firewallTemplateRule' => 'FirewallTemplateRule',
-        'instanceId'           => 'InstanceId',
         'name'                 => 'Name',
         'regionId'             => 'RegionId',
     ];
@@ -105,9 +95,6 @@ class ModifyFirewallTemplateRequest extends Model
                     $res['FirewallTemplateRule'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -144,9 +131,6 @@ class ModifyFirewallTemplateRequest extends Model
                     $model->firewallTemplateRule[$n++] = null !== $item ? firewallTemplateRule::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
