@@ -236,6 +236,9 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\ListCallDetailRecordsRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListCallDetailRecordsResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListCallDetailRecordsV2Request;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListCallDetailRecordsV2Response;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListCallSummariesRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListCallSummariesResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListCallSummariesShrinkRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListCallTagsRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListCallTagsResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListCampaignsRequest;
@@ -341,6 +344,8 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\ListUsersRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListUsersResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListVoicemailsRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListVoicemailsResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListWaitingChatsRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListWaitingChatsResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\MakeCallRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\MakeCallResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ModifyAudioFileRequest;
@@ -6578,6 +6583,57 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * @param ListCallSummariesRequest $tmpReq  ListCallSummariesRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListCallSummariesResponse ListCallSummariesResponse
+     */
+    public function listCallSummariesWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ListCallSummariesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->contactIdList)) {
+            $request->contactIdListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->contactIdList, 'ContactIdList', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->contactIdListShrink)) {
+            $query['ContactIdList'] = $request->contactIdListShrink;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListCallSummaries',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListCallSummariesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListCallSummariesRequest $request ListCallSummariesRequest
+     *
+     * @return ListCallSummariesResponse ListCallSummariesResponse
+     */
+    public function listCallSummaries($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCallSummariesWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 列出号码标签
      *  *
      * @param ListCallTagsRequest $request ListCallTagsRequest
@@ -9521,6 +9577,52 @@ class CCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listVoicemailsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListWaitingChatsRequest $request ListWaitingChatsRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListWaitingChatsResponse ListWaitingChatsResponse
+     */
+    public function listWaitingChatsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->skillGroupIdList)) {
+            $query['SkillGroupIdList'] = $request->skillGroupIdList;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListWaitingChats',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListWaitingChatsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListWaitingChatsRequest $request ListWaitingChatsRequest
+     *
+     * @return ListWaitingChatsResponse ListWaitingChatsResponse
+     */
+    public function listWaitingChats($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listWaitingChatsWithOptions($request, $runtime);
     }
 
     /**
