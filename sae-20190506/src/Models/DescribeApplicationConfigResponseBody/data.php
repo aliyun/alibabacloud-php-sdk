@@ -177,6 +177,11 @@ class data extends Model
     public $enableGreyTagRoute;
 
     /**
+     * @var bool
+     */
+    public $enableIdle;
+
+    /**
      * @description The environment variables. Variable description:
      *
      *   **name**: the name of the environment variable.
@@ -316,6 +321,11 @@ class data extends Model
      * @var string
      */
     public $microRegistration;
+
+    /**
+     * @var string
+     */
+    public $microRegistrationConfig;
 
     /**
      * @description The percentage of the minimum number of available instances. Valid values:
@@ -741,6 +751,7 @@ class data extends Model
         'edasContainerVersion'          => 'EdasContainerVersion',
         'enableAhas'                    => 'EnableAhas',
         'enableGreyTagRoute'            => 'EnableGreyTagRoute',
+        'enableIdle'                    => 'EnableIdle',
         'envs'                          => 'Envs',
         'imagePullSecrets'              => 'ImagePullSecrets',
         'imageUrl'                      => 'ImageUrl',
@@ -751,6 +762,7 @@ class data extends Model
         'liveness'                      => 'Liveness',
         'memory'                        => 'Memory',
         'microRegistration'             => 'MicroRegistration',
+        'microRegistrationConfig'       => 'MicroRegistrationConfig',
         'minReadyInstanceRatio'         => 'MinReadyInstanceRatio',
         'minReadyInstances'             => 'MinReadyInstances',
         'mountDesc'                     => 'MountDesc',
@@ -854,6 +866,9 @@ class data extends Model
         if (null !== $this->enableGreyTagRoute) {
             $res['EnableGreyTagRoute'] = $this->enableGreyTagRoute;
         }
+        if (null !== $this->enableIdle) {
+            $res['EnableIdle'] = $this->enableIdle;
+        }
         if (null !== $this->envs) {
             $res['Envs'] = $this->envs;
         }
@@ -883,6 +898,9 @@ class data extends Model
         }
         if (null !== $this->microRegistration) {
             $res['MicroRegistration'] = $this->microRegistration;
+        }
+        if (null !== $this->microRegistrationConfig) {
+            $res['MicroRegistrationConfig'] = $this->microRegistrationConfig;
         }
         if (null !== $this->minReadyInstanceRatio) {
             $res['MinReadyInstanceRatio'] = $this->minReadyInstanceRatio;
@@ -1088,6 +1106,9 @@ class data extends Model
         if (isset($map['EnableGreyTagRoute'])) {
             $model->enableGreyTagRoute = $map['EnableGreyTagRoute'];
         }
+        if (isset($map['EnableIdle'])) {
+            $model->enableIdle = $map['EnableIdle'];
+        }
         if (isset($map['Envs'])) {
             $model->envs = $map['Envs'];
         }
@@ -1117,6 +1138,9 @@ class data extends Model
         }
         if (isset($map['MicroRegistration'])) {
             $model->microRegistration = $map['MicroRegistration'];
+        }
+        if (isset($map['MicroRegistrationConfig'])) {
+            $model->microRegistrationConfig = $map['MicroRegistrationConfig'];
         }
         if (isset($map['MinReadyInstanceRatio'])) {
             $model->minReadyInstanceRatio = $map['MinReadyInstanceRatio'];
