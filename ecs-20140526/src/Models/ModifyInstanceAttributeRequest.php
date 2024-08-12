@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyInstanceAttributeRequest\cpuOptions;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyInstanceAttributeRequest\privateDnsNameOptions;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyInstanceAttributeRequest\remoteConnectionOptions;
 use AlibabaCloud\Tea\Model;
 
@@ -125,6 +126,11 @@ class ModifyInstanceAttributeRequest extends Model
     public $password;
 
     /**
+     * @var privateDnsNameOptions
+     */
+    public $privateDnsNameOptions;
+
+    /**
      * @description >  This parameter is in invitational preview and is not publicly available.
      *
      * @example hide
@@ -188,6 +194,7 @@ class ModifyInstanceAttributeRequest extends Model
         'ownerAccount'                => 'OwnerAccount',
         'ownerId'                     => 'OwnerId',
         'password'                    => 'Password',
+        'privateDnsNameOptions'       => 'PrivateDnsNameOptions',
         'recyclable'                  => 'Recyclable',
         'remoteConnectionOptions'     => 'RemoteConnectionOptions',
         'resourceOwnerAccount'        => 'ResourceOwnerAccount',
@@ -238,6 +245,9 @@ class ModifyInstanceAttributeRequest extends Model
         }
         if (null !== $this->password) {
             $res['Password'] = $this->password;
+        }
+        if (null !== $this->privateDnsNameOptions) {
+            $res['PrivateDnsNameOptions'] = null !== $this->privateDnsNameOptions ? $this->privateDnsNameOptions->toMap() : null;
         }
         if (null !== $this->recyclable) {
             $res['Recyclable'] = $this->recyclable;
@@ -304,6 +314,9 @@ class ModifyInstanceAttributeRequest extends Model
         }
         if (isset($map['Password'])) {
             $model->password = $map['Password'];
+        }
+        if (isset($map['PrivateDnsNameOptions'])) {
+            $model->privateDnsNameOptions = privateDnsNameOptions::fromMap($map['PrivateDnsNameOptions']);
         }
         if (isset($map['Recyclable'])) {
             $model->recyclable = $map['Recyclable'];

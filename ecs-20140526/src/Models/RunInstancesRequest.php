@@ -11,6 +11,7 @@ use AlibabaCloud\SDK\Ecs\V20140526\Models\RunInstancesRequest\hibernationOptions
 use AlibabaCloud\SDK\Ecs\V20140526\Models\RunInstancesRequest\imageOptions;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\RunInstancesRequest\networkInterface;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\RunInstancesRequest\networkOptions;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\RunInstancesRequest\privateDnsNameOptions;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\RunInstancesRequest\privatePoolOptions;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\RunInstancesRequest\schedulerOptions;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\RunInstancesRequest\securityOptions;
@@ -618,6 +619,11 @@ class RunInstancesRequest extends Model
     public $periodUnit;
 
     /**
+     * @var privateDnsNameOptions
+     */
+    public $privateDnsNameOptions;
+
+    /**
      * @description The private IP address to assign to the instance. To assign a private IP address to an instance that resides in a VPC, make sure that the IP address is an idle IP address within the CIDR block of the vSwitch specified by `VSwitchId`.
      *
      * Take note of the following items:
@@ -904,6 +910,7 @@ class RunInstancesRequest extends Model
         'passwordInherit'             => 'PasswordInherit',
         'period'                      => 'Period',
         'periodUnit'                  => 'PeriodUnit',
+        'privateDnsNameOptions'       => 'PrivateDnsNameOptions',
         'privateIpAddress'            => 'PrivateIpAddress',
         'ramRoleName'                 => 'RamRoleName',
         'regionId'                    => 'RegionId',
@@ -1116,6 +1123,9 @@ class RunInstancesRequest extends Model
         }
         if (null !== $this->periodUnit) {
             $res['PeriodUnit'] = $this->periodUnit;
+        }
+        if (null !== $this->privateDnsNameOptions) {
+            $res['PrivateDnsNameOptions'] = null !== $this->privateDnsNameOptions ? $this->privateDnsNameOptions->toMap() : null;
         }
         if (null !== $this->privateIpAddress) {
             $res['PrivateIpAddress'] = $this->privateIpAddress;
@@ -1384,6 +1394,9 @@ class RunInstancesRequest extends Model
         }
         if (isset($map['PeriodUnit'])) {
             $model->periodUnit = $map['PeriodUnit'];
+        }
+        if (isset($map['PrivateDnsNameOptions'])) {
+            $model->privateDnsNameOptions = privateDnsNameOptions::fromMap($map['PrivateDnsNameOptions']);
         }
         if (isset($map['PrivateIpAddress'])) {
             $model->privateIpAddress = $map['PrivateIpAddress'];

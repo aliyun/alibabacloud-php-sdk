@@ -15,6 +15,7 @@ use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstancesResponseBody\instance
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstancesResponseBody\instances\instance\metadataOptions;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstancesResponseBody\instances\instance\networkInterfaces;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstancesResponseBody\instances\instance\operationLocks;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstancesResponseBody\instances\instance\privateDnsNameOptions;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstancesResponseBody\instances\instance\publicIpAddress;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstancesResponseBody\instances\instance\rdmaIpAddress;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstancesResponseBody\instances\instance\securityGroupIds;
@@ -434,6 +435,11 @@ class instance extends Model
     public $operationLocks;
 
     /**
+     * @var privateDnsNameOptions
+     */
+    public $privateDnsNameOptions;
+
+    /**
      * @description The public IP addresses of the instance.
      *
      * @var publicIpAddress
@@ -655,6 +661,7 @@ class instance extends Model
         'OSNameEn'                   => 'OSNameEn',
         'OSType'                     => 'OSType',
         'operationLocks'             => 'OperationLocks',
+        'privateDnsNameOptions'      => 'PrivateDnsNameOptions',
         'publicIpAddress'            => 'PublicIpAddress',
         'rdmaIpAddress'              => 'RdmaIpAddress',
         'recyclable'                 => 'Recyclable',
@@ -817,6 +824,9 @@ class instance extends Model
         }
         if (null !== $this->operationLocks) {
             $res['OperationLocks'] = null !== $this->operationLocks ? $this->operationLocks->toMap() : null;
+        }
+        if (null !== $this->privateDnsNameOptions) {
+            $res['PrivateDnsNameOptions'] = null !== $this->privateDnsNameOptions ? $this->privateDnsNameOptions->toMap() : null;
         }
         if (null !== $this->publicIpAddress) {
             $res['PublicIpAddress'] = null !== $this->publicIpAddress ? $this->publicIpAddress->toMap() : null;
@@ -1021,6 +1031,9 @@ class instance extends Model
         }
         if (isset($map['OperationLocks'])) {
             $model->operationLocks = operationLocks::fromMap($map['OperationLocks']);
+        }
+        if (isset($map['PrivateDnsNameOptions'])) {
+            $model->privateDnsNameOptions = privateDnsNameOptions::fromMap($map['PrivateDnsNameOptions']);
         }
         if (isset($map['PublicIpAddress'])) {
             $model->publicIpAddress = publicIpAddress::fromMap($map['PublicIpAddress']);

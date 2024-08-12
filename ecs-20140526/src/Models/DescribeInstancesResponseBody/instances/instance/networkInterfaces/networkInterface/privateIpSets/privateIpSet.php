@@ -21,6 +21,11 @@ class privateIpSet extends Model
     public $primary;
 
     /**
+     * @var string
+     */
+    public $privateDnsName;
+
+    /**
      * @description The private IP address of the ENI.
      *
      * @example 172.17.\*\*.**
@@ -30,6 +35,7 @@ class privateIpSet extends Model
     public $privateIpAddress;
     protected $_name = [
         'primary'          => 'Primary',
+        'privateDnsName'   => 'PrivateDnsName',
         'privateIpAddress' => 'PrivateIpAddress',
     ];
 
@@ -42,6 +48,9 @@ class privateIpSet extends Model
         $res = [];
         if (null !== $this->primary) {
             $res['Primary'] = $this->primary;
+        }
+        if (null !== $this->privateDnsName) {
+            $res['PrivateDnsName'] = $this->privateDnsName;
         }
         if (null !== $this->privateIpAddress) {
             $res['PrivateIpAddress'] = $this->privateIpAddress;
@@ -60,6 +69,9 @@ class privateIpSet extends Model
         $model = new self();
         if (isset($map['Primary'])) {
             $model->primary = $map['Primary'];
+        }
+        if (isset($map['PrivateDnsName'])) {
+            $model->privateDnsName = $map['PrivateDnsName'];
         }
         if (isset($map['PrivateIpAddress'])) {
             $model->privateIpAddress = $map['PrivateIpAddress'];

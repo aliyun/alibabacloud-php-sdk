@@ -96,6 +96,11 @@ class instanceSystemEventType extends Model
     public $reason;
 
     /**
+     * @var string
+     */
+    public $reasonCode;
+
+    /**
      * @description The type of the resource. Valid values:
      *
      *   instance: ECS instance
@@ -118,6 +123,7 @@ class instanceSystemEventType extends Model
         'instanceId'        => 'InstanceId',
         'notBefore'         => 'NotBefore',
         'reason'            => 'Reason',
+        'reasonCode'        => 'ReasonCode',
         'resourceType'      => 'ResourceType',
     ];
 
@@ -157,6 +163,9 @@ class instanceSystemEventType extends Model
         }
         if (null !== $this->reason) {
             $res['Reason'] = $this->reason;
+        }
+        if (null !== $this->reasonCode) {
+            $res['ReasonCode'] = $this->reasonCode;
         }
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
@@ -202,6 +211,9 @@ class instanceSystemEventType extends Model
         }
         if (isset($map['Reason'])) {
             $model->reason = $map['Reason'];
+        }
+        if (isset($map['ReasonCode'])) {
+            $model->reasonCode = $map['ReasonCode'];
         }
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];

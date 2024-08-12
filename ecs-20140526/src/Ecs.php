@@ -24465,6 +24465,9 @@ class Ecs extends OpenApiClient
         if (!Utils::isUnset($request->password)) {
             $query['Password'] = $request->password;
         }
+        if (!Utils::isUnset($request->privateDnsNameOptions)) {
+            $query['PrivateDnsNameOptions'] = $request->privateDnsNameOptions;
+        }
         if (!Utils::isUnset($request->recyclable)) {
             $query['Recyclable'] = $request->recyclable;
         }
@@ -30312,6 +30315,9 @@ class Ecs extends OpenApiClient
         }
         if (!Utils::isUnset($request->periodUnit)) {
             $query['PeriodUnit'] = $request->periodUnit;
+        }
+        if (!Utils::isUnset($request->privateDnsNameOptions)) {
+            $query['PrivateDnsNameOptions'] = $request->privateDnsNameOptions;
         }
         if (!Utils::isUnset($request->privateIpAddress)) {
             $query['PrivateIpAddress'] = $request->privateIpAddress;
