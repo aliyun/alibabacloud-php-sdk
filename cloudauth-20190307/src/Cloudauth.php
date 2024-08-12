@@ -1343,6 +1343,9 @@ class Cloudauth extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->appQualityCheck)) {
+            $query['AppQualityCheck'] = $request->appQualityCheck;
+        }
         if (!Utils::isUnset($request->birthday)) {
             $query['Birthday'] = $request->birthday;
         }

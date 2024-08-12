@@ -11,6 +11,11 @@ class InitFaceVerifyRequest extends Model
     /**
      * @var string
      */
+    public $appQualityCheck;
+
+    /**
+     * @var string
+     */
     public $authId;
 
     /**
@@ -213,6 +218,7 @@ class InitFaceVerifyRequest extends Model
      */
     public $voluntaryCustomizedContent;
     protected $_name = [
+        'appQualityCheck'            => 'AppQualityCheck',
         'authId'                     => 'AuthId',
         'birthday'                   => 'Birthday',
         'callbackToken'              => 'CallbackToken',
@@ -257,6 +263,9 @@ class InitFaceVerifyRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->appQualityCheck) {
+            $res['AppQualityCheck'] = $this->appQualityCheck;
+        }
         if (null !== $this->authId) {
             $res['AuthId'] = $this->authId;
         }
@@ -374,6 +383,9 @@ class InitFaceVerifyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AppQualityCheck'])) {
+            $model->appQualityCheck = $map['AppQualityCheck'];
+        }
         if (isset($map['AuthId'])) {
             $model->authId = $map['AuthId'];
         }
