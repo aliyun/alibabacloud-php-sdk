@@ -64,6 +64,11 @@ class ListListenersRequest extends Model
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $secSensorEnabled;
+
+    /**
      * @description The tags.
      *
      * @var tag[]
@@ -76,6 +81,7 @@ class ListListenersRequest extends Model
         'maxResults'       => 'MaxResults',
         'nextToken'        => 'NextToken',
         'regionId'         => 'RegionId',
+        'secSensorEnabled' => 'SecSensorEnabled',
         'tag'              => 'Tag',
     ];
 
@@ -103,6 +109,9 @@ class ListListenersRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->secSensorEnabled) {
+            $res['SecSensorEnabled'] = $this->secSensorEnabled;
         }
         if (null !== $this->tag) {
             $res['Tag'] = [];
@@ -146,6 +155,9 @@ class ListListenersRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['SecSensorEnabled'])) {
+            $model->secSensorEnabled = $map['SecSensorEnabled'];
         }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {

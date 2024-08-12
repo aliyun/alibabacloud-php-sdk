@@ -1720,6 +1720,9 @@ class Nlb extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->secSensorEnabled)) {
+            $query['SecSensorEnabled'] = $request->secSensorEnabled;
+        }
         if (!Utils::isUnset($request->tag)) {
             $query['Tag'] = $request->tag;
         }
