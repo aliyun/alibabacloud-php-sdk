@@ -1,0 +1,107 @@
+<?php
+
+// This file is auto-generated, don't edit it. Thanks.
+
+namespace AlibabaCloud\SDK\Wyota\V20210420\Models\ListLabelsResponseBody;
+
+use AlibabaCloud\Tea\Model;
+
+class data extends Model
+{
+    /**
+     * @var string
+     */
+    public $content;
+
+    /**
+     * @var int
+     */
+    public $gmtCreate;
+
+    /**
+     * @var int
+     */
+    public $gmtModified;
+
+    /**
+     * @var int
+     */
+    public $id;
+
+    /**
+     * @var string
+     */
+    public $labelId;
+
+    /**
+     * @var string
+     */
+    public $tenantId;
+    protected $_name = [
+        'content'     => 'Content',
+        'gmtCreate'   => 'GmtCreate',
+        'gmtModified' => 'GmtModified',
+        'id'          => 'Id',
+        'labelId'     => 'LabelId',
+        'tenantId'    => 'TenantId',
+    ];
+
+    public function validate()
+    {
+    }
+
+    public function toMap()
+    {
+        $res = [];
+        if (null !== $this->content) {
+            $res['Content'] = $this->content;
+        }
+        if (null !== $this->gmtCreate) {
+            $res['GmtCreate'] = $this->gmtCreate;
+        }
+        if (null !== $this->gmtModified) {
+            $res['GmtModified'] = $this->gmtModified;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
+        }
+        if (null !== $this->labelId) {
+            $res['LabelId'] = $this->labelId;
+        }
+        if (null !== $this->tenantId) {
+            $res['TenantId'] = $this->tenantId;
+        }
+
+        return $res;
+    }
+
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
+    public static function fromMap($map = [])
+    {
+        $model = new self();
+        if (isset($map['Content'])) {
+            $model->content = $map['Content'];
+        }
+        if (isset($map['GmtCreate'])) {
+            $model->gmtCreate = $map['GmtCreate'];
+        }
+        if (isset($map['GmtModified'])) {
+            $model->gmtModified = $map['GmtModified'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
+        }
+        if (isset($map['LabelId'])) {
+            $model->labelId = $map['LabelId'];
+        }
+        if (isset($map['TenantId'])) {
+            $model->tenantId = $map['TenantId'];
+        }
+
+        return $model;
+    }
+}
