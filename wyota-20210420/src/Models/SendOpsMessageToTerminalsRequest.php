@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class SendOpsMessageToTerminalsRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $delay;
+
+    /**
      * @var string
      */
     public $msg;
@@ -28,6 +33,7 @@ class SendOpsMessageToTerminalsRequest extends Model
      */
     public $waitForAck;
     protected $_name = [
+        'delay'      => 'Delay',
         'msg'        => 'Msg',
         'opsAction'  => 'OpsAction',
         'uuids'      => 'Uuids',
@@ -41,6 +47,9 @@ class SendOpsMessageToTerminalsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->delay) {
+            $res['Delay'] = $this->delay;
+        }
         if (null !== $this->msg) {
             $res['Msg'] = $this->msg;
         }
@@ -65,6 +74,9 @@ class SendOpsMessageToTerminalsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Delay'])) {
+            $model->delay = $map['Delay'];
+        }
         if (isset($map['Msg'])) {
             $model->msg = $map['Msg'];
         }

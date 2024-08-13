@@ -3597,6 +3597,10 @@ class Wyota extends OpenApiClient
     public function sendOpsMessageToTerminalsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->delay)) {
+            $query['Delay'] = $request->delay;
+        }
         $body = [];
         if (!Utils::isUnset($request->msg)) {
             $body['Msg'] = $request->msg;
@@ -3613,7 +3617,8 @@ class Wyota extends OpenApiClient
         }
         $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
         $req  = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'SendOpsMessageToTerminals',
