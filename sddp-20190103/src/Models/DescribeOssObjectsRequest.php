@@ -67,6 +67,11 @@ class DescribeOssObjectsRequest extends Model
     public $lastScanTimeStart;
 
     /**
+     * @var int
+     */
+    public $marker;
+
+    /**
      * @description The search keyword. Fuzzy match is supported.
      *
      * @example test
@@ -133,6 +138,7 @@ class DescribeOssObjectsRequest extends Model
         'lang'              => 'Lang',
         'lastScanTimeEnd'   => 'LastScanTimeEnd',
         'lastScanTimeStart' => 'LastScanTimeStart',
+        'marker'            => 'Marker',
         'name'              => 'Name',
         'pageSize'          => 'PageSize',
         'riskLevelId'       => 'RiskLevelId',
@@ -165,6 +171,9 @@ class DescribeOssObjectsRequest extends Model
         }
         if (null !== $this->lastScanTimeStart) {
             $res['LastScanTimeStart'] = $this->lastScanTimeStart;
+        }
+        if (null !== $this->marker) {
+            $res['Marker'] = $this->marker;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -213,6 +222,9 @@ class DescribeOssObjectsRequest extends Model
         }
         if (isset($map['LastScanTimeStart'])) {
             $model->lastScanTimeStart = $map['LastScanTimeStart'];
+        }
+        if (isset($map['Marker'])) {
+            $model->marker = $map['Marker'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

@@ -2266,6 +2266,9 @@ class Sddp extends OpenApiClient
         if (!Utils::isUnset($request->lastScanTimeStart)) {
             $query['LastScanTimeStart'] = $request->lastScanTimeStart;
         }
+        if (!Utils::isUnset($request->marker)) {
+            $query['Marker'] = $request->marker;
+        }
         if (!Utils::isUnset($request->name)) {
             $query['Name'] = $request->name;
         }

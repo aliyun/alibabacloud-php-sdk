@@ -26,6 +26,16 @@ class DescribeOssObjectsResponseBody extends Model
     public $items;
 
     /**
+     * @var string
+     */
+    public $marker;
+
+    /**
+     * @var string
+     */
+    public $nextMarker;
+
+    /**
      * @description The number of entries returned per page.
      *
      * @example 12
@@ -51,12 +61,20 @@ class DescribeOssObjectsResponseBody extends Model
      * @var int
      */
     public $totalCount;
+
+    /**
+     * @var bool
+     */
+    public $truncated;
     protected $_name = [
         'currentPage' => 'CurrentPage',
         'items'       => 'Items',
+        'marker'      => 'Marker',
+        'nextMarker'  => 'NextMarker',
         'pageSize'    => 'PageSize',
         'requestId'   => 'RequestId',
         'totalCount'  => 'TotalCount',
+        'truncated'   => 'Truncated',
     ];
 
     public function validate()
@@ -78,6 +96,12 @@ class DescribeOssObjectsResponseBody extends Model
                 }
             }
         }
+        if (null !== $this->marker) {
+            $res['Marker'] = $this->marker;
+        }
+        if (null !== $this->nextMarker) {
+            $res['NextMarker'] = $this->nextMarker;
+        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
@@ -86,6 +110,9 @@ class DescribeOssObjectsResponseBody extends Model
         }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
+        }
+        if (null !== $this->truncated) {
+            $res['Truncated'] = $this->truncated;
         }
 
         return $res;
@@ -111,6 +138,12 @@ class DescribeOssObjectsResponseBody extends Model
                 }
             }
         }
+        if (isset($map['Marker'])) {
+            $model->marker = $map['Marker'];
+        }
+        if (isset($map['NextMarker'])) {
+            $model->nextMarker = $map['NextMarker'];
+        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
@@ -119,6 +152,9 @@ class DescribeOssObjectsResponseBody extends Model
         }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
+        }
+        if (isset($map['Truncated'])) {
+            $model->truncated = $map['Truncated'];
         }
 
         return $model;
