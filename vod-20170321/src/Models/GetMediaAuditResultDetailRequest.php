@@ -19,7 +19,7 @@ class GetMediaAuditResultDetailRequest extends Model
     public $mediaId;
 
     /**
-     * @description The page number of the review result to return. The default value is **1**. A maximum of **20** records can be returned on each page.
+     * @description The page number. The default value is **1**. A maximum of **20** records can be returned on each page.
      *
      * This parameter is required.
      * @example 1

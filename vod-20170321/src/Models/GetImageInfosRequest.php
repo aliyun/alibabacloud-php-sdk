@@ -22,7 +22,7 @@ class GetImageInfosRequest extends Model
      *
      *   This parameter takes effect only when the ACL of the Object Storage Service (OSS) bucket is private. Otherwise, the image URL does not expire.
      *   Minimum value: 1.
-     *   Maximum value: 2592000 (30 days). This limit is imposed to reduce security risks of the origin server.
+     *   If you store the image in the VOD bucket, the maximum value of this parameter is **2592000** (30 days). If you store the image in an OSS bucket, the maximum value of this parameter is **129600** (36 hours). The maximum value is limited to reduce security risks of the origin.
      *   Default value: 3600.
      *
      * @example 3600
@@ -32,11 +32,11 @@ class GetImageInfosRequest extends Model
     public $authTimeout;
 
     /**
-     * @description The image IDs. Separate multiple IDs with commas (,). You can specify a maximum of 20 image IDs. You can use one of the following methods to obtain the image ID:
+     * @description The image IDs. Separate multiple IDs with commas (,). You can specify up to 20 image IDs. You can use one of the following methods to obtain the ID:
      *
-     *   Log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com/) and choose Media Files > Images in the left-side navigation pane. This method is applicable to images that are uploaded by using the ApsaraVideo VOD console.
-     *   Obtain the value of ImageId from the response to the [CreateUploadImage](https://help.aliyun.com/document_detail/436544.html) operation that you call to obtain the upload URL and credential.
-     *   Obtain the value of ImageId from the response to the [SearchMedia](https://help.aliyun.com/document_detail/436559.html) operation after you upload images.
+     *   Log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com/) and choose **Media Files > Images** in the left-side navigation pane.
+     *   Obtain the value of ImageId from the response to the CreateUploadImage operation that you call to obtain the upload URL and credential.
+     *   Obtain the value of ImageId from the response to the [SearchMedia](~~SearchMedia~~) operation after you upload images.
      *
      * This parameter is required.
      * @example bbc65bba53fed90de118a7849****,594228cdd14b4d069fc17a8c4a****

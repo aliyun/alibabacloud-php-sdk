@@ -34,7 +34,11 @@ class DescribePlayVideoStatisRequest extends Model
     public $startTime;
 
     /**
-     * @description The video ID.
+     * @description The ID of the video. You can specify only one ID. You can use one of the following methods to obtain the ID:
+     *
+     *   Log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com). In the left-side navigation pane, choose **Media Files** > **Audio/Video**. On the page that appears, view the video ID.
+     *   Obtain the video ID from the response to the [CreateUploadVideo](~~CreateUploadVideo~~) operation that you call to obtain the upload URL and credential.
+     *   Obtain the video ID from the response to the [SearchMedia](~~SearchMedia~~) operation that you call to query the audio or video file.
      *
      * This parameter is required.
      * @example 2a8d4cb9ecbb487681473****aba8fda

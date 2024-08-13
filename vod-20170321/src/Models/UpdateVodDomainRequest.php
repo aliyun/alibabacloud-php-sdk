@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateVodDomainRequest extends Model
 {
     /**
-     * @description The accelerated domain name.
+     * @description This parameter is required.
      *
-     * This parameter is required.
      * @example example.com
      *
      * @var string
@@ -29,8 +28,6 @@ class UpdateVodDomainRequest extends Model
     public $securityToken;
 
     /**
-     * @description The information about the addresses of origin servers.
-     *
      * @example [{"content":"1.1.1.1","type":"ipaddr","priority":"20","port":80}]
      *
      * @var string
@@ -38,8 +35,6 @@ class UpdateVodDomainRequest extends Model
     public $sources;
 
     /**
-     * @description The top-level domain.
-     *
      * @example example.com
      *
      * @var string

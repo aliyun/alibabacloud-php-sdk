@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeVodStorageDataRequest extends Model
 {
     /**
+     * @example app-1000000
+     *
      * @var string
      */
     public $appId;
@@ -53,7 +55,7 @@ class DescribeVodStorageDataRequest extends Model
     public $startTime;
 
     /**
-     * @description The name of the Object Storage Service (OSS) bucket. If you leave this parameter empty, data of all buckets is returned. Separate multiple bucket names with commas (,).
+     * @description The name of the Object Storage Service (OSS) bucket. If you leave this parameter empty, data of all buckets is returned. Separate multiple transcoding specifications with commas (,).
      *
      * @example bucket
      *
@@ -62,7 +64,7 @@ class DescribeVodStorageDataRequest extends Model
     public $storage;
 
     /**
-     * @description The storage type. Set the value to **OSS**.
+     * @description The storage class. Set the value to **OSS**.
      *
      * @example OSS
      *

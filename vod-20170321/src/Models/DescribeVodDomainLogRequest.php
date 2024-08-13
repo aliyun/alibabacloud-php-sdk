@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeVodDomainLogRequest extends Model
 {
     /**
-     * @description The domain name.
+     * @description The domain name for CDN.
      *
      * This parameter is required.
      * @example example.com

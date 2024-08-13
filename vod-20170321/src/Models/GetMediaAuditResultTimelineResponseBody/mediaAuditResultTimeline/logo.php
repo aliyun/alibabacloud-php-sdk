@@ -11,8 +11,9 @@ class logo extends Model
     /**
      * @description The category of the review result. Valid values:
      *
-     *   **normal**
-     *   **logo**
+     *   **normal**: normal content.
+     *   **TV**: controlled TV station logo.
+     *   **trademark**: trademark.
      *
      * @example logo
      *
@@ -21,7 +22,7 @@ class logo extends Model
     public $label;
 
     /**
-     * @description The score of the review result category. Valid values: `[0, 100]`. The value is rounded down to 10 decimal places. The score is representative of the confidence.
+     * @description The score of the video snapshot in the logo review result. Valid values: `[0,100]`. The value is rounded down to 10 decimal places. The score is representative of the confidence.
      *
      * @example 100
      *
@@ -30,7 +31,7 @@ class logo extends Model
     public $score;
 
     /**
-     * @description The position in the video. Unit: milliseconds.
+     * @description The timestamp of the snapshot in the video. Unit: milliseconds.
      *
      * @example 13
      *

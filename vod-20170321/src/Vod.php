@@ -554,6 +554,8 @@ class Vod extends OpenApiClient
     /**
      * @summary Creates an online editing project.
      *  *
+     * @description *   For more information about the online editing feature, see [Overview](https://help.aliyun.com/document_detail/95482.html).
+     *  *
      * @param AddEditingProjectRequest $request AddEditingProjectRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -611,6 +613,8 @@ class Vod extends OpenApiClient
     /**
      * @summary Creates an online editing project.
      *  *
+     * @description *   For more information about the online editing feature, see [Overview](https://help.aliyun.com/document_detail/95482.html).
+     *  *
      * @param AddEditingProjectRequest $request AddEditingProjectRequest
      *
      * @return AddEditingProjectResponse AddEditingProjectResponse
@@ -623,6 +627,8 @@ class Vod extends OpenApiClient
     }
 
     /**
+     * @summary Adds one or more materials to an editing project.
+     *  *
      * @param AddEditingProjectMaterialsRequest $request AddEditingProjectMaterialsRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
@@ -672,6 +678,8 @@ class Vod extends OpenApiClient
     }
 
     /**
+     * @summary Adds one or more materials to an editing project.
+     *  *
      * @param AddEditingProjectMaterialsRequest $request AddEditingProjectMaterialsRequest
      *
      * @return AddEditingProjectMaterialsResponse AddEditingProjectMaterialsResponse
@@ -1269,6 +1277,7 @@ class Vod extends OpenApiClient
      *  *
      * @description *   You can cancel only URL-based upload jobs in the **Pending** state. You can query the status of a URL-based upload job by calling the [GetURLUploadInfos](https://help.aliyun.com/document_detail/106830.html) operation.
      * *   You cannot cancel an upload job that already starts.
+     * *   You must specify either JobIds or UploadUrls. If you specify both parameters, only JobIds takes effect.
      *  *
      * @param CancelUrlUploadJobsRequest $request CancelUrlUploadJobsRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -1308,6 +1317,7 @@ class Vod extends OpenApiClient
      *  *
      * @description *   You can cancel only URL-based upload jobs in the **Pending** state. You can query the status of a URL-based upload job by calling the [GetURLUploadInfos](https://help.aliyun.com/document_detail/106830.html) operation.
      * *   You cannot cancel an upload job that already starts.
+     * *   You must specify either JobIds or UploadUrls. If you specify both parameters, only JobIds takes effect.
      *  *
      * @param CancelUrlUploadJobsRequest $request CancelUrlUploadJobsRequest
      *
@@ -1341,6 +1351,9 @@ class Vod extends OpenApiClient
         }
         if (!Utils::isUnset($request->description)) {
             $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -1426,12 +1439,13 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Obtains a URL and a credential for uploading an auxiliary media asset, such as a watermark, subtitle, or material.
+     * @summary Obtains an upload URL and an upload credential for an auxiliary media asset such as a watermark image, subtitle file, or material and generates the media ID. ApsaraVideo VOD issues upload URLs and credentials to perform authorization and ensure security. This prevents unauthorized users from uploading media files. ApsaraVideo VOD generates media IDs together with upload URLs and credentials. Media IDs are used in lifecycle management and media processing.
      *  *
-     * @description *   **Make sure that you understand the billing method and price of ApsaraVideo VOD before you call this operation. You are charged storage fees after you upload media files to ApsaraVideo VOD. For more information, see [Billing of media asset storage](~~188308#section_e97_xrp_mzz~~). If you have activated the acceleration service, you are charged acceleration fees when you upload media files to ApsaraVideo VOD. For more information, see [Billing of acceleration traffic](~~188310#section_sta_zm2_tsv~~).**
-     * *   You must obtain a URL and a credential before you upload an image to ApsaraVideo VOD. ApsaraVideo VOD provides multiple upload methods. You can upload auxiliary media assets by using SDKs for upload from servers, SDKs for upload from clients, URLs of auxiliary media assets, Object Storage Service (OSS) API, or OSS SDKs. Each upload method has different requirements for obtaining upload URLs and credentials. For more information, see the "Usage notes" section of the [Upload URLs and credentials](https://help.aliyun.com/document_detail/55397.html) topic.
-     * *   If the upload credential expires, you can call this operation to obtain a new upload URL and credential. The default validity period of an upload credential is 3,000 seconds.
+     * @description *   **Make sure that you understand the billing method and prices of ApsaraVideo VOD before you call this operation. You are charged storage fees after you upload media files to ApsaraVideo VOD. For more information, see [Billing of media asset storage](~~188308#section_e97_xrp_mzz~~). If you have activated the acceleration service, you are charged acceleration fees when you upload media files to ApsaraVideo VOD. For more information, see [Billing of acceleration traffic](~~188310#section_sta_zm2_tsv~~).**
+     * *   You can call this operation only to obtain the upload URLs and credentials for media files and create media assets in ApsaraVideo VOD. You cannot call this operation to upload media files. For more information about how to upload media files by calling API operations, see [Upload media files by calling API operations](https://help.aliyun.com/document_detail/476208.html).
+     * *   If the upload credential expires after 3,000 seconds, you can call the CreateUploadAttachedMedia operation again to obtain a new upload URL and a new upload credential.
      * *   You can configure a callback to receive an [AttachedMediaUploadComplete](https://help.aliyun.com/document_detail/103250.html) event notification to determine whether the upload is successful.
+     * *   You must obtain a URL and a credential before you upload a media file to ApsaraVideo VOD. ApsaraVideo VOD supports multiple upload methods. Each method has different requirements on upload URLs and credentials. For more information, see [Upload URLs and credentials](https://help.aliyun.com/document_detail/55397.html).
      *  *
      * @param CreateUploadAttachedMediaRequest $request CreateUploadAttachedMediaRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -1494,12 +1508,13 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Obtains a URL and a credential for uploading an auxiliary media asset, such as a watermark, subtitle, or material.
+     * @summary Obtains an upload URL and an upload credential for an auxiliary media asset such as a watermark image, subtitle file, or material and generates the media ID. ApsaraVideo VOD issues upload URLs and credentials to perform authorization and ensure security. This prevents unauthorized users from uploading media files. ApsaraVideo VOD generates media IDs together with upload URLs and credentials. Media IDs are used in lifecycle management and media processing.
      *  *
-     * @description *   **Make sure that you understand the billing method and price of ApsaraVideo VOD before you call this operation. You are charged storage fees after you upload media files to ApsaraVideo VOD. For more information, see [Billing of media asset storage](~~188308#section_e97_xrp_mzz~~). If you have activated the acceleration service, you are charged acceleration fees when you upload media files to ApsaraVideo VOD. For more information, see [Billing of acceleration traffic](~~188310#section_sta_zm2_tsv~~).**
-     * *   You must obtain a URL and a credential before you upload an image to ApsaraVideo VOD. ApsaraVideo VOD provides multiple upload methods. You can upload auxiliary media assets by using SDKs for upload from servers, SDKs for upload from clients, URLs of auxiliary media assets, Object Storage Service (OSS) API, or OSS SDKs. Each upload method has different requirements for obtaining upload URLs and credentials. For more information, see the "Usage notes" section of the [Upload URLs and credentials](https://help.aliyun.com/document_detail/55397.html) topic.
-     * *   If the upload credential expires, you can call this operation to obtain a new upload URL and credential. The default validity period of an upload credential is 3,000 seconds.
+     * @description *   **Make sure that you understand the billing method and prices of ApsaraVideo VOD before you call this operation. You are charged storage fees after you upload media files to ApsaraVideo VOD. For more information, see [Billing of media asset storage](~~188308#section_e97_xrp_mzz~~). If you have activated the acceleration service, you are charged acceleration fees when you upload media files to ApsaraVideo VOD. For more information, see [Billing of acceleration traffic](~~188310#section_sta_zm2_tsv~~).**
+     * *   You can call this operation only to obtain the upload URLs and credentials for media files and create media assets in ApsaraVideo VOD. You cannot call this operation to upload media files. For more information about how to upload media files by calling API operations, see [Upload media files by calling API operations](https://help.aliyun.com/document_detail/476208.html).
+     * *   If the upload credential expires after 3,000 seconds, you can call the CreateUploadAttachedMedia operation again to obtain a new upload URL and a new upload credential.
      * *   You can configure a callback to receive an [AttachedMediaUploadComplete](https://help.aliyun.com/document_detail/103250.html) event notification to determine whether the upload is successful.
+     * *   You must obtain a URL and a credential before you upload a media file to ApsaraVideo VOD. ApsaraVideo VOD supports multiple upload methods. Each method has different requirements on upload URLs and credentials. For more information, see [Upload URLs and credentials](https://help.aliyun.com/document_detail/55397.html).
      *  *
      * @param CreateUploadAttachedMediaRequest $request CreateUploadAttachedMediaRequest
      *
@@ -1599,14 +1614,14 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Obtains the upload URLs and credentials for media files and creates media assets in ApsaraVideo VOD.
+     * @summary Obtains an upload URL and an upload credential for uploading an audio or video file and generates the audio or video ID. ApsaraVideo VOD issues upload URLs and credentials to perform authorization and ensure security. This prevents unauthorized users from uploading media files. ApsaraVideo VOD generates media IDs, video IDs, and image IDs together with upload URLs and credentials. Media IDs are used in lifecycle management and media processing.
      *  *
      * @description *   **Make sure that you understand the billing method and prices of ApsaraVideo VOD before you call this operation. You are charged storage fees after you upload media files to ApsaraVideo VOD. For more information, see [Billing of media asset storage](~~188308#section_e97_xrp_mzz~~). If you have activated the acceleration service, you are charged acceleration fees when you upload media files to ApsaraVideo VOD. For more information, see [Billing of acceleration traffic](~~188310#section_sta_zm2_tsv~~).**
      * *   You can call this operation to obtain upload URLs and credentials for video and audio files. For more information, see [Upload URLs and credentials](https://help.aliyun.com/document_detail/55397.html).
      * *   You can call this operation only to obtain the upload URLs and credentials for media files and create media assets in ApsaraVideo VOD. You cannot call this operation to upload media files. For more information about how to upload media files by calling API operations, see [Upload media files by calling API operations](https://help.aliyun.com/document_detail/476208.html).
-     * *   If the upload credential expires, call the [RefreshUploadVideo](https://help.aliyun.com/document_detail/55408.html) operation to obtain a new upload credential. The default validity period of an upload credential is 3,000 seconds.
-     * *   You can configure a callback to receive an [event notification](https://help.aliyun.com/document_detail/55396.html) when an audio or video file is uploaded. Alternatively, after you upload an audio or video file, you can call the [GetMezzanineInfo](https://help.aliyun.com/document_detail/59624.html) operation to determine whether the upload is successful based on the value of the Status response parameter.
-     * *   The VideoId parameter that is returned after you call this operation can be used for media processing or lifecycle management of media assets.
+     * *   If the upload credential expires, call the [RefreshUploadVideo](~~RefreshUploadVideo~~) operation to obtain a new upload credential. The default validity period of an upload credential is 3,000 seconds.
+     * *   You can configure a callback to receive an event notification when an audio or video file is uploaded. Alternatively, after you upload an audio or video file, you can call the [GetMezzanineInfo](https://help.aliyun.com/document_detail/59624.html) operation to determine whether the upload is successful. For more information, see [Overview](https://help.aliyun.com/document_detail/55396.html).
+     * *   The value of the VideoId parameter that is returned after you call this operation can be used for media processing or the lifecycle management of media assets.
      * *   You must obtain a URL and a credential before you upload a media file to ApsaraVideo VOD. ApsaraVideo VOD supports multiple upload methods. Each method has different requirements on upload URLs and credentials. For more information, see [Upload URLs and credentials](https://help.aliyun.com/document_detail/55397.html).
      *  *
      * @param CreateUploadVideoRequest $request CreateUploadVideoRequest
@@ -1673,14 +1688,14 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Obtains the upload URLs and credentials for media files and creates media assets in ApsaraVideo VOD.
+     * @summary Obtains an upload URL and an upload credential for uploading an audio or video file and generates the audio or video ID. ApsaraVideo VOD issues upload URLs and credentials to perform authorization and ensure security. This prevents unauthorized users from uploading media files. ApsaraVideo VOD generates media IDs, video IDs, and image IDs together with upload URLs and credentials. Media IDs are used in lifecycle management and media processing.
      *  *
      * @description *   **Make sure that you understand the billing method and prices of ApsaraVideo VOD before you call this operation. You are charged storage fees after you upload media files to ApsaraVideo VOD. For more information, see [Billing of media asset storage](~~188308#section_e97_xrp_mzz~~). If you have activated the acceleration service, you are charged acceleration fees when you upload media files to ApsaraVideo VOD. For more information, see [Billing of acceleration traffic](~~188310#section_sta_zm2_tsv~~).**
      * *   You can call this operation to obtain upload URLs and credentials for video and audio files. For more information, see [Upload URLs and credentials](https://help.aliyun.com/document_detail/55397.html).
      * *   You can call this operation only to obtain the upload URLs and credentials for media files and create media assets in ApsaraVideo VOD. You cannot call this operation to upload media files. For more information about how to upload media files by calling API operations, see [Upload media files by calling API operations](https://help.aliyun.com/document_detail/476208.html).
-     * *   If the upload credential expires, call the [RefreshUploadVideo](https://help.aliyun.com/document_detail/55408.html) operation to obtain a new upload credential. The default validity period of an upload credential is 3,000 seconds.
-     * *   You can configure a callback to receive an [event notification](https://help.aliyun.com/document_detail/55396.html) when an audio or video file is uploaded. Alternatively, after you upload an audio or video file, you can call the [GetMezzanineInfo](https://help.aliyun.com/document_detail/59624.html) operation to determine whether the upload is successful based on the value of the Status response parameter.
-     * *   The VideoId parameter that is returned after you call this operation can be used for media processing or lifecycle management of media assets.
+     * *   If the upload credential expires, call the [RefreshUploadVideo](~~RefreshUploadVideo~~) operation to obtain a new upload credential. The default validity period of an upload credential is 3,000 seconds.
+     * *   You can configure a callback to receive an event notification when an audio or video file is uploaded. Alternatively, after you upload an audio or video file, you can call the [GetMezzanineInfo](https://help.aliyun.com/document_detail/59624.html) operation to determine whether the upload is successful. For more information, see [Overview](https://help.aliyun.com/document_detail/55396.html).
+     * *   The value of the VideoId parameter that is returned after you call this operation can be used for media processing or the lifecycle management of media assets.
      * *   You must obtain a URL and a credential before you upload a media file to ApsaraVideo VOD. ApsaraVideo VOD supports multiple upload methods. Each method has different requirements on upload URLs and credentials. For more information, see [Upload URLs and credentials](https://help.aliyun.com/document_detail/55397.html).
      *  *
      * @param CreateUploadVideoRequest $request CreateUploadVideoRequest
@@ -1911,9 +1926,9 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Deletes auxiliary media assets.
+     * @summary Deletes auxiliary media assets from ApsaraVideo VOD. You can delete multiple auxiliary media assets such as watermark images, subtitle files, and materials in a batch.
      *  *
-     * @description *   This operation physically deletes auxiliary media assets. You cannot recover the auxiliary media assets that you deleted. Exercise caution when you call this operation.
+     * @description *   **This operation physically deletes auxiliary media assets. You cannot recover the auxiliary media assets that you deleted. Exercise caution when you call this operation.**
      * *   You can delete a maximum of 20 auxiliary media assets in one request.
      *  *
      * @param DeleteAttachedMediaRequest $request DeleteAttachedMediaRequest
@@ -1947,9 +1962,9 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Deletes auxiliary media assets.
+     * @summary Deletes auxiliary media assets from ApsaraVideo VOD. You can delete multiple auxiliary media assets such as watermark images, subtitle files, and materials in a batch.
      *  *
-     * @description *   This operation physically deletes auxiliary media assets. You cannot recover the auxiliary media assets that you deleted. Exercise caution when you call this operation.
+     * @description *   **This operation physically deletes auxiliary media assets. You cannot recover the auxiliary media assets that you deleted. Exercise caution when you call this operation.**
      * *   You can delete a maximum of 20 auxiliary media assets in one request.
      *  *
      * @param DeleteAttachedMediaRequest $request DeleteAttachedMediaRequest
@@ -2073,9 +2088,7 @@ class Vod extends OpenApiClient
     /**
      * @summary Deletes online editing projects.
      *  *
-     * @description You can call this operation to delete multiple online editing projects at a time.
-     * ### QPS limits
-     * You can call this operation up to 20 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits on API operations in ApsaraVideo VOD](https://help.aliyun.com/document_detail/342790.html).
+     * @description *   You can call this operation to delete multiple online editing projects at a time.
      *  *
      * @param DeleteEditingProjectRequest $request DeleteEditingProjectRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -2122,9 +2135,7 @@ class Vod extends OpenApiClient
     /**
      * @summary Deletes online editing projects.
      *  *
-     * @description You can call this operation to delete multiple online editing projects at a time.
-     * ### QPS limits
-     * You can call this operation up to 20 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits on API operations in ApsaraVideo VOD](https://help.aliyun.com/document_detail/342790.html).
+     * @description *   You can call this operation to delete multiple online editing projects at a time.
      *  *
      * @param DeleteEditingProjectRequest $request DeleteEditingProjectRequest
      *
@@ -2201,10 +2212,9 @@ class Vod extends OpenApiClient
     /**
      * @summary Deletes uploaded images and video snapshots that are automatically captured.
      *  *
-     * @description *   After you call this operation to delete an image, the source file is permanently deleted and cannot be recovered. If some images are cached on Alibaba Cloud CDN points of presence (POPs), the image URLs do not immediately become invalid.
+     * @description *   **After you call this operation to delete an image, the source file is permanently deleted and cannot be recovered. Exercise caution when you call this operation.**
+     * *   If some images are cached on Alibaba Cloud CDN points of presence (POPs), the image URLs do not immediately become invalid.
      * *   You can call this operation to delete uploaded images and video snapshots.
-     * ### QPS limits
-     * You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits on API operations in ApsaraVideo VOD](https://help.aliyun.com/document_detail/342790.html).
      *  *
      * @param DeleteImageRequest $request DeleteImageRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
@@ -2251,10 +2261,9 @@ class Vod extends OpenApiClient
     /**
      * @summary Deletes uploaded images and video snapshots that are automatically captured.
      *  *
-     * @description *   After you call this operation to delete an image, the source file is permanently deleted and cannot be recovered. If some images are cached on Alibaba Cloud CDN points of presence (POPs), the image URLs do not immediately become invalid.
+     * @description *   **After you call this operation to delete an image, the source file is permanently deleted and cannot be recovered. Exercise caution when you call this operation.**
+     * *   If some images are cached on Alibaba Cloud CDN points of presence (POPs), the image URLs do not immediately become invalid.
      * *   You can call this operation to delete uploaded images and video snapshots.
-     * ### QPS limits
-     * You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits on API operations in ApsaraVideo VOD](https://help.aliyun.com/document_detail/342790.html).
      *  *
      * @param DeleteImageRequest $request DeleteImageRequest
      *
@@ -2667,9 +2676,10 @@ class Vod extends OpenApiClient
     /**
      * @summary Deletes the configurations of a domain name for CDN.
      *  *
-     * @description > *   This operation is available only in the **China (Shanghai)** region.
-     * > *   After the configurations of a domain name for CDN are deleted, the domain name becomes unavailable. We recommend that you restore the A record at your DNS service provider before you delete the configurations of the domain name for CDN.
-     * > *   After you call this operation to delete the configurations of a domain name for CDN, all records that are related to the domain name are deleted. If you only want to disable a domain name for CDN, call the [BatchStopVodDomain](https://help.aliyun.com/document_detail/120208.html) operation.
+     * @description >
+     * *   This operation is available only in the **China (Shanghai)** region.
+     * *   After the configurations of a domain name for CDN are deleted, the domain name becomes unavailable. We recommend that you restore the A record at your DNS service provider before you delete the configurations of the domain name for CDN.
+     * *   After you call this operation to remove a domain name for CDN from ApsaraVideo VOD, all records that are related to the domain name are deleted. If you only want to disable a domain name for CDN, call the [BatchStopVodDomain](https://help.aliyun.com/document_detail/120208.html) operation.
      *  *
      * @param DeleteVodSpecificConfigRequest $request DeleteVodSpecificConfigRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -2716,9 +2726,10 @@ class Vod extends OpenApiClient
     /**
      * @summary Deletes the configurations of a domain name for CDN.
      *  *
-     * @description > *   This operation is available only in the **China (Shanghai)** region.
-     * > *   After the configurations of a domain name for CDN are deleted, the domain name becomes unavailable. We recommend that you restore the A record at your DNS service provider before you delete the configurations of the domain name for CDN.
-     * > *   After you call this operation to delete the configurations of a domain name for CDN, all records that are related to the domain name are deleted. If you only want to disable a domain name for CDN, call the [BatchStopVodDomain](https://help.aliyun.com/document_detail/120208.html) operation.
+     * @description >
+     * *   This operation is available only in the **China (Shanghai)** region.
+     * *   After the configurations of a domain name for CDN are deleted, the domain name becomes unavailable. We recommend that you restore the A record at your DNS service provider before you delete the configurations of the domain name for CDN.
+     * *   After you call this operation to remove a domain name for CDN from ApsaraVideo VOD, all records that are related to the domain name are deleted. If you only want to disable a domain name for CDN, call the [BatchStopVodDomain](https://help.aliyun.com/document_detail/120208.html) operation.
      *  *
      * @param DeleteVodSpecificConfigRequest $request DeleteVodSpecificConfigRequest
      *
@@ -2834,11 +2845,11 @@ class Vod extends OpenApiClient
     /**
      * @summary Queries daily playback statistics on top videos, including video views, unique visitors, and total playback duration.
      *  *
-     * @description > *   This operation is available only in the **China (Shanghai)** region.
-     * > *   You can query playback statistics on top 1,000 videos at most on a specified day. By default, top videos are sorted in descending order based on video views.
-     * > *   You can call this operation to query only playback statistics collected on videos that are played by using ApsaraVideo Player SDKs.
-     * > *   Playback statistics for the previous day are generated at 09:00 on the current day, in UTC+8.
-     * > *   You can query data that is generated since January 1, 2018. The maximum time range to query is 180 days.
+     * @description *   This operation is available only in the **China (Shanghai)** region.
+     * *   You can query playback statistics on top 1,000 videos at most on a specified day. By default, top videos are sorted in descending order based on video views.
+     * *   You can call this operation to query only playback statistics collected on videos that are played by using ApsaraVideo Player SDKs.
+     * *   Playback statistics for the previous day are generated at 09:00 on the current day, in UTC+8.
+     * *   You can query data that is generated since January 1, 2018. The maximum time range to query is 180 days.
      *  *
      * @param DescribePlayTopVideosRequest $request DescribePlayTopVideosRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -2882,11 +2893,11 @@ class Vod extends OpenApiClient
     /**
      * @summary Queries daily playback statistics on top videos, including video views, unique visitors, and total playback duration.
      *  *
-     * @description > *   This operation is available only in the **China (Shanghai)** region.
-     * > *   You can query playback statistics on top 1,000 videos at most on a specified day. By default, top videos are sorted in descending order based on video views.
-     * > *   You can call this operation to query only playback statistics collected on videos that are played by using ApsaraVideo Player SDKs.
-     * > *   Playback statistics for the previous day are generated at 09:00 on the current day, in UTC+8.
-     * > *   You can query data that is generated since January 1, 2018. The maximum time range to query is 180 days.
+     * @description *   This operation is available only in the **China (Shanghai)** region.
+     * *   You can query playback statistics on top 1,000 videos at most on a specified day. By default, top videos are sorted in descending order based on video views.
+     * *   You can call this operation to query only playback statistics collected on videos that are played by using ApsaraVideo Player SDKs.
+     * *   Playback statistics for the previous day are generated at 09:00 on the current day, in UTC+8.
+     * *   You can query data that is generated since January 1, 2018. The maximum time range to query is 180 days.
      *  *
      * @param DescribePlayTopVideosRequest $request DescribePlayTopVideosRequest
      *
@@ -2963,7 +2974,7 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries the daily playback statistics in a specified time range.
+     * @summary Queries the daily playback statistics in a specified time range. The playback statistics include the total number of views, total number of viewers, total playback duration, and playback duration distribution.
      *  *
      * @description *   This operation is available only in the **China (Shanghai)** region.
      * *   You can call this operation to query only playback statistics collected on videos that are played by using ApsaraVideo Player SDKs.
@@ -3007,7 +3018,7 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries the daily playback statistics in a specified time range.
+     * @summary Queries the daily playback statistics in a specified time range. The playback statistics include the total number of views, total number of viewers, total playback duration, and playback duration distribution.
      *  *
      * @description *   This operation is available only in the **China (Shanghai)** region.
      * *   You can call this operation to query only playback statistics collected on videos that are played by using ApsaraVideo Player SDKs.
@@ -3159,7 +3170,7 @@ class Vod extends OpenApiClient
     /**
      * @summary Queries the certificates of a specified domain name for CDN or all the domain names for CDN within your Alibaba Cloud account.
      *  *
-     * @description > This operation is available only in the **China (Shanghai)** region.
+     * @description >  This operation is available only in the **China (Shanghai)** region.
      *  *
      * @param DescribeVodCertificateListRequest $request DescribeVodCertificateListRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -3200,7 +3211,7 @@ class Vod extends OpenApiClient
     /**
      * @summary Queries the certificates of a specified domain name for CDN or all the domain names for CDN within your Alibaba Cloud account.
      *  *
-     * @description > This operation is available only in the **China (Shanghai)** region.
+     * @description >  This operation is available only in the **China (Shanghai)** region.
      *  *
      * @param DescribeVodCertificateListRequest $request DescribeVodCertificateListRequest
      *
@@ -3623,10 +3634,8 @@ class Vod extends OpenApiClient
      *  *
      * @description *   This operation is available only in the **China (Shanghai)** region.
      * *   For more information about the log format and latency, see [Download logs](https://help.aliyun.com/document_detail/86099.html).
-     * *   If you specify neither StartTime nor EndTime, the log data in the previous 24 hours is queried.
-     * *   You can specify both StartTime and EndTime to query the log data that is generated in the specified time range.
-     * ### [](#qps)QPS limits
-     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits on API operations](https://help.aliyun.com/document_detail/342790.html).
+     * *   If you specify neither the StartTime parameter nor the EndTime parameter, the log data in the last 24 hours is queried.
+     * *   You can specify both the StartTime and EndTime parameters to query the log data that is generated in the specified time range.
      *  *
      * @param DescribeVodDomainLogRequest $request DescribeVodDomainLogRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -3678,10 +3687,8 @@ class Vod extends OpenApiClient
      *  *
      * @description *   This operation is available only in the **China (Shanghai)** region.
      * *   For more information about the log format and latency, see [Download logs](https://help.aliyun.com/document_detail/86099.html).
-     * *   If you specify neither StartTime nor EndTime, the log data in the previous 24 hours is queried.
-     * *   You can specify both StartTime and EndTime to query the log data that is generated in the specified time range.
-     * ### [](#qps)QPS limits
-     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits on API operations](https://help.aliyun.com/document_detail/342790.html).
+     * *   If you specify neither the StartTime parameter nor the EndTime parameter, the log data in the last 24 hours is queried.
+     * *   You can specify both the StartTime and EndTime parameters to query the log data that is generated in the specified time range.
      *  *
      * @param DescribeVodDomainLogRequest $request DescribeVodDomainLogRequest
      *
@@ -4672,7 +4679,8 @@ class Vod extends OpenApiClient
      * @summary Queries the playback statistics based on the media ID. You can call this operation to query information such as the number of visits, average video views per viewer, total number of views, average playback duration per viewer, and total playback duration.
      *  *
      * @description *   This operation is available only in the **China (Shanghai)** region.
-     * *   Playback data in ApsaraVideo Player SDK is collected based on media IDs.
+     * *   Only playback data in ApsaraVideo Player SDK is collected.
+     * *   You can query only data within the last 30 days.
      * *   Before you call this operation, make sure that the following requirements are met:
      *     *   ApsaraVideo Player SDK for Android or iOS
      *         *   ApsaraVideo Player SDK for Android or iOS V5.4.9.2 or later is used.
@@ -4741,7 +4749,8 @@ class Vod extends OpenApiClient
      * @summary Queries the playback statistics based on the media ID. You can call this operation to query information such as the number of visits, average video views per viewer, total number of views, average playback duration per viewer, and total playback duration.
      *  *
      * @description *   This operation is available only in the **China (Shanghai)** region.
-     * *   Playback data in ApsaraVideo Player SDK is collected based on media IDs.
+     * *   Only playback data in ApsaraVideo Player SDK is collected.
+     * *   You can query only data within the last 30 days.
      * *   Before you call this operation, make sure that the following requirements are met:
      *     *   ApsaraVideo Player SDK for Android or iOS
      *         *   ApsaraVideo Player SDK for Android or iOS V5.4.9.2 or later is used.
@@ -4896,8 +4905,8 @@ class Vod extends OpenApiClient
     /**
      * @summary Queries the information about one or more refresh or prefetch tasks.
      *  *
-     * @description > *   This operation is available only in the **China (Shanghai)** region.
-     * >*   If you do not specify the TaskId or ObjectPath parameter, the data in the last three days is returned on the first page. By default, one page displays a maximum of 20 entries. You can specify the TaskId and ObjectPath parameters at the same time.
+     * @description *   This operation is available only in the **China (Shanghai)** region.
+     * *   If you do not specify the TaskId or ObjectPath parameter, the data in the last three days is returned on the first page. By default, one page displays a maximum of 20 entries. You can specify the TaskId and ObjectPath parameters at the same time.
      *  *
      * @param DescribeVodRefreshTasksRequest $request DescribeVodRefreshTasksRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -4962,8 +4971,8 @@ class Vod extends OpenApiClient
     /**
      * @summary Queries the information about one or more refresh or prefetch tasks.
      *  *
-     * @description > *   This operation is available only in the **China (Shanghai)** region.
-     * >*   If you do not specify the TaskId or ObjectPath parameter, the data in the last three days is returned on the first page. By default, one page displays a maximum of 20 entries. You can specify the TaskId and ObjectPath parameters at the same time.
+     * @description *   This operation is available only in the **China (Shanghai)** region.
+     * *   If you do not specify the TaskId or ObjectPath parameter, the data in the last three days is returned on the first page. By default, one page displays a maximum of 20 entries. You can specify the TaskId and ObjectPath parameters at the same time.
      *  *
      * @param DescribeVodRefreshTasksRequest $request DescribeVodRefreshTasksRequest
      *
@@ -5328,6 +5337,8 @@ class Vod extends OpenApiClient
     /**
      * @summary Queries the ownership verification content.
      *  *
+     * @description *   This operation is available only in the **China (Shanghai)** region.
+     *  *
      * @param DescribeVodVerifyContentRequest $request DescribeVodVerifyContentRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -5363,6 +5374,8 @@ class Vod extends OpenApiClient
 
     /**
      * @summary Queries the ownership verification content.
+     *  *
+     * @description *   This operation is available only in the **China (Shanghai)** region.
      *  *
      * @param DescribeVodVerifyContentRequest $request DescribeVodVerifyContentRequest
      *
@@ -5844,6 +5857,10 @@ class Vod extends OpenApiClient
     }
 
     /**
+     * @summary Queries the URL and basic information about one or more auxiliary media assets such as watermark images, subtitle files, and materials based on IDs.
+     *  *
+     * @description You can query information about up to 20 auxiliary media assets in a request.
+     *  *
      * @param GetAttachedMediaInfoRequest $request GetAttachedMediaInfoRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -5881,6 +5898,10 @@ class Vod extends OpenApiClient
     }
 
     /**
+     * @summary Queries the URL and basic information about one or more auxiliary media assets such as watermark images, subtitle files, and materials based on IDs.
+     *  *
+     * @description You can query information about up to 20 auxiliary media assets in a request.
+     *  *
      * @param GetAttachedMediaInfoRequest $request GetAttachedMediaInfoRequest
      *
      * @return GetAttachedMediaInfoResponse GetAttachedMediaInfoResponse
@@ -6258,7 +6279,7 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries the basic information about an image based on the image ID. The basic information includes the title, type, creation time, and tags of the image.
+     * @summary Queries the basic information and access URL of an image based on the image ID.
      *  *
      * @param GetImageInfoRequest $request GetImageInfoRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
@@ -6297,7 +6318,7 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries the basic information about an image based on the image ID. The basic information includes the title, type, creation time, and tags of the image.
+     * @summary Queries the basic information and access URL of an image based on the image ID.
      *  *
      * @param GetImageInfoRequest $request GetImageInfoRequest
      *
@@ -6313,9 +6334,9 @@ class Vod extends OpenApiClient
     /**
      * @summary Queries the basic information about multiple images at a time.
      *  *
-     * @description You can call this operation to query the basic information about multiple images at a time, such as the image title, type, creation time, tags, and URL.
-     * ### Limits
-     * You can call this operation up to 10 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit on an API operation in ApsaraVideo Live](https://help.aliyun.com/document_detail/342790.html).
+     * @description *   You can call the [CreateUploadImage](~~CreateUploadImage~~) operation to upload images to ApsaraVideo VOD and call this operation to query the basic information about multiple images at a time.
+     * *   To query information about video snapshots, call the [ListSnapshots](~~ListSnapshots~~) operation.
+     * *   You can specify up to 20 image IDs in one call.
      *  *
      * @param GetImageInfosRequest $request GetImageInfosRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -6356,9 +6377,9 @@ class Vod extends OpenApiClient
     /**
      * @summary Queries the basic information about multiple images at a time.
      *  *
-     * @description You can call this operation to query the basic information about multiple images at a time, such as the image title, type, creation time, tags, and URL.
-     * ### Limits
-     * You can call this operation up to 10 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit on an API operation in ApsaraVideo Live](https://help.aliyun.com/document_detail/342790.html).
+     * @description *   You can call the [CreateUploadImage](~~CreateUploadImage~~) operation to upload images to ApsaraVideo VOD and call this operation to query the basic information about multiple images at a time.
+     * *   To query information about video snapshots, call the [ListSnapshots](~~ListSnapshots~~) operation.
+     * *   You can specify up to 20 image IDs in one call.
      *  *
      * @param GetImageInfosRequest $request GetImageInfosRequest
      *
@@ -6485,8 +6506,11 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @description - By default, only details of snapshots that violate content regulations and potentially violate content regulations are returned.
-     * - ApsaraVideo VOD stores the snapshots in the automated review results free of charge for two weeks. After this period, the snapshots are automatically deleted.
+     * @summary Queries the details of automated review results. You can call this operation to query the details of review results in real time.
+     *  *
+     * @description *   By default, only details of snapshots that violate content regulations and potentially violate content regulations are returned.
+     * *   ApsaraVideo VOD stores the snapshots in the automated review results free of charge for two weeks. After this period, the snapshots are automatically deleted.
+     * *   This operation is available only in the Singapore region.
      *  *
      * @param GetMediaAuditResultDetailRequest $request GetMediaAuditResultDetailRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -6522,8 +6546,11 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @description - By default, only details of snapshots that violate content regulations and potentially violate content regulations are returned.
-     * - ApsaraVideo VOD stores the snapshots in the automated review results free of charge for two weeks. After this period, the snapshots are automatically deleted.
+     * @summary Queries the details of automated review results. You can call this operation to query the details of review results in real time.
+     *  *
+     * @description *   By default, only details of snapshots that violate content regulations and potentially violate content regulations are returned.
+     * *   ApsaraVideo VOD stores the snapshots in the automated review results free of charge for two weeks. After this period, the snapshots are automatically deleted.
+     * *   This operation is available only in the Singapore region.
      *  *
      * @param GetMediaAuditResultDetailRequest $request GetMediaAuditResultDetailRequest
      *
@@ -6538,6 +6565,9 @@ class Vod extends OpenApiClient
 
     /**
      * @summary Queries the timelines of all snapshots that violate content regulations.
+     *  *
+     * @description >  By default, only details of snapshots that violate content regulations and potentially violate content regulations are returned.
+     * This operation is available only in the Singapore region.
      *  *
      * @param GetMediaAuditResultTimelineRequest $request GetMediaAuditResultTimelineRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
@@ -6571,6 +6601,9 @@ class Vod extends OpenApiClient
 
     /**
      * @summary Queries the timelines of all snapshots that violate content regulations.
+     *  *
+     * @description >  By default, only details of snapshots that violate content regulations and potentially violate content regulations are returned.
+     * This operation is available only in the Singapore region.
      *  *
      * @param GetMediaAuditResultTimelineRequest $request GetMediaAuditResultTimelineRequest
      *
@@ -7705,6 +7738,9 @@ class Vod extends OpenApiClient
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->status)) {
             $query['Status'] = $request->status;
         }
@@ -7966,9 +8002,9 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries the snapshots that are captured from the specified media.
+     * @summary Queries the snapshots that are captured by submitting snapshot jobs or snapshots that are generated by the system when you upload the video.
      *  *
-     * @description If multiple snapshots of a video exist, the data of the latest snapshot is returned.
+     * @description If multiple snapshots exist for a video, you can call this operation to query information about the latest snapshot.
      *  *
      * @param ListSnapshotsRequest $request ListSnapshotsRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -8013,9 +8049,9 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries the snapshots that are captured from the specified media.
+     * @summary Queries the snapshots that are captured by submitting snapshot jobs or snapshots that are generated by the system when you upload the video.
      *  *
-     * @description If multiple snapshots of a video exist, the data of the latest snapshot is returned.
+     * @description If multiple snapshots exist for a video, you can call this operation to query information about the latest snapshot.
      *  *
      * @param ListSnapshotsRequest $request ListSnapshotsRequest
      *
@@ -8367,14 +8403,21 @@ class Vod extends OpenApiClient
     /**
      * @summary Produces a video from one or more source files. You can directly specify source files by configuring the Timeline parameter. Alternatively, you can specify source files after you create an online editing project.
      *  *
-     * @description *   **Make sure that you understand the billing methods and price of ApsaraVideo VOD before you call this operation. You are charged for using the online editing feature. For more information, see [Billing](~~188310#section-pyv-b8h-bo7~~).**
+     * @description *   **Make sure that you understand the billing method and price of ApsaraVideo VOD before you call this operation. You are charged for using the online editing feature. For more information, see [Billing](~~188310#section-pyv-b8h-bo7~~).**
      * *   This operation returns only the submission result of a video production task. When the submission result is returned, video production may still be in progress. After a video production task is submitted, the task is queued in the background for asynchronous processing.
-     * *   The source files that are used in the timeline of an online editing project can be materials directly uploaded to the online project or selected from the media asset library.
+     * *   The source files that are used in the timeline of an online editing project can be materials directly uploaded to the online project or selected from the media asset library. Only media assets that are in the Normal state can be used in the project.
      * *   Videos are produced based on ProjectId and Timeline. The following content describes the parameter configurations:
      *     *   You must specify ProjectId or Timeline. If you leave both parameters empty, the video cannot be produced.
      *     *   If you specify Timeline and leave ProjectId empty, the system automatically creates an online editing project based on Timeline and adds the materials specified in the Timeline to the project to produce videos.
      *     *   If you specify ProjectId and leave Timeline empty, the system automatically uses the latest timeline information of the project to produce videos.
      *     *   If you specify both ProjectId and Timeline, the system automatically uses the timeline information that you specified to produce videos and updates the project timeline and materials. You can also specify other parameters to update the corresponding information about the online editing project.
+     * *   You can create up to 100 video tracks, 100 image tracks, and 100 subtitle tracks in a project.
+     * *   The total size of material files cannot exceed 1 TB.
+     * *   The buckets in which the materials reside and where the exported videos are stored must be in the same region as the region where ApsaraVideo VOD is activated.
+     * *   The exported videos must meet the following requirements:
+     *     *   The width and height of the video image cannot be less than 128 pixels.
+     *     *   The width and height of the video image cannot exceed 4,096 pixels.
+     *     *   The width cannot exceed 2,160 pixels.
      * *   After a video is produced, the video is automatically uploaded to ApsaraVideo VOD. Then, the **ProduceMediaComplete** and **FileUploadComplete** event notifications are sent to you. After the produced video is transcoded, the **StreamTranscodeComplete** and **TranscodeComplete** event notifications are sent to you.
      * *   You can add special effects to the video. For more information, see [Special effects](https://help.aliyun.com/document_detail/69082.html).
      *  *
@@ -8444,14 +8487,21 @@ class Vod extends OpenApiClient
     /**
      * @summary Produces a video from one or more source files. You can directly specify source files by configuring the Timeline parameter. Alternatively, you can specify source files after you create an online editing project.
      *  *
-     * @description *   **Make sure that you understand the billing methods and price of ApsaraVideo VOD before you call this operation. You are charged for using the online editing feature. For more information, see [Billing](~~188310#section-pyv-b8h-bo7~~).**
+     * @description *   **Make sure that you understand the billing method and price of ApsaraVideo VOD before you call this operation. You are charged for using the online editing feature. For more information, see [Billing](~~188310#section-pyv-b8h-bo7~~).**
      * *   This operation returns only the submission result of a video production task. When the submission result is returned, video production may still be in progress. After a video production task is submitted, the task is queued in the background for asynchronous processing.
-     * *   The source files that are used in the timeline of an online editing project can be materials directly uploaded to the online project or selected from the media asset library.
+     * *   The source files that are used in the timeline of an online editing project can be materials directly uploaded to the online project or selected from the media asset library. Only media assets that are in the Normal state can be used in the project.
      * *   Videos are produced based on ProjectId and Timeline. The following content describes the parameter configurations:
      *     *   You must specify ProjectId or Timeline. If you leave both parameters empty, the video cannot be produced.
      *     *   If you specify Timeline and leave ProjectId empty, the system automatically creates an online editing project based on Timeline and adds the materials specified in the Timeline to the project to produce videos.
      *     *   If you specify ProjectId and leave Timeline empty, the system automatically uses the latest timeline information of the project to produce videos.
      *     *   If you specify both ProjectId and Timeline, the system automatically uses the timeline information that you specified to produce videos and updates the project timeline and materials. You can also specify other parameters to update the corresponding information about the online editing project.
+     * *   You can create up to 100 video tracks, 100 image tracks, and 100 subtitle tracks in a project.
+     * *   The total size of material files cannot exceed 1 TB.
+     * *   The buckets in which the materials reside and where the exported videos are stored must be in the same region as the region where ApsaraVideo VOD is activated.
+     * *   The exported videos must meet the following requirements:
+     *     *   The width and height of the video image cannot be less than 128 pixels.
+     *     *   The width and height of the video image cannot exceed 4,096 pixels.
+     *     *   The width cannot exceed 2,160 pixels.
      * *   After a video is produced, the video is automatically uploaded to ApsaraVideo VOD. Then, the **ProduceMediaComplete** and **FileUploadComplete** event notifications are sent to you. After the produced video is transcoded, the **StreamTranscodeComplete** and **TranscodeComplete** event notifications are sent to you.
      * *   You can add special effects to the video. For more information, see [Special effects](https://help.aliyun.com/document_detail/69082.html).
      *  *
@@ -8469,11 +8519,9 @@ class Vod extends OpenApiClient
     /**
      * @summary Submits media refresh or prefetch tasks based on the media IDs.
      *  *
-     * @description - ApsaraVideo VOD allows you to refresh and prefetch resources. The refresh feature forces the point of presence (POP) to clear cached resources and retrieve the latest resources from origin servers. The prefetch feature allows the POP to retrieve frequently accessed resources from origin servers during off-peak hours. This increases the cache hit ratio.
-     * - You can call this operation to submit refresh or prefetch tasks based on the media ID. You can also specify the format and resolution of the media streams to refresh or prefetch based on your business requirements.
-     * - You can submit a maximum of 20 refresh or prefetch tasks at a time.
-     * ### QPS limits
-     * You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits on API operations in ApsaraVideo VoD](https://help.aliyun.com/document_detail/342790.html).
+     * @description *   ApsaraVideo VOD allows you to purge and prefetch resources. The purge feature forces the point of presence (POP) to clear cached resources and retrieve the latest resources from origin servers. The prefetch feature allows the POP to retrieve frequently accessed resources from origin servers during off-peak hours. This increases the cache hit ratio.
+     * *   You can call this operation to submit purge or prefetch tasks based on the media ID. You can also specify the format and resolution of the media streams to purge or prefetch based on your business requirements.
+     * *   You can submit a maximum of 20 purge or prefetch tasks at a time.
      *  *
      * @param RefreshMediaPlayUrlsRequest $request RefreshMediaPlayUrlsRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -8532,11 +8580,9 @@ class Vod extends OpenApiClient
     /**
      * @summary Submits media refresh or prefetch tasks based on the media IDs.
      *  *
-     * @description - ApsaraVideo VOD allows you to refresh and prefetch resources. The refresh feature forces the point of presence (POP) to clear cached resources and retrieve the latest resources from origin servers. The prefetch feature allows the POP to retrieve frequently accessed resources from origin servers during off-peak hours. This increases the cache hit ratio.
-     * - You can call this operation to submit refresh or prefetch tasks based on the media ID. You can also specify the format and resolution of the media streams to refresh or prefetch based on your business requirements.
-     * - You can submit a maximum of 20 refresh or prefetch tasks at a time.
-     * ### QPS limits
-     * You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits on API operations in ApsaraVideo VoD](https://help.aliyun.com/document_detail/342790.html).
+     * @description *   ApsaraVideo VOD allows you to purge and prefetch resources. The purge feature forces the point of presence (POP) to clear cached resources and retrieve the latest resources from origin servers. The prefetch feature allows the POP to retrieve frequently accessed resources from origin servers during off-peak hours. This increases the cache hit ratio.
+     * *   You can call this operation to submit purge or prefetch tasks based on the media ID. You can also specify the format and resolution of the media streams to purge or prefetch based on your business requirements.
+     * *   You can submit a maximum of 20 purge or prefetch tasks at a time.
      *  *
      * @param RefreshMediaPlayUrlsRequest $request RefreshMediaPlayUrlsRequest
      *
@@ -9589,8 +9635,8 @@ class Vod extends OpenApiClient
      *  *
      * @description *   **Make sure that you understand the billing method and price of ApsaraVideo VOD before you call this operation. You are charged for using the smart tagging and video fingerprinting features. For more information, see [Billing of video AI](~~188310#section-g7l-s3o-9ng~~).**
      * *   Regions that support the video fingerprinting feature: **China (Beijing)**, **China (Shanghai)**, and **Singapore**. Regions that support the smart tagging feature: **China (Beijing)** and **China (Shanghai)**.
-     * *   You need to enable the video fingerprinting feature or the smart tagging feature before you can call this operation to submit jobs. For more information, see [Video AI](https://help.aliyun.com/document_detail/101148.html).
-     * *   If this is the first time you use the video fingerprinting feature, you must [submit a ticket](https://yida.alibaba-inc.com/o/ticketapply) to apply for using the media fingerprint library for free. Otherwise, the video fingerprinting feature will be affected.
+     * *   You need to enable the video fingerprinting feature or the smart tagging feature before you can call this operation to submit jobs. For more information, see [Overview](https://help.aliyun.com/document_detail/101148.html).
+     * *   If this is the first time you use the video fingerprinting feature, you must submit a ticket to apply for using the media fingerprint library for free. Otherwise, the video fingerprinting feature will be affected. For more information about how to submit a ticket, see [Contact us](https://help.aliyun.com/document_detail/464625.html).
      * *   After you submit an AI job, ApsaraVideo VOD asynchronously processes the job. The operation may return a response before the job is complete. You can configure the [Event Notification](https://help.aliyun.com/document_detail/55627.html) feature and set the callback event to **AI Processing Completed**. After you receive the event notification, you can query the execution result of the AI job.
      *  *
      * @param SubmitAIJobRequest $request SubmitAIJobRequest
@@ -9649,8 +9695,8 @@ class Vod extends OpenApiClient
      *  *
      * @description *   **Make sure that you understand the billing method and price of ApsaraVideo VOD before you call this operation. You are charged for using the smart tagging and video fingerprinting features. For more information, see [Billing of video AI](~~188310#section-g7l-s3o-9ng~~).**
      * *   Regions that support the video fingerprinting feature: **China (Beijing)**, **China (Shanghai)**, and **Singapore**. Regions that support the smart tagging feature: **China (Beijing)** and **China (Shanghai)**.
-     * *   You need to enable the video fingerprinting feature or the smart tagging feature before you can call this operation to submit jobs. For more information, see [Video AI](https://help.aliyun.com/document_detail/101148.html).
-     * *   If this is the first time you use the video fingerprinting feature, you must [submit a ticket](https://yida.alibaba-inc.com/o/ticketapply) to apply for using the media fingerprint library for free. Otherwise, the video fingerprinting feature will be affected.
+     * *   You need to enable the video fingerprinting feature or the smart tagging feature before you can call this operation to submit jobs. For more information, see [Overview](https://help.aliyun.com/document_detail/101148.html).
+     * *   If this is the first time you use the video fingerprinting feature, you must submit a ticket to apply for using the media fingerprint library for free. Otherwise, the video fingerprinting feature will be affected. For more information about how to submit a ticket, see [Contact us](https://help.aliyun.com/document_detail/464625.html).
      * *   After you submit an AI job, ApsaraVideo VOD asynchronously processes the job. The operation may return a response before the job is complete. You can configure the [Event Notification](https://help.aliyun.com/document_detail/55627.html) feature and set the callback event to **AI Processing Completed**. After you receive the event notification, you can query the execution result of the AI job.
      *  *
      * @param SubmitAIJobRequest $request SubmitAIJobRequest
@@ -9934,8 +9980,10 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @description *   During video preprocessing, videos are transcoded to meet the playback requirements of the production studio. Therefore, you are **charged** for video preprocessing. You can submit a ticket for information about the **production studio** service.
-     *  *   You can obtain the preprocessing result in the [TranscodeComplete](https://help.aliyun.com/document_detail/55638.html) event notification. If the value of the **Preprocess** parameter is true in the event notification, the video is preprocessed.
+     * @summary Transcodes a video by using the production studio.
+     *  *
+     * @description *   During video preprocessing, videos are transcoded to meet the playback requirements of the production studio. Therefore, **you are charged for video preprocessing**. For more information about billing, see [Billing of production studios](https://help.aliyun.com/document_detail/64531.html).
+     * *   You can obtain the preprocessing result in the [TranscodeComplete](https://help.aliyun.com/document_detail/55638.html) event notification. If **Preprocess=true** is returned in the event notification, the video is transcoded.
      *  *
      * @param SubmitPreprocessJobsRequest $request SubmitPreprocessJobsRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -9971,8 +10019,10 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @description *   During video preprocessing, videos are transcoded to meet the playback requirements of the production studio. Therefore, you are **charged** for video preprocessing. You can submit a ticket for information about the **production studio** service.
-     *  *   You can obtain the preprocessing result in the [TranscodeComplete](https://help.aliyun.com/document_detail/55638.html) event notification. If the value of the **Preprocess** parameter is true in the event notification, the video is preprocessed.
+     * @summary Transcodes a video by using the production studio.
+     *  *
+     * @description *   During video preprocessing, videos are transcoded to meet the playback requirements of the production studio. Therefore, **you are charged for video preprocessing**. For more information about billing, see [Billing of production studios](https://help.aliyun.com/document_detail/64531.html).
+     * *   You can obtain the preprocessing result in the [TranscodeComplete](https://help.aliyun.com/document_detail/55638.html) event notification. If **Preprocess=true** is returned in the event notification, the video is transcoded.
      *  *
      * @param SubmitPreprocessJobsRequest $request SubmitPreprocessJobsRequest
      *
@@ -10329,9 +10379,9 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the information about multiple auxiliary media assets at a time.
+     * @summary Modifies the information about multiple auxiliary media assets such as watermark images, subtitle files, and materials in a batch based on IDs. You can modify information such as the title, description, tags, and category.
      *  *
-     * @description The specific parameter of an auxiliary media asset is updated only when a new value is passed in the parameter.
+     * @description You can modify the information about up to 20 auxiliary media assets at a time.
      *  *
      * @param UpdateAttachedMediaInfosRequest $request UpdateAttachedMediaInfosRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -10364,9 +10414,9 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the information about multiple auxiliary media assets at a time.
+     * @summary Modifies the information about multiple auxiliary media assets such as watermark images, subtitle files, and materials in a batch based on IDs. You can modify information such as the title, description, tags, and category.
      *  *
-     * @description The specific parameter of an auxiliary media asset is updated only when a new value is passed in the parameter.
+     * @description You can modify the information about up to 20 auxiliary media assets at a time.
      *  *
      * @param UpdateAttachedMediaInfosRequest $request UpdateAttachedMediaInfosRequest
      *
@@ -10507,6 +10557,9 @@ class Vod extends OpenApiClient
     /**
      * @summary Modifies the information about one or more images at a time.
      *  *
+     * @description *   You can call this operation to modify information such as the title, tags, description, and category about images based on image IDs. You must pass in the parameters that you want to modify. Otherwise, parameter configurations are not overwritten.
+     * *   You can modify the information about up to 20 images at a time.
+     *  *
      * @param UpdateImageInfosRequest $request UpdateImageInfosRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -10539,6 +10592,9 @@ class Vod extends OpenApiClient
 
     /**
      * @summary Modifies the information about one or more images at a time.
+     *  *
+     * @description *   You can call this operation to modify information such as the title, tags, description, and category about images based on image IDs. You must pass in the parameters that you want to modify. Otherwise, parameter configurations are not overwritten.
+     * *   You can modify the information about up to 20 images at a time.
      *  *
      * @param UpdateImageInfosRequest $request UpdateImageInfosRequest
      *
@@ -10800,7 +10856,7 @@ class Vod extends OpenApiClient
     /**
      * @summary Modifies a specific accelerated domain name.
      *  *
-     * @description > This operation is available only in the **China (Shanghai)** region.
+     * @description UpdateVodDomain
      *  *
      * @param UpdateVodDomainRequest $request UpdateVodDomainRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -10847,7 +10903,7 @@ class Vod extends OpenApiClient
     /**
      * @summary Modifies a specific accelerated domain name.
      *  *
-     * @description > This operation is available only in the **China (Shanghai)** region.
+     * @description UpdateVodDomain
      *  *
      * @param UpdateVodDomainRequest $request UpdateVodDomainRequest
      *

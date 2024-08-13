@@ -11,8 +11,9 @@ class topList extends Model
     /**
      * @description The category of the review result. Valid values:
      *
-     *   **logo**
-     *   **normal**
+     *   **normal**: normal content
+     *   **TV**: controlled TV station logo
+     *   **trademark**: trademark
      *
      * @example logo
      *
@@ -21,7 +22,7 @@ class topList extends Model
     public $label;
 
     /**
-     * @description The score of the image of the category that is indicated by Label.
+     * @description The score of the snapshot in the category that is indicated by Label.
      *
      * @example 100
      *
@@ -30,7 +31,7 @@ class topList extends Model
     public $score;
 
     /**
-     * @description The position in the video. Unit: milliseconds.
+     * @description The timestamp of the snapshot in the video. Unit: milliseconds.
      *
      * @example 5000
      *
@@ -39,7 +40,7 @@ class topList extends Model
     public $timestamp;
 
     /**
-     * @description The URL of the image.
+     * @description The URL of the video snapshot.
      *
      * @example http://temp-****bucket.oss-cn-shanghai.aliyuncs.com/aivideocensor/****.jpg
      *

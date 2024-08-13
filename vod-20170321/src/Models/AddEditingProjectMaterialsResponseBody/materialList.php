@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class materialList extends Model
 {
     /**
+     * @description The ID of the category.
+     *
      * @example 1000487543
      *
      * @var int
@@ -16,16 +18,22 @@ class materialList extends Model
     public $cateId;
 
     /**
+     * @description The category name of the material.
+     *
      * @var string
      */
     public $cateName;
 
     /**
+     * @description The thumbnail URL.
+     *
      * @var string
      */
     public $coverURL;
 
     /**
+     * @description The time when the material was created. The time follows the ISO 8601 standard in the *YYYY-MM-DD**Thh:mm:ss* format. The time is displayed in UTC.
+     *
      * @example 2019-10-02T08:26Z
      *
      * @var string
@@ -33,6 +41,8 @@ class materialList extends Model
     public $createTime;
 
     /**
+     * @description The user ID.
+     *
      * @example 1234751840694470
      *
      * @var int
@@ -40,11 +50,15 @@ class materialList extends Model
     public $customerId;
 
     /**
+     * @description The description of the material.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The duration of the material. Unit: seconds. The value is accurate to four decimal places.
+     *
      * @example 3690.2332
      *
      * @var float
@@ -52,6 +66,8 @@ class materialList extends Model
     public $duration;
 
     /**
+     * @description The ID of the material.
+     *
      * @example 85befc4118b84c6723e53b80b1****
      *
      * @var string
@@ -59,6 +75,12 @@ class materialList extends Model
     public $materialId;
 
     /**
+     * @description The type of the material. Valid values:
+     *
+     *   **video**
+     *   **audio**
+     *   **image**
+     *
      * @example video
      *
      * @var string
@@ -66,6 +88,8 @@ class materialList extends Model
     public $materialType;
 
     /**
+     * @description The time when the material was last updated. The time follows the ISO 8601 standard in the *YYYY-MM-DD**Thh:mm:ss* format. The time is displayed in UTC.
+     *
      * @example 2022-11-25T07:28:34Z
      *
      * @var string
@@ -73,6 +97,8 @@ class materialList extends Model
     public $modifyTime;
 
     /**
+     * @description The size of the material.
+     *
      * @example 1682694
      *
      * @var int
@@ -80,11 +106,15 @@ class materialList extends Model
     public $size;
 
     /**
+     * @description The URLs of snapshots.
+     *
      * @var string[]
      */
     public $snapshots;
 
     /**
+     * @description The configuration of the sprite snapshot.
+     *
      * @example xxx
      *
      * @var string
@@ -92,11 +122,19 @@ class materialList extends Model
     public $spriteConfig;
 
     /**
+     * @description The URLs of sprite snapshots.
+     *
      * @var string[]
      */
     public $sprites;
 
     /**
+     * @description The status of the material. Valid values:
+     *
+     *   **Normal**
+     *   **Uploading**
+     *   **UploadFail**
+     *
      * @example Normal
      *
      * @var string
@@ -104,6 +142,8 @@ class materialList extends Model
     public $status;
 
     /**
+     * @description The tag of the material. Multiple tags are separated by commas (,).
+     *
      * @example tag1,tag2
      *
      * @var string
@@ -111,6 +151,8 @@ class materialList extends Model
     public $tags;
 
     /**
+     * @description The title of the material.
+     *
      * @example test
      *
      * @var string

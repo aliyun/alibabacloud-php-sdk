@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class logoResult extends Model
 {
     /**
-     * @description The average score of the images of the category that is indicated by Label.
+     * @description The average score of the snapshots in the category indicated by Label.
      *
      * @example 100
      *
@@ -20,7 +20,7 @@ class logoResult extends Model
     public $averageScore;
 
     /**
-     * @description The categories of the review results and the number of images.
+     * @description The categories of the review results and the number of video snapshots in each category.
      *
      * @var counterList[]
      */
@@ -29,8 +29,9 @@ class logoResult extends Model
     /**
      * @description The category of the review result. Valid values:
      *
-     *   **logo**
-     *   **normal**
+     *   **normal**: normal content
+     *   **TV**: controlled TV station logo
+     *   **trademark**: trademark
      *
      * @example logo
      *
@@ -39,7 +40,7 @@ class logoResult extends Model
     public $label;
 
     /**
-     * @description The highest score of the image of the category that is indicated by Label.
+     * @description The highest score of the snapshot of the category that is indicated by Label.
      *
      * @example 100
      *
@@ -61,7 +62,7 @@ class logoResult extends Model
     public $suggestion;
 
     /**
-     * @description The information about the image with the highest score of the category that is indicated by Label.
+     * @description The information about the snapshot that has the highest score in the category.
      *
      * @var topList[]
      */

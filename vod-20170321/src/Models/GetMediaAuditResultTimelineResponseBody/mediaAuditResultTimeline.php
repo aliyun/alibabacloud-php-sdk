@@ -21,7 +21,7 @@ class mediaAuditResultTimeline extends Model
     public $ad;
 
     /**
-     * @description The collection of undesirable scene timelines.
+     * @description The collection of undesirable content timelines.
      *
      * @var live[]
      */

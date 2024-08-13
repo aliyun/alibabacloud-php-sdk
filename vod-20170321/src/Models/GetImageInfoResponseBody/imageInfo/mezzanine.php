@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class mezzanine extends Model
 {
     /**
-     * @description The size of the file. Unit: byte.
+     * @description The size of the image. Unit: bytes.
      *
      * @example 8932
      *
@@ -18,7 +18,7 @@ class mezzanine extends Model
     public $fileSize;
 
     /**
-     * @description The OSS URL of the image.
+     * @description The OSS URL of the image file.
      *
      * @example https://outin-bfefbb*****163e1c7426.oss-cn-XXXXXXXX.aliyuncs.com/image/default/5E84CD536*****D4DAD.png?Expires=1590982353&OSSAccessKeyId=*****&Signature=ALPET74o*****c%3D
      *
@@ -27,7 +27,7 @@ class mezzanine extends Model
     public $fileURL;
 
     /**
-     * @description The height of the image. Unit: pixel.
+     * @description The height of the image. Unit: pixels.
      *
      * @example 200
      *
@@ -36,7 +36,7 @@ class mezzanine extends Model
     public $height;
 
     /**
-     * @description The name of the uploaded file.
+     * @description The URL of the source file.
      *
      * @example ****.gif
      *
@@ -45,7 +45,7 @@ class mezzanine extends Model
     public $originalFileName;
 
     /**
-     * @description The width of the image. Unit: pixel.
+     * @description The width of the image. Unit: pixels.
      *
      * @example 200
      *

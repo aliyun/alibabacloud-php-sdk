@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class categories extends Model
 {
     /**
-     * @description The ID of the video category.
+     * @description The ID of the category.
      *
      * @example 1000224338
      *
@@ -19,7 +19,7 @@ class categories extends Model
 
     /**
      * @description The name of the category.
-     * - The string must be encoded in the UTF-8 format.
+     *
      * @example category test
      *
      * @var string
@@ -27,7 +27,7 @@ class categories extends Model
     public $cateName;
 
     /**
-     * @description The level of the category. A value of 0 indicates a level 1 category.
+     * @description The level of the category.
      *
      * @example 0
      *
@@ -36,7 +36,7 @@ class categories extends Model
     public $level;
 
     /**
-     * @description The ID of the parent category. The parent category ID of a level 1 category is -1.
+     * @description The ID of the parent category.
      *
      * @example 1000224336
      *

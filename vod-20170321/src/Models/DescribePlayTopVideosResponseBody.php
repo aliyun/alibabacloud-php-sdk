@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribePlayTopVideosResponseBody extends Model
 {
     /**
-     * @description The page number of the returned page.
+     * @description The page number.
      *
      * @example 1
      *
@@ -19,7 +19,7 @@ class DescribePlayTopVideosResponseBody extends Model
     public $pageNo;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The number of entries per page.
      *
      * @example 100
      *

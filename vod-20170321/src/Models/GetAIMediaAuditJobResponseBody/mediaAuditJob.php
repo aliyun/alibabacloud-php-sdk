@@ -37,7 +37,7 @@ class mediaAuditJob extends Model
     public $creationTime;
 
     /**
-     * @description The job result data.
+     * @description The job result.
      *
      * @var data
      */
@@ -85,7 +85,7 @@ class mediaAuditJob extends Model
     public $status;
 
     /**
-     * @description Only the job type is supported.
+     * @description The type of the job. The value is AIMediaAudit.
      *
      * @example AIMediaAudit
      *

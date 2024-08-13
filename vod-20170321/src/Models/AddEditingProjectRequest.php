@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class AddEditingProjectRequest extends Model
 {
     /**
-     * @description The thumbnail URL of the online editing project. If you do not specify this parameter and the video track in the timeline has mezzanine files, the thumbnail of the first mezzanine file in the timeline is used.
+     * @description The thumbnail URL of the online editing project. If you leave this parameter empty and materials exist on the video track in the timeline, the thumbnail of the first material is used by default.
      *
      * @example https://demo.aliyundoc.com/6AB4D0E1E1C74468883516C2349D1FC2-6-2.png
      *
@@ -27,7 +27,7 @@ class AddEditingProjectRequest extends Model
     public $description;
 
     /**
-     * @description The region where you want to create the online editing project.
+     * @description The region in which ApsaraVideo VOD is activated.
      *
      * @example cn-shanghai
      *
@@ -56,9 +56,9 @@ class AddEditingProjectRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The timeline of the online editing project, in JSON format. For more information about the structure, see [Timeline](https://help.aliyun.com/document_detail/52839.html).
+     * @description The timeline of the online editing project in JSON format. For more information about the structure, see [Timeline](https://help.aliyun.com/document_detail/52839.html).
      *
-     * If you do not specify this parameter, an empty timeline is created and the duration of the online editing project is zero.
+     * If you leave this parameter empty, an empty timeline is created and the duration of the online editing project is zero.
      * @example {"VideoTracks":[{"VideoTrackClips":[{"MediaId":"cc3308ac5006aed55a54328bc3443****"},{"MediaId":"95948ddba24446b6aed5db985e78****"}]}]}
      *
      * @var string

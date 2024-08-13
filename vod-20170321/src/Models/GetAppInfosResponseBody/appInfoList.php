@@ -54,6 +54,11 @@ class appInfoList extends Model
     public $modificationTime;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @description The status of the application. Valid values:
      *
      *   **Normal**
@@ -82,6 +87,7 @@ class appInfoList extends Model
         'creationTime'     => 'CreationTime',
         'description'      => 'Description',
         'modificationTime' => 'ModificationTime',
+        'resourceGroupId'  => 'ResourceGroupId',
         'status'           => 'Status',
         'type'             => 'Type',
     ];
@@ -107,6 +113,9 @@ class appInfoList extends Model
         }
         if (null !== $this->modificationTime) {
             $res['ModificationTime'] = $this->modificationTime;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -140,6 +149,9 @@ class appInfoList extends Model
         }
         if (isset($map['ModificationTime'])) {
             $model->modificationTime = $map['ModificationTime'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

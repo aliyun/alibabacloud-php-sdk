@@ -11,8 +11,17 @@ class ad extends Model
     /**
      * @description The category of the review result. Valid values:
      *
-     *   **normal**: normal content
-     *   **ad**: ad or text violation
+     *   **normal**: normal content.
+     *   **ad**: other ads.
+     *   **politics**: political content in text.
+     *   **porn**: pornographic content in text.
+     *   **abuse**: abuse in text.
+     *   **terrorism**: terrorist content in text.
+     *   **contraband**: prohibited content in text.
+     *   **spam**: spam content.
+     *   **npx**: illegal ad.
+     *   **qrcode**: QR code.
+     *   **programCode**: mini program code.
      *
      * @example ad
      *
@@ -21,7 +30,7 @@ class ad extends Model
     public $label;
 
     /**
-     * @description The score of the review result category. Valid values: `[0, 100]`. The value is rounded down to 10 decimal places. The score is representative of the confidence.
+     * @description The score of the video snapshot in the ad review result. Valid values: `[0,100]`. The value is rounded down to 10 decimal places. The score is representative of the confidence.
      *
      * @example 100
      *
@@ -30,7 +39,7 @@ class ad extends Model
     public $score;
 
     /**
-     * @description The position in the video. Unit: milliseconds.
+     * @description The timestamp of the snapshot in the video. Unit: milliseconds.
      *
      * @example 10
      *

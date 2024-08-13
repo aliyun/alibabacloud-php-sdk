@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class topPlayVideoStatis extends Model
 {
     /**
-     * @description The playback duration. Unit: milliseconds.
+     * @description The total playback duration. Unit: milliseconds.
      *
      * @example 4640369
      *

@@ -11,8 +11,11 @@ class topList extends Model
     /**
      * @description The category of the review result. Valid values:
      *
-     *   **live**: The content contains undesirable scenes.
-     *   **normal**
+     *   **normal**: normal content
+     *   **meaningless**: meaningless content, such as a black or white screen.
+     *   **PIP**: picture-in-picture
+     *   **smoking**: smoking
+     *   **drivelive**: live broadcasting in a running vehicle
      *
      * @example live
      *
@@ -21,7 +24,7 @@ class topList extends Model
     public $label;
 
     /**
-     * @description The score of the image of the category that is indicated by Label.
+     * @description The score of the snapshot in the category that is indicated by Label.
      *
      * @example 100
      *
@@ -30,7 +33,7 @@ class topList extends Model
     public $score;
 
     /**
-     * @description The position in the video. Unit: milliseconds.
+     * @description The timestamp of the snapshot in the video. Unit: milliseconds.
      *
      * @example 500
      *
@@ -39,7 +42,7 @@ class topList extends Model
     public $timestamp;
 
     /**
-     * @description The URL of the image.
+     * @description The URL of the video snapshot.
      *
      * @example http://temp-****bucket.oss-cn-shanghai.aliyuncs.com/aivideocensor/****.jpg
      *

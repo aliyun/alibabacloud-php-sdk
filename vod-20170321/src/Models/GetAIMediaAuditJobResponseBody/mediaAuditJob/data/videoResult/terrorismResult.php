@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class terrorismResult extends Model
 {
     /**
-     * @description The average score of the images of the category that is indicated by Label. Valid values: `[0, 100]`. The value is accurate to 10 decimal places. The score is representative of the confidence.
+     * @description The average score of the snapshots of the category that is indicated by Label. Valid values: `[0, 100]`. The value is accurate to 10 decimal places. The score is representative of the confidence.
      *
      * @example 100
      *
@@ -20,7 +20,7 @@ class terrorismResult extends Model
     public $averageScore;
 
     /**
-     * @description The categories of the review results and the number of images.
+     * @description The categories of terrorist content review results and the number of video snapshots in each category.
      *
      * @var counterList[]
      */
@@ -51,7 +51,7 @@ class terrorismResult extends Model
     public $label;
 
     /**
-     * @description The highest score of the image of the category that is indicated by Label. Valid values: `[0, 100]`. The value is accurate to 10 decimal places. The score is representative of the confidence.
+     * @description The highest score of the snapshot of the category that is indicated by Label. Valid values: `[0, 100]`. The value is accurate to 10 decimal places. The score is representative of the confidence.
      *
      * @example 100
      *
@@ -60,11 +60,11 @@ class terrorismResult extends Model
     public $maxScore;
 
     /**
-     * @description The recommendation for review results. Valid values:
+     * @description The recommendation for terrorist content review results. Valid values:
      *
-     *   **block**: The content violates the regulations.
-     *   **review**: The content may violate the regulations.
-     *   **pass**: The content passes the review.
+     *   **block**
+     *   **review**
+     *   **pass**
      *
      * @example pass
      *
@@ -73,7 +73,7 @@ class terrorismResult extends Model
     public $suggestion;
 
     /**
-     * @description The information about the image with the highest score of the category that is indicated by Label.
+     * @description The information about the snapshot that has the highest score in the category.
      *
      * @var topList[]
      */

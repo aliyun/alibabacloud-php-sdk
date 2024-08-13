@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateImageInfosRequest extends Model
 {
     /**
-     * @description The new information about the one or more images. You can modify the information about up to 20 images at a time. For more information, see the **UpdateContent** section of this topic.
+     * @description The new information about the one or more images. You can modify the information about up to 20 images at a time. For more information about the parameter structure, see the **UpdateContent** section.
      *
      * This parameter is required.
      * @example [{"ImageId":"ff8fe57e3461416c6a267a4e09****","Title":"test title","Description":"test description","Tags":"tag1,tag2"}]

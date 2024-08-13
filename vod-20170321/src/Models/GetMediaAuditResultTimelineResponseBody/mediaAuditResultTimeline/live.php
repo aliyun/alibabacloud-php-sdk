@@ -9,10 +9,13 @@ use AlibabaCloud\Tea\Model;
 class live extends Model
 {
     /**
-     * @description The category of the review result. Valid values:
+     * @description The categories of undesired content review results. Valid values:
      *
-     *   **normal**
-     *   **terrorism**
+     *   **normal**: normal content.
+     *   **meaningless**: meaningless content, such as a black or white screen.
+     *   **PIP**: picture-in-picture.
+     *   **smoking**: smoking.
+     *   **drivelive**: live broadcasting in a running vehicle.
      *
      * @example pip
      *
@@ -21,7 +24,7 @@ class live extends Model
     public $label;
 
     /**
-     * @description The score of the review result category. Valid values: `[0, 100]`. The value is rounded down to 10 decimal places. The score is representative of the confidence.
+     * @description The score of the video snapshot in the undesirable content review result. Valid values: `[0,100]`. The value is rounded down to 10 decimal places. The score is representative of the confidence.
      *
      * @example 100
      *
@@ -30,7 +33,7 @@ class live extends Model
     public $score;
 
     /**
-     * @description The position in the video. Unit: milliseconds.
+     * @description The timestamp of the snapshot in the video. Unit: milliseconds.
      *
      * @example 12
      *

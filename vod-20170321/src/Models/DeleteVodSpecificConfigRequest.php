@@ -19,7 +19,7 @@ class DeleteVodSpecificConfigRequest extends Model
     public $configId;
 
     /**
-     * @description The domain name for CDN.
+     * @description The accelerated domain name.
      *
      * This parameter is required.
      * @example www.example.com
@@ -29,9 +29,11 @@ class DeleteVodSpecificConfigRequest extends Model
     public $domainName;
 
     /**
-     * @description The environment of configuration.
+     * @description The environment from which the domain name configurations are deleted. Valid values:
      *
-     * gray: simulation environment
+     *   online: production environment
+     *   gray: simulation environment
+     *
      * @example online
      *
      * @var string

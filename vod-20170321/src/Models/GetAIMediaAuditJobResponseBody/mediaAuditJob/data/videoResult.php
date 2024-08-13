@@ -23,7 +23,11 @@ class videoResult extends Model
     /**
      * @description The category of the review result. Valid values:
      *
-     *   **ad**
+     *   **porn**: pornographic content
+     *   **terrorism**: terrorist or politically sensitive content
+     *   **ad**: ad violation
+     *   **live**: undesirable scene
+     *   **logo**: logo
      *   **normal**
      *
      * @example normal
@@ -47,18 +51,18 @@ class videoResult extends Model
     public $logoResult;
 
     /**
-     * @description The results of pornography content review.
+     * @description The results of pornographic content review.
      *
      * @var pornResult
      */
     public $pornResult;
 
     /**
-     * @description The recommendation for review results. Valid values:
+     * @description The recommendation for video review results. Valid values:
      *
-     *   **block**: The content violates the regulations.
-     *   **review**: The content may violate the regulations.
-     *   **pass**: The content passes the review.
+     *   **block**
+     *   **review**
+     *   **pass**
      *
      * @example pass
      *
@@ -67,7 +71,7 @@ class videoResult extends Model
     public $suggestion;
 
     /**
-     * @description The results of terrorism content review.
+     * @description The results of terrorist content review.
      *
      * @var terrorismResult
      */

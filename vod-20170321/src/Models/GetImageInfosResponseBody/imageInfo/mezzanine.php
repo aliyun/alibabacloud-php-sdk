@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class mezzanine extends Model
 {
     /**
-     * @description The size of the image file. Unit: bytes.
+     * @description The size of the file to be uploaded. Unit: bytes.
      *
      * @example 8932
      *
@@ -36,7 +36,7 @@ class mezzanine extends Model
     public $height;
 
     /**
-     * @description The name of the source file.
+     * @description The URL of the source file.
      *
      * @example ****.gif
      *

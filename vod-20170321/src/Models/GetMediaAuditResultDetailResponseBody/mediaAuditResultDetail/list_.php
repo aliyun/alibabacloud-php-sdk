@@ -9,10 +9,19 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
-     * @description The category of the ad review result. Valid values:
+     * @description The category of the review result. Valid values:
      *
-     *   **normal**: normal content
-     *   **ad**: ad or text violation
+     *   **normal**: normal content.
+     *   **ad**: other ads.
+     *   **politics**: political content in text.
+     *   **porn**: pornographic content in text.
+     *   **abuse**: verbal abuse in text.
+     *   **terrorism**: terrorist content in text.
+     *   **contraband**: prohibited content in text.
+     *   **spam**: spam content in text.
+     *   **npx**: illegal ad
+     *   **qrcode**: QR code.
+     *   **programCode**: mini program code.
      *
      * @example normal
      *
@@ -21,7 +30,7 @@ class list_ extends Model
     public $adLabel;
 
     /**
-     * @description The score of the review result category. It is representative of the confidence. Valid values: `[0.00-100.00].` The value is rounded down to 10 decimal places.
+     * @description The score of the video snapshot in the ad review result. Valid values: `[0,100]`. The value is rounded down to 10 decimal places. The score is representative of the confidence.
      *
      * @example 100
      *
@@ -30,10 +39,13 @@ class list_ extends Model
     public $adScore;
 
     /**
-     * @description The category of the undesirable scene review result. Valid values:
+     * @description The category of the review result. Valid values:
      *
-     *   **normal**: The video does not contain undesirable scenes.
-     *   **live**: The video contains undesirable scenes.
+     *   **normal**: normal content.
+     *   **meaningless**: meaningless content, such as a black or white screen.
+     *   **PIP**: picture-in-picture.
+     *   **smoking**: smoking.
+     *   **drivelive**: live broadcasting in a running vehicle.
      *
      * @example normal
      *
@@ -42,7 +54,7 @@ class list_ extends Model
     public $liveLabel;
 
     /**
-     * @description The score of the review result category. It is representative of the confidence. Valid values: `[0.00-100.00].` The value is rounded down to 10 decimal places.
+     * @description The score of the video snapshot in the undesirable content review result. Valid values: `[0,100]`. The value is rounded down to 10 decimal places. The score is representative of the confidence.
      *
      * @example 100
      *
@@ -51,10 +63,11 @@ class list_ extends Model
     public $liveScore;
 
     /**
-     * @description The category of the logo review result. Valid values:
+     * @description The category of the review result. Valid values:
      *
-     *   **normal**
-     *   **tlogo**
+     *   **normal**: normal content.
+     *   **TV**: controlled TV station logo.
+     *   **trademark**: trademark.
      *
      * @example normal
      *
@@ -63,7 +76,7 @@ class list_ extends Model
     public $logoLabel;
 
     /**
-     * @description The score of the review result category. It is representative of the confidence. Valid values: `[0.00-100.00].` The value is rounded down to 10 decimal places.
+     * @description The score of the video snapshot in the logo review result. Valid values: `[0,100]`. The value is rounded down to 10 decimal places. The score is representative of the confidence.
      *
      * @example 100
      *
@@ -72,7 +85,7 @@ class list_ extends Model
     public $logoScore;
 
     /**
-     * @description The category of the pornographic content review result. Valid values:
+     * @description The category of the review result. Valid values:
      *
      *   **normal**
      *   **porn**
@@ -85,7 +98,7 @@ class list_ extends Model
     public $pornLabel;
 
     /**
-     * @description The score of the review result category. It is representative of the confidence. Valid values: `[0.00-100.00].` The value is rounded down to 10 decimal places.
+     * @description The score of the video snapshot in the pornographic content review result. Valid values: `[0,100]`. The value is rounded down to 10 decimal places. The score is representative of the confidence.
      *
      * @example 100.00
      *
@@ -94,15 +107,22 @@ class list_ extends Model
     public $pornScore;
 
     /**
-     * @description The category of the terrorist content review result.
+     * @description The category of the review result. Valid values:
      *
-     *   **normal**: normal
-     *   **terrorism**: terrorist content
-     *   **outfit**: special costume
-     *   **logo**: special logo
-     *   **weapon**: weapon
-     *   **politics**: politically sensitive content
-     *   **others**: other terrorist content and politically sensitive content
+     *   **normal**
+     *   **bloody**
+     *   **explosion**
+     *   **outfit**
+     *   **logo**
+     *   **weapon**
+     *   **politics**
+     *   **violence**
+     *   **crowd**
+     *   **parade**
+     *   **carcrash**
+     *   **flag**
+     *   **location**
+     *   **others**
      *
      * @example normal
      *
@@ -111,7 +131,7 @@ class list_ extends Model
     public $terrorismLabel;
 
     /**
-     * @description The score of the review result category. It is representative of the confidence. Valid values: `[0.00-100.00].` The value is rounded down to 10 decimal places.
+     * @description The score of the video snapshot in the terrorist content review result. Valid values: `[0,100]`. The value is rounded down to 10 decimal places. The score is representative of the confidence.
      *
      * @example 100.00
      *
@@ -120,7 +140,7 @@ class list_ extends Model
     public $terrorismScore;
 
     /**
-     * @description The position in the video. Unit: milliseconds.
+     * @description The timestamp of the snapshot in the video. Unit: milliseconds.
      *
      * @example 3005
      *
@@ -129,7 +149,7 @@ class list_ extends Model
     public $timestamp;
 
     /**
-     * @description The URL of the image.
+     * @description The URL of the video snapshot.
      *
      * @example http://temp-testbucket.oss-cn-shanghai.aliyuncs.com/aivideocensor/****.jpg
      *

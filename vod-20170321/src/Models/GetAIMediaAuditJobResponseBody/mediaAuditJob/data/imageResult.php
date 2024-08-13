@@ -10,15 +10,14 @@ use AlibabaCloud\Tea\Model;
 class imageResult extends Model
 {
     /**
-     * @description The category of the review result. Separate multiple values with commas (,). Valid values:
+     * @description The categories of the image review results. Multiple values are separated by commas (,). Valid values:
      *
-     *   **porn**
-     *   **terrorism**
-     *   **ad**
-     *   **live**: undesirable scenes
-     *   **logo**
-     *   **audio**: audio anti-spam
-     *   **normal**
+     *   **porn**: pornographic content
+     *   **terrorism**: terrorist or politically sensitive content
+     *   **ad**: ad violation
+     *   **live**: undesirable scene
+     *   **logo**: logo
+     *   **normal**: normal content
      *
      * @example normal
      *
@@ -36,9 +35,9 @@ class imageResult extends Model
     /**
      * @description The recommendation for review results. Valid values:
      *
-     *   **block**: The content violates the regulations.
-     *   **review**: The content may violate the regulations.
-     *   **pass**: The content passes the review.
+     *   **block**
+     *   **review**
+     *   **pass**
      *
      * @example pass
      *

@@ -11,13 +11,20 @@ class terrorism extends Model
     /**
      * @description The category of the review result. Valid values:
      *
-     *   **terrorism**: terrorist content
-     *   **outfit**: special costume
-     *   **logo**: special logo
-     *   **weapon**: weapon
-     *   **politics**: politically sensitive content
-     *   **others**: other terrorist and politically sensitive content
-     *   **normal**: normal content
+     *   **normal**
+     *   **bloody**
+     *   **explosion**
+     *   **outfit**
+     *   **logo**
+     *   **weapon**
+     *   **politics**
+     *   **violence**
+     *   **crowd**
+     *   **parade**
+     *   **carcrash**
+     *   **flag**
+     *   **location**
+     *   **others**
      *
      * @example normal
      *
@@ -26,7 +33,7 @@ class terrorism extends Model
     public $label;
 
     /**
-     * @description The score of the review result category.
+     * @description The score of the video snapshot in the terrorist content review result. Valid values: `[0,100]`. The value is rounded down to 10 decimal places. The score is representative of the confidence.
      *
      * @example 100.00
      *
@@ -35,7 +42,7 @@ class terrorism extends Model
     public $score;
 
     /**
-     * @description The position in the video. Unit: milliseconds.
+     * @description The timestamp of the snapshot in the video. Unit: milliseconds.
      *
      * @example 3005
      *

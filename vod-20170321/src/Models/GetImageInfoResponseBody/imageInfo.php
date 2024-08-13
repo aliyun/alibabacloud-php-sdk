@@ -37,7 +37,7 @@ class imageInfo extends Model
     public $cateName;
 
     /**
-     * @description The time when the image file was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The time when the image was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2018-11-21T02:37:23Z
      *
@@ -66,11 +66,12 @@ class imageInfo extends Model
     /**
      * @description The type of the image. Valid values:
      *
-     * - **CoverSnapshot**: thumbnail snapshot.
-     * - **NormalSnapshot**: normal snapshot.
-     * - **SpriteSnapshot**: sprite snapshot.
-     * - **SpriteOriginSnapshot**: sprite source snapshot.
-     * - **All**: images of all the preceding types. If this parameter is not set to All, you can specify multiple types and separate them with commas (,).
+     *   **CoverSnapshot**: thumbnail snapshot.
+     *   **NormalSnapshot**: normal snapshot.
+     *   **SpriteSnapshot**: sprite snapshot.
+     *   **SpriteOriginSnapshot**: sprite source snapshot.
+     *   **All**: images of all the preceding types. Multiple types other than All can return for this parameter. Multiple types are separated by commas (,).
+     *
      * @example NormalSnapshot
      *
      * @var string
@@ -78,7 +79,7 @@ class imageInfo extends Model
     public $imageType;
 
     /**
-     * @description The information about the image mezzanine file.
+     * @description The source information about the image.
      *
      * @var mezzanine
      */
@@ -87,9 +88,10 @@ class imageInfo extends Model
     /**
      * @description The status of the image. Valid values:
      *
-     * - **Uploading**: The image is being uploaded. This is the initial status.
-     * - **Normal**: The image is uploaded.
-     * - **UploadFail**: The image fails to be uploaded.
+     *   **Uploading**: The image is being uploaded. This is the initial status.
+     *   **Normal**: The image is uploaded.
+     *   **UploadFail**: The image fails to be uploaded.
+     *
      * @example Uploading
      *
      * @var string
@@ -97,7 +99,7 @@ class imageInfo extends Model
     public $status;
 
     /**
-     * @description The OSS bucket where the image is stored.
+     * @description The bucket in which the image is stored.
      *
      * @example outin-****..oss-cn-shanghai.aliyuncs.com
      *
@@ -106,7 +108,7 @@ class imageInfo extends Model
     public $storageLocation;
 
     /**
-     * @description The tag of the image. Multiple tags are separated by commas (,).
+     * @description The tags of the image. Multiple tags are separated by commas (,).
      *
      * @example tag1,tag2,tag3
      *
@@ -124,7 +126,7 @@ class imageInfo extends Model
     public $title;
 
     /**
-     * @description The URL of the image. If a CDN domain name is specified, a CDN URL is returned. Otherwise, an OSS URL is returned.
+     * @description The image URL. If a domain name for CDN is specified, a CDN URL is returned. Otherwise, an OSS URL is returned.
      *
      * @example http://example.aliyundoc.com/image/default/****.gif?auth_key=****
      *

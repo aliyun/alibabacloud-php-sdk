@@ -28,6 +28,7 @@ class SetAuditSecurityIpRequest extends Model
      *   **Cover**: overwrites the original whitelist.
      *   **Delete**: removes the IP addresses from the original whitelist.
      *
+     * >  If the value that you specify is invalid, the default value is used.
      * @example Cover
      *
      * @var string

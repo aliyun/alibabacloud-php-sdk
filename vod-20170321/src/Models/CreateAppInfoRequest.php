@@ -32,9 +32,15 @@ class CreateAppInfoRequest extends Model
      * @var string
      */
     public $description;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
     protected $_name = [
-        'appName'     => 'AppName',
-        'description' => 'Description',
+        'appName'         => 'AppName',
+        'description'     => 'Description',
+        'resourceGroupId' => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -49,6 +55,9 @@ class CreateAppInfoRequest extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -67,6 +76,9 @@ class CreateAppInfoRequest extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

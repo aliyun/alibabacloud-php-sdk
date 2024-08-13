@@ -36,31 +36,31 @@ class result extends Model
      *
      * Valid values if scene is **ad**:
      *
-     *   **normal**
-     *   **ad**
-     *   **politics**
-     *   **porn**
-     *   **abuse**
-     *   **terrorism**
-     *   **contraband**
-     *   **spam**
+     *   **normal**: normal content
+     *   **ad**: ads
+     *   **politics**: political content
+     *   **porn**: pornographic content
+     *   **abuse**: verbal abuse
+     *   **terrorism**: terrorist content
+     *   **contraband**: prohibited content
+     *   **spam**: spam content
      *   **npx**: illegal ad
      *   **qrcode**: QR code
-     *   **programCode**
+     *   **programCode**: mini program code
      *
      * Valid values if scene is **live**:
      *
-     *   **normal**
-     *   **meaningless**
-     *   **PIP**
-     *   **smoking**
-     *   **drivelive**
+     *   **normal**: normal content
+     *   **meaningless**: meaningless content, such as a black or white screen.
+     *   **PIP**: picture-in-picture
+     *   **smoking**: smoking
+     *   **drivelive**: live broadcasting in a running vehicle
      *
      * Valid values if scene is **logo**:
      *
-     *   **normal**
-     *   **TV**
-     *   **trademark**
+     *   **normal**: normal content
+     *   **TV**: controlled TV station logo
+     *   **trademark**: trademark
      *
      * @example porn
      *
@@ -71,11 +71,11 @@ class result extends Model
     /**
      * @description The review scenario. Valid values:
      *
-     *   **porn**
-     *   **terrorism**
-     *   **ad**
-     *   **live**: undesirable scenes
-     *   **logo**
+     *   **porn**: pornographic content
+     *   **terrorism**: terrorist or politically sensitive content
+     *   **ad**: ad violation
+     *   **live**: undesirable scene
+     *   **logo**: logo
      *
      * @example porn
      *
@@ -95,9 +95,9 @@ class result extends Model
     /**
      * @description The recommendation for review results. Valid values:
      *
-     *   **block**: The content violates the regulations.
-     *   **review**: The content may violate the regulations.
-     *   **pass**: The content passes the review.
+     *   **block**
+     *   **review**
+     *   **pass**
      *
      * @example pass
      *

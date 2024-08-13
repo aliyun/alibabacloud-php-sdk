@@ -20,7 +20,7 @@ class liveResult extends Model
     public $averageScore;
 
     /**
-     * @description The categories of the review results and the number of images.
+     * @description The categories of the review results and the number of video snapshots in each category.
      *
      * @var counterList[]
      */
@@ -29,8 +29,11 @@ class liveResult extends Model
     /**
      * @description The category of the review result. Valid values:
      *
-     *   **live**: The content contains undesirable scenes.
-     *   **normal**
+     *   **normal**: normal content
+     *   **meaningless**: meaningless content, such as a black or white screen.
+     *   **PIP**: picture-in-picture
+     *   **smoking**: smoking
+     *   **drivelive**: live broadcasting in a running vehicle
      *
      * @example live
      *
@@ -61,7 +64,7 @@ class liveResult extends Model
     public $suggestion;
 
     /**
-     * @description The information about the image with the highest score of the category that is indicated by Label.
+     * @description The information about the snapshot that has the highest score in the category.
      *
      * @var topList[]
      */

@@ -94,6 +94,11 @@ class mezzanine extends Model
     public $outputType;
 
     /**
+     * @var string
+     */
+    public $preprocessStatus;
+
+    /**
      * @description The period of time in which the object remains in the restored state.
      *
      * @example 2023-03-30T10:14:14Z
@@ -191,6 +196,7 @@ class mezzanine extends Model
         'fps'               => 'Fps',
         'height'            => 'Height',
         'outputType'        => 'OutputType',
+        'preprocessStatus'  => 'PreprocessStatus',
         'restoreExpiration' => 'RestoreExpiration',
         'restoreStatus'     => 'RestoreStatus',
         'size'              => 'Size',
@@ -240,6 +246,9 @@ class mezzanine extends Model
         }
         if (null !== $this->outputType) {
             $res['OutputType'] = $this->outputType;
+        }
+        if (null !== $this->preprocessStatus) {
+            $res['PreprocessStatus'] = $this->preprocessStatus;
         }
         if (null !== $this->restoreExpiration) {
             $res['RestoreExpiration'] = $this->restoreExpiration;
@@ -315,6 +324,9 @@ class mezzanine extends Model
         }
         if (isset($map['OutputType'])) {
             $model->outputType = $map['OutputType'];
+        }
+        if (isset($map['PreprocessStatus'])) {
+            $model->preprocessStatus = $map['PreprocessStatus'];
         }
         if (isset($map['RestoreExpiration'])) {
             $model->restoreExpiration = $map['RestoreExpiration'];

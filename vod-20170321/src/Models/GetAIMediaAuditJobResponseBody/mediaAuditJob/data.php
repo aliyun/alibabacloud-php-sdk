@@ -40,15 +40,15 @@ class data extends Model
     public $imageResult;
 
     /**
-     * @description The category of the review result. Separate multiple values with commas (,). Valid values:
+     * @description The category of the review result. Multiple values are separated by commas (,). Valid values:
      *
-     *   **porn**
-     *   **terrorism**
-     *   **ad**
-     *   **live**: undesirable scenes
-     *   **logo**
+     *   **porn**: pornographic content
+     *   **terrorism**: terrorist or politically sensitive content
+     *   **ad**: ad violation
+     *   **live**: undesirable scene
+     *   **logo**: logo
      *   **audio**: audio anti-spam
-     *   **normal**
+     *   **normal**: normal content
      *
      * @example normal
      *
@@ -70,7 +70,7 @@ class data extends Model
     public $suggestion;
 
     /**
-     * @description The results of text review.
+     * @description The text moderation results.
      *
      * @var textResult[]
      */

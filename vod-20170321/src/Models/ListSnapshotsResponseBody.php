@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListSnapshotsResponseBody extends Model
 {
     /**
-     * @description The snapshot data of the media.
+     * @description The information about the snapshot.
      *
      * @var mediaSnapshot
      */

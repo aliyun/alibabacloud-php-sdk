@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class counterList extends Model
 {
     /**
-     * @description The number of images.
+     * @description The number of video snapshots.
      *
      * @example 0
      *
@@ -20,8 +20,11 @@ class counterList extends Model
     /**
      * @description The category of the review result. Valid values:
      *
-     *   **live**: The content contains undesirable scenes.
-     *   **normal**
+     *   **normal**: normal content
+     *   **meaningless**: meaningless content, such as a black or white screen.
+     *   **PIP**: picture-in-picture
+     *   **smoking**: smoking
+     *   **drivelive**: live broadcasting in a running vehicle
      *
      * @example live
      *

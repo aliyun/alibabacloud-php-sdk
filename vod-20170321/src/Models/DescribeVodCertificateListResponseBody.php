@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeVodCertificateListResponseBody extends Model
 {
     /**
-     * @description The information about the returned certificates.
+     * @description The information about each certificate.
      *
      * @var certificateListModel
      */

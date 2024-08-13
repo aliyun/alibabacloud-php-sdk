@@ -20,17 +20,26 @@ class adResult extends Model
     public $averageScore;
 
     /**
-     * @description The statistics about tag frames.
+     * @description The number of snapshots of each category in the review result.
      *
      * @var counterList[]
      */
     public $counterList;
 
     /**
-     * @description The category of the review result. Valid values:
+     * @description The categories of the ad review results. Valid values:
      *
-     *   **ad**
-     *   **normal**
+     *   **normal**: normal content
+     *   **ad**: other ads
+     *   **politics**: political content
+     *   **porn**: pornographic content
+     *   **abuse**: abuse
+     *   **terrorism**: terrorist content
+     *   **contraband**: prohibited content
+     *   **spam**: spam content
+     *   **npx**: illegal ad
+     *   **qrcode**: QR code
+     *   **programCode**: mini program code
      *
      * @example ad
      *
@@ -61,7 +70,7 @@ class adResult extends Model
     public $suggestion;
 
     /**
-     * @description The information about the image with the highest score of the category that is indicated by Label.
+     * @description The information about the snapshot that has the highest score in the category.
      *
      * @var topList[]
      */

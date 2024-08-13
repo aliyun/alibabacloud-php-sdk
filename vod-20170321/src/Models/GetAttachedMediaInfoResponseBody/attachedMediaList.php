@@ -19,7 +19,7 @@ class attachedMediaList extends Model
     public $appId;
 
     /**
-     * @description The list of categories.
+     * @description The categories.
      *
      * @var categories[]
      */
@@ -37,6 +37,7 @@ class attachedMediaList extends Model
     /**
      * @description The description of the auxiliary media asset.
      *
+     * >  This parameter is returned only when a description is specified for the auxiliary media asset.
      * @example description test
      *
      * @var string
@@ -53,7 +54,7 @@ class attachedMediaList extends Model
     public $mediaId;
 
     /**
-     * @description The time when the auxiliary media asset was updated. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The time when the auxiliary media asset was last updated. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2020-05-31T11:42:20Z
      *
@@ -63,9 +64,11 @@ class attachedMediaList extends Model
 
     /**
      * @description The status of the auxiliary media asset. Valid values:
-     * - **Uploading**: The auxiliary media asset is being uploaded. This is the initial status.
-     * - **Normal**: The auxiliary media asset is uploaded.
-     * - **UploadFail**: The auxiliary media asset fails to be uploaded.
+     *
+     *   **Uploading**
+     *   **Normal**
+     *   **UploadFail**
+     *
      * @example Normal
      *
      * @var string
@@ -73,7 +76,7 @@ class attachedMediaList extends Model
     public $status;
 
     /**
-     * @description The OSS bucket where the auxiliary media asset is stored.
+     * @description The storage address of the auxiliary media asset.
      *
      * @example outin-bfefbb9*****c7426.oss-cn-shanghai.aliyuncs.com
      *
@@ -84,6 +87,7 @@ class attachedMediaList extends Model
     /**
      * @description The tags of the auxiliary media asset.
      *
+     * >  This parameter is returned only when tags are specified for the auxiliary media asset.
      * @example tag1,tag2
      *
      * @var string
@@ -100,10 +104,12 @@ class attachedMediaList extends Model
     public $title;
 
     /**
-     * @description The type of the auxiliary media asset. Valid values:
-     * - **watermark**
-     * - **subtitle**
-     * - **material**
+     * @description The type of the auxiliary media asset.
+     *
+     *   **watermark**
+     *   **subtitle**
+     *   **material**
+     *
      * @example subtitle
      *
      * @var string
@@ -112,7 +118,8 @@ class attachedMediaList extends Model
 
     /**
      * @description The URL of the auxiliary media asset.
-     * > If a CDN domain name is specified, a CDN URL is returned. Otherwise, an OSS URL is returned.
+     *
+     * >  If a CDN domain name is specified, a CDN URL is returned. Otherwise, an OSS URL is returned.
      * @example https://al*****.cn/subtitle/9843C2*****4E186F19B6.vtt?auth_key=159099f60e0b7fd59****
      *
      * @var string

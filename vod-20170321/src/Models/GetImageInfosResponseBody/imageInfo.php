@@ -19,7 +19,7 @@ class imageInfo extends Model
     public $appId;
 
     /**
-     * @description The ID of the category to which the image belongs.
+     * @description The ID of the category.
      *
      * @example 254766071
      *
@@ -55,7 +55,7 @@ class imageInfo extends Model
     public $description;
 
     /**
-     * @description The ID of the image file.
+     * @description The ID of the image.
      *
      * @example bbc65bba53f9*****ed90de118a7849
      *
@@ -66,11 +66,8 @@ class imageInfo extends Model
     /**
      * @description The type of the image. Valid values:
      *
-     *   **CoverSnapshot**: thumbnail snapshot
-     *   **NormalSnapshot**: normal snapshot
-     *   **SpriteSnapshot**: sprite snapshot
-     *   **SpriteOriginSnapshot**: sprite source snapshot
-     *   **All**: images of all the preceding types. If this parameter is not set to All, you can specify multiple types and separate the types with commas (,).
+     *   **default**: regular images
+     *   **cover**: video thumbnail
      *
      * @example NormalSnapshot
      *
@@ -108,7 +105,7 @@ class imageInfo extends Model
     public $storageLocation;
 
     /**
-     * @description The tags of the image. Separate multiple tags with commas (,).
+     * @description The tags of the image. Multiple tags are separated by commas (,).
      *
      * @example tag1,tag2,tag3
      *

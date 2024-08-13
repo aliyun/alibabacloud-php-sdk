@@ -28,7 +28,7 @@ class mediaSnapshot extends Model
     public $jobId;
 
     /**
-     * @description The rule for generating snapshot URLs.
+     * @description The rule used to generate snapshot URLs.
      *
      * @example http://example.aliyundoc.com/snapshot/sample{SnapshotCount}.jpg
      *
@@ -37,7 +37,7 @@ class mediaSnapshot extends Model
     public $regular;
 
     /**
-     * @description The snapshot data.
+     * @description The details of the snapshot.
      *
      * @var snapshots
      */

@@ -55,7 +55,7 @@ class DescribeVodRefreshTasksRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return.
+     * @description The page number.
      *
      * @example 1
      *

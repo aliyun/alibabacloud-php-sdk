@@ -27,6 +27,11 @@ class ListAppInfoRequest extends Model
     public $pageSize;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @description The status of the application. After an application is created, it enters the **Normal** state. Valid values:
      *
      *   **Normal**
@@ -38,9 +43,10 @@ class ListAppInfoRequest extends Model
      */
     public $status;
     protected $_name = [
-        'pageNo'   => 'PageNo',
-        'pageSize' => 'PageSize',
-        'status'   => 'Status',
+        'pageNo'          => 'PageNo',
+        'pageSize'        => 'PageSize',
+        'resourceGroupId' => 'ResourceGroupId',
+        'status'          => 'Status',
     ];
 
     public function validate()
@@ -55,6 +61,9 @@ class ListAppInfoRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -76,6 +85,9 @@ class ListAppInfoRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

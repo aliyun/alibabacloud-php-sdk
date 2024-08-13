@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class SubmitPreprocessJobsResponseBody extends Model
 {
     /**
-     * @description The job information.
+     * @description The information about the job.
      *
      * @var preprocessJobs
      */

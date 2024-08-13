@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class counterList extends Model
 {
     /**
-     * @description The number of images.
+     * @description The number of video snapshots.
      *
      * @example 10
      *
@@ -18,10 +18,19 @@ class counterList extends Model
     public $count;
 
     /**
-     * @description The category of the review result. Valid values:
+     * @description The categories of the ad review results. Valid values:
      *
-     *   **ad**
-     *   **normal**
+     *   **normal**: normal content
+     *   **ad**: other ads
+     *   **politics**: political content
+     *   **porn**: pornographic content
+     *   **abuse**: abuse
+     *   **terrorism**: terrorist content
+     *   **contraband**: prohibited content
+     *   **spam**: spam content
+     *   **npx**: illegal ad
+     *   **qrcode**: QR code
+     *   **programCode**: mini program code
      *
      * @example ad
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class textResult extends Model
 {
     /**
-     * @description The text.
+     * @description The text content.
      *
      * @example Test
      *
@@ -20,13 +20,13 @@ class textResult extends Model
     /**
      * @description The category of the review result. Valid values:
      *
-     *   **spam**
-     *   **ad**
-     *   **abuse**
-     *   **flood**: spam posts
-     *   **contraband**
-     *   **meaningless**
-     *   **normal**
+     *   **spam**: spam content
+     *   **ad**: ads
+     *   **abuse**: abuse
+     *   **flood**: excessive junk content
+     *   **contraband**: prohibited content
+     *   **meaningless**: meaningless content
+     *   **normal**: normal content
      *
      * @example ad
      *
@@ -35,7 +35,7 @@ class textResult extends Model
     public $label;
 
     /**
-     * @description The review scenario. Valid value: **antispam**.
+     * @description The review scenario. The value is **antispam**.
      *
      * @example antispam
      *
@@ -55,9 +55,9 @@ class textResult extends Model
     /**
      * @description The recommendation for review results. Valid values:
      *
-     *   **block**: The content violates the regulations.
-     *   **review**: The content may violate the regulations.
-     *   **pass**: The content passes the review.
+     *   **block**
+     *   **review**
+     *   **pass**
      *
      * @example pass
      *

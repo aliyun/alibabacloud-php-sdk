@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetAttachedMediaInfoResponseBody extends Model
 {
     /**
-     * @description The information about the media asset.
+     * @description The information about the media assets.
      *
      * @var attachedMediaList[]
      */

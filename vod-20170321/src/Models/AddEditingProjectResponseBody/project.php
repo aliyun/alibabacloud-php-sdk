@@ -27,7 +27,7 @@ class project extends Model
     public $description;
 
     /**
-     * @description The last time when the online editing project was modified. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The time when the online editing project was last modified. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2017-01-11T13:00:00Z
      *
@@ -47,10 +47,11 @@ class project extends Model
     /**
      * @description The status of the online editing project. Valid values:
      *
-     * - **Normal**: indicates that the online editing project is in draft.
-     * - **Producing**: indicates that the video is being produced.
-     * - **Produced**: indicates that the video was produced.
-     * - **ProduceFailed**: indicates that the video failed to be produced.
+     *   **Normal**: the online editing project is in draft.
+     *   **Producing**: the video is being produced.
+     *   **Produced**: the video is produced.
+     *   **ProduceFailed**: the video failed to be produced.
+     *
      * @example Normal
      *
      * @var string

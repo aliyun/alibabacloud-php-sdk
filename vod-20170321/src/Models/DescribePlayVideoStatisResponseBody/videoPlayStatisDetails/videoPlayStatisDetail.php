@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class videoPlayStatisDetail extends Model
 {
     /**
-     * @description The date. The date is displayed in the *yyyy-MM-dd* format.
+     * @description The date. The time follows the ISO 8601 standard in the *YYYY-MM-DD*T*hh:mm:ss* format. The time is displayed in UTC.
      *
      * @example 20170120
      *
@@ -18,7 +18,7 @@ class videoPlayStatisDetail extends Model
     public $date;
 
     /**
-     * @description The playback duration. Unit: millisecond.
+     * @description The total playback duration. Unit: milliseconds.
      *
      * @example 967277
      *
