@@ -11,7 +11,7 @@ class tag extends Model
     /**
      * @description The key of the tag to add.
      *
-     * >  If the specified key does not exist, a key is created.
+     * > If the specified key does not exist, a key is created.
      * @example test-key
      *
      * @var string
@@ -21,7 +21,7 @@ class tag extends Model
     /**
      * @description The value of the tag to add.
      *
-     * >  If the specified value does not exist, a value is created.
+     * > If the specified tag value does not exist, the tag value is created.
      * @example test-value
      *
      * @var string

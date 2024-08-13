@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class opEntities extends Model
 {
     /**
-     * @description Queries the operation logs of an Anti-DDoS Origin instance.
+     * @description The operation object, which is the ID of the instance.
      *
      * @example ddosbgp-cn-n6w1r7nz****
      *
@@ -18,9 +18,8 @@ class opEntities extends Model
     public $entityObject;
 
     /**
-     * @description All Alibaba Cloud API operations must include common request parameters. For more information about common request parameters, see [Common parameters](https://help.aliyun.com/document_detail/118841.html).
+     * @description The type of the operation object. The value is fixed as **1**, which indicates Anti-DDoS Origin instances.
      *
-     * For more information about sample requests, see the **"Examples"** section of this topic.
      * @example 1
      *
      * @var int
@@ -28,7 +27,7 @@ class opEntities extends Model
     public $entityType;
 
     /**
-     * @description WB01342967
+     * @description The time when the log was generated. The value is a UNIX timestamp. Unit: milliseconds.
      *
      * @example 1635818114000
      *
@@ -37,6 +36,9 @@ class opEntities extends Model
     public $gmtCreate;
 
     /**
+     * @description The ID of the Alibaba Cloud account that performs the operation.
+     *
+     * > If the value is **system**, the operation is performed by Anti-DDoS Origin.
      * @example 171986973287****
      *
      * @var string
@@ -44,7 +46,14 @@ class opEntities extends Model
     public $opAccount;
 
     /**
-     * @description DescribeOpEntities
+     * @description The type of operation. Valid values:
+     *
+     *   **3**: indicates an operation to add an IP address to the Anti-DDoS Origin instance for protection.
+     *   **4**: indicates an operation to remove a protected IP address from the Anti-DDoS Origin instance.
+     *   **5**: indicates an operation to downgrade the Anti-DDoS Origin instance.
+     *   **6**: indicates an operation to deactivate blackhole filtering for an IP address.
+     *   **7**: indicates an operation to reset the number of times that you can deactivate blackhole filtering.
+     *   **8**: indicates an operation to enable burstable protection.
      *
      * @example 8
      *
@@ -53,6 +62,35 @@ class opEntities extends Model
     public $opAction;
 
     /**
+     * @description The details of the operation. The value is a string that consists of a JSON struct. The JSON struct contains the following fields:
+     *
+     *   **entity**: the operation object. Data type: object. The fields that are included in the value of the **entity** parameter vary based on the value of the **OpAction** parameter. Valid values:
+     *
+     *   If the value of the **OpAction** parameter is **3**, the value of the **entity** parameter consists of the following field:
+     *
+     *   **ips**: the public IP addresses that are protected by the Anti-DDoS Origin instance. Data type: array
+     *
+     *   If the value of the **OpAction** parameter is **4**, the value of the **entity** parameter consists of the following field:
+     *
+     *   **ips**: the public IP addresses that are no longer protected by the Anti-DDoS Origin instance. Data type: array.
+     *
+     *   If the value of the **OpAction** parameter is **5**, the value of the **entity** parameter consists of the following fields:
+     *
+     *   **baseBandwidth**: the basic protection bandwidth. Unit: Gbit/s. Data type: integer.
+     *   **elasticBandwidth**: the burstable protection bandwidth. Unit: Gbit/s. Data type: integer.
+     *   **opSource**: the source of the operation. The value is fixed as **1**, indicating that the operation is performed by Anti-DDoS Origin. Data type: integer.
+     *
+     *   If the value of the **OpAction** parameter is **6**, the value of the **entity** parameter consists of the following field:
+     *
+     *   **ips**: the public IP addresses for which to deactivate blackhole filtering. Data type: array.
+     *
+     *   If the value of the **OpAction** parameter is **7**, the **entity** parameter is not returned.
+     *
+     *   If the value of the **OpAction** parameter is **8**, the value of the **entity** parameter consists of the following fields:
+     *
+     *   **baseBandwidth**: the basic protection bandwidth. Unit: Gbit/s. Data type: integer.
+     *   **elasticBandwidth**: the burstable protection bandwidth. Unit: Gbit/s. Data type: integer.
+     *
      * @example {"entity":{"baseBandwidth":20,"elasticBandwidth":20}}
      *
      * @var string

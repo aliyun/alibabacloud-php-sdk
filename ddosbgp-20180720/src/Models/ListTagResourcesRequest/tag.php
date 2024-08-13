@@ -11,7 +11,7 @@ class tag extends Model
     /**
      * @description The key of the tag to query.
      *
-     * >  The **ResourceIds.N** parameter and the key-value pair (Tag.N.Key and Tag.N.Value) cannot be left empty at the same time.
+     * >  The **ResourceId** parameter and the **key-value pair for the Tag parameter** cannot be left empty at the same time.
      * @example testKey1
      *
      * @var string
@@ -21,7 +21,7 @@ class tag extends Model
     /**
      * @description The value of the tag to query.
      *
-     * >  The **ResourceIds.N** parameter and the key-value pair (Tag.N.Key and Tag.N.Value) cannot be left empty at the same time.
+     * >  The **ResourceId** parameter and the **key-value pair for the Tag parameter** cannot be left empty at the same time.
      * @example testValue1
      *
      * @var string

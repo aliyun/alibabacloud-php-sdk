@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class sourceLimit extends Model
 {
     /**
+     * @description The bandwidth limit on source IP addresses. Unit: bytes per second.
+     *
      * @example 2048
      *
      * @var int
@@ -16,6 +18,8 @@ class sourceLimit extends Model
     public $bps;
 
     /**
+     * @description The packets per second (PPS) limit on source IP addresses.
+     *
      * @example 64
      *
      * @var int
@@ -23,6 +27,8 @@ class sourceLimit extends Model
     public $pps;
 
     /**
+     * @description The bandwidth limit on source SYN packets. Unit: bytes per second.
+     *
      * @example 2048
      *
      * @var int
@@ -30,6 +36,8 @@ class sourceLimit extends Model
     public $synBps;
 
     /**
+     * @description The PPS limit on source SYN packets.
+     *
      * @example 64
      *
      * @var int

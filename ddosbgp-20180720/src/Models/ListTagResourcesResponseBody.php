@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesResponseBody extends Model
 {
     /**
-     * @description The query token that is returned in this call.
+     * @description A pagination token.
      *
      * @example RGuYpqDdKhzXb8C3.D1BwQgc1tMBsoxdGiEKHHUUCf****
      *
@@ -19,7 +19,7 @@ class ListTagResourcesResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example C3F7E6AE-43B2-4730-B6A3-FD17552B8F65
      *
@@ -28,7 +28,7 @@ class ListTagResourcesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The list of tags that are added to the Anti-DDoS Origin instance.
+     * @description The tags that are added to the Anti-DDoS Origin instance.
      *
      * @var tagResources
      */

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListOpenedAccessLogInstancesRequest extends Model
 {
     /**
-     * @description The number of the page to return. Pages start from page 1. Default value: **1**.
+     * @description The page number. Pages start from page 1. Default value: **1**.
      *
      * @example 1
      *
@@ -18,7 +18,7 @@ class ListOpenedAccessLogInstancesRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Default value: **10**.
+     * @description The number of entries per page. Default value: **10**.
      *
      * @example 10
      *
@@ -27,7 +27,7 @@ class ListOpenedAccessLogInstancesRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the resource group to which the Anti-DDoS Origin instance belongs in Resource Management. This parameter is empty by default, which indicates that the Anti-DDoS Origin instance belongs to the default resource group.
+     * @description The ID of the resource group to which the Anti-DDoS Origin instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
      *
      * For more information about resource groups, see [Create a resource group](https://help.aliyun.com/document_detail/94485.html).
      * @example rg-acfm2pz25js****

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteRdMemberListResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example A2D6D5FB-FA07-41A8-B093-A2B7B26E72F2
      *
      * @var string

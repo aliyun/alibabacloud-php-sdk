@@ -9,13 +9,16 @@ use AlibabaCloud\Tea\Model;
 class ModifyPolicyContentShrinkRequest extends Model
 {
     /**
+     * @description The content of the policy.
+     *
      * @var string
      */
     public $contentShrink;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the policy.
      *
+     * This parameter is required.
      * @example 83967609-7ea5-4f6d-a6ea-380b09e****
      *
      * @var string
@@ -23,6 +26,8 @@ class ModifyPolicyContentShrinkRequest extends Model
     public $id;
 
     /**
+     * @description The name of the policy.
+     *
      * @example demo**
      *
      * @var string

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class policyList extends Model
 {
     /**
+     * @description The number of protected objects that are added to the policy.
+     *
      * @example 0
      *
      * @var int
@@ -17,11 +19,15 @@ class policyList extends Model
     public $attachedCount;
 
     /**
+     * @description The content of the policy.
+     *
      * @var content
      */
     public $content;
 
     /**
+     * @description The ID of the policy.
+     *
      * @example 877afbdf-3982-4d36-9886-f043********
      *
      * @var string
@@ -29,6 +35,8 @@ class policyList extends Model
     public $id;
 
     /**
+     * @description The name of the policy.
+     *
      * @example test**
      *
      * @var string
@@ -36,6 +44,16 @@ class policyList extends Model
     public $name;
 
     /**
+     * @var string
+     */
+    public $remark;
+
+    /**
+     * @description The type of the policy. Valid values:
+     *
+     *   **l3**: IP-specific mitigation policies.
+     *   **l4**: port-specific mitigation policies.
+     *
      * @example l3
      *
      * @var string
@@ -46,6 +64,7 @@ class policyList extends Model
         'content'       => 'Content',
         'id'            => 'Id',
         'name'          => 'Name',
+        'remark'        => 'Remark',
         'type'          => 'Type',
     ];
 
@@ -67,6 +86,9 @@ class policyList extends Model
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->remark) {
+            $res['Remark'] = $this->remark;
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
@@ -94,6 +116,9 @@ class policyList extends Model
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['Remark'])) {
+            $model->remark = $map['Remark'];
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];

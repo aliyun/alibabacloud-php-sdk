@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class memberList extends Model
 {
     /**
+     * @description The Alibaba Cloud account ID of the member.
+     *
      * @example 136548010379****
      *
      * @var string

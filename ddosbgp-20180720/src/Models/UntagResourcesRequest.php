@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UntagResourcesRequest extends Model
 {
     /**
-     * @description Specifies whether to remove all tags from the specified Anti-DDoS Origin Enterprise instances.
+     * @description Specifies whether to remove all tags from the instances. Default value: No.
      *
      * @example false
      *
@@ -18,7 +18,7 @@ class UntagResourcesRequest extends Model
     public $all;
 
     /**
-     * @description The ID of the region where the Anti-DDoS Origin Enterprise instances reside.
+     * @description The ID of the region in which the instances reside.
      *
      * This parameter is required.
      * @example cn-hangzhou
@@ -37,8 +37,9 @@ class UntagResourcesRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description This parameter is required.
+     * @description The IDs of the instances. Valid values of N: 0 to 49. You can specify up to 50 instances at a time. Example: ResourceId.0, ResourceId.1, ... , ResourceId.49.
      *
+     * This parameter is required.
      * @example ddosbgp-cn-v0h1fmwbc024
      *
      * @var string[]
@@ -46,7 +47,7 @@ class UntagResourcesRequest extends Model
     public $resourceId;
 
     /**
-     * @description The type of the specified resource. Set the value to **INSTANCE**.
+     * @description The resource type. Set the value to **INSTANCE**.
      *
      * This parameter is required.
      * @example INSTANCE
@@ -56,6 +57,8 @@ class UntagResourcesRequest extends Model
     public $resourceType;
 
     /**
+     * @description The keys of the tag that you want to remove. Valid values of N: 0 to 19. You can specify up to 20 tag keys at a time. Example: Tag.0.Key, Tag.1.Key, ... , Tag.19.Key.
+     *
      * @example testKey1
      *
      * @var string[]

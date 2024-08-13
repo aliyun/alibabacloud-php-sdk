@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreatePolicyResponseBody extends Model
 {
     /**
+     * @description The ID of the policy.
+     *
      * @example 83967609-7ea5-4f6d-a6ea-380b09e****
      *
      * @var string
@@ -16,6 +18,8 @@ class CreatePolicyResponseBody extends Model
     public $id;
 
     /**
+     * @description The request ID.
+     *
      * @example 864FE2F4-CB2E-4024-B9EF-D59FD08A****
      *
      * @var string

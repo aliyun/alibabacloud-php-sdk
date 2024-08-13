@@ -10,15 +10,17 @@ use AlibabaCloud\Tea\Model;
 class AttachToPolicyRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The protected objects.
      *
+     * This parameter is required.
      * @var ipPortProtocolList[]
      */
     public $ipPortProtocolList;
 
     /**
-     * @description This parameter is required.
+     * @description The policy ID.
      *
+     * This parameter is required.
      * @example cd8b4d70-e4e0-413a-b390-e71d********
      *
      * @var string

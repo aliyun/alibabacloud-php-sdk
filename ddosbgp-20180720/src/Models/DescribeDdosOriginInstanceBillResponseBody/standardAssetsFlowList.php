@@ -9,6 +9,15 @@ use AlibabaCloud\Tea\Model;
 class standardAssetsFlowList extends Model
 {
     /**
+     * @description The traffic distribution by region. The JSON struct contains the following fields:
+     *
+     *   **bytes**: the traffic volume of regular Alibaba Cloud services in a region. Unit: bytes.
+     *   **memberUid**: the owner account.
+     *   **instanceId**: the ID of the pay-as-you-go instance that protects the regular Alibaba Cloud services.
+     *   **ip**: the IP address of the regular Alibaba Cloud service protected by the Anti-DDoS Origin instance.
+     *   **region**: the region.
+     *
+     * >  If the memberUid field in the JSON struct is empty, the information about the current account is returned. The value of the bytes parameter in the outermost level of the JSON struct indicates the total traffic, and the values of the bytes parameters in inner levels indicate the traffic of the account.
      * @example [{\\"bytes\\":79282719,\\"memberUid\\":\\"\\",\\"regionFlows\\":{\\"cn-hangzhou\\":[{\\"bytes\\":79282719,\\"instanceId\\":\\"ddosorigin_cn-u7c3lcr9r02\\",\\"ip\\":\\"47.118.168.57\\",\\"region\\":\\"cn-hangzhou\\"}]}}]
      *
      * @var string
@@ -16,6 +25,13 @@ class standardAssetsFlowList extends Model
     public $memberFlow;
 
     /**
+     * @description The traffic distribution by region. The JSON struct contains the following fields:
+     *
+     *   **bytes**: the traffic volume of regular Alibaba Cloud services in a region. Unit: bytes.
+     *   **instanceId**: the ID of the pay-as-you-go instance that protects the regular Alibaba Cloud services.
+     *   **ip**: the IP address protected by the Anti-DDoS Origin instance.
+     *   **region**: the region.
+     *
      * @example {\\"cn-hangzhou\\":[{\\"bytes\\":0,\\"instanceId\\":\\"ddosorigin_cn-u7c3lcr9r02\\",\\"ip\\":\\"47.118.168.124\\",\\"region\\":\\"cn-hangzhou\\"}]}
      *
      * @var string
@@ -23,6 +39,8 @@ class standardAssetsFlowList extends Model
     public $regionFlow;
 
     /**
+     * @description The timestamp. Unit: milliseconds.
+     *
      * @example 1679846400000
      *
      * @var int
@@ -30,6 +48,8 @@ class standardAssetsFlowList extends Model
     public $time;
 
     /**
+     * @description The traffic of regular Alibaba Cloud services. Unit: bytes.
+     *
      * @example 6302081067
      *
      * @var int

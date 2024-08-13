@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeOnDemandInstanceStatusRequest extends Model
 {
     /**
-     * @description The IDs of on-demand instances.
+     * @description The IDs of the anti-DDoS diversion instances.
      *
      * This parameter is required.
      * @example ddosbgp-cn-z2q1qzxb****
@@ -19,9 +19,9 @@ class DescribeOnDemandInstanceStatusRequest extends Model
     public $instanceIdList;
 
     /**
-     * @description The region ID of the on-demand instance.
+     * @description The region ID of the anti-DDoS diversion instance.
      *
-     * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/118703.html) operation to query all regions supported by Anti-DDoS Origin.
+     * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/118703.html) operation to query all regions that are supported by Anti-DDoS Origin.
      * @example cn-zhangjiakou
      *
      * @var string

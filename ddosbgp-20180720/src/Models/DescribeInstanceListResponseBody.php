@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceListResponseBody extends Model
 {
     /**
-     * @description The details about the Anti-DDoS Origin instance.
+     * @description The details about the Anti-DDoS Origin instances.
      *
      * @var instanceList[]
      */

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeRdMemberListRequest extends Model
 {
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class DescribeRdMemberListRequest extends Model
     public $pageNo;
 
     /**
+     * @description The number of entries per page. Default value: **10**.
+     *
      * @example 10
      *
      * @var int
@@ -23,6 +27,8 @@ class DescribeRdMemberListRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the resource directory.
+     *
      * @example rd-x9bLhd
      *
      * @var string

@@ -10,13 +10,16 @@ use AlibabaCloud\Tea\Model;
 class ModifyPolicyContentRequest extends Model
 {
     /**
+     * @description The content of the policy.
+     *
      * @var content
      */
     public $content;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the policy.
      *
+     * This parameter is required.
      * @example 83967609-7ea5-4f6d-a6ea-380b09e****
      *
      * @var string
@@ -24,6 +27,8 @@ class ModifyPolicyContentRequest extends Model
     public $id;
 
     /**
+     * @description The name of the policy.
+     *
      * @example demo**
      *
      * @var string

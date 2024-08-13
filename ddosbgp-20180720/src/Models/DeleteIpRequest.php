@@ -19,9 +19,13 @@ class DeleteIpRequest extends Model
     public $instanceId;
 
     /**
-     * @description The list of IP addresses that you want to remove from the Anti-DDoS Origin Enterprise instance. This parameter is a string consisting of JSON arrays. Each element in a JSON array is a JSON struct that includes the following field:
+     * @description The list of IP addresses that you want to remove from the Anti-DDoS Origin Enterprise instance. This parameter is a string that consists of JSON arrays. Each element in a JSON array is a JSON struct that contains the following fields:
      *
      *   **ip**: required. The IP address that you want to remove. Data type: string.
+     *
+     **
+     *
+     **Note** The IP addresses that you want to remove must be protected by the Anti-DDoS Origin Enterprise instance.
      *
      * This parameter is required.
      * @example [{"ip":"1.XX.XX.1"},{"ip":"2.XX.XX.2"}]
@@ -33,7 +37,7 @@ class DeleteIpRequest extends Model
     /**
      * @description The region ID of the Anti-DDoS Origin Enterprise instance.
      *
-     * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/118703.html) operation to query all regions supported by Anti-DDoS Origin.
+     * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/118703.html) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string

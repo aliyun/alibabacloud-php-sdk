@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ConfigSchedruleOnDemandResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example BD06F539-2FBE-450D-9391-7EFF787128F5
      *

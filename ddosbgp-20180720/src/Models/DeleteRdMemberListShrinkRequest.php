@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteRdMemberListShrinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The list of the members.
      *
+     * This parameter is required.
      * @var string
      */
     public $memberListShrink;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class memberList extends Model
 {
     /**
+     * @description The creation time.
+     *
      * @example 1624954942000
      *
      * @var int
@@ -16,6 +18,8 @@ class memberList extends Model
     public $gmtCreate;
 
     /**
+     * @description The name of the member.
+     *
      * @example test1
      *
      * @var string
@@ -23,6 +27,8 @@ class memberList extends Model
     public $name;
 
     /**
+     * @description The Alibaba Cloud account ID of the member.
+     *
      * @example 1960279802016267
      *
      * @var string

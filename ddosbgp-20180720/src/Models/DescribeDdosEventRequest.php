@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDdosEventRequest extends Model
 {
     /**
-     * @description The end time of the DDoS attack event to query. This value is a UNIX timestamp. Unit: seconds.
+     * @description The end time of the DDoS attack events to query. This value is a UNIX timestamp. Unit: seconds.
      *
      * This parameter is required.
      * @example 1638288000
@@ -38,7 +38,7 @@ class DescribeDdosEventRequest extends Model
     public $ip;
 
     /**
-     * @description The number of the page to return.
+     * @description The page number.
      *
      * This parameter is required.
      * @example 1
@@ -48,7 +48,7 @@ class DescribeDdosEventRequest extends Model
     public $pageNo;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The number of entries per page.
      *
      * This parameter is required.
      * @example 10
@@ -78,7 +78,7 @@ class DescribeDdosEventRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description The start time of the DDoS attack event to query. This value is a UNIX timestamp. Unit: seconds.
+     * @description The start time of the DDoS attack events to query. This value is a UNIX timestamp. Unit: seconds.
      *
      * This parameter is required.
      * @example 1633017600

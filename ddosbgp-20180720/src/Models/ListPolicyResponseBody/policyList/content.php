@@ -14,6 +14,8 @@ use AlibabaCloud\Tea\Model;
 class content extends Model
 {
     /**
+     * @description The validity period of the IP address blacklist. The value is a UNIX timestamp.
+     *
      * @example 1716878000
      *
      * @var int
@@ -21,6 +23,8 @@ class content extends Model
     public $blackIpListExpireAt;
 
     /**
+     * @description Indicates whether ICMP blocking is enabled.
+     *
      * @example false
      *
      * @var bool
@@ -28,6 +32,8 @@ class content extends Model
     public $enableDropIcmp;
 
     /**
+     * @description Indicates whether intelligent protection is enabled.
+     *
      * @example true
      *
      * @var bool
@@ -35,6 +41,8 @@ class content extends Model
     public $enableIntelligence;
 
     /**
+     * @description Indicates whether port-specific mitigation is enabled.
+     *
      * @example true
      *
      * @var bool
@@ -42,11 +50,19 @@ class content extends Model
     public $enableL4Defense;
 
     /**
+     * @description The byte-match filter rules.
+     *
      * @var fingerPrintRuleList[]
      */
     public $fingerPrintRuleList;
 
     /**
+     * @description The level of intelligent protection. Valid values:
+     *
+     *   **default**: normal.
+     *   **hard**: strict.
+     *   **weak**: loose.
+     *
      * @example default
      *
      * @var string
@@ -54,41 +70,57 @@ class content extends Model
     public $intelligenceLevel;
 
     /**
+     * @description The port-specific mitigation rules.
+     *
      * @var l4RuleList[]
      */
     public $l4RuleList;
 
     /**
+     * @description The port blocking rules.
+     *
      * @var portRuleList[]
      */
     public $portRuleList;
 
     /**
+     * @description The ports whose traffic is filtered out by the filtering policies for UDP reflection attacks.
+     *
      * @var int[]
      */
     public $reflectBlockUdpPortList;
 
     /**
+     * @description The countries in the location blacklist.
+     *
      * @var int[]
      */
     public $regionBlockCountryList;
 
     /**
+     * @description The provinces in the location blacklist.
+     *
      * @var int[]
      */
     public $regionBlockProvinceList;
 
     /**
+     * @description The source IP addresses that are added to the blacklist.
+     *
      * @var sourceBlockList[]
      */
     public $sourceBlockList;
 
     /**
+     * @description The settings for source rate limiting.
+     *
      * @var sourceLimit
      */
     public $sourceLimit;
 
     /**
+     * @description Indicates whether back-to-origin CIDR blocks of Anti-DDoS Proxy are added to the whitelist.
+     *
      * @example false
      *
      * @var bool

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListOpenedAccessLogInstancesResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 4DB64811-70A1-41C9-A0CE-CD8B260ED551
      *

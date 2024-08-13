@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AttachToPolicyResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example DC245DEE-9800-5579-BF99-189D6A5****
      *
      * @var string

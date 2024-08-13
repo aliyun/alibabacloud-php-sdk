@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ListPolicyAttachmentShrinkRequest extends Model
 {
     /**
+     * @description The protected objects.
+     *
      * @var string
      */
     public $ipPortProtocolListShrink;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -21,6 +25,8 @@ class ListPolicyAttachmentShrinkRequest extends Model
     public $pageNo;
 
     /**
+     * @description The number of entries per page. Default value: **10**.
+     *
      * @example 10
      *
      * @var int
@@ -28,6 +34,8 @@ class ListPolicyAttachmentShrinkRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the policy.
+     *
      * @example f38f6520-92b7-451e-b520-9ab3********
      *
      * @var string
@@ -35,6 +43,12 @@ class ListPolicyAttachmentShrinkRequest extends Model
     public $policyId;
 
     /**
+     * @description The type of the policy. Valid values:
+     *
+     *   **default**: the default mitigation policies.
+     *   **l3**: IP-specific mitigation policies.
+     *   **l4**: port-specific mitigation policies.
+     *
      * @example l3
      *
      * @var string

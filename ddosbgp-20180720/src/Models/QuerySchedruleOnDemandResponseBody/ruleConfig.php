@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ruleConfig extends Model
 {
     /**
-     * @description The scheduling action. Set the value to **declare**, which indicates that the route is advertised.
+     * @description The scheduling action. The value is set to **declare**, which indicates that the route is advertised.
      *
      * @example declare
      *
@@ -28,7 +28,7 @@ class ruleConfig extends Model
     public $ruleConditionCnt;
 
     /**
-     * @description The threshold of inbound packets. Unit: Kpps. Minimum value: **10**.
+     * @description The threshold of inbound packets. Unit: kilo packets per second (Kpps). Minimum value: **10**.
      *
      * @example 10
      *
@@ -57,8 +57,8 @@ class ruleConfig extends Model
     /**
      * @description Indicates whether the scheduling rule is enabled. Valid values:
      *
-     *   **on**: enabled
-     *   **off**: disabled
+     *   **on**: enabled.
+     *   **off**: disabled.
      *
      * @example on
      *
@@ -71,7 +71,7 @@ class ruleConfig extends Model
      *
      * If the system detects that DDoS attacks stop, the system no longer reroutes traffic to the on-demand instance from the time you specified. We recommend that you set this parameter to a value that is defined as off-peak hours.
      *
-     * >  This parameter takes effect only when the **RuleUndoMode** parameter is set to **auto**.
+     * >  This parameter takes effect only when the value of **RuleUndoMode** is **auto**.
      * @example 03:00
      *
      * @var string
@@ -90,8 +90,8 @@ class ruleConfig extends Model
     /**
      * @description The stop method of the scheduling rule. Valid values:
      *
-     *   **auto**: The scheduling rule automatically stops.
-     *   **manual**: The scheduling rule is manually stopped.
+     *   **auto**
+     *   **manual**
      *
      * @example auto
      *
@@ -104,7 +104,7 @@ class ruleConfig extends Model
      *
      * For example, the value `GMT-08:00` indicates that the time zone is UTC+8.
      *
-     * >  This parameter takes effect only when the **RuleUndoMode** parameter is set to **auto**.
+     * >  This parameter takes effect only when the value of **RuleUndoMode** is **auto**.
      * @example GMT-08:00
      *
      * @var string

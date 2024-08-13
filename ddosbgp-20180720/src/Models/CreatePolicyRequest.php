@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreatePolicyRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The name of the policy.
      *
+     * This parameter is required.
      * @example test
      *
      * @var string
@@ -18,8 +19,12 @@ class CreatePolicyRequest extends Model
     public $name;
 
     /**
-     * @description This parameter is required.
+     * @description The type of the policy. Valid values:
      *
+     *   **l3**: IP-specific mitigation policies.
+     *   **l4**: port-specific mitigation policies.
+     *
+     * This parameter is required.
      * @example l3
      *
      * @var string

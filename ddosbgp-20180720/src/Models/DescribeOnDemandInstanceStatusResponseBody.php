@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeOnDemandInstanceStatusResponseBody extends Model
 {
     /**
-     * @description The details of the on-demand instance.
+     * @description The details of the anti-DDoS diversion instance.
      *
      * @var instances[]
      */

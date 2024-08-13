@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class instanceList extends Model
 {
     /**
+     * @description The condition that triggers automatic association of the instance with an object.
+     *
      * @var autoProtectCondition
      */
     public $autoProtectCondition;
@@ -17,8 +19,8 @@ class instanceList extends Model
     /**
      * @description Indicates whether auto-renewal is enabled for the instance. Valid values:
      *
-     *   **true**: enabled
-     *   **false**: disabled
+     *   **true**
+     *   **false**
      *
      * @example false
      *
@@ -37,17 +39,29 @@ class instanceList extends Model
     public $blackholdingCount;
 
     /**
+     * @description The type of the instance.
+     *
+     *   **ddos_ddosorigin_public_cn**: Anti-DDoS Origin 2.0 (Pay-as-you-go) on the China site (aliyun.com)
+     *   **ddos_ddosorigin_public_intl**: Anti-DDoS Origin 2.0 (Pay-as-you-go) on the International site (alibabacloud.com)
+     *
      * @var string
      */
     public $commodityType;
 
     /**
+     * @description The application scope of the instance.
+     *
+     *   **1**: The instance supports public IP addresses in all regions.
+     *   **2**: The instance supports public IP addresses in regions in the Chinese mainland.
+     *   **3**: The instance supports public IP addresses in regions outside the Chinese mainland.
+     *   **4**: The instance supports public IP addresses in a region in or outside the Chinese mainland.
+     *
      * @var int
      */
     public $coverageType;
 
     /**
-     * @description The time when the instance expires. This value is a UNIX timestamp. Unit: milliseconds.
+     * @description The time when the instance expires. The value is a UNIX timestamp. Unit: milliseconds.
      *
      * @example 1640275200000
      *
@@ -56,7 +70,7 @@ class instanceList extends Model
     public $expireTime;
 
     /**
-     * @description The time when the instance was purchased. This value is a UNIX timestamp. Unit: milliseconds.
+     * @description The time when the instance was purchased. The value is a UNIX timestamp. Unit: milliseconds.
      *
      * @example 1592886047000
      *
@@ -88,8 +102,8 @@ class instanceList extends Model
     /**
      * @description The protocol type of the IP address asset that is protected by the instance. Valid values:
      *
-     *   **Ipv4**: IPv4
-     *   **Ipv6**: IPv6
+     *   **Ipv4**
+     *   **Ipv6**
      *
      * @example IPv4
      *
@@ -98,7 +112,7 @@ class instanceList extends Model
     public $ipType;
 
     /**
-     * @description The type of the cloud service that is associated with the Anti-DDoS Origin instance. By default, this parameter is not returned. If the Anti-DDoS Origin instance is created by using a different cloud service, the code of the cloud service is returned.
+     * @description The type of the cloud service that is associated with the Anti-DDoS Origin instance By default, this parameter is not returned. If the Anti-DDoS Origin instance is created by using a different cloud service, the code of the cloud service is returned.
      *
      * Valid values:
      *
@@ -112,7 +126,7 @@ class instanceList extends Model
     public $product;
 
     /**
-     * @description The remarks of the instance.
+     * @description The description of the instance.
      *
      * @example test
      *

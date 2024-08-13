@@ -17,7 +17,7 @@ class DescribeDdosEventResponseBody extends Model
     public $events;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example F3B6C3F9-6B21-519D-B976-A1E14166F909
      *
@@ -26,7 +26,7 @@ class DescribeDdosEventResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The total number of DDoS attack events.
+     * @description The total number of DDoS attack events that are returned.
      *
      * @example 1
      *

@@ -10,15 +10,21 @@ use AlibabaCloud\Tea\Model;
 class DetachFromPolicyRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The protected objects.
      *
+     * This parameter is required.
      * @var ipPortProtocolList[]
      */
     public $ipPortProtocolList;
 
     /**
-     * @description This parameter is required.
+     * @description The type of the policy. Valid values:
      *
+     *   **default**: the default mitigation policies.
+     *   **l3**: IP-specific mitigation policies.
+     *   **l4**: port-specific mitigation policies.
+     *
+     * This parameter is required.
      * @example l3
      *
      * @var string

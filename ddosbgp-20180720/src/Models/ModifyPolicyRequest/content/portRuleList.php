@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class portRuleList extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The end of the destination port range. Valid values: **0** to **65535**.
      *
+     * This parameter is required.
      * @example 65535
      *
      * @var int
@@ -18,8 +19,9 @@ class portRuleList extends Model
     public $dstPortEnd;
 
     /**
-     * @description This parameter is required.
+     * @description The start of the destination port range. Valid values: **0** to **65535**.
      *
+     * This parameter is required.
      * @example 0
      *
      * @var int
@@ -27,6 +29,8 @@ class portRuleList extends Model
     public $dstPortStart;
 
     /**
+     * @description The ID of the rule.
+     *
      * @example c52c2fa6-fdac-40c4-8753-be7c*********
      *
      * @var string
@@ -34,8 +38,11 @@ class portRuleList extends Model
     public $id;
 
     /**
-     * @description This parameter is required.
+     * @description The action triggered if the rule is matched. Valid value:
      *
+     *   **drop**: The traffic is discarded.
+     *
+     * This parameter is required.
      * @example drop
      *
      * @var string
@@ -43,8 +50,12 @@ class portRuleList extends Model
     public $matchAction;
 
     /**
-     * @description This parameter is required.
+     * @description The type of the protocol. Valid values:
      *
+     *   **tcp**
+     *   **udp**
+     *
+     * This parameter is required.
      * @example tcp
      *
      * @var string
@@ -52,8 +63,9 @@ class portRuleList extends Model
     public $protocol;
 
     /**
-     * @description This parameter is required.
+     * @description The sequence number that indicates the order for the rule to take effect. The value is an integer.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -61,8 +73,9 @@ class portRuleList extends Model
     public $seqNo;
 
     /**
-     * @description This parameter is required.
+     * @description The end of the source port range. Valid values: **0** to **65535**.
      *
+     * This parameter is required.
      * @example 65535
      *
      * @var int
@@ -70,8 +83,9 @@ class portRuleList extends Model
     public $srcPortEnd;
 
     /**
-     * @description This parameter is required.
+     * @description The start of the source port range. Valid values: **0** to **65535**.
      *
+     * This parameter is required.
      * @example 0
      *
      * @var int

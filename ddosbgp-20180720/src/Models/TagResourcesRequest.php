@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class TagResourcesRequest extends Model
 {
     /**
-     * @description The ID of the region where the Anti-DDoS Origin instance resides.
+     * @description The ID of the region in which the instance resides.
      *
      * This parameter is required.
      * @example cn-hangzhou
@@ -20,7 +20,7 @@ class TagResourcesRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group to which the Anti-DDoS Origin instance belongs in Resource Management.
+     * @description The ID of the resource group to which the instance belongs in Resource Management.
      *
      * If you do not specify this parameter, the instance belongs to the default resource group.
      * @example rg-acfm2pz25js****
@@ -30,8 +30,9 @@ class TagResourcesRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description This parameter is required.
+     * @description The IDs of the instances to which you want to add tags. You can specify up to 51 IDs.
      *
+     * This parameter is required.
      * @example ddosbgp-cn-v0h1fmwb****
      *
      * @var string[]
@@ -49,6 +50,8 @@ class TagResourcesRequest extends Model
     public $resourceType;
 
     /**
+     * @description The tags to add. You can specify up to 21 tags.
+     *
      * @var tag[]
      */
     public $tag;

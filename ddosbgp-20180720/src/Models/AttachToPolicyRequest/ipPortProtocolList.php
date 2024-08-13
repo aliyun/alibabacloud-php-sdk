@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ipPortProtocolList extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The IP address of the protected object.
      *
+     * This parameter is required.
      * @example 112.124.241.***
      *
      * @var string
@@ -18,6 +19,9 @@ class ipPortProtocolList extends Model
     public $ip;
 
     /**
+     * @description The port number of the protected object.
+     *
+     * >  This parameter is available for only port-specific mitigation policies.
      * @example 8*
      *
      * @var int
@@ -25,6 +29,12 @@ class ipPortProtocolList extends Model
     public $port;
 
     /**
+     * @description The protocol type of the protected object. Valid values:
+     *
+     *   **tcp**
+     *   **udp**
+     *
+     * >  This parameter is available for only port-specific mitigation policies.
      * @example tcp
      *
      * @var string

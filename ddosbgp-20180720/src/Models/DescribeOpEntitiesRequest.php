@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeOpEntitiesRequest extends Model
 {
     /**
-     * @description The operation that you want to perform. Set the value to **DescribeOpEntities**.
+     * @description The page number.
      *
      * This parameter is required.
      * @example 1
@@ -19,7 +19,7 @@ class DescribeOpEntitiesRequest extends Model
     public $currentPage;
 
     /**
-     * @description The details of the operation log.
+     * @description The end time. Operation logs that were generated before this time are queried.**** The value is a UNIX timestamp. Unit: milliseconds.
      *
      * This parameter is required.
      * @example 1640880000000
@@ -29,8 +29,9 @@ class DescribeOpEntitiesRequest extends Model
     public $endTime;
 
     /**
-     * @description The page number of the returned page.
+     * @description The ID of the instance to query.
      *
+     * > You can call the [DescribeInstanceList](https://help.aliyun.com/document_detail/118698.html) operation to query the IDs of all instances.
      * @example ddosbgp-cn-n6w1r7nz****
      *
      * @var string
@@ -38,10 +39,7 @@ class DescribeOpEntitiesRequest extends Model
     public $instanceId;
 
     /**
-     * @description The sort order of operation logs. Valid values:
-     *
-     *   **ASC**: the ascending order.
-     *   **DESC**: the descending order.
+     * @description The sorting method of operation logs. Set the value to **opdate**, which indicates sorting based on the operation time.
      *
      * @example opdate
      *
@@ -50,9 +48,12 @@ class DescribeOpEntitiesRequest extends Model
     public $orderBy;
 
     /**
-     * @description The ID of the region where the Anti-DDoS Origin instance resides.
+     * @description The sort order of operation logs. Valid values:
      *
-     * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/118703.html) operation to query the most recent region list.
+     *   **ASC**: the ascending order.
+     *   **DESC**: the descending order.
+     *
+     * Default value: **DESC**.
      * @example ASC
      *
      * @var string
@@ -60,7 +61,7 @@ class DescribeOpEntitiesRequest extends Model
     public $orderDir;
 
     /**
-     * @description The type of the operation object. The value is fixed as **1**, which indicates Anti-DDoS Origin instances.
+     * @description The number of entries per page. Maximum value: 50.
      *
      * This parameter is required.
      * @example 10
@@ -70,9 +71,9 @@ class DescribeOpEntitiesRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the Alibaba Cloud account that performs the operation.
+     * @description The ID of the region where the instance resides.
      *
-     * >  If the value is **system**, the operation is performed by Anti-DDoS Origin.
+     * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/118703.html) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -80,35 +81,9 @@ class DescribeOpEntitiesRequest extends Model
     public $regionId;
 
     /**
-     * @description The details about the operation. The value is a string that consists of a JSON struct. The JSON struct contains the following fields:
+     * @description The ID of the resource group to which the instance belongs in Resource Management.
      *
-     *   **entity**: the operation object. Data type: object. The fields that are included in the value of the **entity** parameter vary based on the value of the **OpAction** parameter. Take note of the following items:
-     *
-     *   If the value of the **OpAction** parameter is **3**, the value of the **entity** parameter consists of the following field:
-     *
-     *   **ips**: the public IP addresses that are protected by the Anti-DDoS Origin instance. Data type: array
-     *
-     *   If the value of the **OpAction** parameter is **4**, the value of the **entity** parameter consists of the following field:
-     *
-     *   **ips**: the public IP addresses that are no longer protected by the Anti-DDoS Origin instance. Data type: array.
-     *
-     *   If the value of the **OpAction** parameter is **5**, the value of the **entity** parameter consists of the following fields:
-     *
-     *   **baseBandwidth**: the basic protection bandwidth. Unit: Gbit/s. Data type: integer.
-     *   **elasticBandwidth**: the burstable protection bandwidth. Unit: Gbit/s. Data type: integer.
-     *   **opSource**: the source of the operation. The value is fixed as **1**, indicating that the operation is performed by Anti-DDoS Origin. Data type: integer.
-     *
-     *   If the value of the **OpAction** parameter is **6**, the value of the **entity** parameter consists of the following field:
-     *
-     *   **ips**: the public IP addresses for which to deactivate blackhole filtering. Data type: array.
-     *
-     *   If the value of the **OpAction** parameter is **7**, the **entity** parameter is not returned.
-     *
-     *   If the value of the **OpAction** parameter is **8**, the value of the **entity** parameter consists of the following fields:
-     *
-     *   **baseBandwidth**: the basic protection bandwidth. Unit: Gbit/s. Data type: integer.
-     *   **elasticBandwidth**: the burstable protection bandwidth. Unit: Gbit/s. Data type: integer.
-     *
+     * If you do not specify this parameter, the instance belongs to the default resource group.
      * @example rg-acfm2pz25js****
      *
      * @var string
@@ -116,7 +91,7 @@ class DescribeOpEntitiesRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description The sorting method of operation logs. Set the value to **opdate**, which indicates sorting based on the operation time.
+     * @description The start time. Operation logs that were generated after this time are queried.**** The value is a UNIX timestamp. Unit: milliseconds.
      *
      * This parameter is required.
      * @example 1609430400000

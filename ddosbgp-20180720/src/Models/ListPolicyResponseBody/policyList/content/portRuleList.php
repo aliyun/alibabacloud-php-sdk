@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class portRuleList extends Model
 {
     /**
+     * @description The end of the destination port range. Valid values: **0** to **65535**.
+     *
      * @example 65535
      *
      * @var int
@@ -16,6 +18,8 @@ class portRuleList extends Model
     public $dstPortEnd;
 
     /**
+     * @description The start of the destination port range. Valid values: **0** to **65535**.
+     *
      * @example 0
      *
      * @var int
@@ -23,6 +27,8 @@ class portRuleList extends Model
     public $dstPortStart;
 
     /**
+     * @description The ID of the rule.
+     *
      * @example 8f3c3062-6c20-425d-8405-2bd1********
      *
      * @var string
@@ -30,6 +36,10 @@ class portRuleList extends Model
     public $id;
 
     /**
+     * @description The action triggered if the rule is matched. Valid value:
+     *
+     *   **drop**: The traffic is discarded.
+     *
      * @example drop
      *
      * @var string
@@ -37,6 +47,11 @@ class portRuleList extends Model
     public $matchAction;
 
     /**
+     * @description The protocol type. Valid values:
+     *
+     *   **tcp**
+     *   **udp**
+     *
      * @example udp
      *
      * @var string
@@ -44,6 +59,8 @@ class portRuleList extends Model
     public $protocol;
 
     /**
+     * @description The sequence number that indicates the order for the rule to take effect. The value is an integer.
+     *
      * @example 1
      *
      * @var int
@@ -51,6 +68,8 @@ class portRuleList extends Model
     public $seqNo;
 
     /**
+     * @description The end of the source port range. Valid values: **0** to **65535**.
+     *
      * @example 65535
      *
      * @var int
@@ -58,6 +77,8 @@ class portRuleList extends Model
     public $srcPortEnd;
 
     /**
+     * @description The start of the source port range. Valid values: **0** to **65535**.
+     *
      * @example 0
      *
      * @var int

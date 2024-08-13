@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ReleaseDdosOriginInstanceResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example B4B379C2-9319-4C6B-B579-FE36831B09F4
      *
      * @var string

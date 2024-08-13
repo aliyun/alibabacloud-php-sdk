@@ -18,7 +18,7 @@ class tagKeys extends Model
     public $tagCount;
 
     /**
-     * @description The key of each tag.
+     * @description The tag key.
      *
      * @example a
      *

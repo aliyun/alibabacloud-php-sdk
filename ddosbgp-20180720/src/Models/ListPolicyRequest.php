@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListPolicyRequest extends Model
 {
     /**
+     * @description The name of the policy.
+     *
      * @example test**
      *
      * @var string
@@ -16,6 +18,8 @@ class ListPolicyRequest extends Model
     public $name;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +27,8 @@ class ListPolicyRequest extends Model
     public $pageNo;
 
     /**
+     * @description The number of entries per page. Default value: **10**.
+     *
      * @example 10
      *
      * @var int
@@ -30,16 +36,27 @@ class ListPolicyRequest extends Model
     public $pageSize;
 
     /**
+     * @var string
+     */
+    public $productType;
+
+    /**
+     * @description The type of the policy. Valid values:
+     *
+     *   **l3**: IP-specific mitigation policies.
+     *   **l4**: port-specific mitigation policies.
+     *
      * @example l3
      *
      * @var string
      */
     public $type;
     protected $_name = [
-        'name'     => 'Name',
-        'pageNo'   => 'PageNo',
-        'pageSize' => 'PageSize',
-        'type'     => 'Type',
+        'name'        => 'Name',
+        'pageNo'      => 'PageNo',
+        'pageSize'    => 'PageSize',
+        'productType' => 'ProductType',
+        'type'        => 'Type',
     ];
 
     public function validate()
@@ -57,6 +74,9 @@ class ListPolicyRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->productType) {
+            $res['ProductType'] = $this->productType;
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
@@ -81,6 +101,9 @@ class ListPolicyRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['ProductType'])) {
+            $model->productType = $map['ProductType'];
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];

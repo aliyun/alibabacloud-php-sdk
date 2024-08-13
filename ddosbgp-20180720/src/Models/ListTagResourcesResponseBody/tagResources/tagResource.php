@@ -18,7 +18,7 @@ class tagResource extends Model
     public $resourceId;
 
     /**
-     * @description The type of the resource. The value is fixed as **INSTANCE**, which indicates instances.
+     * @description The type of the resource. The value is set to **INSTANCE**.
      *
      * @example INSTANCE
      *

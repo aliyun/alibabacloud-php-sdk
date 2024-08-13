@@ -20,7 +20,7 @@ class QuerySchedruleOnDemandResponseBody extends Model
     public $instanceId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 4A8F9980-5ACB-497F-9F15-48E9D6B29028
      *

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class sourceBlockList extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The validity period of the blacklist to which the source IP address is added. Unit: seconds.
      *
+     * This parameter is required.
      * @example 120
      *
      * @var int
@@ -18,8 +19,9 @@ class sourceBlockList extends Model
     public $blockExpireSeconds;
 
     /**
-     * @description This parameter is required.
+     * @description The statistical period during which the system collects data on source IP addresses to determine whether to add the source IP addresses to the blacklist. Unit: seconds.
      *
+     * This parameter is required.
      * @example 60
      *
      * @var int
@@ -27,8 +29,9 @@ class sourceBlockList extends Model
     public $everySeconds;
 
     /**
-     * @description This parameter is required.
+     * @description The number of times that the source IP address exceeds a limit in a statistical period.
      *
+     * This parameter is required.
      * @example 5
      *
      * @var int
@@ -36,8 +39,14 @@ class sourceBlockList extends Model
     public $exceedLimitTimes;
 
     /**
-     * @description This parameter is required.
+     * @description The type of the source rate limit. Valid values:
      *
+     *   **3**: the PPS limit on source IP addresses.
+     *   **4**: the bandwidth limit on source IP addresses.
+     *   **5**: the PPS limit on source SYN packets.
+     *   **6**: the bandwidth limit on source SYN packets.
+     *
+     * This parameter is required.
      * @example 3
      *
      * @var int

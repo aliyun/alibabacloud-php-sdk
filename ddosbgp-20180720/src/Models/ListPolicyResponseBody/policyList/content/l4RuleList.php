@@ -10,6 +10,10 @@ use AlibabaCloud\Tea\Model;
 class l4RuleList extends Model
 {
     /**
+     * @description The action that is specified in the rule. Valid value:
+     *
+     *   **2**: The traffic is discarded.
+     *
      * @example 2
      *
      * @var string
@@ -17,11 +21,15 @@ class l4RuleList extends Model
     public $action;
 
     /**
+     * @description The match conditions.
+     *
      * @var conditionList[]
      */
     public $conditionList;
 
     /**
+     * @description The minimum number of bytes in a session to trigger matching. Valid values: **0** to **2048**.
+     *
      * @example 0
      *
      * @var int
@@ -29,6 +37,11 @@ class l4RuleList extends Model
     public $limited;
 
     /**
+     * @description The condition based on which an action is performed. Valid values:
+     *
+     *   **0**: If the rule is matched, the action specified in the rule is performed.
+     *   **1**: If the rule is not matched, the action specified in the rule is performed.
+     *
      * @example 1
      *
      * @var string
@@ -36,6 +49,11 @@ class l4RuleList extends Model
     public $match;
 
     /**
+     * @description The type of the rule. Valid values:
+     *
+     *   **char**: string match.
+     *   **hex**: hexadecimal string match.
+     *
      * @example char
      *
      * @var string
@@ -43,6 +61,8 @@ class l4RuleList extends Model
     public $method;
 
     /**
+     * @description The name of the rule.
+     *
      * @example test**
      *
      * @var string
@@ -50,6 +70,8 @@ class l4RuleList extends Model
     public $name;
 
     /**
+     * @description The priority of the rule.
+     *
      * @example 1
      *
      * @var int

@@ -11,8 +11,8 @@ class slsConfigStatus extends Model
     /**
      * @description Indicates whether log analysis was enabled for the Anti-DDoS Origin instance. Valid values:
      *
-     *   **true**: Log analysis was enabled.
-     *   **false**: Log analysis was disabled.
+     *   **true**
+     *   **false**
      *
      * @example true
      *

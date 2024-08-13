@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class packConfig extends Model
 {
     /**
-     * @description The bandwidth of the package configuration.
+     * @description The bandwidth. Unit: Gbit/s.
      *
      * @example 2
      *
@@ -27,7 +27,7 @@ class packConfig extends Model
     public $bindIpCount;
 
     /**
-     * @description The burstable bandwidth of each protected IP address. Unit: Gbit/s.
+     * @description The burstable protection bandwidth of each protected IP address. Unit: Gbit/s.
      *
      * @example 300
      *
@@ -36,7 +36,7 @@ class packConfig extends Model
     public $ipAdvanceThre;
 
     /**
-     * @description The basic bandwidth of each protected IP address. Unit: Gbit/s.
+     * @description The basic protection bandwidth of each protected IP address. Unit: Gbit/s.
      *
      * @example 20
      *
@@ -54,7 +54,7 @@ class packConfig extends Model
     public $ipSpec;
 
     /**
-     * @description The normal clean bandwidth. Unit: Mbit/s.
+     * @description The clean bandwidth. Unit: Mbit/s.
      *
      * @example 200
      *

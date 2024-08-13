@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class attachmentList extends Model
 {
     /**
+     * @description The IP address of the protected object.
+     *
      * @example 147.139.183.***
      *
      * @var string
@@ -16,6 +18,8 @@ class attachmentList extends Model
     public $ip;
 
     /**
+     * @description The UID of the member to which the IP address of the protected object belongs.
+     *
      * @example 177699790631****
      *
      * @var string
@@ -23,6 +27,8 @@ class attachmentList extends Model
     public $memberUid;
 
     /**
+     * @description The ID of the policy.
+     *
      * @example 1b43f44e-65e1-411a-b0c0-d6c1********
      *
      * @var string
@@ -30,6 +36,8 @@ class attachmentList extends Model
     public $policyId;
 
     /**
+     * @description The name of the rule.
+     *
      * @example test**
      *
      * @var string
@@ -37,6 +45,16 @@ class attachmentList extends Model
     public $policyName;
 
     /**
+     * @var string
+     */
+    public $policyRemark;
+
+    /**
+     * @description The type of the policy. Valid values:
+     *
+     *   **l3**: IP-specific mitigation policies.
+     *   **l4**: port-specific mitigation policies.
+     *
      * @example l3
      *
      * @var string
@@ -44,6 +62,8 @@ class attachmentList extends Model
     public $policyType;
 
     /**
+     * @description The port number of the protected object.
+     *
      * @example 8*
      *
      * @var int
@@ -51,6 +71,11 @@ class attachmentList extends Model
     public $port;
 
     /**
+     * @description The protocol type of the protected object. Valid values:
+     *
+     *   **tcp**
+     *   **udp**
+     *
      * @example udp
      *
      * @var string
@@ -58,20 +83,23 @@ class attachmentList extends Model
     public $protocol;
 
     /**
+     * @description The region to which the IP address of the protected object belongs.
+     *
      * @example cn-hangzhou
      *
      * @var string
      */
     public $region;
     protected $_name = [
-        'ip'         => 'Ip',
-        'memberUid'  => 'MemberUid',
-        'policyId'   => 'PolicyId',
-        'policyName' => 'PolicyName',
-        'policyType' => 'PolicyType',
-        'port'       => 'Port',
-        'protocol'   => 'Protocol',
-        'region'     => 'Region',
+        'ip'           => 'Ip',
+        'memberUid'    => 'MemberUid',
+        'policyId'     => 'PolicyId',
+        'policyName'   => 'PolicyName',
+        'policyRemark' => 'PolicyRemark',
+        'policyType'   => 'PolicyType',
+        'port'         => 'Port',
+        'protocol'     => 'Protocol',
+        'region'       => 'Region',
     ];
 
     public function validate()
@@ -92,6 +120,9 @@ class attachmentList extends Model
         }
         if (null !== $this->policyName) {
             $res['PolicyName'] = $this->policyName;
+        }
+        if (null !== $this->policyRemark) {
+            $res['PolicyRemark'] = $this->policyRemark;
         }
         if (null !== $this->policyType) {
             $res['PolicyType'] = $this->policyType;
@@ -128,6 +159,9 @@ class attachmentList extends Model
         }
         if (isset($map['PolicyName'])) {
             $model->policyName = $map['PolicyName'];
+        }
+        if (isset($map['PolicyRemark'])) {
+            $model->policyRemark = $map['PolicyRemark'];
         }
         if (isset($map['PolicyType'])) {
             $model->policyType = $map['PolicyType'];

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class fingerPrintRuleList extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The end of the destination port range. Valid values: **0** to **65535**.
      *
+     * This parameter is required.
      * @example 65535
      *
      * @var int
@@ -18,8 +19,9 @@ class fingerPrintRuleList extends Model
     public $dstPortEnd;
 
     /**
-     * @description This parameter is required.
+     * @description The start of the destination port range. Valid values: **0** to **65535**.
      *
+     * This parameter is required.
      * @example 0
      *
      * @var int
@@ -27,6 +29,8 @@ class fingerPrintRuleList extends Model
     public $dstPortStart;
 
     /**
+     * @description The ID of the rule.
+     *
      * @example 83967609-7ea5-4f6d-a6ea-380b09e****
      *
      * @var string
@@ -34,8 +38,14 @@ class fingerPrintRuleList extends Model
     public $id;
 
     /**
-     * @description This parameter is required.
+     * @description The action triggered if the rule is matched. Valid values:
      *
+     *   **permit**: allows the traffic that matches the conditions in the byte-match filter rule.
+     *   **drop**: discards the traffic that matches the conditions in the byte-match filter rule.
+     *   **ip_rate**: limits rates on the source IP address whose traffic matches the conditions in the byte-match filter rule. The rate limit is specified by **RateValue**.
+     *   **session_rate**: limits the number of sessions from the source IP address whose traffic matches the conditions in the byte-match filter rule. The rate limit is specified by **RateValue**.
+     *
+     * This parameter is required.
      * @example drop
      *
      * @var string
@@ -43,8 +53,9 @@ class fingerPrintRuleList extends Model
     public $matchAction;
 
     /**
-     * @description This parameter is required.
+     * @description The maximum packet length. Valid values: **1** to **1500**.
      *
+     * This parameter is required.
      * @example 1500
      *
      * @var int
@@ -52,8 +63,9 @@ class fingerPrintRuleList extends Model
     public $maxPktLen;
 
     /**
-     * @description This parameter is required.
+     * @description The minimum packet length. Valid values: **1** to **1500**.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -61,6 +73,8 @@ class fingerPrintRuleList extends Model
     public $minPktLen;
 
     /**
+     * @description The offset. Valid values: **0** to **1500**.
+     *
      * @example 0
      *
      * @var int
@@ -68,6 +82,8 @@ class fingerPrintRuleList extends Model
     public $offset;
 
     /**
+     * @description The payload. The value is a hexadecimal string.
+     *
      * @example abcd
      *
      * @var string
@@ -75,8 +91,12 @@ class fingerPrintRuleList extends Model
     public $payloadBytes;
 
     /**
-     * @description This parameter is required.
+     * @description The protocol type. Valid values:
      *
+     *   **tcp**
+     *   **udp**
+     *
+     * This parameter is required.
      * @example tcp
      *
      * @var string
@@ -84,6 +104,9 @@ class fingerPrintRuleList extends Model
     public $protocol;
 
     /**
+     * @description The rate limit. Valid values: **1** to **100000**.
+     *
+     * >  This parameter is required when **MatchAction** is set to **ip_rate** or **session_rate**.
      * @example 100
      *
      * @var int
@@ -91,8 +114,9 @@ class fingerPrintRuleList extends Model
     public $rateValue;
 
     /**
-     * @description This parameter is required.
+     * @description The sequence number that indicates the order for the rule to take effect. The value is an integer.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -100,8 +124,9 @@ class fingerPrintRuleList extends Model
     public $seqNo;
 
     /**
-     * @description This parameter is required.
+     * @description The end of the source port range. Valid values: **0** to **65535**.
      *
+     * This parameter is required.
      * @example 65535
      *
      * @var int
@@ -109,8 +134,9 @@ class fingerPrintRuleList extends Model
     public $srcPortEnd;
 
     /**
-     * @description This parameter is required.
+     * @description The start of the source port range. Valid values: **0** to **65535**.
      *
+     * This parameter is required.
      * @example 0
      *
      * @var int

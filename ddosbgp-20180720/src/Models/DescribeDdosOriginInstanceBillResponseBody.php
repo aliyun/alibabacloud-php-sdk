@@ -12,6 +12,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeDdosOriginInstanceBillResponseBody extends Model
 {
     /**
+     * @description The payment status. Valid values:
+     *
+     *   **0**: The payment is not overdue.
+     *   **1**: The payment is overdue.
+     *
      * @example 0
      *
      * @var int
@@ -19,11 +24,15 @@ class DescribeDdosOriginInstanceBillResponseBody extends Model
     public $debtStatus;
 
     /**
+     * @description The details about the traffic of EIPs with Anti-DDoS (Enhanced) enabled.
+     *
      * @var flowList[]
      */
     public $flowList;
 
     /**
+     * @description The traffic distribution of EIPs with Anti-DDoS (Enhanced) enabled by region.
+     *
      * @example {\\"cn-hongkong\\": 166491566}
      *
      * @var mixed[]
@@ -31,6 +40,8 @@ class DescribeDdosOriginInstanceBillResponseBody extends Model
     public $flowRegion;
 
     /**
+     * @description The ID of the Anti-DDoS Origin (Pay-as-you-go) instance to query.
+     *
      * @example ddosorigin_cn-u7c3lcr9r02
      *
      * @var string
@@ -38,6 +49,8 @@ class DescribeDdosOriginInstanceBillResponseBody extends Model
     public $instanceId;
 
     /**
+     * @description The number of protected IP addresses.
+     *
      * @example 15
      *
      * @var int
@@ -45,11 +58,20 @@ class DescribeDdosOriginInstanceBillResponseBody extends Model
     public $ipCount;
 
     /**
+     * @description The protected IP addresses and enabled features.
+     *
      * @var ipCountOrFunctionList[]
      */
     public $ipCountOrFunctionList;
 
     /**
+     * @description The IP address distribution. The JSON struct contains the following fields:
+     *
+     *   **eipCnIpCount**: the number of EIPs with Anti-DDoS (Enhanced) enabled in the Chinese mainland
+     *   **eipOvIpCount**: the number of EIPs with Anti-DDoS (Enhanced) enabled outside the Chinese mainland
+     *   **standardAssetsCnIpCount**: the number of IP addresses of regular Alibaba Cloud services in the Chinese mainland
+     *   **standardAssetsOvIpCount**: the number of IP addresses of regular Alibaba Cloud services outside the Chinese mainland
+     *
      * @example {\\"eipCnIpCount\\":6,\\"eipOvIpCount\\":17,\\"standardAssetsCnIpCount\\":2,\\"standardAssetsOvIpCount\\":0}
      *
      * @var string
@@ -57,6 +79,8 @@ class DescribeDdosOriginInstanceBillResponseBody extends Model
     public $ipInfo;
 
     /**
+     * @description The request ID.
+     *
      * @example 72155560-F343-55C8-82FE-ED4D7E4AA97E
      *
      * @var string
@@ -64,11 +88,15 @@ class DescribeDdosOriginInstanceBillResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The details about the traffic of regular Alibaba Cloud services.
+     *
      * @var standardAssetsFlowList[]
      */
     public $standardAssetsFlowList;
 
     /**
+     * @description The traffic distribution of regular Alibaba Cloud services by region.
+     *
      * @example {\\"cn-hongkong\\": 166491566}
      *
      * @var mixed[]
@@ -76,6 +104,8 @@ class DescribeDdosOriginInstanceBillResponseBody extends Model
     public $standardAssetsFlowRegion;
 
     /**
+     * @description The total traffic of regular Alibaba Cloud services in the Chinese mainland in the current month.
+     *
      * @example 0
      *
      * @var int
@@ -83,6 +113,8 @@ class DescribeDdosOriginInstanceBillResponseBody extends Model
     public $standardAssetsTotalFlowCn;
 
     /**
+     * @description The total traffic of regular Alibaba Cloud services outside the Chinese mainland in the current month.
+     *
      * @example 0
      *
      * @var int
@@ -90,6 +122,12 @@ class DescribeDdosOriginInstanceBillResponseBody extends Model
     public $standardAssetsTotalFlowOv;
 
     /**
+     * @description The instance status. Valid values:
+     *
+     *   **1**: normal
+     *   **2**: expired
+     *   **3**: released
+     *
      * @example 1
      *
      * @var int
@@ -97,6 +135,8 @@ class DescribeDdosOriginInstanceBillResponseBody extends Model
     public $status;
 
     /**
+     * @description The total traffic of EIPs with Anti-DDoS (Enhanced) enabled in the Chinese mainland in the current month. Unit: bytes.
+     *
      * @example 6302081067
      *
      * @var int
@@ -104,6 +144,8 @@ class DescribeDdosOriginInstanceBillResponseBody extends Model
     public $totalFlowCn;
 
     /**
+     * @description The total traffic of EIPs with Anti-DDoS (Enhanced) enabled outside the Chinese mainland in the current month. Unit: bytes.
+     *
      * @example 6204918019
      *
      * @var int

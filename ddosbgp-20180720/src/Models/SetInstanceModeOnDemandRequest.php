@@ -19,7 +19,7 @@ class SetInstanceModeOnDemandRequest extends Model
     public $instanceIdList;
 
     /**
-     * @description The scheduling mode of the on-demand instance. Valid values:
+     * @description Specifies the scheduling mode for on-demand instances. Valid values:
      *
      *   **manual**: manual scheduling
      *   **netflow-auto**: automatic scheduling
@@ -34,7 +34,7 @@ class SetInstanceModeOnDemandRequest extends Model
     /**
      * @description The region ID of the on-demand instance.
      *
-     * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/118703.html) operation to query all regions supported by Anti-DDoS Origin.
+     * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/118703.html) operation to query all regions that are supported by Anti-DDoS Origin.
      * @example cn-zhangjiakou
      *
      * @var string

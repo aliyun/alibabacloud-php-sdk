@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeOpEntitiesResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The details of the operation log.
      *
      * @var opEntities[]
      */
     public $opEntities;
 
     /**
-     * @description The end time. Operation logs that were generated before this time are queried.**** This value is a UNIX timestamp. Unit: milliseconds.
+     * @description The ID of the request.
      *
      * @example 52C8ECB0-0B1A-4E66-A31C-B6A855120E82
      *
@@ -26,7 +26,7 @@ class DescribeOpEntitiesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The time when the log was generated. This value is a UNIX timestamp. Unit: milliseconds.
+     * @description The total number of operation logs.
      *
      * @example 1
      *

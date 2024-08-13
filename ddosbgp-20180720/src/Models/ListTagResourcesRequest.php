@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesRequest extends Model
 {
     /**
-     * @description The query token. Set the value to the **NextToken** value that is returned in the last call to the ListTagResources operation. Leave this parameter empty the first time you call this operation.
+     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of **NextToken**.
      *
      * @example RGuYpqDdKhzXb8C3.D1BwQgc1tMBsoxdGiEKHHUUCf****
      *
@@ -39,9 +39,9 @@ class ListTagResourcesRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description The IDs of Anti-DDoS Origin Instances to query.
+     * @description The IDs of the Anti-DDoS Origin instances to query.
      *
-     * >  You can call the [DescribeInstanceList](https://help.aliyun.com/document_detail/118698.html) operation to query the IDs of all Anti-DDoS Origin instances.
+     * >  The **ResourceId** parameter and the **key-value pair for the Tag parameter** cannot be left empty at the same time.
      * @example ddosbgp-cn-v0h1fmwbc024
      *
      * @var string[]
@@ -49,7 +49,7 @@ class ListTagResourcesRequest extends Model
     public $resourceId;
 
     /**
-     * @description The type of the resource to query. Set the value to **INSTANCE**, which indicates instances.
+     * @description The type of the resource to query. Set the value to **INSTANCE**.
      *
      * This parameter is required.
      * @example INSTANCE
@@ -59,7 +59,7 @@ class ListTagResourcesRequest extends Model
     public $resourceType;
 
     /**
-     * @description The tags to query.
+     * @description The key-value pair of the tag to query.
      *
      * @var tag[]
      */

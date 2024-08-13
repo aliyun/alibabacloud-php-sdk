@@ -10,8 +10,11 @@ use AlibabaCloud\Tea\Model;
 class l4RuleList extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The action that is specified in the rule. Valid value:
      *
+     *   **2**: The traffic is discarded.
+     *
+     * This parameter is required.
      * @example 2
      *
      * @var string
@@ -19,15 +22,17 @@ class l4RuleList extends Model
     public $action;
 
     /**
-     * @description This parameter is required.
+     * @description The match conditions.
      *
+     * This parameter is required.
      * @var conditionList[]
      */
     public $conditionList;
 
     /**
-     * @description This parameter is required.
+     * @description The minimum number of bytes in a session to trigger matching. Valid values: **0** to **2048**.
      *
+     * This parameter is required.
      * @example 0
      *
      * @var int
@@ -35,8 +40,12 @@ class l4RuleList extends Model
     public $limited;
 
     /**
-     * @description This parameter is required.
+     * @description The condition based on which an action is performed. Valid values:
      *
+     *   **0**: If the rule is matched, the action specified in the rule is performed.
+     *   **1**: If the rule is not matched, the action specified in the rule is performed.
+     *
+     * This parameter is required.
      * @example 0
      *
      * @var string
@@ -44,8 +53,12 @@ class l4RuleList extends Model
     public $match;
 
     /**
-     * @description This parameter is required.
+     * @description The type of the rule. Valid values:
      *
+     *   **char**: string match.
+     *   **hex**: hexadecimal string match.
+     *
+     * This parameter is required.
      * @example char
      *
      * @var string
@@ -53,8 +66,9 @@ class l4RuleList extends Model
     public $method;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the rule.
      *
+     * This parameter is required.
      * @example test****
      *
      * @var string
@@ -62,8 +76,9 @@ class l4RuleList extends Model
     public $name;
 
     /**
-     * @description This parameter is required.
+     * @description The priority of the rule. Valid values: **1** to **100**.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int

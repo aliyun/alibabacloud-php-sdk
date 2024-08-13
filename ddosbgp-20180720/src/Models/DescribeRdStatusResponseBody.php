@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeRdStatusResponseBody extends Model
 {
     /**
+     * @description The Alibaba Cloud account ID of the current account.
+     *
      * @example 125085778340****
      *
      * @var string
@@ -16,6 +18,12 @@ class DescribeRdStatusResponseBody extends Model
     public $currentUid;
 
     /**
+     * @description The type of the Alibaba Cloud account. Valid values:
+     *
+     *   **MasterAccount**: management account
+     *   **DelegatedAdminAccount**: delegated administrator account
+     *   **MasterAccount**: member
+     *
      * @example MemberAccount
      *
      * @var string
@@ -23,6 +31,8 @@ class DescribeRdStatusResponseBody extends Model
     public $currentUidType;
 
     /**
+     * @description Indicates whether the multi-account management feature is enabled for Anti-DDoS Origin.
+     *
      * @example false
      *
      * @var bool
@@ -30,6 +40,8 @@ class DescribeRdStatusResponseBody extends Model
     public $enabled;
 
     /**
+     * @description Indicates whether the multi-account management feature is enabled for the current account in Anti-DDoS Origin.
+     *
      * @example false
      *
      * @var bool
@@ -37,6 +49,8 @@ class DescribeRdStatusResponseBody extends Model
     public $localEnable;
 
     /**
+     * @description The Alibaba Cloud account ID of the management account in the resource directory.
+     *
      * @example 125085778340****
      *
      * @var string
@@ -44,6 +58,8 @@ class DescribeRdStatusResponseBody extends Model
     public $masterUid;
 
     /**
+     * @description Indicates whether Resource Directory is enabled in the [Resource Management console](https://resourcemanager.console.aliyun.com).
+     *
      * @example false
      *
      * @var bool
@@ -51,6 +67,8 @@ class DescribeRdStatusResponseBody extends Model
     public $remoteEnable;
 
     /**
+     * @description The request ID.
+     *
      * @example 1B0F7EC6-51D7-4D70-B0EC-CD8A9E998D86
      *
      * @var string
@@ -58,6 +76,8 @@ class DescribeRdStatusResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The Alibaba Cloud account ID of the management account for which the multi-account management feature is enabled in Anti-DDoS Origin.
+     *
      * @example 125085778340****
      *
      * @var string
@@ -65,6 +85,8 @@ class DescribeRdStatusResponseBody extends Model
     public $rootUid;
 
     /**
+     * @description Indicates whether the trusted service is enabled.
+     *
      * @example false
      *
      * @var bool

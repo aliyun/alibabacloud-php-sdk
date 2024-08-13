@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class conditionList extends Model
 {
     /**
+     * @description The term that is used for matching.
+     *
+     * >  If Method is set to **char**, the value of this parameter must be ASCII strings. If Method is set to **hex**, the value of this parameter must be hexadecimal strings. Maximum length: 2,048.
      * @example test
      *
      * @var string
@@ -16,6 +19,8 @@ class conditionList extends Model
     public $arg;
 
     /**
+     * @description The number of bytes from the start position for matching. Valid values: **1** to **2048**.
+     *
      * @example 32
      *
      * @var int
@@ -23,6 +28,8 @@ class conditionList extends Model
     public $depth;
 
     /**
+     * @description The start position for matching. Valid values: **0** to **2047**.
+     *
      * @example 0
      *
      * @var int

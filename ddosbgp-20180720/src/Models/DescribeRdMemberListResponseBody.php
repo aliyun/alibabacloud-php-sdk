@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeRdMemberListResponseBody extends Model
 {
     /**
+     * @description The list of the members.
+     *
      * @var memberList[]
      */
     public $memberList;
 
     /**
+     * @description The request ID.
+     *
      * @example DC245DEE-9800-5579-BF99-189D6A5BA9FE
      *
      * @var string
@@ -22,6 +26,8 @@ class DescribeRdMemberListResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 10
      *
      * @var int

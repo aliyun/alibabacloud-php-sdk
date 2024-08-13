@@ -9,10 +9,10 @@ use AlibabaCloud\Tea\Model;
 class CheckAccessLogAuthResponseBody extends Model
 {
     /**
-     * @description Indicates whether Anti-DDoS Origin was authorized to access Log Service. Valid values:
+     * @description Indicates whether Anti-DDoS Origin was authorized to access Simple Log Service. Valid values:
      *
-     *   **true**: Anti-DDoS Origin was authorized.
-     *   **false**: Anti-DDoS Origin was not authorized.
+     *   **true**
+     *   **false**
      *
      * @example true
      *
@@ -21,7 +21,7 @@ class CheckAccessLogAuthResponseBody extends Model
     public $accessLogAuth;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 864FE2F4-CB2E-4024-B9EF-D59FD08ABD41
      *

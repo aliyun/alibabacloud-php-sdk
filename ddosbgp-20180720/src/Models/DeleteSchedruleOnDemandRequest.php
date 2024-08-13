@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteSchedruleOnDemandRequest extends Model
 {
     /**
-     * @description The ID of the on-demand instance.
+     * @description The ID of the anti-DDoS diversion instance.
      *
      * This parameter is required.
      * @example ddosbgp-cn-z2q1qzxb****
@@ -19,9 +19,9 @@ class DeleteSchedruleOnDemandRequest extends Model
     public $instanceId;
 
     /**
-     * @description The region ID of the on-demand instance.
+     * @description The region ID of the anti-DDoS diversion instance.
      *
-     * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/118703.html) operation to query all regions supported by Anti-DDoS Origin.
+     * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/118703.html) operation to query the most recent region list.
      * @example cn-zhangjiakou
      *
      * @var string

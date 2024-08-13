@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ReleaseDdosOriginInstanceRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the Anti-DDoS Origin instance that you want to release.
      *
+     * This parameter is required.
      * @example ddosorigin_cn-pe335v7gs01
      *
      * @var string

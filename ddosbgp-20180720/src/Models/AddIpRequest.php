@@ -23,6 +23,10 @@ class AddIpRequest extends Model
      *
      *   **ip**: required. The IP address that you want to add. Data type: string.
      *
+     **
+     *
+     **Note** The IP address must be the IP address of an asset that belongs to the current Alibaba Cloud account.
+     *
      * This parameter is required.
      * @example [{"ip":"1.XX.XX.1"},{"ip":"2.XX.XX.2"}]
      *
@@ -33,7 +37,7 @@ class AddIpRequest extends Model
     /**
      * @description The region ID of the Anti-DDoS Origin Enterprise instance.
      *
-     * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/118703.html) operation to query all regions supported by Anti-DDoS Origin.
+     * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/118703.html) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string

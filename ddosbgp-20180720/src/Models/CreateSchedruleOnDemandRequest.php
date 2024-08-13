@@ -21,7 +21,7 @@ class CreateSchedruleOnDemandRequest extends Model
     /**
      * @description The region ID of the on-demand instance.
      *
-     * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/118703.html) operation to query all regions supported by Anti-DDoS Origin.
+     * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/118703.html) operation to query the most recent region list.
      * @example cn-zhangjiakou
      *
      * @var string
@@ -51,7 +51,7 @@ class CreateSchedruleOnDemandRequest extends Model
     public $ruleConditionCnt;
 
     /**
-     * @description The threshold of inbound packets. Unit: Kpps. Minimum value: **10**.
+     * @description The threshold of inbound packets. Unit: kilo packets per second (Kpps). Minimum value: **10**.
      *
      * This parameter is required.
      * @example 10
@@ -85,8 +85,8 @@ class CreateSchedruleOnDemandRequest extends Model
     /**
      * @description Specifies whether the scheduling rule is enabled. Valid values:
      *
-     *   **on**: enabled
-     *   **off**: disabled
+     *   **on**
+     *   **off**
      *
      * This parameter is required.
      * @example on
@@ -100,7 +100,7 @@ class CreateSchedruleOnDemandRequest extends Model
      *
      * If the system detects that DDoS attacks stop, the system no longer reroutes traffic to the on-demand instance from the time you specified. We recommend that you set this parameter to a value that is defined as off-peak hours.
      *
-     * >  This parameter takes effect only when the **RuleUndoMode** parameter is set to **auto**.
+     * >  This parameter takes effect only when the value of **RuleUndoMode** is **auto**.
      *
      * This parameter is required.
      * @example 03:00
@@ -121,8 +121,8 @@ class CreateSchedruleOnDemandRequest extends Model
     /**
      * @description The stop method of the scheduling rule. Valid values:
      *
-     *   **auto**: The scheduling rule automatically stops.
-     *   **manual**: The scheduling rule is manually stopped.
+     *   **auto**
+     *   **manual**
      *
      * This parameter is required.
      * @example auto
@@ -136,7 +136,7 @@ class CreateSchedruleOnDemandRequest extends Model
      *
      * For example, the value `GMT-08:00` indicates that the time zone is UTC+8.
      *
-     * >  This parameter takes effect only when the **RuleUndoMode** parameter is set to **auto**.
+     * >  This parameter takes effect only when the value of **RuleUndoMode** is **auto**.
      *
      * This parameter is required.
      * @example GMT-08:00

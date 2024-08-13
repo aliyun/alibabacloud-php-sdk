@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class instanceSpecs extends Model
 {
     /**
-     * @description The number of times that the unlimited protection feature can be enabled.
+     * @description The available best-effort protection sessions.
      *
      * @example 2
      *
@@ -28,12 +28,16 @@ class instanceSpecs extends Model
     public $availableDeleteBlackholeCount;
 
     /**
+     * @description The percentage of the used best-effort protection sessions. Unit: %.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $defenseTimesPercent;
 
     /**
-     * @description The ID of the Anti-DDoS Origin Enterprise instance.
+     * @description The region ID of the Anti-DDoS Origin Enterprise instance.
      *
      * @example ddosbgp-cn-n6w1r7nz****
      *
@@ -42,10 +46,10 @@ class instanceSpecs extends Model
     public $instanceId;
 
     /**
-     * @description Indicates whether the unlimited protection feature is enabled. Valid values:
+     * @description Indicates whether best-effort protection is enabled. Valid values:
      *
-     *   **0**: The unlimited protection feature is disabled.
-     *   **1**: The unlimited protection feature is enabled.
+     *   **0**: Best-effort protection is disabled.
+     *   **1**: Best-effort protection is enabled.
      *
      * @example 1
      *
@@ -63,7 +67,7 @@ class instanceSpecs extends Model
     /**
      * @description The region ID of the Anti-DDoS Origin Enterprise instance.
      *
-     * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/118703.html) operation to query the name of the region.
+     * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/118703.html) operation to query the name of the region.
      * @example cn-hangzhou
      *
      * @var string
@@ -71,7 +75,7 @@ class instanceSpecs extends Model
     public $region;
 
     /**
-     * @description The number of times that the unlimited protection feature can be enabled.
+     * @description The total best-effort protection sessions.
      *
      * @example 2
      *
