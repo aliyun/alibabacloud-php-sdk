@@ -236,6 +236,11 @@ class desktops extends Model
     /**
      * @var string
      */
+    public $regionLocation;
+
+    /**
+     * @var string
+     */
     public $sessionType;
 
     /**
@@ -291,6 +296,7 @@ class desktops extends Model
         'protocolType'       => 'ProtocolType',
         'realDesktopId'      => 'RealDesktopId',
         'regionId'           => 'RegionId',
+        'regionLocation'     => 'RegionLocation',
         'sessionType'        => 'SessionType',
         'sessions'           => 'Sessions',
         'supportHibernation' => 'SupportHibernation',
@@ -423,6 +429,9 @@ class desktops extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->regionLocation) {
+            $res['RegionLocation'] = $this->regionLocation;
         }
         if (null !== $this->sessionType) {
             $res['SessionType'] = $this->sessionType;
@@ -577,6 +586,9 @@ class desktops extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['RegionLocation'])) {
+            $model->regionLocation = $map['RegionLocation'];
         }
         if (isset($map['SessionType'])) {
             $model->sessionType = $map['SessionType'];

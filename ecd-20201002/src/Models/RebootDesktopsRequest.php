@@ -93,6 +93,10 @@ class RebootDesktopsRequest extends Model
     public $sessionToken;
 
     /**
+     * @description The UUID of the client.
+     *
+     * @example 91761ED27169E2FC564F29388E2D****
+     *
      * @var string
      */
     public $uuid;

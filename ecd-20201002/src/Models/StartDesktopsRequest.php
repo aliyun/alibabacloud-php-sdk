@@ -85,6 +85,10 @@ class StartDesktopsRequest extends Model
     public $sessionId;
 
     /**
+     * @description The UUID of the client.
+     *
+     * @example 71F6A700735E74A61161A53F0C47****
+     *
      * @var string
      */
     public $uuid;

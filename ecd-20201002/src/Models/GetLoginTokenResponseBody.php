@@ -52,7 +52,7 @@ class GetLoginTokenResponseBody extends Model
     /**
      * @description The attribute of the convenience user. For an AD user, null is returned.
      *
-     * @example test:wuying
+     * @example test:sample
      *
      * @var string
      */
@@ -68,9 +68,9 @@ class GetLoginTokenResponseBody extends Model
     public $loginToken;
 
     /**
-     * @description The next stage that is expected to enter. For example, if the administrator enables MFA authentication in the EDS console, `MFAVerify` is returned after the username and password pass the authentication (after you set CurrentStage to `ADPassword` stage). This indicates that the MFA authentication is required.
+     * @description The next stage that is expected to enter. For example, an administrator enables MFA in the EDS console. When an end user enters the password, that is, the end user completes the `ADPassword` stage, this parameter returns `MFAVerify`. This indicates that MFA is required.
      *
-     * > For more information about each authentication stage, see the parameter description of the request parameter `CurrentStage`.
+     * >  For more information about the authentication stages, see the `CurrentStage` parameter.
      * @example MFAVerify
      *
      * @var string
@@ -78,6 +78,8 @@ class GetLoginTokenResponseBody extends Model
     public $nextStage;
 
     /**
+     * @description > This is a parameter only for internal use.
+     *
      * @var passwordStrategy
      */
     public $passwordStrategy;
@@ -109,6 +111,10 @@ class GetLoginTokenResponseBody extends Model
     public $qrCodePng;
 
     /**
+     * @description > This is a parameter only for internal use.
+     *
+     * @example null
+     *
      * @var string
      */
     public $reason;
@@ -123,6 +129,8 @@ class GetLoginTokenResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Risk identification information regarding the signin process.
+     *
      * @var riskVerifyInfo
      */
     public $riskVerifyInfo;

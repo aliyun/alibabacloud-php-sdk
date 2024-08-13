@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class passwordStrategy extends Model
 {
     /**
+     * @description > This is a parameter only for internal use.
+     *
      * @var string[]
      */
     public $tenantAlternativeChars;
 
     /**
+     * @description > This is a parameter only for internal use.
+     *
+     * @example null
+     *
      * @var string
      */
     public $tenantPasswordLength;

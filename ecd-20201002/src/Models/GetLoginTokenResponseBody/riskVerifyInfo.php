@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class riskVerifyInfo extends Model
 {
     /**
+     * @description The email used for authentication.
+     *
+     * @example user@example.com
+     *
      * @var string
      */
     public $email;
 
     /**
+     * @description The duration of the lock.
+     *
+     * @example 1713749778
+     *
      * @var int
      */
     public $lastLockDuration;
 
     /**
+     * @description Whether the account is locked or not.
+     *
+     * @example true
+     *
      * @var string
      */
     public $locked;
 
     /**
+     * @description The mobile number used for authentication.
+     *
+     * @example 1388888****
+     *
      * @var string
      */
     public $phone;
