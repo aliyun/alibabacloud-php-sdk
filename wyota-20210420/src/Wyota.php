@@ -2791,6 +2791,13 @@ class Wyota extends OpenApiClient
     public function listTerminalsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->serialNumbers)) {
+            $query['SerialNumbers'] = $request->serialNumbers;
+        }
+        if (!Utils::isUnset($request->uuids)) {
+            $query['Uuids'] = $request->uuids;
+        }
         $body = [];
         if (!Utils::isUnset($request->maxResults)) {
             $body['MaxResults'] = $request->maxResults;
@@ -2805,7 +2812,8 @@ class Wyota extends OpenApiClient
             $body['TerminalGroupId'] = $request->terminalGroupId;
         }
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListTerminals',

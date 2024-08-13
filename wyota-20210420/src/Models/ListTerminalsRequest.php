@@ -30,16 +30,28 @@ class ListTerminalsRequest extends Model
     public $searchKeyword;
 
     /**
+     * @var string[]
+     */
+    public $serialNumbers;
+
+    /**
      * @example tg-default
      *
      * @var string
      */
     public $terminalGroupId;
+
+    /**
+     * @var string[]
+     */
+    public $uuids;
     protected $_name = [
         'maxResults'      => 'MaxResults',
         'nextToken'       => 'NextToken',
         'searchKeyword'   => 'SearchKeyword',
+        'serialNumbers'   => 'SerialNumbers',
         'terminalGroupId' => 'TerminalGroupId',
+        'uuids'           => 'Uuids',
     ];
 
     public function validate()
@@ -58,8 +70,14 @@ class ListTerminalsRequest extends Model
         if (null !== $this->searchKeyword) {
             $res['SearchKeyword'] = $this->searchKeyword;
         }
+        if (null !== $this->serialNumbers) {
+            $res['SerialNumbers'] = $this->serialNumbers;
+        }
         if (null !== $this->terminalGroupId) {
             $res['TerminalGroupId'] = $this->terminalGroupId;
+        }
+        if (null !== $this->uuids) {
+            $res['Uuids'] = $this->uuids;
         }
 
         return $res;
@@ -82,8 +100,18 @@ class ListTerminalsRequest extends Model
         if (isset($map['SearchKeyword'])) {
             $model->searchKeyword = $map['SearchKeyword'];
         }
+        if (isset($map['SerialNumbers'])) {
+            if (!empty($map['SerialNumbers'])) {
+                $model->serialNumbers = $map['SerialNumbers'];
+            }
+        }
         if (isset($map['TerminalGroupId'])) {
             $model->terminalGroupId = $map['TerminalGroupId'];
+        }
+        if (isset($map['Uuids'])) {
+            if (!empty($map['Uuids'])) {
+                $model->uuids = $map['Uuids'];
+            }
         }
 
         return $model;
