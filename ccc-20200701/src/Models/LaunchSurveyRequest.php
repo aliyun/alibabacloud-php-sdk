@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class LaunchSurveyRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @example 4685b65a-eb8f-11ec-8ea0-0242ac120002
      *
      * @var string

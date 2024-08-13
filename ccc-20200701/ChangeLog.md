@@ -1,3 +1,7 @@
+2024-08-13 Version: 2.28.1
+- Update API LaunchSurvey: update param ContactFlowId.
+
+
 2024-08-12 Version: 2.28.0
 - Support API ListCallSummaries.
 - Support API ListWaitingChats.
