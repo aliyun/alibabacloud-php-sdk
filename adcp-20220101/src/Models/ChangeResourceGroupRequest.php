@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ChangeResourceGroupRequest extends Model
 {
     /**
-     * @description The ID of the new resource group.
+     * @description The ID of the new resource group. You can view the available resource groups in the Resource Management console.
      *
      * This parameter is required.
      * @example rg-aekzlvgbhaca***
@@ -19,7 +19,7 @@ class ChangeResourceGroupRequest extends Model
     public $newResourceGroupId;
 
     /**
-     * @description The resource ID. If ResourceType=cluster, the resource ID is ClusterId.
+     * @description The ID of the resource. The value of this parameter varies with the resource type. For example, if you set ResourceType to cluster, this parameter specifies a cluster ID.
      *
      * This parameter is required.
      * @example c9603ee23a84a41d6a1424619cb80****
@@ -29,7 +29,7 @@ class ChangeResourceGroupRequest extends Model
     public $resourceId;
 
     /**
-     * @description The type of the resource. Only cluster are supported. Set the value to cluster.
+     * @description The resource type. Set the value to cluster.
      *
      * @example cluster
      *

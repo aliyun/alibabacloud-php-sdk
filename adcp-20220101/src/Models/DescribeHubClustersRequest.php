@@ -27,6 +27,8 @@ class DescribeHubClustersRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description The tags.
+     *
      * @var Tag[]
      */
     public $tag;

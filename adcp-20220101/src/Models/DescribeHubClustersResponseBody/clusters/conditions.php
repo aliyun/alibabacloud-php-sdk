@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class conditions extends Model
 {
     /**
-     * @description The error message that is returned.
+     * @description The error message returned.
      *
      * @example Successful!
      *
@@ -27,7 +27,7 @@ class conditions extends Model
     public $reason;
 
     /**
-     * @description The status of the cluster that the deletion condition indicates. Valid values:
+     * @description The state of the cluster that the deletion condition indicates. Valid values:
      *
      *   True: The cluster cannot be deleted.
      *   False: The cluster can be deleted.

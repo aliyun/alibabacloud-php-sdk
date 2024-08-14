@@ -27,6 +27,8 @@ class DescribeHubClustersShrinkRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description The tags.
+     *
      * @var string
      */
     public $tagShrink;

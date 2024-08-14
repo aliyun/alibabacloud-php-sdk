@@ -104,6 +104,9 @@ class CreateHubClusterRequest extends Model
     public $resourceGroupID;
 
     /**
+     * @description The tags.
+     *
+     * You can specify at most 20 tags in each call.
      * @var Tag[]
      */
     public $tag;

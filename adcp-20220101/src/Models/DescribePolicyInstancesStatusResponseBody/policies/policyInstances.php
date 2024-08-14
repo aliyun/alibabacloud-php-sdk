@@ -35,7 +35,7 @@ class policyInstances extends Model
     public $policyDescription;
 
     /**
-     * @description The number of policy instances that are deployed. If this parameter is empty, no policy instance is deployed.
+     * @description The number of policy instances that are deployed. If this parameter is left empty, no policy instance is deployed.
      *
      * @example 2
      *
@@ -44,7 +44,7 @@ class policyInstances extends Model
     public $policyInstancesCount;
 
     /**
-     * @description The name of the policy.
+     * @description The policy name.
      *
      * @example ACKRestrictRoleBindings
      *

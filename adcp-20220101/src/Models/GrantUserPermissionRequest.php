@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GrantUserPermissionRequest extends Model
 {
     /**
-     * @description The ID of the cluster.
+     * @description The cluster ID.
      *
      * This parameter is required.
      * @example c102fe5f1ee5d4c87a68121a77d8b****
@@ -28,7 +28,11 @@ class GrantUserPermissionRequest extends Model
     public $isRamRole;
 
     /**
-     * @description The namespace to which the permissions are scoped. By default, this parameter is empty when you set RoleType to cluster.
+     * @description The name of the namespace.
+     *
+     *   If **RoleType** is set to **cluster**, you do not need to specify this parameter.
+     *   This parameter is required if **RoleType** is set to **namespace**.
+     *   If **RoleType** is set to **namespace** and **RoleName** is set to **gitops-dev**, this parameter is required and must be set to **argocd**.
      *
      * @example default
      *
@@ -37,10 +41,16 @@ class GrantUserPermissionRequest extends Model
     public $namespace;
 
     /**
-     * @description The predefined role that you want to assign. Valid values:
+     * @description The predefined role. Valid values:
      *
-     *   admin: the administrator role.
-     *   dev: the developer role.
+     *   admin: administrator
+     *   dev: developer
+     *   gitops-dev: GitOps developer. The parameter is available only for Fleet instances.
+     *
+     * The value of RoleName and that of RoleType must meet the following requirements:
+     *
+     *   If **RoleType** is set to **cluster**, this parameter must be set to **admin**.
+     *   If **RoleType** is set to **namespace**, this parameter must be set to **dev** or **gitops-dev**.
      *
      * This parameter is required.
      * @example admin
@@ -52,8 +62,8 @@ class GrantUserPermissionRequest extends Model
     /**
      * @description The authorization type. Valid values:
      *
-     *   cluster: specifies that the permissions are scoped to a master instance.
-     *   namespace: specifies that the permissions are scoped to a namespace of a cluster.
+     *   cluster: The permissions are granted to a cluster.
+     *   namespace: The permissions are granted to a namespace of a cluster.
      *
      * This parameter is required.
      * @example cluster

@@ -18,7 +18,7 @@ class severityInfo extends Model
     public $severityCount;
 
     /**
-     * @description The severity level.
+     * @description The severity level of the policy.
      *
      * @example low
      *

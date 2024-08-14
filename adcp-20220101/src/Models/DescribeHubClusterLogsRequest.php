@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeHubClusterLogsRequest extends Model
 {
     /**
-     * @description The ID of the master instance.
+     * @description The ID of the Fleet instance. You can call the [DescribeHubClusters](https://help.aliyun.com/document_detail/424404.html) operation to query the created Fleet instances.
      *
      * This parameter is required.
      * @example c9cb1d933b2ab47ff9cd25571477dc8f2

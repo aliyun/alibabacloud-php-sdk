@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class policyClusters extends Model
 {
     /**
-     * @description The ID of the associated cluster.
+     * @description The cluster ID.
      *
      * @example c639e5310e73e4a29ab18d6330a633****
      *
@@ -18,7 +18,7 @@ class policyClusters extends Model
     public $clusterId;
 
     /**
-     * @description The status of the deployment.
+     * @description The status of the policy deployment.
      *
      * @example Success
      *

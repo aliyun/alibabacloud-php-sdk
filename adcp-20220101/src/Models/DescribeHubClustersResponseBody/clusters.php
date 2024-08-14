@@ -37,7 +37,7 @@ class clusters extends Model
     public $conditions;
 
     /**
-     * @description The endpoint of the cluster.
+     * @description The endpoints of the cluster.
      *
      * @var endpoints
      */

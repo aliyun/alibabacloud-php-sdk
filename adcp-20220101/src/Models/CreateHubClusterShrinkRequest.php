@@ -104,6 +104,9 @@ class CreateHubClusterShrinkRequest extends Model
     public $resourceGroupID;
 
     /**
+     * @description The tags.
+     *
+     * You can specify at most 20 tags in each call.
      * @var string
      */
     public $tagShrink;

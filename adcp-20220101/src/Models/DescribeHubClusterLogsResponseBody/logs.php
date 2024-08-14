@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class logs extends Model
 {
     /**
-     * @description The ID of the master instance.
+     * @description The ID of the Fleet instance.
      *
      * @example c102fe5f1ee5d4c87a68121a77d8b0f38
      *
@@ -18,7 +18,7 @@ class logs extends Model
     public $clusterId;
 
     /**
-     * @description A log of the master instance.
+     * @description The log of the Fleet instance.
      *
      * @example Cluster Created
      *
@@ -27,7 +27,7 @@ class logs extends Model
     public $clusterLog;
 
     /**
-     * @description The time when the log was created. Format: <i>yyyy-mm-dd</i>t<i>hh:mm:ss</i>z (UTC time).
+     * @description The time when the log was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2021-12-02T11:48:15+08:00
      *
@@ -36,7 +36,11 @@ class logs extends Model
     public $creationTime;
 
     /**
-     * @description The severity level of the log. Valid values: - error: errors. - warn: warnings. - info: information.
+     * @description The log level. Valid values:
+     *
+     *   error
+     *   warn
+     *   info
      *
      * @example INFO
      *

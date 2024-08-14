@@ -19,9 +19,9 @@ class clusterInfo extends Model
     public $clusterId;
 
     /**
-     * @description The specification of the cluster.
+     * @description The specifications of the cluster.
      *
-     *   Only ack.pro.small is returned.
+     *   Only ack.pro.small may be returned.
      *
      * @example ack.pro.small
      *
@@ -48,7 +48,7 @@ class clusterInfo extends Model
     public $errorMessage;
 
     /**
-     * @description The name of the cluster.
+     * @description The cluster name.
      *
      * @example ackone-heyuan
      *
@@ -75,7 +75,7 @@ class clusterInfo extends Model
     public $regionId;
 
     /**
-     * @description The ID of Resource Group.
+     * @description The resource group ID.
      *
      * @example rg-qh2zgjsdv52***
      *
@@ -84,12 +84,12 @@ class clusterInfo extends Model
     public $resourceGroupID;
 
     /**
-     * @description The status of the cluster. Valid values:
+     * @description The state of the cluster. Valid values:
      *
      *   initial: The cluster is being initialized.
      *   failed: The cluster failed to be created.
      *   running: The cluster is running
-     *   inactive: The cluster is pending.
+     *   inactive: The cluster is not activated.
      *   deleting: The cluster is being deleted.
      *   delete_failed: The cluster failed to be deleted.
      *   deleted: The cluster is deleted.
@@ -101,12 +101,14 @@ class clusterInfo extends Model
     public $state;
 
     /**
+     * @description The tags.
+     *
      * @var tags[]
      */
     public $tags;
 
     /**
-     * @description The time when the cluster was last updated.
+     * @description The time when the cluster was last modified.
      *
      * @example 2021-09-02T13:39:50Z
      *
@@ -115,7 +117,7 @@ class clusterInfo extends Model
     public $updateTime;
 
     /**
-     * @description The Kubernetes version of the cluster.
+     * @description The version of the cluster.
      *
      * @example 1.22.3-aliyun.1
      *

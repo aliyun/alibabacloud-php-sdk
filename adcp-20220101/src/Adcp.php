@@ -603,7 +603,7 @@ class Adcp extends OpenApiClient
     }
 
     /**
-     * @summary Queries the kubeconfig file of a master instance.
+     * @summary Queries the kubeconfig file of a Distributed Cloud Container Platform for Kubernetes (ACK One) cluster. In addition to the Container Service for Kubernetes (ACK) console, you can also use the Kubernetes CLI kubectl to manage clusters and applications. If you use kubectl to manage an ACK cluster, you must obtain the kubeconfig file of the cluster and use kubectl to connect to the cluster.
      *  *
      * @param DescribeHubClusterKubeconfigRequest $request DescribeHubClusterKubeconfigRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
@@ -639,7 +639,7 @@ class Adcp extends OpenApiClient
     }
 
     /**
-     * @summary Queries the kubeconfig file of a master instance.
+     * @summary Queries the kubeconfig file of a Distributed Cloud Container Platform for Kubernetes (ACK One) cluster. In addition to the Container Service for Kubernetes (ACK) console, you can also use the Kubernetes CLI kubectl to manage clusters and applications. If you use kubectl to manage an ACK cluster, you must obtain the kubeconfig file of the cluster and use kubectl to connect to the cluster.
      *  *
      * @param DescribeHubClusterKubeconfigRequest $request DescribeHubClusterKubeconfigRequest
      *
@@ -653,7 +653,7 @@ class Adcp extends OpenApiClient
     }
 
     /**
-     * @summary 查查HUB集群日志
+     * @summary Queries the logs of the Fleet instance of a multi-cluster fleet of Distributed Cloud Container Platform for Kubernetes (ACK One).
      *  *
      * @param DescribeHubClusterLogsRequest $request DescribeHubClusterLogsRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -686,7 +686,7 @@ class Adcp extends OpenApiClient
     }
 
     /**
-     * @summary 查查HUB集群日志
+     * @summary Queries the logs of the Fleet instance of a multi-cluster fleet of Distributed Cloud Container Platform for Kubernetes (ACK One).
      *  *
      * @param DescribeHubClusterLogsRequest $request DescribeHubClusterLogsRequest
      *
@@ -1179,7 +1179,11 @@ class Adcp extends OpenApiClient
     }
 
     /**
-     * @summary Schema of Response
+     * @summary Grants role-based access control (RBAC) permissions to Resource Access Management (RAM) users or RAM roles. System policies can be attached to RAM users to grant only the operation permissions on Distributed Cloud Container Platform for Kubernetes (ACK One) cluster resources. The operation permissions include creating and viewing instances. If you want to perform operations on Kubernetes resources in a specific cluster by using a RAM user or assuming a RAM role, such as creating GitOps applications and Argo workflows, you must grant RBAC permissions to the RAM user or RAM role to perform operations on the specified ACK One cluster and namespace. This topic describes how to grant RBAC permissions to a RAM user or RAM role.
+     *  *
+     * @description *   To call this API operation to grant permissions to a RAM user or RAM role on a specific cluster, you must use an Alibaba Cloud account, the account that is used to create the cluster, or a RAM user that has the cluster administrator permissions. A regular RAM user does not have the permissions to call this operation.
+     * *   Before you grant RBAC permissions to a RAM user or RAM role on a cluster, you must grant the operation permissions to the RAM user or RAM role on the specified cluster. For more information, see [Attach a system permission policy to a RAM user or RAM role](https://help.aliyun.com/document_detail/613486.html).
+     * For more information, see [Authorization overview](https://help.aliyun.com/document_detail/613468.html).
      *  *
      * @param GrantUserPermissionRequest $request GrantUserPermissionRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -1227,7 +1231,11 @@ class Adcp extends OpenApiClient
     }
 
     /**
-     * @summary Schema of Response
+     * @summary Grants role-based access control (RBAC) permissions to Resource Access Management (RAM) users or RAM roles. System policies can be attached to RAM users to grant only the operation permissions on Distributed Cloud Container Platform for Kubernetes (ACK One) cluster resources. The operation permissions include creating and viewing instances. If you want to perform operations on Kubernetes resources in a specific cluster by using a RAM user or assuming a RAM role, such as creating GitOps applications and Argo workflows, you must grant RBAC permissions to the RAM user or RAM role to perform operations on the specified ACK One cluster and namespace. This topic describes how to grant RBAC permissions to a RAM user or RAM role.
+     *  *
+     * @description *   To call this API operation to grant permissions to a RAM user or RAM role on a specific cluster, you must use an Alibaba Cloud account, the account that is used to create the cluster, or a RAM user that has the cluster administrator permissions. A regular RAM user does not have the permissions to call this operation.
+     * *   Before you grant RBAC permissions to a RAM user or RAM role on a cluster, you must grant the operation permissions to the RAM user or RAM role on the specified cluster. For more information, see [Attach a system permission policy to a RAM user or RAM role](https://help.aliyun.com/document_detail/613486.html).
+     * For more information, see [Authorization overview](https://help.aliyun.com/document_detail/613468.html).
      *  *
      * @param GrantUserPermissionRequest $request GrantUserPermissionRequest
      *

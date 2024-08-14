@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeHubClusterKubeconfigRequest extends Model
 {
     /**
-     * @description The ID of the master instance.
+     * @description The cluster ID.
      *
      * This parameter is required.
      * @example c102fe5f1ee5d4c87a68121a77d8b****

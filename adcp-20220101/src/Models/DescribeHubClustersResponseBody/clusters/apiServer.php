@@ -18,7 +18,7 @@ class apiServer extends Model
     public $apiServerEipId;
 
     /**
-     * @description Indicates whether public endpoint is enabled for the API server. Valid values:
+     * @description Indicates whether the public endpoint is enabled for the API server. Valid values:
      *
      *   true
      *   false
