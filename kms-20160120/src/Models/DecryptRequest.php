@@ -25,6 +25,11 @@ class DecryptRequest extends Model
     public $ciphertextBlob;
 
     /**
+     * @var string
+     */
+    public $dryRun;
+
+    /**
      * @description The JSON string that consists of key-value pairs.
      *
      * >  If you specify the EncryptionContext parameter when you call the [GenerateDataKey](https://help.aliyun.com/document_detail/28948.html), [Encrypt](https://help.aliyun.com/document_detail/28949.html), or [GenerateDataKeyWithoutPlaintext](https://help.aliyun.com/document_detail/134043.html) operation, you must specify the same context when you call the Decrypt operation. For more information, see [EncryptionContext](https://help.aliyun.com/document_detail/42975.html).
@@ -35,6 +40,7 @@ class DecryptRequest extends Model
     public $encryptionContext;
     protected $_name = [
         'ciphertextBlob'    => 'CiphertextBlob',
+        'dryRun'            => 'DryRun',
         'encryptionContext' => 'EncryptionContext',
     ];
 
@@ -47,6 +53,9 @@ class DecryptRequest extends Model
         $res = [];
         if (null !== $this->ciphertextBlob) {
             $res['CiphertextBlob'] = $this->ciphertextBlob;
+        }
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
         if (null !== $this->encryptionContext) {
             $res['EncryptionContext'] = $this->encryptionContext;
@@ -65,6 +74,9 @@ class DecryptRequest extends Model
         $model = new self();
         if (isset($map['CiphertextBlob'])) {
             $model->ciphertextBlob = $map['CiphertextBlob'];
+        }
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
         if (isset($map['EncryptionContext'])) {
             $model->encryptionContext = $map['EncryptionContext'];

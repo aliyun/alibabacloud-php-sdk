@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetPublicKeyRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $dryRun;
+
+    /**
      * @description The globally unique ID of the CMK. You can also set this parameter to an alias that is bound to the CMK. For more information, see [Use aliases](https://help.aliyun.com/document_detail/68522.html).
      *
      * This parameter is required.
@@ -28,6 +33,7 @@ class GetPublicKeyRequest extends Model
      */
     public $keyVersionId;
     protected $_name = [
+        'dryRun'       => 'DryRun',
         'keyId'        => 'KeyId',
         'keyVersionId' => 'KeyVersionId',
     ];
@@ -39,6 +45,9 @@ class GetPublicKeyRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
+        }
         if (null !== $this->keyId) {
             $res['KeyId'] = $this->keyId;
         }
@@ -57,6 +66,9 @@ class GetPublicKeyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
+        }
         if (isset($map['KeyId'])) {
             $model->keyId = $map['KeyId'];
         }

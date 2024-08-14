@@ -19,6 +19,11 @@ class ExportDataKeyRequest extends Model
     public $ciphertextBlob;
 
     /**
+     * @var string
+     */
+    public $dryRun;
+
+    /**
      * @description A JSON string that consists of key-value pairs. If you specify this parameter when you use a CMK to encrypt the data key, an equivalent value is required here. For more information, see [EncryptionContext](https://help.aliyun.com/document_detail/42975.html).
      *
      * @example {"Example":"Example"}
@@ -69,6 +74,7 @@ class ExportDataKeyRequest extends Model
     public $wrappingKeySpec;
     protected $_name = [
         'ciphertextBlob'    => 'CiphertextBlob',
+        'dryRun'            => 'DryRun',
         'encryptionContext' => 'EncryptionContext',
         'publicKeyBlob'     => 'PublicKeyBlob',
         'wrappingAlgorithm' => 'WrappingAlgorithm',
@@ -84,6 +90,9 @@ class ExportDataKeyRequest extends Model
         $res = [];
         if (null !== $this->ciphertextBlob) {
             $res['CiphertextBlob'] = $this->ciphertextBlob;
+        }
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
         if (null !== $this->encryptionContext) {
             $res['EncryptionContext'] = $this->encryptionContext;
@@ -111,6 +120,9 @@ class ExportDataKeyRequest extends Model
         $model = new self();
         if (isset($map['CiphertextBlob'])) {
             $model->ciphertextBlob = $map['CiphertextBlob'];
+        }
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
         if (isset($map['EncryptionContext'])) {
             $model->encryptionContext = $map['EncryptionContext'];

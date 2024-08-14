@@ -32,6 +32,11 @@ class AsymmetricDecryptRequest extends Model
     public $ciphertextBlob;
 
     /**
+     * @var string
+     */
+    public $dryRun;
+
+    /**
      * @description The ID of the customer master key (CMK). The ID must be globally unique.
      *
      * This parameter is required.
@@ -53,6 +58,7 @@ class AsymmetricDecryptRequest extends Model
     protected $_name = [
         'algorithm'      => 'Algorithm',
         'ciphertextBlob' => 'CiphertextBlob',
+        'dryRun'         => 'DryRun',
         'keyId'          => 'KeyId',
         'keyVersionId'   => 'KeyVersionId',
     ];
@@ -69,6 +75,9 @@ class AsymmetricDecryptRequest extends Model
         }
         if (null !== $this->ciphertextBlob) {
             $res['CiphertextBlob'] = $this->ciphertextBlob;
+        }
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
         if (null !== $this->keyId) {
             $res['KeyId'] = $this->keyId;
@@ -93,6 +102,9 @@ class AsymmetricDecryptRequest extends Model
         }
         if (isset($map['CiphertextBlob'])) {
             $model->ciphertextBlob = $map['CiphertextBlob'];
+        }
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
         if (isset($map['KeyId'])) {
             $model->keyId = $map['KeyId'];

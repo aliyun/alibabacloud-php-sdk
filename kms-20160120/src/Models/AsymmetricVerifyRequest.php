@@ -29,6 +29,11 @@ class AsymmetricVerifyRequest extends Model
     public $digest;
 
     /**
+     * @var string
+     */
+    public $dryRun;
+
+    /**
      * @description The ID of the CMK. The ID must be globally unique.
      *
      * This parameter is required.
@@ -60,6 +65,7 @@ class AsymmetricVerifyRequest extends Model
     protected $_name = [
         'algorithm'    => 'Algorithm',
         'digest'       => 'Digest',
+        'dryRun'       => 'DryRun',
         'keyId'        => 'KeyId',
         'keyVersionId' => 'KeyVersionId',
         'value'        => 'Value',
@@ -77,6 +83,9 @@ class AsymmetricVerifyRequest extends Model
         }
         if (null !== $this->digest) {
             $res['Digest'] = $this->digest;
+        }
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
         if (null !== $this->keyId) {
             $res['KeyId'] = $this->keyId;
@@ -104,6 +113,9 @@ class AsymmetricVerifyRequest extends Model
         }
         if (isset($map['Digest'])) {
             $model->digest = $map['Digest'];
+        }
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
         if (isset($map['KeyId'])) {
             $model->keyId = $map['KeyId'];

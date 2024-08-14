@@ -29,6 +29,11 @@ class AsymmetricSignRequest extends Model
     public $digest;
 
     /**
+     * @var string
+     */
+    public $dryRun;
+
+    /**
      * @description The operation that you want to perform. Set the value to **AsymmetricSign**.
      *
      * This parameter is required.
@@ -50,6 +55,7 @@ class AsymmetricSignRequest extends Model
     protected $_name = [
         'algorithm'    => 'Algorithm',
         'digest'       => 'Digest',
+        'dryRun'       => 'DryRun',
         'keyId'        => 'KeyId',
         'keyVersionId' => 'KeyVersionId',
     ];
@@ -66,6 +72,9 @@ class AsymmetricSignRequest extends Model
         }
         if (null !== $this->digest) {
             $res['Digest'] = $this->digest;
+        }
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
         if (null !== $this->keyId) {
             $res['KeyId'] = $this->keyId;
@@ -90,6 +99,9 @@ class AsymmetricSignRequest extends Model
         }
         if (isset($map['Digest'])) {
             $model->digest = $map['Digest'];
+        }
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
         if (isset($map['KeyId'])) {
             $model->keyId = $map['KeyId'];

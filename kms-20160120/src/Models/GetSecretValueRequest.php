@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetSecretValueRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $dryRun;
+
+    /**
      * @description Specifies whether to obtain the extended configuration of the secret. Valid values:
      *
      *   true
@@ -51,6 +56,7 @@ class GetSecretValueRequest extends Model
      */
     public $versionStage;
     protected $_name = [
+        'dryRun'              => 'DryRun',
         'fetchExtendedConfig' => 'FetchExtendedConfig',
         'secretName'          => 'SecretName',
         'versionId'           => 'VersionId',
@@ -64,6 +70,9 @@ class GetSecretValueRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
+        }
         if (null !== $this->fetchExtendedConfig) {
             $res['FetchExtendedConfig'] = $this->fetchExtendedConfig;
         }
@@ -88,6 +97,9 @@ class GetSecretValueRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
+        }
         if (isset($map['FetchExtendedConfig'])) {
             $model->fetchExtendedConfig = $map['FetchExtendedConfig'];
         }

@@ -19,6 +19,11 @@ class AsymmetricEncryptRequest extends Model
     public $algorithm;
 
     /**
+     * @var string
+     */
+    public $dryRun;
+
+    /**
      * @description The ID of the CMK. The ID must be globally unique.
      *
      * This parameter is required.
@@ -49,6 +54,7 @@ class AsymmetricEncryptRequest extends Model
     public $plaintext;
     protected $_name = [
         'algorithm'    => 'Algorithm',
+        'dryRun'       => 'DryRun',
         'keyId'        => 'KeyId',
         'keyVersionId' => 'KeyVersionId',
         'plaintext'    => 'Plaintext',
@@ -63,6 +69,9 @@ class AsymmetricEncryptRequest extends Model
         $res = [];
         if (null !== $this->algorithm) {
             $res['Algorithm'] = $this->algorithm;
+        }
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
         if (null !== $this->keyId) {
             $res['KeyId'] = $this->keyId;
@@ -87,6 +96,9 @@ class AsymmetricEncryptRequest extends Model
         $model = new self();
         if (isset($map['Algorithm'])) {
             $model->algorithm = $map['Algorithm'];
+        }
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
         if (isset($map['KeyId'])) {
             $model->keyId = $map['KeyId'];

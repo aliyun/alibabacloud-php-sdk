@@ -43,6 +43,11 @@ class ReEncryptRequest extends Model
     public $destinationKeyId;
 
     /**
+     * @var string
+     */
+    public $dryRun;
+
+    /**
      * @description The encryption algorithm based on which the public key is used to encrypt the ciphertext specified by CiphertextBlob. For more information about encryption algorithms, see [AsymmetricDecrypt](https://help.aliyun.com/document_detail/148130.html).
      *
      * Valid values:
@@ -91,6 +96,7 @@ class ReEncryptRequest extends Model
         'ciphertextBlob'               => 'CiphertextBlob',
         'destinationEncryptionContext' => 'DestinationEncryptionContext',
         'destinationKeyId'             => 'DestinationKeyId',
+        'dryRun'                       => 'DryRun',
         'sourceEncryptionAlgorithm'    => 'SourceEncryptionAlgorithm',
         'sourceEncryptionContext'      => 'SourceEncryptionContext',
         'sourceKeyId'                  => 'SourceKeyId',
@@ -112,6 +118,9 @@ class ReEncryptRequest extends Model
         }
         if (null !== $this->destinationKeyId) {
             $res['DestinationKeyId'] = $this->destinationKeyId;
+        }
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
         if (null !== $this->sourceEncryptionAlgorithm) {
             $res['SourceEncryptionAlgorithm'] = $this->sourceEncryptionAlgorithm;
@@ -145,6 +154,9 @@ class ReEncryptRequest extends Model
         }
         if (isset($map['DestinationKeyId'])) {
             $model->destinationKeyId = $map['DestinationKeyId'];
+        }
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
         if (isset($map['SourceEncryptionAlgorithm'])) {
             $model->sourceEncryptionAlgorithm = $map['SourceEncryptionAlgorithm'];

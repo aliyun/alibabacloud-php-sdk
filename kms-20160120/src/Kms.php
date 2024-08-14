@@ -267,6 +267,9 @@ class Kms extends OpenApiClient
         if (!Utils::isUnset($request->ciphertextBlob)) {
             $query['CiphertextBlob'] = $request->ciphertextBlob;
         }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
         if (!Utils::isUnset($request->keyId)) {
             $query['KeyId'] = $request->keyId;
         }
@@ -343,6 +346,9 @@ class Kms extends OpenApiClient
         if (!Utils::isUnset($request->algorithm)) {
             $query['Algorithm'] = $request->algorithm;
         }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
         if (!Utils::isUnset($request->keyId)) {
             $query['KeyId'] = $request->keyId;
         }
@@ -417,6 +423,9 @@ class Kms extends OpenApiClient
         if (!Utils::isUnset($request->digest)) {
             $query['Digest'] = $request->digest;
         }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
         if (!Utils::isUnset($request->keyId)) {
             $query['KeyId'] = $request->keyId;
         }
@@ -489,6 +498,9 @@ class Kms extends OpenApiClient
         }
         if (!Utils::isUnset($request->digest)) {
             $query['Digest'] = $request->digest;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
         }
         if (!Utils::isUnset($request->keyId)) {
             $query['KeyId'] = $request->keyId;
@@ -1652,6 +1664,9 @@ class Kms extends OpenApiClient
         if (!Utils::isUnset($request->ciphertextBlob)) {
             $query['CiphertextBlob'] = $request->ciphertextBlob;
         }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
         if (!Utils::isUnset($request->encryptionContextShrink)) {
             $query['EncryptionContext'] = $request->encryptionContextShrink;
         }
@@ -2673,6 +2688,9 @@ class Kms extends OpenApiClient
             $request->encryptionContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->encryptionContext, 'EncryptionContext', 'json');
         }
         $query = [];
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
         if (!Utils::isUnset($request->encryptionContextShrink)) {
             $query['EncryptionContext'] = $request->encryptionContextShrink;
         }
@@ -2739,6 +2757,9 @@ class Kms extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->ciphertextBlob)) {
             $query['CiphertextBlob'] = $request->ciphertextBlob;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
         }
         if (!Utils::isUnset($request->encryptionContextShrink)) {
             $query['EncryptionContext'] = $request->encryptionContextShrink;
@@ -2809,6 +2830,9 @@ class Kms extends OpenApiClient
             $request->encryptionContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->encryptionContext, 'EncryptionContext', 'json');
         }
         $query = [];
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
         if (!Utils::isUnset($request->encryptionContextShrink)) {
             $query['EncryptionContext'] = $request->encryptionContextShrink;
         }
@@ -2897,6 +2921,9 @@ class Kms extends OpenApiClient
             $request->encryptionContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->encryptionContext, 'EncryptionContext', 'json');
         }
         $query = [];
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
         if (!Utils::isUnset($request->encryptionContextShrink)) {
             $query['EncryptionContext'] = $request->encryptionContextShrink;
         }
@@ -2977,6 +3004,9 @@ class Kms extends OpenApiClient
             $request->encryptionContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->encryptionContext, 'EncryptionContext', 'json');
         }
         $query = [];
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
         if (!Utils::isUnset($request->encryptionContextShrink)) {
             $query['EncryptionContext'] = $request->encryptionContextShrink;
         }
@@ -3323,6 +3353,9 @@ class Kms extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
         if (!Utils::isUnset($request->keyId)) {
             $query['KeyId'] = $request->keyId;
         }
@@ -3495,6 +3528,9 @@ class Kms extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
         if (!Utils::isUnset($request->fetchExtendedConfig)) {
             $query['FetchExtendedConfig'] = $request->fetchExtendedConfig;
         }
@@ -4490,6 +4526,9 @@ class Kms extends OpenApiClient
         }
         if (!Utils::isUnset($request->destinationKeyId)) {
             $query['DestinationKeyId'] = $request->destinationKeyId;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
         }
         if (!Utils::isUnset($request->sourceEncryptionAlgorithm)) {
             $query['SourceEncryptionAlgorithm'] = $request->sourceEncryptionAlgorithm;

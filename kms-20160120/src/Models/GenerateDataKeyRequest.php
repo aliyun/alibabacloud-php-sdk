@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GenerateDataKeyRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $dryRun;
+
+    /**
      * @description The JSON string that consists of key-value pairs.
      *
      * If you specify this parameter, an equivalent value is required when you call the [Decrypt](https://help.aliyun.com/document_detail/28950.html) operation. For more information, see [EncryptionContext](https://help.aliyun.com/document_detail/42975.html).
@@ -55,6 +60,7 @@ class GenerateDataKeyRequest extends Model
      */
     public $numberOfBytes;
     protected $_name = [
+        'dryRun'            => 'DryRun',
         'encryptionContext' => 'EncryptionContext',
         'keyId'             => 'KeyId',
         'keySpec'           => 'KeySpec',
@@ -68,6 +74,9 @@ class GenerateDataKeyRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
+        }
         if (null !== $this->encryptionContext) {
             $res['EncryptionContext'] = $this->encryptionContext;
         }
@@ -92,6 +101,9 @@ class GenerateDataKeyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
+        }
         if (isset($map['EncryptionContext'])) {
             $model->encryptionContext = $map['EncryptionContext'];
         }
