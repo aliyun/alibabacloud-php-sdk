@@ -18,6 +18,8 @@ use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\CompanyTwoElementsVerificationReq
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\CompanyTwoElementsVerificationResponse;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribeEmptyNumberRequest;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribeEmptyNumberResponse;
+use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribeMobileOperatorAttributeRequest;
+use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribeMobileOperatorAttributeResponse;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribePhoneNumberAnalysisAIRequest;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribePhoneNumberAnalysisAIResponse;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribePhoneNumberAnalysisRequest;
@@ -546,6 +548,68 @@ class Dytnsapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeEmptyNumberWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 号码归属地查询v2
+     *  *
+     * @param DescribeMobileOperatorAttributeRequest $request DescribeMobileOperatorAttributeRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeMobileOperatorAttributeResponse DescribeMobileOperatorAttributeResponse
+     */
+    public function describeMobileOperatorAttributeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->authCode)) {
+            $query['AuthCode'] = $request->authCode;
+        }
+        if (!Utils::isUnset($request->inputNumber)) {
+            $query['InputNumber'] = $request->inputNumber;
+        }
+        if (!Utils::isUnset($request->mask)) {
+            $query['Mask'] = $request->mask;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeMobileOperatorAttribute',
+            'version'     => '2020-02-17',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeMobileOperatorAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 号码归属地查询v2
+     *  *
+     * @param DescribeMobileOperatorAttributeRequest $request DescribeMobileOperatorAttributeRequest
+     *
+     * @return DescribeMobileOperatorAttributeResponse DescribeMobileOperatorAttributeResponse
+     */
+    public function describeMobileOperatorAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeMobileOperatorAttributeWithOptions($request, $runtime);
     }
 
     /**
