@@ -25,9 +25,15 @@ class DeleteGeneratedContentRequest extends Model
      * @var int
      */
     public $id;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
         'agentKey' => 'AgentKey',
         'id'       => 'Id',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
@@ -42,6 +48,9 @@ class DeleteGeneratedContentRequest extends Model
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -60,6 +69,9 @@ class DeleteGeneratedContentRequest extends Model
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

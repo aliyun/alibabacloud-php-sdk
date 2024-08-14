@@ -457,6 +457,9 @@ class AiMiaoBi extends OpenApiClient
         if (!Utils::isUnset($request->agentKey)) {
             $query['AgentKey'] = $request->agentKey;
         }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         $body = [];
         if (!Utils::isUnset($request->id)) {
             $body['Id'] = $request->id;
@@ -830,6 +833,8 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
+     * @summary 获取图片任务执行结果
+     *  *
      * @param FetchImageTaskRequest $tmpReq  FetchImageTaskRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -874,6 +879,8 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
+     * @summary 获取图片任务执行结果
+     *  *
      * @param FetchImageTaskRequest $request FetchImageTaskRequest
      *
      * @return FetchImageTaskResponse FetchImageTaskResponse
@@ -1906,6 +1913,9 @@ class AiMiaoBi extends OpenApiClient
         if (!Utils::isUnset($request->agentKey)) {
             $query['AgentKey'] = $request->agentKey;
         }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         $body = [];
         if (!Utils::isUnset($request->type)) {
             $body['Type'] = $request->type;
@@ -2087,11 +2097,17 @@ class AiMiaoBi extends OpenApiClient
         if (!Utils::isUnset($request->endTime)) {
             $body['EndTime'] = $request->endTime;
         }
+        if (!Utils::isUnset($request->query)) {
+            $body['Query'] = $request->query;
+        }
         if (!Utils::isUnset($request->size)) {
             $body['Size'] = $request->size;
         }
         if (!Utils::isUnset($request->startTime)) {
             $body['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $body['TaskId'] = $request->taskId;
         }
         if (!Utils::isUnset($request->title)) {
             $body['Title'] = $request->title;
@@ -3121,6 +3137,9 @@ class AiMiaoBi extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->agentKey)) {
             $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
         $body = [];
         if (!Utils::isUnset($request->author)) {

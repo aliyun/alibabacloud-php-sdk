@@ -39,6 +39,11 @@ class ListGeneratedContentsRequest extends Model
     public $endTime;
 
     /**
+     * @var string
+     */
+    public $query;
+
+    /**
      * @example 10
      *
      * @var int
@@ -55,14 +60,21 @@ class ListGeneratedContentsRequest extends Model
     /**
      * @var string
      */
+    public $taskId;
+
+    /**
+     * @var string
+     */
     public $title;
     protected $_name = [
         'agentKey'      => 'AgentKey',
         'contentDomain' => 'ContentDomain',
         'current'       => 'Current',
         'endTime'       => 'EndTime',
+        'query'         => 'Query',
         'size'          => 'Size',
         'startTime'     => 'StartTime',
+        'taskId'        => 'TaskId',
         'title'         => 'Title',
     ];
 
@@ -85,11 +97,17 @@ class ListGeneratedContentsRequest extends Model
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+        if (null !== $this->query) {
+            $res['Query'] = $this->query;
+        }
         if (null !== $this->size) {
             $res['Size'] = $this->size;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
+        }
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
         }
         if (null !== $this->title) {
             $res['Title'] = $this->title;
@@ -118,11 +136,17 @@ class ListGeneratedContentsRequest extends Model
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+        if (isset($map['Query'])) {
+            $model->query = $map['Query'];
+        }
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
         }
         if (isset($map['Title'])) {
             $model->title = $map['Title'];

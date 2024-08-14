@@ -65,6 +65,11 @@ class UpdateMaterialDocumentRequest extends Model
     public $pubTime;
 
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @example 1
      *
      * @var int
@@ -108,6 +113,7 @@ class UpdateMaterialDocumentRequest extends Model
         'htmlContent' => 'HtmlContent',
         'id'          => 'Id',
         'pubTime'     => 'PubTime',
+        'regionId'    => 'RegionId',
         'shareAttr'   => 'ShareAttr',
         'srcFrom'     => 'SrcFrom',
         'summary'     => 'Summary',
@@ -146,6 +152,9 @@ class UpdateMaterialDocumentRequest extends Model
         }
         if (null !== $this->pubTime) {
             $res['PubTime'] = $this->pubTime;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->shareAttr) {
             $res['ShareAttr'] = $this->shareAttr;
@@ -202,6 +211,9 @@ class UpdateMaterialDocumentRequest extends Model
         }
         if (isset($map['PubTime'])) {
             $model->pubTime = $map['PubTime'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ShareAttr'])) {
             $model->shareAttr = $map['ShareAttr'];

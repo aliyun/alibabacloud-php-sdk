@@ -18,8 +18,6 @@ class DeleteCustomTextRequest extends Model
     public $agentKey;
 
     /**
-     * @example 商品code
-     *
      * @var string
      */
     public $commodityCode;

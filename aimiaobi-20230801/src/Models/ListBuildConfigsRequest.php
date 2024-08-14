@@ -18,6 +18,11 @@ class ListBuildConfigsRequest extends Model
     public $agentKey;
 
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @example media
      *
      * @var string
@@ -25,6 +30,7 @@ class ListBuildConfigsRequest extends Model
     public $type;
     protected $_name = [
         'agentKey' => 'AgentKey',
+        'regionId' => 'RegionId',
         'type'     => 'Type',
     ];
 
@@ -37,6 +43,9 @@ class ListBuildConfigsRequest extends Model
         $res = [];
         if (null !== $this->agentKey) {
             $res['AgentKey'] = $this->agentKey;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
@@ -55,6 +64,9 @@ class ListBuildConfigsRequest extends Model
         $model = new self();
         if (isset($map['AgentKey'])) {
             $model->agentKey = $map['AgentKey'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
