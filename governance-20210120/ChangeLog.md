@@ -1,3 +1,7 @@
+2024-08-14 Version: 0.2.1
+- Update API ListEvaluationResults: update response param.
+
+
 2024-08-08 Version: 0.2.0
 - Support API ListEvaluationMetadata.
 - Support API ListEvaluationMetricDetails.

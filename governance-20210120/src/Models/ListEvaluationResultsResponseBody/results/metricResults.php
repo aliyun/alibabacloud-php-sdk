@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\Governance\V20210120\Models\ListEvaluationResultsResponseBody\results;
 
+use AlibabaCloud\SDK\Governance\V20210120\Models\ListEvaluationResultsResponseBody\results\metricResults\errorInfo;
 use AlibabaCloud\SDK\Governance\V20210120\Models\ListEvaluationResultsResponseBody\results\metricResults\resourcesSummary;
 use AlibabaCloud\Tea\Model;
 
 class metricResults extends Model
 {
+    /**
+     * @var errorInfo
+     */
+    public $errorInfo;
+
     /**
      * @example 2023-12-13T03:34:02Z
      *
@@ -49,6 +55,7 @@ class metricResults extends Model
      */
     public $status;
     protected $_name = [
+        'errorInfo'        => 'ErrorInfo',
         'evaluationTime'   => 'EvaluationTime',
         'id'               => 'Id',
         'resourcesSummary' => 'ResourcesSummary',
@@ -64,6 +71,9 @@ class metricResults extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->errorInfo) {
+            $res['ErrorInfo'] = null !== $this->errorInfo ? $this->errorInfo->toMap() : null;
+        }
         if (null !== $this->evaluationTime) {
             $res['EvaluationTime'] = $this->evaluationTime;
         }
@@ -94,6 +104,9 @@ class metricResults extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ErrorInfo'])) {
+            $model->errorInfo = errorInfo::fromMap($map['ErrorInfo']);
+        }
         if (isset($map['EvaluationTime'])) {
             $model->evaluationTime = $map['EvaluationTime'];
         }
