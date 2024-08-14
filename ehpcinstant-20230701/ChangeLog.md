@@ -1,3 +1,8 @@
+2024-08-14 Version: 1.0.2
+- Update API ListExecutors: update response param.
+- Update API ListJobExecutors: update response param.
+
+
 2024-07-31 Version: 1.0.1
 - Update API CreateJob: add param JobScheduler.
 - Update API CreateJob: update param Tasks.

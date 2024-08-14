@@ -42,6 +42,11 @@ class executors extends Model
     public $hostName;
 
     /**
+     * @var string
+     */
+    public $image;
+
+    /**
      * @var string[]
      */
     public $ipAddress;
@@ -86,6 +91,7 @@ class executors extends Model
         'endTime'      => 'EndTime',
         'executorId'   => 'ExecutorId',
         'hostName'     => 'HostName',
+        'image'        => 'Image',
         'ipAddress'    => 'IpAddress',
         'jobId'        => 'JobId',
         'jobName'      => 'JobName',
@@ -115,6 +121,9 @@ class executors extends Model
         }
         if (null !== $this->hostName) {
             $res['HostName'] = $this->hostName;
+        }
+        if (null !== $this->image) {
+            $res['Image'] = $this->image;
         }
         if (null !== $this->ipAddress) {
             $res['IpAddress'] = $this->ipAddress;
@@ -162,6 +171,9 @@ class executors extends Model
             if (!empty($map['HostName'])) {
                 $model->hostName = $map['HostName'];
             }
+        }
+        if (isset($map['Image'])) {
+            $model->image = $map['Image'];
         }
         if (isset($map['IpAddress'])) {
             if (!empty($map['IpAddress'])) {
