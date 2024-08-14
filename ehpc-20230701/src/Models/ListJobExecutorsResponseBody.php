@@ -5,10 +5,16 @@
 namespace AlibabaCloud\SDK\EHPC\V20230701\Models;
 
 use AlibabaCloud\SDK\EHPC\V20230701\Models\ListJobExecutorsResponseBody\executors;
+use AlibabaCloud\SDK\EHPC\V20230701\Models\ListJobExecutorsResponseBody\executorStatus;
 use AlibabaCloud\Tea\Model;
 
 class ListJobExecutorsResponseBody extends Model
 {
+    /**
+     * @var executorStatus
+     */
+    public $executorStatus;
+
     /**
      * @var executors[]
      */
@@ -58,13 +64,14 @@ class ListJobExecutorsResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'executors'  => 'Executors',
-        'jobId'      => 'JobId',
-        'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
-        'taskName'   => 'TaskName',
-        'totalCount' => 'TotalCount',
+        'executorStatus' => 'ExecutorStatus',
+        'executors'      => 'Executors',
+        'jobId'          => 'JobId',
+        'pageNumber'     => 'PageNumber',
+        'pageSize'       => 'PageSize',
+        'requestId'      => 'RequestId',
+        'taskName'       => 'TaskName',
+        'totalCount'     => 'TotalCount',
     ];
 
     public function validate()
@@ -74,6 +81,9 @@ class ListJobExecutorsResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->executorStatus) {
+            $res['ExecutorStatus'] = null !== $this->executorStatus ? $this->executorStatus->toMap() : null;
+        }
         if (null !== $this->executors) {
             $res['Executors'] = [];
             if (null !== $this->executors && \is_array($this->executors)) {
@@ -113,6 +123,9 @@ class ListJobExecutorsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ExecutorStatus'])) {
+            $model->executorStatus = executorStatus::fromMap($map['ExecutorStatus']);
+        }
         if (isset($map['Executors'])) {
             if (!empty($map['Executors'])) {
                 $model->executors = [];

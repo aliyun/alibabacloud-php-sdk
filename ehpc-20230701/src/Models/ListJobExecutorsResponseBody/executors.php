@@ -30,6 +30,11 @@ class executors extends Model
     public $endTime;
 
     /**
+     * @var string
+     */
+    public $executorId;
+
+    /**
      * @var string[]
      */
     public $hostName;
@@ -54,6 +59,7 @@ class executors extends Model
         'arrayIndex'   => 'ArrayIndex',
         'createTime'   => 'CreateTime',
         'endTime'      => 'EndTime',
+        'executorId'   => 'ExecutorId',
         'hostName'     => 'HostName',
         'ipAddress'    => 'IpAddress',
         'status'       => 'Status',
@@ -75,6 +81,9 @@ class executors extends Model
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
+        }
+        if (null !== $this->executorId) {
+            $res['ExecutorId'] = $this->executorId;
         }
         if (null !== $this->hostName) {
             $res['HostName'] = $this->hostName;
@@ -108,6 +117,9 @@ class executors extends Model
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
+        }
+        if (isset($map['ExecutorId'])) {
+            $model->executorId = $map['ExecutorId'];
         }
         if (isset($map['HostName'])) {
             if (!empty($map['HostName'])) {
