@@ -11,6 +11,7 @@ class DescribeDedicatedBlockStorageClusterDisksRequest extends Model
     /**
      * @description The ID of the dedicated block storage cluster.
      *
+     * This parameter is required.
      * @example dbsc-cn-od43bf****
      *
      * @var string
@@ -37,8 +38,9 @@ class DescribeDedicatedBlockStorageClusterDisksRequest extends Model
     public $nextToken;
 
     /**
-     * @description The ID of the region where the dedicated block storage cluster resides. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The ID of the region where the dedicated block storage cluster resides. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-heyuan
      *
      * @var string

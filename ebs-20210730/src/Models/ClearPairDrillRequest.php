@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ClearPairDrillRequest extends Model
 {
     /**
-     * @description The ID of the drill. You can call the [DescribePairDrills](~~2584480~~) operation to query the disaster recovery drills that were performed on replication pairs in a specific region.
+     * @description The ID of the drill. You can call the [DescribePairDrills](https://help.aliyun.com/document_detail/2584480.html) operation to query the disaster recovery drills that were performed on replication pairs in a specific region.
      *
+     * This parameter is required.
      * @example drill-xxxx
      *
      * @var string
@@ -18,8 +19,9 @@ class ClearPairDrillRequest extends Model
     public $drillId;
 
     /**
-     * @description The ID of the replication pair. You can call the [DescribeDiskReplicaPairs](~~354206~~) operation to query the most recent list of replication pairs, including replication pair IDs.
+     * @description The ID of the replication pair. You can call the [DescribeDiskReplicaPairs](https://help.aliyun.com/document_detail/354206.html) operation to query the most recent list of replication pairs, including replication pair IDs.
      *
+     * This parameter is required.
      * @example pair-xxxx
      *
      * @var string
@@ -27,8 +29,9 @@ class ClearPairDrillRequest extends Model
     public $pairId;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~354276~~) operation to query the most recent list of regions in which async replication is supported.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/354276.html) operation to query the most recent list of regions in which async replication is supported.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

@@ -20,6 +20,11 @@ class DescribeDiskReplicaPairsRequest extends Model
     public $maxResults;
 
     /**
+     * @var string
+     */
+    public $name;
+
+    /**
      * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken. If you specify NextToken, the PageSize and PageNumber request parameters do not take effect, and the TotalCount response parameter is invalid.
      *
      * @example AAAAAdDWBF2****
@@ -57,8 +62,9 @@ class DescribeDiskReplicaPairsRequest extends Model
     public $pairIds;
 
     /**
-     * @description The region ID of the primary or secondary disk in the replication pair. You can call the [DescribeRegions](~~354276~~) operation to query the most recent list of regions in which async replication is supported.
+     * @description The region ID of the primary or secondary disk in the replication pair. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/354276.html) operation to query the most recent list of regions in which async replication is supported.
      *
+     * This parameter is required.
      * @example cn-beijing
      *
      * @var string
@@ -105,6 +111,7 @@ class DescribeDiskReplicaPairsRequest extends Model
     public $tag;
     protected $_name = [
         'maxResults'      => 'MaxResults',
+        'name'            => 'Name',
         'nextToken'       => 'NextToken',
         'pageNumber'      => 'PageNumber',
         'pageSize'        => 'PageSize',
@@ -125,6 +132,9 @@ class DescribeDiskReplicaPairsRequest extends Model
         $res = [];
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
@@ -173,6 +183,9 @@ class DescribeDiskReplicaPairsRequest extends Model
         $model = new self();
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];

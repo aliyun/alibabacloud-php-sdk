@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class CreateEnterpriseSnapshotPolicyShrinkRequest extends Model
 {
     /**
-     * @description The client token that is used to ensure the idempotency of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     * @description The client token that is used to ensure the idempotency of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
      *
      * @example 123e4567-e89b-12d3-a456-42665544****
      *
@@ -37,6 +37,7 @@ class CreateEnterpriseSnapshotPolicyShrinkRequest extends Model
     /**
      * @description The name of the policy.
      *
+     * This parameter is required.
      * @example xx
      *
      * @var string
@@ -44,8 +45,9 @@ class CreateEnterpriseSnapshotPolicyShrinkRequest extends Model
     public $name;
 
     /**
-     * @description The region ID . You can call the [DescribeRegions](~~354276~~) operation to query the most recent list of regions in which snapshot policy is supported.
+     * @description The region ID . You can call the [DescribeRegions](https://help.aliyun.com/document_detail/354276.html) operation to query the most recent list of regions in which snapshot policy is supported.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -64,6 +66,7 @@ class CreateEnterpriseSnapshotPolicyShrinkRequest extends Model
     /**
      * @description The snapshot retention rule.
      *
+     * This parameter is required.
      * @var string
      */
     public $retainRuleShrink;
@@ -71,6 +74,7 @@ class CreateEnterpriseSnapshotPolicyShrinkRequest extends Model
     /**
      * @description The rule for scheduling.
      *
+     * This parameter is required.
      * @var string
      */
     public $scheduleShrink;
@@ -109,7 +113,7 @@ class CreateEnterpriseSnapshotPolicyShrinkRequest extends Model
     /**
      * @description Binding target type, valid value:
      *
-     * - DISK
+     * This parameter is required.
      * @example DISK
      *
      * @var string

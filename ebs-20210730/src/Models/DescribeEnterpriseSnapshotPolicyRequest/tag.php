@@ -11,6 +11,7 @@ class tag extends Model
     /**
      * @description The key of tag N of the enterprise-level snapshot policy.
      *
+     * This parameter is required.
      * @example tag-key
      *
      * @var string
@@ -20,6 +21,7 @@ class tag extends Model
     /**
      * @description The value of tag N of the enterprise-level snapshot policy.
      *
+     * This parameter is required.
      * @example tag-value
      *
      * @var string

@@ -55,8 +55,9 @@ class DescribePairDrillsRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the replication pair. You can call the [DescribeDiskReplicaPairs](~~354206~~) operation to query a list of asynchronous replication pairs, including replication pair IDs.
+     * @description The ID of the replication pair. You can call the [DescribeDiskReplicaPairs](https://help.aliyun.com/document_detail/354206.html) operation to query a list of asynchronous replication pairs, including replication pair IDs.
      *
+     * This parameter is required.
      * @example pair-xxxx
      *
      * @var string
@@ -64,8 +65,9 @@ class DescribePairDrillsRequest extends Model
     public $pairId;
 
     /**
-     * @description The region ID of the primary or secondary disk in the async replication pair. You can call the [DescribeRegions](~~354276~~) operation to query the most recent list of regions in which async replication is supported.
+     * @description The region ID of the primary or secondary disk in the async replication pair. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/354276.html) operation to query the most recent list of regions in which async replication is supported.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

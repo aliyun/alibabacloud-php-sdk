@@ -22,7 +22,7 @@ class UntagResourcesRequest extends Model
     public $all;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that it is unique among different requests. The **ClientToken** value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that it is unique among different requests. The **ClientToken** value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
      *
      * @example 0c593ea1-3bea-11e9-b96b-88e9fe63****
      *
@@ -31,8 +31,9 @@ class UntagResourcesRequest extends Model
     public $clientToken;
 
     /**
-     * @description The region ID of the resource. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the resource. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -42,6 +43,7 @@ class UntagResourcesRequest extends Model
     /**
      * @description The ID list of the resource. You can specify up to 50 resource IDs in each call.
      *
+     * This parameter is required.
      * @example disk-123
      *
      * @var string[]
@@ -55,6 +57,7 @@ class UntagResourcesRequest extends Model
      *   diskreplicapair: the replication pair.
      *   diskreplicagroup: replication pair-consistent group
      *
+     * This parameter is required.
      * @example diskreplicapair
      *
      * @var string

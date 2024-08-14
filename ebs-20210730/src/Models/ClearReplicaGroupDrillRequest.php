@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ClearReplicaGroupDrillRequest extends Model
 {
     /**
-     * @description The ID of the drill. You can call the [DescribeReplicaGroupDrills](~~2584481~~) operation to query disaster recovery drills that were performed on replication pairs in a specific region.
+     * @description The ID of the drill. You can call the [DescribeReplicaGroupDrills](https://help.aliyun.com/document_detail/2584481.html) operation to query disaster recovery drills that were performed on replication pairs in a specific region.
      *
+     * This parameter is required.
      * @example pg-drill-xxxx
      *
      * @var string
@@ -18,8 +19,9 @@ class ClearReplicaGroupDrillRequest extends Model
     public $drillId;
 
     /**
-     * @description The ID of the replication pair-consistent group. You can call the [DescribeDiskReplicaGroups](~~426614~~) operation to query the most recent list of replication pair-consistent groups, including group IDs.
+     * @description The ID of the replication pair-consistent group. You can call the [DescribeDiskReplicaGroups](https://help.aliyun.com/document_detail/426614.html) operation to query the most recent list of replication pair-consistent groups, including group IDs.
      *
+     * This parameter is required.
      * @example pg-xxxx
      *
      * @var string
@@ -27,8 +29,9 @@ class ClearReplicaGroupDrillRequest extends Model
     public $groupId;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~354276~~) operation to query the most recent list of regions in which async replication is supported.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/354276.html) operation to query the most recent list of regions in which async replication is supported.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

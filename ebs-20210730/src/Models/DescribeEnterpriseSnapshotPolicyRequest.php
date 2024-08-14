@@ -19,7 +19,7 @@ class DescribeEnterpriseSnapshotPolicyRequest extends Model
     public $clientToken;
 
     /**
-     * @description The list of disks.
+     * @description The IDs of disks.
      *
      * @var string[]
      */
@@ -35,7 +35,7 @@ class DescribeEnterpriseSnapshotPolicyRequest extends Model
     public $maxResults;
 
     /**
-     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken. If you specify NextToken, the PageSize and PageNumber request parameters do not take effect, and the TotalCount response parameter is invalid.
      *
      * @example xxx
      *
@@ -69,8 +69,9 @@ class DescribeEnterpriseSnapshotPolicyRequest extends Model
     public $policyIds;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -78,7 +79,7 @@ class DescribeEnterpriseSnapshotPolicyRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group to which the enterprise-level snapshot policy belongs.
+     * @description The ID of the resource group.
      *
      * @example xxx
      *

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeEventsRequest extends Model
 {
     /**
+     * @description The end of the time range to query. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *
      * @example 2023-06-01T04:00:00Z
      *
      * @var string
@@ -16,6 +18,21 @@ class DescribeEventsRequest extends Model
     public $endTime;
 
     /**
+     * @description The name of the event. Valid values:
+     *
+     *   NoSnapshot: indicates the event that is triggered because no snapshot is created for a disk to protect data on the disk.
+     *   BurstIOTriggered: indicates the event that is triggered when a burst I/O operation is performed on a disk.
+     *   CostOptimizationNeeded: indicates the event that is triggered when cost optimization is required.
+     *   DiskSpecNotMatchedWithInstance: indicates the event that is triggered because the specifications of a disk do not match the instance to which the disk is attached.
+     *   DiskIONo4kAligned: indicates the event that is triggered because the physical and logical sectors involved in a read or write operation are not 4K aligned.
+     *   DiskIOHang: indicates the event that is triggered when an I/O hang occurs on a disk.
+     *   InstanceIOPSExceedInstanceMaxLimit: indicates the event that is triggered when the number of IOPS on an instance reaches the upper limit.
+     *   InstanceBPSExceedInstanceMaxLimit: indicates the event that is triggered when the number of BPS on an instance reaches the upper limit.
+     *   DiskIOPSExceedInstanceMaxLimit: indicates the event that is triggered when the number of IOPS on a disk reaches the upper limit for the associated instance.
+     *   DiskBPSExceedInstanceMaxLimit: indicates the event that is triggered when the number of BPS on a disk reaches the upper limit for the associated instance.
+     *   DiskIOPSExceedDiskMaxLimit: indicates the event that is triggered when the number of IOPS on a disk reaches the upper limit for the disk.
+     *   DiskBPSExceedDiskMaxLimit: indicates the event that is triggered when the number of BPS on a disk reaches the upper limit for the disk.
+     *
      * @example DiskIOHang
      *
      * @var string
@@ -23,6 +40,9 @@ class DescribeEventsRequest extends Model
     public $eventName;
 
     /**
+     * @description The maximum number of entries per page. If you specify MaxResults, `MaxResults` and `NextToken` are used for a paged query.
+     *
+     * Default value: 10.
      * @example 10
      *
      * @var int
@@ -30,6 +50,8 @@ class DescribeEventsRequest extends Model
     public $maxResults;
 
     /**
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results.
+     *
      * @example AAAAAdDWBF2****
      *
      * @var string
@@ -37,6 +59,9 @@ class DescribeEventsRequest extends Model
     public $nextToken;
 
     /**
+     * @description The region ID . You can call the [DescribeRegions](https://help.aliyun.com/document_detail/354276.html) operation to query the most recent list of regions supported.
+     *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -44,6 +69,8 @@ class DescribeEventsRequest extends Model
     public $regionId;
 
     /**
+     * @description The resource ID.
+     *
      * @example d-bp67acfmxazb4p****
      *
      * @var string
@@ -51,6 +78,11 @@ class DescribeEventsRequest extends Model
     public $resourceId;
 
     /**
+     * @description The type of resource. Valid values:
+     *
+     *   disk.
+     *
+     * Default value: disk.
      * @example disk
      *
      * @var string
@@ -58,6 +90,8 @@ class DescribeEventsRequest extends Model
     public $resourceType;
 
     /**
+     * @description The beginning of the time range to query. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *
      * @example 2023-06-01T03:00:00Z
      *
      * @var string
@@ -65,6 +99,9 @@ class DescribeEventsRequest extends Model
     public $startTime;
 
     /**
+     * @description The status of event. Valid values:
+     *
+     * - Deleted
      * @example WillExecute
      *
      * @var string

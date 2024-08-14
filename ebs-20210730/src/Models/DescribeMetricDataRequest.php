@@ -27,9 +27,21 @@ class DescribeMetricDataRequest extends Model
     public $endTime;
 
     /**
-     * @description The name of the metric.
+     * @description The name of the metric. Valid values:
      *
-     * @example disk_slow_io_triggerred
+     *   disk_bps_percent
+     *   disk_iops_percent
+     *   disk_read_block_size
+     *   disk_read_bps
+     *   disk_read_iops
+     *   disk_read_latency
+     *   disk_write_block_size
+     *   disk_write_bps
+     *   disk_write_iops
+     *   disk_write_latency
+     *
+     * This parameter is required.
+     * @example disk_bps_percent
      *
      * @var string
      */

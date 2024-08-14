@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeEventsResponseBody extends Model
 {
     /**
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results.
+     *
      * @example AAAAAdDWBF2****
      *
      * @var string
@@ -26,11 +28,15 @@ class DescribeEventsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The events.
+     *
      * @var resourceEvents[]
      */
     public $resourceEvents;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 1
      *
      * @var int

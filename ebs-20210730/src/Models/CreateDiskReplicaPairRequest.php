@@ -38,7 +38,7 @@ class CreateDiskReplicaPairRequest extends Model
     public $chargeType;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
      *
      * @example 123e4567-e89b-12d3-a456-42665544****
      *
@@ -58,6 +58,7 @@ class CreateDiskReplicaPairRequest extends Model
     /**
      * @description The ID of the secondary disk.
      *
+     * This parameter is required.
      * @example d-sa1f82p58p1tdw9g****
      *
      * @var string
@@ -65,8 +66,9 @@ class CreateDiskReplicaPairRequest extends Model
     public $destinationDiskId;
 
     /**
-     * @description The region ID of the secondary disk. You can call the [DescribeRegions](~~354276~~) operation to query the most recent list of regions in which async replication is supported.
+     * @description The region ID of the secondary disk. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/354276.html) operation to query the most recent list of regions in which async replication is supported.
      *
+     * This parameter is required.
      * @example cn-shanghai
      *
      * @var string
@@ -76,6 +78,7 @@ class CreateDiskReplicaPairRequest extends Model
     /**
      * @description The zone ID of the secondary disk.
      *
+     * This parameter is required.
      * @example cn-shanghai-e
      *
      * @var string
@@ -85,6 +88,7 @@ class CreateDiskReplicaPairRequest extends Model
     /**
      * @description The ID of the primary disk.
      *
+     * This parameter is required.
      * @example d-iq80sgp4d0xbk24q****
      *
      * @var string
@@ -92,7 +96,7 @@ class CreateDiskReplicaPairRequest extends Model
     public $diskId;
 
     /**
-     * @description The name of the replication pair. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (\_), periods (.), and hyphens (-).
+     * @description The name of the replication pair. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
      *
      * @example TestReplicaPair
      *
@@ -137,6 +141,7 @@ class CreateDiskReplicaPairRequest extends Model
     /**
      * @description The ID of the region in which to create the replication pair.
      *
+     * This parameter is required.
      * @example cn-shanghai
      *
      * @var string
@@ -155,6 +160,7 @@ class CreateDiskReplicaPairRequest extends Model
     /**
      * @description The zone ID of the primary disk.
      *
+     * This parameter is required.
      * @example cn-beijing-f
      *
      * @var string

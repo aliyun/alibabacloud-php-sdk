@@ -24,7 +24,7 @@ class diskInfos extends Model
      *   true
      *   false
      *
-     * This parameter is available only if you set `DiskCategory` to `cloud_auto`. For more information, see [ESSD AutoPL disks](~~368372~~).
+     * This parameter is available only if you set `DiskCategory` to `cloud_auto`. For more information, see [ESSD AutoPL disks](https://help.aliyun.com/document_detail/368372.html).
      * @example true
      *
      * @var bool
@@ -89,7 +89,7 @@ class diskInfos extends Model
     public $iops;
 
     /**
-     * @description Lens tags of the disk.
+     * @description Event tags of the disk.
      *
      * @var string[]
      */

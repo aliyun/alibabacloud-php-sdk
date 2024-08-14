@@ -11,6 +11,7 @@ class parameters extends Model
     /**
      * @description The key of the parameter.
      *
+     * This parameter is required.
      * @example ***
      *
      * @var string
@@ -20,7 +21,7 @@ class parameters extends Model
     /**
      * @description The value of the parameter.
      *
-     * > The Parameters parameter is optional. If you specify Parameters, you must specify ParameterValue.
+     * This parameter is required.
      * @example ***
      *
      * @var string

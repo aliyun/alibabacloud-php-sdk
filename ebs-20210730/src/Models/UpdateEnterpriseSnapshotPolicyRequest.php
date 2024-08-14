@@ -14,7 +14,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateEnterpriseSnapshotPolicyRequest extends Model
 {
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
      *
      * @example 123e4567-e89b-12d3-a456-42665544****
      *
@@ -50,6 +50,7 @@ class UpdateEnterpriseSnapshotPolicyRequest extends Model
     /**
      * @description The id of the policy.
      *
+     * This parameter is required.
      * @example esp-xxx
      *
      * @var string
@@ -57,8 +58,9 @@ class UpdateEnterpriseSnapshotPolicyRequest extends Model
     public $policyId;
 
     /**
-     * @description The region ID . You can call the [DescribeRegions](~~354276~~) operation to query the most recent list of regions in which snapshot policy is supported.
+     * @description The region ID . You can call the [DescribeRegions](https://help.aliyun.com/document_detail/354276.html) operation to query the most recent list of regions in which snapshot policy is supported.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

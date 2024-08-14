@@ -28,7 +28,7 @@ class disk extends Model
     public $bdfId;
 
     /**
-     * @description Whether the ESSD AutoPL disk is enabled burst IOPS / BPS. This parameter is available only if the DiskCategory parameter is set to cloud_auto. For more information, see [ESSD AutoPL disks](~~368372~~).
+     * @description Whether the ESSD AutoPL disk is enabled burst IOPS / BPS. This parameter is available only if the DiskCategory parameter is set to cloud_auto. For more information, see [ESSD AutoPL disks](https://help.aliyun.com/document_detail/368372.html).
      *
      * @example true
      *
@@ -51,7 +51,7 @@ class disk extends Model
      *   true: The automatic snapshots of the cloud disk are deleted when the disk is released.
      *   false: The automatic snapshots of the cloud disk are retained when the disk is released.
      *
-     * Snapshots that are created by calling the [CreateSnapshot](~~25524~~) operation or by using the Elastic Compute Service (ECS) console are retained and not affected by this parameter.
+     * Snapshots that are created by calling the [CreateSnapshot](https://help.aliyun.com/document_detail/25524.html) operation or by using the Elastic Compute Service (ECS) console are retained and not affected by this parameter.
      * @example false
      *
      * @var bool
@@ -231,7 +231,7 @@ class disk extends Model
 
     /**
      * @description The provisioned read/write IOPS of the ESSD AutoPL disk.
-     * >  This parameter is available only if the DiskCategory parameter is set to cloud_auto. For more information, see [ESSD AutoPL disks](~~368372~~) and [Modify the performance configurations of an ESSD AutoPL disk](~~413275~~).
+     * >  This parameter is available only if the DiskCategory parameter is set to cloud_auto. For more information, see [ESSD AutoPL disks](https://help.aliyun.com/document_detail/368372.html) and [Modify the performance configurations of an ESSD AutoPL disk](https://help.aliyun.com/document_detail/413275.html).
      * @example 50000
      *
      * @var int
@@ -267,7 +267,7 @@ class disk extends Model
     public $sourceSnapshotId;
 
     /**
-     * @description The state of the cloud disk. For more information, see [Disk states](~~25689~~). Valid values:
+     * @description The state of the cloud disk. For more information, see [Disk states](https://help.aliyun.com/document_detail/25689.html). Valid values:
      *
      *   In_use
      *   Available

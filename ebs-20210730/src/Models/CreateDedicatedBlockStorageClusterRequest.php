@@ -10,8 +10,9 @@ use AlibabaCloud\Tea\Model;
 class CreateDedicatedBlockStorageClusterRequest extends Model
 {
     /**
-     * @description The ID of the zone in which to create the dedicated block storage cluster. You can call the [DescribeZones](~~25610~~) operation to query the most recent zone list.
+     * @description The ID of the zone in which to create the dedicated block storage cluster. You can call the [DescribeZones](https://help.aliyun.com/document_detail/25610.html) operation to query the most recent zone list.
      *
+     * This parameter is required.
      * @example cn-heyuan-b
      *
      * @var string
@@ -19,9 +20,9 @@ class CreateDedicatedBlockStorageClusterRequest extends Model
     public $azone;
 
     /**
-     * @description The capacity of the dedicated block storage cluster. Valid values: 61440 to 2334720. Unit: GiB. 2,334,720 GiB is equal to 2,280 TiB. The capacity increases in a minimum increment of 12,288 GB.
+     * @description The capacity of the dedicated block storage cluster. Valid values: 61440 to 2334720. Unit: GiB. 2,334,720 GiB is equal to 2,280 TiB. The capacity increases in a minimum increment of 12,288 GiB.
      *
-     * >  If the capacity of a dedicated block storage cluster is less than 576 TiB, the maximum throughput supported per TiB does not exceed 52 MB/s. If the capacity of a dedicated block storage cluster is greater than 576 TiB, the maximum throughput supported per TiB does not exceed 26 MB/s.
+     * This parameter is required.
      * @example 61440
      *
      * @var int
@@ -29,7 +30,7 @@ class CreateDedicatedBlockStorageClusterRequest extends Model
     public $capacity;
 
     /**
-     * @description This parameter is no longer used.
+     * @description This parameter is deprecated.
      *
      * @example test1233
      *
@@ -42,6 +43,7 @@ class CreateDedicatedBlockStorageClusterRequest extends Model
     /**
      * @description The name of the dedicated block storage cluster.
      *
+     * This parameter is required.
      * @example myDBSCCluster
      *
      * @var string
@@ -49,7 +51,7 @@ class CreateDedicatedBlockStorageClusterRequest extends Model
     public $dbscName;
 
     /**
-     * @description The specific number of PeriodUnit.
+     * @description The subscription duration of the dedicated block storage cluster. Valid values: 6, 7, 8, 9, 10, 11, 12, 24, and 36.
      *
      * @example 12
      *
@@ -58,10 +60,7 @@ class CreateDedicatedBlockStorageClusterRequest extends Model
     public $period;
 
     /**
-     * @description The unit of the subscription duration for the dedicated block storage cluster,
-     * Valid values:
-     *
-     *   **Month**
+     * @description The unit of the subscription duration specified by `Period`. Set the value to Month.
      *
      * @example Month
      *
@@ -70,8 +69,9 @@ class CreateDedicatedBlockStorageClusterRequest extends Model
     public $periodUnit;
 
     /**
-     * @description The ID of the region in which to create the dedicated block storage cluster. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The ID of the region in which to create the dedicated block storage cluster. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-heyuan
      *
      * @var string
@@ -88,7 +88,7 @@ class CreateDedicatedBlockStorageClusterRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description The resource tags. You can specify up to 20 tags.
+     * @description The tags to add to the dedicated block storage cluster. You can specify up to 20 tags.
      *
      * @var tag[]
      */
@@ -97,10 +97,10 @@ class CreateDedicatedBlockStorageClusterRequest extends Model
     /**
      * @description The type of the dedicated block storage cluster. Valid values:
      *
-     *   Standard: basic type. When you set Type to Standard, enhanced SSDs (ESSDs) at performance level 0 (PL0 ESSDs) can be created in the dedicated block storage cluster.
-     *   Premium: performance type. When you set Type to Premium, ESSDs at performance level 1 (PL1 ESSDs) can be created in the dedicated block storage cluster.
+     *   Standard: basic dedicated block storage cluster. Enterprise SSDs (ESSDs) at performance level 0 (PL0 ESSDs) can be created in basic dedicated block storage clusters.
+     *   Premium: performance dedicated block storage cluster. ESSDs at performance level 1 (PL1 ESSDs) can be created in performance dedicated block storage clusters.
      *
-     * For more information about ESSDs, see [ESSDs](~~122389~~).
+     * This parameter is required.
      * @example Premium
      *
      * @var string

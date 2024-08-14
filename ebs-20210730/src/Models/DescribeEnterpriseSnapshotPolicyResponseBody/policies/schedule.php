@@ -11,8 +11,6 @@ class schedule extends Model
     /**
      * @description The cron expression of the enterprise-level snapshot policy.
      *
-     * @example 1 1 1 *\/1 * ?
-     *
      * @var string
      */
     public $cronExpression;

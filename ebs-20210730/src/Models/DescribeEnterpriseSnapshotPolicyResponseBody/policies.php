@@ -40,7 +40,7 @@ class policies extends Model
     public $desc;
 
     /**
-     * @description The list of disks.
+     * @description The disks that are associated with the snapshot policy.
      *
      * @var string[]
      */

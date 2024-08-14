@@ -11,6 +11,7 @@ class GetDiskRequest extends Model
     /**
      * @description The ID of the disk.
      *
+     * This parameter is required.
      * @example d-bp67***********
      *
      * @var string
@@ -20,6 +21,7 @@ class GetDiskRequest extends Model
     /**
      * @description The region ID of the disk.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

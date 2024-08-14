@@ -27,7 +27,7 @@ class monitorData extends Model
     public $diskId;
 
     /**
-     * @description The beginning of the time range during which the performance of the disk bursts. The time follows the [ISO 8601](~~25696~~) standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
+     * @description The beginning of the time range during which the performance of the disk bursts. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
      *
      * @example 2022-06-01T08:00:00Z
      *

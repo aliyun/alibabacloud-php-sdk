@@ -18,7 +18,7 @@ class CreateDedicatedBlockStorageClusterResponseBody extends Model
     public $dbscId;
 
     /**
-     * @description The ID of the order.
+     * @description The order ID.
      *
      * @example 50155660025****
      *
@@ -27,7 +27,7 @@ class CreateDedicatedBlockStorageClusterResponseBody extends Model
     public $orderId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 20758A-585D-4A41-A9B2-28DA8F4F****
      *

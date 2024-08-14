@@ -37,7 +37,7 @@ class DescribeEnterpriseSnapshotPolicyResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The returned enterprise-level snapshot policies.
+     * @description The returned snapshot policies.
      *
      * @var policies[]
      */

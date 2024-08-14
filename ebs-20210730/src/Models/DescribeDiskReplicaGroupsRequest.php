@@ -30,6 +30,11 @@ class DescribeDiskReplicaGroupsRequest extends Model
     public $maxResults;
 
     /**
+     * @var string
+     */
+    public $name;
+
+    /**
      * @description The query token. Set the value to the NextToken value returned in the previous call to the DescribeDiskReplicaGroups operation. Leave this parameter empty the first time you call this operation. When NextToken is specified, the PageSize and PageNumber request parameters do not take effect and the TotalCount response parameter is invalid.
      *
      * @example AAAAAdDWBF2****
@@ -60,6 +65,7 @@ class DescribeDiskReplicaGroupsRequest extends Model
     /**
      * @description The region ID of the replication pair-consistent group.
      *
+     * This parameter is required.
      * @example cn-beijing
      *
      * @var string
@@ -100,6 +106,7 @@ class DescribeDiskReplicaGroupsRequest extends Model
     protected $_name = [
         'groupIds'        => 'GroupIds',
         'maxResults'      => 'MaxResults',
+        'name'            => 'Name',
         'nextToken'       => 'NextToken',
         'pageNumber'      => 'PageNumber',
         'pageSize'        => 'PageSize',
@@ -121,6 +128,9 @@ class DescribeDiskReplicaGroupsRequest extends Model
         }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
@@ -166,6 +176,9 @@ class DescribeDiskReplicaGroupsRequest extends Model
         }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];

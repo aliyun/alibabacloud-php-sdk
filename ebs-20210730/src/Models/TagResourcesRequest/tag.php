@@ -11,6 +11,7 @@ class tag extends Model
     /**
      * @description The key of tag N to add to the resource. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot contain `http://` or `https://`. It cannot start with `acs:` or `aliyun`.
      *
+     * This parameter is required.
      * @example tag-key
      *
      * @var string
@@ -20,6 +21,7 @@ class tag extends Model
     /**
      * @description The value of tag N to add to the resource. Valid values of N: 1 to 20. The tag value can be an empty string. The tag value can be up to 128 characters in length and cannot start with `acs:` or contain `http://` or `https://`.
      *
+     * This parameter is required.
      * @example tag-value
      *
      * @var string

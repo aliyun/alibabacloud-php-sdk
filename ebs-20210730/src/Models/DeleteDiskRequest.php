@@ -11,6 +11,7 @@ class DeleteDiskRequest extends Model
     /**
      * @description The ID of the disk.
      *
+     * This parameter is required.
      * @example d-cd4************
      *
      * @var string
@@ -18,8 +19,9 @@ class DeleteDiskRequest extends Model
     public $diskId;
 
     /**
-     * @description The region ID of the primary or secondary disk in the replication pair. You can call the [DescribeRegions](~~354276~~) operation to query the most recent list of regions in which async replication is supported.
+     * @description The region ID of the primary or secondary disk in the replication pair. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/354276.html) operation to query the most recent list of regions in which async replication is supported.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

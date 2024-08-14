@@ -61,7 +61,7 @@ class diskEvents extends Model
     public $status;
 
     /**
-     * @description The time when the event occurred. The time follows the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     * @description The time when the event occurred. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
      *
      * @example 2022-06-01T08:00:00Z
      *

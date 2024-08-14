@@ -18,8 +18,9 @@ class DescribeDiskMonitorDataListRequest extends Model
     public $diskIds;
 
     /**
-     * @description The end of the time range during which you want to query the near real-time monitoring data of the disks. Specify the time in the [ISO 8601](~~25696~~) standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
+     * @description The end of the time range during which you want to query the near real-time monitoring data of the disks. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
      *
+     * This parameter is required.
      * @example 2022-06-01T05:00:00Z
      *
      * @var string
@@ -46,8 +47,9 @@ class DescribeDiskMonitorDataListRequest extends Model
     public $nextToken;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~354276~~) operation to query the list of regions that support CloudLens for EBS.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/354276.html) operation to query the list of regions that support CloudLens for EBS.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -55,8 +57,9 @@ class DescribeDiskMonitorDataListRequest extends Model
     public $regionId;
 
     /**
-     * @description The beginning of the time range during which you want to query the near real-time monitoring data of the disks. Specify the time in the [ISO 8601](~~25696~~) standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
+     * @description The beginning of the time range during which you want to query the near real-time monitoring data of the disks. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
      *
+     * This parameter is required.
      * @example 2022-06-01T03:00:00Z
      *
      * @var string
@@ -66,7 +69,7 @@ class DescribeDiskMonitorDataListRequest extends Model
     /**
      * @description The type of the monitoring data. Set the value to pro.
      *
-     * pro: burst performance data, such as burst I/O operations.
+     * This parameter is required.
      * @example pro
      *
      * @var string

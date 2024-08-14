@@ -11,6 +11,7 @@ class DescribeDiskMonitorDataRequest extends Model
     /**
      * @description The ID of the disk.
      *
+     * This parameter is required.
      * @example d-bp67acfmxazb4p****
      *
      * @var string
@@ -18,8 +19,9 @@ class DescribeDiskMonitorDataRequest extends Model
     public $diskId;
 
     /**
-     * @description The end of the time range during which you want to query the near real-time monitoring data of the disk. Specify the time in the [ISO 8601](~~25696~~) standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
+     * @description The end of the time range during which you want to query the near real-time monitoring data of the disk. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
      *
+     * This parameter is required.
      * @example 2022-06-01T05:00:00Z
      *
      * @var string
@@ -42,6 +44,7 @@ class DescribeDiskMonitorDataRequest extends Model
     /**
      * @description The region ID of the disk.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -49,8 +52,9 @@ class DescribeDiskMonitorDataRequest extends Model
     public $regionId;
 
     /**
-     * @description The beginning of the time range during which you want to query the near real-time monitoring data of the disk. Specify the time in the [ISO 8601](~~25696~~) standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
+     * @description The beginning of the time range during which you want to query the near real-time monitoring data of the disk. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
      *
+     * This parameter is required.
      * @example 2022-06-01T03:00:00Z
      *
      * @var string

@@ -20,7 +20,7 @@ class CreateDiskReplicaGroupRequest extends Model
     public $bandwidth;
 
     /**
-     * @description The client token that is used to ensure the idempotency of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     * @description The client token that is used to ensure the idempotency of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
      *
      * @example 123e4567-e89b-12d3-a456-42665544****
      *
@@ -40,6 +40,7 @@ class CreateDiskReplicaGroupRequest extends Model
     /**
      * @description The region ID of the secondary site.
      *
+     * This parameter is required.
      * @example cn-shanghai
      *
      * @var string
@@ -49,6 +50,7 @@ class CreateDiskReplicaGroupRequest extends Model
     /**
      * @description The zone ID of the secondary site.
      *
+     * This parameter is required.
      * @example cn-shanghai-e
      *
      * @var string
@@ -56,7 +58,7 @@ class CreateDiskReplicaGroupRequest extends Model
     public $destinationZoneId;
 
     /**
-     * @description The name of the replication pair-consistent group. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     * @description The name of the replication pair-consistent group. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (_), and hyphens (-).
      *
      * @example myreplicagrouptest
      *
@@ -76,6 +78,7 @@ class CreateDiskReplicaGroupRequest extends Model
     /**
      * @description The ID of the region in which to create the replication pair-consistent group. The primary site is deployed in the specified region.
      *
+     * This parameter is required.
      * @example cn-beijing
      *
      * @var string
@@ -94,6 +97,7 @@ class CreateDiskReplicaGroupRequest extends Model
     /**
      * @description The zone ID of the primary site.
      *
+     * This parameter is required.
      * @example cn-beijing-f
      *
      * @var string

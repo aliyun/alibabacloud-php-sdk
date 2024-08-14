@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class regions extends Model
 {
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~354276~~) operation to query the most recent list of regions in which async replication is supported.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/354276.html) operation to query the most recent list of regions in which async replication is supported.
      *
      * @example cn-hangzhou
      *

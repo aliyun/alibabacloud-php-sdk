@@ -11,6 +11,7 @@ class DescribeDiskReplicaPairProgressRequest extends Model
     /**
      * @description The region ID of the replication pair.
      *
+     * This parameter is required.
      * @example cn-beijing
      *
      * @var string
@@ -18,8 +19,9 @@ class DescribeDiskReplicaPairProgressRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the replication pair. You can call the [DescribeDiskReplicaPairs](~~354206~~)operation to query the IDs of existing replication pairs.
+     * @description The ID of the replication pair. You can call the [DescribeDiskReplicaPairs](https://help.aliyun.com/document_detail/354206.html)operation to query the IDs of existing replication pairs.
      *
+     * This parameter is required.
      * @example pair-cn-tl32ribst0z
      *
      * @var string
