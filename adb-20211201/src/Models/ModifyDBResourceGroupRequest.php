@@ -50,6 +50,11 @@ class ModifyDBResourceGroupRequest extends Model
     public $enableSpot;
 
     /**
+     * @var mixed[]
+     */
+    public $engineParams;
+
+    /**
      * @description The name of the resource group.
      *
      * This parameter is required.
@@ -135,6 +140,7 @@ class ModifyDBResourceGroupRequest extends Model
         'clusterSizeResource' => 'ClusterSizeResource',
         'DBClusterId'         => 'DBClusterId',
         'enableSpot'          => 'EnableSpot',
+        'engineParams'        => 'EngineParams',
         'groupName'           => 'GroupName',
         'groupType'           => 'GroupType',
         'maxClusterCount'     => 'MaxClusterCount',
@@ -163,6 +169,9 @@ class ModifyDBResourceGroupRequest extends Model
         }
         if (null !== $this->enableSpot) {
             $res['EnableSpot'] = $this->enableSpot;
+        }
+        if (null !== $this->engineParams) {
+            $res['EngineParams'] = $this->engineParams;
         }
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
@@ -217,6 +226,9 @@ class ModifyDBResourceGroupRequest extends Model
         }
         if (isset($map['EnableSpot'])) {
             $model->enableSpot = $map['EnableSpot'];
+        }
+        if (isset($map['EngineParams'])) {
+            $model->engineParams = $map['EngineParams'];
         }
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];

@@ -49,6 +49,16 @@ class CreateDBResourceGroupShrinkRequest extends Model
     public $enableSpot;
 
     /**
+     * @var string
+     */
+    public $engine;
+
+    /**
+     * @var string
+     */
+    public $engineParamsShrink;
+
+    /**
      * @description The name of the resource group.
      *
      *   The name can be up to 255 characters in length.
@@ -138,6 +148,8 @@ class CreateDBResourceGroupShrinkRequest extends Model
         'clusterSizeResource' => 'ClusterSizeResource',
         'DBClusterId'         => 'DBClusterId',
         'enableSpot'          => 'EnableSpot',
+        'engine'              => 'Engine',
+        'engineParamsShrink'  => 'EngineParams',
         'groupName'           => 'GroupName',
         'groupType'           => 'GroupType',
         'maxClusterCount'     => 'MaxClusterCount',
@@ -166,6 +178,12 @@ class CreateDBResourceGroupShrinkRequest extends Model
         }
         if (null !== $this->enableSpot) {
             $res['EnableSpot'] = $this->enableSpot;
+        }
+        if (null !== $this->engine) {
+            $res['Engine'] = $this->engine;
+        }
+        if (null !== $this->engineParamsShrink) {
+            $res['EngineParams'] = $this->engineParamsShrink;
         }
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
@@ -214,6 +232,12 @@ class CreateDBResourceGroupShrinkRequest extends Model
         }
         if (isset($map['EnableSpot'])) {
             $model->enableSpot = $map['EnableSpot'];
+        }
+        if (isset($map['Engine'])) {
+            $model->engine = $map['Engine'];
+        }
+        if (isset($map['EngineParams'])) {
+            $model->engineParamsShrink = $map['EngineParams'];
         }
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];

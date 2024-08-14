@@ -876,6 +876,9 @@ class Adb extends OpenApiClient
         Utils::validateModel($tmpReq);
         $request = new CreateDBResourceGroupShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->engineParams)) {
+            $request->engineParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->engineParams, 'EngineParams', 'json');
+        }
         if (!Utils::isUnset($tmpReq->rules)) {
             $request->rulesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->rules, 'Rules', 'json');
         }
@@ -891,6 +894,12 @@ class Adb extends OpenApiClient
         }
         if (!Utils::isUnset($request->enableSpot)) {
             $query['EnableSpot'] = $request->enableSpot;
+        }
+        if (!Utils::isUnset($request->engine)) {
+            $query['Engine'] = $request->engine;
+        }
+        if (!Utils::isUnset($request->engineParamsShrink)) {
+            $query['EngineParams'] = $request->engineParamsShrink;
         }
         if (!Utils::isUnset($request->groupName)) {
             $query['GroupName'] = $request->groupName;
@@ -7523,6 +7532,9 @@ class Adb extends OpenApiClient
         Utils::validateModel($tmpReq);
         $request = new ModifyDBResourceGroupShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->engineParams)) {
+            $request->engineParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->engineParams, 'EngineParams', 'json');
+        }
         if (!Utils::isUnset($tmpReq->rules)) {
             $request->rulesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->rules, 'Rules', 'json');
         }
@@ -7538,6 +7550,9 @@ class Adb extends OpenApiClient
         }
         if (!Utils::isUnset($request->enableSpot)) {
             $query['EnableSpot'] = $request->enableSpot;
+        }
+        if (!Utils::isUnset($request->engineParamsShrink)) {
+            $query['EngineParams'] = $request->engineParamsShrink;
         }
         if (!Utils::isUnset($request->groupName)) {
             $query['GroupName'] = $request->groupName;

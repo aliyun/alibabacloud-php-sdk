@@ -49,6 +49,11 @@ class ModifyDBResourceGroupShrinkRequest extends Model
     public $enableSpot;
 
     /**
+     * @var string
+     */
+    public $engineParamsShrink;
+
+    /**
      * @description The name of the resource group.
      *
      * This parameter is required.
@@ -134,6 +139,7 @@ class ModifyDBResourceGroupShrinkRequest extends Model
         'clusterSizeResource' => 'ClusterSizeResource',
         'DBClusterId'         => 'DBClusterId',
         'enableSpot'          => 'EnableSpot',
+        'engineParamsShrink'  => 'EngineParams',
         'groupName'           => 'GroupName',
         'groupType'           => 'GroupType',
         'maxClusterCount'     => 'MaxClusterCount',
@@ -162,6 +168,9 @@ class ModifyDBResourceGroupShrinkRequest extends Model
         }
         if (null !== $this->enableSpot) {
             $res['EnableSpot'] = $this->enableSpot;
+        }
+        if (null !== $this->engineParamsShrink) {
+            $res['EngineParams'] = $this->engineParamsShrink;
         }
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
@@ -210,6 +219,9 @@ class ModifyDBResourceGroupShrinkRequest extends Model
         }
         if (isset($map['EnableSpot'])) {
             $model->enableSpot = $map['EnableSpot'];
+        }
+        if (isset($map['EngineParams'])) {
+            $model->engineParamsShrink = $map['EngineParams'];
         }
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];

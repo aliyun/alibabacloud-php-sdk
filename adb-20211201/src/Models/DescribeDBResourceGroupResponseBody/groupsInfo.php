@@ -59,6 +59,16 @@ class groupsInfo extends Model
     public $enableSpot;
 
     /**
+     * @var string
+     */
+    public $engine;
+
+    /**
+     * @var mixed[]
+     */
+    public $engineParams;
+
+    /**
      * @description The name of the resource group.
      *
      * @example test1
@@ -106,6 +116,13 @@ class groupsInfo extends Model
      * @var string
      */
     public $maxComputeResource;
+
+    /**
+     * @description This parameter is required.
+     *
+     * @var string
+     */
+    public $message;
 
     /**
      * @description A reserved parameter.
@@ -168,11 +185,14 @@ class groupsInfo extends Model
         'createTime'                => 'CreateTime',
         'elasticMinComputeResource' => 'ElasticMinComputeResource',
         'enableSpot'                => 'EnableSpot',
+        'engine'                    => 'Engine',
+        'engineParams'              => 'EngineParams',
         'groupName'                 => 'GroupName',
         'groupType'                 => 'GroupType',
         'groupUsers'                => 'GroupUsers',
         'maxClusterCount'           => 'MaxClusterCount',
         'maxComputeResource'        => 'MaxComputeResource',
+        'message'                   => 'Message',
         'minClusterCount'           => 'MinClusterCount',
         'minComputeResource'        => 'MinComputeResource',
         'rules'                     => 'Rules',
@@ -203,6 +223,12 @@ class groupsInfo extends Model
         if (null !== $this->enableSpot) {
             $res['EnableSpot'] = $this->enableSpot;
         }
+        if (null !== $this->engine) {
+            $res['Engine'] = $this->engine;
+        }
+        if (null !== $this->engineParams) {
+            $res['EngineParams'] = $this->engineParams;
+        }
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
         }
@@ -217,6 +243,9 @@ class groupsInfo extends Model
         }
         if (null !== $this->maxComputeResource) {
             $res['MaxComputeResource'] = $this->maxComputeResource;
+        }
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
         }
         if (null !== $this->minClusterCount) {
             $res['MinClusterCount'] = $this->minClusterCount;
@@ -269,6 +298,12 @@ class groupsInfo extends Model
         if (isset($map['EnableSpot'])) {
             $model->enableSpot = $map['EnableSpot'];
         }
+        if (isset($map['Engine'])) {
+            $model->engine = $map['Engine'];
+        }
+        if (isset($map['EngineParams'])) {
+            $model->engineParams = $map['EngineParams'];
+        }
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
         }
@@ -283,6 +318,9 @@ class groupsInfo extends Model
         }
         if (isset($map['MaxComputeResource'])) {
             $model->maxComputeResource = $map['MaxComputeResource'];
+        }
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
         }
         if (isset($map['MinClusterCount'])) {
             $model->minClusterCount = $map['MinClusterCount'];
