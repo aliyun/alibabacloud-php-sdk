@@ -51,6 +51,11 @@ class ListMediaProducingJobsRequest extends Model
     public $nextToken;
 
     /**
+     * @var string
+     */
+    public $projectId;
+
+    /**
      * @example CreationTime:Desc
      *
      * @var string
@@ -77,6 +82,7 @@ class ListMediaProducingJobsRequest extends Model
         'masterJobId' => 'MasterJobId',
         'maxResults'  => 'MaxResults',
         'nextToken'   => 'NextToken',
+        'projectId'   => 'ProjectId',
         'sortBy'      => 'SortBy',
         'startTime'   => 'StartTime',
         'status'      => 'Status',
@@ -106,6 +112,9 @@ class ListMediaProducingJobsRequest extends Model
         }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
+        }
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
         }
         if (null !== $this->sortBy) {
             $res['SortBy'] = $this->sortBy;
@@ -145,6 +154,9 @@ class ListMediaProducingJobsRequest extends Model
         }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
+        }
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
         }
         if (isset($map['SortBy'])) {
             $model->sortBy = $map['SortBy'];
