@@ -1362,6 +1362,12 @@ class Paidsw extends OpenApiClient
         if (!Utils::isUnset($request->createUserId)) {
             $query['CreateUserId'] = $request->createUserId;
         }
+        if (!Utils::isUnset($request->gpuType)) {
+            $query['GpuType'] = $request->gpuType;
+        }
+        if (!Utils::isUnset($request->imageName)) {
+            $query['ImageName'] = $request->imageName;
+        }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
@@ -1370,6 +1376,30 @@ class Paidsw extends OpenApiClient
         }
         if (!Utils::isUnset($request->labelsShrink)) {
             $query['Labels'] = $request->labelsShrink;
+        }
+        if (!Utils::isUnset($request->maxCpu)) {
+            $query['MaxCpu'] = $request->maxCpu;
+        }
+        if (!Utils::isUnset($request->maxGpu)) {
+            $query['MaxGpu'] = $request->maxGpu;
+        }
+        if (!Utils::isUnset($request->maxGpuMemory)) {
+            $query['MaxGpuMemory'] = $request->maxGpuMemory;
+        }
+        if (!Utils::isUnset($request->maxMemory)) {
+            $query['MaxMemory'] = $request->maxMemory;
+        }
+        if (!Utils::isUnset($request->minCpu)) {
+            $query['MinCpu'] = $request->minCpu;
+        }
+        if (!Utils::isUnset($request->minGpu)) {
+            $query['MinGpu'] = $request->minGpu;
+        }
+        if (!Utils::isUnset($request->minGpuMemory)) {
+            $query['MinGpuMemory'] = $request->minGpuMemory;
+        }
+        if (!Utils::isUnset($request->minMemory)) {
+            $query['MinMemory'] = $request->minMemory;
         }
         if (!Utils::isUnset($request->order)) {
             $query['Order'] = $request->order;
