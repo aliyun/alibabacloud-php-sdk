@@ -21,7 +21,6 @@ class ListQueueUpStreamBindingsRequest extends Model
     /**
      * @description The maximum number of entries to return.
      *
-     * This parameter is required.
      * @example 1
      *
      * @var int
