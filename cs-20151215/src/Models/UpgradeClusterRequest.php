@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
+use AlibabaCloud\SDK\CS\V20151215\Models\UpgradeClusterRequest\rollingPolicy;
 use AlibabaCloud\Tea\Model;
 
 class UpgradeClusterRequest extends Model
@@ -41,6 +42,11 @@ class UpgradeClusterRequest extends Model
     public $nextVersion;
 
     /**
+     * @var rollingPolicy
+     */
+    public $rollingPolicy;
+
+    /**
      * @description This parameter is discontinued. Specify the Kubernetes version by using the next_version parameter.
      *
      * @example 1.14.8-aliyun.1
@@ -54,6 +60,7 @@ class UpgradeClusterRequest extends Model
         'componentName' => 'component_name',
         'masterOnly'    => 'master_only',
         'nextVersion'   => 'next_version',
+        'rollingPolicy' => 'rolling_policy',
         'version'       => 'version',
     ];
 
@@ -72,6 +79,9 @@ class UpgradeClusterRequest extends Model
         }
         if (null !== $this->nextVersion) {
             $res['next_version'] = $this->nextVersion;
+        }
+        if (null !== $this->rollingPolicy) {
+            $res['rolling_policy'] = null !== $this->rollingPolicy ? $this->rollingPolicy->toMap() : null;
         }
         if (null !== $this->version) {
             $res['version'] = $this->version;
@@ -96,6 +106,9 @@ class UpgradeClusterRequest extends Model
         }
         if (isset($map['next_version'])) {
             $model->nextVersion = $map['next_version'];
+        }
+        if (isset($map['rolling_policy'])) {
+            $model->rollingPolicy = rollingPolicy::fromMap($map['rolling_policy']);
         }
         if (isset($map['version'])) {
             $model->version = $map['version'];

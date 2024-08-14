@@ -8220,6 +8220,9 @@ class CS extends OpenApiClient
         if (!Utils::isUnset($request->nextVersion)) {
             $body['next_version'] = $request->nextVersion;
         }
+        if (!Utils::isUnset($request->rollingPolicy)) {
+            $body['rolling_policy'] = $request->rollingPolicy;
+        }
         if (!Utils::isUnset($request->version)) {
             $body['version'] = $request->version;
         }
