@@ -9,13 +9,25 @@ use AlibabaCloud\Tea\Model;
 class RelationshipVO extends Model
 {
     /**
+     * @var string[]
+     */
+    public $attributes;
+
+    /**
+     * @var string
+     */
+    public $relationshipGuid;
+
+    /**
      * @example sql
      *
      * @var string
      */
-    public $type;
+    public $relationshipType;
     protected $_name = [
-        'type' => 'Type',
+        'attributes'       => 'Attributes',
+        'relationshipGuid' => 'RelationshipGuid',
+        'relationshipType' => 'RelationshipType',
     ];
 
     public function validate()
@@ -25,8 +37,14 @@ class RelationshipVO extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
+        if (null !== $this->attributes) {
+            $res['Attributes'] = $this->attributes;
+        }
+        if (null !== $this->relationshipGuid) {
+            $res['RelationshipGuid'] = $this->relationshipGuid;
+        }
+        if (null !== $this->relationshipType) {
+            $res['RelationshipType'] = $this->relationshipType;
         }
 
         return $res;
@@ -40,8 +58,14 @@ class RelationshipVO extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
+        if (isset($map['Attributes'])) {
+            $model->attributes = $map['Attributes'];
+        }
+        if (isset($map['RelationshipGuid'])) {
+            $model->relationshipGuid = $map['RelationshipGuid'];
+        }
+        if (isset($map['RelationshipType'])) {
+            $model->relationshipType = $map['RelationshipType'];
         }
 
         return $model;

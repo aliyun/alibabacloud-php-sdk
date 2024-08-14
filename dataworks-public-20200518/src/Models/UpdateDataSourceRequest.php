@@ -11,59 +11,59 @@ class UpdateDataSourceRequest extends Model
     /**
      * @description The details about the data source. You are not allowed to change the type of the data source. For example, you are not allowed to change the data source type from MaxCompute to MySQL. Examples of details of some common data sources:
      *
-     *   MaxCompute
+     *   odps
      *
      * }
      *
-     *   MySQL
+     *   mysql
      *
      * }
      *
-     *   RDS
+     *   rds
      *
      * }
      *
-     *   OSS
+     *   oss
      *
      * }
      *
-     *   SQL Server
+     *   sqlserver
      *
      * }
      *
-     *   PolarDB
+     *   polardb
      *
      * }
      *
-     *   Oracle
+     *   oracle
      *
      * }
      *
-     *   MongoDB
+     *   mongodb
      *
      * }
      *
-     *   EMR
+     *   emr
      *
      * }
      *
-     *   PostgreSQL
+     *   postgresql
      *
      * }
      *
-     *   AnalyticDB for MySQL
+     *   analyticdb_for_mysql
      *
      * }
      *
-     *   HybridDB for PostgreSQL
+     *   hybriddb_for_postgresql
      *
      * }
      *
-     *   Hologres
+     *   holo
      *
      * }
      *
-     *   Kafka
+     *   kafka
      *
      * }
      * @example {"accessId":"xssssss","accessKey":"xsaxsaxsa","authType":2,"endpoint":"http://service.odps.aliyun.com/api","project":"xsaxsax","tag":"public"}

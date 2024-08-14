@@ -28,6 +28,11 @@ class DeleteLineageRelationRequest extends Model
     public $relationshipGuid;
 
     /**
+     * @var string
+     */
+    public $relationshipType;
+
+    /**
      * @description The unique identifier of the source entity.
      *
      * This parameter is required.
@@ -39,6 +44,7 @@ class DeleteLineageRelationRequest extends Model
     protected $_name = [
         'destEntityQualifiedName' => 'DestEntityQualifiedName',
         'relationshipGuid'        => 'RelationshipGuid',
+        'relationshipType'        => 'RelationshipType',
         'srcEntityQualifiedName'  => 'SrcEntityQualifiedName',
     ];
 
@@ -54,6 +60,9 @@ class DeleteLineageRelationRequest extends Model
         }
         if (null !== $this->relationshipGuid) {
             $res['RelationshipGuid'] = $this->relationshipGuid;
+        }
+        if (null !== $this->relationshipType) {
+            $res['RelationshipType'] = $this->relationshipType;
         }
         if (null !== $this->srcEntityQualifiedName) {
             $res['SrcEntityQualifiedName'] = $this->srcEntityQualifiedName;
@@ -75,6 +84,9 @@ class DeleteLineageRelationRequest extends Model
         }
         if (isset($map['RelationshipGuid'])) {
             $model->relationshipGuid = $map['RelationshipGuid'];
+        }
+        if (isset($map['RelationshipType'])) {
+            $model->relationshipType = $map['RelationshipType'];
         }
         if (isset($map['SrcEntityQualifiedName'])) {
             $model->srcEntityQualifiedName = $map['SrcEntityQualifiedName'];

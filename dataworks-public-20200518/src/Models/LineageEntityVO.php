@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class LineageEntityVO extends Model
 {
     /**
+     * @example attribute map
+     *
+     * @var string[]
+     */
+    public $attributes;
+
+    /**
      * @example http://domain.test.url/entity
      *
      * @var string
@@ -16,11 +23,25 @@ class LineageEntityVO extends Model
     public $detailUrl;
 
     /**
+     * @example maxcompute-table
+     *
+     * @var string
+     */
+    public $entityType;
+
+    /**
      * @example tableName
      *
      * @var string
      */
     public $name;
+
+    /**
+     * @example owner
+     *
+     * @var string
+     */
+    public $owner;
 
     /**
      * @example dbName
@@ -36,8 +57,11 @@ class LineageEntityVO extends Model
      */
     public $qualifiedName;
     protected $_name = [
+        'attributes'    => 'Attributes',
         'detailUrl'     => 'DetailUrl',
+        'entityType'    => 'EntityType',
         'name'          => 'Name',
+        'owner'         => 'Owner',
         'parentName'    => 'ParentName',
         'qualifiedName' => 'QualifiedName',
     ];
@@ -49,11 +73,20 @@ class LineageEntityVO extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->attributes) {
+            $res['Attributes'] = $this->attributes;
+        }
         if (null !== $this->detailUrl) {
             $res['DetailUrl'] = $this->detailUrl;
         }
+        if (null !== $this->entityType) {
+            $res['EntityType'] = $this->entityType;
+        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->owner) {
+            $res['Owner'] = $this->owner;
         }
         if (null !== $this->parentName) {
             $res['ParentName'] = $this->parentName;
@@ -73,11 +106,20 @@ class LineageEntityVO extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Attributes'])) {
+            $model->attributes = $map['Attributes'];
+        }
         if (isset($map['DetailUrl'])) {
             $model->detailUrl = $map['DetailUrl'];
         }
+        if (isset($map['EntityType'])) {
+            $model->entityType = $map['EntityType'];
+        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['Owner'])) {
+            $model->owner = $map['Owner'];
         }
         if (isset($map['ParentName'])) {
             $model->parentName = $map['ParentName'];

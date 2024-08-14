@@ -4604,6 +4604,9 @@ class Dataworkspublic extends OpenApiClient
         if (!Utils::isUnset($request->relationshipGuid)) {
             $query['RelationshipGuid'] = $request->relationshipGuid;
         }
+        if (!Utils::isUnset($request->relationshipType)) {
+            $query['RelationshipType'] = $request->relationshipType;
+        }
         if (!Utils::isUnset($request->srcEntityQualifiedName)) {
             $query['SrcEntityQualifiedName'] = $request->srcEntityQualifiedName;
         }
