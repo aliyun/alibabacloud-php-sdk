@@ -46,7 +46,7 @@ class ListAlertEventsRequest extends Model
     public $page;
 
     /**
-     * @description Whether to display the associated notification policies.
+     * @description Specifies whether to show the associated notification policy.
      *
      * @example false
      *

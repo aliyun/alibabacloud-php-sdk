@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class CreateOrUpdateSilencePolicyRequest extends Model
 {
     /**
+     * @example PERMANENT
+     *
+     * @var string
+     */
+    public $effectiveTimeType;
+
+    /**
      * @description The ID of the silence policy.
      *
      *   If you do not configure this parameter, a new silence policy is created.
@@ -57,12 +64,29 @@ class CreateOrUpdateSilencePolicyRequest extends Model
      * @var string
      */
     public $state;
+
+    /**
+     * @example DAY
+     *
+     * @var string
+     */
+    public $timePeriod;
+
+    /**
+     * @example [{"startTime":"2024-08-04 22:13","endTime":"2024-08-04 22:21"}]
+     *
+     * @var string
+     */
+    public $timeSlots;
     protected $_name = [
-        'id'            => 'Id',
-        'matchingRules' => 'MatchingRules',
-        'name'          => 'Name',
-        'regionId'      => 'RegionId',
-        'state'         => 'State',
+        'effectiveTimeType' => 'EffectiveTimeType',
+        'id'                => 'Id',
+        'matchingRules'     => 'MatchingRules',
+        'name'              => 'Name',
+        'regionId'          => 'RegionId',
+        'state'             => 'State',
+        'timePeriod'        => 'TimePeriod',
+        'timeSlots'         => 'TimeSlots',
     ];
 
     public function validate()
@@ -72,6 +96,9 @@ class CreateOrUpdateSilencePolicyRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->effectiveTimeType) {
+            $res['EffectiveTimeType'] = $this->effectiveTimeType;
+        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
@@ -87,6 +114,12 @@ class CreateOrUpdateSilencePolicyRequest extends Model
         if (null !== $this->state) {
             $res['State'] = $this->state;
         }
+        if (null !== $this->timePeriod) {
+            $res['TimePeriod'] = $this->timePeriod;
+        }
+        if (null !== $this->timeSlots) {
+            $res['TimeSlots'] = $this->timeSlots;
+        }
 
         return $res;
     }
@@ -99,6 +132,9 @@ class CreateOrUpdateSilencePolicyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EffectiveTimeType'])) {
+            $model->effectiveTimeType = $map['EffectiveTimeType'];
+        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
@@ -113,6 +149,12 @@ class CreateOrUpdateSilencePolicyRequest extends Model
         }
         if (isset($map['State'])) {
             $model->state = $map['State'];
+        }
+        if (isset($map['TimePeriod'])) {
+            $model->timePeriod = $map['TimePeriod'];
+        }
+        if (isset($map['TimeSlots'])) {
+            $model->timeSlots = $map['TimeSlots'];
         }
 
         return $model;

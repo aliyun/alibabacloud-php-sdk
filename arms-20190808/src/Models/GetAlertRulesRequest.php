@@ -41,7 +41,7 @@ class GetAlertRulesRequest extends Model
      *   STOPPED
      *   PAUSED
      *
-     * > The **PAUSED** status indicates that the alert rule is abnormal and is actively paused by the system. The alert rule may be paused because that it is not unique or the associated cluster has been deleted.
+     * >  The PAUSED state indicates that the alert rule is abnormal and has been suspended. This may be because the specified threshold value is excessively large, or the associated cluster has been deleted.
      * @example RUNNING
      *
      * @var string
@@ -49,11 +49,11 @@ class GetAlertRulesRequest extends Model
     public $alertStatus;
 
     /**
-     * @description The type of the alert rule.
+     * @description The type of the alert rule. Valid values:
      *
      *   APPLICATION_MONITORING_ALERT_RULE: alert rule for Application Monitoring
-     *   BROWSER_MONITORING_ALERT_RULE: an alert rule for Browser Monitoring.
-     *   PROMETHEUS_MONITORING_ALERT_RULE: alert rule for Managed Service for Prometheus.
+     *   BROWSER_MONITORING_ALERT_RULE: alert rule for Browser Monitoring
+     *   PROMETHEUS_MONITORING_ALERT_RULE: alert rule for Managed Service for Prometheus
      *
      * @example APPLICATION_MONITORING_ALERT_RULE
      *

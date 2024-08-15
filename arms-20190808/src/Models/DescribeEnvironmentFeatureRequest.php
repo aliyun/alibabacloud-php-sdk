@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeEnvironmentFeatureRequest extends Model
 {
     /**
+     * @description Language, en | zh.
+     *
+     * @example en
+     *
      * @var string
      */
     public $aliyunLang;
@@ -28,11 +32,9 @@ class DescribeEnvironmentFeatureRequest extends Model
      *
      * Valid values:
      *
-     *   app-agent-pilot
-     *
-     * <!-- -->
-     *
-     *   metric-agent
+     *   app-agent-pilot: App Pilot agent
+     *   arms-cmonitor: ARMS CMonitor agent
+     *   metric-agent: Prometheus agent
      *
      * This parameter is required.
      * @example metric-agent

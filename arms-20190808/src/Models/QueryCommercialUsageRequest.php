@@ -42,6 +42,11 @@ class QueryCommercialUsageRequest extends Model
     /**
      * @description The time interval between data slices. Unit: seconds. Minimum value: 3600.
      *
+     * Valid values:
+     *
+     *   3600: hours
+     *   86400: days
+     *
      * @example 3600
      *
      * @var int

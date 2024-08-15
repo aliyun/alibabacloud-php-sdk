@@ -126,7 +126,7 @@ class data extends Model
     public $resourceGroupId;
 
     /**
-     * @description Service domain name configuration list (currently only supports mobile applications).
+     * @description The list of service domain configurations. Only mobile applications are supported.
      *
      * @var serviceDomainConfigs[]
      */

@@ -1033,7 +1033,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Associates a Prometheus instance with the ID and name of a Flink workspace.
+     * @summary Attaches the workspace ID and workspace name tags to the Prometheus instance corresponding to a Flink workspace.
      *  *
      * @param AddTagToFlinkClusterRequest $request AddTagToFlinkClusterRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -1081,7 +1081,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Associates a Prometheus instance with the ID and name of a Flink workspace.
+     * @summary Attaches the workspace ID and workspace name tags to the Prometheus instance corresponding to a Flink workspace.
      *  *
      * @param AddTagToFlinkClusterRequest $request AddTagToFlinkClusterRequest
      *
@@ -2804,6 +2804,16 @@ class ARMS extends OpenApiClient
     public function createOrUpdateSilencePolicyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->effectiveTimeType)) {
+            $query['EffectiveTimeType'] = $request->effectiveTimeType;
+        }
+        if (!Utils::isUnset($request->timePeriod)) {
+            $query['TimePeriod'] = $request->timePeriod;
+        }
+        if (!Utils::isUnset($request->timeSlots)) {
+            $query['TimeSlots'] = $request->timeSlots;
+        }
         $body = [];
         if (!Utils::isUnset($request->id)) {
             $body['Id'] = $request->id;
@@ -2821,7 +2831,8 @@ class ARMS extends OpenApiClient
             $body['State'] = $request->state;
         }
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateOrUpdateSilencePolicy',
@@ -7921,7 +7932,9 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 获取RUM OCU统计数据
+     * @summary Queries the observability capacity unit (OCU) usage data of Real User Monitoring (RUM).
+     *  *
+     * @description You can query the usage data for the current day at any time. You can query the usage data for the previous day only after 8:00 today.
      *  *
      * @param GetRumOcuStatisticDataRequest $tmpReq  GetRumOcuStatisticDataRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -7959,7 +7972,9 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 获取RUM OCU统计数据
+     * @summary Queries the observability capacity unit (OCU) usage data of Real User Monitoring (RUM).
+     *  *
+     * @description You can query the usage data for the current day at any time. You can query the usage data for the previous day only after 8:00 today.
      *  *
      * @param GetRumOcuStatisticDataRequest $request GetRumOcuStatisticDataRequest
      *

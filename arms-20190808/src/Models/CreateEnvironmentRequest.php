@@ -46,7 +46,7 @@ class CreateEnvironmentRequest extends Model
      * @description The subtype of the environment. Valid values:
      *
      *   CS: Container Service for Kubernetes (ACK) or Distributed Cloud Container Platform for Kubernetes (ACK One)
-     *   ECS: Elastic Compute Service (ECS)
+     *   ECS: ECS
      *   Cloud: cloud service
      *
      * This parameter is required.
@@ -59,8 +59,8 @@ class CreateEnvironmentRequest extends Model
     /**
      * @description The type of the environment. Valid values:
      *
-     *   CS: ACK
-     *   ECS: ECS
+     *   CS: Container Service
+     *   ECS: Elastic Compute Service
      *   Cloud: cloud service
      *
      * This parameter is required.
@@ -71,7 +71,7 @@ class CreateEnvironmentRequest extends Model
     public $environmentType;
 
     /**
-     * @description The payable resource plan. Valid values:
+     * @description The payable resource plan.
      *
      *   If the EnvironmentType parameter is set to CS, set the value to CS_Basic or CS_Pro. Default value: CS_Basic.
      *   Otherwise, leave the parameter empty.
@@ -90,7 +90,7 @@ class CreateEnvironmentRequest extends Model
     public $grafanaWorkspaceId;
 
     /**
-     * @description Whether to initialize the environment.
+     * @description Specifies whether to initialize the environment.
      *
      * @example false
      *

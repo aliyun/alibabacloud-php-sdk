@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetRumOcuStatisticDataRequest extends Model
 {
     /**
+     * @description The end of the time range to query. Unit: milliseconds.
+     *
      * @example 1687849260000
      *
      * @var int
@@ -17,16 +19,32 @@ class GetRumOcuStatisticDataRequest extends Model
     public $endTime;
 
     /**
+     * @description The filter condition. Three types of filter conditions are provided:
+     *
+     *   Application name: pid (Note that the application name is displayed, but the application ID is actually specified)
+     *   Application type: siteType
+     *   Data type: dataType
+     *
      * @var filter[]
      */
     public $filter;
 
     /**
+     * @description The grouping fields. Valid values:
+     *
+     *   siteType: The total number of OCUs is grouped by application type.
+     *   dataType: The total number of OCUs is grouped by data type.
+     *   pid: The total number of OCUs is grouped by application ID.
+     *   appName: The total number of OCUs is grouped by application name.
+     *   startTime: The total number of OCUs is grouped by start time.
+     *
      * @var string[]
      */
     public $group;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -34,6 +52,8 @@ class GetRumOcuStatisticDataRequest extends Model
     public $page;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 100
      *
      * @var int
@@ -41,6 +61,8 @@ class GetRumOcuStatisticDataRequest extends Model
     public $pageSize;
 
     /**
+     * @description The type of the query. To query non-time series data, set the value to INSTANT. To query time series data, set the value to TIME_SERIES.
+     *
      * @example TIME_SERIES
      *
      * @var string
@@ -48,6 +70,8 @@ class GetRumOcuStatisticDataRequest extends Model
     public $queryType;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -55,6 +79,8 @@ class GetRumOcuStatisticDataRequest extends Model
     public $regionId;
 
     /**
+     * @description The beginning of the time range to query. Unit: milliseconds.
+     *
      * @example 1600063200000
      *
      * @var int

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListSyntheticDetailShrinkRequest extends Model
 {
     /**
+     * @description An array of filter conditions. This parameter is required.
+     *
+     *   To query the list of synthetic test results, set this parameter in the following format: [{"Key":"taskType","OpType":"in","Value":[Task type]}].
+     *   To query the result details of a synthetic monitoring task, set this parameter in the following format: [{"Key":"dataId","OpType":"eq","Value":"dataId"}]. dataId is returned when you query the list of synthetic test results.
+     *
      * @var string
      */
     public $advancedFiltersShrink;
@@ -21,6 +26,16 @@ class ListSyntheticDetailShrinkRequest extends Model
     public $category;
 
     /**
+     * @description The type of the list that contains the results. This parameter is required. Valid values:
+     *
+     *   ICMP_LIST
+     *   TCP_LIST
+     *   DNS_LIST
+     *   HTTP_LIST
+     *   WEBSITE_LIST
+     *   DOWNLOAD_LIST
+     *   ALL
+     *
      * @example ICMP_LIST
      *
      * @var string
@@ -40,6 +55,11 @@ class ListSyntheticDetailShrinkRequest extends Model
     public $exactFiltersShrink;
 
     /**
+     * @description The filter condition. This parameter is required.
+     *
+     *   To query the result of a synthetic monitoring task, set this parameter in the following format: {"taskId":"${taskId}"}.
+     *   To query the result details of a synthetic monitoring task, set this parameter in the following format: {"taskId":"${taskId}","dataId":"${dataId}"}.
+     *
      * @var string
      */
     public $filtersShrink;

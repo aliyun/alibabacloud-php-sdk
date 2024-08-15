@@ -35,7 +35,7 @@ class GetRumAppInfoResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The error message returned if the request failed.
+     * @description The error message.
      *
      * @example StartTime is mandatory for this action.
      *

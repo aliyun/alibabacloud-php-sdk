@@ -4,22 +4,16 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models\GetRumAppInfoResponseBody\data;
 
-use AlibabaCloud\SDK\ARMS\V20190808\Models\DataBonreeSDKConfigModuleConfigValue;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\GetRumAppInfoResponseBody\data\bonreeSDKConfig\moduleConfig;
 use AlibabaCloud\Tea\Model;
 
 class bonreeSDKConfig extends Model
 {
     /**
-     * @var bool
-     */
-    public $enable;
-
-    /**
-     * @var DataBonreeSDKConfigModuleConfigValue[]
+     * @var moduleConfig
      */
     public $moduleConfig;
     protected $_name = [
-        'enable'       => 'enable',
         'moduleConfig' => 'moduleConfig',
     ];
 
@@ -30,16 +24,8 @@ class bonreeSDKConfig extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->enable) {
-            $res['enable'] = $this->enable;
-        }
         if (null !== $this->moduleConfig) {
-            $res['moduleConfig'] = [];
-            if (null !== $this->moduleConfig && \is_array($this->moduleConfig)) {
-                foreach ($this->moduleConfig as $key => $val) {
-                    $res['moduleConfig'][$key] = null !== $val ? $val->toMap() : $val;
-                }
-            }
+            $res['moduleConfig'] = null !== $this->moduleConfig ? $this->moduleConfig->toMap() : null;
         }
 
         return $res;
@@ -53,11 +39,8 @@ class bonreeSDKConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['enable'])) {
-            $model->enable = $map['enable'];
-        }
         if (isset($map['moduleConfig'])) {
-            $model->moduleConfig = $map['moduleConfig'];
+            $model->moduleConfig = moduleConfig::fromMap($map['moduleConfig']);
         }
 
         return $model;

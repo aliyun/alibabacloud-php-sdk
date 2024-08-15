@@ -37,7 +37,7 @@ class CreateRumAppResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The returned message.
+     * @description The error message.
      *
      * @example success
      *

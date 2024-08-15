@@ -99,7 +99,7 @@ class CreateOrUpdateIMRobotRequest extends Model
      *
      *   `dingding`: DingTalk chatbot
      *   `wechat`: WeCom chatbot
-     *   `feishu`: Lark chatbot.
+     *   `feishu`: Lark chatbot
      *
      * This parameter is required.
      * @example dingding

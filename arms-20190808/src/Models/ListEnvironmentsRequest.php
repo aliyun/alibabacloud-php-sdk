@@ -67,6 +67,8 @@ class ListEnvironmentsRequest extends Model
     public $feePackage;
 
     /**
+     * @description The region IDs.
+     *
      * @var string
      */
     public $filterRegionIds;

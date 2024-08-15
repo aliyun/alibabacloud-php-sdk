@@ -91,12 +91,14 @@ class CreateOrUpdateAlertRuleRequest extends Model
     public $alertStatus;
 
     /**
-     * @description *   APPLICATION_MONITORING_ALERT_RULE
-     *   BROWSER_MONITORING_ALERT_RULE
-     *   XTRACE_MONITORING_ALERT_RULE
-     *   RUM_MONITORING_ALERT_RULE
-     *   EBPF_MONITORING_ALERT_RULE
-     *   PROMETHEUS_MONITORING_ALERT_RULE
+     * @description The type of the alert rule. Valid values:
+     *
+     *   APPLICATION_MONITORING_ALERT_RULE: alert rule for Application Monitoring
+     *   BROWSER_MONITORING_ALERT_RULE: alert rule for Browser Monitoring
+     *   PROMETHEUS_MONITORING_ALERT_RULE: alert rule for Managed Service for Prometheus
+     *   XTRACE_MONITORING_ALERT_RULE: alert rule for Managed Service for OpenTelemetry
+     *   EBPF_MONITORING_ALERT_RULE: alert rule for Application Monitoring eBPF Edition
+     *   RUM_MONITORING_ALERT_RULE: alert rule for Real User Monitoring
      *
      * This parameter is required.
      * @example APPLICATION_MONITORING_ALERT_RULE
@@ -127,7 +129,7 @@ class CreateOrUpdateAlertRuleRequest extends Model
     public $autoAddNewApplication;
 
     /**
-     * @description Application monitoring alarm rules - Alarm application automatically adds configuration. auto Add Match Type: Matching method: regular match (REGULAR)/regular non-match (NOT_REGULAR) auto Add Match Exp: regular expression
+     * @description The configurations that are automatically appended to monitor the application based on the specified alert rule. autoAddMatchType: the matching mode. Valid values: REGULAR and NOT_REGULAR. autoAddMatchExp: the regular expression
      *
      * @example {\\"autoAddMatchType\\":\\"REGULAR\\",\\"autoAddMatchExp\\":\\".*cbw.*\\"}
      *
@@ -249,7 +251,12 @@ class CreateOrUpdateAlertRuleRequest extends Model
     public $notice;
 
     /**
-     * @description Notification Mode. Normal mode or Simplified mode.
+     * @description The notification mode. You can specify the normal mode or simple mode.
+     *
+     * Valid values:
+     *
+     *   DIRECTED_MODE
+     *   NORMAL_MODE
      *
      * @example NORMAL_MODE
      *

@@ -10,6 +10,10 @@ use AlibabaCloud\Tea\Model;
 class featureStatus extends Model
 {
     /**
+     * @description Binded resource ID.
+     *
+     * @example c013823b55e4b4d6bb6b6f28682bd38a7
+     *
      * @var string
      */
     public $bindResourceId;
@@ -22,6 +26,8 @@ class featureStatus extends Model
     public $featureContainers;
 
     /**
+     * @description IPs for Pod.
+     *
      * @var string[]
      */
     public $ips;
@@ -45,6 +51,10 @@ class featureStatus extends Model
     public $namespace;
 
     /**
+     * @description The security group ID.
+     *
+     * @example sg-bp1c9fcexoalq9po6cp8
+     *
      * @var string
      */
     public $securityGroupId;
@@ -63,6 +73,10 @@ class featureStatus extends Model
     public $status;
 
     /**
+     * @description The vSwitch ID.
+     *
+     * @example vsw-bp1qt6ict0dbxgv4wer8l
+     *
      * @var string
      */
     public $vSwitchId;

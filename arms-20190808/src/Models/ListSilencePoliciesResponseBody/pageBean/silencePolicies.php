@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class silencePolicies extends Model
 {
     /**
+     * @var string
+     */
+    public $effectiveTimeType;
+
+    /**
      * @description The ID of the silence policy.
      *
      * @example 123
@@ -42,11 +47,24 @@ class silencePolicies extends Model
      * @var string
      */
     public $state;
+
+    /**
+     * @var string
+     */
+    public $timePeriod;
+
+    /**
+     * @var string
+     */
+    public $timeSlots;
     protected $_name = [
-        'id'            => 'Id',
-        'matchingRules' => 'MatchingRules',
-        'name'          => 'Name',
-        'state'         => 'State',
+        'effectiveTimeType' => 'EffectiveTimeType',
+        'id'                => 'Id',
+        'matchingRules'     => 'MatchingRules',
+        'name'              => 'Name',
+        'state'             => 'State',
+        'timePeriod'        => 'TimePeriod',
+        'timeSlots'         => 'TimeSlots',
     ];
 
     public function validate()
@@ -56,6 +74,9 @@ class silencePolicies extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->effectiveTimeType) {
+            $res['EffectiveTimeType'] = $this->effectiveTimeType;
+        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
@@ -74,6 +95,12 @@ class silencePolicies extends Model
         if (null !== $this->state) {
             $res['State'] = $this->state;
         }
+        if (null !== $this->timePeriod) {
+            $res['TimePeriod'] = $this->timePeriod;
+        }
+        if (null !== $this->timeSlots) {
+            $res['TimeSlots'] = $this->timeSlots;
+        }
 
         return $res;
     }
@@ -86,6 +113,9 @@ class silencePolicies extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EffectiveTimeType'])) {
+            $model->effectiveTimeType = $map['EffectiveTimeType'];
+        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
@@ -103,6 +133,12 @@ class silencePolicies extends Model
         }
         if (isset($map['State'])) {
             $model->state = $map['State'];
+        }
+        if (isset($map['TimePeriod'])) {
+            $model->timePeriod = $map['TimePeriod'];
+        }
+        if (isset($map['TimeSlots'])) {
+            $model->timeSlots = $map['TimeSlots'];
         }
 
         return $model;

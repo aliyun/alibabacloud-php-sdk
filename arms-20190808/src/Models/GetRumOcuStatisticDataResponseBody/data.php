@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description Indicates whether the next page exists.
+     *
      * @example true
      *
      * @var bool
@@ -16,11 +18,15 @@ class data extends Model
     public $complete;
 
     /**
+     * @description The queried data.
+     *
      * @var mixed[][]
      */
     public $items;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -28,6 +34,8 @@ class data extends Model
     public $page;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 100
      *
      * @var int
@@ -35,6 +43,8 @@ class data extends Model
     public $pageSize;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 100
      *
      * @var int

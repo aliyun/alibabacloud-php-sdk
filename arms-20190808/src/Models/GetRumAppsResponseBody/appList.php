@@ -106,7 +106,7 @@ class appList extends Model
     public $resourceGroupId;
 
     /**
-     * @description Service domain name configuration list. Currently only supports mobile applications.
+     * @description The list of service domain configurations. Only mobile applications are supported.
      *
      * @var serviceDomainConfigs[]
      */

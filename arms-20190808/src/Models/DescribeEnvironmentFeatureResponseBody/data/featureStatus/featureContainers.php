@@ -16,7 +16,7 @@ class featureContainers extends Model
     public $args;
 
     /**
-     * @description The image of the container.
+     * @description The container image.
      *
      * @example registry-cn-hangzhou-vpc.ack.aliyuncs.com/acs/arms-prometheus-agent:v4.0.0
      *
@@ -25,7 +25,7 @@ class featureContainers extends Model
     public $image;
 
     /**
-     * @description The name of the container.
+     * @description The container name.
      *
      * @example arms-prometheus-operator
      *

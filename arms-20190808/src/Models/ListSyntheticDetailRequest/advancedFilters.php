@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class advancedFilters extends Model
 {
     /**
+     * @description The filter condition. The taskType and dataId fields are supported.
+     *
+     *   To query the list of synthetic test results, set the key to taskType.
+     *   To query the result details of a synthetic monitoring task, set the key to dataId.
+     *
      * @example taskType
      *
      * @var string
@@ -16,6 +21,8 @@ class advancedFilters extends Model
     public $key;
 
     /**
+     * @description The type of the filter condition. Valid values: eq and in. eq: equal to. in: include.
+     *
      * @example eq
      *
      * @var string
@@ -23,6 +30,8 @@ class advancedFilters extends Model
     public $opType;
 
     /**
+     * @description The value of the filter condition. The type of the task. Valid values: 1: ICMP 2: TCP 3: DNS 4: HTTP 5: website speed measurement 6: file download
+     *
      * @example 1
      *
      * @var mixed

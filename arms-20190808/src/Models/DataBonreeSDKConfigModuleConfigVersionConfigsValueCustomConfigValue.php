@@ -6,19 +6,14 @@ namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DeleteNotificationPolicyRequest extends Model
+class DataBonreeSDKConfigModuleConfigVersionConfigsValueCustomConfigValue extends Model
 {
     /**
-     * @description The ID of the notification policy.
-     *
-     * This parameter is required.
-     * @example 1234
-     *
-     * @var int
+     * @var bool
      */
-    public $id;
+    public $enable;
     protected $_name = [
-        'id' => 'Id',
+        'enable' => 'enable',
     ];
 
     public function validate()
@@ -28,8 +23,8 @@ class DeleteNotificationPolicyRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
+        if (null !== $this->enable) {
+            $res['enable'] = $this->enable;
         }
 
         return $res;
@@ -38,13 +33,13 @@ class DeleteNotificationPolicyRequest extends Model
     /**
      * @param array $map
      *
-     * @return DeleteNotificationPolicyRequest
+     * @return DataBonreeSDKConfigModuleConfigVersionConfigsValueCustomConfigValue
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
+        if (isset($map['enable'])) {
+            $model->enable = $map['enable'];
         }
 
         return $model;

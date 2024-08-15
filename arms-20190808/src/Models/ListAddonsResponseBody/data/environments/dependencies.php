@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class dependencies extends Model
 {
     /**
+     * @description Dependency cluster types.
+     *
      * @var string[]
      */
     public $clusterTypes;

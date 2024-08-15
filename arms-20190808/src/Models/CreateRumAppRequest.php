@@ -40,7 +40,7 @@ class CreateRumAppRequest extends Model
     /**
      * @description The nick name.
      *
-     * @example test-user
+     * @example test-app
      *
      * @var string
      */

@@ -86,7 +86,14 @@ class feature extends Model
     public $name;
 
     /**
-     * @description The status.
+     * @description The installation status of the agent.
+     *
+     *   Installing: The agent is being installed.
+     *   Success: The agent is installed.
+     *   Failed: The agent failed to be installed.
+     *   UnInstall: The agent is uninstalled or has not been installed.
+     *   Uninstalling: The agent is being uninstalled.
+     *   UnInstallFailed: The agent failed to be uninstalled.
      *
      * @example Success
      *

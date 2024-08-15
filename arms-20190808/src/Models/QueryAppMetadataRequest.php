@@ -9,7 +9,9 @@ use AlibabaCloud\Tea\Model;
 class QueryAppMetadataRequest extends Model
 {
     /**
-     * @description The list of metadata IDs. Separate multiple IDs with commas (,).
+     * @description The metadata IDs. Separate multiple IDs with commas (,).
+     *
+     * You can obtain the exception ID on the **Exception Analysis** page of your application in the ARMS console.
      *
      * This parameter is required.
      * @example 4c9dd447,3c76c565
@@ -19,7 +21,10 @@ class QueryAppMetadataRequest extends Model
     public $metaIds;
 
     /**
-     * @description The metadata type. Valid values: sql: obtains an SQL statement based on sqlId exception: obtains the exception stack based on exceptionId
+     * @description The metadata type. Valid values:
+     *
+     *   sql: obtains an SQL statement based on sqlId.
+     *   exception: obtains the exception stack based on exceptionId.
      *
      * This parameter is required.
      * @example sql
@@ -29,7 +34,7 @@ class QueryAppMetadataRequest extends Model
     public $metaType;
 
     /**
-     * @description The process identifier (PID) of the application. For more information about how to obtain the PID, see "Obtain the PID of an application."
+     * @description The process identifier (PID) of the application. You can obtain the PID of an application by calling the **ListTraceApps** operation.
      *
      * This parameter is required.
      * @example ggxw4lnjuz@54364d85b97dc56
@@ -39,7 +44,7 @@ class QueryAppMetadataRequest extends Model
     public $pid;
 
     /**
-     * @description The region ID. Default value: cn-hangzhou.
+     * @description The region ID.
      *
      * This parameter is required.
      * @example cn-hangzhou

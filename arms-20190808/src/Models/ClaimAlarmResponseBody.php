@@ -48,8 +48,9 @@ class ClaimAlarmResponseBody extends Model
     public $result;
 
     /**
-     * @description Indicates whether the request was successful. Valid values: true and false.
+     * @description Indicates whether the request was successful. Valid values:
      *
+     * `false`
      * @example true
      *
      * @var bool

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ChangeAlarmSeverityRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the alert.
      *
+     * This parameter is required.
      * @example 155
      *
      * @var int

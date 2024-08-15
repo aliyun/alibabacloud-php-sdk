@@ -75,7 +75,7 @@ class UpdateRumAppRequest extends Model
     public $restart;
 
     /**
-     * @description Set the application service domain name, support creation, modification, and deletion of service domain name configuration.
+     * @description The service domain name of the application. You can create, modify, and delete service domain name configurations.
      *
      * @example {\\"Op\\":\\"Update\\",\\"Domain\\":\\"example.com\\",\\"Config\\":{\\"Description\\":\\"message\\",\\"Tracing\\":\\"true\\",\\"PropagatorTypes\\":[\\"sw8\\"]}}
      *

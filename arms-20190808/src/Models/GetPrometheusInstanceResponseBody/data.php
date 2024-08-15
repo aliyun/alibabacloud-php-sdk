@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description Permission type: read Write, read Only, http Read Only
+     * @description The permission type. Valid values: readWrite, readOnly, and httpReadOnly
      *
      * @example readWrite
      *
@@ -69,11 +69,19 @@ class data extends Model
     public $clusterType;
 
     /**
+     * @description Backend data storage status.
+     *
+     * @example RUNNING
+     *
      * @var string
      */
     public $dbInstanceStatus;
 
     /**
+     * @description Whether to enable access token authentication.
+     *
+     * @example true
+     *
      * @var string
      */
     public $enableAuthToken;
@@ -118,6 +126,10 @@ class data extends Model
     public $paymentType;
 
     /**
+     * @description The product to which the prometheus instance belongs.
+     * - cms
+     * @example arms
+     *
      * @var string
      */
     public $product;
@@ -233,7 +245,7 @@ class data extends Model
     /**
      * @var string[]
      */
-    public $surpportAuthTypes;
+    public $supportAuthTypes;
 
     /**
      * @description The tags of the instance.
@@ -294,7 +306,7 @@ class data extends Model
         'securityGroupId'     => 'SecurityGroupId',
         'storageDuration'     => 'StorageDuration',
         'subClustersJson'     => 'SubClustersJson',
-        'surpportAuthTypes'   => 'SurpportAuthTypes',
+        'supportAuthTypes'    => 'SupportAuthTypes',
         'tags'                => 'Tags',
         'userId'              => 'UserId',
         'vSwitchId'           => 'VSwitchId',
@@ -383,8 +395,8 @@ class data extends Model
         if (null !== $this->subClustersJson) {
             $res['SubClustersJson'] = $this->subClustersJson;
         }
-        if (null !== $this->surpportAuthTypes) {
-            $res['SurpportAuthTypes'] = $this->surpportAuthTypes;
+        if (null !== $this->supportAuthTypes) {
+            $res['SupportAuthTypes'] = $this->supportAuthTypes;
         }
         if (null !== $this->tags) {
             $res['Tags'] = [];
@@ -491,9 +503,9 @@ class data extends Model
         if (isset($map['SubClustersJson'])) {
             $model->subClustersJson = $map['SubClustersJson'];
         }
-        if (isset($map['SurpportAuthTypes'])) {
-            if (!empty($map['SurpportAuthTypes'])) {
-                $model->surpportAuthTypes = $map['SurpportAuthTypes'];
+        if (isset($map['SupportAuthTypes'])) {
+            if (!empty($map['SupportAuthTypes'])) {
+                $model->supportAuthTypes = $map['SupportAuthTypes'];
             }
         }
         if (isset($map['Tags'])) {

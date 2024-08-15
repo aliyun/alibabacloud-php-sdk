@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ClaimAlarmRequest extends Model
 {
     /**
-     * @description The alert ID.
+     * @description The ID of the alert.
      *
      * This parameter is required.
      * @example 30

@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The installation information of the feature.
+     * @description The installation information about the feature.
      *
      * @var feature
      */

@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class filter extends Model
 {
     /**
+     * @description The key of the filter condition. Three types of filter conditions are provided:
+     *
+     *   Application name: pid (Note that the application name is displayed, but the application ID is actually specified)
+     *   Application type: siteType
+     *   Data type: dataType
+     *
      * @example pid
      *
      * @var string
@@ -16,6 +22,8 @@ class filter extends Model
     public $key;
 
     /**
+     * @description The type of the operator. Valid value: in.
+     *
      * @example in
      *
      * @var string
@@ -23,6 +31,8 @@ class filter extends Model
     public $opType;
 
     /**
+     * @description The value of the filter condition. The value is a JSON array of strings.
+     *
      * @example ["b590xxxxx@2dcbxxxxx9", "b590xxxxx@2dcbxxxxx8"]
      *
      * @var mixed

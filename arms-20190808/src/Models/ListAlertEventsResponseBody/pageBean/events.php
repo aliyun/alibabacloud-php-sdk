@@ -99,7 +99,7 @@ class events extends Model
     public $labels;
 
     /**
-     * @description The information about the notification policy.
+     * @description The associated notification policies.
      *
      * @var notificationPolicies[]
      */
@@ -152,7 +152,7 @@ class events extends Model
     public $status;
 
     /**
-     * @description The number of times the alert is triggered.
+     * @description The number of times the event is triggered.
      *
      * @example 10
      *

@@ -9,7 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteAddonReleaseRequest extends Model
 {
     /**
-     * @description The name of the add-on.
+     * @description The name of the add-on. If you assign a value to AddonName, the ReleaseName parameter is ignored and all AddonReleases that belong to the same add-on are deleted.
+     *
+     * @example mysql
      *
      * @var string
      */

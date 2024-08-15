@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetRumOcuStatisticDataResponseBody extends Model
 {
     /**
+     * @description The HTTP status code. The status code 200 indicates that the request was successful.
+     *
      * @example 200
      *
      * @var int
@@ -17,17 +19,21 @@ class GetRumOcuStatisticDataResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned struct.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The error message returned if the request failed.
+     *
      * @var string
      */
     public $message;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example 626037F5-FDEB-45B0-804C-B3C92797****
      *

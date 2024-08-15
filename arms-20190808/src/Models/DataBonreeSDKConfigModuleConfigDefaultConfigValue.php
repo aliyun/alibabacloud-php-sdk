@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DataBonreeSDKConfigModuleConfigValue extends Model
+class DataBonreeSDKConfigModuleConfigDefaultConfigValue extends Model
 {
     /**
      * @var bool
@@ -33,7 +33,7 @@ class DataBonreeSDKConfigModuleConfigValue extends Model
     /**
      * @param array $map
      *
-     * @return DataBonreeSDKConfigModuleConfigValue
+     * @return DataBonreeSDKConfigModuleConfigDefaultConfigValue
      */
     public static function fromMap($map = [])
     {

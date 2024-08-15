@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class BlockAlarmNotificationRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the alert.
      *
+     * This parameter is required.
      * @example 133
      *
      * @var int
@@ -18,6 +19,8 @@ class BlockAlarmNotificationRequest extends Model
     public $alarmId;
 
     /**
+     * @description The ID of the alert handler.
+     *
      * @example 2044049
      *
      * @var int
@@ -34,8 +37,9 @@ class BlockAlarmNotificationRequest extends Model
     public $regionId;
 
     /**
-     * @description This parameter is required.
+     * @description The number of seconds that elapse before alert notifications are blocked. Unit: seconds.
      *
+     * This parameter is required.
      * @example 180
      *
      * @var int

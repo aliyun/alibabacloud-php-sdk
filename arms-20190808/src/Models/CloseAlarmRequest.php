@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CloseAlarmRequest extends Model
 {
     /**
-     * @description The alert ID.
+     * @description The ID of the alert.
      *
      * This parameter is required.
      * @example 163
@@ -19,7 +19,7 @@ class CloseAlarmRequest extends Model
     public $alarmId;
 
     /**
-     * @description The ID of the handler.
+     * @description The ID of the alert handler.
      *
      * @example 2048065
      *
@@ -38,7 +38,7 @@ class CloseAlarmRequest extends Model
     public $regionId;
 
     /**
-     * @description The solution to the alert.
+     * @description The alert solution.
      *
      * @var string
      */

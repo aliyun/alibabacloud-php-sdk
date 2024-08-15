@@ -245,7 +245,7 @@ class data extends Model
     public $resourceGroupId;
 
     /**
-     * @description The security group ID bound to the environment.
+     * @description The ID of the security group associated with the environment.
      *
      * @var string
      */

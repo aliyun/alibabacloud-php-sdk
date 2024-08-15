@@ -46,6 +46,12 @@ class GetRumExceptionStackRequest extends Model
     public $regionId;
 
     /**
+     * @description The file type. Valid values:
+     *
+     *   source-map: SourceMap files
+     *   mapping: symbol table files for Android
+     *   dsym: dSYM files for iOS
+     *
      * @example source-map
      *
      * @var string

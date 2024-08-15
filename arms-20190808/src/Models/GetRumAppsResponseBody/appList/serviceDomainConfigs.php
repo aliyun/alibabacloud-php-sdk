@@ -9,16 +9,16 @@ use AlibabaCloud\Tea\Model;
 class serviceDomainConfigs extends Model
 {
     /**
-     * @description Description.
+     * @description The description.
      *
-     * @example 测试
+     * @example Test
      *
      * @var string
      */
     public $description;
 
     /**
-     * @description Domain name or IP.
+     * @description The domain name or IP address.
      *
      * @example example.com
      *
@@ -27,15 +27,18 @@ class serviceDomainConfigs extends Model
     public $domain;
 
     /**
-     * @description Trace transparent transmission protocol list, which must be transmitted when link tracing is enabled.
+     * @description The trace propagation protocols. This parameter is required if the tracing analysis feature is enabled.
      *
      * @var string[]
      */
     public $propagatorTypes;
 
     /**
-     * @description Whether to enable link tracking (need to enable the observable link Open Telemetry version), value:
-     * - `false`: Do not enable link tracking.
+     * @description Indicates whether the tracing analysis feature is enabled. To enable the tracing analysis feature, you must activate Managed Service for OpenTelemetry. Valid values:
+     *
+     *   `true`: enables the tracing analysis feature. If you enable the tracing analysis feature, related headers are inserted into requests for the domain name.
+     *   `false`: disables the tracing analysis feature.
+     *
      * @example true
      *
      * @var string
