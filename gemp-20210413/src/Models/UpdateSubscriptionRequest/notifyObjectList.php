@@ -16,6 +16,8 @@ class notifyObjectList extends Model
     public $id;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 19
      *
      * @var int

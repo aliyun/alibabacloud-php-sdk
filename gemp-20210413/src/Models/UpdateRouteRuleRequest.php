@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateRouteRuleRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -17,6 +19,8 @@ class UpdateRouteRuleRequest extends Model
     public $assignObjectId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example SERVICEGROUP
      *
      * @var string
@@ -53,6 +57,8 @@ class UpdateRouteRuleRequest extends Model
     public $coverageProblemLevels;
 
     /**
+     * @description This parameter is required.
+     *
      * @example LOW
      *
      * @var string
@@ -60,6 +66,8 @@ class UpdateRouteRuleRequest extends Model
     public $effection;
 
     /**
+     * @description This parameter is required.
+     *
      * @example P1
      *
      * @var string
@@ -67,6 +75,8 @@ class UpdateRouteRuleRequest extends Model
     public $incidentLevel;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 10
      *
      * @var int
@@ -74,6 +84,8 @@ class UpdateRouteRuleRequest extends Model
     public $matchCount;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $notifyChannels;
@@ -89,6 +101,8 @@ class UpdateRouteRuleRequest extends Model
     public $problemLevelGroup;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -96,11 +110,15 @@ class UpdateRouteRuleRequest extends Model
     public $relatedServiceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var routeChildRules[]
      */
     public $routeChildRules;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -108,6 +126,8 @@ class UpdateRouteRuleRequest extends Model
     public $routeRuleId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ALERT
      *
      * @var string
@@ -115,6 +135,8 @@ class UpdateRouteRuleRequest extends Model
     public $routeType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 规则1
      *
      * @var string
@@ -122,6 +144,8 @@ class UpdateRouteRuleRequest extends Model
     public $ruleName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 10
      *
      * @var int
@@ -129,6 +153,8 @@ class UpdateRouteRuleRequest extends Model
     public $timeWindow;
 
     /**
+     * @description This parameter is required.
+     *
      * @example MINUTE
      *
      * @var string

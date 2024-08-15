@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class schedulingSpecialDays extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 2021-08-19 12:00:00
      *
      * @var string
@@ -28,6 +30,8 @@ class schedulingSpecialDays extends Model
     public $schedulingOrder;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2021-08-19 08:00:00
      *
      * @var string
@@ -35,6 +39,8 @@ class schedulingSpecialDays extends Model
     public $schedulingStartTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 64
      *
      * @var int

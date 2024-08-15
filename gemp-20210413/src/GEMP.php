@@ -336,11 +336,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param AddProblemServiceGroupRequest $request
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
+     * @summary 添加故障协同组
+     *  *
+     * @param AddProblemServiceGroupRequest $request AddProblemServiceGroupRequest
+     * @param string[]                      $headers map
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddProblemServiceGroupResponse
+     * @return AddProblemServiceGroupResponse AddProblemServiceGroupResponse
      */
     public function addProblemServiceGroupWithOptions($request, $headers, $runtime)
     {
@@ -372,9 +374,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param AddProblemServiceGroupRequest $request
+     * @summary 添加故障协同组
+     *  *
+     * @param AddProblemServiceGroupRequest $request AddProblemServiceGroupRequest
      *
-     * @return AddProblemServiceGroupResponse
+     * @return AddProblemServiceGroupResponse AddProblemServiceGroupResponse
      */
     public function addProblemServiceGroup($request)
     {
@@ -385,10 +389,12 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @summary 计费展示
+     *  *
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return BillingStatisticsResponse
+     * @return BillingStatisticsResponse BillingStatisticsResponse
      */
     public function billingStatisticsWithOptions($headers, $runtime)
     {
@@ -411,7 +417,9 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @return BillingStatisticsResponse
+     * @summary 计费展示
+     *  *
+     * @return BillingStatisticsResponse BillingStatisticsResponse
      */
     public function billingStatistics()
     {
@@ -422,11 +430,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param CancelProblemRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @summary 故障取消
+     *  *
+     * @param CancelProblemRequest $request CancelProblemRequest
+     * @param string[]             $headers map
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return CancelProblemResponse
+     * @return CancelProblemResponse CancelProblemResponse
      */
     public function cancelProblemWithOptions($request, $headers, $runtime)
     {
@@ -467,9 +477,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param CancelProblemRequest $request
+     * @summary 故障取消
+     *  *
+     * @param CancelProblemRequest $request CancelProblemRequest
      *
-     * @return CancelProblemResponse
+     * @return CancelProblemResponse CancelProblemResponse
      */
     public function cancelProblem($request)
     {
@@ -480,11 +492,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param CheckWebhookRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @summary 校验webhook地址
+     *  *
+     * @param CheckWebhookRequest $request CheckWebhookRequest
+     * @param string[]            $headers map
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return CheckWebhookResponse
+     * @return CheckWebhookResponse CheckWebhookResponse
      */
     public function checkWebhookWithOptions($request, $headers, $runtime)
     {
@@ -519,9 +533,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param CheckWebhookRequest $request
+     * @summary 校验webhook地址
+     *  *
+     * @param CheckWebhookRequest $request CheckWebhookRequest
      *
-     * @return CheckWebhookResponse
+     * @return CheckWebhookResponse CheckWebhookResponse
      */
     public function checkWebhook($request)
     {
@@ -532,11 +548,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ConfirmIntegrationConfigRequest $request
-     * @param string[]                        $headers
-     * @param RuntimeOptions                  $runtime
+     * @summary 确认集成配置
+     *  *
+     * @param ConfirmIntegrationConfigRequest $request ConfirmIntegrationConfigRequest
+     * @param string[]                        $headers map
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ConfirmIntegrationConfigResponse
+     * @return ConfirmIntegrationConfigResponse ConfirmIntegrationConfigResponse
      */
     public function confirmIntegrationConfigWithOptions($request, $headers, $runtime)
     {
@@ -568,9 +586,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ConfirmIntegrationConfigRequest $request
+     * @summary 确认集成配置
+     *  *
+     * @param ConfirmIntegrationConfigRequest $request ConfirmIntegrationConfigRequest
      *
-     * @return ConfirmIntegrationConfigResponse
+     * @return ConfirmIntegrationConfigResponse ConfirmIntegrationConfigResponse
      */
     public function confirmIntegrationConfig($request)
     {
@@ -581,11 +601,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param CreateEscalationPlanRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @summary 创建升级计划
+     *  *
+     * @param CreateEscalationPlanRequest $request CreateEscalationPlanRequest
+     * @param string[]                    $headers map
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateEscalationPlanResponse
+     * @return CreateEscalationPlanResponse CreateEscalationPlanResponse
      */
     public function createEscalationPlanWithOptions($request, $headers, $runtime)
     {
@@ -629,9 +651,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param CreateEscalationPlanRequest $request
+     * @summary 创建升级计划
+     *  *
+     * @param CreateEscalationPlanRequest $request CreateEscalationPlanRequest
      *
-     * @return CreateEscalationPlanResponse
+     * @return CreateEscalationPlanResponse CreateEscalationPlanResponse
      */
     public function createEscalationPlan($request)
     {
@@ -642,11 +666,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param CreateIncidentRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @summary 手动创建事件
+     *  *
+     * @param CreateIncidentRequest $request CreateIncidentRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateIncidentResponse
+     * @return CreateIncidentResponse CreateIncidentResponse
      */
     public function createIncidentWithOptions($request, $headers, $runtime)
     {
@@ -699,9 +725,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param CreateIncidentRequest $request
+     * @summary 手动创建事件
+     *  *
+     * @param CreateIncidentRequest $request CreateIncidentRequest
      *
-     * @return CreateIncidentResponse
+     * @return CreateIncidentResponse CreateIncidentResponse
      */
     public function createIncident($request)
     {
@@ -712,11 +740,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param CreateIncidentSubtotalRequest $request
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
+     * @summary 新增事件小计
+     *  *
+     * @param CreateIncidentSubtotalRequest $request CreateIncidentSubtotalRequest
+     * @param string[]                      $headers map
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateIncidentSubtotalResponse
+     * @return CreateIncidentSubtotalResponse CreateIncidentSubtotalResponse
      */
     public function createIncidentSubtotalWithOptions($request, $headers, $runtime)
     {
@@ -751,9 +781,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param CreateIncidentSubtotalRequest $request
+     * @summary 新增事件小计
+     *  *
+     * @param CreateIncidentSubtotalRequest $request CreateIncidentSubtotalRequest
      *
-     * @return CreateIncidentSubtotalResponse
+     * @return CreateIncidentSubtotalResponse CreateIncidentSubtotalResponse
      */
     public function createIncidentSubtotal($request)
     {
@@ -764,11 +796,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param CreateIntegrationConfigRequest $request
-     * @param string[]                       $headers
-     * @param RuntimeOptions                 $runtime
+     * @summary 创建集成配置
+     *  *
+     * @param CreateIntegrationConfigRequest $request CreateIntegrationConfigRequest
+     * @param string[]                       $headers map
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateIntegrationConfigResponse
+     * @return CreateIntegrationConfigResponse CreateIntegrationConfigResponse
      */
     public function createIntegrationConfigWithOptions($request, $headers, $runtime)
     {
@@ -800,9 +834,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param CreateIntegrationConfigRequest $request
+     * @summary 创建集成配置
+     *  *
+     * @param CreateIntegrationConfigRequest $request CreateIntegrationConfigRequest
      *
-     * @return CreateIntegrationConfigResponse
+     * @return CreateIntegrationConfigResponse CreateIntegrationConfigResponse
      */
     public function createIntegrationConfig($request)
     {
@@ -813,11 +849,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param CreateProblemRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @summary 故障升级
+     *  *
+     * @param CreateProblemRequest $request CreateProblemRequest
+     * @param string[]             $headers map
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateProblemResponse
+     * @return CreateProblemResponse CreateProblemResponse
      */
     public function createProblemWithOptions($request, $headers, $runtime)
     {
@@ -888,9 +926,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param CreateProblemRequest $request
+     * @summary 故障升级
+     *  *
+     * @param CreateProblemRequest $request CreateProblemRequest
      *
-     * @return CreateProblemResponse
+     * @return CreateProblemResponse CreateProblemResponse
      */
     public function createProblem($request)
     {
@@ -901,11 +941,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param CreateProblemEffectionServiceRequest $request
-     * @param string[]                             $headers
-     * @param RuntimeOptions                       $runtime
+     * @summary 创建影响服务
+     *  *
+     * @param CreateProblemEffectionServiceRequest $request CreateProblemEffectionServiceRequest
+     * @param string[]                             $headers map
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateProblemEffectionServiceResponse
+     * @return CreateProblemEffectionServiceResponse CreateProblemEffectionServiceResponse
      */
     public function createProblemEffectionServiceWithOptions($request, $headers, $runtime)
     {
@@ -952,9 +994,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param CreateProblemEffectionServiceRequest $request
+     * @summary 创建影响服务
+     *  *
+     * @param CreateProblemEffectionServiceRequest $request CreateProblemEffectionServiceRequest
      *
-     * @return CreateProblemEffectionServiceResponse
+     * @return CreateProblemEffectionServiceResponse CreateProblemEffectionServiceResponse
      */
     public function createProblemEffectionService($request)
     {
@@ -965,11 +1009,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param CreateProblemMeasureRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @summary 改进措施新增
+     *  *
+     * @param CreateProblemMeasureRequest $request CreateProblemMeasureRequest
+     * @param string[]                    $headers map
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateProblemMeasureResponse
+     * @return CreateProblemMeasureResponse CreateProblemMeasureResponse
      */
     public function createProblemMeasureWithOptions($request, $headers, $runtime)
     {
@@ -1025,9 +1071,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param CreateProblemMeasureRequest $request
+     * @summary 改进措施新增
+     *  *
+     * @param CreateProblemMeasureRequest $request CreateProblemMeasureRequest
      *
-     * @return CreateProblemMeasureResponse
+     * @return CreateProblemMeasureResponse CreateProblemMeasureResponse
      */
     public function createProblemMeasure($request)
     {
@@ -1038,11 +1086,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param CreateProblemSubtotalRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @summary 故障新增备注小计
+     *  *
+     * @param CreateProblemSubtotalRequest $request CreateProblemSubtotalRequest
+     * @param string[]                     $headers map
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateProblemSubtotalResponse
+     * @return CreateProblemSubtotalResponse CreateProblemSubtotalResponse
      */
     public function createProblemSubtotalWithOptions($request, $headers, $runtime)
     {
@@ -1077,9 +1127,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param CreateProblemSubtotalRequest $request
+     * @summary 故障新增备注小计
+     *  *
+     * @param CreateProblemSubtotalRequest $request CreateProblemSubtotalRequest
      *
-     * @return CreateProblemSubtotalResponse
+     * @return CreateProblemSubtotalResponse CreateProblemSubtotalResponse
      */
     public function createProblemSubtotal($request)
     {
@@ -1090,11 +1142,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param CreateProblemTimelineRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @summary 创建故障时间线节点
+     *  *
+     * @param CreateProblemTimelineRequest $request CreateProblemTimelineRequest
+     * @param string[]                     $headers map
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateProblemTimelineResponse
+     * @return CreateProblemTimelineResponse CreateProblemTimelineResponse
      */
     public function createProblemTimelineWithOptions($request, $headers, $runtime)
     {
@@ -1135,9 +1189,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param CreateProblemTimelineRequest $request
+     * @summary 创建故障时间线节点
+     *  *
+     * @param CreateProblemTimelineRequest $request CreateProblemTimelineRequest
      *
-     * @return CreateProblemTimelineResponse
+     * @return CreateProblemTimelineResponse CreateProblemTimelineResponse
      */
     public function createProblemTimeline($request)
     {
@@ -1148,11 +1204,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param CreateProblemTimelinesRequest $request
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
+     * @summary 批量创建故障时间线节点
+     *  *
+     * @param CreateProblemTimelinesRequest $request CreateProblemTimelinesRequest
+     * @param string[]                      $headers map
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateProblemTimelinesResponse
+     * @return CreateProblemTimelinesResponse CreateProblemTimelinesResponse
      */
     public function createProblemTimelinesWithOptions($request, $headers, $runtime)
     {
@@ -1187,9 +1245,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param CreateProblemTimelinesRequest $request
+     * @summary 批量创建故障时间线节点
+     *  *
+     * @param CreateProblemTimelinesRequest $request CreateProblemTimelinesRequest
      *
-     * @return CreateProblemTimelinesResponse
+     * @return CreateProblemTimelinesResponse CreateProblemTimelinesResponse
      */
     public function createProblemTimelines($request)
     {
@@ -1200,11 +1260,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param CreateRichTextRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @summary 创建富文本
+     *  *
+     * @param CreateRichTextRequest $request CreateRichTextRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateRichTextResponse
+     * @return CreateRichTextResponse CreateRichTextResponse
      */
     public function createRichTextWithOptions($request, $headers, $runtime)
     {
@@ -1239,9 +1301,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param CreateRichTextRequest $request
+     * @summary 创建富文本
+     *  *
+     * @param CreateRichTextRequest $request CreateRichTextRequest
      *
-     * @return CreateRichTextResponse
+     * @return CreateRichTextResponse CreateRichTextResponse
      */
     public function createRichText($request)
     {
@@ -1252,11 +1316,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param CreateRouteRuleRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @summary 创建流转规则
+     *  *
+     * @param CreateRouteRuleRequest $request CreateRouteRuleRequest
+     * @param string[]               $headers map
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateRouteRuleResponse
+     * @return CreateRouteRuleResponse CreateRouteRuleResponse
      */
     public function createRouteRuleWithOptions($request, $headers, $runtime)
     {
@@ -1342,9 +1408,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param CreateRouteRuleRequest $request
+     * @summary 创建流转规则
+     *  *
+     * @param CreateRouteRuleRequest $request CreateRouteRuleRequest
      *
-     * @return CreateRouteRuleResponse
+     * @return CreateRouteRuleResponse CreateRouteRuleResponse
      */
     public function createRouteRule($request)
     {
@@ -1355,11 +1423,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param CreateServiceRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @summary 创建服务
+     *  *
+     * @param CreateServiceRequest $request CreateServiceRequest
+     * @param string[]             $headers map
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateServiceResponse
+     * @return CreateServiceResponse CreateServiceResponse
      */
     public function createServiceWithOptions($request, $headers, $runtime)
     {
@@ -1400,9 +1470,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param CreateServiceRequest $request
+     * @summary 创建服务
+     *  *
+     * @param CreateServiceRequest $request CreateServiceRequest
      *
-     * @return CreateServiceResponse
+     * @return CreateServiceResponse CreateServiceResponse
      */
     public function createService($request)
     {
@@ -1413,11 +1485,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param CreateServiceGroupRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @summary 创建服务组
+     *  *
+     * @param CreateServiceGroupRequest $request CreateServiceGroupRequest
+     * @param string[]                  $headers map
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateServiceGroupResponse
+     * @return CreateServiceGroupResponse CreateServiceGroupResponse
      */
     public function createServiceGroupWithOptions($request, $headers, $runtime)
     {
@@ -1467,9 +1541,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param CreateServiceGroupRequest $request
+     * @summary 创建服务组
+     *  *
+     * @param CreateServiceGroupRequest $request CreateServiceGroupRequest
      *
-     * @return CreateServiceGroupResponse
+     * @return CreateServiceGroupResponse CreateServiceGroupResponse
      */
     public function createServiceGroup($request)
     {
@@ -1480,11 +1556,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param CreateServiceGroupSchedulingRequest $request
-     * @param string[]                            $headers
-     * @param RuntimeOptions                      $runtime
+     * @summary 新增服务组排班
+     *  *
+     * @param CreateServiceGroupSchedulingRequest $request CreateServiceGroupSchedulingRequest
+     * @param string[]                            $headers map
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateServiceGroupSchedulingResponse
+     * @return CreateServiceGroupSchedulingResponse CreateServiceGroupSchedulingResponse
      */
     public function createServiceGroupSchedulingWithOptions($request, $headers, $runtime)
     {
@@ -1525,9 +1603,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param CreateServiceGroupSchedulingRequest $request
+     * @summary 新增服务组排班
+     *  *
+     * @param CreateServiceGroupSchedulingRequest $request CreateServiceGroupSchedulingRequest
      *
-     * @return CreateServiceGroupSchedulingResponse
+     * @return CreateServiceGroupSchedulingResponse CreateServiceGroupSchedulingResponse
      */
     public function createServiceGroupScheduling($request)
     {
@@ -1538,11 +1618,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param CreateSubscriptionRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @summary 创建通知订阅
+     *  *
+     * @param CreateSubscriptionRequest $request CreateSubscriptionRequest
+     * @param string[]                  $headers map
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateSubscriptionResponse
+     * @return CreateSubscriptionResponse CreateSubscriptionResponse
      */
     public function createSubscriptionWithOptions($request, $headers, $runtime)
     {
@@ -1601,9 +1683,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param CreateSubscriptionRequest $request
+     * @summary 创建通知订阅
+     *  *
+     * @param CreateSubscriptionRequest $request CreateSubscriptionRequest
      *
-     * @return CreateSubscriptionResponse
+     * @return CreateSubscriptionResponse CreateSubscriptionResponse
      */
     public function createSubscription($request)
     {
@@ -1614,11 +1698,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param CreateTenantApplicationRequest $request
-     * @param string[]                       $headers
-     * @param RuntimeOptions                 $runtime
+     * @summary 云钉协同创建移动应用
+     *  *
+     * @param CreateTenantApplicationRequest $request CreateTenantApplicationRequest
+     * @param string[]                       $headers map
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateTenantApplicationResponse
+     * @return CreateTenantApplicationResponse CreateTenantApplicationResponse
      */
     public function createTenantApplicationWithOptions($request, $headers, $runtime)
     {
@@ -1650,9 +1736,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param CreateTenantApplicationRequest $request
+     * @summary 云钉协同创建移动应用
+     *  *
+     * @param CreateTenantApplicationRequest $request CreateTenantApplicationRequest
      *
-     * @return CreateTenantApplicationResponse
+     * @return CreateTenantApplicationResponse CreateTenantApplicationResponse
      */
     public function createTenantApplication($request)
     {
@@ -1663,11 +1751,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param CreateUserRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
+     * @summary 创建用户
+     *  *
+     * @param CreateUserRequest $request CreateUserRequest
+     * @param string[]          $headers map
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateUserResponse
+     * @return CreateUserResponse CreateUserResponse
      */
     public function createUserWithOptions($request, $headers, $runtime)
     {
@@ -1711,9 +1801,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param CreateUserRequest $request
+     * @summary 创建用户
+     *  *
+     * @param CreateUserRequest $request CreateUserRequest
      *
-     * @return CreateUserResponse
+     * @return CreateUserResponse CreateUserResponse
      */
     public function createUser($request)
     {
@@ -1724,11 +1816,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param DeleteEscalationPlanRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @summary 删除升级计划
+     *  *
+     * @param DeleteEscalationPlanRequest $request DeleteEscalationPlanRequest
+     * @param string[]                    $headers map
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteEscalationPlanResponse
+     * @return DeleteEscalationPlanResponse DeleteEscalationPlanResponse
      */
     public function deleteEscalationPlanWithOptions($request, $headers, $runtime)
     {
@@ -1760,9 +1854,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param DeleteEscalationPlanRequest $request
+     * @summary 删除升级计划
+     *  *
+     * @param DeleteEscalationPlanRequest $request DeleteEscalationPlanRequest
      *
-     * @return DeleteEscalationPlanResponse
+     * @return DeleteEscalationPlanResponse DeleteEscalationPlanResponse
      */
     public function deleteEscalationPlan($request)
     {
@@ -1773,11 +1869,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param DeleteIncidentRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @summary 事件删除
+     *  *
+     * @param DeleteIncidentRequest $request DeleteIncidentRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteIncidentResponse
+     * @return DeleteIncidentResponse DeleteIncidentResponse
      */
     public function deleteIncidentWithOptions($request, $headers, $runtime)
     {
@@ -1809,9 +1907,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param DeleteIncidentRequest $request
+     * @summary 事件删除
+     *  *
+     * @param DeleteIncidentRequest $request DeleteIncidentRequest
      *
-     * @return DeleteIncidentResponse
+     * @return DeleteIncidentResponse DeleteIncidentResponse
      */
     public function deleteIncident($request)
     {
@@ -1822,11 +1922,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param DeleteIntegrationConfigRequest $request
-     * @param string[]                       $headers
-     * @param RuntimeOptions                 $runtime
+     * @summary 删除集成配置
+     *  *
+     * @param DeleteIntegrationConfigRequest $request DeleteIntegrationConfigRequest
+     * @param string[]                       $headers map
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteIntegrationConfigResponse
+     * @return DeleteIntegrationConfigResponse DeleteIntegrationConfigResponse
      */
     public function deleteIntegrationConfigWithOptions($request, $headers, $runtime)
     {
@@ -1858,9 +1960,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param DeleteIntegrationConfigRequest $request
+     * @summary 删除集成配置
+     *  *
+     * @param DeleteIntegrationConfigRequest $request DeleteIntegrationConfigRequest
      *
-     * @return DeleteIntegrationConfigResponse
+     * @return DeleteIntegrationConfigResponse DeleteIntegrationConfigResponse
      */
     public function deleteIntegrationConfig($request)
     {
@@ -1871,11 +1975,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param DeleteProblemRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @summary 故障刪除
+     *  *
+     * @param DeleteProblemRequest $request DeleteProblemRequest
+     * @param string[]             $headers map
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteProblemResponse
+     * @return DeleteProblemResponse DeleteProblemResponse
      */
     public function deleteProblemWithOptions($request, $headers, $runtime)
     {
@@ -1907,9 +2013,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param DeleteProblemRequest $request
+     * @summary 故障刪除
+     *  *
+     * @param DeleteProblemRequest $request DeleteProblemRequest
      *
-     * @return DeleteProblemResponse
+     * @return DeleteProblemResponse DeleteProblemResponse
      */
     public function deleteProblem($request)
     {
@@ -1920,11 +2028,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param DeleteProblemEffectionServiceRequest $request
-     * @param string[]                             $headers
-     * @param RuntimeOptions                       $runtime
+     * @summary 删除故障影响服务
+     *  *
+     * @param DeleteProblemEffectionServiceRequest $request DeleteProblemEffectionServiceRequest
+     * @param string[]                             $headers map
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteProblemEffectionServiceResponse
+     * @return DeleteProblemEffectionServiceResponse DeleteProblemEffectionServiceResponse
      */
     public function deleteProblemEffectionServiceWithOptions($request, $headers, $runtime)
     {
@@ -1959,9 +2069,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param DeleteProblemEffectionServiceRequest $request
+     * @summary 删除故障影响服务
+     *  *
+     * @param DeleteProblemEffectionServiceRequest $request DeleteProblemEffectionServiceRequest
      *
-     * @return DeleteProblemEffectionServiceResponse
+     * @return DeleteProblemEffectionServiceResponse DeleteProblemEffectionServiceResponse
      */
     public function deleteProblemEffectionService($request)
     {
@@ -1972,11 +2084,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param DeleteProblemMeasureRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @summary 改进措施删除
+     *  *
+     * @param DeleteProblemMeasureRequest $request DeleteProblemMeasureRequest
+     * @param string[]                    $headers map
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteProblemMeasureResponse
+     * @return DeleteProblemMeasureResponse DeleteProblemMeasureResponse
      */
     public function deleteProblemMeasureWithOptions($request, $headers, $runtime)
     {
@@ -2011,9 +2125,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param DeleteProblemMeasureRequest $request
+     * @summary 改进措施删除
+     *  *
+     * @param DeleteProblemMeasureRequest $request DeleteProblemMeasureRequest
      *
-     * @return DeleteProblemMeasureResponse
+     * @return DeleteProblemMeasureResponse DeleteProblemMeasureResponse
      */
     public function deleteProblemMeasure($request)
     {
@@ -2024,11 +2140,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param DeleteProblemTimelineRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @summary 删除影响服务
+     *  *
+     * @param DeleteProblemTimelineRequest $request DeleteProblemTimelineRequest
+     * @param string[]                     $headers map
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteProblemTimelineResponse
+     * @return DeleteProblemTimelineResponse DeleteProblemTimelineResponse
      */
     public function deleteProblemTimelineWithOptions($request, $headers, $runtime)
     {
@@ -2063,9 +2181,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param DeleteProblemTimelineRequest $request
+     * @summary 删除影响服务
+     *  *
+     * @param DeleteProblemTimelineRequest $request DeleteProblemTimelineRequest
      *
-     * @return DeleteProblemTimelineResponse
+     * @return DeleteProblemTimelineResponse DeleteProblemTimelineResponse
      */
     public function deleteProblemTimeline($request)
     {
@@ -2076,11 +2196,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param DeleteRouteRuleRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @summary 删除流转规则
+     *  *
+     * @param DeleteRouteRuleRequest $request DeleteRouteRuleRequest
+     * @param string[]               $headers map
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteRouteRuleResponse
+     * @return DeleteRouteRuleResponse DeleteRouteRuleResponse
      */
     public function deleteRouteRuleWithOptions($request, $headers, $runtime)
     {
@@ -2112,9 +2234,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param DeleteRouteRuleRequest $request
+     * @summary 删除流转规则
+     *  *
+     * @param DeleteRouteRuleRequest $request DeleteRouteRuleRequest
      *
-     * @return DeleteRouteRuleResponse
+     * @return DeleteRouteRuleResponse DeleteRouteRuleResponse
      */
     public function deleteRouteRule($request)
     {
@@ -2125,11 +2249,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param DeleteServiceRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @summary 删除服务
+     *  *
+     * @param DeleteServiceRequest $request DeleteServiceRequest
+     * @param string[]             $headers map
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteServiceResponse
+     * @return DeleteServiceResponse DeleteServiceResponse
      */
     public function deleteServiceWithOptions($request, $headers, $runtime)
     {
@@ -2161,9 +2287,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param DeleteServiceRequest $request
+     * @summary 删除服务
+     *  *
+     * @param DeleteServiceRequest $request DeleteServiceRequest
      *
-     * @return DeleteServiceResponse
+     * @return DeleteServiceResponse DeleteServiceResponse
      */
     public function deleteService($request)
     {
@@ -2174,11 +2302,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param DeleteServiceGroupRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @summary 删除服务组
+     *  *
+     * @param DeleteServiceGroupRequest $request DeleteServiceGroupRequest
+     * @param string[]                  $headers map
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteServiceGroupResponse
+     * @return DeleteServiceGroupResponse DeleteServiceGroupResponse
      */
     public function deleteServiceGroupWithOptions($request, $headers, $runtime)
     {
@@ -2210,9 +2340,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param DeleteServiceGroupRequest $request
+     * @summary 删除服务组
+     *  *
+     * @param DeleteServiceGroupRequest $request DeleteServiceGroupRequest
      *
-     * @return DeleteServiceGroupResponse
+     * @return DeleteServiceGroupResponse DeleteServiceGroupResponse
      */
     public function deleteServiceGroup($request)
     {
@@ -2223,10 +2355,12 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @summary 删除排班
+     *  *
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteServiceGroupSchedulingResponse
+     * @return DeleteServiceGroupSchedulingResponse DeleteServiceGroupSchedulingResponse
      */
     public function deleteServiceGroupSchedulingWithOptions($headers, $runtime)
     {
@@ -2249,7 +2383,9 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @return DeleteServiceGroupSchedulingResponse
+     * @summary 删除排班
+     *  *
+     * @return DeleteServiceGroupSchedulingResponse DeleteServiceGroupSchedulingResponse
      */
     public function deleteServiceGroupScheduling()
     {
@@ -2260,11 +2396,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param DeleteServiceGroupUserRequest $request
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
+     * @summary 删除服务组成员
+     *  *
+     * @param DeleteServiceGroupUserRequest $request DeleteServiceGroupUserRequest
+     * @param string[]                      $headers map
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteServiceGroupUserResponse
+     * @return DeleteServiceGroupUserResponse DeleteServiceGroupUserResponse
      */
     public function deleteServiceGroupUserWithOptions($request, $headers, $runtime)
     {
@@ -2305,9 +2443,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param DeleteServiceGroupUserRequest $request
+     * @summary 删除服务组成员
+     *  *
+     * @param DeleteServiceGroupUserRequest $request DeleteServiceGroupUserRequest
      *
-     * @return DeleteServiceGroupUserResponse
+     * @return DeleteServiceGroupUserResponse DeleteServiceGroupUserResponse
      */
     public function deleteServiceGroupUser($request)
     {
@@ -2318,11 +2458,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param DeleteSubscriptionRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @summary 删除通知订阅
+     *  *
+     * @param DeleteSubscriptionRequest $request DeleteSubscriptionRequest
+     * @param string[]                  $headers map
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteSubscriptionResponse
+     * @return DeleteSubscriptionResponse DeleteSubscriptionResponse
      */
     public function deleteSubscriptionWithOptions($request, $headers, $runtime)
     {
@@ -2351,9 +2493,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param DeleteSubscriptionRequest $request
+     * @summary 删除通知订阅
+     *  *
+     * @param DeleteSubscriptionRequest $request DeleteSubscriptionRequest
      *
-     * @return DeleteSubscriptionResponse
+     * @return DeleteSubscriptionResponse DeleteSubscriptionResponse
      */
     public function deleteSubscription($request)
     {
@@ -2364,11 +2508,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param DeleteUserRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
+     * @summary 删除用户
+     *  *
+     * @param DeleteUserRequest $request DeleteUserRequest
+     * @param string[]          $headers map
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteUserResponse
+     * @return DeleteUserResponse DeleteUserResponse
      */
     public function deleteUserWithOptions($request, $headers, $runtime)
     {
@@ -2400,9 +2546,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param DeleteUserRequest $request
+     * @summary 删除用户
+     *  *
+     * @param DeleteUserRequest $request DeleteUserRequest
      *
-     * @return DeleteUserResponse
+     * @return DeleteUserResponse DeleteUserResponse
      */
     public function deleteUser($request)
     {
@@ -2413,11 +2561,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param DeliverIncidentRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @summary 转交事件
+     *  *
+     * @param DeliverIncidentRequest $request DeliverIncidentRequest
+     * @param string[]               $headers map
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeliverIncidentResponse
+     * @return DeliverIncidentResponse DeliverIncidentResponse
      */
     public function deliverIncidentWithOptions($request, $headers, $runtime)
     {
@@ -2452,9 +2602,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param DeliverIncidentRequest $request
+     * @summary 转交事件
+     *  *
+     * @param DeliverIncidentRequest $request DeliverIncidentRequest
      *
-     * @return DeliverIncidentResponse
+     * @return DeliverIncidentResponse DeliverIncidentResponse
      */
     public function deliverIncident($request)
     {
@@ -2465,11 +2617,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param DisableEscalationPlanRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @summary 禁用升级计划
+     *  *
+     * @param DisableEscalationPlanRequest $request DisableEscalationPlanRequest
+     * @param string[]                     $headers map
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DisableEscalationPlanResponse
+     * @return DisableEscalationPlanResponse DisableEscalationPlanResponse
      */
     public function disableEscalationPlanWithOptions($request, $headers, $runtime)
     {
@@ -2501,9 +2655,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param DisableEscalationPlanRequest $request
+     * @summary 禁用升级计划
+     *  *
+     * @param DisableEscalationPlanRequest $request DisableEscalationPlanRequest
      *
-     * @return DisableEscalationPlanResponse
+     * @return DisableEscalationPlanResponse DisableEscalationPlanResponse
      */
     public function disableEscalationPlan($request)
     {
@@ -2514,11 +2670,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param DisableIntegrationConfigRequest $request
-     * @param string[]                        $headers
-     * @param RuntimeOptions                  $runtime
+     * @summary 禁用集成配置
+     *  *
+     * @param DisableIntegrationConfigRequest $request DisableIntegrationConfigRequest
+     * @param string[]                        $headers map
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DisableIntegrationConfigResponse
+     * @return DisableIntegrationConfigResponse DisableIntegrationConfigResponse
      */
     public function disableIntegrationConfigWithOptions($request, $headers, $runtime)
     {
@@ -2550,9 +2708,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param DisableIntegrationConfigRequest $request
+     * @summary 禁用集成配置
+     *  *
+     * @param DisableIntegrationConfigRequest $request DisableIntegrationConfigRequest
      *
-     * @return DisableIntegrationConfigResponse
+     * @return DisableIntegrationConfigResponse DisableIntegrationConfigResponse
      */
     public function disableIntegrationConfig($request)
     {
@@ -2563,11 +2723,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param DisableRouteRuleRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @summary 禁用规则
+     *  *
+     * @param DisableRouteRuleRequest $request DisableRouteRuleRequest
+     * @param string[]                $headers map
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DisableRouteRuleResponse
+     * @return DisableRouteRuleResponse DisableRouteRuleResponse
      */
     public function disableRouteRuleWithOptions($request, $headers, $runtime)
     {
@@ -2599,9 +2761,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param DisableRouteRuleRequest $request
+     * @summary 禁用规则
+     *  *
+     * @param DisableRouteRuleRequest $request DisableRouteRuleRequest
      *
-     * @return DisableRouteRuleResponse
+     * @return DisableRouteRuleResponse DisableRouteRuleResponse
      */
     public function disableRouteRule($request)
     {
@@ -2612,11 +2776,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param DisableServiceGroupWebhookRequest $request
-     * @param string[]                          $headers
-     * @param RuntimeOptions                    $runtime
+     * @summary 禁用服务组的webhook
+     *  *
+     * @param DisableServiceGroupWebhookRequest $request DisableServiceGroupWebhookRequest
+     * @param string[]                          $headers map
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DisableServiceGroupWebhookResponse
+     * @return DisableServiceGroupWebhookResponse DisableServiceGroupWebhookResponse
      */
     public function disableServiceGroupWebhookWithOptions($request, $headers, $runtime)
     {
@@ -2648,9 +2814,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param DisableServiceGroupWebhookRequest $request
+     * @summary 禁用服务组的webhook
+     *  *
+     * @param DisableServiceGroupWebhookRequest $request DisableServiceGroupWebhookRequest
      *
-     * @return DisableServiceGroupWebhookResponse
+     * @return DisableServiceGroupWebhookResponse DisableServiceGroupWebhookResponse
      */
     public function disableServiceGroupWebhook($request)
     {
@@ -2661,11 +2829,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param DisableSubscriptionRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @summary 禁用集成配置
+     *  *
+     * @param DisableSubscriptionRequest $request DisableSubscriptionRequest
+     * @param string[]                   $headers map
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DisableSubscriptionResponse
+     * @return DisableSubscriptionResponse DisableSubscriptionResponse
      */
     public function disableSubscriptionWithOptions($request, $headers, $runtime)
     {
@@ -2694,9 +2864,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param DisableSubscriptionRequest $request
+     * @summary 禁用集成配置
+     *  *
+     * @param DisableSubscriptionRequest $request DisableSubscriptionRequest
      *
-     * @return DisableSubscriptionResponse
+     * @return DisableSubscriptionResponse DisableSubscriptionResponse
      */
     public function disableSubscription($request)
     {
@@ -2707,11 +2879,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param EnableEscalationPlanRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @summary 启用升级计划
+     *  *
+     * @param EnableEscalationPlanRequest $request EnableEscalationPlanRequest
+     * @param string[]                    $headers map
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return EnableEscalationPlanResponse
+     * @return EnableEscalationPlanResponse EnableEscalationPlanResponse
      */
     public function enableEscalationPlanWithOptions($request, $headers, $runtime)
     {
@@ -2743,9 +2917,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param EnableEscalationPlanRequest $request
+     * @summary 启用升级计划
+     *  *
+     * @param EnableEscalationPlanRequest $request EnableEscalationPlanRequest
      *
-     * @return EnableEscalationPlanResponse
+     * @return EnableEscalationPlanResponse EnableEscalationPlanResponse
      */
     public function enableEscalationPlan($request)
     {
@@ -2756,11 +2932,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param EnableIntegrationConfigRequest $request
-     * @param string[]                       $headers
-     * @param RuntimeOptions                 $runtime
+     * @summary 启用集成配置
+     *  *
+     * @param EnableIntegrationConfigRequest $request EnableIntegrationConfigRequest
+     * @param string[]                       $headers map
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return EnableIntegrationConfigResponse
+     * @return EnableIntegrationConfigResponse EnableIntegrationConfigResponse
      */
     public function enableIntegrationConfigWithOptions($request, $headers, $runtime)
     {
@@ -2792,9 +2970,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param EnableIntegrationConfigRequest $request
+     * @summary 启用集成配置
+     *  *
+     * @param EnableIntegrationConfigRequest $request EnableIntegrationConfigRequest
      *
-     * @return EnableIntegrationConfigResponse
+     * @return EnableIntegrationConfigResponse EnableIntegrationConfigResponse
      */
     public function enableIntegrationConfig($request)
     {
@@ -2805,11 +2985,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param EnableRouteRuleRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @summary 启用规则
+     *  *
+     * @param EnableRouteRuleRequest $request EnableRouteRuleRequest
+     * @param string[]               $headers map
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return EnableRouteRuleResponse
+     * @return EnableRouteRuleResponse EnableRouteRuleResponse
      */
     public function enableRouteRuleWithOptions($request, $headers, $runtime)
     {
@@ -2841,9 +3023,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param EnableRouteRuleRequest $request
+     * @summary 启用规则
+     *  *
+     * @param EnableRouteRuleRequest $request EnableRouteRuleRequest
      *
-     * @return EnableRouteRuleResponse
+     * @return EnableRouteRuleResponse EnableRouteRuleResponse
      */
     public function enableRouteRule($request)
     {
@@ -2854,11 +3038,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param EnableServiceGroupWebhookRequest $request
-     * @param string[]                         $headers
-     * @param RuntimeOptions                   $runtime
+     * @summary 启用服务组的webhook
+     *  *
+     * @param EnableServiceGroupWebhookRequest $request EnableServiceGroupWebhookRequest
+     * @param string[]                         $headers map
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return EnableServiceGroupWebhookResponse
+     * @return EnableServiceGroupWebhookResponse EnableServiceGroupWebhookResponse
      */
     public function enableServiceGroupWebhookWithOptions($request, $headers, $runtime)
     {
@@ -2890,9 +3076,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param EnableServiceGroupWebhookRequest $request
+     * @summary 启用服务组的webhook
+     *  *
+     * @param EnableServiceGroupWebhookRequest $request EnableServiceGroupWebhookRequest
      *
-     * @return EnableServiceGroupWebhookResponse
+     * @return EnableServiceGroupWebhookResponse EnableServiceGroupWebhookResponse
      */
     public function enableServiceGroupWebhook($request)
     {
@@ -2903,11 +3091,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param EnableSubscriptionRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @summary 启用通知订阅
+     *  *
+     * @param EnableSubscriptionRequest $request EnableSubscriptionRequest
+     * @param string[]                  $headers map
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return EnableSubscriptionResponse
+     * @return EnableSubscriptionResponse EnableSubscriptionResponse
      */
     public function enableSubscriptionWithOptions($request, $headers, $runtime)
     {
@@ -2936,9 +3126,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param EnableSubscriptionRequest $request
+     * @summary 启用通知订阅
+     *  *
+     * @param EnableSubscriptionRequest $request EnableSubscriptionRequest
      *
-     * @return EnableSubscriptionResponse
+     * @return EnableSubscriptionResponse EnableSubscriptionResponse
      */
     public function enableSubscription($request)
     {
@@ -2949,11 +3141,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param FinishIncidentRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @summary 完结事件
+     *  *
+     * @param FinishIncidentRequest $request FinishIncidentRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return FinishIncidentResponse
+     * @return FinishIncidentResponse FinishIncidentResponse
      */
     public function finishIncidentWithOptions($request, $headers, $runtime)
     {
@@ -2997,9 +3191,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param FinishIncidentRequest $request
+     * @summary 完结事件
+     *  *
+     * @param FinishIncidentRequest $request FinishIncidentRequest
      *
-     * @return FinishIncidentResponse
+     * @return FinishIncidentResponse FinishIncidentResponse
      */
     public function finishIncident($request)
     {
@@ -3010,11 +3206,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param FinishProblemRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @summary 故障完结
+     *  *
+     * @param FinishProblemRequest $request FinishProblemRequest
+     * @param string[]             $headers map
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return FinishProblemResponse
+     * @return FinishProblemResponse FinishProblemResponse
      */
     public function finishProblemWithOptions($request, $headers, $runtime)
     {
@@ -3046,9 +3244,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param FinishProblemRequest $request
+     * @summary 故障完结
+     *  *
+     * @param FinishProblemRequest $request FinishProblemRequest
      *
-     * @return FinishProblemResponse
+     * @return FinishProblemResponse FinishProblemResponse
      */
     public function finishProblem($request)
     {
@@ -3059,11 +3259,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GeneratePictureLinkRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @summary 图片连接获取
+     *  *
+     * @param GeneratePictureLinkRequest $request GeneratePictureLinkRequest
+     * @param string[]                   $headers map
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return GeneratePictureLinkResponse
+     * @return GeneratePictureLinkResponse GeneratePictureLinkResponse
      */
     public function generatePictureLinkWithOptions($request, $headers, $runtime)
     {
@@ -3095,9 +3297,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GeneratePictureLinkRequest $request
+     * @summary 图片连接获取
+     *  *
+     * @param GeneratePictureLinkRequest $request GeneratePictureLinkRequest
      *
-     * @return GeneratePictureLinkResponse
+     * @return GeneratePictureLinkResponse GeneratePictureLinkResponse
      */
     public function generatePictureLink($request)
     {
@@ -3108,11 +3312,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GeneratePictureUploadSignRequest $request
-     * @param string[]                         $headers
-     * @param RuntimeOptions                   $runtime
+     * @summary 图片批量上传
+     *  *
+     * @param GeneratePictureUploadSignRequest $request GeneratePictureUploadSignRequest
+     * @param string[]                         $headers map
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return GeneratePictureUploadSignResponse
+     * @return GeneratePictureUploadSignResponse GeneratePictureUploadSignResponse
      */
     public function generatePictureUploadSignWithOptions($request, $headers, $runtime)
     {
@@ -3147,9 +3353,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GeneratePictureUploadSignRequest $request
+     * @summary 图片批量上传
+     *  *
+     * @param GeneratePictureUploadSignRequest $request GeneratePictureUploadSignRequest
      *
-     * @return GeneratePictureUploadSignResponse
+     * @return GeneratePictureUploadSignResponse GeneratePictureUploadSignResponse
      */
     public function generatePictureUploadSign($request)
     {
@@ -3160,11 +3368,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GenerateProblemPictureLinkRequest $request
-     * @param string[]                          $headers
-     * @param RuntimeOptions                    $runtime
+     * @summary 获取图片下载url
+     *  *
+     * @param GenerateProblemPictureLinkRequest $request GenerateProblemPictureLinkRequest
+     * @param string[]                          $headers map
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return GenerateProblemPictureLinkResponse
+     * @return GenerateProblemPictureLinkResponse GenerateProblemPictureLinkResponse
      */
     public function generateProblemPictureLinkWithOptions($request, $headers, $runtime)
     {
@@ -3196,9 +3406,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GenerateProblemPictureLinkRequest $request
+     * @summary 获取图片下载url
+     *  *
+     * @param GenerateProblemPictureLinkRequest $request GenerateProblemPictureLinkRequest
      *
-     * @return GenerateProblemPictureLinkResponse
+     * @return GenerateProblemPictureLinkResponse GenerateProblemPictureLinkResponse
      */
     public function generateProblemPictureLink($request)
     {
@@ -3209,11 +3421,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GenerateProblemPictureUploadSignRequest $request
-     * @param string[]                                $headers
-     * @param RuntimeOptions                          $runtime
+     * @summary 图片上传验签
+     *  *
+     * @param GenerateProblemPictureUploadSignRequest $request GenerateProblemPictureUploadSignRequest
+     * @param string[]                                $headers map
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return GenerateProblemPictureUploadSignResponse
+     * @return GenerateProblemPictureUploadSignResponse GenerateProblemPictureUploadSignResponse
      */
     public function generateProblemPictureUploadSignWithOptions($request, $headers, $runtime)
     {
@@ -3251,9 +3465,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GenerateProblemPictureUploadSignRequest $request
+     * @summary 图片上传验签
+     *  *
+     * @param GenerateProblemPictureUploadSignRequest $request GenerateProblemPictureUploadSignRequest
      *
-     * @return GenerateProblemPictureUploadSignResponse
+     * @return GenerateProblemPictureUploadSignResponse GenerateProblemPictureUploadSignResponse
      */
     public function generateProblemPictureUploadSign($request)
     {
@@ -3264,11 +3480,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GetEscalationPlanRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @summary 升级计划详情
+     *  *
+     * @param GetEscalationPlanRequest $request GetEscalationPlanRequest
+     * @param string[]                 $headers map
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetEscalationPlanResponse
+     * @return GetEscalationPlanResponse GetEscalationPlanResponse
      */
     public function getEscalationPlanWithOptions($request, $headers, $runtime)
     {
@@ -3300,9 +3518,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GetEscalationPlanRequest $request
+     * @summary 升级计划详情
+     *  *
+     * @param GetEscalationPlanRequest $request GetEscalationPlanRequest
      *
-     * @return GetEscalationPlanResponse
+     * @return GetEscalationPlanResponse GetEscalationPlanResponse
      */
     public function getEscalationPlan($request)
     {
@@ -3313,11 +3533,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GetEventRequest $request
-     * @param string[]        $headers
-     * @param RuntimeOptions  $runtime
+     * @summary 查询最近一次告警
+     *  *
+     * @param GetEventRequest $request GetEventRequest
+     * @param string[]        $headers map
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetEventResponse
+     * @return GetEventResponse GetEventResponse
      */
     public function getEventWithOptions($request, $headers, $runtime)
     {
@@ -3346,9 +3568,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GetEventRequest $request
+     * @summary 查询最近一次告警
+     *  *
+     * @param GetEventRequest $request GetEventRequest
      *
-     * @return GetEventResponse
+     * @return GetEventResponse GetEventResponse
      */
     public function getEvent($request)
     {
@@ -3359,11 +3583,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GetHomePageGuidanceRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @summary 查询首页引导信息
+     *  *
+     * @param GetHomePageGuidanceRequest $request GetHomePageGuidanceRequest
+     * @param string[]                   $headers map
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetHomePageGuidanceResponse
+     * @return GetHomePageGuidanceResponse GetHomePageGuidanceResponse
      */
     public function getHomePageGuidanceWithOptions($request, $headers, $runtime)
     {
@@ -3392,9 +3618,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GetHomePageGuidanceRequest $request
+     * @summary 查询首页引导信息
+     *  *
+     * @param GetHomePageGuidanceRequest $request GetHomePageGuidanceRequest
      *
-     * @return GetHomePageGuidanceResponse
+     * @return GetHomePageGuidanceResponse GetHomePageGuidanceResponse
      */
     public function getHomePageGuidance($request)
     {
@@ -3405,11 +3633,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GetIncidentRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @summary 事件详情
+     *  *
+     * @param GetIncidentRequest $request GetIncidentRequest
+     * @param string[]           $headers map
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetIncidentResponse
+     * @return GetIncidentResponse GetIncidentResponse
      */
     public function getIncidentWithOptions($request, $headers, $runtime)
     {
@@ -3441,9 +3671,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GetIncidentRequest $request
+     * @summary 事件详情
+     *  *
+     * @param GetIncidentRequest $request GetIncidentRequest
      *
-     * @return GetIncidentResponse
+     * @return GetIncidentResponse GetIncidentResponse
      */
     public function getIncident($request)
     {
@@ -3454,11 +3686,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GetIncidentListByIdListRequest $request
-     * @param string[]                       $headers
-     * @param RuntimeOptions                 $runtime
+     * @summary 根据事件ID批量查询事件详情
+     *  *
+     * @param GetIncidentListByIdListRequest $request GetIncidentListByIdListRequest
+     * @param string[]                       $headers map
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetIncidentListByIdListResponse
+     * @return GetIncidentListByIdListResponse GetIncidentListByIdListResponse
      */
     public function getIncidentListByIdListWithOptions($request, $headers, $runtime)
     {
@@ -3490,9 +3724,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GetIncidentListByIdListRequest $request
+     * @summary 根据事件ID批量查询事件详情
+     *  *
+     * @param GetIncidentListByIdListRequest $request GetIncidentListByIdListRequest
      *
-     * @return GetIncidentListByIdListResponse
+     * @return GetIncidentListByIdListResponse GetIncidentListByIdListResponse
      */
     public function getIncidentListByIdList($request)
     {
@@ -3503,11 +3739,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GetIncidentStatisticsRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @summary 事件统计
+     *  *
+     * @param GetIncidentStatisticsRequest $request GetIncidentStatisticsRequest
+     * @param string[]                     $headers map
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetIncidentStatisticsResponse
+     * @return GetIncidentStatisticsResponse GetIncidentStatisticsResponse
      */
     public function getIncidentStatisticsWithOptions($request, $headers, $runtime)
     {
@@ -3536,9 +3774,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GetIncidentStatisticsRequest $request
+     * @summary 事件统计
+     *  *
+     * @param GetIncidentStatisticsRequest $request GetIncidentStatisticsRequest
      *
-     * @return GetIncidentStatisticsResponse
+     * @return GetIncidentStatisticsResponse GetIncidentStatisticsResponse
      */
     public function getIncidentStatistics($request)
     {
@@ -3549,11 +3789,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GetIncidentSubtotalCountRequest $request
-     * @param string[]                        $headers
-     * @param RuntimeOptions                  $runtime
+     * @summary 查询事件对应的小计数量
+     *  *
+     * @param GetIncidentSubtotalCountRequest $request GetIncidentSubtotalCountRequest
+     * @param string[]                        $headers map
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetIncidentSubtotalCountResponse
+     * @return GetIncidentSubtotalCountResponse GetIncidentSubtotalCountResponse
      */
     public function getIncidentSubtotalCountWithOptions($request, $headers, $runtime)
     {
@@ -3585,9 +3827,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GetIncidentSubtotalCountRequest $request
+     * @summary 查询事件对应的小计数量
+     *  *
+     * @param GetIncidentSubtotalCountRequest $request GetIncidentSubtotalCountRequest
      *
-     * @return GetIncidentSubtotalCountResponse
+     * @return GetIncidentSubtotalCountResponse GetIncidentSubtotalCountResponse
      */
     public function getIncidentSubtotalCount($request)
     {
@@ -3598,11 +3842,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GetIntegrationConfigRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @summary 获取集成配置详情
+     *  *
+     * @param GetIntegrationConfigRequest $request GetIntegrationConfigRequest
+     * @param string[]                    $headers map
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetIntegrationConfigResponse
+     * @return GetIntegrationConfigResponse GetIntegrationConfigResponse
      */
     public function getIntegrationConfigWithOptions($request, $headers, $runtime)
     {
@@ -3634,9 +3880,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GetIntegrationConfigRequest $request
+     * @summary 获取集成配置详情
+     *  *
+     * @param GetIntegrationConfigRequest $request GetIntegrationConfigRequest
      *
-     * @return GetIntegrationConfigResponse
+     * @return GetIntegrationConfigResponse GetIntegrationConfigResponse
      */
     public function getIntegrationConfig($request)
     {
@@ -3647,11 +3895,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GetProblemRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
+     * @summary 查询故障详情
+     *  *
+     * @param GetProblemRequest $request GetProblemRequest
+     * @param string[]          $headers map
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetProblemResponse
+     * @return GetProblemResponse GetProblemResponse
      */
     public function getProblemWithOptions($request, $headers, $runtime)
     {
@@ -3683,9 +3933,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GetProblemRequest $request
+     * @summary 查询故障详情
+     *  *
+     * @param GetProblemRequest $request GetProblemRequest
      *
-     * @return GetProblemResponse
+     * @return GetProblemResponse GetProblemResponse
      */
     public function getProblem($request)
     {
@@ -3696,11 +3948,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GetProblemEffectionServiceRequest $request
-     * @param string[]                          $headers
-     * @param RuntimeOptions                    $runtime
+     * @summary 查询故障影响服务
+     *  *
+     * @param GetProblemEffectionServiceRequest $request GetProblemEffectionServiceRequest
+     * @param string[]                          $headers map
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetProblemEffectionServiceResponse
+     * @return GetProblemEffectionServiceResponse GetProblemEffectionServiceResponse
      */
     public function getProblemEffectionServiceWithOptions($request, $headers, $runtime)
     {
@@ -3735,9 +3989,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GetProblemEffectionServiceRequest $request
+     * @summary 查询故障影响服务
+     *  *
+     * @param GetProblemEffectionServiceRequest $request GetProblemEffectionServiceRequest
      *
-     * @return GetProblemEffectionServiceResponse
+     * @return GetProblemEffectionServiceResponse GetProblemEffectionServiceResponse
      */
     public function getProblemEffectionService($request)
     {
@@ -3748,11 +4004,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GetProblemImprovementRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @summary 改进分析详情
+     *  *
+     * @param GetProblemImprovementRequest $request GetProblemImprovementRequest
+     * @param string[]                     $headers map
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetProblemImprovementResponse
+     * @return GetProblemImprovementResponse GetProblemImprovementResponse
      */
     public function getProblemImprovementWithOptions($request, $headers, $runtime)
     {
@@ -3784,9 +4042,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GetProblemImprovementRequest $request
+     * @summary 改进分析详情
+     *  *
+     * @param GetProblemImprovementRequest $request GetProblemImprovementRequest
      *
-     * @return GetProblemImprovementResponse
+     * @return GetProblemImprovementResponse GetProblemImprovementResponse
      */
     public function getProblemImprovement($request)
     {
@@ -3797,11 +4057,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GetProblemPreviewRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @summary 通告预览
+     *  *
+     * @param GetProblemPreviewRequest $request GetProblemPreviewRequest
+     * @param string[]                 $headers map
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetProblemPreviewResponse
+     * @return GetProblemPreviewResponse GetProblemPreviewResponse
      */
     public function getProblemPreviewWithOptions($request, $headers, $runtime)
     {
@@ -3851,9 +4113,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GetProblemPreviewRequest $request
+     * @summary 通告预览
+     *  *
+     * @param GetProblemPreviewRequest $request GetProblemPreviewRequest
      *
-     * @return GetProblemPreviewResponse
+     * @return GetProblemPreviewResponse GetProblemPreviewResponse
      */
     public function getProblemPreview($request)
     {
@@ -3864,11 +4128,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GetResourceStatisticsRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @summary 概览数据统计
+     *  *
+     * @param GetResourceStatisticsRequest $request GetResourceStatisticsRequest
+     * @param string[]                     $headers map
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetResourceStatisticsResponse
+     * @return GetResourceStatisticsResponse GetResourceStatisticsResponse
      */
     public function getResourceStatisticsWithOptions($request, $headers, $runtime)
     {
@@ -3897,9 +4163,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GetResourceStatisticsRequest $request
+     * @summary 概览数据统计
+     *  *
+     * @param GetResourceStatisticsRequest $request GetResourceStatisticsRequest
      *
-     * @return GetResourceStatisticsResponse
+     * @return GetResourceStatisticsResponse GetResourceStatisticsResponse
      */
     public function getResourceStatistics($request)
     {
@@ -3910,11 +4178,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GetRichTextRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @summary 查询富文本
+     *  *
+     * @param GetRichTextRequest $request GetRichTextRequest
+     * @param string[]           $headers map
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetRichTextResponse
+     * @return GetRichTextResponse GetRichTextResponse
      */
     public function getRichTextWithOptions($request, $headers, $runtime)
     {
@@ -3949,9 +4219,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GetRichTextRequest $request
+     * @summary 查询富文本
+     *  *
+     * @param GetRichTextRequest $request GetRichTextRequest
      *
-     * @return GetRichTextResponse
+     * @return GetRichTextResponse GetRichTextResponse
      */
     public function getRichText($request)
     {
@@ -3962,11 +4234,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GetRouteRuleRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @summary 查询流转规则详情
+     *  *
+     * @param GetRouteRuleRequest $request GetRouteRuleRequest
+     * @param string[]            $headers map
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetRouteRuleResponse
+     * @return GetRouteRuleResponse GetRouteRuleResponse
      */
     public function getRouteRuleWithOptions($request, $headers, $runtime)
     {
@@ -3998,9 +4272,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GetRouteRuleRequest $request
+     * @summary 查询流转规则详情
+     *  *
+     * @param GetRouteRuleRequest $request GetRouteRuleRequest
      *
-     * @return GetRouteRuleResponse
+     * @return GetRouteRuleResponse GetRouteRuleResponse
      */
     public function getRouteRule($request)
     {
@@ -4011,11 +4287,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GetServiceRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
+     * @summary 服务详情
+     *  *
+     * @param GetServiceRequest $request GetServiceRequest
+     * @param string[]          $headers map
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetServiceResponse
+     * @return GetServiceResponse GetServiceResponse
      */
     public function getServiceWithOptions($request, $headers, $runtime)
     {
@@ -4047,9 +4325,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GetServiceRequest $request
+     * @summary 服务详情
+     *  *
+     * @param GetServiceRequest $request GetServiceRequest
      *
-     * @return GetServiceResponse
+     * @return GetServiceResponse GetServiceResponse
      */
     public function getService($request)
     {
@@ -4060,11 +4340,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GetServiceGroupRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @summary 查询服务组详情
+     *  *
+     * @param GetServiceGroupRequest $request GetServiceGroupRequest
+     * @param string[]               $headers map
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetServiceGroupResponse
+     * @return GetServiceGroupResponse GetServiceGroupResponse
      */
     public function getServiceGroupWithOptions($request, $headers, $runtime)
     {
@@ -4096,9 +4378,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GetServiceGroupRequest $request
+     * @summary 查询服务组详情
+     *  *
+     * @param GetServiceGroupRequest $request GetServiceGroupRequest
      *
-     * @return GetServiceGroupResponse
+     * @return GetServiceGroupResponse GetServiceGroupResponse
      */
     public function getServiceGroup($request)
     {
@@ -4109,11 +4393,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GetServiceGroupPersonSchedulingRequest $request
-     * @param string[]                               $headers
-     * @param RuntimeOptions                         $runtime
+     * @summary 查询用户某个服务组的排班
+     *  *
+     * @param GetServiceGroupPersonSchedulingRequest $request GetServiceGroupPersonSchedulingRequest
+     * @param string[]                               $headers map
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetServiceGroupPersonSchedulingResponse
+     * @return GetServiceGroupPersonSchedulingResponse GetServiceGroupPersonSchedulingResponse
      */
     public function getServiceGroupPersonSchedulingWithOptions($request, $headers, $runtime)
     {
@@ -4154,9 +4440,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GetServiceGroupPersonSchedulingRequest $request
+     * @summary 查询用户某个服务组的排班
+     *  *
+     * @param GetServiceGroupPersonSchedulingRequest $request GetServiceGroupPersonSchedulingRequest
      *
-     * @return GetServiceGroupPersonSchedulingResponse
+     * @return GetServiceGroupPersonSchedulingResponse GetServiceGroupPersonSchedulingResponse
      */
     public function getServiceGroupPersonScheduling($request)
     {
@@ -4167,11 +4455,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GetServiceGroupSchedulingRequest $request
-     * @param string[]                         $headers
-     * @param RuntimeOptions                   $runtime
+     * @summary 查询服务组排班详情
+     *  *
+     * @param GetServiceGroupSchedulingRequest $request GetServiceGroupSchedulingRequest
+     * @param string[]                         $headers map
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetServiceGroupSchedulingResponse
+     * @return GetServiceGroupSchedulingResponse GetServiceGroupSchedulingResponse
      */
     public function getServiceGroupSchedulingWithOptions($request, $headers, $runtime)
     {
@@ -4203,9 +4493,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GetServiceGroupSchedulingRequest $request
+     * @summary 查询服务组排班详情
+     *  *
+     * @param GetServiceGroupSchedulingRequest $request GetServiceGroupSchedulingRequest
      *
-     * @return GetServiceGroupSchedulingResponse
+     * @return GetServiceGroupSchedulingResponse GetServiceGroupSchedulingResponse
      */
     public function getServiceGroupScheduling($request)
     {
@@ -4216,11 +4508,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GetServiceGroupSchedulingPreviewRequest $request
-     * @param string[]                                $headers
-     * @param RuntimeOptions                          $runtime
+     * @summary 预览服务组排班
+     *  *
+     * @param GetServiceGroupSchedulingPreviewRequest $request GetServiceGroupSchedulingPreviewRequest
+     * @param string[]                                $headers map
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetServiceGroupSchedulingPreviewResponse
+     * @return GetServiceGroupSchedulingPreviewResponse GetServiceGroupSchedulingPreviewResponse
      */
     public function getServiceGroupSchedulingPreviewWithOptions($request, $headers, $runtime)
     {
@@ -4267,9 +4561,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GetServiceGroupSchedulingPreviewRequest $request
+     * @summary 预览服务组排班
+     *  *
+     * @param GetServiceGroupSchedulingPreviewRequest $request GetServiceGroupSchedulingPreviewRequest
      *
-     * @return GetServiceGroupSchedulingPreviewResponse
+     * @return GetServiceGroupSchedulingPreviewResponse GetServiceGroupSchedulingPreviewResponse
      */
     public function getServiceGroupSchedulingPreview($request)
     {
@@ -4280,11 +4576,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GetServiceGroupSpecialPersonSchedulingRequest $request
-     * @param string[]                                      $headers
-     * @param RuntimeOptions                                $runtime
+     * @summary 查询指定人员的服务组排班
+     *  *
+     * @param GetServiceGroupSpecialPersonSchedulingRequest $request GetServiceGroupSpecialPersonSchedulingRequest
+     * @param string[]                                      $headers map
+     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetServiceGroupSpecialPersonSchedulingResponse
+     * @return GetServiceGroupSpecialPersonSchedulingResponse GetServiceGroupSpecialPersonSchedulingResponse
      */
     public function getServiceGroupSpecialPersonSchedulingWithOptions($request, $headers, $runtime)
     {
@@ -4319,9 +4617,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GetServiceGroupSpecialPersonSchedulingRequest $request
+     * @summary 查询指定人员的服务组排班
+     *  *
+     * @param GetServiceGroupSpecialPersonSchedulingRequest $request GetServiceGroupSpecialPersonSchedulingRequest
      *
-     * @return GetServiceGroupSpecialPersonSchedulingResponse
+     * @return GetServiceGroupSpecialPersonSchedulingResponse GetServiceGroupSpecialPersonSchedulingResponse
      */
     public function getServiceGroupSpecialPersonScheduling($request)
     {
@@ -4332,11 +4632,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GetSimilarIncidentStatisticsRequest $request
-     * @param string[]                            $headers
-     * @param RuntimeOptions                      $runtime
+     * @summary 相似事件统计信息
+     *  *
+     * @param GetSimilarIncidentStatisticsRequest $request GetSimilarIncidentStatisticsRequest
+     * @param string[]                            $headers map
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetSimilarIncidentStatisticsResponse
+     * @return GetSimilarIncidentStatisticsResponse GetSimilarIncidentStatisticsResponse
      */
     public function getSimilarIncidentStatisticsWithOptions($request, $headers, $runtime)
     {
@@ -4380,9 +4682,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GetSimilarIncidentStatisticsRequest $request
+     * @summary 相似事件统计信息
+     *  *
+     * @param GetSimilarIncidentStatisticsRequest $request GetSimilarIncidentStatisticsRequest
      *
-     * @return GetSimilarIncidentStatisticsResponse
+     * @return GetSimilarIncidentStatisticsResponse GetSimilarIncidentStatisticsResponse
      */
     public function getSimilarIncidentStatistics($request)
     {
@@ -4393,11 +4697,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GetSubscriptionRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @summary 通知订阅详情
+     *  *
+     * @param GetSubscriptionRequest $request GetSubscriptionRequest
+     * @param string[]               $headers map
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetSubscriptionResponse
+     * @return GetSubscriptionResponse GetSubscriptionResponse
      */
     public function getSubscriptionWithOptions($request, $headers, $runtime)
     {
@@ -4429,9 +4735,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GetSubscriptionRequest $request
+     * @summary 通知订阅详情
+     *  *
+     * @param GetSubscriptionRequest $request GetSubscriptionRequest
      *
-     * @return GetSubscriptionResponse
+     * @return GetSubscriptionResponse GetSubscriptionResponse
      */
     public function getSubscription($request)
     {
@@ -4442,11 +4750,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GetTenantApplicationRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @summary 云钉协同移动应用详情
+     *  *
+     * @param GetTenantApplicationRequest $request GetTenantApplicationRequest
+     * @param string[]                    $headers map
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetTenantApplicationResponse
+     * @return GetTenantApplicationResponse GetTenantApplicationResponse
      */
     public function getTenantApplicationWithOptions($request, $headers, $runtime)
     {
@@ -4475,9 +4785,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GetTenantApplicationRequest $request
+     * @summary 云钉协同移动应用详情
+     *  *
+     * @param GetTenantApplicationRequest $request GetTenantApplicationRequest
      *
-     * @return GetTenantApplicationResponse
+     * @return GetTenantApplicationResponse GetTenantApplicationResponse
      */
     public function getTenantApplication($request)
     {
@@ -4488,11 +4800,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GetTenantStatusRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @summary 查询租户开通运维事件中心的状态
+     *  *
+     * @param GetTenantStatusRequest $request GetTenantStatusRequest
+     * @param string[]               $headers map
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetTenantStatusResponse
+     * @return GetTenantStatusResponse GetTenantStatusResponse
      */
     public function getTenantStatusWithOptions($request, $headers, $runtime)
     {
@@ -4521,9 +4835,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GetTenantStatusRequest $request
+     * @summary 查询租户开通运维事件中心的状态
+     *  *
+     * @param GetTenantStatusRequest $request GetTenantStatusRequest
      *
-     * @return GetTenantStatusResponse
+     * @return GetTenantStatusResponse GetTenantStatusResponse
      */
     public function getTenantStatus($request)
     {
@@ -4534,11 +4850,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GetUserRequest $request
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @summary 获取用户详情
+     *  *
+     * @param GetUserRequest $request GetUserRequest
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetUserResponse
+     * @return GetUserResponse GetUserResponse
      */
     public function getUserWithOptions($request, $headers, $runtime)
     {
@@ -4570,9 +4888,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GetUserRequest $request
+     * @summary 获取用户详情
+     *  *
+     * @param GetUserRequest $request GetUserRequest
      *
-     * @return GetUserResponse
+     * @return GetUserResponse GetUserResponse
      */
     public function getUser($request)
     {
@@ -4583,11 +4903,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GetUserGuideStatusRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @summary 查询用户新手引导状态
+     *  *
+     * @param GetUserGuideStatusRequest $request GetUserGuideStatusRequest
+     * @param string[]                  $headers map
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetUserGuideStatusResponse
+     * @return GetUserGuideStatusResponse GetUserGuideStatusResponse
      */
     public function getUserGuideStatusWithOptions($request, $headers, $runtime)
     {
@@ -4616,9 +4938,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param GetUserGuideStatusRequest $request
+     * @summary 查询用户新手引导状态
+     *  *
+     * @param GetUserGuideStatusRequest $request GetUserGuideStatusRequest
      *
-     * @return GetUserGuideStatusResponse
+     * @return GetUserGuideStatusResponse GetUserGuideStatusResponse
      */
     public function getUserGuideStatus($request)
     {
@@ -4629,11 +4953,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListAlertsRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
+     * @summary 报警列表查询
+     *  *
+     * @param ListAlertsRequest $request ListAlertsRequest
+     * @param string[]          $headers map
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListAlertsResponse
+     * @return ListAlertsResponse ListAlertsResponse
      */
     public function listAlertsWithOptions($request, $headers, $runtime)
     {
@@ -4689,9 +5015,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListAlertsRequest $request
+     * @summary 报警列表查询
+     *  *
+     * @param ListAlertsRequest $request ListAlertsRequest
      *
-     * @return ListAlertsResponse
+     * @return ListAlertsResponse ListAlertsResponse
      */
     public function listAlerts($request)
     {
@@ -4702,11 +5030,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListByMonitorSourceIdRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @summary 监控关联规则列表
+     *  *
+     * @param ListByMonitorSourceIdRequest $request ListByMonitorSourceIdRequest
+     * @param string[]                     $headers map
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListByMonitorSourceIdResponse
+     * @return ListByMonitorSourceIdResponse ListByMonitorSourceIdResponse
      */
     public function listByMonitorSourceIdWithOptions($request, $headers, $runtime)
     {
@@ -4735,9 +5065,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListByMonitorSourceIdRequest $request
+     * @summary 监控关联规则列表
+     *  *
+     * @param ListByMonitorSourceIdRequest $request ListByMonitorSourceIdRequest
      *
-     * @return ListByMonitorSourceIdResponse
+     * @return ListByMonitorSourceIdResponse ListByMonitorSourceIdResponse
      */
     public function listByMonitorSourceId($request)
     {
@@ -4748,11 +5080,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListChartDataForServiceGroupRequest $request
-     * @param string[]                            $headers
-     * @param RuntimeOptions                      $runtime
+     * @summary 统计图表数据-个人
+     *  *
+     * @param ListChartDataForServiceGroupRequest $request ListChartDataForServiceGroupRequest
+     * @param string[]                            $headers map
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListChartDataForServiceGroupResponse
+     * @return ListChartDataForServiceGroupResponse ListChartDataForServiceGroupResponse
      */
     public function listChartDataForServiceGroupWithOptions($request, $headers, $runtime)
     {
@@ -4787,9 +5121,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListChartDataForServiceGroupRequest $request
+     * @summary 统计图表数据-个人
+     *  *
+     * @param ListChartDataForServiceGroupRequest $request ListChartDataForServiceGroupRequest
      *
-     * @return ListChartDataForServiceGroupResponse
+     * @return ListChartDataForServiceGroupResponse ListChartDataForServiceGroupResponse
      */
     public function listChartDataForServiceGroup($request)
     {
@@ -4800,11 +5136,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListChartDataForUserRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @summary 统计图表数据-个人
+     *  *
+     * @param ListChartDataForUserRequest $request ListChartDataForUserRequest
+     * @param string[]                    $headers map
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListChartDataForUserResponse
+     * @return ListChartDataForUserResponse ListChartDataForUserResponse
      */
     public function listChartDataForUserWithOptions($request, $headers, $runtime)
     {
@@ -4839,9 +5177,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListChartDataForUserRequest $request
+     * @summary 统计图表数据-个人
+     *  *
+     * @param ListChartDataForUserRequest $request ListChartDataForUserRequest
      *
-     * @return ListChartDataForUserResponse
+     * @return ListChartDataForUserResponse ListChartDataForUserResponse
      */
     public function listChartDataForUser($request)
     {
@@ -4852,11 +5192,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListConfigsRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @summary 全局码表配置
+     *  *
+     * @param ListConfigsRequest $request ListConfigsRequest
+     * @param string[]           $headers map
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListConfigsResponse
+     * @return ListConfigsResponse ListConfigsResponse
      */
     public function listConfigsWithOptions($request, $headers, $runtime)
     {
@@ -4885,9 +5227,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListConfigsRequest $request
+     * @summary 全局码表配置
+     *  *
+     * @param ListConfigsRequest $request ListConfigsRequest
      *
-     * @return ListConfigsResponse
+     * @return ListConfigsResponse ListConfigsResponse
      */
     public function listConfigs($request)
     {
@@ -4898,11 +5242,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListDataReportForServiceGroupRequest $request
-     * @param string[]                             $headers
-     * @param RuntimeOptions                       $runtime
+     * @summary 查询服务组事件统计报表
+     *  *
+     * @param ListDataReportForServiceGroupRequest $request ListDataReportForServiceGroupRequest
+     * @param string[]                             $headers map
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListDataReportForServiceGroupResponse
+     * @return ListDataReportForServiceGroupResponse ListDataReportForServiceGroupResponse
      */
     public function listDataReportForServiceGroupWithOptions($request, $headers, $runtime)
     {
@@ -4937,9 +5283,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListDataReportForServiceGroupRequest $request
+     * @summary 查询服务组事件统计报表
+     *  *
+     * @param ListDataReportForServiceGroupRequest $request ListDataReportForServiceGroupRequest
      *
-     * @return ListDataReportForServiceGroupResponse
+     * @return ListDataReportForServiceGroupResponse ListDataReportForServiceGroupResponse
      */
     public function listDataReportForServiceGroup($request)
     {
@@ -4950,11 +5298,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListDataReportForUserRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @summary 查询用户事件统计报表
+     *  *
+     * @param ListDataReportForUserRequest $request ListDataReportForUserRequest
+     * @param string[]                     $headers map
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListDataReportForUserResponse
+     * @return ListDataReportForUserResponse ListDataReportForUserResponse
      */
     public function listDataReportForUserWithOptions($request, $headers, $runtime)
     {
@@ -4992,9 +5342,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListDataReportForUserRequest $request
+     * @summary 查询用户事件统计报表
+     *  *
+     * @param ListDataReportForUserRequest $request ListDataReportForUserRequest
      *
-     * @return ListDataReportForUserResponse
+     * @return ListDataReportForUserResponse ListDataReportForUserResponse
      */
     public function listDataReportForUser($request)
     {
@@ -5005,11 +5357,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListDictionariesRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @summary 字典列表
+     *  *
+     * @param ListDictionariesRequest $request ListDictionariesRequest
+     * @param string[]                $headers map
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListDictionariesResponse
+     * @return ListDictionariesResponse ListDictionariesResponse
      */
     public function listDictionariesWithOptions($request, $headers, $runtime)
     {
@@ -5038,9 +5392,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListDictionariesRequest $request
+     * @summary 字典列表
+     *  *
+     * @param ListDictionariesRequest $request ListDictionariesRequest
      *
-     * @return ListDictionariesResponse
+     * @return ListDictionariesResponse ListDictionariesResponse
      */
     public function listDictionaries($request)
     {
@@ -5051,11 +5407,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListEscalationPlanServicesRequest $request
-     * @param string[]                          $headers
-     * @param RuntimeOptions                    $runtime
+     * @summary 获取已选中的服务对象
+     *  *
+     * @param ListEscalationPlanServicesRequest $request ListEscalationPlanServicesRequest
+     * @param string[]                          $headers map
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListEscalationPlanServicesResponse
+     * @return ListEscalationPlanServicesResponse ListEscalationPlanServicesResponse
      */
     public function listEscalationPlanServicesWithOptions($request, $headers, $runtime)
     {
@@ -5084,9 +5442,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListEscalationPlanServicesRequest $request
+     * @summary 获取已选中的服务对象
+     *  *
+     * @param ListEscalationPlanServicesRequest $request ListEscalationPlanServicesRequest
      *
-     * @return ListEscalationPlanServicesResponse
+     * @return ListEscalationPlanServicesResponse ListEscalationPlanServicesResponse
      */
     public function listEscalationPlanServices($request)
     {
@@ -5097,11 +5457,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListEscalationPlansRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @summary 升级计划列表添加服务删除字段
+     *  *
+     * @param ListEscalationPlansRequest $request ListEscalationPlansRequest
+     * @param string[]                   $headers map
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListEscalationPlansResponse
+     * @return ListEscalationPlansResponse ListEscalationPlansResponse
      */
     public function listEscalationPlansWithOptions($request, $headers, $runtime)
     {
@@ -5148,9 +5510,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListEscalationPlansRequest $request
+     * @summary 升级计划列表添加服务删除字段
+     *  *
+     * @param ListEscalationPlansRequest $request ListEscalationPlansRequest
      *
-     * @return ListEscalationPlansResponse
+     * @return ListEscalationPlansResponse ListEscalationPlansResponse
      */
     public function listEscalationPlans($request)
     {
@@ -5161,11 +5525,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListEscalationPlansByNoticeObjectRequest $request
-     * @param string[]                                 $headers
-     * @param RuntimeOptions                           $runtime
+     * @summary 根据推送对象查询升级策略
+     *  *
+     * @param ListEscalationPlansByNoticeObjectRequest $request ListEscalationPlansByNoticeObjectRequest
+     * @param string[]                                 $headers map
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListEscalationPlansByNoticeObjectResponse
+     * @return ListEscalationPlansByNoticeObjectResponse ListEscalationPlansByNoticeObjectResponse
      */
     public function listEscalationPlansByNoticeObjectWithOptions($request, $headers, $runtime)
     {
@@ -5197,9 +5563,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListEscalationPlansByNoticeObjectRequest $request
+     * @summary 根据推送对象查询升级策略
+     *  *
+     * @param ListEscalationPlansByNoticeObjectRequest $request ListEscalationPlansByNoticeObjectRequest
      *
-     * @return ListEscalationPlansByNoticeObjectResponse
+     * @return ListEscalationPlansByNoticeObjectResponse ListEscalationPlansByNoticeObjectResponse
      */
     public function listEscalationPlansByNoticeObject($request)
     {
@@ -5210,11 +5578,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListIncidentDetailEscalationPlansRequest $request
-     * @param string[]                                 $headers
-     * @param RuntimeOptions                           $runtime
+     * @summary 事件详情升级策略
+     *  *
+     * @param ListIncidentDetailEscalationPlansRequest $request ListIncidentDetailEscalationPlansRequest
+     * @param string[]                                 $headers map
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListIncidentDetailEscalationPlansResponse
+     * @return ListIncidentDetailEscalationPlansResponse ListIncidentDetailEscalationPlansResponse
      */
     public function listIncidentDetailEscalationPlansWithOptions($request, $headers, $runtime)
     {
@@ -5246,9 +5616,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListIncidentDetailEscalationPlansRequest $request
+     * @summary 事件详情升级策略
+     *  *
+     * @param ListIncidentDetailEscalationPlansRequest $request ListIncidentDetailEscalationPlansRequest
      *
-     * @return ListIncidentDetailEscalationPlansResponse
+     * @return ListIncidentDetailEscalationPlansResponse ListIncidentDetailEscalationPlansResponse
      */
     public function listIncidentDetailEscalationPlans($request)
     {
@@ -5259,11 +5631,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListIncidentDetailTimelinesRequest $request
-     * @param string[]                           $headers
-     * @param RuntimeOptions                     $runtime
+     * @summary 查询事件详情动态
+     *  *
+     * @param ListIncidentDetailTimelinesRequest $request ListIncidentDetailTimelinesRequest
+     * @param string[]                           $headers map
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListIncidentDetailTimelinesResponse
+     * @return ListIncidentDetailTimelinesResponse ListIncidentDetailTimelinesResponse
      */
     public function listIncidentDetailTimelinesWithOptions($request, $headers, $runtime)
     {
@@ -5304,9 +5678,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListIncidentDetailTimelinesRequest $request
+     * @summary 查询事件详情动态
+     *  *
+     * @param ListIncidentDetailTimelinesRequest $request ListIncidentDetailTimelinesRequest
      *
-     * @return ListIncidentDetailTimelinesResponse
+     * @return ListIncidentDetailTimelinesResponse ListIncidentDetailTimelinesResponse
      */
     public function listIncidentDetailTimelines($request)
     {
@@ -5317,11 +5693,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListIncidentSubtotalsRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @summary 查询事件小计
+     *  *
+     * @param ListIncidentSubtotalsRequest $request ListIncidentSubtotalsRequest
+     * @param string[]                     $headers map
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListIncidentSubtotalsResponse
+     * @return ListIncidentSubtotalsResponse ListIncidentSubtotalsResponse
      */
     public function listIncidentSubtotalsWithOptions($request, $headers, $runtime)
     {
@@ -5353,9 +5731,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListIncidentSubtotalsRequest $request
+     * @summary 查询事件小计
+     *  *
+     * @param ListIncidentSubtotalsRequest $request ListIncidentSubtotalsRequest
      *
-     * @return ListIncidentSubtotalsResponse
+     * @return ListIncidentSubtotalsResponse ListIncidentSubtotalsResponse
      */
     public function listIncidentSubtotals($request)
     {
@@ -5366,11 +5746,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListIncidentTimelinesRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @summary 事件动态
+     *  *
+     * @param ListIncidentTimelinesRequest $request ListIncidentTimelinesRequest
+     * @param string[]                     $headers map
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListIncidentTimelinesResponse
+     * @return ListIncidentTimelinesResponse ListIncidentTimelinesResponse
      */
     public function listIncidentTimelinesWithOptions($request, $headers, $runtime)
     {
@@ -5405,9 +5787,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListIncidentTimelinesRequest $request
+     * @summary 事件动态
+     *  *
+     * @param ListIncidentTimelinesRequest $request ListIncidentTimelinesRequest
      *
-     * @return ListIncidentTimelinesResponse
+     * @return ListIncidentTimelinesResponse ListIncidentTimelinesResponse
      */
     public function listIncidentTimelines($request)
     {
@@ -5418,11 +5802,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListIncidentsRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @summary 获取事件列表
+     *  *
+     * @param ListIncidentsRequest $request ListIncidentsRequest
+     * @param string[]             $headers map
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListIncidentsResponse
+     * @return ListIncidentsResponse ListIncidentsResponse
      */
     public function listIncidentsWithOptions($request, $headers, $runtime)
     {
@@ -5481,9 +5867,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListIncidentsRequest $request
+     * @summary 获取事件列表
+     *  *
+     * @param ListIncidentsRequest $request ListIncidentsRequest
      *
-     * @return ListIncidentsResponse
+     * @return ListIncidentsResponse ListIncidentsResponse
      */
     public function listIncidents($request)
     {
@@ -5494,11 +5882,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListIntegrationConfigTimelinesRequest $request
-     * @param string[]                              $headers
-     * @param RuntimeOptions                        $runtime
+     * @summary 获取集成配置动态
+     *  *
+     * @param ListIntegrationConfigTimelinesRequest $request ListIntegrationConfigTimelinesRequest
+     * @param string[]                              $headers map
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListIntegrationConfigTimelinesResponse
+     * @return ListIntegrationConfigTimelinesResponse ListIntegrationConfigTimelinesResponse
      */
     public function listIntegrationConfigTimelinesWithOptions($request, $headers, $runtime)
     {
@@ -5536,9 +5926,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListIntegrationConfigTimelinesRequest $request
+     * @summary 获取集成配置动态
+     *  *
+     * @param ListIntegrationConfigTimelinesRequest $request ListIntegrationConfigTimelinesRequest
      *
-     * @return ListIntegrationConfigTimelinesResponse
+     * @return ListIntegrationConfigTimelinesResponse ListIntegrationConfigTimelinesResponse
      */
     public function listIntegrationConfigTimelines($request)
     {
@@ -5549,11 +5941,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListIntegrationConfigsRequest $request
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
+     * @summary 获取集成配置列表
+     *  *
+     * @param ListIntegrationConfigsRequest $request ListIntegrationConfigsRequest
+     * @param string[]                      $headers map
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListIntegrationConfigsResponse
+     * @return ListIntegrationConfigsResponse ListIntegrationConfigsResponse
      */
     public function listIntegrationConfigsWithOptions($request, $headers, $runtime)
     {
@@ -5585,9 +5979,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListIntegrationConfigsRequest $request
+     * @summary 获取集成配置列表
+     *  *
+     * @param ListIntegrationConfigsRequest $request ListIntegrationConfigsRequest
      *
-     * @return ListIntegrationConfigsResponse
+     * @return ListIntegrationConfigsResponse ListIntegrationConfigsResponse
      */
     public function listIntegrationConfigs($request)
     {
@@ -5598,11 +5994,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListMonitorSourcesRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @summary ListMonitorSources
+     *  *
+     * @param ListMonitorSourcesRequest $request ListMonitorSourcesRequest
+     * @param string[]                  $headers map
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListMonitorSourcesResponse
+     * @return ListMonitorSourcesResponse ListMonitorSourcesResponse
      */
     public function listMonitorSourcesWithOptions($request, $headers, $runtime)
     {
@@ -5631,9 +6029,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListMonitorSourcesRequest $request
+     * @summary ListMonitorSources
+     *  *
+     * @param ListMonitorSourcesRequest $request ListMonitorSourcesRequest
      *
-     * @return ListMonitorSourcesResponse
+     * @return ListMonitorSourcesResponse ListMonitorSourcesResponse
      */
     public function listMonitorSources($request)
     {
@@ -5644,11 +6044,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListProblemDetailOperationsRequest $request
-     * @param string[]                           $headers
-     * @param RuntimeOptions                     $runtime
+     * @summary 故障详情动态
+     *  *
+     * @param ListProblemDetailOperationsRequest $request ListProblemDetailOperationsRequest
+     * @param string[]                           $headers map
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListProblemDetailOperationsResponse
+     * @return ListProblemDetailOperationsResponse ListProblemDetailOperationsResponse
      */
     public function listProblemDetailOperationsWithOptions($request, $headers, $runtime)
     {
@@ -5689,9 +6091,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListProblemDetailOperationsRequest $request
+     * @summary 故障详情动态
+     *  *
+     * @param ListProblemDetailOperationsRequest $request ListProblemDetailOperationsRequest
      *
-     * @return ListProblemDetailOperationsResponse
+     * @return ListProblemDetailOperationsResponse ListProblemDetailOperationsResponse
      */
     public function listProblemDetailOperations($request)
     {
@@ -5702,11 +6106,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListProblemOperationsRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @summary 查询故障7天内动态
+     *  *
+     * @param ListProblemOperationsRequest $request ListProblemOperationsRequest
+     * @param string[]                     $headers map
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListProblemOperationsResponse
+     * @return ListProblemOperationsResponse ListProblemOperationsResponse
      */
     public function listProblemOperationsWithOptions($request, $headers, $runtime)
     {
@@ -5741,9 +6147,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListProblemOperationsRequest $request
+     * @summary 查询故障7天内动态
+     *  *
+     * @param ListProblemOperationsRequest $request ListProblemOperationsRequest
      *
-     * @return ListProblemOperationsResponse
+     * @return ListProblemOperationsResponse ListProblemOperationsResponse
      */
     public function listProblemOperations($request)
     {
@@ -5754,11 +6162,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListProblemSubtotalsRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @summary 查询故障小计
+     *  *
+     * @param ListProblemSubtotalsRequest $request ListProblemSubtotalsRequest
+     * @param string[]                    $headers map
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListProblemSubtotalsResponse
+     * @return ListProblemSubtotalsResponse ListProblemSubtotalsResponse
      */
     public function listProblemSubtotalsWithOptions($request, $headers, $runtime)
     {
@@ -5790,9 +6200,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListProblemSubtotalsRequest $request
+     * @summary 查询故障小计
+     *  *
+     * @param ListProblemSubtotalsRequest $request ListProblemSubtotalsRequest
      *
-     * @return ListProblemSubtotalsResponse
+     * @return ListProblemSubtotalsResponse ListProblemSubtotalsResponse
      */
     public function listProblemSubtotals($request)
     {
@@ -5803,11 +6215,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListProblemTimeLinesRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @summary 查询故障操作时间线列表
+     *  *
+     * @param ListProblemTimeLinesRequest $request ListProblemTimeLinesRequest
+     * @param string[]                    $headers map
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListProblemTimeLinesResponse
+     * @return ListProblemTimeLinesResponse ListProblemTimeLinesResponse
      */
     public function listProblemTimeLinesWithOptions($request, $headers, $runtime)
     {
@@ -5839,9 +6253,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListProblemTimeLinesRequest $request
+     * @summary 查询故障操作时间线列表
+     *  *
+     * @param ListProblemTimeLinesRequest $request ListProblemTimeLinesRequest
      *
-     * @return ListProblemTimeLinesResponse
+     * @return ListProblemTimeLinesResponse ListProblemTimeLinesResponse
      */
     public function listProblemTimeLines($request)
     {
@@ -5852,11 +6268,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListProblemsRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @summary 故障列表查询接口
+     *  *
+     * @param ListProblemsRequest $request ListProblemsRequest
+     * @param string[]            $headers map
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListProblemsResponse
+     * @return ListProblemsResponse ListProblemsResponse
      */
     public function listProblemsWithOptions($request, $headers, $runtime)
     {
@@ -5924,9 +6342,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListProblemsRequest $request
+     * @summary 故障列表查询接口
+     *  *
+     * @param ListProblemsRequest $request ListProblemsRequest
      *
-     * @return ListProblemsResponse
+     * @return ListProblemsResponse ListProblemsResponse
      */
     public function listProblems($request)
     {
@@ -5937,11 +6357,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListRouteRulesRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @summary 查询流转规则列表
+     *  *
+     * @param ListRouteRulesRequest $request ListRouteRulesRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListRouteRulesResponse
+     * @return ListRouteRulesResponse ListRouteRulesResponse
      */
     public function listRouteRulesWithOptions($request, $headers, $runtime)
     {
@@ -5988,9 +6410,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListRouteRulesRequest $request
+     * @summary 查询流转规则列表
+     *  *
+     * @param ListRouteRulesRequest $request ListRouteRulesRequest
      *
-     * @return ListRouteRulesResponse
+     * @return ListRouteRulesResponse ListRouteRulesResponse
      */
     public function listRouteRules($request)
     {
@@ -6001,11 +6425,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListRouteRulesByAssignWhoIdRequest $request
-     * @param string[]                           $headers
-     * @param RuntimeOptions                     $runtime
+     * @summary 获取指定分配对象的流转规则
+     *  *
+     * @param ListRouteRulesByAssignWhoIdRequest $request ListRouteRulesByAssignWhoIdRequest
+     * @param string[]                           $headers map
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListRouteRulesByAssignWhoIdResponse
+     * @return ListRouteRulesByAssignWhoIdResponse ListRouteRulesByAssignWhoIdResponse
      */
     public function listRouteRulesByAssignWhoIdWithOptions($request, $headers, $runtime)
     {
@@ -6037,9 +6463,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListRouteRulesByAssignWhoIdRequest $request
+     * @summary 获取指定分配对象的流转规则
+     *  *
+     * @param ListRouteRulesByAssignWhoIdRequest $request ListRouteRulesByAssignWhoIdRequest
      *
-     * @return ListRouteRulesByAssignWhoIdResponse
+     * @return ListRouteRulesByAssignWhoIdResponse ListRouteRulesByAssignWhoIdResponse
      */
     public function listRouteRulesByAssignWhoId($request)
     {
@@ -6050,10 +6478,12 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @summary 根据服务id查询流转规则
+     *  *
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListRouteRulesByServiceResponse
+     * @return ListRouteRulesByServiceResponse ListRouteRulesByServiceResponse
      */
     public function listRouteRulesByServiceWithOptions($headers, $runtime)
     {
@@ -6076,7 +6506,9 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @return ListRouteRulesByServiceResponse
+     * @summary 根据服务id查询流转规则
+     *  *
+     * @return ListRouteRulesByServiceResponse ListRouteRulesByServiceResponse
      */
     public function listRouteRulesByService()
     {
@@ -6087,11 +6519,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListServiceGroupMonitorSourceTemplatesRequest $request
-     * @param string[]                                      $headers
-     * @param RuntimeOptions                                $runtime
+     * @summary 查询服务组监控源模版列表
+     *  *
+     * @param ListServiceGroupMonitorSourceTemplatesRequest $request ListServiceGroupMonitorSourceTemplatesRequest
+     * @param string[]                                      $headers map
+     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListServiceGroupMonitorSourceTemplatesResponse
+     * @return ListServiceGroupMonitorSourceTemplatesResponse ListServiceGroupMonitorSourceTemplatesResponse
      */
     public function listServiceGroupMonitorSourceTemplatesWithOptions($request, $headers, $runtime)
     {
@@ -6126,9 +6560,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListServiceGroupMonitorSourceTemplatesRequest $request
+     * @summary 查询服务组监控源模版列表
+     *  *
+     * @param ListServiceGroupMonitorSourceTemplatesRequest $request ListServiceGroupMonitorSourceTemplatesRequest
      *
-     * @return ListServiceGroupMonitorSourceTemplatesResponse
+     * @return ListServiceGroupMonitorSourceTemplatesResponse ListServiceGroupMonitorSourceTemplatesResponse
      */
     public function listServiceGroupMonitorSourceTemplates($request)
     {
@@ -6139,11 +6575,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListServiceGroupsRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @summary 查询服务组列表
+     *  *
+     * @param ListServiceGroupsRequest $request ListServiceGroupsRequest
+     * @param string[]                 $headers map
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListServiceGroupsResponse
+     * @return ListServiceGroupsResponse ListServiceGroupsResponse
      */
     public function listServiceGroupsWithOptions($request, $headers, $runtime)
     {
@@ -6196,9 +6634,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListServiceGroupsRequest $request
+     * @summary 查询服务组列表
+     *  *
+     * @param ListServiceGroupsRequest $request ListServiceGroupsRequest
      *
-     * @return ListServiceGroupsResponse
+     * @return ListServiceGroupsResponse ListServiceGroupsResponse
      */
     public function listServiceGroups($request)
     {
@@ -6209,10 +6649,12 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @summary 根据成员id查服务组
+     *  *
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListServiceGroupsByUserIdResponse
+     * @return ListServiceGroupsByUserIdResponse ListServiceGroupsByUserIdResponse
      */
     public function listServiceGroupsByUserIdWithOptions($headers, $runtime)
     {
@@ -6235,7 +6677,9 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @return ListServiceGroupsByUserIdResponse
+     * @summary 根据成员id查服务组
+     *  *
+     * @return ListServiceGroupsByUserIdResponse ListServiceGroupsByUserIdResponse
      */
     public function listServiceGroupsByUserId()
     {
@@ -6246,11 +6690,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListServicesRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @summary 查询服务组列表
+     *  *
+     * @param ListServicesRequest $request ListServicesRequest
+     * @param string[]            $headers map
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListServicesResponse
+     * @return ListServicesResponse ListServicesResponse
      */
     public function listServicesWithOptions($request, $headers, $runtime)
     {
@@ -6288,9 +6734,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListServicesRequest $request
+     * @summary 查询服务组列表
+     *  *
+     * @param ListServicesRequest $request ListServicesRequest
      *
-     * @return ListServicesResponse
+     * @return ListServicesResponse ListServicesResponse
      */
     public function listServices($request)
     {
@@ -6301,11 +6749,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListSourceEventsRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @summary 原始告警列表查询
+     *  *
+     * @param ListSourceEventsRequest $request ListSourceEventsRequest
+     * @param string[]                $headers map
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListSourceEventsResponse
+     * @return ListSourceEventsResponse ListSourceEventsResponse
      */
     public function listSourceEventsWithOptions($request, $headers, $runtime)
     {
@@ -6358,9 +6808,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListSourceEventsRequest $request
+     * @summary 原始告警列表查询
+     *  *
+     * @param ListSourceEventsRequest $request ListSourceEventsRequest
      *
-     * @return ListSourceEventsResponse
+     * @return ListSourceEventsResponse ListSourceEventsResponse
      */
     public function listSourceEvents($request)
     {
@@ -6371,11 +6823,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListSourceEventsForMonitorSourceRequest $request
-     * @param string[]                                $headers
-     * @param RuntimeOptions                          $runtime
+     * @summary 查询监控员最近10次告警
+     *  *
+     * @param ListSourceEventsForMonitorSourceRequest $request ListSourceEventsForMonitorSourceRequest
+     * @param string[]                                $headers map
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListSourceEventsForMonitorSourceResponse
+     * @return ListSourceEventsForMonitorSourceResponse ListSourceEventsForMonitorSourceResponse
      */
     public function listSourceEventsForMonitorSourceWithOptions($request, $headers, $runtime)
     {
@@ -6404,9 +6858,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListSourceEventsForMonitorSourceRequest $request
+     * @summary 查询监控员最近10次告警
+     *  *
+     * @param ListSourceEventsForMonitorSourceRequest $request ListSourceEventsForMonitorSourceRequest
      *
-     * @return ListSourceEventsForMonitorSourceResponse
+     * @return ListSourceEventsForMonitorSourceResponse ListSourceEventsForMonitorSourceResponse
      */
     public function listSourceEventsForMonitorSource($request)
     {
@@ -6417,11 +6873,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListSubscriptionServiceGroupsRequest $request
-     * @param string[]                             $headers
-     * @param RuntimeOptions                       $runtime
+     * @summary 订阅通知服务组查询
+     *  *
+     * @param ListSubscriptionServiceGroupsRequest $request ListSubscriptionServiceGroupsRequest
+     * @param string[]                             $headers map
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListSubscriptionServiceGroupsResponse
+     * @return ListSubscriptionServiceGroupsResponse ListSubscriptionServiceGroupsResponse
      */
     public function listSubscriptionServiceGroupsWithOptions($request, $headers, $runtime)
     {
@@ -6453,9 +6911,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListSubscriptionServiceGroupsRequest $request
+     * @summary 订阅通知服务组查询
+     *  *
+     * @param ListSubscriptionServiceGroupsRequest $request ListSubscriptionServiceGroupsRequest
      *
-     * @return ListSubscriptionServiceGroupsResponse
+     * @return ListSubscriptionServiceGroupsResponse ListSubscriptionServiceGroupsResponse
      */
     public function listSubscriptionServiceGroups($request)
     {
@@ -6466,11 +6926,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListSubscriptionsRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @summary 通知订阅列表
+     *  *
+     * @param ListSubscriptionsRequest $request ListSubscriptionsRequest
+     * @param string[]                 $headers map
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListSubscriptionsResponse
+     * @return ListSubscriptionsResponse ListSubscriptionsResponse
      */
     public function listSubscriptionsWithOptions($request, $headers, $runtime)
     {
@@ -6523,9 +6985,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListSubscriptionsRequest $request
+     * @summary 通知订阅列表
+     *  *
+     * @param ListSubscriptionsRequest $request ListSubscriptionsRequest
      *
-     * @return ListSubscriptionsResponse
+     * @return ListSubscriptionsResponse ListSubscriptionsResponse
      */
     public function listSubscriptions($request)
     {
@@ -6536,11 +7000,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListTrendForSourceEventRequest $request
-     * @param string[]                       $headers
-     * @param RuntimeOptions                 $runtime
+     * @summary 查询原始告警趋势
+     *  *
+     * @param ListTrendForSourceEventRequest $request ListTrendForSourceEventRequest
+     * @param string[]                       $headers map
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTrendForSourceEventResponse
+     * @return ListTrendForSourceEventResponse ListTrendForSourceEventResponse
      */
     public function listTrendForSourceEventWithOptions($request, $headers, $runtime)
     {
@@ -6584,9 +7050,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListTrendForSourceEventRequest $request
+     * @summary 查询原始告警趋势
+     *  *
+     * @param ListTrendForSourceEventRequest $request ListTrendForSourceEventRequest
      *
-     * @return ListTrendForSourceEventResponse
+     * @return ListTrendForSourceEventResponse ListTrendForSourceEventResponse
      */
     public function listTrendForSourceEvent($request)
     {
@@ -6597,11 +7065,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListUserSerivceGroupsRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @summary 用户预览
+     *  *
+     * @param ListUserSerivceGroupsRequest $request ListUserSerivceGroupsRequest
+     * @param string[]                     $headers map
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListUserSerivceGroupsResponse
+     * @return ListUserSerivceGroupsResponse ListUserSerivceGroupsResponse
      */
     public function listUserSerivceGroupsWithOptions($request, $headers, $runtime)
     {
@@ -6633,9 +7103,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListUserSerivceGroupsRequest $request
+     * @summary 用户预览
+     *  *
+     * @param ListUserSerivceGroupsRequest $request ListUserSerivceGroupsRequest
      *
-     * @return ListUserSerivceGroupsResponse
+     * @return ListUserSerivceGroupsResponse ListUserSerivceGroupsResponse
      */
     public function listUserSerivceGroups($request)
     {
@@ -6646,11 +7118,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListUsersRequest $request
-     * @param string[]         $headers
-     * @param RuntimeOptions   $runtime
+     * @summary 人员列表
+     *  *
+     * @param ListUsersRequest $request ListUsersRequest
+     * @param string[]         $headers map
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListUsersResponse
+     * @return ListUsersResponse ListUsersResponse
      */
     public function listUsersWithOptions($request, $headers, $runtime)
     {
@@ -6700,9 +7174,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ListUsersRequest $request
+     * @summary 人员列表
+     *  *
+     * @param ListUsersRequest $request ListUsersRequest
      *
-     * @return ListUsersResponse
+     * @return ListUsersResponse ListUsersResponse
      */
     public function listUsers($request)
     {
@@ -6713,12 +7189,14 @@ class GEMP extends OpenApiClient
     }
 
     /**
+     * @summary 监控数据接入API
+     *  *
      * @param string             $apiKey
-     * @param PushMonitorRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @param PushMonitorRequest $request PushMonitorRequest
+     * @param string[]           $headers map
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return PushMonitorResponse
+     * @return PushMonitorResponse PushMonitorResponse
      */
     public function pushMonitorWithOptions($apiKey, $request, $headers, $runtime)
     {
@@ -6743,10 +7221,12 @@ class GEMP extends OpenApiClient
     }
 
     /**
+     * @summary 监控数据接入API
+     *  *
      * @param string             $apiKey
-     * @param PushMonitorRequest $request
+     * @param PushMonitorRequest $request PushMonitorRequest
      *
-     * @return PushMonitorResponse
+     * @return PushMonitorResponse PushMonitorResponse
      */
     public function pushMonitor($apiKey, $request)
     {
@@ -6757,11 +7237,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param RecoverProblemRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @summary 故障恢复
+     *  *
+     * @param RecoverProblemRequest $request RecoverProblemRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return RecoverProblemResponse
+     * @return RecoverProblemResponse RecoverProblemResponse
      */
     public function recoverProblemWithOptions($request, $headers, $runtime)
     {
@@ -6796,9 +7278,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param RecoverProblemRequest $request
+     * @summary 故障恢复
+     *  *
+     * @param RecoverProblemRequest $request RecoverProblemRequest
      *
-     * @return RecoverProblemResponse
+     * @return RecoverProblemResponse RecoverProblemResponse
      */
     public function recoverProblem($request)
     {
@@ -6809,11 +7293,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param RefreshIntegrationConfigKeyRequest $request
-     * @param string[]                           $headers
-     * @param RuntimeOptions                     $runtime
+     * @summary 刷新集成配置key
+     *  *
+     * @param RefreshIntegrationConfigKeyRequest $request RefreshIntegrationConfigKeyRequest
+     * @param string[]                           $headers map
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return RefreshIntegrationConfigKeyResponse
+     * @return RefreshIntegrationConfigKeyResponse RefreshIntegrationConfigKeyResponse
      */
     public function refreshIntegrationConfigKeyWithOptions($request, $headers, $runtime)
     {
@@ -6845,9 +7331,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param RefreshIntegrationConfigKeyRequest $request
+     * @summary 刷新集成配置key
+     *  *
+     * @param RefreshIntegrationConfigKeyRequest $request RefreshIntegrationConfigKeyRequest
      *
-     * @return RefreshIntegrationConfigKeyResponse
+     * @return RefreshIntegrationConfigKeyResponse RefreshIntegrationConfigKeyResponse
      */
     public function refreshIntegrationConfigKey($request)
     {
@@ -6858,11 +7346,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param RemoveIntegrationConfigRequest $request
-     * @param string[]                       $headers
-     * @param RuntimeOptions                 $runtime
+     * @summary 解除集成配置
+     *  *
+     * @param RemoveIntegrationConfigRequest $request RemoveIntegrationConfigRequest
+     * @param string[]                       $headers map
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return RemoveIntegrationConfigResponse
+     * @return RemoveIntegrationConfigResponse RemoveIntegrationConfigResponse
      */
     public function removeIntegrationConfigWithOptions($request, $headers, $runtime)
     {
@@ -6894,9 +7384,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param RemoveIntegrationConfigRequest $request
+     * @summary 解除集成配置
+     *  *
+     * @param RemoveIntegrationConfigRequest $request RemoveIntegrationConfigRequest
      *
-     * @return RemoveIntegrationConfigResponse
+     * @return RemoveIntegrationConfigResponse RemoveIntegrationConfigResponse
      */
     public function removeIntegrationConfig($request)
     {
@@ -6907,11 +7399,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param RemoveProblemServiceGroupRequest $request
-     * @param string[]                         $headers
-     * @param RuntimeOptions                   $runtime
+     * @summary 删除故障协同组
+     *  *
+     * @param RemoveProblemServiceGroupRequest $request RemoveProblemServiceGroupRequest
+     * @param string[]                         $headers map
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return RemoveProblemServiceGroupResponse
+     * @return RemoveProblemServiceGroupResponse RemoveProblemServiceGroupResponse
      */
     public function removeProblemServiceGroupWithOptions($request, $headers, $runtime)
     {
@@ -6943,9 +7437,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param RemoveProblemServiceGroupRequest $request
+     * @summary 删除故障协同组
+     *  *
+     * @param RemoveProblemServiceGroupRequest $request RemoveProblemServiceGroupRequest
      *
-     * @return RemoveProblemServiceGroupResponse
+     * @return RemoveProblemServiceGroupResponse RemoveProblemServiceGroupResponse
      */
     public function removeProblemServiceGroup($request)
     {
@@ -6956,11 +7452,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ReplayProblemRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @summary 故障复盘
+     *  *
+     * @param ReplayProblemRequest $request ReplayProblemRequest
+     * @param string[]             $headers map
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ReplayProblemResponse
+     * @return ReplayProblemResponse ReplayProblemResponse
      */
     public function replayProblemWithOptions($request, $headers, $runtime)
     {
@@ -6995,9 +7493,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param ReplayProblemRequest $request
+     * @summary 故障复盘
+     *  *
+     * @param ReplayProblemRequest $request ReplayProblemRequest
      *
-     * @return ReplayProblemResponse
+     * @return ReplayProblemResponse ReplayProblemResponse
      */
     public function replayProblem($request)
     {
@@ -7008,11 +7508,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param RespondIncidentRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @summary 事件响应
+     *  *
+     * @param RespondIncidentRequest $request RespondIncidentRequest
+     * @param string[]               $headers map
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return RespondIncidentResponse
+     * @return RespondIncidentResponse RespondIncidentResponse
      */
     public function respondIncidentWithOptions($request, $headers, $runtime)
     {
@@ -7044,9 +7546,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param RespondIncidentRequest $request
+     * @summary 事件响应
+     *  *
+     * @param RespondIncidentRequest $request RespondIncidentRequest
      *
-     * @return RespondIncidentResponse
+     * @return RespondIncidentResponse RespondIncidentResponse
      */
     public function respondIncident($request)
     {
@@ -7057,11 +7561,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param RevokeProblemRecoveryRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @summary 故障撤销恢复
+     *  *
+     * @param RevokeProblemRecoveryRequest $request RevokeProblemRecoveryRequest
+     * @param string[]                     $headers map
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return RevokeProblemRecoveryResponse
+     * @return RevokeProblemRecoveryResponse RevokeProblemRecoveryResponse
      */
     public function revokeProblemRecoveryWithOptions($request, $headers, $runtime)
     {
@@ -7096,9 +7602,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param RevokeProblemRecoveryRequest $request
+     * @summary 故障撤销恢复
+     *  *
+     * @param RevokeProblemRecoveryRequest $request RevokeProblemRecoveryRequest
      *
-     * @return RevokeProblemRecoveryResponse
+     * @return RevokeProblemRecoveryResponse RevokeProblemRecoveryResponse
      */
     public function revokeProblemRecovery($request)
     {
@@ -7109,10 +7617,12 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @summary 解绑用户
+     *  *
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return UnbindUserResponse
+     * @return UnbindUserResponse UnbindUserResponse
      */
     public function unbindUserWithOptions($headers, $runtime)
     {
@@ -7135,7 +7645,9 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @return UnbindUserResponse
+     * @summary 解绑用户
+     *  *
+     * @return UnbindUserResponse UnbindUserResponse
      */
     public function unbindUser()
     {
@@ -7146,11 +7658,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param UpdateEscalationPlanRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @summary 更新升级计划
+     *  *
+     * @param UpdateEscalationPlanRequest $request UpdateEscalationPlanRequest
+     * @param string[]                    $headers map
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateEscalationPlanResponse
+     * @return UpdateEscalationPlanResponse UpdateEscalationPlanResponse
      */
     public function updateEscalationPlanWithOptions($request, $headers, $runtime)
     {
@@ -7197,9 +7711,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param UpdateEscalationPlanRequest $request
+     * @summary 更新升级计划
+     *  *
+     * @param UpdateEscalationPlanRequest $request UpdateEscalationPlanRequest
      *
-     * @return UpdateEscalationPlanResponse
+     * @return UpdateEscalationPlanResponse UpdateEscalationPlanResponse
      */
     public function updateEscalationPlan($request)
     {
@@ -7210,11 +7726,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param UpdateIncidentRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @summary 更新事件详情
+     *  *
+     * @param UpdateIncidentRequest $request UpdateIncidentRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateIncidentResponse
+     * @return UpdateIncidentResponse UpdateIncidentResponse
      */
     public function updateIncidentWithOptions($request, $headers, $runtime)
     {
@@ -7255,9 +7773,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param UpdateIncidentRequest $request
+     * @summary 更新事件详情
+     *  *
+     * @param UpdateIncidentRequest $request UpdateIncidentRequest
      *
-     * @return UpdateIncidentResponse
+     * @return UpdateIncidentResponse UpdateIncidentResponse
      */
     public function updateIncident($request)
     {
@@ -7268,11 +7788,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param UpdateIntegrationConfigRequest $request
-     * @param string[]                       $headers
-     * @param RuntimeOptions                 $runtime
+     * @summary 更新集成配置
+     *  *
+     * @param UpdateIntegrationConfigRequest $request UpdateIntegrationConfigRequest
+     * @param string[]                       $headers map
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateIntegrationConfigResponse
+     * @return UpdateIntegrationConfigResponse UpdateIntegrationConfigResponse
      */
     public function updateIntegrationConfigWithOptions($request, $headers, $runtime)
     {
@@ -7307,9 +7829,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param UpdateIntegrationConfigRequest $request
+     * @summary 更新集成配置
+     *  *
+     * @param UpdateIntegrationConfigRequest $request UpdateIntegrationConfigRequest
      *
-     * @return UpdateIntegrationConfigResponse
+     * @return UpdateIntegrationConfigResponse UpdateIntegrationConfigResponse
      */
     public function updateIntegrationConfig($request)
     {
@@ -7320,11 +7844,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param UpdateProblemRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @summary 更新故障
+     *  *
+     * @param UpdateProblemRequest $request UpdateProblemRequest
+     * @param string[]             $headers map
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateProblemResponse
+     * @return UpdateProblemResponse UpdateProblemResponse
      */
     public function updateProblemWithOptions($request, $headers, $runtime)
     {
@@ -7380,9 +7906,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param UpdateProblemRequest $request
+     * @summary 更新故障
+     *  *
+     * @param UpdateProblemRequest $request UpdateProblemRequest
      *
-     * @return UpdateProblemResponse
+     * @return UpdateProblemResponse UpdateProblemResponse
      */
     public function updateProblem($request)
     {
@@ -7393,11 +7921,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param UpdateProblemEffectionServiceRequest $request
-     * @param string[]                             $headers
-     * @param RuntimeOptions                       $runtime
+     * @summary 更新故障影响服务
+     *  *
+     * @param UpdateProblemEffectionServiceRequest $request UpdateProblemEffectionServiceRequest
+     * @param string[]                             $headers map
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateProblemEffectionServiceResponse
+     * @return UpdateProblemEffectionServiceResponse UpdateProblemEffectionServiceResponse
      */
     public function updateProblemEffectionServiceWithOptions($request, $headers, $runtime)
     {
@@ -7447,9 +7977,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param UpdateProblemEffectionServiceRequest $request
+     * @summary 更新故障影响服务
+     *  *
+     * @param UpdateProblemEffectionServiceRequest $request UpdateProblemEffectionServiceRequest
      *
-     * @return UpdateProblemEffectionServiceResponse
+     * @return UpdateProblemEffectionServiceResponse UpdateProblemEffectionServiceResponse
      */
     public function updateProblemEffectionService($request)
     {
@@ -7460,11 +7992,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param UpdateProblemImprovementRequest $request
-     * @param string[]                        $headers
-     * @param RuntimeOptions                  $runtime
+     * @summary 改进分析更新
+     *  *
+     * @param UpdateProblemImprovementRequest $request UpdateProblemImprovementRequest
+     * @param string[]                        $headers map
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateProblemImprovementResponse
+     * @return UpdateProblemImprovementResponse UpdateProblemImprovementResponse
      */
     public function updateProblemImprovementWithOptions($request, $headers, $runtime)
     {
@@ -7538,9 +8072,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param UpdateProblemImprovementRequest $request
+     * @summary 改进分析更新
+     *  *
+     * @param UpdateProblemImprovementRequest $request UpdateProblemImprovementRequest
      *
-     * @return UpdateProblemImprovementResponse
+     * @return UpdateProblemImprovementResponse UpdateProblemImprovementResponse
      */
     public function updateProblemImprovement($request)
     {
@@ -7551,11 +8087,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param UpdateProblemMeasureRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @summary 改进措施更新
+     *  *
+     * @param UpdateProblemMeasureRequest $request UpdateProblemMeasureRequest
+     * @param string[]                    $headers map
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateProblemMeasureResponse
+     * @return UpdateProblemMeasureResponse UpdateProblemMeasureResponse
      */
     public function updateProblemMeasureWithOptions($request, $headers, $runtime)
     {
@@ -7614,9 +8152,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param UpdateProblemMeasureRequest $request
+     * @summary 改进措施更新
+     *  *
+     * @param UpdateProblemMeasureRequest $request UpdateProblemMeasureRequest
      *
-     * @return UpdateProblemMeasureResponse
+     * @return UpdateProblemMeasureResponse UpdateProblemMeasureResponse
      */
     public function updateProblemMeasure($request)
     {
@@ -7627,11 +8167,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param UpdateProblemNoticeRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @summary 更新故障通知
+     *  *
+     * @param UpdateProblemNoticeRequest $request UpdateProblemNoticeRequest
+     * @param string[]                   $headers map
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateProblemNoticeResponse
+     * @return UpdateProblemNoticeResponse UpdateProblemNoticeResponse
      */
     public function updateProblemNoticeWithOptions($request, $headers, $runtime)
     {
@@ -7666,9 +8208,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param UpdateProblemNoticeRequest $request
+     * @summary 更新故障通知
+     *  *
+     * @param UpdateProblemNoticeRequest $request UpdateProblemNoticeRequest
      *
-     * @return UpdateProblemNoticeResponse
+     * @return UpdateProblemNoticeResponse UpdateProblemNoticeResponse
      */
     public function updateProblemNotice($request)
     {
@@ -7679,11 +8223,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param UpdateProblemTimelineRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @summary 更新故障时间线节点
+     *  *
+     * @param UpdateProblemTimelineRequest $request UpdateProblemTimelineRequest
+     * @param string[]                     $headers map
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateProblemTimelineResponse
+     * @return UpdateProblemTimelineResponse UpdateProblemTimelineResponse
      */
     public function updateProblemTimelineWithOptions($request, $headers, $runtime)
     {
@@ -7727,9 +8273,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param UpdateProblemTimelineRequest $request
+     * @summary 更新故障时间线节点
+     *  *
+     * @param UpdateProblemTimelineRequest $request UpdateProblemTimelineRequest
      *
-     * @return UpdateProblemTimelineResponse
+     * @return UpdateProblemTimelineResponse UpdateProblemTimelineResponse
      */
     public function updateProblemTimeline($request)
     {
@@ -7740,11 +8288,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param UpdateRichTextRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @summary 更新富文本
+     *  *
+     * @param UpdateRichTextRequest $request UpdateRichTextRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateRichTextResponse
+     * @return UpdateRichTextResponse UpdateRichTextResponse
      */
     public function updateRichTextWithOptions($request, $headers, $runtime)
     {
@@ -7782,9 +8332,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param UpdateRichTextRequest $request
+     * @summary 更新富文本
+     *  *
+     * @param UpdateRichTextRequest $request UpdateRichTextRequest
      *
-     * @return UpdateRichTextResponse
+     * @return UpdateRichTextResponse UpdateRichTextResponse
      */
     public function updateRichText($request)
     {
@@ -7795,11 +8347,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param UpdateRouteRuleRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @summary 更新流转规则
+     *  *
+     * @param UpdateRouteRuleRequest $request UpdateRouteRuleRequest
+     * @param string[]               $headers map
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateRouteRuleResponse
+     * @return UpdateRouteRuleResponse UpdateRouteRuleResponse
      */
     public function updateRouteRuleWithOptions($request, $headers, $runtime)
     {
@@ -7885,9 +8439,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param UpdateRouteRuleRequest $request
+     * @summary 更新流转规则
+     *  *
+     * @param UpdateRouteRuleRequest $request UpdateRouteRuleRequest
      *
-     * @return UpdateRouteRuleResponse
+     * @return UpdateRouteRuleResponse UpdateRouteRuleResponse
      */
     public function updateRouteRule($request)
     {
@@ -7898,11 +8454,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param UpdateServiceRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @summary 更新服务
+     *  *
+     * @param UpdateServiceRequest $request UpdateServiceRequest
+     * @param string[]             $headers map
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateServiceResponse
+     * @return UpdateServiceResponse UpdateServiceResponse
      */
     public function updateServiceWithOptions($request, $headers, $runtime)
     {
@@ -7946,9 +8504,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param UpdateServiceRequest $request
+     * @summary 更新服务
+     *  *
+     * @param UpdateServiceRequest $request UpdateServiceRequest
      *
-     * @return UpdateServiceResponse
+     * @return UpdateServiceResponse UpdateServiceResponse
      */
     public function updateService($request)
     {
@@ -7959,11 +8519,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param UpdateServiceGroupRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @summary 更新服务组
+     *  *
+     * @param UpdateServiceGroupRequest $request UpdateServiceGroupRequest
+     * @param string[]                  $headers map
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateServiceGroupResponse
+     * @return UpdateServiceGroupResponse UpdateServiceGroupResponse
      */
     public function updateServiceGroupWithOptions($request, $headers, $runtime)
     {
@@ -8016,9 +8578,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param UpdateServiceGroupRequest $request
+     * @summary 更新服务组
+     *  *
+     * @param UpdateServiceGroupRequest $request UpdateServiceGroupRequest
      *
-     * @return UpdateServiceGroupResponse
+     * @return UpdateServiceGroupResponse UpdateServiceGroupResponse
      */
     public function updateServiceGroup($request)
     {
@@ -8029,11 +8593,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param UpdateServiceGroupSchedulingRequest $request
-     * @param string[]                            $headers
-     * @param RuntimeOptions                      $runtime
+     * @summary 修改服务组排班
+     *  *
+     * @param UpdateServiceGroupSchedulingRequest $request UpdateServiceGroupSchedulingRequest
+     * @param string[]                            $headers map
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateServiceGroupSchedulingResponse
+     * @return UpdateServiceGroupSchedulingResponse UpdateServiceGroupSchedulingResponse
      */
     public function updateServiceGroupSchedulingWithOptions($request, $headers, $runtime)
     {
@@ -8074,9 +8640,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param UpdateServiceGroupSchedulingRequest $request
+     * @summary 修改服务组排班
+     *  *
+     * @param UpdateServiceGroupSchedulingRequest $request UpdateServiceGroupSchedulingRequest
      *
-     * @return UpdateServiceGroupSchedulingResponse
+     * @return UpdateServiceGroupSchedulingResponse UpdateServiceGroupSchedulingResponse
      */
     public function updateServiceGroupScheduling($request)
     {
@@ -8087,11 +8655,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param UpdateServiceGroupSpecialDaySchedulingRequest $request
-     * @param string[]                                      $headers
-     * @param RuntimeOptions                                $runtime
+     * @summary 修改指定日期的服务组排班
+     *  *
+     * @param UpdateServiceGroupSpecialDaySchedulingRequest $request UpdateServiceGroupSpecialDaySchedulingRequest
+     * @param string[]                                      $headers map
+     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateServiceGroupSpecialDaySchedulingResponse
+     * @return UpdateServiceGroupSpecialDaySchedulingResponse UpdateServiceGroupSpecialDaySchedulingResponse
      */
     public function updateServiceGroupSpecialDaySchedulingWithOptions($request, $headers, $runtime)
     {
@@ -8129,9 +8699,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param UpdateServiceGroupSpecialDaySchedulingRequest $request
+     * @summary 修改指定日期的服务组排班
+     *  *
+     * @param UpdateServiceGroupSpecialDaySchedulingRequest $request UpdateServiceGroupSpecialDaySchedulingRequest
      *
-     * @return UpdateServiceGroupSpecialDaySchedulingResponse
+     * @return UpdateServiceGroupSpecialDaySchedulingResponse UpdateServiceGroupSpecialDaySchedulingResponse
      */
     public function updateServiceGroupSpecialDayScheduling($request)
     {
@@ -8142,11 +8714,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param UpdateSubscriptionRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @summary 更新通知订阅
+     *  *
+     * @param UpdateSubscriptionRequest $request UpdateSubscriptionRequest
+     * @param string[]                  $headers map
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateSubscriptionResponse
+     * @return UpdateSubscriptionResponse UpdateSubscriptionResponse
      */
     public function updateSubscriptionWithOptions($request, $headers, $runtime)
     {
@@ -8205,9 +8779,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param UpdateSubscriptionRequest $request
+     * @summary 更新通知订阅
+     *  *
+     * @param UpdateSubscriptionRequest $request UpdateSubscriptionRequest
      *
-     * @return UpdateSubscriptionResponse
+     * @return UpdateSubscriptionResponse UpdateSubscriptionResponse
      */
     public function updateSubscription($request)
     {
@@ -8218,11 +8794,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param UpdateUserRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
+     * @summary 更新用户
+     *  *
+     * @param UpdateUserRequest $request UpdateUserRequest
+     * @param string[]          $headers map
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateUserResponse
+     * @return UpdateUserResponse UpdateUserResponse
      */
     public function updateUserWithOptions($request, $headers, $runtime)
     {
@@ -8269,9 +8847,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param UpdateUserRequest $request
+     * @summary 更新用户
+     *  *
+     * @param UpdateUserRequest $request UpdateUserRequest
      *
-     * @return UpdateUserResponse
+     * @return UpdateUserResponse UpdateUserResponse
      */
     public function updateUser($request)
     {
@@ -8282,11 +8862,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param UpdateUserGuideStatusRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @summary 更新用户新手引导状态
+     *  *
+     * @param UpdateUserGuideStatusRequest $request UpdateUserGuideStatusRequest
+     * @param string[]                     $headers map
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateUserGuideStatusResponse
+     * @return UpdateUserGuideStatusResponse UpdateUserGuideStatusResponse
      */
     public function updateUserGuideStatusWithOptions($request, $headers, $runtime)
     {
@@ -8318,9 +8900,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param UpdateUserGuideStatusRequest $request
+     * @summary 更新用户新手引导状态
+     *  *
+     * @param UpdateUserGuideStatusRequest $request UpdateUserGuideStatusRequest
      *
-     * @return UpdateUserGuideStatusResponse
+     * @return UpdateUserGuideStatusResponse UpdateUserGuideStatusResponse
      */
     public function updateUserGuideStatus($request)
     {
@@ -8331,11 +8915,13 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param VerifyRouteRuleRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @summary 验证流转规则
+     *  *
+     * @param VerifyRouteRuleRequest $request VerifyRouteRuleRequest
+     * @param string[]               $headers map
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return VerifyRouteRuleResponse
+     * @return VerifyRouteRuleResponse VerifyRouteRuleResponse
      */
     public function verifyRouteRuleWithOptions($request, $headers, $runtime)
     {
@@ -8367,9 +8953,11 @@ class GEMP extends OpenApiClient
     }
 
     /**
-     * @param VerifyRouteRuleRequest $request
+     * @summary 验证流转规则
+     *  *
+     * @param VerifyRouteRuleRequest $request VerifyRouteRuleRequest
      *
-     * @return VerifyRouteRuleResponse
+     * @return VerifyRouteRuleResponse VerifyRouteRuleResponse
      */
     public function verifyRouteRule($request)
     {

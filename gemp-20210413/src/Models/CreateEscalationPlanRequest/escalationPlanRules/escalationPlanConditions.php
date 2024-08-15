@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class escalationPlanConditions extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example LOW
      *
      * @var string
@@ -16,6 +18,8 @@ class escalationPlanConditions extends Model
     public $effection;
 
     /**
+     * @description This parameter is required.
+     *
      * @example P1
      *
      * @var string

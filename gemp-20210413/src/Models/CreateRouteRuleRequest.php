@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateRouteRuleRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 65
      *
      * @var int
@@ -17,6 +19,8 @@ class CreateRouteRuleRequest extends Model
     public $assignObjectId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example SERVICEGROUP
      *
      * @var string
@@ -24,6 +28,8 @@ class CreateRouteRuleRequest extends Model
     public $assignObjectType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example AND
      *
      * @var string
@@ -53,6 +59,8 @@ class CreateRouteRuleRequest extends Model
     public $coverageProblemLevels;
 
     /**
+     * @description This parameter is required.
+     *
      * @example LOW
      *
      * @var string
@@ -67,6 +75,8 @@ class CreateRouteRuleRequest extends Model
     public $enableStatus;
 
     /**
+     * @description This parameter is required.
+     *
      * @example P1
      *
      * @var string
@@ -74,6 +84,8 @@ class CreateRouteRuleRequest extends Model
     public $incidentLevel;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 3
      *
      * @var int
@@ -81,6 +93,8 @@ class CreateRouteRuleRequest extends Model
     public $matchCount;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $notifyChannels;
@@ -96,6 +110,8 @@ class CreateRouteRuleRequest extends Model
     public $problemLevelGroup;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 100
      *
      * @var int
@@ -103,11 +119,15 @@ class CreateRouteRuleRequest extends Model
     public $relatedServiceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var routeChildRules[]
      */
     public $routeChildRules;
 
     /**
+     * @description This parameter is required.
+     *
      * @example INCIDENT
      *
      * @var string
@@ -115,6 +135,8 @@ class CreateRouteRuleRequest extends Model
     public $routeType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 这是一个规则
      *
      * @var string
@@ -122,6 +144,8 @@ class CreateRouteRuleRequest extends Model
     public $ruleName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2
      *
      * @var int
@@ -129,6 +153,8 @@ class CreateRouteRuleRequest extends Model
     public $timeWindow;
 
     /**
+     * @description This parameter is required.
+     *
      * @example MINUTE
      *
      * @var string

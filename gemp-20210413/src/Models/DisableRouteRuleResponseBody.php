@@ -18,6 +18,8 @@ class DisableRouteRuleResponseBody extends Model
     public $data;
 
     /**
+     * @description This parameter is required.
+     *
      * @example C4BE3837-1A13-413B-A225-2C88188E8A43
      *
      * @var string

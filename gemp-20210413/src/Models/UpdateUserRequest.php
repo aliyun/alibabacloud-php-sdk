@@ -42,6 +42,8 @@ class UpdateUserRequest extends Model
     public $roleIdList;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 111
      *
      * @var int

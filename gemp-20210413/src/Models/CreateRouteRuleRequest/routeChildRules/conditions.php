@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class conditions extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example payload.summary
      *
      * @var string
@@ -16,6 +18,8 @@ class conditions extends Model
     public $key;
 
     /**
+     * @description This parameter is required.
+     *
      * @example equals
      *
      * @var string
@@ -23,6 +27,8 @@ class conditions extends Model
     public $operationSymbol;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 123
      *
      * @var string

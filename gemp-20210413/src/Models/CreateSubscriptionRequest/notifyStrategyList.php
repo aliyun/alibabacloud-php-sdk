@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class notifyStrategyList extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example SMS,PHONE
      *
      * @var string
@@ -18,6 +20,8 @@ class notifyStrategyList extends Model
     public $channels;
 
     /**
+     * @description This parameter is required.
+     *
      * @example INCIDENT
      *
      * @var int
@@ -30,6 +34,8 @@ class notifyStrategyList extends Model
     public $periodChannel;
 
     /**
+     * @description This parameter is required.
+     *
      * @var strategies[]
      */
     public $strategies;

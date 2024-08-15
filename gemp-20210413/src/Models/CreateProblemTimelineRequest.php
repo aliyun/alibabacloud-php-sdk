@@ -30,6 +30,8 @@ class CreateProblemTimelineRequest extends Model
     public $keyNode;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 102
      *
      * @var int

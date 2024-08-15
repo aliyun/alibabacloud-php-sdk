@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class escalationPlanScopeObjects extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 87
      *
      * @var int
@@ -23,6 +25,8 @@ class escalationPlanScopeObjects extends Model
     public $scope;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 234
      *
      * @var int

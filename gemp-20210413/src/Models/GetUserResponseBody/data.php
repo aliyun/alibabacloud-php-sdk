@@ -33,6 +33,11 @@ class data extends Model
     public $email;
 
     /**
+     * @var int
+     */
+    public $isActive;
+
+    /**
      * @example true
      *
      * @var bool
@@ -92,6 +97,7 @@ class data extends Model
         'accountType'    => 'accountType',
         'createTime'     => 'createTime',
         'email'          => 'email',
+        'isActive'       => 'isActive',
         'isEditableUser' => 'isEditableUser',
         'isRelated'      => 'isRelated',
         'phone'          => 'phone',
@@ -118,6 +124,9 @@ class data extends Model
         }
         if (null !== $this->email) {
             $res['email'] = $this->email;
+        }
+        if (null !== $this->isActive) {
+            $res['isActive'] = $this->isActive;
         }
         if (null !== $this->isEditableUser) {
             $res['isEditableUser'] = $this->isEditableUser;
@@ -172,6 +181,9 @@ class data extends Model
         }
         if (isset($map['email'])) {
             $model->email = $map['email'];
+        }
+        if (isset($map['isActive'])) {
+            $model->isActive = $map['isActive'];
         }
         if (isset($map['isEditableUser'])) {
             $model->isEditableUser = $map['isEditableUser'];

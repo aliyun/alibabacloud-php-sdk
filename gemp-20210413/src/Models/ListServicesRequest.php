@@ -16,6 +16,8 @@ class ListServicesRequest extends Model
     public $clientToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +25,8 @@ class ListServicesRequest extends Model
     public $pageNumber;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 10
      *
      * @var int

@@ -30,6 +30,21 @@ class data extends Model
     public $email;
 
     /**
+     * @var string
+     */
+    public $gmtActive;
+
+    /**
+     * @var string
+     */
+    public $gmtCreate;
+
+    /**
+     * @var int
+     */
+    public $isActive;
+
+    /**
      * @example true
      *
      * @var int
@@ -99,6 +114,9 @@ class data extends Model
         'accountType'    => 'accountType',
         'appAccount'     => 'appAccount',
         'email'          => 'email',
+        'gmtActive'      => 'gmtActive',
+        'gmtCreate'      => 'gmtCreate',
+        'isActive'       => 'isActive',
         'isEditableUser' => 'isEditableUser',
         'isOperation'    => 'isOperation',
         'isRam'          => 'isRam',
@@ -127,6 +145,15 @@ class data extends Model
         }
         if (null !== $this->email) {
             $res['email'] = $this->email;
+        }
+        if (null !== $this->gmtActive) {
+            $res['gmtActive'] = $this->gmtActive;
+        }
+        if (null !== $this->gmtCreate) {
+            $res['gmtCreate'] = $this->gmtCreate;
+        }
+        if (null !== $this->isActive) {
+            $res['isActive'] = $this->isActive;
         }
         if (null !== $this->isEditableUser) {
             $res['isEditableUser'] = $this->isEditableUser;
@@ -181,6 +208,15 @@ class data extends Model
         }
         if (isset($map['email'])) {
             $model->email = $map['email'];
+        }
+        if (isset($map['gmtActive'])) {
+            $model->gmtActive = $map['gmtActive'];
+        }
+        if (isset($map['gmtCreate'])) {
+            $model->gmtCreate = $map['gmtCreate'];
+        }
+        if (isset($map['isActive'])) {
+            $model->isActive = $map['isActive'];
         }
         if (isset($map['isEditableUser'])) {
             $model->isEditableUser = $map['isEditableUser'];

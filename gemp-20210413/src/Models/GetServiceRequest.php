@@ -16,6 +16,8 @@ class GetServiceRequest extends Model
     public $clientToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int

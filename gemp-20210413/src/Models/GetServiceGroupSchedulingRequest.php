@@ -16,6 +16,8 @@ class GetServiceGroupSchedulingRequest extends Model
     public $clientToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 9999
      *
      * @var int

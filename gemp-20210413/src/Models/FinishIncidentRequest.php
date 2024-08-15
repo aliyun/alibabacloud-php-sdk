@@ -44,6 +44,8 @@ class FinishIncidentRequest extends Model
     public $incidentFinishSolutionDescription;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int[]
      */
     public $incidentIds;

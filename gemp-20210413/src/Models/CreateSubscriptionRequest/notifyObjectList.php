@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class notifyObjectList extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 2
      *
      * @var int

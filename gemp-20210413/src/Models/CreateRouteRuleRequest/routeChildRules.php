@@ -17,11 +17,15 @@ class routeChildRules extends Model
     public $childConditionRelation;
 
     /**
+     * @description This parameter is required.
+     *
      * @var conditions[]
      */
     public $conditions;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int

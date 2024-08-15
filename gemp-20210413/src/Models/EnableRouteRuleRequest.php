@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class EnableRouteRuleRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example C4BE3837-1A13-413B-A225-2C88188E8A43
      *
      * @var string
@@ -16,6 +18,8 @@ class EnableRouteRuleRequest extends Model
     public $clientToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int

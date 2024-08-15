@@ -35,6 +35,8 @@ class GetServiceGroupSchedulingPreviewRequest extends Model
     public $fineScheduling;
 
     /**
+     * @description This parameter is required.
+     *
      * @example FAST
      *
      * @var string
@@ -42,6 +44,8 @@ class GetServiceGroupSchedulingPreviewRequest extends Model
     public $schedulingWay;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 55555
      *
      * @var int

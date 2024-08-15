@@ -17,6 +17,8 @@ class CreateServiceGroupRequest extends Model
     public $clientToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ENABLE
      *
      * @var string
@@ -36,6 +38,8 @@ class CreateServiceGroupRequest extends Model
     public $serviceGroupDescription;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 冲上云霄
      *
      * @var string
@@ -43,6 +47,8 @@ class CreateServiceGroupRequest extends Model
     public $serviceGroupName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int[]
      */
     public $userIds;
@@ -50,6 +56,7 @@ class CreateServiceGroupRequest extends Model
     /**
      * @description webhooklink
      *
+     * This parameter is required.
      * @example WWWWWWW
      *
      * @var string
@@ -57,6 +64,8 @@ class CreateServiceGroupRequest extends Model
     public $webhookLink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example WEIXIN_GROUP
      *
      * @var string

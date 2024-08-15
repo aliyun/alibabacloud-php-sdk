@@ -16,6 +16,8 @@ class GetUserRequest extends Model
     public $clientToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 63
      *
      * @var int

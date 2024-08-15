@@ -17,6 +17,8 @@ class UpdateServiceGroupRequest extends Model
     public $clientToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ENABLE
      *
      * @var string
@@ -36,6 +38,8 @@ class UpdateServiceGroupRequest extends Model
     public $serviceGroupDescription;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -43,6 +47,8 @@ class UpdateServiceGroupRequest extends Model
     public $serviceGroupId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 冲上云霄
      *
      * @var string
@@ -50,11 +56,15 @@ class UpdateServiceGroupRequest extends Model
     public $serviceGroupName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int[]
      */
     public $userIds;
 
     /**
+     * @description This parameter is required.
+     *
      * @example wwwwwww
      *
      * @var string
@@ -62,6 +72,8 @@ class UpdateServiceGroupRequest extends Model
     public $webhookLink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example WEIXINGROUP
      *
      * @var string

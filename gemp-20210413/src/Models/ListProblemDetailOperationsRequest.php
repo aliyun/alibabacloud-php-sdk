@@ -37,6 +37,8 @@ class ListProblemDetailOperationsRequest extends Model
     public $pageSize;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int

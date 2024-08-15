@@ -27,6 +27,8 @@ class UpdateEscalationPlanRequest extends Model
     public $escalationPlanDescription;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 433
      *
      * @var int

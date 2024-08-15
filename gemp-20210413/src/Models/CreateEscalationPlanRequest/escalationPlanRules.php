@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class escalationPlanRules extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var escalationPlanConditions[]
      */
     public $escalationPlanConditions;
 
     /**
+     * @description This parameter is required.
+     *
      * @var escalationPlanStrategies[]
      */
     public $escalationPlanStrategies;

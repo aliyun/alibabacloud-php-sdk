@@ -18,6 +18,8 @@ class CreateProblemTimelinesRequest extends Model
     public $clientToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 423
      *
      * @var int

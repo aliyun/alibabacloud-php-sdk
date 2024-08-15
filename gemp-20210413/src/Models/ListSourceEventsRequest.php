@@ -25,6 +25,8 @@ class ListSourceEventsRequest extends Model
     public $endTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -32,6 +34,8 @@ class ListSourceEventsRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example INCIDENT
      *
      * @var string

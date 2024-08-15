@@ -37,6 +37,8 @@ class CreateProblemEffectionServiceRequest extends Model
     public $pictureUrl;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 150000000
      *
      * @var int

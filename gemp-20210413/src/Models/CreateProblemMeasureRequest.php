@@ -51,6 +51,8 @@ class CreateProblemMeasureRequest extends Model
     public $planFinishTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 23
      *
      * @var int

@@ -17,6 +17,8 @@ class UpdateServiceGroupSpecialDaySchedulingRequest extends Model
     public $clientToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2021-08-19
      *
      * @var string
@@ -24,11 +26,15 @@ class UpdateServiceGroupSpecialDaySchedulingRequest extends Model
     public $schedulingDate;
 
     /**
+     * @description This parameter is required.
+     *
      * @var schedulingSpecialDays[]
      */
     public $schedulingSpecialDays;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 6666
      *
      * @var int

@@ -23,6 +23,8 @@ class UpdateIncidentRequest extends Model
     public $effect;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 12312
      *
      * @var int

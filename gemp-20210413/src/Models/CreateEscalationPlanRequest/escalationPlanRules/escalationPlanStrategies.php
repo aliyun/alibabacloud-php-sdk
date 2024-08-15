@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class escalationPlanStrategies extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example true
      *
      * @var bool
@@ -21,11 +23,15 @@ class escalationPlanStrategies extends Model
     public $escalationPlanType;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $noticeChannels;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int[]
      */
     public $noticeObjects;
@@ -36,6 +42,8 @@ class escalationPlanStrategies extends Model
     public $noticeRoleList;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 40
      *
      * @var string

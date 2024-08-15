@@ -26,6 +26,8 @@ class CreateSubscriptionRequest extends Model
     public $endTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @example LONG_TERM
      *
      * @var int
@@ -33,11 +35,15 @@ class CreateSubscriptionRequest extends Model
     public $expiredType;
 
     /**
+     * @description This parameter is required.
+     *
      * @var notifyObjectList[]
      */
     public $notifyObjectList;
 
     /**
+     * @description This parameter is required.
+     *
      * @example USER
      *
      * @var int
@@ -45,6 +51,8 @@ class CreateSubscriptionRequest extends Model
     public $notifyObjectType;
 
     /**
+     * @description This parameter is required.
+     *
      * @var notifyStrategyList[]
      */
     public $notifyStrategyList;
@@ -57,6 +65,8 @@ class CreateSubscriptionRequest extends Model
     public $period;
 
     /**
+     * @description This parameter is required.
+     *
      * @example SERVICE
      *
      * @var int
@@ -64,6 +74,8 @@ class CreateSubscriptionRequest extends Model
     public $scope;
 
     /**
+     * @description This parameter is required.
+     *
      * @var scopeObjectList[]
      */
     public $scopeObjectList;
@@ -76,6 +88,8 @@ class CreateSubscriptionRequest extends Model
     public $startTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @example testSubscription
      *
      * @var string

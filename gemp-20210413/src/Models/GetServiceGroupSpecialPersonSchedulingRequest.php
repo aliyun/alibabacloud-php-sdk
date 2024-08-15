@@ -23,6 +23,8 @@ class GetServiceGroupSpecialPersonSchedulingRequest extends Model
     public $serviceGroupId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 66666
      *
      * @var int

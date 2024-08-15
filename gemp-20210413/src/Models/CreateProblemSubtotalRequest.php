@@ -21,6 +21,8 @@ class CreateProblemSubtotalRequest extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1231
      *
      * @var int

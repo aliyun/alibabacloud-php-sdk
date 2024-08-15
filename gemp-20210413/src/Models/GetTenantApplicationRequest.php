@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetTenantApplicationRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 7C56D225-7C34-40BB-9624-C8BA449260E6
      *
      * @var string

@@ -16,6 +16,8 @@ class GetSimilarIncidentStatisticsRequest extends Model
     public $clientToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2021-09-09 09:09:09
      *
      * @var string
@@ -23,11 +25,15 @@ class GetSimilarIncidentStatisticsRequest extends Model
     public $createTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $events;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 32
      *
      * @var int
@@ -35,6 +41,8 @@ class GetSimilarIncidentStatisticsRequest extends Model
     public $incidentId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example xxx事件
      *
      * @var string
@@ -42,6 +50,8 @@ class GetSimilarIncidentStatisticsRequest extends Model
     public $incidentTitle;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 23
      *
      * @var int

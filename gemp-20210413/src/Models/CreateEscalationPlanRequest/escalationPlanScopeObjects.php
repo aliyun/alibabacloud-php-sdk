@@ -16,6 +16,8 @@ class escalationPlanScopeObjects extends Model
     public $scope;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 23433
      *
      * @var int

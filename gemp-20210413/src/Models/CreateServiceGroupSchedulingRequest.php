@@ -30,6 +30,8 @@ class CreateServiceGroupSchedulingRequest extends Model
     public $fineScheduling;
 
     /**
+     * @description This parameter is required.
+     *
      * @example FAST
      *
      * @var string
@@ -37,6 +39,8 @@ class CreateServiceGroupSchedulingRequest extends Model
     public $schedulingWay;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1000
      *
      * @var int

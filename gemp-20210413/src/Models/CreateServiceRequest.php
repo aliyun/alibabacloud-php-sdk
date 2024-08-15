@@ -33,6 +33,8 @@ class CreateServiceRequest extends Model
     public $serviceGroupIdList;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 服务名称
      *
      * @var string

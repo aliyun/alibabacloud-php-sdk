@@ -20,6 +20,8 @@ class CreateEscalationPlanRequest extends Model
     public $clientToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example desc2322424
      *
      * @var string
@@ -27,6 +29,8 @@ class CreateEscalationPlanRequest extends Model
     public $escalationPlanDescription;
 
     /**
+     * @description This parameter is required.
+     *
      * @example name123
      *
      * @var string
@@ -34,11 +38,15 @@ class CreateEscalationPlanRequest extends Model
     public $escalationPlanName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var escalationPlanRules[]
      */
     public $escalationPlanRules;
 
     /**
+     * @description This parameter is required.
+     *
      * @var escalationPlanScopeObjects[]
      */
     public $escalationPlanScopeObjects;

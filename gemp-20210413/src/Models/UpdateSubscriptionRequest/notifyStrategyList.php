@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class notifyStrategyList extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example INCIDENT
      *
      * @var int
@@ -17,6 +19,8 @@ class notifyStrategyList extends Model
     public $instanceType;
 
     /**
+     * @description This parameter is required.
+     *
      * @var strategies[]
      */
     public $strategies;

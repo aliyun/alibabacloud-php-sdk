@@ -23,6 +23,8 @@ class CreateIncidentSubtotalRequest extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 12312
      *
      * @var int

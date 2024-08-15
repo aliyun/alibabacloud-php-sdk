@@ -16,6 +16,8 @@ class GetIncidentSubtotalCountRequest extends Model
     public $clientToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int[]
      */
     public $incidentIds;

@@ -19,6 +19,8 @@ class UpdateSubscriptionRequest extends Model
     public $endTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @example LONG_TERM
      *
      * @var string
@@ -26,11 +28,15 @@ class UpdateSubscriptionRequest extends Model
     public $expiredType;
 
     /**
+     * @description This parameter is required.
+     *
      * @var notifyObjectList[]
      */
     public $notifyObjectList;
 
     /**
+     * @description This parameter is required.
+     *
      * @example USER
      *
      * @var string
@@ -38,6 +44,8 @@ class UpdateSubscriptionRequest extends Model
     public $notifyObjectType;
 
     /**
+     * @description This parameter is required.
+     *
      * @var notifyStrategyList[]
      */
     public $notifyStrategyList;
@@ -50,6 +58,8 @@ class UpdateSubscriptionRequest extends Model
     public $period;
 
     /**
+     * @description This parameter is required.
+     *
      * @example SERVICE
      *
      * @var string
@@ -57,6 +67,8 @@ class UpdateSubscriptionRequest extends Model
     public $scope;
 
     /**
+     * @description This parameter is required.
+     *
      * @var scopeObjectList[]
      */
     public $scopeObjectList;
@@ -69,6 +81,8 @@ class UpdateSubscriptionRequest extends Model
     public $startTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 80002020
      *
      * @var int
@@ -76,6 +90,8 @@ class UpdateSubscriptionRequest extends Model
     public $subscriptionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example newSubs244
      *
      * @var string
