@@ -374,6 +374,8 @@ use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeIPv6TranslatorEntriesRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeIPv6TranslatorEntriesResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeIPv6TranslatorsRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeIPv6TranslatorsResponse;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeNatGatewayAssociateNetworkInterfacesRequest;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeNatGatewayAssociateNetworkInterfacesResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeNatGatewaysRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeNatGatewaysResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeNetworkAclAttributesRequest;
@@ -16300,6 +16302,89 @@ class Vpc extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeIpv6GatewaysWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询NAT已绑定ENI信息
+     *  *
+     * @param DescribeNatGatewayAssociateNetworkInterfacesRequest $request DescribeNatGatewayAssociateNetworkInterfacesRequest
+     * @param RuntimeOptions                                      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeNatGatewayAssociateNetworkInterfacesResponse DescribeNatGatewayAssociateNetworkInterfacesResponse
+     */
+    public function describeNatGatewayAssociateNetworkInterfacesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->filter)) {
+            $query['Filter'] = $request->filter;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->natGatewayId)) {
+            $query['NatGatewayId'] = $request->natGatewayId;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeNatGatewayAssociateNetworkInterfaces',
+            'version'     => '2016-04-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeNatGatewayAssociateNetworkInterfacesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询NAT已绑定ENI信息
+     *  *
+     * @param DescribeNatGatewayAssociateNetworkInterfacesRequest $request DescribeNatGatewayAssociateNetworkInterfacesRequest
+     *
+     * @return DescribeNatGatewayAssociateNetworkInterfacesResponse DescribeNatGatewayAssociateNetworkInterfacesResponse
+     */
+    public function describeNatGatewayAssociateNetworkInterfaces($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeNatGatewayAssociateNetworkInterfacesWithOptions($request, $runtime);
     }
 
     /**
