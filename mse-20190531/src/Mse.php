@@ -479,6 +479,8 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateNacosClusterRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateNacosClusterResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateNacosConfigRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateNacosConfigResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateNacosGrayConfigRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateNacosGrayConfigResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateNacosInstanceRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateNacosInstanceResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateNacosServiceRequest;
@@ -14690,6 +14692,86 @@ class Mse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateNacosConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 更新nacos灰度配置
+     *  *
+     * @param UpdateNacosGrayConfigRequest $request UpdateNacosGrayConfigRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateNacosGrayConfigResponse UpdateNacosGrayConfigResponse
+     */
+    public function updateNacosGrayConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->content)) {
+            $query['Content'] = $request->content;
+        }
+        if (!Utils::isUnset($request->dataId)) {
+            $query['DataId'] = $request->dataId;
+        }
+        if (!Utils::isUnset($request->grayRule)) {
+            $query['GrayRule'] = $request->grayRule;
+        }
+        if (!Utils::isUnset($request->grayType)) {
+            $query['GrayType'] = $request->grayType;
+        }
+        if (!Utils::isUnset($request->group)) {
+            $query['Group'] = $request->group;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->namespaceId)) {
+            $query['NamespaceId'] = $request->namespaceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->requestPars)) {
+            $query['RequestPars'] = $request->requestPars;
+        }
+        if (!Utils::isUnset($request->stopGray)) {
+            $query['StopGray'] = $request->stopGray;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateNacosGrayConfig',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateNacosGrayConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 更新nacos灰度配置
+     *  *
+     * @param UpdateNacosGrayConfigRequest $request UpdateNacosGrayConfigRequest
+     *
+     * @return UpdateNacosGrayConfigResponse UpdateNacosGrayConfigResponse
+     */
+    public function updateNacosGrayConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateNacosGrayConfigWithOptions($request, $runtime);
     }
 
     /**
