@@ -11,6 +11,7 @@ class UpdateAccountRequest extends Model
     /**
      * @description The Alibaba Cloud account ID of the member.
      *
+     * This parameter is required.
      * @example 12323344****
      *
      * @var string

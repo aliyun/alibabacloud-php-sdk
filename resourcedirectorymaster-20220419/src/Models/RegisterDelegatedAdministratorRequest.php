@@ -11,6 +11,7 @@ class RegisterDelegatedAdministratorRequest extends Model
     /**
      * @description The Alibaba Cloud account ID of the member in the resource directory.
      *
+     * This parameter is required.
      * @example 181761095690****
      *
      * @var string
@@ -20,7 +21,7 @@ class RegisterDelegatedAdministratorRequest extends Model
     /**
      * @description The identifier of the trusted service.
      *
-     * For more information, see the `Trusted service identifier` column in [Supported trusted services](~~208133~~).
+     * This parameter is required.
      * @example cloudfw.aliyuncs.com
      *
      * @var string

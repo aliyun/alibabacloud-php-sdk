@@ -11,6 +11,7 @@ class DetachControlPolicyRequest extends Model
     /**
      * @description The ID of the access control policy.
      *
+     * This parameter is required.
      * @example cp-jExXAqIYkwHN****
      *
      * @var string
@@ -24,6 +25,7 @@ class DetachControlPolicyRequest extends Model
      *   Subfolders of the Root folder
      *   Members
      *
+     * This parameter is required.
      * @example fd-ZDNPiT****
      *
      * @var string

@@ -11,6 +11,7 @@ class DeregisterDelegatedAdministratorRequest extends Model
     /**
      * @description The Alibaba Cloud account ID of the member in the resource directory.
      *
+     * This parameter is required.
      * @example 181761095690****
      *
      * @var string
@@ -20,6 +21,7 @@ class DeregisterDelegatedAdministratorRequest extends Model
     /**
      * @description The identifier of the trusted service.
      *
+     * This parameter is required.
      * @example cloudfw.aliyuncs.com
      *
      * @var string

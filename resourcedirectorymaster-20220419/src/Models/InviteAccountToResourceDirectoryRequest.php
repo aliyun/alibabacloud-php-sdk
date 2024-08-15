@@ -38,6 +38,7 @@ class InviteAccountToResourceDirectoryRequest extends Model
     /**
      * @description The ID or logon email address of the account that you want to invite.
      *
+     * This parameter is required.
      * @example someone@example.com
      *
      * @var string
@@ -50,6 +51,7 @@ class InviteAccountToResourceDirectoryRequest extends Model
      *   Account: indicates the ID of the account.
      *   Email: indicates the logon email address of the account.
      *
+     * This parameter is required.
      * @example Email
      *
      * @var string

@@ -11,6 +11,7 @@ class GetFolderRequest extends Model
     /**
      * @description The ID of the folder.
      *
+     * This parameter is required.
      * @example fd-Jyl5U7****
      *
      * @var string

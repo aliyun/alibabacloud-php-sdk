@@ -14,6 +14,7 @@ class SetMemberDeletionPermissionRequest extends Model
      *   Enabled: enables the member deletion feature.
      *   Disabled: disables the member deletion feature.
      *
+     * This parameter is required.
      * @example Enabled
      *
      * @var string

@@ -11,6 +11,7 @@ class GetAccountRequest extends Model
     /**
      * @description The Alibaba Cloud account ID of the member.
      *
+     * This parameter is required.
      * @example 181761095690****
      *
      * @var string

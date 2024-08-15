@@ -31,6 +31,7 @@ class ListTargetAttachmentsForControlPolicyRequest extends Model
     /**
      * @description The ID of the access control policy.
      *
+     * This parameter is required.
      * @example cp-jExXAqIYkwHN****
      *
      * @var string

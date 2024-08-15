@@ -30,6 +30,7 @@ class rdAccountDeletionStatus extends Model
     /**
      * @description The end time of the deletion.
      *
+     * This parameter is required.
      * @example 2022-08-23T17:06:01+08:00
      *
      * @var string
@@ -40,7 +41,7 @@ class rdAccountDeletionStatus extends Model
      * @description The type of the deletion. Valid values:
      *
      *   0: direct deletion. If the member does not have pay-as-you-go resources that are purchased within the previous 30 days, the system directly deletes the member.
-     *   1: deletion with a silence period. If the member has pay-as-you-go resources that are purchased within the previous 30 days, the member enters a silence period of 45 days. The system starts to delete the member until the silence period ends. For more information about the silence period, see [What is the silence period for member deletion?](~~446079~~)
+     *   1: deletion with a silence period. If the member has pay-as-you-go resources that are purchased within the previous 30 days, the member enters a silence period of 45 days. The system starts to delete the member until the silence period ends. For more information about the silence period, see [What is the silence period for member deletion?](https://help.aliyun.com/document_detail/446079.html)
      *
      * @example 0
      *

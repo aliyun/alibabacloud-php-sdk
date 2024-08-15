@@ -102,8 +102,6 @@ class account extends Model
     /**
      * @description The RDPath of the member.
      *
-     * @example rd-3G****\/r-Wm****\/fd-QRzuim****\/181761095690****
-     *
      * @var string
      */
     public $resourceDirectoryPath;

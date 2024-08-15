@@ -39,7 +39,7 @@ class ListTagKeysRequest extends Model
     /**
      * @description The resource type.
      *
-     * The value Account indicates the members of the resource directory.
+     * This parameter is required.
      * @example Account
      *
      * @var string

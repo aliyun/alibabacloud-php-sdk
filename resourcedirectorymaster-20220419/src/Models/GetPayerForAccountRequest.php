@@ -11,6 +11,7 @@ class GetPayerForAccountRequest extends Model
     /**
      * @description The ID of the billing account.
      *
+     * This parameter is required.
      * @example 12323344****
      *
      * @var string

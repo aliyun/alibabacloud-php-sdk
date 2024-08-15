@@ -11,6 +11,7 @@ class PrecheckForConsolidatedBillingAccountRequest extends Model
     /**
      * @description The ID of the management account or member to be used as a main financial account.
      *
+     * This parameter is required.
      * @example 111***089
      *
      * @var string

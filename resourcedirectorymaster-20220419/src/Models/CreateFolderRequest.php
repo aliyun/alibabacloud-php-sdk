@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models;
 
+use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\CreateFolderRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class CreateFolderRequest extends Model
@@ -11,7 +12,7 @@ class CreateFolderRequest extends Model
     /**
      * @description The name of the folder.
      *
-     * The name must be 1 to 24 characters in length and can contain letters, digits, underscores (\_), periods (.),and hyphens (-).
+     * This parameter is required.
      * @example rdFolder
      *
      * @var string
@@ -26,9 +27,15 @@ class CreateFolderRequest extends Model
      * @var string
      */
     public $parentFolderId;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
         'folderName'     => 'FolderName',
         'parentFolderId' => 'ParentFolderId',
+        'tag'            => 'Tag',
     ];
 
     public function validate()
@@ -43,6 +50,15 @@ class CreateFolderRequest extends Model
         }
         if (null !== $this->parentFolderId) {
             $res['ParentFolderId'] = $this->parentFolderId;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -61,6 +77,15 @@ class CreateFolderRequest extends Model
         }
         if (isset($map['ParentFolderId'])) {
             $model->parentFolderId = $map['ParentFolderId'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

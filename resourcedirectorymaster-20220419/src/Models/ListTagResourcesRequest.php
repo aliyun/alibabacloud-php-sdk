@@ -41,6 +41,7 @@ class ListTagResourcesRequest extends Model
      *
      *   Account: member
      *
+     * This parameter is required.
      * @example Account
      *
      * @var string

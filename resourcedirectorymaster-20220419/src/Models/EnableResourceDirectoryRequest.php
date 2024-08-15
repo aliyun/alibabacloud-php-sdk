@@ -26,6 +26,7 @@ class EnableResourceDirectoryRequest extends Model
      *   CurrentAccount: The current account is used to enable a resource directory.
      *   NewManagementAccount: A newly created account is used to enable a resource directory. If you select this mode, you must configure the `MAName`, `MASecureMobilePhone`, and `VerificationCode` parameters.
      *
+     * This parameter is required.
      * @example CurrentAccount
      *
      * @var string

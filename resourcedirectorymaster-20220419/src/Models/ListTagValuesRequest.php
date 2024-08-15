@@ -30,7 +30,7 @@ class ListTagValuesRequest extends Model
     /**
      * @description The resource type.
      *
-     * The value Account indicates the members of the resource directory.
+     * This parameter is required.
      * @example Account
      *
      * @var string
@@ -40,6 +40,7 @@ class ListTagValuesRequest extends Model
     /**
      * @description The tag key. This parameter specifies a filter condition for the query.
      *
+     * This parameter is required.
      * @example k1
      *
      * @var string

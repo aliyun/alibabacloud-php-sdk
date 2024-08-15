@@ -26,7 +26,7 @@ class CreateResourceAccountRequest extends Model
     /**
      * @description The display name of the member.
      *
-     * The name must be unique in the resource directory.
+     * This parameter is required.
      * @example Dev
      *
      * @var string
@@ -55,7 +55,7 @@ class CreateResourceAccountRequest extends Model
     public $parentFolderId;
 
     /**
-     * @description The ID of the billing account. If you leave this parameter empty, the member is used as its own billing account.
+     * @description The ID of the billing account. If you leave this parameter empty, the newly created member is used as its billing account.
      *
      * @example 12323344****
      *

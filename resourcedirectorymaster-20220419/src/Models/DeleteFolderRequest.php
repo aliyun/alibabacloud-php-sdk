@@ -11,6 +11,7 @@ class DeleteFolderRequest extends Model
     /**
      * @description The ID of the folder.
      *
+     * This parameter is required.
      * @example fd-ae1in7****
      *
      * @var string

@@ -60,6 +60,13 @@ class account extends Model
     public $folderId;
 
     /**
+     * @description Indicates whether a mobile phone number is bound to the member for security purposes. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * @example true
+     *
      * @var bool
      */
     public $hasSecureMobilePhone;
@@ -97,8 +104,6 @@ class account extends Model
     /**
      * @description The location of the member in the resource directory.
      *
-     * @example root/AlRd****\/Z5Aa****
-     *
      * @var string
      */
     public $location;
@@ -123,8 +128,6 @@ class account extends Model
 
     /**
      * @description The path of the member in the resource directory.
-     *
-     * @example rd-k3****\/r-Wm****\/fd-bVaRIG****\/181761095690****
      *
      * @var string
      */

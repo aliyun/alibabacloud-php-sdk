@@ -11,7 +11,7 @@ class AddMessageContactRequest extends Model
     /**
      * @description The email address of the contact.
      *
-     * After you specify an email address, you need to call [SendEmailVerificationForMessageContact](~~SendEmailVerificationForMessageContact~~) to send verification information to the email address. After the verification is passed, the email address takes effect.
+     * This parameter is required.
      * @example someone***@example.com
      *
      * @var string
@@ -21,6 +21,7 @@ class AddMessageContactRequest extends Model
     /**
      * @description The types of messages received by the contact.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $messageTypes;
@@ -28,7 +29,7 @@ class AddMessageContactRequest extends Model
     /**
      * @description The name of the contact.
      *
-     * The name must be 2 to 12 characters in length and can contain only letters.
+     * This parameter is required.
      * @example tom
      *
      * @var string
@@ -72,7 +73,7 @@ class AddMessageContactRequest extends Model
      *
      *   Other
      *
-     * <!-- -->
+     * This parameter is required.
      * @example TechnicalDirector
      *
      * @var string

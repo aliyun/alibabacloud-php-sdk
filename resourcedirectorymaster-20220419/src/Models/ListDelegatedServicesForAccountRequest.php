@@ -11,6 +11,7 @@ class ListDelegatedServicesForAccountRequest extends Model
     /**
      * @description The Alibaba Cloud account ID of the member.
      *
+     * This parameter is required.
      * @example 138660628348****
      *
      * @var string

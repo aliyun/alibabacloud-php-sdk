@@ -11,6 +11,7 @@ class ListAncestorsRequest extends Model
     /**
      * @description The ID of the subfolder.
      *
+     * This parameter is required.
      * @example fd-i1c9nr****
      *
      * @var string

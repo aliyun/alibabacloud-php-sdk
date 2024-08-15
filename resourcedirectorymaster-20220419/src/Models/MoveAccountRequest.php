@@ -11,6 +11,7 @@ class MoveAccountRequest extends Model
     /**
      * @description The Alibaba Cloud account ID of the member that you want to move.
      *
+     * This parameter is required.
      * @example 12323344****
      *
      * @var string
@@ -20,6 +21,7 @@ class MoveAccountRequest extends Model
     /**
      * @description The ID of the destination folder.
      *
+     * This parameter is required.
      * @example fd-bVaRIG****
      *
      * @var string

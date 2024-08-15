@@ -11,6 +11,7 @@ class GetMessageContactRequest extends Model
     /**
      * @description The ID of the contact.
      *
+     * This parameter is required.
      * @example c-qL4HqKONzOM7****
      *
      * @var string

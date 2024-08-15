@@ -47,8 +47,6 @@ class folder extends Model
     /**
      * @description The path of the folder in the resource directory.
      *
-     * @example rd-3G****\/r-Wm****\/fd-Jyl5U7****
-     *
      * @var string
      */
     public $resourceDirectoryPath;

@@ -25,6 +25,7 @@ class GetControlPolicyRequest extends Model
     /**
      * @description The ID of the access control policy.
      *
+     * This parameter is required.
      * @example cp-SImPt8GCEwiq****
      *
      * @var string

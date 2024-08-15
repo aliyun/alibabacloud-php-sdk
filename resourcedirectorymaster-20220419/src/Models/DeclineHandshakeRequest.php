@@ -11,6 +11,7 @@ class DeclineHandshakeRequest extends Model
     /**
      * @description The ID of the invitation.
      *
+     * This parameter is required.
      * @example h-ycm4rp****
      *
      * @var string

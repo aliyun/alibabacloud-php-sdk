@@ -19,6 +19,7 @@ class DeleteAccountShrinkRequest extends Model
     /**
      * @description The Alibaba Cloud account ID of the member that you want to delete.
      *
+     * This parameter is required.
      * @example 169946124551****
      *
      * @var string

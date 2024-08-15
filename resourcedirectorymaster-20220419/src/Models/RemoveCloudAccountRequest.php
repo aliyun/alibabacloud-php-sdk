@@ -11,6 +11,7 @@ class RemoveCloudAccountRequest extends Model
     /**
      * @description The Alibaba Cloud account ID of the member.
      *
+     * This parameter is required.
      * @example 177242285274****
      *
      * @var string

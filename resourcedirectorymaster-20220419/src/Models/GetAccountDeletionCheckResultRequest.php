@@ -11,6 +11,7 @@ class GetAccountDeletionCheckResultRequest extends Model
     /**
      * @description The Alibaba Cloud account ID of the member that you want to delete.
      *
+     * This parameter is required.
      * @example 179855839641****
      *
      * @var string

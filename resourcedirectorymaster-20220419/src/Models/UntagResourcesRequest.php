@@ -23,7 +23,7 @@ class UntagResourcesRequest extends Model
     /**
      * @description The Alibaba Cloud account IDs of the members.
      *
-     * You can specify a maximum of 50 IDs.
+     * This parameter is required.
      * @var string[]
      */
     public $resourceId;
@@ -33,6 +33,7 @@ class UntagResourcesRequest extends Model
      *
      *   Account: member
      *
+     * This parameter is required.
      * @example Account
      *
      * @var string

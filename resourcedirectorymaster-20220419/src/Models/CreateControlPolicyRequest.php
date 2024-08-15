@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models;
 
+use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\CreateControlPolicyRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class CreateControlPolicyRequest extends Model
@@ -11,7 +12,7 @@ class CreateControlPolicyRequest extends Model
     /**
      * @description The description of the access control policy.
      *
-     * The description must be 1 to 1,024 characters in length. The description can contain letters, digits, underscores (\_), and hyphens (-) and must start with a letter.
+     * The description must be 1 to 1,024 characters in length. The description can contain letters, digits, underscores (_), and hyphens (-) and must start with a letter.
      * @example ExampleControlPolicy
      *
      * @var string
@@ -21,7 +22,7 @@ class CreateControlPolicyRequest extends Model
     /**
      * @description The effective scope of the access control policy.
      *
-     * The value RAM indicates that the access control policy takes effect only for RAM users and RAM roles.
+     * This parameter is required.
      * @example RAM
      *
      * @var string
@@ -31,7 +32,7 @@ class CreateControlPolicyRequest extends Model
     /**
      * @description The document of the access control policy.
      *
-     * For more information about the examples of access control policies, see [Examples of custom access control policies](~~181474~~).
+     * This parameter is required.
      * @example {"Version":"1","Statement":[{"Effect":"Deny","Action":["ram:UpdateRole","ram:DeleteRole","ram:AttachPolicyToRole","ram:DetachPolicyFromRole"],"Resource":"acs:ram:*:*:role/ResourceDirectoryAccountAccessRole"}]}
      *
      * @var string
@@ -41,17 +42,23 @@ class CreateControlPolicyRequest extends Model
     /**
      * @description The name of the access control policy.
      *
-     * The name must be 1 to 128 characters in length. The name can contain letters, digits, and hyphens (-) and must start with a letter.
+     * This parameter is required.
      * @example ExampleControlPolicy
      *
      * @var string
      */
     public $policyName;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
         'description'    => 'Description',
         'effectScope'    => 'EffectScope',
         'policyDocument' => 'PolicyDocument',
         'policyName'     => 'PolicyName',
+        'tag'            => 'Tag',
     ];
 
     public function validate()
@@ -72,6 +79,15 @@ class CreateControlPolicyRequest extends Model
         }
         if (null !== $this->policyName) {
             $res['PolicyName'] = $this->policyName;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -96,6 +112,15 @@ class CreateControlPolicyRequest extends Model
         }
         if (isset($map['PolicyName'])) {
             $model->policyName = $map['PolicyName'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

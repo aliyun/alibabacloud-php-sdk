@@ -29,6 +29,7 @@ class ListControlPolicyAttachmentsForTargetRequest extends Model
      *   Subfolders of the Root folder
      *   Members
      *
+     * This parameter is required.
      * @example fd-ZDNPiT****
      *
      * @var string

@@ -2,26 +2,18 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\GetAccountResponseBody\account;
+namespace AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\CreateControlPolicyRequest;
 
 use AlibabaCloud\Tea\Model;
 
-class tags extends Model
+class tag extends Model
 {
     /**
-     * @description The tag key.
-     *
-     * @example tag_key
-     *
      * @var string
      */
     public $key;
 
     /**
-     * @description The tag value.
-     *
-     * @example tag_value
-     *
      * @var string
      */
     public $value;
@@ -50,7 +42,7 @@ class tags extends Model
     /**
      * @param array $map
      *
-     * @return tags
+     * @return tag
      */
     public static function fromMap($map = [])
     {

@@ -11,6 +11,7 @@ class DisassociateMembersRequest extends Model
     /**
      * @description The ID of the contact.
      *
+     * This parameter is required.
      * @example c-qL4HqKONzOM7****
      *
      * @var string
@@ -20,6 +21,7 @@ class DisassociateMembersRequest extends Model
     /**
      * @description The IDs of objects from which you want to unbind the contact.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $members;
