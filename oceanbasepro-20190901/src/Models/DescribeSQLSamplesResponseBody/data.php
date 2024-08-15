@@ -248,6 +248,11 @@ class data extends Model
     public $obUserId;
 
     /**
+     * @var string
+     */
+    public $paramsValue;
+
+    /**
      * @description Average number of partition accessed during the execution period.
      *
      * @example 1.0
@@ -504,6 +509,7 @@ class data extends Model
         'obDbId'              => 'ObDbId',
         'obServerId'          => 'ObServerId',
         'obUserId'            => 'ObUserId',
+        'paramsValue'         => 'ParamsValue',
         'partitionCount'      => 'PartitionCount',
         'planId'              => 'PlanId',
         'planType'            => 'PlanType',
@@ -619,6 +625,9 @@ class data extends Model
         }
         if (null !== $this->obUserId) {
             $res['ObUserId'] = $this->obUserId;
+        }
+        if (null !== $this->paramsValue) {
+            $res['ParamsValue'] = $this->paramsValue;
         }
         if (null !== $this->partitionCount) {
             $res['PartitionCount'] = $this->partitionCount;
@@ -790,6 +799,9 @@ class data extends Model
         }
         if (isset($map['ObUserId'])) {
             $model->obUserId = $map['ObUserId'];
+        }
+        if (isset($map['ParamsValue'])) {
+            $model->paramsValue = $map['ParamsValue'];
         }
         if (isset($map['PartitionCount'])) {
             $model->partitionCount = $map['PartitionCount'];

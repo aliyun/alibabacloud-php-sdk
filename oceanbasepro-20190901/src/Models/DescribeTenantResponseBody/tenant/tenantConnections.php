@@ -136,6 +136,11 @@ class tenantConnections extends Model
     /**
      * @var int
      */
+    public $intranetSqlPort;
+
+    /**
+     * @var int
+     */
     public $maxConnectionLimit;
 
     /**
@@ -144,6 +149,11 @@ class tenantConnections extends Model
      * @var int
      */
     public $maxConnectionNum;
+
+    /**
+     * @var string
+     */
+    public $odpVersion;
 
     /**
      * @var int
@@ -206,8 +216,10 @@ class tenantConnections extends Model
         'intranetAddressStatus'       => 'IntranetAddressStatus',
         'intranetPort'                => 'IntranetPort',
         'intranetRpcPort'             => 'IntranetRpcPort',
+        'intranetSqlPort'             => 'IntranetSqlPort',
         'maxConnectionLimit'          => 'MaxConnectionLimit',
         'maxConnectionNum'            => 'MaxConnectionNum',
+        'odpVersion'                  => 'OdpVersion',
         'parallelQueryDegree'         => 'ParallelQueryDegree',
         'proxyClusterId'              => 'ProxyClusterId',
         'tenantEndpointId'            => 'TenantEndpointId',
@@ -274,11 +286,17 @@ class tenantConnections extends Model
         if (null !== $this->intranetRpcPort) {
             $res['IntranetRpcPort'] = $this->intranetRpcPort;
         }
+        if (null !== $this->intranetSqlPort) {
+            $res['IntranetSqlPort'] = $this->intranetSqlPort;
+        }
         if (null !== $this->maxConnectionLimit) {
             $res['MaxConnectionLimit'] = $this->maxConnectionLimit;
         }
         if (null !== $this->maxConnectionNum) {
             $res['MaxConnectionNum'] = $this->maxConnectionNum;
+        }
+        if (null !== $this->odpVersion) {
+            $res['OdpVersion'] = $this->odpVersion;
         }
         if (null !== $this->parallelQueryDegree) {
             $res['ParallelQueryDegree'] = $this->parallelQueryDegree;
@@ -365,11 +383,17 @@ class tenantConnections extends Model
         if (isset($map['IntranetRpcPort'])) {
             $model->intranetRpcPort = $map['IntranetRpcPort'];
         }
+        if (isset($map['IntranetSqlPort'])) {
+            $model->intranetSqlPort = $map['IntranetSqlPort'];
+        }
         if (isset($map['MaxConnectionLimit'])) {
             $model->maxConnectionLimit = $map['MaxConnectionLimit'];
         }
         if (isset($map['MaxConnectionNum'])) {
             $model->maxConnectionNum = $map['MaxConnectionNum'];
+        }
+        if (isset($map['OdpVersion'])) {
+            $model->odpVersion = $map['OdpVersion'];
         }
         if (isset($map['ParallelQueryDegree'])) {
             $model->parallelQueryDegree = $map['ParallelQueryDegree'];

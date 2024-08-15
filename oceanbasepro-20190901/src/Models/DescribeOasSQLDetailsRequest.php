@@ -43,6 +43,11 @@ class DescribeOasSQLDetailsRequest extends Model
     public $instanceId;
 
     /**
+     * @var bool
+     */
+    public $parseTable;
+
+    /**
      * @description SQL ID.
      *
      * This parameter is required.
@@ -75,6 +80,7 @@ class DescribeOasSQLDetailsRequest extends Model
         'dynamicSql' => 'DynamicSql',
         'endTime'    => 'EndTime',
         'instanceId' => 'InstanceId',
+        'parseTable' => 'ParseTable',
         'sqlId'      => 'SqlId',
         'startTime'  => 'StartTime',
         'tenantId'   => 'TenantId',
@@ -98,6 +104,9 @@ class DescribeOasSQLDetailsRequest extends Model
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->parseTable) {
+            $res['ParseTable'] = $this->parseTable;
         }
         if (null !== $this->sqlId) {
             $res['SqlId'] = $this->sqlId;
@@ -131,6 +140,9 @@ class DescribeOasSQLDetailsRequest extends Model
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['ParseTable'])) {
+            $model->parseTable = $map['ParseTable'];
         }
         if (isset($map['SqlId'])) {
             $model->sqlId = $map['SqlId'];

@@ -15,6 +15,11 @@ class instance extends Model
     /**
      * @var bool
      */
+    public $allowCreateProxySqlFirewallRule;
+
+    /**
+     * @var bool
+     */
     public $allowModifyInternetAddressConnectionLimit;
 
     /**
@@ -328,6 +333,7 @@ class instance extends Model
      */
     public $zones;
     protected $_name = [
+        'allowCreateProxySqlFirewallRule'           => 'AllowCreateProxySqlFirewallRule',
         'allowModifyInternetAddressConnectionLimit' => 'AllowModifyInternetAddressConnectionLimit',
         'autoRenewal'                               => 'AutoRenewal',
         'autoUpgradeObVersion'                      => 'AutoUpgradeObVersion',
@@ -383,6 +389,9 @@ class instance extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->allowCreateProxySqlFirewallRule) {
+            $res['AllowCreateProxySqlFirewallRule'] = $this->allowCreateProxySqlFirewallRule;
+        }
         if (null !== $this->allowModifyInternetAddressConnectionLimit) {
             $res['AllowModifyInternetAddressConnectionLimit'] = $this->allowModifyInternetAddressConnectionLimit;
         }
@@ -533,6 +542,9 @@ class instance extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AllowCreateProxySqlFirewallRule'])) {
+            $model->allowCreateProxySqlFirewallRule = $map['AllowCreateProxySqlFirewallRule'];
+        }
         if (isset($map['AllowModifyInternetAddressConnectionLimit'])) {
             $model->allowModifyInternetAddressConnectionLimit = $map['AllowModifyInternetAddressConnectionLimit'];
         }

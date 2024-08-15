@@ -183,6 +183,11 @@ class tenant extends Model
     public $maxParallelQueryDegree;
 
     /**
+     * @var string
+     */
+    public $odpVersion;
+
+    /**
      * @example POSTPAY
      *
      * @var string
@@ -333,6 +338,7 @@ class tenant extends Model
         'lowerCaseTableNames'          => 'LowerCaseTableNames',
         'masterIntranetAddressZone'    => 'MasterIntranetAddressZone',
         'maxParallelQueryDegree'       => 'MaxParallelQueryDegree',
+        'odpVersion'                   => 'OdpVersion',
         'payType'                      => 'PayType',
         'primaryZone'                  => 'PrimaryZone',
         'primaryZoneDeployType'        => 'PrimaryZoneDeployType',
@@ -417,6 +423,9 @@ class tenant extends Model
         }
         if (null !== $this->maxParallelQueryDegree) {
             $res['MaxParallelQueryDegree'] = $this->maxParallelQueryDegree;
+        }
+        if (null !== $this->odpVersion) {
+            $res['OdpVersion'] = $this->odpVersion;
         }
         if (null !== $this->payType) {
             $res['PayType'] = $this->payType;
@@ -551,6 +560,9 @@ class tenant extends Model
         }
         if (isset($map['MaxParallelQueryDegree'])) {
             $model->maxParallelQueryDegree = $map['MaxParallelQueryDegree'];
+        }
+        if (isset($map['OdpVersion'])) {
+            $model->odpVersion = $map['OdpVersion'];
         }
         if (isset($map['PayType'])) {
             $model->payType = $map['PayType'];

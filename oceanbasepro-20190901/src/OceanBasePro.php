@@ -3403,6 +3403,9 @@ class OceanBasePro extends OpenApiClient
         if (!Utils::isUnset($request->instanceId)) {
             $body['InstanceId'] = $request->instanceId;
         }
+        if (!Utils::isUnset($request->parseTable)) {
+            $body['ParseTable'] = $request->parseTable;
+        }
         if (!Utils::isUnset($request->sqlId)) {
             $body['SqlId'] = $request->sqlId;
         }

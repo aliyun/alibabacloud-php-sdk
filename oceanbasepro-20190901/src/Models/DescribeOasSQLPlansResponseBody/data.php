@@ -74,6 +74,16 @@ class data extends Model
     public $mergedVersion;
 
     /**
+     * @var string
+     */
+    public $outlineId;
+
+    /**
+     * @var string
+     */
+    public $outlineStatus;
+
+    /**
      * @description Execution plan.
      *
      * @var planExplain
@@ -122,6 +132,11 @@ class data extends Model
      * @var string
      */
     public $querySql;
+
+    /**
+     * @var bool
+     */
+    public $tableScan;
     protected $_name = [
         'avgCpuTime'    => 'AvgCpuTime',
         'bounded'       => 'Bounded',
@@ -130,12 +145,15 @@ class data extends Model
         'hitDiagnosis'  => 'HitDiagnosis',
         'hitPercentage' => 'HitPercentage',
         'mergedVersion' => 'MergedVersion',
+        'outlineId'     => 'OutlineId',
+        'outlineStatus' => 'OutlineStatus',
         'planExplain'   => 'PlanExplain',
         'planHash'      => 'PlanHash',
         'planType'      => 'PlanType',
         'planUnionHash' => 'PlanUnionHash',
         'plans'         => 'Plans',
         'querySql'      => 'QuerySql',
+        'tableScan'     => 'TableScan',
     ];
 
     public function validate()
@@ -166,6 +184,12 @@ class data extends Model
         if (null !== $this->mergedVersion) {
             $res['MergedVersion'] = $this->mergedVersion;
         }
+        if (null !== $this->outlineId) {
+            $res['OutlineId'] = $this->outlineId;
+        }
+        if (null !== $this->outlineStatus) {
+            $res['OutlineStatus'] = $this->outlineStatus;
+        }
         if (null !== $this->planExplain) {
             $res['PlanExplain'] = null !== $this->planExplain ? $this->planExplain->toMap() : null;
         }
@@ -189,6 +213,9 @@ class data extends Model
         }
         if (null !== $this->querySql) {
             $res['QuerySql'] = $this->querySql;
+        }
+        if (null !== $this->tableScan) {
+            $res['TableScan'] = $this->tableScan;
         }
 
         return $res;
@@ -223,6 +250,12 @@ class data extends Model
         if (isset($map['MergedVersion'])) {
             $model->mergedVersion = $map['MergedVersion'];
         }
+        if (isset($map['OutlineId'])) {
+            $model->outlineId = $map['OutlineId'];
+        }
+        if (isset($map['OutlineStatus'])) {
+            $model->outlineStatus = $map['OutlineStatus'];
+        }
         if (isset($map['PlanExplain'])) {
             $model->planExplain = planExplain::fromMap($map['PlanExplain']);
         }
@@ -246,6 +279,9 @@ class data extends Model
         }
         if (isset($map['QuerySql'])) {
             $model->querySql = $map['QuerySql'];
+        }
+        if (isset($map['TableScan'])) {
+            $model->tableScan = $map['TableScan'];
         }
 
         return $model;
