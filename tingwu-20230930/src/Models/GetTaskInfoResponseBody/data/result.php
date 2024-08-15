@@ -16,12 +16,22 @@ class result extends Model
     /**
      * @var string
      */
+    public $customPrompt;
+
+    /**
+     * @var string
+     */
     public $meetingAssistance;
 
     /**
      * @var string
      */
     public $pptExtraction;
+
+    /**
+     * @var string
+     */
+    public $serviceInspection;
 
     /**
      * @var string
@@ -44,8 +54,10 @@ class result extends Model
     public $translation;
     protected $_name = [
         'autoChapters'      => 'AutoChapters',
+        'customPrompt'      => 'CustomPrompt',
         'meetingAssistance' => 'MeetingAssistance',
         'pptExtraction'     => 'PptExtraction',
+        'serviceInspection' => 'ServiceInspection',
         'summarization'     => 'Summarization',
         'textPolish'        => 'TextPolish',
         'transcription'     => 'Transcription',
@@ -62,11 +74,17 @@ class result extends Model
         if (null !== $this->autoChapters) {
             $res['AutoChapters'] = $this->autoChapters;
         }
+        if (null !== $this->customPrompt) {
+            $res['CustomPrompt'] = $this->customPrompt;
+        }
         if (null !== $this->meetingAssistance) {
             $res['MeetingAssistance'] = $this->meetingAssistance;
         }
         if (null !== $this->pptExtraction) {
             $res['PptExtraction'] = $this->pptExtraction;
+        }
+        if (null !== $this->serviceInspection) {
+            $res['ServiceInspection'] = $this->serviceInspection;
         }
         if (null !== $this->summarization) {
             $res['Summarization'] = $this->summarization;
@@ -95,11 +113,17 @@ class result extends Model
         if (isset($map['AutoChapters'])) {
             $model->autoChapters = $map['AutoChapters'];
         }
+        if (isset($map['CustomPrompt'])) {
+            $model->customPrompt = $map['CustomPrompt'];
+        }
         if (isset($map['MeetingAssistance'])) {
             $model->meetingAssistance = $map['MeetingAssistance'];
         }
         if (isset($map['PptExtraction'])) {
             $model->pptExtraction = $map['PptExtraction'];
+        }
+        if (isset($map['ServiceInspection'])) {
+            $model->serviceInspection = $map['ServiceInspection'];
         }
         if (isset($map['Summarization'])) {
             $model->summarization = $map['Summarization'];
