@@ -66,7 +66,7 @@ class ModifyDBNodeRequest extends Model
     /**
      * @description The information about the node.
      *
-     * >  This parameter is supported for ApsaraDB RDS for MySQL instances that run RDS Cluster Edition.
+     * >  This parameter is used for ApsaraDB RDS for MySQL instances that run RDS Cluster Edition.
      * @var DBNode[]
      */
     public $DBNode;
@@ -84,8 +84,11 @@ class ModifyDBNodeRequest extends Model
     public $dryRun;
 
     /**
-     * @description Effective time, value:
-     * - MaintainTime: Effective within the operational time period, please refer to ModifyDBInstanceMaintainTime.
+     * @description The time when you want the change to take effect. Valid values:
+     *
+     *   **Immediate** (default): The change immediately takes effect.
+     *   **MaintainTime**: The effective time is within the maintenance window. For more information, see ModifyDBInstanceMaintainTime.
+     *
      * @example Immediate
      *
      * @var string

@@ -24,6 +24,13 @@ class CreateDBInstanceShrinkRequest extends Model
     public $amount;
 
     /**
+     * @description 是否自动创建代理。取值范围：
+     *
+     * - **true**：开启自动创建，默认为通用代理。
+     *
+     * - **false**：不开启自动创建。
+     * @example false
+     *
      * @var bool
      */
     public $autoCreateProxy;
@@ -31,8 +38,8 @@ class CreateDBInstanceShrinkRequest extends Model
     /**
      * @description Specifies whether to enable the automatic payment feature. Valid values:
      *
-     *   **true**: automatically completes the payment. You must make sure that your account balance is sufficient.
-     *   **false**: does not automatically complete the payment. An unpaid order is generated.
+     *   **true**: enables the feature. Make sure that your account balance is sufficient.
+     *   **false**: disables the feature. An unpaid order is generated.
      *
      * >  The default value is true. If your account balance is insufficient, you can set the AutoPay parameter to false to generate an unpaid order. Then, you can log on to the ApsaraDB RDS console to complete the payment.
      * @example true

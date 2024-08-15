@@ -143,15 +143,6 @@ class database extends Model
     public $pageSize;
 
     /**
-     * @description The resource group ID.
-     *
-     * @example rg-acfmy****
-     *
-     * @var string
-     */
-    public $resourceGroupId;
-
-    /**
      * @description The runtime information about the database.
      *
      * >  This parameter is returned only for instances that run SQL Server.
@@ -193,7 +184,6 @@ class database extends Model
         'engine'           => 'Engine',
         'pageNumber'       => 'PageNumber',
         'pageSize'         => 'PageSize',
-        'resourceGroupId'  => 'ResourceGroupId',
         'runtimeInfo'      => 'RuntimeInfo',
         'tablespace'       => 'Tablespace',
         'totalCount'       => 'TotalCount',
@@ -247,9 +237,6 @@ class database extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->runtimeInfo) {
             $res['RuntimeInfo'] = null !== $this->runtimeInfo ? $this->runtimeInfo->toMap() : null;
@@ -313,9 +300,6 @@ class database extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['RuntimeInfo'])) {
             $model->runtimeInfo = runtimeInfo::fromMap($map['RuntimeInfo']);

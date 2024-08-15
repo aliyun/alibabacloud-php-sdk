@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DBNode extends Model
 {
     /**
-     * @description The instance type of the node.
+     * @description The specification information about the node.
      *
      * @example mysql.n2.medium.xc
      *

@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class CreateReadOnlyDBInstanceRequest extends Model
 {
     /**
+     * @description 是否自动创建代理。取值范围：
+     *
+     * - **true**：开启自动创建，默认为通用代理。
+     *
+     * - **false**：不开启自动创建。
+     * @example false
+     *
      * @var bool
      */
     public $autoCreateProxy;
@@ -19,7 +26,7 @@ class CreateReadOnlyDBInstanceRequest extends Model
      * 1.  **true**: enables the feature. Make sure that your account balance is sufficient.
      * 2.  **false**: disables the feature. An unpaid order is generated.
      *
-     * >  Default value: true. If your account balance is insufficient, you can set the AutoPay parameter to false to generate an unpaid order. Then, you can log on to the ApsaraDB RDS console to complete the payment.
+     * >  The default value is true. If your account balance is insufficient, you can set the AutoPay parameter to false to generate an unpaid order. Then, you can log on to the ApsaraDB RDS console to complete the payment.
      * @example false
      *
      * @var bool
@@ -150,10 +157,10 @@ class CreateReadOnlyDBInstanceRequest extends Model
     /**
      * @description Specifies whether to enable the release protection feature for the read-only instance. Valid values:
      *
-     *   **true**: enables the feature.
-     *   **false** (default): disables the feature.
+     *   **true**
+     *   **false** (default)
      *
-     * >  You can enable the release protection feature for the read-only instance only when you set the **Billing Method** parameter to **Pay-As-You-Go**.
+     * >  You can enable the release protection feature for the read-only instance only when you set the **PayType** parameter to **Postpaid**.
      * @example true
      *
      * @var bool

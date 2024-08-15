@@ -18,7 +18,7 @@ class DeletePostgresExtensionsRequest extends Model
     public $clientToken;
 
     /**
-     * @description The instance ID. You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/610396.html) operation to query the ID of the instance.
+     * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
      * This parameter is required.
      * @example pgm-bp156o9ti493****

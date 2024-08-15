@@ -86,6 +86,15 @@ class CloneDBInstanceShrinkRequest extends Model
     public $category;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     *
+     * @example 0c593ea1-3bea-11e9-b96b-88**********
+     *
+     * @var string
+     */
+    public $clientToken;
+
+    /**
      * @description The instance type of the new instance. For information, see [Primary ApsaraDB RDS instance types](https://help.aliyun.com/document_detail/26312.html).
      *
      * > By default, the new instance uses the same instance type as the original primary instance.
@@ -198,7 +207,7 @@ class CloneDBInstanceShrinkRequest extends Model
     public $payType;
 
     /**
-     * @description The unit that is used to calculate the billing cycle of the new instance. Valid values:
+     * @description The unit that is used to calculate the billing cycle of the new instance. This parameter takes effect only when you select the subscription billing method for the new instance. Valid values:
      *
      *   **Year**
      *   **Month**
@@ -338,6 +347,7 @@ class CloneDBInstanceShrinkRequest extends Model
         'bpeEnabled'             => 'BpeEnabled',
         'burstingEnabled'        => 'BurstingEnabled',
         'category'               => 'Category',
+        'clientToken'            => 'ClientToken',
         'DBInstanceClass'        => 'DBInstanceClass',
         'DBInstanceId'           => 'DBInstanceId',
         'DBInstanceStorage'      => 'DBInstanceStorage',
@@ -388,6 +398,9 @@ class CloneDBInstanceShrinkRequest extends Model
         }
         if (null !== $this->category) {
             $res['Category'] = $this->category;
+        }
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
         if (null !== $this->DBInstanceClass) {
             $res['DBInstanceClass'] = $this->DBInstanceClass;
@@ -490,6 +503,9 @@ class CloneDBInstanceShrinkRequest extends Model
         }
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
+        }
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
         if (isset($map['DBInstanceClass'])) {
             $model->DBInstanceClass = $map['DBInstanceClass'];

@@ -18,8 +18,6 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\AttachWhitelistTemplateToInstanceReque
 use AlibabaCloud\SDK\Rds\V20140815\Models\AttachWhitelistTemplateToInstanceResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CalculateDBInstanceWeightRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CalculateDBInstanceWeightResponse;
-use AlibabaCloud\SDK\Rds\V20140815\Models\CancelImportRequest;
-use AlibabaCloud\SDK\Rds\V20140815\Models\CancelImportResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CheckAccountNameAvailableRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CheckAccountNameAvailableResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CheckCloudResourceAuthorizedRequest;
@@ -445,8 +443,6 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceAutoUpgradeMinorVersio
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceAutoUpgradeMinorVersionResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceConfigRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceConfigResponse;
-use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceConnectionModeRequest;
-use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceConnectionModeResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceConnectionStringRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceConnectionStringResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceDelayedReplicationTimeRequest;
@@ -474,8 +470,6 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceNetworkTypeRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceNetworkTypeResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstancePayTypeRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstancePayTypeResponse;
-use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceProxyConfigurationRequest;
-use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceProxyConfigurationResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceSecurityGroupRuleRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceSecurityGroupRuleResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceSpecRequest;
@@ -586,8 +580,6 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\SwitchDBInstanceNetTypeRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\SwitchDBInstanceNetTypeResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\SwitchDBInstanceVpcRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\SwitchDBInstanceVpcResponse;
-use AlibabaCloud\SDK\Rds\V20140815\Models\SwitchGuardToMasterInstanceRequest;
-use AlibabaCloud\SDK\Rds\V20140815\Models\SwitchGuardToMasterInstanceResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\TagResourcesResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\TerminateMigrateTaskRequest;
@@ -1226,87 +1218,6 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary Cancels the migration task of an ApsaraDB RDS for SQL Server instance.
-     *  *
-     * @description This operation is phased out.
-     * ### [](#)Supported database engines
-     * *   RDS SQL Server
-     * ### [](#)Description
-     * This operation is supported for instances that run SQL Server and belong to the dedicated or dedicated host instance family. For more information about how to start a migration task, see [ImportDatabaseBetweenInstances](https://help.aliyun.com/document_detail/610592.html).
-     * ### [](#)Usage notes
-     * This operation is not supported for instances that run SQL Server 2017 on RDS Cluster Edition.
-     *  *
-     * @param CancelImportRequest $request CancelImportRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
-     *
-     * @return CancelImportResponse CancelImportResponse
-     */
-    public function cancelImportWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->DBInstanceId)) {
-            $query['DBInstanceId'] = $request->DBInstanceId;
-        }
-        if (!Utils::isUnset($request->importId)) {
-            $query['ImportId'] = $request->importId;
-        }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
-        }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CancelImport',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return CancelImportResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary Cancels the migration task of an ApsaraDB RDS for SQL Server instance.
-     *  *
-     * @description This operation is phased out.
-     * ### [](#)Supported database engines
-     * *   RDS SQL Server
-     * ### [](#)Description
-     * This operation is supported for instances that run SQL Server and belong to the dedicated or dedicated host instance family. For more information about how to start a migration task, see [ImportDatabaseBetweenInstances](https://help.aliyun.com/document_detail/610592.html).
-     * ### [](#)Usage notes
-     * This operation is not supported for instances that run SQL Server 2017 on RDS Cluster Edition.
-     *  *
-     * @param CancelImportRequest $request CancelImportRequest
-     *
-     * @return CancelImportResponse CancelImportResponse
-     */
-    public function cancelImport($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->cancelImportWithOptions($request, $runtime);
-    }
-
-    /**
      * @summary Checks whether the username of the account that you want to create on an instance is available.
      *  *
      * @description ### [](#)Supported database engines
@@ -1818,6 +1729,9 @@ class Rds extends OpenApiClient
         }
         if (!Utils::isUnset($request->category)) {
             $query['Category'] = $request->category;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->DBInstanceClass)) {
             $query['DBInstanceClass'] = $request->DBInstanceClass;
@@ -2369,9 +2283,6 @@ class Rds extends OpenApiClient
         }
         if (!Utils::isUnset($request->DBName)) {
             $query['DBName'] = $request->DBName;
-        }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
@@ -3447,9 +3358,6 @@ class Rds extends OpenApiClient
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
-        }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
@@ -3903,6 +3811,9 @@ class Rds extends OpenApiClient
         }
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
@@ -5527,11 +5438,10 @@ class Rds extends OpenApiClient
     /**
      * @summary Deletes a node from an instance that runs RDS Cluster Edition.
      *  *
-     * @description ### [](#)Supported database engines
-     * *   MySQL
-     * *   PostgreSQL
+     * @description ### [](#)Supported database engine
+     * MySQL
      * ### [](#)References
-     * > Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
+     * >  Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
      * [Delete a node from an ApsaraDB RDS for MySQL cluster](https://help.aliyun.com/document_detail/464130.html)
      *  *
      * @param DeleteDBNodesRequest $tmpReq  DeleteDBNodesRequest
@@ -5593,11 +5503,10 @@ class Rds extends OpenApiClient
     /**
      * @summary Deletes a node from an instance that runs RDS Cluster Edition.
      *  *
-     * @description ### [](#)Supported database engines
-     * *   MySQL
-     * *   PostgreSQL
+     * @description ### [](#)Supported database engine
+     * MySQL
      * ### [](#)References
-     * > Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
+     * >  Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
      * [Delete a node from an ApsaraDB RDS for MySQL cluster](https://help.aliyun.com/document_detail/464130.html)
      *  *
      * @param DeleteDBNodesRequest $request DeleteDBNodesRequest
@@ -5848,6 +5757,9 @@ class Rds extends OpenApiClient
         }
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
@@ -6455,6 +6367,9 @@ class Rds extends OpenApiClient
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
         }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
@@ -6642,7 +6557,7 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details about scheduled O\\\\\\\\\\\\&M tasks for an instance.
+     * @summary Queries the details about scheduled O\\\\\\\\\\\\\\\\\\\\&M tasks for an instance.
      *  *
      * @description ### [](#)Supported database engines
      * *   MySQL
@@ -6726,7 +6641,7 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details about scheduled O\\\\\\\\\\\\&M tasks for an instance.
+     * @summary Queries the details about scheduled O\\\\\\\\\\\\\\\\\\\\&M tasks for an instance.
      *  *
      * @description ### [](#)Supported database engines
      * *   MySQL
@@ -7556,9 +7471,6 @@ class Rds extends OpenApiClient
         }
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
@@ -9102,17 +9014,18 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary Queries the hostname of the Elastic Compute Service (ECS) instance on which the ApsaraDB RDS for SQL Server instance runs.
+     * @summary Queries the internal IP address and hostname of the Elastic Compute Service (ECS) instance on which the ApsaraDB RDS for SQL Server instance runs.
      *  *
      * @description ### [](#)Supported database engines
-     * RDS SQL Server
+     * SQL Server
      * ### [](#)Prerequisites
      * *   The RDS instance runs RDS Basic Edition, RDS High-availability Edition, or RDS Cluster Edition. If your RDS instance runs RDS High-availability Edition, make sure that the instance runs SQL Server 2012 or later.
      * *   The RDS instance belongs to a general-purpose or dedicated instance family. The shared instance family is not supported.
-     * *   If the RDS instance runs RDS Basic Edition, the instance is created on or after September 02, 2022. You can view the Creation Time
+     * *   If the RDS instance runs RDS Basic Edition, the instance is created on or after September 02, 2022. You can view the Creation Time parameter of an instance in the Status section of the Basic Information page in the ApsaraDB RDS console.
      * ### [](#)References
-     * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     * [Configure a distributed transaction whitelist](https://help.aliyun.com/document_detail/124321.html)
+     * >  Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * *   [Configure a distributed transaction whitelist](https://help.aliyun.com/document_detail/124321.html)
+     * *   [Connect Kingdee K/3 WISE to an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/124188.html)
      *  *
      * @param DescribeDBInstanceIpHostnameRequest $request DescribeDBInstanceIpHostnameRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
@@ -9163,17 +9076,18 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary Queries the hostname of the Elastic Compute Service (ECS) instance on which the ApsaraDB RDS for SQL Server instance runs.
+     * @summary Queries the internal IP address and hostname of the Elastic Compute Service (ECS) instance on which the ApsaraDB RDS for SQL Server instance runs.
      *  *
      * @description ### [](#)Supported database engines
-     * RDS SQL Server
+     * SQL Server
      * ### [](#)Prerequisites
      * *   The RDS instance runs RDS Basic Edition, RDS High-availability Edition, or RDS Cluster Edition. If your RDS instance runs RDS High-availability Edition, make sure that the instance runs SQL Server 2012 or later.
      * *   The RDS instance belongs to a general-purpose or dedicated instance family. The shared instance family is not supported.
-     * *   If the RDS instance runs RDS Basic Edition, the instance is created on or after September 02, 2022. You can view the Creation Time
+     * *   If the RDS instance runs RDS Basic Edition, the instance is created on or after September 02, 2022. You can view the Creation Time parameter of an instance in the Status section of the Basic Information page in the ApsaraDB RDS console.
      * ### [](#)References
-     * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     * [Configure a distributed transaction whitelist](https://help.aliyun.com/document_detail/124321.html)
+     * >  Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * *   [Configure a distributed transaction whitelist](https://help.aliyun.com/document_detail/124321.html)
+     * *   [Connect Kingdee K/3 WISE to an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/124188.html)
      *  *
      * @param DescribeDBInstanceIpHostnameRequest $request DescribeDBInstanceIpHostnameRequest
      *
@@ -10910,9 +10824,6 @@ class Rds extends OpenApiClient
         }
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
@@ -12770,6 +12681,9 @@ class Rds extends OpenApiClient
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
         }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
@@ -14616,6 +14530,8 @@ class Rds extends OpenApiClient
      * *   The DescribeSQLLogFiles operation does not return the log files that are generated by SQL Explorer Trial Edition for an ApsaraDB RDS for MySQL instance.
      * *   The DescribeSQLLogFiles operation does not return the log files that are generated by the SQL Explorer feature and manually exported from the ApsaraDB RDS console. The DescribeSQLLogFiles operation returns the SQL Explorer log files that are generated by calling the [DescribeSQLLogRecords](https://help.aliyun.com/document_detail/610533.html) operation with the request parameter **Form** set to **File**.
      * *   The exported files are retained for only two days.
+     *     **
+     *     **Note** If you have enabled Database Autonomy Service (DAS) Enterprise Edition V2 or V3 and have enabled the SQL Explorer and Audit feature, the exported files are retained for seven days. You can call the [DescribeSqlLogConfig](https://help.aliyun.com/document_detail/2778837.html) operation to query the information about the enabled DAS Enterprise Edition.
      *  *
      * @param DescribeSQLLogFilesRequest $request DescribeSQLLogFilesRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -14681,6 +14597,8 @@ class Rds extends OpenApiClient
      * *   The DescribeSQLLogFiles operation does not return the log files that are generated by SQL Explorer Trial Edition for an ApsaraDB RDS for MySQL instance.
      * *   The DescribeSQLLogFiles operation does not return the log files that are generated by the SQL Explorer feature and manually exported from the ApsaraDB RDS console. The DescribeSQLLogFiles operation returns the SQL Explorer log files that are generated by calling the [DescribeSQLLogRecords](https://help.aliyun.com/document_detail/610533.html) operation with the request parameter **Form** set to **File**.
      * *   The exported files are retained for only two days.
+     *     **
+     *     **Note** If you have enabled Database Autonomy Service (DAS) Enterprise Edition V2 or V3 and have enabled the SQL Explorer and Audit feature, the exported files are retained for seven days. You can call the [DescribeSqlLogConfig](https://help.aliyun.com/document_detail/2778837.html) operation to query the information about the enabled DAS Enterprise Edition.
      *  *
      * @param DescribeSQLLogFilesRequest $request DescribeSQLLogFilesRequest
      *
@@ -18177,72 +18095,6 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary 修改实例访问模式
-     *  *
-     * @description > The API has been taken offline
-     *  *
-     * @param ModifyDBInstanceConnectionModeRequest $request ModifyDBInstanceConnectionModeRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
-     *
-     * @return ModifyDBInstanceConnectionModeResponse ModifyDBInstanceConnectionModeResponse
-     */
-    public function modifyDBInstanceConnectionModeWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->connectionMode)) {
-            $query['ConnectionMode'] = $request->connectionMode;
-        }
-        if (!Utils::isUnset($request->DBInstanceId)) {
-            $query['DBInstanceId'] = $request->DBInstanceId;
-        }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ModifyDBInstanceConnectionMode',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ModifyDBInstanceConnectionModeResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary 修改实例访问模式
-     *  *
-     * @description > The API has been taken offline
-     *  *
-     * @param ModifyDBInstanceConnectionModeRequest $request ModifyDBInstanceConnectionModeRequest
-     *
-     * @return ModifyDBInstanceConnectionModeResponse ModifyDBInstanceConnectionModeResponse
-     */
-    public function modifyDBInstanceConnectionMode($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifyDBInstanceConnectionModeWithOptions($request, $runtime);
-    }
-
-    /**
      * @summary Modifies the endpoint and port of an instance.
      *  *
      * @description ### Supported database engines
@@ -19297,72 +19149,6 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary You can call the ModifyDBInstanceProxyConfiguration operation to configure the database proxy for an instance.
-     *  *
-     * @description > This operation is phased out.
-     *  *
-     * @param ModifyDBInstanceProxyConfigurationRequest $request ModifyDBInstanceProxyConfigurationRequest
-     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
-     *
-     * @return ModifyDBInstanceProxyConfigurationResponse ModifyDBInstanceProxyConfigurationResponse
-     */
-    public function modifyDBInstanceProxyConfigurationWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->DBInstanceId)) {
-            $query['DBInstanceId'] = $request->DBInstanceId;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->proxyConfigurationKey)) {
-            $query['ProxyConfigurationKey'] = $request->proxyConfigurationKey;
-        }
-        if (!Utils::isUnset($request->proxyConfigurationValue)) {
-            $query['ProxyConfigurationValue'] = $request->proxyConfigurationValue;
-        }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ModifyDBInstanceProxyConfiguration',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ModifyDBInstanceProxyConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary You can call the ModifyDBInstanceProxyConfiguration operation to configure the database proxy for an instance.
-     *  *
-     * @description > This operation is phased out.
-     *  *
-     * @param ModifyDBInstanceProxyConfigurationRequest $request ModifyDBInstanceProxyConfigurationRequest
-     *
-     * @return ModifyDBInstanceProxyConfigurationResponse ModifyDBInstanceProxyConfigurationResponse
-     */
-    public function modifyDBInstanceProxyConfiguration($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifyDBInstanceProxyConfigurationWithOptions($request, $runtime);
-    }
-
-    /**
      * @summary Modifies the SSL encryption settings of an instance.
      *  *
      * @description ### [](#)Supported database engines
@@ -19822,13 +19608,13 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary Changes the specifications and storage capacity of an instance.
+     * @summary Changes the specifications, storage type, and storage capacity of an ApsaraDB RDS for MySQL instance that runs RDS Cluster Edition.
      *  *
-     * @description ### [](#)Supported database engines
+     * @description ### [](#)Supported database engine
      * *   MySQL
      * ### [](#)References
-     * > Fees are generated if the call is successful. Before you call this operation, carefully read the following topics:
-     * *   [Change the specifications of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96061.html)
+     * [Change instance specifications](https://help.aliyun.com/document_detail/2627998.html)
+     * >  Fees of an instance are changed if the call is successful. Before you call this operation, carefully read the related topics.
      *  *
      * @param ModifyDBNodeRequest $tmpReq  ModifyDBNodeRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
@@ -19902,13 +19688,13 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary Changes the specifications and storage capacity of an instance.
+     * @summary Changes the specifications, storage type, and storage capacity of an ApsaraDB RDS for MySQL instance that runs RDS Cluster Edition.
      *  *
-     * @description ### [](#)Supported database engines
+     * @description ### [](#)Supported database engine
      * *   MySQL
      * ### [](#)References
-     * > Fees are generated if the call is successful. Before you call this operation, carefully read the following topics:
-     * *   [Change the specifications of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96061.html)
+     * [Change instance specifications](https://help.aliyun.com/document_detail/2627998.html)
+     * >  Fees of an instance are changed if the call is successful. Before you call this operation, carefully read the related topics.
      *  *
      * @param ModifyDBNodeRequest $request ModifyDBNodeRequest
      *
@@ -24215,72 +24001,6 @@ class Rds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->switchDBInstanceVpcWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary Switches a disaster recovery instance to a primary instance.
-     *  *
-     * @description This operation is phased out.
-     *  *
-     * @param SwitchGuardToMasterInstanceRequest $request SwitchGuardToMasterInstanceRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
-     *
-     * @return SwitchGuardToMasterInstanceResponse SwitchGuardToMasterInstanceResponse
-     */
-    public function switchGuardToMasterInstanceWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->DBInstanceId)) {
-            $query['DBInstanceId'] = $request->DBInstanceId;
-        }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
-        }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'SwitchGuardToMasterInstance',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return SwitchGuardToMasterInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary Switches a disaster recovery instance to a primary instance.
-     *  *
-     * @description This operation is phased out.
-     *  *
-     * @param SwitchGuardToMasterInstanceRequest $request SwitchGuardToMasterInstanceRequest
-     *
-     * @return SwitchGuardToMasterInstanceResponse SwitchGuardToMasterInstanceResponse
-     */
-    public function switchGuardToMasterInstance($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->switchGuardToMasterInstanceWithOptions($request, $runtime);
     }
 
     /**

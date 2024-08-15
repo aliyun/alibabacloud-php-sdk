@@ -77,15 +77,6 @@ class CreateBackupRequest extends Model
     public $DBName;
 
     /**
-     * @description The resource group ID. You can call the DescribeDBInstanceAttribute to query the resource group ID.
-     *
-     * @example rg-acfmy*****
-     *
-     * @var string
-     */
-    public $resourceGroupId;
-
-    /**
      * @var int
      */
     public $resourceOwnerId;
@@ -95,7 +86,6 @@ class CreateBackupRequest extends Model
         'backupType'      => 'BackupType',
         'DBInstanceId'    => 'DBInstanceId',
         'DBName'          => 'DBName',
-        'resourceGroupId' => 'ResourceGroupId',
         'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
@@ -120,9 +110,6 @@ class CreateBackupRequest extends Model
         }
         if (null !== $this->DBName) {
             $res['DBName'] = $this->DBName;
-        }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
@@ -153,9 +140,6 @@ class CreateBackupRequest extends Model
         }
         if (isset($map['DBName'])) {
             $model->DBName = $map['DBName'];
-        }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];

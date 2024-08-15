@@ -98,15 +98,6 @@ class DescribeBackupsRequest extends Model
     public $pageSize;
 
     /**
-     * @description The resource group ID.
-     *
-     * @example rg-acfmy*****
-     *
-     * @var string
-     */
-    public $resourceGroupId;
-
-    /**
      * @var int
      */
     public $resourceOwnerId;
@@ -128,7 +119,6 @@ class DescribeBackupsRequest extends Model
         'endTime'         => 'EndTime',
         'pageNumber'      => 'PageNumber',
         'pageSize'        => 'PageSize',
-        'resourceGroupId' => 'ResourceGroupId',
         'resourceOwnerId' => 'ResourceOwnerId',
         'startTime'       => 'StartTime',
     ];
@@ -163,9 +153,6 @@ class DescribeBackupsRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
@@ -208,9 +195,6 @@ class DescribeBackupsRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];

@@ -40,7 +40,7 @@ class serverlessConfig extends Model
      *
      *   Serverless ApsaraDB RDS for MySQL instances: **0.5 to 32**.
      *   Serverless ApsaraDB RDS for SQL Server instances: **2 to 8**. Only integers are supported.
-     *   Serverless ApsaraDB RDS for PostgreSQL instances: **0.5 to 14**
+     *   Serverless ApsaraDB RDS for PostgreSQL instances: **0.5 to 14**.
      *
      * >  The value of this parameter must be less than or equal to the value of **MaxCapacity**.
      * @example 0.5

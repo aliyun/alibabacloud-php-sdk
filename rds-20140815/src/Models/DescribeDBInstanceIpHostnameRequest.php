@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstanceIpHostnameRequest extends Model
 {
     /**
-     * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+     * @description The instance ID. You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/2628785.html) operation to query the instance ID.
      *
      * This parameter is required.
      * @example rm-uf6wjk5xxxxxxx
@@ -29,7 +29,7 @@ class DescribeDBInstanceIpHostnameRequest extends Model
     public $ownerId;
 
     /**
-     * @description You can call the DescribeDBInstanceAttribute operation to query the region ID.
+     * @description The region ID. You can call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/2628783.html) operation to query the region ID.
      *
      * This parameter is required.
      * @example cn-hangzhou

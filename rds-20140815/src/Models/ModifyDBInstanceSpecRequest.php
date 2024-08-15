@@ -138,14 +138,11 @@ class ModifyDBInstanceSpecRequest extends Model
     public $direction;
 
     /**
-     * @description The time when you want the change to take effect. Valid values:
+     * @description The effective time. Valid values:
      *
      *   **Immediate** (default)
      *   **MaintainTime**: The effective time is within the maintenance window. For more information, see ModifyDBInstanceMaintainTime.
-     *
-     * <!---->
-     *
-     *   ScheduleTime: The schedule time must be a specific point in time that is 12 hours later than the current time. In this case, EffectiveTime is calculated by using the following formula: EffectiveTime = ScheduleTime + SwitchTime.
+     *   **ScheduleTime**: The change takes effect at the point in time that you specify. The schedule time must be a specific point in time that is 12 hours later than the current time. In this case, EffectiveTime is calculated by using the following formula: EffectiveTime = ScheduleTime + SwitchTime.
      *
      * @example MaintainTime
      *
@@ -230,7 +227,6 @@ class ModifyDBInstanceSpecRequest extends Model
     /**
      * @description The specifications that you want to change for a serverless instance.
      *
-     * >  This parameter is available only on the China site (aliyun.com).
      * @var serverlessConfiguration
      */
     public $serverlessConfiguration;
