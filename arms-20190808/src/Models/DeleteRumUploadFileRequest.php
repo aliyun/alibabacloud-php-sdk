@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteRumUploadFileRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $batchItems;
+
+    /**
      * @description The file name, with the extension.
      *
      * @example test.js.map
@@ -20,6 +25,7 @@ class DeleteRumUploadFileRequest extends Model
     /**
      * @description The application ID.
      *
+     * This parameter is required.
      * @example atc889zkcf@d8deedfa9bf****
      *
      * @var string
@@ -54,11 +60,12 @@ class DeleteRumUploadFileRequest extends Model
      */
     public $versionId;
     protected $_name = [
-        'fileName'  => 'FileName',
-        'pid'       => 'Pid',
-        'regionId'  => 'RegionId',
-        'uuid'      => 'Uuid',
-        'versionId' => 'VersionId',
+        'batchItems' => 'BatchItems',
+        'fileName'   => 'FileName',
+        'pid'        => 'Pid',
+        'regionId'   => 'RegionId',
+        'uuid'       => 'Uuid',
+        'versionId'  => 'VersionId',
     ];
 
     public function validate()
@@ -68,6 +75,9 @@ class DeleteRumUploadFileRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->batchItems) {
+            $res['BatchItems'] = $this->batchItems;
+        }
         if (null !== $this->fileName) {
             $res['FileName'] = $this->fileName;
         }
@@ -95,6 +105,9 @@ class DeleteRumUploadFileRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BatchItems'])) {
+            $model->batchItems = $map['BatchItems'];
+        }
         if (isset($map['FileName'])) {
             $model->fileName = $map['FileName'];
         }

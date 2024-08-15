@@ -5163,6 +5163,9 @@ class ARMS extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->batchItems)) {
+            $query['BatchItems'] = $request->batchItems;
+        }
         if (!Utils::isUnset($request->fileName)) {
             $query['FileName'] = $request->fileName;
         }
