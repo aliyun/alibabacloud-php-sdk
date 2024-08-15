@@ -1,3 +1,8 @@
+2024-08-15 Version: 1.6.2
+- Update API DescribeCheckJobs: add param CheckJobId.
+- Update API DescribeDtsJobs: update response param.
+
+
 2024-07-24 Version: 1.6.1
 - Generated php 2020-01-01 for Dts.
 

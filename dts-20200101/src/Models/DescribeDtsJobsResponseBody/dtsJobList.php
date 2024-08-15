@@ -209,6 +209,11 @@ class dtsJobList extends Model
     public $dtsJobName;
 
     /**
+     * @var string
+     */
+    public $duRealUsage;
+
+    /**
      * @description The number of DUs that have been used.
      *
      * @example 15
@@ -499,6 +504,7 @@ class dtsJobList extends Model
         'dtsJobDirection'               => 'DtsJobDirection',
         'dtsJobId'                      => 'DtsJobId',
         'dtsJobName'                    => 'DtsJobName',
+        'duRealUsage'                   => 'DuRealUsage',
         'duUsage'                       => 'DuUsage',
         'endTimestamp'                  => 'EndTimestamp',
         'errorDetails'                  => 'ErrorDetails',
@@ -602,6 +608,9 @@ class dtsJobList extends Model
         }
         if (null !== $this->dtsJobName) {
             $res['DtsJobName'] = $this->dtsJobName;
+        }
+        if (null !== $this->duRealUsage) {
+            $res['DuRealUsage'] = $this->duRealUsage;
         }
         if (null !== $this->duUsage) {
             $res['DuUsage'] = $this->duUsage;
@@ -785,6 +794,9 @@ class dtsJobList extends Model
         }
         if (isset($map['DtsJobName'])) {
             $model->dtsJobName = $map['DtsJobName'];
+        }
+        if (isset($map['DuRealUsage'])) {
+            $model->duRealUsage = $map['DuRealUsage'];
         }
         if (isset($map['DuUsage'])) {
             $model->duUsage = $map['DuUsage'];

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeCheckJobsRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $checkJobId;
+
+    /**
      * @var int
      */
     public $checkType;
@@ -38,6 +43,7 @@ class DescribeCheckJobsRequest extends Model
      */
     public $resourceGroupId;
     protected $_name = [
+        'checkJobId'      => 'CheckJobId',
         'checkType'       => 'CheckType',
         'instanceId'      => 'InstanceId',
         'jobName'         => 'JobName',
@@ -53,6 +59,9 @@ class DescribeCheckJobsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->checkJobId) {
+            $res['CheckJobId'] = $this->checkJobId;
+        }
         if (null !== $this->checkType) {
             $res['CheckType'] = $this->checkType;
         }
@@ -83,6 +92,9 @@ class DescribeCheckJobsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CheckJobId'])) {
+            $model->checkJobId = $map['CheckJobId'];
+        }
         if (isset($map['CheckType'])) {
             $model->checkType = $map['CheckType'];
         }

@@ -2611,6 +2611,9 @@ class Dts extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->checkJobId)) {
+            $query['CheckJobId'] = $request->checkJobId;
+        }
         if (!Utils::isUnset($request->checkType)) {
             $query['CheckType'] = $request->checkType;
         }
