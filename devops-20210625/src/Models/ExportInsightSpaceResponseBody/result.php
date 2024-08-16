@@ -18,6 +18,11 @@ class result extends Model
     /**
      * @var string
      */
+    public $customCode;
+
+    /**
+     * @var string
+     */
     public $description;
 
     /**
@@ -94,6 +99,7 @@ class result extends Model
     public $type;
     protected $_name = [
         'category'       => 'category',
+        'customCode'     => 'customCode',
         'description'    => 'description',
         'gmtCreate'      => 'gmtCreate',
         'gmtModified'    => 'gmtModified',
@@ -117,6 +123,9 @@ class result extends Model
         $res = [];
         if (null !== $this->category) {
             $res['category'] = $this->category;
+        }
+        if (null !== $this->customCode) {
+            $res['customCode'] = $this->customCode;
         }
         if (null !== $this->description) {
             $res['description'] = $this->description;
@@ -168,6 +177,9 @@ class result extends Model
         $model = new self();
         if (isset($map['category'])) {
             $model->category = $map['category'];
+        }
+        if (isset($map['customCode'])) {
+            $model->customCode = $map['customCode'];
         }
         if (isset($map['description'])) {
             $model->description = $map['description'];
