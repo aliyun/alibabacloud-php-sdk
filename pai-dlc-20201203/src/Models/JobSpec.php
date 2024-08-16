@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class JobSpec extends Model
 {
     /**
+     * @var AssignNodeSpec
+     */
+    public $assignNodeSpec;
+
+    /**
      * @example ecs.c6.large
      *
      * @var string
@@ -63,6 +68,7 @@ class JobSpec extends Model
      */
     public $useSpotInstance;
     protected $_name = [
+        'assignNodeSpec'  => 'AssignNodeSpec',
         'ecsSpec'         => 'EcsSpec',
         'extraPodSpec'    => 'ExtraPodSpec',
         'image'           => 'Image',
@@ -81,6 +87,9 @@ class JobSpec extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->assignNodeSpec) {
+            $res['AssignNodeSpec'] = null !== $this->assignNodeSpec ? $this->assignNodeSpec->toMap() : null;
+        }
         if (null !== $this->ecsSpec) {
             $res['EcsSpec'] = $this->ecsSpec;
         }
@@ -120,6 +129,9 @@ class JobSpec extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AssignNodeSpec'])) {
+            $model->assignNodeSpec = AssignNodeSpec::fromMap($map['AssignNodeSpec']);
+        }
         if (isset($map['EcsSpec'])) {
             $model->ecsSpec = $map['EcsSpec'];
         }
