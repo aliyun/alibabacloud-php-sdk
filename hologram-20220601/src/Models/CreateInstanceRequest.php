@@ -39,7 +39,7 @@ class CreateInstanceRequest extends Model
      *   PrePaid: subscription
      *   PostPaid: pay-as-you-go
      *
-     * > This parameter is invalid for shared instances. Shared instances have fixed specifications and are pay-as-you-go instances.
+     * This parameter is required.
      * @example PostPaid
      *
      * @var string
@@ -116,6 +116,7 @@ class CreateInstanceRequest extends Model
     /**
      * @description The name of the Hologres instance that you want to purchase. The name must be 2 to 64 characters in length.
      *
+     * This parameter is required.
      * @example my_holo
      *
      * @var string
@@ -130,6 +131,7 @@ class CreateInstanceRequest extends Model
      *   Warehouse: virtual warehouse instance
      *   Shared: shared instance
      *
+     * This parameter is required.
      * @example Standard
      *
      * @var string
@@ -180,6 +182,7 @@ class CreateInstanceRequest extends Model
     /**
      * @description The ID of the region. You can go to the [OpenAPI Explorer](https://api.aliyun.com/product/Hologram) or the Usage notes section to view the ID of the region.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -208,6 +211,7 @@ class CreateInstanceRequest extends Model
     /**
      * @description The ID of the vSwitch. The zone in which the vSwitch resides must be the same as the zone in which the instance resides.
      *
+     * This parameter is required.
      * @example vsw-2vccsiymtxxxxxx
      *
      * @var string
@@ -217,6 +221,7 @@ class CreateInstanceRequest extends Model
     /**
      * @description The ID of the virtual private cloud (VPC). The region in which the VPC resides must be the same as the region in which the Hologres instance resides.
      *
+     * This parameter is required.
      * @example vpc-t4netc3y5xxxx
      *
      * @var string
@@ -226,6 +231,7 @@ class CreateInstanceRequest extends Model
     /**
      * @description The ID of the zone. For more information about how to obtain the ID of the zone, see the Usage notes section.
      *
+     * This parameter is required.
      * @example cn-hangzhou-h
      *
      * @var string

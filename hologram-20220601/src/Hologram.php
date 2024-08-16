@@ -72,11 +72,13 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * @param ChangeResourceGroupRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @summary 更改资源组
+     *  *
+     * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
+     * @param string[]                   $headers map
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ChangeResourceGroupResponse
+     * @return ChangeResourceGroupResponse ChangeResourceGroupResponse
      */
     public function changeResourceGroupWithOptions($request, $headers, $runtime)
     {
@@ -108,9 +110,11 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * @param ChangeResourceGroupRequest $request
+     * @summary 更改资源组
+     *  *
+     * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
      *
-     * @return ChangeResourceGroupResponse
+     * @return ChangeResourceGroupResponse ChangeResourceGroupResponse
      */
     public function changeResourceGroup($request)
     {
@@ -121,26 +125,28 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * > Before you call this operation, make sure that you understand the billing method and pricing of Hologres because this operation is charged.
-     *   * *   For more information about the billing details of Hologres, see [Pricing](https://www.alibabacloud.com/help/en/hologres/developer-reference/api-hologram-2022-06-01-createinstance).
-     *   * *   When you purchase a Hologres instance, you must specify the region and zone in which the Hologres instance resides. A region may correspond to multiple zones. Example:
-     *   * <!---->
-     *   *     cn-hangzhou: cn-hangzhou-h, cn-hangzhou-j
-     *   *        cn-shanghai: cn-shanghai-e, cn-shanghai-f
-     *   *        cn-beijing: cn-beijing-i, cn-beijing-g
-     *   *        cn-zhangjiakou: cn-zhangjiakou-b
-     *   *        cn-shenzhen: cn-shenzhen-e
-     *   *        cn-hongkong: cn-hongkong-b
-     *   *        cn-shanghai-finance-1: cn-shanghai-finance-1z
-     *   *        ap-northeast-1: ap-northeast-1a
-     *   *        ap-southeast-1: ap-southeast-1c
-     *   *        ap-southeast-3: ap-southeast-3b
-     *   *        ap-southeast-5: ap-southeast-5b
-     *   *        ap-south-1: ap-south-1b
-     *   *        eu-central-1: eu-central-1a
-     *   *        us-east-1: us-east-1a
-     *   *        us-west-1: us-west-1b.
-     *   *
+     * @summary Creates a Hologres instance.
+     *  *
+     * @description > Before you call this operation, make sure that you understand the billing method and pricing of Hologres because this operation is charged.
+     * *   For more information about the billing details of Hologres, see [Pricing](https://www.alibabacloud.com/help/en/hologres/developer-reference/api-hologram-2022-06-01-createinstance).
+     * *   When you purchase a Hologres instance, you must specify the region and zone in which the Hologres instance resides. A region may correspond to multiple zones. Example:
+     * <!---->
+     *     cn-hangzhou: cn-hangzhou-h, cn-hangzhou-j
+     *        cn-shanghai: cn-shanghai-e, cn-shanghai-f
+     *        cn-beijing: cn-beijing-i, cn-beijing-g
+     *        cn-zhangjiakou: cn-zhangjiakou-b
+     *        cn-shenzhen: cn-shenzhen-e
+     *        cn-hongkong: cn-hongkong-b
+     *        cn-shanghai-finance-1: cn-shanghai-finance-1z
+     *        ap-northeast-1: ap-northeast-1a
+     *        ap-southeast-1: ap-southeast-1c
+     *        ap-southeast-3: ap-southeast-3b
+     *        ap-southeast-5: ap-southeast-5b
+     *        ap-south-1: ap-south-1b
+     *        eu-central-1: eu-central-1a
+     *        us-east-1: us-east-1a
+     *        us-west-1: us-west-1b
+     *  *
      * @param CreateInstanceRequest $request CreateInstanceRequest
      * @param string[]              $headers map
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -228,26 +234,28 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * > Before you call this operation, make sure that you understand the billing method and pricing of Hologres because this operation is charged.
-     *   * *   For more information about the billing details of Hologres, see [Pricing](https://www.alibabacloud.com/help/en/hologres/developer-reference/api-hologram-2022-06-01-createinstance).
-     *   * *   When you purchase a Hologres instance, you must specify the region and zone in which the Hologres instance resides. A region may correspond to multiple zones. Example:
-     *   * <!---->
-     *   *     cn-hangzhou: cn-hangzhou-h, cn-hangzhou-j
-     *   *        cn-shanghai: cn-shanghai-e, cn-shanghai-f
-     *   *        cn-beijing: cn-beijing-i, cn-beijing-g
-     *   *        cn-zhangjiakou: cn-zhangjiakou-b
-     *   *        cn-shenzhen: cn-shenzhen-e
-     *   *        cn-hongkong: cn-hongkong-b
-     *   *        cn-shanghai-finance-1: cn-shanghai-finance-1z
-     *   *        ap-northeast-1: ap-northeast-1a
-     *   *        ap-southeast-1: ap-southeast-1c
-     *   *        ap-southeast-3: ap-southeast-3b
-     *   *        ap-southeast-5: ap-southeast-5b
-     *   *        ap-south-1: ap-south-1b
-     *   *        eu-central-1: eu-central-1a
-     *   *        us-east-1: us-east-1a
-     *   *        us-west-1: us-west-1b.
-     *   *
+     * @summary Creates a Hologres instance.
+     *  *
+     * @description > Before you call this operation, make sure that you understand the billing method and pricing of Hologres because this operation is charged.
+     * *   For more information about the billing details of Hologres, see [Pricing](https://www.alibabacloud.com/help/en/hologres/developer-reference/api-hologram-2022-06-01-createinstance).
+     * *   When you purchase a Hologres instance, you must specify the region and zone in which the Hologres instance resides. A region may correspond to multiple zones. Example:
+     * <!---->
+     *     cn-hangzhou: cn-hangzhou-h, cn-hangzhou-j
+     *        cn-shanghai: cn-shanghai-e, cn-shanghai-f
+     *        cn-beijing: cn-beijing-i, cn-beijing-g
+     *        cn-zhangjiakou: cn-zhangjiakou-b
+     *        cn-shenzhen: cn-shenzhen-e
+     *        cn-hongkong: cn-hongkong-b
+     *        cn-shanghai-finance-1: cn-shanghai-finance-1z
+     *        ap-northeast-1: ap-northeast-1a
+     *        ap-southeast-1: ap-southeast-1c
+     *        ap-southeast-3: ap-southeast-3b
+     *        ap-southeast-5: ap-southeast-5b
+     *        ap-south-1: ap-south-1b
+     *        eu-central-1: eu-central-1a
+     *        us-east-1: us-east-1a
+     *        us-west-1: us-west-1b
+     *  *
      * @param CreateInstanceRequest $request CreateInstanceRequest
      *
      * @return CreateInstanceResponse CreateInstanceResponse
@@ -261,11 +269,13 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * > Before you call this operation, read the documentation and make sure that you understand the prerequisites and impacts of this operation.
-     *   * *   After you delete a Hologres instance, data and objects in the instance cannot be restored. Proceed with caution. For more information, see [Billing overview](https://www.alibabacloud.com/help/en/hologres/product-overview/billing-overview#section-h6a-x58-jc0).
-     *   * *   You can delete only pay-as-you-go instances.
-     *   * *   If you want to unsubscribe from a subscription instance, submit a ticket.[](https://help.aliyun.com/document_detail/150284.html#section-ogc-9vc-858).
-     *   *
+     * @summary Deletes a Hologres instance.
+     *  *
+     * @description > Before you call this operation, read the documentation and make sure that you understand the prerequisites and impacts of this operation.
+     * *   After you delete a Hologres instance, data and objects in the instance cannot be restored. Proceed with caution. For more information, see [Billing overview](https://www.alibabacloud.com/help/en/hologres/product-overview/billing-overview#section-h6a-x58-jc0).
+     * *   You can delete only pay-as-you-go instances.
+     * *   If you want to unsubscribe from a subscription instance, submit a ticket.[](https://help.aliyun.com/document_detail/150284.html#section-ogc-9vc-858)
+     *  *
      * @param string                $instanceId
      * @param DeleteInstanceRequest $request    DeleteInstanceRequest
      * @param string[]              $headers    map
@@ -300,11 +310,13 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * > Before you call this operation, read the documentation and make sure that you understand the prerequisites and impacts of this operation.
-     *   * *   After you delete a Hologres instance, data and objects in the instance cannot be restored. Proceed with caution. For more information, see [Billing overview](https://www.alibabacloud.com/help/en/hologres/product-overview/billing-overview#section-h6a-x58-jc0).
-     *   * *   You can delete only pay-as-you-go instances.
-     *   * *   If you want to unsubscribe from a subscription instance, submit a ticket.[](https://help.aliyun.com/document_detail/150284.html#section-ogc-9vc-858).
-     *   *
+     * @summary Deletes a Hologres instance.
+     *  *
+     * @description > Before you call this operation, read the documentation and make sure that you understand the prerequisites and impacts of this operation.
+     * *   After you delete a Hologres instance, data and objects in the instance cannot be restored. Proceed with caution. For more information, see [Billing overview](https://www.alibabacloud.com/help/en/hologres/product-overview/billing-overview#section-h6a-x58-jc0).
+     * *   You can delete only pay-as-you-go instances.
+     * *   If you want to unsubscribe from a subscription instance, submit a ticket.[](https://help.aliyun.com/document_detail/150284.html#section-ogc-9vc-858)
+     *  *
      * @param string                $instanceId
      * @param DeleteInstanceRequest $request    DeleteInstanceRequest
      *
@@ -319,12 +331,14 @@ class Hologram extends OpenApiClient
     }
 
     /**
+     * @summary 关闭数据湖加速
+     *  *
      * @param string                   $instanceId
-     * @param DisableHiveAccessRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @param DisableHiveAccessRequest $request    DisableHiveAccessRequest
+     * @param string[]                 $headers    map
+     * @param RuntimeOptions           $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DisableHiveAccessResponse
+     * @return DisableHiveAccessResponse DisableHiveAccessResponse
      */
     public function disableHiveAccessWithOptions($instanceId, $request, $headers, $runtime)
     {
@@ -353,10 +367,12 @@ class Hologram extends OpenApiClient
     }
 
     /**
+     * @summary 关闭数据湖加速
+     *  *
      * @param string                   $instanceId
-     * @param DisableHiveAccessRequest $request
+     * @param DisableHiveAccessRequest $request    DisableHiveAccessRequest
      *
-     * @return DisableHiveAccessResponse
+     * @return DisableHiveAccessResponse DisableHiveAccessResponse
      */
     public function disableHiveAccess($instanceId, $request)
     {
@@ -367,12 +383,14 @@ class Hologram extends OpenApiClient
     }
 
     /**
+     * @summary 打开数据湖加速
+     *  *
      * @param string                  $instanceId
-     * @param EnableHiveAccessRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @param EnableHiveAccessRequest $request    EnableHiveAccessRequest
+     * @param string[]                $headers    map
+     * @param RuntimeOptions          $runtime    runtime options for this request RuntimeOptions
      *
-     * @return EnableHiveAccessResponse
+     * @return EnableHiveAccessResponse EnableHiveAccessResponse
      */
     public function enableHiveAccessWithOptions($instanceId, $request, $headers, $runtime)
     {
@@ -401,10 +419,12 @@ class Hologram extends OpenApiClient
     }
 
     /**
+     * @summary 打开数据湖加速
+     *  *
      * @param string                  $instanceId
-     * @param EnableHiveAccessRequest $request
+     * @param EnableHiveAccessRequest $request    EnableHiveAccessRequest
      *
-     * @return EnableHiveAccessResponse
+     * @return EnableHiveAccessResponse EnableHiveAccessResponse
      */
     public function enableHiveAccess($instanceId, $request)
     {
@@ -415,11 +435,13 @@ class Hologram extends OpenApiClient
     }
 
     /**
+     * @summary Obtains the details of an instance.
+     *  *
      * @param string         $instanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return GetInstanceResponse
+     * @return GetInstanceResponse GetInstanceResponse
      */
     public function getInstanceWithOptions($instanceId, $headers, $runtime)
     {
@@ -442,9 +464,11 @@ class Hologram extends OpenApiClient
     }
 
     /**
+     * @summary Obtains the details of an instance.
+     *  *
      * @param string $instanceId
      *
-     * @return GetInstanceResponse
+     * @return GetInstanceResponse GetInstanceResponse
      */
     public function getInstance($instanceId)
     {
@@ -455,11 +479,13 @@ class Hologram extends OpenApiClient
     }
 
     /**
+     * @summary Queries details of a virtual warehouse instance.
+     *  *
      * @param string         $instanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return GetWarehouseDetailResponse
+     * @return GetWarehouseDetailResponse GetWarehouseDetailResponse
      */
     public function getWarehouseDetailWithOptions($instanceId, $headers, $runtime)
     {
@@ -482,9 +508,11 @@ class Hologram extends OpenApiClient
     }
 
     /**
+     * @summary Queries details of a virtual warehouse instance.
+     *  *
      * @param string $instanceId
      *
-     * @return GetWarehouseDetailResponse
+     * @return GetWarehouseDetailResponse GetWarehouseDetailResponse
      */
     public function getWarehouseDetail($instanceId)
     {
@@ -495,11 +523,13 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * @param ListInstancesRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @summary Queries a list of instances.
+     *  *
+     * @param ListInstancesRequest $request ListInstancesRequest
+     * @param string[]             $headers map
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListInstancesResponse
+     * @return ListInstancesResponse ListInstancesResponse
      */
     public function listInstancesWithOptions($request, $headers, $runtime)
     {
@@ -534,9 +564,11 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * @param ListInstancesRequest $request
+     * @summary Queries a list of instances.
+     *  *
+     * @param ListInstancesRequest $request ListInstancesRequest
      *
-     * @return ListInstancesResponse
+     * @return ListInstancesResponse ListInstancesResponse
      */
     public function listInstances($request)
     {
@@ -547,11 +579,13 @@ class Hologram extends OpenApiClient
     }
 
     /**
+     * @summary Queries the list of virtual warehouse instances.
+     *  *
      * @param string         $instanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListWarehousesResponse
+     * @return ListWarehousesResponse ListWarehousesResponse
      */
     public function listWarehousesWithOptions($instanceId, $headers, $runtime)
     {
@@ -574,9 +608,11 @@ class Hologram extends OpenApiClient
     }
 
     /**
+     * @summary Queries the list of virtual warehouse instances.
+     *  *
      * @param string $instanceId
      *
-     * @return ListWarehousesResponse
+     * @return ListWarehousesResponse ListWarehousesResponse
      */
     public function listWarehouses($instanceId)
     {
@@ -587,11 +623,13 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * > Before you call this operation, make sure that you understand the billing method and pricing of Hologres because this operation is charged.
-     *   * *   For more information about billing details of Hologres, see [Pricing](https://www.alibabacloud.com/help/en/hologres/product-overview/billing-overview).
-     *   * *   For more information about how to renew a Hologres instance, see [Manage renewals](https://www.alibabacloud.com/help/en/hologres/product-overview/manage-renewals?spm=a2c63.p38356.0.0.73f27c8d1Q0FUi).
-     *   * *   You can renew only subscription instances.
-     *   *
+     * @summary Manually renews a Hologres instance. You can enable monthly auto-renewal when you renew a Hologres instance.
+     *  *
+     * @description > Before you call this operation, make sure that you understand the billing method and pricing of Hologres because this operation is charged.
+     * *   For more information about billing details of Hologres, see [Pricing](https://www.alibabacloud.com/help/en/hologres/product-overview/billing-overview).
+     * *   For more information about how to renew a Hologres instance, see [Manage renewals](https://www.alibabacloud.com/help/en/hologres/product-overview/manage-renewals?spm=a2c63.p38356.0.0.73f27c8d1Q0FUi).
+     * *   You can renew only subscription instances.
+     *  *
      * @param string               $instanceId
      * @param RenewInstanceRequest $request    RenewInstanceRequest
      * @param string[]             $headers    map
@@ -629,11 +667,13 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * > Before you call this operation, make sure that you understand the billing method and pricing of Hologres because this operation is charged.
-     *   * *   For more information about billing details of Hologres, see [Pricing](https://www.alibabacloud.com/help/en/hologres/product-overview/billing-overview).
-     *   * *   For more information about how to renew a Hologres instance, see [Manage renewals](https://www.alibabacloud.com/help/en/hologres/product-overview/manage-renewals?spm=a2c63.p38356.0.0.73f27c8d1Q0FUi).
-     *   * *   You can renew only subscription instances.
-     *   *
+     * @summary Manually renews a Hologres instance. You can enable monthly auto-renewal when you renew a Hologres instance.
+     *  *
+     * @description > Before you call this operation, make sure that you understand the billing method and pricing of Hologres because this operation is charged.
+     * *   For more information about billing details of Hologres, see [Pricing](https://www.alibabacloud.com/help/en/hologres/product-overview/billing-overview).
+     * *   For more information about how to renew a Hologres instance, see [Manage renewals](https://www.alibabacloud.com/help/en/hologres/product-overview/manage-renewals?spm=a2c63.p38356.0.0.73f27c8d1Q0FUi).
+     * *   You can renew only subscription instances.
+     *  *
      * @param string               $instanceId
      * @param RenewInstanceRequest $request    RenewInstanceRequest
      *
@@ -648,11 +688,13 @@ class Hologram extends OpenApiClient
     }
 
     /**
+     * @summary 重启实例
+     *  *
      * @param string         $instanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return RestartInstanceResponse
+     * @return RestartInstanceResponse RestartInstanceResponse
      */
     public function restartInstanceWithOptions($instanceId, $headers, $runtime)
     {
@@ -675,9 +717,11 @@ class Hologram extends OpenApiClient
     }
 
     /**
+     * @summary 重启实例
+     *  *
      * @param string $instanceId
      *
-     * @return RestartInstanceResponse
+     * @return RestartInstanceResponse RestartInstanceResponse
      */
     public function restartInstance($instanceId)
     {
@@ -688,11 +732,13 @@ class Hologram extends OpenApiClient
     }
 
     /**
+     * @summary Resumes a suspended instance.
+     *  *
      * @param string         $instanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ResumeInstanceResponse
+     * @return ResumeInstanceResponse ResumeInstanceResponse
      */
     public function resumeInstanceWithOptions($instanceId, $headers, $runtime)
     {
@@ -715,9 +761,11 @@ class Hologram extends OpenApiClient
     }
 
     /**
+     * @summary Resumes a suspended instance.
+     *  *
      * @param string $instanceId
      *
-     * @return ResumeInstanceResponse
+     * @return ResumeInstanceResponse ResumeInstanceResponse
      */
     public function resumeInstance($instanceId)
     {
@@ -728,10 +776,12 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * > Before you call this operation, make sure that you understand the billing method and pricing of Hologres because this operation is charged.
-     *   * *   For more information about the billing of Hologres, see [Billing overview](https://www.alibabacloud.com/help/zh/hologres/product-overview/billing-overview).
-     *   * *   During the change of computing resource specifications of a Hologres instance, the instance is unavailable. During the change of storage resource specifications of a Hologres instance, the instance can work normally. Do not frequently change instance specifications. For more information, see [Upgrade or downgrade instance specifications](https://www.alibabacloud.com/help/en/hologres/product-overview/upgrade-or-downgrade-instance-specifications).
-     *   *
+     * @summary Changes the specifications and storage space of a Hologres instance.
+     *  *
+     * @description > Before you call this operation, make sure that you understand the billing method and pricing of Hologres because this operation is charged.
+     * *   For more information about the billing of Hologres, see [Billing overview](https://www.alibabacloud.com/help/zh/hologres/product-overview/billing-overview).
+     * *   During the change of computing resource specifications of a Hologres instance, the instance is unavailable. During the change of storage resource specifications of a Hologres instance, the instance can work normally. Do not frequently change instance specifications. For more information, see [Upgrade or downgrade instance specifications](https://www.alibabacloud.com/help/en/hologres/product-overview/upgrade-or-downgrade-instance-specifications).
+     *  *
      * @param string               $instanceId
      * @param ScaleInstanceRequest $request    ScaleInstanceRequest
      * @param string[]             $headers    map
@@ -781,10 +831,12 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * > Before you call this operation, make sure that you understand the billing method and pricing of Hologres because this operation is charged.
-     *   * *   For more information about the billing of Hologres, see [Billing overview](https://www.alibabacloud.com/help/zh/hologres/product-overview/billing-overview).
-     *   * *   During the change of computing resource specifications of a Hologres instance, the instance is unavailable. During the change of storage resource specifications of a Hologres instance, the instance can work normally. Do not frequently change instance specifications. For more information, see [Upgrade or downgrade instance specifications](https://www.alibabacloud.com/help/en/hologres/product-overview/upgrade-or-downgrade-instance-specifications).
-     *   *
+     * @summary Changes the specifications and storage space of a Hologres instance.
+     *  *
+     * @description > Before you call this operation, make sure that you understand the billing method and pricing of Hologres because this operation is charged.
+     * *   For more information about the billing of Hologres, see [Billing overview](https://www.alibabacloud.com/help/zh/hologres/product-overview/billing-overview).
+     * *   During the change of computing resource specifications of a Hologres instance, the instance is unavailable. During the change of storage resource specifications of a Hologres instance, the instance can work normally. Do not frequently change instance specifications. For more information, see [Upgrade or downgrade instance specifications](https://www.alibabacloud.com/help/en/hologres/product-overview/upgrade-or-downgrade-instance-specifications).
+     *  *
      * @param string               $instanceId
      * @param ScaleInstanceRequest $request    ScaleInstanceRequest
      *
@@ -799,11 +851,13 @@ class Hologram extends OpenApiClient
     }
 
     /**
+     * @summary 暂停实例
+     *  *
      * @param string         $instanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return StopInstanceResponse
+     * @return StopInstanceResponse StopInstanceResponse
      */
     public function stopInstanceWithOptions($instanceId, $headers, $runtime)
     {
@@ -826,9 +880,11 @@ class Hologram extends OpenApiClient
     }
 
     /**
+     * @summary 暂停实例
+     *  *
      * @param string $instanceId
      *
-     * @return StopInstanceResponse
+     * @return StopInstanceResponse StopInstanceResponse
      */
     public function stopInstance($instanceId)
     {
@@ -839,12 +895,14 @@ class Hologram extends OpenApiClient
     }
 
     /**
+     * @summary Changes the name of an instance.
+     *  *
      * @param string                    $instanceId
-     * @param UpdateInstanceNameRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @param UpdateInstanceNameRequest $request    UpdateInstanceNameRequest
+     * @param string[]                  $headers    map
+     * @param RuntimeOptions            $runtime    runtime options for this request RuntimeOptions
      *
-     * @return UpdateInstanceNameResponse
+     * @return UpdateInstanceNameResponse UpdateInstanceNameResponse
      */
     public function updateInstanceNameWithOptions($instanceId, $request, $headers, $runtime)
     {
@@ -873,10 +931,12 @@ class Hologram extends OpenApiClient
     }
 
     /**
+     * @summary Changes the name of an instance.
+     *  *
      * @param string                    $instanceId
-     * @param UpdateInstanceNameRequest $request
+     * @param UpdateInstanceNameRequest $request    UpdateInstanceNameRequest
      *
-     * @return UpdateInstanceNameResponse
+     * @return UpdateInstanceNameResponse UpdateInstanceNameResponse
      */
     public function updateInstanceName($instanceId, $request)
     {
@@ -887,12 +947,14 @@ class Hologram extends OpenApiClient
     }
 
     /**
+     * @summary Modifies the network configuration of an instance.
+     *  *
      * @param string                           $instanceId
-     * @param UpdateInstanceNetworkTypeRequest $request
-     * @param string[]                         $headers
-     * @param RuntimeOptions                   $runtime
+     * @param UpdateInstanceNetworkTypeRequest $request    UpdateInstanceNetworkTypeRequest
+     * @param string[]                         $headers    map
+     * @param RuntimeOptions                   $runtime    runtime options for this request RuntimeOptions
      *
-     * @return UpdateInstanceNetworkTypeResponse
+     * @return UpdateInstanceNetworkTypeResponse UpdateInstanceNetworkTypeResponse
      */
     public function updateInstanceNetworkTypeWithOptions($instanceId, $request, $headers, $runtime)
     {
@@ -936,10 +998,12 @@ class Hologram extends OpenApiClient
     }
 
     /**
+     * @summary Modifies the network configuration of an instance.
+     *  *
      * @param string                           $instanceId
-     * @param UpdateInstanceNetworkTypeRequest $request
+     * @param UpdateInstanceNetworkTypeRequest $request    UpdateInstanceNetworkTypeRequest
      *
-     * @return UpdateInstanceNetworkTypeResponse
+     * @return UpdateInstanceNetworkTypeResponse UpdateInstanceNetworkTypeResponse
      */
     public function updateInstanceNetworkType($instanceId, $request)
     {

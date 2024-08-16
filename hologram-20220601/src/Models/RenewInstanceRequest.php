@@ -24,6 +24,7 @@ class RenewInstanceRequest extends Model
     /**
      * @description The renewal duration. Unit: month.
      *
+     * This parameter is required.
      * @example 2
      *
      * @var int

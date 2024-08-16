@@ -72,6 +72,7 @@ class ScaleInstanceRequest extends Model
      *
      *   If you set this parameter to DOWNGRADE, the new specifications must be lower than the original specifications. You must configure at least one of the cpu, storageSize, and coldStorageSize parameters. If you leave a parameter empty, the related configuration remains unchanged.
      *
+     * This parameter is required.
      * @example UPGRADE
      *
      * @var string

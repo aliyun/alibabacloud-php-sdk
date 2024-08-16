@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class warehouseList extends Model
 {
     /**
-     * @description cpu
+     * @description The number of CPU cores.
      *
      * @example 32
      *
@@ -18,7 +18,7 @@ class warehouseList extends Model
     public $cpu;
 
     /**
-     * @description id
+     * @description The ID.
      *
      * @example 3
      *
@@ -27,6 +27,8 @@ class warehouseList extends Model
     public $id;
 
     /**
+     * @description The memory capacity.
+     *
      * @example 128
      *
      * @var int
@@ -34,6 +36,8 @@ class warehouseList extends Model
     public $mem;
 
     /**
+     * @description The name of the virtual warehouse instance.
+     *
      * @example MyWarehouse
      *
      * @var string
@@ -41,6 +45,8 @@ class warehouseList extends Model
     public $name;
 
     /**
+     * @description The number of compute nodes.
+     *
      * @example 2
      *
      * @var int
@@ -48,6 +54,29 @@ class warehouseList extends Model
     public $nodeCount;
 
     /**
+     * @description The status.
+     *
+     * Valid values:
+     *
+     *   kRunning
+     *
+     * <!-- -->
+     *
+     *   kSuspended
+     *
+     * <!-- -->
+     *
+     *   kInit
+     *
+     * <!-- -->
+     *
+     *   kFailed
+     *
+     * <!-- -->
+     *
+     *   kAllocating
+     *
+     * <!-- -->
      * @example kRunning
      *
      * @var string

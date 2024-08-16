@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class warehouseDetail extends Model
 {
     /**
+     * @description The remaining unallocated computing resources of the virtual warehouse instance.
+     *
      * @example 32
      *
      * @var string
@@ -17,6 +19,8 @@ class warehouseDetail extends Model
     public $remainingCpu;
 
     /**
+     * @description The reserved computing resources. The amount of computing resources in all running virtual warehouses in an instance cannot exceed the amount of reserved computing resources in the virtual warehouses.
+     *
      * @example 64
      *
      * @var string
@@ -24,13 +28,21 @@ class warehouseDetail extends Model
     public $reservedCpu;
 
     /**
+     * @var string
+     */
+    public $timedElasticCpu;
+
+    /**
+     * @description The list of virtual warehouses.
+     *
      * @var warehouseList[]
      */
     public $warehouseList;
     protected $_name = [
-        'remainingCpu'  => 'RemainingCpu',
-        'reservedCpu'   => 'ReservedCpu',
-        'warehouseList' => 'WarehouseList',
+        'remainingCpu'    => 'RemainingCpu',
+        'reservedCpu'     => 'ReservedCpu',
+        'timedElasticCpu' => 'TimedElasticCpu',
+        'warehouseList'   => 'WarehouseList',
     ];
 
     public function validate()
@@ -45,6 +57,9 @@ class warehouseDetail extends Model
         }
         if (null !== $this->reservedCpu) {
             $res['ReservedCpu'] = $this->reservedCpu;
+        }
+        if (null !== $this->timedElasticCpu) {
+            $res['TimedElasticCpu'] = $this->timedElasticCpu;
         }
         if (null !== $this->warehouseList) {
             $res['WarehouseList'] = [];
@@ -72,6 +87,9 @@ class warehouseDetail extends Model
         }
         if (isset($map['ReservedCpu'])) {
             $model->reservedCpu = $map['ReservedCpu'];
+        }
+        if (isset($map['TimedElasticCpu'])) {
+            $model->timedElasticCpu = $map['TimedElasticCpu'];
         }
         if (isset($map['WarehouseList'])) {
             if (!empty($map['WarehouseList'])) {

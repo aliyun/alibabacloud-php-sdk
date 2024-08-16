@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetWarehouseDetailResponseBody extends Model
 {
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example D3AE84AB-0873-5FC7-A4C4-8CF869D2FA70
      *
@@ -19,6 +19,8 @@ class GetWarehouseDetailResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The values returned.
+     *
      * @var warehouseDetail
      */
     public $warehouseDetail;

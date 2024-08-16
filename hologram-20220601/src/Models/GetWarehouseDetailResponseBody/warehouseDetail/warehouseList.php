@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class warehouseList extends Model
 {
     /**
-     * @description cpu
+     * @description The number of CPU cores.
      *
      * @example 32
      *
@@ -18,7 +18,17 @@ class warehouseList extends Model
     public $cpu;
 
     /**
-     * @description id
+     * @var bool
+     */
+    public $defaultWarehouse;
+
+    /**
+     * @var int
+     */
+    public $elasticCpu;
+
+    /**
+     * @description The ID.
      *
      * @example 2
      *
@@ -27,6 +37,8 @@ class warehouseList extends Model
     public $id;
 
     /**
+     * @description The memory capacity.
+     *
      * @example 128
      *
      * @var int
@@ -34,6 +46,8 @@ class warehouseList extends Model
     public $mem;
 
     /**
+     * @description The name of the virtual warehouse instance.
+     *
      * @example MyWarehouse
      *
      * @var string
@@ -41,6 +55,8 @@ class warehouseList extends Model
     public $name;
 
     /**
+     * @description The number of compute nodes.
+     *
      * @example 2
      *
      * @var int
@@ -48,18 +64,49 @@ class warehouseList extends Model
     public $nodeCount;
 
     /**
+     * @var string
+     */
+    public $rebalanceStatus;
+
+    /**
+     * @description The status.
+     *
+     * Valid values:
+     *
+     *   kRunning
+     *
+     * <!-- -->
+     *
+     *   kSuspended
+     *
+     * <!-- -->
+     *
+     *   kInit
+     *
+     * <!-- -->
+     *
+     *   kFailed
+     *
+     * <!-- -->
+     *
+     *   kAllocating
+     *
+     * <!-- -->
      * @example kRunning
      *
      * @var string
      */
     public $status;
     protected $_name = [
-        'cpu'       => 'Cpu',
-        'id'        => 'Id',
-        'mem'       => 'Mem',
-        'name'      => 'Name',
-        'nodeCount' => 'NodeCount',
-        'status'    => 'Status',
+        'cpu'              => 'Cpu',
+        'defaultWarehouse' => 'DefaultWarehouse',
+        'elasticCpu'       => 'ElasticCpu',
+        'id'               => 'Id',
+        'mem'              => 'Mem',
+        'name'             => 'Name',
+        'nodeCount'        => 'NodeCount',
+        'rebalanceStatus'  => 'RebalanceStatus',
+        'status'           => 'Status',
     ];
 
     public function validate()
@@ -72,6 +119,12 @@ class warehouseList extends Model
         if (null !== $this->cpu) {
             $res['Cpu'] = $this->cpu;
         }
+        if (null !== $this->defaultWarehouse) {
+            $res['DefaultWarehouse'] = $this->defaultWarehouse;
+        }
+        if (null !== $this->elasticCpu) {
+            $res['ElasticCpu'] = $this->elasticCpu;
+        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
@@ -83,6 +136,9 @@ class warehouseList extends Model
         }
         if (null !== $this->nodeCount) {
             $res['NodeCount'] = $this->nodeCount;
+        }
+        if (null !== $this->rebalanceStatus) {
+            $res['RebalanceStatus'] = $this->rebalanceStatus;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -102,6 +158,12 @@ class warehouseList extends Model
         if (isset($map['Cpu'])) {
             $model->cpu = $map['Cpu'];
         }
+        if (isset($map['DefaultWarehouse'])) {
+            $model->defaultWarehouse = $map['DefaultWarehouse'];
+        }
+        if (isset($map['ElasticCpu'])) {
+            $model->elasticCpu = $map['ElasticCpu'];
+        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
@@ -113,6 +175,9 @@ class warehouseList extends Model
         }
         if (isset($map['NodeCount'])) {
             $model->nodeCount = $map['NodeCount'];
+        }
+        if (isset($map['RebalanceStatus'])) {
+            $model->rebalanceStatus = $map['RebalanceStatus'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

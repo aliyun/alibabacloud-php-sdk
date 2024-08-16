@@ -10,12 +10,14 @@ use AlibabaCloud\Tea\Model;
 class ListWarehousesResponseBody extends Model
 {
     /**
+     * @description The list of virtual warehouse instances.
+     *
      * @var warehouseList[]
      */
     public $warehouseList;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example 819A7F0F-2951-540F-BD94-6A41ECF0281F
      *
