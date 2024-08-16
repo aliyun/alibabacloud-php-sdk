@@ -1,4 +1,4 @@
-2024-08-15 Version: 1.0.14
+2024-08-16 Version: 1.0.14
 - Update API GeneratePictureLink: update response param.
 - Update API GeneratePictureUploadSign: update response param.
 - Update API GenerateProblemPictureUploadSign: update response param.
