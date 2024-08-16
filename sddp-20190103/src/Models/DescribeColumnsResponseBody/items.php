@@ -110,6 +110,11 @@ class items extends Model
     public $productCode;
 
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @description The ID of the revision record.
      *
      * @example 12
@@ -233,6 +238,7 @@ class items extends Model
         'odpsRiskLevelName'  => 'OdpsRiskLevelName',
         'odpsRiskLevelValue' => 'OdpsRiskLevelValue',
         'productCode'        => 'ProductCode',
+        'regionId'           => 'RegionId',
         'revisionId'         => 'RevisionId',
         'revisionStatus'     => 'RevisionStatus',
         'riskLevelId'        => 'RiskLevelId',
@@ -287,6 +293,9 @@ class items extends Model
         }
         if (null !== $this->productCode) {
             $res['ProductCode'] = $this->productCode;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->revisionId) {
             $res['RevisionId'] = $this->revisionId;
@@ -365,6 +374,9 @@ class items extends Model
         }
         if (isset($map['ProductCode'])) {
             $model->productCode = $map['ProductCode'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['RevisionId'])) {
             $model->revisionId = $map['RevisionId'];

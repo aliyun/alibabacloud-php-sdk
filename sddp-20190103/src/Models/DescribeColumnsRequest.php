@@ -18,6 +18,11 @@ class DescribeColumnsRequest extends Model
     public $currentPage;
 
     /**
+     * @var string
+     */
+    public $engineType;
+
+    /**
      * @description The ID of the instance to which data in the column of the table belongs.
      *
      * > You can call the [DescribeInstances](~~DescribeRules~~) operation to query the IDs of instances.
@@ -49,6 +54,11 @@ class DescribeColumnsRequest extends Model
     public $lang;
 
     /**
+     * @var string
+     */
+    public $modelTagId;
+
+    /**
      * @description The search keyword. Fuzzy match is supported.
      *
      * For example, if you enter **test**, all columns whose names contain **test** are retrieved.
@@ -75,6 +85,11 @@ class DescribeColumnsRequest extends Model
      * @var string
      */
     public $productCode;
+
+    /**
+     * @var string
+     */
+    public $productId;
 
     /**
      * @description The sensitivity level of the sensitive data that hits the sensitive data detection rule. Valid values:
@@ -143,20 +158,35 @@ class DescribeColumnsRequest extends Model
      * @var string
      */
     public $tableName;
+
+    /**
+     * @var string
+     */
+    public $templateId;
+
+    /**
+     * @var string
+     */
+    public $templateRuleId;
     protected $_name = [
-        'currentPage'   => 'CurrentPage',
-        'instanceId'    => 'InstanceId',
-        'instanceName'  => 'InstanceName',
-        'lang'          => 'Lang',
-        'name'          => 'Name',
-        'pageSize'      => 'PageSize',
-        'productCode'   => 'ProductCode',
-        'riskLevelId'   => 'RiskLevelId',
-        'ruleId'        => 'RuleId',
-        'ruleName'      => 'RuleName',
-        'sensLevelName' => 'SensLevelName',
-        'tableId'       => 'TableId',
-        'tableName'     => 'TableName',
+        'currentPage'    => 'CurrentPage',
+        'engineType'     => 'EngineType',
+        'instanceId'     => 'InstanceId',
+        'instanceName'   => 'InstanceName',
+        'lang'           => 'Lang',
+        'modelTagId'     => 'ModelTagId',
+        'name'           => 'Name',
+        'pageSize'       => 'PageSize',
+        'productCode'    => 'ProductCode',
+        'productId'      => 'ProductId',
+        'riskLevelId'    => 'RiskLevelId',
+        'ruleId'         => 'RuleId',
+        'ruleName'       => 'RuleName',
+        'sensLevelName'  => 'SensLevelName',
+        'tableId'        => 'TableId',
+        'tableName'      => 'TableName',
+        'templateId'     => 'TemplateId',
+        'templateRuleId' => 'TemplateRuleId',
     ];
 
     public function validate()
@@ -169,6 +199,9 @@ class DescribeColumnsRequest extends Model
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
+        if (null !== $this->engineType) {
+            $res['EngineType'] = $this->engineType;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -178,6 +211,9 @@ class DescribeColumnsRequest extends Model
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+        if (null !== $this->modelTagId) {
+            $res['ModelTagId'] = $this->modelTagId;
+        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -186,6 +222,9 @@ class DescribeColumnsRequest extends Model
         }
         if (null !== $this->productCode) {
             $res['ProductCode'] = $this->productCode;
+        }
+        if (null !== $this->productId) {
+            $res['ProductId'] = $this->productId;
         }
         if (null !== $this->riskLevelId) {
             $res['RiskLevelId'] = $this->riskLevelId;
@@ -205,6 +244,12 @@ class DescribeColumnsRequest extends Model
         if (null !== $this->tableName) {
             $res['TableName'] = $this->tableName;
         }
+        if (null !== $this->templateId) {
+            $res['TemplateId'] = $this->templateId;
+        }
+        if (null !== $this->templateRuleId) {
+            $res['TemplateRuleId'] = $this->templateRuleId;
+        }
 
         return $res;
     }
@@ -220,6 +265,9 @@ class DescribeColumnsRequest extends Model
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
+        if (isset($map['EngineType'])) {
+            $model->engineType = $map['EngineType'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
@@ -229,6 +277,9 @@ class DescribeColumnsRequest extends Model
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+        if (isset($map['ModelTagId'])) {
+            $model->modelTagId = $map['ModelTagId'];
+        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
@@ -237,6 +288,9 @@ class DescribeColumnsRequest extends Model
         }
         if (isset($map['ProductCode'])) {
             $model->productCode = $map['ProductCode'];
+        }
+        if (isset($map['ProductId'])) {
+            $model->productId = $map['ProductId'];
         }
         if (isset($map['RiskLevelId'])) {
             $model->riskLevelId = $map['RiskLevelId'];
@@ -255,6 +309,12 @@ class DescribeColumnsRequest extends Model
         }
         if (isset($map['TableName'])) {
             $model->tableName = $map['TableName'];
+        }
+        if (isset($map['TemplateId'])) {
+            $model->templateId = $map['TemplateId'];
+        }
+        if (isset($map['TemplateRuleId'])) {
+            $model->templateRuleId = $map['TemplateRuleId'];
         }
 
         return $model;

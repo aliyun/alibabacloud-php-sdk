@@ -96,6 +96,11 @@ class items extends Model
     public $parentId;
 
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @example RDS
      *
      * @var string
@@ -150,6 +155,7 @@ class items extends Model
         'localName'                   => 'LocalName',
         'memberAccount'               => 'MemberAccount',
         'parentId'                    => 'ParentId',
+        'regionId'                    => 'RegionId',
         'resourceType'                => 'ResourceType',
         'supportConnectNodes'         => 'SupportConnectNodes',
         'tenantId'                    => 'TenantId',
@@ -203,6 +209,9 @@ class items extends Model
         }
         if (null !== $this->parentId) {
             $res['ParentId'] = $this->parentId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
@@ -272,6 +281,9 @@ class items extends Model
         }
         if (isset($map['ParentId'])) {
             $model->parentId = $map['ParentId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];

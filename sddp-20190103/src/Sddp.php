@@ -836,6 +836,9 @@ class Sddp extends OpenApiClient
         if (!Utils::isUnset($request->currentPage)) {
             $query['CurrentPage'] = $request->currentPage;
         }
+        if (!Utils::isUnset($request->engineType)) {
+            $query['EngineType'] = $request->engineType;
+        }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
@@ -845,6 +848,9 @@ class Sddp extends OpenApiClient
         if (!Utils::isUnset($request->lang)) {
             $query['Lang'] = $request->lang;
         }
+        if (!Utils::isUnset($request->modelTagId)) {
+            $query['ModelTagId'] = $request->modelTagId;
+        }
         if (!Utils::isUnset($request->name)) {
             $query['Name'] = $request->name;
         }
@@ -853,6 +859,9 @@ class Sddp extends OpenApiClient
         }
         if (!Utils::isUnset($request->productCode)) {
             $query['ProductCode'] = $request->productCode;
+        }
+        if (!Utils::isUnset($request->productId)) {
+            $query['ProductId'] = $request->productId;
         }
         if (!Utils::isUnset($request->riskLevelId)) {
             $query['RiskLevelId'] = $request->riskLevelId;
@@ -871,6 +880,12 @@ class Sddp extends OpenApiClient
         }
         if (!Utils::isUnset($request->tableName)) {
             $query['TableName'] = $request->tableName;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        if (!Utils::isUnset($request->templateRuleId)) {
+            $query['TemplateRuleId'] = $request->templateRuleId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -2198,11 +2213,23 @@ class Sddp extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->bucketName)) {
+            $query['BucketName'] = $request->bucketName;
+        }
         if (!Utils::isUnset($request->id)) {
             $query['Id'] = $request->id;
         }
         if (!Utils::isUnset($request->lang)) {
             $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->objectKey)) {
+            $query['ObjectKey'] = $request->objectKey;
+        }
+        if (!Utils::isUnset($request->serviceRegionId)) {
+            $query['ServiceRegionId'] = $request->serviceRegionId;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
