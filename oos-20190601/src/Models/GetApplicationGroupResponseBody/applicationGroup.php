@@ -99,6 +99,11 @@ class applicationGroup extends Model
     public $name;
 
     /**
+     * @var string
+     */
+    public $operationMetadata;
+
+    /**
      * @description The creation progress of the application instance.
      *
      * @example 100
@@ -134,20 +139,21 @@ class applicationGroup extends Model
      */
     public $updateDate;
     protected $_name = [
-        'applicationName'  => 'ApplicationName',
-        'cmsGroupId'       => 'CmsGroupId',
-        'createDate'       => 'CreateDate',
-        'deployOutputs'    => 'DeployOutputs',
-        'deployParameters' => 'DeployParameters',
-        'deployRegionId'   => 'DeployRegionId',
-        'description'      => 'Description',
-        'importTagKey'     => 'ImportTagKey',
-        'importTagValue'   => 'ImportTagValue',
-        'name'             => 'Name',
-        'progress'         => 'Progress',
-        'status'           => 'Status',
-        'statusReason'     => 'StatusReason',
-        'updateDate'       => 'UpdateDate',
+        'applicationName'   => 'ApplicationName',
+        'cmsGroupId'        => 'CmsGroupId',
+        'createDate'        => 'CreateDate',
+        'deployOutputs'     => 'DeployOutputs',
+        'deployParameters'  => 'DeployParameters',
+        'deployRegionId'    => 'DeployRegionId',
+        'description'       => 'Description',
+        'importTagKey'      => 'ImportTagKey',
+        'importTagValue'    => 'ImportTagValue',
+        'name'              => 'Name',
+        'operationMetadata' => 'OperationMetadata',
+        'progress'          => 'Progress',
+        'status'            => 'Status',
+        'statusReason'      => 'StatusReason',
+        'updateDate'        => 'UpdateDate',
     ];
 
     public function validate()
@@ -186,6 +192,9 @@ class applicationGroup extends Model
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->operationMetadata) {
+            $res['OperationMetadata'] = $this->operationMetadata;
         }
         if (null !== $this->progress) {
             $res['Progress'] = $this->progress;
@@ -240,6 +249,9 @@ class applicationGroup extends Model
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['OperationMetadata'])) {
+            $model->operationMetadata = $map['OperationMetadata'];
         }
         if (isset($map['Progress'])) {
             $model->progress = $map['Progress'];

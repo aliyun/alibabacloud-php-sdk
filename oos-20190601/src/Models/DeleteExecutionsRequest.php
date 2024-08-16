@@ -19,6 +19,11 @@ class DeleteExecutionsRequest extends Model
     public $executionIds;
 
     /**
+     * @var bool
+     */
+    public $force;
+
+    /**
      * @description The region ID.
      *
      * @example cn-hangzhou
@@ -28,6 +33,7 @@ class DeleteExecutionsRequest extends Model
     public $regionId;
     protected $_name = [
         'executionIds' => 'ExecutionIds',
+        'force'        => 'Force',
         'regionId'     => 'RegionId',
     ];
 
@@ -40,6 +46,9 @@ class DeleteExecutionsRequest extends Model
         $res = [];
         if (null !== $this->executionIds) {
             $res['ExecutionIds'] = $this->executionIds;
+        }
+        if (null !== $this->force) {
+            $res['Force'] = $this->force;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -58,6 +67,9 @@ class DeleteExecutionsRequest extends Model
         $model = new self();
         if (isset($map['ExecutionIds'])) {
             $model->executionIds = $map['ExecutionIds'];
+        }
+        if (isset($map['Force'])) {
+            $model->force = $map['Force'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Oos\V20190601\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class UpdateApplicationGroupRequest extends Model
+class UpdateApplicationGroupShrinkRequest extends Model
 {
     /**
      * @description The application name.
@@ -43,9 +43,9 @@ class UpdateApplicationGroupRequest extends Model
     public $operationName;
 
     /**
-     * @var mixed[]
+     * @var string
      */
-    public $parameters;
+    public $parametersShrink;
 
     /**
      * @description The region ID. Set the value to cn-hangzhou.
@@ -56,12 +56,12 @@ class UpdateApplicationGroupRequest extends Model
      */
     public $regionId;
     protected $_name = [
-        'applicationName' => 'ApplicationName',
-        'name'            => 'Name',
-        'newName'         => 'NewName',
-        'operationName'   => 'OperationName',
-        'parameters'      => 'Parameters',
-        'regionId'        => 'RegionId',
+        'applicationName'  => 'ApplicationName',
+        'name'             => 'Name',
+        'newName'          => 'NewName',
+        'operationName'    => 'OperationName',
+        'parametersShrink' => 'Parameters',
+        'regionId'         => 'RegionId',
     ];
 
     public function validate()
@@ -83,8 +83,8 @@ class UpdateApplicationGroupRequest extends Model
         if (null !== $this->operationName) {
             $res['OperationName'] = $this->operationName;
         }
-        if (null !== $this->parameters) {
-            $res['Parameters'] = $this->parameters;
+        if (null !== $this->parametersShrink) {
+            $res['Parameters'] = $this->parametersShrink;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -96,7 +96,7 @@ class UpdateApplicationGroupRequest extends Model
     /**
      * @param array $map
      *
-     * @return UpdateApplicationGroupRequest
+     * @return UpdateApplicationGroupShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -114,7 +114,7 @@ class UpdateApplicationGroupRequest extends Model
             $model->operationName = $map['OperationName'];
         }
         if (isset($map['Parameters'])) {
-            $model->parameters = $map['Parameters'];
+            $model->parametersShrink = $map['Parameters'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

@@ -169,6 +169,7 @@ use AlibabaCloud\SDK\Oos\V20190601\Models\UntagResourcesResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\UntagResourcesShrinkRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\UpdateApplicationGroupRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\UpdateApplicationGroupResponse;
+use AlibabaCloud\SDK\Oos\V20190601\Models\UpdateApplicationGroupShrinkRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\UpdateApplicationRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\UpdateApplicationResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\UpdateApplicationShrinkRequest;
@@ -1165,6 +1166,9 @@ class Oos extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->executionIds)) {
             $query['ExecutionIds'] = $request->executionIds;
+        }
+        if (!Utils::isUnset($request->force)) {
+            $query['Force'] = $request->force;
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
@@ -4847,14 +4851,19 @@ class Oos extends OpenApiClient
     /**
      * @summary Updates the information of an application group. You can call this operation only for the application groups that reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
      *  *
-     * @param UpdateApplicationGroupRequest $request UpdateApplicationGroupRequest
+     * @param UpdateApplicationGroupRequest $tmpReq  UpdateApplicationGroupRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
      * @return UpdateApplicationGroupResponse UpdateApplicationGroupResponse
      */
-    public function updateApplicationGroupWithOptions($request, $runtime)
+    public function updateApplicationGroupWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new UpdateApplicationGroupShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->parameters)) {
+            $request->parametersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->parameters, 'Parameters', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->applicationName)) {
             $query['ApplicationName'] = $request->applicationName;
@@ -4864,6 +4873,12 @@ class Oos extends OpenApiClient
         }
         if (!Utils::isUnset($request->newName)) {
             $query['NewName'] = $request->newName;
+        }
+        if (!Utils::isUnset($request->operationName)) {
+            $query['OperationName'] = $request->operationName;
+        }
+        if (!Utils::isUnset($request->parametersShrink)) {
+            $query['Parameters'] = $request->parametersShrink;
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;

@@ -1,3 +1,10 @@
+2024-08-16 Version: 2.3.1
+- Update API DeleteExecutions: add param Force.
+- Update API GetApplicationGroup: update response param.
+- Update API UpdateApplicationGroup: add param OperationName.
+- Update API UpdateApplicationGroup: add param Parameters.
+
+
 2024-07-29 Version: 2.3.0
 - Support API ListInstancePackageStates.
 - Support API UpdateInstancePackageState.
