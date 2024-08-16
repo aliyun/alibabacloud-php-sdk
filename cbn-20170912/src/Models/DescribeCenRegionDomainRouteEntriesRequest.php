@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeCenRegionDomainRouteEntriesRequest extends Model
 {
     /**
-     * @description The ID of the CEN instance.
+     * @description The CEN instance ID.
      *
      * This parameter is required.
      * @example cen-7qthudw0ll6j****
@@ -19,7 +19,7 @@ class DescribeCenRegionDomainRouteEntriesRequest extends Model
     public $cenId;
 
     /**
-     * @description The ID of the region that you want to query.
+     * @description The region ID.
      *
      * This parameter is required.
      * @example cn-hangzhou
@@ -48,7 +48,7 @@ class DescribeCenRegionDomainRouteEntriesRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Default value: **10**. Valid values: **1** to **50**.
+     * @description The number of entries per page. Valid values: **1** to **500**. Default value: **10**.
      *
      * @example 10
      *
@@ -67,13 +67,13 @@ class DescribeCenRegionDomainRouteEntriesRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The status of the routes that you want to query. Valid values:
+     * @description The route status. Valid values:
      *
-     *   **Active** (default value): active routes
-     *   **Candidate**: standby routes
-     *   **Rejected**: rejected routes
-     *   **Prohibited**: prohibited routes
-     *   **All**: all routes
+     *   **Active** (default): available
+     *   **Candidate**: standby
+     *   **Rejected**: rejected
+     *   **Prohibited**: prohibited
+     *   **All** (default value): all routes
      *
      * @example Active
      *

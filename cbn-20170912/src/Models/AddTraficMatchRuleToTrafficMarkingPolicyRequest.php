@@ -10,6 +10,9 @@ use AlibabaCloud\Tea\Model;
 class AddTraficMatchRuleToTrafficMarkingPolicyRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * >  If you do not set this parameter, ClientToken is set to the value of RequestId. The value of RequestId may be different for each request.
      * @example 123e4567-e89b-12d3-a456-426****
      *
      * @var string
@@ -17,6 +20,11 @@ class AddTraficMatchRuleToTrafficMarkingPolicyRequest extends Model
     public $clientToken;
 
     /**
+     * @description Specifies whether to perform a dry run. Valid values:
+     *
+     *   **true**: performs a dry run. The system checks the required parameters, request syntax, and limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+     *   **false** (default): performs a dry run and sends the request.
+     *
      * @example false
      *
      * @var bool
@@ -44,8 +52,9 @@ class AddTraficMatchRuleToTrafficMarkingPolicyRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the traffic marking policy.
      *
+     * This parameter is required.
      * @example tm-u9nxup5kww5po8****
      *
      * @var string
@@ -53,6 +62,9 @@ class AddTraficMatchRuleToTrafficMarkingPolicyRequest extends Model
     public $trafficMarkingPolicyId;
 
     /**
+     * @description The information about the traffic classification rule.
+     *
+     * You can specify at most 50 traffic classification rules.
      * @var trafficMatchRules[]
      */
     public $trafficMatchRules;

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeFlowlogsResponseBody extends Model
 {
     /**
-     * @description A list of flow logs.
+     * @description The information about the flow log.
      *
      * @var flowLogs
      */

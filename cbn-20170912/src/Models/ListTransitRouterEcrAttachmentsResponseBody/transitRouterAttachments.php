@@ -10,6 +10,9 @@ use AlibabaCloud\Tea\Model;
 class transitRouterAttachments extends Model
 {
     /**
+     * @description Indicates whether the Enterprise Edition transit router can automatically advertise routes to ECRs.
+     *
+     * The value is **true**, which indicates that the Enterprise Edition transit router can automatically advertise routes to ECRs.
      * @example true
      *
      * @var bool
@@ -17,6 +20,8 @@ class transitRouterAttachments extends Model
     public $autoPublishRouteEnabled;
 
     /**
+     * @description The ID of the CEN instance.
+     *
      * @example cen-j3jzhw1zpau2km****
      *
      * @var string
@@ -24,6 +29,9 @@ class transitRouterAttachments extends Model
     public $cenId;
 
     /**
+     * @description The time when the ECR connection was created.
+     *
+     * The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
      * @example 2021-06-15T02:14Z
      *
      * @var string
@@ -31,6 +39,8 @@ class transitRouterAttachments extends Model
     public $creationTime;
 
     /**
+     * @description The ID of the ECR with which the ECR connection is associated.
+     *
      * @example ecr-n78omt2qsko06y****
      *
      * @var string
@@ -38,6 +48,8 @@ class transitRouterAttachments extends Model
     public $ecrId;
 
     /**
+     * @description The ID of the Alibaba Cloud account to which the ECR connection belongs.
+     *
      * @example 1688111111111111
      *
      * @var int
@@ -45,6 +57,11 @@ class transitRouterAttachments extends Model
     public $ecrOwnerId;
 
     /**
+     * @description The entity that pays the fees of the network instance. Valid values: Valid values:
+     *
+     *   **PayByCenOwner**: The Alibaba Cloud account to which the transit router belongs pays the connection and data forwarding fees of the ECR.
+     *   **PayByResourceOwner**: The Alibaba Cloud account to which the ECR belongs pays the connection and data forwarding fees of the ECR.
+     *
      * @example PayByCenOwner
      *
      * @var string
@@ -52,6 +69,9 @@ class transitRouterAttachments extends Model
     public $orderType;
 
     /**
+     * @description The type of resource to which the transit router is connected. Valid values:
+     *
+     * The value is **ECR**, which indicates ECR connections.
      * @example ECR
      *
      * @var string
@@ -59,6 +79,12 @@ class transitRouterAttachments extends Model
     public $resourceType;
 
     /**
+     * @description The status of the ECR connection. Valid values:
+     *
+     *   **Attached**
+     *   **Attaching**
+     *   **Detaching**
+     *
      * @example Attached
      *
      * @var string
@@ -66,11 +92,15 @@ class transitRouterAttachments extends Model
     public $status;
 
     /**
+     * @description The tags.
+     *
      * @var tags[]
      */
     public $tags;
 
     /**
+     * @description The description of the ECR connection.
+     *
      * @example desctest
      *
      * @var string
@@ -78,6 +108,8 @@ class transitRouterAttachments extends Model
     public $transitRouterAttachmentDescription;
 
     /**
+     * @description The ID of the ECR connection.
+     *
      * @example tr-attach-nls9fzkfat8934****
      *
      * @var string
@@ -85,6 +117,8 @@ class transitRouterAttachments extends Model
     public $transitRouterAttachmentId;
 
     /**
+     * @description The name of the ECR connection.
+     *
      * @example testname
      *
      * @var string
@@ -92,6 +126,8 @@ class transitRouterAttachments extends Model
     public $transitRouterAttachmentName;
 
     /**
+     * @description The ID of the Enterprise Edition transit router.
+     *
      * @example tr-bp1su1ytdxtataupl****
      *
      * @var string
@@ -99,6 +135,9 @@ class transitRouterAttachments extends Model
     public $transitRouterId;
 
     /**
+     * @description The region ID of the transit router.
+     *
+     * You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query the most recent region list.
      * @example cn-shanghai
      *
      * @var string

@@ -23,9 +23,9 @@ class addTrafficMatchRules extends Model
      *
      * You can enter up to two port numbers. Take note of the following rules:
      *
-     *   If you enter only one port number, such as 1, packets whose destination port is 1 match the traffic classification rule.
+     *   If you enter only one port number, such as 1, packets whose destination port is 1 match the traffic classification rule. A value of -1 specifies all destination ports.
      *   If you enter two port numbers, such as 1 and 200, packets whose destination ports fall into 1 and 200 are considered a match.
-     *   If you enter two port numbers and one of them is -1, the other port number must also be -1. In this case, packets are considered a match regardless of the destination port.
+     *   If you enter two port numbers and one of them is -1, the other port number must also be -1. In this case, all packets meet the traffic classification rule.
      *
      * You can create up to 50 traffic classification rules in each call. You can specify a destination port range for each traffic classification rule.
      * @var int[]
@@ -60,7 +60,7 @@ class addTrafficMatchRules extends Model
      *   If the protocol is **Mysql**, set the destination port to **3306**.
      *   If the protocol is **RDP**, set the destination port to **3389**.
      *   If the protocol is **Postgre SQL**, set the destination port to **5432**.
-     *   If the protocol is **Redis**, set the destination port to **6379**.
+     *   If the protocol is **Redis**, the destination port must be **6379**.
      *
      * You can create up to 50 traffic classification rules in each call. You can specify a protocol for each traffic classification rule.
      * @example UDP
@@ -84,9 +84,9 @@ class addTrafficMatchRules extends Model
      *
      * You can enter up to two port numbers. Take note of the following rules:
      *
-     *   If you enter only one port number, such as 1, packets whose source port is 1 are considered a match.
+     *   If you enter only one port number, such as 1, packets whose source port is 1 are considered a match. A value of -1 specifies all source ports.
      *   If you enter two port numbers, such as 1 and 200, packets whose source ports fall into 1 and 200 are considered a match.
-     *   If you enter two port numbers and one of them is -1, the other port number must also be -1. In this case, packets are considered a match regardless of the source port.
+     *   If you enter two port numbers and one of them is -1, the other port number must also be -1. In this case, all packets meet the traffic classification rule.
      *
      * You can create up to 50 traffic classification rules in each call. You can specify a source port range for each traffic classification rule.
      * @var int[]
@@ -96,7 +96,7 @@ class addTrafficMatchRules extends Model
     /**
      * @description The description of the traffic classification rule.
      *
-     * This parameter is optional. If you enter a description, it must be 1 to 256 characters in length, and cannot start with http:// or https://.
+     * This parameter is optional. If you enter a description, it must be 1 to 256 characters in length and cannot start with http:// or https://.
      * @example test1
      *
      * @var string

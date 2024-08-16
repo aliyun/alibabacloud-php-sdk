@@ -9,16 +9,16 @@ use AlibabaCloud\Tea\Model;
 class trafficQosQueues extends Model
 {
     /**
-     * @description The differentiated services code point (DSCP) value that matches the current queue.
+     * @description The Differentiated Services Code Point (DSCP) value that matches the current QoS queue.
      *
      * @var int[]
      */
     public $dscps;
 
     /**
-     * @description The percentage of bandwidth resources that can be allocated to the current queue.
+     * @description The percentage of the inter-region bandwidth that can be consumed by the QoS queue.
      *
-     * For example, a value of 1 indicates that 1 percent of bandwidth resources can be allocated to the queue.
+     * A value of **1** indicates that the QoS queue can consume at most 1% of the inter-region bandwidth.
      * @example 1
      *
      * @var int
@@ -26,11 +26,12 @@ class trafficQosQueues extends Model
     public $remainBandwidthPercent;
 
     /**
-     * @description The status of the queue. Valid values:
+     * @description The status of the QoS queue. Valid values:
      *
-     * - **Creating**: The queue is being created.
-     * - **Active**: The queue is available.
-     * - **Deleting**: The queue is being deleted.
+     *   **Creating**
+     *   **Active**
+     *   **Deleting**
+     *
      * @example Active
      *
      * @var string
@@ -47,7 +48,7 @@ class trafficQosQueues extends Model
     public $trafficQosPolicyId;
 
     /**
-     * @description The description of the queue.
+     * @description The description of the QoS queue.
      *
      * @example qosQueueDescription
      *
@@ -56,7 +57,7 @@ class trafficQosQueues extends Model
     public $trafficQosQueueDescription;
 
     /**
-     * @description The ID of the queue.
+     * @description The ID of the QoS queue.
      *
      * @example qos-queue-siakjb2nn9gz5z****
      *
@@ -65,7 +66,7 @@ class trafficQosQueues extends Model
     public $trafficQosQueueId;
 
     /**
-     * @description The name of the queue.
+     * @description The name of the QoS queue.
      *
      * @example qosQueueName
      *

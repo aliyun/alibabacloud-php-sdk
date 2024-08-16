@@ -86,7 +86,7 @@ class CreateTransitRouterCidrRequest extends Model
     public $publishCidrRoute;
 
     /**
-     * @description The region ID of the transit router.
+     * @description The ID of the region to which the transfer router belongs.
      *
      * This parameter is required.
      * @example cn-hangzhou

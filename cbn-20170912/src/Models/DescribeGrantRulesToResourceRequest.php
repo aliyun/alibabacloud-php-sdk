@@ -9,8 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeGrantRulesToResourceRequest extends Model
 {
     /**
-     * @description *   If you do not set **MaxResults**, it indicates that you do not need to query results in batches. The value of **MaxResults** indicates the total number of entries.
-     *   If you specify a value for **MaxResults**, it indicates that you need to query results in batches. The value of **MaxResults** indicates the number of entries to return in each batch. Valid values: **1** to **100**. The value of **MaxResults** in the response indicates the number of entries in the current batch. We recommend that you set **MaxResults** to **20**.
+     * @description *   If you do not specify a value for **MaxResults**, entries are returned in one response. After you send the request, the value of **MaxResults** includes all entries.
+     *   If you specify a value for **MaxResults**, entries are returned in batches. The value of **MaxResults** indicates the total number of entries returned per batch. Valid values: **1** to **100**. After you send the request, the value of **MaxResults** indicates the number of entries returned in the current response. We recommend that you set **MaxResults** to **20**.
      *
      * @example 20
      *
@@ -41,11 +41,12 @@ class DescribeGrantRulesToResourceRequest extends Model
     public $ownerId;
 
     /**
-     * @description The type of the network instance. Valid values:
+     * @description The type of network instance. Valid values:
      *
      *   **VPC**: virtual private cloud (VPC)
      *   **ExpressConnect**: virtual border router (VBR)
      *   **VPN**: IPsec-VPN connection
+     *   **ECR**: Express Connect Router (ECR)
      *
      * This parameter is required.
      * @example VPC

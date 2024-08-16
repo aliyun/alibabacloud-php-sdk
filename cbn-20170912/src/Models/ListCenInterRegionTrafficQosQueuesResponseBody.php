@@ -10,9 +10,11 @@ use AlibabaCloud\Tea\Model;
 class ListCenInterRegionTrafficQosQueuesResponseBody extends Model
 {
     /**
-     * @description The token that determines the start point of the query. Valid values:
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results. Valid values:
      *
-     * - If NextToken was returned in the previous query, specify the value to obtain the next set of results.
+     *   If **NextToken** is empty, no next page exists.
+     *   If a value of **NextToken** is returned, the value indicates the token that is used for the next query.
+     *
      * @example 0151fa6aa1ed****
      *
      * @var string
@@ -29,7 +31,7 @@ class ListCenInterRegionTrafficQosQueuesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description A list of queues.
+     * @description The information about the QoS queue.
      *
      * @var trafficQosQueues[]
      */

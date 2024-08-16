@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class flowLog extends Model
 {
     /**
-     * @description The ID of the CEN instance.
+     * @description The ID of the Cloud Enterprise Network (CEN) instance.
      *
      * @example cen-7qthudw0ll6jmc****
      *
@@ -61,7 +61,7 @@ class flowLog extends Model
     public $flowLogVersion;
 
     /**
-     * @description The time window for collecting log data. Unit: seconds. Valid values: **60** and **600**. Default value: **600**.
+     * @description The time window for collecting log data. Unit: seconds. Valid values: **60** or **600** Default value: **600**.
      *
      * @example 60
      *
@@ -75,7 +75,7 @@ class flowLog extends Model
     public $logFormatString;
 
     /**
-     * @description The name of the Logstore where the flow log is stored.
+     * @description The Logstore that stores the captured traffic data.
      *
      * @example FlowLogStore
      *
@@ -84,7 +84,7 @@ class flowLog extends Model
     public $logStoreName;
 
     /**
-     * @description The name of the project where the flow log is stored.
+     * @description The name of the project that stores the captured traffic data.
      *
      * @example FlowLogProject
      *
@@ -93,7 +93,7 @@ class flowLog extends Model
     public $projectName;
 
     /**
-     * @description The ID of the region where the flow log is deployed.
+     * @description The region ID of the flow log.
      *
      * @example cn-hangzhou
      *
@@ -121,7 +121,7 @@ class flowLog extends Model
     public $tags;
 
     /**
-     * @description The ID of the network instance connection.
+     * @description The ID of the network instance connection
      *
      * @example tr-attach-5x4o4ynzuqbv6g****
      *

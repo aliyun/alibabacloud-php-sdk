@@ -18,9 +18,11 @@ class ListCenInterRegionTrafficQosQueuesRequest extends Model
     public $maxResults;
 
     /**
-     * @description The token that determines the start point of the query.
+     * @description The pagination token that is used in the next request to retrieve a new page of results.
      *
-     * - If NextToken was returned in the previous query, specify the value to obtain the next set of results.
+     *   If **NextToken** is empty, no next page exists.
+     *   If a value of **NextToken** is returned, the value indicates the token that is used for the next query.
+     *
      * @example 2ca1ed1573cb****
      *
      * @var string
@@ -57,8 +59,9 @@ class ListCenInterRegionTrafficQosQueuesRequest extends Model
     public $trafficQosPolicyId;
 
     /**
-     * @description The description of the queue.
+     * @description The description of the QoS queue.
      *
+     * This parameter is optional. If you enter a description, it must be 1 to 256 characters in length and cannot start with http:// or https://.
      * @example qosQueueDescription
      *
      * @var string
@@ -75,8 +78,9 @@ class ListCenInterRegionTrafficQosQueuesRequest extends Model
     public $trafficQosQueueId;
 
     /**
-     * @description The name of the queue.
+     * @description The name of the QoS queue.
      *
+     * The name must be 1 to 128 characters in length, and cannot start with http:// or https://.
      * @example qosQueueName
      *
      * @var string

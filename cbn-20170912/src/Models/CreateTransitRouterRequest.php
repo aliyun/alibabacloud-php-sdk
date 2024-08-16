@@ -87,17 +87,15 @@ class CreateTransitRouterRequest extends Model
     public $supportMulticast;
 
     /**
-     * @description The information about the tags.
+     * @description The tags.
      *
-     * You can specify at most 20 tags in each call.
      * @var tag[]
      */
     public $tag;
 
     /**
-     * @description The CIDR blocks of the transit router.
+     * @description The CIDR blocks to be added to the transit router.
      *
-     * >  Only Enterprise Edition transit routers support CIDR blocks.
      * @var transitRouterCidrList[]
      */
     public $transitRouterCidrList;

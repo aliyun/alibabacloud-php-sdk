@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListTransitRouterEcrAttachmentsRequest extends Model
 {
     /**
+     * @description The ID of the Cloud Enterprise Network (CEN) instance.
+     *
      * @example cen-7qthudw0ll6jmc****
      *
      * @var string
@@ -17,6 +19,8 @@ class ListTransitRouterEcrAttachmentsRequest extends Model
     public $cenId;
 
     /**
+     * @description The number of entries to return on each page. Default value: **20**.
+     *
      * @example 20
      *
      * @var int
@@ -24,6 +28,11 @@ class ListTransitRouterEcrAttachmentsRequest extends Model
     public $maxResults;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+     *
+     *   You do not need to specify this parameter for the first request.
+     *   You must specify the token that is obtained from the previous query as the value of NextToken.
+     *
      * @example FFmyTO70tTpLG6I3FmYAXGKPd****
      *
      * @var string
@@ -41,6 +50,9 @@ class ListTransitRouterEcrAttachmentsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the transit router.
+     *
+     * You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -58,11 +70,16 @@ class ListTransitRouterEcrAttachmentsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The tags.
+     *
+     * You can specify at most 20 tags.
      * @var tag[]
      */
     public $tag;
 
     /**
+     * @description The ID of the ECR connection.
+     *
      * @example tr-attach-nls9fzkfat8934****
      *
      * @var string
@@ -70,6 +87,8 @@ class ListTransitRouterEcrAttachmentsRequest extends Model
     public $transitRouterAttachmentId;
 
     /**
+     * @description The ID of the transit router.
+     *
      * @example tr-6ehx7q2jze8ch5ji0****
      *
      * @var string

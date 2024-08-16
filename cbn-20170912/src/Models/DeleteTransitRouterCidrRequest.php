@@ -41,7 +41,7 @@ class DeleteTransitRouterCidrRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the region where the transit router is deployed.
+     * @description The region ID of the transit router.
      *
      * This parameter is required.
      * @example cn-hangzhou

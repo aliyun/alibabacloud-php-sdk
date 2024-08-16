@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeCenRegionDomainRouteEntriesResponseBody extends Model
 {
     /**
-     * @description The array of routes.
+     * @description A list of route entries.
      *
      * @var cenRouteEntries
      */
@@ -26,7 +26,7 @@ class DescribeCenRegionDomainRouteEntriesResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The number of entries per page.
      *
      * @example 10
      *
@@ -35,7 +35,7 @@ class DescribeCenRegionDomainRouteEntriesResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 004E99FB-E996-5777-888E-BA1D8F215407
      *

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateTransitRouterEcrAttachmentResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example C0245BEF-52AC-44A8-A776-EF96FD26A5CA
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateTransitRouterEcrAttachmentResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the ECR connection.
+     *
      * @example tr-attach-qieks13jnt1cchy***
      *
      * @var string

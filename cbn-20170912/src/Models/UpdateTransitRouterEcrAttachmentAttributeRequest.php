@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateTransitRouterEcrAttachmentAttributeRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+     *
+     * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
      * @example 123e4567-e89b-12d3-a456-42665544****
      *
      * @var string
@@ -16,6 +21,11 @@ class UpdateTransitRouterEcrAttachmentAttributeRequest extends Model
     public $clientToken;
 
     /**
+     * @description Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+     *
+     *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, the operation is performed.
+     *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error code is returned. If the request passes the dry run, a request ID is returned.
+     *
      * @example false
      *
      * @var bool
@@ -43,6 +53,9 @@ class UpdateTransitRouterEcrAttachmentAttributeRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The new description of the ECR connection.
+     *
+     * This parameter is optional. If you enter a description, it must be 1 to 256 characters in length, and cannot start with http:// or https://.
      * @example desctest
      *
      * @var string
@@ -50,8 +63,9 @@ class UpdateTransitRouterEcrAttachmentAttributeRequest extends Model
     public $transitRouterAttachmentDescription;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the ECR connection.
      *
+     * This parameter is required.
      * @example tr-attach-r6g0m3epjehw57****
      *
      * @var string
@@ -59,6 +73,9 @@ class UpdateTransitRouterEcrAttachmentAttributeRequest extends Model
     public $transitRouterAttachmentId;
 
     /**
+     * @description The new name of the ECR connection.
+     *
+     * The name can be empty or 1 to 128 characters in length, and cannot start with http:// or https://.
      * @example nametest
      *
      * @var string

@@ -54,8 +54,6 @@ class CreateCenInterRegionTrafficQosQueueRequest extends Model
     public $qosQueueName;
 
     /**
-     * @description This parameter is required.
-     *
      * @example 20
      *
      * @var string

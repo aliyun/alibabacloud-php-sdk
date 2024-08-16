@@ -52,6 +52,13 @@ class transitRouterAttachments extends Model
     public $creationTime;
 
     /**
+     * @description The entity that pays the fees of the network instance. Valid values:
+     *
+     *   **PayByCenOwner**: the Alibaba Cloud account that owns the CEN instance.
+     *   **PayByResourceOwner**: the Alibaba Cloud account that owns the network instance.
+     *
+     * @example PayByCenOwner
+     *
      * @var string
      */
     public $orderType;
@@ -141,9 +148,9 @@ class transitRouterAttachments extends Model
     public $vpnOwnerId;
 
     /**
-     * @description The region ID of the IPsec-VPN connection.
+     * @description The ID of the region to which the IPsec-VPN connection belongs.
      *
-     * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+     * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
      * @example cn-hangzhou
      *
      * @var string

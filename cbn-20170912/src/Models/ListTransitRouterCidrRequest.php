@@ -11,7 +11,7 @@ class ListTransitRouterCidrRequest extends Model
     /**
      * @description The client token that is used to ensure the idempotence of the request.
      *
-     * >  If you do not set this parameter, ClientToken is set to the value of RequestId. The value of RequestId may be different for each request.
+     * > If you do not specify this parameter, the system automatically uses the request ID as the client token. The request ID may be different for each request.
      * @example 123e4567-e89b-12d3-a456-426****
      *
      * @var string
@@ -41,7 +41,7 @@ class ListTransitRouterCidrRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the region where the transit router is deployed.
+     * @description The region ID of the transit router.
      *
      * This parameter is required.
      * @example cn-hangzhou

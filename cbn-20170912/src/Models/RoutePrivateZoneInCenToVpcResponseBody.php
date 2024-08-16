@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class RoutePrivateZoneInCenToVpcResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example C0245BEF-52AC-44A8-A776-EF96FD26A5CA
      *

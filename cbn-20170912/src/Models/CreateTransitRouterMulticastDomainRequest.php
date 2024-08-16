@@ -51,7 +51,7 @@ class CreateTransitRouterMulticastDomainRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the region where the transit router is deployed.
+     * @description The region ID of the transit router.
      *
      * You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query the most recent region list.
      * @example cn-hangzhou

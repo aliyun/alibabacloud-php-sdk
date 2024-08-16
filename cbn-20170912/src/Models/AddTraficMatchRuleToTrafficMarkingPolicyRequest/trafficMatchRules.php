@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class trafficMatchRules extends Model
 {
     /**
+     * @description The destination CIDR block that is used to match packets.
+     *
+     * You can specify at most 50 traffic classification rules.
      * @example 10.10.10.0/24
      *
      * @var string
@@ -16,11 +19,23 @@ class trafficMatchRules extends Model
     public $dstCidr;
 
     /**
+     * @description The destination port range that is used to match packets. Valid values: **-1** and **1** to **65535**.
+     *
+     * You can specify at most two ports. Take note of the following rules:
+     *
+     *   If you enter only one port number such as 1, the system matches the packets whose destination port is port 1.
+     *   If you enter two port numbers such as 1 and 200, the system matches the packets whose destination ports fall between 1 and 200.
+     *   If you enter two port numbers and one of them is -1, the other port number must also be -1. In this case, packets are considered a match regardless of the destination port.
+     *
+     * You can specify at most 50 traffic classification rules.
      * @var int[]
      */
     public $dstPortRange;
 
     /**
+     * @description The differentiated services code point (DSCP) value that is used to match packets. Valid values: **0** to **63**.
+     *
+     * You can specify at most 50 traffic classification rules.
      * @example 5
      *
      * @var int
@@ -28,6 +43,11 @@ class trafficMatchRules extends Model
     public $matchDscp;
 
     /**
+     * @description The protocol that is used to match packets.
+     *
+     * Valid values: **HTTP**, **HTTPS**, **TCP**, **UDP**, **SSH**, and **Telnet**. For more information, log on to the [Cloud Enterprise Network (CEN) console](https://cen.console.aliyun.com/cen/list).
+     *
+     * You can specify at most 50 traffic classification rules.
      * @example HTTP
      *
      * @var string
@@ -35,6 +55,9 @@ class trafficMatchRules extends Model
     public $protocol;
 
     /**
+     * @description The source CIDR block that is used to match packets.
+     *
+     * You can specify at most 50 traffic classification rules.
      * @example 192.168.10.0/24
      *
      * @var string
@@ -42,11 +65,23 @@ class trafficMatchRules extends Model
     public $srcCidr;
 
     /**
+     * @description The source port range that is used to match packets. Valid values: **-1** and **1** to **65535**.
+     *
+     * You can specify at most two ports. Take note of the following rules:
+     *
+     *   If you enter only one port number such as 1, the system matches the packets whose source port is 1.
+     *   If you enter two port numbers such as 1 and 200, the system matches the packets whose source ports fall between 1 and 200.
+     *   If you enter two port numbers and one of them is -1, the other port number must also be -1. In this case, packets are considered a match regardless of the source port.
+     *
+     * You can specify at most 50 traffic classification rules.
      * @var int[]
      */
     public $srcPortRange;
 
     /**
+     * @description The description of the traffic classification rule.
+     *
+     * You can specify at most 50 traffic classification rules.
      * @example desctest
      *
      * @var string
@@ -54,6 +89,9 @@ class trafficMatchRules extends Model
     public $trafficMatchRuleDescription;
 
     /**
+     * @description The name of the traffic classification rule.
+     *
+     * You can specify at most 50 traffic classification rules.
      * @example nametest
      *
      * @var string

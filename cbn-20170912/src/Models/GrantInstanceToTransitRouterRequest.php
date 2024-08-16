@@ -39,11 +39,12 @@ class GrantInstanceToTransitRouterRequest extends Model
     public $instanceId;
 
     /**
-     * @description The type of the network instance. Valid values:
+     * @description The type of network instance. Valid values:
      *
      *   **VPC**: VPC
      *   **ExpressConnect**: VBR
-     *   **VPN**: IPsec connection
+     *   **VPN**: IPsec-VPN connection
+     *   **ECR**: ECR
      *
      * This parameter is required.
      * @example VPC

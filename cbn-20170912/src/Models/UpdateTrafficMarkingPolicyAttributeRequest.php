@@ -13,6 +13,7 @@ class UpdateTrafficMarkingPolicyAttributeRequest extends Model
     /**
      * @description The traffic classification rules to be added to the traffic marking policy.
      *
+     * You can add at most 50 traffic classification rules in each call.
      * @var addTrafficMatchRules[]
      */
     public $addTrafficMatchRules;

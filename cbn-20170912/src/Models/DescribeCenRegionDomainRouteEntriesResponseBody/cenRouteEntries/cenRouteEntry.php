@@ -13,28 +13,28 @@ use AlibabaCloud\Tea\Model;
 class cenRouteEntry extends Model
 {
     /**
-     * @description The AS paths of the routes.
+     * @description The AS paths of the route.
      *
      * @var asPaths
      */
     public $asPaths;
 
     /**
-     * @description The route maps that the routes match in the outbound direction.
+     * @description The routing policy that the routes match in the outbound direction.
      *
      * @var cenOutRouteMapRecords
      */
     public $cenOutRouteMapRecords;
 
     /**
-     * @description The route maps that the routes match in the inbound direction.
+     * @description The routing policy that the routes match in the inbound direction.
      *
      * @var cenRouteMapRecords
      */
     public $cenRouteMapRecords;
 
     /**
-     * @description The community attributes of the routes.
+     * @description The communities of the route.
      *
      * @var communities
      */
@@ -59,7 +59,7 @@ class cenRouteEntry extends Model
     public $nextHopInstanceId;
 
     /**
-     * @description The ID of the region where the network instance specified as the next hop in the route belongs.
+     * @description The ID of the region to which the network instance specified as the next hop in the route belongs.
      *
      * @example cn-hangzhou
      *
@@ -68,12 +68,13 @@ class cenRouteEntry extends Model
     public $nextHopRegionId;
 
     /**
-     * @description The type of the network instance specified as the next hop in the route.
+     * @description The type of the instance specified as the next hop in the route. Valid values:
      *
-     * - **VPC**
-     * - **VBR**
-     * - **CCN**
-     * - **local_service**: system route. No next hop is specified.
+     *   **VPC**: virtual private cloud (VPC)
+     *   **VBR**: virtual border router (VBR)
+     *   **CCN**: Cloud Connect Network (CCN) instance
+     *   **local_service**: system route. No next hop is specified.
+     *
      * @example VPC
      *
      * @var string
@@ -81,9 +82,9 @@ class cenRouteEntry extends Model
     public $nextHopType;
 
     /**
-     * @description The priority of the route.
+     * @description The route priority.
      *
-     * > A smaller value indicates a higher priority.
+     * A smaller value indicates a higher priority.
      * @example 50
      *
      * @var int
@@ -91,12 +92,13 @@ class cenRouteEntry extends Model
     public $preference;
 
     /**
-     * @description The status of the route. Valid values:
+     * @description The route status. Valid values:
      *
-     * - **Active**: The route is active.
-     * - **Candidate**: The route is a standby route.
-     * - **Rejected**: The route is rejected.
-     * - **Prohibited**: The route is prohibited.
+     *   **Active**: available
+     *   **Candidate**: standby
+     *   **Rejected**: rejected
+     *   **Prohibited**: prohibited
+     *
      * @example Active
      *
      * @var string
@@ -104,10 +106,11 @@ class cenRouteEntry extends Model
     public $status;
 
     /**
-     * @description Whether the route can be advertised to other regions. Valid values:
+     * @description Indicates whether the route can be advertised to other regions. Valid values:
      *
-     * - **Active**: The route can be advertised to other regions.
-     * - **Prohibited**: The route cannot be advertised to other regions.
+     *   **Active**: The route can be advertised to other regions.
+     *   **Prohibited**: The route cannot be advertised to other regions.
+     *
      * @example Active
      *
      * @var string
@@ -115,11 +118,12 @@ class cenRouteEntry extends Model
     public $toOtherRegionStatus;
 
     /**
-     * @description The type of the route. Valid values:
+     * @description The route type. Valid values:
      *
-     * - **CEN**: route that is advertised through CEN
-     * - **Custom**: custom route
-     * - **System**: system route
+     *   **CEN**: route that is advertised through CEN
+     *   **Custom**: custom route
+     *   **System**: system route
+     *
      * @example CEN
      *
      * @var string

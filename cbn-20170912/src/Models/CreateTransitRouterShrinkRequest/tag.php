@@ -11,7 +11,7 @@ class tag extends Model
     /**
      * @description The tag key.
      *
-     * You can specify at most 20 tag keys.
+     * You can specify at most 20 tag keys in each call.
      * @example tagtest
      *
      * @var string
@@ -21,7 +21,7 @@ class tag extends Model
     /**
      * @description The tag value.
      *
-     * Each tag key has a unique tag value. You can specify at most 20 tag values in each call.
+     * Each key-value must be unique. You can specify at most 20 tag values in each call.
      * @example TagValue
      *
      * @var string
