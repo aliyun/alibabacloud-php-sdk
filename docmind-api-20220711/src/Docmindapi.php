@@ -9,6 +9,8 @@ use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Docmindapi\V20220711\Models\AyncTradeDocumentPackageExtractSmartAppRequest;
 use AlibabaCloud\SDK\Docmindapi\V20220711\Models\AyncTradeDocumentPackageExtractSmartAppResponse;
 use AlibabaCloud\SDK\Docmindapi\V20220711\Models\AyncTradeDocumentPackageExtractSmartAppShrinkRequest;
+use AlibabaCloud\SDK\Docmindapi\V20220711\Models\GetDocParserResultRequest;
+use AlibabaCloud\SDK\Docmindapi\V20220711\Models\GetDocParserResultResponse;
 use AlibabaCloud\SDK\Docmindapi\V20220711\Models\GetDocStructureResultRequest;
 use AlibabaCloud\SDK\Docmindapi\V20220711\Models\GetDocStructureResultResponse;
 use AlibabaCloud\SDK\Docmindapi\V20220711\Models\GetDocumentCompareResultRequest;
@@ -21,6 +23,8 @@ use AlibabaCloud\SDK\Docmindapi\V20220711\Models\GetPageNumRequest;
 use AlibabaCloud\SDK\Docmindapi\V20220711\Models\GetPageNumResponse;
 use AlibabaCloud\SDK\Docmindapi\V20220711\Models\GetTableUnderstandingResultRequest;
 use AlibabaCloud\SDK\Docmindapi\V20220711\Models\GetTableUnderstandingResultResponse;
+use AlibabaCloud\SDK\Docmindapi\V20220711\Models\QueryDocParserStatusRequest;
+use AlibabaCloud\SDK\Docmindapi\V20220711\Models\QueryDocParserStatusResponse;
 use AlibabaCloud\SDK\Docmindapi\V20220711\Models\SubmitConvertImageToExcelJobRequest;
 use AlibabaCloud\SDK\Docmindapi\V20220711\Models\SubmitConvertImageToExcelJobResponse;
 use AlibabaCloud\SDK\Docmindapi\V20220711\Models\SubmitConvertImageToExcelJobShrinkRequest;
@@ -48,6 +52,9 @@ use AlibabaCloud\SDK\Docmindapi\V20220711\Models\SubmitConvertPdfToWordJobRespon
 use AlibabaCloud\SDK\Docmindapi\V20220711\Models\SubmitDigitalDocStructureJobAdvanceRequest;
 use AlibabaCloud\SDK\Docmindapi\V20220711\Models\SubmitDigitalDocStructureJobRequest;
 use AlibabaCloud\SDK\Docmindapi\V20220711\Models\SubmitDigitalDocStructureJobResponse;
+use AlibabaCloud\SDK\Docmindapi\V20220711\Models\SubmitDocParserJobAdvanceRequest;
+use AlibabaCloud\SDK\Docmindapi\V20220711\Models\SubmitDocParserJobRequest;
+use AlibabaCloud\SDK\Docmindapi\V20220711\Models\SubmitDocParserJobResponse;
 use AlibabaCloud\SDK\Docmindapi\V20220711\Models\SubmitDocStructureJobAdvanceRequest;
 use AlibabaCloud\SDK\Docmindapi\V20220711\Models\SubmitDocStructureJobRequest;
 use AlibabaCloud\SDK\Docmindapi\V20220711\Models\SubmitDocStructureJobResponse;
@@ -227,6 +234,59 @@ class Docmindapi extends OpenApiClient
     }
 
     /**
+     * @summary 文档结构化流式接口
+     *  *
+     * @param GetDocParserResultRequest $request GetDocParserResultRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetDocParserResultResponse GetDocParserResultResponse
+     */
+    public function getDocParserResultWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->layoutNum)) {
+            $query['LayoutNum'] = $request->layoutNum;
+        }
+        if (!Utils::isUnset($request->layoutStepSize)) {
+            $query['LayoutStepSize'] = $request->layoutStepSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDocParserResult',
+            'version'     => '2022-07-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetDocParserResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 文档结构化流式接口
+     *  *
+     * @param GetDocParserResultRequest $request GetDocParserResultRequest
+     *
+     * @return GetDocParserResultResponse GetDocParserResultResponse
+     */
+    public function getDocParserResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDocParserResultWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 文档智能解析结果查询
      *  *
      * @param GetDocStructureResultRequest $request GetDocStructureResultRequest
@@ -246,6 +306,9 @@ class Docmindapi extends OpenApiClient
         }
         if (!Utils::isUnset($request->revealMarkdown)) {
             $query['RevealMarkdown'] = $request->revealMarkdown;
+        }
+        if (!Utils::isUnset($request->useUrlResponseBody)) {
+            $query['UseUrlResponseBody'] = $request->useUrlResponseBody;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -512,6 +575,53 @@ class Docmindapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getTableUnderstandingResultWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取文档智能解析处理状态
+     *  *
+     * @param QueryDocParserStatusRequest $request QueryDocParserStatusRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return QueryDocParserStatusResponse QueryDocParserStatusResponse
+     */
+    public function queryDocParserStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryDocParserStatus',
+            'version'     => '2022-07-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryDocParserStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取文档智能解析处理状态
+     *  *
+     * @param QueryDocParserStatusRequest $request QueryDocParserStatusRequest
+     *
+     * @return QueryDocParserStatusResponse QueryDocParserStatusResponse
+     */
+    public function queryDocParserStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryDocParserStatusWithOptions($request, $runtime);
     }
 
     /**
@@ -1313,6 +1423,9 @@ class Docmindapi extends OpenApiClient
         if (!Utils::isUnset($request->revealMarkdown)) {
             $query['RevealMarkdown'] = $request->revealMarkdown;
         }
+        if (!Utils::isUnset($request->useUrlResponseBody)) {
+            $query['UseUrlResponseBody'] = $request->useUrlResponseBody;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -1422,6 +1535,141 @@ class Docmindapi extends OpenApiClient
         }
 
         return $this->submitDigitalDocStructureJobWithOptions($submitDigitalDocStructureJobReq, $runtime);
+    }
+
+    /**
+     * @summary 文档智能解析流式输出
+     *  *
+     * @param SubmitDocParserJobRequest $request SubmitDocParserJobRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return SubmitDocParserJobResponse SubmitDocParserJobResponse
+     */
+    public function submitDocParserJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->fileName)) {
+            $query['FileName'] = $request->fileName;
+        }
+        if (!Utils::isUnset($request->fileNameExtension)) {
+            $query['FileNameExtension'] = $request->fileNameExtension;
+        }
+        if (!Utils::isUnset($request->fileUrl)) {
+            $query['FileUrl'] = $request->fileUrl;
+        }
+        if (!Utils::isUnset($request->formulaEnhancement)) {
+            $query['FormulaEnhancement'] = $request->formulaEnhancement;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitDocParserJob',
+            'version'     => '2022-07-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SubmitDocParserJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 文档智能解析流式输出
+     *  *
+     * @param SubmitDocParserJobRequest $request SubmitDocParserJobRequest
+     *
+     * @return SubmitDocParserJobResponse SubmitDocParserJobResponse
+     */
+    public function submitDocParserJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitDocParserJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SubmitDocParserJobAdvanceRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return SubmitDocParserJobResponse
+     */
+    public function submitDocParserJobAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId          = $this->_credential->getAccessKeyId();
+        $accessKeySecret      = $this->_credential->getAccessKeySecret();
+        $securityToken        = $this->_credential->getSecurityToken();
+        $credentialType       = $this->_credential->getType();
+        $openPlatformEndpoint = $this->_openPlatformEndpoint;
+        if (Utils::empty_($openPlatformEndpoint)) {
+            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
+        }
+        if (Utils::isUnset($credentialType)) {
+            $credentialType = 'access_key';
+        }
+        $authConfig = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'securityToken'   => $securityToken,
+            'type'            => $credentialType,
+            'endpoint'        => $openPlatformEndpoint,
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'docmind-api',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = new OSS($ossConfig);
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $submitDocParserJobReq = new SubmitDocParserJobRequest([]);
+        OpenApiUtilClient::convert($request, $submitDocParserJobReq);
+        if (!Utils::isUnset($request->fileUrlObject)) {
+            $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
+            $ossClient              = new OSS($ossConfig);
+            $fileObj                = new FileField([
+                'filename'    => $authResponse->body->objectKey,
+                'content'     => $request->fileUrlObject,
+                'contentType' => '',
+            ]);
+            $ossHeader = new header([
+                'accessKeyId'         => $authResponse->body->accessKeyId,
+                'policy'              => $authResponse->body->encodedPolicy,
+                'signature'           => $authResponse->body->signature,
+                'key'                 => $authResponse->body->objectKey,
+                'file'                => $fileObj,
+                'successActionStatus' => '201',
+            ]);
+            $uploadRequest = new PostObjectRequest([
+                'bucketName' => $authResponse->body->bucket,
+                'header'     => $ossHeader,
+            ]);
+            $ossClient->postObject($uploadRequest, $ossRuntime);
+            $submitDocParserJobReq->fileUrl = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
+        }
+
+        return $this->submitDocParserJobWithOptions($submitDocParserJobReq, $runtime);
     }
 
     /**

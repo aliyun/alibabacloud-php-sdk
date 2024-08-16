@@ -39,12 +39,18 @@ class SubmitDigitalDocStructureJobAdvanceRequest extends Model
      * @var bool
      */
     public $revealMarkdown;
+
+    /**
+     * @var bool
+     */
+    public $useUrlResponseBody;
     protected $_name = [
-        'fileName'          => 'FileName',
-        'fileNameExtension' => 'FileNameExtension',
-        'fileUrlObject'     => 'FileUrl',
-        'imageStrategy'     => 'ImageStrategy',
-        'revealMarkdown'    => 'RevealMarkdown',
+        'fileName'           => 'FileName',
+        'fileNameExtension'  => 'FileNameExtension',
+        'fileUrlObject'      => 'FileUrl',
+        'imageStrategy'      => 'ImageStrategy',
+        'revealMarkdown'     => 'RevealMarkdown',
+        'useUrlResponseBody' => 'UseUrlResponseBody',
     ];
 
     public function validate()
@@ -68,6 +74,9 @@ class SubmitDigitalDocStructureJobAdvanceRequest extends Model
         }
         if (null !== $this->revealMarkdown) {
             $res['RevealMarkdown'] = $this->revealMarkdown;
+        }
+        if (null !== $this->useUrlResponseBody) {
+            $res['UseUrlResponseBody'] = $this->useUrlResponseBody;
         }
 
         return $res;
@@ -95,6 +104,9 @@ class SubmitDigitalDocStructureJobAdvanceRequest extends Model
         }
         if (isset($map['RevealMarkdown'])) {
             $model->revealMarkdown = $map['RevealMarkdown'];
+        }
+        if (isset($map['UseUrlResponseBody'])) {
+            $model->useUrlResponseBody = $map['UseUrlResponseBody'];
         }
 
         return $model;

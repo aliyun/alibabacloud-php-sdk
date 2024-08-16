@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Docmindapi\V20220711\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class SubmitDigitalDocStructureJobRequest extends Model
+class SubmitDocParserJobRequest extends Model
 {
     /**
      * @example docStructure.pdf
@@ -30,26 +30,14 @@ class SubmitDigitalDocStructureJobRequest extends Model
     public $fileUrl;
 
     /**
-     * @var string
-     */
-    public $imageStrategy;
-
-    /**
      * @var bool
      */
-    public $revealMarkdown;
-
-    /**
-     * @var bool
-     */
-    public $useUrlResponseBody;
+    public $formulaEnhancement;
     protected $_name = [
         'fileName'           => 'FileName',
         'fileNameExtension'  => 'FileNameExtension',
         'fileUrl'            => 'FileUrl',
-        'imageStrategy'      => 'ImageStrategy',
-        'revealMarkdown'     => 'RevealMarkdown',
-        'useUrlResponseBody' => 'UseUrlResponseBody',
+        'formulaEnhancement' => 'FormulaEnhancement',
     ];
 
     public function validate()
@@ -68,14 +56,8 @@ class SubmitDigitalDocStructureJobRequest extends Model
         if (null !== $this->fileUrl) {
             $res['FileUrl'] = $this->fileUrl;
         }
-        if (null !== $this->imageStrategy) {
-            $res['ImageStrategy'] = $this->imageStrategy;
-        }
-        if (null !== $this->revealMarkdown) {
-            $res['RevealMarkdown'] = $this->revealMarkdown;
-        }
-        if (null !== $this->useUrlResponseBody) {
-            $res['UseUrlResponseBody'] = $this->useUrlResponseBody;
+        if (null !== $this->formulaEnhancement) {
+            $res['FormulaEnhancement'] = $this->formulaEnhancement;
         }
 
         return $res;
@@ -84,7 +66,7 @@ class SubmitDigitalDocStructureJobRequest extends Model
     /**
      * @param array $map
      *
-     * @return SubmitDigitalDocStructureJobRequest
+     * @return SubmitDocParserJobRequest
      */
     public static function fromMap($map = [])
     {
@@ -98,14 +80,8 @@ class SubmitDigitalDocStructureJobRequest extends Model
         if (isset($map['FileUrl'])) {
             $model->fileUrl = $map['FileUrl'];
         }
-        if (isset($map['ImageStrategy'])) {
-            $model->imageStrategy = $map['ImageStrategy'];
-        }
-        if (isset($map['RevealMarkdown'])) {
-            $model->revealMarkdown = $map['RevealMarkdown'];
-        }
-        if (isset($map['UseUrlResponseBody'])) {
-            $model->useUrlResponseBody = $map['UseUrlResponseBody'];
+        if (isset($map['FormulaEnhancement'])) {
+            $model->formulaEnhancement = $map['FormulaEnhancement'];
         }
 
         return $model;

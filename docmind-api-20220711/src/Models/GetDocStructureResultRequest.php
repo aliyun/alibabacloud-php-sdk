@@ -24,10 +24,16 @@ class GetDocStructureResultRequest extends Model
      * @var bool
      */
     public $revealMarkdown;
+
+    /**
+     * @var bool
+     */
+    public $useUrlResponseBody;
     protected $_name = [
-        'id'             => 'Id',
-        'imageStrategy'  => 'ImageStrategy',
-        'revealMarkdown' => 'RevealMarkdown',
+        'id'                 => 'Id',
+        'imageStrategy'      => 'ImageStrategy',
+        'revealMarkdown'     => 'RevealMarkdown',
+        'useUrlResponseBody' => 'UseUrlResponseBody',
     ];
 
     public function validate()
@@ -45,6 +51,9 @@ class GetDocStructureResultRequest extends Model
         }
         if (null !== $this->revealMarkdown) {
             $res['RevealMarkdown'] = $this->revealMarkdown;
+        }
+        if (null !== $this->useUrlResponseBody) {
+            $res['UseUrlResponseBody'] = $this->useUrlResponseBody;
         }
 
         return $res;
@@ -66,6 +75,9 @@ class GetDocStructureResultRequest extends Model
         }
         if (isset($map['RevealMarkdown'])) {
             $model->revealMarkdown = $map['RevealMarkdown'];
+        }
+        if (isset($map['UseUrlResponseBody'])) {
+            $model->useUrlResponseBody = $map['UseUrlResponseBody'];
         }
 
         return $model;
