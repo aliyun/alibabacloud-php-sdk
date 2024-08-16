@@ -6,6 +6,8 @@ namespace AlibabaCloud\SDK\ContactCenterAI\V20240603;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\AnalyzeConversationRequest;
+use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\AnalyzeConversationResponse;
 use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\RunCompletionMessageRequest;
 use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\RunCompletionMessageResponse;
 use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\RunCompletionRequest;
@@ -47,6 +49,81 @@ class ContactCenterAI extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @summary 根据类型调用大模型
+     *  *
+     * @param string                     $workspaceId
+     * @param string                     $appId
+     * @param AnalyzeConversationRequest $request     AnalyzeConversationRequest
+     * @param string[]                   $headers     map
+     * @param RuntimeOptions             $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return AnalyzeConversationResponse AnalyzeConversationResponse
+     */
+    public function analyzeConversationWithOptions($workspaceId, $appId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->dialogue)) {
+            $body['dialogue'] = $request->dialogue;
+        }
+        if (!Utils::isUnset($request->exampleList)) {
+            $body['exampleList'] = $request->exampleList;
+        }
+        if (!Utils::isUnset($request->fields)) {
+            $body['fields'] = $request->fields;
+        }
+        if (!Utils::isUnset($request->modelCode)) {
+            $body['modelCode'] = $request->modelCode;
+        }
+        if (!Utils::isUnset($request->resultTypes)) {
+            $body['resultTypes'] = $request->resultTypes;
+        }
+        if (!Utils::isUnset($request->sceneName)) {
+            $body['sceneName'] = $request->sceneName;
+        }
+        if (!Utils::isUnset($request->serviceInspection)) {
+            $body['serviceInspection'] = $request->serviceInspection;
+        }
+        if (!Utils::isUnset($request->stream)) {
+            $body['stream'] = $request->stream;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'AnalyzeConversation',
+            'version'     => '2024-06-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/ccai/app/' . OpenApiUtilClient::getEncodeParam($appId) . '/analyze_conversation',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return AnalyzeConversationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 根据类型调用大模型
+     *  *
+     * @param string                     $workspaceId
+     * @param string                     $appId
+     * @param AnalyzeConversationRequest $request     AnalyzeConversationRequest
+     *
+     * @return AnalyzeConversationResponse AnalyzeConversationResponse
+     */
+    public function analyzeConversation($workspaceId, $appId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->analyzeConversationWithOptions($workspaceId, $appId, $request, $headers, $runtime);
     }
 
     /**
