@@ -100,6 +100,8 @@ class nav extends Model
     public $navCustomHost;
 
     /**
+     * @example 119.119.53.156/32
+     *
      * @var string
      */
     public $navCustomHostIp;

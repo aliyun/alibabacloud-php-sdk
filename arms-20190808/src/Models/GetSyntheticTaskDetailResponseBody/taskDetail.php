@@ -45,6 +45,9 @@ class taskDetail extends Model
     public $intervalTime;
 
     /**
+     * @description 监测周期类型：
+     *
+     * 1：自定义扩展频率
      * @example 0
      *
      * @var int
@@ -52,6 +55,9 @@ class taskDetail extends Model
     public $intervalType;
 
     /**
+     * @description IP类型：
+     *
+     * 2：IPv6
      * @example 0
      *
      * @var int
@@ -59,6 +65,8 @@ class taskDetail extends Model
     public $ipType;
 
     /**
+     * @description 拨测任务的检测点列表。
+     *
      * @var monitorList[]
      */
     public $monitorList;
@@ -104,6 +112,9 @@ class taskDetail extends Model
     public $taskName;
 
     /**
+     * @description 任务类型：
+     *
+     * 7：API性能
      * @example 0
      *
      * @var int

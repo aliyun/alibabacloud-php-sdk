@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpgradeEnvironmentFeatureResponseBody extends Model
 {
     /**
+     * @description The status code. The status code 200 indicates that the request was successful.
+     *
      * @example 200
      *
      * @var int
@@ -16,11 +18,15 @@ class UpgradeEnvironmentFeatureResponseBody extends Model
     public $code;
 
     /**
+     * @description The status of the job.
+     *
      * @var string[]
      */
     public $data;
 
     /**
+     * @description The returned message.
+     *
      * @example success
      *
      * @var string
@@ -28,7 +34,7 @@ class UpgradeEnvironmentFeatureResponseBody extends Model
     public $message;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example 01FF8DD9-A09C-47A1-895A-B6E321BE77B6
      *
@@ -37,6 +43,11 @@ class UpgradeEnvironmentFeatureResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

@@ -23,6 +23,8 @@ class GetRumDataForPageRequest extends Model
     public $currentPage;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1713774233
      *
      * @var int
@@ -44,6 +46,8 @@ class GetRumDataForPageRequest extends Model
     public $pid;
 
     /**
+     * @description This parameter is required.
+     *
      * @example * and app.id: xxxx@586810fbxxxx19f
      *
      * @var string
@@ -60,6 +64,8 @@ class GetRumDataForPageRequest extends Model
     public $regionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1713687833
      *
      * @var int

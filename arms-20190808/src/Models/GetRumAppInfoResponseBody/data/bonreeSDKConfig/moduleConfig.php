@@ -16,6 +16,8 @@ class moduleConfig extends Model
     public $defaultConfig;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enable;

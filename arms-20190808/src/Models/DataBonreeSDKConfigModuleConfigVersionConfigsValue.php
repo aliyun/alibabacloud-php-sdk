@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DataBonreeSDKConfigModuleConfigVersionConfigsValue extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $useCustom;
@@ -24,6 +26,8 @@ class DataBonreeSDKConfigModuleConfigVersionConfigsValue extends Model
     public $description;
 
     /**
+     * @example 1721112372055
+     *
      * @var int
      */
     public $updateTime;

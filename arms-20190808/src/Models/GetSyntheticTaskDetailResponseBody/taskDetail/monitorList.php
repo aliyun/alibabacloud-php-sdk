@@ -11,21 +11,35 @@ class monitorList extends Model
     /**
      * @description 城市编码。
      *
+     * @example 110100
+     *
      * @var int
      */
     public $cityCode;
 
     /**
+     * @description 监测类型：
+     * - Mobile
+     * @example IDC
+     *
      * @var int
      */
     public $monitorType;
 
     /**
+     * @description 运营商ID。
+     *
+     * @example 12001
+     *
      * @var int
      */
     public $netServiceId;
 
     /**
+     * @description 下发次数。
+     *
+     * @example 20
+     *
      * @var int
      */
     public $sendCount;

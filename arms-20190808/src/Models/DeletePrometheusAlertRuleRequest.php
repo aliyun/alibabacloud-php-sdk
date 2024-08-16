@@ -9,10 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeletePrometheusAlertRuleRequest extends Model
 {
     /**
-     * @description Indicates whether the alert rule was deleted. Valid values:
-     *
-     *   `true`: The alert rule was deleted.
-     *   `false`: The alert rule failed to be deleted.
+     * @description The ID of the alert rule. You can call the ListPrometheusAlertRules operation to query the ID of the alert rule.
      *
      * This parameter is required.
      * @example 3888704
@@ -22,6 +19,10 @@ class DeletePrometheusAlertRuleRequest extends Model
     public $alertId;
 
     /**
+     * @description The cluster ID of the Prometheus monitoring alarm rule.
+     *
+     * @example cc7a37ee31aea4ed1a059eff8034b****
+     *
      * @var string
      */
     public $clusterId;

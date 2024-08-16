@@ -9,16 +9,26 @@ use AlibabaCloud\Tea\Model;
 class DeletePrometheusAlertRuleResponseBody extends Model
 {
     /**
+     * @description Status code. 200 means success, other status codes are exceptions.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description More Information.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 9FEA6D00-317F-45E3-9004-7FB8B0B7****
      *
      * @var string
@@ -26,7 +36,10 @@ class DeletePrometheusAlertRuleResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the request.
+     * @description Indicates whether the alert rule was deleted. Valid values:
+     *
+     *   `true`: The alert rule was deleted.
+     *   `false`: The alert rule failed to be deleted.
      *
      * @example true
      *

@@ -26,6 +26,8 @@ class extendInterval extends Model
     public $endMinute;
 
     /**
+     * @description 周期结束时间 ，格式为yyyy-MM-dd HH。
+     *
      * @example 2022-05-03 11:40
      *
      * @var string
@@ -60,6 +62,8 @@ class extendInterval extends Model
     public $startMinute;
 
     /**
+     * @description 周期开始时间，格式yyyy-MM-dd HH 。
+     *
      * @example 2022-02-26 11:40
      *
      * @var string

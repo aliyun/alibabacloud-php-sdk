@@ -20,6 +20,7 @@ class GetRumUploadFilesRequest extends Model
     /**
      * @description The application ID.
      *
+     * This parameter is required.
      * @example aoxxxxxly@741623b4e91****
      *
      * @var string

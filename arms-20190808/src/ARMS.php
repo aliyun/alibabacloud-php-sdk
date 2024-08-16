@@ -4421,7 +4421,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 删除feature信息
+     * @summary Deletes a feature.
      *  *
      * @param DeleteEnvironmentFeatureRequest $request DeleteEnvironmentFeatureRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -4460,7 +4460,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 删除feature信息
+     * @summary Deletes a feature.
      *  *
      * @param DeleteEnvironmentFeatureRequest $request DeleteEnvironmentFeatureRequest
      *
@@ -4829,7 +4829,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary The ID of the alert rule. You can call the ListPrometheusAlertRules operation to query the ID of the alert rule.
+     * @summary Deletes an alert rule of Prometheus Service.
      *  *
      * @param DeletePrometheusAlertRuleRequest $request DeletePrometheusAlertRuleRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -4865,7 +4865,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary The ID of the alert rule. You can call the ListPrometheusAlertRules operation to query the ID of the alert rule.
+     * @summary Deletes an alert rule of Prometheus Service.
      *  *
      * @param DeletePrometheusAlertRuleRequest $request DeletePrometheusAlertRuleRequest
      *
@@ -10440,7 +10440,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 获取账号下聚合实例列表
+     * @summary Creates a global aggregation instance in Prometheus Service and obtains the list of global aggregation instances.
      *  *
      * @param ListPrometheusGlobalViewRequest $request ListPrometheusGlobalViewRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -10473,7 +10473,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 获取账号下聚合实例列表
+     * @summary Creates a global aggregation instance in Prometheus Service and obtains the list of global aggregation instances.
      *  *
      * @param ListPrometheusGlobalViewRequest $request ListPrometheusGlobalViewRequest
      *
@@ -11867,7 +11867,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 重新启动 feature信息
+     * @summary Restarts a feature.
      *  *
      * @param RestartEnvironmentFeatureRequest $request RestartEnvironmentFeatureRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -11906,7 +11906,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 重新启动 feature信息
+     * @summary Restarts a feature.
      *  *
      * @param RestartEnvironmentFeatureRequest $request RestartEnvironmentFeatureRequest
      *
@@ -12833,7 +12833,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 启动定时拨测任务
+     * @summary Starts scheduled synthetic monitoring tasks.
      *  *
      * @param StartTimingSyntheticTaskRequest $tmpReq  StartTimingSyntheticTaskRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -12874,7 +12874,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 启动定时拨测任务
+     * @summary Starts scheduled synthetic monitoring tasks.
      *  *
      * @param StartTimingSyntheticTaskRequest $request StartTimingSyntheticTaskRequest
      *
@@ -13151,9 +13151,9 @@ class ARMS extends OpenApiClient
     /**
      * @deprecated OpenAPI UninstallManagedPrometheus is deprecated
      *  *
-     * @summary Removes a Prometheus instance from a serverless Kubernetes (ASK) cluster or an Elastic Compute Service (ECS) instance.
+     * @summary Uninstalls a managed Prometheus agent for a serverless Kubernetes (ASK) cluster, Distributed Cloud Container Platform for Kubernetes (ACK One) cluster, or Elastic Compute Service (ECS) cluster.
      *  *
-     * @description Make sure that the ASK cluster or ECS instance is monitored in Managed Service for Prometheus.
+     * @description This operation is available only for ASK, ECS, and ACK One clusters. Before you call this operation, make sure that a managed Prometheus agent is installed for your cluster.
      *  *
      * Deprecated
      *
@@ -13202,9 +13202,9 @@ class ARMS extends OpenApiClient
     /**
      * @deprecated OpenAPI UninstallManagedPrometheus is deprecated
      *  *
-     * @summary Removes a Prometheus instance from a serverless Kubernetes (ASK) cluster or an Elastic Compute Service (ECS) instance.
+     * @summary Uninstalls a managed Prometheus agent for a serverless Kubernetes (ASK) cluster, Distributed Cloud Container Platform for Kubernetes (ACK One) cluster, or Elastic Compute Service (ECS) cluster.
      *  *
-     * @description Make sure that the ASK cluster or ECS instance is monitored in Managed Service for Prometheus.
+     * @description This operation is available only for ASK, ECS, and ACK One clusters. Before you call this operation, make sure that a managed Prometheus agent is installed for your cluster.
      *  *
      * Deprecated
      *
@@ -14844,7 +14844,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 更新 feature信息
+     * @summary Updates the feature information of an environment.
      *  *
      * @param UpgradeEnvironmentFeatureRequest $request UpgradeEnvironmentFeatureRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -14892,7 +14892,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 更新 feature信息
+     * @summary Updates the feature information of an environment.
      *  *
      * @param UpgradeEnvironmentFeatureRequest $request UpgradeEnvironmentFeatureRequest
      *

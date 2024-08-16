@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DataBonreeSDKConfigModuleConfigDefaultConfigValue extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enable;

@@ -29,6 +29,7 @@ class CreateRumUploadFileUrlRequest extends Model
     /**
      * @description The file name.
      *
+     * This parameter is required.
      * @example test.js.map
      *
      * @var string
@@ -38,6 +39,7 @@ class CreateRumUploadFileUrlRequest extends Model
     /**
      * @description The application ID.
      *
+     * This parameter is required.
      * @example iioe7jcnuk@582846f37******
      *
      * @var string

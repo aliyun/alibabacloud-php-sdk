@@ -20,6 +20,7 @@ class GetRumAppInfoRequest extends Model
     /**
      * @description The application ID.
      *
+     * This parameter is required.
      * @example atc889zkcf@d8deedfa9bf****
      *
      * @var string

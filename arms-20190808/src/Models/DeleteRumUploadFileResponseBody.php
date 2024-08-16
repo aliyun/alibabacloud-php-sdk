@@ -38,6 +38,8 @@ class DeleteRumUploadFileResponseBody extends Model
     /**
      * @description The error message.
      *
+     * @example Internal error, please contact the administrator.
+     *
      * @var string
      */
     public $message;

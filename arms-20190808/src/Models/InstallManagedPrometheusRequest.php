@@ -27,7 +27,14 @@ class InstallManagedPrometheusRequest extends Model
     public $clusterName;
 
     /**
-     * @description The type of the cluster. Valid values: ask and ecs.
+     * @description The cluster type.
+     *
+     * Valid values:
+     *
+     *   ecs: ECS
+     *   one: ACK One
+     *   ask: ASK
+     *   pro: Container Monitoring Pro
      *
      * This parameter is required.
      * @example ask
@@ -37,7 +44,7 @@ class InstallManagedPrometheusRequest extends Model
     public $clusterType;
 
     /**
-     * @description The ID of the Grafana workspace in which the cluster resides. If you set this parameter to free or leave this parameter empty, the cluster is deployed in a shared Grafana workspace.
+     * @description The ID of the managed Grafana workspace that is associated with the cluster. If you set this parameter to free or leave this parameter empty, the cluster is associated with a shared Grafana workspace.
      *
      * @example grafana-bp1*****
      *
@@ -46,7 +53,7 @@ class InstallManagedPrometheusRequest extends Model
     public $grafanaInstanceId;
 
     /**
-     * @description The parameter is not supported.
+     * @description This parameter is not supported.
      *
      * @example -
      *
@@ -64,8 +71,6 @@ class InstallManagedPrometheusRequest extends Model
     public $regionId;
 
     /**
-     * @description Prometheus实例的资源组ID。
-     *
      * @example rg-acfmxyexli2****
      *
      * @var string

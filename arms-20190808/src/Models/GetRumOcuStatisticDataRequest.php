@@ -12,6 +12,7 @@ class GetRumOcuStatisticDataRequest extends Model
     /**
      * @description The end of the time range to query. Unit: milliseconds.
      *
+     * This parameter is required.
      * @example 1687849260000
      *
      * @var int
@@ -45,6 +46,7 @@ class GetRumOcuStatisticDataRequest extends Model
     /**
      * @description The page number.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -54,6 +56,7 @@ class GetRumOcuStatisticDataRequest extends Model
     /**
      * @description The number of entries per page.
      *
+     * This parameter is required.
      * @example 100
      *
      * @var int
@@ -81,6 +84,7 @@ class GetRumOcuStatisticDataRequest extends Model
     /**
      * @description The beginning of the time range to query. Unit: milliseconds.
      *
+     * This parameter is required.
      * @example 1600063200000
      *
      * @var int

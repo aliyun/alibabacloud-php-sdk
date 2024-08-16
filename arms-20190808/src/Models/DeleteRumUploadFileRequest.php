@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteRumUploadFileRequest extends Model
 {
     /**
+     * @description Information of files to be deleted in JSON array format. If a single file needs to be deleted, this field should be left empty. If multiple files need to be deleted, just fill in this field.
+     *
+     * @example [{
+     * }]
      * @var string
      */
     public $batchItems;

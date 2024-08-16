@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UninstallManagedPrometheusRequest extends Model
 {
     /**
-     * @description The ID of the ASK cluster. This parameter is required if the ClusterType parameter is set to ask.
+     * @description The ID of the Container Service for Kubernetes (ACK) cluster. This parameter is required when the ClusterType parameter is set to ask or one.
      *
      * @example cc7a37ee31aea4ed1a059eff8034b****
      *
@@ -18,7 +18,7 @@ class UninstallManagedPrometheusRequest extends Model
     public $clusterId;
 
     /**
-     * @description The type of the monitoring object. Valid values: ask and ecs.
+     * @description The cluster type. Valid values: ask, ecs, and one.
      *
      * This parameter is required.
      * @example ask
@@ -47,7 +47,7 @@ class UninstallManagedPrometheusRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description The virtual private cloud (VPC) where the ASK cluster or ECS instance resides.
+     * @description The ID of the virtual private cloud (VPC) where the cluster resides.
      *
      * @example vpc-rpn**********
      *

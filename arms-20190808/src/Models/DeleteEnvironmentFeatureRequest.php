@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteEnvironmentFeatureRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the environment.
      *
+     * This parameter is required.
      * @example env-xxx
      *
      * @var string
@@ -18,8 +19,9 @@ class DeleteEnvironmentFeatureRequest extends Model
     public $environmentId;
 
     /**
-     * @description This parameter is required.
+     * @description The feature name. Valid values: app-agent-pilot, metric-agent, ebpf-agent, and service-check.
      *
+     * This parameter is required.
      * @example metric-agent
      *
      * @var string
@@ -27,6 +29,8 @@ class DeleteEnvironmentFeatureRequest extends Model
     public $featureName;
 
     /**
+     * @description The region ID. Valid values: cn-beijing and cn-hangzhou.
+     *
      * @example cn-hangzhou
      *
      * @var string

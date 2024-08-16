@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteIntegrationsResponseBody extends Model
 {
     /**
+     * @description Indicates whether the alert integration is deleted. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +21,8 @@ class DeleteIntegrationsResponseBody extends Model
     public $isSuccess;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 34ED024E-9E31-434A-9E4E-D9D15C3****
      *
      * @var string

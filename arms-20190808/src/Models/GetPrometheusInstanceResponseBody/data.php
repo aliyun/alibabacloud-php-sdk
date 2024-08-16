@@ -69,7 +69,7 @@ class data extends Model
     public $clusterType;
 
     /**
-     * @description Backend data storage status.
+     * @description The data storage status at the backend.
      *
      * @example RUNNING
      *
@@ -78,7 +78,7 @@ class data extends Model
     public $dbInstanceStatus;
 
     /**
-     * @description Whether to enable access token authentication.
+     * @description Indicates whether access token authentication is enabled.
      *
      * @example true
      *
@@ -126,8 +126,8 @@ class data extends Model
     public $paymentType;
 
     /**
-     * @description The product to which the prometheus instance belongs.
-     * - cms
+     * @description The product to which the Prometheus instance belongs. Valid values: arms and cms.
+     *
      * @example arms
      *
      * @var string

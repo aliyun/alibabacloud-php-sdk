@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListEnvironmentFeaturesResponseBody extends Model
 {
     /**
+     * @description Status Code. Description 200 indicates success.
+     *
      * @example 200
      *
      * @var int
@@ -24,6 +26,8 @@ class ListEnvironmentFeaturesResponseBody extends Model
     public $data;
 
     /**
+     * @description The returned message.
+     *
      * @example success
      *
      * @var string
@@ -40,6 +44,11 @@ class ListEnvironmentFeaturesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the alert rule was deleted. Valid values:
+     *
+     *   `true`: The alert rule was deleted.
+     *   `false`: The alert rule failed to be deleted.
+     *
      * @example true
      *
      * @var bool

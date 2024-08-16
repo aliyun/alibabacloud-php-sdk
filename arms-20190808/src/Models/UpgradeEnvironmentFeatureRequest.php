@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpgradeEnvironmentFeatureRequest extends Model
 {
     /**
+     * @description The language. Valid values: zh and en. Default value: zh.
+     *
      * @example zh
      *
      * @var string
@@ -16,8 +18,9 @@ class UpgradeEnvironmentFeatureRequest extends Model
     public $aliyunLang;
 
     /**
-     * @description This parameter is required.
+     * @description The environment ID.
      *
+     * This parameter is required.
      * @example env-xxx
      *
      * @var string
@@ -25,8 +28,9 @@ class UpgradeEnvironmentFeatureRequest extends Model
     public $environmentId;
 
     /**
-     * @description This parameter is required.
+     * @description The feature name. Valid values: app-agent-pilot, metric-agent, ebpf-agent, and service-check.
      *
+     * This parameter is required.
      * @example metric-agent
      *
      * @var string
@@ -34,6 +38,8 @@ class UpgradeEnvironmentFeatureRequest extends Model
     public $featureName;
 
     /**
+     * @description The version of the feature.
+     *
      * @example 1.1.17
      *
      * @var string
@@ -41,6 +47,8 @@ class UpgradeEnvironmentFeatureRequest extends Model
     public $featureVersion;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -48,6 +56,8 @@ class UpgradeEnvironmentFeatureRequest extends Model
     public $regionId;
 
     /**
+     * @description Specifies whether to enable service discovery. For PodAnnotation, set the value to run or mini. For PodMonitor and ServiceMonitor, set the value to true or false.
+     *
      * @example {"PodAnnotation":"run"}
      *
      * @var string

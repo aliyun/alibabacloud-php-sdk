@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteIntegrationsRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the alert integration.
      *
+     * This parameter is required.
      * @example 1234
      *
      * @var int

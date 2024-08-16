@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListPrometheusGlobalViewResponseBody extends Model
 {
     /**
+     * @description Status code. Description 200 means success.
+     *
      * @example 200
      *
      * @var int
@@ -16,11 +18,17 @@ class ListPrometheusGlobalViewResponseBody extends Model
     public $code;
 
     /**
+     * @description The list of global aggregation instances. The value of this parameter is a string in the JSON format.
+     *
+     * @example [ {groupName: "the name of the global aggregation instance", clusterId: "global-v2-clusterid", endpoint: "cn-hangzhou"}, // ..... more items ]
+     *
      * @var string
      */
     public $data;
 
     /**
+     * @description More information.
+     *
      * @example success
      *
      * @var string
@@ -28,6 +36,8 @@ class ListPrometheusGlobalViewResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the request. You can use the ID to query logs and troubleshoot issues.
+     *
      * @example DBDCE95A-A0DD-5FC5-97CC-EEFC3D814385
      *
      * @var string

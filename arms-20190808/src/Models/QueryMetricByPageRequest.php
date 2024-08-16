@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class QueryMetricByPageRequest extends Model
 {
     /**
-     * @description The number of the page to return. Default value: `1`.
+     * @description The page number. Default value: `1`.
      *
      * @example 1
      *
@@ -52,7 +52,7 @@ class QueryMetricByPageRequest extends Model
     public $filters;
 
     /**
-     * @description The time interval at which data entries are aggregated. Unit: milliseconds. Minimum value: 60000.
+     * @description The time interval at which you want to query metric data. Unit: milliseconds. Minimum value: 60000.
      *
      * @example 100000
      *
@@ -102,7 +102,7 @@ class QueryMetricByPageRequest extends Model
     public $orderBy;
 
     /**
-     * @description The number of entries to return on each page. This parameter is no longer supported. The number of entries to return on each page.
+     * @description This parameter is no longer supported. The number of entries per page.
      *
      * @example 10
      *

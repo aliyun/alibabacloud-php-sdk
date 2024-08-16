@@ -12,6 +12,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example default
+     *
      * @var string
      */
     public $appGroup;
@@ -31,6 +33,8 @@ class data extends Model
     public $bonreeSDKConfig;
 
     /**
+     * @description The domain name of the SDK.
+     *
      * @example b59xxxxxxxx-sdk.rum.aliyuncs.com/v2/browser-sdk.js
      *
      * @var string

@@ -11,13 +11,16 @@ class ListEnvironmentFeaturesRequest extends Model
     /**
      * @description The language. Valid values: zh and en. Default value: zh.
      *
+     * @example en
+     *
      * @var string
      */
     public $aliyunLang;
 
     /**
-     * @description This parameter is required.
+     * @description The environment ID.
      *
+     * This parameter is required.
      * @example env-xxx
      *
      * @var string
@@ -25,6 +28,8 @@ class ListEnvironmentFeaturesRequest extends Model
     public $environmentId;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string

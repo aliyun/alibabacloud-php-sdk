@@ -11,6 +11,8 @@ class data extends Model
     /**
      * @description The alias of the feature.
      *
+     * @example Prometheus Agent
+     *
      * @var string
      */
     public $alias;
@@ -24,6 +26,8 @@ class data extends Model
 
     /**
      * @description The description of the feature.
+     *
+     * @example Collect Metric data using the Prometheus collection specification.
      *
      * @var string
      */
@@ -69,6 +73,10 @@ class data extends Model
     public $latestVersion;
 
     /**
+     * @description Whether hosted scenario.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $managed;

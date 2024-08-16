@@ -11,6 +11,7 @@ class GetMultipleTraceRequest extends Model
     /**
      * @description The time when the trace ends. The value is a timestamp. Unit: milliseconds.
      *
+     * This parameter is required.
      * @example 1663999380000
      *
      * @var int
@@ -30,6 +31,7 @@ class GetMultipleTraceRequest extends Model
     /**
      * @description The start time of the trace. The value is a timestamp. Unit: milliseconds.
      *
+     * This parameter is required.
      * @example 1657692507000
      *
      * @var int
