@@ -66,8 +66,6 @@ class DescribeTenantMetricsRequest extends Model
     public $startTime;
 
     /**
-     * @description This parameter is required.
-     *
      * @example tfafd34fs****
      *
      * @deprecated
@@ -77,8 +75,6 @@ class DescribeTenantMetricsRequest extends Model
     public $tenantId;
 
     /**
-     * @description This parameter is required.
-     *
      * @example [tdak3nac****,tdakc42df****]
      *
      * @var string
