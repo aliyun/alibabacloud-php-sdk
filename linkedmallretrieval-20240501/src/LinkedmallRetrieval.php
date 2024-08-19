@@ -121,6 +121,9 @@ class LinkedmallRetrieval extends OpenApiClient
         if (!Utils::isUnset($request->sessionId)) {
             $query['sessionId'] = $request->sessionId;
         }
+        if (!Utils::isUnset($request->timeRange)) {
+            $query['timeRange'] = $request->timeRange;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
