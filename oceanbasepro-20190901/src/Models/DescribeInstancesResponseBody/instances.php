@@ -205,6 +205,11 @@ class instances extends Model
     public $mem;
 
     /**
+     * @var string
+     */
+    public $obRpmVersion;
+
+    /**
      * @description The billing method for the OceanBase cluster. Valid values:
      * - POSTPAY: the pay-as-you-go billing method.
      * @example PREPAY
@@ -301,6 +306,7 @@ class instances extends Model
         'instanceType'                    => 'InstanceType',
         'maintainTime'                    => 'MaintainTime',
         'mem'                             => 'Mem',
+        'obRpmVersion'                    => 'ObRpmVersion',
         'payType'                         => 'PayType',
         'resource'                        => 'Resource',
         'resourceGroupId'                 => 'ResourceGroupId',
@@ -384,6 +390,9 @@ class instances extends Model
         }
         if (null !== $this->mem) {
             $res['Mem'] = $this->mem;
+        }
+        if (null !== $this->obRpmVersion) {
+            $res['ObRpmVersion'] = $this->obRpmVersion;
         }
         if (null !== $this->payType) {
             $res['PayType'] = $this->payType;
@@ -491,6 +500,9 @@ class instances extends Model
         }
         if (isset($map['Mem'])) {
             $model->mem = $map['Mem'];
+        }
+        if (isset($map['ObRpmVersion'])) {
+            $model->obRpmVersion = $map['ObRpmVersion'];
         }
         if (isset($map['PayType'])) {
             $model->payType = $map['PayType'];

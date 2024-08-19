@@ -80,6 +80,8 @@ use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeAvailableSpecRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeAvailableSpecResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeAvailableZoneRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeAvailableZoneResponse;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeBackupEncryptedStringRequest;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeBackupEncryptedStringResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeBackupSetDownloadLinkRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeBackupSetDownloadLinkResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeCharsetRequest;
@@ -98,6 +100,8 @@ use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstancesRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstancesResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstanceSSLRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstanceSSLResponse;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstanceSummaryRequest;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstanceSummaryResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstanceTagsRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstanceTagsResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstanceTenantModesRequest;
@@ -140,6 +144,8 @@ use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeProjectStepsRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeProjectStepsResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeRecommendIndexRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeRecommendIndexResponse;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeRestorableTenantsRequest;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeRestorableTenantsResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeSampleSqlRawTextsRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeSampleSqlRawTextsResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeSecurityIpGroupsRequest;
@@ -161,6 +167,8 @@ use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeSQLSamplesRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeSQLSamplesResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeSQLTuningAdvicesRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeSQLTuningAdvicesResponse;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeStandbyCreateModeRequest;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeStandbyCreateModeResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeTagValuesRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeTagValuesResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeTenantEncryptionRequest;
@@ -2499,6 +2507,56 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
+     * @summary DescribeBackupEncryptedString
+     *  *
+     * @param DescribeBackupEncryptedStringRequest $request DescribeBackupEncryptedStringRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeBackupEncryptedStringResponse DescribeBackupEncryptedStringResponse
+     */
+    public function describeBackupEncryptedStringWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $body['TenantId'] = $request->tenantId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeBackupEncryptedString',
+            'version'     => '2019-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeBackupEncryptedStringResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary DescribeBackupEncryptedString
+     *  *
+     * @param DescribeBackupEncryptedStringRequest $request DescribeBackupEncryptedStringRequest
+     *
+     * @return DescribeBackupEncryptedStringResponse DescribeBackupEncryptedStringResponse
+     */
+    public function describeBackupEncryptedString($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeBackupEncryptedStringWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary You can call this operation to query the link for downloading a backup set of OceanBase Database.
      *  *
      * @param DescribeBackupSetDownloadLinkRequest $request DescribeBackupSetDownloadLinkRequest
@@ -2926,6 +2984,56 @@ class OceanBasePro extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeInstanceSecurityConfigsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 工作台首页获取用户集群数汇总。
+     *  *
+     * @param DescribeInstanceSummaryRequest $request DescribeInstanceSummaryRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeInstanceSummaryResponse DescribeInstanceSummaryResponse
+     */
+    public function describeInstanceSummaryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeInstanceSummary',
+            'version'     => '2019-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeInstanceSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 工作台首页获取用户集群数汇总。
+     *  *
+     * @param DescribeInstanceSummaryRequest $request DescribeInstanceSummaryRequest
+     *
+     * @return DescribeInstanceSummaryResponse DescribeInstanceSummaryResponse
+     */
+    public function describeInstanceSummary($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeInstanceSummaryWithOptions($request, $runtime);
     }
 
     /**
@@ -4335,6 +4443,71 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
+     * @summary 获取可恢复租户
+     *  *
+     * @param DescribeRestorableTenantsRequest $request DescribeRestorableTenantsRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeRestorableTenantsResponse DescribeRestorableTenantsResponse
+     */
+    public function describeRestorableTenantsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->isOnline)) {
+            $body['IsOnline'] = $request->isOnline;
+        }
+        if (!Utils::isUnset($request->isRemote)) {
+            $body['IsRemote'] = $request->isRemote;
+        }
+        if (!Utils::isUnset($request->method)) {
+            $body['Method'] = $request->method;
+        }
+        if (!Utils::isUnset($request->restoreMode)) {
+            $body['RestoreMode'] = $request->restoreMode;
+        }
+        if (!Utils::isUnset($request->restoreObjectType)) {
+            $body['RestoreObjectType'] = $request->restoreObjectType;
+        }
+        if (!Utils::isUnset($request->setId)) {
+            $body['SetId'] = $request->setId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRestorableTenants',
+            'version'     => '2019-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeRestorableTenantsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取可恢复租户
+     *  *
+     * @param DescribeRestorableTenantsRequest $request DescribeRestorableTenantsRequest
+     *
+     * @return DescribeRestorableTenantsResponse DescribeRestorableTenantsResponse
+     */
+    public function describeRestorableTenants($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRestorableTenantsWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary The username.
      *  *
      * @param DescribeSQLDetailsRequest $request DescribeSQLDetailsRequest
@@ -4945,6 +5118,56 @@ class OceanBasePro extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeSlowSQLListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary DescribeStandbyCreateMode
+     *  *
+     * @param DescribeStandbyCreateModeRequest $request DescribeStandbyCreateModeRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeStandbyCreateModeResponse DescribeStandbyCreateModeResponse
+     */
+    public function describeStandbyCreateModeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $body['TenantId'] = $request->tenantId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeStandbyCreateMode',
+            'version'     => '2019-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeStandbyCreateModeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary DescribeStandbyCreateMode
+     *  *
+     * @param DescribeStandbyCreateModeRequest $request DescribeStandbyCreateModeRequest
+     *
+     * @return DescribeStandbyCreateModeResponse DescribeStandbyCreateModeResponse
+     */
+    public function describeStandbyCreateMode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeStandbyCreateModeWithOptions($request, $runtime);
     }
 
     /**
