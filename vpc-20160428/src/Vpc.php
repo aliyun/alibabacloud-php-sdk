@@ -558,6 +558,8 @@ use AlibabaCloud\SDK\Vpc\V20160428\Models\ListVpcEndpointServicesByEndUserReques
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ListVpcEndpointServicesByEndUserResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ListVpcGatewayEndpointsRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ListVpcGatewayEndpointsResponse;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\ListVpcPublishedRouteEntriesRequest;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\ListVpcPublishedRouteEntriesResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ListVpnCertificateAssociationsRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ListVpnCertificateAssociationsResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ListVSwitchCidrReservationsRequest;
@@ -683,6 +685,8 @@ use AlibabaCloud\SDK\Vpc\V20160428\Models\OpenPublicIpAddressPoolServiceRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\OpenPublicIpAddressPoolServiceResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\OpenTrafficMirrorServiceRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\OpenTrafficMirrorServiceResponse;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\PublishVpcRouteEntriesRequest;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\PublishVpcRouteEntriesResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\PublishVpnRouteEntryRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\PublishVpnRouteEntryResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\RecoverPhysicalConnectionRequest;
@@ -776,6 +780,8 @@ use AlibabaCloud\SDK\Vpc\V20160428\Models\UpdateVpcGatewayEndpointAttributeReque
 use AlibabaCloud\SDK\Vpc\V20160428\Models\UpdateVpcGatewayEndpointAttributeResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\VpcDescribeVpcNatGatewayNetworkInterfaceQuotaRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\VpcDescribeVpcNatGatewayNetworkInterfaceQuotaResponse;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\WithdrawVpcPublishedRouteEntriesRequest;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\WithdrawVpcPublishedRouteEntriesResponse;
 use AlibabaCloud\Tea\Tea;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
@@ -4922,7 +4928,16 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @summary 创建故障演练任务
+     * @summary Creates a failover test.
+     *  *
+     * @description You cannot create a failover test in the following scenarios:
+     * *   You have created a failover test in the region and its type is StartNow.
+     * *   The Express Connect circuit or hosted connection has pending orders or overdue payments.
+     * *   A failover test is already performed on the Express Connect circuit or hosted connection.
+     * *   More than one hosted connection is created over the Express Connect circuit.
+     * *   More than one cross-account VBR is created on the Express Connect circuit.
+     * *   No VBR is associated with the hosted connection.
+     * *   The VLAN ID of the hosted connection is set to 0.
      *  *
      * @param CreateFailoverTestJobRequest $request CreateFailoverTestJobRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -4991,7 +5006,16 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @summary 创建故障演练任务
+     * @summary Creates a failover test.
+     *  *
+     * @description You cannot create a failover test in the following scenarios:
+     * *   You have created a failover test in the region and its type is StartNow.
+     * *   The Express Connect circuit or hosted connection has pending orders or overdue payments.
+     * *   A failover test is already performed on the Express Connect circuit or hosted connection.
+     * *   More than one hosted connection is created over the Express Connect circuit.
+     * *   More than one cross-account VBR is created on the Express Connect circuit.
+     * *   No VBR is associated with the hosted connection.
+     * *   The VLAN ID of the hosted connection is set to 0.
      *  *
      * @param CreateFailoverTestJobRequest $request CreateFailoverTestJobRequest
      *
@@ -6720,7 +6744,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @summary Creates an order for resource usage fees.
+     * @summary Creates an order for resource occupation of an Express Connect circuit.
      *  *
      * @description >  You can call this operation only when the Express Connect circuit is in the **Complete** state.
      *  *
@@ -6785,7 +6809,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @summary Creates an order for resource usage fees.
+     * @summary Creates an order for resource occupation of an Express Connect circuit.
      *  *
      * @description >  You can call this operation only when the Express Connect circuit is in the **Complete** state.
      *  *
@@ -23140,6 +23164,86 @@ class Vpc extends OpenApiClient
     }
 
     /**
+     * @summary 查询路由发布情况
+     *  *
+     * @param ListVpcPublishedRouteEntriesRequest $request ListVpcPublishedRouteEntriesRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListVpcPublishedRouteEntriesResponse ListVpcPublishedRouteEntriesResponse
+     */
+    public function listVpcPublishedRouteEntriesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->destinationCidrBlock)) {
+            $query['DestinationCidrBlock'] = $request->destinationCidrBlock;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->routeTableId)) {
+            $query['RouteTableId'] = $request->routeTableId;
+        }
+        if (!Utils::isUnset($request->targetInstanceId)) {
+            $query['TargetInstanceId'] = $request->targetInstanceId;
+        }
+        if (!Utils::isUnset($request->targetType)) {
+            $query['TargetType'] = $request->targetType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListVpcPublishedRouteEntries',
+            'version'     => '2016-04-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListVpcPublishedRouteEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询路由发布情况
+     *  *
+     * @param ListVpcPublishedRouteEntriesRequest $request ListVpcPublishedRouteEntriesRequest
+     *
+     * @return ListVpcPublishedRouteEntriesResponse ListVpcPublishedRouteEntriesResponse
+     */
+    public function listVpcPublishedRouteEntries($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listVpcPublishedRouteEntriesWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries the association between VPN gateways and certificates in a region.
      *  *
      * @description When you call **ListVpnCertificateAssociations**, take note of the following information:
@@ -28237,6 +28341,80 @@ class Vpc extends OpenApiClient
     }
 
     /**
+     * @summary 发布VPC路由
+     *  *
+     * @param PublishVpcRouteEntriesRequest $request PublishVpcRouteEntriesRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return PublishVpcRouteEntriesResponse PublishVpcRouteEntriesResponse
+     */
+    public function publishVpcRouteEntriesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->routeEntries)) {
+            $query['RouteEntries'] = $request->routeEntries;
+        }
+        if (!Utils::isUnset($request->targetInstanceId)) {
+            $query['TargetInstanceId'] = $request->targetInstanceId;
+        }
+        if (!Utils::isUnset($request->targetType)) {
+            $query['TargetType'] = $request->targetType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'PublishVpcRouteEntries',
+            'version'     => '2016-04-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return PublishVpcRouteEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 发布VPC路由
+     *  *
+     * @param PublishVpcRouteEntriesRequest $request PublishVpcRouteEntriesRequest
+     *
+     * @return PublishVpcRouteEntriesResponse PublishVpcRouteEntriesResponse
+     */
+    public function publishVpcRouteEntries($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->publishVpcRouteEntriesWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Advertises a VPN route to a VPC.
      *  *
      * @param PublishVpnRouteEntryRequest $request PublishVpnRouteEntryRequest
@@ -31853,5 +32031,79 @@ class Vpc extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->vpcDescribeVpcNatGatewayNetworkInterfaceQuotaWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 撤回VPC已发布路由
+     *  *
+     * @param WithdrawVpcPublishedRouteEntriesRequest $request WithdrawVpcPublishedRouteEntriesRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return WithdrawVpcPublishedRouteEntriesResponse WithdrawVpcPublishedRouteEntriesResponse
+     */
+    public function withdrawVpcPublishedRouteEntriesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->routeEntries)) {
+            $query['RouteEntries'] = $request->routeEntries;
+        }
+        if (!Utils::isUnset($request->targetInstanceId)) {
+            $query['TargetInstanceId'] = $request->targetInstanceId;
+        }
+        if (!Utils::isUnset($request->targetType)) {
+            $query['TargetType'] = $request->targetType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'WithdrawVpcPublishedRouteEntries',
+            'version'     => '2016-04-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return WithdrawVpcPublishedRouteEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 撤回VPC已发布路由
+     *  *
+     * @param WithdrawVpcPublishedRouteEntriesRequest $request WithdrawVpcPublishedRouteEntriesRequest
+     *
+     * @return WithdrawVpcPublishedRouteEntriesResponse WithdrawVpcPublishedRouteEntriesResponse
+     */
+    public function withdrawVpcPublishedRouteEntries($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->withdrawVpcPublishedRouteEntriesWithOptions($request, $runtime);
     }
 }

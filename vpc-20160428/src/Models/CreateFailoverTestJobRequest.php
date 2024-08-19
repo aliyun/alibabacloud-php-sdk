@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CreateFailoverTestJobRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
+     *
+     * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -16,6 +21,9 @@ class CreateFailoverTestJobRequest extends Model
     public $clientToken;
 
     /**
+     * @description The description of the failover test.
+     *
+     * The description must be 0 to 256 characters in length and cannot start with `http://` or `https://`.
      * @example test
      *
      * @var string
@@ -23,13 +31,18 @@ class CreateFailoverTestJobRequest extends Model
     public $description;
 
     /**
+     * @description If you set the value to true, the system performs only a dry run without actually performing the actual request. If you set the value to false, the system performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;
 
     /**
-     * @description This parameter is required.
+     * @description The duration of the failover test. Unit: minutes. Valid values: **1 to 4320**.
      *
+     * This parameter is required.
      * @example 60
      *
      * @var int
@@ -37,8 +50,12 @@ class CreateFailoverTestJobRequest extends Model
     public $jobDuration;
 
     /**
-     * @description This parameter is required.
+     * @description The type of the failover test. Valid values:
      *
+     *   **StartNow**
+     *   **StartLater**
+     *
+     * This parameter is required.
      * @example StartNow
      *
      * @var string
@@ -46,6 +63,9 @@ class CreateFailoverTestJobRequest extends Model
     public $jobType;
 
     /**
+     * @description The name of the failover test.
+     *
+     * The name must be 0 to 128 characters in length and cannot start with `http://` or `https://`.
      * @example test
      *
      * @var string
@@ -63,6 +83,9 @@ class CreateFailoverTestJobRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the failover test.
+     *
+     * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -70,8 +93,9 @@ class CreateFailoverTestJobRequest extends Model
     public $regionId;
 
     /**
-     * @description This parameter is required.
+     * @description The IDs of failover test resources. You can add at most 16 resources.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $resourceId;
@@ -82,8 +106,9 @@ class CreateFailoverTestJobRequest extends Model
     public $resourceOwnerAccount;
 
     /**
-     * @description This parameter is required.
+     * @description The resource type of the failover test. Set the value to **PHYSICALCONNECTION**.
      *
+     * This parameter is required.
      * @example PHYSICALCONNECTION
      *
      * @var string
