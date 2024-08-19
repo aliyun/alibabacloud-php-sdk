@@ -2,15 +2,14 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Edsaic\V20230930\Models\ListPolicyGroupsResponseBody;
+namespace AlibabaCloud\SDK\Edsaic\V20230930\Models;
 
-use AlibabaCloud\SDK\Edsaic\V20230930\Models\ListPolicyGroupsResponseBody\policyGroupModel\netRedirectPolicy;
 use AlibabaCloud\Tea\Model;
 
-class policyGroupModel extends Model
+class ModifyPolicyGroupShrinkRequest extends Model
 {
     /**
-     * @example on
+     * @example off
      *
      * @var string
      */
@@ -24,14 +23,7 @@ class policyGroupModel extends Model
     public $clipboard;
 
     /**
-     * @example 2024-06-04 10:28:54
-     *
-     * @var string
-     */
-    public $gmtCreate;
-
-    /**
-     * @example download
+     * @example off
      *
      * @var string
      */
@@ -45,12 +37,12 @@ class policyGroupModel extends Model
     public $localDrive;
 
     /**
-     * @var netRedirectPolicy
+     * @var string
      */
-    public $netRedirectPolicy;
+    public $netRedirectPolicyShrink;
 
     /**
-     * @example pg-9q6o8qpiy8opkj****
+     * @example pg-4bi18ebi9tfjh****
      *
      * @var string
      */
@@ -62,29 +54,28 @@ class policyGroupModel extends Model
     public $policyGroupName;
 
     /**
-     * @example 1080
+     * @example 1280
      *
-     * @var string
+     * @var int
      */
-    public $sessionResolutionHeight;
+    public $resolutionHeight;
 
     /**
-     * @example 1920
+     * @example 720
      *
-     * @var string
+     * @var int
      */
-    public $sessionResolutionWidth;
+    public $resolutionWidth;
     protected $_name = [
         'cameraRedirect'          => 'CameraRedirect',
         'clipboard'               => 'Clipboard',
-        'gmtCreate'               => 'GmtCreate',
         'html5FileTransfer'       => 'Html5FileTransfer',
         'localDrive'              => 'LocalDrive',
-        'netRedirectPolicy'       => 'NetRedirectPolicy',
+        'netRedirectPolicyShrink' => 'NetRedirectPolicy',
         'policyGroupId'           => 'PolicyGroupId',
         'policyGroupName'         => 'PolicyGroupName',
-        'sessionResolutionHeight' => 'SessionResolutionHeight',
-        'sessionResolutionWidth'  => 'SessionResolutionWidth',
+        'resolutionHeight'        => 'ResolutionHeight',
+        'resolutionWidth'         => 'ResolutionWidth',
     ];
 
     public function validate()
@@ -100,17 +91,14 @@ class policyGroupModel extends Model
         if (null !== $this->clipboard) {
             $res['Clipboard'] = $this->clipboard;
         }
-        if (null !== $this->gmtCreate) {
-            $res['GmtCreate'] = $this->gmtCreate;
-        }
         if (null !== $this->html5FileTransfer) {
             $res['Html5FileTransfer'] = $this->html5FileTransfer;
         }
         if (null !== $this->localDrive) {
             $res['LocalDrive'] = $this->localDrive;
         }
-        if (null !== $this->netRedirectPolicy) {
-            $res['NetRedirectPolicy'] = null !== $this->netRedirectPolicy ? $this->netRedirectPolicy->toMap() : null;
+        if (null !== $this->netRedirectPolicyShrink) {
+            $res['NetRedirectPolicy'] = $this->netRedirectPolicyShrink;
         }
         if (null !== $this->policyGroupId) {
             $res['PolicyGroupId'] = $this->policyGroupId;
@@ -118,11 +106,11 @@ class policyGroupModel extends Model
         if (null !== $this->policyGroupName) {
             $res['PolicyGroupName'] = $this->policyGroupName;
         }
-        if (null !== $this->sessionResolutionHeight) {
-            $res['SessionResolutionHeight'] = $this->sessionResolutionHeight;
+        if (null !== $this->resolutionHeight) {
+            $res['ResolutionHeight'] = $this->resolutionHeight;
         }
-        if (null !== $this->sessionResolutionWidth) {
-            $res['SessionResolutionWidth'] = $this->sessionResolutionWidth;
+        if (null !== $this->resolutionWidth) {
+            $res['ResolutionWidth'] = $this->resolutionWidth;
         }
 
         return $res;
@@ -131,7 +119,7 @@ class policyGroupModel extends Model
     /**
      * @param array $map
      *
-     * @return policyGroupModel
+     * @return ModifyPolicyGroupShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -142,9 +130,6 @@ class policyGroupModel extends Model
         if (isset($map['Clipboard'])) {
             $model->clipboard = $map['Clipboard'];
         }
-        if (isset($map['GmtCreate'])) {
-            $model->gmtCreate = $map['GmtCreate'];
-        }
         if (isset($map['Html5FileTransfer'])) {
             $model->html5FileTransfer = $map['Html5FileTransfer'];
         }
@@ -152,7 +137,7 @@ class policyGroupModel extends Model
             $model->localDrive = $map['LocalDrive'];
         }
         if (isset($map['NetRedirectPolicy'])) {
-            $model->netRedirectPolicy = netRedirectPolicy::fromMap($map['NetRedirectPolicy']);
+            $model->netRedirectPolicyShrink = $map['NetRedirectPolicy'];
         }
         if (isset($map['PolicyGroupId'])) {
             $model->policyGroupId = $map['PolicyGroupId'];
@@ -160,11 +145,11 @@ class policyGroupModel extends Model
         if (isset($map['PolicyGroupName'])) {
             $model->policyGroupName = $map['PolicyGroupName'];
         }
-        if (isset($map['SessionResolutionHeight'])) {
-            $model->sessionResolutionHeight = $map['SessionResolutionHeight'];
+        if (isset($map['ResolutionHeight'])) {
+            $model->resolutionHeight = $map['ResolutionHeight'];
         }
-        if (isset($map['SessionResolutionWidth'])) {
-            $model->sessionResolutionWidth = $map['SessionResolutionWidth'];
+        if (isset($map['ResolutionWidth'])) {
+            $model->resolutionWidth = $map['ResolutionWidth'];
         }
 
         return $model;

@@ -24,6 +24,7 @@ use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateKeyPairRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateKeyPairResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreatePolicyGroupRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreatePolicyGroupResponse;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreatePolicyGroupShrinkRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DeleteAndroidInstanceGroupRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DeleteAndroidInstanceGroupResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DeleteAppsRequest;
@@ -80,6 +81,7 @@ use AlibabaCloud\SDK\Edsaic\V20230930\Models\ModifyKeyPairNameRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ModifyKeyPairNameResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ModifyPolicyGroupRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ModifyPolicyGroupResponse;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\ModifyPolicyGroupShrinkRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\RebootAndroidInstancesInGroupRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\RebootAndroidInstancesInGroupResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\RecoveryFileRequest;
@@ -390,6 +392,9 @@ class Edsaic extends OpenApiClient
         if (!Utils::isUnset($request->chargeType)) {
             $query['ChargeType'] = $request->chargeType;
         }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
         if (!Utils::isUnset($request->gpuAcceleration)) {
             $query['GpuAcceleration'] = $request->gpuAcceleration;
         }
@@ -528,6 +533,9 @@ class Edsaic extends OpenApiClient
     {
         Utils::validateModel($request);
         $body = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $body['ClientToken'] = $request->clientToken;
+        }
         if (!Utils::isUnset($request->description)) {
             $body['Description'] = $request->description;
         }
@@ -619,14 +627,19 @@ class Edsaic extends OpenApiClient
     /**
      * @summary 创建策略
      *  *
-     * @param CreatePolicyGroupRequest $request CreatePolicyGroupRequest
+     * @param CreatePolicyGroupRequest $tmpReq  CreatePolicyGroupRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
      * @return CreatePolicyGroupResponse CreatePolicyGroupResponse
      */
-    public function createPolicyGroupWithOptions($request, $runtime)
+    public function createPolicyGroupWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new CreatePolicyGroupShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->netRedirectPolicy)) {
+            $request->netRedirectPolicyShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->netRedirectPolicy, 'NetRedirectPolicy', 'json');
+        }
         $body = [];
         if (!Utils::isUnset($request->cameraRedirect)) {
             $body['CameraRedirect'] = $request->cameraRedirect;
@@ -639,6 +652,9 @@ class Edsaic extends OpenApiClient
         }
         if (!Utils::isUnset($request->localDrive)) {
             $body['LocalDrive'] = $request->localDrive;
+        }
+        if (!Utils::isUnset($request->netRedirectPolicyShrink)) {
+            $body['NetRedirectPolicy'] = $request->netRedirectPolicyShrink;
         }
         if (!Utils::isUnset($request->policyGroupName)) {
             $body['PolicyGroupName'] = $request->policyGroupName;
@@ -1011,6 +1027,9 @@ class Edsaic extends OpenApiClient
         }
         if (!Utils::isUnset($request->instanceGroupId)) {
             $query['InstanceGroupId'] = $request->instanceGroupId;
+        }
+        if (!Utils::isUnset($request->instanceGroupIds)) {
+            $query['InstanceGroupIds'] = $request->instanceGroupIds;
         }
         if (!Utils::isUnset($request->keyPairId)) {
             $query['KeyPairId'] = $request->keyPairId;
@@ -1841,6 +1860,9 @@ class Edsaic extends OpenApiClient
         if (!Utils::isUnset($request->instanceGroupIdList)) {
             $query['InstanceGroupIdList'] = $request->instanceGroupIdList;
         }
+        if (!Utils::isUnset($request->instanceIdList)) {
+            $query['InstanceIdList'] = $request->instanceIdList;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -2141,14 +2163,19 @@ class Edsaic extends OpenApiClient
     /**
      * @summary 修改policy
      *  *
-     * @param ModifyPolicyGroupRequest $request ModifyPolicyGroupRequest
+     * @param ModifyPolicyGroupRequest $tmpReq  ModifyPolicyGroupRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
      * @return ModifyPolicyGroupResponse ModifyPolicyGroupResponse
      */
-    public function modifyPolicyGroupWithOptions($request, $runtime)
+    public function modifyPolicyGroupWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new ModifyPolicyGroupShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->netRedirectPolicy)) {
+            $request->netRedirectPolicyShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->netRedirectPolicy, 'NetRedirectPolicy', 'json');
+        }
         $body = [];
         if (!Utils::isUnset($request->cameraRedirect)) {
             $body['CameraRedirect'] = $request->cameraRedirect;
@@ -2161,6 +2188,9 @@ class Edsaic extends OpenApiClient
         }
         if (!Utils::isUnset($request->localDrive)) {
             $body['LocalDrive'] = $request->localDrive;
+        }
+        if (!Utils::isUnset($request->netRedirectPolicyShrink)) {
+            $body['NetRedirectPolicy'] = $request->netRedirectPolicyShrink;
         }
         if (!Utils::isUnset($request->policyGroupId)) {
             $body['PolicyGroupId'] = $request->policyGroupId;

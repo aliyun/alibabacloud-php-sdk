@@ -9,12 +9,18 @@ use AlibabaCloud\Tea\Model;
 class CreateCustomImageResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $imageId;
+
+    /**
      * @example 20393E53-8FF1-524C-B494-B478A5369733
      *
      * @var string
      */
     public $requestId;
     protected $_name = [
+        'imageId'   => 'ImageId',
         'requestId' => 'RequestId',
     ];
 
@@ -25,6 +31,9 @@ class CreateCustomImageResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->imageId) {
+            $res['ImageId'] = $this->imageId;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -40,6 +49,9 @@ class CreateCustomImageResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ImageId'])) {
+            $model->imageId = $map['ImageId'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

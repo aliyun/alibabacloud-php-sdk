@@ -17,9 +17,15 @@ class InstallAppRequest extends Model
      * @var string[]
      */
     public $instanceGroupIdList;
+
+    /**
+     * @var string[]
+     */
+    public $instanceIdList;
     protected $_name = [
         'appIdList'           => 'AppIdList',
         'instanceGroupIdList' => 'InstanceGroupIdList',
+        'instanceIdList'      => 'InstanceIdList',
     ];
 
     public function validate()
@@ -34,6 +40,9 @@ class InstallAppRequest extends Model
         }
         if (null !== $this->instanceGroupIdList) {
             $res['InstanceGroupIdList'] = $this->instanceGroupIdList;
+        }
+        if (null !== $this->instanceIdList) {
+            $res['InstanceIdList'] = $this->instanceIdList;
         }
 
         return $res;
@@ -55,6 +64,11 @@ class InstallAppRequest extends Model
         if (isset($map['InstanceGroupIdList'])) {
             if (!empty($map['InstanceGroupIdList'])) {
                 $model->instanceGroupIdList = $map['InstanceGroupIdList'];
+            }
+        }
+        if (isset($map['InstanceIdList'])) {
+            if (!empty($map['InstanceIdList'])) {
+                $model->instanceIdList = $map['InstanceIdList'];
             }
         }
 

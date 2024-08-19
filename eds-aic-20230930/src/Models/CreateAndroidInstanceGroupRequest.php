@@ -44,6 +44,11 @@ class CreateAndroidInstanceGroupRequest extends Model
     public $chargeType;
 
     /**
+     * @var string
+     */
+    public $clientToken;
+
+    /**
      * @var bool
      */
     public $gpuAcceleration;
@@ -120,6 +125,7 @@ class CreateAndroidInstanceGroupRequest extends Model
         'autoRenew'         => 'AutoRenew',
         'bizRegionId'       => 'BizRegionId',
         'chargeType'        => 'ChargeType',
+        'clientToken'       => 'ClientToken',
         'gpuAcceleration'   => 'GpuAcceleration',
         'imageId'           => 'ImageId',
         'instanceGroupName' => 'InstanceGroupName',
@@ -153,6 +159,9 @@ class CreateAndroidInstanceGroupRequest extends Model
         }
         if (null !== $this->chargeType) {
             $res['ChargeType'] = $this->chargeType;
+        }
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
         if (null !== $this->gpuAcceleration) {
             $res['GpuAcceleration'] = $this->gpuAcceleration;
@@ -210,6 +219,9 @@ class CreateAndroidInstanceGroupRequest extends Model
         }
         if (isset($map['ChargeType'])) {
             $model->chargeType = $map['ChargeType'];
+        }
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
         if (isset($map['GpuAcceleration'])) {
             $model->gpuAcceleration = $map['GpuAcceleration'];

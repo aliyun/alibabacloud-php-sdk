@@ -28,6 +28,11 @@ class DescribeAndroidInstancesRequest extends Model
     public $instanceGroupId;
 
     /**
+     * @var string[]
+     */
+    public $instanceGroupIds;
+
+    /**
      * @example kp-5hh431emkpuoi****
      *
      * @var string
@@ -65,6 +70,7 @@ class DescribeAndroidInstancesRequest extends Model
         'androidInstanceIds'  => 'AndroidInstanceIds',
         'androidInstanceName' => 'AndroidInstanceName',
         'instanceGroupId'     => 'InstanceGroupId',
+        'instanceGroupIds'    => 'InstanceGroupIds',
         'keyPairId'           => 'KeyPairId',
         'maxResults'          => 'MaxResults',
         'nextToken'           => 'NextToken',
@@ -87,6 +93,9 @@ class DescribeAndroidInstancesRequest extends Model
         }
         if (null !== $this->instanceGroupId) {
             $res['InstanceGroupId'] = $this->instanceGroupId;
+        }
+        if (null !== $this->instanceGroupIds) {
+            $res['InstanceGroupIds'] = $this->instanceGroupIds;
         }
         if (null !== $this->keyPairId) {
             $res['KeyPairId'] = $this->keyPairId;
@@ -125,6 +134,11 @@ class DescribeAndroidInstancesRequest extends Model
         }
         if (isset($map['InstanceGroupId'])) {
             $model->instanceGroupId = $map['InstanceGroupId'];
+        }
+        if (isset($map['InstanceGroupIds'])) {
+            if (!empty($map['InstanceGroupIds'])) {
+                $model->instanceGroupIds = $map['InstanceGroupIds'];
+            }
         }
         if (isset($map['KeyPairId'])) {
             $model->keyPairId = $map['KeyPairId'];

@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models;
 
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateAndroidInstanceGroupResponseBody\instanceGroupInfos;
 use AlibabaCloud\Tea\Model;
 
 class CreateAndroidInstanceGroupResponseBody extends Model
@@ -12,6 +13,11 @@ class CreateAndroidInstanceGroupResponseBody extends Model
      * @var string[]
      */
     public $instanceGroupIds;
+
+    /**
+     * @var instanceGroupInfos[]
+     */
+    public $instanceGroupInfos;
 
     /**
      * @example 22365781890****
@@ -27,9 +33,10 @@ class CreateAndroidInstanceGroupResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'instanceGroupIds' => 'InstanceGroupIds',
-        'orderId'          => 'OrderId',
-        'requestId'        => 'RequestId',
+        'instanceGroupIds'   => 'InstanceGroupIds',
+        'instanceGroupInfos' => 'InstanceGroupInfos',
+        'orderId'            => 'OrderId',
+        'requestId'          => 'RequestId',
     ];
 
     public function validate()
@@ -41,6 +48,15 @@ class CreateAndroidInstanceGroupResponseBody extends Model
         $res = [];
         if (null !== $this->instanceGroupIds) {
             $res['InstanceGroupIds'] = $this->instanceGroupIds;
+        }
+        if (null !== $this->instanceGroupInfos) {
+            $res['InstanceGroupInfos'] = [];
+            if (null !== $this->instanceGroupInfos && \is_array($this->instanceGroupInfos)) {
+                $n = 0;
+                foreach ($this->instanceGroupInfos as $item) {
+                    $res['InstanceGroupInfos'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
@@ -63,6 +79,15 @@ class CreateAndroidInstanceGroupResponseBody extends Model
         if (isset($map['InstanceGroupIds'])) {
             if (!empty($map['InstanceGroupIds'])) {
                 $model->instanceGroupIds = $map['InstanceGroupIds'];
+            }
+        }
+        if (isset($map['InstanceGroupInfos'])) {
+            if (!empty($map['InstanceGroupInfos'])) {
+                $model->instanceGroupInfos = [];
+                $n                         = 0;
+                foreach ($map['InstanceGroupInfos'] as $item) {
+                    $model->instanceGroupInfos[$n++] = null !== $item ? instanceGroupInfos::fromMap($item) : $item;
+                }
             }
         }
         if (isset($map['OrderId'])) {

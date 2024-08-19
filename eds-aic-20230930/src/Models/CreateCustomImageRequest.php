@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CreateCustomImageRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $clientToken;
+
+    /**
      * @example create for cc5g group auth rules test
      *
      * @var string
@@ -33,6 +38,7 @@ class CreateCustomImageRequest extends Model
      */
     public $instanceId;
     protected $_name = [
+        'clientToken' => 'ClientToken',
         'description' => 'Description',
         'imageName'   => 'ImageName',
         'instanceId'  => 'InstanceId',
@@ -45,6 +51,9 @@ class CreateCustomImageRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
@@ -66,6 +75,9 @@ class CreateCustomImageRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }

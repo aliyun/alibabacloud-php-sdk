@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models;
 
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\ModifyPolicyGroupRequest\netRedirectPolicy;
 use AlibabaCloud\Tea\Model;
 
 class ModifyPolicyGroupRequest extends Model
@@ -37,6 +38,11 @@ class ModifyPolicyGroupRequest extends Model
     public $localDrive;
 
     /**
+     * @var netRedirectPolicy
+     */
+    public $netRedirectPolicy;
+
+    /**
      * @example pg-4bi18ebi9tfjh****
      *
      * @var string
@@ -66,6 +72,7 @@ class ModifyPolicyGroupRequest extends Model
         'clipboard'         => 'Clipboard',
         'html5FileTransfer' => 'Html5FileTransfer',
         'localDrive'        => 'LocalDrive',
+        'netRedirectPolicy' => 'NetRedirectPolicy',
         'policyGroupId'     => 'PolicyGroupId',
         'policyGroupName'   => 'PolicyGroupName',
         'resolutionHeight'  => 'ResolutionHeight',
@@ -90,6 +97,9 @@ class ModifyPolicyGroupRequest extends Model
         }
         if (null !== $this->localDrive) {
             $res['LocalDrive'] = $this->localDrive;
+        }
+        if (null !== $this->netRedirectPolicy) {
+            $res['NetRedirectPolicy'] = null !== $this->netRedirectPolicy ? $this->netRedirectPolicy->toMap() : null;
         }
         if (null !== $this->policyGroupId) {
             $res['PolicyGroupId'] = $this->policyGroupId;
@@ -126,6 +136,9 @@ class ModifyPolicyGroupRequest extends Model
         }
         if (isset($map['LocalDrive'])) {
             $model->localDrive = $map['LocalDrive'];
+        }
+        if (isset($map['NetRedirectPolicy'])) {
+            $model->netRedirectPolicy = netRedirectPolicy::fromMap($map['NetRedirectPolicy']);
         }
         if (isset($map['PolicyGroupId'])) {
             $model->policyGroupId = $map['PolicyGroupId'];
