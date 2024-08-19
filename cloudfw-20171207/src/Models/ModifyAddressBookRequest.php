@@ -77,6 +77,11 @@ class ModifyAddressBookRequest extends Model
     public $lang;
 
     /**
+     * @var string
+     */
+    public $modifyMode;
+
+    /**
      * @description The source IP address of the request.
      *
      * @example 192.0.XX.XX
@@ -112,6 +117,7 @@ class ModifyAddressBookRequest extends Model
         'groupName'     => 'GroupName',
         'groupUuid'     => 'GroupUuid',
         'lang'          => 'Lang',
+        'modifyMode'    => 'ModifyMode',
         'sourceIp'      => 'SourceIp',
         'tagList'       => 'TagList',
         'tagRelation'   => 'TagRelation',
@@ -141,6 +147,9 @@ class ModifyAddressBookRequest extends Model
         }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
+        }
+        if (null !== $this->modifyMode) {
+            $res['ModifyMode'] = $this->modifyMode;
         }
         if (null !== $this->sourceIp) {
             $res['SourceIp'] = $this->sourceIp;
@@ -186,6 +195,9 @@ class ModifyAddressBookRequest extends Model
         }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
+        }
+        if (isset($map['ModifyMode'])) {
+            $model->modifyMode = $map['ModifyMode'];
         }
         if (isset($map['SourceIp'])) {
             $model->sourceIp = $map['SourceIp'];

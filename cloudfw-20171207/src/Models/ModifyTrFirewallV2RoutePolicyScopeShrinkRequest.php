@@ -9,13 +9,16 @@ use AlibabaCloud\Tea\Model;
 class ModifyTrFirewallV2RoutePolicyScopeShrinkRequest extends Model
 {
     /**
+     * @description The secondary traffic redirection instances.
+     *
      * @var string
      */
     public $destCandidateListShrink;
 
     /**
-     * @description This parameter is required.
+     * @description The instance ID of the virtual private cloud (VPC) firewall.
      *
+     * This parameter is required.
      * @example vfw-tr-6520de0253bc4669bbd9
      *
      * @var string
@@ -23,6 +26,11 @@ class ModifyTrFirewallV2RoutePolicyScopeShrinkRequest extends Model
     public $firewallId;
 
     /**
+     * @description The language of the content within the response. Valid values:
+     *
+     *  **zh** (default): Chinese
+     *  **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -30,18 +38,28 @@ class ModifyTrFirewallV2RoutePolicyScopeShrinkRequest extends Model
     public $lang;
 
     /**
+     * @description Specifies whether to restore the traffic redirection configurations. Valid values:
+     *
+     *   true: roll back
+     *   false: withdraw
+     *
+     * @example false
+     *
      * @var string
      */
     public $shouldRecover;
 
     /**
+     * @description The primary traffic redirection instances.
+     *
      * @var string
      */
     public $srcCandidateListShrink;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the routing policy.
      *
+     * This parameter is required.
      * @example policy-4d724d0139df48f18091
      *
      * @var string

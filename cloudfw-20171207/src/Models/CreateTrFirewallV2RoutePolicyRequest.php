@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class CreateTrFirewallV2RoutePolicyRequest extends Model
 {
     /**
+     * @description The secondary traffic redirection instances.
+     *
      * @var destCandidateList[]
      */
     public $destCandidateList;
 
     /**
+     * @description The instance ID of the VPC firewall.
+     *
      * @example vfw-tr-f8ce36689b224f77****
      *
      * @var string
@@ -23,6 +27,11 @@ class CreateTrFirewallV2RoutePolicyRequest extends Model
     public $firewallId;
 
     /**
+     * @description The language of the content within the response. Valid values:
+     *
+     *   **zh** (default): Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -30,16 +39,30 @@ class CreateTrFirewallV2RoutePolicyRequest extends Model
     public $lang;
 
     /**
+     * @description The description of the traffic redirection instance.
+     *
+     * @example test
+     *
      * @var string
      */
     public $policyDescription;
 
     /**
+     * @description The name of the traffic redirection instance.
+     *
+     * @example TEST_VPC_FW
+     *
      * @var string
      */
     public $policyName;
 
     /**
+     * @description The type of the traffic redirection scenario of the VPC firewall. Valid values:
+     *
+     *   **fullmesh**: interconnected instances
+     *   **one_to_one**: instance to instance
+     *   **end_to_end**: instance to instances
+     *
      * @example fullmesh
      *
      * @var string
@@ -47,6 +70,8 @@ class CreateTrFirewallV2RoutePolicyRequest extends Model
     public $policyType;
 
     /**
+     * @description The primary traffic redirection instances.
+     *
      * @var srcCandidateList[]
      */
     public $srcCandidateList;

@@ -164,6 +164,19 @@ class AddControlPolicyRequest extends Model
     public $direction;
 
     /**
+     * @description The domain name resolution method of the access control policy. Valid values:
+     *
+     * **FQDN**: fully qualified domain name (FQDN)-based resolution
+     * **DNS**: DNS-based dynamic resolution
+     * **FQDN_AND_DNS**: FQDN and DNS-based dynamic resolution
+     *
+     * @example FQDN
+     *
+     * @var string
+     */
+    public $domainResolveType;
+
+    /**
      * @description The time when the access control policy stops taking effect. The value is a UNIX timestamp. Unit: seconds. The value must be on the hour or on the half hour, and at least 30 minutes later than the start time.
      *
      * >  If you set RepeatType to Permanent, leave this parameter empty. If you set RepeatType to None, Daily, Weekly, or Monthly, you must specify this parameter.
@@ -351,6 +364,7 @@ class AddControlPolicyRequest extends Model
         'destination'         => 'Destination',
         'destinationType'     => 'DestinationType',
         'direction'           => 'Direction',
+        'domainResolveType'   => 'DomainResolveType',
         'endTime'             => 'EndTime',
         'ipVersion'           => 'IpVersion',
         'lang'                => 'Lang',
@@ -403,6 +417,9 @@ class AddControlPolicyRequest extends Model
         }
         if (null !== $this->direction) {
             $res['Direction'] = $this->direction;
+        }
+        if (null !== $this->domainResolveType) {
+            $res['DomainResolveType'] = $this->domainResolveType;
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
@@ -489,6 +506,9 @@ class AddControlPolicyRequest extends Model
         }
         if (isset($map['Direction'])) {
             $model->direction = $map['Direction'];
+        }
+        if (isset($map['DomainResolveType'])) {
+            $model->domainResolveType = $map['DomainResolveType'];
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];

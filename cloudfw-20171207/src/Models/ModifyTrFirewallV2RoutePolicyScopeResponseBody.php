@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyTrFirewallV2RoutePolicyScopeResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example E7D4D635-0C70-5CEB-A609-851E94D51FBB
      *
      * @var string
@@ -16,6 +18,8 @@ class ModifyTrFirewallV2RoutePolicyScopeResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the routing policy.
+     *
      * @example policy-4d724d0139df48f18091
      *
      * @var string

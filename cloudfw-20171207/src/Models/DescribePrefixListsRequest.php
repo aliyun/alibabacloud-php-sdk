@@ -20,7 +20,7 @@ class DescribePrefixListsRequest extends Model
     /**
      * @description The source IP address of the request.
      *
-     * @example 222.221.153.2
+     * @example 47.100.XX.XX
      *
      * @var string
      */

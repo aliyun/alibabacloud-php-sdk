@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteFirewallV2RoutePoliciesResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 22B6B889-4E9F-56B3-AF3D-53749C477D1D
      *
      * @var string

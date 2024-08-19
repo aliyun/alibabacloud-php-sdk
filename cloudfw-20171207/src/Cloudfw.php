@@ -22,6 +22,8 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateNatFirewallControlPolicyRequ
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateNatFirewallControlPolicyResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateSecurityProxyRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateSecurityProxyResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateSlsLogDispatchRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateSlsLogDispatchResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateTrFirewallV2Request;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateTrFirewallV2Response;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateTrFirewallV2RoutePolicyRequest;
@@ -171,6 +173,8 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyNatFirewallControlPolicyPosi
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyNatFirewallControlPolicyPositionResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyNatFirewallControlPolicyRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyNatFirewallControlPolicyResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyObjectGroupOperationRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyObjectGroupOperationResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyPolicyAdvancedConfigRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyPolicyAdvancedConfigResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyTrFirewallV2ConfigurationRequest;
@@ -379,6 +383,9 @@ class Cloudfw extends OpenApiClient
         }
         if (!Utils::isUnset($request->direction)) {
             $query['Direction'] = $request->direction;
+        }
+        if (!Utils::isUnset($request->domainResolveType)) {
+            $query['DomainResolveType'] = $request->domainResolveType;
         }
         if (!Utils::isUnset($request->endTime)) {
             $query['EndTime'] = $request->endTime;
@@ -651,6 +658,9 @@ class Cloudfw extends OpenApiClient
         if (!Utils::isUnset($request->taskData)) {
             $query['TaskData'] = $request->taskData;
         }
+        if (!Utils::isUnset($request->timeZone)) {
+            $query['TimeZone'] = $request->timeZone;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -804,6 +814,8 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
+     * @summary 创建安全正向代理
+     *  *
      * @param CreateSecurityProxyRequest $request CreateSecurityProxyRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -865,6 +877,8 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
+     * @summary 创建安全正向代理
+     *  *
      * @param CreateSecurityProxyRequest $request CreateSecurityProxyRequest
      *
      * @return CreateSecurityProxyResponse CreateSecurityProxyResponse
@@ -874,6 +888,56 @@ class Cloudfw extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createSecurityProxyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 创建云防火墙SLS日志投递
+     *  *
+     * @param CreateSlsLogDispatchRequest $request CreateSlsLogDispatchRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateSlsLogDispatchResponse CreateSlsLogDispatchResponse
+     */
+    public function createSlsLogDispatchWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->slsRegionId)) {
+            $body['SlsRegionId'] = $request->slsRegionId;
+        }
+        if (!Utils::isUnset($request->ttl)) {
+            $body['Ttl'] = $request->ttl;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateSlsLogDispatch',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateSlsLogDispatchResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建云防火墙SLS日志投递
+     *  *
+     * @param CreateSlsLogDispatchRequest $request CreateSlsLogDispatchRequest
+     *
+     * @return CreateSlsLogDispatchResponse CreateSlsLogDispatchResponse
+     */
+    public function createSlsLogDispatch($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createSlsLogDispatchWithOptions($request, $runtime);
     }
 
     /**
@@ -966,6 +1030,8 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
+     * @summary Creates a routing policy for a VPC firewall of a transit router.
+     *  *
      * @param CreateTrFirewallV2RoutePolicyRequest $tmpReq  CreateTrFirewallV2RoutePolicyRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
@@ -1023,6 +1089,8 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
+     * @summary Creates a routing policy for a VPC firewall of a transit router.
+     *  *
      * @param CreateTrFirewallV2RoutePolicyRequest $request CreateTrFirewallV2RoutePolicyRequest
      *
      * @return CreateTrFirewallV2RoutePolicyResponse CreateTrFirewallV2RoutePolicyResponse
@@ -1244,6 +1312,9 @@ class Cloudfw extends OpenApiClient
         if (!Utils::isUnset($request->destinationType)) {
             $query['DestinationType'] = $request->destinationType;
         }
+        if (!Utils::isUnset($request->domainResolveType)) {
+            $query['DomainResolveType'] = $request->domainResolveType;
+        }
         if (!Utils::isUnset($request->endTime)) {
             $query['EndTime'] = $request->endTime;
         }
@@ -1387,7 +1458,7 @@ class Cloudfw extends OpenApiClient
      * @summary Deletes an access control policy.
      *  *
      * @description You can call the DeleteControlPolicy operation to delete an access control policy that applies to inbound or outbound traffic.
-     * ## Limits
+     * ## [](#qps-)Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *  *
      * @param DeleteControlPolicyRequest $request DeleteControlPolicyRequest
@@ -1433,7 +1504,7 @@ class Cloudfw extends OpenApiClient
      * @summary Deletes an access control policy.
      *  *
      * @description You can call the DeleteControlPolicy operation to delete an access control policy that applies to inbound or outbound traffic.
-     * ## Limits
+     * ## [](#qps-)Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *  *
      * @param DeleteControlPolicyRequest $request DeleteControlPolicyRequest
@@ -1562,6 +1633,8 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
+     * @summary Deletes routing policies for a virtual private cloud (VPC) firewall of a transit router.
+     *  *
      * @param DeleteFirewallV2RoutePoliciesRequest $request DeleteFirewallV2RoutePoliciesRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
@@ -1599,6 +1672,8 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
+     * @summary Deletes routing policies for a virtual private cloud (VPC) firewall of a transit router.
+     *  *
      * @param DeleteFirewallV2RoutePoliciesRequest $request DeleteFirewallV2RoutePoliciesRequest
      *
      * @return DeleteFirewallV2RoutePoliciesResponse DeleteFirewallV2RoutePoliciesResponse
@@ -1782,6 +1857,8 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
+     * @summary Deletes a NAT firewall.
+     *  *
      * @param DeleteSecurityProxyRequest $request DeleteSecurityProxyRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -1816,6 +1893,8 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
+     * @summary Deletes a NAT firewall.
+     *  *
      * @param DeleteSecurityProxyRequest $request DeleteSecurityProxyRequest
      *
      * @return DeleteSecurityProxyResponse DeleteSecurityProxyResponse
@@ -2484,6 +2563,8 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
+     * @summary Queries the default configurations of the intrusion prevention system (IPS).
+     *  *
      * @param DescribeDefaultIPSConfigRequest $request DescribeDefaultIPSConfigRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -2495,9 +2576,6 @@ class Cloudfw extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->lang)) {
             $query['Lang'] = $request->lang;
-        }
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -2518,6 +2596,8 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
+     * @summary Queries the default configurations of the intrusion prevention system (IPS).
+     *  *
      * @param DescribeDefaultIPSConfigRequest $request DescribeDefaultIPSConfigRequest
      *
      * @return DescribeDefaultIPSConfigResponse DescribeDefaultIPSConfigResponse
@@ -3209,7 +3289,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @summary 获取 NAT 防火墙列表
+     * @summary Queries details of NAT firewalls.
      *  *
      * @param DescribeNatFirewallListRequest $request DescribeNatFirewallListRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -3272,7 +3352,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @summary 获取 NAT 防火墙列表
+     * @summary Queries details of NAT firewalls.
      *  *
      * @param DescribeNatFirewallListRequest $request DescribeNatFirewallListRequest
      *
@@ -3634,7 +3714,9 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @summary Queries the traffic details of Cloud Firewall that uses the pay-as-you-go billing method.
+     * @summary Queries the details of traffic billed based on the pay-as-you-go billing method.
+     *  *
+     * @description If you use Cloud Firewall that uses the pay-as-you-go billing method, you can call this operation to query traffic details accurate to the granularity of specific resource instances. If you use Cloud Firewall that uses the subscription billing method, you can call this operation to query the overall traffic details.
      *  *
      * @param DescribePostpayTrafficDetailRequest $request DescribePostpayTrafficDetailRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
@@ -3688,7 +3770,9 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @summary Queries the traffic details of Cloud Firewall that uses the pay-as-you-go billing method.
+     * @summary Queries the details of traffic billed based on the pay-as-you-go billing method.
+     *  *
+     * @description If you use Cloud Firewall that uses the pay-as-you-go billing method, you can call this operation to query traffic details accurate to the granularity of specific resource instances. If you use Cloud Firewall that uses the subscription billing method, you can call this operation to query the overall traffic details.
      *  *
      * @param DescribePostpayTrafficDetailRequest $request DescribePostpayTrafficDetailRequest
      *
@@ -3702,7 +3786,9 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @summary Queries the total traffic of Cloud Firewall that uses the pay-as-you-go billing method. The traffic for each type of firewall is queried.
+     * @summary Queries the total volume of traffic that is billed based on the pay-as-you-go billing method, including all firewalls within the current account.
+     *  *
+     * @description You can call this operation to query statistics of the current Cloud Firewall from the date of purchase.
      *  *
      * @param DescribePostpayTrafficTotalRequest $request DescribePostpayTrafficTotalRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
@@ -3735,7 +3821,9 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @summary Queries the total traffic of Cloud Firewall that uses the pay-as-you-go billing method. The traffic for each type of firewall is queried.
+     * @summary Queries the total volume of traffic that is billed based on the pay-as-you-go billing method, including all firewalls within the current account.
+     *  *
+     * @description You can call this operation to query statistics of the current Cloud Firewall from the date of purchase.
      *  *
      * @param DescribePostpayTrafficTotalRequest $request DescribePostpayTrafficTotalRequest
      *
@@ -4269,6 +4357,8 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
+     * @summary Queries the route tables of the VPC firewalls that are created for transit routers.
+     *  *
      * @param DescribeTrFirewallsV2RouteListRequest $request DescribeTrFirewallsV2RouteListRequest
      * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
@@ -4312,6 +4402,8 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
+     * @summary Queries the route tables of the VPC firewalls that are created for transit routers.
+     *  *
      * @param DescribeTrFirewallsV2RouteListRequest $request DescribeTrFirewallsV2RouteListRequest
      *
      * @return DescribeTrFirewallsV2RouteListResponse DescribeTrFirewallsV2RouteListResponse
@@ -5302,6 +5394,9 @@ class Cloudfw extends OpenApiClient
         if (!Utils::isUnset($request->lang)) {
             $query['Lang'] = $request->lang;
         }
+        if (!Utils::isUnset($request->modifyMode)) {
+            $query['ModifyMode'] = $request->modifyMode;
+        }
         if (!Utils::isUnset($request->sourceIp)) {
             $query['SourceIp'] = $request->sourceIp;
         }
@@ -5395,6 +5490,9 @@ class Cloudfw extends OpenApiClient
         }
         if (!Utils::isUnset($request->direction)) {
             $query['Direction'] = $request->direction;
+        }
+        if (!Utils::isUnset($request->domainResolveType)) {
+            $query['DomainResolveType'] = $request->domainResolveType;
         }
         if (!Utils::isUnset($request->endTime)) {
             $query['EndTime'] = $request->endTime;
@@ -5533,6 +5631,8 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
+     * @summary Modifies the default configuration of the intrusion prevention system (IPS).
+     *  *
      * @param ModifyDefaultIPSConfigRequest $request ModifyDefaultIPSConfigRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -5542,20 +5642,11 @@ class Cloudfw extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->aiRules)) {
-            $query['AiRules'] = $request->aiRules;
-        }
         if (!Utils::isUnset($request->basicRules)) {
             $query['BasicRules'] = $request->basicRules;
         }
         if (!Utils::isUnset($request->ctiRules)) {
             $query['CtiRules'] = $request->ctiRules;
-        }
-        if (!Utils::isUnset($request->enableAllPatch)) {
-            $query['EnableAllPatch'] = $request->enableAllPatch;
-        }
-        if (!Utils::isUnset($request->enableDefault)) {
-            $query['EnableDefault'] = $request->enableDefault;
         }
         if (!Utils::isUnset($request->lang)) {
             $query['Lang'] = $request->lang;
@@ -5568,9 +5659,6 @@ class Cloudfw extends OpenApiClient
         }
         if (!Utils::isUnset($request->runMode)) {
             $query['RunMode'] = $request->runMode;
-        }
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -5591,6 +5679,8 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
+     * @summary Modifies the default configuration of the intrusion prevention system (IPS).
+     *  *
      * @param ModifyDefaultIPSConfigRequest $request ModifyDefaultIPSConfigRequest
      *
      * @return ModifyDefaultIPSConfigResponse ModifyDefaultIPSConfigResponse
@@ -5893,6 +5983,71 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
+     * @summary 修改对象组操作
+     *  *
+     * @param ModifyObjectGroupOperationRequest $request ModifyObjectGroupOperationRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyObjectGroupOperationResponse ModifyObjectGroupOperationResponse
+     */
+    public function modifyObjectGroupOperationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->comment)) {
+            $query['Comment'] = $request->comment;
+        }
+        if (!Utils::isUnset($request->direction)) {
+            $query['Direction'] = $request->direction;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->objectList)) {
+            $query['ObjectList'] = $request->objectList;
+        }
+        if (!Utils::isUnset($request->objectOperation)) {
+            $query['ObjectOperation'] = $request->objectOperation;
+        }
+        if (!Utils::isUnset($request->objectType)) {
+            $query['ObjectType'] = $request->objectType;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyObjectGroupOperation',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyObjectGroupOperationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 修改对象组操作
+     *  *
+     * @param ModifyObjectGroupOperationRequest $request ModifyObjectGroupOperationRequest
+     *
+     * @return ModifyObjectGroupOperationResponse ModifyObjectGroupOperationResponse
+     */
+    public function modifyObjectGroupOperation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyObjectGroupOperationWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Enables or disables the strict mode for an access control policy.
      *  *
      * @description You can call the ModifyPolicyAdvancedConfig operation to enable or disable the strict mode for an access control policy.
@@ -5954,6 +6109,8 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
+     * @summary Modifies the configuration of a virtual private cloud (VPC) firewall that is created for a transit router.
+     *  *
      * @param ModifyTrFirewallV2ConfigurationRequest $request ModifyTrFirewallV2ConfigurationRequest
      * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
@@ -5991,6 +6148,8 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
+     * @summary Modifies the configuration of a virtual private cloud (VPC) firewall that is created for a transit router.
+     *  *
      * @param ModifyTrFirewallV2ConfigurationRequest $request ModifyTrFirewallV2ConfigurationRequest
      *
      * @return ModifyTrFirewallV2ConfigurationResponse ModifyTrFirewallV2ConfigurationResponse
@@ -6003,6 +6162,8 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
+     * @summary Modifies the effective scope of the routing policy created for the VPC firewall for a transit router.
+     *  *
      * @param ModifyTrFirewallV2RoutePolicyScopeRequest $tmpReq  ModifyTrFirewallV2RoutePolicyScopeRequest
      * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
@@ -6057,6 +6218,8 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
+     * @summary Modifies the effective scope of the routing policy created for the VPC firewall for a transit router.
+     *  *
      * @param ModifyTrFirewallV2RoutePolicyScopeRequest $request ModifyTrFirewallV2RoutePolicyScopeRequest
      *
      * @return ModifyTrFirewallV2RoutePolicyScopeResponse ModifyTrFirewallV2RoutePolicyScopeResponse
@@ -6378,6 +6541,9 @@ class Cloudfw extends OpenApiClient
         if (!Utils::isUnset($request->destinationType)) {
             $query['DestinationType'] = $request->destinationType;
         }
+        if (!Utils::isUnset($request->domainResolveType)) {
+            $query['DomainResolveType'] = $request->domainResolveType;
+        }
         if (!Utils::isUnset($request->endTime)) {
             $query['EndTime'] = $request->endTime;
         }
@@ -6544,6 +6710,9 @@ class Cloudfw extends OpenApiClient
         }
         if (!Utils::isUnset($request->memberUid)) {
             $query['MemberUid'] = $request->memberUid;
+        }
+        if (!Utils::isUnset($request->ruleClass)) {
+            $query['RuleClass'] = $request->ruleClass;
         }
         if (!Utils::isUnset($request->runMode)) {
             $query['RunMode'] = $request->runMode;
@@ -6975,7 +7144,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @summary 释放按量付费实例
+     * @summary Releases Cloud Firewall that uses the pay-as-you-go billing method.
      *  *
      * @param ReleasePostInstanceRequest $request ReleasePostInstanceRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -7008,7 +7177,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @summary 释放按量付费实例
+     * @summary Releases Cloud Firewall that uses the pay-as-you-go billing method.
      *  *
      * @param ReleasePostInstanceRequest $request ReleasePostInstanceRequest
      *
@@ -7133,6 +7302,8 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
+     * @summary Enables or disables a NAT firewall.
+     *  *
      * @param SwitchSecurityProxyRequest $request SwitchSecurityProxyRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -7170,6 +7341,8 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
+     * @summary Enables or disables a NAT firewall.
+     *  *
      * @param SwitchSecurityProxyRequest $request SwitchSecurityProxyRequest
      *
      * @return SwitchSecurityProxyResponse SwitchSecurityProxyResponse

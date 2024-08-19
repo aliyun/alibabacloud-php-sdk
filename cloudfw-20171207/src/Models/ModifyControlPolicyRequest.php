@@ -50,7 +50,9 @@ class ModifyControlPolicyRequest extends Model
      *   **Memcache**
      *   **SSL**
      *
-     * >  The value *ANY* indicates all types of applications.
+     * >  The value **ANY** indicates all types of applications.
+     *
+     * >  You must specify one of the ApplicationNameList and ApplicationName parameters. If you configure both ApplicationNameList and ApplicationName, only the value of ApplicationNameList is used.
      * @example HTTP
      *
      * @var string
@@ -60,6 +62,7 @@ class ModifyControlPolicyRequest extends Model
     /**
      * @description The application names.
      *
+     * >  You must specify one of the ApplicationNameList and ApplicationName parameters. If you configure both ApplicationNameList and ApplicationName, only the value of ApplicationNameList is used.
      * @var string[]
      */
     public $applicationNameList;
@@ -148,6 +151,19 @@ class ModifyControlPolicyRequest extends Model
     public $direction;
 
     /**
+     * @description The domain name resolution method of the access control policy. By default, an access control policy is enabled after the policy is created. Valid values:
+     *
+     * **FQDN**: fully qualified domain name (FQDN)-based resolution
+     * **DNS**: DNS-based dynamic resolution
+     * **FQDN_AND_DNS**: FQDN and DNS-based dynamic resolution
+     *
+     * @example FQDN
+     *
+     * @var string
+     */
+    public $domainResolveType;
+
+    /**
      * @description The time when the access control policy stops taking effect. The value is a UNIX timestamp. Unit: seconds. The value must be on the hour or on the half hour, and at least 30 minutes later than the value of StartTime.
      *
      * >  If you set RepeatType to Permanent, leave this parameter empty. If you set RepeatType to None, Daily, Weekly, or Monthly, you must specify this parameter.
@@ -170,14 +186,14 @@ class ModifyControlPolicyRequest extends Model
     public $lang;
 
     /**
-     * @description The protocol type supported by the access control policy. Valid values:
+     * @description The protocol type that the access control policy supports. Valid values:
      *
      *   **ANY**
      *   **TCP**
      *   **UDP**
      *   **ICMP**
      *
-     * >  The value *ANY* indicates all types of applications.
+     * >  The value **ANY** indicates all types of applications.
      *
      * This parameter is required.
      * @example TCP
@@ -297,6 +313,7 @@ class ModifyControlPolicyRequest extends Model
         'destination'         => 'Destination',
         'destinationType'     => 'DestinationType',
         'direction'           => 'Direction',
+        'domainResolveType'   => 'DomainResolveType',
         'endTime'             => 'EndTime',
         'lang'                => 'Lang',
         'proto'               => 'Proto',
@@ -349,6 +366,9 @@ class ModifyControlPolicyRequest extends Model
         }
         if (null !== $this->direction) {
             $res['Direction'] = $this->direction;
+        }
+        if (null !== $this->domainResolveType) {
+            $res['DomainResolveType'] = $this->domainResolveType;
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
@@ -429,6 +449,9 @@ class ModifyControlPolicyRequest extends Model
         }
         if (isset($map['Direction'])) {
             $model->direction = $map['Direction'];
+        }
+        if (isset($map['DomainResolveType'])) {
+            $model->domainResolveType = $map['DomainResolveType'];
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];

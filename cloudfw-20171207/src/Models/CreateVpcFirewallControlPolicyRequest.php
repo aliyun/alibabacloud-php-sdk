@@ -123,6 +123,11 @@ class CreateVpcFirewallControlPolicyRequest extends Model
     public $destinationType;
 
     /**
+     * @var string
+     */
+    public $domainResolveType;
+
+    /**
      * @description The time when the access control policy stops taking effect. The value is a UNIX timestamp. Unit: seconds. The value must be on the hour or on the half hour, and at least 30 minutes later than the start time.
      *
      * >  If you set RepeatType to Permanent, leave this parameter empty. If you set RepeatType to None, Daily, Weekly, or Monthly, you must specify this parameter.
@@ -290,6 +295,7 @@ class CreateVpcFirewallControlPolicyRequest extends Model
         'destPortType'        => 'DestPortType',
         'destination'         => 'Destination',
         'destinationType'     => 'DestinationType',
+        'domainResolveType'   => 'DomainResolveType',
         'endTime'             => 'EndTime',
         'lang'                => 'Lang',
         'memberUid'           => 'MemberUid',
@@ -339,6 +345,9 @@ class CreateVpcFirewallControlPolicyRequest extends Model
         }
         if (null !== $this->destinationType) {
             $res['DestinationType'] = $this->destinationType;
+        }
+        if (null !== $this->domainResolveType) {
+            $res['DomainResolveType'] = $this->domainResolveType;
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
@@ -422,6 +431,9 @@ class CreateVpcFirewallControlPolicyRequest extends Model
         }
         if (isset($map['DestinationType'])) {
             $model->destinationType = $map['DestinationType'];
+        }
+        if (isset($map['DomainResolveType'])) {
+            $model->domainResolveType = $map['DomainResolveType'];
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];

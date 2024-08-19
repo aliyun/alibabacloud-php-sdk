@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeNatFirewallListResponseBody extends Model
 {
     /**
+     * @description The NAT firewalls.
+     *
      * @var natFirewallList[]
      */
     public $natFirewallList;
 
     /**
+     * @description The request ID.
+     *
      * @example 15FCCC52-1E23-57AE-B5EF-3E00A3******
      *
      * @var string
@@ -22,6 +26,8 @@ class DescribeNatFirewallListResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of NAT firewalls.
+     *
      * @example 10
      *
      * @var int

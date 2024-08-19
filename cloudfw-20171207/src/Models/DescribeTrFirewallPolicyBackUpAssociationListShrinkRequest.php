@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeTrFirewallPolicyBackUpAssociationListShrinkRequest extends Model
 {
     /**
-     * @description An array that consists of the details about the traffic redirection instance.
+     * @description The traffic redirection instances.
      *
      * @var string
      */

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ReleasePostInstanceRequest extends Model
 {
     /**
+     * @description The ID of the Cloud Firewall instance.
+     *
      * @example cfw_elasticity_public_cn-xxx
      *
      * @var string

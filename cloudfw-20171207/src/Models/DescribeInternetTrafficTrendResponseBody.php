@@ -62,6 +62,10 @@ class DescribeInternetTrafficTrendResponseBody extends Model
     public $maxBandwidthTime;
 
     /**
+     * @description The maximum volume of excess traffic allowed per day.
+     *
+     * @example 873
+     *
      * @var int
      */
     public $maxDayExceedBytes;
@@ -121,6 +125,10 @@ class DescribeInternetTrafficTrendResponseBody extends Model
     public $totalBytes;
 
     /**
+     * @description The total volume of excess traffic.
+     *
+     * @example 4243873
+     *
      * @var int
      */
     public $totalExceedBytes;

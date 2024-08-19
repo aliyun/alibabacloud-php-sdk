@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class trafficList extends Model
 {
     /**
-     * @description The inbound network throughput, which indicates the total number of bytes that are received. Unit: bytes.
+     * @description The inbound network throughput, which indicates the total number of bytes that are received Unit: bytes.
      *
      * @example 1115096939
      *
@@ -27,7 +27,7 @@ class trafficList extends Model
     public $instanceId;
 
     /**
-     * @description The type of the asset. This value takes effect only for the Internet firewall.
+     * @description The asset type. This value takes effect only for the Internet firewall.
      *
      * @example EcsPublicIP
      *
@@ -45,6 +45,11 @@ class trafficList extends Model
     public $outBytes;
 
     /**
+     * @var int
+     */
+    public $protectionDuration;
+
+    /**
      * @description The resource ID. The resource ID for the Internet firewall is the public IP address that is protected the Internet firewall, and the resource ID for a NAT firewall is the instance ID of the NAT firewall.
      *
      * @example 39.106.146.214
@@ -54,7 +59,7 @@ class trafficList extends Model
     public $resourceId;
 
     /**
-     * @description The total inbound and outbound network throughput, which indicates the total number of bytes that are sent and received. Unit: bytes.
+     * @description The total inbound and outbound network throughput, which indicates the total number of bytes that are received and sent. Unit: bytes.
      *
      * @example 1215096939
      *
@@ -75,7 +80,8 @@ class trafficList extends Model
      * @description The traffic type. Valid values:
      *
      *   **EIP_TRAFFIC**: traffic for the Internet firewall
-     *   **NatGateway_TRAFFIC**: traffic for the NAT firewall
+     *   **NatGateway_TRAFFIC**: traffic for NAT firewalls
+     *   **VPC_TRAFFIC**: traffic for VPC firewalls
      *
      * @example EIP_TRAFFIC
      *
@@ -83,14 +89,15 @@ class trafficList extends Model
      */
     public $trafficType;
     protected $_name = [
-        'inBytes'      => 'InBytes',
-        'instanceId'   => 'InstanceId',
-        'instanceType' => 'InstanceType',
-        'outBytes'     => 'OutBytes',
-        'resourceId'   => 'ResourceId',
-        'totalBytes'   => 'TotalBytes',
-        'trafficDay'   => 'TrafficDay',
-        'trafficType'  => 'TrafficType',
+        'inBytes'            => 'InBytes',
+        'instanceId'         => 'InstanceId',
+        'instanceType'       => 'InstanceType',
+        'outBytes'           => 'OutBytes',
+        'protectionDuration' => 'ProtectionDuration',
+        'resourceId'         => 'ResourceId',
+        'totalBytes'         => 'TotalBytes',
+        'trafficDay'         => 'TrafficDay',
+        'trafficType'        => 'TrafficType',
     ];
 
     public function validate()
@@ -111,6 +118,9 @@ class trafficList extends Model
         }
         if (null !== $this->outBytes) {
             $res['OutBytes'] = $this->outBytes;
+        }
+        if (null !== $this->protectionDuration) {
+            $res['ProtectionDuration'] = $this->protectionDuration;
         }
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
@@ -147,6 +157,9 @@ class trafficList extends Model
         }
         if (isset($map['OutBytes'])) {
             $model->outBytes = $map['OutBytes'];
+        }
+        if (isset($map['ProtectionDuration'])) {
+            $model->protectionDuration = $map['ProtectionDuration'];
         }
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];

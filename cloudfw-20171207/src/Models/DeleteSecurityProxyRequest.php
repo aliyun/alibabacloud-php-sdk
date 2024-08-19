@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteSecurityProxyRequest extends Model
 {
     /**
+     * @description The language of the content within the response. Valid values:
+     *
+     *   **zh** (default): Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -16,8 +21,9 @@ class DeleteSecurityProxyRequest extends Model
     public $lang;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the NAT firewall.
      *
+     * This parameter is required.
      * @example proxy-nat00ab412ef93d4275a6b5
      *
      * @var string

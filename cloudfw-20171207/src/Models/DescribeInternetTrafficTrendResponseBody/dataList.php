@@ -45,7 +45,7 @@ class dataList extends Model
     public $newConn;
 
     /**
-     * @description The outbound network throughput, which indicates the number of bits that are sent inbound per second. Unit: bit/s.
+     * @description The outbound network throughput, which indicates the number of bits that are sent outbound per second. Unit: bit/s.
      *
      * @example 45
      *
@@ -83,6 +83,7 @@ class dataList extends Model
     /**
      * @description The time when traffic is generated. The value is a UNIX timestamp. Unit: seconds.
      *
+     * If processing is not complete at this point in time, -1 is returned for all other fields.
      * @example 1659405600
      *
      * @var int

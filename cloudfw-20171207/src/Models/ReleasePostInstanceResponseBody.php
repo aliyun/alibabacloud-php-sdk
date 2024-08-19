@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ReleasePostInstanceResponseBody extends Model
 {
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -16,6 +18,11 @@ class ReleasePostInstanceResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description Indicates whether the release was successful. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -23,6 +30,8 @@ class ReleasePostInstanceResponseBody extends Model
     public $releaseStatus;
 
     /**
+     * @description The request ID, which is used to locate and troubleshoot issues.
+     *
      * @example EE316A19-xxxx-5043-9DF1-C04458ABC570
      *
      * @var string
@@ -30,6 +39,8 @@ class ReleasePostInstanceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
      * @example true
      *
      * @var bool

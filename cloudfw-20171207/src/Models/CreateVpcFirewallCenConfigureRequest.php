@@ -35,8 +35,6 @@ class CreateVpcFirewallCenConfigureRequest extends Model
      * @description The CIDR block of the vSwitch that is automatically created for the VPC firewall. You must specify a CIDR block for the Cloud_Firewall_VSWITCH VPC that is automatically created for the VPC firewall for traffic redirection. The CIDR block does not conflict with your network plan. The subnet mask of the CIDR block must be less than or equal to 29 bits in length. The CIDR block of the vSwitch must be within the network segment of the VPC.
      *
      * >  This parameter takes effect only when you create a VPC firewall for the first time in the current CEN instance and region.
-     * @example 10.0.*.*\/28
-     *
      * @var string
      */
     public $firewallVSwitchCidrBlock;

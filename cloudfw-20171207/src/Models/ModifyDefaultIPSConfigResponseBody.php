@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ModifyDefaultIPSConfigResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 65885B52-00EC-5728-96******
+     *
      * @var string
      */
     public $requestId;

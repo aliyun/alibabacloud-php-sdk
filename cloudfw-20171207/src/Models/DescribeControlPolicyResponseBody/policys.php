@@ -193,6 +193,8 @@ class policys extends Model
      *
      * @example 192.0.XX.XX,192.0.XX.XX
      *
+     * @deprecated
+     *
      * @var string
      */
     public $dnsResult;
@@ -205,6 +207,19 @@ class policys extends Model
      * @var int
      */
     public $dnsResultTime;
+
+    /**
+     * @description The domain name resolution method of the access control policy. By default, an access control policy is enabled after the policy is created. Valid values:
+     *
+     * **FQDN**: fully qualified domain name (FQDN)-based resolution
+     * **DNS**: DNS-based dynamic resolution
+     * **FQDN_AND_DNS**: FQDN and DNS-based dynamic resolution
+     *
+     * @example FQDN
+     *
+     * @var string
+     */
+    public $domainResolveType;
 
     /**
      * @description The time when the access control policy stops taking effect. The value is a timestamp. Unit: seconds. The end time must be on the hour or on the half hour, and at least 30 minutes later than the start time.
@@ -426,6 +441,7 @@ class policys extends Model
         'direction'             => 'Direction',
         'dnsResult'             => 'DnsResult',
         'dnsResultTime'         => 'DnsResultTime',
+        'domainResolveType'     => 'DomainResolveType',
         'endTime'               => 'EndTime',
         'hitLastTime'           => 'HitLastTime',
         'hitTimes'              => 'HitTimes',
@@ -506,6 +522,9 @@ class policys extends Model
         }
         if (null !== $this->dnsResultTime) {
             $res['DnsResultTime'] = $this->dnsResultTime;
+        }
+        if (null !== $this->domainResolveType) {
+            $res['DomainResolveType'] = $this->domainResolveType;
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
@@ -632,6 +651,9 @@ class policys extends Model
         }
         if (isset($map['DnsResultTime'])) {
             $model->dnsResultTime = $map['DnsResultTime'];
+        }
+        if (isset($map['DomainResolveType'])) {
+            $model->domainResolveType = $map['DomainResolveType'];
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];

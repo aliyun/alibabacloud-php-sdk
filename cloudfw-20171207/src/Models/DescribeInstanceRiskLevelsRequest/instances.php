@@ -27,7 +27,7 @@ class instances extends Model
     /**
      * @description The private IP address of the instance.
      *
-     * @example 172.17.220.199
+     * @example 172.17.XX.XX
      *
      * @var string
      */

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class srcCandidateList extends Model
 {
     /**
+     * @description The ID of the traffic redirection instance.
+     *
      * @example vpc-2ze9epancaw8t4shajuzi
      *
      * @var string
@@ -16,6 +18,8 @@ class srcCandidateList extends Model
     public $candidateId;
 
     /**
+     * @description The type of the traffic redirection instance.
+     *
      * @example VPC
      *
      * @var string

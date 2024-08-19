@@ -35,7 +35,7 @@ class ModifyVpcFirewallControlPolicyRequest extends Model
     public $aclUuid;
 
     /**
-     * @description The application type used in the access control policy.
+     * @description The type of the application that the access control policy supports.
      *
      * Valid values:
      *
@@ -145,6 +145,11 @@ class ModifyVpcFirewallControlPolicyRequest extends Model
      * @var string
      */
     public $destinationType;
+
+    /**
+     * @var string
+     */
+    public $domainResolveType;
 
     /**
      * @description The time when the access control policy stops taking effect. The value is a UNIX timestamp. Unit: seconds. The value must be on the hour or on the half hour, and at least 30 minutes later than the value of StartTime.
@@ -320,6 +325,7 @@ class ModifyVpcFirewallControlPolicyRequest extends Model
         'destPortType'        => 'DestPortType',
         'destination'         => 'Destination',
         'destinationType'     => 'DestinationType',
+        'domainResolveType'   => 'DomainResolveType',
         'endTime'             => 'EndTime',
         'lang'                => 'Lang',
         'proto'               => 'Proto',
@@ -370,6 +376,9 @@ class ModifyVpcFirewallControlPolicyRequest extends Model
         }
         if (null !== $this->destinationType) {
             $res['DestinationType'] = $this->destinationType;
+        }
+        if (null !== $this->domainResolveType) {
+            $res['DomainResolveType'] = $this->domainResolveType;
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
@@ -450,6 +459,9 @@ class ModifyVpcFirewallControlPolicyRequest extends Model
         }
         if (isset($map['DestinationType'])) {
             $model->destinationType = $map['DestinationType'];
+        }
+        if (isset($map['DomainResolveType'])) {
+            $model->domainResolveType = $map['DomainResolveType'];
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];

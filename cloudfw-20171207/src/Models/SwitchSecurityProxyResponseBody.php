@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SwitchSecurityProxyResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example F1E55690-3ABA-58FA-90E3-593EF05B73ED
      *
      * @var string

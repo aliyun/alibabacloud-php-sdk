@@ -9,59 +9,81 @@ use AlibabaCloud\Tea\Model;
 class DescribeDefaultIPSConfigResponseBody extends Model
 {
     /**
-     * @var int
-     */
-    public $aiRules;
-
-    /**
+     * @description Indicates whether basic protection is enabled. Valid values:
+     *
+     *   **1**: yes
+     *   **0**: no
+     *
+     * @example 0
+     *
      * @var int
      */
     public $basicRules;
 
     /**
+     * @description Indicates whether threat intelligence is enabled. Valid values:
+     *
+     *   **1**: yes
+     *   **0**: no
+     *
+     * @example 0
+     *
      * @var int
      */
     public $ctiRules;
 
     /**
-     * @var int
-     */
-    public $enableAllPatch;
-
-    /**
-     * @var int
-     */
-    public $enableDefault;
-
-    /**
+     * @description Indicates whether virtual patching is enabled. Valid values:
+     *
+     *   **1**: yes
+     *   **0**: no
+     *
+     * @example 0
+     *
      * @var int
      */
     public $patchRules;
 
     /**
+     * @description The request ID.
+     *
+     * @example 133173B9-8010-5DF5-8B93-********
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The level of the rule group for the IPS. Valid values:
+     *
+     *   **1**: loose
+     *   **2**: medium
+     *   **3**: strict
+     *
+     * @example 3
+     *
      * @var int
      */
     public $ruleClass;
 
     /**
+     * @description The mode of the IPS. Valid values:
+     *
+     *   **1**: block mode
+     *   **0**: monitor mode
+     *
+     * @example 0
+     *
      * @var int
      */
     public $runMode;
     protected $_name = [
-        'aiRules'        => 'AiRules',
-        'basicRules'     => 'BasicRules',
-        'ctiRules'       => 'CtiRules',
-        'enableAllPatch' => 'EnableAllPatch',
-        'enableDefault'  => 'EnableDefault',
-        'patchRules'     => 'PatchRules',
-        'requestId'      => 'RequestId',
-        'ruleClass'      => 'RuleClass',
-        'runMode'        => 'RunMode',
+        'basicRules' => 'BasicRules',
+        'ctiRules'   => 'CtiRules',
+        'patchRules' => 'PatchRules',
+        'requestId'  => 'RequestId',
+        'ruleClass'  => 'RuleClass',
+        'runMode'    => 'RunMode',
     ];
 
     public function validate()
@@ -71,20 +93,11 @@ class DescribeDefaultIPSConfigResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->aiRules) {
-            $res['AiRules'] = $this->aiRules;
-        }
         if (null !== $this->basicRules) {
             $res['BasicRules'] = $this->basicRules;
         }
         if (null !== $this->ctiRules) {
             $res['CtiRules'] = $this->ctiRules;
-        }
-        if (null !== $this->enableAllPatch) {
-            $res['EnableAllPatch'] = $this->enableAllPatch;
-        }
-        if (null !== $this->enableDefault) {
-            $res['EnableDefault'] = $this->enableDefault;
         }
         if (null !== $this->patchRules) {
             $res['PatchRules'] = $this->patchRules;
@@ -110,20 +123,11 @@ class DescribeDefaultIPSConfigResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AiRules'])) {
-            $model->aiRules = $map['AiRules'];
-        }
         if (isset($map['BasicRules'])) {
             $model->basicRules = $map['BasicRules'];
         }
         if (isset($map['CtiRules'])) {
             $model->ctiRules = $map['CtiRules'];
-        }
-        if (isset($map['EnableAllPatch'])) {
-            $model->enableAllPatch = $map['EnableAllPatch'];
-        }
-        if (isset($map['EnableDefault'])) {
-            $model->enableDefault = $map['EnableDefault'];
         }
         if (isset($map['PatchRules'])) {
             $model->patchRules = $map['PatchRules'];

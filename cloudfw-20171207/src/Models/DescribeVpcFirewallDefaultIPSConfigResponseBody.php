@@ -42,6 +42,11 @@ class DescribeVpcFirewallDefaultIPSConfigResponseBody extends Model
     public $requestId;
 
     /**
+     * @var int
+     */
+    public $ruleClass;
+
+    /**
      * @description The mode of the intrusion prevention system (IPS). Valid values:
      *
      *   **1**: block mode
@@ -56,6 +61,7 @@ class DescribeVpcFirewallDefaultIPSConfigResponseBody extends Model
         'basicRules'     => 'BasicRules',
         'enableAllPatch' => 'EnableAllPatch',
         'requestId'      => 'RequestId',
+        'ruleClass'      => 'RuleClass',
         'runMode'        => 'RunMode',
     ];
 
@@ -74,6 +80,9 @@ class DescribeVpcFirewallDefaultIPSConfigResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->ruleClass) {
+            $res['RuleClass'] = $this->ruleClass;
         }
         if (null !== $this->runMode) {
             $res['RunMode'] = $this->runMode;
@@ -98,6 +107,9 @@ class DescribeVpcFirewallDefaultIPSConfigResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['RuleClass'])) {
+            $model->ruleClass = $map['RuleClass'];
         }
         if (isset($map['RunMode'])) {
             $model->runMode = $map['RunMode'];

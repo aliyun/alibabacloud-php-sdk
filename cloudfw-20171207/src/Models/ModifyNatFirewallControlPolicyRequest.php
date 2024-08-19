@@ -167,14 +167,14 @@ class ModifyNatFirewallControlPolicyRequest extends Model
     public $natGatewayId;
 
     /**
-     * @description The protocol type supported by the access control policy. Valid values:
+     * @description The protocol type in the access control policy. Valid values:
      *
      *   **ANY**
      *   **TCP**
      *   **UDP**
      *   **ICMP**
      *
-     * > The value **ANY** indicates all types of protocols.
+     * >  The value **ANY** indicates all types of applications.
      *
      * This parameter is required.
      * @example TCP

@@ -6,12 +6,12 @@ namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DeleteControlPolicyResponseBody extends Model
+class CreateSlsLogDispatchResponseBody extends Model
 {
     /**
      * @description The request ID.
      *
-     * @example CBF1E9B7-D6A0-4E9E-AD3E-2B47E6C2837D
+     * @example 850A84D6************00090125EEB1
      *
      * @var string
      */
@@ -37,7 +37,7 @@ class DeleteControlPolicyResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return DeleteControlPolicyResponseBody
+     * @return CreateSlsLogDispatchResponseBody
      */
     public static function fromMap($map = [])
     {

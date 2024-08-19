@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteSecurityProxyResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 7447795A-39AB-52CB-8F92-128DF4898F36
      *
      * @var string

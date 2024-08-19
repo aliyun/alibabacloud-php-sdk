@@ -11,7 +11,7 @@ class details extends Model
     /**
      * @description The IP addresses of servers.
      *
-     * @example 203.107.86.37
+     * @example 203.107.XX.XX
      *
      * @var string
      */

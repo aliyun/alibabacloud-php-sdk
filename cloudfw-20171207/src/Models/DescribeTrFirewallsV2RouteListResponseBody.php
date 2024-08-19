@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeTrFirewallsV2RouteListResponseBody extends Model
 {
     /**
+     * @description The route tables of Cloud Firewall.
+     *
      * @var firewallRouteDetailList[]
      */
     public $firewallRouteDetailList;
 
     /**
+     * @description The ID of the request.
+     *
      * @example ABF190A2-B4D0-53F6-995A-5690A721F91C
      *
      * @var string

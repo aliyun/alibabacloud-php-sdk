@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class SwitchSecurityProxyRequest extends Model
 {
     /**
+     * @description The language of the content within the request and the response. Valid values:
+     *
+     *   **zh** (default)
+     *   **en**
+     *
      * @example zh
      *
      * @var string
@@ -16,8 +21,9 @@ class SwitchSecurityProxyRequest extends Model
     public $lang;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the NAT firewall.
      *
+     * This parameter is required.
      * @example proxy-natbfd2fafbb77042308d1b
      *
      * @var string
@@ -25,8 +31,12 @@ class SwitchSecurityProxyRequest extends Model
     public $proxyId;
 
     /**
-     * @description This parameter is required.
+     * @description Specifies whether to enable the NAT firewall. Valid values:
      *
+     *   open: yes
+     *   close: no
+     *
+     * This parameter is required.
      * @example open
      *
      * @var string

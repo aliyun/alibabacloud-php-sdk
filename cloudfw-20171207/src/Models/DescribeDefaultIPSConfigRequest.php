@@ -9,17 +9,18 @@ use AlibabaCloud\Tea\Model;
 class DescribeDefaultIPSConfigRequest extends Model
 {
     /**
+     * @description The language of the content within the response. Valid values:
+     *
+     *   **zh** (default)
+     *   **en**
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;
-
-    /**
-     * @var string
-     */
-    public $sourceIp;
     protected $_name = [
-        'lang'     => 'Lang',
-        'sourceIp' => 'SourceIp',
+        'lang' => 'Lang',
     ];
 
     public function validate()
@@ -31,9 +32,6 @@ class DescribeDefaultIPSConfigRequest extends Model
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
-        }
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
         }
 
         return $res;
@@ -49,9 +47,6 @@ class DescribeDefaultIPSConfigRequest extends Model
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
-        }
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
         }
 
         return $model;

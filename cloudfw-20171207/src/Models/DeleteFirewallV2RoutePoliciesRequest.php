@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteFirewallV2RoutePoliciesRequest extends Model
 {
     /**
+     * @description The instance ID of the VPC firewall.
+     *
      * @example vfw-tr-d5ba592ac6c84aff****
      *
      * @var string
@@ -16,6 +18,11 @@ class DeleteFirewallV2RoutePoliciesRequest extends Model
     public $firewallId;
 
     /**
+     * @description The language of the content within the response. Valid values:
+     *
+     *   **zh** (default): Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -23,6 +30,8 @@ class DeleteFirewallV2RoutePoliciesRequest extends Model
     public $lang;
 
     /**
+     * @description The ID of the routing policy.
+     *
      * @example policy-2d06d3568fd74d60****
      *
      * @var string

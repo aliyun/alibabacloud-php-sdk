@@ -30,9 +30,19 @@ class CreateDownloadTaskRequest extends Model
      * @var string
      */
     public $taskData;
+
+    /**
+     * @description The time zone of the time information in the downloaded file. The value must be an identifier of a time zone in the Internet Assigned Numbers Authority (IANA) database. The default value is Asia/Shanghai, which indicates UTC+8.
+     *
+     * @example Asia/Shanghai
+     *
+     * @var string
+     */
+    public $timeZone;
     protected $_name = [
         'lang'     => 'Lang',
         'taskData' => 'TaskData',
+        'timeZone' => 'TimeZone',
     ];
 
     public function validate()
@@ -47,6 +57,9 @@ class CreateDownloadTaskRequest extends Model
         }
         if (null !== $this->taskData) {
             $res['TaskData'] = $this->taskData;
+        }
+        if (null !== $this->timeZone) {
+            $res['TimeZone'] = $this->timeZone;
         }
 
         return $res;
@@ -65,6 +78,9 @@ class CreateDownloadTaskRequest extends Model
         }
         if (isset($map['TaskData'])) {
             $model->taskData = $map['TaskData'];
+        }
+        if (isset($map['TimeZone'])) {
+            $model->timeZone = $map['TimeZone'];
         }
 
         return $model;

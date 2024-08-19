@@ -9,71 +9,87 @@ use AlibabaCloud\Tea\Model;
 class ModifyDefaultIPSConfigRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $aiRules;
-
-    /**
-     * @description This parameter is required.
+     * @description Specifies whether to enable basic protection. Valid values:
+     *
+     *   **1**: yes
+     *   **0**: no
+     *
+     * This parameter is required.
+     * @example 1
      *
      * @var string
      */
     public $basicRules;
 
     /**
-     * @description This parameter is required.
+     * @description Specifies whether to enable threat intelligence. Valid values:
+     *
+     *   **1**: yes
+     *   **0**: no
+     *
+     * This parameter is required.
+     * @example 0
      *
      * @var string
      */
     public $ctiRules;
 
     /**
-     * @var string
-     */
-    public $enableAllPatch;
-
-    /**
-     * @var string
-     */
-    public $enableDefault;
-
-    /**
+     * @description The language of the content within the request and response. Valid values:
+     *
+     *   **zh** (default)
+     *   **en**
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description Specifies whether to enable virtual patching. Valid values:
+     *
+     *   **1**: yes
+     *   **0**: no
+     *
+     * @example 1
+     *
      * @var string
      */
     public $patchRules;
 
     /**
+     * @description The level of the rule group for the IPS. Valid values:
+     *
+     *   **1**: loose
+     *   **2**: medium
+     *   **3**: strict
+     *
+     * @example 1
+     *
      * @var string
      */
     public $ruleClass;
 
     /**
-     * @description This parameter is required.
+     * @description The mode of the IPS. Valid values:
+     *
+     *   **1**: block mode
+     *   **0**: monitor mode
+     *
+     * This parameter is required.
+     * @example 0
      *
      * @var string
      */
     public $runMode;
-
-    /**
-     * @var string
-     */
-    public $sourceIp;
     protected $_name = [
-        'aiRules'        => 'AiRules',
-        'basicRules'     => 'BasicRules',
-        'ctiRules'       => 'CtiRules',
-        'enableAllPatch' => 'EnableAllPatch',
-        'enableDefault'  => 'EnableDefault',
-        'lang'           => 'Lang',
-        'patchRules'     => 'PatchRules',
-        'ruleClass'      => 'RuleClass',
-        'runMode'        => 'RunMode',
-        'sourceIp'       => 'SourceIp',
+        'basicRules' => 'BasicRules',
+        'ctiRules'   => 'CtiRules',
+        'lang'       => 'Lang',
+        'patchRules' => 'PatchRules',
+        'ruleClass'  => 'RuleClass',
+        'runMode'    => 'RunMode',
     ];
 
     public function validate()
@@ -83,20 +99,11 @@ class ModifyDefaultIPSConfigRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->aiRules) {
-            $res['AiRules'] = $this->aiRules;
-        }
         if (null !== $this->basicRules) {
             $res['BasicRules'] = $this->basicRules;
         }
         if (null !== $this->ctiRules) {
             $res['CtiRules'] = $this->ctiRules;
-        }
-        if (null !== $this->enableAllPatch) {
-            $res['EnableAllPatch'] = $this->enableAllPatch;
-        }
-        if (null !== $this->enableDefault) {
-            $res['EnableDefault'] = $this->enableDefault;
         }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
@@ -110,9 +117,6 @@ class ModifyDefaultIPSConfigRequest extends Model
         if (null !== $this->runMode) {
             $res['RunMode'] = $this->runMode;
         }
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
 
         return $res;
     }
@@ -125,20 +129,11 @@ class ModifyDefaultIPSConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AiRules'])) {
-            $model->aiRules = $map['AiRules'];
-        }
         if (isset($map['BasicRules'])) {
             $model->basicRules = $map['BasicRules'];
         }
         if (isset($map['CtiRules'])) {
             $model->ctiRules = $map['CtiRules'];
-        }
-        if (isset($map['EnableAllPatch'])) {
-            $model->enableAllPatch = $map['EnableAllPatch'];
-        }
-        if (isset($map['EnableDefault'])) {
-            $model->enableDefault = $map['EnableDefault'];
         }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
@@ -151,9 +146,6 @@ class ModifyDefaultIPSConfigRequest extends Model
         }
         if (isset($map['RunMode'])) {
             $model->runMode = $map['RunMode'];
-        }
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
         }
 
         return $model;

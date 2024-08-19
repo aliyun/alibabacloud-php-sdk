@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class natRouteEntryList extends Model
 {
     /**
+     * @description The destination CIDR block of the default route.
+     *
+     * @example 0.0.0.0/0
+     *
      * @var string
      */
     public $destinationCidr;
 
     /**
+     * @description The next hop of the original NAT gateway.
+     *
+     * @example ngw-2ze0s284r9atg5******
+     *
      * @var string
      */
     public $nextHopId;
 
     /**
+     * @description The network type of the next hop. The value is fixed as NatGateway.
+     *
+     * @example NatGateway
+     *
      * @var string
      */
     public $nextHopType;
 
     /**
+     * @description The route table to which the default route of the NAT gateway belongs.
+     *
+     * @example vtb-bp18o0gb******
+     *
      * @var string
      */
     public $routeTableId;

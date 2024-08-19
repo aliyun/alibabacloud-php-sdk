@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeNatFirewallListRequest extends Model
 {
     /**
+     * @description The language of the content within the response. Valid values:
+     *   **zh** (default)
+     *   **en**
+     *
      * @example zh
      *
      * @var string
@@ -16,6 +20,8 @@ class DescribeNatFirewallListRequest extends Model
     public $lang;
 
     /**
+     * @description The UID of the member that is managed by your Alibaba Cloud account.
+     *
      * @example 147783******
      *
      * @var int
@@ -23,6 +29,8 @@ class DescribeNatFirewallListRequest extends Model
     public $memberUid;
 
     /**
+     * @description The ID of the NAT gateway.
+     *
      * @example nat-bp123456g******
      *
      * @var string
@@ -30,6 +38,8 @@ class DescribeNatFirewallListRequest extends Model
     public $natGatewayId;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -37,6 +47,9 @@ class DescribeNatFirewallListRequest extends Model
     public $pageNo;
 
     /**
+     * @description The number of entries per page.
+     *
+     * Maximum value: 50.
      * @example 10
      *
      * @var int
@@ -44,6 +57,8 @@ class DescribeNatFirewallListRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the NAT firewall.
+     *
      * @example proxy-nat97a******
      *
      * @var string
@@ -51,11 +66,17 @@ class DescribeNatFirewallListRequest extends Model
     public $proxyId;
 
     /**
+     * @description The name of the NAT firewall. The name must be 4 to 50 characters in length, and can contain letters, digits, and underscores (_). The name cannot start with an underscore.
+     *
+     * @example proxy-******
+     *
      * @var string
      */
     public $proxyName;
 
     /**
+     * @description The region ID of the virtual private cloud (VPC).
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -63,6 +84,16 @@ class DescribeNatFirewallListRequest extends Model
     public $regionNo;
 
     /**
+     * @description The status of the NAT firewall. Valid values:
+     *
+     *   configuring
+     *   deleting
+     *   normal
+     *   abnormal
+     *   opening
+     *   closing
+     *   closed
+     *
      * @example normal
      *
      * @var string
@@ -70,6 +101,8 @@ class DescribeNatFirewallListRequest extends Model
     public $status;
 
     /**
+     * @description The ID of the VPC.
+     *
      * @example vpc-8vbwbo90rq0anm6t****
      *
      * @var string

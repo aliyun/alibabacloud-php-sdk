@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class firewallRouteDetailList extends Model
 {
     /**
+     * @description The destination address of the route.
+     *
      * @example 192.168.10.0/25
      *
      * @var string
@@ -16,6 +18,8 @@ class firewallRouteDetailList extends Model
     public $trFirewallRouteDestination;
 
     /**
+     * @description The ID of the next hop for the route.
+     *
      * @example tr-attach-hnxab1y0pxn16p****
      *
      * @var string
@@ -23,6 +27,8 @@ class firewallRouteDetailList extends Model
     public $trFirewallRouteNexthop;
 
     /**
+     * @description The ID of the routing policy.
+     *
      * @example policy-04ecbbc6720d4f90****
      *
      * @var string
@@ -30,6 +36,8 @@ class firewallRouteDetailList extends Model
     public $trFirewallRoutePolicyId;
 
     /**
+     * @description The ID of the route table to which the route entry belongs.
+     *
      * @example vtb-2zeockxxxorv0mnhz****
      *
      * @var string

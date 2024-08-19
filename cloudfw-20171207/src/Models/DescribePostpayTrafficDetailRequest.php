@@ -18,10 +18,10 @@ class DescribePostpayTrafficDetailRequest extends Model
     public $currentPage;
 
     /**
-     * @description The end of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+     * @description The end of the time range to query. Specify a value in the YYYYMMDD format.
      *
      * This parameter is required.
-     * @example 1656923760
+     * @example 20230130
      *
      * @var string
      */
@@ -70,10 +70,10 @@ class DescribePostpayTrafficDetailRequest extends Model
     public $searchItem;
 
     /**
-     * @description The beginning of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+     * @description The beginning of the time range to query. Specify a value in the YYYYMMDD format.
      *
      * This parameter is required.
-     * @example 1656750960
+     * @example 20230101
      *
      * @var string
      */
@@ -83,7 +83,8 @@ class DescribePostpayTrafficDetailRequest extends Model
      * @description The traffic type. This parameter is required. Valid values:
      *
      *   **EIP_TRAFFIC**: traffic for the Internet firewall
-     *   **NatGateway_TRAFFIC**: traffic for the NAT firewall
+     *   **NatGateway_TRAFFIC**: traffic for NAT firewalls
+     *   **VPC_TRAFFIC**: traffic for virtual private cloud (VPC) firewalls
      *
      * This parameter is required.
      * @example EIP_TRAFFIC

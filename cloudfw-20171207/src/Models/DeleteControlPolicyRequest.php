@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteControlPolicyRequest extends Model
 {
     /**
-     * @description The ID of the access control policy.
+     * @description The UUID of the access control policy.
      *
      * This parameter is required.
      * @example 00281255-d220-4db1-8f4f-c4df221ad84c
@@ -26,7 +26,6 @@ class DeleteControlPolicyRequest extends Model
      *   **in**: inbound traffic
      *   **out**: outbound traffic
      *
-     * This parameter is required.
      * @example in
      *
      * @var string
@@ -34,12 +33,12 @@ class DeleteControlPolicyRequest extends Model
     public $direction;
 
     /**
-     * @description The natural language of the request and response.
+     * @description The language of the content within the request and response.
      *
      * Valid values:
      *
-     *   **zh**: Chinese (default)
-     *   **en**: English
+     *   **zh** (default)
+     *   **en**
      *
      * @example zh
      *

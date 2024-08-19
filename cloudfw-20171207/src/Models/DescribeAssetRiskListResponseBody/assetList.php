@@ -11,7 +11,7 @@ class assetList extends Model
     /**
      * @description The IP address of the server.
      *
-     * @example 39.108.4.107
+     * @example 39.108.XX.XX
      *
      * @var string
      */

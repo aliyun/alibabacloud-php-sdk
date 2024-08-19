@@ -33,6 +33,11 @@ class ipsConfig extends Model
     public $enableAllPatch;
 
     /**
+     * @var int
+     */
+    public $ruleClass;
+
+    /**
      * @description The mode of the IPS. Valid values:
      *
      *   **1**: block mode
@@ -46,6 +51,7 @@ class ipsConfig extends Model
     protected $_name = [
         'basicRules'     => 'BasicRules',
         'enableAllPatch' => 'EnableAllPatch',
+        'ruleClass'      => 'RuleClass',
         'runMode'        => 'RunMode',
     ];
 
@@ -61,6 +67,9 @@ class ipsConfig extends Model
         }
         if (null !== $this->enableAllPatch) {
             $res['EnableAllPatch'] = $this->enableAllPatch;
+        }
+        if (null !== $this->ruleClass) {
+            $res['RuleClass'] = $this->ruleClass;
         }
         if (null !== $this->runMode) {
             $res['RunMode'] = $this->runMode;
@@ -82,6 +91,9 @@ class ipsConfig extends Model
         }
         if (isset($map['EnableAllPatch'])) {
             $model->enableAllPatch = $map['EnableAllPatch'];
+        }
+        if (isset($map['RuleClass'])) {
+            $model->ruleClass = $map['RuleClass'];
         }
         if (isset($map['RunMode'])) {
             $model->runMode = $map['RunMode'];

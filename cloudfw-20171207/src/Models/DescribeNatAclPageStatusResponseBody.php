@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeNatAclPageStatusResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $detail;
+
+    /**
      * @description Indicates whether pagination for access control policies for NAT firewalls is supported.
      *
      * @example True
@@ -26,6 +31,7 @@ class DescribeNatAclPageStatusResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
+        'detail'           => 'Detail',
         'natAclPageEnable' => 'NatAclPageEnable',
         'requestId'        => 'RequestId',
     ];
@@ -37,6 +43,9 @@ class DescribeNatAclPageStatusResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->detail) {
+            $res['Detail'] = $this->detail;
+        }
         if (null !== $this->natAclPageEnable) {
             $res['NatAclPageEnable'] = $this->natAclPageEnable;
         }
@@ -55,6 +64,9 @@ class DescribeNatAclPageStatusResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Detail'])) {
+            $model->detail = $map['Detail'];
+        }
         if (isset($map['NatAclPageEnable'])) {
             $model->natAclPageEnable = $map['NatAclPageEnable'];
         }

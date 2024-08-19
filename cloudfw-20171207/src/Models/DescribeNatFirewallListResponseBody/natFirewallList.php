@@ -10,6 +10,9 @@ use AlibabaCloud\Tea\Model;
 class natFirewallList extends Model
 {
     /**
+     * @description The UID of the Alibaba Cloud account.
+     *
+     * >  The value of this parameter indicates the management account to which the member is added.
      * @example 19106481******
      *
      * @var int
@@ -17,11 +20,17 @@ class natFirewallList extends Model
     public $aliUid;
 
     /**
+     * @description The cause of the error.
+     *
+     * @example Create Failed.
+     *
      * @var string
      */
     public $errorDetail;
 
     /**
+     * @description The UID of the member in Cloud Firewall.
+     *
      * @example 19106481******
      *
      * @var int
@@ -29,6 +38,8 @@ class natFirewallList extends Model
     public $memberUid;
 
     /**
+     * @description The ID of the NAT gateway.
+     *
      * @example ngw-uf6tnblxip4qcxg******
      *
      * @var string
@@ -36,16 +47,24 @@ class natFirewallList extends Model
     public $natGatewayId;
 
     /**
+     * @description The name of the NAT gateway.
+     *
+     * @example nat-******
+     *
      * @var string
      */
     public $natGatewayName;
 
     /**
+     * @description The default route entries of the NAT gateway.
+     *
      * @var natRouteEntryList[]
      */
     public $natRouteEntryList;
 
     /**
+     * @description The ID of the NAT firewall.
+     *
      * @example proxy-nat30******
      *
      * @var string
@@ -53,11 +72,25 @@ class natFirewallList extends Model
     public $proxyId;
 
     /**
+     * @description The name of the NAT firewall.
+     *
+     * @example proxy-******
+     *
      * @var string
      */
     public $proxyName;
 
     /**
+     * @description The status of the NAT firewall. Valid values:
+     *
+     *   configuring
+     *   deleting
+     *   normal
+     *   abnormal
+     *   opening
+     *   closing
+     *   closed
+     *
      * @example normal
      *
      * @var string
@@ -65,6 +98,9 @@ class natFirewallList extends Model
     public $proxyStatus;
 
     /**
+     * @description The region ID of your Cloud Firewall.
+     *
+     * >  For more information about the supported regions of Cloud Firewall, see [Supported regions](https://help.aliyun.com/document_detail/195657.html).
      * @example cn-qingdao
      *
      * @var string
@@ -72,6 +108,8 @@ class natFirewallList extends Model
     public $regionId;
 
     /**
+     * @description Indicates whether the strict mode is enabled. Valid values: 1, which specifies yes, and 0, which specifies no.
+     *
      * @example 0
      *
      * @var int
@@ -79,6 +117,8 @@ class natFirewallList extends Model
     public $strictMode;
 
     /**
+     * @description The ID of the VPC.
+     *
      * @example vpc-2ze26ya******
      *
      * @var string
@@ -86,6 +126,10 @@ class natFirewallList extends Model
     public $vpcId;
 
     /**
+     * @description The name of the VPC.
+     *
+     * @example vpc-******
+     *
      * @var string
      */
     public $vpcName;

@@ -28,7 +28,7 @@ class DescribePostpayTrafficDetailResponseBody extends Model
     public $totalCount;
 
     /**
-     * @description The traffic statistics.
+     * @description The statistics on traffic.
      *
      * @var trafficList[]
      */
