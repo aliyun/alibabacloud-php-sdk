@@ -100,6 +100,9 @@ use AlibabaCloud\SDK\Sddp\V20190103\Models\ModifyRuleRequest;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\ModifyRuleResponse;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\ModifyRuleStatusRequest;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\ModifyRuleStatusResponse;
+use AlibabaCloud\SDK\Sddp\V20190103\Models\ScanOssObjectV1Request;
+use AlibabaCloud\SDK\Sddp\V20190103\Models\ScanOssObjectV1Response;
+use AlibabaCloud\SDK\Sddp\V20190103\Models\ScanOssObjectV1ShrinkRequest;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\StopMaskingProcessRequest;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\StopMaskingProcessResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -3502,6 +3505,70 @@ class Sddp extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyRuleStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 创建文件扫描任务
+     *  *
+     * @param ScanOssObjectV1Request $tmpReq  ScanOssObjectV1Request
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ScanOssObjectV1Response ScanOssObjectV1Response
+     */
+    public function scanOssObjectV1WithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ScanOssObjectV1ShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->objectKeyList)) {
+            $request->objectKeyListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->objectKeyList, 'ObjectKeyList', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->bucketName)) {
+            $query['BucketName'] = $request->bucketName;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->objectKeyListShrink)) {
+            $query['ObjectKeyList'] = $request->objectKeyListShrink;
+        }
+        if (!Utils::isUnset($request->serviceRegionId)) {
+            $query['ServiceRegionId'] = $request->serviceRegionId;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ScanOssObjectV1',
+            'version'     => '2019-01-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ScanOssObjectV1Response::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建文件扫描任务
+     *  *
+     * @param ScanOssObjectV1Request $request ScanOssObjectV1Request
+     *
+     * @return ScanOssObjectV1Response ScanOssObjectV1Response
+     */
+    public function scanOssObjectV1($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->scanOssObjectV1WithOptions($request, $runtime);
     }
 
     /**
