@@ -2,23 +2,19 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\AnalyzeConversationRequest\exampleList;
+namespace AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\AnalyzeConversationRequest\examples;
 
 use AlibabaCloud\Tea\Model;
 
-class sentenceList extends Model
+class sentences extends Model
 {
     /**
-     * @example chat-01
-     *
      * @var string
      */
     public $chatId;
 
     /**
      * @description This parameter is required.
-     *
-     * @example user
      *
      * @var string
      */
@@ -59,7 +55,7 @@ class sentenceList extends Model
     /**
      * @param array $map
      *
-     * @return sentenceList
+     * @return sentences
      */
     public static function fromMap($map = [])
     {

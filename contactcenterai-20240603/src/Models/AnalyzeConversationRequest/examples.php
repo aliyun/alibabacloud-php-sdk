@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\AnalyzeConversationRequest;
 
-use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\AnalyzeConversationRequest\exampleList\sentenceList;
+use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\AnalyzeConversationRequest\examples\sentences;
 use AlibabaCloud\Tea\Model;
 
-class exampleList extends Model
+class examples extends Model
 {
     /**
      * @description This parameter is required.
@@ -19,12 +19,12 @@ class exampleList extends Model
     /**
      * @description This parameter is required.
      *
-     * @var sentenceList[]
+     * @var sentences[]
      */
-    public $sentenceList;
+    public $sentences;
     protected $_name = [
-        'output'       => 'output',
-        'sentenceList' => 'sentenceList',
+        'output'    => 'output',
+        'sentences' => 'sentences',
     ];
 
     public function validate()
@@ -37,12 +37,12 @@ class exampleList extends Model
         if (null !== $this->output) {
             $res['output'] = $this->output;
         }
-        if (null !== $this->sentenceList) {
-            $res['sentenceList'] = [];
-            if (null !== $this->sentenceList && \is_array($this->sentenceList)) {
+        if (null !== $this->sentences) {
+            $res['sentences'] = [];
+            if (null !== $this->sentences && \is_array($this->sentences)) {
                 $n = 0;
-                foreach ($this->sentenceList as $item) {
-                    $res['sentenceList'][$n++] = null !== $item ? $item->toMap() : $item;
+                foreach ($this->sentences as $item) {
+                    $res['sentences'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -53,7 +53,7 @@ class exampleList extends Model
     /**
      * @param array $map
      *
-     * @return exampleList
+     * @return examples
      */
     public static function fromMap($map = [])
     {
@@ -61,12 +61,12 @@ class exampleList extends Model
         if (isset($map['output'])) {
             $model->output = $map['output'];
         }
-        if (isset($map['sentenceList'])) {
-            if (!empty($map['sentenceList'])) {
-                $model->sentenceList = [];
-                $n                   = 0;
-                foreach ($map['sentenceList'] as $item) {
-                    $model->sentenceList[$n++] = null !== $item ? sentenceList::fromMap($item) : $item;
+        if (isset($map['sentences'])) {
+            if (!empty($map['sentences'])) {
+                $model->sentences = [];
+                $n                = 0;
+                foreach ($map['sentences'] as $item) {
+                    $model->sentences[$n++] = null !== $item ? sentences::fromMap($item) : $item;
                 }
             }
         }

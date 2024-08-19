@@ -5,7 +5,7 @@
 namespace AlibabaCloud\SDK\ContactCenterAI\V20240603\Models;
 
 use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\AnalyzeConversationRequest\dialogue;
-use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\AnalyzeConversationRequest\exampleList;
+use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\AnalyzeConversationRequest\examples;
 use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\AnalyzeConversationRequest\fields;
 use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\AnalyzeConversationRequest\serviceInspection;
 use AlibabaCloud\Tea\Model;
@@ -20,9 +20,9 @@ class AnalyzeConversationRequest extends Model
     public $dialogue;
 
     /**
-     * @var exampleList[]
+     * @var examples[]
      */
-    public $exampleList;
+    public $examples;
 
     /**
      * @var fields[]
@@ -63,7 +63,7 @@ class AnalyzeConversationRequest extends Model
     public $stream;
     protected $_name = [
         'dialogue'          => 'dialogue',
-        'exampleList'       => 'exampleList',
+        'examples'          => 'examples',
         'fields'            => 'fields',
         'modelCode'         => 'modelCode',
         'resultTypes'       => 'resultTypes',
@@ -82,12 +82,12 @@ class AnalyzeConversationRequest extends Model
         if (null !== $this->dialogue) {
             $res['dialogue'] = null !== $this->dialogue ? $this->dialogue->toMap() : null;
         }
-        if (null !== $this->exampleList) {
-            $res['exampleList'] = [];
-            if (null !== $this->exampleList && \is_array($this->exampleList)) {
+        if (null !== $this->examples) {
+            $res['examples'] = [];
+            if (null !== $this->examples && \is_array($this->examples)) {
                 $n = 0;
-                foreach ($this->exampleList as $item) {
-                    $res['exampleList'][$n++] = null !== $item ? $item->toMap() : $item;
+                foreach ($this->examples as $item) {
+                    $res['examples'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -130,12 +130,12 @@ class AnalyzeConversationRequest extends Model
         if (isset($map['dialogue'])) {
             $model->dialogue = dialogue::fromMap($map['dialogue']);
         }
-        if (isset($map['exampleList'])) {
-            if (!empty($map['exampleList'])) {
-                $model->exampleList = [];
-                $n                  = 0;
-                foreach ($map['exampleList'] as $item) {
-                    $model->exampleList[$n++] = null !== $item ? exampleList::fromMap($item) : $item;
+        if (isset($map['examples'])) {
+            if (!empty($map['examples'])) {
+                $model->examples = [];
+                $n               = 0;
+                foreach ($map['examples'] as $item) {
+                    $model->examples[$n++] = null !== $item ? examples::fromMap($item) : $item;
                 }
             }
         }
