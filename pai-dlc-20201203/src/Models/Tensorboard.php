@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class Tensorboard extends Model
 {
     /**
+     * @var string
+     */
+    public $accessibility;
+
+    /**
      * @example datasource-test
      *
      * @var string
@@ -145,6 +150,7 @@ class Tensorboard extends Model
      */
     public $username;
     protected $_name = [
+        'accessibility'          => 'Accessibility',
         'dataSourceId'           => 'DataSourceId',
         'displayName'            => 'DisplayName',
         'duration'               => 'Duration',
@@ -175,6 +181,9 @@ class Tensorboard extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accessibility) {
+            $res['Accessibility'] = $this->accessibility;
+        }
         if (null !== $this->dataSourceId) {
             $res['DataSourceId'] = $this->dataSourceId;
         }
@@ -256,6 +265,9 @@ class Tensorboard extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Accessibility'])) {
+            $model->accessibility = $map['Accessibility'];
+        }
         if (isset($map['DataSourceId'])) {
             $model->dataSourceId = $map['DataSourceId'];
         }

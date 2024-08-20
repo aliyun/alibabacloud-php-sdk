@@ -155,6 +155,9 @@ class Paidlc extends OpenApiClient
     {
         Utils::validateModel($request);
         $body = [];
+        if (!Utils::isUnset($request->accessibility)) {
+            $body['Accessibility'] = $request->accessibility;
+        }
         if (!Utils::isUnset($request->codeSource)) {
             $body['CodeSource'] = $request->codeSource;
         }
@@ -262,6 +265,9 @@ class Paidlc extends OpenApiClient
     {
         Utils::validateModel($request);
         $body = [];
+        if (!Utils::isUnset($request->accessibility)) {
+            $body['Accessibility'] = $request->accessibility;
+        }
         if (!Utils::isUnset($request->cpu)) {
             $body['Cpu'] = $request->cpu;
         }
@@ -1171,6 +1177,9 @@ class Paidlc extends OpenApiClient
             $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
         }
         $query = [];
+        if (!Utils::isUnset($request->accessibility)) {
+            $query['Accessibility'] = $request->accessibility;
+        }
         if (!Utils::isUnset($request->businessUserId)) {
             $query['BusinessUserId'] = $request->businessUserId;
         }
@@ -1281,6 +1290,9 @@ class Paidlc extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->accessibility)) {
+            $query['Accessibility'] = $request->accessibility;
+        }
         if (!Utils::isUnset($request->displayName)) {
             $query['DisplayName'] = $request->displayName;
         }

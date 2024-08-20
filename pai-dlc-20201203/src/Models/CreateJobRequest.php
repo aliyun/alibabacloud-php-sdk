@@ -12,6 +12,11 @@ use AlibabaCloud\Tea\Model;
 class CreateJobRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $accessibility;
+
+    /**
      * @var codeSource
      */
     public $codeSource;
@@ -141,6 +146,7 @@ class CreateJobRequest extends Model
      */
     public $workspaceId;
     protected $_name = [
+        'accessibility'            => 'Accessibility',
         'codeSource'               => 'CodeSource',
         'credentialConfig'         => 'CredentialConfig',
         'dataSources'              => 'DataSources',
@@ -170,6 +176,9 @@ class CreateJobRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accessibility) {
+            $res['Accessibility'] = $this->accessibility;
+        }
         if (null !== $this->codeSource) {
             $res['CodeSource'] = null !== $this->codeSource ? $this->codeSource->toMap() : null;
         }
@@ -254,6 +263,9 @@ class CreateJobRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Accessibility'])) {
+            $model->accessibility = $map['Accessibility'];
+        }
         if (isset($map['CodeSource'])) {
             $model->codeSource = codeSource::fromMap($map['CodeSource']);
         }

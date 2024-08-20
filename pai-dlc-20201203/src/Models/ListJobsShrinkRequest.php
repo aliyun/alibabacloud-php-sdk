@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListJobsShrinkRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $accessibility;
+
+    /**
      * @example 16****
      *
      * @var string
@@ -147,6 +152,7 @@ class ListJobsShrinkRequest extends Model
      */
     public $workspaceId;
     protected $_name = [
+        'accessibility'     => 'Accessibility',
         'businessUserId'    => 'BusinessUserId',
         'caller'            => 'Caller',
         'displayName'       => 'DisplayName',
@@ -177,6 +183,9 @@ class ListJobsShrinkRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accessibility) {
+            $res['Accessibility'] = $this->accessibility;
+        }
         if (null !== $this->businessUserId) {
             $res['BusinessUserId'] = $this->businessUserId;
         }
@@ -252,6 +261,9 @@ class ListJobsShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Accessibility'])) {
+            $model->accessibility = $map['Accessibility'];
+        }
         if (isset($map['BusinessUserId'])) {
             $model->businessUserId = $map['BusinessUserId'];
         }

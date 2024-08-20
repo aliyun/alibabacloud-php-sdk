@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CreateTensorboardRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $accessibility;
+
+    /**
      * @example 1
      *
      * @var int
@@ -129,6 +134,7 @@ class CreateTensorboardRequest extends Model
      */
     public $workspaceId;
     protected $_name = [
+        'accessibility'          => 'Accessibility',
         'cpu'                    => 'Cpu',
         'dataSourceId'           => 'DataSourceId',
         'dataSourceType'         => 'DataSourceType',
@@ -157,6 +163,9 @@ class CreateTensorboardRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accessibility) {
+            $res['Accessibility'] = $this->accessibility;
+        }
         if (null !== $this->cpu) {
             $res['Cpu'] = $this->cpu;
         }
@@ -238,6 +247,9 @@ class CreateTensorboardRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Accessibility'])) {
+            $model->accessibility = $map['Accessibility'];
+        }
         if (isset($map['Cpu'])) {
             $model->cpu = $map['Cpu'];
         }
