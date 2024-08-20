@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The ID of the moderated object.
+     * @description The value of dataId that is specified in the API request. If this parameter is not specified in the API request, this field is not available in the response.
      *
      * @example 26769ada6e264e7ba9aa048241e12be9
      *
@@ -20,14 +20,14 @@ class data extends Model
     public $dataId;
 
     /**
-     * @description Supplementary information.
+     * @description The supplementary information.
      *
      * @var extraInfo
      */
     public $extraInfo;
 
     /**
-     * @description The reqId field returned by the Url Async Moderation API.
+     * @description The ReqId field returned by an asynchronous URL moderation operation.
      *
      * @example B0963D30-BAB4-562F-9ED0-7A23AEC51C7C
      *
@@ -36,7 +36,7 @@ class data extends Model
     public $reqId;
 
     /**
-     * @description The results of url async moderation parameters such as the label parameter and the confidence parameter.
+     * @description The returned results.
      *
      * @var result[]
      */

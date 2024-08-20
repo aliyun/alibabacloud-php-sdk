@@ -13,6 +13,7 @@ class data extends Model
     /**
      * @description The ID of the moderated object.
      *
+     * >  If you specify the dataId parameter in the request, the value of the dataId parameter is returned in the response.
      * @example fb5ffab1-993b-449f-b8d6-b97d5e3331f2
      *
      * @var string
@@ -27,7 +28,7 @@ class data extends Model
     public $ext;
 
     /**
-     * @description The results of image moderation parameters such as the label parameter and the confidence parameter.
+     * @description The results of image moderation parameters such as the label parameter and the confidence parameter, which are an array structure.
      *
      * @var result[]
      */

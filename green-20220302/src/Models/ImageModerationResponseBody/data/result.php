@@ -18,7 +18,12 @@ class result extends Model
     public $confidence;
 
     /**
-     * @description The labels returned after the image moderation.
+     * @var string
+     */
+    public $description;
+
+    /**
+     * @description The labels returned after the image moderation. Multiple risk labels and the corresponding scores of confidence levels may be returned for an image.
      *
      * @example violent_explosion
      *
@@ -26,8 +31,9 @@ class result extends Model
      */
     public $label;
     protected $_name = [
-        'confidence' => 'Confidence',
-        'label'      => 'Label',
+        'confidence'  => 'Confidence',
+        'description' => 'Description',
+        'label'       => 'Label',
     ];
 
     public function validate()
@@ -39,6 +45,9 @@ class result extends Model
         $res = [];
         if (null !== $this->confidence) {
             $res['Confidence'] = $this->confidence;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->label) {
             $res['Label'] = $this->label;
@@ -57,6 +66,9 @@ class result extends Model
         $model = new self();
         if (isset($map['Confidence'])) {
             $model->confidence = $map['Confidence'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['Label'])) {
             $model->label = $map['Label'];

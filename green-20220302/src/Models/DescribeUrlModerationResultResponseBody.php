@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeUrlModerationResultResponseBody extends Model
 {
     /**
-     * @description The returned HTTP status code.
+     * @description The returned HTTP status code. The status code 200 indicates that the request was successful.
      *
      * @example 200
      *

@@ -28,6 +28,8 @@ class publicFigure extends Model
     public $figureName;
 
     /**
+     * @description the data array of location info
+     *
      * @var location[]
      */
     public $location;

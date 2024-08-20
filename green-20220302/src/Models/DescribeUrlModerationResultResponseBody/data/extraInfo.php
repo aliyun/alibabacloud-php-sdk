@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class extraInfo extends Model
 {
     /**
-     * @description ICP record number.
+     * @description The ICP number.
      *
      * @example xx
      *
@@ -18,7 +18,7 @@ class extraInfo extends Model
     public $icpNo;
 
     /**
-     * @description ICP filing type.
+     * @description The type of the ICP filing.
      *
      * @example xx
      *
@@ -27,6 +27,10 @@ class extraInfo extends Model
     public $icpType;
 
     /**
+     * @description The type of site
+     *
+     * @example game
+     *
      * @var string
      */
     public $siteType;
