@@ -34,6 +34,11 @@ class ModifyAuditLogConfigRequest extends Model
     /**
      * @var string
      */
+    public $engineType;
+
+    /**
+     * @var string
+     */
     public $ownerAccount;
 
     /**
@@ -63,6 +68,7 @@ class ModifyAuditLogConfigRequest extends Model
     protected $_name = [
         'auditLogStatus'       => 'AuditLogStatus',
         'DBClusterId'          => 'DBClusterId',
+        'engineType'           => 'EngineType',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'regionId'             => 'RegionId',
@@ -82,6 +88,9 @@ class ModifyAuditLogConfigRequest extends Model
         }
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
+        }
+        if (null !== $this->engineType) {
+            $res['EngineType'] = $this->engineType;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
@@ -115,6 +124,9 @@ class ModifyAuditLogConfigRequest extends Model
         }
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
+        }
+        if (isset($map['EngineType'])) {
+            $model->engineType = $map['EngineType'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
