@@ -1669,6 +1669,9 @@ class Dts extends OpenApiClient
         if (!Utils::isUnset($request->destinationRegion)) {
             $query['DestinationRegion'] = $request->destinationRegion;
         }
+        if (!Utils::isUnset($request->dtsRegion)) {
+            $query['DtsRegion'] = $request->dtsRegion;
+        }
         if (!Utils::isUnset($request->du)) {
             $query['Du'] = $request->du;
         }

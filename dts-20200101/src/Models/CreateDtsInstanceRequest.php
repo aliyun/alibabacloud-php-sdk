@@ -97,6 +97,11 @@ class CreateDtsInstanceRequest extends Model
     public $destinationRegion;
 
     /**
+     * @var string
+     */
+    public $dtsRegion;
+
+    /**
      * @description The number of DTS units (DUs) that are assigned to a DTS task that is run on a DTS dedicated cluster. Valid values: **1** to **100**.
      *
      * >
@@ -296,6 +301,7 @@ class CreateDtsInstanceRequest extends Model
         'databaseCount'                 => 'DatabaseCount',
         'destinationEndpointEngineName' => 'DestinationEndpointEngineName',
         'destinationRegion'             => 'DestinationRegion',
+        'dtsRegion'                     => 'DtsRegion',
         'du'                            => 'Du',
         'feeType'                       => 'FeeType',
         'instanceClass'                 => 'InstanceClass',
@@ -338,6 +344,9 @@ class CreateDtsInstanceRequest extends Model
         }
         if (null !== $this->destinationRegion) {
             $res['DestinationRegion'] = $this->destinationRegion;
+        }
+        if (null !== $this->dtsRegion) {
+            $res['DtsRegion'] = $this->dtsRegion;
         }
         if (null !== $this->du) {
             $res['Du'] = $this->du;
@@ -416,6 +425,9 @@ class CreateDtsInstanceRequest extends Model
         }
         if (isset($map['DestinationRegion'])) {
             $model->destinationRegion = $map['DestinationRegion'];
+        }
+        if (isset($map['DtsRegion'])) {
+            $model->dtsRegion = $map['DtsRegion'];
         }
         if (isset($map['Du'])) {
             $model->du = $map['Du'];
