@@ -8,6 +8,9 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\AddTextFeedbackRequest;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\AddTextFeedbackResponse;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\BatchGetProjectTaskRequest;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\BatchGetProjectTaskResponse;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\BatchGetProjectTaskShrinkRequest;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CheckSessionRequest;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CheckSessionResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CountTextRequest;
@@ -143,6 +146,61 @@ class IntelligentCreation extends OpenApiClient
         $headers = [];
 
         return $this->addTextFeedbackWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 批量查询项目信息
+     *  *
+     * @param BatchGetProjectTaskRequest $tmpReq  BatchGetProjectTaskRequest
+     * @param string[]                   $headers map
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return BatchGetProjectTaskResponse BatchGetProjectTaskResponse
+     */
+    public function batchGetProjectTaskWithOptions($tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new BatchGetProjectTaskShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->taskIdList)) {
+            $request->taskIdListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->taskIdList, 'taskIdList', 'simple');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->taskIdListShrink)) {
+            $query['taskIdList'] = $request->taskIdListShrink;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchGetProjectTask',
+            'version'     => '2024-03-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/yic/yic-console/openService/v1/digitalHuman/project/batchGetProjectTask',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return BatchGetProjectTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 批量查询项目信息
+     *  *
+     * @param BatchGetProjectTaskRequest $request BatchGetProjectTaskRequest
+     *
+     * @return BatchGetProjectTaskResponse BatchGetProjectTaskResponse
+     */
+    public function batchGetProjectTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->batchGetProjectTaskWithOptions($request, $headers, $runtime);
     }
 
     /**
