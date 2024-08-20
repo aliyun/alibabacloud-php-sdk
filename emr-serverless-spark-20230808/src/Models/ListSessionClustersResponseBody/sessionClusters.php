@@ -36,12 +36,22 @@ class sessionClusters extends Model
     /**
      * @var string
      */
+    public $displayReleaseVersion;
+
+    /**
+     * @var string
+     */
     public $domain;
 
     /**
      * @var string
      */
     public $draftId;
+
+    /**
+     * @var bool
+     */
+    public $fusion;
 
     /**
      * @var string
@@ -131,8 +141,10 @@ class sessionClusters extends Model
         'applicationConfigs'     => 'applicationConfigs',
         'autoStartConfiguration' => 'autoStartConfiguration',
         'autoStopConfiguration'  => 'autoStopConfiguration',
+        'displayReleaseVersion'  => 'displayReleaseVersion',
         'domain'                 => 'domain',
         'draftId'                => 'draftId',
+        'fusion'                 => 'fusion',
         'kind'                   => 'kind',
         'name'                   => 'name',
         'queueName'              => 'queueName',
@@ -168,11 +180,17 @@ class sessionClusters extends Model
         if (null !== $this->autoStopConfiguration) {
             $res['autoStopConfiguration'] = null !== $this->autoStopConfiguration ? $this->autoStopConfiguration->toMap() : null;
         }
+        if (null !== $this->displayReleaseVersion) {
+            $res['displayReleaseVersion'] = $this->displayReleaseVersion;
+        }
         if (null !== $this->domain) {
             $res['domain'] = $this->domain;
         }
         if (null !== $this->draftId) {
             $res['draftId'] = $this->draftId;
+        }
+        if (null !== $this->fusion) {
+            $res['fusion'] = $this->fusion;
         }
         if (null !== $this->kind) {
             $res['kind'] = $this->kind;
@@ -234,11 +252,17 @@ class sessionClusters extends Model
         if (isset($map['autoStopConfiguration'])) {
             $model->autoStopConfiguration = autoStopConfiguration::fromMap($map['autoStopConfiguration']);
         }
+        if (isset($map['displayReleaseVersion'])) {
+            $model->displayReleaseVersion = $map['displayReleaseVersion'];
+        }
         if (isset($map['domain'])) {
             $model->domain = $map['domain'];
         }
         if (isset($map['draftId'])) {
             $model->draftId = $map['draftId'];
+        }
+        if (isset($map['fusion'])) {
+            $model->fusion = $map['fusion'];
         }
         if (isset($map['kind'])) {
             $model->kind = $map['kind'];

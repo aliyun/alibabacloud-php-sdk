@@ -83,6 +83,11 @@ class Task extends Model
     public $files;
 
     /**
+     * @var bool
+     */
+    public $fusion;
+
+    /**
      * @description This parameter is required.
      *
      * @var string
@@ -239,6 +244,7 @@ class Task extends Model
         'extraArtifactIds'       => 'extraArtifactIds',
         'extraSparkSubmitParams' => 'extraSparkSubmitParams',
         'files'                  => 'files',
+        'fusion'                 => 'fusion',
         'gmtCreated'             => 'gmtCreated',
         'gmtModified'            => 'gmtModified',
         'hasChanged'             => 'hasChanged',
@@ -312,6 +318,9 @@ class Task extends Model
         }
         if (null !== $this->files) {
             $res['files'] = $this->files;
+        }
+        if (null !== $this->fusion) {
+            $res['fusion'] = $this->fusion;
         }
         if (null !== $this->gmtCreated) {
             $res['gmtCreated'] = $this->gmtCreated;
@@ -447,6 +456,9 @@ class Task extends Model
             if (!empty($map['files'])) {
                 $model->files = $map['files'];
             }
+        }
+        if (isset($map['fusion'])) {
+            $model->fusion = $map['fusion'];
         }
         if (isset($map['gmtCreated'])) {
             $model->gmtCreated = $map['gmtCreated'];

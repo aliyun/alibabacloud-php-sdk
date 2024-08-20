@@ -25,6 +25,16 @@ class releaseVersions extends Model
     public $cpuArchitectures;
 
     /**
+     * @var string
+     */
+    public $displayReleaseVersion;
+
+    /**
+     * @var bool
+     */
+    public $fusion;
+
+    /**
      * @description The creation time.
      *
      * @example 1716215854101
@@ -78,14 +88,16 @@ class releaseVersions extends Model
      */
     public $type;
     protected $_name = [
-        'communityVersion' => 'communityVersion',
-        'cpuArchitectures' => 'cpuArchitectures',
-        'gmtCreate'        => 'gmtCreate',
-        'iaasType'         => 'iaasType',
-        'releaseVersion'   => 'releaseVersion',
-        'scalaVersion'     => 'scalaVersion',
-        'state'            => 'state',
-        'type'             => 'type',
+        'communityVersion'      => 'communityVersion',
+        'cpuArchitectures'      => 'cpuArchitectures',
+        'displayReleaseVersion' => 'displayReleaseVersion',
+        'fusion'                => 'fusion',
+        'gmtCreate'             => 'gmtCreate',
+        'iaasType'              => 'iaasType',
+        'releaseVersion'        => 'releaseVersion',
+        'scalaVersion'          => 'scalaVersion',
+        'state'                 => 'state',
+        'type'                  => 'type',
     ];
 
     public function validate()
@@ -100,6 +112,12 @@ class releaseVersions extends Model
         }
         if (null !== $this->cpuArchitectures) {
             $res['cpuArchitectures'] = $this->cpuArchitectures;
+        }
+        if (null !== $this->displayReleaseVersion) {
+            $res['displayReleaseVersion'] = $this->displayReleaseVersion;
+        }
+        if (null !== $this->fusion) {
+            $res['fusion'] = $this->fusion;
         }
         if (null !== $this->gmtCreate) {
             $res['gmtCreate'] = $this->gmtCreate;
@@ -138,6 +156,12 @@ class releaseVersions extends Model
             if (!empty($map['cpuArchitectures'])) {
                 $model->cpuArchitectures = $map['cpuArchitectures'];
             }
+        }
+        if (isset($map['displayReleaseVersion'])) {
+            $model->displayReleaseVersion = $map['displayReleaseVersion'];
+        }
+        if (isset($map['fusion'])) {
+            $model->fusion = $map['fusion'];
         }
         if (isset($map['gmtCreate'])) {
             $model->gmtCreate = $map['gmtCreate'];

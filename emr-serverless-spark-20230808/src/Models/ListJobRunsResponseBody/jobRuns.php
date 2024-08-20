@@ -40,6 +40,11 @@ class jobRuns extends Model
     public $creator;
 
     /**
+     * @var string
+     */
+    public $displayReleaseVersion;
+
+    /**
      * @description The end time of the job.
      *
      * @example 1684119314000
@@ -56,6 +61,11 @@ class jobRuns extends Model
      * @var int
      */
     public $executionTimeoutSeconds;
+
+    /**
+     * @var bool
+     */
+    public $fusion;
 
     /**
      * @description The information about Spark Driver.
@@ -151,8 +161,10 @@ class jobRuns extends Model
         'codeType'                => 'codeType',
         'configurationOverrides'  => 'configurationOverrides',
         'creator'                 => 'creator',
+        'displayReleaseVersion'   => 'displayReleaseVersion',
         'endTime'                 => 'endTime',
         'executionTimeoutSeconds' => 'executionTimeoutSeconds',
+        'fusion'                  => 'fusion',
         'jobDriver'               => 'jobDriver',
         'jobRunId'                => 'jobRunId',
         'log'                     => 'log',
@@ -182,11 +194,17 @@ class jobRuns extends Model
         if (null !== $this->creator) {
             $res['creator'] = $this->creator;
         }
+        if (null !== $this->displayReleaseVersion) {
+            $res['displayReleaseVersion'] = $this->displayReleaseVersion;
+        }
         if (null !== $this->endTime) {
             $res['endTime'] = $this->endTime;
         }
         if (null !== $this->executionTimeoutSeconds) {
             $res['executionTimeoutSeconds'] = $this->executionTimeoutSeconds;
+        }
+        if (null !== $this->fusion) {
+            $res['fusion'] = $this->fusion;
         }
         if (null !== $this->jobDriver) {
             $res['jobDriver'] = null !== $this->jobDriver ? $this->jobDriver->toMap() : null;
@@ -248,11 +266,17 @@ class jobRuns extends Model
         if (isset($map['creator'])) {
             $model->creator = $map['creator'];
         }
+        if (isset($map['displayReleaseVersion'])) {
+            $model->displayReleaseVersion = $map['displayReleaseVersion'];
+        }
         if (isset($map['endTime'])) {
             $model->endTime = $map['endTime'];
         }
         if (isset($map['executionTimeoutSeconds'])) {
             $model->executionTimeoutSeconds = $map['executionTimeoutSeconds'];
+        }
+        if (isset($map['fusion'])) {
+            $model->fusion = $map['fusion'];
         }
         if (isset($map['jobDriver'])) {
             $model->jobDriver = JobDriver::fromMap($map['jobDriver']);

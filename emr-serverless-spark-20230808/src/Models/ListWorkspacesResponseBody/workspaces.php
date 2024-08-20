@@ -55,6 +55,11 @@ class workspaces extends Model
     public $dlfCatalogId;
 
     /**
+     * @var string
+     */
+    public $dlfType;
+
+    /**
      * @description The subscription period. This parameter is required only if the paymentType parameter is set to Subscription.
      *
      * @example 1
@@ -183,6 +188,7 @@ class workspaces extends Model
         'autoRenewPeriodUnit' => 'autoRenewPeriodUnit',
         'createTime'          => 'createTime',
         'dlfCatalogId'        => 'dlfCatalogId',
+        'dlfType'             => 'dlfType',
         'duration'            => 'duration',
         'endTime'             => 'endTime',
         'failReason'          => 'failReason',
@@ -220,6 +226,9 @@ class workspaces extends Model
         }
         if (null !== $this->dlfCatalogId) {
             $res['dlfCatalogId'] = $this->dlfCatalogId;
+        }
+        if (null !== $this->dlfType) {
+            $res['dlfType'] = $this->dlfType;
         }
         if (null !== $this->duration) {
             $res['duration'] = $this->duration;
@@ -289,6 +298,9 @@ class workspaces extends Model
         }
         if (isset($map['dlfCatalogId'])) {
             $model->dlfCatalogId = $map['dlfCatalogId'];
+        }
+        if (isset($map['dlfType'])) {
+            $model->dlfType = $map['dlfType'];
         }
         if (isset($map['duration'])) {
             $model->duration = $map['duration'];

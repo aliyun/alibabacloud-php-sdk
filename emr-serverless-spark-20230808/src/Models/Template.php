@@ -16,6 +16,16 @@ class Template extends Model
     public $creator;
 
     /**
+     * @var string
+     */
+    public $displaySparkVersion;
+
+    /**
+     * @var bool
+     */
+    public $fusion;
+
+    /**
      * @description This parameter is required.
      *
      * @var string
@@ -96,6 +106,8 @@ class Template extends Model
     public $templateType;
     protected $_name = [
         'creator'             => 'creator',
+        'displaySparkVersion' => 'displaySparkVersion',
+        'fusion'              => 'fusion',
         'gmtCreated'          => 'gmtCreated',
         'gmtModified'         => 'gmtModified',
         'modifier'            => 'modifier',
@@ -119,6 +131,12 @@ class Template extends Model
         $res = [];
         if (null !== $this->creator) {
             $res['creator'] = $this->creator;
+        }
+        if (null !== $this->displaySparkVersion) {
+            $res['displaySparkVersion'] = $this->displaySparkVersion;
+        }
+        if (null !== $this->fusion) {
+            $res['fusion'] = $this->fusion;
         }
         if (null !== $this->gmtCreated) {
             $res['gmtCreated'] = $this->gmtCreated;
@@ -176,6 +194,12 @@ class Template extends Model
         $model = new self();
         if (isset($map['creator'])) {
             $model->creator = $map['creator'];
+        }
+        if (isset($map['displaySparkVersion'])) {
+            $model->displaySparkVersion = $map['displaySparkVersion'];
+        }
+        if (isset($map['fusion'])) {
+            $model->fusion = $map['fusion'];
         }
         if (isset($map['gmtCreated'])) {
             $model->gmtCreated = $map['gmtCreated'];

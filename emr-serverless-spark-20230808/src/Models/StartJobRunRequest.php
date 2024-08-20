@@ -39,6 +39,11 @@ class StartJobRunRequest extends Model
     public $configurationOverrides;
 
     /**
+     * @var string
+     */
+    public $displayReleaseVersion;
+
+    /**
      * @description The timeout period of the job.
      *
      * @example 100
@@ -46,6 +51,11 @@ class StartJobRunRequest extends Model
      * @var int
      */
     public $executionTimeoutSeconds;
+
+    /**
+     * @var bool
+     */
+    public $fusion;
 
     /**
      * @description The information about Spark Driver.
@@ -109,7 +119,9 @@ class StartJobRunRequest extends Model
         'clientToken'             => 'clientToken',
         'codeType'                => 'codeType',
         'configurationOverrides'  => 'configurationOverrides',
+        'displayReleaseVersion'   => 'displayReleaseVersion',
         'executionTimeoutSeconds' => 'executionTimeoutSeconds',
+        'fusion'                  => 'fusion',
         'jobDriver'               => 'jobDriver',
         'jobId'                   => 'jobId',
         'name'                    => 'name',
@@ -135,8 +147,14 @@ class StartJobRunRequest extends Model
         if (null !== $this->configurationOverrides) {
             $res['configurationOverrides'] = null !== $this->configurationOverrides ? $this->configurationOverrides->toMap() : null;
         }
+        if (null !== $this->displayReleaseVersion) {
+            $res['displayReleaseVersion'] = $this->displayReleaseVersion;
+        }
         if (null !== $this->executionTimeoutSeconds) {
             $res['executionTimeoutSeconds'] = $this->executionTimeoutSeconds;
+        }
+        if (null !== $this->fusion) {
+            $res['fusion'] = $this->fusion;
         }
         if (null !== $this->jobDriver) {
             $res['jobDriver'] = null !== $this->jobDriver ? $this->jobDriver->toMap() : null;
@@ -186,8 +204,14 @@ class StartJobRunRequest extends Model
         if (isset($map['configurationOverrides'])) {
             $model->configurationOverrides = configurationOverrides::fromMap($map['configurationOverrides']);
         }
+        if (isset($map['displayReleaseVersion'])) {
+            $model->displayReleaseVersion = $map['displayReleaseVersion'];
+        }
         if (isset($map['executionTimeoutSeconds'])) {
             $model->executionTimeoutSeconds = $map['executionTimeoutSeconds'];
+        }
+        if (isset($map['fusion'])) {
+            $model->fusion = $map['fusion'];
         }
         if (isset($map['jobDriver'])) {
             $model->jobDriver = JobDriver::fromMap($map['jobDriver']);

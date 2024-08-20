@@ -788,8 +788,14 @@ class Emrserverlessspark extends OpenApiClient
         if (!Utils::isUnset($request->configurationOverrides)) {
             $body['configurationOverrides'] = $request->configurationOverrides;
         }
+        if (!Utils::isUnset($request->displayReleaseVersion)) {
+            $body['displayReleaseVersion'] = $request->displayReleaseVersion;
+        }
         if (!Utils::isUnset($request->executionTimeoutSeconds)) {
             $body['executionTimeoutSeconds'] = $request->executionTimeoutSeconds;
+        }
+        if (!Utils::isUnset($request->fusion)) {
+            $body['fusion'] = $request->fusion;
         }
         if (!Utils::isUnset($request->jobDriver)) {
             $body['jobDriver'] = $request->jobDriver;
