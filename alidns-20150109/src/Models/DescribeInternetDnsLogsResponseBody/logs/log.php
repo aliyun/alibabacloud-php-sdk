@@ -24,6 +24,11 @@ class log extends Model
     public $logTime;
 
     /**
+     * @var string
+     */
+    public $protocol;
+
+    /**
      * @example example.com
      *
      * @var string
@@ -84,6 +89,7 @@ class log extends Model
     protected $_name = [
         'dnsMsgId'  => 'DnsMsgId',
         'logTime'   => 'LogTime',
+        'protocol'  => 'Protocol',
         'queryName' => 'QueryName',
         'queryType' => 'QueryType',
         'rt'        => 'Rt',
@@ -107,6 +113,9 @@ class log extends Model
         }
         if (null !== $this->logTime) {
             $res['LogTime'] = $this->logTime;
+        }
+        if (null !== $this->protocol) {
+            $res['Protocol'] = $this->protocol;
         }
         if (null !== $this->queryName) {
             $res['QueryName'] = $this->queryName;
@@ -152,6 +161,9 @@ class log extends Model
         }
         if (isset($map['LogTime'])) {
             $model->logTime = $map['LogTime'];
+        }
+        if (isset($map['Protocol'])) {
+            $model->protocol = $map['Protocol'];
         }
         if (isset($map['QueryName'])) {
             $model->queryName = $map['QueryName'];
