@@ -2,6 +2,10 @@
 - Update API DescribeInternetDnsLogs: update response param.
 
 
+2024-08-20 Version: 3.4.4
+- Update API DescribeInternetDnsLogs: update response param.
+
+
 2024-08-01 Version: 3.4.3
 - Update API CreatePdnsUdpIpSegment: add param IpToken.
 - Update API ValidatePdnsUdpIpSegment: add param IpToken.
