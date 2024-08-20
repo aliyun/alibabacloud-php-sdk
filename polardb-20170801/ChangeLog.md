@@ -1,3 +1,8 @@
+2024-08-20 Version: 5.1.9
+- Update API DescribeDBClusterAttribute: update response param.
+- Update API FailoverDBCluster: add param TargetZoneType.
+
+
 2024-07-30 Version: 5.1.8
 - Update API CreateDBClusterEndpoint: add param PolarSccTimeoutAction.
 - Update API CreateDBClusterEndpoint: add param PolarSccWaitTimeout.

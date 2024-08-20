@@ -69,6 +69,11 @@ class FailoverDBClusterRequest extends Model
      * @var string
      */
     public $targetDBNodeId;
+
+    /**
+     * @var string
+     */
+    public $targetZoneType;
     protected $_name = [
         'clientToken'          => 'ClientToken',
         'DBClusterId'          => 'DBClusterId',
@@ -78,6 +83,7 @@ class FailoverDBClusterRequest extends Model
         'resourceOwnerId'      => 'ResourceOwnerId',
         'rollBackForDisaster'  => 'RollBackForDisaster',
         'targetDBNodeId'       => 'TargetDBNodeId',
+        'targetZoneType'       => 'TargetZoneType',
     ];
 
     public function validate()
@@ -110,6 +116,9 @@ class FailoverDBClusterRequest extends Model
         }
         if (null !== $this->targetDBNodeId) {
             $res['TargetDBNodeId'] = $this->targetDBNodeId;
+        }
+        if (null !== $this->targetZoneType) {
+            $res['TargetZoneType'] = $this->targetZoneType;
         }
 
         return $res;
@@ -146,6 +155,9 @@ class FailoverDBClusterRequest extends Model
         }
         if (isset($map['TargetDBNodeId'])) {
             $model->targetDBNodeId = $map['TargetDBNodeId'];
+        }
+        if (isset($map['TargetZoneType'])) {
+            $model->targetZoneType = $map['TargetZoneType'];
         }
 
         return $model;

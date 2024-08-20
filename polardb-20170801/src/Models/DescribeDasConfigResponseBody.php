@@ -18,6 +18,8 @@ class DescribeDasConfigResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the automatic storage expansion feature is enabled for the standard cluster.
+     *
      * @example Enable
      *
      * @var string
@@ -25,6 +27,9 @@ class DescribeDasConfigResponseBody extends Model
     public $storageAutoScale;
 
     /**
+     * @description The maximum storage capacity of the standard cluster that is scaled up. Unit: GB.
+     *
+     * >  This parameter is returned when the StorageAutoScale parameter is set to Enable.
      * @example 800
      *
      * @var int

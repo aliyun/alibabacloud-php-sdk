@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBClusterAttributeResponseBody extends Model
 {
     /**
+     * @example 2024-03-13T01:20:28Z
+     *
      * @var string
      */
     public $aiCreatingTime;
@@ -28,6 +30,8 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public $aiType;
 
     /**
+     * @example X86
+     *
      * @var string
      */
     public $architecture;
@@ -67,11 +71,15 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public $category;
 
     /**
+     * @example ON
+     *
      * @var string
      */
     public $compressStorageMode;
 
     /**
+     * @example 15529410560
+     *
      * @var int
      */
     public $compressStorageUsed;
@@ -122,7 +130,7 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public $DBClusterStatus;
 
     /**
-     * @description The details of the nodes.
+     * @description The information about the nodes.
      *
      * @var DBNodes[]
      */
@@ -229,6 +237,8 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public $hasCompleteStandbyRes;
 
     /**
+     * @example StandbyClusterON
+     *
      * @var string
      */
     public $hotStandbyCluster;
@@ -298,6 +308,8 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public $maintainTime;
 
     /**
+     * @example ON
+     *
      * @var string
      */
     public $orca;
@@ -315,6 +327,8 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public $payType;
 
     /**
+     * @example 2500
+     *
      * @var string
      */
     public $provisionedIops;
@@ -407,11 +421,15 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public $resourceGroupId;
 
     /**
+     * @example 2179639137
+     *
      * @var string
      */
     public $restoreDataPoint;
 
     /**
+     * @example RestoreByTime
+     *
      * @var string
      */
     public $restoreType;
@@ -435,9 +453,16 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public $serverlessType;
 
     /**
+     * @example pc-pz51ziv48317b2880
+     *
      * @var string
      */
     public $sourceDBCluster;
+
+    /**
+     * @var string
+     */
+    public $sourceRegionId;
 
     /**
      * @description Indicates whether the cross-zone disaster recovery feature is enabled. Valid values: ON OFF 0: Customer Drill Mode
@@ -607,6 +632,7 @@ class DescribeDBClusterAttributeResponseBody extends Model
         'SQLSize'                      => 'SQLSize',
         'serverlessType'               => 'ServerlessType',
         'sourceDBCluster'              => 'SourceDBCluster',
+        'sourceRegionId'               => 'SourceRegionId',
         'standbyHAMode'                => 'StandbyHAMode',
         'storageMax'                   => 'StorageMax',
         'storagePayType'               => 'StoragePayType',
@@ -775,6 +801,9 @@ class DescribeDBClusterAttributeResponseBody extends Model
         }
         if (null !== $this->sourceDBCluster) {
             $res['SourceDBCluster'] = $this->sourceDBCluster;
+        }
+        if (null !== $this->sourceRegionId) {
+            $res['SourceRegionId'] = $this->sourceRegionId;
         }
         if (null !== $this->standbyHAMode) {
             $res['StandbyHAMode'] = $this->standbyHAMode;
@@ -979,6 +1008,9 @@ class DescribeDBClusterAttributeResponseBody extends Model
         }
         if (isset($map['SourceDBCluster'])) {
             $model->sourceDBCluster = $map['SourceDBCluster'];
+        }
+        if (isset($map['SourceRegionId'])) {
+            $model->sourceRegionId = $map['SourceRegionId'];
         }
         if (isset($map['StandbyHAMode'])) {
             $model->standbyHAMode = $map['StandbyHAMode'];

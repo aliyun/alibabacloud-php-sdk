@@ -4876,7 +4876,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @summary 查看实例的 DAS 配置
+     * @summary Queries the configurations of a cluster in Database Autonomy Service (DAS).
      *  *
      * @param DescribeDasConfigRequest $request DescribeDasConfigRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -4921,7 +4921,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @summary 查看实例的 DAS 配置
+     * @summary Queries the configurations of a cluster in Database Autonomy Service (DAS).
      *  *
      * @param DescribeDasConfigRequest $request DescribeDasConfigRequest
      *
@@ -6826,6 +6826,9 @@ class Polardb extends OpenApiClient
         }
         if (!Utils::isUnset($request->targetDBNodeId)) {
             $query['TargetDBNodeId'] = $request->targetDBNodeId;
+        }
+        if (!Utils::isUnset($request->targetZoneType)) {
+            $query['TargetZoneType'] = $request->targetZoneType;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),

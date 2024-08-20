@@ -18,6 +18,8 @@ class DBNodes extends Model
     public $addedCpuCores;
 
     /**
+     * @example 2
+     *
      * @var string
      */
     public $cpuCores;
@@ -145,6 +147,8 @@ class DBNodes extends Model
     public $maxIOPS;
 
     /**
+     * @example 8192
+     *
      * @var string
      */
     public $memorySize;
@@ -155,11 +159,15 @@ class DBNodes extends Model
     public $mirrorInsName;
 
     /**
+     * @example off
+     *
      * @var string
      */
     public $orca;
 
     /**
+     * @example 3072
+     *
      * @var string
      */
     public $remoteMemorySize;
@@ -197,6 +205,8 @@ class DBNodes extends Model
     public $serverlessType;
 
     /**
+     * @example Primary
+     *
      * @var string
      */
     public $subCluster;

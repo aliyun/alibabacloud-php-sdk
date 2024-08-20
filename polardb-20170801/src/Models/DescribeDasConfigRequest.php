@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeDasConfigRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The cluster ID.
      *
+     * This parameter is required.
      * @example pc-****************
      *
      * @var string
