@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeHighlightInfoResponseBody extends Model
 {
     /**
-     * @description The model of the highlighted data.
+     * @description The data model of the highlighted data.
      *
      * @var dataModule[]
      */

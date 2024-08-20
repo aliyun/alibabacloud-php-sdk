@@ -20,7 +20,7 @@ class regexp extends Model
     /**
      * @description The regular expression.
      *
-     * @example ^\S+$
+     * @example ^\\S+$
      *
      * @var string
      */

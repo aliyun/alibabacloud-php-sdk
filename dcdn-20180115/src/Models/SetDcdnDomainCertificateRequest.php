@@ -33,7 +33,7 @@ class SetDcdnDomainCertificateRequest extends Model
     /**
      * @description The accelerated domain name. You can specify only one domain name.
      *
-     * HTTPS acceleration must be enabled for the accelerated domain name.
+     * This parameter is required.
      * @example example.com
      *
      * @var string
@@ -78,6 +78,7 @@ class SetDcdnDomainCertificateRequest extends Model
      *   **on**
      *   **off**
      *
+     * This parameter is required.
      * @example on
      *
      * @var string

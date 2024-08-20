@@ -11,7 +11,7 @@ class UpdateDcdnDeliverTaskRequest extends Model
     /**
      * @description The method that is used to send operations reports. Operations reports are sent to you only by email. The settings need to be escaped in JSON.
      *
-     * @example {"email":{"subject":"the email subject","to":\["username@example.com","username@example.com"]}}
+     * @example {"email":{"subject":"the email subject","to":["username@example.com","username@example.com"]}}
      *
      * @var string
      */
@@ -20,6 +20,7 @@ class UpdateDcdnDeliverTaskRequest extends Model
     /**
      * @description The ID of the tracking task that you want to update.
      *
+     * This parameter is required.
      * @example 92
      *
      * @var int
@@ -47,7 +48,7 @@ class UpdateDcdnDeliverTaskRequest extends Model
     /**
      * @description The operations reports that are tracked by the task. The data needs to be escaped in JSON.
      *
-     * @example \[{\\"reportId\\":2,\\"conditions\\":\[{\\"field\\":\\"prov\\",\\"op\\":\\"in\\",\\"value\\":\[\\"Heilongjiang\\",\\"Beijing\\"]}]}]
+     * @example [{\\\\"reportId\\\\":2,\\\\"conditions\\\\":[{\\\\"field\\\\":\\\\"prov\\\\",\\\\"op\\\\":\\\\"in\\\\",\\\\"value\\\\":[\\\\"Heilongjiang\\\\",\\\\"Beijing\\\\"]}]}]
      *
      * @var string
      */
@@ -56,7 +57,7 @@ class UpdateDcdnDeliverTaskRequest extends Model
     /**
      * @description The parameters that specify the time interval at which the tracking task sends operations reports. The settings need to be escaped in JSON.
      *
-     * @example {"schedName":"the name of the tracking task","description":"the description","crontab":"000\*\*?","frequency":"d","status":"enable","effectiveFrom":"2020-09-17T00:00:00Z","effectiveEnd":"2020-11-17T00:00:00Z"}
+     * @example {"schedName":"the name of the tracking task","description":"the description","crontab":"000\\*\\*?","frequency":"d","status":"enable","effectiveFrom":"2020-09-17T00:00:00Z","effectiveEnd":"2020-11-17T00:00:00Z"}
      *
      * @var string
      */

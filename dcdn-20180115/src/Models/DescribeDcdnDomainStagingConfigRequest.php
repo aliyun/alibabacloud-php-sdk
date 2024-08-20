@@ -11,6 +11,7 @@ class DescribeDcdnDomainStagingConfigRequest extends Model
     /**
      * @description The accelerated domain name.
      *
+     * This parameter is required.
      * @example example.com
      *
      * @var string
@@ -20,6 +21,7 @@ class DescribeDcdnDomainStagingConfigRequest extends Model
     /**
      * @description The names of the features to query. You can separate multiple features with commas (,).
      *
+     * This parameter is required.
      * @example aliauth
      *
      * @var string

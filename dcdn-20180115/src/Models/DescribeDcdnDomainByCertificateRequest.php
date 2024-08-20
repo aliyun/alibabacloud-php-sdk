@@ -9,10 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnDomainByCertificateRequest extends Model
 {
     /**
-     * @description Specifies whether the domain name list to return match the SSL certificate.
-     *
-     * - **true**: The domain name list match the SSL certificate.
-     * - **false**: The domain name list do not match the SSL certificate.
+     * @description Specifies whether the domain name list to return matches the SSL certificate.
+     * - **true**: The domain name list matches the SSL certificate.
+     * - **false**: The domain name list does not match the SSL certificate.
      * @example true
      *
      * @var bool
@@ -22,7 +21,7 @@ class DescribeDcdnDomainByCertificateRequest extends Model
     /**
      * @description The public key of the certificate.
      *
-     * You must use Base64 encoding schemes and then the encodeURIComponent method to encode the public key. PEM files are supported.
+     * This parameter is required.
      * @example xxx
      *
      * @var string

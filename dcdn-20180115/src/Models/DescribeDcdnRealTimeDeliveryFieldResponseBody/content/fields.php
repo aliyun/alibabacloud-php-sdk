@@ -18,7 +18,7 @@ class fields extends Model
     public $description;
 
     /**
-     * @description The name of the field. For more information about fields in real-time log entries, see [Fields in a real-time log](~~324199~~).
+     * @description The name of the field. For more information about fields in real-time log entries, see [Fields in a real-time log](https://help.aliyun.com/document_detail/324199.html).
      *
      * @example unixtime
      *

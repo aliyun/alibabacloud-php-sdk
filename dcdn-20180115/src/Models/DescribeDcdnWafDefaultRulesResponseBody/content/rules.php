@@ -11,9 +11,9 @@ class rules extends Model
     /**
      * @description The default action of the rule. Valid values:
      *
-     *   **monitor**: monitors requests.
-     *   **deny**: denies requests.
-     *   **block**: blocks requests.
+     *   **monitor**
+     *   **deny**
+     *   **block**
      *
      * @example block
      *
@@ -24,7 +24,7 @@ class rules extends Model
     /**
      * @description The default configuration of the rule.
      *
-     * @example {\"wafGroupIds\":\"1012\"}
+     * @example {\\"wafGroupIds\\":\\"1012\\"}
      *
      * @var string
      */
@@ -52,12 +52,12 @@ class rules extends Model
     public $status;
 
     /**
-     * @description The rule type. Valid values:
+     * @description The type of the rule. Valid values:
      *
-     *   **waf_group**: basic web protection
-     *   **high_frequency**: high-frequency scanning blocking
-     *   **directory_traversal**: directory traversal blocking
-     *   **scan_tools**: scanner blocking
+     *   **waf_group**: basic web protection.
+     *   **high_frequency**: high-frequency scanning blocking.
+     *   **directory_traversal**: directory traversal blocking.
+     *   **scan_tools**: scanner blocking.
      *
      * @example waf_group
      *

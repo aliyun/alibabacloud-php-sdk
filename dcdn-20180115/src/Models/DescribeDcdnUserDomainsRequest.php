@@ -138,6 +138,8 @@ class DescribeDcdnUserDomainsRequest extends Model
     public $tag;
 
     /**
+     * @description The business type of the domain. Separate multiple values with commas (,). Default value: **dynamic**. To query common domains, keep the default value. To query domains of the computing business type, enter **computing_routine** or **computing_image**.
+     *
      * @example computing_routine
      *
      * @var string

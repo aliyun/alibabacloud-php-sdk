@@ -11,6 +11,7 @@ class StopDcdnIpaDomainRequest extends Model
     /**
      * @description The name of the accelerated domain that you want to disable. You can specify only one domain name at a time.
      *
+     * This parameter is required.
      * @example example.com
      *
      * @var string

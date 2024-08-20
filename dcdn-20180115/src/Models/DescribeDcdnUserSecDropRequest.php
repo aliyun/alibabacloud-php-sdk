@@ -14,6 +14,7 @@ class DescribeDcdnUserSecDropRequest extends Model
      *   If data is collected every day, set Data in the format of yyyymmdd, such as 20201203.
      *   If data is collected every month, set Data in the format of yyyymm, such as 202012.
      *
+     * This parameter is required.
      * @example 20201203
      *
      * @var string
@@ -26,6 +27,7 @@ class DescribeDcdnUserSecDropRequest extends Model
      *   If data is collected every day, the number of blocked packets on the specified day is calculated.
      *   If data is collected every month, the number of blocked packets in the specified month is calculated.
      *
+     * This parameter is required.
      * @example 1day
      *
      * @var string
@@ -38,8 +40,9 @@ class DescribeDcdnUserSecDropRequest extends Model
      *   waf: WAF
      *   tmd: rate limiting
      *   robot: bot traffic recognition
-     *   l4\_dm_drop: domain name blocking at Layer 4
+     *   l4_dm_drop: domain name blocking at Layer 4
      *
+     * This parameter is required.
      * @example waf
      *
      * @var string

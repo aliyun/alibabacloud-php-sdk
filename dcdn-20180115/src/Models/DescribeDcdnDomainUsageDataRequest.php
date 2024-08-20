@@ -57,7 +57,7 @@ class DescribeDcdnDomainUsageDataRequest extends Model
     /**
      * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *
-     * >  The end time must be later than the start time. The maximum time range that can be queried is 31 days.
+     * This parameter is required.
      * @example 2015-12-10T22:00:00Z
      *
      * @var string
@@ -72,6 +72,8 @@ class DescribeDcdnDomainUsageDataRequest extends Model
      *   **acc**: requests
      *
      * >  **acc** does not support the **Area** parameter.
+     *
+     * This parameter is required.
      * @example bps
      *
      * @var string
@@ -91,7 +93,7 @@ class DescribeDcdnDomainUsageDataRequest extends Model
     /**
      * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *
-     * >  The minimum time granularity at which the data is queried is 5 minutes.
+     * This parameter is required.
      * @example 2015-12-10T20:00:00Z
      *
      * @var string

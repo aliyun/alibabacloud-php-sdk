@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteDcdnDeliverTaskRequest extends Model
 {
     /**
-     * @description The IDs of the tracking tasks that you want to delete. You can call the [DescribeCdnDeliverList](~~270043~~) operation to query task IDs.
+     * @description The IDs of the tracking tasks that you want to delete. You can call the [DescribeCdnDeliverList](https://help.aliyun.com/document_detail/270043.html) operation to query task IDs.
      *
+     * This parameter is required.
      * @example 92
      *
      * @var int

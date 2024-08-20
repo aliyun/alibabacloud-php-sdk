@@ -29,6 +29,7 @@ class DescribeDcdnWafPolicyDomainsRequest extends Model
     /**
      * @description The ID of the protection policy. You can specify only one ID in each request.
      *
+     * This parameter is required.
      * @example 100001
      *
      * @var int

@@ -18,7 +18,7 @@ class kvUsageData extends Model
     public $acc;
 
     /**
-     * @description The request method. This parameter is returned only if **SplitBy** is set to **type**.
+     * @description The request method. This parameter is available only when the **SplitBy** parameter is set to **type**.
      *
      * @example get
      *
@@ -27,7 +27,7 @@ class kvUsageData extends Model
     public $accessType;
 
     /**
-     * @description The ID of the namespace. This parameter is returned only if **SplitBy** is set to **namespace**.
+     * @description The namespace ID. This parameter is available only when the **SplitBy** parameter is set to **namespace**.
      *
      * @example 534167033424646144
      *

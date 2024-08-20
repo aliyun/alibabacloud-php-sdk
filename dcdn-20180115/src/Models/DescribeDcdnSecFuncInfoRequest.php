@@ -11,6 +11,7 @@ class DescribeDcdnSecFuncInfoRequest extends Model
     /**
      * @description The language. Valid values: en and zh. Default value: en.
      *
+     * This parameter is required.
      * @example en
      *
      * @var string
@@ -20,6 +21,7 @@ class DescribeDcdnSecFuncInfoRequest extends Model
     /**
      * @description The type of the drop-down list. Valid values: RobotRuleName and RobotObject.
      *
+     * This parameter is required.
      * @example RobotRuleName
      *
      * @var string

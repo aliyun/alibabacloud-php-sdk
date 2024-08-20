@@ -11,7 +11,7 @@ class DeleteDcdnSpecificStagingConfigRequest extends Model
     /**
      * @description The ID of the configuration to be deleted. You can specify multiple configuration IDs and separate them with commas (,).
      *
-     * You can call the DescribeDcdnDomainStagingConfig operation to query the environment configuration.
+     * This parameter is required.
      * @example 2317
      *
      * @var string
@@ -21,6 +21,7 @@ class DeleteDcdnSpecificStagingConfigRequest extends Model
     /**
      * @description The accelerated domain name. You can specify only one domain name in each call.
      *
+     * This parameter is required.
      * @example example.com
      *
      * @var string

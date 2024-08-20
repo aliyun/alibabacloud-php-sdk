@@ -11,6 +11,7 @@ class DescribeDcdnIpaDomainConfigsRequest extends Model
     /**
      * @description The accelerated domain name. Separate multiple domain names with commas (,).
      *
+     * This parameter is required.
      * @example example.com
      *
      * @var string
@@ -20,6 +21,7 @@ class DescribeDcdnIpaDomainConfigsRequest extends Model
     /**
      * @description The name of the feature. Set the value to protogw, which indicates IP Application Accelerator (IPA).
      *
+     * This parameter is required.
      * @example protogw
      *
      * @var string

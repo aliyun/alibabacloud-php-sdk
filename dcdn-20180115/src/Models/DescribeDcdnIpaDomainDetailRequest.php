@@ -11,6 +11,7 @@ class DescribeDcdnIpaDomainDetailRequest extends Model
     /**
      * @description The accelerated domain names for which you want to query basic information. You can specify only one domain name in each request.
      *
+     * This parameter is required.
      * @example example.com
      *
      * @var string

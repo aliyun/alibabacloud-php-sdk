@@ -20,7 +20,7 @@ class AddDcdnIpaDomainRequest extends Model
     /**
      * @description The domain name to be added to IPA.
      *
-     * A wildcard domain that starts with a period (.) is supported, such as .example.com.
+     * This parameter is required.
      * @example example.com
      *
      * @var string
@@ -83,6 +83,7 @@ class AddDcdnIpaDomainRequest extends Model
     /**
      * @description The information about the addresses of origin servers.
      *
+     * This parameter is required.
      * @example [{"content":"10.10.10.10","type":"ipaddr","priority":"20","port":80,"weight":"15"}]
      *
      * @var string

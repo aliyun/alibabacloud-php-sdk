@@ -35,6 +35,7 @@ class CreateSlrAndSlsProjectRequest extends Model
      *   **ap-south-1**
      *   **ap-southeast-1**
      *
+     * This parameter is required.
      * @example cn-shanghai
      *
      * @var string

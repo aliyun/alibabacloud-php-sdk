@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnKvNamespaceResponseBody extends Model
 {
     /**
+     * @var int
+     */
+    public $capacity;
+
+    /**
      * @description The available capacity of all namespaces in your account.
      *
      * @example 1 GB
@@ -16,6 +21,11 @@ class DescribeDcdnKvNamespaceResponseBody extends Model
      * @var string
      */
     public $capacityString;
+
+    /**
+     * @var int
+     */
+    public $capacityUsed;
 
     /**
      * @description The used capacity of all namespaces in your account.
@@ -36,6 +46,13 @@ class DescribeDcdnKvNamespaceResponseBody extends Model
     public $description;
 
     /**
+     * @description The system behavior when a key-value pair fails to be obtained at the edge. Valid values:
+     *
+     *   Normal (default): If a key-value pair fails to be obtained at the edge, DCDN attempts to query the key-value pair from the origin server to ensure global data consistency.
+     *   Rapid: If a key-value pair fails to be obtained at the edge, an error message indicating that the key does not exist is returned. This feature enhances key-value query performance but may decrease the hit rate of queries. To enable this feature, submit a ticket.
+     *
+     * @example Normal
+     *
      * @var string
      */
     public $mode;
@@ -81,7 +98,9 @@ class DescribeDcdnKvNamespaceResponseBody extends Model
      */
     public $status;
     protected $_name = [
+        'capacity'           => 'Capacity',
         'capacityString'     => 'CapacityString',
+        'capacityUsed'       => 'CapacityUsed',
         'capacityUsedString' => 'CapacityUsedString',
         'description'        => 'Description',
         'mode'               => 'Mode',
@@ -98,8 +117,14 @@ class DescribeDcdnKvNamespaceResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->capacity) {
+            $res['Capacity'] = $this->capacity;
+        }
         if (null !== $this->capacityString) {
             $res['CapacityString'] = $this->capacityString;
+        }
+        if (null !== $this->capacityUsed) {
+            $res['CapacityUsed'] = $this->capacityUsed;
         }
         if (null !== $this->capacityUsedString) {
             $res['CapacityUsedString'] = $this->capacityUsedString;
@@ -134,8 +159,14 @@ class DescribeDcdnKvNamespaceResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Capacity'])) {
+            $model->capacity = $map['Capacity'];
+        }
         if (isset($map['CapacityString'])) {
             $model->capacityString = $map['CapacityString'];
+        }
+        if (isset($map['CapacityUsed'])) {
+            $model->capacityUsed = $map['CapacityUsed'];
         }
         if (isset($map['CapacityUsedString'])) {
             $model->capacityUsedString = $map['CapacityUsedString'];

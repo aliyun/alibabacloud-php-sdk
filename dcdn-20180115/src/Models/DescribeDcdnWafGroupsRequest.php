@@ -11,8 +11,8 @@ class DescribeDcdnWafGroupsRequest extends Model
     /**
      * @description The language of the response. Valid values:
      *
-     *  **en**: English
-     *   **zh**: Chinese
+     *   **en** (default): English.
+     *   **zh**: Chinese.
      *
      * @example zh
      *

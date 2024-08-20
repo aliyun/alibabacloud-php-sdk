@@ -11,6 +11,7 @@ class DescribeDcdnDomainRealTimeBpsDataRequest extends Model
     /**
      * @description The accelerated domain name. Separate multiple accelerated domain names with commas (,).
      *
+     * This parameter is required.
      * @example example.com
      *
      * @var string
@@ -30,7 +31,7 @@ class DescribeDcdnDomainRealTimeBpsDataRequest extends Model
     /**
      * @description The name of the Internet service provider (ISP).
      *
-     * You can call the [DescribeDcdnRegionAndIsp](~~207199~~) operation to query ISPs.
+     * If you do not set this parameter, all ISPs are queried. You can call [DescribeDcdnRegionAndIsp](~~DescribeDcdnRegionAndIsp~~) to query ISP names.
      * @example telecom
      *
      * @var string
@@ -40,7 +41,7 @@ class DescribeDcdnDomainRealTimeBpsDataRequest extends Model
     /**
      * @description The name of the region.
      *
-     * You can call the [DescribeDcdnRegionAndIsp](~~207199~~) operation to query regions.
+     * If you do not set this parameter, all regions are queried. You can call [DescribeDcdnRegionAndIsp](~~DescribeDcdnRegionAndIsp~~) to query regions.
      * @example beijing
      *
      * @var string

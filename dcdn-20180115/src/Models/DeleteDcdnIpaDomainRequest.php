@@ -11,6 +11,7 @@ class DeleteDcdnIpaDomainRequest extends Model
     /**
      * @description The accelerated domain name that you want to delete. You can specify only one accelerated domain name in each request.
      *
+     * This parameter is required.
      * @example example.com
      *
      * @var string

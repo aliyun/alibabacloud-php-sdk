@@ -38,7 +38,7 @@ class rules extends Model
     /**
      * @description The configuration information about the protection rule.
      *
-     * @example {\"action\":\"monitor\",\"actionExternal\":\"{}\",\"ccStatus\":1,\"conditions\":[{\"key\":\"URL\",\"opValue\":\"eq\",\"targetKey\":\"request_uri\",\"values\":\"/example\"},{\"key\":\"Header\",\"opValue\":\"eq\",\"subKey\":\"trt\",\"targetKey\":\"header.trt\",\"values\":\"3333\"}],\"effect\":\"service\",\"name\":\"aaa333\",\"origin\":\"custom\",\"ratelimit\":{\"interval\":5,\"status\":{\"code\":404,\"count\":2,\"stat\":{\"mode\":\"count\",\"value\":2.0}},\"target\":\"remote_addr\",\"threshold\":2,\"ttl\":1800}}
+     * @example {\\"action\\":\\"monitor\\",\\"actionExternal\\":\\"{}\\",\\"ccStatus\\":1,\\"conditions\\":[{\\"key\\":\\"URL\\",\\"opValue\\":\\"eq\\",\\"targetKey\\":\\"request_uri\\",\\"values\\":\\"/example\\"},{\\"key\\":\\"Header\\",\\"opValue\\":\\"eq\\",\\"subKey\\":\\"trt\\",\\"targetKey\\":\\"header.trt\\",\\"values\\":\\"3333\\"}],\\"effect\\":\\"service\\",\\"name\\":\\"aaa333\\",\\"origin\\":\\"custom\\",\\"ratelimit\\":{\\"interval\\":5,\\"status\\":{\\"code\\":404,\\"count\\":2,\\"stat\\":{\\"mode\\":\\"count\\",\\"value\\":2.0}},\\"target\\":\\"remote_addr\\",\\"threshold\\":2,\\"ttl\\":1800}}
      *
      * @var string
      */

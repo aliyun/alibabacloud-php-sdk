@@ -11,6 +11,7 @@ class ModifyDcdnWafPolicyRequest extends Model
     /**
      * @description The ID of the protection policy that you want to modify. You can specify only one ID in each request.
      *
+     * This parameter is required.
      * @example 1000001
      *
      * @var int

@@ -33,8 +33,9 @@ class PreloadDcdnObjectCachesRequest extends Model
     public $l2Preload;
 
     /**
-     * @description The path of the content that you want to prefetch. Separate multiple URLs with line feed characters (\n) or a pair of carriage return and line feed characters (\r\n).
+     * @description The path of the content that you want to prefetch. Separate multiple URLs with line feed characters (\\n) or a pair of carriage return and line feed characters (\\r\\n).
      *
+     * This parameter is required.
      * @example example.com/examplefile.txt
      *
      * @var string

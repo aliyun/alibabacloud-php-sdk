@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteDcdnKvNamespaceRequest extends Model
 {
     /**
-     * @description The name of the namespace.
+     * @description The name of the namespace. You can call the [PutDcdnKvNamespace](~~PutDcdnKvNamespace~~) operation to query the name of a namespace.
      *
+     * This parameter is required.
      * @example ns1
      *
      * @var string

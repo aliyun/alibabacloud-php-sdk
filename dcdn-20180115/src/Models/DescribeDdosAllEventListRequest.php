@@ -34,6 +34,7 @@ class DescribeDdosAllEventListRequest extends Model
     /**
      * @description The page number. Default value: 1. Value range: 1 to 10,000.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -52,6 +53,7 @@ class DescribeDdosAllEventListRequest extends Model
     /**
      * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *
+     * This parameter is required.
      * @example 2023-03-27T16:00:00Z
      *
      * @var string

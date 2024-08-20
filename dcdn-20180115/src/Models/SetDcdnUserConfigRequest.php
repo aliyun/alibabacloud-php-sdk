@@ -11,7 +11,8 @@ class SetDcdnUserConfigRequest extends Model
     /**
      * @description The configuration parameters of the feature.
      *
-     * @example \"argId\":12,\"argValue\":\"on\"
+     * This parameter is required.
+     * @example \\"argId\\":12,\\"argValue\\":\\"on\\"
      *
      * @var string
      */
@@ -20,6 +21,7 @@ class SetDcdnUserConfigRequest extends Model
     /**
      * @description The ID of the feature.
      *
+     * This parameter is required.
      * @example 6
      *
      * @var int

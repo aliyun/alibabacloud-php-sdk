@@ -20,6 +20,7 @@ class UploadStagingRoutineCodeRequest extends Model
     /**
      * @description The name of the routine. The name needs to be unique among the routines that belong to the same Alibaba Cloud account.
      *
+     * This parameter is required.
      * @example test
      *
      * @var string

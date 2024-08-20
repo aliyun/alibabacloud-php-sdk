@@ -18,6 +18,7 @@ class DescribeDcdnWafPolicyValidDomainsRequest extends Model
      *   region_block: region blacklist
      *   bot: bot management
      *
+     * This parameter is required.
      * @example custom_acl
      *
      * @var string

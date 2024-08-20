@@ -11,6 +11,7 @@ class GetDcdnKvRequest extends Model
     /**
      * @description The name of the key that you want to query.
      *
+     * This parameter is required.
      * @example key1
      *
      * @var string
@@ -20,6 +21,7 @@ class GetDcdnKvRequest extends Model
     /**
      * @description The name of the namespace.
      *
+     * This parameter is required.
      * @example ns1
      *
      * @var string

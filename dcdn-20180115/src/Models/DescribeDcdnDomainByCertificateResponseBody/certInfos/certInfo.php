@@ -60,7 +60,7 @@ class certInfo extends Model
     public $certSubjectCommonName;
 
     /**
-     * @description The type of the certificate. **RSA**, **DSA**, and **ECDSA**.
+     * @description The type of the certificate. Valid values: **RSA**, **DSA**, and **ECDSA**.
      *
      * @example RSA
      *

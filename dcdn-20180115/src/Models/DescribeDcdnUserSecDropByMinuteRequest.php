@@ -30,6 +30,7 @@ class DescribeDcdnUserSecDropByMinuteRequest extends Model
     /**
      * @description The language. Valid values: en and zh. Default value: en
      *
+     * This parameter is required.
      * @example zh
      *
      * @var string
@@ -75,6 +76,7 @@ class DescribeDcdnUserSecDropByMinuteRequest extends Model
     /**
      * @description The name of the security feature.
      *
+     * This parameter is required.
      * @example robot
      *
      * @var string

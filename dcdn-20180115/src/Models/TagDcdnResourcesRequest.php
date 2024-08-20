@@ -12,6 +12,7 @@ class TagDcdnResourcesRequest extends Model
     /**
      * @description The ID of the resource. Valid values of N: **1** to **50**.
      *
+     * This parameter is required.
      * @example example.com
      *
      * @var string[]
@@ -21,6 +22,7 @@ class TagDcdnResourcesRequest extends Model
     /**
      * @description The type of the resource. Set the value to **DOMAIN**.
      *
+     * This parameter is required.
      * @example DOMAIN
      *
      * @var string
@@ -30,6 +32,7 @@ class TagDcdnResourcesRequest extends Model
     /**
      * @description The tags.
      *
+     * This parameter is required.
      * @var tag[]
      */
     public $tag;

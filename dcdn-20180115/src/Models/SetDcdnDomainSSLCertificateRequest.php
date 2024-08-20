@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class SetDcdnDomainSSLCertificateRequest extends Model
 {
     /**
-     * @description The ID of the certificate. This parameter takes effect only when **CertType** is set to **cas**.
+     * @description The certificate ID. This parameter is required and valid only when **CertType** is set to **cas**. If you specify this parameter, an existing certificate is used.
      *
      * @example 8089870
      *
@@ -18,7 +18,7 @@ class SetDcdnDomainSSLCertificateRequest extends Model
     public $certId;
 
     /**
-     * @description The name of the SSL certificate. You can specify only one certificate name.
+     * @description The name of the new certificate. You can specify only one certificate name. This parameter is optional and valid only when **CertType** is set to **upload**.
      *
      * @example yourCertName
      *
@@ -50,6 +50,7 @@ class SetDcdnDomainSSLCertificateRequest extends Model
     /**
      * @description The domain name that is secured by the SSL certificate.
      *
+     * This parameter is required.
      * @example example.com
      *
      * @var string
@@ -85,6 +86,7 @@ class SetDcdnDomainSSLCertificateRequest extends Model
      *   **on**
      *   **off**
      *
+     * This parameter is required.
      * @example off
      *
      * @var string

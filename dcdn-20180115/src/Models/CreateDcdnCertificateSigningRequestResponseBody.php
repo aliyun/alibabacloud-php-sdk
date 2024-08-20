@@ -20,7 +20,7 @@ class CreateDcdnCertificateSigningRequestResponseBody extends Model
     /**
      * @description The content of the CSR file.
      *
-     * @example -----BEGIN CERTIFICATE REQUEST-----\nMIIC/zCCAecCAQAwZTELMAkGA1UEBhMCQ04xCzAJBgNVBAgTAlpKMQswCQYDVQQH
+     * @example -----BEGIN CERTIFICATE REQUEST-----\\nMIIC/zCCAecCAQAwZTELMAkGA1UEBhMCQ04xCzAJBgNVBAgTAlpKMQswCQYDVQQH
      *
      * @var string
      */

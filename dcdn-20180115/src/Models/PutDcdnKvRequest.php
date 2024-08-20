@@ -29,6 +29,7 @@ class PutDcdnKvRequest extends Model
     /**
      * @description The key. The key can be up to 512 characters in length, and cannot contain spaces.
      *
+     * This parameter is required.
      * @example key1
      *
      * @var string
@@ -38,6 +39,7 @@ class PutDcdnKvRequest extends Model
     /**
      * @description The name of the namespace.
      *
+     * This parameter is required.
      * @example ns1
      *
      * @var string
@@ -47,6 +49,7 @@ class PutDcdnKvRequest extends Model
     /**
      * @description The value of the key. The maximum size is 2 MB (2 x 1000 x 1000 bytes).
      *
+     * This parameter is required.
      * @example value1
      *
      * @var string

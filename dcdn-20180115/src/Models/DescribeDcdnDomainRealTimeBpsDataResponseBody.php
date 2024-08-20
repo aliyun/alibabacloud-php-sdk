@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnDomainRealTimeBpsDataResponseBody extends Model
 {
     /**
-     * @description The list of the data returned.
+     * @description The returned data.
      *
      * @var data
      */

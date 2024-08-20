@@ -12,8 +12,8 @@ class content extends Model
     /**
      * @description The protection scenario. Valid values:
      *
-     *   **waf_group**: basic web protection
-     *   **anti_scan**: scan protection
+     *   **waf_group**: basic web protection.
+     *   **anti_scan**: scan protection.
      *
      * @example anti_scan
      *
@@ -22,7 +22,7 @@ class content extends Model
     public $defenseScene;
 
     /**
-     * @description The configurations of the rule.
+     * @description The rules.
      *
      * @var rules[]
      */

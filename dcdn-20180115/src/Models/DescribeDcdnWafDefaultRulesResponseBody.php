@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnWafDefaultRulesResponseBody extends Model
 {
     /**
-     * @description The configurations of the rule.
+     * @description The rule configurations.
      *
      * @var content[]
      */

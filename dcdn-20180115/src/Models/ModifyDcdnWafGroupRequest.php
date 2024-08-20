@@ -11,6 +11,7 @@ class ModifyDcdnWafGroupRequest extends Model
     /**
      * @description The ID of the custom WAF rule group.
      *
+     * This parameter is required.
      * @example 30000110
      *
      * @var int
@@ -27,9 +28,9 @@ class ModifyDcdnWafGroupRequest extends Model
     public $name;
 
     /**
-     * @description The incremental modification of the rules in the custom WAF rule group. The value is a string in the JSON format.
+     * @description The incremental modifications of the rules in the custom WAF rule group. The value is a JSON string.
      *
-     * @example {\"All\":false,\"Op\":\"del\",\"List\":\"900109\"}
+     * @example {\\"All\\":false,\\"Op\\":\\"del\\",\\"List\\":\\"900109\\"}
      *
      * @var string
      */

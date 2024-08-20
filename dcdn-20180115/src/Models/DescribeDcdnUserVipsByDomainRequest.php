@@ -23,7 +23,7 @@ class DescribeDcdnUserVipsByDomainRequest extends Model
     /**
      * @description The accelerated domain name. You can specify only one domain name.
      *
-     * Enumeration values: example.com
+     * This parameter is required.
      * @example example.com
      *
      * @var string

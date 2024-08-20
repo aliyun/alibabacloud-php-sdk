@@ -36,6 +36,7 @@ class CreateDcdnSubTaskRequest extends Model
      *   **26**: Peak IPv4/IPv6 Bandwidth
      *   **27**: Back-to-origin bandwidth
      *
+     * This parameter is required.
      * @example 2,4,6
      *
      * @var string

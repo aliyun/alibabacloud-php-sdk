@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class PutDcdnKvWithHighCapacityRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example test_key
      *
      * @var string
@@ -16,6 +18,8 @@ class PutDcdnKvWithHighCapacityRequest extends Model
     public $key;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test_namesapce
      *
      * @var string
@@ -23,6 +27,8 @@ class PutDcdnKvWithHighCapacityRequest extends Model
     public $namespace;
 
     /**
+     * @description This parameter is required.
+     *
      * @example https://xxxobject.oss-cn-reginon.aliyuncs.com/9d91_xxxxxxxxxxx_158bb6e0f97c477791209bb46bd599f7
      *
      * @var string

@@ -32,7 +32,7 @@ class BatchSetDcdnDomainCertificateRequest extends Model
     /**
      * @description The accelerated domain name for which you want to configure the HTTPS certificate. The accelerated domain must have HTTPS acceleration enabled. You can specify multiple domain names and separate them with commas (,).
      *
-     * > You can configure up to 10 domain names in each request.
+     * This parameter is required.
      * @example **example**.com
      *
      * @var string
@@ -68,7 +68,7 @@ class BatchSetDcdnDomainCertificateRequest extends Model
      *   **on**: enables the HTTPS certificate.
      *   **off**: does not enable the HTTPS certificate.
      *
-     * This is the default value.
+     * This parameter is required.
      * @example on
      *
      * @var string

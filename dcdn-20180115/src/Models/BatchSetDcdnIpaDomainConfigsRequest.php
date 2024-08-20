@@ -11,6 +11,7 @@ class BatchSetDcdnIpaDomainConfigsRequest extends Model
     /**
      * @description The domain names accelerated by IPA. Separate multiple domain names with commas (,).
      *
+     * This parameter is required.
      * @example example.com
      *
      * @var string
@@ -20,6 +21,7 @@ class BatchSetDcdnIpaDomainConfigsRequest extends Model
     /**
      * @description The list of features. `[{"functionArgs":[{"argName":"parameter name","argValue":"parameter value"}],"functionName":"feature name"}]`
      *
+     * This parameter is required.
      * @example [{"functionArgs":[{"argName":"domain_name","argValue":"api.*com"}],"functionName":"protogw"}]
      *
      * @var string

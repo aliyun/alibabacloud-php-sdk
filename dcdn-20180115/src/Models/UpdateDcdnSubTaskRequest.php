@@ -27,7 +27,7 @@ class UpdateDcdnSubTaskRequest extends Model
     public $endTime;
 
     /**
-     * @description The IDs of the metrics that you want to update. Separate IDs with commas (,). You can call the [DescribeDcdnSubList](~~270075~~) operation to query the IDs.
+     * @description The IDs of the metrics that you want to update. Separate IDs with commas (,). You can call the [DescribeDcdnSubList](https://help.aliyun.com/document_detail/270075.html) operation to query the IDs.
      *
      * @example 2,4,6
      *

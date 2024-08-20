@@ -11,6 +11,7 @@ class BatchModifyDcdnWafRulesRequest extends Model
     /**
      * @description The ID of the protection policy.
      *
+     * This parameter is required.
      * @example 10000001
      *
      * @var int
@@ -20,6 +21,7 @@ class BatchModifyDcdnWafRulesRequest extends Model
     /**
      * @description The configurations of the protection rule.
      *
+     * This parameter is required.
      * @example [{"id":135,"type":"web_sdk","status":"on","config":{"mode":"automatic","crossDomain":"example.com"},"action":""},{"id":149,"type":"intelligence_fake_crawler","status":"on","config":{},"action":"deny"}]
      *
      * @var string

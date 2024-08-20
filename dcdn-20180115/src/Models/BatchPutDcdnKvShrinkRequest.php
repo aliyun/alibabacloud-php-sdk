@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class BatchPutDcdnKvShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $kvListShrink;
@@ -16,6 +18,7 @@ class BatchPutDcdnKvShrinkRequest extends Model
     /**
      * @description The name of the namespace.
      *
+     * This parameter is required.
      * @example ns1
      *
      * @var string

@@ -11,6 +11,7 @@ class BatchDeleteDcdnWafRulesRequest extends Model
     /**
      * @description The IDs of the protection rules that you want to delete. Separate multiple IDs with commas (,).
      *
+     * This parameter is required.
      * @example 20000001,20000002
      *
      * @var string

@@ -11,6 +11,7 @@ class DescribeRoutineRequest extends Model
     /**
      * @description The name of the routine. The name must be unique among the routines that belong to the same Alibaba Cloud account.
      *
+     * This parameter is required.
      * @example test
      *
      * @var string

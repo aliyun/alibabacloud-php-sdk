@@ -17,6 +17,7 @@ class PublishRoutineCodeRevisionShrinkRequest extends Model
      *
      *   presetCanary: You can add canary release environments based on your business requirements. This parameter is optional.
      *
+     * This parameter is required.
      * @example ["production","presetCanaryZhejiang"]
      *
      * @var string
@@ -26,6 +27,7 @@ class PublishRoutineCodeRevisionShrinkRequest extends Model
     /**
      * @description The name of the routine. The name must be unique among the routines that belong to the same Alibaba Cloud account.
      *
+     * This parameter is required.
      * @example test
      *
      * @var string
@@ -35,6 +37,7 @@ class PublishRoutineCodeRevisionShrinkRequest extends Model
     /**
      * @description The version of the routine code that you want to publish.
      *
+     * This parameter is required.
      * @example 1620876959997924701
      *
      * @var string

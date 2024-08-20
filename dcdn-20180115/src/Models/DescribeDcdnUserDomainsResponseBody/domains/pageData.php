@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class pageData extends Model
 {
     /**
-     * @description The CNAME assigned to the accelerated domain name.
+     * @description The CNAME of the domain.
      *
      * @example test.aliyun.com.w.alikunlun.com
      *
@@ -19,7 +19,7 @@ class pageData extends Model
     public $cname;
 
     /**
-     * @description The reason why the accelerated domain name failed the review.
+     * @description The reason why the domain failed the review.
      *
      * @example audit failed
      *
@@ -28,7 +28,7 @@ class pageData extends Model
     public $description;
 
     /**
-     * @description The ID of the accelerated domain name.
+     * @description The domain ID.
      *
      * @example 11223344
      *
@@ -37,7 +37,7 @@ class pageData extends Model
     public $domainId;
 
     /**
-     * @description The information about the accelerated domain name.
+     * @description The domain name.
      *
      * @example www.example.com
      *
@@ -46,14 +46,14 @@ class pageData extends Model
     public $domainName;
 
     /**
-     * @description The status of the accelerated domain name.
+     * @description The domain status.
      *
-     *   **online**: enabled
-     *   **offline**: disabled
-     *   **configuring**: configuring
-     *   **configure_failed**: configuration failed
-     *   **checking**: reviewing
-     *   **check_failed:** review failed
+     *   **online**: The domain is active.
+     *   **offline**: The domain is suspended.
+     *   **configuring**: The domain is being configured.
+     *   **configure_failed**: The domain failed to be configured.
+     *   **checking**: The domain is under review.
+     *   **check_failed**: The domain failed the review.
      *
      * @example online
      *
@@ -62,6 +62,12 @@ class pageData extends Model
     public $domainStatus;
 
     /**
+     * @description The computing service type. Valid values:
+     *
+     *   **routine**
+     *   **image**
+     *   **cloudFunction**
+     *
      * @example routine
      *
      * @var string
@@ -69,7 +75,7 @@ class pageData extends Model
     public $functionType;
 
     /**
-     * @description The time when the accelerated domain name was added to Dynamic Content Delivery Network (DCDN).
+     * @description The time when the domain was added to DCDN.
      *
      * @example 2015-10-28T11:05:50Z
      *
@@ -78,7 +84,7 @@ class pageData extends Model
     public $gmtCreated;
 
     /**
-     * @description The time when the accelerated domain name was modified.
+     * @description The time when the domain was modified.
      *
      * @example 2015-10-28T09:31:59Z
      *
@@ -96,10 +102,10 @@ class pageData extends Model
     public $resourceGroupId;
 
     /**
-     * @description The status of HTTPS.
+     * @description Indicates whether HTTPS was enabled.
      *
-     *   **on**
-     *   **off**
+     *   **on**: enabled.
+     *   **off**: disabled.
      *
      * @example on
      *
@@ -108,7 +114,7 @@ class pageData extends Model
     public $SSLProtocol;
 
     /**
-     * @description Indicates whether the accelerated domain name was in a sandbox.
+     * @description The sandbox status.
      *
      * @example normal
      *
@@ -117,6 +123,13 @@ class pageData extends Model
     public $sandbox;
 
     /**
+     * @description The acceleration scenario. Valid values:
+     *
+     *   **apiscene**: accelerates response to API calls.
+     *   **webservicescene**: accelerates content delivery for websites.
+     *   **staticscene**: accelerates the delivery of videos, images, and text.
+     *   **If you leave this parameter empty, no scenarios are supported.
+     *
      * @example apiscene
      *
      * @var string
@@ -124,7 +137,7 @@ class pageData extends Model
     public $scene;
 
     /**
-     * @description The information about the origin server.
+     * @description The information about the origin servers.
      *
      * @var sources
      */

@@ -11,7 +11,7 @@ class SetRoutineSubdomainShrinkRequest extends Model
     /**
      * @description The parameters of the subdomain.
      *
-     * ]
+     * This parameter is required.
      * @example ["subdomain-test"]
      *
      * @var string

@@ -11,6 +11,7 @@ class DescribeRoutineRelatedDomainsRequest extends Model
     /**
      * @description The name of the routine. The name is unique in the same account.
      *
+     * This parameter is required.
      * @example routine_test
      *
      * @var string

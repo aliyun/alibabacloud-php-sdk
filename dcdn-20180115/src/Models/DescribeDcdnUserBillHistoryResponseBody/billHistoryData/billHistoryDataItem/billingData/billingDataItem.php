@@ -27,7 +27,7 @@ class billingDataItem extends Model
     public $cdnRegion;
 
     /**
-     * @description The billing method of the disk. Valid values: Valid values: **StaticHttp**, **DynamicHttp**, and **DynamicHttps**.
+     * @description The billing method of the disk. Valid values: **StaticHttp**, **DynamicHttp**, and **DynamicHttps**.
      *
      * @example DynamicHttp
      *

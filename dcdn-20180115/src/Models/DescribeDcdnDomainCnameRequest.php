@@ -11,6 +11,7 @@ class DescribeDcdnDomainCnameRequest extends Model
     /**
      * @description The accelerated domain name. Separate multiple domain names with commas (,).
      *
+     * This parameter is required.
      * @example example.com,example.org
      *
      * @var string

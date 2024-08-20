@@ -5,31 +5,30 @@
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
 use AlibabaCloud\Tea\Model;
+use GuzzleHttp\Psr7\Stream;
 
-class DeleteDcdnKvRequest extends Model
+class BatchDeleteDcdnKvWithHighCapacityAdvanceRequest extends Model
 {
     /**
-     * @description The name of the key that you want to delete.
+     * @description This parameter is required.
      *
-     * This parameter is required.
-     * @example test_key_1
-     *
-     * @var string
-     */
-    public $key;
-
-    /**
-     * @description The namespace that you specify when you call the PutDcdnKvNamespace operation.
-     *
-     * This parameter is required.
-     * @example ns1
+     * @example test_namespace
      *
      * @var string
      */
     public $namespace;
+
+    /**
+     * @description This parameter is required.
+     *
+     * @example https://xxxobject.oss-cn-reginon.aliyuncs.com/9d91_xxxxxxxxxxx_158bb6e0f97c477791209bb46bd599f7
+     *
+     * @var Stream
+     */
+    public $urlObject;
     protected $_name = [
-        'key'       => 'Key',
         'namespace' => 'Namespace',
+        'urlObject' => 'Url',
     ];
 
     public function validate()
@@ -39,11 +38,11 @@ class DeleteDcdnKvRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->key) {
-            $res['Key'] = $this->key;
-        }
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
+        }
+        if (null !== $this->urlObject) {
+            $res['Url'] = $this->urlObject;
         }
 
         return $res;
@@ -52,16 +51,16 @@ class DeleteDcdnKvRequest extends Model
     /**
      * @param array $map
      *
-     * @return DeleteDcdnKvRequest
+     * @return BatchDeleteDcdnKvWithHighCapacityAdvanceRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Key'])) {
-            $model->key = $map['Key'];
-        }
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
+        }
+        if (isset($map['Url'])) {
+            $model->urlObject = $map['Url'];
         }
 
         return $model;

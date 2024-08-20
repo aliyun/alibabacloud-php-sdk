@@ -12,6 +12,7 @@ class DescribeDcdnTagResourcesRequest extends Model
     /**
      * @description The list of resource IDs. You can specify a maximum of 50 resource IDs.
      *
+     * This parameter is required.
      * @example example.com
      *
      * @var string[]
@@ -21,6 +22,7 @@ class DescribeDcdnTagResourcesRequest extends Model
     /**
      * @description The type of the resource. Set the value to **DOMAIN**.
      *
+     * This parameter is required.
      * @example DOMAIN
      *
      * @var string

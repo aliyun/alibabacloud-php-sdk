@@ -41,7 +41,7 @@ class DescribeDcdnDomainQpsDataRequest extends Model
     /**
      * @description The name of the Internet service provider (ISP).
      *
-     * You can call the [DescribeDcdnRegionAndIsp](~~207199~~) operation to query ISPs.
+     * You can call the [DescribeDcdnRegionAndIsp](https://help.aliyun.com/document_detail/207199.html) operation to query ISPs.
      * @example unicom
      *
      * @var string
@@ -51,7 +51,7 @@ class DescribeDcdnDomainQpsDataRequest extends Model
     /**
      * @description The name of the region.
      *
-     * You can call the [DescribeDcdnRegionAndIsp](~~207199~~) operation to query regions.
+     * You can call the [DescribeDcdnRegionAndIsp](https://help.aliyun.com/document_detail/207199.html) operation to query regions.
      * @example beijing
      *
      * @var string

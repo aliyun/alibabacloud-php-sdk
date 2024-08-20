@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeRoutineRelatedDomainsResponseBody extends Model
 {
     /**
-     * @description The list of domain names associated with the routine.
+     * @description The domain names associated with a routine.
      *
      * @example "Domains": [
      * ]

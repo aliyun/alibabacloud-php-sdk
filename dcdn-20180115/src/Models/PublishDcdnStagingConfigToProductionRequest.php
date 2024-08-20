@@ -11,6 +11,7 @@ class PublishDcdnStagingConfigToProductionRequest extends Model
     /**
      * @description The accelerated domain name. You can specify only one domain name in each request.
      *
+     * This parameter is required.
      * @example example.com
      *
      * @var string
@@ -20,6 +21,7 @@ class PublishDcdnStagingConfigToProductionRequest extends Model
     /**
      * @description The name of the feature.
      *
+     * This parameter is required.
      * @example aliauth
      *
      * @var string

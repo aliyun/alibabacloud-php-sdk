@@ -11,6 +11,7 @@ class DescribeDcdnSLSRealtimeLogDeliveryRequest extends Model
     /**
      * @description The name of a real-time log delivery project.
      *
+     * This parameter is required.
      * @example example
      *
      * @var string

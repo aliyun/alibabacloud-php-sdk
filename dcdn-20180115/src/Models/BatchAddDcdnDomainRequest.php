@@ -20,6 +20,7 @@ class BatchAddDcdnDomainRequest extends Model
     /**
      * @description You can add up to 20 domain names to DCDN for each of your Alibaba Cloud account. If you specify multiple domain names, separate them with commas (,).
      *
+     * This parameter is required.
      * @example example.com,example.org
      *
      * @var string
@@ -66,6 +67,7 @@ class BatchAddDcdnDomainRequest extends Model
     /**
      * @description The information about the addresses of origin servers.
      *
+     * This parameter is required.
      * @example [{"content":"10.10.10.10","type":"ipaddr","priority":"20","port":80,"weight":"15"}]
      *
      * @var string

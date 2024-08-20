@@ -11,7 +11,7 @@ class content extends Model
     /**
      * @description The rules and policies that were configured. The JSON string is decoded.
      *
-     * @example \"fieldList\":[{\"name\":\"alert\",\"display\":\"observe\",\"tip\":\"mark the request in the log without blocking it\"},{\"name\":\"bypass\",\"display\":\"bypass\",\"tip\":\"bypass security modules\"}],\"module\":[{\"name\":\"cc\",\"display\":\"Rate Limit\",\"tip\":\"bypass Rate Limit\"},{\"name\":\"bot\",\"display\":\"Bot Traffic Management\",\"tip\":\"bypass Bot Manager\"}]
+     * @example \\"fieldList\\":[{\\"name\\":\\"alert\\",\\"display\\":\\"observe\\",\\"tip\\":\\"mark the request in the log without blocking it\\"},{\\"name\\":\\"bypass\\",\\"display\\":\\"bypass\\",\\"tip\\":\\"bypass security modules\\"}],\\"module\\":[{\\"name\\":\\"cc\\",\\"display\\":\\"Rate Limit\\",\\"tip\\":\\"bypass Rate Limit\\"},{\\"name\\":\\"bot\\",\\"display\\":\\"Bot Traffic Management\\",\\"tip\\":\\"bypass Bot Manager\\"}]
      *
      * @var string
      */

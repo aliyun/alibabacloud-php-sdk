@@ -11,6 +11,7 @@ class ListDcdnKvRequest extends Model
     /**
      * @description The name of the namespace.
      *
+     * This parameter is required.
      * @example ns1
      *
      * @var string

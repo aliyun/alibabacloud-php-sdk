@@ -18,6 +18,7 @@ class CreateDcdnWafPolicyRequest extends Model
      *   region_block: region blacklist
      *   bot: bot management
      *
+     * This parameter is required.
      * @example waf_group
      *
      * @var string
@@ -25,8 +26,9 @@ class CreateDcdnWafPolicyRequest extends Model
     public $defenseScene;
 
     /**
-     * @description The name of the protection policy. The name can be up to 64 characters in length and can contain letters, digits, and underscores (\_).
+     * @description The name of the protection policy. The name can be up to 64 characters in length and can contain letters, digits, and underscores (_).
      *
+     * This parameter is required.
      * @example policy_test
      *
      * @var string
@@ -39,6 +41,7 @@ class CreateDcdnWafPolicyRequest extends Model
      *   on: The policy is enabled.
      *   off: The policy is disabled.
      *
+     * This parameter is required.
      * @example on
      *
      * @var string
@@ -51,6 +54,7 @@ class CreateDcdnWafPolicyRequest extends Model
      *   default: sets the current policy as the default policy.
      *   custom: does not set the current policy as the default policy.
      *
+     * This parameter is required.
      * @example default
      *
      * @var string

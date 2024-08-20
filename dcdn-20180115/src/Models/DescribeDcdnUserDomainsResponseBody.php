@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnUserDomainsResponseBody extends Model
 {
     /**
-     * @description The array that consists of multiple PageData parameters. The details about each accelerated domain name are included in a separate PageData parameter.
+     * @description The information about the queried domains.
      *
      * @var domains
      */

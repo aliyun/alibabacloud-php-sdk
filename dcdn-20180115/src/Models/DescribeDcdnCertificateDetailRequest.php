@@ -11,6 +11,7 @@ class DescribeDcdnCertificateDetailRequest extends Model
     /**
      * @description The name of the certificate.
      *
+     * This parameter is required.
      * @example 123
      *
      * @var string

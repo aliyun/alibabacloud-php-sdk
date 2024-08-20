@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class BatchPutDcdnKvRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var kvList[]
      */
     public $kvList;
@@ -17,6 +19,7 @@ class BatchPutDcdnKvRequest extends Model
     /**
      * @description The name of the namespace.
      *
+     * This parameter is required.
      * @example ns1
      *
      * @var string

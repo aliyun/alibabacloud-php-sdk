@@ -17,6 +17,7 @@ class UpdateDcdnSLSRealtimeLogDeliveryRequest extends Model
      *   **eu**: Europe
      *   **us**: United States
      *
+     * This parameter is required.
      * @example cn
      *
      * @var string
@@ -26,6 +27,7 @@ class UpdateDcdnSLSRealtimeLogDeliveryRequest extends Model
     /**
      * @description The domain names from which logs were collected. You can specify one or more domain names. Separate multiple domain names with commas (,).
      *
+     * This parameter is required.
      * @example example.com
      *
      * @var string
@@ -35,6 +37,7 @@ class UpdateDcdnSLSRealtimeLogDeliveryRequest extends Model
     /**
      * @description The name of the project.
      *
+     * This parameter is required.
      * @example example
      *
      * @var string
@@ -44,6 +47,7 @@ class UpdateDcdnSLSRealtimeLogDeliveryRequest extends Model
     /**
      * @description The name of the Logstore.
      *
+     * This parameter is required.
      * @example example-cn
      *
      * @var string
@@ -53,6 +57,7 @@ class UpdateDcdnSLSRealtimeLogDeliveryRequest extends Model
     /**
      * @description The name of the log file.
      *
+     * This parameter is required.
      * @example example-cn
      *
      * @var string
@@ -62,6 +67,7 @@ class UpdateDcdnSLSRealtimeLogDeliveryRequest extends Model
     /**
      * @description The region to which logs were delivered.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

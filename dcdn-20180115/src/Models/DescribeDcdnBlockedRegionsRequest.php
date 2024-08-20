@@ -11,6 +11,7 @@ class DescribeDcdnBlockedRegionsRequest extends Model
     /**
      * @description The language. Valid values: zh, en, and jp.
      *
+     * This parameter is required.
      * @example zh
      *
      * @var string

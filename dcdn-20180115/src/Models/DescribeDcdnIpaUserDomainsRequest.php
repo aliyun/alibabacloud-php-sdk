@@ -73,7 +73,7 @@ class DescribeDcdnIpaUserDomainsRequest extends Model
     public $funcFilter;
 
     /**
-     * @description The ID of the feature. For example, a value of 7 specifies the feature of configuring an expiration rule for a specific directory. For more information about feature IDs, see [Parameters for configuring features for domain names](~~410622~~).
+     * @description The ID of the feature. For example, a value of 7 specifies the feature of configuring an expiration rule for a specific directory. For more information about feature IDs, see [Parameters for configuring features for domain names](https://help.aliyun.com/document_detail/410622.html).
      *
      * @example 7
      *
@@ -87,7 +87,7 @@ class DescribeDcdnIpaUserDomainsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The page number of the returned page. Valid values: **1** to **100000**. Default value: **1**.
+     * @description The page number. Valid values: **1** to **100000**. Default value: **1**.
      *
      * @example 1
      *
@@ -96,7 +96,7 @@ class DescribeDcdnIpaUserDomainsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of domain names to return on each page. Default value: **20**. Maximum value: **500**. Valid values: an integer between **1** and **500**.
+     * @description The number of domain names per page. Default value: **20**.**** Valid values: **1** to **500**.
      *
      * @example 5
      *
@@ -107,7 +107,7 @@ class DescribeDcdnIpaUserDomainsRequest extends Model
     /**
      * @description The ID of the resource group.
      *
-     * @example ResourceGroupId
+     * @example abcd1234abcd****
      *
      * @var string
      */

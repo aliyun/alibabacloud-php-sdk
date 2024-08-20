@@ -11,6 +11,7 @@ class DescribeDcdnWafGroupRequest extends Model
     /**
      * @description The ID of the WAF rule group. You can query the ID by calling the [DescribeDcdnWafGroups](~~DescribeDcdnWafGroups~~) operation.
      *
+     * This parameter is required.
      * @example 1012
      *
      * @var int
@@ -20,9 +21,10 @@ class DescribeDcdnWafGroupRequest extends Model
     /**
      * @description The language of the response. Valid values:
      *
-     *   **en**: English
-     *    **zh**: Chinese
+     *   **en**: English.
+     *   **zh**: Chinese.
      *
+     * This parameter is required.
      * @example zh
      *
      * @var string
@@ -48,10 +50,10 @@ class DescribeDcdnWafGroupRequest extends Model
     public $pageSize;
 
     /**
-     * @description The query conditions. The value needs to be a JSON string in the following format: Format:
+     * @description The query conditions. The value is a JSON string in the following format:
      *
-     * > If you do not specify this parameter, all protection rules are queried.
-     * @example {\"RiskLevel\":\"\",\"ProtectionType\":\"\",\"ApplicationType\":\"\",\"RuleIdLike\":\"\"}
+     * >  If you do not specify this parameter, all protection rules are queried.
+     * @example {\\"RiskLevel\\":\\"\\",\\"ProtectionType\\":\\"\\",\\"ApplicationType\\":\\"\\",\\"RuleIdLike\\":\\"\\"}
      *
      * @var string
      */
@@ -60,9 +62,10 @@ class DescribeDcdnWafGroupRequest extends Model
     /**
      * @description The range of the rule group to be queried.
      *
-     *   **in**: rules in the rule group are returned.
-     *  **out**: rules that are in the full rule set but are not in the rule group are returned.
+     *   **in**: Rules in the rule group are returned.
+     *   **out**: Rules that are in the full rule set but are not in the rule group are returned.
      *
+     * This parameter is required.
      * @example in
      *
      * @var string

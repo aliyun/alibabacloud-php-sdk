@@ -14,6 +14,7 @@ class OpenDcdnServiceRequest extends Model
      *   **PayByTraffic**: pay-by-traffic
      *   **PayByBandwidth**: pay-by-bandwidth
      *
+     * This parameter is required.
      * @example PayByTraffic
      *
      * @var string
@@ -36,6 +37,7 @@ class OpenDcdnServiceRequest extends Model
      *   **websockettraffic**: pay-by-data-transfer
      *   **websocketbps**: pay-by-bandwidth
      *
+     * This parameter is required.
      * @example websockettraffic
      *
      * @var string

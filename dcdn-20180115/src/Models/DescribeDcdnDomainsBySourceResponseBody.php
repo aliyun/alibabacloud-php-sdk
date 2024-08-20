@@ -12,6 +12,7 @@ class DescribeDcdnDomainsBySourceResponseBody extends Model
     /**
      * @description The information about each origin server and the corresponding domain names.
      *
+     * This parameter is required.
      * @var domainInfo[]
      */
     public $domainInfo;

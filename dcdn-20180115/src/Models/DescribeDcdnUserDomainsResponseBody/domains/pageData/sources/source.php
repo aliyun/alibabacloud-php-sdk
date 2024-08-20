@@ -27,7 +27,7 @@ class source extends Model
     public $port;
 
     /**
-     * @description The priority.
+     * @description The priority of the origin server.
      *
      * @example 20
      *
@@ -45,7 +45,7 @@ class source extends Model
     public $type;
 
     /**
-     * @description The weight.
+     * @description The weight of the origin server.
      *
      * @example 20
      *

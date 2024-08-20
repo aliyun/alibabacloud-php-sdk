@@ -11,6 +11,7 @@ class DescribeDcdnDomainPropertyRequest extends Model
     /**
      * @description The accelerated domain name that you want to query. You can specify only one domain name in each call.
      *
+     * This parameter is required.
      * @example example.com
      *
      * @var string

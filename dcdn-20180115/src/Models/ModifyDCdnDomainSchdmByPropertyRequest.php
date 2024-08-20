@@ -11,6 +11,7 @@ class ModifyDCdnDomainSchdmByPropertyRequest extends Model
     /**
      * @description The name of the accelerated domain for which you want to change the acceleration region. You can specify only one domain name.
      *
+     * This parameter is required.
      * @example example.com
      *
      * @var string
@@ -24,6 +25,7 @@ class ModifyDCdnDomainSchdmByPropertyRequest extends Model
      *   **overseas**: global (excluding mainland China)
      *   **global**: global
      *
+     * This parameter is required.
      * @example {"coverage":"overseas"}
      *
      * @var string

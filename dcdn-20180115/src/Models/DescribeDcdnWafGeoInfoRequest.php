@@ -14,6 +14,7 @@ class DescribeDcdnWafGeoInfoRequest extends Model
      *   cn: Chinese
      *   en: English
      *
+     * This parameter is required.
      * @example cn
      *
      * @var string

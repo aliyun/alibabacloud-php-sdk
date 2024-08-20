@@ -11,7 +11,7 @@ class DescribeDcdnDomainUvDataRequest extends Model
     /**
      * @description The accelerated domain name. You can specify only one domain name in each request.
      *
-     * If you do not specify a domain name, this operation queries UV data of all accelerated domain names in your account.
+     * This parameter is required.
      * @example example.com
      *
      * @var string

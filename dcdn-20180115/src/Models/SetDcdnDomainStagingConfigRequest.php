@@ -11,6 +11,7 @@ class SetDcdnDomainStagingConfigRequest extends Model
     /**
      * @description The accelerated domain name. Separate multiple accelerated domain names with commas (,).
      *
+     * This parameter is required.
      * @example example.com
      *
      * @var string
@@ -20,8 +21,8 @@ class SetDcdnDomainStagingConfigRequest extends Model
     /**
      * @description The list of features. Format: `[{"functionArgs":[{"argName":"parameter key","argValue":"parameter value"},{"argName":"xx","argValue":"xx"}],"functionName": feature name"}]`
      *
-     * > Separate multiple parameters with commas (,).
-     * @example [{\"functionArgs\":[{\"argName\":\"enable\",\"argValue\":\"on\",\"argName\":\"pri\",\"argValue\":\"1\",\"argName\":\"rule\",\"argValue\":\"xxx\"}],\"functionName\":\"edge_function\"}]
+     * This parameter is required.
+     * @example [{\\"functionArgs\\":[{\\"argName\\":\\"enable\\",\\"argValue\\":\\"on\\",\\"argName\\":\\"pri\\",\\"argValue\\":\\"1\\",\\"argName\\":\\"rule\\",\\"argValue\\":\\"xxx\\"}],\\"functionName\\":\\"edge_function\\"}]
      *
      * @var string
      */

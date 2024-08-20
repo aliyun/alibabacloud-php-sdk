@@ -39,7 +39,7 @@ class DescribeDcdnDomainBpsDataByLayerRequest extends Model
     public $interval;
 
     /**
-     * @description The Internet service provider (ISP) name. You can call the [DescribeDcdnRegionAndIsp](~~207199~~) operation to query the ISP name. If you do not specify this parameter, all ISPs are queried.
+     * @description The Internet service provider (ISP) name. You can call the [DescribeDcdnRegionAndIsp](https://help.aliyun.com/document_detail/207199.html) operation to query the ISP name. If you do not specify this parameter, all ISPs are queried.
      *
      * @example telecom
      *
@@ -58,7 +58,7 @@ class DescribeDcdnDomainBpsDataByLayerRequest extends Model
     public $layer;
 
     /**
-     * @description The region name. You can call the [DescribeDcdnRegionAndIsp](~~207199~~) operation to query regions. If you do not specify this parameter, all regions are queried.
+     * @description The region name. You can call the [DescribeDcdnRegionAndIsp](https://help.aliyun.com/document_detail/207199.html) operation to query regions. If you do not specify this parameter, all regions are queried.
      *
      * @example hangzhou
      *

@@ -34,6 +34,7 @@ class DescribeKvUsageDataRequest extends Model
     /**
      * @description The type of the request data. Set the value to **acc**.
      *
+     * This parameter is required.
      * @example acc
      *
      * @var string

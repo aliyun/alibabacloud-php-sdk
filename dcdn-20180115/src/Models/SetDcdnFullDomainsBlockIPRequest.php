@@ -20,6 +20,7 @@ class SetDcdnFullDomainsBlockIPRequest extends Model
     /**
      * @description The IP addresses that you want to block or unblock. Separate multiple IP addresses with commas (,). You can specify up to 1,000 IP addresses.
      *
+     * This parameter is required.
      * @example 1.XXX.XXX.1,2.XXX.XXX.2
      *
      * @var string
@@ -32,6 +33,7 @@ class SetDcdnFullDomainsBlockIPRequest extends Model
      *   **block**
      *   **unblock**
      *
+     * This parameter is required.
      * @example block
      *
      * @var string

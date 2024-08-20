@@ -30,8 +30,9 @@ class DescribeDcdnUserDomainsByFuncRequest extends Model
     public $funcFilter;
 
     /**
-     * @description The ID of the feature. For more information about how to query feature IDs, see [Parameters for configuring features for domain names](~~410622~~). For example, the ID of the origin host feature (set_req_host_header) is 18.
+     * @description The ID of the feature. For more information about how to query feature IDs, see [Parameters for configuring features for domain names](https://help.aliyun.com/document_detail/410622.html). For example, the ID of the origin host feature (set_req_host_header) is 18.
      *
+     * This parameter is required.
      * @example 7
      *
      * @var int

@@ -40,7 +40,7 @@ class content extends Model
     public $domainName;
 
     /**
-     * @description The name of the field. For more information about fields in real-time log entries, see [Fields in a real-time log](~~324199~~).
+     * @description The name of the field. For more information about fields in real-time log entries, see [Fields in a real-time log](https://help.aliyun.com/document_detail/324199.html).
      *
      * @example field1,field2
      *

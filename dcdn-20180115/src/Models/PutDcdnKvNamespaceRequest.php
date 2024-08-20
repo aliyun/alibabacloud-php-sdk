@@ -11,6 +11,7 @@ class PutDcdnKvNamespaceRequest extends Model
     /**
      * @description The description of the namespace.
      *
+     * This parameter is required.
      * @example the first namespace
      *
      * @var string
@@ -18,8 +19,9 @@ class PutDcdnKvNamespaceRequest extends Model
     public $description;
 
     /**
-     * @description The name of the namespace. The name can contain letters, digits, hyphens (-), and underscores (\_).
+     * @description The name of the namespace. The name can contain letters, digits, hyphens (-), and underscores (_).
      *
+     * This parameter is required.
      * @example ns1
      *
      * @var string

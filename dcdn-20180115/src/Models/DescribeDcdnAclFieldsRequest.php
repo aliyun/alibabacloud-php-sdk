@@ -14,6 +14,7 @@ class DescribeDcdnAclFieldsRequest extends Model
      *   **en**: English
      *   **zh**: Chinese
      *
+     * This parameter is required.
      * @example en
      *
      * @var string

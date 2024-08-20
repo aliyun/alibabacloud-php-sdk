@@ -22,8 +22,9 @@ class UpdateDcdnUserRealTimeDeliveryFieldRequest extends Model
     public $businessType;
 
     /**
-     * @description The list of fields. Separate multiple fields with commas (,). For more information, see [Fields in a real-time log](~~324199~~).
+     * @description The list of fields. Separate multiple fields with commas (,). For more information, see [Fields in a real-time log](https://help.aliyun.com/document_detail/324199.html).
      *
+     * This parameter is required.
      * @example body_bytes_sent,client_ip,content_type
      *
      * @var string

@@ -11,14 +11,14 @@ class dataModule extends Model
     /**
      * @description The highlighted data.
      *
-     * @example [\"data:image/php;base64\"]
+     * @example [\\"data:image/php;base64\\"]
      *
      * @var string
      */
     public $hit;
 
     /**
-     * @description The type of the highlight data.
+     * @description The type of the highlighted data.
      *
      * @example URL
      *
@@ -27,7 +27,7 @@ class dataModule extends Model
     public $key;
 
     /**
-     * @description Complete data.
+     * @description The complete data.
      *
      * @example data:image/php;base64,PD9waHAXXXXXXanVzdHR0dHXXXXXB0ZXN0Ijs/Pg==
      *

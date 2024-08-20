@@ -21,7 +21,7 @@ class AddDcdnDomainRequest extends Model
     /**
      * @description The domain name that you want to add. You can specify only one domain name in each request.
      *
-     * Wildcard domain names are supported. A wildcard domain name must start with a period (.), such as .example.com.
+     * This parameter is required.
      * @example example.com
      *
      * @var string

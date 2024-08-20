@@ -20,6 +20,7 @@ class DescribeDcdnWafDomainRequest extends Model
     /**
      * @description The region where WAF is enabled.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

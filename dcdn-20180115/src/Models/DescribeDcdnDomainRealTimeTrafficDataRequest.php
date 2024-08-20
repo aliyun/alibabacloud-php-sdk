@@ -11,6 +11,7 @@ class DescribeDcdnDomainRealTimeTrafficDataRequest extends Model
     /**
      * @description The accelerated domain name. You can specify one or more domain names and separate them with commas (,).
      *
+     * This parameter is required.
      * @example example.com
      *
      * @var string

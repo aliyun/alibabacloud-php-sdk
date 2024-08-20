@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class bpsModel extends Model
 {
     /**
-     * @description The bandwidth, in bit/s.
+     * @description The bandwidth. Unit: bit/s.
      *
      * @example 16710625.733333332
      *

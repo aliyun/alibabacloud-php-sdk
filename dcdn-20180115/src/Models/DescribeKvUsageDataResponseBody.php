@@ -19,7 +19,7 @@ class DescribeKvUsageDataResponseBody extends Model
     public $endTime;
 
     /**
-     * @description The detailed usage data.
+     * @description The usage details.
      *
      * @var kvUsageData[]
      */

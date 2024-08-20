@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RefreshDcdnObjectCacheByCacheTagRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example tag1,tag2
      *
      * @var string
@@ -16,6 +18,8 @@ class RefreshDcdnObjectCacheByCacheTagRequest extends Model
     public $cacheTag;
 
     /**
+     * @description This parameter is required.
+     *
      * @example example.com
      *
      * @var string

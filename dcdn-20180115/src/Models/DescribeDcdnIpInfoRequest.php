@@ -11,6 +11,7 @@ class DescribeDcdnIpInfoRequest extends Model
     /**
      * @description The IP address. You can specify only one IP address.
      *
+     * This parameter is required.
      * @example 10.10.10.10
      *
      * @var string

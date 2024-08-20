@@ -11,6 +11,7 @@ class UploadRoutineCodeRequest extends Model
     /**
      * @description The description of the code version.
      *
+     * This parameter is required.
      * @example Hello World
      *
      * @var string
@@ -20,6 +21,7 @@ class UploadRoutineCodeRequest extends Model
     /**
      * @description The name of the routine. The name must be unique among the routines that belong to the same Alibaba Cloud account.
      *
+     * This parameter is required.
      * @example test
      *
      * @var string

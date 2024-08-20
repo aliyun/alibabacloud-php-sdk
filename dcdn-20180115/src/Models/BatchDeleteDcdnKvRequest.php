@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class BatchDeleteDcdnKvRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $keys;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test_namespace
      *
      * @var string

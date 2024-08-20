@@ -33,6 +33,7 @@ class BatchSetDcdnWafDomainConfigsRequest extends Model
     /**
      * @description The protected domain names for which you want to change the protection status. You can specify up to 50 domain names. Separate multiple domain names with commas (,).
      *
+     * This parameter is required.
      * @example example.com,example2.com
      *
      * @var string

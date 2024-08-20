@@ -11,6 +11,7 @@ class DescribeDcdnWafRuleRequest extends Model
     /**
      * @description The ID of the protection rule. You can specify only one ID in each request.
      *
+     * This parameter is required.
      * @example 1000001
      *
      * @var int

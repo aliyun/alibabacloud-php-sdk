@@ -11,6 +11,7 @@ class DescribeDcdnDomainRealTimeByteHitRateDataRequest extends Model
     /**
      * @description The domain name. Separate multiple domain names with commas (,).
      *
+     * This parameter is required.
      * @example example.com
      *
      * @var string

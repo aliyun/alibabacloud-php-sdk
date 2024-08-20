@@ -28,6 +28,7 @@ class DescribeDcdnWafFilterInfoRequest extends Model
      *   en: English
      *   cn: Simplified Chinese
      *
+     * This parameter is required.
      * @example cn
      *
      * @var string

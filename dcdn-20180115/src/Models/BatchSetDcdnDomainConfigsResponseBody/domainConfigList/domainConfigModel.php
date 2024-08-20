@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class domainConfigModel extends Model
 {
     /**
-     * @description 配置ID，如果返回为0，则表示该条配置未配置成功，需要重新配置。
+     * @description The ID of the configuration.
      *
      * @example 123456
      *
@@ -18,7 +18,7 @@ class domainConfigModel extends Model
     public $configId;
 
     /**
-     * @description 域名。
+     * @description The domain name.
      *
      * @example www.example.com
      *
@@ -27,7 +27,7 @@ class domainConfigModel extends Model
     public $domainName;
 
     /**
-     * @description 功能名称。
+     * @description The name of the feature.
      *
      * @example set_resp_header
      *

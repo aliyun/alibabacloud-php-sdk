@@ -11,6 +11,7 @@ class SetDcdnDomainSMCertificateRequest extends Model
     /**
      * @description The identifier of the certificate. The value is Certificate ID-cn-hangzhou. If the ID of the certificate is 123, CertIdentifier is set to 123-cn-hangzhou.
      *
+     * This parameter is required.
      * @example 123-cn-hangzhou
      *
      * @var string
@@ -20,7 +21,7 @@ class SetDcdnDomainSMCertificateRequest extends Model
     /**
      * @description The accelerated domain name for which the SM certificate is configured.
      *
-     * > The domain name must have HTTPS secure acceleration enabled.
+     * This parameter is required.
      * @example example.com
      *
      * @var string
@@ -38,6 +39,7 @@ class SetDcdnDomainSMCertificateRequest extends Model
      *   **on**
      *   **off**
      *
+     * This parameter is required.
      * @example on
      *
      * @var string
