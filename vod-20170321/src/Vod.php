@@ -110,6 +110,8 @@ use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainHitRateDataRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainHitRateDataResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainLogRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainLogResponse;
+use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainMax95BpsDataRequest;
+use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainMax95BpsDataResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainQpsDataRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainQpsDataResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainRealTimeBpsDataRequest;
@@ -3699,6 +3701,46 @@ class Vod extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeVodDomainLogWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeVodDomainMax95BpsDataRequest $request DescribeVodDomainMax95BpsDataRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeVodDomainMax95BpsDataResponse DescribeVodDomainMax95BpsDataResponse
+     */
+    public function describeVodDomainMax95BpsDataWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVodDomainMax95BpsData',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeVodDomainMax95BpsDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeVodDomainMax95BpsDataRequest $request DescribeVodDomainMax95BpsDataRequest
+     *
+     * @return DescribeVodDomainMax95BpsDataResponse DescribeVodDomainMax95BpsDataResponse
+     */
+    public function describeVodDomainMax95BpsData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVodDomainMax95BpsDataWithOptions($request, $runtime);
     }
 
     /**
