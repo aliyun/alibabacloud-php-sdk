@@ -27,7 +27,7 @@ class QueryAccountTransactionsRequest extends Model
     public $createTimeStart;
 
     /**
-     * @description The number of the page to return.
+     * @description The number of the page to return. Default value is 1.
      *
      * @example 1
      *
@@ -36,7 +36,7 @@ class QueryAccountTransactionsRequest extends Model
     public $pageNum;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The number of entries to return on each page. Default value is 20.
      *
      * @example 10
      *

@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetAccountRelationRequest extends Model
 {
     /**
-     * @description The ID of the financial relationship.
+     * @description The ID of the financial relationship. Value returned by calling the AddAccountRelation operation.
      *
-     * @example Value returned by calling the AddAccountRelation operation
+     * @example 1234
      *
      * @var int
      */

@@ -38,6 +38,8 @@ class CreateSavingsPlansInstanceRequest extends Model
     public $effectiveDate;
 
     /**
+     * @description The extended parameters.
+     *
      * @var string[]
      */
     public $extendMap;
@@ -67,7 +69,7 @@ class CreateSavingsPlansInstanceRequest extends Model
     public $poolValue;
 
     /**
-     * @description The unit of the service duration. This parameter is used together with the During parameter. Valid values:
+     * @description The unit of the subscription duration. This parameter is used together with Duration. Valid values:
      *
      *   Year
      *   Month
@@ -113,7 +115,7 @@ class CreateSavingsPlansInstanceRequest extends Model
      * @description The type of the savings plan. Valid values:
      *
      *   universal: general-purpose type
-     *   ecs: ECS compute type
+     *   ecs: Elastic Compute Service (ECS) compute type
      *   elasticy: elastic type
      *
      * This parameter is required.

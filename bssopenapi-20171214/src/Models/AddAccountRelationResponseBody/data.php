@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description HostId
+     * @description The IP address of the request
      *
      * @example HostId
      *

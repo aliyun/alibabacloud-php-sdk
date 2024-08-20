@@ -106,6 +106,10 @@ class DescribeInstanceBillRequest extends Model
     public $ownerId;
 
     /**
+     * @description The code of the service. The code is the same as that in Cost Center.
+     *
+     * @example rds
+     *
      * @var string
      */
     public $pipCode;

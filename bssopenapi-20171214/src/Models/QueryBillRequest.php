@@ -95,10 +95,7 @@ class QueryBillRequest extends Model
      *   Subscription
      *   PayAsYouGo
      *
-     **
-     *
-     ****This parameter must be used together with the ProductCode parameter.
-     *
+     * This parameter must be used together with the ProductCode parameter.
      * @example Subscription
      *
      * @var string

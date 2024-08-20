@@ -54,6 +54,10 @@ class cashCoupon extends Model
     public $cashCouponNo;
 
     /**
+     * @description The description of the voucher.
+     *
+     * @example This voucher is used for testing product function
+     *
      * @var string
      */
     public $description;

@@ -303,7 +303,8 @@ class BssOpenApi extends OpenApiClient
     /**
      * @summary Creates a financial relationship.
      *  *
-     * @description 1\\. For more information about a financial relationship, see [Financial relationships](https://help.aliyun.com/document_detail/100376.html?spm=a2c4g.11186623.6.563.52a83908ypl4yE) or [Financial relationships](https://www.alibabacloud.com/help/en/doc-detail/116383.html). 2. If enterprise names used by the management account and a member for real-name verification are the same, you do not need to call an API operation for confirmation. Otherwise, you must call the ConfirmRelation operation for confirmation.
+     * @description For more information about a financial relationship, see [Financial relationships](https://help.aliyun.com/document_detail/100376.html?spm=a2c4g.11186623.6.563.52a83908ypl4yE) or [Financial relationships](https://www.alibabacloud.com/help/en/doc-detail/116383.html).
+     * If enterprise names used by the management account and a member for real-name verification are the same, you do not need to call an API operation for confirmation. Otherwise, you must call the ConfirmRelation operation for confirmation.
      *  *
      * @param AddAccountRelationRequest $request AddAccountRelationRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -356,7 +357,8 @@ class BssOpenApi extends OpenApiClient
     /**
      * @summary Creates a financial relationship.
      *  *
-     * @description 1\\. For more information about a financial relationship, see [Financial relationships](https://help.aliyun.com/document_detail/100376.html?spm=a2c4g.11186623.6.563.52a83908ypl4yE) or [Financial relationships](https://www.alibabacloud.com/help/en/doc-detail/116383.html). 2. If enterprise names used by the management account and a member for real-name verification are the same, you do not need to call an API operation for confirmation. Otherwise, you must call the ConfirmRelation operation for confirmation.
+     * @description For more information about a financial relationship, see [Financial relationships](https://help.aliyun.com/document_detail/100376.html?spm=a2c4g.11186623.6.563.52a83908ypl4yE) or [Financial relationships](https://www.alibabacloud.com/help/en/doc-detail/116383.html).
+     * If enterprise names used by the management account and a member for real-name verification are the same, you do not need to call an API operation for confirmation. Otherwise, you must call the ConfirmRelation operation for confirmation.
      *  *
      * @param AddAccountRelationRequest $request AddAccountRelationRequest
      *
@@ -2301,6 +2303,8 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
+     * @summary Queries the usage details of savings plans.
+     *  *
      * @param DescribeSavingsPlansUsageDetailRequest $request DescribeSavingsPlansUsageDetailRequest
      * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
@@ -2347,6 +2351,8 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
+     * @summary Queries the usage details of savings plans.
+     *  *
      * @param DescribeSavingsPlansUsageDetailRequest $request DescribeSavingsPlansUsageDetailRequest
      *
      * @return DescribeSavingsPlansUsageDetailResponse DescribeSavingsPlansUsageDetailResponse
@@ -5144,6 +5150,9 @@ class BssOpenApi extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->commodityCode)) {
+            $query['CommodityCode'] = $request->commodityCode;
+        }
         if (!Utils::isUnset($request->endTime)) {
             $query['EndTime'] = $request->endTime;
         }
@@ -6033,6 +6042,8 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
+     * @summary Modify the quota ledger and consumption ledger.
+     *  *
      * @param SetResellerUserQuotaRequest $request SetResellerUserQuotaRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -6073,6 +6084,8 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
+     * @summary Modify the quota ledger and consumption ledger.
+     *  *
      * @param SetResellerUserQuotaRequest $request SetResellerUserQuotaRequest
      *
      * @return SetResellerUserQuotaResponse SetResellerUserQuotaResponse

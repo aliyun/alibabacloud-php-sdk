@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeResourceUsageDetailResponseBody extends Model
 {
     /**
-     * @description The status code.
+     * @description The response code.
      *
      * @example Success
      *
@@ -26,7 +26,7 @@ class DescribeResourceUsageDetailResponseBody extends Model
     public $data;
 
     /**
-     * @description The message returned.
+     * @description The returned message.
      *
      * @example Successful!
      *
@@ -35,7 +35,7 @@ class DescribeResourceUsageDetailResponseBody extends Model
     public $message;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 79EE7556-0CFD-44EB-9CD6-B3B526E3A85F
      *
@@ -44,7 +44,7 @@ class DescribeResourceUsageDetailResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the operation was successful.
+     * @description Indicates whether the request was successful.
      *
      * @example true
      *

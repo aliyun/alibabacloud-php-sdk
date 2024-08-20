@@ -19,7 +19,7 @@ class QuerySavingsPlansDiscountResponseBody extends Model
     public $code;
 
     /**
-     * @description The data returned.
+     * @description data
      *
      * @var data
      */

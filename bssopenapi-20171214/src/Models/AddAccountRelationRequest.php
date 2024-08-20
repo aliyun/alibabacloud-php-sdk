@@ -48,6 +48,7 @@ class AddAccountRelationRequest extends Model
      *   MANAGE_TARGET_INVOICE: allows the member to manage invoices.
      *   CHECK_TARGET_CONSUMPTION: allows the member to view the bills.
      *
+     * The params[PermissionCodes, RoleCodes] can not be null at the same time.
      * @example CHECK_TARGET_CONSUMPTION
      *
      * @var string[]

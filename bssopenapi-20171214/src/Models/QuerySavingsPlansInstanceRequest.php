@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class QuerySavingsPlansInstanceRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $commodityCode;
+
+    /**
      * @description The end of the time range to query. Specify the time in the format of yyyy-MM-dd HH:mm:ss.
      *
      * @example 2021-01-01 00:00:00
@@ -85,14 +90,15 @@ class QuerySavingsPlansInstanceRequest extends Model
      */
     public $tag;
     protected $_name = [
-        'endTime'    => 'EndTime',
-        'instanceId' => 'InstanceId',
-        'locale'     => 'Locale',
-        'pageNum'    => 'PageNum',
-        'pageSize'   => 'PageSize',
-        'startTime'  => 'StartTime',
-        'status'     => 'Status',
-        'tag'        => 'Tag',
+        'commodityCode' => 'CommodityCode',
+        'endTime'       => 'EndTime',
+        'instanceId'    => 'InstanceId',
+        'locale'        => 'Locale',
+        'pageNum'       => 'PageNum',
+        'pageSize'      => 'PageSize',
+        'startTime'     => 'StartTime',
+        'status'        => 'Status',
+        'tag'           => 'Tag',
     ];
 
     public function validate()
@@ -102,6 +108,9 @@ class QuerySavingsPlansInstanceRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->commodityCode) {
+            $res['CommodityCode'] = $this->commodityCode;
+        }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
@@ -144,6 +153,9 @@ class QuerySavingsPlansInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CommodityCode'])) {
+            $model->commodityCode = $map['CommodityCode'];
+        }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }

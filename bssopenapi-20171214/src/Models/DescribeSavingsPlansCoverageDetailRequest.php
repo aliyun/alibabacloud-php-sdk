@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeSavingsPlansCoverageDetailRequest extends Model
 {
     /**
-     * @description The ID of the account for which you want to query coverage details. If you do not set this parameter, the data of the current Alibaba Cloud account and its RAM users is queried. To query the data of a RAM user, specify the ID of the RAM user.
+     * @description The ID of the account for which you want to query coverage details.
      *
      * @example 123745698925000
      *

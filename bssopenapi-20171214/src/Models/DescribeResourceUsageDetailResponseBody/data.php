@@ -26,7 +26,7 @@ class data extends Model
     public $maxResults;
 
     /**
-     * @description The token of the next page.
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results.
      *
      * @example eyJwYWdlTnVtIjoyLCJwYWdlU2l6ZSI6MTB9
      *

@@ -58,6 +58,10 @@ class data extends Model
     public $mybankCreditAmount;
 
     /**
+     * @description The quota limit for eco customers.
+     *
+     * @example 10000.00
+     *
      * @var string
      */
     public $quotaLimit;

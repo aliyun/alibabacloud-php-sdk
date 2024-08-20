@@ -60,6 +60,13 @@ class DescribeSplitItemBillRequest extends Model
     public $instanceID;
 
     /**
+     * @description Specifies whether to filter bills if both the pretax gross amount and pretax amount are 0. Valid values:
+     *
+     *   false: does not filter bills.
+     *   true: filters bills.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $isHideZeroCharge;
@@ -88,6 +95,10 @@ class DescribeSplitItemBillRequest extends Model
     public $ownerId;
 
     /**
+     * @description The code of the service. The code is the same as that in Cost Center.
+     *
+     * @example rds
+     *
      * @var string
      */
     public $pipCode;

@@ -63,6 +63,8 @@ class items extends Model
     public $instanceSpec;
 
     /**
+     * @example 1906589291020438
+     *
      * @var int
      */
     public $ownerId;

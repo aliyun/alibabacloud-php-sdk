@@ -65,6 +65,7 @@ class data extends Model
     /**
      * @description The status of the financial relationship between the management account and the member.
      *
+     * - INITIAL 【Initial new relationship status】
      * @example RELATED
      *
      * @var string

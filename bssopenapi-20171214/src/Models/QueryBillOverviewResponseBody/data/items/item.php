@@ -18,6 +18,8 @@ class item extends Model
     public $adjustAmount;
 
     /**
+     * @description The amount paid after the tax is deducted.
+     *
      * @example 0
      *
      * @var float
@@ -160,6 +162,8 @@ class item extends Model
     public $paymentAmount;
 
     /**
+     * @description The currency used for payment.
+     *
      * @example USD
      *
      * @var string
@@ -185,6 +189,8 @@ class item extends Model
     public $pretaxAmount;
 
     /**
+     * @description The pretax amount paid in local currency.
+     *
      * @example 0
      *
      * @var float
@@ -258,6 +264,8 @@ class item extends Model
     public $subscriptionType;
 
     /**
+     * @description The tax.
+     *
      * @example 0
      *
      * @var float

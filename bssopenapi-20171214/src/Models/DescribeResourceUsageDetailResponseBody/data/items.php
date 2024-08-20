@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
-     * @description The unit that is used to measure the resources deducted from deduction plans.
+     * @description The unit that is used to measure the resources that are deducted.
      *
      * @var string
      */
     public $capacityUnit;
 
     /**
-     * @description The currency in which deduction plans were priced.
+     * @description The type of the currency.
      *
      * @example CNY
      *
@@ -25,7 +25,7 @@ class items extends Model
     public $currency;
 
     /**
-     * @description The amount of the resources deducted from deduction plans.
+     * @description The amount of the deducted resources.
      *
      * @example 1
      *
@@ -52,7 +52,7 @@ class items extends Model
     public $imageType;
 
     /**
-     * @description The specifications of a deduction plan.
+     * @description The instance type.
      *
      * @example ecs.t5-lc2m1.nano
      *
@@ -104,7 +104,7 @@ class items extends Model
     public $regionNo;
 
     /**
-     * @description The fee of purchased deduction plans.
+     * @description The fee of the deduction plan.
      *
      * @example 0
      *
@@ -113,7 +113,7 @@ class items extends Model
     public $reservationCost;
 
     /**
-     * @description The ID of a deduction plan.
+     * @description The ID of the deduction plan.
      *
      * @example ecsri-bp147nnfz21225k9mpix00
      *
@@ -149,14 +149,14 @@ class items extends Model
     public $status;
 
     /**
-     * @description The name of the state.
+     * @description The name of the status.
      *
      * @var string
      */
     public $statusName;
 
     /**
-     * @description The total capacity of deduction plans.
+     * @description The total capacity of the deduction plan.
      *
      * @example 2
      *
@@ -165,7 +165,7 @@ class items extends Model
     public $totalQuantity;
 
     /**
-     * @description The usage of deduction plans.
+     * @description The usage rate of the deduction plan.
      *
      * @example 0.5
      *
@@ -174,7 +174,7 @@ class items extends Model
     public $usagePercentage;
 
     /**
-     * @description The ID of the account.
+     * @description The account ID.
      *
      * @example 123745698925000
      *
@@ -192,7 +192,7 @@ class items extends Model
     public $userName;
 
     /**
-     * @description The code of the zone.
+     * @description The zone.
      *
      * @example cn-hangzhou-i
      *
@@ -201,7 +201,7 @@ class items extends Model
     public $zone;
 
     /**
-     * @description The zone.
+     * @description The code of the zone.
      *
      * @var string
      */

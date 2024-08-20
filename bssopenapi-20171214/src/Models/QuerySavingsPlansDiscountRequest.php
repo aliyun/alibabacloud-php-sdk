@@ -31,6 +31,11 @@ class QuerySavingsPlansDiscountRequest extends Model
     /**
      * @description The identifier of the language.
      *
+     * Valid values:
+     *
+     *   EN: English.
+     *   ZH: Chinese.
+     *
      * @example ZH
      *
      * @var string
@@ -65,7 +70,7 @@ class QuerySavingsPlansDiscountRequest extends Model
     public $pageSize;
 
     /**
-     * @description The payment mode.
+     * @description The payment mode. Valid values: total: all upfront. half: half upfront. zero: no upfront.
      *
      * This parameter is required.
      * @example total
@@ -93,7 +98,12 @@ class QuerySavingsPlansDiscountRequest extends Model
     public $spec;
 
     /**
-     * @description The type of the savings plan.
+     * @var string
+     */
+    public $spnCommodityCode;
+
+    /**
+     * @description The type of the savings plan. Valid values: ecs: Elastic Compute Service (ECS) compute type. universal: general-purpose type.
      *
      * This parameter is required.
      * @example universal
@@ -102,16 +112,17 @@ class QuerySavingsPlansDiscountRequest extends Model
      */
     public $spnType;
     protected $_name = [
-        'commodityCode' => 'CommodityCode',
-        'cycle'         => 'Cycle',
-        'locale'        => 'Locale',
-        'moduleCode'    => 'ModuleCode',
-        'pageNum'       => 'PageNum',
-        'pageSize'      => 'PageSize',
-        'payMode'       => 'PayMode',
-        'region'        => 'Region',
-        'spec'          => 'Spec',
-        'spnType'       => 'SpnType',
+        'commodityCode'    => 'CommodityCode',
+        'cycle'            => 'Cycle',
+        'locale'           => 'Locale',
+        'moduleCode'       => 'ModuleCode',
+        'pageNum'          => 'PageNum',
+        'pageSize'         => 'PageSize',
+        'payMode'          => 'PayMode',
+        'region'           => 'Region',
+        'spec'             => 'Spec',
+        'spnCommodityCode' => 'SpnCommodityCode',
+        'spnType'          => 'SpnType',
     ];
 
     public function validate()
@@ -147,6 +158,9 @@ class QuerySavingsPlansDiscountRequest extends Model
         }
         if (null !== $this->spec) {
             $res['Spec'] = $this->spec;
+        }
+        if (null !== $this->spnCommodityCode) {
+            $res['SpnCommodityCode'] = $this->spnCommodityCode;
         }
         if (null !== $this->spnType) {
             $res['SpnType'] = $this->spnType;
@@ -189,6 +203,9 @@ class QuerySavingsPlansDiscountRequest extends Model
         }
         if (isset($map['Spec'])) {
             $model->spec = $map['Spec'];
+        }
+        if (isset($map['SpnCommodityCode'])) {
+            $model->spnCommodityCode = $map['SpnCommodityCode'];
         }
         if (isset($map['SpnType'])) {
             $model->spnType = $map['SpnType'];
