@@ -8,8 +8,12 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\ChangeResourceGroupRequest;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\ChangeResourceGroupResponse;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\CreateHoloWarehouseRequest;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\CreateHoloWarehouseResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\CreateInstanceRequest;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\CreateInstanceResponse;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\DeleteHoloWarehouseRequest;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\DeleteHoloWarehouseResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\DeleteInstanceRequest;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\DeleteInstanceResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\DisableHiveAccessRequest;
@@ -21,13 +25,25 @@ use AlibabaCloud\SDK\Hologram\V20220601\Models\GetWarehouseDetailResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\ListInstancesRequest;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\ListInstancesResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\ListWarehousesResponse;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\RebalanceHoloWarehouseRequest;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\RebalanceHoloWarehouseResponse;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\RenameHoloWarehouseRequest;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\RenameHoloWarehouseResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\RenewInstanceRequest;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\RenewInstanceResponse;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\RestartHoloWarehouseRequest;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\RestartHoloWarehouseResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\RestartInstanceResponse;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\ResumeHoloWarehouseRequest;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\ResumeHoloWarehouseResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\ResumeInstanceResponse;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\ScaleHoloWarehouseRequest;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\ScaleHoloWarehouseResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\ScaleInstanceRequest;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\ScaleInstanceResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\StopInstanceResponse;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\SuspendHoloWarehouseRequest;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\SuspendHoloWarehouseResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\UpdateInstanceNameRequest;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\UpdateInstanceNameResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\UpdateInstanceNetworkTypeRequest;
@@ -122,6 +138,61 @@ class Hologram extends OpenApiClient
         $headers = [];
 
         return $this->changeResourceGroupWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 创建计算组
+     *  *
+     * @param string                     $instanceId
+     * @param CreateHoloWarehouseRequest $request    CreateHoloWarehouseRequest
+     * @param string[]                   $headers    map
+     * @param RuntimeOptions             $runtime    runtime options for this request RuntimeOptions
+     *
+     * @return CreateHoloWarehouseResponse CreateHoloWarehouseResponse
+     */
+    public function createHoloWarehouseWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->cpu)) {
+            $body['cpu'] = $request->cpu;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['name'] = $request->name;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateHoloWarehouse',
+            'version'     => '2022-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/createHoloWarehouse',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateHoloWarehouseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建计算组
+     *  *
+     * @param string                     $instanceId
+     * @param CreateHoloWarehouseRequest $request    CreateHoloWarehouseRequest
+     *
+     * @return CreateHoloWarehouseResponse CreateHoloWarehouseResponse
+     */
+    public function createHoloWarehouse($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createHoloWarehouseWithOptions($instanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -266,6 +337,58 @@ class Hologram extends OpenApiClient
         $headers = [];
 
         return $this->createInstanceWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 删除计算组
+     *  *
+     * @param string                     $instanceId
+     * @param DeleteHoloWarehouseRequest $request    DeleteHoloWarehouseRequest
+     * @param string[]                   $headers    map
+     * @param RuntimeOptions             $runtime    runtime options for this request RuntimeOptions
+     *
+     * @return DeleteHoloWarehouseResponse DeleteHoloWarehouseResponse
+     */
+    public function deleteHoloWarehouseWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->name)) {
+            $body['name'] = $request->name;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteHoloWarehouse',
+            'version'     => '2022-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/deleteHoloWarehouse',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteHoloWarehouseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除计算组
+     *  *
+     * @param string                     $instanceId
+     * @param DeleteHoloWarehouseRequest $request    DeleteHoloWarehouseRequest
+     *
+     * @return DeleteHoloWarehouseResponse DeleteHoloWarehouseResponse
+     */
+    public function deleteHoloWarehouse($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteHoloWarehouseWithOptions($instanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -623,6 +746,113 @@ class Hologram extends OpenApiClient
     }
 
     /**
+     * @summary 停止计算组
+     *  *
+     * @param string                        $instanceId
+     * @param RebalanceHoloWarehouseRequest $request    RebalanceHoloWarehouseRequest
+     * @param string[]                      $headers    map
+     * @param RuntimeOptions                $runtime    runtime options for this request RuntimeOptions
+     *
+     * @return RebalanceHoloWarehouseResponse RebalanceHoloWarehouseResponse
+     */
+    public function rebalanceHoloWarehouseWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->name)) {
+            $body['name'] = $request->name;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RebalanceHoloWarehouse',
+            'version'     => '2022-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/rebalanceHoloWarehouse',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return RebalanceHoloWarehouseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 停止计算组
+     *  *
+     * @param string                        $instanceId
+     * @param RebalanceHoloWarehouseRequest $request    RebalanceHoloWarehouseRequest
+     *
+     * @return RebalanceHoloWarehouseResponse RebalanceHoloWarehouseResponse
+     */
+    public function rebalanceHoloWarehouse($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->rebalanceHoloWarehouseWithOptions($instanceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 停止计算组
+     *  *
+     * @param string                     $instanceId
+     * @param RenameHoloWarehouseRequest $request    RenameHoloWarehouseRequest
+     * @param string[]                   $headers    map
+     * @param RuntimeOptions             $runtime    runtime options for this request RuntimeOptions
+     *
+     * @return RenameHoloWarehouseResponse RenameHoloWarehouseResponse
+     */
+    public function renameHoloWarehouseWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->name)) {
+            $body['name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->newWarehouseName)) {
+            $body['newWarehouseName'] = $request->newWarehouseName;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RenameHoloWarehouse',
+            'version'     => '2022-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/renameHoloWarehouse',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return RenameHoloWarehouseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 停止计算组
+     *  *
+     * @param string                     $instanceId
+     * @param RenameHoloWarehouseRequest $request    RenameHoloWarehouseRequest
+     *
+     * @return RenameHoloWarehouseResponse RenameHoloWarehouseResponse
+     */
+    public function renameHoloWarehouse($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->renameHoloWarehouseWithOptions($instanceId, $request, $headers, $runtime);
+    }
+
+    /**
      * @summary Manually renews a Hologres instance. You can enable monthly auto-renewal when you renew a Hologres instance.
      *  *
      * @description > Before you call this operation, make sure that you understand the billing method and pricing of Hologres because this operation is charged.
@@ -688,6 +918,58 @@ class Hologram extends OpenApiClient
     }
 
     /**
+     * @summary 停止计算组
+     *  *
+     * @param string                      $instanceId
+     * @param RestartHoloWarehouseRequest $request    RestartHoloWarehouseRequest
+     * @param string[]                    $headers    map
+     * @param RuntimeOptions              $runtime    runtime options for this request RuntimeOptions
+     *
+     * @return RestartHoloWarehouseResponse RestartHoloWarehouseResponse
+     */
+    public function restartHoloWarehouseWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->name)) {
+            $body['name'] = $request->name;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RestartHoloWarehouse',
+            'version'     => '2022-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/restartHoloWarehouse',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return RestartHoloWarehouseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 停止计算组
+     *  *
+     * @param string                      $instanceId
+     * @param RestartHoloWarehouseRequest $request    RestartHoloWarehouseRequest
+     *
+     * @return RestartHoloWarehouseResponse RestartHoloWarehouseResponse
+     */
+    public function restartHoloWarehouse($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->restartHoloWarehouseWithOptions($instanceId, $request, $headers, $runtime);
+    }
+
+    /**
      * @summary 重启实例
      *  *
      * @param string         $instanceId
@@ -732,6 +1014,58 @@ class Hologram extends OpenApiClient
     }
 
     /**
+     * @summary 停止计算组
+     *  *
+     * @param string                     $instanceId
+     * @param ResumeHoloWarehouseRequest $request    ResumeHoloWarehouseRequest
+     * @param string[]                   $headers    map
+     * @param RuntimeOptions             $runtime    runtime options for this request RuntimeOptions
+     *
+     * @return ResumeHoloWarehouseResponse ResumeHoloWarehouseResponse
+     */
+    public function resumeHoloWarehouseWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->name)) {
+            $body['name'] = $request->name;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ResumeHoloWarehouse',
+            'version'     => '2022-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/resumeHoloWarehouse',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ResumeHoloWarehouseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 停止计算组
+     *  *
+     * @param string                     $instanceId
+     * @param ResumeHoloWarehouseRequest $request    ResumeHoloWarehouseRequest
+     *
+     * @return ResumeHoloWarehouseResponse ResumeHoloWarehouseResponse
+     */
+    public function resumeHoloWarehouse($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->resumeHoloWarehouseWithOptions($instanceId, $request, $headers, $runtime);
+    }
+
+    /**
      * @summary Resumes a suspended instance.
      *  *
      * @param string         $instanceId
@@ -773,6 +1107,61 @@ class Hologram extends OpenApiClient
         $headers = [];
 
         return $this->resumeInstanceWithOptions($instanceId, $headers, $runtime);
+    }
+
+    /**
+     * @summary 停止计算组
+     *  *
+     * @param string                    $instanceId
+     * @param ScaleHoloWarehouseRequest $request    ScaleHoloWarehouseRequest
+     * @param string[]                  $headers    map
+     * @param RuntimeOptions            $runtime    runtime options for this request RuntimeOptions
+     *
+     * @return ScaleHoloWarehouseResponse ScaleHoloWarehouseResponse
+     */
+    public function scaleHoloWarehouseWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->cpu)) {
+            $body['cpu'] = $request->cpu;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['name'] = $request->name;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ScaleHoloWarehouse',
+            'version'     => '2022-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/scaleHoloWarehouse',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ScaleHoloWarehouseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 停止计算组
+     *  *
+     * @param string                    $instanceId
+     * @param ScaleHoloWarehouseRequest $request    ScaleHoloWarehouseRequest
+     *
+     * @return ScaleHoloWarehouseResponse ScaleHoloWarehouseResponse
+     */
+    public function scaleHoloWarehouse($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->scaleHoloWarehouseWithOptions($instanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -892,6 +1281,58 @@ class Hologram extends OpenApiClient
         $headers = [];
 
         return $this->stopInstanceWithOptions($instanceId, $headers, $runtime);
+    }
+
+    /**
+     * @summary 停止计算组
+     *  *
+     * @param string                      $instanceId
+     * @param SuspendHoloWarehouseRequest $request    SuspendHoloWarehouseRequest
+     * @param string[]                    $headers    map
+     * @param RuntimeOptions              $runtime    runtime options for this request RuntimeOptions
+     *
+     * @return SuspendHoloWarehouseResponse SuspendHoloWarehouseResponse
+     */
+    public function suspendHoloWarehouseWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->name)) {
+            $body['name'] = $request->name;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SuspendHoloWarehouse',
+            'version'     => '2022-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/suspendHoloWarehouse',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return SuspendHoloWarehouseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 停止计算组
+     *  *
+     * @param string                      $instanceId
+     * @param SuspendHoloWarehouseRequest $request    SuspendHoloWarehouseRequest
+     *
+     * @return SuspendHoloWarehouseResponse SuspendHoloWarehouseResponse
+     */
+    public function suspendHoloWarehouse($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->suspendHoloWarehouseWithOptions($instanceId, $request, $headers, $runtime);
     }
 
     /**
