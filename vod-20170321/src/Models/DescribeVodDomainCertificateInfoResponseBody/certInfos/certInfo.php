@@ -27,6 +27,11 @@ class certInfo extends Model
     public $certExpireTime;
 
     /**
+     * @var string
+     */
+    public $certId;
+
+    /**
      * @description The validity period of the certificate. Unit: months or years.
      *
      * @example 3 months
@@ -54,6 +59,16 @@ class certInfo extends Model
     public $certOrg;
 
     /**
+     * @var string
+     */
+    public $certRegion;
+
+    /**
+     * @var string
+     */
+    public $certStartTime;
+
+    /**
      * @description The type of the certificate. Valid values:
      *
      *   **free**: a free certificate.
@@ -67,6 +82,16 @@ class certInfo extends Model
     public $certType;
 
     /**
+     * @var string
+     */
+    public $certUpdateTime;
+
+    /**
+     * @var string
+     */
+    public $domainCnameStatus;
+
+    /**
      * @description The accelerated domain name whose ICP filing status you want to update.
      *
      * @example example.com
@@ -74,6 +99,11 @@ class certInfo extends Model
      * @var string
      */
     public $domainName;
+
+    /**
+     * @var string
+     */
+    public $serverCertificate;
 
     /**
      * @description The status of the SSL certificate.
@@ -107,11 +137,17 @@ class certInfo extends Model
     protected $_name = [
         'certDomainName'          => 'CertDomainName',
         'certExpireTime'          => 'CertExpireTime',
+        'certId'                  => 'CertId',
         'certLife'                => 'CertLife',
         'certName'                => 'CertName',
         'certOrg'                 => 'CertOrg',
+        'certRegion'              => 'CertRegion',
+        'certStartTime'           => 'CertStartTime',
         'certType'                => 'CertType',
+        'certUpdateTime'          => 'CertUpdateTime',
+        'domainCnameStatus'       => 'DomainCnameStatus',
         'domainName'              => 'DomainName',
+        'serverCertificate'       => 'ServerCertificate',
         'serverCertificateStatus' => 'ServerCertificateStatus',
         'status'                  => 'Status',
     ];
@@ -129,6 +165,9 @@ class certInfo extends Model
         if (null !== $this->certExpireTime) {
             $res['CertExpireTime'] = $this->certExpireTime;
         }
+        if (null !== $this->certId) {
+            $res['CertId'] = $this->certId;
+        }
         if (null !== $this->certLife) {
             $res['CertLife'] = $this->certLife;
         }
@@ -138,11 +177,26 @@ class certInfo extends Model
         if (null !== $this->certOrg) {
             $res['CertOrg'] = $this->certOrg;
         }
+        if (null !== $this->certRegion) {
+            $res['CertRegion'] = $this->certRegion;
+        }
+        if (null !== $this->certStartTime) {
+            $res['CertStartTime'] = $this->certStartTime;
+        }
         if (null !== $this->certType) {
             $res['CertType'] = $this->certType;
         }
+        if (null !== $this->certUpdateTime) {
+            $res['CertUpdateTime'] = $this->certUpdateTime;
+        }
+        if (null !== $this->domainCnameStatus) {
+            $res['DomainCnameStatus'] = $this->domainCnameStatus;
+        }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
+        }
+        if (null !== $this->serverCertificate) {
+            $res['ServerCertificate'] = $this->serverCertificate;
         }
         if (null !== $this->serverCertificateStatus) {
             $res['ServerCertificateStatus'] = $this->serverCertificateStatus;
@@ -168,6 +222,9 @@ class certInfo extends Model
         if (isset($map['CertExpireTime'])) {
             $model->certExpireTime = $map['CertExpireTime'];
         }
+        if (isset($map['CertId'])) {
+            $model->certId = $map['CertId'];
+        }
         if (isset($map['CertLife'])) {
             $model->certLife = $map['CertLife'];
         }
@@ -177,11 +234,26 @@ class certInfo extends Model
         if (isset($map['CertOrg'])) {
             $model->certOrg = $map['CertOrg'];
         }
+        if (isset($map['CertRegion'])) {
+            $model->certRegion = $map['CertRegion'];
+        }
+        if (isset($map['CertStartTime'])) {
+            $model->certStartTime = $map['CertStartTime'];
+        }
         if (isset($map['CertType'])) {
             $model->certType = $map['CertType'];
         }
+        if (isset($map['CertUpdateTime'])) {
+            $model->certUpdateTime = $map['CertUpdateTime'];
+        }
+        if (isset($map['DomainCnameStatus'])) {
+            $model->domainCnameStatus = $map['DomainCnameStatus'];
+        }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
+        }
+        if (isset($map['ServerCertificate'])) {
+            $model->serverCertificate = $map['ServerCertificate'];
         }
         if (isset($map['ServerCertificateStatus'])) {
             $model->serverCertificateStatus = $map['ServerCertificateStatus'];

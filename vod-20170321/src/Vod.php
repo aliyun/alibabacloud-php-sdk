@@ -146,6 +146,8 @@ use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodRefreshQuotaRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodRefreshQuotaResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodRefreshTasksRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodRefreshTasksResponse;
+use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodSSLCertificateListRequest;
+use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodSSLCertificateListResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodStorageDataRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodStorageDataResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodTieringStorageDataRequest;
@@ -294,6 +296,8 @@ use AlibabaCloud\SDK\Vod\V20170321\Models\SetMessageCallbackRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\SetMessageCallbackResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\SetVodDomainCertificateRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\SetVodDomainCertificateResponse;
+use AlibabaCloud\SDK\Vod\V20170321\Models\SetVodDomainSSLCertificateRequest;
+use AlibabaCloud\SDK\Vod\V20170321\Models\SetVodDomainSSLCertificateResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\SubmitAIImageAuditJobRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\SubmitAIImageAuditJobResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\SubmitAIImageJobRequest;
@@ -5028,6 +5032,68 @@ class Vod extends OpenApiClient
     }
 
     /**
+     * @summary 查询证书列表，支持翻页
+     *  *
+     * @param DescribeVodSSLCertificateListRequest $request DescribeVodSSLCertificateListRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeVodSSLCertificateListResponse DescribeVodSSLCertificateListResponse
+     */
+    public function describeVodSSLCertificateListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->searchKeyword)) {
+            $query['SearchKeyword'] = $request->searchKeyword;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVodSSLCertificateList',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeVodSSLCertificateListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询证书列表，支持翻页
+     *  *
+     * @param DescribeVodSSLCertificateListRequest $request DescribeVodSSLCertificateListRequest
+     *
+     * @return DescribeVodSSLCertificateListResponse DescribeVodSSLCertificateListResponse
+     */
+    public function describeVodSSLCertificateList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVodSSLCertificateListWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries the usage of storage-related resources, including the storage volume and outbound traffic.
      *  *
      * @description > *   This operation is available only in the **China (Shanghai)** region.
@@ -9527,6 +9593,83 @@ class Vod extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->setVodDomainCertificateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 设置证书
+     *  *
+     * @param SetVodDomainSSLCertificateRequest $request SetVodDomainSSLCertificateRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return SetVodDomainSSLCertificateResponse SetVodDomainSSLCertificateResponse
+     */
+    public function setVodDomainSSLCertificateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->certId)) {
+            $query['CertId'] = $request->certId;
+        }
+        if (!Utils::isUnset($request->certName)) {
+            $query['CertName'] = $request->certName;
+        }
+        if (!Utils::isUnset($request->certRegion)) {
+            $query['CertRegion'] = $request->certRegion;
+        }
+        if (!Utils::isUnset($request->certType)) {
+            $query['CertType'] = $request->certType;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->env)) {
+            $query['Env'] = $request->env;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->SSLPri)) {
+            $query['SSLPri'] = $request->SSLPri;
+        }
+        if (!Utils::isUnset($request->SSLProtocol)) {
+            $query['SSLProtocol'] = $request->SSLProtocol;
+        }
+        if (!Utils::isUnset($request->SSLPub)) {
+            $query['SSLPub'] = $request->SSLPub;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetVodDomainSSLCertificate',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SetVodDomainSSLCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 设置证书
+     *  *
+     * @param SetVodDomainSSLCertificateRequest $request SetVodDomainSSLCertificateRequest
+     *
+     * @return SetVodDomainSSLCertificateResponse SetVodDomainSSLCertificateResponse
+     */
+    public function setVodDomainSSLCertificate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setVodDomainSSLCertificateWithOptions($request, $runtime);
     }
 
     /**
