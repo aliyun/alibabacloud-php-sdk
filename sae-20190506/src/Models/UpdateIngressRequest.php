@@ -67,11 +67,21 @@ class UpdateIngressRequest extends Model
     public $loadBalanceType;
 
     /**
+     * @var int
+     */
+    public $requestTimeout;
+
+    /**
      * @example [{"appId":"395b60e4-0550-458d-9c54-a265d036****","containerPort":8080,"domain":"www.sae.site","path":"/path1"},{"appId":"666403ce-d25b-47cf-87fe-497565d2****","containerPort":8080,"domain":"sae.site","path":"/path2"}]
      *
      * @var string
      */
     public $rules;
+
+    /**
+     * @var string
+     */
+    public $securityPolicyId;
     protected $_name = [
         'certId'           => 'CertId',
         'certIds'          => 'CertIds',
@@ -81,7 +91,9 @@ class UpdateIngressRequest extends Model
         'listenerPort'     => 'ListenerPort',
         'listenerProtocol' => 'ListenerProtocol',
         'loadBalanceType'  => 'LoadBalanceType',
+        'requestTimeout'   => 'RequestTimeout',
         'rules'            => 'Rules',
+        'securityPolicyId' => 'SecurityPolicyId',
     ];
 
     public function validate()
@@ -115,8 +127,14 @@ class UpdateIngressRequest extends Model
         if (null !== $this->loadBalanceType) {
             $res['LoadBalanceType'] = $this->loadBalanceType;
         }
+        if (null !== $this->requestTimeout) {
+            $res['RequestTimeout'] = $this->requestTimeout;
+        }
         if (null !== $this->rules) {
             $res['Rules'] = $this->rules;
+        }
+        if (null !== $this->securityPolicyId) {
+            $res['SecurityPolicyId'] = $this->securityPolicyId;
         }
 
         return $res;
@@ -154,8 +172,14 @@ class UpdateIngressRequest extends Model
         if (isset($map['LoadBalanceType'])) {
             $model->loadBalanceType = $map['LoadBalanceType'];
         }
+        if (isset($map['RequestTimeout'])) {
+            $model->requestTimeout = $map['RequestTimeout'];
+        }
         if (isset($map['Rules'])) {
             $model->rules = $map['Rules'];
+        }
+        if (isset($map['SecurityPolicyId'])) {
+            $model->securityPolicyId = $map['SecurityPolicyId'];
         }
 
         return $model;

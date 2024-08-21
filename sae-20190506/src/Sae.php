@@ -1089,6 +1089,12 @@ class Sae extends OpenApiClient
         if (!Utils::isUnset($request->namespaceId)) {
             $query['NamespaceId'] = $request->namespaceId;
         }
+        if (!Utils::isUnset($request->requestTimeout)) {
+            $query['RequestTimeout'] = $request->requestTimeout;
+        }
+        if (!Utils::isUnset($request->securityPolicyId)) {
+            $query['SecurityPolicyId'] = $request->securityPolicyId;
+        }
         if (!Utils::isUnset($request->slbId)) {
             $query['SlbId'] = $request->slbId;
         }
@@ -7138,6 +7144,12 @@ class Sae extends OpenApiClient
         }
         if (!Utils::isUnset($request->loadBalanceType)) {
             $query['LoadBalanceType'] = $request->loadBalanceType;
+        }
+        if (!Utils::isUnset($request->requestTimeout)) {
+            $query['RequestTimeout'] = $request->requestTimeout;
+        }
+        if (!Utils::isUnset($request->securityPolicyId)) {
+            $query['SecurityPolicyId'] = $request->securityPolicyId;
         }
         $body = [];
         if (!Utils::isUnset($request->rules)) {

@@ -103,11 +103,21 @@ class data extends Model
     public $namespaceId;
 
     /**
+     * @var int
+     */
+    public $requestTimeout;
+
+    /**
      * @description The ID of the application specified in the forwarding rule.
      *
      * @var rules[]
      */
     public $rules;
+
+    /**
+     * @var string
+     */
+    public $securityPolicyId;
 
     /**
      * @description The type of the SLB instance based on the IP address. Valid values:
@@ -140,7 +150,9 @@ class data extends Model
         'loadBalanceType'  => 'LoadBalanceType',
         'name'             => 'Name',
         'namespaceId'      => 'NamespaceId',
+        'requestTimeout'   => 'RequestTimeout',
         'rules'            => 'Rules',
+        'securityPolicyId' => 'SecurityPolicyId',
         'slbId'            => 'SlbId',
         'slbType'          => 'SlbType',
     ];
@@ -182,6 +194,9 @@ class data extends Model
         if (null !== $this->namespaceId) {
             $res['NamespaceId'] = $this->namespaceId;
         }
+        if (null !== $this->requestTimeout) {
+            $res['RequestTimeout'] = $this->requestTimeout;
+        }
         if (null !== $this->rules) {
             $res['Rules'] = [];
             if (null !== $this->rules && \is_array($this->rules)) {
@@ -190,6 +205,9 @@ class data extends Model
                     $res['Rules'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->securityPolicyId) {
+            $res['SecurityPolicyId'] = $this->securityPolicyId;
         }
         if (null !== $this->slbId) {
             $res['SlbId'] = $this->slbId;
@@ -239,6 +257,9 @@ class data extends Model
         if (isset($map['NamespaceId'])) {
             $model->namespaceId = $map['NamespaceId'];
         }
+        if (isset($map['RequestTimeout'])) {
+            $model->requestTimeout = $map['RequestTimeout'];
+        }
         if (isset($map['Rules'])) {
             if (!empty($map['Rules'])) {
                 $model->rules = [];
@@ -247,6 +268,9 @@ class data extends Model
                     $model->rules[$n++] = null !== $item ? rules::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['SecurityPolicyId'])) {
+            $model->securityPolicyId = $map['SecurityPolicyId'];
         }
         if (isset($map['SlbId'])) {
             $model->slbId = $map['SlbId'];

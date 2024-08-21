@@ -71,6 +71,11 @@ class CreateIngressRequest extends Model
     public $namespaceId;
 
     /**
+     * @var int
+     */
+    public $requestTimeout;
+
+    /**
      * @description This parameter is required.
      *
      * @example [{"appId":"395b60e4-0550-458d-9c54-a265d036****","containerPort":8080,"domain":"www.sae.site","path":"/path1"},{"appId":"666403ce-d25b-47cf-87fe-497565d2****","containerPort":8080,"domain":"sae.site","path":"/path2"}]
@@ -78,6 +83,11 @@ class CreateIngressRequest extends Model
      * @var string
      */
     public $rules;
+
+    /**
+     * @var string
+     */
+    public $securityPolicyId;
 
     /**
      * @description This parameter is required.
@@ -96,7 +106,9 @@ class CreateIngressRequest extends Model
         'listenerProtocol' => 'ListenerProtocol',
         'loadBalanceType'  => 'LoadBalanceType',
         'namespaceId'      => 'NamespaceId',
+        'requestTimeout'   => 'RequestTimeout',
         'rules'            => 'Rules',
+        'securityPolicyId' => 'SecurityPolicyId',
         'slbId'            => 'SlbId',
     ];
 
@@ -131,8 +143,14 @@ class CreateIngressRequest extends Model
         if (null !== $this->namespaceId) {
             $res['NamespaceId'] = $this->namespaceId;
         }
+        if (null !== $this->requestTimeout) {
+            $res['RequestTimeout'] = $this->requestTimeout;
+        }
         if (null !== $this->rules) {
             $res['Rules'] = $this->rules;
+        }
+        if (null !== $this->securityPolicyId) {
+            $res['SecurityPolicyId'] = $this->securityPolicyId;
         }
         if (null !== $this->slbId) {
             $res['SlbId'] = $this->slbId;
@@ -173,8 +191,14 @@ class CreateIngressRequest extends Model
         if (isset($map['NamespaceId'])) {
             $model->namespaceId = $map['NamespaceId'];
         }
+        if (isset($map['RequestTimeout'])) {
+            $model->requestTimeout = $map['RequestTimeout'];
+        }
         if (isset($map['Rules'])) {
             $model->rules = $map['Rules'];
+        }
+        if (isset($map['SecurityPolicyId'])) {
+            $model->securityPolicyId = $map['SecurityPolicyId'];
         }
         if (isset($map['SlbId'])) {
             $model->slbId = $map['SlbId'];
