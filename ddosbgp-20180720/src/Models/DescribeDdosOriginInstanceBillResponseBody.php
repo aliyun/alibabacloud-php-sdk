@@ -12,6 +12,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeDdosOriginInstanceBillResponseBody extends Model
 {
     /**
+     * @var int
+     */
+    public $assetStatus;
+
+    /**
      * @description The payment status. Valid values:
      *
      *   **0**: The payment is not overdue.
@@ -152,6 +157,7 @@ class DescribeDdosOriginInstanceBillResponseBody extends Model
      */
     public $totalFlowOv;
     protected $_name = [
+        'assetStatus'               => 'AssetStatus',
         'debtStatus'                => 'DebtStatus',
         'flowList'                  => 'FlowList',
         'flowRegion'                => 'FlowRegion',
@@ -176,6 +182,9 @@ class DescribeDdosOriginInstanceBillResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->assetStatus) {
+            $res['AssetStatus'] = $this->assetStatus;
+        }
         if (null !== $this->debtStatus) {
             $res['DebtStatus'] = $this->debtStatus;
         }
@@ -251,6 +260,9 @@ class DescribeDdosOriginInstanceBillResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AssetStatus'])) {
+            $model->assetStatus = $map['AssetStatus'];
+        }
         if (isset($map['DebtStatus'])) {
             $model->debtStatus = $map['DebtStatus'];
         }
