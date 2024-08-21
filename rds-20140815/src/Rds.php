@@ -91,8 +91,12 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\CreateParameterGroupRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateParameterGroupResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreatePostgresExtensionsRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreatePostgresExtensionsResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\CreateRCDeploymentSetRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\CreateRCDeploymentSetResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateReadOnlyDBInstanceRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateReadOnlyDBInstanceResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\CreateReplicationLinkRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\CreateReplicationLinkResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateSecretRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateSecretResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateServiceLinkedRoleRequest;
@@ -132,6 +136,15 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteParameterGroupRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteParameterGroupResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DeletePostgresExtensionsRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DeletePostgresExtensionsResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteRCDeploymentSetRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteRCDeploymentSetResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteRCInstanceRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteRCInstanceResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteRCInstancesRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteRCInstancesResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteRCInstancesShrinkRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteReplicationLinkRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteReplicationLinkResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteSecretRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteSecretResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteSlotRequest;
@@ -333,6 +346,16 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\DescribePriceResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribePriceShrinkRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeQuickSaleConfigRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeQuickSaleConfigResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCDeploymentSetsRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCDeploymentSetsResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCImageListRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCImageListResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCInstanceAttributeRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCInstanceAttributeResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCInstancesRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCInstancesResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCMetricListRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCMetricListResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRdsResourceSettingsRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRdsResourceSettingsResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeReadDBInstanceDelayRequest;
@@ -343,6 +366,8 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRegionsResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRenewalPriceRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRenewalPriceResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeReplicationLinkLogsRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeReplicationLinkLogsResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeResourceDetailsRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeResourceDetailsResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeResourceUsageRequest;
@@ -513,6 +538,10 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyParameterRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyParameterResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyPGHbaConfigRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyPGHbaConfigResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyRCInstanceChargeTypeRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyRCInstanceChargeTypeResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyRCInstanceRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyRCInstanceResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyReadonlyInstanceDelayReplicationTimeRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyReadonlyInstanceDelayReplicationTimeResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyReadWriteSplittingConnectionRequest;
@@ -540,8 +569,12 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\QueryNotifyRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\QueryNotifyResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\QueryRecommendByCodeRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\QueryRecommendByCodeResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\RebootRCInstanceRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\RebootRCInstanceResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\RebuildDBInstanceRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\RebuildDBInstanceResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\RebuildReplicationLinkRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\RebuildReplicationLinkResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ReceiveDBInstanceRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ReceiveDBInstanceResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\RecoveryDBInstanceRequest;
@@ -560,6 +593,8 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\ResetAccountPasswordRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ResetAccountPasswordResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ResetAccountRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ResetAccountResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\ResizeRCInstanceDiskRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\ResizeRCInstanceDiskResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\RestartDBInstanceRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\RestartDBInstanceResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\RestoreDdrTableRequest;
@@ -570,16 +605,25 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\RevokeAccountPrivilegeRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\RevokeAccountPrivilegeResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\RevokeOperatorPermissionRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\RevokeOperatorPermissionResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\RunRCInstancesRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\RunRCInstancesResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\RunRCInstancesShrinkRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\StartDBInstanceRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\StartDBInstanceResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\StartRCInstanceRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\StartRCInstanceResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\StopDBInstanceRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\StopDBInstanceResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\StopRCInstanceRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\StopRCInstanceResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\SwitchDBInstanceHARequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\SwitchDBInstanceHAResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\SwitchDBInstanceNetTypeRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\SwitchDBInstanceNetTypeResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\SwitchDBInstanceVpcRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\SwitchDBInstanceVpcResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\SyncRCKeyPairRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\SyncRCKeyPairResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\TagResourcesResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\TerminateMigrateTaskRequest;
@@ -4343,6 +4387,71 @@ class Rds extends OpenApiClient
     }
 
     /**
+     * @summary 创建RDS CUSTOM部署集
+     *  *
+     * @param CreateRCDeploymentSetRequest $request CreateRCDeploymentSetRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateRCDeploymentSetResponse CreateRCDeploymentSetResponse
+     */
+    public function createRCDeploymentSetWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->deploymentSetName)) {
+            $query['DeploymentSetName'] = $request->deploymentSetName;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->groupCount)) {
+            $query['GroupCount'] = $request->groupCount;
+        }
+        if (!Utils::isUnset($request->onUnableToRedeployFailedInstance)) {
+            $query['OnUnableToRedeployFailedInstance'] = $request->onUnableToRedeployFailedInstance;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->strategy)) {
+            $query['Strategy'] = $request->strategy;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateRCDeploymentSet',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateRCDeploymentSetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建RDS CUSTOM部署集
+     *  *
+     * @param CreateRCDeploymentSetRequest $request CreateRCDeploymentSetRequest
+     *
+     * @return CreateRCDeploymentSetResponse CreateRCDeploymentSetResponse
+     */
+    public function createRCDeploymentSet($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createRCDeploymentSetWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Creates a read-only instance.
      *  *
      * @description ### Supported database engines
@@ -4512,6 +4621,83 @@ class Rds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createReadOnlyDBInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 创建复制链路
+     *  *
+     * @param CreateReplicationLinkRequest $request CreateReplicationLinkRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateReplicationLinkResponse CreateReplicationLinkResponse
+     */
+    public function createReplicationLinkWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->replicatorAccount)) {
+            $query['ReplicatorAccount'] = $request->replicatorAccount;
+        }
+        if (!Utils::isUnset($request->replicatorPassword)) {
+            $query['ReplicatorPassword'] = $request->replicatorPassword;
+        }
+        if (!Utils::isUnset($request->sourceAddress)) {
+            $query['SourceAddress'] = $request->sourceAddress;
+        }
+        if (!Utils::isUnset($request->sourceCategory)) {
+            $query['SourceCategory'] = $request->sourceCategory;
+        }
+        if (!Utils::isUnset($request->sourceInstanceName)) {
+            $query['SourceInstanceName'] = $request->sourceInstanceName;
+        }
+        if (!Utils::isUnset($request->sourceInstanceRegionId)) {
+            $query['SourceInstanceRegionId'] = $request->sourceInstanceRegionId;
+        }
+        if (!Utils::isUnset($request->sourcePort)) {
+            $query['SourcePort'] = $request->sourcePort;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        if (!Utils::isUnset($request->taskName)) {
+            $query['TaskName'] = $request->taskName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateReplicationLink',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateReplicationLinkResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建复制链路
+     *  *
+     * @param CreateReplicationLinkRequest $request CreateReplicationLinkRequest
+     *
+     * @return CreateReplicationLinkResponse CreateReplicationLinkResponse
+     */
+    public function createReplicationLink($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createReplicationLinkWithOptions($request, $runtime);
     }
 
     /**
@@ -5961,6 +6147,226 @@ class Rds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deletePostgresExtensionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 删除RDS CUSTOM部署集
+     *  *
+     * @param DeleteRCDeploymentSetRequest $request DeleteRCDeploymentSetRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteRCDeploymentSetResponse DeleteRCDeploymentSetResponse
+     */
+    public function deleteRCDeploymentSetWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deploymentSetId)) {
+            $query['DeploymentSetId'] = $request->deploymentSetId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteRCDeploymentSet',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteRCDeploymentSetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除RDS CUSTOM部署集
+     *  *
+     * @param DeleteRCDeploymentSetRequest $request DeleteRCDeploymentSetRequest
+     *
+     * @return DeleteRCDeploymentSetResponse DeleteRCDeploymentSetResponse
+     */
+    public function deleteRCDeploymentSet($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteRCDeploymentSetWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 删除RDS用户专属主机实例
+     *  *
+     * @param DeleteRCInstanceRequest $request DeleteRCInstanceRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteRCInstanceResponse DeleteRCInstanceResponse
+     */
+    public function deleteRCInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->force)) {
+            $query['Force'] = $request->force;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteRCInstance',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteRCInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除RDS用户专属主机实例
+     *  *
+     * @param DeleteRCInstanceRequest $request DeleteRCInstanceRequest
+     *
+     * @return DeleteRCInstanceResponse DeleteRCInstanceResponse
+     */
+    public function deleteRCInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteRCInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 批量删除RDS用户专属主机实例
+     *  *
+     * @param DeleteRCInstancesRequest $tmpReq  DeleteRCInstancesRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteRCInstancesResponse DeleteRCInstancesResponse
+     */
+    public function deleteRCInstancesWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DeleteRCInstancesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->instanceId)) {
+            $request->instanceIdShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->instanceId, 'InstanceId', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->force)) {
+            $query['Force'] = $request->force;
+        }
+        if (!Utils::isUnset($request->instanceIdShrink)) {
+            $query['InstanceId'] = $request->instanceIdShrink;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->terminateSubscription)) {
+            $query['TerminateSubscription'] = $request->terminateSubscription;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteRCInstances',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteRCInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 批量删除RDS用户专属主机实例
+     *  *
+     * @param DeleteRCInstancesRequest $request DeleteRCInstancesRequest
+     *
+     * @return DeleteRCInstancesResponse DeleteRCInstancesResponse
+     */
+    public function deleteRCInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteRCInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 删除复制链路
+     *  *
+     * @param DeleteReplicationLinkRequest $request DeleteReplicationLinkRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteReplicationLinkResponse DeleteReplicationLinkResponse
+     */
+    public function deleteReplicationLinkWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->promoteToMaster)) {
+            $query['PromoteToMaster'] = $request->promoteToMaster;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteReplicationLink',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteReplicationLinkResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除复制链路
+     *  *
+     * @param DeleteReplicationLinkRequest $request DeleteReplicationLinkRequest
+     *
+     * @return DeleteReplicationLinkResponse DeleteReplicationLinkResponse
+     */
+    public function deleteReplicationLink($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteReplicationLinkWithOptions($request, $runtime);
     }
 
     /**
@@ -13855,6 +14261,241 @@ class Rds extends OpenApiClient
     }
 
     /**
+     * @summary 描述RDS CUSTOM部署集
+     *  *
+     * @param DescribeRCDeploymentSetsRequest $request DescribeRCDeploymentSetsRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeRCDeploymentSetsResponse DescribeRCDeploymentSetsResponse
+     */
+    public function describeRCDeploymentSetsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRCDeploymentSets',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeRCDeploymentSetsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 描述RDS CUSTOM部署集
+     *  *
+     * @param DescribeRCDeploymentSetsRequest $request DescribeRCDeploymentSetsRequest
+     *
+     * @return DescribeRCDeploymentSetsResponse DescribeRCDeploymentSetsResponse
+     */
+    public function describeRCDeploymentSets($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRCDeploymentSetsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询镜像资源
+     *  *
+     * @param DescribeRCImageListRequest $request DescribeRCImageListRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeRCImageListResponse DescribeRCImageListResponse
+     */
+    public function describeRCImageListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRCImageList',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeRCImageListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询镜像资源
+     *  *
+     * @param DescribeRCImageListRequest $request DescribeRCImageListRequest
+     *
+     * @return DescribeRCImageListResponse DescribeRCImageListResponse
+     */
+    public function describeRCImageList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRCImageListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询RDS用户专属主机实例
+     *  *
+     * @param DescribeRCInstanceAttributeRequest $request DescribeRCInstanceAttributeRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeRCInstanceAttributeResponse DescribeRCInstanceAttributeResponse
+     */
+    public function describeRCInstanceAttributeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRCInstanceAttribute',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeRCInstanceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询RDS用户专属主机实例
+     *  *
+     * @param DescribeRCInstanceAttributeRequest $request DescribeRCInstanceAttributeRequest
+     *
+     * @return DescribeRCInstanceAttributeResponse DescribeRCInstanceAttributeResponse
+     */
+    public function describeRCInstanceAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRCInstanceAttributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询RC实例列表
+     *  *
+     * @param DescribeRCInstancesRequest $request DescribeRCInstancesRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeRCInstancesResponse DescribeRCInstancesResponse
+     */
+    public function describeRCInstancesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRCInstances',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeRCInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询RC实例列表
+     *  *
+     * @param DescribeRCInstancesRequest $request DescribeRCInstancesRequest
+     *
+     * @return DescribeRCInstancesResponse DescribeRCInstancesResponse
+     */
+    public function describeRCInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRCInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询指定云产品的指定监控项的监控数据
+     *  *
+     * @param DescribeRCMetricListRequest $request DescribeRCMetricListRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeRCMetricListResponse DescribeRCMetricListResponse
+     */
+    public function describeRCMetricListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRCMetricList',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeRCMetricListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询指定云产品的指定监控项的监控数据
+     *  *
+     * @param DescribeRCMetricListRequest $request DescribeRCMetricListRequest
+     *
+     * @return DescribeRCMetricListResponse DescribeRCMetricListResponse
+     */
+    public function describeRCMetricList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRCMetricListWithOptions($request, $runtime);
+    }
+
+    /**
      * @deprecated OpenAPI DescribeRdsResourceSettings is deprecated
      *  *
      * @summary This operation is deprecated.
@@ -14226,6 +14867,68 @@ class Rds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeRenewalPriceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询复制链路操作日志
+     *  *
+     * @param DescribeReplicationLinkLogsRequest $request DescribeReplicationLinkLogsRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeReplicationLinkLogsResponse DescribeReplicationLinkLogsResponse
+     */
+    public function describeReplicationLinkLogsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        if (!Utils::isUnset($request->taskName)) {
+            $query['TaskName'] = $request->taskName;
+        }
+        if (!Utils::isUnset($request->taskType)) {
+            $query['TaskType'] = $request->taskType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeReplicationLinkLogs',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeReplicationLinkLogsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询复制链路操作日志
+     *  *
+     * @param DescribeReplicationLinkLogsRequest $request DescribeReplicationLinkLogsRequest
+     *
+     * @return DescribeReplicationLinkLogsResponse DescribeReplicationLinkLogsResponse
+     */
+    public function describeReplicationLinkLogs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeReplicationLinkLogsWithOptions($request, $runtime);
     }
 
     /**
@@ -21196,6 +21899,130 @@ class Rds extends OpenApiClient
     }
 
     /**
+     * @summary ModifyRCInstance
+     *  *
+     * @param ModifyRCInstanceRequest $request ModifyRCInstanceRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyRCInstanceResponse ModifyRCInstanceResponse
+     */
+    public function modifyRCInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->autoPay)) {
+            $query['AutoPay'] = $request->autoPay;
+        }
+        if (!Utils::isUnset($request->direction)) {
+            $query['Direction'] = $request->direction;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->instanceType)) {
+            $query['InstanceType'] = $request->instanceType;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyRCInstance',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyRCInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary ModifyRCInstance
+     *  *
+     * @param ModifyRCInstanceRequest $request ModifyRCInstanceRequest
+     *
+     * @return ModifyRCInstanceResponse ModifyRCInstanceResponse
+     */
+    public function modifyRCInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyRCInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 修改RDS用户专属主机实例付费类型
+     *  *
+     * @param ModifyRCInstanceChargeTypeRequest $request ModifyRCInstanceChargeTypeRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyRCInstanceChargeTypeResponse ModifyRCInstanceChargeTypeResponse
+     */
+    public function modifyRCInstanceChargeTypeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->autoPay)) {
+            $query['AutoPay'] = $request->autoPay;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->includeDataDisks)) {
+            $query['IncludeDataDisks'] = $request->includeDataDisks;
+        }
+        if (!Utils::isUnset($request->instanceChargeType)) {
+            $query['InstanceChargeType'] = $request->instanceChargeType;
+        }
+        if (!Utils::isUnset($request->instanceIds)) {
+            $query['InstanceIds'] = $request->instanceIds;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyRCInstanceChargeType',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyRCInstanceChargeTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 修改RDS用户专属主机实例付费类型
+     *  *
+     * @param ModifyRCInstanceChargeTypeRequest $request ModifyRCInstanceChargeTypeRequest
+     *
+     * @return ModifyRCInstanceChargeTypeResponse ModifyRCInstanceChargeTypeResponse
+     */
+    public function modifyRCInstanceChargeType($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyRCInstanceChargeTypeWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Modifies the latency threshold of the read/write splitting link and the read weights of a primary instance and its read-only instances.
      *  *
      * @description ### [](#)Supported database engines
@@ -22247,6 +23074,62 @@ class Rds extends OpenApiClient
     }
 
     /**
+     * @summary 重启RDS用户专属主机实例
+     *  *
+     * @param RebootRCInstanceRequest $request RebootRCInstanceRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return RebootRCInstanceResponse RebootRCInstanceResponse
+     */
+    public function rebootRCInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->forceStop)) {
+            $query['ForceStop'] = $request->forceStop;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RebootRCInstance',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RebootRCInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 重启RDS用户专属主机实例
+     *  *
+     * @param RebootRCInstanceRequest $request RebootRCInstanceRequest
+     *
+     * @return RebootRCInstanceResponse RebootRCInstanceResponse
+     */
+    public function rebootRCInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->rebootRCInstanceWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Rebuilds the secondary instance of a primary instance in a dedicated cluster.
      *  *
      * @description Dedicated clusters allow you to manage a number of instances at a time. You can create multiple dedicated clusters in a single region. Each dedicated cluster consists of multiple hosts. You can create multiple instances on each host. For more information, see [What is ApsaraDB MyBase?](https://help.aliyun.com/document_detail/141455.html)
@@ -22316,6 +23199,59 @@ class Rds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->rebuildDBInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Re-creates a data synchronization link for a disaster recovery ApsaraDB RDS instance.
+     *  *
+     * @description ### [](#)Supported database engine
+     * *   PostgreSQL
+     *  *
+     * @param RebuildReplicationLinkRequest $request RebuildReplicationLinkRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return RebuildReplicationLinkResponse RebuildReplicationLinkResponse
+     */
+    public function rebuildReplicationLinkWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RebuildReplicationLink',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RebuildReplicationLinkResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Re-creates a data synchronization link for a disaster recovery ApsaraDB RDS instance.
+     *  *
+     * @description ### [](#)Supported database engine
+     * *   PostgreSQL
+     *  *
+     * @param RebuildReplicationLinkRequest $request RebuildReplicationLinkRequest
+     *
+     * @return RebuildReplicationLinkResponse RebuildReplicationLinkResponse
+     */
+    public function rebuildReplicationLink($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->rebuildReplicationLinkWithOptions($request, $runtime);
     }
 
     /**
@@ -23106,6 +24042,68 @@ class Rds extends OpenApiClient
     }
 
     /**
+     * @summary ResizeRCInstanceDisk
+     *  *
+     * @param ResizeRCInstanceDiskRequest $request ResizeRCInstanceDiskRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ResizeRCInstanceDiskResponse ResizeRCInstanceDiskResponse
+     */
+    public function resizeRCInstanceDiskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->autoPay)) {
+            $query['AutoPay'] = $request->autoPay;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->newSize)) {
+            $query['NewSize'] = $request->newSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ResizeRCInstanceDisk',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ResizeRCInstanceDiskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary ResizeRCInstanceDisk
+     *  *
+     * @param ResizeRCInstanceDiskRequest $request ResizeRCInstanceDiskRequest
+     *
+     * @return ResizeRCInstanceDiskResponse ResizeRCInstanceDiskResponse
+     */
+    public function resizeRCInstanceDisk($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->resizeRCInstanceDiskWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Restarts an instance.
      *  *
      * @description ### Supported database engines
@@ -23546,6 +24544,130 @@ class Rds extends OpenApiClient
     }
 
     /**
+     * @summary 创建RDS用户专属主机实例
+     *  *
+     * @param RunRCInstancesRequest $tmpReq  RunRCInstancesRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return RunRCInstancesResponse RunRCInstancesResponse
+     */
+    public function runRCInstancesWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new RunRCInstancesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->dataDisk)) {
+            $request->dataDiskShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->dataDisk, 'DataDisk', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->systemDisk)) {
+            $request->systemDiskShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->systemDisk, 'SystemDisk', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->amount)) {
+            $query['Amount'] = $request->amount;
+        }
+        if (!Utils::isUnset($request->autoPay)) {
+            $query['AutoPay'] = $request->autoPay;
+        }
+        if (!Utils::isUnset($request->autoRenew)) {
+            $query['AutoRenew'] = $request->autoRenew;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dataDiskShrink)) {
+            $query['DataDisk'] = $request->dataDiskShrink;
+        }
+        if (!Utils::isUnset($request->deploymentSetId)) {
+            $query['DeploymentSetId'] = $request->deploymentSetId;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->imageId)) {
+            $query['ImageId'] = $request->imageId;
+        }
+        if (!Utils::isUnset($request->instanceChargeType)) {
+            $query['InstanceChargeType'] = $request->instanceChargeType;
+        }
+        if (!Utils::isUnset($request->instanceName)) {
+            $query['InstanceName'] = $request->instanceName;
+        }
+        if (!Utils::isUnset($request->instanceType)) {
+            $query['InstanceType'] = $request->instanceType;
+        }
+        if (!Utils::isUnset($request->internetChargeType)) {
+            $query['InternetChargeType'] = $request->internetChargeType;
+        }
+        if (!Utils::isUnset($request->internetMaxBandwidthOut)) {
+            $query['InternetMaxBandwidthOut'] = $request->internetMaxBandwidthOut;
+        }
+        if (!Utils::isUnset($request->ioOptimized)) {
+            $query['IoOptimized'] = $request->ioOptimized;
+        }
+        if (!Utils::isUnset($request->keyPairName)) {
+            $query['KeyPairName'] = $request->keyPairName;
+        }
+        if (!Utils::isUnset($request->password)) {
+            $query['Password'] = $request->password;
+        }
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
+        }
+        if (!Utils::isUnset($request->periodUnit)) {
+            $query['PeriodUnit'] = $request->periodUnit;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->securityEnhancementStrategy)) {
+            $query['SecurityEnhancementStrategy'] = $request->securityEnhancementStrategy;
+        }
+        if (!Utils::isUnset($request->securityGroupId)) {
+            $query['SecurityGroupId'] = $request->securityGroupId;
+        }
+        if (!Utils::isUnset($request->systemDiskShrink)) {
+            $query['SystemDisk'] = $request->systemDiskShrink;
+        }
+        if (!Utils::isUnset($request->vSwitchId)) {
+            $query['VSwitchId'] = $request->vSwitchId;
+        }
+        if (!Utils::isUnset($request->zoneId)) {
+            $query['ZoneId'] = $request->zoneId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RunRCInstances',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RunRCInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建RDS用户专属主机实例
+     *  *
+     * @param RunRCInstancesRequest $request RunRCInstancesRequest
+     *
+     * @return RunRCInstancesResponse RunRCInstancesResponse
+     */
+    public function runRCInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->runRCInstancesWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Resumes an instance.
      *  *
      * @description ### Supported database engines
@@ -23661,6 +24783,56 @@ class Rds extends OpenApiClient
     }
 
     /**
+     * @summary 启动RDS用户专属主机实例
+     *  *
+     * @param StartRCInstanceRequest $request StartRCInstanceRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return StartRCInstanceResponse StartRCInstanceResponse
+     */
+    public function startRCInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StartRCInstance',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return StartRCInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 启动RDS用户专属主机实例
+     *  *
+     * @param StartRCInstanceRequest $request StartRCInstanceRequest
+     *
+     * @return StartRCInstanceResponse StartRCInstanceResponse
+     */
+    public function startRCInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->startRCInstanceWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Suspends an ApsaraDB RDS instance.
      *  *
      * @description ### Supported database engines
@@ -23737,6 +24909,59 @@ class Rds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->stopDBInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 停止RDS用户专属主机实例
+     *  *
+     * @param StopRCInstanceRequest $request StopRCInstanceRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return StopRCInstanceResponse StopRCInstanceResponse
+     */
+    public function stopRCInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->forceStop)) {
+            $query['ForceStop'] = $request->forceStop;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StopRCInstance',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return StopRCInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 停止RDS用户专属主机实例
+     *  *
+     * @param StopRCInstanceRequest $request StopRCInstanceRequest
+     *
+     * @return StopRCInstanceResponse StopRCInstanceResponse
+     */
+    public function stopRCInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->stopRCInstanceWithOptions($request, $runtime);
     }
 
     /**
@@ -24001,6 +25226,56 @@ class Rds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->switchDBInstanceVpcWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 同步密钥对
+     *  *
+     * @param SyncRCKeyPairRequest $request SyncRCKeyPairRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return SyncRCKeyPairResponse SyncRCKeyPairResponse
+     */
+    public function syncRCKeyPairWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->keyPairName)) {
+            $query['KeyPairName'] = $request->keyPairName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SyncRCKeyPair',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SyncRCKeyPairResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 同步密钥对
+     *  *
+     * @param SyncRCKeyPairRequest $request SyncRCKeyPairRequest
+     *
+     * @return SyncRCKeyPairResponse SyncRCKeyPairResponse
+     */
+    public function syncRCKeyPair($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->syncRCKeyPairWithOptions($request, $runtime);
     }
 
     /**

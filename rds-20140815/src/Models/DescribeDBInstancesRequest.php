@@ -138,10 +138,10 @@ class DescribeDBInstancesRequest extends Model
     public $engineVersion;
 
     /**
-     * @description Specifies whether to query instances that have expired. Valid values:
+     * @description Specifies whether the instances have expired. Valid values:
      *
-     *   **True**: queries instances that have expired.
-     *   **False**: does not query instances that have expired.
+     *   **True**
+     *   **False**
      *
      * @example True
      *
@@ -215,7 +215,7 @@ class DescribeDBInstancesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The page number. Valid values: any non-zero positive integer.
+     * @description The page number. Pages start from 1.
      *
      * Default value: **1**.
      * @example 1

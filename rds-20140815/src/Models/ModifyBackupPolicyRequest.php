@@ -177,7 +177,7 @@ class ModifyBackupPolicyRequest extends Model
      * @description Specifies whether to enable the log backup feature. Valid values:
      *
      *   **True** or **1**: enables the log backup feature.
-     *   **False** or **0**: enables the log backup feature.
+     *   **False** or **0**: disables the log backup feature.
      *
      * > *   You must specify this parameter when you set the **BackupPolicyMode** parameter to **LogBackupPolicy**.
      * > *   This parameter takes effect only when you set the **BackupPolicyMode** parameter to **LogBackupPolicy**.
@@ -204,8 +204,8 @@ class ModifyBackupPolicyRequest extends Model
     /**
      * @description Specifies whether to forcefully delete log backup files from the instance when the storage usage of the instance exceeds 80% or the amount of remaining storage on the instance is less than 5 GB. Valid values: **Enable and Disable**. You can retain the default value.
      *
-     * > *   This parameter must be specified when **BackupPolicyMode** is set to **LogBackupPolicy**.
-     * > *   This parameter takes effect only when **BackupPolicyMode** is set to **LogBackupPolicy**.
+     * > *   You must specify this parameter when you set the **BackupPolicyMode** parameter to **LogBackupPolicy**.
+     * > *   This parameter takes effect only when you set the **BackupPolicyMode** parameter to **LogBackupPolicy**.
      * @example Enable
      *
      * @var string
@@ -252,7 +252,7 @@ class ModifyBackupPolicyRequest extends Model
      * @description The number of binary log files that you want to retain on the instance. Default value: **60**. Valid values: **6** to **100**.
      *
      * > *   This parameter takes effect only when you set the **BackupPolicyMode** parameter to **LogBackupPolicy**.
-     * > *   If the instance runs MySQL, you can set this parameter to **-1**. The value **-1** specifies that an unlimited number of binary log files can be retained on the instance.
+     * > *   If the instance runs MySQL, you can set this parameter to \\*\\*-1\\*\\*. The value \\*\\*-1\\*\\* specifies that an unlimited number of binary log files can be retained on the instance.
      * @example 60
      *
      * @var int
@@ -312,13 +312,14 @@ class ModifyBackupPolicyRequest extends Model
     public $preferredBackupTime;
 
     /**
-     * @description The policy that is used to retain archived backup files if the instance is released. Default value: None. Valid values:
+     * @description The policy that is used to retain archived backup files if the instance is released. Valid values:
      *
      *   **None**: No archived backup files are retained.
      *   **Lastest**: Only the last archived backup file is retained.
      *   **All**: All archived backup files are retained.
      *
-     * > This parameter takes effect only when **BackupPolicyMode** is set to **DataBackupPolicy**.
+     * > *   This parameter takes effect only when you set the **BackupPolicyMode** parameter to **DataBackupPolicy**.
+     * > *   If the instance uses cloud disks and was created on or after February 1, 2024, this parameter is automatically set to **Lastest**. If the instance uses local disks in the same scenario, this parameter is automatically set to **None**. For more information, see [Backup for deleted instances](https://help.aliyun.com/document_detail/2836955.html).
      * @example None
      *
      * @var string
