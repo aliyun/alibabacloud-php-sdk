@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteContactResponseBody extends Model
 {
     /**
+     * @description Indicates whether the alert contact is deleted. Valid values:
+     *
+     *   `true`: The alert contact is deleted.
+     *   `false`: The alert contact is not deleted.
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +21,8 @@ class DeleteContactResponseBody extends Model
     public $isSuccess;
 
     /**
+     * @description The ID of the request.
+     *
      * @example C21AB7CF-B7AF-410F-BD61-82D1567F****
      *
      * @var string

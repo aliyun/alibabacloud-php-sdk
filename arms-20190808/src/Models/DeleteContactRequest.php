@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteContactRequest extends Model
 {
     /**
-     * @description The operation that you want to perform. Set the value to **DeleteContact**.
+     * @description The ID of the alert contact.
      *
      * This parameter is required.
      * @example 123

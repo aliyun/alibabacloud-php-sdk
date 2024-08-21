@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ChangeAlarmSeverityResponseBody extends Model
 {
     /**
+     * @description The HTTP status code. The status code 200 indicates that the request was successful.
+     *
      * @example 200
      *
      * @var int
@@ -16,6 +18,8 @@ class ChangeAlarmSeverityResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned message.
+     *
      * @example success
      *
      * @var string
@@ -23,6 +27,8 @@ class ChangeAlarmSeverityResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example F7781D4A-2818-41E7-B7BB-79D809E9****
      *
      * @var string
@@ -30,6 +36,9 @@ class ChangeAlarmSeverityResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the severity level was modified.
+     *
+     * - `false`: The severity level failed to be modified.
      * @example true
      *
      * @var bool
@@ -37,6 +46,9 @@ class ChangeAlarmSeverityResponseBody extends Model
     public $result;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     * - false
      * @example true
      *
      * @var bool

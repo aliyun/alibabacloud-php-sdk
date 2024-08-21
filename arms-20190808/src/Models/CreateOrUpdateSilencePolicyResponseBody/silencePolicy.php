@@ -40,7 +40,7 @@ class silencePolicy extends Model
     public $name;
 
     /**
-     * @description Indicates whether the silence policy is enabled. Valid values: enable and disable.
+     * @description Specifies whether to enable the silence policy. Valid values: enable and disable.
      *
      * @example enable
      *

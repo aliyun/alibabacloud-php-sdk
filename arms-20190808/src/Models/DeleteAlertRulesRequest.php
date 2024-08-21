@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteAlertRulesRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The IDs of the alert rules that you want to delete. The value is a JSON array, for example, `[123, 234]`. You can call the SearchAlertRules operation and view the `Id` parameter in the response to obtain the alert rule ID. For more information, see [SearchAlertRules](https://help.aliyun.com/document_detail/175825.html).
      *
+     * This parameter is required.
      * @example [123, 234]
      *
      * @var string
@@ -18,8 +19,9 @@ class DeleteAlertRulesRequest extends Model
     public $alertIds;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID. Default value: `cn-hangzhou`.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

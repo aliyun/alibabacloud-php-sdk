@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ID of the synthetic monitoring task.
+     *
      * @example 1234
      *
      * @var int

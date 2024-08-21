@@ -9,22 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateDispatchRuleRequest extends Model
 {
     /**
-     * @description ## Additional information about the **DispatchRule** parameter
-     *
-     **JSON string example and description**
-     *
-     * ```
-     *
-     **Enumerated keys of the tag of the dispatch rule**
-     *
-     *   `_aliyun_arms_userid`: user ID
-     *   `_aliyun_arms_involvedObject_kind`: type of the associated object
-     *   `_aliyun_arms_involvedObject_id`: ID of the associated object
-     *   `_aliyun_arms_involvedObject_name`: name of the associated object
-     *   `_aliyun_arms_alert_name`: alert name
-     *   `_aliyun_arms_alert_rule_id`: alert rule ID
-     *   `_aliyun_arms_alert_type`: alert type
-     *   `_aliyun_arms_alert_level`: alert severity
+     * @description The dispatch rule configuration. The value is a JSON string. For more information about this parameter, see the following **additional information about the DispatchRule parameter**.
      *
      * This parameter is required.
      * @example {   "id": 123,     "system": false,   "ruleid": 10282,   "name": "Prometheus Alert",   "labelMatchExpressionGrid": {     "labelMatchExpressionGroups": [       {         "labelMatchExpressions": [           {             "key": "_aliyun_arms_involvedObject_kind",             "value": "app",             "operator": "eq"           }         ]       }     ]   },   "dispatchType": "CREATE_ALERT/DISCARD_ALERT",   "isRecover": true,   "groupRules": [     {       "groupId": 1,       "groupingFields": [         "alertname"       ],       "groupWait": 10,       "groupInterval": 15,       "repeatInterval": 20     }   ],   "notifyRules": [     {       "notifyObjects": [         {           "notifyType": "ARMS_CONTACT",           "name": "JohnDoe",           "notifyObjectId": 1         },         {           "notifyType": "ARMS_CONTACT_GROUP",           "name": "JohnDoe_group",           "notifyObjectId": 2         }       ],       "notifyChannels":["dingTalk","wechat","webhook","email"]     },   ], }
@@ -34,8 +19,9 @@ class UpdateDispatchRuleRequest extends Model
     public $dispatchRule;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the region.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

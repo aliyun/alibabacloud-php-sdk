@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteDispatchRuleResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 16AF921B-8187-489F-9913-43C808B4****
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteDispatchRuleResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values: true and false.
+     *
      * @example true
      *
      * @var bool

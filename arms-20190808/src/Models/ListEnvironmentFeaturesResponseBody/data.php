@@ -73,7 +73,7 @@ class data extends Model
     public $latestVersion;
 
     /**
-     * @description Whether hosted scenario.
+     * @description Indicates whether the component is fully managed.
      *
      * @example true
      *

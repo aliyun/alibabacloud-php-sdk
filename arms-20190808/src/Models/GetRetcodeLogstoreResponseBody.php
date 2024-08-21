@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetRetcodeLogstoreResponseBody extends Model
 {
     /**
+     * @description The returned struct.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 1A9C645C-C83F-4C9D-8CCB-29BEC9E1****
      *
      * @var string

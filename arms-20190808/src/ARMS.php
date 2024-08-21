@@ -1789,6 +1789,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
+     * @summary Creates an alert contact group.
+     *  *
+     * @description ************
+     *  *
      * @param CreateAlertContactGroupRequest $request CreateAlertContactGroupRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -1826,6 +1830,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
+     * @summary Creates an alert contact group.
+     *  *
+     * @description ************
+     *  *
      * @param CreateAlertContactGroupRequest $request CreateAlertContactGroupRequest
      *
      * @return CreateAlertContactGroupResponse CreateAlertContactGroupResponse
@@ -1838,7 +1846,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary The operation that you want to perform. Set the value to CreateDispatchRule.
+     * @summary Creates a dispatch policy.
      *  *
      * @param CreateDispatchRuleRequest $request CreateDispatchRuleRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -1874,7 +1882,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary The operation that you want to perform. Set the value to CreateDispatchRule.
+     * @summary Creates a dispatch policy.
      *  *
      * @param CreateDispatchRuleRequest $request CreateDispatchRuleRequest
      *
@@ -3369,7 +3377,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 创建或更新云拨测定时监控任务
+     * @summary Creates or updates a synthetic monitoring task.
      *  *
      * @param CreateSyntheticTaskRequest $tmpReq  CreateSyntheticTaskRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -3467,7 +3475,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 创建或更新云拨测定时监控任务
+     * @summary Creates or updates a synthetic monitoring task.
      *  *
      * @param CreateSyntheticTaskRequest $request CreateSyntheticTaskRequest
      *
@@ -3909,6 +3917,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
+     * @summary Deletes alert rules.
+     *  *
+     * @description The current operation is no longer maintained. Call the DeleteAlertRule operation of Alert Management (New) to delete alert rules.
+     *  *
      * @param DeleteAlertRulesRequest $request DeleteAlertRulesRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -3943,6 +3955,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
+     * @summary Deletes alert rules.
+     *  *
+     * @description The current operation is no longer maintained. Call the DeleteAlertRule operation of Alert Management (New) to delete alert rules.
+     *  *
      * @param DeleteAlertRulesRequest $request DeleteAlertRulesRequest
      *
      * @return DeleteAlertRulesResponse DeleteAlertRulesResponse
@@ -4063,7 +4079,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary The ID of the request.
+     * @summary Deletes alert contacts.
      *  *
      * @param DeleteContactRequest $request DeleteContactRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -4096,7 +4112,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary The ID of the request.
+     * @summary Deletes alert contacts.
      *  *
      * @param DeleteContactRequest $request DeleteContactRequest
      *
@@ -4157,6 +4173,8 @@ class ARMS extends OpenApiClient
     }
 
     /**
+     * @summary Deletes the dispatch policy of a specified ID.
+     *  *
      * @param DeleteDispatchRuleRequest $request DeleteDispatchRuleRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -4191,6 +4209,8 @@ class ARMS extends OpenApiClient
     }
 
     /**
+     * @summary Deletes the dispatch policy of a specified ID.
+     *  *
      * @param DeleteDispatchRuleRequest $request DeleteDispatchRuleRequest
      *
      * @return DeleteDispatchRuleResponse DeleteDispatchRuleResponse
@@ -4576,9 +4596,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 释放工作区
+     * @summary Deletes a Managed Service for Prometheus workspace.
      *  *
-     * @description >  You can delete workspaces only in Managed Service for Prometheus Beta Edition, which is `free of charge`.
+     * @description *   You can delete workspaces only in Managed Service for Prometheus Beta Edition, which is `free of charge`.
+     * *   You cannot delete workspaces in Managed Service for Prometheus Developer Edition, Pro Edition, and Advanced Edition. You can go to the [User Center](https://usercenter2.aliyun.com/refund/refund) to unsubscribe from workspaces.
      *  *
      * @param DeleteGrafanaWorkspaceRequest $request DeleteGrafanaWorkspaceRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -4614,9 +4635,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 释放工作区
+     * @summary Deletes a Managed Service for Prometheus workspace.
      *  *
-     * @description >  You can delete workspaces only in Managed Service for Prometheus Beta Edition, which is `free of charge`.
+     * @description *   You can delete workspaces only in Managed Service for Prometheus Beta Edition, which is `free of charge`.
+     * *   You cannot delete workspaces in Managed Service for Prometheus Developer Edition, Pro Edition, and Advanced Edition. You can go to the [User Center](https://usercenter2.aliyun.com/refund/refund) to unsubscribe from workspaces.
      *  *
      * @param DeleteGrafanaWorkspaceRequest $request DeleteGrafanaWorkspaceRequest
      *
@@ -5097,7 +5119,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 删除前端监控应用
+     * @summary Deletes a RUM application.
      *  *
      * @param DeleteRumAppRequest $request DeleteRumAppRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
@@ -5136,7 +5158,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 删除前端监控应用
+     * @summary Deletes a RUM application.
      *  *
      * @param DeleteRumAppRequest $request DeleteRumAppRequest
      *
@@ -7580,7 +7602,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 获取前端监控应用SLS存储的详细信息
+     * @summary Queries the Log Service project and Logstore that correspond to an application of browser monitoring.
      *  *
      * @param GetRetcodeLogstoreRequest $request GetRetcodeLogstoreRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -7616,7 +7638,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 获取前端监控应用SLS存储的详细信息
+     * @summary Queries the Log Service project and Logstore that correspond to an application of browser monitoring.
      *  *
      * @param GetRetcodeLogstoreRequest $request GetRetcodeLogstoreRequest
      *
@@ -7805,7 +7827,9 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 获取前端监控应用sql查询分页结果
+     * @summary Queries Real User Monitoring (RUM) data by page.
+     *  *
+     * @description Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
      *  *
      * @param GetRumDataForPageRequest $request GetRumDataForPageRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -7859,7 +7883,9 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 获取前端监控应用sql查询分页结果
+     * @summary Queries Real User Monitoring (RUM) data by page.
+     *  *
+     * @description Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
      *  *
      * @param GetRumDataForPageRequest $request GetRumDataForPageRequest
      *
@@ -7873,7 +7899,9 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 获取RUM异常堆栈
+     * @summary Queries the exception stack information of a Real User Monitoring (RUM) application.
+     *  *
+     * @description Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
      *  *
      * @param GetRumExceptionStackRequest $request GetRumExceptionStackRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -7921,7 +7949,9 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 获取RUM异常堆栈
+     * @summary Queries the exception stack information of a Real User Monitoring (RUM) application.
+     *  *
+     * @description Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
      *  *
      * @param GetRumExceptionStackRequest $request GetRumExceptionStackRequest
      *
@@ -8345,7 +8375,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 获取拨测任务的监测点信息
+     * @summary Obtains the information about synthetic monitoring points.
      *  *
      * @param GetSyntheticTaskMonitorsRequest $request GetSyntheticTaskMonitorsRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -8378,7 +8408,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 获取拨测任务的监测点信息
+     * @summary Obtains the information about synthetic monitoring points.
      *  *
      * @param GetSyntheticTaskMonitorsRequest $request GetSyntheticTaskMonitorsRequest
      *
@@ -10052,7 +10082,9 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 获取指定工作区列表
+     * @summary Obtain Specified Workspace List
+     *  *
+     * @description >The list returned by this operation includes the workspaces of Developer Edition, Expert Edition, and Advanced Edition. The list does not include the workspaces of Shared Edition.
      *  *
      * @param ListGrafanaWorkspaceRequest $tmpReq  ListGrafanaWorkspaceRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -10099,7 +10131,9 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 获取指定工作区列表
+     * @summary Obtain Specified Workspace List
+     *  *
+     * @description >The list returned by this operation includes the workspaces of Developer Edition, Expert Edition, and Advanced Edition. The list does not include the workspaces of Shared Edition.
      *  *
      * @param ListGrafanaWorkspaceRequest $request ListGrafanaWorkspaceRequest
      *
@@ -10172,7 +10206,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries alert integrations.
+     * @summary Views a list of alert integrations.
      *  *
      * @param ListIntegrationRequest $request ListIntegrationRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -10202,7 +10236,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries alert integrations.
+     * @summary Views a list of alert integrations.
      *  *
      * @param ListIntegrationRequest $request ListIntegrationRequest
      *
@@ -10390,7 +10424,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary The available memory on node {{ $labels.instance }} is less than 10%. Available memory: {{ $value }}%
+     * @summary Queries the alert templates of Prometheus Service.
      *  *
      * @param ListPrometheusAlertTemplatesRequest $request ListPrometheusAlertTemplatesRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
@@ -10426,7 +10460,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary The available memory on node {{ $labels.instance }} is less than 10%. Available memory: {{ $value }}%
+     * @summary Queries the alert templates of Prometheus Service.
      *  *
      * @param ListPrometheusAlertTemplatesRequest $request ListPrometheusAlertTemplatesRequest
      *
@@ -10870,7 +10904,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 查询拨测明细列表
+     * @summary Obtains the results of one or more synthetic tests.
      *  *
      * @param ListSyntheticDetailRequest $tmpReq  ListSyntheticDetailRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -10911,7 +10945,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 查询拨测明细列表
+     * @summary Obtains the results of one or more synthetic tests.
      *  *
      * @param ListSyntheticDetailRequest $request ListSyntheticDetailRequest
      *
@@ -11687,7 +11721,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary QueryReleaseMetric
+     * @summary Queries the metrics that are provided for different versions of a specified Enterprise Distributed Application Service (EDAS) or Kubernetes application.
      *  *
      * @param QueryReleaseMetricRequest $request QueryReleaseMetricRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -11741,7 +11775,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary QueryReleaseMetric
+     * @summary Queries the metrics that are provided for different versions of a specified Enterprise Distributed Application Service (EDAS) or Kubernetes application.
      *  *
      * @param QueryReleaseMetricRequest $request QueryReleaseMetricRequest
      *
@@ -13512,7 +13546,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary The ID of the request.
+     * @summary Modifies a dispatch policy.
      *  *
      * @param UpdateDispatchRuleRequest $request UpdateDispatchRuleRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -13548,7 +13582,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary The ID of the request.
+     * @summary Modifies a dispatch policy.
      *  *
      * @param UpdateDispatchRuleRequest $request UpdateDispatchRuleRequest
      *

@@ -16,6 +16,8 @@ class data extends Model
     public $items;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +25,8 @@ class data extends Model
     public $page;
 
     /**
+     * @description The number of entries returned on each page.
+     *
      * @example 10
      *
      * @var int
@@ -30,11 +34,17 @@ class data extends Model
     public $pageSize;
 
     /**
+     * @description A reserved field.
+     *
+     * @example null
+     *
      * @var int
      */
     public $taskCreateTime;
 
     /**
+     * @description The total number of entries.
+     *
      * @example 12
      *
      * @var int

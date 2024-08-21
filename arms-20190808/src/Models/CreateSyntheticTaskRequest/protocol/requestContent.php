@@ -11,16 +11,25 @@ use AlibabaCloud\Tea\Model;
 class requestContent extends Model
 {
     /**
+     * @description The custom body of a request to initiate an API performance synthetic monitoring task.
+     *
      * @var body
      */
     public $body;
 
     /**
+     * @description The custom header of a request to initiate an API performance synthetic monitoring task.
+     *
      * @var header[]
      */
     public $header;
 
     /**
+     * @description The request method.
+     *
+     *   POST
+     *   GET
+     *
      * @example POST
      *
      * @var string

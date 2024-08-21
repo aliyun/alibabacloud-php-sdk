@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class alertList extends Model
 {
     /**
+     * @description Specifies whether the condition must be met.
+     *
      * @example true
      *
      * @var int
@@ -16,6 +18,14 @@ class alertList extends Model
     public $isCritical;
 
     /**
+     * @description The name of the alert rule.
+     *
+     * For network synthetic monitoring, use the following names:
+     *
+     *   Latency: PING_SET
+     *   Packet loss rate: PING_LOST_RATE
+     *   Hijacking: HIJACKPER
+     *
      * @example PING_SET
      *
      * @var string
@@ -23,6 +33,11 @@ class alertList extends Model
     public $name;
 
     /**
+     * @description Specifies how the condition is evaluated. Valid values:
+     *
+     *   1: greater than
+     *   0: less than
+     *
      * @example 1
      *
      * @var int

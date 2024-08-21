@@ -10,6 +10,15 @@ use AlibabaCloud\Tea\Model;
 class CreateSyntheticTaskResponseBody extends Model
 {
     /**
+     * @description The status code returned.
+     *
+     *   1001: The request was successful.
+     *   1002: The request failed.
+     *   1003: Parameter errors occurred.
+     *   1004: Authentication failed.
+     *   1006: The task does not exist.
+     *   1099: Internal errors occurred.
+     *
      * @example 1001
      *
      * @var string
@@ -17,11 +26,15 @@ class CreateSyntheticTaskResponseBody extends Model
     public $code;
 
     /**
+     * @description The information about the synthetic monitoring task.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The message that is returned when the task failed to be created.
+     *
      * @example null
      *
      * @var string
@@ -29,6 +42,8 @@ class CreateSyntheticTaskResponseBody extends Model
     public $msg;
 
     /**
+     * @description The ID of the request.
+     *
      * @example A5EC8221-08F2-4C95-9AF1-49FD998C****
      *
      * @var string

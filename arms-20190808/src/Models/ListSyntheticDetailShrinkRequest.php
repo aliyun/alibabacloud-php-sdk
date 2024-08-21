@@ -19,6 +19,8 @@ class ListSyntheticDetailShrinkRequest extends Model
     public $advancedFiltersShrink;
 
     /**
+     * @description The type of the results. Set the value to SYNTHETIC.
+     *
      * @example SYNTHETIC
      *
      * @var string
@@ -43,6 +45,8 @@ class ListSyntheticDetailShrinkRequest extends Model
     public $detail;
 
     /**
+     * @description The timestamp of the end time of the query. Unit: milliseconds.
+     *
      * @example 1684480557772
      *
      * @var int
@@ -50,6 +54,8 @@ class ListSyntheticDetailShrinkRequest extends Model
     public $endTime;
 
     /**
+     * @description A reserved field.
+     *
      * @var string
      */
     public $exactFiltersShrink;
@@ -65,6 +71,9 @@ class ListSyntheticDetailShrinkRequest extends Model
     public $filtersShrink;
 
     /**
+     * @description The order in which results are sorted. Valid values:
+     *
+     * - `DESC`: descending order
      * @example DESC
      *
      * @var string
@@ -72,6 +81,8 @@ class ListSyntheticDetailShrinkRequest extends Model
     public $order;
 
     /**
+     * @description The field based on which results are sorted. Set the value to timestamp.
+     *
      * @example timestamp
      *
      * @var string
@@ -79,6 +90,8 @@ class ListSyntheticDetailShrinkRequest extends Model
     public $orderBy;
 
     /**
+     * @description The page number. Pages start from page 1.
+     *
      * @example 1
      *
      * @var int
@@ -86,6 +99,8 @@ class ListSyntheticDetailShrinkRequest extends Model
     public $page;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 20
      *
      * @var int
@@ -93,6 +108,8 @@ class ListSyntheticDetailShrinkRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the region. Set the value to cn-hangzhou.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -100,6 +117,8 @@ class ListSyntheticDetailShrinkRequest extends Model
     public $regionId;
 
     /**
+     * @description The timestamp of the start time of the query. Unit: milliseconds.
+     *
      * @example 1684110343127
      *
      * @var int
@@ -107,6 +126,8 @@ class ListSyntheticDetailShrinkRequest extends Model
     public $startTime;
 
     /**
+     * @description The type of the synthetic test. Valid values: 1 and 2. 1 represents an immediate test, and 2 represents a scheduled test.
+     *
      * @example 1
      *
      * @var int

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DataBonreeSDKConfigModuleConfigVersionConfigsValueCustomConfigValue extends Model
 {
     /**
+     * @description Indicates whether the configuration is enabled.
+     *
      * @example true
      *
      * @var bool

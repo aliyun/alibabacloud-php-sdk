@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteGrafanaWorkspaceResponseBody extends Model
 {
     /**
+     * @description The status code. The status code 200 indicates that the request was successful. Other status codes indicate that the request failed.
+     *
      * @example 200
      *
      * @var int
@@ -16,6 +18,11 @@ class DeleteGrafanaWorkspaceResponseBody extends Model
     public $code;
 
     /**
+     * @description Indicates whether the workspace was deleted. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool
@@ -23,6 +30,8 @@ class DeleteGrafanaWorkspaceResponseBody extends Model
     public $data;
 
     /**
+     * @description The returned message.
+     *
      * @example success
      *
      * @var string
@@ -30,6 +39,8 @@ class DeleteGrafanaWorkspaceResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 27E653FA-5958-45BE-8AA9-14D884DC****
      *
      * @var string
@@ -37,6 +48,11 @@ class DeleteGrafanaWorkspaceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   `true`
+     *   `false`
+     *
      * @example true
      *
      * @var bool
@@ -44,6 +60,8 @@ class DeleteGrafanaWorkspaceResponseBody extends Model
     public $success;
 
     /**
+     * @description The ID of the trace. The ID is used to query the details of a request.
+     *
      * @example eac0a8048716731735000007137d000b
      *
      * @var string

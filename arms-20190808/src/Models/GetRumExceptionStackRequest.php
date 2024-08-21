@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetRumExceptionStackRequest extends Model
 {
     /**
+     * @description The binary images, which represent all executable files loaded into the process address space when a crash occurs.
+     *
      * @example iOSDemo:arm64%3B1489F4D3-6DE2-300C-90E9-E1B869675351%3B0x0000000104064000\\nAlibabaCloudRUM:arm64%3BAB7B3A8E-6CEE-325D-BCBB-8DA50E61804F%3B0x0000000106660000\\nlibdispatch.dylib:arm
      *
      * @var string
@@ -16,6 +18,8 @@ class GetRumExceptionStackRequest extends Model
     public $exceptionBinaryImages;
 
     /**
+     * @description The exception stack information. Set the value to a JSON string. call_stack.info represents the stack information, call_stack.thread.name represents the thread name, and call_stack.thread.id represents the thread ID. This parameter is exactly the same as the exception.stack parameter in the logstore-rum Logstore of Simple Log Service.
+     *
      * @example [
      * ]
      * @var string
@@ -23,6 +27,8 @@ class GetRumExceptionStackRequest extends Model
     public $exceptionStack;
 
     /**
+     * @description The ID of the exception thread.
+     *
      * @example 16643
      *
      * @var string
@@ -30,8 +36,9 @@ class GetRumExceptionStackRequest extends Model
     public $exceptionThreadId;
 
     /**
-     * @description This parameter is required.
+     * @description The application ID.
      *
+     * This parameter is required.
      * @example atxxxxzkcf@d8deedfa9bf****
      *
      * @var string
@@ -39,6 +46,8 @@ class GetRumExceptionStackRequest extends Model
     public $pid;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -48,10 +57,7 @@ class GetRumExceptionStackRequest extends Model
     /**
      * @description The file type. Valid values:
      *
-     *   source-map: SourceMap files
-     *   mapping: symbol table files for Android
-     *   dsym: dSYM files for iOS
-     *
+     * - dsym: dSYM files for iOS
      * @example source-map
      *
      * @var string

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The content of the log.
+     *
      * @example retcode app or task can not be found!
      *
      * @var string
@@ -17,11 +19,15 @@ class data extends Model
     public $message;
 
     /**
+     * @description The information about Log Service.
+     *
      * @var retcodeSLSConfig
      */
     public $retcodeSLSConfig;
 
     /**
+     * @description The status of the request.
+     *
      * @example true
      *
      * @var string

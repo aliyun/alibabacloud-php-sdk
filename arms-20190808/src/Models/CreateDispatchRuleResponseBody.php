@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateDispatchRuleResponseBody extends Model
 {
     /**
+     * @description The ID of the dispatch policy.
+     *
      * @example 10413
      *
      * @var int
@@ -16,6 +18,8 @@ class CreateDispatchRuleResponseBody extends Model
     public $dispatchRuleId;
 
     /**
+     * @description The ID of the request.
+     *
      * @example A5EC8221-08F2-4C95-9AF1-49FD998C****
      *
      * @var string

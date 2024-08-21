@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class commonParam extends Model
 {
     /**
+     * @description Specifies whether to create an alert rule.
+     *
+     *   1: creates an alert.
+     *   0: does not create an alert.
+     *
      * @example 1
      *
      * @var string
@@ -17,11 +22,15 @@ class commonParam extends Model
     public $alarmFlag;
 
     /**
+     * @description The alert parameters.
+     *
      * @var alertList[]
      */
     public $alertList;
 
     /**
+     * @description The ID of the alert recipient. Separate multiple recipients with commas (,).
+     *
      * @example 123
      *
      * @var string
@@ -29,6 +38,8 @@ class commonParam extends Model
     public $alertNotifierId;
 
     /**
+     * @description The ID of the notification policy.
+     *
      * @example 1234
      *
      * @var string
@@ -36,6 +47,11 @@ class commonParam extends Model
     public $alertPolicyId;
 
     /**
+     * @description Specifies whether to evenly distribute monitoring samples. Valid values:
+     *
+     *   0: no
+     *   1: yes
+     *
      * @example 0
      *
      * @var int
@@ -43,6 +59,8 @@ class commonParam extends Model
     public $monitorSamples;
 
     /**
+     * @description The time when execution starts.
+     *
      * @example 2022-07-20 10
      *
      * @var int

@@ -31,6 +31,8 @@ class appList extends Model
     /**
      * @description The description of the application.
      *
+     * @example TEST
+     *
      * @var string
      */
     public $description;
@@ -55,6 +57,8 @@ class appList extends Model
 
     /**
      * @description The application name.
+     *
+     * @example home page
      *
      * @var string
      */

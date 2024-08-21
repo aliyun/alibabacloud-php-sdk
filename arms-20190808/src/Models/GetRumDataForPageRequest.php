@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetRumDataForPageRequest extends Model
 {
     /**
+     * @description The group to which the application belongs.
+     *
      * @example default
      *
      * @var string
@@ -16,6 +18,8 @@ class GetRumDataForPageRequest extends Model
     public $appGroup;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -23,8 +27,9 @@ class GetRumDataForPageRequest extends Model
     public $currentPage;
 
     /**
-     * @description This parameter is required.
+     * @description The beginning of the time range to query. The time is accurate to seconds.
      *
+     * This parameter is required.
      * @example 1713774233
      *
      * @var int
@@ -32,6 +37,8 @@ class GetRumDataForPageRequest extends Model
     public $endTime;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 20
      *
      * @var int
@@ -39,6 +46,8 @@ class GetRumDataForPageRequest extends Model
     public $pageSize;
 
     /**
+     * @description The application ID.
+     *
      * @example iixxxjcnuk@582846f37******
      *
      * @var string
@@ -46,8 +55,9 @@ class GetRumDataForPageRequest extends Model
     public $pid;
 
     /**
-     * @description This parameter is required.
+     * @description A query statement that complies with the query syntax of Simple Log Service Logstore. For more information, see the parameters corresponding to this operation on the console page.
      *
+     * This parameter is required.
      * @example * and app.id: xxxx@586810fbxxxx19f
      *
      * @var string
@@ -55,8 +65,9 @@ class GetRumDataForPageRequest extends Model
     public $query;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -64,8 +75,9 @@ class GetRumDataForPageRequest extends Model
     public $regionId;
 
     /**
-     * @description This parameter is required.
+     * @description The beginning of the time range to query. The time is accurate to seconds.
      *
+     * This parameter is required.
      * @example 1713687833
      *
      * @var int

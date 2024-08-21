@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class moduleConfig extends Model
 {
     /**
+     * @description The default configuration of the application.
+     *
      * @var DataBonreeSDKConfigModuleConfigDefaultConfigValue[]
      */
     public $defaultConfig;
 
     /**
+     * @description Indicates whether the configuration is enabled.
+     *
      * @example true
      *
      * @var bool
@@ -23,6 +27,8 @@ class moduleConfig extends Model
     public $enable;
 
     /**
+     * @description The version configurations of the application.
+     *
      * @var DataBonreeSDKConfigModuleConfigVersionConfigsValue[]
      */
     public $versionConfigs;

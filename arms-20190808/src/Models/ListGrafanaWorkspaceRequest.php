@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListGrafanaWorkspaceRequest extends Model
 {
     /**
+     * @description The language. Valid values: zh and en. Default value: zh.
+     *
      * @example zh
      *
      * @var string
@@ -17,8 +19,9 @@ class ListGrafanaWorkspaceRequest extends Model
     public $aliyunLang;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID. Default value: cn-hangzhou.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -26,7 +29,7 @@ class ListGrafanaWorkspaceRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group.
+     * @description The ID of the resource group to which the Prometheus instance belongs.
      *
      * @example rg-acfmxyexli2****
      *
@@ -35,6 +38,8 @@ class ListGrafanaWorkspaceRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description The tags.
+     *
      * @var tags[]
      */
     public $tags;

@@ -9,16 +9,30 @@ use AlibabaCloud\Tea\Model;
 class navigation extends Model
 {
     /**
+     * @description The whitelist for DNS hijacking.
+     *
+     * @example www.aliyun.com:202.0.3.55|203.3.44.67
+     *
      * @var string
      */
     public $DNSHijackWhiteList;
 
     /**
+     * @description The element blacklist.
+     *
+     * @example *.a.com
+     *
      * @var string
      */
     public $elementBlacklist;
 
     /**
+     * @description Specifies whether to execute ActiveX.
+     *
+     *   3: yes
+     *   0: no
+     *
+     * >  This parameter is supported only by IE Full Elements.
      * @example 3
      *
      * @var int
@@ -26,6 +40,12 @@ class navigation extends Model
     public $executeActiveX;
 
     /**
+     * @description Specifies whether to run applets.
+     *
+     *   1: yes
+     *   0: no
+     *
+     * >  This parameter is supported only by IE Full Elements.
      * @example 1
      *
      * @var int
@@ -33,6 +53,12 @@ class navigation extends Model
     public $executeApplication;
 
     /**
+     * @description Specifies whether to execute scripts.
+     *
+     *   1: yes
+     *   0: no
+     *
+     * >  This parameter is supported only by IE Full Elements.
      * @example 1
      *
      * @var int
@@ -40,6 +66,11 @@ class navigation extends Model
     public $executeScript;
 
     /**
+     * @description Specifies whether to filter invalid IP addresses.
+     *
+     *   1: no
+     *   0: yes
+     *
      * @example 1
      *
      * @var int
@@ -47,16 +78,26 @@ class navigation extends Model
     public $filterInvalidIP;
 
     /**
+     * @description The element that is used in DNS hijacking.
+     *
+     * @example 50
+     *
      * @var int
      */
     public $flowHijackJumpTimes;
 
     /**
+     * @description The tag that is used in DNS hijacking.
+     *
+     * @example test
+     *
      * @var string
      */
     public $flowHijackLogo;
 
     /**
+     * @description The timeout period of monitoring. Unit: seconds.
+     *
      * @example 20
      *
      * @var string
@@ -64,6 +105,11 @@ class navigation extends Model
     public $monitorTimeout;
 
     /**
+     * @description Specifies whether to automatically scroll up and down the screen to load a page.
+     *
+     *   1: yes
+     *   0: no
+     *
      * @example 1
      *
      * @var string
@@ -71,6 +117,12 @@ class navigation extends Model
     public $navAutomaticScrolling;
 
     /**
+     * @description The method that is used to customize the header. Valid values:
+     *
+     *   0: disables the customer header.
+     *   1: modifies the first package.
+     *   2: modifies all packages.
+     *
      * @example 0
      *
      * @var string
@@ -78,6 +130,8 @@ class navigation extends Model
     public $navCustomHeader;
 
     /**
+     * @description The format of the custom header. You can specify multiple fields. Separate the fields with vertical bars (|).
+     *
      * @example Host:www.example.com|Referer:www.example.com
      *
      * @var string
@@ -85,6 +139,11 @@ class navigation extends Model
     public $navCustomHeaderContent;
 
     /**
+     * @description The custom host mode.
+     *
+     *   1: round robin
+     *   0: random
+     *
      * @example 1
      *
      * @var int
@@ -92,6 +151,8 @@ class navigation extends Model
     public $navCustomHost;
 
     /**
+     * @description The custom host IP address. You can enter multiple IP addresses. Separate the IP addresses with commas (,).
+     *
      * @example ipv4:192.168.2.1,192.168.2.5:img.a.com|192.168.2.1[8080]:img.a.com
      *
      * @var string
@@ -99,6 +160,11 @@ class navigation extends Model
     public $navCustomHostIp;
 
     /**
+     * @description Specifies whether to disable caching.
+     *
+     *   1: disable
+     *   0: enable
+     *
      * @example 1
      *
      * @var int
@@ -106,6 +172,11 @@ class navigation extends Model
     public $navDisableCache;
 
     /**
+     * @description Specifies whether to enable the feature of using the Accept-Encoding field to determine whether to accept compressed files.
+     *
+     *   1: disable
+     *   0: enable
+     *
      * @example 1
      *
      * @var string
@@ -113,6 +184,11 @@ class navigation extends Model
     public $navDisableCompression;
 
     /**
+     * @description Specifies whether to ignore certificate errors during certificate verification in the SSL handshake and continue browsing.
+     *
+     *   1: ignore
+     *   0: does not ignore
+     *
      * @example 1
      *
      * @var int
@@ -120,6 +196,11 @@ class navigation extends Model
     public $navIgnoreCertificateError;
 
     /**
+     * @description Specifies whether to continue browsing after a redirection occurs.
+     *
+     *   1: yes
+     *   0: no
+     *
      * @example 1
      *
      * @var int
@@ -127,6 +208,11 @@ class navigation extends Model
     public $navRedirection;
 
     /**
+     * @description Specifies whether to return the elements on the page.
+     *
+     *   1: no. Returns the basic document data.
+     *   2: yes. Returns all document data.
+     *
      * @example 2
      *
      * @var int
@@ -134,11 +220,17 @@ class navigation extends Model
     public $navReturnElement;
 
     /**
+     * @description The web page defacement.
+     *
+     * @example www.example.com:202.0.3.55|203.3.44.67
+     *
      * @var string
      */
     public $pageTamper;
 
     /**
+     * @description The process ID.
+     *
      * @example ssh
      *
      * @var string
@@ -146,6 +238,9 @@ class navigation extends Model
     public $processName;
 
     /**
+     * @description The domain name of the QUIC request element.
+     *
+     * >  This parameter is supported by all elements of only Chrome
      * @example www.example.com
      *
      * @var string
@@ -153,6 +248,15 @@ class navigation extends Model
     public $QUICDomain;
 
     /**
+     * @description The Quick UDP Internet Connections (QUIC) protocol version. Default value: 0. Valid values:
+     *
+     *
+     *   35
+     *   39
+     *   43
+     *   44
+     *
+     * >  This parameter is supported by all elements of only Chrome
      * @example 0
      *
      * @var int
@@ -160,6 +264,12 @@ class navigation extends Model
     public $QUICVersion;
 
     /**
+     * @description Specifies whether to return the request header.
+     *
+     *   0: does not return the response header.
+     *   1: returns the basic document header.
+     *   2: returns all headers.
+     *
      * @example 0
      *
      * @var int
@@ -167,6 +277,12 @@ class navigation extends Model
     public $requestHeader;
 
     /**
+     * @description The method that is used to return the response header. Valid values:
+     *
+     *   0: does not return the response header.
+     *   1: returns the basic document header.
+     *   2: returns all headers.
+     *
      * @example 0
      *
      * @var int
@@ -174,6 +290,8 @@ class navigation extends Model
     public $responseHeader;
 
     /**
+     * @description The time threshold that is used to define a slow element. Unit: seconds.
+     *
      * @example 5
      *
      * @var float
@@ -181,16 +299,28 @@ class navigation extends Model
     public $slowElementThreshold;
 
     /**
+     * @description The blacklist for string verification.
+     *
+     * @example Regex:*.example|expalme|
+     *
      * @var string
      */
     public $verifyStringBlacklist;
 
     /**
+     * @description The whitelist for string verification.
+     *
+     * @example Regex:*.example|expalme|
+     *
      * @var string
      */
     public $verifyStringWhiteList;
 
     /**
+     * @description The timeout period of waiting for the monitoring to complete.
+     *
+     * @example 15
+     *
      * @var float
      */
     public $waitCompletionTime;

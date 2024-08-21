@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetRumExceptionStackResponseBody extends Model
 {
     /**
+     * @description The responses code. The status code 200 indicates that the request was successful.
+     *
      * @example 200
      *
      * @var string
@@ -17,11 +19,15 @@ class GetRumExceptionStackResponseBody extends Model
     public $code;
 
     /**
+     * @description The response parameters.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var string
@@ -29,7 +35,7 @@ class GetRumExceptionStackResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The error message.
+     * @description The error message returned if the request failed.
      *
      * @example Internal error. Please try again. Contact the DingTalk service account if the issue                              persists after multiple retries.
      *
@@ -38,7 +44,7 @@ class GetRumExceptionStackResponseBody extends Model
     public $message;
 
     /**
-     * @description Id of the request
+     * @description Id of the request.
      *
      * @example B6A00968-82A8-4F14-9D1B-B53827DB****
      *
@@ -47,6 +53,11 @@ class GetRumExceptionStackResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   `true`
+     *   `false`
+     *
      * @example true
      *
      * @var string

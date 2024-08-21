@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateDispatchRuleResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example A5EC8221-08F2-4C95-9AF1-49FD998C****
      *
      * @var string
@@ -16,6 +18,11 @@ class UpdateDispatchRuleResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
+     *   `true`: The request was successful.
+     *   `false`: The request failed.
+     *
      * @example true
      *
      * @var bool

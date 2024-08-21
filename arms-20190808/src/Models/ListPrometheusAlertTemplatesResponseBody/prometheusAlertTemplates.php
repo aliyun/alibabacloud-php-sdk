@@ -11,21 +11,33 @@ use AlibabaCloud\Tea\Model;
 class prometheusAlertTemplates extends Model
 {
     /**
+     * @description The name of the alert rule.
+     *
+     * @example The available memory on the node is less than 10%
+     *
      * @var string
      */
     public $alertName;
 
     /**
+     * @description The annotations of the alert rule.
+     *
      * @var annotations[]
      */
     public $annotations;
 
     /**
+     * @description The content of the alert notification. Tags can be referenced in the {{$labels.xxx}} format.
+     *
+     * @example The available memory on node {{ $labels.instance }} is less than 10%. Available memory: {{ $value }}%
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The duration of the alert. Valid values: 1 to 1440. Unit: minutes.
+     *
      * @example 1m
      *
      * @var string
@@ -33,6 +45,8 @@ class prometheusAlertTemplates extends Model
     public $duration;
 
     /**
+     * @description The expression of the alert rule.
+     *
      * @example node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes * 100 < 10
      *
      * @var string
@@ -40,16 +54,24 @@ class prometheusAlertTemplates extends Model
     public $expression;
 
     /**
+     * @description The tags of the alert rule.
+     *
      * @var labels[]
      */
     public $labels;
 
     /**
+     * @description The type of the alert rule.
+     *
+     * @example Node
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The version of the alert rule.
+     *
      * @example 1.0
      *
      * @var string

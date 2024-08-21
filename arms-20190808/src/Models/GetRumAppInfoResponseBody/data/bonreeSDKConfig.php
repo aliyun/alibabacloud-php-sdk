@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class bonreeSDKConfig extends Model
 {
     /**
+     * @description The module configuration.
+     *
      * @var moduleConfig
      */
     public $moduleConfig;

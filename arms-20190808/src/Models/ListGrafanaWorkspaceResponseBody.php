@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListGrafanaWorkspaceResponseBody extends Model
 {
     /**
+     * @description The HTTP status code. The status code 200 indicates that the request was successful.
+     *
      * @example 200
      *
      * @var int
@@ -16,11 +18,15 @@ class ListGrafanaWorkspaceResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned result.
+     *
      * @var GrafanaWorkspace[]
      */
     public $data;
 
     /**
+     * @description The error message returned if the request parameters are invalid.
+     *
      * @example success
      *
      * @var string
@@ -28,6 +34,8 @@ class ListGrafanaWorkspaceResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 0080BE65-167F-5CB6-A691-14E2EFD474BC
      *
      * @var string
@@ -35,6 +43,8 @@ class ListGrafanaWorkspaceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values: true and false.
+     *
      * @example True
      *
      * @var bool
@@ -42,6 +52,8 @@ class ListGrafanaWorkspaceResponseBody extends Model
     public $success;
 
     /**
+     * @description The trace ID that is used to query the details of the request.
+     *
      * @example eac0a8048716731735000007137d000b
      *
      * @var string

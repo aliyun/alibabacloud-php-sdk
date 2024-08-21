@@ -9,7 +9,12 @@ use AlibabaCloud\Tea\Model;
 class ListEnvironmentFeaturesRequest extends Model
 {
     /**
-     * @description The language. Valid values: zh and en. Default value: zh.
+     * @description The language. Default value: zh.
+     *
+     * Valid values:
+     *
+     *   en: English.
+     *   zh: Chinese.
      *
      * @example en
      *

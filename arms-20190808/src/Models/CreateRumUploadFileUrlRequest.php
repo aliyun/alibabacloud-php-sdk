@@ -37,7 +37,7 @@ class CreateRumUploadFileUrlRequest extends Model
     public $fileName;
 
     /**
-     * @description The application ID.
+     * @description The process ID (PID) of the application.
      *
      * This parameter is required.
      * @example iioe7jcnuk@582846f37******

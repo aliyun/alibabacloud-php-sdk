@@ -40,6 +40,8 @@ class CloseAlarmRequest extends Model
     /**
      * @description The alert solution.
      *
+     * @example Restart Repair
+     *
      * @var string
      */
     public $solution;

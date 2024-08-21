@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListPrometheusAlertTemplatesResponseBody extends Model
 {
     /**
+     * @description The returned struct.
+     *
      * @var prometheusAlertTemplates[]
      */
     public $prometheusAlertTemplates;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 9FEA6D00-317F-45E3-9004-7FB8B0B7****
      *
      * @var string

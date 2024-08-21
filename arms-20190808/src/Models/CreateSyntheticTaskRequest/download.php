@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class download extends Model
 {
     /**
+     * @description The connection timeout period.
+     *
      * @example 200
      *
      * @var float
@@ -16,11 +18,20 @@ class download extends Model
     public $connectionTimeout;
 
     /**
+     * @description The items to be ignored in a certificate error. Pass the values of the check boxes that are separated with vertical bars (|).
+     *
+     * @example Host:www.example.com|Referer:www.example.com
+     *
      * @var string
      */
     public $downloadCustomHeaderContent;
 
     /**
+     * @description The custom host mode.
+     *
+     *   1: round robin
+     *   0: random
+     *
      * @example 1
      *
      * @var int
@@ -28,6 +39,8 @@ class download extends Model
     public $downloadCustomHost;
 
     /**
+     * @description The custom host IP address. You can enter multiple IP addresses. Separate the IP addresses with commas (,).
+     *
      * @example ipv4:192.168.2.1,192.168.2.5:img.a.com|192.168.2.1[8080]:img.a.com
      *
      * @var string
@@ -35,11 +48,20 @@ class download extends Model
     public $downloadCustomHostIp;
 
     /**
+     * @description The items to be ignored in a certificate error. Pass the values of the check boxes that are separated with vertical bars (|).
+     *
+     * @example 1|2|4
+     *
      * @var string
      */
     public $downloadIgnoreCertificateError;
 
     /**
+     * @description The kernel type.
+     *
+     *   1: curl
+     *   0: WinInet
+     *
      * @example 1
      *
      * @var int
@@ -47,21 +69,39 @@ class download extends Model
     public $downloadKernel;
 
     /**
+     * @description Specifies whether to support redirection.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $downloadRedirection;
 
     /**
+     * @description The size of the download file. Unit: KB.
+     *
+     * @example 10240
+     *
      * @var int
      */
     public $downloadTransmissionSize;
 
     /**
+     * @description The monitoring duration.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $monitorTimeout;
 
     /**
+     * @description The QUIC protocol type.
+     *
+     *   1: http1
+     *   2: http2
+     *   3: http3
+     *
      * @example 1
      *
      * @var string
@@ -69,11 +109,21 @@ class download extends Model
     public $quickProtocol;
 
     /**
+     * @description The keyword that is used in verification.
+     *
+     * @example keyword
+     *
      * @var string
      */
     public $validateKeywords;
 
     /**
+     * @description The verification method.
+     *
+     *   0: no verification
+     *   1: string verification
+     *   2: MD5 verification
+     *
      * @example 0
      *
      * @var int
@@ -81,6 +131,8 @@ class download extends Model
     public $verifyWay;
 
     /**
+     * @description The whitelist for DNS hijacking.
+     *
      * @example [{\\"src\\":\\"211.154.166.174\\"}]
      *
      * @var string

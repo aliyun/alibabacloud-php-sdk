@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class annotations extends Model
 {
     /**
+     * @description The name of the annotation.
+     *
      * @example message
      *
      * @var string
@@ -16,6 +18,10 @@ class annotations extends Model
     public $name;
 
     /**
+     * @description The value of the annotation.
+     *
+     * @example The available memory on node {{ $labels.instance }} is less than 10%. Available memory: {{ $value }}%
+     *
      * @var string
      */
     public $value;

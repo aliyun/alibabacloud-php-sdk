@@ -22,6 +22,8 @@ class UpdatePrometheusMonitoringRequest extends Model
      * @description The monitoring configuration. The value is a YAML string.
      *
      * This parameter is required.
+     * @example apiVersion: monitoring.coreos.com/v1
+     * app: tomcat
      * @var string
      */
     public $configYaml;

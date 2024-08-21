@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class header extends Model
 {
     /**
+     * @description The key of the request header.
+     *
      * @example regionId
      *
      * @var string
@@ -16,6 +18,8 @@ class header extends Model
     public $key;
 
     /**
+     * @description The value of the request header.
+     *
      * @example cn-hangzhou
      *
      * @var string

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class integrationDetail extends Model
 {
     /**
+     * @description Indicates whether alert events are automatically cleared. Valid values:
+     *
+     *   true (default)
+     *   false
+     *
      * @example true
      *
      * @var bool
@@ -16,13 +21,17 @@ class integrationDetail extends Model
     public $autoRecover;
 
     /**
-     * @example 测试
+     * @description The description of the alert integration.
+     *
+     * @example Test
      *
      * @var string
      */
     public $description;
 
     /**
+     * @description The fields whose values are deduplicated.
+     *
      * @example LABEL.alertname::LABEL.severity
      *
      * @var string
@@ -30,16 +39,23 @@ class integrationDetail extends Model
     public $duplicateKey;
 
     /**
+     * @description The extended mapped fields of the alert source.
+     *
      * @var mixed[][]
      */
     public $extendedFieldRedefineRules;
 
     /**
+     * @description The predefined mapped fields of the alert source.
+     *
      * @var mixed[][]
      */
     public $fieldRedefineRules;
 
     /**
+     * @description The field for clearing alert events. The system queries alert events based on the field of alert clearing events and clears the alert events.
+     *
+     * > Only the Log Service alert integration supports the parameter.
      * @example $.status
      *
      * @var string
@@ -47,6 +63,9 @@ class integrationDetail extends Model
     public $initiativeRecoverField;
 
     /**
+     * @description The value of the field for clearing alert events. The system queries alert events based on the field of alert clearing events and clears the alert events.
+     *
+     * > Only the Log Service alert integration supports the parameter.
      * @example ok
      *
      * @var string
@@ -54,6 +73,8 @@ class integrationDetail extends Model
     public $initiativeRecoverValue;
 
     /**
+     * @description The time when alert events are automatically cleared. Unit: seconds. Default value: 300.
+     *
      * @example 300
      *
      * @var int
@@ -61,6 +82,8 @@ class integrationDetail extends Model
     public $recoverTime;
 
     /**
+     * @description The total number of alert events and the number of abnormal alert events in the last hour.
+     *
      * @var int[]
      */
     public $stat;

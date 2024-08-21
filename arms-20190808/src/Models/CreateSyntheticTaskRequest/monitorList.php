@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class monitorList extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the city to which the monitoring point belongs.
      *
+     * This parameter is required.
      * @example 1100101
      *
      * @var int
@@ -18,8 +19,12 @@ class monitorList extends Model
     public $cityCode;
 
     /**
-     * @description This parameter is required.
+     * @description The carrier type:
      *
+     *   IDC
+     *   LastMilie
+     *
+     * This parameter is required.
      * @example IDC
      *
      * @var int
@@ -27,8 +32,9 @@ class monitorList extends Model
     public $monitorType;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the carrier.
      *
+     * This parameter is required.
      * @example 18
      *
      * @var int

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteRumAppRequest extends Model
 {
     /**
+     * @description The group where the application resides.
+     *
      * @example default
      *
      * @var string
@@ -16,8 +18,9 @@ class DeleteRumAppRequest extends Model
     public $appGroup;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the application.
      *
+     * This parameter is required.
      * @example b590lhguqs@28f515462******
      *
      * @var string
@@ -25,8 +28,9 @@ class DeleteRumAppRequest extends Model
     public $appId;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the region.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

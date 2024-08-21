@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The task status.
+     *
+     *   0: active
+     *   1: busy
+     *
      * @example 0
      *
      * @var int
@@ -16,11 +21,17 @@ class data extends Model
     public $busy;
 
     /**
+     * @description The name of the city to which the monitoring point belongs.
+     *
+     * @example Beijing
+     *
      * @var string
      */
     public $city;
 
     /**
+     * @description The ID of the city to which the monitoring point belongs.
+     *
      * @example 1100101
      *
      * @var int
@@ -28,6 +39,11 @@ class data extends Model
     public $cityCode;
 
     /**
+     * @description The client type:
+     *
+     *   1: IDC
+     *   2: Last mile
+     *
      * @example 1
      *
      * @var int
@@ -35,11 +51,17 @@ class data extends Model
     public $clientType;
 
     /**
+     * @description The region to which the monitoring point belongs.
+     *
+     * @example Beijing
+     *
      * @var string
      */
     public $district;
 
     /**
+     * @description The ID of the carrier.
+     *
      * @example 18
      *
      * @var int
@@ -47,6 +69,8 @@ class data extends Model
     public $netServiceId;
 
     /**
+     * @description The name of the carrier.
+     *
      * @example XXX
      *
      * @var string

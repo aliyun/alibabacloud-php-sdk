@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class exactFilters extends Model
 {
     /**
+     * @description A reserved field.
+     *
+     * @example null
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description A reserved field.
+     *
+     * @example null
+     *
      * @var string
      */
     public $opType;
 
     /**
+     * @description A reserved field.
+     *
+     * @example null
+     *
      * @var mixed
      */
     public $value;

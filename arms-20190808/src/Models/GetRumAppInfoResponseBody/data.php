@@ -12,6 +12,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The group to which the application belongs.
+     *
      * @example default
      *
      * @var string
@@ -28,6 +30,8 @@ class data extends Model
     public $appType;
 
     /**
+     * @description The mobile collection configurations.
+     *
      * @var bonreeSDKConfig
      */
     public $bonreeSDKConfig;

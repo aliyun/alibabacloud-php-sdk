@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteRumAppResponseBody extends Model
 {
     /**
+     * @description The status code. The status code 200 indicates that the request was successful.
+     *
      * @example 200
      *
      * @var int
@@ -16,6 +18,8 @@ class DeleteRumAppResponseBody extends Model
     public $code;
 
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -23,7 +27,7 @@ class DeleteRumAppResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The error message.
+     * @description The message returned.
      *
      * @example success
      *
@@ -41,6 +45,8 @@ class DeleteRumAppResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The resource group ID.
+     *
      * @example rg-aek2eq4peca****
      *
      * @var string
@@ -48,7 +54,7 @@ class DeleteRumAppResponseBody extends Model
     public $resourceGroupId;
 
     /**
-     * @description Indicates whether the application is deleted.
+     * @description The message that appears when the application is deleted.
      *
      * @example Success to delete app.
      *
@@ -57,6 +63,8 @@ class DeleteRumAppResponseBody extends Model
     public $result;
 
     /**
+     * @description Indicates whether the request is successful. Valid values: true and false.
+     *
      * @example true
      *
      * @var bool

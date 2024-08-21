@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class retcodeSLSConfig extends Model
 {
     /**
+     * @description The Log Service Logstore.
+     *
      * @example log-test-220431
      *
      * @var string
@@ -16,6 +18,8 @@ class retcodeSLSConfig extends Model
     public $logstore;
 
     /**
+     * @description The Log Service project.
+     *
      * @example test-project
      *
      * @var string
@@ -23,6 +27,8 @@ class retcodeSLSConfig extends Model
     public $project;
 
     /**
+     * @description The ID of the region.
+     *
      * @example cn-hangzhou
      *
      * @var string

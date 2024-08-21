@@ -9,23 +9,45 @@ use AlibabaCloud\Tea\Model;
 class CreateSyntheticTaskShrinkRequest extends Model
 {
     /**
+     * @description The common parameters.
+     *
      * @var string
      */
     public $commonParamShrink;
 
     /**
+     * @description The file download task.
+     *
      * @var string
      */
     public $downloadShrink;
 
     /**
+     * @description The frequency.
+     *
      * @var string
      */
     public $extendIntervalShrink;
 
     /**
-     * @description This parameter is required.
+     * @description The interval at which synthetic monitoring is performed. Unit: minutes. Valid values:
      *
+     *   1
+     *   5
+     *   10
+     *   15
+     *   20
+     *   30
+     *   60
+     *   120
+     *   180
+     *   240
+     *   360
+     *   480
+     *   720
+     *   1440
+     *
+     * This parameter is required.
      * @example 5
      *
      * @var string
@@ -33,8 +55,12 @@ class CreateSyntheticTaskShrinkRequest extends Model
     public $intervalTime;
 
     /**
-     * @description This parameter is required.
+     * @description The interval type.
      *
+     *   0: daily
+     *   1: custom frequency
+     *
+     * This parameter is required.
      * @example 0
      *
      * @var string
@@ -42,8 +68,13 @@ class CreateSyntheticTaskShrinkRequest extends Model
     public $intervalType;
 
     /**
-     * @description This parameter is required.
+     * @description The IP address type:
      *
+     *   0: an automatic IP address
+     *   1: IPv4
+     *   2: IPv6
+     *
+     * This parameter is required.
      * @example 0
      *
      * @var int
@@ -51,30 +82,38 @@ class CreateSyntheticTaskShrinkRequest extends Model
     public $ipType;
 
     /**
-     * @description This parameter is required.
+     * @description The list of monitoring points.
      *
+     * This parameter is required.
      * @var string
      */
     public $monitorListShrink;
 
     /**
+     * @description The monitoring items that are associated with the browse tasks.
+     *
      * @var string
      */
     public $navigationShrink;
 
     /**
+     * @description The network synthetic monitoring task.
+     *
      * @var string
      */
     public $netShrink;
 
     /**
+     * @description The API performance synthetic monitoring task.
+     *
      * @var string
      */
     public $protocolShrink;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the region in which the application is located.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -82,15 +121,19 @@ class CreateSyntheticTaskShrinkRequest extends Model
     public $regionId;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the task. To update a synthetic monitoring task, enter the task name and set the **UpdateTask** parameter to **true**.
+     *
+     * This parameter is required.
+     * @example Network synthetic monitoring task
      *
      * @var string
      */
     public $taskName;
 
     /**
-     * @description This parameter is required.
+     * @description The type of the monitoring task. Valid values:
      *
+     * This parameter is required.
      * @example 0
      *
      * @var int
@@ -98,6 +141,11 @@ class CreateSyntheticTaskShrinkRequest extends Model
     public $taskType;
 
     /**
+     * @description Specifies whether to update existing synthetic monitoring tasks.
+     *
+     *   true: updates existing synthetic monitoring tasks.
+     *   false: creates new synthetic monitoring tasks.
+     *
      * @example false
      *
      * @var bool
@@ -105,8 +153,9 @@ class CreateSyntheticTaskShrinkRequest extends Model
     public $updateTask;
 
     /**
-     * @description This parameter is required.
+     * @description The URL for synthetic monitoring.
      *
+     * This parameter is required.
      * @example https://www.example.com
      *
      * @var string

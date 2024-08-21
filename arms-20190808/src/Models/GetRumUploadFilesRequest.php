@@ -18,7 +18,7 @@ class GetRumUploadFilesRequest extends Model
     public $appType;
 
     /**
-     * @description The application ID.
+     * @description The process ID (PID) of the application.
      *
      * This parameter is required.
      * @example aoxxxxxly@741623b4e91****
@@ -38,7 +38,7 @@ class GetRumUploadFilesRequest extends Model
     public $regionId;
 
     /**
-     * @description The version ID. When this field is not provided, the default response includes all versions.
+     * @description The version number of the files. If you do not specify this parameter, all versions of the files are returned by default.
      *
      * @example 1.0.0
      *

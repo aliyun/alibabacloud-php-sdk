@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class StartAlertResponseBody extends Model
 {
     /**
+     * @description Indicates whether the call was successful.
+     *
+     *   `true`: The call was successful.
+     *   `false`: The call failed.
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +21,8 @@ class StartAlertResponseBody extends Model
     public $isSuccess;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 27E653FA-5958-45BE-8AA9-14D884DC****
      *
      * @var string

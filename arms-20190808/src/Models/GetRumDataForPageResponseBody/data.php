@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description A reserved parameter. Ignore this parameter.
+     *
+     * @example null
+     *
      * @var string
      */
     public $authentication;
 
     /**
+     * @description Indicates whether the query ends. Valid values: true and false.
+     *
      * @example true
      *
      * @var string
@@ -21,11 +27,15 @@ class data extends Model
     public $completion;
 
     /**
+     * @description The queried data.
+     *
      * @var mixed[][]
      */
     public $items;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var string
@@ -33,6 +43,8 @@ class data extends Model
     public $page;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 20
      *
      * @var string
@@ -40,11 +52,17 @@ class data extends Model
     public $pageSize;
 
     /**
+     * @description A reserved parameter. Ignore this parameter.
+     *
+     * @example null
+     *
      * @var string
      */
     public $preference;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 7
      *
      * @var string

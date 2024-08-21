@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class extendInterval extends Model
 {
     /**
+     * @description The day on which synthetic monitoring is performed.
+     *
      * @var int[]
      */
     public $days;
 
     /**
+     * @description The hour at which synthetic monitoring ends.
+     *
      * @example 23
      *
      * @var int
@@ -21,6 +25,8 @@ class extendInterval extends Model
     public $endHour;
 
     /**
+     * @description The minute at which synthetic monitoring ends.
+     *
      * @example 00
      *
      * @var int
@@ -28,6 +34,8 @@ class extendInterval extends Model
     public $endMinute;
 
     /**
+     * @description The time when synthetic monitoring ends. The format is `yyyy-MM-dd HH`.
+     *
      * @example 2022-08-20 10
      *
      * @var string
@@ -35,6 +43,8 @@ class extendInterval extends Model
     public $endTime;
 
     /**
+     * @description The hour at which synthetic monitoring starts.
+     *
      * @example 00
      *
      * @var int
@@ -42,6 +52,8 @@ class extendInterval extends Model
     public $startHour;
 
     /**
+     * @description The minute at which synthetic monitoring starts.
+     *
      * @example 00
      *
      * @var int
@@ -49,6 +61,8 @@ class extendInterval extends Model
     public $startMinute;
 
     /**
+     * @description The time when synthetic monitoring starts. The format is `yyyy-MM-dd HH`.
+     *
      * @example 2022-07-20 10
      *
      * @var string

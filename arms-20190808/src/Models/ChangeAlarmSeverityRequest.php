@@ -19,6 +19,8 @@ class ChangeAlarmSeverityRequest extends Model
     public $alarmId;
 
     /**
+     * @description The ID of the handler.
+     *
      * @example 2046076
      *
      * @var int
@@ -26,8 +28,9 @@ class ChangeAlarmSeverityRequest extends Model
     public $handlerId;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

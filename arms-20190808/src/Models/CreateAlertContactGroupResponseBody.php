@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateAlertContactGroupResponseBody extends Model
 {
     /**
+     * @description The ID of the alert contact group.
+     *
      * @example 446*
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateAlertContactGroupResponseBody extends Model
     public $contactGroupId;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 70675725-8F11-4817-8106-CFE0AD71****
      *
      * @var string

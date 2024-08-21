@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DataBonreeSDKConfigModuleConfigVersionConfigsValue extends Model
 {
     /**
+     * @description Indicates whether the custom configuration is used.
+     *
      * @example true
      *
      * @var bool
@@ -16,16 +18,22 @@ class DataBonreeSDKConfigModuleConfigVersionConfigsValue extends Model
     public $useCustom;
 
     /**
+     * @description The custom configuration.
+     *
      * @var DataBonreeSDKConfigModuleConfigVersionConfigsValueCustomConfigValue[]
      */
     public $customConfig;
 
     /**
+     * @description The description of the version configuration.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The time when the version configuration was updated.
+     *
      * @example 1721112372055
      *
      * @var int

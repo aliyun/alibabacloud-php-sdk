@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The list of stacks.
+     *
      * @var string[]
      */
     public $lines;
 
     /**
+     * @description The thread ID.
+     *
      * @example 16643
      *
      * @var string

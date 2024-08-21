@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class dependencies extends Model
 {
     /**
-     * @description Dependency cluster types.
+     * @description The supported cluster types.
      *
      * @var string[]
      */

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class net extends Model
 {
     /**
+     * @description The DNS server.
+     *
      * @example 114.114.XX.XX
      *
      * @var string
@@ -16,6 +18,11 @@ class net extends Model
     public $netDNSNs;
 
     /**
+     * @description The DNS query method. Valid values:
+     *
+     *   1: recursion
+     *   2: iteration
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +30,12 @@ class net extends Model
     public $netDNSQueryMethod;
 
     /**
+     * @description The IP address type of the DNS server.
+     *
+     *   0: IPv4
+     *   1: IPv6
+     *   2: an automatic IP address
+     *
      * @example 0
      *
      * @var int
@@ -30,6 +43,11 @@ class net extends Model
     public $netDNSServer;
 
     /**
+     * @description Specifies whether to enable domain name system (DNS) monitoring.
+     *
+     *   0: Off.
+     *   1: On. You must set DNS parameters if you want to enable DNS monitoring.
+     *
      * @example 1
      *
      * @var int
@@ -37,6 +55,8 @@ class net extends Model
     public $netDNSSwitch;
 
     /**
+     * @description The timeout period of DNS monitoring. Default value: 5 seconds. Valid values: 0 to 45 seconds.
+     *
      * @example 5
      *
      * @var int
@@ -44,6 +64,11 @@ class net extends Model
     public $netDNSTimeout;
 
     /**
+     * @description Specifies whether to display the data in the DIG format. Valid values:
+     *
+     *   0: no
+     *   1: yes
+     *
      * @example 0
      *
      * @var int
@@ -51,6 +76,11 @@ class net extends Model
     public $netDigSwitch;
 
     /**
+     * @description The protocol type. Valid values:
+     *
+     *   0: ICMP
+     *   1: TCP
+     *
      * @example 0
      *
      * @var int
@@ -58,6 +88,11 @@ class net extends Model
     public $netICMPActive;
 
     /**
+     * @description Specifies whether to split packages.
+     *
+     *   0: no
+     *   1: yes
+     *
      * @example 0
      *
      * @var int
@@ -65,6 +100,8 @@ class net extends Model
     public $netICMPDataCut;
 
     /**
+     * @description The interval at which the network synthetic monitoring task is executed. Unit: seconds.
+     *
      * @example 1
      *
      * @var int
@@ -72,6 +109,8 @@ class net extends Model
     public $netICMPInterval;
 
     /**
+     * @description The number of packages.
+     *
      * @example 4
      *
      * @var int
@@ -79,6 +118,8 @@ class net extends Model
     public $netICMPNum;
 
     /**
+     * @description The package size.
+     *
      * @example 32
      *
      * @var int
@@ -86,6 +127,11 @@ class net extends Model
     public $netICMPSize;
 
     /**
+     * @description Specifies whether to enable ping monitoring.
+     *
+     *   0: Off.
+     *   1: On. You must set Internet control message protocol (ICMP) parameters if you want to enable ping monitoring.
+     *
      * @example 1
      *
      * @var int
@@ -93,11 +139,17 @@ class net extends Model
     public $netICMPSwitch;
 
     /**
+     * @description The timeout period of Ping monitoring.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $netICMPTimeout;
 
     /**
+     * @description The maximum number of active monitoring points.
+     *
      * @example 20
      *
      * @var int
@@ -105,6 +157,11 @@ class net extends Model
     public $netTraceRouteNum;
 
     /**
+     * @description Specifies whether to enable tracert monitoring.
+     *
+     *   0: Off.
+     *   1: On. You must set the tracert parameters if you want to enable tracert monitoring.
+     *
      * @example 1
      *
      * @var int
@@ -112,6 +169,8 @@ class net extends Model
     public $netTraceRouteSwitch;
 
     /**
+     * @description The timeout period of tracert monitoring. Valid values: 0 to 300 seconds.
+     *
      * @example 60
      *
      * @var int
@@ -119,6 +178,9 @@ class net extends Model
     public $netTraceRouteTimeout;
 
     /**
+     * @description The whitelist for DNS hijacking. The format is `Domain name: Matching rule`.
+     *
+     * >  Wireless application protocol (WAP) networks do not support DNS hijacking.
      * @example www.aliyun.com:202.0.3.55|203.3.44.67
      *
      * @var string

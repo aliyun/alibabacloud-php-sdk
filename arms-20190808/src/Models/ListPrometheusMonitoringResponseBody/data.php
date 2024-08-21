@@ -20,6 +20,8 @@ class data extends Model
     /**
      * @description The monitoring configuration. The value is a YAML string.
      *
+     * @example apiVersion: monitoring.coreos.com/v1
+     * app: tomcat
      * @var string
      */
     public $configYaml;

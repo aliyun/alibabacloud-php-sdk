@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class urlEncoding extends Model
 {
     /**
+     * @description The key of **x-www-form-urlencoded**.
+     *
      * @example appId
      *
      * @var string
@@ -16,6 +18,8 @@ class urlEncoding extends Model
     public $key;
 
     /**
+     * @description The value of **x-www-form-urlencoded**.
+     *
      * @example 11080
      *
      * @var string

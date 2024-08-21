@@ -10,6 +10,13 @@ use AlibabaCloud\Tea\Model;
 class protocol extends Model
 {
     /**
+     * @description The encoding format.
+     *
+     *   0: UTF-8
+     *   1: GBK
+     *   2: GB2312
+     *   3: Unicode
+     *
      * @example 0
      *
      * @var int
@@ -17,6 +24,11 @@ class protocol extends Model
     public $characterEncoding;
 
     /**
+     * @description The custom host mode.
+     *
+     *   1: round robin
+     *   0: random
+     *
      * @example 1
      *
      * @var int
@@ -24,6 +36,8 @@ class protocol extends Model
     public $customHost;
 
     /**
+     * @description The custom host IP address. You can enter multiple IP addresses. Separate the IP addresses with commas (,).
+     *
      * @example ipv4:192.168.2.1,192.168.2.5:img.a.com|192.168.2.1[8080]:img.a.com
      *
      * @var string
@@ -31,6 +45,8 @@ class protocol extends Model
     public $customHostIp;
 
     /**
+     * @description The connection timeout period of the protocol. Unit: seconds.
+     *
      * @example 3
      *
      * @var int
@@ -38,6 +54,8 @@ class protocol extends Model
     public $protocolConnectionTime;
 
     /**
+     * @description The timeout period of API performance synthetic monitoring. Unit: seconds.
+     *
      * @example 30
      *
      * @var string
@@ -45,21 +63,38 @@ class protocol extends Model
     public $protocolMonitorTimeout;
 
     /**
+     * @description The size of the received data. This parameter is required when you set the value of the VerifyWay parameter to 2.
+     *
+     * @example 500
+     *
      * @var int
      */
     public $receivedDataSize;
 
     /**
+     * @description The request content, including the request header and request body.
+     *
      * @var requestContent
      */
     public $requestContent;
 
     /**
+     * @description The verification string.
+     *
+     * @example "code":200
+     *
      * @var string
      */
     public $verifyContent;
 
     /**
+     * @description The method that is used to verify the response content.
+     *
+     *   0: no verification.
+     *   1: exact match with the verification string.
+     *   2: partial match with the verification string.
+     *   3: MD5 verification.
+     *
      * @example 0
      *
      * @var int

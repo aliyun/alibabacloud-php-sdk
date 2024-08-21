@@ -37,6 +37,8 @@ class GetRumAppsResponseBody extends Model
     /**
      * @description The error message returned if the request failed.
      *
+     * @example Internal error, please contact customer service.
+     *
      * @var string
      */
     public $message;

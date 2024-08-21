@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class formData extends Model
 {
     /**
+     * @description The key of **form-data**.
+     *
      * @example appId
      *
      * @var string
@@ -16,6 +18,8 @@ class formData extends Model
     public $key;
 
     /**
+     * @description The value of **form-data**.
+     *
      * @example 3425
      *
      * @var string

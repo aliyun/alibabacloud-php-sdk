@@ -28,8 +28,9 @@ class BlockAlarmNotificationRequest extends Model
     public $handlerId;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

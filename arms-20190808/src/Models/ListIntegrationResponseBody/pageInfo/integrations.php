@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class integrations extends Model
 {
     /**
+     * @description The endpoint of the alert integration.
+     *
      * @example https://alerts.aliyuncs.com/api/v1/integrations/custom/ymQBN******
      *
      * @var string
@@ -17,6 +19,8 @@ class integrations extends Model
     public $apiEndpoint;
 
     /**
+     * @description The time when the alert integration was created.
+     *
      * @example 2022-06-18
      *
      * @var string
@@ -24,11 +28,15 @@ class integrations extends Model
     public $createTime;
 
     /**
+     * @description The information about the alert events.
+     *
      * @var integrationDetail
      */
     public $integrationDetail;
 
     /**
+     * @description The ID of the alert integration.
+     *
      * @example 1234
      *
      * @var int
@@ -36,13 +44,20 @@ class integrations extends Model
     public $integrationId;
 
     /**
-     * @example 云监控集成
+     * @description The name of the alert integration.
+     *
+     * @example CloudMonitor integration
      *
      * @var string
      */
     public $integrationName;
 
     /**
+     * @description The type of the alert integration. Valid values:
+     *
+     *   CLOUD_MONITOR: CloudMonitor
+     *   LOG_SERVICE: Log Service
+     *
      * @example CLOUD_MONITOR
      *
      * @var string
@@ -50,6 +65,8 @@ class integrations extends Model
     public $integrationProductType;
 
     /**
+     * @description The activity of the alert integration
+     *
      * @example ready
      *
      * @var string
@@ -57,6 +74,8 @@ class integrations extends Model
     public $liveness;
 
     /**
+     * @description The authentication token of the alert integration.
+     *
      * @example ymQBN******
      *
      * @var string
@@ -64,6 +83,11 @@ class integrations extends Model
     public $shortToken;
 
     /**
+     * @description Indicates whether the alert integration was enabled. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

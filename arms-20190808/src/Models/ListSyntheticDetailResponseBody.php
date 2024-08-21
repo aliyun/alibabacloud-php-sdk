@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListSyntheticDetailResponseBody extends Model
 {
     /**
+     * @description The HTTP status code returned. The status code 200 indicates that the request was successful.
+     *
      * @example 200
      *
      * @var int
@@ -24,6 +26,8 @@ class ListSyntheticDetailResponseBody extends Model
     public $data;
 
     /**
+     * @description The error message returned.
+     *
      * @example null
      *
      * @var string

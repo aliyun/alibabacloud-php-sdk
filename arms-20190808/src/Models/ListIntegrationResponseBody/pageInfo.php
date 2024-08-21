@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class pageInfo extends Model
 {
     /**
+     * @description The information about each alert integration.
+     *
      * @var integrations[]
      */
     public $integrations;
 
     /**
+     * @description The page number of the returned page.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class pageInfo extends Model
     public $page;
 
     /**
+     * @description The number of alert integrations returned per page.
+     *
      * @example 10
      *
      * @var int
@@ -29,6 +35,8 @@ class pageInfo extends Model
     public $size;
 
     /**
+     * @description The total number of alert integrations.
+     *
      * @example 1
      *
      * @var int

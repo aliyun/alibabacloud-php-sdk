@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class QueryReleaseMetricRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the change order.
      *
+     * This parameter is required.
      * @example a341a2f2-ed07-4257-aae9-dfb1be******
      *
      * @var string
@@ -18,6 +19,8 @@ class QueryReleaseMetricRequest extends Model
     public $changeOrderId;
 
     /**
+     * @description The time when the change order was created.
+     *
      * @example 1634005438000
      *
      * @var int
@@ -25,6 +28,8 @@ class QueryReleaseMetricRequest extends Model
     public $createTime;
 
     /**
+     * @description The type of the metric that you want to query.
+     *
      * @example SystemContrast
      *
      * @var string
@@ -32,8 +37,9 @@ class QueryReleaseMetricRequest extends Model
     public $metricType;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the Enterprise Distributed Application Service (EDAS) or Kubernetes application.
      *
+     * This parameter is required.
      * @example 8b46d03f-5947-449d-90fd-3a96c2******
      *
      * @var string
@@ -41,6 +47,8 @@ class QueryReleaseMetricRequest extends Model
     public $pid;
 
     /**
+     * @description This parameter is not in use.
+     *
      * @example null
      *
      * @var string
@@ -48,8 +56,9 @@ class QueryReleaseMetricRequest extends Model
     public $proxyUserId;
 
     /**
-     * @description This parameter is required.
+     * @description The end time of the version release.
      *
+     * This parameter is required.
      * @example 1632798718632
      *
      * @var int
@@ -57,8 +66,9 @@ class QueryReleaseMetricRequest extends Model
     public $releaseEndTime;
 
     /**
-     * @description This parameter is required.
+     * @description The start time of the version release.
      *
+     * This parameter is required.
      * @example 1632798686692
      *
      * @var int
@@ -66,6 +76,8 @@ class QueryReleaseMetricRequest extends Model
     public $releaseStartTime;
 
     /**
+     * @description The service that you want to query.
+     *
      * @example clothservice
      *
      * @var string

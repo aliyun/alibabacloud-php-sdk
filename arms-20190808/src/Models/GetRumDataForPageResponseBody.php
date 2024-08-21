@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetRumDataForPageResponseBody extends Model
 {
     /**
+     * @description The responses code. The status code 200 indicates that the request was successful.
+     *
      * @example 200
      *
      * @var string
@@ -17,11 +19,15 @@ class GetRumDataForPageResponseBody extends Model
     public $code;
 
     /**
+     * @description The result of the operation.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var string
@@ -29,7 +35,7 @@ class GetRumDataForPageResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The error message.
+     * @description The error message returned if the request failed.
      *
      * @example StartTime is mandatory for this action.
      *
@@ -38,7 +44,7 @@ class GetRumDataForPageResponseBody extends Model
     public $message;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example 78901766-3806-4E96-8E47-CFEF59E4****
      *
@@ -47,6 +53,11 @@ class GetRumDataForPageResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   `true`
+     *   `false`
+     *
      * @example true
      *
      * @var string

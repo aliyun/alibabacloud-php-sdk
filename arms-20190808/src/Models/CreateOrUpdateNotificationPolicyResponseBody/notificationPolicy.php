@@ -13,6 +13,10 @@ use AlibabaCloud\Tea\Model;
 class notificationPolicy extends Model
 {
     /**
+     * @description Specifies whether to enable simple mode.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $directedMode;

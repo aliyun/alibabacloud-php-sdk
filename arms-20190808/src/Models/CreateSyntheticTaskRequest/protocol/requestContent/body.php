@@ -11,11 +11,21 @@ use AlibabaCloud\Tea\Model;
 class body extends Model
 {
     /**
+     * @description The data that is passed when the **Mode** parameter is set to **form-data**.
+     *
      * @var formData[]
      */
     public $formData;
 
     /**
+     * @description The language that is selected when the Mode parameter is set to raw.
+     *
+     *   json
+     *   xml
+     *   javascript
+     *   html
+     *   text
+     *
      * @example json
      *
      * @var string
@@ -23,6 +33,12 @@ class body extends Model
     public $language;
 
     /**
+     * @description The data type of the content.
+     *
+     *   form-data
+     *   x-www-form-urlencoded
+     *   raw
+     *
      * @example form-data
      *
      * @var string
@@ -30,6 +46,8 @@ class body extends Model
     public $mode;
 
     /**
+     * @description The data that is passed when the **Mode** parameter is set to **raw**.
+     *
      * @example content
      *
      * @var string
@@ -37,6 +55,8 @@ class body extends Model
     public $raw;
 
     /**
+     * @description The data that is passed when the **Mode** parameter is set to **x-www-form-urlencoded**.
+     *
      * @var urlEncoding[]
      */
     public $urlEncoding;

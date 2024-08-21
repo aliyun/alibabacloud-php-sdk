@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateAlertContactGroupRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The name of the alert contact group.
      *
+     * This parameter is required.
      * @example TestGroup
      *
      * @var string
@@ -18,6 +19,8 @@ class CreateAlertContactGroupRequest extends Model
     public $contactGroupName;
 
     /**
+     * @description The IDs of contacts in the contact group. Separate multiple contact IDs with spaces. You can call the SearchAlertContact operation to query the contact IDs. For more information, see [SearchAlertContact](https://help.aliyun.com/document_detail/130703.html).
+     *
      * @example 12* 23* 34*
      *
      * @var string
@@ -25,8 +28,9 @@ class CreateAlertContactGroupRequest extends Model
     public $contactIds;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the region. Default value: `cn-hangzhou`.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

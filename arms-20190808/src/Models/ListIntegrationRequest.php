@@ -9,15 +9,21 @@ use AlibabaCloud\Tea\Model;
 class ListIntegrationRequest extends Model
 {
     /**
-     * @example 云监控集成
+     * @description The name of the alert integration.
+     *
+     * @example CloudMonitor integration
      *
      * @var string
      */
     public $integrationName;
 
     /**
-     * @description This parameter is required.
+     * @description The type of the alert integration. Valid values:
      *
+     *   CLOUD_MONITOR: CloudMonitor
+     *   LOG_SERVICE: Log Service
+     *
+     * This parameter is required.
      * @example CLOUD_MONITOR
      *
      * @var string
@@ -25,6 +31,11 @@ class ListIntegrationRequest extends Model
     public $integrationProductType;
 
     /**
+     * @description Specifies whether to display the details of each alert integration:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool
@@ -32,8 +43,9 @@ class ListIntegrationRequest extends Model
     public $isDetail;
 
     /**
-     * @description This parameter is required.
+     * @description The number of the page to return.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -41,8 +53,9 @@ class ListIntegrationRequest extends Model
     public $page;
 
     /**
-     * @description This parameter is required.
+     * @description The number of alert integrations to return on each page.
      *
+     * This parameter is required.
      * @example 10
      *
      * @var int
