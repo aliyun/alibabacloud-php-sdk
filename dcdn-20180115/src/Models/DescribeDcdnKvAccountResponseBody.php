@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnKvAccountResponseBody extends Model
 {
     /**
+     * @var int
+     */
+    public $capacity;
+
+    /**
      * @description The available capacity of all namespaces.
      *
      * @example 2GB
@@ -17,6 +22,11 @@ class DescribeDcdnKvAccountResponseBody extends Model
      * @var string
      */
     public $capacityString;
+
+    /**
+     * @var int
+     */
+    public $capacityUsed;
 
     /**
      * @description All namespaces have used capacity.
@@ -73,7 +83,9 @@ class DescribeDcdnKvAccountResponseBody extends Model
      */
     public $status;
     protected $_name = [
+        'capacity'           => 'Capacity',
         'capacityString'     => 'CapacityString',
+        'capacityUsed'       => 'CapacityUsed',
         'capacityUsedString' => 'CapacityUsedString',
         'namespaceList'      => 'NamespaceList',
         'namespaceQuota'     => 'NamespaceQuota',
@@ -89,8 +101,14 @@ class DescribeDcdnKvAccountResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->capacity) {
+            $res['Capacity'] = $this->capacity;
+        }
         if (null !== $this->capacityString) {
             $res['CapacityString'] = $this->capacityString;
+        }
+        if (null !== $this->capacityUsed) {
+            $res['CapacityUsed'] = $this->capacityUsed;
         }
         if (null !== $this->capacityUsedString) {
             $res['CapacityUsedString'] = $this->capacityUsedString;
@@ -128,8 +146,14 @@ class DescribeDcdnKvAccountResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Capacity'])) {
+            $model->capacity = $map['Capacity'];
+        }
         if (isset($map['CapacityString'])) {
             $model->capacityString = $map['CapacityString'];
+        }
+        if (isset($map['CapacityUsed'])) {
+            $model->capacityUsed = $map['CapacityUsed'];
         }
         if (isset($map['CapacityUsedString'])) {
             $model->capacityUsedString = $map['CapacityUsedString'];
