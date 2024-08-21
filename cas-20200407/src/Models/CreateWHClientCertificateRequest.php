@@ -91,6 +91,8 @@ class CreateWHClientCertificateRequest extends Model
     public $organizationUnit;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 273ae6bb538d538c70c01f81jh2****
      *
      * @var string

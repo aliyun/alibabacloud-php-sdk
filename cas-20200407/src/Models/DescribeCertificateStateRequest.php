@@ -11,7 +11,7 @@ class DescribeCertificateStateRequest extends Model
     /**
      * @description The ID of the certificate application order that you want to query.
      *
-     * > After you call the [CreateCertificateForPackageRequest](~~455296~~), [CreateCertificateRequest](~~455292~~), or [CreateCertificateWithCsrRequest](~~455801~~) operation to submit a certificate application, you can obtain the ID of the certificate application order from the **OrderId** response parameter.
+     * This parameter is required.
      * @example 123451222
      *
      * @var int

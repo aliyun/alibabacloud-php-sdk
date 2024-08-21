@@ -9,11 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ListCertRequest extends Model
 {
     /**
-     * @description The type of the certificate.
+     * @description 证书的类型 。取值：
      *
-     *   **CA**: the CA certificate.
-     *   **CERT**: a issued certificate.
-     *
+     * - **CA**：表示CA证书。
+     * - **CERT**：表示签发的证书。
      * @example CERT
      *
      * @var string
@@ -30,7 +29,7 @@ class ListCertRequest extends Model
     public $currentPage;
 
     /**
-     * @description The keyword that is used for queries. The value can be a name, domain name, or subject alternative name (SAN) attribute. Fuzzy match is supported.
+     * @description The keyword for the query. You can enter a name, domain name, or Subject Alternative Name (SAN) extension. Fuzzy match is supported.
      *
      * @example test_name
      *

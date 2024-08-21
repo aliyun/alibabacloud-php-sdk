@@ -11,7 +11,7 @@ class RenewCertificateOrderForPackageRequestResponseBody extends Model
     /**
      * @description The ID of the certificate application order that is renewed.
      *
-     * > You can use the ID to query the status of the certificate application. For more information, see [DescribeCertificateState](~~455800~~).
+     * >  You can use the ID to query the status of the certificate application order. For more information, see [DescribeCertificateState](https://help.aliyun.com/document_detail/164111.html).
      * @example 323451222
      *
      * @var int

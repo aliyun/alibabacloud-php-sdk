@@ -9,10 +9,12 @@ use AlibabaCloud\Tea\Model;
 class CreateCertificateWithCsrRequestRequest extends Model
 {
     /**
-     * @description The content of the existing CSR file.\
+     * @description The content of the CSR file.\\
      * A CSR file contains the information about your server and company. When you apply for a certificate, you must submit the CSR file to the CA. The CA signs the CSR file by using the private key of the root certificate and generates a public key file to issue your certificate.
      *
      * >  The **CN** field in the CSR file specifies the domain name that is bound to the certificate.
+     *
+     * This parameter is required.
      * @example -----BEGIN CERTIFICATE REQUEST----- ...... -----END CERTIFICATE REQUEST-----
      *
      * @var string
@@ -22,6 +24,7 @@ class CreateCertificateWithCsrRequestRequest extends Model
     /**
      * @description The contact email address of the applicant.
      *
+     * This parameter is required.
      * @example username@example.com
      *
      * @var string
@@ -31,6 +34,7 @@ class CreateCertificateWithCsrRequestRequest extends Model
     /**
      * @description The phone number of the applicant.
      *
+     * This parameter is required.
      * @example 1390000****
      *
      * @var string
@@ -38,17 +42,17 @@ class CreateCertificateWithCsrRequestRequest extends Model
     public $phone;
 
     /**
-     * @description The specifications of the certificate. Valid values:
+     * @description The specifications of the certificate that you want to apply for. Valid values:
      *
-     *   **digicert-free-1-free**: DigiCert single-domain DV certificate in 3 months free trial. This is the default value.
-     *   **symantec-free-1-free**: DigiCert single-domain DV certificate in 1 year free trial.
+     *   **digicert-free-1-free** (default): DigiCert single-domain DV certificate in a three-month free trial, available only on the China site (aliyun.com).
+     *   **symantec-free-1-free**: DigiCert single-domain DV certificate in a one-year free trial, available only on the China site (aliyun.com).
      *   **symantec-dv-1-starter**: DigiCert wildcard DV certificate.
      *   **geotrust-dv-1-starter**: GeoTrust single-domain DV certificate.
      *   **geotrust-dv-w-starter**: GeoTrust wildcard DV certificate.
      *   **globalsign-dv-1-personal**: GlobalSign single-domain DV certificate.
      *   **globalsign-dv-w-advanced**: GlobalSign wildcard DV certificate.
      *
-     * @example digicert-free-1-free
+     * @example symantec-free-1-free
      *
      * @var string
      */
@@ -57,6 +61,7 @@ class CreateCertificateWithCsrRequestRequest extends Model
     /**
      * @description The name of the applicant.
      *
+     * This parameter is required.
      * @example Tom
      *
      * @var string
@@ -69,7 +74,7 @@ class CreateCertificateWithCsrRequestRequest extends Model
      *   **DNS**: DNS verification. If you use this method, you must add a TXT record to the DNS records of the domain name in the management platform of the domain name. You must have operation permissions on domain name resolution to verify the ownership of the domain name.
      *   **FILE**: file verification. If you use this method, you must create a specified file on the DNS server. You must have administrative rights on the DNS server to verify the ownership of the domain name.
      *
-     * For more information about the verification methods, see [Verify the ownership of a domain name](~~48016~~).
+     * This parameter is required.
      * @example DNS
      *
      * @var string

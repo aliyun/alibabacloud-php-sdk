@@ -27,11 +27,10 @@ class certList extends Model
     public $beforeDate;
 
     /**
-     * @description The type of the certificate.
+     * @description 证书的类型 。取值：
      *
-     *   **CA**: the CA certificate.
-     *   **CERT**: a issued certificate.
-     *
+     * - **CA**：表示CA证书。
+     * - **CERT**：表示签发的证书。
      * @example CERT
      *
      * @var string
@@ -78,7 +77,7 @@ class certList extends Model
     public $issuer;
 
     /**
-     * @description All domain names that are bound to the certificate. Multiple domain names are separated by commas (,).
+     * @description The domain names that are bound to the certificate. Multiple domain names are separated by commas.
      *
      * @example *.alibaba.com,aliyun.alibaba.com
      *
@@ -111,7 +110,7 @@ class certList extends Model
     public $status;
 
     /**
-     * @description The ID of the certificate application repository.
+     * @description The ID of the certificate repository.
      *
      * @example 2
      *
@@ -120,7 +119,7 @@ class certList extends Model
     public $whId;
 
     /**
-     * @description The instance ID of the certificate application repository.
+     * @description The instance ID of the certificate repository.
      *
      * @example test_whInstanceId
      *

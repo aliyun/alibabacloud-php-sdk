@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class certWarehouseList extends Model
 {
     /**
+     * @description The timestamp when the certificate application repository expires. Unit: milliseconds.
+     *
      * @example 1665819958000
      *
      * @var int
@@ -16,6 +18,8 @@ class certWarehouseList extends Model
     public $endTime;
 
     /**
+     * @description The instance ID of the certificate application repository.
+     *
      * @example 14dcc8afc7578e1f
      *
      * @var string
@@ -23,6 +27,11 @@ class certWarehouseList extends Model
     public $instanceId;
 
     /**
+     * @description Indicates whether the certificate application repository has expired. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example false
      *
      * @var bool
@@ -30,6 +39,8 @@ class certWarehouseList extends Model
     public $isExpired;
 
     /**
+     * @description The name of the certificate application repository.
+     *
      * @example name
      *
      * @var string
@@ -37,6 +48,8 @@ class certWarehouseList extends Model
     public $name;
 
     /**
+     * @description The instance ID of the private CA.
+     *
      * @example 14dcc8afc7578e1f
      *
      * @var string
@@ -44,6 +57,8 @@ class certWarehouseList extends Model
     public $pcaInstanceId;
 
     /**
+     * @description The queries per second (QPS).
+     *
      * @example 10
      *
      * @var int
@@ -51,6 +66,14 @@ class certWarehouseList extends Model
     public $qps;
 
     /**
+     * @description The type of the certificate application repository. Valid values:
+     *
+     *   **ssl**: certificate application repository of SSL certificates
+     *   **uploadPCA**: certificate application repository of uploaded private certificates
+     *   **free**: certificate application repository of free certificates, available only on the China site (aliyun.com)
+     *   **aliyunPCA**: certificate application repository of private certificates purchased from Alibaba Cloud Private Certificate Authority (PCA), available only on the China site (aliyun.com)
+     *   **disable**: disabled certificate application repository
+     *
      * @example aliyunPCA
      *
      * @var string
@@ -58,6 +81,8 @@ class certWarehouseList extends Model
     public $type;
 
     /**
+     * @description The ID of the certificate application repository.
+     *
      * @example 1
      *
      * @var int

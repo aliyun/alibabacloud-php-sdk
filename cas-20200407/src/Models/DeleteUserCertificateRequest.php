@@ -11,6 +11,7 @@ class DeleteUserCertificateRequest extends Model
     /**
      * @description The ID of the certificate.
      *
+     * This parameter is required.
      * @example 7562353
      *
      * @var int

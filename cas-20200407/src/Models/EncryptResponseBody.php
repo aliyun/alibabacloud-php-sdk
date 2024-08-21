@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class EncryptResponseBody extends Model
 {
     /**
+     * @description The unique identifier of the certificate.
+     *
      * @example 12345678-1234-1234-1234-12345678****
      *
      * @var string
@@ -16,6 +18,8 @@ class EncryptResponseBody extends Model
     public $certIdentifier;
 
     /**
+     * @description The data after encryption. The value is encoded in Base64.
+     *
      * @example ZOyIygCyaOW6Gj****MlNKiuyjfzw=
      *
      * @var string
@@ -23,6 +27,8 @@ class EncryptResponseBody extends Model
     public $ciphertextBlob;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 5979d897-d69f-4fc9-87dd-f3bb73c40b80
      *
      * @var string

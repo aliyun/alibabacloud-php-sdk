@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateCsrResponseBody extends Model
 {
     /**
+     * @description The content of the CSR.
+     *
      * @example -----BEGIN CERTIFICATE REQUEST----- ...... -----END CERTIFICATE REQUEST-----
      *
      * @var string
@@ -16,7 +18,7 @@ class CreateCsrResponseBody extends Model
     public $csr;
 
     /**
-     * @description CSR ID。
+     * @description The unique identifier of the CSR. You can use this value to obtain the content of the CSR. For more information about the operation that you can call to obtain the content of a CSR, see [GetCsrDetail](https://help.aliyun.com/document_detail/2709720.html).
      *
      * @example 3365
      *
@@ -25,6 +27,8 @@ class CreateCsrResponseBody extends Model
     public $csrId;
 
     /**
+     * @description The request ID.
+     *
      * @example 12345678-1234-1234-1234-123456789ABC
      *
      * @var string

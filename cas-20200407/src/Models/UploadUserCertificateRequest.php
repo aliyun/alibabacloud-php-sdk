@@ -48,7 +48,7 @@ class UploadUserCertificateRequest extends Model
     public $key;
 
     /**
-     * @description The name of the certificate. The name can contain up to 128 characters in length. The name can contain all types of characters, such as letters, digits, and underscores (\_).
+     * @description The name of the certificate. The name can contain up to 128 characters in length. The name can contain all types of characters, such as letters, digits, and underscores (_).
      *
      * >  The name must be unique within an Alibaba Cloud account.
      * @example cert-1

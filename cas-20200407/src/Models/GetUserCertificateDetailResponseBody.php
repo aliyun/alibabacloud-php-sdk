@@ -30,9 +30,9 @@ class GetUserCertificateDetailResponseBody extends Model
     public $buyInAliyun;
 
     /**
-     * @description The content of the certificate.
+     * @description The content of the certificate if the certificate does not use an SM algorithm. If certFilter is set to false, this parameter is returned. Otherwise, this parameter is not returned.
      *
-     * @example ----BEGIN CERTIFICATE----- MIIF*** -----END CERTIFICATE-----
+     * @example ---BEGIN CERTIFICATE----- MIIF...... -----END CERTIFICATE-----
      *
      * @var string
      */
@@ -48,7 +48,7 @@ class GetUserCertificateDetailResponseBody extends Model
     public $city;
 
     /**
-     * @description The parent domain name that is bound to the certificate.
+     * @description The primary domain name that is bound to the certificate.
      *
      * @example *.com
      *
@@ -66,7 +66,7 @@ class GetUserCertificateDetailResponseBody extends Model
     public $country;
 
     /**
-     * @description The content of the encryption certificate in PEM format.
+     * @description The content of the encryption certificate if the certificate uses an SM algorithm and is encoded in the PEM format. If certFilter is set to false, this parameter is returned. Otherwise, this parameter is not returned.
      *
      * @example -----BEGIN CERTIFICATE-----
      * MIICDzCCA***
@@ -76,7 +76,7 @@ class GetUserCertificateDetailResponseBody extends Model
     public $encryptCert;
 
     /**
-     * @description The private key of the encryption certificate in the PEM format.
+     * @description The private key of the encryption certificate if the certificate uses an SM algorithm and is encoded in the PEM format. If certFilter is set to false, this parameter is returned. Otherwise, this parameter is not returned.
      *
      * @example -----BEGIN EC PRIVATE KEY-----
      * MHcCAQEEI****
@@ -125,6 +125,15 @@ class GetUserCertificateDetailResponseBody extends Model
     public $id;
 
     /**
+     * @description The instance ID.
+     *
+     * @example cas-upload-50yf1q
+     *
+     * @var string
+     */
+    public $instanceId;
+
+    /**
      * @description The certificate authority (CA) that issued the certificate.
      *
      * @example Digicert
@@ -134,9 +143,9 @@ class GetUserCertificateDetailResponseBody extends Model
     public $issuer;
 
     /**
-     * @description The private key.
+     * @description The private key of the certificate if the certificate does not use an SM algorithm. If certFilter is set to false, this parameter is returned. Otherwise, this parameter is not returned.
      *
-     * @example -----BEGIN RSA PRIVATE KEY----- MII***-----END RSA PRIVATE KEY-----
+     * @example -----BEGIN RSA PRIVATE KEY----- MII.... -----END RSA PRIVATE KEY-----
      *
      * @var string
      */
@@ -152,7 +161,7 @@ class GetUserCertificateDetailResponseBody extends Model
     public $name;
 
     /**
-     * @description The ID of the certificate application order.
+     * @description The order ID.
      *
      * @example 123456
      *
@@ -188,7 +197,7 @@ class GetUserCertificateDetailResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the resource group to which the certificate belongs.
+     * @description The ID of the resource group.
      *
      * @example rg-aek****wia
      *
@@ -206,7 +215,25 @@ class GetUserCertificateDetailResponseBody extends Model
     public $sans;
 
     /**
-     * @description The content of the signing certificate in the PEM format.
+     * @description The certificate serial No.
+     *
+     * @example 06ea4879591ddf84e6c8b6ba43607ccf
+     *
+     * @var string
+     */
+    public $serialNo;
+
+    /**
+     * @description The certificate sha2 value.
+     *
+     * @example 840707695D5EE41323102DDC2CB4924AA561012FBDC4E1A6324147119ED3C339
+     *
+     * @var string
+     */
+    public $sha2;
+
+    /**
+     * @description The content of the signing certificate if the certificate uses an SM algorithm and is encoded in the PEM format. If certFilter is set to false, this parameter is returned. Otherwise, this parameter is not returned.
      *
      * @example -----BEGIN CERTIFICATE-----
      * MIICDzCCAbagAw****
@@ -216,7 +243,7 @@ class GetUserCertificateDetailResponseBody extends Model
     public $signCert;
 
     /**
-     * @description The private key of the signing certificate in the PEM format.
+     * @description The private key of the signing certificate if the certificate uses an SM algorithm and is encoded in the PEM format. If certFilter is set to false, this parameter is returned. Otherwise, this parameter is not returned.
      *
      * @example -----BEGIN EC PRIVATE KEY-----
      * MHcCAQEEILR****
@@ -246,6 +273,7 @@ class GetUserCertificateDetailResponseBody extends Model
         'expired'           => 'Expired',
         'fingerprint'       => 'Fingerprint',
         'id'                => 'Id',
+        'instanceId'        => 'InstanceId',
         'issuer'            => 'Issuer',
         'key'               => 'Key',
         'name'              => 'Name',
@@ -255,6 +283,8 @@ class GetUserCertificateDetailResponseBody extends Model
         'requestId'         => 'RequestId',
         'resourceGroupId'   => 'ResourceGroupId',
         'sans'              => 'Sans',
+        'serialNo'          => 'SerialNo',
+        'sha2'              => 'Sha2',
         'signCert'          => 'SignCert',
         'signPrivateKey'    => 'SignPrivateKey',
         'startDate'         => 'StartDate',
@@ -303,6 +333,9 @@ class GetUserCertificateDetailResponseBody extends Model
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
         if (null !== $this->issuer) {
             $res['Issuer'] = $this->issuer;
         }
@@ -329,6 +362,12 @@ class GetUserCertificateDetailResponseBody extends Model
         }
         if (null !== $this->sans) {
             $res['Sans'] = $this->sans;
+        }
+        if (null !== $this->serialNo) {
+            $res['SerialNo'] = $this->serialNo;
+        }
+        if (null !== $this->sha2) {
+            $res['Sha2'] = $this->sha2;
         }
         if (null !== $this->signCert) {
             $res['SignCert'] = $this->signCert;
@@ -387,6 +426,9 @@ class GetUserCertificateDetailResponseBody extends Model
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
         if (isset($map['Issuer'])) {
             $model->issuer = $map['Issuer'];
         }
@@ -413,6 +455,12 @@ class GetUserCertificateDetailResponseBody extends Model
         }
         if (isset($map['Sans'])) {
             $model->sans = $map['Sans'];
+        }
+        if (isset($map['SerialNo'])) {
+            $model->serialNo = $map['SerialNo'];
+        }
+        if (isset($map['Sha2'])) {
+            $model->sha2 = $map['Sha2'];
         }
         if (isset($map['SignCert'])) {
             $model->signCert = $map['SignCert'];

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class VerifyResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 1ed33293-2e48-6b14-861e-538e28e408eb
      *
      * @var string
@@ -16,6 +18,11 @@ class VerifyResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the signature is valid. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool

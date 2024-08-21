@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class csrList extends Model
 {
     /**
+     * @description The algorithm. Valid values: RSA, SM2, and ECC.
+     *
      * @example RSA
      *
      * @var string
@@ -16,18 +18,24 @@ class csrList extends Model
     public $algorithm;
 
     /**
-     * @example test.com
+     * @description The primary domain name, which is a common name.
+     *
+     * @example example.com
      *
      * @var string
      */
     public $commonName;
 
     /**
+     * @description The name of the company.
+     *
      * @var string
      */
     public $corpName;
 
     /**
+     * @description The code of the country or region in which the organization is located. For example, you can use CN to indicate China and use US to indicate the United States. The default value is the code of the country or region in which the organization is located. The organization is associated with the intermediate CA certificate from which the certificate is issued. For more information about country codes, see the "Country codes" section of the [Manage company profiles](https://help.aliyun.com/document_detail/198289.html) topic.
+     *
      * @example CN
      *
      * @var string
@@ -35,7 +43,7 @@ class csrList extends Model
     public $countryCode;
 
     /**
-     * @description CSR ID。
+     * @description The ID of the CSR.
      *
      * @example 3454
      *
@@ -44,6 +52,8 @@ class csrList extends Model
     public $csrId;
 
     /**
+     * @description The department that uses the certificate.
+     *
      * @example IT
      *
      * @var string
@@ -51,6 +61,8 @@ class csrList extends Model
     public $department;
 
     /**
+     * @description Indicates whether the certificate contains a private key.
+     *
      * @example true
      *
      * @var bool
@@ -58,6 +70,8 @@ class csrList extends Model
     public $hasPrivateKey;
 
     /**
+     * @description The public key that is calculated by using the SHA256 algorithm.
+     *
      * @example 1234
      *
      * @var string
@@ -65,6 +79,8 @@ class csrList extends Model
     public $keySha2;
 
     /**
+     * @description The key length that is used by the algorithm. The key length for RSA algorithms can be 2,048, 3,072, and 4,096 bits. The key length for ECC and SM2 algorithms can be 256 bits.
+     *
      * @example 2048
      *
      * @var int
@@ -72,6 +88,8 @@ class csrList extends Model
     public $keySize;
 
     /**
+     * @description The city where the company is located.
+     *
      * @example Beijing
      *
      * @var string
@@ -79,6 +97,8 @@ class csrList extends Model
     public $locality;
 
     /**
+     * @description The name of the CSR.
+     *
      * @example name
      *
      * @var string
@@ -86,6 +106,8 @@ class csrList extends Model
     public $name;
 
     /**
+     * @description The province or location.
+     *
      * @example Beijing
      *
      * @var string
@@ -93,7 +115,9 @@ class csrList extends Model
     public $province;
 
     /**
-     * @example www.test.com,abc.test.com
+     * @description The secondary domain names. Separate multiple domain names with commas (,).
+     *
+     * @example www.example.com,www.aliyundoc.com
      *
      * @var string
      */

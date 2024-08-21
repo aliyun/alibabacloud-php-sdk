@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetUserCertificateDetailRequest extends Model
 {
     /**
-     * @description If true, the Cert, Key, EncryptCert, EncryptPrivateKey, SignCert, SignPrivateKey will return null, default is false.
+     * @description Specifies whether to filter return results. Valid values: true and false. Default value: false. **true** specifies that the Cert, Key, EncryptCert, EncryptPrivateKey, SignCert, and SignPrivateKey parameters are not returned. **false** specifies that the parameters are returned.
      *
      * @example false
      *
@@ -20,6 +20,7 @@ class GetUserCertificateDetailRequest extends Model
     /**
      * @description The ID of the certificate.
      *
+     * This parameter is required.
      * @example 6055048
      *
      * @var int

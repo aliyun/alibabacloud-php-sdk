@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CancelOrderRequestRequest extends Model
 {
     /**
-     * @description The ID of the certificate application order that you want to cancel.
+     * @description The order ID.
      *
-     * >  After you call the [CreateCertificateForPackageRequest](~~204087~~), [CreateCertificateRequest](~~164105~~), or [CreateCertificateWithCsrRequest](~~178732~~) operation to submit a certificate application, you can obtain the ID of the certificate application order from the **OrderId** response parameter.
+     * This parameter is required.
      * @example 123451222
      *
      * @var int

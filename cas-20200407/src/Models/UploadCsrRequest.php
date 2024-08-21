@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class UploadCsrRequest extends Model
 {
     /**
+     * @description The content of the CSR.
+     *
+     * This parameter is required.
      * @example -----BEGIN CERTIFICATE REQUEST----- ...... -----END CERTIFICATE REQUEST-----
      *
      * @var string
@@ -16,6 +19,8 @@ class UploadCsrRequest extends Model
     public $csr;
 
     /**
+     * @description The private key content of the certificate in the PEM format.
+     *
      * @example -----BEGIN RSA PRIVATE KEY----- MII.... -----END RSA PRIVATE KEY-----
      *
      * @var string
@@ -23,6 +28,8 @@ class UploadCsrRequest extends Model
     public $key;
 
     /**
+     * @description The name of the CSR.
+     *
      * @example name
      *
      * @var string

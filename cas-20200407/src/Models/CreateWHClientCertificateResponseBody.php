@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateWHClientCertificateResponseBody extends Model
 {
     /**
-     * @example -----BEGIN CERTIFICATE-----\n......\n-----END CERTIFICATE-----\n-----BEGIN CERTIFICATE-----\n......\n-----END CERTIFICATE-----\n
+     * @example -----BEGIN CERTIFICATE-----\\n......\\n-----END CERTIFICATE-----\\n-----BEGIN CERTIFICATE-----\\n......\\n-----END CERTIFICATE-----\\n
      *
      * @var string
      */
@@ -23,7 +23,7 @@ class CreateWHClientCertificateResponseBody extends Model
     public $identifier;
 
     /**
-     * @example -----BEGIN CERTIFICATE-----\n......\n-----END CERTIFICATE-----
+     * @example -----BEGIN CERTIFICATE-----\\n......\\n-----END CERTIFICATE-----
      *
      * @var string
      */
@@ -37,14 +37,14 @@ class CreateWHClientCertificateResponseBody extends Model
     public $requestId;
 
     /**
-     * @example -----BEGIN CERTIFICATE-----\n......\n-----END CERTIFICATE-----
+     * @example -----BEGIN CERTIFICATE-----\\n......\\n-----END CERTIFICATE-----
      *
      * @var string
      */
     public $rootX509Certificate;
 
     /**
-     * @example -----BEGIN CERTIFICATE-----\n......\n-----END CERTIFICATE-----
+     * @example -----BEGIN CERTIFICATE-----\\n......\\n-----END CERTIFICATE-----
      *
      * @var string
      */

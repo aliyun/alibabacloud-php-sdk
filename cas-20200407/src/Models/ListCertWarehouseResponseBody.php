@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListCertWarehouseResponseBody extends Model
 {
     /**
+     * @description The certificate application repositories.
+     *
      * @var certWarehouseList[]
      */
     public $certWarehouseList;
 
     /**
+     * @description The page number of the returned page. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class ListCertWarehouseResponseBody extends Model
     public $currentPage;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 15C66C7B-671A-4297-9187-2C4477247A74
      *
      * @var string
@@ -29,6 +35,8 @@ class ListCertWarehouseResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The number of entries returned per page. Default value: 50.
+     *
      * @example 50
      *
      * @var int
@@ -36,6 +44,8 @@ class ListCertWarehouseResponseBody extends Model
     public $showSize;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 10
      *
      * @var int

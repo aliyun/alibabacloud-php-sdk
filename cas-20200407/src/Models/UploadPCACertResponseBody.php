@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UploadPCACertResponseBody extends Model
 {
     /**
+     * @description The unique identifier of the certificate.
+     *
      * @example 1ed65580-7e33-6a50-8630-dd13fdc009ee
      *
      * @var string

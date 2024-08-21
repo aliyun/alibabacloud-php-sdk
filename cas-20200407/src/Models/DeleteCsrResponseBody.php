@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteCsrResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example D3F1FA43-1C26-50A2-8F0F-7A03851DBB46
      *
      * @var string

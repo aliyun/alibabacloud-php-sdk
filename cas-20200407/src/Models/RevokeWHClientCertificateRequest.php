@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class RevokeWHClientCertificateRequest extends Model
 {
     /**
+     * @description The unique identifier of the client certificate or server certificate that you want to revoke.
+     *
+     * This parameter is required.
      * @example 160ae6bb538d538c70c01f81dcf2****
      *
      * @var string

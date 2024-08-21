@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListCsrRequest extends Model
 {
     /**
+     * @description The algorithm. Valid values: RSA, ECC, and SM2.
+     *
      * @example RSA
      *
      * @var string
@@ -16,6 +18,8 @@ class ListCsrRequest extends Model
     public $algorithm;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +27,8 @@ class ListCsrRequest extends Model
     public $currentPage;
 
     /**
+     * @description The keyword.
+     *
      * @example test_name
      *
      * @var string
@@ -30,6 +36,8 @@ class ListCsrRequest extends Model
     public $keyWord;
 
     /**
+     * @description The number of entries per page. Default value: 50.
+     *
      * @example 10
      *
      * @var int

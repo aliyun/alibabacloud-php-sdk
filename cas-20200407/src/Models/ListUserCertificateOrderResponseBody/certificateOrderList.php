@@ -58,8 +58,7 @@ class certificateOrderList extends Model
      *
      *   **DV**: domain validated (DV) certificate
      *   **EV**: extended validation (EV) certificate
-     *   **OV**: organization validated (OV) certificate
-     *   **FREE**: free certificate
+     *   **OV**: organization validated (OV) certificate **FREE**: free certificate, available only on the China site (aliyun.com)
      *
      * @example FREE
      *
@@ -209,7 +208,7 @@ class certificateOrderList extends Model
     public $orgName;
 
     /**
-     * @description The ID of the certificate authority (CA) order. This parameter is returned only if OrderType is set to CPACK or BUY.
+     * @description The ID of the third-party certificate authority (CA) order. This parameter is returned only if OrderType is set to CPACK or BUY.
      *
      * @example ca-123456
      *
@@ -236,7 +235,7 @@ class certificateOrderList extends Model
     public $productName;
 
     /**
-     * @description The name of the province or autonomous region in which the organization is located. This parameter is returned only if OrderType is set to CERT or UPLOAD.
+     * @description The province or autonomous region in which the organization is located. This parameter is returned only if OrderType is set to CERT or UPLOAD.
      *
      * @example Zhejiang
      *
@@ -290,7 +289,7 @@ class certificateOrderList extends Model
     public $sha2;
 
     /**
-     * @description The type of the order. This parameter is returned only if OrderType is set to CPACK or BUY.
+     * @description The type of the order. This parameter is returned only if OrderType is set to CPACK or BUY. Valid values:
      *
      *   **cpack**: virtual resource order
      *   **buy**: purchase order
@@ -311,7 +310,7 @@ class certificateOrderList extends Model
     public $startDate;
 
     /**
-     * @description The certificate status of the order. This parameter is returned only if OrderType is set to CPACK or BUY.
+     * @description The certificate status of the order. This parameter is returned only if OrderType is set to CPACK or BUY. Valid values:
      *
      *   **PAYED**: pending application
      *   **CHECKING**: reviewing
@@ -329,7 +328,7 @@ class certificateOrderList extends Model
     public $status;
 
     /**
-     * @description The hosting status of the certificate. This parameter is returned only if OrderType is set to CPACK or BUY.
+     * @description The hosting status of the certificate. This parameter is returned only if OrderType is set to CPACK or BUY. Valid values:
      *
      *   **unTrustee**: not hosted
      *   **trustee**: hosted

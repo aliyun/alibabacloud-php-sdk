@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetCertWarehouseQuotaResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example CBF1E9B7-D6A0-4E9E-AD3E-2B47E6C2837D
      *
      * @var string
@@ -16,6 +18,8 @@ class GetCertWarehouseQuotaResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total quota for certificate repositories, including the free quota and purchased quota.
+     *
      * @example 5000
      *
      * @var int
@@ -23,6 +27,8 @@ class GetCertWarehouseQuotaResponseBody extends Model
     public $totalQuota;
 
     /**
+     * @description The used quota.
+     *
      * @example 1000
      *
      * @var int

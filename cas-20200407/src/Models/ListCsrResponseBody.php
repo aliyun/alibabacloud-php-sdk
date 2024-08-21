@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListCsrResponseBody extends Model
 {
     /**
+     * @description The CSRs.
+     *
      * @var csrList[]
      */
     public $csrList;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class ListCsrResponseBody extends Model
     public $currentPage;
 
     /**
+     * @description The request ID.
+     *
      * @example E865F6AD-0294-4A24-A58B-DAC6BE2BDD20
      *
      * @var string
@@ -29,6 +35,8 @@ class ListCsrResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The number of entries per page. Default value: 50.
+     *
      * @example 10
      *
      * @var int
@@ -36,6 +44,8 @@ class ListCsrResponseBody extends Model
     public $showSize;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 10
      *
      * @var int

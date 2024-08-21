@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CancelCertificateForPackageRequestRequest extends Model
 {
     /**
+     * @description The order ID.
+     *
+     * This parameter is required.
+     * @example 123451222
+     *
      * @var int
      */
     public $orderId;

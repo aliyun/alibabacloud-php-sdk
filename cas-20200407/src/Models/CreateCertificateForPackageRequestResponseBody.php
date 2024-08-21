@@ -11,7 +11,7 @@ class CreateCertificateForPackageRequestResponseBody extends Model
     /**
      * @description The ID of the certificate application order.
      *
-     * > You can use the ID to query the status of the certificate application order. For more information, see [DescribeCertificateState](~~455800~~).
+     * >  You can use the ID to query the status of the certificate application order. For more information, see [DescribeCertificateState](https://help.aliyun.com/document_detail/164111.html).
      * @example 2021010
      *
      * @var int

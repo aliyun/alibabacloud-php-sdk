@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteCsrRequest extends Model
 {
     /**
-     * @description CSR ID。
+     * @description The ID of the CSR.
      *
+     * This parameter is required.
      * @example 3013
      *
      * @var int

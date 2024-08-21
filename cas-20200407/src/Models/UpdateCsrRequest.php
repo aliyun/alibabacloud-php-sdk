@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class UpdateCsrRequest extends Model
 {
     /**
-     * @description CSR ID。
+     * @description The ID of the CSR.
      *
+     * This parameter is required.
      * @example 5209
      *
      * @var int
@@ -18,6 +19,9 @@ class UpdateCsrRequest extends Model
     public $csrId;
 
     /**
+     * @description The private key content of the certificate in the PEM format.
+     *
+     * This parameter is required.
      * @example -----BEGIN RSA PRIVATE KEY----- MII.... -----END RSA PRIVATE KEY-----
      *
      * @var string

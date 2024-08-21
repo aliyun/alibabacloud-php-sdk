@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CancelOrderRequestResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 082FAB35-6AB9-4FD5-8750-D36673548E76
      *

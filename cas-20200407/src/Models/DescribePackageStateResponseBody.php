@@ -18,10 +18,10 @@ class DescribePackageStateResponseBody extends Model
     public $issuedCount;
 
     /**
-     * @description The specifications of the certificate. Valid values:
+     * @description The specifications of the certificate resource plan. Valid values:
      *
-     *   **symantec-free-1-free**: DigiCert single-domain DV certificate in 3 months free trial.
-     *   **symantec-free-1-free**: DigiCert single-domain DV certificate in 1 year free trial.
+     *   **digicert-free-1-free**: DigiCert single-domain DV certificate in a three-month free trial, available only on the China site (aliyun.com).
+     *   **symantec-free-1-free**: DigiCert single-domain DV certificate in a one-year free trial, available only on the China site (aliyun.com).
      *   **symantec-dv-1-starter**: DigiCert wildcard DV certificate.
      *   **symantec-ov-1-personal**: DigiCert single-domain OV certificate.
      *   **symantec-ov-w-personal**: DigiCert wildcard OV certificate.
@@ -33,10 +33,10 @@ class DescribePackageStateResponseBody extends Model
      *   **globalsign-dv-w-advanced**: GlobalSign wildcard DV certificate.
      *   **globalsign-ov-1-personal**: GlobalSign single-domain OV certificate.
      *   **globalsign-ov-w-advanced**: GlobalSign wildcard OV certificate.
-     *   **cfca-ov-1-personal**: CFCA single-domain OV certificate.
-     *   **cfca-ev-w-advanced**: CFCA wildcard OV certificate.
+     *   **cfca-ov-1-personal**: CFCA single-domain OV certificate, available only on the China site (aliyun.com).
+     *   **cfca-ev-w-advanced**: CFCA wildcard OV certificate, available only on the China site (aliyun.com).
      *
-     * @example digicert-free-1-free
+     * @example symantec-free-1-free
      *
      * @var string
      */
@@ -63,7 +63,7 @@ class DescribePackageStateResponseBody extends Model
     /**
      * @description The number of certificate applications that you submitted for certificates of the specified specifications.
      *
-     * > A successful call of the [CreateCertificateForPackageRequest](~~455296~~), [CreateCertificateRequest](~~455292~~), or [CreateCertificateWithCsrRequest](~~455801~~) operation is counted as one a certificate application, regardless of whether the certificate is issued.
+     * > : A successful call of the [CreateCertificateForPackageRequest](https://help.aliyun.com/document_detail/204087.html), [CreateCertificateRequest](https://help.aliyun.com/document_detail/164105.html), or [CreateCertificateWithCsrRequest](https://help.aliyun.com/document_detail/178732.html) operation is counted as one a certificate application, regardless of whether the certificate is issued.
      * @example 2
      *
      * @var int
