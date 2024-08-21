@@ -177,6 +177,11 @@ class PurchaseReservedInstancesOfferingRequest extends Model
     public $scope;
 
     /**
+     * @var string
+     */
+    public $startTime;
+
+    /**
      * @description The list of tags.
      *
      * @var tag[]
@@ -210,6 +215,7 @@ class PurchaseReservedInstancesOfferingRequest extends Model
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'scope'                => 'Scope',
+        'startTime'            => 'StartTime',
         'tag'                  => 'Tag',
         'zoneId'               => 'ZoneId',
     ];
@@ -274,6 +280,9 @@ class PurchaseReservedInstancesOfferingRequest extends Model
         }
         if (null !== $this->scope) {
             $res['Scope'] = $this->scope;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
         if (null !== $this->tag) {
             $res['Tag'] = [];
@@ -352,6 +361,9 @@ class PurchaseReservedInstancesOfferingRequest extends Model
         }
         if (isset($map['Scope'])) {
             $model->scope = $map['Scope'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {

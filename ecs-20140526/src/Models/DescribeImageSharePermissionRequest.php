@@ -31,7 +31,7 @@ class DescribeImageSharePermissionRequest extends Model
     /**
      * @description The page number.
      *
-     * Default value: 1.
+     * Default value: 1
      * @example 1
      *
      * @var int

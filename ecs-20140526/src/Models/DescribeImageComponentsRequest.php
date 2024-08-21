@@ -19,7 +19,7 @@ class DescribeImageComponentsRequest extends Model
     public $imageComponentId;
 
     /**
-     * @description The number of entries per page. Valid values: 1 to 500.
+     * @description The maximum number of entries per page. Valid values: 1 to 500.
      *
      * Default value: 50.
      * @example 50

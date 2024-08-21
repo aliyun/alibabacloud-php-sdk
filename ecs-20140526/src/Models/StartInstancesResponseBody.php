@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class StartInstancesResponseBody extends Model
 {
     /**
-     * @description The status of the instances before and after the operation is called and the operation results.
+     * @description The information about the ECS instance, such as the status of each instance before and after the operation is called and the operation results.
      *
      * @var instanceResponses
      */
     public $instanceResponses;
 
     /**
-     * @description The information about the ECS instance, such as the status of each instance before and after the operation is called and the operation results.
+     * @description The ID of the request.
      *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
      *
