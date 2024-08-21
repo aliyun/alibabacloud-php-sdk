@@ -18,6 +18,10 @@ use AlibabaCloud\SDK\Bailian\V20231229\Models\CreateAndPulishAgentShrinkRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\CreateIndexRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\CreateIndexResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\CreateIndexShrinkRequest;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\CreateMemoryNodeRequest;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\CreateMemoryNodeResponse;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\CreateMemoryRequest;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\CreateMemoryResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\DeleteAgentResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\DeleteCategoryResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\DeleteFileResponse;
@@ -26,9 +30,13 @@ use AlibabaCloud\SDK\Bailian\V20231229\Models\DeleteIndexDocumentResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\DeleteIndexDocumentShrinkRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\DeleteIndexRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\DeleteIndexResponse;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\DeleteMemoryNodeResponse;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\DeleteMemoryResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\DescribeFileResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\GetIndexJobStatusRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\GetIndexJobStatusResponse;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\GetMemoryNodeResponse;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\GetMemoryResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\GetPublishedAgentResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\ListCategoryRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\ListCategoryResponse;
@@ -40,6 +48,10 @@ use AlibabaCloud\SDK\Bailian\V20231229\Models\ListIndexDocumentsRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\ListIndexDocumentsResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\ListIndicesRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\ListIndicesResponse;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\ListMemoriesRequest;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\ListMemoriesResponse;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\ListMemoryNodesRequest;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\ListMemoryNodesResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\ListPublishedAgentRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\ListPublishedAgentResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\RetrieveRequest;
@@ -53,6 +65,10 @@ use AlibabaCloud\SDK\Bailian\V20231229\Models\SubmitIndexJobResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\UpdateAndPublishAgentRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\UpdateAndPublishAgentResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\UpdateAndPublishAgentShrinkRequest;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\UpdateMemoryNodeRequest;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\UpdateMemoryNodeResponse;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\UpdateMemoryRequest;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\UpdateMemoryResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -439,6 +455,112 @@ class Bailian extends OpenApiClient
     }
 
     /**
+     * @summary 创建Memory
+     *  *
+     * @param string              $workspaceId
+     * @param CreateMemoryRequest $request     CreateMemoryRequest
+     * @param string[]            $headers     map
+     * @param RuntimeOptions      $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return CreateMemoryResponse CreateMemoryResponse
+     */
+    public function createMemoryWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['description'] = $request->description;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateMemory',
+            'version'     => '2023-12-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/memories',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateMemoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建Memory
+     *  *
+     * @param string              $workspaceId
+     * @param CreateMemoryRequest $request     CreateMemoryRequest
+     *
+     * @return CreateMemoryResponse CreateMemoryResponse
+     */
+    public function createMemory($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createMemoryWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 创建记忆Node
+     *  *
+     * @param string                  $workspaceId
+     * @param string                  $memoryId
+     * @param CreateMemoryNodeRequest $request     CreateMemoryNodeRequest
+     * @param string[]                $headers     map
+     * @param RuntimeOptions          $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return CreateMemoryNodeResponse CreateMemoryNodeResponse
+     */
+    public function createMemoryNodeWithOptions($workspaceId, $memoryId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->content)) {
+            $query['content'] = $request->content;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateMemoryNode',
+            'version'     => '2023-12-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/memories/' . OpenApiUtilClient::getEncodeParam($memoryId) . '/memoryNodes',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateMemoryNodeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建记忆Node
+     *  *
+     * @param string                  $workspaceId
+     * @param string                  $memoryId
+     * @param CreateMemoryNodeRequest $request     CreateMemoryNodeRequest
+     *
+     * @return CreateMemoryNodeResponse CreateMemoryNodeResponse
+     */
+    public function createMemoryNode($workspaceId, $memoryId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createMemoryNodeWithOptions($workspaceId, $memoryId, $request, $headers, $runtime);
+    }
+
+    /**
      * @summary 删除智能体
      *  *
      * @param string         $workspaceId
@@ -685,6 +807,100 @@ class Bailian extends OpenApiClient
     }
 
     /**
+     * @summary 删除memory
+     *  *
+     * @param string         $workspaceId
+     * @param string         $memoryId
+     * @param string[]       $headers     map
+     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return DeleteMemoryResponse DeleteMemoryResponse
+     */
+    public function deleteMemoryWithOptions($workspaceId, $memoryId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteMemory',
+            'version'     => '2023-12-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/memories/' . OpenApiUtilClient::getEncodeParam($memoryId) . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteMemoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除memory
+     *  *
+     * @param string $workspaceId
+     * @param string $memoryId
+     *
+     * @return DeleteMemoryResponse DeleteMemoryResponse
+     */
+    public function deleteMemory($workspaceId, $memoryId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteMemoryWithOptions($workspaceId, $memoryId, $headers, $runtime);
+    }
+
+    /**
+     * @summary 删除记忆Node
+     *  *
+     * @param string         $workspaceId
+     * @param string         $memoryId
+     * @param string         $memoryNodeId
+     * @param string[]       $headers      map
+     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
+     *
+     * @return DeleteMemoryNodeResponse DeleteMemoryNodeResponse
+     */
+    public function deleteMemoryNodeWithOptions($workspaceId, $memoryId, $memoryNodeId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteMemoryNode',
+            'version'     => '2023-12-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/memories/' . OpenApiUtilClient::getEncodeParam($memoryId) . '/memoryNodes/' . OpenApiUtilClient::getEncodeParam($memoryNodeId) . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteMemoryNodeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除记忆Node
+     *  *
+     * @param string $workspaceId
+     * @param string $memoryId
+     * @param string $memoryNodeId
+     *
+     * @return DeleteMemoryNodeResponse DeleteMemoryNodeResponse
+     */
+    public function deleteMemoryNode($workspaceId, $memoryId, $memoryNodeId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteMemoryNodeWithOptions($workspaceId, $memoryId, $memoryNodeId, $headers, $runtime);
+    }
+
+    /**
      * @summary 获取文档基本信息，包括文档名称、类型、状态等。
      *  *
      * @param string         $WorkspaceId
@@ -783,6 +999,100 @@ class Bailian extends OpenApiClient
         $headers = [];
 
         return $this->getIndexJobStatusWithOptions($WorkspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 获取memory
+     *  *
+     * @param string         $workspaceId
+     * @param string         $memoryId
+     * @param string[]       $headers     map
+     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return GetMemoryResponse GetMemoryResponse
+     */
+    public function getMemoryWithOptions($workspaceId, $memoryId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'GetMemory',
+            'version'     => '2023-12-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/memories/' . OpenApiUtilClient::getEncodeParam($memoryId) . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetMemoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取memory
+     *  *
+     * @param string $workspaceId
+     * @param string $memoryId
+     *
+     * @return GetMemoryResponse GetMemoryResponse
+     */
+    public function getMemory($workspaceId, $memoryId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getMemoryWithOptions($workspaceId, $memoryId, $headers, $runtime);
+    }
+
+    /**
+     * @summary 获取记忆Node
+     *  *
+     * @param string         $workspaceId
+     * @param string         $memoryId
+     * @param string         $memoryNodeId
+     * @param string[]       $headers      map
+     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
+     *
+     * @return GetMemoryNodeResponse GetMemoryNodeResponse
+     */
+    public function getMemoryNodeWithOptions($workspaceId, $memoryId, $memoryNodeId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'GetMemoryNode',
+            'version'     => '2023-12-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/memories/' . OpenApiUtilClient::getEncodeParam($memoryId) . '/memoryNodes/' . OpenApiUtilClient::getEncodeParam($memoryNodeId) . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetMemoryNodeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取记忆Node
+     *  *
+     * @param string $workspaceId
+     * @param string $memoryId
+     * @param string $memoryNodeId
+     *
+     * @return GetMemoryNodeResponse GetMemoryNodeResponse
+     */
+    public function getMemoryNode($workspaceId, $memoryId, $memoryNodeId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getMemoryNodeWithOptions($workspaceId, $memoryId, $memoryNodeId, $headers, $runtime);
     }
 
     /**
@@ -1137,6 +1447,118 @@ class Bailian extends OpenApiClient
     }
 
     /**
+     * @summary 获取memory
+     *  *
+     * @param string              $workspaceId
+     * @param ListMemoriesRequest $request     ListMemoriesRequest
+     * @param string[]            $headers     map
+     * @param RuntimeOptions      $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return ListMemoriesResponse ListMemoriesResponse
+     */
+    public function listMemoriesWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['maxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['nextToken'] = $request->nextToken;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListMemories',
+            'version'     => '2023-12-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/memories',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListMemoriesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取memory
+     *  *
+     * @param string              $workspaceId
+     * @param ListMemoriesRequest $request     ListMemoriesRequest
+     *
+     * @return ListMemoriesResponse ListMemoriesResponse
+     */
+    public function listMemories($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listMemoriesWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 获取记忆Node列表
+     *  *
+     * @param string                 $workspaceId
+     * @param string                 $memoryId
+     * @param ListMemoryNodesRequest $request     ListMemoryNodesRequest
+     * @param string[]               $headers     map
+     * @param RuntimeOptions         $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return ListMemoryNodesResponse ListMemoryNodesResponse
+     */
+    public function listMemoryNodesWithOptions($workspaceId, $memoryId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['maxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['nextToken'] = $request->nextToken;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListMemoryNodes',
+            'version'     => '2023-12-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/memories/' . OpenApiUtilClient::getEncodeParam($memoryId) . '/memoryNodes',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListMemoryNodesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取记忆Node列表
+     *  *
+     * @param string                 $workspaceId
+     * @param string                 $memoryId
+     * @param ListMemoryNodesRequest $request     ListMemoryNodesRequest
+     *
+     * @return ListMemoryNodesResponse ListMemoryNodesResponse
+     */
+    public function listMemoryNodes($workspaceId, $memoryId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listMemoryNodesWithOptions($workspaceId, $memoryId, $request, $headers, $runtime);
+    }
+
+    /**
      * @summary 查询已发布的智能体应用列表
      *  *
      * @param string                    $workspaceId
@@ -1474,5 +1896,115 @@ class Bailian extends OpenApiClient
         $headers = [];
 
         return $this->updateAndPublishAgentWithOptions($workspaceId, $appCode, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 更新memory
+     *  *
+     * @param string              $workspaceId
+     * @param string              $memoryId
+     * @param UpdateMemoryRequest $request     UpdateMemoryRequest
+     * @param string[]            $headers     map
+     * @param RuntimeOptions      $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return UpdateMemoryResponse UpdateMemoryResponse
+     */
+    public function updateMemoryWithOptions($workspaceId, $memoryId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['description'] = $request->description;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateMemory',
+            'version'     => '2023-12-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/memories/' . OpenApiUtilClient::getEncodeParam($memoryId) . '',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateMemoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 更新memory
+     *  *
+     * @param string              $workspaceId
+     * @param string              $memoryId
+     * @param UpdateMemoryRequest $request     UpdateMemoryRequest
+     *
+     * @return UpdateMemoryResponse UpdateMemoryResponse
+     */
+    public function updateMemory($workspaceId, $memoryId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateMemoryWithOptions($workspaceId, $memoryId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 更新记忆Node
+     *  *
+     * @param string                  $workspaceId
+     * @param string                  $memoryId
+     * @param string                  $memoryNodeId
+     * @param UpdateMemoryNodeRequest $request      UpdateMemoryNodeRequest
+     * @param string[]                $headers      map
+     * @param RuntimeOptions          $runtime      runtime options for this request RuntimeOptions
+     *
+     * @return UpdateMemoryNodeResponse UpdateMemoryNodeResponse
+     */
+    public function updateMemoryNodeWithOptions($workspaceId, $memoryId, $memoryNodeId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->content)) {
+            $query['content'] = $request->content;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateMemoryNode',
+            'version'     => '2023-12-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/memories/' . OpenApiUtilClient::getEncodeParam($memoryId) . '/memoryNodes/' . OpenApiUtilClient::getEncodeParam($memoryNodeId) . '',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateMemoryNodeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 更新记忆Node
+     *  *
+     * @param string                  $workspaceId
+     * @param string                  $memoryId
+     * @param string                  $memoryNodeId
+     * @param UpdateMemoryNodeRequest $request      UpdateMemoryNodeRequest
+     *
+     * @return UpdateMemoryNodeResponse UpdateMemoryNodeResponse
+     */
+    public function updateMemoryNode($workspaceId, $memoryId, $memoryNodeId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateMemoryNodeWithOptions($workspaceId, $memoryId, $memoryNodeId, $request, $headers, $runtime);
     }
 }
