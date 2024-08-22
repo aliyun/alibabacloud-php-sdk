@@ -27,11 +27,16 @@ class jobRun extends Model
     public $codeType;
 
     /**
-     * @description The task configurations of Spark.
+     * @description The job configurations of Spark.
      *
      * @var configurationOverrides
      */
     public $configurationOverrides;
+
+    /**
+     * @var string
+     */
+    public $displayReleaseVersion;
 
     /**
      * @description The end time of the job.
@@ -50,6 +55,11 @@ class jobRun extends Model
      * @var int
      */
     public $executionTimeoutSeconds;
+
+    /**
+     * @var bool
+     */
+    public $fusion;
 
     /**
      * @description The information about Spark Driver.
@@ -162,8 +172,10 @@ class jobRun extends Model
     protected $_name = [
         'codeType'                => 'codeType',
         'configurationOverrides'  => 'configurationOverrides',
+        'displayReleaseVersion'   => 'displayReleaseVersion',
         'endTime'                 => 'endTime',
         'executionTimeoutSeconds' => 'executionTimeoutSeconds',
+        'fusion'                  => 'fusion',
         'jobDriver'               => 'jobDriver',
         'jobRunId'                => 'jobRunId',
         'log'                     => 'log',
@@ -192,11 +204,17 @@ class jobRun extends Model
         if (null !== $this->configurationOverrides) {
             $res['configurationOverrides'] = null !== $this->configurationOverrides ? $this->configurationOverrides->toMap() : null;
         }
+        if (null !== $this->displayReleaseVersion) {
+            $res['displayReleaseVersion'] = $this->displayReleaseVersion;
+        }
         if (null !== $this->endTime) {
             $res['endTime'] = $this->endTime;
         }
         if (null !== $this->executionTimeoutSeconds) {
             $res['executionTimeoutSeconds'] = $this->executionTimeoutSeconds;
+        }
+        if (null !== $this->fusion) {
+            $res['fusion'] = $this->fusion;
         }
         if (null !== $this->jobDriver) {
             $res['jobDriver'] = null !== $this->jobDriver ? $this->jobDriver->toMap() : null;
@@ -261,11 +279,17 @@ class jobRun extends Model
         if (isset($map['configurationOverrides'])) {
             $model->configurationOverrides = configurationOverrides::fromMap($map['configurationOverrides']);
         }
+        if (isset($map['displayReleaseVersion'])) {
+            $model->displayReleaseVersion = $map['displayReleaseVersion'];
+        }
         if (isset($map['endTime'])) {
             $model->endTime = $map['endTime'];
         }
         if (isset($map['executionTimeoutSeconds'])) {
             $model->executionTimeoutSeconds = $map['executionTimeoutSeconds'];
+        }
+        if (isset($map['fusion'])) {
+            $model->fusion = $map['fusion'];
         }
         if (isset($map['jobDriver'])) {
             $model->jobDriver = JobDriver::fromMap($map['jobDriver']);
