@@ -190,7 +190,9 @@ class FC extends OpenApiClient
     }
 
     /**
-     * @summary 创建自定义域名。
+     * @summary Creates a custom domain name.
+     *  *
+     * @description If you wish to access applications or functions created in Function Compute via a fixed domain name in a production environment, or if you need to address the forced download behavior when accessing HTTP triggers, you can achieve this by binding a custom domain to your application or function.
      *  *
      * @param CreateCustomDomainRequest $request CreateCustomDomainRequest
      * @param string[]                  $headers map
@@ -221,7 +223,9 @@ class FC extends OpenApiClient
     }
 
     /**
-     * @summary 创建自定义域名。
+     * @summary Creates a custom domain name.
+     *  *
+     * @description If you wish to access applications or functions created in Function Compute via a fixed domain name in a production environment, or if you need to address the forced download behavior when accessing HTTP triggers, you can achieve this by binding a custom domain to your application or function.
      *  *
      * @param CreateCustomDomainRequest $request CreateCustomDomainRequest
      *
@@ -237,6 +241,8 @@ class FC extends OpenApiClient
 
     /**
      * @summary Creates a function.
+     *  *
+     * @description In Function Compute, a function serves as the smallest unit of resource scheduling and execution, typically referring to a piece of code written by users that can execute independently in response to specific events or requests.
      *  *
      * @param CreateFunctionRequest $request CreateFunctionRequest
      * @param string[]              $headers map
@@ -268,6 +274,8 @@ class FC extends OpenApiClient
 
     /**
      * @summary Creates a function.
+     *  *
+     * @description In Function Compute, a function serves as the smallest unit of resource scheduling and execution, typically referring to a piece of code written by users that can execute independently in response to specific events or requests.
      *  *
      * @param CreateFunctionRequest $request CreateFunctionRequest
      *
@@ -1877,6 +1885,9 @@ class FC extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->fcVersion)) {
+            $query['fcVersion'] = $request->fcVersion;
+        }
         if (!Utils::isUnset($request->limit)) {
             $query['limit'] = $request->limit;
         }
@@ -2634,6 +2645,8 @@ class FC extends OpenApiClient
     /**
      * @summary Adds tags to a resource.
      *  *
+     * @description Tags are used to identify resources. Tags allow you to categorize, search for, and aggregate resources that have the same characteristics from different dimensions. This facilitates resource management. For more information, see [Tag overview](https://help.aliyun.com/document_detail/156983.html).
+     *  *
      * @param TagResourcesRequest $request TagResourcesRequest
      * @param string[]            $headers map
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
@@ -2664,6 +2677,8 @@ class FC extends OpenApiClient
 
     /**
      * @summary Adds tags to a resource.
+     *  *
+     * @description Tags are used to identify resources. Tags allow you to categorize, search for, and aggregate resources that have the same characteristics from different dimensions. This facilitates resource management. For more information, see [Tag overview](https://help.aliyun.com/document_detail/156983.html).
      *  *
      * @param TagResourcesRequest $request TagResourcesRequest
      *

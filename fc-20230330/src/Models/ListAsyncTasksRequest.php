@@ -49,7 +49,7 @@ class ListAsyncTasksRequest extends Model
     public $prefix;
 
     /**
-     * @description The function version or alias.
+     * @description The version or alias of the function.
      *
      * @example LATEST
      *
@@ -70,7 +70,7 @@ class ListAsyncTasksRequest extends Model
     public $sortOrderByTime;
 
     /**
-     * @description The start time of the period in which the asynchronous tasks are launched.
+     * @description The start time of the period during which the asynchronous tasks are initiated.
      *
      * @example 1640966400000
      *
@@ -79,7 +79,7 @@ class ListAsyncTasksRequest extends Model
     public $startedTimeBegin;
 
     /**
-     * @description The end time of the period in which the asynchronous tasks are launched.
+     * @description The end time of the period during which the asynchronous tasks are initiated.
      *
      * @example 1640966400000
      *

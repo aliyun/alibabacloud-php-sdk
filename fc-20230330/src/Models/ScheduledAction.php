@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ScheduledAction extends Model
 {
     /**
-     * @example 2024-03-10T10:10:10Z
+     * @example 2024-03-10T10:10:10
      *
      * @var string
      */
@@ -34,7 +34,7 @@ class ScheduledAction extends Model
     public $scheduleExpression;
 
     /**
-     * @example 2023-03-10T10:10:10Z
+     * @example 2023-03-10T10:10:10
      *
      * @var string
      */
@@ -48,12 +48,20 @@ class ScheduledAction extends Model
      * @var int
      */
     public $target;
+
+    /**
+     * @example Asia/Shanghai
+     *
+     * @var string
+     */
+    public $timeZone;
     protected $_name = [
         'endTime'            => 'endTime',
         'name'               => 'name',
         'scheduleExpression' => 'scheduleExpression',
         'startTime'          => 'startTime',
         'target'             => 'target',
+        'timeZone'           => 'timeZone',
     ];
 
     public function validate()
@@ -77,6 +85,9 @@ class ScheduledAction extends Model
         }
         if (null !== $this->target) {
             $res['target'] = $this->target;
+        }
+        if (null !== $this->timeZone) {
+            $res['timeZone'] = $this->timeZone;
         }
 
         return $res;
@@ -104,6 +115,9 @@ class ScheduledAction extends Model
         }
         if (isset($map['target'])) {
             $model->target = $map['target'];
+        }
+        if (isset($map['timeZone'])) {
+            $model->timeZone = $map['timeZone'];
         }
 
         return $model;

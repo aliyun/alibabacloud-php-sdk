@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class PutAsyncInvokeConfigRequest extends Model
 {
     /**
-     * @description The configurations of asynchronous function invocation.
+     * @description The asynchronous invocation configurations.
      *
      * This parameter is required.
      * @var PutAsyncInvokeConfigInput

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class StopAsyncTaskRequest extends Model
 {
     /**
-     * @description The function version or alias.
+     * @description The version or alias of the function.
      *
      * @example LATEST
      *

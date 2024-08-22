@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class ListFunctionsRequest extends Model
 {
     /**
+     * @example v3
+     *
+     * @var string
+     */
+    public $fcVersion;
+
+    /**
      * @description The number of functions to return. The minimum value is 1 and the maximum value is 100.
      *
      * @example 10
@@ -35,6 +42,7 @@ class ListFunctionsRequest extends Model
      */
     public $prefix;
     protected $_name = [
+        'fcVersion' => 'fcVersion',
         'limit'     => 'limit',
         'nextToken' => 'nextToken',
         'prefix'    => 'prefix',
@@ -47,6 +55,9 @@ class ListFunctionsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->fcVersion) {
+            $res['fcVersion'] = $this->fcVersion;
+        }
         if (null !== $this->limit) {
             $res['limit'] = $this->limit;
         }
@@ -68,6 +79,9 @@ class ListFunctionsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['fcVersion'])) {
+            $model->fcVersion = $map['fcVersion'];
+        }
         if (isset($map['limit'])) {
             $model->limit = $map['limit'];
         }

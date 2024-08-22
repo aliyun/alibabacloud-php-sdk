@@ -57,6 +57,11 @@ class CustomContainerConfig extends Model
     public $port;
 
     /**
+     * @var RegistryConfig
+     */
+    public $registryConfig;
+
+    /**
      * @example stand-sh-registry-vpc.cn-shanghai.cr.aliyuncs.com/fc-demo2/springboot-helloworld@sha256:68d1****0d64d6
      *
      * @var string
@@ -71,6 +76,7 @@ class CustomContainerConfig extends Model
         'healthCheckConfig' => 'healthCheckConfig',
         'image'             => 'image',
         'port'              => 'port',
+        'registryConfig'    => 'registryConfig',
         'resolvedImageUri'  => 'resolvedImageUri',
     ];
 
@@ -104,6 +110,9 @@ class CustomContainerConfig extends Model
         }
         if (null !== $this->port) {
             $res['port'] = $this->port;
+        }
+        if (null !== $this->registryConfig) {
+            $res['registryConfig'] = null !== $this->registryConfig ? $this->registryConfig->toMap() : null;
         }
         if (null !== $this->resolvedImageUri) {
             $res['resolvedImageUri'] = $this->resolvedImageUri;
@@ -147,6 +156,9 @@ class CustomContainerConfig extends Model
         }
         if (isset($map['port'])) {
             $model->port = $map['port'];
+        }
+        if (isset($map['registryConfig'])) {
+            $model->registryConfig = RegistryConfig::fromMap($map['registryConfig']);
         }
         if (isset($map['resolvedImageUri'])) {
             $model->resolvedImageUri = $map['resolvedImageUri'];

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class PutLayerACLRequest extends Model
 {
     /**
+     * @description Specify the access permission of the layer. A value of 1 indicates public and a value of 0 indicates private. The default value is 0.
+     *
      * @example 1
      *
      * @var string
@@ -16,7 +18,7 @@ class PutLayerACLRequest extends Model
     public $acl;
 
     /**
-     * @description Specifies whether the layer is a public layer. Valid values: true and false.
+     * @description Specify whether the layer is a public layer. Valid values: true and false.
      *
      * @example true
      *

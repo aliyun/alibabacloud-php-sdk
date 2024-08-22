@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class TargetTrackingPolicy extends Model
 {
     /**
-     * @example 2024-03-10T10:10:10Z
+     * @example 2024-03-10T10:10:10
      *
      * @var string
      */
@@ -61,11 +61,18 @@ class TargetTrackingPolicy extends Model
     public $name;
 
     /**
-     * @example 2023-03-10T10:10:10Z
+     * @example 2023-03-10T10:10:10
      *
      * @var string
      */
     public $startTime;
+
+    /**
+     * @example Asia/Shanghai
+     *
+     * @var string
+     */
+    public $timeZone;
     protected $_name = [
         'endTime'      => 'endTime',
         'maxCapacity'  => 'maxCapacity',
@@ -74,6 +81,7 @@ class TargetTrackingPolicy extends Model
         'minCapacity'  => 'minCapacity',
         'name'         => 'name',
         'startTime'    => 'startTime',
+        'timeZone'     => 'timeZone',
     ];
 
     public function validate()
@@ -103,6 +111,9 @@ class TargetTrackingPolicy extends Model
         }
         if (null !== $this->startTime) {
             $res['startTime'] = $this->startTime;
+        }
+        if (null !== $this->timeZone) {
+            $res['timeZone'] = $this->timeZone;
         }
 
         return $res;
@@ -136,6 +147,9 @@ class TargetTrackingPolicy extends Model
         }
         if (isset($map['startTime'])) {
             $model->startTime = $map['startTime'];
+        }
+        if (isset($map['timeZone'])) {
+            $model->timeZone = $map['timeZone'];
         }
 
         return $model;
