@@ -37,6 +37,11 @@ class data extends Model
     public $resourceId;
 
     /**
+     * @var string
+     */
+    public $result;
+
+    /**
      * @example 2022-10-11T08:53:32Z
      *
      * @var string
@@ -68,6 +73,7 @@ class data extends Model
         'invokeId'   => 'InvokeId',
         'regionId'   => 'RegionId',
         'resourceId' => 'ResourceId',
+        'result'     => 'Result',
         'startTime'  => 'StartTime',
         'taskId'     => 'TaskId',
         'taskStatus' => 'TaskStatus',
@@ -92,6 +98,9 @@ class data extends Model
         }
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
+        }
+        if (null !== $this->result) {
+            $res['Result'] = $this->result;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -128,6 +137,9 @@ class data extends Model
         }
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];
+        }
+        if (isset($map['Result'])) {
+            $model->result = $map['Result'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
