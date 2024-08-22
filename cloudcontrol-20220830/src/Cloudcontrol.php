@@ -72,11 +72,13 @@ class Cloudcontrol extends OpenApiClient
     }
 
     /**
+     * @summary 取消任务
+     *  *
      * @param string         $taskId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return CancelTaskResponse
+     * @return CancelTaskResponse CancelTaskResponse
      */
     public function cancelTaskWithOptions($taskId, $headers, $runtime)
     {
@@ -99,9 +101,11 @@ class Cloudcontrol extends OpenApiClient
     }
 
     /**
+     * @summary 取消任务
+     *  *
      * @param string $taskId
      *
-     * @return CancelTaskResponse
+     * @return CancelTaskResponse CancelTaskResponse
      */
     public function cancelTask($taskId)
     {
@@ -112,12 +116,14 @@ class Cloudcontrol extends OpenApiClient
     }
 
     /**
-     * @param string                $requestPath
-     * @param CreateResourceRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @summary 创建资源
+     *  *
+     * @param string                $requestPath the whole path of resource string
+     * @param CreateResourceRequest $request     CreateResourceRequest
+     * @param string[]              $headers     map
+     * @param RuntimeOptions        $runtime     runtime options for this request RuntimeOptions
      *
-     * @return CreateResourceResponse
+     * @return CreateResourceResponse CreateResourceResponse
      */
     public function createResourceWithOptions($requestPath, $request, $headers, $runtime)
     {
@@ -150,10 +156,12 @@ class Cloudcontrol extends OpenApiClient
     }
 
     /**
-     * @param string                $requestPath
-     * @param CreateResourceRequest $request
+     * @summary 创建资源
+     *  *
+     * @param string                $requestPath the whole path of resource string
+     * @param CreateResourceRequest $request     CreateResourceRequest
      *
-     * @return CreateResourceResponse
+     * @return CreateResourceResponse CreateResourceResponse
      */
     public function createResource($requestPath, $request)
     {
@@ -164,12 +172,14 @@ class Cloudcontrol extends OpenApiClient
     }
 
     /**
-     * @param string                $requestPath
-     * @param DeleteResourceRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @summary 删除资源
+     *  *
+     * @param string                $requestPath the whole path of resource string
+     * @param DeleteResourceRequest $request     DeleteResourceRequest
+     * @param string[]              $headers     map
+     * @param RuntimeOptions        $runtime     runtime options for this request RuntimeOptions
      *
-     * @return DeleteResourceResponse
+     * @return DeleteResourceResponse DeleteResourceResponse
      */
     public function deleteResourceWithOptions($requestPath, $request, $headers, $runtime)
     {
@@ -201,10 +211,12 @@ class Cloudcontrol extends OpenApiClient
     }
 
     /**
-     * @param string                $requestPath
-     * @param DeleteResourceRequest $request
+     * @summary 删除资源
+     *  *
+     * @param string                $requestPath the whole path of resource string
+     * @param DeleteResourceRequest $request     DeleteResourceRequest
      *
-     * @return DeleteResourceResponse
+     * @return DeleteResourceResponse DeleteResourceResponse
      */
     public function deleteResource($requestPath, $request)
     {
@@ -215,12 +227,14 @@ class Cloudcontrol extends OpenApiClient
     }
 
     /**
-     * @param string          $requestPath
-     * @param GetPriceRequest $tmpReq
-     * @param string[]        $headers
-     * @param RuntimeOptions  $runtime
+     * @summary 查询价格
+     *  *
+     * @param string          $requestPath the whole path of resource string
+     * @param GetPriceRequest $tmpReq      GetPriceRequest
+     * @param string[]        $headers     map
+     * @param RuntimeOptions  $runtime     runtime options for this request RuntimeOptions
      *
-     * @return GetPriceResponse
+     * @return GetPriceResponse GetPriceResponse
      */
     public function getPriceWithOptions($requestPath, $tmpReq, $headers, $runtime)
     {
@@ -257,10 +271,12 @@ class Cloudcontrol extends OpenApiClient
     }
 
     /**
-     * @param string          $requestPath
-     * @param GetPriceRequest $request
+     * @summary 查询价格
+     *  *
+     * @param string          $requestPath the whole path of resource string
+     * @param GetPriceRequest $request     GetPriceRequest
      *
-     * @return GetPriceResponse
+     * @return GetPriceResponse GetPriceResponse
      */
     public function getPrice($requestPath, $request)
     {
@@ -271,11 +287,13 @@ class Cloudcontrol extends OpenApiClient
     }
 
     /**
-     * @param string                 $requestPath
-     * @param GetResourceTypeHeaders $headers
-     * @param RuntimeOptions         $runtime
+     * @summary 获取资源元数据
+     *  *
+     * @param string                 $requestPath the whole path of resource string
+     * @param GetResourceTypeHeaders $headers     GetResourceTypeHeaders
+     * @param RuntimeOptions         $runtime     runtime options for this request RuntimeOptions
      *
-     * @return GetResourceTypeResponse
+     * @return GetResourceTypeResponse GetResourceTypeResponse
      */
     public function getResourceTypeWithOptions($requestPath, $headers, $runtime)
     {
@@ -305,9 +323,11 @@ class Cloudcontrol extends OpenApiClient
     }
 
     /**
-     * @param string $requestPath
+     * @summary 获取资源元数据
+     *  *
+     * @param string $requestPath the whole path of resource string
      *
-     * @return GetResourceTypeResponse
+     * @return GetResourceTypeResponse GetResourceTypeResponse
      */
     public function getResourceType($requestPath)
     {
@@ -318,12 +338,14 @@ class Cloudcontrol extends OpenApiClient
     }
 
     /**
-     * @param string              $requestPath
-     * @param GetResourcesRequest $tmpReq
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @summary 查询资源
+     *  *
+     * @param string              $requestPath the whole path of resource string
+     * @param GetResourcesRequest $tmpReq      GetResourcesRequest
+     * @param string[]            $headers     map
+     * @param RuntimeOptions      $runtime     runtime options for this request RuntimeOptions
      *
-     * @return GetResourcesResponse
+     * @return GetResourcesResponse GetResourcesResponse
      */
     public function getResourcesWithOptions($requestPath, $tmpReq, $headers, $runtime)
     {
@@ -366,10 +388,12 @@ class Cloudcontrol extends OpenApiClient
     }
 
     /**
-     * @param string              $requestPath
-     * @param GetResourcesRequest $request
+     * @summary 查询资源
+     *  *
+     * @param string              $requestPath the whole path of resource string
+     * @param GetResourcesRequest $request     GetResourcesRequest
      *
-     * @return GetResourcesResponse
+     * @return GetResourcesResponse GetResourcesResponse
      */
     public function getResources($requestPath, $request)
     {
@@ -380,8 +404,10 @@ class Cloudcontrol extends OpenApiClient
     }
 
     /**
-     * GET /api/v1/tasks/{taskId}。
-     *   *
+     * @summary 查询任务
+     *  *
+     * @description GET /api/v1/tasks/{taskId}。
+     *  *
      * @param string         $taskId
      * @param string[]       $headers map
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
@@ -409,8 +435,10 @@ class Cloudcontrol extends OpenApiClient
     }
 
     /**
-     * GET /api/v1/tasks/{taskId}。
-     *   *
+     * @summary 查询任务
+     *  *
+     * @description GET /api/v1/tasks/{taskId}。
+     *  *
      * @param string $taskId
      *
      * @return GetTaskResponse GetTaskResponse
@@ -424,12 +452,14 @@ class Cloudcontrol extends OpenApiClient
     }
 
     /**
-     * @param string                 $requestPath
-     * @param ListDataSourcesRequest $tmpReq
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @summary 列举资源属性可选值
+     *  *
+     * @param string                 $requestPath the whole path of resource string
+     * @param ListDataSourcesRequest $tmpReq      ListDataSourcesRequest
+     * @param string[]               $headers     map
+     * @param RuntimeOptions         $runtime     runtime options for this request RuntimeOptions
      *
-     * @return ListDataSourcesResponse
+     * @return ListDataSourcesResponse ListDataSourcesResponse
      */
     public function listDataSourcesWithOptions($requestPath, $tmpReq, $headers, $runtime)
     {
@@ -466,10 +496,12 @@ class Cloudcontrol extends OpenApiClient
     }
 
     /**
-     * @param string                 $requestPath
-     * @param ListDataSourcesRequest $request
+     * @summary 列举资源属性可选值
+     *  *
+     * @param string                 $requestPath the whole path of resource string
+     * @param ListDataSourcesRequest $request     ListDataSourcesRequest
      *
-     * @return ListDataSourcesResponse
+     * @return ListDataSourcesResponse ListDataSourcesResponse
      */
     public function listDataSources($requestPath, $request)
     {
@@ -480,8 +512,10 @@ class Cloudcontrol extends OpenApiClient
     }
 
     /**
-     * GET /api/v1/providers/{provider}/products。
-     *   *
+     * @summary 列举资源类型
+     *  *
+     * @description GET /api/v1/providers/{provider}/products。
+     *  *
      * @param string              $provider
      * @param ListProductsRequest $request  ListProductsRequest
      * @param ListProductsHeaders $headers  ListProductsHeaders
@@ -526,8 +560,10 @@ class Cloudcontrol extends OpenApiClient
     }
 
     /**
-     * GET /api/v1/providers/{provider}/products。
-     *   *
+     * @summary 列举资源类型
+     *  *
+     * @description GET /api/v1/providers/{provider}/products。
+     *  *
      * @param string              $provider
      * @param ListProductsRequest $request  ListProductsRequest
      *
@@ -542,8 +578,10 @@ class Cloudcontrol extends OpenApiClient
     }
 
     /**
-     * GET /api/v1/providers/{provider}/products/{product}/resourceTypes。
-     *   *
+     * @summary 列举资源类型
+     *  *
+     * @description GET /api/v1/providers/{provider}/products/{product}/resourceTypes。
+     *  *
      * @param string                   $provider
      * @param string                   $product
      * @param ListResourceTypesRequest $tmpReq   ListResourceTypesRequest
@@ -597,8 +635,10 @@ class Cloudcontrol extends OpenApiClient
     }
 
     /**
-     * GET /api/v1/providers/{provider}/products/{product}/resourceTypes。
-     *   *
+     * @summary 列举资源类型
+     *  *
+     * @description GET /api/v1/providers/{provider}/products/{product}/resourceTypes。
+     *  *
      * @param string                   $provider
      * @param string                   $product
      * @param ListResourceTypesRequest $request  ListResourceTypesRequest
@@ -614,12 +654,14 @@ class Cloudcontrol extends OpenApiClient
     }
 
     /**
-     * @param string                $requestPath
-     * @param UpdateResourceRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @summary 更新资源
+     *  *
+     * @param string                $requestPath the whole path of resource string
+     * @param UpdateResourceRequest $request     UpdateResourceRequest
+     * @param string[]              $headers     map
+     * @param RuntimeOptions        $runtime     runtime options for this request RuntimeOptions
      *
-     * @return UpdateResourceResponse
+     * @return UpdateResourceResponse UpdateResourceResponse
      */
     public function updateResourceWithOptions($requestPath, $request, $headers, $runtime)
     {
@@ -652,10 +694,12 @@ class Cloudcontrol extends OpenApiClient
     }
 
     /**
-     * @param string                $requestPath
-     * @param UpdateResourceRequest $request
+     * @summary 更新资源
+     *  *
+     * @param string                $requestPath the whole path of resource string
+     * @param UpdateResourceRequest $request     UpdateResourceRequest
      *
-     * @return UpdateResourceResponse
+     * @return UpdateResourceResponse UpdateResourceResponse
      */
     public function updateResource($requestPath, $request)
     {

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListDataSourcesRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example RegionId
      *
      * @var string

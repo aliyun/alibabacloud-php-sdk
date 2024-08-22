@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListDataSourcesShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example RegionId
      *
      * @var string

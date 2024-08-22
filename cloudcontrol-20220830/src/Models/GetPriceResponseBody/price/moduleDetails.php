@@ -46,7 +46,7 @@ class moduleDetails extends Model
     /**
      * @example 1.0
      *
-     * @var float
+     * @var string
      */
     public $priceType;
     protected $_name = [
