@@ -194,6 +194,12 @@ class Aiccs extends OpenApiClient
         if (!Utils::isUnset($request->callbackUrl)) {
             $query['CallbackUrl'] = $request->callbackUrl;
         }
+        if (!Utils::isUnset($request->flashSmsTemplateId)) {
+            $query['FlashSmsTemplateId'] = $request->flashSmsTemplateId;
+        }
+        if (!Utils::isUnset($request->flashSmsType)) {
+            $query['FlashSmsType'] = $request->flashSmsType;
+        }
         if (!Utils::isUnset($request->maxConcurrency)) {
             $query['MaxConcurrency'] = $request->maxConcurrency;
         }
@@ -545,6 +551,12 @@ class Aiccs extends OpenApiClient
         }
         if (!Utils::isUnset($request->callbackUrl)) {
             $query['CallbackUrl'] = $request->callbackUrl;
+        }
+        if (!Utils::isUnset($request->flashSmsTemplateId)) {
+            $query['FlashSmsTemplateId'] = $request->flashSmsTemplateId;
+        }
+        if (!Utils::isUnset($request->flashSmsType)) {
+            $query['FlashSmsType'] = $request->flashSmsType;
         }
         if (!Utils::isUnset($request->maxConcurrency)) {
             $query['MaxConcurrency'] = $request->maxConcurrency;

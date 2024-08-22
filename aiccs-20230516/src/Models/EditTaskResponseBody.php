@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class EditTaskResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $accessDeniedDetail;
+
+    /**
      * @example 0
      *
      * @var int
@@ -49,12 +54,13 @@ class EditTaskResponseBody extends Model
      */
     public $timestamp;
     protected $_name = [
-        'code'      => 'Code',
-        'message'   => 'Message',
-        'model'     => 'Model',
-        'requestId' => 'RequestId',
-        'success'   => 'Success',
-        'timestamp' => 'Timestamp',
+        'accessDeniedDetail' => 'AccessDeniedDetail',
+        'code'               => 'Code',
+        'message'            => 'Message',
+        'model'              => 'Model',
+        'requestId'          => 'RequestId',
+        'success'            => 'Success',
+        'timestamp'          => 'Timestamp',
     ];
 
     public function validate()
@@ -64,6 +70,9 @@ class EditTaskResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accessDeniedDetail) {
+            $res['AccessDeniedDetail'] = $this->accessDeniedDetail;
+        }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
@@ -94,6 +103,9 @@ class EditTaskResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccessDeniedDetail'])) {
+            $model->accessDeniedDetail = $map['AccessDeniedDetail'];
+        }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }

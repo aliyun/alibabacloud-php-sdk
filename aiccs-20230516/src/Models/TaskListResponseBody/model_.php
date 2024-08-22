@@ -55,6 +55,33 @@ class model_ extends Model
     public $createTime;
 
     /**
+     * @description 闪信模板id
+     *
+     * @example 99
+     *
+     * @var int
+     */
+    public $flashSmsTemplateId;
+
+    /**
+     * @description 闪信模板名称
+     *
+     * @example 示例值示例值示例值
+     *
+     * @var string
+     */
+    public $flashSmsTemplateName;
+
+    /**
+     * @description 发送闪信配置，可选0，1；0表示否，1表示是
+     *
+     * @example 1
+     *
+     * @var int
+     */
+    public $flashSmsType;
+
+    /**
      * @description 最近导入时间
      *
      * @example 2023-04-05 12:11:11
@@ -194,27 +221,30 @@ class model_ extends Model
      */
     public $templateName;
     protected $_name = [
-        'allowCallTime'       => 'AllowCallTime',
-        'allowCallTimeFormat' => 'AllowCallTimeFormat',
-        'allowDayOfWeek'      => 'AllowDayOfWeek',
-        'callType'            => 'CallType',
-        'createTime'          => 'CreateTime',
-        'importTime'          => 'ImportTime',
-        'intentTags'          => 'IntentTags',
-        'invalidReCall'       => 'InvalidReCall',
-        'lastCallTime'        => 'LastCallTime',
-        'maxConcurrency'      => 'MaxConcurrency',
-        'personalityTags'     => 'PersonalityTags',
-        'priority'            => 'Priority',
-        'properties'          => 'Properties',
-        'recallType'          => 'RecallType',
-        'sendSms'             => 'SendSms',
-        'smsName'             => 'SmsName',
-        'status'              => 'Status',
-        'taskId'              => 'TaskId',
-        'taskName'            => 'TaskName',
-        'templateId'          => 'TemplateId',
-        'templateName'        => 'TemplateName',
+        'allowCallTime'        => 'AllowCallTime',
+        'allowCallTimeFormat'  => 'AllowCallTimeFormat',
+        'allowDayOfWeek'       => 'AllowDayOfWeek',
+        'callType'             => 'CallType',
+        'createTime'           => 'CreateTime',
+        'flashSmsTemplateId'   => 'FlashSmsTemplateId',
+        'flashSmsTemplateName' => 'FlashSmsTemplateName',
+        'flashSmsType'         => 'FlashSmsType',
+        'importTime'           => 'ImportTime',
+        'intentTags'           => 'IntentTags',
+        'invalidReCall'        => 'InvalidReCall',
+        'lastCallTime'         => 'LastCallTime',
+        'maxConcurrency'       => 'MaxConcurrency',
+        'personalityTags'      => 'PersonalityTags',
+        'priority'             => 'Priority',
+        'properties'           => 'Properties',
+        'recallType'           => 'RecallType',
+        'sendSms'              => 'SendSms',
+        'smsName'              => 'SmsName',
+        'status'               => 'Status',
+        'taskId'               => 'TaskId',
+        'taskName'             => 'TaskName',
+        'templateId'           => 'TemplateId',
+        'templateName'         => 'TemplateName',
     ];
 
     public function validate()
@@ -238,6 +268,15 @@ class model_ extends Model
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->flashSmsTemplateId) {
+            $res['FlashSmsTemplateId'] = $this->flashSmsTemplateId;
+        }
+        if (null !== $this->flashSmsTemplateName) {
+            $res['FlashSmsTemplateName'] = $this->flashSmsTemplateName;
+        }
+        if (null !== $this->flashSmsType) {
+            $res['FlashSmsType'] = $this->flashSmsType;
         }
         if (null !== $this->importTime) {
             $res['ImportTime'] = $this->importTime;
@@ -319,6 +358,15 @@ class model_ extends Model
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['FlashSmsTemplateId'])) {
+            $model->flashSmsTemplateId = $map['FlashSmsTemplateId'];
+        }
+        if (isset($map['FlashSmsTemplateName'])) {
+            $model->flashSmsTemplateName = $map['FlashSmsTemplateName'];
+        }
+        if (isset($map['FlashSmsType'])) {
+            $model->flashSmsType = $map['FlashSmsType'];
         }
         if (isset($map['ImportTime'])) {
             $model->importTime = $map['ImportTime'];

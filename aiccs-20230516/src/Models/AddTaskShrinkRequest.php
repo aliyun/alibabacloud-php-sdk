@@ -25,6 +25,24 @@ class AddTaskShrinkRequest extends Model
     public $callbackUrl;
 
     /**
+     * @description 当发送闪信配置为1时，闪信模板ID必填
+     *
+     * @example 96
+     *
+     * @var int
+     */
+    public $flashSmsTemplateId;
+
+    /**
+     * @description 发送闪信配置
+     *
+     * @example 0
+     *
+     * @var int
+     */
+    public $flashSmsType;
+
+    /**
      * @description 并发数
      *
      * @example 99
@@ -172,6 +190,8 @@ class AddTaskShrinkRequest extends Model
     protected $_name = [
         'callTimeListShrink'   => 'CallTimeList',
         'callbackUrl'          => 'CallbackUrl',
+        'flashSmsTemplateId'   => 'FlashSmsTemplateId',
+        'flashSmsType'         => 'FlashSmsType',
         'maxConcurrency'       => 'MaxConcurrency',
         'name'                 => 'Name',
         'ownerId'              => 'OwnerId',
@@ -204,6 +224,12 @@ class AddTaskShrinkRequest extends Model
         }
         if (null !== $this->callbackUrl) {
             $res['CallbackUrl'] = $this->callbackUrl;
+        }
+        if (null !== $this->flashSmsTemplateId) {
+            $res['FlashSmsTemplateId'] = $this->flashSmsTemplateId;
+        }
+        if (null !== $this->flashSmsType) {
+            $res['FlashSmsType'] = $this->flashSmsType;
         }
         if (null !== $this->maxConcurrency) {
             $res['MaxConcurrency'] = $this->maxConcurrency;
@@ -276,6 +302,12 @@ class AddTaskShrinkRequest extends Model
         }
         if (isset($map['CallbackUrl'])) {
             $model->callbackUrl = $map['CallbackUrl'];
+        }
+        if (isset($map['FlashSmsTemplateId'])) {
+            $model->flashSmsTemplateId = $map['FlashSmsTemplateId'];
+        }
+        if (isset($map['FlashSmsType'])) {
+            $model->flashSmsType = $map['FlashSmsType'];
         }
         if (isset($map['MaxConcurrency'])) {
             $model->maxConcurrency = $map['MaxConcurrency'];
