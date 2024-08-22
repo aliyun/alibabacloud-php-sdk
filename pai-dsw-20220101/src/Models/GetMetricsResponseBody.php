@@ -16,11 +16,9 @@ class GetMetricsResponseBody extends Model
     public $code;
 
     /**
-     * @example [{"timestamp":1548777660000,"userId":"120886317861****","instanceId":"i-abc****","Minimum":9.92,"Average":9.92,"Maximum":9.92}]
-     *
      * @var string
      */
-    public $dataPoints;
+    public $datapoints;
 
     /**
      * @example Succeed
@@ -58,7 +56,7 @@ class GetMetricsResponseBody extends Model
     public $success;
     protected $_name = [
         'code'       => 'Code',
-        'dataPoints' => 'DataPoints',
+        'datapoints' => 'Datapoints',
         'message'    => 'Message',
         'nextToken'  => 'NextToken',
         'period'     => 'Period',
@@ -76,8 +74,8 @@ class GetMetricsResponseBody extends Model
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
-        if (null !== $this->dataPoints) {
-            $res['DataPoints'] = $this->dataPoints;
+        if (null !== $this->datapoints) {
+            $res['Datapoints'] = $this->datapoints;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -109,8 +107,8 @@ class GetMetricsResponseBody extends Model
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
-        if (isset($map['DataPoints'])) {
-            $model->dataPoints = $map['DataPoints'];
+        if (isset($map['Datapoints'])) {
+            $model->datapoints = $map['Datapoints'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
