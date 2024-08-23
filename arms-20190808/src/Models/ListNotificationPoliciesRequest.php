@@ -11,6 +11,8 @@ class ListNotificationPoliciesRequest extends Model
     /**
      * @description Specifies whether to enable simple mode.
      *
+     * @example true
+     *
      * @var bool
      */
     public $directedMode;
@@ -56,7 +58,7 @@ class ListNotificationPoliciesRequest extends Model
     public $page;
 
     /**
-     * @description The ID of the region.
+     * @description The ID of the region. Default value: **cn-hangzhou**.
      *
      * @example cn-hangzhou
      *

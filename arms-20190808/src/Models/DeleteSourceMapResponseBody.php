@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteSourceMapResponseBody extends Model
 {
     /**
+     * @description Indicates whether the SourceMap files are deleted. Valid values:
+     *
+     *   success: The SourceMap files are deleted.
+     *   false: The SourceMap files fail to be deleted.
+     *
      * @example success
      *
      * @var string
@@ -16,6 +21,8 @@ class DeleteSourceMapResponseBody extends Model
     public $data;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 1A9C645C-C83F-4C9D-8CCB-29BEC9E1****
      *
      * @var string

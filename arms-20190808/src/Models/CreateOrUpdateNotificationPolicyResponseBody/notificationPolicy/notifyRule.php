@@ -10,9 +10,8 @@ use AlibabaCloud\Tea\Model;
 class notifyRule extends Model
 {
     /**
-     * @description The notification methods. Valid values:
+     * @description The notification method.
      *
-     * - `webhook`: webhook
      * @var string[]
      */
     public $notifyChannels;
@@ -27,7 +26,7 @@ class notifyRule extends Model
     public $notifyEndTime;
 
     /**
-     * @description An array of notification contact objects.
+     * @description An array of notification objects.
      *
      * @var notifyObjects[]
      */

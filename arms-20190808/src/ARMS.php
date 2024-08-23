@@ -5331,7 +5331,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Delete s SourceMap file that was uploaded to Browser Monitoring.
+     * @summary Deletes the SourceMap files uploaded in Browser Monitoring.
      *  *
      * @param DeleteSourceMapRequest $tmpReq  DeleteSourceMapRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -5375,7 +5375,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Delete s SourceMap file that was uploaded to Browser Monitoring.
+     * @summary Deletes the SourceMap files uploaded in Browser Monitoring.
      *  *
      * @param DeleteSourceMapRequest $request DeleteSourceMapRequest
      *
@@ -6307,7 +6307,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 执行Insights相关的操作
+     * @summary Performs the corresponding operation based on the specified module type.
      *  *
      * @param DoInsightsActionRequest $request DoInsightsActionRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -6343,7 +6343,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 执行Insights相关的操作
+     * @summary Performs the corresponding operation based on the specified module type.
      *  *
      * @param DoInsightsActionRequest $request DoInsightsActionRequest
      *
@@ -10250,7 +10250,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries notification policies based on specific conditions.
+     * @summary Queries notification policies based on specified conditions.
      *  *
      * @param ListNotificationPoliciesRequest $request ListNotificationPoliciesRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -10301,7 +10301,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries notification policies based on specific conditions.
+     * @summary Queries notification policies based on specified conditions.
      *  *
      * @param ListNotificationPoliciesRequest $request ListNotificationPoliciesRequest
      *

@@ -85,6 +85,8 @@ class CreateEnvironmentRequest extends Model
     /**
      * @description The ID of the Grafana workspace associated with the environment. If this parameter is left empty, the default shared Grafana workspace is used.
      *
+     * @example grafana-rnglkcdrntlhk0****
+     *
      * @var string
      */
     public $grafanaWorkspaceId;

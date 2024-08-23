@@ -27,7 +27,10 @@ class groupRule extends Model
     public $groupWait;
 
     /**
-     * @description The field that is used for grouping.
+     * @description An array of alert event group objects.
+     *
+     *   If you do not specify the groupingFields field, all alerts will be sent to contacts based on `alertname`.
+     *   If you specify the groupingFields field, alerts with the same field will be sent to contacts in one notification.
      *
      * @var string[]
      */

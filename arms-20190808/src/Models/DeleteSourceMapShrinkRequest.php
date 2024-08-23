@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteSourceMapShrinkRequest extends Model
 {
     /**
-     * @description The ID of the SourceMap file.
+     * @description The IDs of the SourceMap files.
      *
      * This parameter is required.
      * @var string
@@ -17,9 +17,7 @@ class DeleteSourceMapShrinkRequest extends Model
     public $fidListShrink;
 
     /**
-     * @description The process ID (PID) of the application.
-     *
-     * Log on to the ARMS console. In the left-side navigation pane, choose **Browser Monitoring** > **Browser Monitoring**. On the **Browser Monitoring** page, click the name of an application. The URL in the browser address bar contains the PID of this application in the format of `pid=xxx`. As the browser is encoded, the PID needs to be modified. Assume that the PID contained is `xxx%4074xxx`. You need to **replace** \\*\\*%40 with @\\*\\* and change the PID to `xxx@74xxx`.
+     * @description The process identifier (PID) of the application.
      *
      * This parameter is required.
      * @example atc889zkcf@d8deedfa9bf****
@@ -29,8 +27,9 @@ class DeleteSourceMapShrinkRequest extends Model
     public $pid;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the region.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

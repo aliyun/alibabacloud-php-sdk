@@ -28,6 +28,8 @@ class GetRumOcuStatisticDataResponseBody extends Model
     /**
      * @description The error message returned if the request failed.
      *
+     * @example null
+     *
      * @var string
      */
     public $message;

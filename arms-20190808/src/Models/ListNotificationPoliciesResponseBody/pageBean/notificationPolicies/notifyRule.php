@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class notifyRule extends Model
 {
     /**
-     * @description The notification methods.
+     * @description The notification method.
      *
      * @var string[]
      */

@@ -30,10 +30,9 @@ class CreateOrUpdateNotificationPolicyRequest extends Model
      * @description An array of alert event group objects.
      *
      *   If you do not specify the groupingFields field, all alerts will be sent to contacts based on `alertname`.
-     *
      *   If you specify the groupingFields field, alerts with the same field will be sent to contacts in one notification.
      *
-     * ```
+     * }
      * @example { 	"groupWait":5, 	"groupInterval":30, 	"groupingFields":["alertname"] }
      *
      * @var string
@@ -62,9 +61,9 @@ class CreateOrUpdateNotificationPolicyRequest extends Model
     public $integrationId;
 
     /**
-     * @description The matching rules. Sample statement:
+     * @description The matching rules. Format:
      *
-     * ```
+     * ]
      * @example [ 		 { 		 "matchingConditions": [          { 		 "value": "test", 		 "key": "alertname", 		 "operator": "eq"         }       ]     }   ]
      *
      * @var string
@@ -94,9 +93,8 @@ class CreateOrUpdateNotificationPolicyRequest extends Model
     /**
      * @description The notification template. The default notification template is provided below the table.
      *
-     * @example {{if .commonLabels.clustername }}
+     * @example "robotContent":"{{if .commonLabels.clustername }} > Cluster name: {{ .commonLabels.clustername }} {{ end }}{{if eq "app" .commonLabels._aliyun_arms_involvedObject_kind }} > Application name: {{ .commonLabels._aliyun_arms_involvedObject_name }} {{ end }}{{ for .alerts }} > {{.annotations.message}} {{if .generatorURL }} [Link]\\({{.generatorURL}}) {{ end }} {{if eq "true" .labels._aliyun_arms_is_denoise_filtered }} (Suspected noise) {{end}} {{end}}"
      *
-     * {{end}}
      * @var string
      */
     public $notifyTemplate;
@@ -132,7 +130,7 @@ class CreateOrUpdateNotificationPolicyRequest extends Model
     public $repeatInterval;
 
     /**
-     * @description Indicates whether the system sends a notification to the contacts when the status of an alert changes to Resolved. Default value: true. Valid values:
+     * @description Specifies whether the status of an alert automatically changes to Resolved when all events related to the alert change to the Restored state. ARMS notifies contacts when the alert status changes to Resolved.
      *
      *   `true`: The system sends a notification.
      *   `false`: The system does not send a notification.

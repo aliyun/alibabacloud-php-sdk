@@ -9,15 +9,30 @@ use AlibabaCloud\Tea\Model;
 class DoInsightsActionRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The query parameters. Different module types correspond to different query parameters.
      *
+     *   QueryTopo
+     *
+     * }
+     *
+     *   QueryTopoRed
+     *
+     * This parameter is required.
+     * @example - QueryTopo
+     *
+     *
+     * }
      * @var string
      */
     public $data;
 
     /**
-     * @description This parameter is required.
+     * @description The module type. Valid values:
      *
+     *   QueryTopo: queries the topology.
+     *   QueryTopoRed: queries the red topology metrics, such as the number of requests, response time, and number of errors.
+     *
+     * This parameter is required.
      * @example QueryTopo
      *
      * @var string

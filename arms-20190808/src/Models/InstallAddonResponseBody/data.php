@@ -100,6 +100,8 @@ class data extends Model
     /**
      * @description Indicates whether the component is fully managed.
      *
+     * @example true
+     *
      * @var bool
      */
     public $managed;

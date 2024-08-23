@@ -16,7 +16,7 @@ class notifyObjects extends Model
     public $notifyChannels;
 
     /**
-     * @description The ID of the notification contact.
+     * @description The ID of the notification object.
      *
      * @example 123
      *
@@ -36,11 +36,11 @@ class notifyObjects extends Model
     /**
      * @description The type of the notification object. Valid values:
      *
-     *   CONTACT: individual contact
+     *   CONTACT: contact
      *   CONTACT_GROUP: contact group
-     *   ARMS_CONTACT: individual ARMS contact
+     *   ARMS_CONTACT: ARMS contact
      *   ARMS_CONTACT_GROUP: ARMS contact group
-     *   DING_ROBOT_GROUP: DingTalk, Lark, or WeCom IM chatbot
+     *   DING_ROBOT_GROUP: DingTalk, Lark, WeCom, or IM robot
      *   CONTACT_SCHEDULE: user on duty defined by a schedule
      *
      * @example CONTACT

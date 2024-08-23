@@ -9,28 +9,56 @@ use AlibabaCloud\Tea\Model;
 class DoInsightsActionResponseBody extends Model
 {
     /**
+     * @description Status code. 200 means success, other status codes are exceptions.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The response parameters vary with the value of module.
+     *
+     *   QueryTopo
+     *
+     * }
+     *
+     *   QueryTopoRed
+     *
+     * ```
+     * @example - QueryTopo
+     *
+     *
+     * }
      * @var string
      */
     public $data;
 
     /**
+     * @description Information returned when the call fails.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
+     *
+     * @example 626037F5-FDEB-45B0-804C-B3C92797A64E
      *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Whether the query is successful:
+     *
+     * - false
+     * @example true
+     *
      * @var bool
      */
     public $success;

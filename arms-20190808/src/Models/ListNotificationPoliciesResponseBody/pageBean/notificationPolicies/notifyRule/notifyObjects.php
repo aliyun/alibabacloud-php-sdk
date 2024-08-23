@@ -36,11 +36,7 @@ class notifyObjects extends Model
     /**
      * @description The type of the notification object. Valid values:
      *
-     *   CONTACT: an individual contact
-     *   CONTACT_GROUP: a contact group
-     *   DING_ROBOT: an instant messaging (IM) chatbot
-     *   CONTACT_SCHEDULE: a person on duty based on an established schedule
-     *
+     * - CONTACT_SCHEDULE: a person on duty based on an established schedule
      * @example CONTACT
      *
      * @var string

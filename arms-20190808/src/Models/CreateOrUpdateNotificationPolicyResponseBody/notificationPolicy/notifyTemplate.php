@@ -11,8 +11,8 @@ class notifyTemplate extends Model
     /**
      * @description The content of the alert notification sent through email.
      *
-     * @example Alert Name: {{ .commonLabels.alertname }}{{if .commonLabels.clustername }}
-     * {{ end }} {{ end }}
+     * @example Alert name: {{ .commonLabels.alertname }}{{if .commonLabels.clustername }} Cluster name: {{ .commonLabels.clustername }} {{ end }}{{if eq "app" .commonLabels._aliyun_arms_involvedObject_kind }} Application name: {{ .commonLabels._aliyun_arms_involvedObject_name }} {{ end }} Notification policy: {{ .dispatchRuleName }} Alert time: {{ .startTime }} Alert content: {{ for .alerts }} {{.annotations.message}} {{if .generatorURL }} \\<a href="{{.generatorURL}}" >Link\\</a> {{end}} {{end}}
+     *
      * @var string
      */
     public $emailContent;
@@ -20,8 +20,8 @@ class notifyTemplate extends Model
     /**
      * @description The content of the alert resolution notification sent through email.
      *
-     * @example Alert Name: {{ .commonLabels.alertname }}{{if .commonLabels.clustername }}
-     * {{ end }} {{ end }}
+     * @example Alert name: {{ .commonLabels.alertname }}{{if .commonLabels.clustername }} Cluster name: {{ .commonLabels.clustername }} {{ end }}{{if eq "app" .commonLabels._aliyun_arms_involvedObject_kind }} Application name: {{ .commonLabels._aliyun_arms_involvedObject_name }} {{ end }} Notification policy: {{ .dispatchRuleName }} Alert resolution time: {{ .endTime }} Alert content: {{ for .alerts }} {{.annotations.message}} {{if .generatorURL }} \\<a href="{{.generatorURL}}" >Link\\</a> {{end}} {{end}}
+     *
      * @var string
      */
     public $emailRecoverContent;
@@ -47,9 +47,8 @@ class notifyTemplate extends Model
     /**
      * @description The content of the alert notification sent by the IM robot.
      *
-     * @example {{if .commonLabels.clustername }}
+     * @example {{if .commonLabels.clustername }} > Cluster name: {{ .commonLabels.clustername }} {{ end }}{{if eq "app" .commonLabels._aliyun_arms_involvedObject_kind }} > Application name: {{ .commonLabels._aliyun_arms_involvedObject_name }} {{ end }}{{ for .alerts }}> {{.annotations.message}} {{if .generatorURL }} [Link]\\({{.generatorURL}}) {{ end }} {{if eq "true" .labels._aliyun_arms_is_denoise_filtered }} (Suspected noise) {{end}} {{end}}
      *
-     * {{end}}
      * @var string
      */
     public $robotContent;
@@ -57,8 +56,8 @@ class notifyTemplate extends Model
     /**
      * @description The content of the alert notification sent through text message.
      *
-     * @example {{ .level }}Alert Occurs
-     * Description: {{ for .alerts }} {{ .annotations.message }} {{ end }}
+     * @example \\<SmsContent>Notification on the occurrence of a {{ .level }} alert. Alert name: {{ .commonLabels.alertname }}{{if .commonLabels.clustername }} Cluster name: {{ .commonLabels.clustername }} {{ end }}{{if eq "app" .commonLabels._aliyun_arms_involvedObject_kind }} Application name: {{ .commonLabels._aliyun_arms_involvedObject_name }} {{ end }} Notification policy: {{ .dispatchRuleName }} Alert time: {{ .startTime }} Alert content: {{ for .alerts }} {{.annotations.message}} {{ end }}\\</SmsContent>
+     *
      * @var string
      */
     public $smsContent;
@@ -66,8 +65,8 @@ class notifyTemplate extends Model
     /**
      * @description The content of the alert resolution notification sent through text message.
      *
-     * @example Alert Recovery Notification
-     * Description: {{ for .alerts }} {{ .annotations.message }} {{ end }}
+     * @example \\<SmsRecoverContent>Alert resolution notification. Alert name: {{ .commonLabels.alertname }}{{if .commonLabels.clustername }} Cluster name: {{ .commonLabels.clustername }} {{ end }}{{if eq "app" .commonLabels._aliyun_arms_involvedObject_kind }} Application name: {{ .commonLabels._aliyun_arms_involvedObject_name }} {{ end }} Notification policy: {{ .dispatchRuleName }} Alert resolution time: {{ .endTime }} Alert content: {{ for .alerts }} {{.annotations.message}} {{ end }}\\</SmsRecoverContent>
+     *
      * @var string
      */
     public $smsRecoverContent;
@@ -75,8 +74,8 @@ class notifyTemplate extends Model
     /**
      * @description The content of the alert notification by phone.
      *
-     * @example Alert Name: {{ .commonLabels.alertname }}{{if .commonLabels.clustername }}
-     * Description: {{ for .alerts }} {{ .annotations.message }} {{ end }}
+     * @example \\<TtsContent>Alert name: {{ .commonLabels.alertname }}{{if .commonLabels.clustername }} Cluster name: {{ .commonLabels.clustername }} {{ end }}{{if eq "app" .commonLabels._aliyun_arms_involvedObject_kind }} Application name: {{ .commonLabels._aliyun_arms_involvedObject_name }} {{ end }} Notification policy: {{ .dispatchRuleName }} Alert time: {{ .startTime }} Alert content: {{ for .alerts }} {{.annotations.message}} {{ end }}\\</TtsContent>
+     *
      * @var string
      */
     public $ttsContent;
@@ -84,8 +83,8 @@ class notifyTemplate extends Model
     /**
      * @description The content of the alert resolution notification by phone.
      *
-     * @example Alert Name: {{ .commonLabels.alertname }}{{if .commonLabels.clustername }}
-     * Description: {{ for .alerts }} {{ .annotations.message }} {{ end }}
+     * @example \\<TtsRecoverContent>Alert name: {{ .commonLabels.alertname }}{{if .commonLabels.clustername }} Cluster name: {{ .commonLabels.clustername }} {{ end }}{{if eq "app" .commonLabels._aliyun_arms_involvedObject_kind }} Application name: {{ .commonLabels._aliyun_arms_involvedObject_name }} {{ end }} Notification policy: {{ .dispatchRuleName }} Alert resolution time: {{ .endTime }} Alert content: {{ for .alerts }} {{.annotations.message}} {{ end }}\\</TtsRecoverContent>
+     *
      * @var string
      */
     public $ttsRecoverContent;

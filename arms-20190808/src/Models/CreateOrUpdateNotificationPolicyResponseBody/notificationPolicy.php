@@ -15,7 +15,7 @@ class notificationPolicy extends Model
     /**
      * @description Specifies whether to enable simple mode.
      *
-     * @example true
+     * @example false
      *
      * @var bool
      */
@@ -56,7 +56,7 @@ class notificationPolicy extends Model
     public $integrationId;
 
     /**
-     * @description An array of alert event matching rule objects.
+     * @description The matching rules.
      *
      * @var matchingRules[]
      */
@@ -79,7 +79,7 @@ class notificationPolicy extends Model
     public $notifyRule;
 
     /**
-     * @description An array of notification template objects.
+     * @description The notification template.
      *
      * @var notifyTemplate
      */
@@ -88,7 +88,9 @@ class notificationPolicy extends Model
     /**
      * @description Indicates whether a notification is resent for a long-lasting unresolved alert. Default value: true. Valid values:
      *
-     * - `false`: The system sends a notification for a long-lasting unresolved alert based on an escalation policy.
+     *   `true`: The system resends a notification for a long-lasting unresolved alert at a specified time interval.
+     *   `false`: The system sends a notification for a long-lasting unresolved alert based on an escalation policy.
+     *
      * @example true
      *
      * @var bool
@@ -105,9 +107,11 @@ class notificationPolicy extends Model
     public $repeatInterval;
 
     /**
-     * @description Indicates whether the system sends a notification to the contacts when the status of an alert changes to Resolved. Default value: true. Valid values:
+     * @description Indicates whether the status of an alert automatically changes to Resolved when all events related to the alert change to the Restored state. ARMS notifies contacts when the alert status changes to Resolved.
      *
-     * - `false`: The system does not send a notification.
+     *   `true`: The system sends a notification.
+     *   `false`: The system does not send a notification.
+     *
      * @example true
      *
      * @var bool
