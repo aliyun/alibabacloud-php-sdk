@@ -157,6 +157,16 @@ class InitializeRequest extends Model
     /**
      * @var string
      */
+    public $showAlbumIcon;
+
+    /**
+     * @var string
+     */
+    public $showOcrResult;
+
+    /**
+     * @var string
+     */
     public $styleConfig;
     protected $_name = [
         'authorize'         => 'Authorize',
@@ -183,6 +193,8 @@ class InitializeRequest extends Model
         'returnUrl'         => 'ReturnUrl',
         'sceneCode'         => 'SceneCode',
         'securityLevel'     => 'SecurityLevel',
+        'showAlbumIcon'     => 'ShowAlbumIcon',
+        'showOcrResult'     => 'ShowOcrResult',
         'styleConfig'       => 'StyleConfig',
     ];
 
@@ -264,6 +276,12 @@ class InitializeRequest extends Model
         }
         if (null !== $this->securityLevel) {
             $res['SecurityLevel'] = $this->securityLevel;
+        }
+        if (null !== $this->showAlbumIcon) {
+            $res['ShowAlbumIcon'] = $this->showAlbumIcon;
+        }
+        if (null !== $this->showOcrResult) {
+            $res['ShowOcrResult'] = $this->showOcrResult;
         }
         if (null !== $this->styleConfig) {
             $res['StyleConfig'] = $this->styleConfig;
@@ -351,6 +369,12 @@ class InitializeRequest extends Model
         }
         if (isset($map['SecurityLevel'])) {
             $model->securityLevel = $map['SecurityLevel'];
+        }
+        if (isset($map['ShowAlbumIcon'])) {
+            $model->showAlbumIcon = $map['ShowAlbumIcon'];
+        }
+        if (isset($map['ShowOcrResult'])) {
+            $model->showOcrResult = $map['ShowOcrResult'];
         }
         if (isset($map['StyleConfig'])) {
             $model->styleConfig = $map['StyleConfig'];

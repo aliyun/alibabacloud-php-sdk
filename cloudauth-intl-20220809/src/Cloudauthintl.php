@@ -1206,6 +1206,12 @@ class Cloudauthintl extends OpenApiClient
         if (!Utils::isUnset($request->securityLevel)) {
             $query['SecurityLevel'] = $request->securityLevel;
         }
+        if (!Utils::isUnset($request->showAlbumIcon)) {
+            $query['ShowAlbumIcon'] = $request->showAlbumIcon;
+        }
+        if (!Utils::isUnset($request->showOcrResult)) {
+            $query['ShowOcrResult'] = $request->showOcrResult;
+        }
         if (!Utils::isUnset($request->styleConfig)) {
             $query['StyleConfig'] = $request->styleConfig;
         }
