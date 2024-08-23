@@ -25,7 +25,7 @@ class header extends Model
     /**
      * @example 1403
      *
-     * @var string
+     * @var int
      */
     public $responseTime;
     protected $_name = [
