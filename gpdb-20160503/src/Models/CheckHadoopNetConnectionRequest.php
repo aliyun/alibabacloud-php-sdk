@@ -19,9 +19,13 @@ class CheckHadoopNetConnectionRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @var string
+     */
+    public $dataSourceId;
+
+    /**
      * @description The E-MapReduce (EMR) Hadoop cluster ID.
      *
-     * This parameter is required.
      * @example c-xxx
      *
      * @var string
@@ -36,6 +40,7 @@ class CheckHadoopNetConnectionRequest extends Model
     public $regionId;
     protected $_name = [
         'DBInstanceId'  => 'DBInstanceId',
+        'dataSourceId'  => 'DataSourceId',
         'emrInstanceId' => 'EmrInstanceId',
         'regionId'      => 'RegionId',
     ];
@@ -49,6 +54,9 @@ class CheckHadoopNetConnectionRequest extends Model
         $res = [];
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
+        }
+        if (null !== $this->dataSourceId) {
+            $res['DataSourceId'] = $this->dataSourceId;
         }
         if (null !== $this->emrInstanceId) {
             $res['EmrInstanceId'] = $this->emrInstanceId;
@@ -70,6 +78,9 @@ class CheckHadoopNetConnectionRequest extends Model
         $model = new self();
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
+        }
+        if (isset($map['DataSourceId'])) {
+            $model->dataSourceId = $map['DataSourceId'];
         }
         if (isset($map['EmrInstanceId'])) {
             $model->emrInstanceId = $map['EmrInstanceId'];

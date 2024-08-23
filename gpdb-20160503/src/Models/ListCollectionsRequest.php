@@ -11,7 +11,7 @@ class ListCollectionsRequest extends Model
     /**
      * @description The instance ID.
      *
-     * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+     * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
      * @example gp-xxxxxxxxx
      *
      * @var string
@@ -53,6 +53,8 @@ class ListCollectionsRequest extends Model
     public $regionId;
 
     /**
+     * @example gp-ws-*****
+     *
      * @var string
      */
     public $workspaceId;

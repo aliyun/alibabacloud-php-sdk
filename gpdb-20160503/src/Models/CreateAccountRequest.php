@@ -47,6 +47,11 @@ class CreateAccountRequest extends Model
     public $accountPassword;
 
     /**
+     * @var string
+     */
+    public $accountType;
+
+    /**
      * @description The ID of the instance.
      *
      * This parameter is required.
@@ -82,6 +87,7 @@ class CreateAccountRequest extends Model
         'accountDescription' => 'AccountDescription',
         'accountName'        => 'AccountName',
         'accountPassword'    => 'AccountPassword',
+        'accountType'        => 'AccountType',
         'DBInstanceId'       => 'DBInstanceId',
         'databaseName'       => 'DatabaseName',
         'ownerId'            => 'OwnerId',
@@ -103,6 +109,9 @@ class CreateAccountRequest extends Model
         }
         if (null !== $this->accountPassword) {
             $res['AccountPassword'] = $this->accountPassword;
+        }
+        if (null !== $this->accountType) {
+            $res['AccountType'] = $this->accountType;
         }
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
@@ -136,6 +145,9 @@ class CreateAccountRequest extends Model
         }
         if (isset($map['AccountPassword'])) {
             $model->accountPassword = $map['AccountPassword'];
+        }
+        if (isset($map['AccountType'])) {
+            $model->accountType = $map['AccountType'];
         }
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];

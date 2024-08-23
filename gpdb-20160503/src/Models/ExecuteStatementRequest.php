@@ -89,7 +89,7 @@ class ExecuteStatementRequest extends Model
     public $sqls;
 
     /**
-     * @description The name of the set of SQL statements that you want to execute.
+     * @description The name of the set of SQL statements that you want to execute. This parameter takes effect when the RunType parameter is set to asynchronous.
      *
      * @example test
      *

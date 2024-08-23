@@ -18,6 +18,11 @@ class DescribeAccountsRequest extends Model
     public $accountName;
 
     /**
+     * @var string
+     */
+    public $accountType;
+
+    /**
      * @description The instance ID.
      *
      * This parameter is required.
@@ -28,6 +33,7 @@ class DescribeAccountsRequest extends Model
     public $DBInstanceId;
     protected $_name = [
         'accountName'  => 'AccountName',
+        'accountType'  => 'AccountType',
         'DBInstanceId' => 'DBInstanceId',
     ];
 
@@ -40,6 +46,9 @@ class DescribeAccountsRequest extends Model
         $res = [];
         if (null !== $this->accountName) {
             $res['AccountName'] = $this->accountName;
+        }
+        if (null !== $this->accountType) {
+            $res['AccountType'] = $this->accountType;
         }
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
@@ -58,6 +67,9 @@ class DescribeAccountsRequest extends Model
         $model = new self();
         if (isset($map['AccountName'])) {
             $model->accountName = $map['AccountName'];
+        }
+        if (isset($map['AccountType'])) {
+            $model->accountType = $map['AccountType'];
         }
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];

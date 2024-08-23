@@ -83,6 +83,11 @@ class DescribeHadoopDataSourceResponseBody extends Model
     public $emrInstanceId;
 
     /**
+     * @var string
+     */
+    public $externalDataServiceId;
+
+    /**
      * @description The content of the Hadoop hdfs-site.xml file.
      *
      * @example xxxxxx
@@ -140,6 +145,11 @@ class DescribeHadoopDataSourceResponseBody extends Model
     public $mapReduceConf;
 
     /**
+     * @var string
+     */
+    public $modifyTime;
+
+    /**
      * @description The request ID.
      *
      * @example B4CAF581-2AC7-41AD-8940-D56DF7AADF5B
@@ -174,12 +184,14 @@ class DescribeHadoopDataSourceResponseBody extends Model
         'dataSourceStatus'      => 'DataSourceStatus',
         'dataSourceType'        => 'DataSourceType',
         'emrInstanceId'         => 'EmrInstanceId',
+        'externalDataServiceId' => 'ExternalDataServiceId',
         'HDFSConf'              => 'HDFSConf',
         'hadoopCoreConf'        => 'HadoopCoreConf',
         'hadoopCreateType'      => 'HadoopCreateType',
         'hadoopHostsAddress'    => 'HadoopHostsAddress',
         'hiveConf'              => 'HiveConf',
         'mapReduceConf'         => 'MapReduceConf',
+        'modifyTime'            => 'ModifyTime',
         'requestId'             => 'RequestId',
         'statusMessage'         => 'StatusMessage',
         'yarnConf'              => 'YarnConf',
@@ -216,6 +228,9 @@ class DescribeHadoopDataSourceResponseBody extends Model
         if (null !== $this->emrInstanceId) {
             $res['EmrInstanceId'] = $this->emrInstanceId;
         }
+        if (null !== $this->externalDataServiceId) {
+            $res['ExternalDataServiceId'] = $this->externalDataServiceId;
+        }
         if (null !== $this->HDFSConf) {
             $res['HDFSConf'] = $this->HDFSConf;
         }
@@ -233,6 +248,9 @@ class DescribeHadoopDataSourceResponseBody extends Model
         }
         if (null !== $this->mapReduceConf) {
             $res['MapReduceConf'] = $this->mapReduceConf;
+        }
+        if (null !== $this->modifyTime) {
+            $res['ModifyTime'] = $this->modifyTime;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -279,6 +297,9 @@ class DescribeHadoopDataSourceResponseBody extends Model
         if (isset($map['EmrInstanceId'])) {
             $model->emrInstanceId = $map['EmrInstanceId'];
         }
+        if (isset($map['ExternalDataServiceId'])) {
+            $model->externalDataServiceId = $map['ExternalDataServiceId'];
+        }
         if (isset($map['HDFSConf'])) {
             $model->HDFSConf = $map['HDFSConf'];
         }
@@ -296,6 +317,9 @@ class DescribeHadoopDataSourceResponseBody extends Model
         }
         if (isset($map['MapReduceConf'])) {
             $model->mapReduceConf = $map['MapReduceConf'];
+        }
+        if (isset($map['ModifyTime'])) {
+            $model->modifyTime = $map['ModifyTime'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

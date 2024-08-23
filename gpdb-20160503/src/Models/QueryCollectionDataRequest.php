@@ -29,6 +29,9 @@ class QueryCollectionDataRequest extends Model
     public $content;
 
     /**
+     * @description The instance ID.
+     *
+     * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
      * @example gp-xxxxxxxxx
      *
      * @var string
@@ -36,6 +39,12 @@ class QueryCollectionDataRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @description The filter condition that is used to query data. Specify the parameter in the WHERE clause format. The parameter is an expression that returns a Boolean value of TRUE or FALSE. The parameter can contain comparison operators, such as Equal To (=), Not Equal To (<> or !=), Greater Than (>), Less Than (<), Greater Than or Equal To (>=), and Less Than or Equal To (<=), logical operators, such as AND, OR, and NOT, and keywords, such as IN, BETWEEN, and LIKE.
+     *
+     * >
+     *
+     *   For more information, see https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-where/.
+     *
      * @example response > 200
      *
      * @var string
@@ -188,6 +197,8 @@ class QueryCollectionDataRequest extends Model
     public $vector;
 
     /**
+     * @example gp-ws-*****
+     *
      * @var string
      */
     public $workspaceId;

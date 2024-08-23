@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstanceIndexUsageResponseBody extends Model
 {
     /**
-     * @description The time when the table was last deleted, inserted, or updated.
+     * @description The queried index usage.
      *
      * @var items[]
      */

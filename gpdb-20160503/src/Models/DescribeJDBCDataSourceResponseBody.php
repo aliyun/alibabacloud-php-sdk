@@ -61,6 +61,11 @@ class DescribeJDBCDataSourceResponseBody extends Model
     public $dataSourceType;
 
     /**
+     * @var string
+     */
+    public $externalDataServiceId;
+
+    /**
      * @description The JDBC connection string.
      *
      * @example xxxxxx
@@ -88,6 +93,11 @@ class DescribeJDBCDataSourceResponseBody extends Model
     public $JDBCUserName;
 
     /**
+     * @var string
+     */
+    public $modifyTime;
+
+    /**
      * @example B4CAF581-2AC7-41AD-8940-D56DF7AADF5B
      *
      * @var string
@@ -107,9 +117,11 @@ class DescribeJDBCDataSourceResponseBody extends Model
         'dataSourceName'        => 'DataSourceName',
         'dataSourceStatus'      => 'DataSourceStatus',
         'dataSourceType'        => 'DataSourceType',
+        'externalDataServiceId' => 'ExternalDataServiceId',
         'JDBCConnectionString'  => 'JDBCConnectionString',
         'JDBCPassword'          => 'JDBCPassword',
         'JDBCUserName'          => 'JDBCUserName',
+        'modifyTime'            => 'ModifyTime',
         'requestId'             => 'RequestId',
         'statusMessage'         => 'StatusMessage',
     ];
@@ -139,6 +151,9 @@ class DescribeJDBCDataSourceResponseBody extends Model
         if (null !== $this->dataSourceType) {
             $res['DataSourceType'] = $this->dataSourceType;
         }
+        if (null !== $this->externalDataServiceId) {
+            $res['ExternalDataServiceId'] = $this->externalDataServiceId;
+        }
         if (null !== $this->JDBCConnectionString) {
             $res['JDBCConnectionString'] = $this->JDBCConnectionString;
         }
@@ -147,6 +162,9 @@ class DescribeJDBCDataSourceResponseBody extends Model
         }
         if (null !== $this->JDBCUserName) {
             $res['JDBCUserName'] = $this->JDBCUserName;
+        }
+        if (null !== $this->modifyTime) {
+            $res['ModifyTime'] = $this->modifyTime;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -184,6 +202,9 @@ class DescribeJDBCDataSourceResponseBody extends Model
         if (isset($map['DataSourceType'])) {
             $model->dataSourceType = $map['DataSourceType'];
         }
+        if (isset($map['ExternalDataServiceId'])) {
+            $model->externalDataServiceId = $map['ExternalDataServiceId'];
+        }
         if (isset($map['JDBCConnectionString'])) {
             $model->JDBCConnectionString = $map['JDBCConnectionString'];
         }
@@ -192,6 +213,9 @@ class DescribeJDBCDataSourceResponseBody extends Model
         }
         if (isset($map['JDBCUserName'])) {
             $model->JDBCUserName = $map['JDBCUserName'];
+        }
+        if (isset($map['ModifyTime'])) {
+            $model->modifyTime = $map['ModifyTime'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

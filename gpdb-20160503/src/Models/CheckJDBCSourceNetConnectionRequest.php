@@ -19,9 +19,13 @@ class CheckJDBCSourceNetConnectionRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @var string
+     */
+    public $dataSourceId;
+
+    /**
      * @description The JDBC connection string.
      *
-     * This parameter is required.
      * @example xxx
      *
      * @var string
@@ -29,6 +33,8 @@ class CheckJDBCSourceNetConnectionRequest extends Model
     public $jdbcConnectionString;
 
     /**
+     * @description The region ID of the instance.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -36,6 +42,7 @@ class CheckJDBCSourceNetConnectionRequest extends Model
     public $regionId;
     protected $_name = [
         'DBInstanceId'         => 'DBInstanceId',
+        'dataSourceId'         => 'DataSourceId',
         'jdbcConnectionString' => 'JdbcConnectionString',
         'regionId'             => 'RegionId',
     ];
@@ -49,6 +56,9 @@ class CheckJDBCSourceNetConnectionRequest extends Model
         $res = [];
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
+        }
+        if (null !== $this->dataSourceId) {
+            $res['DataSourceId'] = $this->dataSourceId;
         }
         if (null !== $this->jdbcConnectionString) {
             $res['JdbcConnectionString'] = $this->jdbcConnectionString;
@@ -70,6 +80,9 @@ class CheckJDBCSourceNetConnectionRequest extends Model
         $model = new self();
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
+        }
+        if (isset($map['DataSourceId'])) {
+            $model->dataSourceId = $map['DataSourceId'];
         }
         if (isset($map['JdbcConnectionString'])) {
             $model->jdbcConnectionString = $map['JdbcConnectionString'];

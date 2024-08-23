@@ -19,6 +19,9 @@ class CreateCollectionRequest extends Model
     public $collection;
 
     /**
+     * @description The instance ID.
+     *
+     * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the IDs of all AnalyticDB for PostgreSQL instances in a specific region.
      * @example gp-xxxxxxxxx
      *
      * @var string
@@ -165,6 +168,8 @@ class CreateCollectionRequest extends Model
     public $regionId;
 
     /**
+     * @example gp-ws-*****
+     *
      * @var string
      */
     public $workspaceId;

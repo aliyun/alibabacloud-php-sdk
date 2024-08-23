@@ -46,6 +46,12 @@ class QueryContentRequest extends Model
     public $fileUrl;
 
     /**
+     * @description The filter condition that is used to query data. Specify the parameter in the WHERE clause format. The parameter is an expression that returns a Boolean value of TRUE or FALSE. The parameter can contain comparison operators, such as Equal To (=), Not Equal To (<> or !=), Greater Than (>), Less Than (<), Greater Than or Equal To (>=), and Less Than or Equal To (<=), logical operators, such as AND, OR, and NOT, and keywords, such as IN, BETWEEN, and LIKE.
+     *
+     * >
+     *
+     *   For more information, see https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-where/.
+     *
      * @example title = \\"test\\"
      *
      * @var string
@@ -82,6 +88,8 @@ class QueryContentRequest extends Model
     public $hybridSearchArgs;
 
     /**
+     * @description Specifies whether to return the URL of the document. Default value: false.
+     *
      * @example false
      *
      * @var bool

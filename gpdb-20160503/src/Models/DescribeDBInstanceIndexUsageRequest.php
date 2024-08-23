@@ -19,6 +19,16 @@ class DescribeDBInstanceIndexUsageRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @var string
+     */
+    public $database;
+
+    /**
+     * @var string
+     */
+    public $orderBy;
+
+    /**
      * @description The page number. Pages start from page 1. Default value: **1**.
      *
      * @example 1
@@ -42,6 +52,8 @@ class DescribeDBInstanceIndexUsageRequest extends Model
     public $pageSize;
     protected $_name = [
         'DBInstanceId' => 'DBInstanceId',
+        'database'     => 'Database',
+        'orderBy'      => 'OrderBy',
         'pageNumber'   => 'PageNumber',
         'pageSize'     => 'PageSize',
     ];
@@ -55,6 +67,12 @@ class DescribeDBInstanceIndexUsageRequest extends Model
         $res = [];
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
+        }
+        if (null !== $this->database) {
+            $res['Database'] = $this->database;
+        }
+        if (null !== $this->orderBy) {
+            $res['OrderBy'] = $this->orderBy;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -76,6 +94,12 @@ class DescribeDBInstanceIndexUsageRequest extends Model
         $model = new self();
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
+        }
+        if (isset($map['Database'])) {
+            $model->database = $map['Database'];
+        }
+        if (isset($map['OrderBy'])) {
+            $model->orderBy = $map['OrderBy'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];

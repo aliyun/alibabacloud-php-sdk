@@ -40,6 +40,11 @@ class DBInstanceAccount extends Model
     public $accountStatus;
 
     /**
+     * @var string
+     */
+    public $accountType;
+
+    /**
      * @description The ID of the instance.
      *
      * @example gp-bp***************
@@ -51,6 +56,7 @@ class DBInstanceAccount extends Model
         'accountDescription' => 'AccountDescription',
         'accountName'        => 'AccountName',
         'accountStatus'      => 'AccountStatus',
+        'accountType'        => 'AccountType',
         'DBInstanceId'       => 'DBInstanceId',
     ];
 
@@ -69,6 +75,9 @@ class DBInstanceAccount extends Model
         }
         if (null !== $this->accountStatus) {
             $res['AccountStatus'] = $this->accountStatus;
+        }
+        if (null !== $this->accountType) {
+            $res['AccountType'] = $this->accountType;
         }
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
@@ -93,6 +102,9 @@ class DBInstanceAccount extends Model
         }
         if (isset($map['AccountStatus'])) {
             $model->accountStatus = $map['AccountStatus'];
+        }
+        if (isset($map['AccountType'])) {
+            $model->accountType = $map['AccountType'];
         }
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
