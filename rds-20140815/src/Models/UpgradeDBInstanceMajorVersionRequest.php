@@ -176,6 +176,11 @@ class UpgradeDBInstanceMajorVersionRequest extends Model
     public $targetMajorVersion;
 
     /**
+     * @var string
+     */
+    public $upgradeMode;
+
+    /**
      * @description A reserved parameter. You do not need to specify this parameter.
      *
      * @example 1
@@ -247,6 +252,7 @@ class UpgradeDBInstanceMajorVersionRequest extends Model
         'switchTime'            => 'SwitchTime',
         'switchTimeMode'        => 'SwitchTimeMode',
         'targetMajorVersion'    => 'TargetMajorVersion',
+        'upgradeMode'           => 'UpgradeMode',
         'usedTime'              => 'UsedTime',
         'VPCId'                 => 'VPCId',
         'vSwitchId'             => 'VSwitchId',
@@ -303,6 +309,9 @@ class UpgradeDBInstanceMajorVersionRequest extends Model
         }
         if (null !== $this->targetMajorVersion) {
             $res['TargetMajorVersion'] = $this->targetMajorVersion;
+        }
+        if (null !== $this->upgradeMode) {
+            $res['UpgradeMode'] = $this->upgradeMode;
         }
         if (null !== $this->usedTime) {
             $res['UsedTime'] = $this->usedTime;
@@ -375,6 +384,9 @@ class UpgradeDBInstanceMajorVersionRequest extends Model
         }
         if (isset($map['TargetMajorVersion'])) {
             $model->targetMajorVersion = $map['TargetMajorVersion'];
+        }
+        if (isset($map['UpgradeMode'])) {
+            $model->upgradeMode = $map['UpgradeMode'];
         }
         if (isset($map['UsedTime'])) {
             $model->usedTime = $map['UsedTime'];

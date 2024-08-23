@@ -26078,6 +26078,9 @@ class Rds extends OpenApiClient
         if (!Utils::isUnset($request->targetMajorVersion)) {
             $query['TargetMajorVersion'] = $request->targetMajorVersion;
         }
+        if (!Utils::isUnset($request->upgradeMode)) {
+            $query['UpgradeMode'] = $request->upgradeMode;
+        }
         if (!Utils::isUnset($request->usedTime)) {
             $query['UsedTime'] = $request->usedTime;
         }
