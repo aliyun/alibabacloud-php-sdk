@@ -657,6 +657,8 @@ use AlibabaCloud\SDK\Ecs\V20140526\Models\RemoveTagsRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\RemoveTagsResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\RenewDedicatedHostsRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\RenewDedicatedHostsResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\RenewElasticityAssurancesRequest;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\RenewElasticityAssurancesResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\RenewInstanceRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\RenewInstanceResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\RenewReservedInstancesRequest;
@@ -1531,7 +1533,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Assigns secondary private IP addresses to an elastic network interface (ENI). You can specify available private IP addresses within the CIDR block of the vSwitch that is connected to the ENI. Alternatively, you can specify a number of private IP addresses to automatically assign from the CIDR block of the vSwitch to the ENI.
+     * @summary Assigns one or more secondary private IP addresses to an elastic network interface (ENI). You can specify available private IP addresses within the CIDR block of the vSwitch that is connected to the ENI. Alternatively, you can specify a number of private IP addresses to automatically assign from the CIDR block of the vSwitch to the ENI.
      *  *
      * @description ## [](#)Usage notes
      * *   The ENI to which you want to assign secondary private IP addresses must be in the Available (Available) or InUse (InUse) state.
@@ -1603,7 +1605,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Assigns secondary private IP addresses to an elastic network interface (ENI). You can specify available private IP addresses within the CIDR block of the vSwitch that is connected to the ENI. Alternatively, you can specify a number of private IP addresses to automatically assign from the CIDR block of the vSwitch to the ENI.
+     * @summary Assigns one or more secondary private IP addresses to an elastic network interface (ENI). You can specify available private IP addresses within the CIDR block of the vSwitch that is connected to the ENI. Alternatively, you can specify a number of private IP addresses to automatically assign from the CIDR block of the vSwitch to the ENI.
      *  *
      * @description ## [](#)Usage notes
      * *   The ENI to which you want to assign secondary private IP addresses must be in the Available (Available) or InUse (InUse) state.
@@ -2090,7 +2092,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Attaches an elastic network interface (ENI) to an Elastic Compute Service (ECS) instance that resides in a virtual private cloud (VPC).
+     * @summary Attaches an elastic network interface (ENI) to an Elastic Compute Service (ECS) instance that resides in a virtual private cloud (VPC). When you call this operation, you can specify parameters, such as NetworkInterfaceId, InstanceId, and NetworkCardIndex, in the request.
      *  *
      * @description Take note of the following items:
      * *   The ENI must be in the **Available** state. You can attach an ENI to only one instance that resides in the same zone and VPC as the ENI.
@@ -2166,7 +2168,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Attaches an elastic network interface (ENI) to an Elastic Compute Service (ECS) instance that resides in a virtual private cloud (VPC).
+     * @summary Attaches an elastic network interface (ENI) to an Elastic Compute Service (ECS) instance that resides in a virtual private cloud (VPC). When you call this operation, you can specify parameters, such as NetworkInterfaceId, InstanceId, and NetworkCardIndex, in the request.
      *  *
      * @description Take note of the following items:
      * *   The ENI must be in the **Available** state. You can attach an ENI to only one instance that resides in the same zone and VPC as the ENI.
@@ -3155,8 +3157,8 @@ class Ecs extends OpenApiClient
      * Take note of the following items:
      * *   Only custom images that are in the `Available` state can be copied.
      * *   Custom images that you want to copy must belong to your Alibaba Cloud account or be shared to you by others, and cannot be copied across accounts.
-     * *   When an image is being copied, the image cannot be deleted by calling the [DeleteImage](https://help.aliyun.com/document_detail/25537.html) operation. However, you can cancel the ongoing image copy task by calling the [CancelCopyImage](https://help.aliyun.com/document_detail/25539.html) operation.
-     * *   A region can have only one ongoing image copy task at a time. Other image copy tasks queue up to run in sequence after the ongoing task is completed.
+     * *   When an image is being copied, the image copy cannot be deleted by calling the [DeleteImage](https://help.aliyun.com/document_detail/25537.html) operation. However, you can cancel the ongoing image copy task by calling the [CancelCopyImage](https://help.aliyun.com/document_detail/25539.html) operation.
+     * *   A region supports only up to five concurrent image copy tasks. Excess image copy tasks are queued for execution.
      * *   You can configure `ResourceGroupId` to specify the resource group to which to assign the new image. If you do not configure `ResourceGroupId`, the new image is assigned to the default resource group.
      *  *
      * @param CopyImageRequest $request CopyImageRequest
@@ -3236,8 +3238,8 @@ class Ecs extends OpenApiClient
      * Take note of the following items:
      * *   Only custom images that are in the `Available` state can be copied.
      * *   Custom images that you want to copy must belong to your Alibaba Cloud account or be shared to you by others, and cannot be copied across accounts.
-     * *   When an image is being copied, the image cannot be deleted by calling the [DeleteImage](https://help.aliyun.com/document_detail/25537.html) operation. However, you can cancel the ongoing image copy task by calling the [CancelCopyImage](https://help.aliyun.com/document_detail/25539.html) operation.
-     * *   A region can have only one ongoing image copy task at a time. Other image copy tasks queue up to run in sequence after the ongoing task is completed.
+     * *   When an image is being copied, the image copy cannot be deleted by calling the [DeleteImage](https://help.aliyun.com/document_detail/25537.html) operation. However, you can cancel the ongoing image copy task by calling the [CancelCopyImage](https://help.aliyun.com/document_detail/25539.html) operation.
+     * *   A region supports only up to five concurrent image copy tasks. Excess image copy tasks are queued for execution.
      * *   You can configure `ResourceGroupId` to specify the resource group to which to assign the new image. If you do not configure `ResourceGroupId`, the new image is assigned to the default resource group.
      *  *
      * @param CopyImageRequest $request CopyImageRequest
@@ -3356,19 +3358,20 @@ class Ecs extends OpenApiClient
     /**
      * @summary Creates an activation code. The activation code is used to register servers that are not provided by Alibaba Cloud as Alibaba Cloud managed instances.
      *  *
-     * @description After you use an activation code to register a server that is not provided by Alibaba Cloud as an Alibaba Cloud managed instance, you can use various online services of Alibaba Cloud, such as Cloud Assistant, CloudOps Orchestration Service (OOS), and Apsara Devops, on the managed instance.
-     * If a server is not provided by Alibaba Cloud, you can register the server as an Alibaba Cloud managed instance only if the server has Internet connectivity and runs an operating system of one of the following versions:
-     * - Alibaba Cloud Linux 2, Alibaba Cloud Linux 3, and later
-     * - CentOS 6, CentOS 7, CentOS 8, and later
-     * - Debian 8, Debian 9, Debian 10, and later
-     * - Ubuntu 12, Ubuntu 14, Ubuntu 16, Ubuntu 18, and later
-     * - CoreOS
-     * - OpenSUSE
-     * - Red Hat 5, Red Hat 6, Red Hat 7, and later
-     * - SUSE Linux Enterprise Server (SLES) 11, SLES 12, SLES 15, and later
-     * - Windows Server 2012, Windows Server 2016, Windows Server 2019, and later
-     * You can have up to 5,000 activation codes per Alibaba Cloud region. When the number of activation codes exceeds 1,000, the usage of the activation codes must be greater than 50% before you can proceed to create more activation codes.
-     * >To query the usage of activation codes, go to the Cloud Assistant page in the Elastic Compute Service (ECS) console, click the Manage Instances tab, and then click Register Instance.
+     * @description ## [](#)Usage notes
+     * After you use an activation code to register a server that is not provided by Alibaba Cloud as an Alibaba Cloud managed instance, you can use a variety of online services provided by Alibaba Cloud, such as Cloud Assistant, CloudOps Orchestration Service (OOS), and Apsara Devops on the managed instance.
+     * If a server is not provided by Alibaba Cloud, you can register the server as an Alibaba Cloud managed instance only if the server has Internet connectivity and runs one of the following operating systems:
+     * *   Alibaba Cloud Linux 2 and Alibaba Cloud Linux 3 and later
+     * *   CentOS 6, CentOS 7, and CentOS 8 and later
+     * *   Debian 8, Debian 9, and Debian 10 and later
+     * *   Ubuntu 12, Ubuntu 14, Ubuntu 16, and Ubuntu 18 and later
+     * *   CoreOS
+     * *   OpenSUSE
+     * *   Red Hat 5, Red Hat 6, and Red Hat 7 and later
+     * *   SUSE Linux Enterprise Server 11, SUSE Linux Enterprise Server 12, and SUSE Linux Enterprise Server 15 and later
+     * *   Windows Server 2012, Windows Server 2016, and Windows Server 2019 and later
+     * You can have up to 5,000 activation codes per Alibaba Cloud region. When the number of activation codes exceeds 1,000, the usage of the activation codes must be greater than 50% before you can create additional activation codes.
+     * >  To obtain the usage of activation codes, go to the **ECS Cloud Assistant** page, click the **Manage Instances** tab, and then click **Register Instance**.
      *  *
      * @param CreateActivationRequest $request CreateActivationRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -3439,19 +3442,20 @@ class Ecs extends OpenApiClient
     /**
      * @summary Creates an activation code. The activation code is used to register servers that are not provided by Alibaba Cloud as Alibaba Cloud managed instances.
      *  *
-     * @description After you use an activation code to register a server that is not provided by Alibaba Cloud as an Alibaba Cloud managed instance, you can use various online services of Alibaba Cloud, such as Cloud Assistant, CloudOps Orchestration Service (OOS), and Apsara Devops, on the managed instance.
-     * If a server is not provided by Alibaba Cloud, you can register the server as an Alibaba Cloud managed instance only if the server has Internet connectivity and runs an operating system of one of the following versions:
-     * - Alibaba Cloud Linux 2, Alibaba Cloud Linux 3, and later
-     * - CentOS 6, CentOS 7, CentOS 8, and later
-     * - Debian 8, Debian 9, Debian 10, and later
-     * - Ubuntu 12, Ubuntu 14, Ubuntu 16, Ubuntu 18, and later
-     * - CoreOS
-     * - OpenSUSE
-     * - Red Hat 5, Red Hat 6, Red Hat 7, and later
-     * - SUSE Linux Enterprise Server (SLES) 11, SLES 12, SLES 15, and later
-     * - Windows Server 2012, Windows Server 2016, Windows Server 2019, and later
-     * You can have up to 5,000 activation codes per Alibaba Cloud region. When the number of activation codes exceeds 1,000, the usage of the activation codes must be greater than 50% before you can proceed to create more activation codes.
-     * >To query the usage of activation codes, go to the Cloud Assistant page in the Elastic Compute Service (ECS) console, click the Manage Instances tab, and then click Register Instance.
+     * @description ## [](#)Usage notes
+     * After you use an activation code to register a server that is not provided by Alibaba Cloud as an Alibaba Cloud managed instance, you can use a variety of online services provided by Alibaba Cloud, such as Cloud Assistant, CloudOps Orchestration Service (OOS), and Apsara Devops on the managed instance.
+     * If a server is not provided by Alibaba Cloud, you can register the server as an Alibaba Cloud managed instance only if the server has Internet connectivity and runs one of the following operating systems:
+     * *   Alibaba Cloud Linux 2 and Alibaba Cloud Linux 3 and later
+     * *   CentOS 6, CentOS 7, and CentOS 8 and later
+     * *   Debian 8, Debian 9, and Debian 10 and later
+     * *   Ubuntu 12, Ubuntu 14, Ubuntu 16, and Ubuntu 18 and later
+     * *   CoreOS
+     * *   OpenSUSE
+     * *   Red Hat 5, Red Hat 6, and Red Hat 7 and later
+     * *   SUSE Linux Enterprise Server 11, SUSE Linux Enterprise Server 12, and SUSE Linux Enterprise Server 15 and later
+     * *   Windows Server 2012, Windows Server 2016, and Windows Server 2019 and later
+     * You can have up to 5,000 activation codes per Alibaba Cloud region. When the number of activation codes exceeds 1,000, the usage of the activation codes must be greater than 50% before you can create additional activation codes.
+     * >  To obtain the usage of activation codes, go to the **ECS Cloud Assistant** page, click the **Manage Instances** tab, and then click **Register Instance**.
      *  *
      * @param CreateActivationRequest $request CreateActivationRequest
      *
@@ -4139,7 +4143,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary The name of the deployment set. The name must be 2 to 128 characters in length, It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (_), and hyphens (-).
+     * @summary The name of the deployment set. The name must be 2 to 128 characters in length, It must start with a letter and cannot start with \\`http://\\` or \\`https://\\`. It can contain letters, digits, colons (:), underscores (\\_), and hyphens (-).
      *  *
      * @param CreateDeploymentSetRequest $request CreateDeploymentSetRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -4208,7 +4212,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary The name of the deployment set. The name must be 2 to 128 characters in length, It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (_), and hyphens (-).
+     * @summary The name of the deployment set. The name must be 2 to 128 characters in length, It must start with a letter and cannot start with \\`http://\\` or \\`https://\\`. It can contain letters, digits, colons (:), underscores (\\_), and hyphens (-).
      *  *
      * @param CreateDeploymentSetRequest $request CreateDeploymentSetRequest
      *
@@ -6052,7 +6056,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Creates an elastic network interface (ENI).
+     * @summary Creates an elastic network interface (ENI). When you call this operation, you can specify parameters, such as VSwitchId and PrimaryIpAddress, in the request.
      *  *
      * @description ## [](#)Usage notes
      * Take note of the following items:
@@ -6198,7 +6202,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Creates an elastic network interface (ENI).
+     * @summary Creates an elastic network interface (ENI). When you call this operation, you can specify parameters, such as VSwitchId and PrimaryIpAddress, in the request.
      *  *
      * @description ## [](#)Usage notes
      * Take note of the following items:
@@ -6223,7 +6227,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary The region ID of the ENI. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+     * @summary Grants a permission on an elastic network interface (ENI) to an Alibaba Cloud partner (a certified ISV) or an individual user.
+     *  *
+     * @description Before you call this operation, submit a ticket to apply for using this operation.
      *  *
      * @param CreateNetworkInterfacePermissionRequest $request CreateNetworkInterfacePermissionRequest
      * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
@@ -6280,7 +6286,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary The region ID of the ENI. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+     * @summary Grants a permission on an elastic network interface (ENI) to an Alibaba Cloud partner (a certified ISV) or an individual user.
+     *  *
+     * @description Before you call this operation, submit a ticket to apply for using this operation.
      *  *
      * @param CreateNetworkInterfacePermissionRequest $request CreateNetworkInterfacePermissionRequest
      *
@@ -9174,7 +9182,7 @@ class Ecs extends OpenApiClient
      *     *   If the ENI is in the Deleting state, the ENI deletion request is sent and the ENI is being deleted.
      *     *   If the ENI is not found, the ENI is deleted.
      *     *   If the ENI is stuck in the Deleting state, the ENI fails to be deleted. You can re-initiate the request to delete the ENI.
-     * For information about examples on how to call the DeleteNetworkInterface operation, see[Delete an ENI](https://help.aliyun.com/document_detail/471553.html).
+     * For information about examples on how to call the DeleteNetworkInterface operation, see [Delete an ENI](https://help.aliyun.com/document_detail/471553.html).
      *  *
      * @param DeleteNetworkInterfaceRequest $request DeleteNetworkInterfaceRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -9238,7 +9246,7 @@ class Ecs extends OpenApiClient
      *     *   If the ENI is in the Deleting state, the ENI deletion request is sent and the ENI is being deleted.
      *     *   If the ENI is not found, the ENI is deleted.
      *     *   If the ENI is stuck in the Deleting state, the ENI fails to be deleted. You can re-initiate the request to delete the ENI.
-     * For information about examples on how to call the DeleteNetworkInterface operation, see[Delete an ENI](https://help.aliyun.com/document_detail/471553.html).
+     * For information about examples on how to call the DeleteNetworkInterface operation, see [Delete an ENI](https://help.aliyun.com/document_detail/471553.html).
      *  *
      * @param DeleteNetworkInterfaceRequest $request DeleteNetworkInterfaceRequest
      *
@@ -16117,7 +16125,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of an elastic network interface (ENI).
+     * @summary Queries the details of an elastic network interface (ENI). When you call this operation, you can specify parameters, such as NetworkInterfaceId and Attribute, in the request.
      *  *
      * @description ## Debugging
      * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Ecs\\&api=DescribeNetworkInterfaceAttribute\\&type=RPC\\&version=2014-05-26)
@@ -16177,7 +16185,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of an elastic network interface (ENI).
+     * @summary Queries the details of an elastic network interface (ENI). When you call this operation, you can specify parameters, such as NetworkInterfaceId and Attribute, in the request.
      *  *
      * @description ## Debugging
      * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Ecs\\&api=DescribeNetworkInterfaceAttribute\\&type=RPC\\&version=2014-05-26)
@@ -16268,11 +16276,12 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of one or more elastic network interfaces (ENIs).
+     * @summary Queries the details of one or more elastic network interfaces (ENIs). When you call this operation, you can specify parameters, such as ResourceGroupId, VSwitchId, and InstanceId, in the request.
      *  *
      * @description ## [](#)Usage notes
-     * The `DescribeNetworkInterfaces` operation supports paged queries. During a paged query, when you call the DescribeNetworkInterfaces operation to retrieve the first page of results, set `MaxResults` to specify the maximum number of entries to return in the call. The return value of `NextToken` is a pagination token that can be used in the next call to retrieve a new page of results. When you call the DescribeNetworkInterfaces operation to retrieve a new page of results, set `NextToken` to the `NextToken` value returned in the previous call and set `MaxResults` to specify the maximum number of entries to return in this call.
-     * >  If you specify `MaxResults` or `NextToken`, the system uses the preceding paged query method to return results. Otherwise, the system returns results based on the combination of `PageNumber` and `PageSize`.
+     * You can call the `DescribeNetworkInterfaces` operation for paged query by specifying the `MaxResults` or `NextToken` parameter. Take note of the following items:
+     * *   During a paged query, when you call the DescribeNetworkInterfaces operation to retrieve the first page of results, set `MaxResults` to specify the maximum number of entries to return in the call. The return value of `NextToken` is a pagination token that can be used in the next call to retrieve a new page of results.
+     * *   When you call the DescribeNetworkInterfaces operation to retrieve a new page of results, set `NextToken` to the `NextToken` value returned in the previous call and set `MaxResults` to specify the maximum number of entries to return in this call.
      *  *
      * @param DescribeNetworkInterfacesRequest $request DescribeNetworkInterfacesRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -16377,11 +16386,12 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of one or more elastic network interfaces (ENIs).
+     * @summary Queries the details of one or more elastic network interfaces (ENIs). When you call this operation, you can specify parameters, such as ResourceGroupId, VSwitchId, and InstanceId, in the request.
      *  *
      * @description ## [](#)Usage notes
-     * The `DescribeNetworkInterfaces` operation supports paged queries. During a paged query, when you call the DescribeNetworkInterfaces operation to retrieve the first page of results, set `MaxResults` to specify the maximum number of entries to return in the call. The return value of `NextToken` is a pagination token that can be used in the next call to retrieve a new page of results. When you call the DescribeNetworkInterfaces operation to retrieve a new page of results, set `NextToken` to the `NextToken` value returned in the previous call and set `MaxResults` to specify the maximum number of entries to return in this call.
-     * >  If you specify `MaxResults` or `NextToken`, the system uses the preceding paged query method to return results. Otherwise, the system returns results based on the combination of `PageNumber` and `PageSize`.
+     * You can call the `DescribeNetworkInterfaces` operation for paged query by specifying the `MaxResults` or `NextToken` parameter. Take note of the following items:
+     * *   During a paged query, when you call the DescribeNetworkInterfaces operation to retrieve the first page of results, set `MaxResults` to specify the maximum number of entries to return in the call. The return value of `NextToken` is a pagination token that can be used in the next call to retrieve a new page of results.
+     * *   When you call the DescribeNetworkInterfaces operation to retrieve a new page of results, set `NextToken` to the `NextToken` value returned in the previous call and set `MaxResults` to specify the maximum number of entries to return in this call.
      *  *
      * @param DescribeNetworkInterfacesRequest $request DescribeNetworkInterfacesRequest
      *
@@ -21527,7 +21537,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Triggers a Cloud Assistant command on one or more Elastic Compute Service (ECS) instances.
+     * @summary Runs a Cloud Assistant command on one or more Elastic Compute Service (ECS) instances. When you call this operation, you can specify parameters, such as CommandId, InstanceId, and ResourceGroupId, in the request.
      *  *
      * @description ## [](#)Usage notes
      * *   The ECS instances on which you want to run the Cloud Assistant command must meet the following requirements. If multiple ECS instances are specified and one of the instances does not meet the requirements for running the command, the call fails. You must specify instances that meet the requirements and call the InvokeCommand operation again.
@@ -21647,7 +21657,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Triggers a Cloud Assistant command on one or more Elastic Compute Service (ECS) instances.
+     * @summary Runs a Cloud Assistant command on one or more Elastic Compute Service (ECS) instances. When you call this operation, you can specify parameters, such as CommandId, InstanceId, and ResourceGroupId, in the request.
      *  *
      * @description ## [](#)Usage notes
      * *   The ECS instances on which you want to run the Cloud Assistant command must meet the following requirements. If multiple ECS instances are specified and one of the instances does not meet the requirements for running the command, the call fails. You must specify instances that meet the requirements and call the InvokeCommand operation again.
@@ -24995,7 +25005,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the metadata of an Elastic Compute Service (ECS) instance.
+     * @summary Modifies the metadata of an Elastic Compute Service (ECS) instance. When you call this operation, you can specify parameters, such as InstanceID and HttpEndpoint, in the request.
      *  *
      * @param ModifyInstanceMetadataOptionsRequest $request ModifyInstanceMetadataOptionsRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
@@ -25052,7 +25062,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the metadata of an Elastic Compute Service (ECS) instance.
+     * @summary Modifies the metadata of an Elastic Compute Service (ECS) instance. When you call this operation, you can specify parameters, such as InstanceID and HttpEndpoint, in the request.
      *  *
      * @param ModifyInstanceMetadataOptionsRequest $request ModifyInstanceMetadataOptionsRequest
      *
@@ -25758,7 +25768,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the attributes, such as the name, description, and security group of an elastic network interface (ENI).
+     * @summary Modifies the attributes, such as the name, description, and security groups, of an elastic network interface (ENI). When you call this operation, you can specify parameters, such as NetworkInterfaceId and SecurityGroupId, in the request.
      *  *
      * @param ModifyNetworkInterfaceAttributeRequest $request ModifyNetworkInterfaceAttributeRequest
      * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
@@ -25839,7 +25849,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the attributes, such as the name, description, and security group of an elastic network interface (ENI).
+     * @summary Modifies the attributes, such as the name, description, and security groups, of an elastic network interface (ENI). When you call this operation, you can specify parameters, such as NetworkInterfaceId and SecurityGroupId, in the request.
      *  *
      * @param ModifyNetworkInterfaceAttributeRequest $request ModifyNetworkInterfaceAttributeRequest
      *
@@ -27725,7 +27735,8 @@ class Ecs extends OpenApiClient
     /**
      * @summary Purchases one or more storage capacity units (SCUs).
      *  *
-     * @description Before you call this operation, make sure that you are familiar with the billing and pricing of SCUs. For more information, see [Storage capacity units](https://help.aliyun.com/document_detail/137897.html).
+     * @description ## [](#)Usage notes
+     * Before you call this operation, make sure that you are familiar with the billing and pricing of SCUs. For more information, see [Storage capacity units](https://help.aliyun.com/document_detail/137897.html).
      *  *
      * @param PurchaseStorageCapacityUnitRequest $request PurchaseStorageCapacityUnitRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
@@ -27802,7 +27813,8 @@ class Ecs extends OpenApiClient
     /**
      * @summary Purchases one or more storage capacity units (SCUs).
      *  *
-     * @description Before you call this operation, make sure that you are familiar with the billing and pricing of SCUs. For more information, see [Storage capacity units](https://help.aliyun.com/document_detail/137897.html).
+     * @description ## [](#)Usage notes
+     * Before you call this operation, make sure that you are familiar with the billing and pricing of SCUs. For more information, see [Storage capacity units](https://help.aliyun.com/document_detail/137897.html).
      *  *
      * @param PurchaseStorageCapacityUnitRequest $request PurchaseStorageCapacityUnitRequest
      *
@@ -28854,6 +28866,80 @@ class Ecs extends OpenApiClient
     }
 
     /**
+     * @summary 续费
+     *  *
+     * @param RenewElasticityAssurancesRequest $request RenewElasticityAssurancesRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return RenewElasticityAssurancesResponse RenewElasticityAssurancesResponse
+     */
+    public function renewElasticityAssurancesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->autoPay)) {
+            $query['AutoPay'] = $request->autoPay;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
+        }
+        if (!Utils::isUnset($request->periodUnit)) {
+            $query['PeriodUnit'] = $request->periodUnit;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->privatePoolOptions)) {
+            $query['PrivatePoolOptions'] = $request->privatePoolOptions;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RenewElasticityAssurances',
+            'version'     => '2014-05-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RenewElasticityAssurancesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 续费
+     *  *
+     * @param RenewElasticityAssurancesRequest $request RenewElasticityAssurancesRequest
+     *
+     * @return RenewElasticityAssurancesResponse RenewElasticityAssurancesResponse
+     */
+    public function renewElasticityAssurances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->renewElasticityAssurancesWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Renews a subscription Elastic Compute Service (ECS) instance. When you call this operation, you can specify parameters, such as InstanceId, Period, and ExpectedRenewDay, in the request.
      *  *
      * @description *   Before you call this operation, make sure that you are familiar with the billing methods and pricing of ECS. For more information, see the [Elastic Compute Service](https://www.alibabacloud.com/product/ecs#pricing) product page.
@@ -29879,7 +29965,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Runs a shell, PowerShell, or batch command on Elastic Compute Service (ECS) instances.
+     * @summary Runs a shell, PowerShell, or batch command on one or more Elastic Compute Service (ECS) instances. When you call this operation, you can specify parameters, such as Type and CommandContent, in the request.
      *  *
      * @description ## [](#)Usage notes
      * Unlike the [CreateCommand](https://help.aliyun.com/document_detail/64844.html) and [InvokeCommand](https://help.aliyun.com/document_detail/64841.html) operations, the RunCommand operation can be used to create and run a command in a single request.
@@ -30022,7 +30108,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Runs a shell, PowerShell, or batch command on Elastic Compute Service (ECS) instances.
+     * @summary Runs a shell, PowerShell, or batch command on one or more Elastic Compute Service (ECS) instances. When you call this operation, you can specify parameters, such as Type and CommandContent, in the request.
      *  *
      * @description ## [](#)Usage notes
      * Unlike the [CreateCommand](https://help.aliyun.com/document_detail/64844.html) and [InvokeCommand](https://help.aliyun.com/document_detail/64841.html) operations, the RunCommand operation can be used to create and run a command in a single request.
@@ -30054,7 +30140,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Creates pay-as-you-go or subscription Elastic Compute Service (ECS) instances.
+     * @summary Creates one or more pay-as-you-go or subscription Elastic Compute Service (ECS) instances. When you call this operation, you can specify multiple parameters, such as ImageId, InstanceType, SecurityGroupId, and VSwitchId, in the request.
      *  *
      * @description ## [](#)Usage notes
      * *   **Preparations**:
@@ -30431,7 +30517,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Creates pay-as-you-go or subscription Elastic Compute Service (ECS) instances.
+     * @summary Creates one or more pay-as-you-go or subscription Elastic Compute Service (ECS) instances. When you call this operation, you can specify multiple parameters, such as ImageId, InstanceType, SecurityGroupId, and VSwitchId, in the request.
      *  *
      * @description ## [](#)Usage notes
      * *   **Preparations**:
@@ -31168,8 +31254,8 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary *   If you stop the process of a command that runs only once, the executions that have started are not interrupted. The executions that have not started are canceled.
-     * *   If you stop the process of a scheduled invocation command, the executions that have started are not interrupted. However, the execution does not start in the next period.
+     * @summary \\*   If you stop the process of a command that runs only once, the executions that have started are not interrupted. The executions that have not started are canceled.
+     * \\*   If you stop the process of a scheduled invocation command, the executions that have started are not interrupted. However, the execution does not start in the next period.
      *  *
      * @description ## [](#)Usage notes
      * *   If you stop the process of a command that runs only once, the executions that have started are not interrupted. The executions that have not started are canceled.
@@ -31227,8 +31313,8 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary *   If you stop the process of a command that runs only once, the executions that have started are not interrupted. The executions that have not started are canceled.
-     * *   If you stop the process of a scheduled invocation command, the executions that have started are not interrupted. However, the execution does not start in the next period.
+     * @summary \\*   If you stop the process of a command that runs only once, the executions that have started are not interrupted. The executions that have not started are canceled.
+     * \\*   If you stop the process of a scheduled invocation command, the executions that have started are not interrupted. However, the execution does not start in the next period.
      *  *
      * @description ## [](#)Usage notes
      * *   If you stop the process of a command that runs only once, the executions that have started are not interrupted. The executions that have not started are canceled.

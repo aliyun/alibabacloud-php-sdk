@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class privateDnsNameOptions extends Model
 {
     /**
+     * @description >  This parameter is in invitational preview and is not publicly available.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $enableInstanceIdDnsAAAARecord;
 
     /**
+     * @description >  This parameter is in invitational preview and is not publicly available.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $enableInstanceIdDnsARecord;
 
     /**
+     * @description >  This parameter is in invitational preview and is not publicly available.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $enableIpDnsARecord;
 
     /**
+     * @description >  This parameter is in invitational preview and is not publicly available.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $enableIpDnsPtrRecord;
 
     /**
+     * @description >  This parameter is in invitational preview and is not publicly available.
+     *
+     * @example Custom
+     *
      * @var string
      */
     public $hostnameType;

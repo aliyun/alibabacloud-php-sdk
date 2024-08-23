@@ -115,6 +115,10 @@ class InvokeCommandRequest extends Model
     public $instanceId;
 
     /**
+     * @description The launcher for script execution. The value cannot exceed 1 KB in length.
+     *
+     * @example python3 -u {{ACS::ScriptFileName|Ext(".py")}}
+     *
      * @var string
      */
     public $launcher;
@@ -208,6 +212,8 @@ class InvokeCommandRequest extends Model
     public $resourceTag;
 
     /**
+     * @description The tags of the command.
+     *
      * @var tag[]
      */
     public $tag;

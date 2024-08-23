@@ -76,7 +76,7 @@ class CreateAutoSnapshotPolicyRequest extends Model
     public $storageLocationArn;
 
     /**
-     * @description The tags to add to the snapshot.
+     * @description The tags to add to the automatic snapshot policy.
      *
      * @var tag[]
      */

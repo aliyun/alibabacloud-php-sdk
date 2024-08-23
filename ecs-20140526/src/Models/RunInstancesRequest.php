@@ -65,7 +65,7 @@ class RunInstancesRequest extends Model
     public $affinity;
 
     /**
-     * @description The desired number of ECS instances. Valid values: 1 to 100.
+     * @description The desired number of ECS instances that you want to create. Valid values: 1 to 100.
      *
      * The number of ECS instances that can be created varies based on the Amount and MinAmount values.
      *
@@ -85,7 +85,7 @@ class RunInstancesRequest extends Model
     public $amount;
 
     /**
-     * @description This parameter is not publicly available.
+     * @description >  This parameter is not publicly available.
      *
      * @var arn[]
      */
@@ -181,7 +181,7 @@ class RunInstancesRequest extends Model
     public $dataDisk;
 
     /**
-     * @description The ID of the dedicated host on which to create the instance. If you set the `DedicatedHostId` parameter, the `SpotStrategy` and `SpotPriceLimit` parameters are ignored. This is because preemptible instances cannot be created on dedicated hosts.
+     * @description The ID of the dedicated host on which to create the instance. Preemptible instances cannot be created on dedicated hosts. If you specify `DedicatedHostId`, `SpotStrategy` and `SpotPriceLimit` are ignored.
      *
      * You can call the [DescribeDedicatedHosts](https://help.aliyun.com/document_detail/134242.html) operation to query the list of dedicated host IDs.
      * @example dh-bp67acfmxazb4p****
@@ -323,9 +323,11 @@ class RunInstancesRequest extends Model
     /**
      * @description The name of the image family. You can set this parameter to obtain the latest available custom image from the specified image family to create instances.
      *
+     * Take note of the following items:
+     *
      *   If you specify `ImageId`, you cannot specify ImageFamily.
-     *   If you do not specify `ImageId` but use the `LaunchTemplateId` or `LaunchTemplateName` parameter to specify a launch template that has the `ImageId` parameter specified, you cannot specify ImageFamily.
-     *   If you do not specify `ImageId` but use the `LaunchTemplateId` or `LaunchTemplateName` parameter to specify a launch template that does not have the `ImageId` parameter specified, you can specify ImageFamily.
+     *   If you do not specify `ImageId` but use `LaunchTemplateId` or `LaunchTemplateName` to specify a launch template that has `ImageId` specified, you cannot specify ImageFamily.
+     *   If you do not specify `ImageId` but use `LaunchTemplateId` or `LaunchTemplateName` to specify a launch template that does not have `ImageId` specified, you can specify ImageFamily.
      *   If you do not specify `ImageId`, `LaunchTemplateId`, or `LaunchTemplateName`, you can specify ImageFamily.
      *
      * >  For information about image families that are associated with Alibaba Cloud official images, see [Overview of public images](https://help.aliyun.com/document_detail/108393.html).
@@ -514,7 +516,7 @@ class RunInstancesRequest extends Model
     public $launchTemplateVersion;
 
     /**
-     * @description The minimum number of ECS instances to be created. Valid values: 1 to 100.
+     * @description The minimum number of ECS instances that you want to create. Valid values: 1 to 100.
      *
      * The number of ECS instances that can be created varies based on the Amount and MinAmount values.
      *
@@ -619,6 +621,8 @@ class RunInstancesRequest extends Model
     public $periodUnit;
 
     /**
+     * @description >  This parameter is in invitational preview and is not publicly available.
+     *
      * @var privateDnsNameOptions
      */
     public $privateDnsNameOptions;
@@ -738,7 +742,7 @@ class RunInstancesRequest extends Model
      *
      *   Terminate: The instance is released.
      *
-     *   Stop: The instance is stopped in economical mode. To use the economical mode, submit a ticket.
+     *   Stop: The instance is stopped in economical mode.
      *
      * Default value: Terminate.
      * @example Terminate

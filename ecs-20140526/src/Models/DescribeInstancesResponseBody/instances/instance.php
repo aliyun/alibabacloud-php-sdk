@@ -435,6 +435,8 @@ class instance extends Model
     public $operationLocks;
 
     /**
+     * @description >  This parameter is in invitational preview and is not publicly available.
+     *
      * @var privateDnsNameOptions
      */
     public $privateDnsNameOptions;

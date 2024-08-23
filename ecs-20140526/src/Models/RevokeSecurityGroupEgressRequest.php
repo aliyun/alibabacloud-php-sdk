@@ -85,7 +85,7 @@ class RevokeSecurityGroupEgressRequest extends Model
     public $destPrefixListId;
 
     /**
-     * @description This parameter is deprecated. Use `Permissions.N.IpProtocol` to specify the transport layer protocol.
+     * @description This parameter is deprecated. Use `Permissions.N.IpProtocol` to specify the protocol.
      *
      * @example TCP
      *

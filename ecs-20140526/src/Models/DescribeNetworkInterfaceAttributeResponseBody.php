@@ -43,7 +43,7 @@ class DescribeNetworkInterfaceAttributeResponseBody extends Model
     public $bondInterfaceSpecification;
 
     /**
-     * @description This parameter is not publicly available.
+     * @description >  This parameter is not publicly available.
      *
      * @var connectionTrackingConfiguration
      */

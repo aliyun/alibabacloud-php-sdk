@@ -21,6 +21,10 @@ class privateIpSet extends Model
     public $primary;
 
     /**
+     * @description >  This parameter is in invitational preview and is not publicly available.
+     *
+     * @example dnsTestName
+     *
      * @var string
      */
     public $privateDnsName;

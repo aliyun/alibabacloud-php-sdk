@@ -4,30 +4,33 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
+use AlibabaCloud\SDK\Ecs\V20140526\Models\RenewElasticityAssurancesResponseBody\privatePoolOptionsIdSet;
 use AlibabaCloud\Tea\Model;
 
-class ResizeDiskResponseBody extends Model
+class RenewElasticityAssurancesResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 20413515388****
+     * @example 182372800****
      *
      * @var string
      */
     public $orderId;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example F3CD6886-D8D0-4FEE-B93E-1B732396****
+     * @var privatePoolOptionsIdSet
+     */
+    public $privatePoolOptionsIdSet;
+
+    /**
+     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
      *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'orderId'   => 'OrderId',
-        'requestId' => 'RequestId',
+        'orderId'                 => 'OrderId',
+        'privatePoolOptionsIdSet' => 'PrivatePoolOptionsIdSet',
+        'requestId'               => 'RequestId',
     ];
 
     public function validate()
@@ -40,6 +43,9 @@ class ResizeDiskResponseBody extends Model
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
         }
+        if (null !== $this->privatePoolOptionsIdSet) {
+            $res['PrivatePoolOptionsIdSet'] = null !== $this->privatePoolOptionsIdSet ? $this->privatePoolOptionsIdSet->toMap() : null;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,13 +56,16 @@ class ResizeDiskResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ResizeDiskResponseBody
+     * @return RenewElasticityAssurancesResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
+        }
+        if (isset($map['PrivatePoolOptionsIdSet'])) {
+            $model->privatePoolOptionsIdSet = privatePoolOptionsIdSet::fromMap($map['PrivatePoolOptionsIdSet']);
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

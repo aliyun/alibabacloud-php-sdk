@@ -122,9 +122,9 @@ class PurchaseStorageCapacityUnitRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The time at which the SCU takes effect. It can be up to six months later than the time at which the SCU is created. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     * @description The time at which the SCU takes effect. The time can be up to six months from the creation time of the SCU. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHHZ format. The time must be in UTC.
      *
-     * This parameter is empty by default. If this parameter is left empty, the SCU takes effect immediately after it is created.
+     * This parameter is left empty by default, which indicates that the SCU takes effect immediately after it is created.
      * @example 2020-09-09T02:00:00Z
      *
      * @var string

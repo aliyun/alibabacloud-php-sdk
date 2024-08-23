@@ -31,7 +31,7 @@ class CreateNetworkInterfaceRequest extends Model
     public $clientToken;
 
     /**
-     * @description This parameter is not publicly available.
+     * @description >  This parameter is not publicly available.
      *
      * @var connectionTrackingConfiguration
      */
@@ -60,7 +60,7 @@ class CreateNetworkInterfaceRequest extends Model
     public $description;
 
     /**
-     * @description This parameter is not publicly available.
+     * @description >  This parameter is unavailable.
      *
      * @var enhancedNetwork
      */

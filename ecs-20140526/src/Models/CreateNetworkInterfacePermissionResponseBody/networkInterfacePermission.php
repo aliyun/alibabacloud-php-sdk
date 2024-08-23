@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class networkInterfacePermission extends Model
 {
     /**
-     * @description The ID of the permission on the ENI.
+     * @description The ID of the Alibaba Cloud partner (a certified ISV).
      *
      * @example 1234567890
      *
@@ -18,7 +18,7 @@ class networkInterfacePermission extends Model
     public $accountId;
 
     /**
-     * @description The ID of the Alibaba Cloud partner (a certified ISV).
+     * @description The ID of the ENI.
      *
      * @example eni-bp14v2sdd3v8htln****
      *
@@ -27,7 +27,7 @@ class networkInterfacePermission extends Model
     public $networkInterfaceId;
 
     /**
-     * @description The name of the Alibaba Cloud service.
+     * @description The ID of the permission on the ENI.
      *
      * @example eni-perm-bp1cs4lwn56lfb****
      *
@@ -36,7 +36,7 @@ class networkInterfacePermission extends Model
     public $networkInterfacePermissionId;
 
     /**
-     * @description The ID of the ENI.
+     * @description The permission on the ENI.
      *
      * @example InstanceAttach
      *
@@ -45,6 +45,13 @@ class networkInterfacePermission extends Model
     public $permission;
 
     /**
+     * @description The state of the permission on the ENI. Valid values:
+     *
+     *   Pending: The permission is being granted.
+     *   Granted: The permission is granted.
+     *   Revoking: The permission is being revoked.
+     *   Revoked: The permission is revoked.
+     *
      * @example Granted
      *
      * @var string
@@ -52,12 +59,7 @@ class networkInterfacePermission extends Model
     public $permissionState;
 
     /**
-     * @description The state of the permission on the ENI. Valid values:
-     *
-     *   Pending: The permission is being granted.
-     *   Granted: The permission is granted.
-     *   Revoking: The permission is being revoked.
-     *   Revoked: The permission is revoked.
+     * @description The name of the Alibaba Cloud service.
      *
      * @example Elastic Compute Service
      *

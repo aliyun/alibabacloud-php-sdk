@@ -69,7 +69,7 @@ class instanceType extends Model
     public $diskQuantity;
 
     /**
-     * @description This parameter is unavailable for public use.
+     * @description >  This parameter is not publicly available.
      *
      * @var enhancedNetwork
      */
@@ -319,7 +319,7 @@ class instanceType extends Model
     public $networkCardQuantity;
 
     /**
-     * @description The information of the network cards.
+     * @description The information about the network cards.
      *
      * @var networkCards
      */

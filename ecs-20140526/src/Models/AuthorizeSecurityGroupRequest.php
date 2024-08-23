@@ -41,7 +41,7 @@ class AuthorizeSecurityGroupRequest extends Model
     public $destCidrIp;
 
     /**
-     * @description This parameter is deprecated. Use `Permissions.N.IpProtocol` to specify the transport layer protocol.
+     * @description This parameter is deprecated. Use `Permissions.N.IpProtocol` to specify the protocol.
      *
      * @example ALL
      *

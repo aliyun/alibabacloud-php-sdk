@@ -11,6 +11,8 @@ class enhancedNetwork extends Model
     /**
      * @description This parameter is not publicly available.
      *
+     * @example true
+     *
      * @var bool
      */
     public $enableSriov;

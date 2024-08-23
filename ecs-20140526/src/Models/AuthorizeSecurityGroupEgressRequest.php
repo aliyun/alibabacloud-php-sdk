@@ -85,7 +85,7 @@ class AuthorizeSecurityGroupEgressRequest extends Model
     public $destPrefixListId;
 
     /**
-     * @description This parameter is deprecated. Use `Permissions.N.IpProtocol` to specify the transport layer protocol.
+     * @description This parameter is deprecated. Use `Permissions.N.IpProtocol` to specify the protocol.
      *
      * @example ALL
      *
@@ -139,7 +139,7 @@ class AuthorizeSecurityGroupEgressRequest extends Model
     public $ownerId;
 
     /**
-     * @description The security group rules. Valid values of N: 1 to 100.
+     * @description Security group rule N. Valid values of N: 1 to 100.
      *
      * @var permissions[]
      */

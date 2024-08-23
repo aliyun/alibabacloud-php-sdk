@@ -22,7 +22,7 @@ class ModifyInstanceMetadataOptionsRequest extends Model
     public $httpEndpoint;
 
     /**
-     * @description > This parameter is in invitational preview and is not publicly available.
+     * @description >  This parameter is in invitational preview and is not publicly available.
      *
      * @example 1
      *
@@ -31,12 +31,12 @@ class ModifyInstanceMetadataOptionsRequest extends Model
     public $httpPutResponseHopLimit;
 
     /**
-     * @description Specifies whether to forcefully use the security-enhanced mode (IMDSv2) to access instance metadata. Valid values:
+     * @description Specifies whether to forcefully use the security hardening mode (IMDSv2) to access instance metadata. Valid values:
      *
-     *   optional: does not forcefully use the security-enhanced mode (IMDSv2).
-     *   required: forcefully uses the security-enhanced mode (IMDSv2). After you set this parameter to required, you cannot access instance metadata in normal mode.
+     *   optional: does not forcefully use the security hardening mode (IMDSv2).
+     *   required: forcefully uses the security hardening mode (IMDSv2). After you set this parameter to required, you cannot access instance metadata in normal mode.
      *
-     * > For more information about the modes of accessing instance metadata, see [Access mode of instance metadata](https://help.aliyun.com/document_detail/150575.html).
+     * >  For more information about modes of accessing instance metadata, see [Obtain instance metadata](https://help.aliyun.com/document_detail/150575.html).
      * @example optional
      *
      * @var string

@@ -4,29 +4,29 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
+use AlibabaCloud\SDK\Ecs\V20140526\Models\RenewElasticityAssurancesRequest\privatePoolOptions;
 use AlibabaCloud\Tea\Model;
 
-class CreateNetworkInterfacePermissionRequest extends Model
+class RenewElasticityAssurancesRequest extends Model
 {
     /**
-     * @description The ID of the Alibaba Cloud partner (a certified ISV) or individual user.
-     *
-     * This parameter is required.
-     * @example 1234567890
-     *
-     * @var int
+     * @var privatePoolOptions
      */
-    public $accountId;
+    public $privatePoolOptions;
 
     /**
-     * @description The ID of the ENI.
+     * @example true
      *
-     * This parameter is required.
-     * @example eni-bp14v2sdd3v8htln****
+     * @var bool
+     */
+    public $autoPay;
+
+    /**
+     * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
      */
-    public $networkInterfaceId;
+    public $clientToken;
 
     /**
      * @var string
@@ -39,19 +39,20 @@ class CreateNetworkInterfacePermissionRequest extends Model
     public $ownerId;
 
     /**
-     * @description The permission on the ENI. Valid values:
+     * @example 1
      *
-     * This parameter is required.
-     * @example InstanceAttach
+     * @var int
+     */
+    public $period;
+
+    /**
+     * @example Year
      *
      * @var string
      */
-    public $permission;
+    public $periodUnit;
 
     /**
-     * @description The region ID of the ENI. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
-     *
-     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -68,11 +69,13 @@ class CreateNetworkInterfacePermissionRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
-        'accountId'            => 'AccountId',
-        'networkInterfaceId'   => 'NetworkInterfaceId',
+        'privatePoolOptions'   => 'PrivatePoolOptions',
+        'autoPay'              => 'AutoPay',
+        'clientToken'          => 'ClientToken',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
-        'permission'           => 'Permission',
+        'period'               => 'Period',
+        'periodUnit'           => 'PeriodUnit',
         'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
@@ -85,11 +88,14 @@ class CreateNetworkInterfacePermissionRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->accountId) {
-            $res['AccountId'] = $this->accountId;
+        if (null !== $this->privatePoolOptions) {
+            $res['PrivatePoolOptions'] = null !== $this->privatePoolOptions ? $this->privatePoolOptions->toMap() : null;
         }
-        if (null !== $this->networkInterfaceId) {
-            $res['NetworkInterfaceId'] = $this->networkInterfaceId;
+        if (null !== $this->autoPay) {
+            $res['AutoPay'] = $this->autoPay;
+        }
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
@@ -97,8 +103,11 @@ class CreateNetworkInterfacePermissionRequest extends Model
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-        if (null !== $this->permission) {
-            $res['Permission'] = $this->permission;
+        if (null !== $this->period) {
+            $res['Period'] = $this->period;
+        }
+        if (null !== $this->periodUnit) {
+            $res['PeriodUnit'] = $this->periodUnit;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -116,16 +125,19 @@ class CreateNetworkInterfacePermissionRequest extends Model
     /**
      * @param array $map
      *
-     * @return CreateNetworkInterfacePermissionRequest
+     * @return RenewElasticityAssurancesRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AccountId'])) {
-            $model->accountId = $map['AccountId'];
+        if (isset($map['PrivatePoolOptions'])) {
+            $model->privatePoolOptions = privatePoolOptions::fromMap($map['PrivatePoolOptions']);
         }
-        if (isset($map['NetworkInterfaceId'])) {
-            $model->networkInterfaceId = $map['NetworkInterfaceId'];
+        if (isset($map['AutoPay'])) {
+            $model->autoPay = $map['AutoPay'];
+        }
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
@@ -133,8 +145,11 @@ class CreateNetworkInterfacePermissionRequest extends Model
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-        if (isset($map['Permission'])) {
-            $model->permission = $map['Permission'];
+        if (isset($map['Period'])) {
+            $model->period = $map['Period'];
+        }
+        if (isset($map['PeriodUnit'])) {
+            $model->periodUnit = $map['PeriodUnit'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

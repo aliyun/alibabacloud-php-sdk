@@ -20,8 +20,8 @@ class dataDisk extends Model
     /**
      * @description Specifies whether to enable the performance burst feature for data disk N. Valid values:
      *
-     *   true: enables the performance burst feature for the data disk.
-     *   false: disables the performance burst feature for the data disk.
+     *   true
+     *   false
      *
      * >  This parameter is available only if you set DataDisk.N.Category to cloud_auto. For more information, see [ESSD AutoPL disks](https://help.aliyun.com/document_detail/368372.html).
      * @example false
@@ -63,8 +63,8 @@ class dataDisk extends Model
     /**
      * @description Specifies whether to release data disk N when the instance is released. Valid values:
      *
-     *   true: releases data disk N when the instance is released.
-     *   false: does not release data disk N when the instance is released.
+     *   true
+     *   false
      *
      * Default value: true.
      * @example true
@@ -116,8 +116,8 @@ class dataDisk extends Model
     /**
      * @description Specifies whether to encrypt data disk N. Valid values:
      *
-     *   true: encrypts data disk N.
-     *   false: does not encrypt data disk N.
+     *   true
+     *   false
      *
      * Default value: false.
      * @example false

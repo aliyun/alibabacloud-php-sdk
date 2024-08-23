@@ -9,21 +9,27 @@ use AlibabaCloud\Tea\Model;
 class connectionTrackingConfiguration extends Model
 {
     /**
-     * @description This parameter is not publicly available.
+     * @description >  This parameter is not publicly available.
+     *
+     * @example 3
      *
      * @var int
      */
     public $tcpClosedAndTimeWaitTimeout;
 
     /**
-     * @description This parameter is not publicly available.
+     * @description >  This parameter is not publicly available.
+     *
+     * @example 910
      *
      * @var int
      */
     public $tcpEstablishedTimeout;
 
     /**
-     * @description This parameter is not publicly available.
+     * @description >  This parameter is not publicly available.
+     *
+     * @example 30
      *
      * @var int
      */

@@ -12,7 +12,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyNetworkInterfaceAttributeRequest extends Model
 {
     /**
-     * @description This parameter is not publicly available.
+     * @description >  This parameter is in invitational preview and is not publicly available.
      *
      * @var connectionTrackingConfiguration
      */

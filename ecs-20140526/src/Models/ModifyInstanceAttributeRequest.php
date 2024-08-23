@@ -51,7 +51,10 @@ class ModifyInstanceAttributeRequest extends Model
     /**
      * @description Specifies whether to enable the Jumbo Frames feature for the instance. Valid values:
      *
-     * You can enable the Jumbo Frames feature only for specific instance types. For more information, see [MTUs](https://help.aliyun.com/document_detail/200512.html).
+     *   true
+     *   false
+     *
+     * You can enable the Jumbo Frames feature only for specific instance types. For more information, see [MTU and jumbo frames](https://help.aliyun.com/document_detail/200512.html).
      * @example false
      *
      * @var bool
@@ -126,6 +129,8 @@ class ModifyInstanceAttributeRequest extends Model
     public $password;
 
     /**
+     * @description >  This parameter is in invitational preview and is not publicly available.
+     *
      * @var privateDnsNameOptions
      */
     public $privateDnsNameOptions;
@@ -164,7 +169,7 @@ class ModifyInstanceAttributeRequest extends Model
      *   You can move the instance to security groups of a different type. However, the list cannot contain the IDs of both basic and advanced security groups.
      *   The security groups and the instance must belong to the same VPC.
      *   The valid values of N vary based on the maximum number of security groups to which the instance can belong. For more information, see the [Security group limits](~~25412#SecurityGroupQuota1~~) section in the "Limits and quotas" topic.
-     *   New security groups become valid for the instance after a short latency.
+     *   New security groups become valid for the instance after a short delay.
      *
      * @example sg-bp15ed6xe1yxeycg7o****
      *

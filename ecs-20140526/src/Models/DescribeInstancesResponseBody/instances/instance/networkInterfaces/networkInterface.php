@@ -61,7 +61,7 @@ class networkInterface extends Model
     public $primaryIpAddress;
 
     /**
-     * @description Details about the private IP addresses of the ENI.
+     * @description The private IP addresses of the ENI.
      *
      * @var privateIpSets
      */

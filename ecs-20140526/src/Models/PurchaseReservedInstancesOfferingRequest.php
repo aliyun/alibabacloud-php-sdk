@@ -177,6 +177,8 @@ class PurchaseReservedInstancesOfferingRequest extends Model
     public $scope;
 
     /**
+     * @example 2024-07-04T15Z
+     *
      * @var string
      */
     public $startTime;
