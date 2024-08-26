@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\ICE\V20201109\Models\SearchMediaResponseBody;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SearchMediaResponseBody\mediaInfoList\aiData;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SearchMediaResponseBody\mediaInfoList\aiRoughData;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SearchMediaResponseBody\mediaInfoList\fileInfoList;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SearchMediaResponseBody\mediaInfoList\indexStatusList;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SearchMediaResponseBody\mediaInfoList\mediaBasicInfo;
 use AlibabaCloud\Tea\Model;
 
@@ -34,6 +35,11 @@ class mediaInfoList extends Model
     public $fileInfoList;
 
     /**
+     * @var indexStatusList[]
+     */
+    public $indexStatusList;
+
+    /**
      * @description The basic information about the media asset.
      *
      * @var mediaBasicInfo
@@ -49,11 +55,12 @@ class mediaInfoList extends Model
      */
     public $mediaId;
     protected $_name = [
-        'aiData'         => 'AiData',
-        'aiRoughData'    => 'AiRoughData',
-        'fileInfoList'   => 'FileInfoList',
-        'mediaBasicInfo' => 'MediaBasicInfo',
-        'mediaId'        => 'MediaId',
+        'aiData'          => 'AiData',
+        'aiRoughData'     => 'AiRoughData',
+        'fileInfoList'    => 'FileInfoList',
+        'indexStatusList' => 'IndexStatusList',
+        'mediaBasicInfo'  => 'MediaBasicInfo',
+        'mediaId'         => 'MediaId',
     ];
 
     public function validate()
@@ -75,6 +82,15 @@ class mediaInfoList extends Model
                 $n = 0;
                 foreach ($this->fileInfoList as $item) {
                     $res['FileInfoList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->indexStatusList) {
+            $res['IndexStatusList'] = [];
+            if (null !== $this->indexStatusList && \is_array($this->indexStatusList)) {
+                $n = 0;
+                foreach ($this->indexStatusList as $item) {
+                    $res['IndexStatusList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -108,6 +124,15 @@ class mediaInfoList extends Model
                 $n                   = 0;
                 foreach ($map['FileInfoList'] as $item) {
                     $model->fileInfoList[$n++] = null !== $item ? fileInfoList::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['IndexStatusList'])) {
+            if (!empty($map['IndexStatusList'])) {
+                $model->indexStatusList = [];
+                $n                      = 0;
+                foreach ($map['IndexStatusList'] as $item) {
+                    $model->indexStatusList[$n++] = null !== $item ? indexStatusList::fromMap($item) : $item;
                 }
             }
         }

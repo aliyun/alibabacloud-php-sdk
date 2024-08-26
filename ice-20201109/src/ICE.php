@@ -255,6 +255,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\ListPipelinesRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListPipelinesResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListPublicMediaBasicInfosRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListPublicMediaBasicInfosResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListSearchLibRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListSearchLibResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListSmartJobsRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListSmartJobsResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListSmartSysAvatarModelsRequest;
@@ -292,6 +294,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\RegisterMediaStreamRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\RegisterMediaStreamResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SearchEditingProjectRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SearchEditingProjectResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SearchIndexJobRerunRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SearchIndexJobRerunResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SearchMediaByAILabelRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SearchMediaByAILabelResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SearchMediaByFaceRequest;
@@ -7047,6 +7051,56 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @summary 获取搜索库列表
+     *  *
+     * @param ListSearchLibRequest $request ListSearchLibRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListSearchLibResponse ListSearchLibResponse
+     */
+    public function listSearchLibWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListSearchLib',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListSearchLibResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取搜索库列表
+     *  *
+     * @param ListSearchLibRequest $request ListSearchLibRequest
+     *
+     * @return ListSearchLibResponse ListSearchLibResponse
+     */
+    public function listSearchLib($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listSearchLibWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary ListSmartJobs
      *  *
      * @param ListSmartJobsRequest $request ListSmartJobsRequest
@@ -8130,6 +8184,59 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->searchEditingProjectWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 搜索索引任务重新分析
+     *  *
+     * @param SearchIndexJobRerunRequest $request SearchIndexJobRerunRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return SearchIndexJobRerunResponse SearchIndexJobRerunResponse
+     */
+    public function searchIndexJobRerunWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->mediaIds)) {
+            $query['MediaIds'] = $request->mediaIds;
+        }
+        if (!Utils::isUnset($request->searchLibName)) {
+            $query['SearchLibName'] = $request->searchLibName;
+        }
+        if (!Utils::isUnset($request->task)) {
+            $query['Task'] = $request->task;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SearchIndexJobRerun',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SearchIndexJobRerunResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 搜索索引任务重新分析
+     *  *
+     * @param SearchIndexJobRerunRequest $request SearchIndexJobRerunRequest
+     *
+     * @return SearchIndexJobRerunResponse SearchIndexJobRerunResponse
+     */
+    public function searchIndexJobRerun($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->searchIndexJobRerunWithOptions($request, $runtime);
     }
 
     /**
