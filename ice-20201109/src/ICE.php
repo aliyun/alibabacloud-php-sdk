@@ -378,6 +378,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitSmarttagJobShrinkRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitSnapshotJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitSnapshotJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitSnapshotJobShrinkRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitSportsHighlightsJobRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitSportsHighlightsJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitStandardCustomizedVoiceJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitStandardCustomizedVoiceJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitSyncMediaInfoJobRequest;
@@ -10499,6 +10501,64 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->submitSnapshotJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 发起体育集锦任务
+     *  *
+     * @param SubmitSportsHighlightsJobRequest $request SubmitSportsHighlightsJobRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return SubmitSportsHighlightsJobResponse SubmitSportsHighlightsJobResponse
+     */
+    public function submitSportsHighlightsJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->outputConfig)) {
+            $query['OutputConfig'] = $request->outputConfig;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->inputConfig)) {
+            $body['InputConfig'] = $request->inputConfig;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitSportsHighlightsJob',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SubmitSportsHighlightsJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 发起体育集锦任务
+     *  *
+     * @param SubmitSportsHighlightsJobRequest $request SubmitSportsHighlightsJobRequest
+     *
+     * @return SubmitSportsHighlightsJobResponse SubmitSportsHighlightsJobResponse
+     */
+    public function submitSportsHighlightsJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitSportsHighlightsJobWithOptions($request, $runtime);
     }
 
     /**
