@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example registrant
      *
      * @var string
@@ -16,6 +18,8 @@ class SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdRequest extends Mo
     public $contactType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example example.com
      *
      * @var string[]
@@ -30,6 +34,8 @@ class SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdRequest extends Mo
     public $lang;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int

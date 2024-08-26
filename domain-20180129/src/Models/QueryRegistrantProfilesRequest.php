@@ -79,6 +79,11 @@ class QueryRegistrantProfilesRequest extends Model
     public $registrantType;
 
     /**
+     * @var string
+     */
+    public $remark;
+
+    /**
      * @example 127.0.0.1
      *
      * @var string
@@ -100,6 +105,7 @@ class QueryRegistrantProfilesRequest extends Model
         'registrantProfileId'      => 'RegistrantProfileId',
         'registrantProfileType'    => 'RegistrantProfileType',
         'registrantType'           => 'RegistrantType',
+        'remark'                   => 'Remark',
         'userClientIp'             => 'UserClientIp',
         'zhRegistrantOrganization' => 'ZhRegistrantOrganization',
     ];
@@ -140,6 +146,9 @@ class QueryRegistrantProfilesRequest extends Model
         }
         if (null !== $this->registrantType) {
             $res['RegistrantType'] = $this->registrantType;
+        }
+        if (null !== $this->remark) {
+            $res['Remark'] = $this->remark;
         }
         if (null !== $this->userClientIp) {
             $res['UserClientIp'] = $this->userClientIp;
@@ -188,6 +197,9 @@ class QueryRegistrantProfilesRequest extends Model
         }
         if (isset($map['RegistrantType'])) {
             $model->registrantType = $map['RegistrantType'];
+        }
+        if (isset($map['Remark'])) {
+            $model->remark = $map['Remark'];
         }
         if (isset($map['UserClientIp'])) {
             $model->userClientIp = $map['UserClientIp'];

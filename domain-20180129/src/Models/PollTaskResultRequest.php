@@ -30,6 +30,8 @@ class PollTaskResultRequest extends Model
     public $lang;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -37,6 +39,8 @@ class PollTaskResultRequest extends Model
     public $pageNum;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 20
      *
      * @var int

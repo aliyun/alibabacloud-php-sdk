@@ -16,6 +16,8 @@ class SaveDomainGroupRequest extends Model
     public $domainGroupId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $domainGroupName;

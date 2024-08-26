@@ -37,6 +37,8 @@ class QueryTaskInfoHistoryRequest extends Model
     public $lang;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2
      *
      * @var int

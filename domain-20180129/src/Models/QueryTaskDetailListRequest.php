@@ -30,6 +30,8 @@ class QueryTaskDetailListRequest extends Model
     public $lang;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -37,6 +39,8 @@ class QueryTaskDetailListRequest extends Model
     public $pageNum;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -44,6 +48,8 @@ class QueryTaskDetailListRequest extends Model
     public $pageSize;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 75addb07-28a3-450e-b5ec-test
      *
      * @var string

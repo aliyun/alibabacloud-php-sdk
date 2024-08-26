@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryContactInfoRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example admin
      *
      * @var string
@@ -16,6 +18,8 @@ class QueryContactInfoRequest extends Model
     public $contactType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example example.com
      *
      * @var string

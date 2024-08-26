@@ -30,6 +30,8 @@ class SaveTaskForUpdatingRegistrantInfoByIdentityCredentialRequest extends Model
     public $country;
 
     /**
+     * @description This parameter is required.
+     *
      * @example alibabacloud.com
      *
      * @var string[]
@@ -44,6 +46,8 @@ class SaveTaskForUpdatingRegistrantInfoByIdentityCredentialRequest extends Model
     public $email;
 
     /**
+     * @description This parameter is required.
+     *
      * @example h6UPhXz/ADP/2Q==
      *
      * @var string
@@ -51,6 +55,8 @@ class SaveTaskForUpdatingRegistrantInfoByIdentityCredentialRequest extends Model
     public $identityCredential;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 5****************9
      *
      * @var string
@@ -58,6 +64,8 @@ class SaveTaskForUpdatingRegistrantInfoByIdentityCredentialRequest extends Model
     public $identityCredentialNo;
 
     /**
+     * @description This parameter is required.
+     *
      * @example SFZ
      *
      * @var string
@@ -100,6 +108,8 @@ class SaveTaskForUpdatingRegistrantInfoByIdentityCredentialRequest extends Model
     public $registrantOrganization;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var string
@@ -107,6 +117,8 @@ class SaveTaskForUpdatingRegistrantInfoByIdentityCredentialRequest extends Model
     public $registrantType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 86
      *
      * @var string
@@ -121,6 +133,8 @@ class SaveTaskForUpdatingRegistrantInfoByIdentityCredentialRequest extends Model
     public $telExt;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 12345678
      *
      * @var string
@@ -128,6 +142,8 @@ class SaveTaskForUpdatingRegistrantInfoByIdentityCredentialRequest extends Model
     public $telephone;
 
     /**
+     * @description This parameter is required.
+     *
      * @example false
      *
      * @var bool

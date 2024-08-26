@@ -205,6 +205,8 @@ use AlibabaCloud\SDK\Domain\V20180129\Models\SaveSingleTaskForModifyingDSRecordR
 use AlibabaCloud\SDK\Domain\V20180129\Models\SaveSingleTaskForModifyingDSRecordResponse;
 use AlibabaCloud\SDK\Domain\V20180129\Models\SaveSingleTaskForQueryingTransferAuthorizationCodeRequest;
 use AlibabaCloud\SDK\Domain\V20180129\Models\SaveSingleTaskForQueryingTransferAuthorizationCodeResponse;
+use AlibabaCloud\SDK\Domain\V20180129\Models\SaveSingleTaskForReserveDropListDomainRequest;
+use AlibabaCloud\SDK\Domain\V20180129\Models\SaveSingleTaskForReserveDropListDomainResponse;
 use AlibabaCloud\SDK\Domain\V20180129\Models\SaveSingleTaskForSaveArtExtensionRequest;
 use AlibabaCloud\SDK\Domain\V20180129\Models\SaveSingleTaskForSaveArtExtensionResponse;
 use AlibabaCloud\SDK\Domain\V20180129\Models\SaveSingleTaskForSynchronizingDnsHostRequest;
@@ -295,10 +297,12 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param AcknowledgeTaskResultRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary 确认任务结果
+     *  *
+     * @param AcknowledgeTaskResultRequest $request AcknowledgeTaskResultRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return AcknowledgeTaskResultResponse
+     * @return AcknowledgeTaskResultResponse AcknowledgeTaskResultResponse
      */
     public function acknowledgeTaskResultWithOptions($request, $runtime)
     {
@@ -332,9 +336,11 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param AcknowledgeTaskResultRequest $request
+     * @summary 确认任务结果
+     *  *
+     * @param AcknowledgeTaskResultRequest $request AcknowledgeTaskResultRequest
      *
-     * @return AcknowledgeTaskResultResponse
+     * @return AcknowledgeTaskResultResponse AcknowledgeTaskResultResponse
      */
     public function acknowledgeTaskResult($request)
     {
@@ -344,10 +350,12 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param BatchFuzzyMatchDomainSensitiveWordRequest $request
-     * @param RuntimeOptions                            $runtime
+     * @summary 通过关键字进行批量模糊匹配
+     *  *
+     * @param BatchFuzzyMatchDomainSensitiveWordRequest $request BatchFuzzyMatchDomainSensitiveWordRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchFuzzyMatchDomainSensitiveWordResponse
+     * @return BatchFuzzyMatchDomainSensitiveWordResponse BatchFuzzyMatchDomainSensitiveWordResponse
      */
     public function batchFuzzyMatchDomainSensitiveWordWithOptions($request, $runtime)
     {
@@ -381,9 +389,11 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param BatchFuzzyMatchDomainSensitiveWordRequest $request
+     * @summary 通过关键字进行批量模糊匹配
+     *  *
+     * @param BatchFuzzyMatchDomainSensitiveWordRequest $request BatchFuzzyMatchDomainSensitiveWordRequest
      *
-     * @return BatchFuzzyMatchDomainSensitiveWordResponse
+     * @return BatchFuzzyMatchDomainSensitiveWordResponse BatchFuzzyMatchDomainSensitiveWordResponse
      */
     public function batchFuzzyMatchDomainSensitiveWord($request)
     {
@@ -393,10 +403,12 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param CancelDomainVerificationRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Cancels real-name verification for a domain name.
+     *  *
+     * @param CancelDomainVerificationRequest $request CancelDomainVerificationRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return CancelDomainVerificationResponse
+     * @return CancelDomainVerificationResponse CancelDomainVerificationResponse
      */
     public function cancelDomainVerificationWithOptions($request, $runtime)
     {
@@ -433,9 +445,11 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param CancelDomainVerificationRequest $request
+     * @summary Cancels real-name verification for a domain name.
+     *  *
+     * @param CancelDomainVerificationRequest $request CancelDomainVerificationRequest
      *
-     * @return CancelDomainVerificationResponse
+     * @return CancelDomainVerificationResponse CancelDomainVerificationResponse
      */
     public function cancelDomainVerification($request)
     {
@@ -445,10 +459,12 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param CancelOperationAuditRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary 取消审核
+     *  *
+     * @param CancelOperationAuditRequest $request CancelOperationAuditRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return CancelOperationAuditResponse
+     * @return CancelOperationAuditResponse CancelOperationAuditResponse
      */
     public function cancelOperationAuditWithOptions($request, $runtime)
     {
@@ -479,9 +495,11 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param CancelOperationAuditRequest $request
+     * @summary 取消审核
+     *  *
+     * @param CancelOperationAuditRequest $request CancelOperationAuditRequest
      *
-     * @return CancelOperationAuditResponse
+     * @return CancelOperationAuditResponse CancelOperationAuditResponse
      */
     public function cancelOperationAudit($request)
     {
@@ -491,10 +509,10 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param CancelQualificationVerificationRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @param CancelQualificationVerificationRequest $request CancelQualificationVerificationRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return CancelQualificationVerificationResponse
+     * @return CancelQualificationVerificationResponse CancelQualificationVerificationResponse
      */
     public function cancelQualificationVerificationWithOptions($request, $runtime)
     {
@@ -531,9 +549,9 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param CancelQualificationVerificationRequest $request
+     * @param CancelQualificationVerificationRequest $request CancelQualificationVerificationRequest
      *
-     * @return CancelQualificationVerificationResponse
+     * @return CancelQualificationVerificationResponse CancelQualificationVerificationResponse
      */
     public function cancelQualificationVerification($request)
     {
@@ -543,10 +561,10 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param CancelTaskRequest $request
-     * @param RuntimeOptions    $runtime
+     * @param CancelTaskRequest $request CancelTaskRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return CancelTaskResponse
+     * @return CancelTaskResponse CancelTaskResponse
      */
     public function cancelTaskWithOptions($request, $runtime)
     {
@@ -580,9 +598,9 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param CancelTaskRequest $request
+     * @param CancelTaskRequest $request CancelTaskRequest
      *
-     * @return CancelTaskResponse
+     * @return CancelTaskResponse CancelTaskResponse
      */
     public function cancelTask($request)
     {
@@ -592,10 +610,12 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param ChangeResourceGroupRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary 修改实例所在资源组
+     *  *
+     * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ChangeResourceGroupResponse
+     * @return ChangeResourceGroupResponse ChangeResourceGroupResponse
      */
     public function changeResourceGroupWithOptions($request, $runtime)
     {
@@ -635,9 +655,11 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param ChangeResourceGroupRequest $request
+     * @summary 修改实例所在资源组
+     *  *
+     * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
      *
-     * @return ChangeResourceGroupResponse
+     * @return ChangeResourceGroupResponse ChangeResourceGroupResponse
      */
     public function changeResourceGroup($request)
     {
@@ -647,10 +669,10 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param CheckDomainRequest $request
-     * @param RuntimeOptions     $runtime
+     * @param CheckDomainRequest $request CheckDomainRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return CheckDomainResponse
+     * @return CheckDomainResponse CheckDomainResponse
      */
     public function checkDomainWithOptions($request, $runtime)
     {
@@ -690,9 +712,9 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param CheckDomainRequest $request
+     * @param CheckDomainRequest $request CheckDomainRequest
      *
-     * @return CheckDomainResponse
+     * @return CheckDomainResponse CheckDomainResponse
      */
     public function checkDomain($request)
     {
@@ -702,10 +724,10 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param CheckDomainSunriseClaimRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @param CheckDomainSunriseClaimRequest $request CheckDomainSunriseClaimRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return CheckDomainSunriseClaimResponse
+     * @return CheckDomainSunriseClaimResponse CheckDomainSunriseClaimResponse
      */
     public function checkDomainSunriseClaimWithOptions($request, $runtime)
     {
@@ -739,9 +761,9 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param CheckDomainSunriseClaimRequest $request
+     * @param CheckDomainSunriseClaimRequest $request CheckDomainSunriseClaimRequest
      *
-     * @return CheckDomainSunriseClaimResponse
+     * @return CheckDomainSunriseClaimResponse CheckDomainSunriseClaimResponse
      */
     public function checkDomainSunriseClaim($request)
     {
@@ -751,10 +773,10 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param CheckMaxYearOfServerLockRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @param CheckMaxYearOfServerLockRequest $request CheckMaxYearOfServerLockRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return CheckMaxYearOfServerLockResponse
+     * @return CheckMaxYearOfServerLockResponse CheckMaxYearOfServerLockResponse
      */
     public function checkMaxYearOfServerLockWithOptions($request, $runtime)
     {
@@ -791,9 +813,9 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param CheckMaxYearOfServerLockRequest $request
+     * @param CheckMaxYearOfServerLockRequest $request CheckMaxYearOfServerLockRequest
      *
-     * @return CheckMaxYearOfServerLockResponse
+     * @return CheckMaxYearOfServerLockResponse CheckMaxYearOfServerLockResponse
      */
     public function checkMaxYearOfServerLock($request)
     {
@@ -803,10 +825,10 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param CheckProcessingServerLockApplyRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @param CheckProcessingServerLockApplyRequest $request CheckProcessingServerLockApplyRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return CheckProcessingServerLockApplyResponse
+     * @return CheckProcessingServerLockApplyResponse CheckProcessingServerLockApplyResponse
      */
     public function checkProcessingServerLockApplyWithOptions($request, $runtime)
     {
@@ -843,9 +865,9 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param CheckProcessingServerLockApplyRequest $request
+     * @param CheckProcessingServerLockApplyRequest $request CheckProcessingServerLockApplyRequest
      *
-     * @return CheckProcessingServerLockApplyResponse
+     * @return CheckProcessingServerLockApplyResponse CheckProcessingServerLockApplyResponse
      */
     public function checkProcessingServerLockApply($request)
     {
@@ -855,10 +877,10 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param CheckTransferInFeasibilityRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @param CheckTransferInFeasibilityRequest $request CheckTransferInFeasibilityRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return CheckTransferInFeasibilityResponse
+     * @return CheckTransferInFeasibilityResponse CheckTransferInFeasibilityResponse
      */
     public function checkTransferInFeasibilityWithOptions($request, $runtime)
     {
@@ -895,9 +917,9 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param CheckTransferInFeasibilityRequest $request
+     * @param CheckTransferInFeasibilityRequest $request CheckTransferInFeasibilityRequest
      *
-     * @return CheckTransferInFeasibilityResponse
+     * @return CheckTransferInFeasibilityResponse CheckTransferInFeasibilityResponse
      */
     public function checkTransferInFeasibility($request)
     {
@@ -907,10 +929,10 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param ConfirmTransferInEmailRequest $request
-     * @param RuntimeOptions                $runtime
+     * @param ConfirmTransferInEmailRequest $request ConfirmTransferInEmailRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return ConfirmTransferInEmailResponse
+     * @return ConfirmTransferInEmailResponse ConfirmTransferInEmailResponse
      */
     public function confirmTransferInEmailWithOptions($request, $runtime)
     {
@@ -947,9 +969,9 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param ConfirmTransferInEmailRequest $request
+     * @param ConfirmTransferInEmailRequest $request ConfirmTransferInEmailRequest
      *
-     * @return ConfirmTransferInEmailResponse
+     * @return ConfirmTransferInEmailResponse ConfirmTransferInEmailResponse
      */
     public function confirmTransferInEmail($request)
     {
@@ -959,10 +981,12 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param DeleteContactTemplatesRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary 批量删除联系人模板
+     *  *
+     * @param DeleteContactTemplatesRequest $request DeleteContactTemplatesRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteContactTemplatesResponse
+     * @return DeleteContactTemplatesResponse DeleteContactTemplatesResponse
      */
     public function deleteContactTemplatesWithOptions($request, $runtime)
     {
@@ -993,9 +1017,11 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param DeleteContactTemplatesRequest $request
+     * @summary 批量删除联系人模板
+     *  *
+     * @param DeleteContactTemplatesRequest $request DeleteContactTemplatesRequest
      *
-     * @return DeleteContactTemplatesResponse
+     * @return DeleteContactTemplatesResponse DeleteContactTemplatesResponse
      */
     public function deleteContactTemplates($request)
     {
@@ -1005,10 +1031,12 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param DeleteDomainGroupRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary 删除域名分组
+     *  *
+     * @param DeleteDomainGroupRequest $request DeleteDomainGroupRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteDomainGroupResponse
+     * @return DeleteDomainGroupResponse DeleteDomainGroupResponse
      */
     public function deleteDomainGroupWithOptions($request, $runtime)
     {
@@ -1042,9 +1070,11 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param DeleteDomainGroupRequest $request
+     * @summary 删除域名分组
+     *  *
+     * @param DeleteDomainGroupRequest $request DeleteDomainGroupRequest
      *
-     * @return DeleteDomainGroupResponse
+     * @return DeleteDomainGroupResponse DeleteDomainGroupResponse
      */
     public function deleteDomainGroup($request)
     {
@@ -1054,10 +1084,12 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param DeleteEmailVerificationRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary 删除邮箱验证
+     *  *
+     * @param DeleteEmailVerificationRequest $request DeleteEmailVerificationRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteEmailVerificationResponse
+     * @return DeleteEmailVerificationResponse DeleteEmailVerificationResponse
      */
     public function deleteEmailVerificationWithOptions($request, $runtime)
     {
@@ -1091,9 +1123,11 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param DeleteEmailVerificationRequest $request
+     * @summary 删除邮箱验证
+     *  *
+     * @param DeleteEmailVerificationRequest $request DeleteEmailVerificationRequest
      *
-     * @return DeleteEmailVerificationResponse
+     * @return DeleteEmailVerificationResponse DeleteEmailVerificationResponse
      */
     public function deleteEmailVerification($request)
     {
@@ -1103,10 +1137,12 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param DeleteRegistrantProfileRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary 删除联系人模板
+     *  *
+     * @param DeleteRegistrantProfileRequest $request DeleteRegistrantProfileRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteRegistrantProfileResponse
+     * @return DeleteRegistrantProfileResponse DeleteRegistrantProfileResponse
      */
     public function deleteRegistrantProfileWithOptions($request, $runtime)
     {
@@ -1140,9 +1176,11 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param DeleteRegistrantProfileRequest $request
+     * @summary 删除联系人模板
+     *  *
+     * @param DeleteRegistrantProfileRequest $request DeleteRegistrantProfileRequest
      *
-     * @return DeleteRegistrantProfileResponse
+     * @return DeleteRegistrantProfileResponse DeleteRegistrantProfileResponse
      */
     public function deleteRegistrantProfile($request)
     {
@@ -1152,10 +1190,12 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param DomainSpecialBizCancelRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary 取消域名特殊业务流程
+     *  *
+     * @param DomainSpecialBizCancelRequest $request DomainSpecialBizCancelRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DomainSpecialBizCancelResponse
+     * @return DomainSpecialBizCancelResponse DomainSpecialBizCancelResponse
      */
     public function domainSpecialBizCancelWithOptions($request, $runtime)
     {
@@ -1188,9 +1228,11 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param DomainSpecialBizCancelRequest $request
+     * @summary 取消域名特殊业务流程
+     *  *
+     * @param DomainSpecialBizCancelRequest $request DomainSpecialBizCancelRequest
      *
-     * @return DomainSpecialBizCancelResponse
+     * @return DomainSpecialBizCancelResponse DomainSpecialBizCancelResponse
      */
     public function domainSpecialBizCancel($request)
     {
@@ -1200,10 +1242,12 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param EmailVerifiedRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary 邮箱验证通过
+     *  *
+     * @param EmailVerifiedRequest $request EmailVerifiedRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return EmailVerifiedResponse
+     * @return EmailVerifiedResponse EmailVerifiedResponse
      */
     public function emailVerifiedWithOptions($request, $runtime)
     {
@@ -1237,9 +1281,11 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param EmailVerifiedRequest $request
+     * @summary 邮箱验证通过
+     *  *
+     * @param EmailVerifiedRequest $request EmailVerifiedRequest
      *
-     * @return EmailVerifiedResponse
+     * @return EmailVerifiedResponse EmailVerifiedResponse
      */
     public function emailVerified($request)
     {
@@ -1249,10 +1295,12 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param FuzzyMatchDomainSensitiveWordRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary 通过关键字进行模糊匹配
+     *  *
+     * @param FuzzyMatchDomainSensitiveWordRequest $request FuzzyMatchDomainSensitiveWordRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return FuzzyMatchDomainSensitiveWordResponse
+     * @return FuzzyMatchDomainSensitiveWordResponse FuzzyMatchDomainSensitiveWordResponse
      */
     public function fuzzyMatchDomainSensitiveWordWithOptions($request, $runtime)
     {
@@ -1286,9 +1334,11 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param FuzzyMatchDomainSensitiveWordRequest $request
+     * @summary 通过关键字进行模糊匹配
+     *  *
+     * @param FuzzyMatchDomainSensitiveWordRequest $request FuzzyMatchDomainSensitiveWordRequest
      *
-     * @return FuzzyMatchDomainSensitiveWordResponse
+     * @return FuzzyMatchDomainSensitiveWordResponse FuzzyMatchDomainSensitiveWordResponse
      */
     public function fuzzyMatchDomainSensitiveWord($request)
     {
@@ -1298,10 +1348,10 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param GetOperationOssUploadPolicyRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @param GetOperationOssUploadPolicyRequest $request GetOperationOssUploadPolicyRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetOperationOssUploadPolicyResponse
+     * @return GetOperationOssUploadPolicyResponse GetOperationOssUploadPolicyResponse
      */
     public function getOperationOssUploadPolicyWithOptions($request, $runtime)
     {
@@ -1332,9 +1382,9 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param GetOperationOssUploadPolicyRequest $request
+     * @param GetOperationOssUploadPolicyRequest $request GetOperationOssUploadPolicyRequest
      *
-     * @return GetOperationOssUploadPolicyResponse
+     * @return GetOperationOssUploadPolicyResponse GetOperationOssUploadPolicyResponse
      */
     public function getOperationOssUploadPolicy($request)
     {
@@ -1344,10 +1394,10 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param GetQualificationUploadPolicyRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @param GetQualificationUploadPolicyRequest $request GetQualificationUploadPolicyRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetQualificationUploadPolicyResponse
+     * @return GetQualificationUploadPolicyResponse GetQualificationUploadPolicyResponse
      */
     public function getQualificationUploadPolicyWithOptions($request, $runtime)
     {
@@ -1378,9 +1428,9 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param GetQualificationUploadPolicyRequest $request
+     * @param GetQualificationUploadPolicyRequest $request GetQualificationUploadPolicyRequest
      *
-     * @return GetQualificationUploadPolicyResponse
+     * @return GetQualificationUploadPolicyResponse GetQualificationUploadPolicyResponse
      */
     public function getQualificationUploadPolicy($request)
     {
@@ -1390,10 +1440,10 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param ListEmailVerificationRequest $request
-     * @param RuntimeOptions               $runtime
+     * @param ListEmailVerificationRequest $request ListEmailVerificationRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListEmailVerificationResponse
+     * @return ListEmailVerificationResponse ListEmailVerificationResponse
      */
     public function listEmailVerificationWithOptions($request, $runtime)
     {
@@ -1442,9 +1492,9 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param ListEmailVerificationRequest $request
+     * @param ListEmailVerificationRequest $request ListEmailVerificationRequest
      *
-     * @return ListEmailVerificationResponse
+     * @return ListEmailVerificationResponse ListEmailVerificationResponse
      */
     public function listEmailVerification($request)
     {
@@ -1454,10 +1504,12 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param ListServerLockRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Queries information about domain names for which registry locks are enabled.
+     *  *
+     * @param ListServerLockRequest $request ListServerLockRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListServerLockResponse
+     * @return ListServerLockResponse ListServerLockResponse
      */
     public function listServerLockWithOptions($request, $runtime)
     {
@@ -1521,9 +1573,11 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param ListServerLockRequest $request
+     * @summary Queries information about domain names for which registry locks are enabled.
+     *  *
+     * @param ListServerLockRequest $request ListServerLockRequest
      *
-     * @return ListServerLockResponse
+     * @return ListServerLockResponse ListServerLockResponse
      */
     public function listServerLock($request)
     {
@@ -1533,10 +1587,10 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param LookupTmchNoticeRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param LookupTmchNoticeRequest $request LookupTmchNoticeRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return LookupTmchNoticeResponse
+     * @return LookupTmchNoticeResponse LookupTmchNoticeResponse
      */
     public function lookupTmchNoticeWithOptions($request, $runtime)
     {
@@ -1570,9 +1624,9 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param LookupTmchNoticeRequest $request
+     * @param LookupTmchNoticeRequest $request LookupTmchNoticeRequest
      *
-     * @return LookupTmchNoticeResponse
+     * @return LookupTmchNoticeResponse LookupTmchNoticeResponse
      */
     public function lookupTmchNotice($request)
     {
@@ -1582,10 +1636,10 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param PollTaskResultRequest $request
-     * @param RuntimeOptions        $runtime
+     * @param PollTaskResultRequest $request PollTaskResultRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return PollTaskResultResponse
+     * @return PollTaskResultResponse PollTaskResultResponse
      */
     public function pollTaskResultWithOptions($request, $runtime)
     {
@@ -1634,9 +1688,9 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param PollTaskResultRequest $request
+     * @param PollTaskResultRequest $request PollTaskResultRequest
      *
-     * @return PollTaskResultResponse
+     * @return PollTaskResultResponse PollTaskResultResponse
      */
     public function pollTaskResult($request)
     {
@@ -1646,10 +1700,12 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryAdvancedDomainListRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary 搜索域名列表
+     *  *
+     * @param QueryAdvancedDomainListRequest $request QueryAdvancedDomainListRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryAdvancedDomainListResponse
+     * @return QueryAdvancedDomainListResponse QueryAdvancedDomainListResponse
      */
     public function queryAdvancedDomainListWithOptions($request, $runtime)
     {
@@ -1687,6 +1743,9 @@ class Domain extends OpenApiClient
         }
         if (!Utils::isUnset($request->form)) {
             $query['Form'] = $request->form;
+        }
+        if (!Utils::isUnset($request->isPremiumDomain)) {
+            $query['IsPremiumDomain'] = $request->isPremiumDomain;
         }
         if (!Utils::isUnset($request->keyWord)) {
             $query['KeyWord'] = $request->keyWord;
@@ -1758,9 +1817,11 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryAdvancedDomainListRequest $request
+     * @summary 搜索域名列表
+     *  *
+     * @param QueryAdvancedDomainListRequest $request QueryAdvancedDomainListRequest
      *
-     * @return QueryAdvancedDomainListResponse
+     * @return QueryAdvancedDomainListResponse QueryAdvancedDomainListResponse
      */
     public function queryAdvancedDomainList($request)
     {
@@ -1770,10 +1831,10 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryArtExtensionRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param QueryArtExtensionRequest $request QueryArtExtensionRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryArtExtensionResponse
+     * @return QueryArtExtensionResponse QueryArtExtensionResponse
      */
     public function queryArtExtensionWithOptions($request, $runtime)
     {
@@ -1807,9 +1868,9 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryArtExtensionRequest $request
+     * @param QueryArtExtensionRequest $request QueryArtExtensionRequest
      *
-     * @return QueryArtExtensionResponse
+     * @return QueryArtExtensionResponse QueryArtExtensionResponse
      */
     public function queryArtExtension($request)
     {
@@ -1819,10 +1880,10 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryChangeLogListRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param QueryChangeLogListRequest $request QueryChangeLogListRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryChangeLogListResponse
+     * @return QueryChangeLogListResponse QueryChangeLogListResponse
      */
     public function queryChangeLogListWithOptions($request, $runtime)
     {
@@ -1868,9 +1929,9 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryChangeLogListRequest $request
+     * @param QueryChangeLogListRequest $request QueryChangeLogListRequest
      *
-     * @return QueryChangeLogListResponse
+     * @return QueryChangeLogListResponse QueryChangeLogListResponse
      */
     public function queryChangeLogList($request)
     {
@@ -1880,10 +1941,10 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryContactInfoRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param QueryContactInfoRequest $request QueryContactInfoRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryContactInfoResponse
+     * @return QueryContactInfoResponse QueryContactInfoResponse
      */
     public function queryContactInfoWithOptions($request, $runtime)
     {
@@ -1920,9 +1981,9 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryContactInfoRequest $request
+     * @param QueryContactInfoRequest $request QueryContactInfoRequest
      *
-     * @return QueryContactInfoResponse
+     * @return QueryContactInfoResponse QueryContactInfoResponse
      */
     public function queryContactInfo($request)
     {
@@ -1932,10 +1993,10 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryDSRecordRequest $request
-     * @param RuntimeOptions       $runtime
+     * @param QueryDSRecordRequest $request QueryDSRecordRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryDSRecordResponse
+     * @return QueryDSRecordResponse QueryDSRecordResponse
      */
     public function queryDSRecordWithOptions($request, $runtime)
     {
@@ -1969,9 +2030,9 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryDSRecordRequest $request
+     * @param QueryDSRecordRequest $request QueryDSRecordRequest
      *
-     * @return QueryDSRecordResponse
+     * @return QueryDSRecordResponse QueryDSRecordResponse
      */
     public function queryDSRecord($request)
     {
@@ -1981,10 +2042,10 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryDnsHostRequest $request
-     * @param RuntimeOptions      $runtime
+     * @param QueryDnsHostRequest $request QueryDnsHostRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryDnsHostResponse
+     * @return QueryDnsHostResponse QueryDnsHostResponse
      */
     public function queryDnsHostWithOptions($request, $runtime)
     {
@@ -2018,9 +2079,9 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryDnsHostRequest $request
+     * @param QueryDnsHostRequest $request QueryDnsHostRequest
      *
-     * @return QueryDnsHostResponse
+     * @return QueryDnsHostResponse QueryDnsHostResponse
      */
     public function queryDnsHost($request)
     {
@@ -2030,10 +2091,10 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryDomainAdminDivisionRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @param QueryDomainAdminDivisionRequest $request QueryDomainAdminDivisionRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryDomainAdminDivisionResponse
+     * @return QueryDomainAdminDivisionResponse QueryDomainAdminDivisionResponse
      */
     public function queryDomainAdminDivisionWithOptions($request, $runtime)
     {
@@ -2064,9 +2125,9 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryDomainAdminDivisionRequest $request
+     * @param QueryDomainAdminDivisionRequest $request QueryDomainAdminDivisionRequest
      *
-     * @return QueryDomainAdminDivisionResponse
+     * @return QueryDomainAdminDivisionResponse QueryDomainAdminDivisionResponse
      */
     public function queryDomainAdminDivision($request)
     {
@@ -2076,10 +2137,12 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryDomainByDomainNameRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries the information about a domain name.
+     *  *
+     * @param QueryDomainByDomainNameRequest $request QueryDomainByDomainNameRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryDomainByDomainNameResponse
+     * @return QueryDomainByDomainNameResponse QueryDomainByDomainNameResponse
      */
     public function queryDomainByDomainNameWithOptions($request, $runtime)
     {
@@ -2113,9 +2176,11 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryDomainByDomainNameRequest $request
+     * @summary Queries the information about a domain name.
+     *  *
+     * @param QueryDomainByDomainNameRequest $request QueryDomainByDomainNameRequest
      *
-     * @return QueryDomainByDomainNameResponse
+     * @return QueryDomainByDomainNameResponse QueryDomainByDomainNameResponse
      */
     public function queryDomainByDomainName($request)
     {
@@ -2125,10 +2190,12 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryDomainByInstanceIdRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary 根据实例id查询域名信息
+     *  *
+     * @param QueryDomainByInstanceIdRequest $request QueryDomainByInstanceIdRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryDomainByInstanceIdResponse
+     * @return QueryDomainByInstanceIdResponse QueryDomainByInstanceIdResponse
      */
     public function queryDomainByInstanceIdWithOptions($request, $runtime)
     {
@@ -2162,9 +2229,11 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryDomainByInstanceIdRequest $request
+     * @summary 根据实例id查询域名信息
+     *  *
+     * @param QueryDomainByInstanceIdRequest $request QueryDomainByInstanceIdRequest
      *
-     * @return QueryDomainByInstanceIdResponse
+     * @return QueryDomainByInstanceIdResponse QueryDomainByInstanceIdResponse
      */
     public function queryDomainByInstanceId($request)
     {
@@ -2174,10 +2243,10 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryDomainGroupListRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param QueryDomainGroupListRequest $request QueryDomainGroupListRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryDomainGroupListResponse
+     * @return QueryDomainGroupListResponse QueryDomainGroupListResponse
      */
     public function queryDomainGroupListWithOptions($request, $runtime)
     {
@@ -2214,9 +2283,9 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryDomainGroupListRequest $request
+     * @param QueryDomainGroupListRequest $request QueryDomainGroupListRequest
      *
-     * @return QueryDomainGroupListResponse
+     * @return QueryDomainGroupListResponse QueryDomainGroupListResponse
      */
     public function queryDomainGroupList($request)
     {
@@ -2226,10 +2295,12 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryDomainListRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Queries a list of domain names within your Alibaba Cloud account by page.
+     *  *
+     * @param QueryDomainListRequest $request QueryDomainListRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryDomainListResponse
+     * @return QueryDomainListResponse QueryDomainListResponse
      */
     public function queryDomainListWithOptions($request, $runtime)
     {
@@ -2305,9 +2376,11 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryDomainListRequest $request
+     * @summary Queries a list of domain names within your Alibaba Cloud account by page.
+     *  *
+     * @param QueryDomainListRequest $request QueryDomainListRequest
      *
-     * @return QueryDomainListResponse
+     * @return QueryDomainListResponse QueryDomainListResponse
      */
     public function queryDomainList($request)
     {
@@ -2317,10 +2390,10 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryDomainRealNameVerificationInfoRequest $request
-     * @param RuntimeOptions                             $runtime
+     * @param QueryDomainRealNameVerificationInfoRequest $request QueryDomainRealNameVerificationInfoRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryDomainRealNameVerificationInfoResponse
+     * @return QueryDomainRealNameVerificationInfoResponse QueryDomainRealNameVerificationInfoResponse
      */
     public function queryDomainRealNameVerificationInfoWithOptions($request, $runtime)
     {
@@ -2357,9 +2430,9 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryDomainRealNameVerificationInfoRequest $request
+     * @param QueryDomainRealNameVerificationInfoRequest $request QueryDomainRealNameVerificationInfoRequest
      *
-     * @return QueryDomainRealNameVerificationInfoResponse
+     * @return QueryDomainRealNameVerificationInfoResponse QueryDomainRealNameVerificationInfoResponse
      */
     public function queryDomainRealNameVerificationInfo($request)
     {
@@ -2369,10 +2442,12 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryDomainSpecialBizDetailRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary 查询域名特殊业务详情
+     *  *
+     * @param QueryDomainSpecialBizDetailRequest $request QueryDomainSpecialBizDetailRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryDomainSpecialBizDetailResponse
+     * @return QueryDomainSpecialBizDetailResponse QueryDomainSpecialBizDetailResponse
      */
     public function queryDomainSpecialBizDetailWithOptions($request, $runtime)
     {
@@ -2405,9 +2480,11 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryDomainSpecialBizDetailRequest $request
+     * @summary 查询域名特殊业务详情
+     *  *
+     * @param QueryDomainSpecialBizDetailRequest $request QueryDomainSpecialBizDetailRequest
      *
-     * @return QueryDomainSpecialBizDetailResponse
+     * @return QueryDomainSpecialBizDetailResponse QueryDomainSpecialBizDetailResponse
      */
     public function queryDomainSpecialBizDetail($request)
     {
@@ -2417,10 +2494,12 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryDomainSpecialBizInfoByDomainRequest $request
-     * @param RuntimeOptions                           $runtime
+     * @summary 通过域名查询域名特殊业务详情
+     *  *
+     * @param QueryDomainSpecialBizInfoByDomainRequest $request QueryDomainSpecialBizInfoByDomainRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryDomainSpecialBizInfoByDomainResponse
+     * @return QueryDomainSpecialBizInfoByDomainResponse QueryDomainSpecialBizInfoByDomainResponse
      */
     public function queryDomainSpecialBizInfoByDomainWithOptions($request, $runtime)
     {
@@ -2456,9 +2535,11 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryDomainSpecialBizInfoByDomainRequest $request
+     * @summary 通过域名查询域名特殊业务详情
+     *  *
+     * @param QueryDomainSpecialBizInfoByDomainRequest $request QueryDomainSpecialBizInfoByDomainRequest
      *
-     * @return QueryDomainSpecialBizInfoByDomainResponse
+     * @return QueryDomainSpecialBizInfoByDomainResponse QueryDomainSpecialBizInfoByDomainResponse
      */
     public function queryDomainSpecialBizInfoByDomain($request)
     {
@@ -2468,10 +2549,10 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryDomainSuffixRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param QueryDomainSuffixRequest $request QueryDomainSuffixRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryDomainSuffixResponse
+     * @return QueryDomainSuffixResponse QueryDomainSuffixResponse
      */
     public function queryDomainSuffixWithOptions($request, $runtime)
     {
@@ -2502,9 +2583,9 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryDomainSuffixRequest $request
+     * @param QueryDomainSuffixRequest $request QueryDomainSuffixRequest
      *
-     * @return QueryDomainSuffixResponse
+     * @return QueryDomainSuffixResponse QueryDomainSuffixResponse
      */
     public function queryDomainSuffix($request)
     {
@@ -2514,10 +2595,12 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryEmailVerificationRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary 查询邮箱验证状态
+     *  *
+     * @param QueryEmailVerificationRequest $request QueryEmailVerificationRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryEmailVerificationResponse
+     * @return QueryEmailVerificationResponse QueryEmailVerificationResponse
      */
     public function queryEmailVerificationWithOptions($request, $runtime)
     {
@@ -2551,9 +2634,11 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryEmailVerificationRequest $request
+     * @summary 查询邮箱验证状态
+     *  *
+     * @param QueryEmailVerificationRequest $request QueryEmailVerificationRequest
      *
-     * @return QueryEmailVerificationResponse
+     * @return QueryEmailVerificationResponse QueryEmailVerificationResponse
      */
     public function queryEmailVerification($request)
     {
@@ -2563,10 +2648,10 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryEnsAssociationRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param QueryEnsAssociationRequest $request QueryEnsAssociationRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryEnsAssociationResponse
+     * @return QueryEnsAssociationResponse QueryEnsAssociationResponse
      */
     public function queryEnsAssociationWithOptions($request, $runtime)
     {
@@ -2600,9 +2685,9 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryEnsAssociationRequest $request
+     * @param QueryEnsAssociationRequest $request QueryEnsAssociationRequest
      *
-     * @return QueryEnsAssociationResponse
+     * @return QueryEnsAssociationResponse QueryEnsAssociationResponse
      */
     public function queryEnsAssociation($request)
     {
@@ -2612,10 +2697,10 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryFailReasonForDomainRealNameVerificationRequest $request
-     * @param RuntimeOptions                                      $runtime
+     * @param QueryFailReasonForDomainRealNameVerificationRequest $request QueryFailReasonForDomainRealNameVerificationRequest
+     * @param RuntimeOptions                                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryFailReasonForDomainRealNameVerificationResponse
+     * @return QueryFailReasonForDomainRealNameVerificationResponse QueryFailReasonForDomainRealNameVerificationResponse
      */
     public function queryFailReasonForDomainRealNameVerificationWithOptions($request, $runtime)
     {
@@ -2652,9 +2737,9 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryFailReasonForDomainRealNameVerificationRequest $request
+     * @param QueryFailReasonForDomainRealNameVerificationRequest $request QueryFailReasonForDomainRealNameVerificationRequest
      *
-     * @return QueryFailReasonForDomainRealNameVerificationResponse
+     * @return QueryFailReasonForDomainRealNameVerificationResponse QueryFailReasonForDomainRealNameVerificationResponse
      */
     public function queryFailReasonForDomainRealNameVerification($request)
     {
@@ -2664,10 +2749,10 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryFailReasonForRegistrantProfileRealNameVerificationRequest $request
-     * @param RuntimeOptions                                                 $runtime
+     * @param QueryFailReasonForRegistrantProfileRealNameVerificationRequest $request QueryFailReasonForRegistrantProfileRealNameVerificationRequest
+     * @param RuntimeOptions                                                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryFailReasonForRegistrantProfileRealNameVerificationResponse
+     * @return QueryFailReasonForRegistrantProfileRealNameVerificationResponse QueryFailReasonForRegistrantProfileRealNameVerificationResponse
      */
     public function queryFailReasonForRegistrantProfileRealNameVerificationWithOptions($request, $runtime)
     {
@@ -2701,9 +2786,9 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryFailReasonForRegistrantProfileRealNameVerificationRequest $request
+     * @param QueryFailReasonForRegistrantProfileRealNameVerificationRequest $request QueryFailReasonForRegistrantProfileRealNameVerificationRequest
      *
-     * @return QueryFailReasonForRegistrantProfileRealNameVerificationResponse
+     * @return QueryFailReasonForRegistrantProfileRealNameVerificationResponse QueryFailReasonForRegistrantProfileRealNameVerificationResponse
      */
     public function queryFailReasonForRegistrantProfileRealNameVerification($request)
     {
@@ -2713,10 +2798,10 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryFailingReasonListForQualificationRequest $request
-     * @param RuntimeOptions                                $runtime
+     * @param QueryFailingReasonListForQualificationRequest $request QueryFailingReasonListForQualificationRequest
+     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryFailingReasonListForQualificationResponse
+     * @return QueryFailingReasonListForQualificationResponse QueryFailingReasonListForQualificationResponse
      */
     public function queryFailingReasonListForQualificationWithOptions($request, $runtime)
     {
@@ -2756,9 +2841,9 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryFailingReasonListForQualificationRequest $request
+     * @param QueryFailingReasonListForQualificationRequest $request QueryFailingReasonListForQualificationRequest
      *
-     * @return QueryFailingReasonListForQualificationResponse
+     * @return QueryFailingReasonListForQualificationResponse QueryFailingReasonListForQualificationResponse
      */
     public function queryFailingReasonListForQualification($request)
     {
@@ -2768,10 +2853,10 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryLocalEnsAssociationRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @param QueryLocalEnsAssociationRequest $request QueryLocalEnsAssociationRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryLocalEnsAssociationResponse
+     * @return QueryLocalEnsAssociationResponse QueryLocalEnsAssociationResponse
      */
     public function queryLocalEnsAssociationWithOptions($request, $runtime)
     {
@@ -2805,9 +2890,9 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryLocalEnsAssociationRequest $request
+     * @param QueryLocalEnsAssociationRequest $request QueryLocalEnsAssociationRequest
      *
-     * @return QueryLocalEnsAssociationResponse
+     * @return QueryLocalEnsAssociationResponse QueryLocalEnsAssociationResponse
      */
     public function queryLocalEnsAssociation($request)
     {
@@ -2817,10 +2902,10 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryOperationAuditInfoDetailRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @param QueryOperationAuditInfoDetailRequest $request QueryOperationAuditInfoDetailRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryOperationAuditInfoDetailResponse
+     * @return QueryOperationAuditInfoDetailResponse QueryOperationAuditInfoDetailResponse
      */
     public function queryOperationAuditInfoDetailWithOptions($request, $runtime)
     {
@@ -2851,9 +2936,9 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryOperationAuditInfoDetailRequest $request
+     * @param QueryOperationAuditInfoDetailRequest $request QueryOperationAuditInfoDetailRequest
      *
-     * @return QueryOperationAuditInfoDetailResponse
+     * @return QueryOperationAuditInfoDetailResponse QueryOperationAuditInfoDetailResponse
      */
     public function queryOperationAuditInfoDetail($request)
     {
@@ -2863,10 +2948,10 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryOperationAuditInfoListRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @param QueryOperationAuditInfoListRequest $request QueryOperationAuditInfoListRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryOperationAuditInfoListResponse
+     * @return QueryOperationAuditInfoListResponse QueryOperationAuditInfoListResponse
      */
     public function queryOperationAuditInfoListWithOptions($request, $runtime)
     {
@@ -2909,9 +2994,9 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryOperationAuditInfoListRequest $request
+     * @param QueryOperationAuditInfoListRequest $request QueryOperationAuditInfoListRequest
      *
-     * @return QueryOperationAuditInfoListResponse
+     * @return QueryOperationAuditInfoListResponse QueryOperationAuditInfoListResponse
      */
     public function queryOperationAuditInfoList($request)
     {
@@ -2921,10 +3006,10 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryQualificationDetailRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @param QueryQualificationDetailRequest $request QueryQualificationDetailRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryQualificationDetailResponse
+     * @return QueryQualificationDetailResponse QueryQualificationDetailResponse
      */
     public function queryQualificationDetailWithOptions($request, $runtime)
     {
@@ -2961,9 +3046,9 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryQualificationDetailRequest $request
+     * @param QueryQualificationDetailRequest $request QueryQualificationDetailRequest
      *
-     * @return QueryQualificationDetailResponse
+     * @return QueryQualificationDetailResponse QueryQualificationDetailResponse
      */
     public function queryQualificationDetail($request)
     {
@@ -2973,10 +3058,10 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryRegistrantProfileRealNameVerificationInfoRequest $request
-     * @param RuntimeOptions                                        $runtime
+     * @param QueryRegistrantProfileRealNameVerificationInfoRequest $request QueryRegistrantProfileRealNameVerificationInfoRequest
+     * @param RuntimeOptions                                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryRegistrantProfileRealNameVerificationInfoResponse
+     * @return QueryRegistrantProfileRealNameVerificationInfoResponse QueryRegistrantProfileRealNameVerificationInfoResponse
      */
     public function queryRegistrantProfileRealNameVerificationInfoWithOptions($request, $runtime)
     {
@@ -3013,9 +3098,9 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryRegistrantProfileRealNameVerificationInfoRequest $request
+     * @param QueryRegistrantProfileRealNameVerificationInfoRequest $request QueryRegistrantProfileRealNameVerificationInfoRequest
      *
-     * @return QueryRegistrantProfileRealNameVerificationInfoResponse
+     * @return QueryRegistrantProfileRealNameVerificationInfoResponse QueryRegistrantProfileRealNameVerificationInfoResponse
      */
     public function queryRegistrantProfileRealNameVerificationInfo($request)
     {
@@ -3025,10 +3110,10 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryRegistrantProfilesRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @param QueryRegistrantProfilesRequest $request QueryRegistrantProfilesRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryRegistrantProfilesResponse
+     * @return QueryRegistrantProfilesResponse QueryRegistrantProfilesResponse
      */
     public function queryRegistrantProfilesWithOptions($request, $runtime)
     {
@@ -3064,6 +3149,9 @@ class Domain extends OpenApiClient
         if (!Utils::isUnset($request->registrantType)) {
             $query['RegistrantType'] = $request->registrantType;
         }
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
+        }
         if (!Utils::isUnset($request->userClientIp)) {
             $query['UserClientIp'] = $request->userClientIp;
         }
@@ -3089,9 +3177,9 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryRegistrantProfilesRequest $request
+     * @param QueryRegistrantProfilesRequest $request QueryRegistrantProfilesRequest
      *
-     * @return QueryRegistrantProfilesResponse
+     * @return QueryRegistrantProfilesResponse QueryRegistrantProfilesResponse
      */
     public function queryRegistrantProfiles($request)
     {
@@ -3101,10 +3189,10 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryServerLockRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param QueryServerLockRequest $request QueryServerLockRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryServerLockResponse
+     * @return QueryServerLockResponse QueryServerLockResponse
      */
     public function queryServerLockWithOptions($request, $runtime)
     {
@@ -3138,9 +3226,9 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryServerLockRequest $request
+     * @param QueryServerLockRequest $request QueryServerLockRequest
      *
-     * @return QueryServerLockResponse
+     * @return QueryServerLockResponse QueryServerLockResponse
      */
     public function queryServerLock($request)
     {
@@ -3150,10 +3238,10 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryTaskDetailHistoryRequest $request
-     * @param RuntimeOptions                $runtime
+     * @param QueryTaskDetailHistoryRequest $request QueryTaskDetailHistoryRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryTaskDetailHistoryResponse
+     * @return QueryTaskDetailHistoryResponse QueryTaskDetailHistoryResponse
      */
     public function queryTaskDetailHistoryWithOptions($request, $runtime)
     {
@@ -3202,9 +3290,9 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryTaskDetailHistoryRequest $request
+     * @param QueryTaskDetailHistoryRequest $request QueryTaskDetailHistoryRequest
      *
-     * @return QueryTaskDetailHistoryResponse
+     * @return QueryTaskDetailHistoryResponse QueryTaskDetailHistoryResponse
      */
     public function queryTaskDetailHistory($request)
     {
@@ -3214,10 +3302,10 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryTaskDetailListRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param QueryTaskDetailListRequest $request QueryTaskDetailListRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryTaskDetailListResponse
+     * @return QueryTaskDetailListResponse QueryTaskDetailListResponse
      */
     public function queryTaskDetailListWithOptions($request, $runtime)
     {
@@ -3266,9 +3354,9 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryTaskDetailListRequest $request
+     * @param QueryTaskDetailListRequest $request QueryTaskDetailListRequest
      *
-     * @return QueryTaskDetailListResponse
+     * @return QueryTaskDetailListResponse QueryTaskDetailListResponse
      */
     public function queryTaskDetailList($request)
     {
@@ -3278,10 +3366,10 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryTaskInfoHistoryRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param QueryTaskInfoHistoryRequest $request QueryTaskInfoHistoryRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryTaskInfoHistoryResponse
+     * @return QueryTaskInfoHistoryResponse QueryTaskInfoHistoryResponse
      */
     public function queryTaskInfoHistoryWithOptions($request, $runtime)
     {
@@ -3327,9 +3415,9 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryTaskInfoHistoryRequest $request
+     * @param QueryTaskInfoHistoryRequest $request QueryTaskInfoHistoryRequest
      *
-     * @return QueryTaskInfoHistoryResponse
+     * @return QueryTaskInfoHistoryResponse QueryTaskInfoHistoryResponse
      */
     public function queryTaskInfoHistory($request)
     {
@@ -3339,10 +3427,10 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryTaskListRequest $request
-     * @param RuntimeOptions       $runtime
+     * @param QueryTaskListRequest $request QueryTaskListRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryTaskListResponse
+     * @return QueryTaskListResponse QueryTaskListResponse
      */
     public function queryTaskListWithOptions($request, $runtime)
     {
@@ -3385,9 +3473,9 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryTaskListRequest $request
+     * @param QueryTaskListRequest $request QueryTaskListRequest
      *
-     * @return QueryTaskListResponse
+     * @return QueryTaskListResponse QueryTaskListResponse
      */
     public function queryTaskList($request)
     {
@@ -3397,10 +3485,10 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryTransferInByInstanceIdRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @param QueryTransferInByInstanceIdRequest $request QueryTransferInByInstanceIdRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryTransferInByInstanceIdResponse
+     * @return QueryTransferInByInstanceIdResponse QueryTransferInByInstanceIdResponse
      */
     public function queryTransferInByInstanceIdWithOptions($request, $runtime)
     {
@@ -3434,9 +3522,9 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryTransferInByInstanceIdRequest $request
+     * @param QueryTransferInByInstanceIdRequest $request QueryTransferInByInstanceIdRequest
      *
-     * @return QueryTransferInByInstanceIdResponse
+     * @return QueryTransferInByInstanceIdResponse QueryTransferInByInstanceIdResponse
      */
     public function queryTransferInByInstanceId($request)
     {
@@ -3446,10 +3534,10 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryTransferInListRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param QueryTransferInListRequest $request QueryTransferInListRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryTransferInListResponse
+     * @return QueryTransferInListResponse QueryTransferInListResponse
      */
     public function queryTransferInListWithOptions($request, $runtime)
     {
@@ -3498,9 +3586,9 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryTransferInListRequest $request
+     * @param QueryTransferInListRequest $request QueryTransferInListRequest
      *
-     * @return QueryTransferInListResponse
+     * @return QueryTransferInListResponse QueryTransferInListResponse
      */
     public function queryTransferInList($request)
     {
@@ -3510,10 +3598,10 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryTransferOutInfoRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param QueryTransferOutInfoRequest $request QueryTransferOutInfoRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryTransferOutInfoResponse
+     * @return QueryTransferOutInfoResponse QueryTransferOutInfoResponse
      */
     public function queryTransferOutInfoWithOptions($request, $runtime)
     {
@@ -3547,9 +3635,9 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryTransferOutInfoRequest $request
+     * @param QueryTransferOutInfoRequest $request QueryTransferOutInfoRequest
      *
-     * @return QueryTransferOutInfoResponse
+     * @return QueryTransferOutInfoResponse QueryTransferOutInfoResponse
      */
     public function queryTransferOutInfo($request)
     {
@@ -3559,10 +3647,12 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param RegistrantProfileRealNameVerificationRequest $request
-     * @param RuntimeOptions                               $runtime
+     * @summary 保存联系人模板实名资料
+     *  *
+     * @param RegistrantProfileRealNameVerificationRequest $request RegistrantProfileRealNameVerificationRequest
+     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
      *
-     * @return RegistrantProfileRealNameVerificationResponse
+     * @return RegistrantProfileRealNameVerificationResponse RegistrantProfileRealNameVerificationResponse
      */
     public function registrantProfileRealNameVerificationWithOptions($request, $runtime)
     {
@@ -3607,9 +3697,11 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param RegistrantProfileRealNameVerificationRequest $request
+     * @summary 保存联系人模板实名资料
+     *  *
+     * @param RegistrantProfileRealNameVerificationRequest $request RegistrantProfileRealNameVerificationRequest
      *
-     * @return RegistrantProfileRealNameVerificationResponse
+     * @return RegistrantProfileRealNameVerificationResponse RegistrantProfileRealNameVerificationResponse
      */
     public function registrantProfileRealNameVerification($request)
     {
@@ -3619,10 +3711,12 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param ResendEmailVerificationRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary 重新发送验证邮件
+     *  *
+     * @param ResendEmailVerificationRequest $request ResendEmailVerificationRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return ResendEmailVerificationResponse
+     * @return ResendEmailVerificationResponse ResendEmailVerificationResponse
      */
     public function resendEmailVerificationWithOptions($request, $runtime)
     {
@@ -3656,9 +3750,11 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param ResendEmailVerificationRequest $request
+     * @summary 重新发送验证邮件
+     *  *
+     * @param ResendEmailVerificationRequest $request ResendEmailVerificationRequest
      *
-     * @return ResendEmailVerificationResponse
+     * @return ResendEmailVerificationResponse ResendEmailVerificationResponse
      */
     public function resendEmailVerification($request)
     {
@@ -3668,10 +3764,12 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param ResetQualificationVerificationRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @summary 重置资质审核状态
+     *  *
+     * @param ResetQualificationVerificationRequest $request ResetQualificationVerificationRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ResetQualificationVerificationResponse
+     * @return ResetQualificationVerificationResponse ResetQualificationVerificationResponse
      */
     public function resetQualificationVerificationWithOptions($request, $runtime)
     {
@@ -3705,9 +3803,11 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param ResetQualificationVerificationRequest $request
+     * @summary 重置资质审核状态
+     *  *
+     * @param ResetQualificationVerificationRequest $request ResetQualificationVerificationRequest
      *
-     * @return ResetQualificationVerificationResponse
+     * @return ResetQualificationVerificationResponse ResetQualificationVerificationResponse
      */
     public function resetQualificationVerification($request)
     {
@@ -3717,10 +3817,12 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveBatchDomainRemarkRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary 批量保存域名备注信息
+     *  *
+     * @param SaveBatchDomainRemarkRequest $request SaveBatchDomainRemarkRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return SaveBatchDomainRemarkResponse
+     * @return SaveBatchDomainRemarkResponse SaveBatchDomainRemarkResponse
      */
     public function saveBatchDomainRemarkWithOptions($request, $runtime)
     {
@@ -3757,9 +3859,11 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveBatchDomainRemarkRequest $request
+     * @summary 批量保存域名备注信息
+     *  *
+     * @param SaveBatchDomainRemarkRequest $request SaveBatchDomainRemarkRequest
      *
-     * @return SaveBatchDomainRemarkResponse
+     * @return SaveBatchDomainRemarkResponse SaveBatchDomainRemarkResponse
      */
     public function saveBatchDomainRemark($request)
     {
@@ -3769,10 +3873,12 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveBatchTaskForApplyQuickTransferOutOpenlyRequest $request
-     * @param RuntimeOptions                                     $runtime
+     * @summary 批量申请域名快速转出
+     *  *
+     * @param SaveBatchTaskForApplyQuickTransferOutOpenlyRequest $request SaveBatchTaskForApplyQuickTransferOutOpenlyRequest
+     * @param RuntimeOptions                                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return SaveBatchTaskForApplyQuickTransferOutOpenlyResponse
+     * @return SaveBatchTaskForApplyQuickTransferOutOpenlyResponse SaveBatchTaskForApplyQuickTransferOutOpenlyResponse
      */
     public function saveBatchTaskForApplyQuickTransferOutOpenlyWithOptions($request, $runtime)
     {
@@ -3806,9 +3912,11 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveBatchTaskForApplyQuickTransferOutOpenlyRequest $request
+     * @summary 批量申请域名快速转出
+     *  *
+     * @param SaveBatchTaskForApplyQuickTransferOutOpenlyRequest $request SaveBatchTaskForApplyQuickTransferOutOpenlyRequest
      *
-     * @return SaveBatchTaskForApplyQuickTransferOutOpenlyResponse
+     * @return SaveBatchTaskForApplyQuickTransferOutOpenlyResponse SaveBatchTaskForApplyQuickTransferOutOpenlyResponse
      */
     public function saveBatchTaskForApplyQuickTransferOutOpenly($request)
     {
@@ -3818,10 +3926,12 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveBatchTaskForCreatingOrderActivateRequest $request
-     * @param RuntimeOptions                               $runtime
+     * @summary 保存批量任务-注册订单
+     *  *
+     * @param SaveBatchTaskForCreatingOrderActivateRequest $request SaveBatchTaskForCreatingOrderActivateRequest
+     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
      *
-     * @return SaveBatchTaskForCreatingOrderActivateResponse
+     * @return SaveBatchTaskForCreatingOrderActivateResponse SaveBatchTaskForCreatingOrderActivateResponse
      */
     public function saveBatchTaskForCreatingOrderActivateWithOptions($request, $runtime)
     {
@@ -3867,9 +3977,11 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveBatchTaskForCreatingOrderActivateRequest $request
+     * @summary 保存批量任务-注册订单
+     *  *
+     * @param SaveBatchTaskForCreatingOrderActivateRequest $request SaveBatchTaskForCreatingOrderActivateRequest
      *
-     * @return SaveBatchTaskForCreatingOrderActivateResponse
+     * @return SaveBatchTaskForCreatingOrderActivateResponse SaveBatchTaskForCreatingOrderActivateResponse
      */
     public function saveBatchTaskForCreatingOrderActivate($request)
     {
@@ -3879,10 +3991,10 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveBatchTaskForCreatingOrderRedeemRequest $request
-     * @param RuntimeOptions                             $runtime
+     * @param SaveBatchTaskForCreatingOrderRedeemRequest $request SaveBatchTaskForCreatingOrderRedeemRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
-     * @return SaveBatchTaskForCreatingOrderRedeemResponse
+     * @return SaveBatchTaskForCreatingOrderRedeemResponse SaveBatchTaskForCreatingOrderRedeemResponse
      */
     public function saveBatchTaskForCreatingOrderRedeemWithOptions($request, $runtime)
     {
@@ -3928,9 +4040,9 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveBatchTaskForCreatingOrderRedeemRequest $request
+     * @param SaveBatchTaskForCreatingOrderRedeemRequest $request SaveBatchTaskForCreatingOrderRedeemRequest
      *
-     * @return SaveBatchTaskForCreatingOrderRedeemResponse
+     * @return SaveBatchTaskForCreatingOrderRedeemResponse SaveBatchTaskForCreatingOrderRedeemResponse
      */
     public function saveBatchTaskForCreatingOrderRedeem($request)
     {
@@ -3940,10 +4052,12 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveBatchTaskForCreatingOrderRenewRequest $request
-     * @param RuntimeOptions                            $runtime
+     * @summary 保存批量任务-续费订单
+     *  *
+     * @param SaveBatchTaskForCreatingOrderRenewRequest $request SaveBatchTaskForCreatingOrderRenewRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @return SaveBatchTaskForCreatingOrderRenewResponse
+     * @return SaveBatchTaskForCreatingOrderRenewResponse SaveBatchTaskForCreatingOrderRenewResponse
      */
     public function saveBatchTaskForCreatingOrderRenewWithOptions($request, $runtime)
     {
@@ -3989,9 +4103,11 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveBatchTaskForCreatingOrderRenewRequest $request
+     * @summary 保存批量任务-续费订单
+     *  *
+     * @param SaveBatchTaskForCreatingOrderRenewRequest $request SaveBatchTaskForCreatingOrderRenewRequest
      *
-     * @return SaveBatchTaskForCreatingOrderRenewResponse
+     * @return SaveBatchTaskForCreatingOrderRenewResponse SaveBatchTaskForCreatingOrderRenewResponse
      */
     public function saveBatchTaskForCreatingOrderRenew($request)
     {
@@ -4001,10 +4117,10 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveBatchTaskForCreatingOrderTransferRequest $request
-     * @param RuntimeOptions                               $runtime
+     * @param SaveBatchTaskForCreatingOrderTransferRequest $request SaveBatchTaskForCreatingOrderTransferRequest
+     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
      *
-     * @return SaveBatchTaskForCreatingOrderTransferResponse
+     * @return SaveBatchTaskForCreatingOrderTransferResponse SaveBatchTaskForCreatingOrderTransferResponse
      */
     public function saveBatchTaskForCreatingOrderTransferWithOptions($request, $runtime)
     {
@@ -4050,9 +4166,9 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveBatchTaskForCreatingOrderTransferRequest $request
+     * @param SaveBatchTaskForCreatingOrderTransferRequest $request SaveBatchTaskForCreatingOrderTransferRequest
      *
-     * @return SaveBatchTaskForCreatingOrderTransferResponse
+     * @return SaveBatchTaskForCreatingOrderTransferResponse SaveBatchTaskForCreatingOrderTransferResponse
      */
     public function saveBatchTaskForCreatingOrderTransfer($request)
     {
@@ -4062,10 +4178,12 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveBatchTaskForDomainNameProxyServiceRequest $request
-     * @param RuntimeOptions                                $runtime
+     * @summary 保存批量任务-开启/关闭whois隐私保护锁
+     *  *
+     * @param SaveBatchTaskForDomainNameProxyServiceRequest $request SaveBatchTaskForDomainNameProxyServiceRequest
+     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
      *
-     * @return SaveBatchTaskForDomainNameProxyServiceResponse
+     * @return SaveBatchTaskForDomainNameProxyServiceResponse SaveBatchTaskForDomainNameProxyServiceResponse
      */
     public function saveBatchTaskForDomainNameProxyServiceWithOptions($request, $runtime)
     {
@@ -4102,9 +4220,11 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveBatchTaskForDomainNameProxyServiceRequest $request
+     * @summary 保存批量任务-开启/关闭whois隐私保护锁
+     *  *
+     * @param SaveBatchTaskForDomainNameProxyServiceRequest $request SaveBatchTaskForDomainNameProxyServiceRequest
      *
-     * @return SaveBatchTaskForDomainNameProxyServiceResponse
+     * @return SaveBatchTaskForDomainNameProxyServiceResponse SaveBatchTaskForDomainNameProxyServiceResponse
      */
     public function saveBatchTaskForDomainNameProxyService($request)
     {
@@ -4114,10 +4234,12 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveBatchTaskForGenerateDomainCertificateRequest $tmpReq
-     * @param RuntimeOptions                                   $runtime
+     * @summary 提交批量生成证书的任务
+     *  *
+     * @param SaveBatchTaskForGenerateDomainCertificateRequest $tmpReq  SaveBatchTaskForGenerateDomainCertificateRequest
+     * @param RuntimeOptions                                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return SaveBatchTaskForGenerateDomainCertificateResponse
+     * @return SaveBatchTaskForGenerateDomainCertificateResponse SaveBatchTaskForGenerateDomainCertificateResponse
      */
     public function saveBatchTaskForGenerateDomainCertificateWithOptions($tmpReq, $runtime)
     {
@@ -4156,9 +4278,11 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveBatchTaskForGenerateDomainCertificateRequest $request
+     * @summary 提交批量生成证书的任务
+     *  *
+     * @param SaveBatchTaskForGenerateDomainCertificateRequest $request SaveBatchTaskForGenerateDomainCertificateRequest
      *
-     * @return SaveBatchTaskForGenerateDomainCertificateResponse
+     * @return SaveBatchTaskForGenerateDomainCertificateResponse SaveBatchTaskForGenerateDomainCertificateResponse
      */
     public function saveBatchTaskForGenerateDomainCertificate($request)
     {
@@ -4168,10 +4292,12 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveBatchTaskForModifyingDomainDnsRequest $request
-     * @param RuntimeOptions                            $runtime
+     * @summary 批量修改dns
+     *  *
+     * @param SaveBatchTaskForModifyingDomainDnsRequest $request SaveBatchTaskForModifyingDomainDnsRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @return SaveBatchTaskForModifyingDomainDnsResponse
+     * @return SaveBatchTaskForModifyingDomainDnsResponse SaveBatchTaskForModifyingDomainDnsResponse
      */
     public function saveBatchTaskForModifyingDomainDnsWithOptions($request, $runtime)
     {
@@ -4211,9 +4337,11 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveBatchTaskForModifyingDomainDnsRequest $request
+     * @summary 批量修改dns
+     *  *
+     * @param SaveBatchTaskForModifyingDomainDnsRequest $request SaveBatchTaskForModifyingDomainDnsRequest
      *
-     * @return SaveBatchTaskForModifyingDomainDnsResponse
+     * @return SaveBatchTaskForModifyingDomainDnsResponse SaveBatchTaskForModifyingDomainDnsResponse
      */
     public function saveBatchTaskForModifyingDomainDns($request)
     {
@@ -4223,10 +4351,10 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveBatchTaskForReserveDropListDomainRequest $request
-     * @param RuntimeOptions                               $runtime
+     * @param SaveBatchTaskForReserveDropListDomainRequest $request SaveBatchTaskForReserveDropListDomainRequest
+     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
      *
-     * @return SaveBatchTaskForReserveDropListDomainResponse
+     * @return SaveBatchTaskForReserveDropListDomainResponse SaveBatchTaskForReserveDropListDomainResponse
      */
     public function saveBatchTaskForReserveDropListDomainWithOptions($request, $runtime)
     {
@@ -4257,9 +4385,9 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveBatchTaskForReserveDropListDomainRequest $request
+     * @param SaveBatchTaskForReserveDropListDomainRequest $request SaveBatchTaskForReserveDropListDomainRequest
      *
-     * @return SaveBatchTaskForReserveDropListDomainResponse
+     * @return SaveBatchTaskForReserveDropListDomainResponse SaveBatchTaskForReserveDropListDomainResponse
      */
     public function saveBatchTaskForReserveDropListDomain($request)
     {
@@ -4269,10 +4397,12 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveBatchTaskForTransferProhibitionLockRequest $request
-     * @param RuntimeOptions                                 $runtime
+     * @summary 保存批量任务-开启/关闭禁止转移锁
+     *  *
+     * @param SaveBatchTaskForTransferProhibitionLockRequest $request SaveBatchTaskForTransferProhibitionLockRequest
+     * @param RuntimeOptions                                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return SaveBatchTaskForTransferProhibitionLockResponse
+     * @return SaveBatchTaskForTransferProhibitionLockResponse SaveBatchTaskForTransferProhibitionLockResponse
      */
     public function saveBatchTaskForTransferProhibitionLockWithOptions($request, $runtime)
     {
@@ -4309,9 +4439,11 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveBatchTaskForTransferProhibitionLockRequest $request
+     * @summary 保存批量任务-开启/关闭禁止转移锁
+     *  *
+     * @param SaveBatchTaskForTransferProhibitionLockRequest $request SaveBatchTaskForTransferProhibitionLockRequest
      *
-     * @return SaveBatchTaskForTransferProhibitionLockResponse
+     * @return SaveBatchTaskForTransferProhibitionLockResponse SaveBatchTaskForTransferProhibitionLockResponse
      */
     public function saveBatchTaskForTransferProhibitionLock($request)
     {
@@ -4321,10 +4453,10 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveBatchTaskForUpdateProhibitionLockRequest $request
-     * @param RuntimeOptions                               $runtime
+     * @param SaveBatchTaskForUpdateProhibitionLockRequest $request SaveBatchTaskForUpdateProhibitionLockRequest
+     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
      *
-     * @return SaveBatchTaskForUpdateProhibitionLockResponse
+     * @return SaveBatchTaskForUpdateProhibitionLockResponse SaveBatchTaskForUpdateProhibitionLockResponse
      */
     public function saveBatchTaskForUpdateProhibitionLockWithOptions($request, $runtime)
     {
@@ -4361,9 +4493,9 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveBatchTaskForUpdateProhibitionLockRequest $request
+     * @param SaveBatchTaskForUpdateProhibitionLockRequest $request SaveBatchTaskForUpdateProhibitionLockRequest
      *
-     * @return SaveBatchTaskForUpdateProhibitionLockResponse
+     * @return SaveBatchTaskForUpdateProhibitionLockResponse SaveBatchTaskForUpdateProhibitionLockResponse
      */
     public function saveBatchTaskForUpdateProhibitionLock($request)
     {
@@ -4373,10 +4505,12 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveBatchTaskForUpdatingContactInfoByNewContactRequest $request
-     * @param RuntimeOptions                                         $runtime
+     * @summary 使用联系人信息修改联系人的批量任务
+     *  *
+     * @param SaveBatchTaskForUpdatingContactInfoByNewContactRequest $request SaveBatchTaskForUpdatingContactInfoByNewContactRequest
+     * @param RuntimeOptions                                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return SaveBatchTaskForUpdatingContactInfoByNewContactResponse
+     * @return SaveBatchTaskForUpdatingContactInfoByNewContactResponse SaveBatchTaskForUpdatingContactInfoByNewContactResponse
      */
     public function saveBatchTaskForUpdatingContactInfoByNewContactWithOptions($request, $runtime)
     {
@@ -4467,9 +4601,11 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveBatchTaskForUpdatingContactInfoByNewContactRequest $request
+     * @summary 使用联系人信息修改联系人的批量任务
+     *  *
+     * @param SaveBatchTaskForUpdatingContactInfoByNewContactRequest $request SaveBatchTaskForUpdatingContactInfoByNewContactRequest
      *
-     * @return SaveBatchTaskForUpdatingContactInfoByNewContactResponse
+     * @return SaveBatchTaskForUpdatingContactInfoByNewContactResponse SaveBatchTaskForUpdatingContactInfoByNewContactResponse
      */
     public function saveBatchTaskForUpdatingContactInfoByNewContact($request)
     {
@@ -4479,10 +4615,12 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdRequest $request
-     * @param RuntimeOptions                                                  $runtime
+     * @summary 使用模板修改联系人的批量任务
+     *  *
+     * @param SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdRequest $request SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdRequest
+     * @param RuntimeOptions                                                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdResponse
+     * @return SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdResponse SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdResponse
      */
     public function saveBatchTaskForUpdatingContactInfoByRegistrantProfileIdWithOptions($request, $runtime)
     {
@@ -4525,9 +4663,11 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdRequest $request
+     * @summary 使用模板修改联系人的批量任务
+     *  *
+     * @param SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdRequest $request SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdRequest
      *
-     * @return SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdResponse
+     * @return SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdResponse SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdResponse
      */
     public function saveBatchTaskForUpdatingContactInfoByRegistrantProfileId($request)
     {
@@ -4537,10 +4677,12 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveDomainGroupRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary 创建/更新域名分组
+     *  *
+     * @param SaveDomainGroupRequest $request SaveDomainGroupRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return SaveDomainGroupResponse
+     * @return SaveDomainGroupResponse SaveDomainGroupResponse
      */
     public function saveDomainGroupWithOptions($request, $runtime)
     {
@@ -4577,9 +4719,11 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveDomainGroupRequest $request
+     * @summary 创建/更新域名分组
+     *  *
+     * @param SaveDomainGroupRequest $request SaveDomainGroupRequest
      *
-     * @return SaveDomainGroupResponse
+     * @return SaveDomainGroupResponse SaveDomainGroupResponse
      */
     public function saveDomainGroup($request)
     {
@@ -4589,10 +4733,12 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveRegistrantProfileRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary 保存联系人模板
+     *  *
+     * @param SaveRegistrantProfileRequest $request SaveRegistrantProfileRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return SaveRegistrantProfileResponse
+     * @return SaveRegistrantProfileResponse SaveRegistrantProfileResponse
      */
     public function saveRegistrantProfileWithOptions($request, $runtime)
     {
@@ -4683,9 +4829,11 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveRegistrantProfileRequest $request
+     * @summary 保存联系人模板
+     *  *
+     * @param SaveRegistrantProfileRequest $request SaveRegistrantProfileRequest
      *
-     * @return SaveRegistrantProfileResponse
+     * @return SaveRegistrantProfileResponse SaveRegistrantProfileResponse
      */
     public function saveRegistrantProfile($request)
     {
@@ -4695,10 +4843,12 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveRegistrantProfileRealNameVerificationRequest $request
-     * @param RuntimeOptions                                   $runtime
+     * @summary 保存联系人模板和凭据
+     *  *
+     * @param SaveRegistrantProfileRealNameVerificationRequest $request SaveRegistrantProfileRealNameVerificationRequest
+     * @param RuntimeOptions                                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return SaveRegistrantProfileRealNameVerificationResponse
+     * @return SaveRegistrantProfileRealNameVerificationResponse SaveRegistrantProfileRealNameVerificationResponse
      */
     public function saveRegistrantProfileRealNameVerificationWithOptions($request, $runtime)
     {
@@ -4795,9 +4945,11 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveRegistrantProfileRealNameVerificationRequest $request
+     * @summary 保存联系人模板和凭据
+     *  *
+     * @param SaveRegistrantProfileRealNameVerificationRequest $request SaveRegistrantProfileRealNameVerificationRequest
      *
-     * @return SaveRegistrantProfileRealNameVerificationResponse
+     * @return SaveRegistrantProfileRealNameVerificationResponse SaveRegistrantProfileRealNameVerificationResponse
      */
     public function saveRegistrantProfileRealNameVerification($request)
     {
@@ -4807,10 +4959,12 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveSingleTaskForAddingDSRecordRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @summary 添加dnsSec记录
+     *  *
+     * @param SaveSingleTaskForAddingDSRecordRequest $request SaveSingleTaskForAddingDSRecordRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return SaveSingleTaskForAddingDSRecordResponse
+     * @return SaveSingleTaskForAddingDSRecordResponse SaveSingleTaskForAddingDSRecordResponse
      */
     public function saveSingleTaskForAddingDSRecordWithOptions($request, $runtime)
     {
@@ -4856,9 +5010,11 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveSingleTaskForAddingDSRecordRequest $request
+     * @summary 添加dnsSec记录
+     *  *
+     * @param SaveSingleTaskForAddingDSRecordRequest $request SaveSingleTaskForAddingDSRecordRequest
      *
-     * @return SaveSingleTaskForAddingDSRecordResponse
+     * @return SaveSingleTaskForAddingDSRecordResponse SaveSingleTaskForAddingDSRecordResponse
      */
     public function saveSingleTaskForAddingDSRecord($request)
     {
@@ -4868,10 +5024,12 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveSingleTaskForApplyQuickTransferOutOpenlyRequest $request
-     * @param RuntimeOptions                                      $runtime
+     * @summary 申请域名快速转出
+     *  *
+     * @param SaveSingleTaskForApplyQuickTransferOutOpenlyRequest $request SaveSingleTaskForApplyQuickTransferOutOpenlyRequest
+     * @param RuntimeOptions                                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return SaveSingleTaskForApplyQuickTransferOutOpenlyResponse
+     * @return SaveSingleTaskForApplyQuickTransferOutOpenlyResponse SaveSingleTaskForApplyQuickTransferOutOpenlyResponse
      */
     public function saveSingleTaskForApplyQuickTransferOutOpenlyWithOptions($request, $runtime)
     {
@@ -4905,9 +5063,11 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveSingleTaskForApplyQuickTransferOutOpenlyRequest $request
+     * @summary 申请域名快速转出
+     *  *
+     * @param SaveSingleTaskForApplyQuickTransferOutOpenlyRequest $request SaveSingleTaskForApplyQuickTransferOutOpenlyRequest
      *
-     * @return SaveSingleTaskForApplyQuickTransferOutOpenlyResponse
+     * @return SaveSingleTaskForApplyQuickTransferOutOpenlyResponse SaveSingleTaskForApplyQuickTransferOutOpenlyResponse
      */
     public function saveSingleTaskForApplyQuickTransferOutOpenly($request)
     {
@@ -4917,10 +5077,12 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveSingleTaskForApprovingTransferOutRequest $request
-     * @param RuntimeOptions                               $runtime
+     * @summary 确认转出
+     *  *
+     * @param SaveSingleTaskForApprovingTransferOutRequest $request SaveSingleTaskForApprovingTransferOutRequest
+     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
      *
-     * @return SaveSingleTaskForApprovingTransferOutResponse
+     * @return SaveSingleTaskForApprovingTransferOutResponse SaveSingleTaskForApprovingTransferOutResponse
      */
     public function saveSingleTaskForApprovingTransferOutWithOptions($request, $runtime)
     {
@@ -4954,9 +5116,11 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveSingleTaskForApprovingTransferOutRequest $request
+     * @summary 确认转出
+     *  *
+     * @param SaveSingleTaskForApprovingTransferOutRequest $request SaveSingleTaskForApprovingTransferOutRequest
      *
-     * @return SaveSingleTaskForApprovingTransferOutResponse
+     * @return SaveSingleTaskForApprovingTransferOutResponse SaveSingleTaskForApprovingTransferOutResponse
      */
     public function saveSingleTaskForApprovingTransferOut($request)
     {
@@ -4966,10 +5130,10 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveSingleTaskForAssociatingEnsRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @param SaveSingleTaskForAssociatingEnsRequest $request SaveSingleTaskForAssociatingEnsRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return SaveSingleTaskForAssociatingEnsResponse
+     * @return SaveSingleTaskForAssociatingEnsResponse SaveSingleTaskForAssociatingEnsResponse
      */
     public function saveSingleTaskForAssociatingEnsWithOptions($request, $runtime)
     {
@@ -5006,9 +5170,9 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveSingleTaskForAssociatingEnsRequest $request
+     * @param SaveSingleTaskForAssociatingEnsRequest $request SaveSingleTaskForAssociatingEnsRequest
      *
-     * @return SaveSingleTaskForAssociatingEnsResponse
+     * @return SaveSingleTaskForAssociatingEnsResponse SaveSingleTaskForAssociatingEnsResponse
      */
     public function saveSingleTaskForAssociatingEns($request)
     {
@@ -5018,10 +5182,10 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveSingleTaskForCancelingTransferInRequest $request
-     * @param RuntimeOptions                              $runtime
+     * @param SaveSingleTaskForCancelingTransferInRequest $request SaveSingleTaskForCancelingTransferInRequest
+     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
      *
-     * @return SaveSingleTaskForCancelingTransferInResponse
+     * @return SaveSingleTaskForCancelingTransferInResponse SaveSingleTaskForCancelingTransferInResponse
      */
     public function saveSingleTaskForCancelingTransferInWithOptions($request, $runtime)
     {
@@ -5055,9 +5219,9 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveSingleTaskForCancelingTransferInRequest $request
+     * @param SaveSingleTaskForCancelingTransferInRequest $request SaveSingleTaskForCancelingTransferInRequest
      *
-     * @return SaveSingleTaskForCancelingTransferInResponse
+     * @return SaveSingleTaskForCancelingTransferInResponse SaveSingleTaskForCancelingTransferInResponse
      */
     public function saveSingleTaskForCancelingTransferIn($request)
     {
@@ -5067,10 +5231,12 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveSingleTaskForCancelingTransferOutRequest $request
-     * @param RuntimeOptions                               $runtime
+     * @summary 取消转出
+     *  *
+     * @param SaveSingleTaskForCancelingTransferOutRequest $request SaveSingleTaskForCancelingTransferOutRequest
+     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
      *
-     * @return SaveSingleTaskForCancelingTransferOutResponse
+     * @return SaveSingleTaskForCancelingTransferOutResponse SaveSingleTaskForCancelingTransferOutResponse
      */
     public function saveSingleTaskForCancelingTransferOutWithOptions($request, $runtime)
     {
@@ -5104,9 +5270,11 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveSingleTaskForCancelingTransferOutRequest $request
+     * @summary 取消转出
+     *  *
+     * @param SaveSingleTaskForCancelingTransferOutRequest $request SaveSingleTaskForCancelingTransferOutRequest
      *
-     * @return SaveSingleTaskForCancelingTransferOutResponse
+     * @return SaveSingleTaskForCancelingTransferOutResponse SaveSingleTaskForCancelingTransferOutResponse
      */
     public function saveSingleTaskForCancelingTransferOut($request)
     {
@@ -5116,10 +5284,12 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveSingleTaskForCreatingDnsHostRequest $request
-     * @param RuntimeOptions                          $runtime
+     * @summary 保存创建dns服务器的任务请求
+     *  *
+     * @param SaveSingleTaskForCreatingDnsHostRequest $request SaveSingleTaskForCreatingDnsHostRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return SaveSingleTaskForCreatingDnsHostResponse
+     * @return SaveSingleTaskForCreatingDnsHostResponse SaveSingleTaskForCreatingDnsHostResponse
      */
     public function saveSingleTaskForCreatingDnsHostWithOptions($request, $runtime)
     {
@@ -5159,9 +5329,11 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveSingleTaskForCreatingDnsHostRequest $request
+     * @summary 保存创建dns服务器的任务请求
+     *  *
+     * @param SaveSingleTaskForCreatingDnsHostRequest $request SaveSingleTaskForCreatingDnsHostRequest
      *
-     * @return SaveSingleTaskForCreatingDnsHostResponse
+     * @return SaveSingleTaskForCreatingDnsHostResponse SaveSingleTaskForCreatingDnsHostResponse
      */
     public function saveSingleTaskForCreatingDnsHost($request)
     {
@@ -5171,10 +5343,12 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveSingleTaskForCreatingOrderActivateRequest $request
-     * @param RuntimeOptions                                $runtime
+     * @summary 保存单个任务-注册订单
+     *  *
+     * @param SaveSingleTaskForCreatingOrderActivateRequest $request SaveSingleTaskForCreatingOrderActivateRequest
+     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
      *
-     * @return SaveSingleTaskForCreatingOrderActivateResponse
+     * @return SaveSingleTaskForCreatingOrderActivateResponse SaveSingleTaskForCreatingOrderActivateResponse
      */
     public function saveSingleTaskForCreatingOrderActivateWithOptions($request, $runtime)
     {
@@ -5298,9 +5472,11 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveSingleTaskForCreatingOrderActivateRequest $request
+     * @summary 保存单个任务-注册订单
+     *  *
+     * @param SaveSingleTaskForCreatingOrderActivateRequest $request SaveSingleTaskForCreatingOrderActivateRequest
      *
-     * @return SaveSingleTaskForCreatingOrderActivateResponse
+     * @return SaveSingleTaskForCreatingOrderActivateResponse SaveSingleTaskForCreatingOrderActivateResponse
      */
     public function saveSingleTaskForCreatingOrderActivate($request)
     {
@@ -5310,10 +5486,10 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveSingleTaskForCreatingOrderRedeemRequest $request
-     * @param RuntimeOptions                              $runtime
+     * @param SaveSingleTaskForCreatingOrderRedeemRequest $request SaveSingleTaskForCreatingOrderRedeemRequest
+     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
      *
-     * @return SaveSingleTaskForCreatingOrderRedeemResponse
+     * @return SaveSingleTaskForCreatingOrderRedeemResponse SaveSingleTaskForCreatingOrderRedeemResponse
      */
     public function saveSingleTaskForCreatingOrderRedeemWithOptions($request, $runtime)
     {
@@ -5362,9 +5538,9 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveSingleTaskForCreatingOrderRedeemRequest $request
+     * @param SaveSingleTaskForCreatingOrderRedeemRequest $request SaveSingleTaskForCreatingOrderRedeemRequest
      *
-     * @return SaveSingleTaskForCreatingOrderRedeemResponse
+     * @return SaveSingleTaskForCreatingOrderRedeemResponse SaveSingleTaskForCreatingOrderRedeemResponse
      */
     public function saveSingleTaskForCreatingOrderRedeem($request)
     {
@@ -5374,10 +5550,12 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveSingleTaskForCreatingOrderRenewRequest $request
-     * @param RuntimeOptions                             $runtime
+     * @summary 保存单个任务-续费订单
+     *  *
+     * @param SaveSingleTaskForCreatingOrderRenewRequest $request SaveSingleTaskForCreatingOrderRenewRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
-     * @return SaveSingleTaskForCreatingOrderRenewResponse
+     * @return SaveSingleTaskForCreatingOrderRenewResponse SaveSingleTaskForCreatingOrderRenewResponse
      */
     public function saveSingleTaskForCreatingOrderRenewWithOptions($request, $runtime)
     {
@@ -5429,9 +5607,11 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveSingleTaskForCreatingOrderRenewRequest $request
+     * @summary 保存单个任务-续费订单
+     *  *
+     * @param SaveSingleTaskForCreatingOrderRenewRequest $request SaveSingleTaskForCreatingOrderRenewRequest
      *
-     * @return SaveSingleTaskForCreatingOrderRenewResponse
+     * @return SaveSingleTaskForCreatingOrderRenewResponse SaveSingleTaskForCreatingOrderRenewResponse
      */
     public function saveSingleTaskForCreatingOrderRenew($request)
     {
@@ -5441,10 +5621,10 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveSingleTaskForCreatingOrderTransferRequest $request
-     * @param RuntimeOptions                                $runtime
+     * @param SaveSingleTaskForCreatingOrderTransferRequest $request SaveSingleTaskForCreatingOrderTransferRequest
+     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
      *
-     * @return SaveSingleTaskForCreatingOrderTransferResponse
+     * @return SaveSingleTaskForCreatingOrderTransferResponse SaveSingleTaskForCreatingOrderTransferResponse
      */
     public function saveSingleTaskForCreatingOrderTransferWithOptions($request, $runtime)
     {
@@ -5499,9 +5679,9 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveSingleTaskForCreatingOrderTransferRequest $request
+     * @param SaveSingleTaskForCreatingOrderTransferRequest $request SaveSingleTaskForCreatingOrderTransferRequest
      *
-     * @return SaveSingleTaskForCreatingOrderTransferResponse
+     * @return SaveSingleTaskForCreatingOrderTransferResponse SaveSingleTaskForCreatingOrderTransferResponse
      */
     public function saveSingleTaskForCreatingOrderTransfer($request)
     {
@@ -5511,10 +5691,12 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveSingleTaskForDeletingDSRecordRequest $request
-     * @param RuntimeOptions                           $runtime
+     * @summary 删除dnsSec记录
+     *  *
+     * @param SaveSingleTaskForDeletingDSRecordRequest $request SaveSingleTaskForDeletingDSRecordRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @return SaveSingleTaskForDeletingDSRecordResponse
+     * @return SaveSingleTaskForDeletingDSRecordResponse SaveSingleTaskForDeletingDSRecordResponse
      */
     public function saveSingleTaskForDeletingDSRecordWithOptions($request, $runtime)
     {
@@ -5551,9 +5733,11 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveSingleTaskForDeletingDSRecordRequest $request
+     * @summary 删除dnsSec记录
+     *  *
+     * @param SaveSingleTaskForDeletingDSRecordRequest $request SaveSingleTaskForDeletingDSRecordRequest
      *
-     * @return SaveSingleTaskForDeletingDSRecordResponse
+     * @return SaveSingleTaskForDeletingDSRecordResponse SaveSingleTaskForDeletingDSRecordResponse
      */
     public function saveSingleTaskForDeletingDSRecord($request)
     {
@@ -5563,10 +5747,12 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveSingleTaskForDeletingDnsHostRequest $request
-     * @param RuntimeOptions                          $runtime
+     * @summary 删除DNS HOST任务
+     *  *
+     * @param SaveSingleTaskForDeletingDnsHostRequest $request SaveSingleTaskForDeletingDnsHostRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return SaveSingleTaskForDeletingDnsHostResponse
+     * @return SaveSingleTaskForDeletingDnsHostResponse SaveSingleTaskForDeletingDnsHostResponse
      */
     public function saveSingleTaskForDeletingDnsHostWithOptions($request, $runtime)
     {
@@ -5603,9 +5789,11 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveSingleTaskForDeletingDnsHostRequest $request
+     * @summary 删除DNS HOST任务
+     *  *
+     * @param SaveSingleTaskForDeletingDnsHostRequest $request SaveSingleTaskForDeletingDnsHostRequest
      *
-     * @return SaveSingleTaskForDeletingDnsHostResponse
+     * @return SaveSingleTaskForDeletingDnsHostResponse SaveSingleTaskForDeletingDnsHostResponse
      */
     public function saveSingleTaskForDeletingDnsHost($request)
     {
@@ -5615,10 +5803,10 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveSingleTaskForDisassociatingEnsRequest $request
-     * @param RuntimeOptions                            $runtime
+     * @param SaveSingleTaskForDisassociatingEnsRequest $request SaveSingleTaskForDisassociatingEnsRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @return SaveSingleTaskForDisassociatingEnsResponse
+     * @return SaveSingleTaskForDisassociatingEnsResponse SaveSingleTaskForDisassociatingEnsResponse
      */
     public function saveSingleTaskForDisassociatingEnsWithOptions($request, $runtime)
     {
@@ -5652,9 +5840,9 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveSingleTaskForDisassociatingEnsRequest $request
+     * @param SaveSingleTaskForDisassociatingEnsRequest $request SaveSingleTaskForDisassociatingEnsRequest
      *
-     * @return SaveSingleTaskForDisassociatingEnsResponse
+     * @return SaveSingleTaskForDisassociatingEnsResponse SaveSingleTaskForDisassociatingEnsResponse
      */
     public function saveSingleTaskForDisassociatingEns($request)
     {
@@ -5664,10 +5852,12 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveSingleTaskForDomainNameProxyServiceRequest $request
-     * @param RuntimeOptions                                 $runtime
+     * @summary 保存单个任务-开启/关闭whois隐私保护锁
+     *  *
+     * @param SaveSingleTaskForDomainNameProxyServiceRequest $request SaveSingleTaskForDomainNameProxyServiceRequest
+     * @param RuntimeOptions                                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return SaveSingleTaskForDomainNameProxyServiceResponse
+     * @return SaveSingleTaskForDomainNameProxyServiceResponse SaveSingleTaskForDomainNameProxyServiceResponse
      */
     public function saveSingleTaskForDomainNameProxyServiceWithOptions($request, $runtime)
     {
@@ -5704,9 +5894,11 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveSingleTaskForDomainNameProxyServiceRequest $request
+     * @summary 保存单个任务-开启/关闭whois隐私保护锁
+     *  *
+     * @param SaveSingleTaskForDomainNameProxyServiceRequest $request SaveSingleTaskForDomainNameProxyServiceRequest
      *
-     * @return SaveSingleTaskForDomainNameProxyServiceResponse
+     * @return SaveSingleTaskForDomainNameProxyServiceResponse SaveSingleTaskForDomainNameProxyServiceResponse
      */
     public function saveSingleTaskForDomainNameProxyService($request)
     {
@@ -5716,10 +5908,12 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveSingleTaskForGenerateDomainCertificateRequest $request
-     * @param RuntimeOptions                                    $runtime
+     * @summary 提交生成域名证书任务
+     *  *
+     * @param SaveSingleTaskForGenerateDomainCertificateRequest $request SaveSingleTaskForGenerateDomainCertificateRequest
+     * @param RuntimeOptions                                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return SaveSingleTaskForGenerateDomainCertificateResponse
+     * @return SaveSingleTaskForGenerateDomainCertificateResponse SaveSingleTaskForGenerateDomainCertificateResponse
      */
     public function saveSingleTaskForGenerateDomainCertificateWithOptions($request, $runtime)
     {
@@ -5753,9 +5947,11 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveSingleTaskForGenerateDomainCertificateRequest $request
+     * @summary 提交生成域名证书任务
+     *  *
+     * @param SaveSingleTaskForGenerateDomainCertificateRequest $request SaveSingleTaskForGenerateDomainCertificateRequest
      *
-     * @return SaveSingleTaskForGenerateDomainCertificateResponse
+     * @return SaveSingleTaskForGenerateDomainCertificateResponse SaveSingleTaskForGenerateDomainCertificateResponse
      */
     public function saveSingleTaskForGenerateDomainCertificate($request)
     {
@@ -5765,10 +5961,12 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveSingleTaskForModifyingDSRecordRequest $request
-     * @param RuntimeOptions                            $runtime
+     * @summary 修改DnsSec记录
+     *  *
+     * @param SaveSingleTaskForModifyingDSRecordRequest $request SaveSingleTaskForModifyingDSRecordRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @return SaveSingleTaskForModifyingDSRecordResponse
+     * @return SaveSingleTaskForModifyingDSRecordResponse SaveSingleTaskForModifyingDSRecordResponse
      */
     public function saveSingleTaskForModifyingDSRecordWithOptions($request, $runtime)
     {
@@ -5814,9 +6012,11 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveSingleTaskForModifyingDSRecordRequest $request
+     * @summary 修改DnsSec记录
+     *  *
+     * @param SaveSingleTaskForModifyingDSRecordRequest $request SaveSingleTaskForModifyingDSRecordRequest
      *
-     * @return SaveSingleTaskForModifyingDSRecordResponse
+     * @return SaveSingleTaskForModifyingDSRecordResponse SaveSingleTaskForModifyingDSRecordResponse
      */
     public function saveSingleTaskForModifyingDSRecord($request)
     {
@@ -5826,10 +6026,12 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveSingleTaskForModifyingDnsHostRequest $request
-     * @param RuntimeOptions                           $runtime
+     * @summary 保存修改dns服务器的任务请求
+     *  *
+     * @param SaveSingleTaskForModifyingDnsHostRequest $request SaveSingleTaskForModifyingDnsHostRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @return SaveSingleTaskForModifyingDnsHostResponse
+     * @return SaveSingleTaskForModifyingDnsHostResponse SaveSingleTaskForModifyingDnsHostResponse
      */
     public function saveSingleTaskForModifyingDnsHostWithOptions($request, $runtime)
     {
@@ -5869,9 +6071,11 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveSingleTaskForModifyingDnsHostRequest $request
+     * @summary 保存修改dns服务器的任务请求
+     *  *
+     * @param SaveSingleTaskForModifyingDnsHostRequest $request SaveSingleTaskForModifyingDnsHostRequest
      *
-     * @return SaveSingleTaskForModifyingDnsHostResponse
+     * @return SaveSingleTaskForModifyingDnsHostResponse SaveSingleTaskForModifyingDnsHostResponse
      */
     public function saveSingleTaskForModifyingDnsHost($request)
     {
@@ -5881,10 +6085,12 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveSingleTaskForQueryingTransferAuthorizationCodeRequest $request
-     * @param RuntimeOptions                                            $runtime
+     * @summary 发送转移码
+     *  *
+     * @param SaveSingleTaskForQueryingTransferAuthorizationCodeRequest $request SaveSingleTaskForQueryingTransferAuthorizationCodeRequest
+     * @param RuntimeOptions                                            $runtime runtime options for this request RuntimeOptions
      *
-     * @return SaveSingleTaskForQueryingTransferAuthorizationCodeResponse
+     * @return SaveSingleTaskForQueryingTransferAuthorizationCodeResponse SaveSingleTaskForQueryingTransferAuthorizationCodeResponse
      */
     public function saveSingleTaskForQueryingTransferAuthorizationCodeWithOptions($request, $runtime)
     {
@@ -5918,9 +6124,11 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveSingleTaskForQueryingTransferAuthorizationCodeRequest $request
+     * @summary 发送转移码
+     *  *
+     * @param SaveSingleTaskForQueryingTransferAuthorizationCodeRequest $request SaveSingleTaskForQueryingTransferAuthorizationCodeRequest
      *
-     * @return SaveSingleTaskForQueryingTransferAuthorizationCodeResponse
+     * @return SaveSingleTaskForQueryingTransferAuthorizationCodeResponse SaveSingleTaskForQueryingTransferAuthorizationCodeResponse
      */
     public function saveSingleTaskForQueryingTransferAuthorizationCode($request)
     {
@@ -5930,10 +6138,68 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveSingleTaskForSaveArtExtensionRequest $request
-     * @param RuntimeOptions                           $runtime
+     * @summary 单笔抢注批量接口
+     *  *
+     * @param SaveSingleTaskForReserveDropListDomainRequest $request SaveSingleTaskForReserveDropListDomainRequest
+     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
      *
-     * @return SaveSingleTaskForSaveArtExtensionResponse
+     * @return SaveSingleTaskForReserveDropListDomainResponse SaveSingleTaskForReserveDropListDomainResponse
+     */
+    public function saveSingleTaskForReserveDropListDomainWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->contactTemplateId)) {
+            $query['ContactTemplateId'] = $request->contactTemplateId;
+        }
+        if (!Utils::isUnset($request->dns1)) {
+            $query['Dns1'] = $request->dns1;
+        }
+        if (!Utils::isUnset($request->dns2)) {
+            $query['Dns2'] = $request->dns2;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SaveSingleTaskForReserveDropListDomain',
+            'version'     => '2018-01-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SaveSingleTaskForReserveDropListDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 单笔抢注批量接口
+     *  *
+     * @param SaveSingleTaskForReserveDropListDomainRequest $request SaveSingleTaskForReserveDropListDomainRequest
+     *
+     * @return SaveSingleTaskForReserveDropListDomainResponse SaveSingleTaskForReserveDropListDomainResponse
+     */
+    public function saveSingleTaskForReserveDropListDomain($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->saveSingleTaskForReserveDropListDomainWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 保存art扩展信息任务
+     *  *
+     * @param SaveSingleTaskForSaveArtExtensionRequest $request SaveSingleTaskForSaveArtExtensionRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return SaveSingleTaskForSaveArtExtensionResponse SaveSingleTaskForSaveArtExtensionResponse
      */
     public function saveSingleTaskForSaveArtExtensionWithOptions($request, $runtime)
     {
@@ -5994,9 +6260,11 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveSingleTaskForSaveArtExtensionRequest $request
+     * @summary 保存art扩展信息任务
+     *  *
+     * @param SaveSingleTaskForSaveArtExtensionRequest $request SaveSingleTaskForSaveArtExtensionRequest
      *
-     * @return SaveSingleTaskForSaveArtExtensionResponse
+     * @return SaveSingleTaskForSaveArtExtensionResponse SaveSingleTaskForSaveArtExtensionResponse
      */
     public function saveSingleTaskForSaveArtExtension($request)
     {
@@ -6006,10 +6274,12 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveSingleTaskForSynchronizingDSRecordRequest $request
-     * @param RuntimeOptions                                $runtime
+     * @summary 同步DnsSec记录
+     *  *
+     * @param SaveSingleTaskForSynchronizingDSRecordRequest $request SaveSingleTaskForSynchronizingDSRecordRequest
+     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
      *
-     * @return SaveSingleTaskForSynchronizingDSRecordResponse
+     * @return SaveSingleTaskForSynchronizingDSRecordResponse SaveSingleTaskForSynchronizingDSRecordResponse
      */
     public function saveSingleTaskForSynchronizingDSRecordWithOptions($request, $runtime)
     {
@@ -6043,9 +6313,11 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveSingleTaskForSynchronizingDSRecordRequest $request
+     * @summary 同步DnsSec记录
+     *  *
+     * @param SaveSingleTaskForSynchronizingDSRecordRequest $request SaveSingleTaskForSynchronizingDSRecordRequest
      *
-     * @return SaveSingleTaskForSynchronizingDSRecordResponse
+     * @return SaveSingleTaskForSynchronizingDSRecordResponse SaveSingleTaskForSynchronizingDSRecordResponse
      */
     public function saveSingleTaskForSynchronizingDSRecord($request)
     {
@@ -6055,10 +6327,12 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveSingleTaskForSynchronizingDnsHostRequest $request
-     * @param RuntimeOptions                               $runtime
+     * @summary 保存同步dns服务器的任务请求
+     *  *
+     * @param SaveSingleTaskForSynchronizingDnsHostRequest $request SaveSingleTaskForSynchronizingDnsHostRequest
+     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
      *
-     * @return SaveSingleTaskForSynchronizingDnsHostResponse
+     * @return SaveSingleTaskForSynchronizingDnsHostResponse SaveSingleTaskForSynchronizingDnsHostResponse
      */
     public function saveSingleTaskForSynchronizingDnsHostWithOptions($request, $runtime)
     {
@@ -6092,9 +6366,11 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveSingleTaskForSynchronizingDnsHostRequest $request
+     * @summary 保存同步dns服务器的任务请求
+     *  *
+     * @param SaveSingleTaskForSynchronizingDnsHostRequest $request SaveSingleTaskForSynchronizingDnsHostRequest
      *
-     * @return SaveSingleTaskForSynchronizingDnsHostResponse
+     * @return SaveSingleTaskForSynchronizingDnsHostResponse SaveSingleTaskForSynchronizingDnsHostResponse
      */
     public function saveSingleTaskForSynchronizingDnsHost($request)
     {
@@ -6104,10 +6380,12 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveSingleTaskForTransferProhibitionLockRequest $request
-     * @param RuntimeOptions                                  $runtime
+     * @summary 保存单个任务-开启/关闭禁止转移锁
+     *  *
+     * @param SaveSingleTaskForTransferProhibitionLockRequest $request SaveSingleTaskForTransferProhibitionLockRequest
+     * @param RuntimeOptions                                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return SaveSingleTaskForTransferProhibitionLockResponse
+     * @return SaveSingleTaskForTransferProhibitionLockResponse SaveSingleTaskForTransferProhibitionLockResponse
      */
     public function saveSingleTaskForTransferProhibitionLockWithOptions($request, $runtime)
     {
@@ -6144,9 +6422,11 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveSingleTaskForTransferProhibitionLockRequest $request
+     * @summary 保存单个任务-开启/关闭禁止转移锁
+     *  *
+     * @param SaveSingleTaskForTransferProhibitionLockRequest $request SaveSingleTaskForTransferProhibitionLockRequest
      *
-     * @return SaveSingleTaskForTransferProhibitionLockResponse
+     * @return SaveSingleTaskForTransferProhibitionLockResponse SaveSingleTaskForTransferProhibitionLockResponse
      */
     public function saveSingleTaskForTransferProhibitionLock($request)
     {
@@ -6156,10 +6436,12 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveSingleTaskForUpdateProhibitionLockRequest $request
-     * @param RuntimeOptions                                $runtime
+     * @summary 保存单个任务-开启/关闭信息安全锁
+     *  *
+     * @param SaveSingleTaskForUpdateProhibitionLockRequest $request SaveSingleTaskForUpdateProhibitionLockRequest
+     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
      *
-     * @return SaveSingleTaskForUpdateProhibitionLockResponse
+     * @return SaveSingleTaskForUpdateProhibitionLockResponse SaveSingleTaskForUpdateProhibitionLockResponse
      */
     public function saveSingleTaskForUpdateProhibitionLockWithOptions($request, $runtime)
     {
@@ -6196,9 +6478,11 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveSingleTaskForUpdateProhibitionLockRequest $request
+     * @summary 保存单个任务-开启/关闭信息安全锁
+     *  *
+     * @param SaveSingleTaskForUpdateProhibitionLockRequest $request SaveSingleTaskForUpdateProhibitionLockRequest
      *
-     * @return SaveSingleTaskForUpdateProhibitionLockResponse
+     * @return SaveSingleTaskForUpdateProhibitionLockResponse SaveSingleTaskForUpdateProhibitionLockResponse
      */
     public function saveSingleTaskForUpdateProhibitionLock($request)
     {
@@ -6208,10 +6492,12 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveSingleTaskForUpdatingContactInfoRequest $request
-     * @param RuntimeOptions                              $runtime
+     * @summary 保存修改联系人的任务
+     *  *
+     * @param SaveSingleTaskForUpdatingContactInfoRequest $request SaveSingleTaskForUpdatingContactInfoRequest
+     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
      *
-     * @return SaveSingleTaskForUpdatingContactInfoResponse
+     * @return SaveSingleTaskForUpdatingContactInfoResponse SaveSingleTaskForUpdatingContactInfoResponse
      */
     public function saveSingleTaskForUpdatingContactInfoWithOptions($request, $runtime)
     {
@@ -6257,9 +6543,11 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveSingleTaskForUpdatingContactInfoRequest $request
+     * @summary 保存修改联系人的任务
+     *  *
+     * @param SaveSingleTaskForUpdatingContactInfoRequest $request SaveSingleTaskForUpdatingContactInfoRequest
      *
-     * @return SaveSingleTaskForUpdatingContactInfoResponse
+     * @return SaveSingleTaskForUpdatingContactInfoResponse SaveSingleTaskForUpdatingContactInfoResponse
      */
     public function saveSingleTaskForUpdatingContactInfo($request)
     {
@@ -6269,10 +6557,12 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveTaskForSubmittingDomainDeleteRequest $request
-     * @param RuntimeOptions                           $runtime
+     * @summary 保存删除域名的任务
+     *  *
+     * @param SaveTaskForSubmittingDomainDeleteRequest $request SaveTaskForSubmittingDomainDeleteRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @return SaveTaskForSubmittingDomainDeleteResponse
+     * @return SaveTaskForSubmittingDomainDeleteResponse SaveTaskForSubmittingDomainDeleteResponse
      */
     public function saveTaskForSubmittingDomainDeleteWithOptions($request, $runtime)
     {
@@ -6306,9 +6596,11 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveTaskForSubmittingDomainDeleteRequest $request
+     * @summary 保存删除域名的任务
+     *  *
+     * @param SaveTaskForSubmittingDomainDeleteRequest $request SaveTaskForSubmittingDomainDeleteRequest
      *
-     * @return SaveTaskForSubmittingDomainDeleteResponse
+     * @return SaveTaskForSubmittingDomainDeleteResponse SaveTaskForSubmittingDomainDeleteResponse
      */
     public function saveTaskForSubmittingDomainDelete($request)
     {
@@ -6318,10 +6610,12 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialRequest $request
-     * @param RuntimeOptions                                                             $runtime
+     * @summary 批量提交域名资料
+     *  *
+     * @param SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialRequest $request SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialRequest
+     * @param RuntimeOptions                                                             $runtime runtime options for this request RuntimeOptions
      *
-     * @return SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialResponse
+     * @return SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialResponse SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialResponse
      */
     public function saveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialWithOptions($request, $runtime)
     {
@@ -6366,9 +6660,11 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialRequest $request
+     * @summary 批量提交域名资料
+     *  *
+     * @param SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialRequest $request SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialRequest
      *
-     * @return SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialResponse
+     * @return SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialResponse SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialResponse
      */
     public function saveTaskForSubmittingDomainRealNameVerificationByIdentityCredential($request)
     {
@@ -6378,10 +6674,12 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDRequest $request
-     * @param RuntimeOptions                                                              $runtime
+     * @summary 根据模板保存域名的实名认证信息
+     *  *
+     * @param SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDRequest $request SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDRequest
+     * @param RuntimeOptions                                                              $runtime runtime options for this request RuntimeOptions
      *
-     * @return SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDResponse
+     * @return SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDResponse SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDResponse
      */
     public function saveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDWithOptions($request, $runtime)
     {
@@ -6421,9 +6719,11 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDRequest $request
+     * @summary 根据模板保存域名的实名认证信息
+     *  *
+     * @param SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDRequest $request SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDRequest
      *
-     * @return SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDResponse
+     * @return SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDResponse SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDResponse
      */
     public function saveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileID($request)
     {
@@ -6433,10 +6733,12 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveTaskForUpdatingRegistrantInfoByIdentityCredentialRequest $request
-     * @param RuntimeOptions                                               $runtime
+     * @summary 根据联系人信息批量修改注册联系人信息
+     *  *
+     * @param SaveTaskForUpdatingRegistrantInfoByIdentityCredentialRequest $request SaveTaskForUpdatingRegistrantInfoByIdentityCredentialRequest
+     * @param RuntimeOptions                                               $runtime runtime options for this request RuntimeOptions
      *
-     * @return SaveTaskForUpdatingRegistrantInfoByIdentityCredentialResponse
+     * @return SaveTaskForUpdatingRegistrantInfoByIdentityCredentialResponse SaveTaskForUpdatingRegistrantInfoByIdentityCredentialResponse
      */
     public function saveTaskForUpdatingRegistrantInfoByIdentityCredentialWithOptions($request, $runtime)
     {
@@ -6535,9 +6837,11 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveTaskForUpdatingRegistrantInfoByIdentityCredentialRequest $request
+     * @summary 根据联系人信息批量修改注册联系人信息
+     *  *
+     * @param SaveTaskForUpdatingRegistrantInfoByIdentityCredentialRequest $request SaveTaskForUpdatingRegistrantInfoByIdentityCredentialRequest
      *
-     * @return SaveTaskForUpdatingRegistrantInfoByIdentityCredentialResponse
+     * @return SaveTaskForUpdatingRegistrantInfoByIdentityCredentialResponse SaveTaskForUpdatingRegistrantInfoByIdentityCredentialResponse
      */
     public function saveTaskForUpdatingRegistrantInfoByIdentityCredential($request)
     {
@@ -6547,10 +6851,12 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDRequest $request
-     * @param RuntimeOptions                                                $runtime
+     * @summary 根据模板批量修改注册联系人
+     *  *
+     * @param SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDRequest $request SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDRequest
+     * @param RuntimeOptions                                                $runtime runtime options for this request RuntimeOptions
      *
-     * @return SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDResponse
+     * @return SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDResponse SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDResponse
      */
     public function saveTaskForUpdatingRegistrantInfoByRegistrantProfileIDWithOptions($request, $runtime)
     {
@@ -6590,9 +6896,11 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDRequest $request
+     * @summary 根据模板批量修改注册联系人
+     *  *
+     * @param SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDRequest $request SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDRequest
      *
-     * @return SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDResponse
+     * @return SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDResponse SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDResponse
      */
     public function saveTaskForUpdatingRegistrantInfoByRegistrantProfileID($request)
     {
@@ -6602,8 +6910,10 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * If you have a large number of domain names, a slow response may occur when you call an API operation to query domain names. In this case, you can call this operation to query domain names more quickly. When you call this operation for the first time, specify the request parameters except ScrollId. A scroll ID is returned without other data. In the second request, use the scroll ID obtained from the previous response. In subsequent requests, the newly specified request parameters do not take effect, and the request parameters that are specified in the first request prevail.
-     *   *
+     * @summary Traverses domain names.
+     *  *
+     * @description If you have a large number of domain names, a slow response may occur when you call an API operation to query domain names. In this case, you can call this operation to query domain names more quickly. When you call this operation for the first time, specify the request parameters except ScrollId. A scroll ID is returned without other data. In the second request, use the scroll ID obtained from the previous response. In subsequent requests, the newly specified request parameters do not take effect, and the request parameters that are specified in the first request prevail.
+     *  *
      * @param ScrollDomainListRequest $request ScrollDomainListRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -6701,8 +7011,10 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * If you have a large number of domain names, a slow response may occur when you call an API operation to query domain names. In this case, you can call this operation to query domain names more quickly. When you call this operation for the first time, specify the request parameters except ScrollId. A scroll ID is returned without other data. In the second request, use the scroll ID obtained from the previous response. In subsequent requests, the newly specified request parameters do not take effect, and the request parameters that are specified in the first request prevail.
-     *   *
+     * @summary Traverses domain names.
+     *  *
+     * @description If you have a large number of domain names, a slow response may occur when you call an API operation to query domain names. In this case, you can call this operation to query domain names more quickly. When you call this operation for the first time, specify the request parameters except ScrollId. A scroll ID is returned without other data. In the second request, use the scroll ID obtained from the previous response. In subsequent requests, the newly specified request parameters do not take effect, and the request parameters that are specified in the first request prevail.
+     *  *
      * @param ScrollDomainListRequest $request ScrollDomainListRequest
      *
      * @return ScrollDomainListResponse ScrollDomainListResponse
@@ -6715,10 +7027,12 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SetDefaultRegistrantProfileRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary 设置默认模板
+     *  *
+     * @param SetDefaultRegistrantProfileRequest $request SetDefaultRegistrantProfileRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetDefaultRegistrantProfileResponse
+     * @return SetDefaultRegistrantProfileResponse SetDefaultRegistrantProfileResponse
      */
     public function setDefaultRegistrantProfileWithOptions($request, $runtime)
     {
@@ -6749,9 +7063,11 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SetDefaultRegistrantProfileRequest $request
+     * @summary 设置默认模板
+     *  *
+     * @param SetDefaultRegistrantProfileRequest $request SetDefaultRegistrantProfileRequest
      *
-     * @return SetDefaultRegistrantProfileResponse
+     * @return SetDefaultRegistrantProfileResponse SetDefaultRegistrantProfileResponse
      */
     public function setDefaultRegistrantProfile($request)
     {
@@ -6761,10 +7077,12 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SetupDomainAutoRenewRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary 域名设置自动续费
+     *  *
+     * @param SetupDomainAutoRenewRequest $request SetupDomainAutoRenewRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetupDomainAutoRenewResponse
+     * @return SetupDomainAutoRenewResponse SetupDomainAutoRenewResponse
      */
     public function setupDomainAutoRenewWithOptions($request, $runtime)
     {
@@ -6795,9 +7113,11 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SetupDomainAutoRenewRequest $request
+     * @summary 域名设置自动续费
+     *  *
+     * @param SetupDomainAutoRenewRequest $request SetupDomainAutoRenewRequest
      *
-     * @return SetupDomainAutoRenewResponse
+     * @return SetupDomainAutoRenewResponse SetupDomainAutoRenewResponse
      */
     public function setupDomainAutoRenew($request)
     {
@@ -6807,10 +7127,12 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SubmitDomainSpecialBizCredentialsRequest $request
-     * @param RuntimeOptions                           $runtime
+     * @summary 域名特殊业务提交资料
+     *  *
+     * @param SubmitDomainSpecialBizCredentialsRequest $request SubmitDomainSpecialBizCredentialsRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubmitDomainSpecialBizCredentialsResponse
+     * @return SubmitDomainSpecialBizCredentialsResponse SubmitDomainSpecialBizCredentialsResponse
      */
     public function submitDomainSpecialBizCredentialsWithOptions($request, $runtime)
     {
@@ -6849,9 +7171,11 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SubmitDomainSpecialBizCredentialsRequest $request
+     * @summary 域名特殊业务提交资料
+     *  *
+     * @param SubmitDomainSpecialBizCredentialsRequest $request SubmitDomainSpecialBizCredentialsRequest
      *
-     * @return SubmitDomainSpecialBizCredentialsResponse
+     * @return SubmitDomainSpecialBizCredentialsResponse SubmitDomainSpecialBizCredentialsResponse
      */
     public function submitDomainSpecialBizCredentials($request)
     {
@@ -6861,10 +7185,12 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SubmitEmailVerificationRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary 提交邮箱验证
+     *  *
+     * @param SubmitEmailVerificationRequest $request SubmitEmailVerificationRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubmitEmailVerificationResponse
+     * @return SubmitEmailVerificationResponse SubmitEmailVerificationResponse
      */
     public function submitEmailVerificationWithOptions($request, $runtime)
     {
@@ -6901,9 +7227,11 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SubmitEmailVerificationRequest $request
+     * @summary 提交邮箱验证
+     *  *
+     * @param SubmitEmailVerificationRequest $request SubmitEmailVerificationRequest
      *
-     * @return SubmitEmailVerificationResponse
+     * @return SubmitEmailVerificationResponse SubmitEmailVerificationResponse
      */
     public function submitEmailVerification($request)
     {
@@ -6913,10 +7241,12 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SubmitOperationAuditInfoRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary 提交申请信息
+     *  *
+     * @param SubmitOperationAuditInfoRequest $request SubmitOperationAuditInfoRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubmitOperationAuditInfoResponse
+     * @return SubmitOperationAuditInfoResponse SubmitOperationAuditInfoResponse
      */
     public function submitOperationAuditInfoWithOptions($request, $runtime)
     {
@@ -6956,9 +7286,11 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SubmitOperationAuditInfoRequest $request
+     * @summary 提交申请信息
+     *  *
+     * @param SubmitOperationAuditInfoRequest $request SubmitOperationAuditInfoRequest
      *
-     * @return SubmitOperationAuditInfoResponse
+     * @return SubmitOperationAuditInfoResponse SubmitOperationAuditInfoResponse
      */
     public function submitOperationAuditInfo($request)
     {
@@ -6968,10 +7300,12 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SubmitOperationCredentialsRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary 提交证件资料
+     *  *
+     * @param SubmitOperationCredentialsRequest $request SubmitOperationCredentialsRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubmitOperationCredentialsResponse
+     * @return SubmitOperationCredentialsResponse SubmitOperationCredentialsResponse
      */
     public function submitOperationCredentialsWithOptions($request, $runtime)
     {
@@ -7011,9 +7345,11 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SubmitOperationCredentialsRequest $request
+     * @summary 提交证件资料
+     *  *
+     * @param SubmitOperationCredentialsRequest $request SubmitOperationCredentialsRequest
      *
-     * @return SubmitOperationCredentialsResponse
+     * @return SubmitOperationCredentialsResponse SubmitOperationCredentialsResponse
      */
     public function submitOperationCredentials($request)
     {
@@ -7023,10 +7359,10 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param TransferInCheckMailTokenRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @param TransferInCheckMailTokenRequest $request TransferInCheckMailTokenRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return TransferInCheckMailTokenResponse
+     * @return TransferInCheckMailTokenResponse TransferInCheckMailTokenResponse
      */
     public function transferInCheckMailTokenWithOptions($request, $runtime)
     {
@@ -7060,9 +7396,9 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param TransferInCheckMailTokenRequest $request
+     * @param TransferInCheckMailTokenRequest $request TransferInCheckMailTokenRequest
      *
-     * @return TransferInCheckMailTokenResponse
+     * @return TransferInCheckMailTokenResponse TransferInCheckMailTokenResponse
      */
     public function transferInCheckMailToken($request)
     {
@@ -7072,10 +7408,10 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param TransferInReenterTransferAuthorizationCodeRequest $request
-     * @param RuntimeOptions                                    $runtime
+     * @param TransferInReenterTransferAuthorizationCodeRequest $request TransferInReenterTransferAuthorizationCodeRequest
+     * @param RuntimeOptions                                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return TransferInReenterTransferAuthorizationCodeResponse
+     * @return TransferInReenterTransferAuthorizationCodeResponse TransferInReenterTransferAuthorizationCodeResponse
      */
     public function transferInReenterTransferAuthorizationCodeWithOptions($request, $runtime)
     {
@@ -7112,9 +7448,9 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param TransferInReenterTransferAuthorizationCodeRequest $request
+     * @param TransferInReenterTransferAuthorizationCodeRequest $request TransferInReenterTransferAuthorizationCodeRequest
      *
-     * @return TransferInReenterTransferAuthorizationCodeResponse
+     * @return TransferInReenterTransferAuthorizationCodeResponse TransferInReenterTransferAuthorizationCodeResponse
      */
     public function transferInReenterTransferAuthorizationCode($request)
     {
@@ -7124,10 +7460,10 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param TransferInRefetchWhoisEmailRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @param TransferInRefetchWhoisEmailRequest $request TransferInRefetchWhoisEmailRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return TransferInRefetchWhoisEmailResponse
+     * @return TransferInRefetchWhoisEmailResponse TransferInRefetchWhoisEmailResponse
      */
     public function transferInRefetchWhoisEmailWithOptions($request, $runtime)
     {
@@ -7161,9 +7497,9 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param TransferInRefetchWhoisEmailRequest $request
+     * @param TransferInRefetchWhoisEmailRequest $request TransferInRefetchWhoisEmailRequest
      *
-     * @return TransferInRefetchWhoisEmailResponse
+     * @return TransferInRefetchWhoisEmailResponse TransferInRefetchWhoisEmailResponse
      */
     public function transferInRefetchWhoisEmail($request)
     {
@@ -7173,10 +7509,10 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param TransferInResendMailTokenRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @param TransferInResendMailTokenRequest $request TransferInResendMailTokenRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return TransferInResendMailTokenResponse
+     * @return TransferInResendMailTokenResponse TransferInResendMailTokenResponse
      */
     public function transferInResendMailTokenWithOptions($request, $runtime)
     {
@@ -7210,9 +7546,9 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param TransferInResendMailTokenRequest $request
+     * @param TransferInResendMailTokenRequest $request TransferInResendMailTokenRequest
      *
-     * @return TransferInResendMailTokenResponse
+     * @return TransferInResendMailTokenResponse TransferInResendMailTokenResponse
      */
     public function transferInResendMailToken($request)
     {
@@ -7222,10 +7558,12 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param UpdateDomainToDomainGroupRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary 向分组设置域名
+     *  *
+     * @param UpdateDomainToDomainGroupRequest $request UpdateDomainToDomainGroupRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateDomainToDomainGroupResponse
+     * @return UpdateDomainToDomainGroupResponse UpdateDomainToDomainGroupResponse
      */
     public function updateDomainToDomainGroupWithOptions($request, $runtime)
     {
@@ -7273,9 +7611,11 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param UpdateDomainToDomainGroupRequest $request
+     * @summary 向分组设置域名
+     *  *
+     * @param UpdateDomainToDomainGroupRequest $request UpdateDomainToDomainGroupRequest
      *
-     * @return UpdateDomainToDomainGroupResponse
+     * @return UpdateDomainToDomainGroupResponse UpdateDomainToDomainGroupResponse
      */
     public function updateDomainToDomainGroup($request)
     {
@@ -7285,10 +7625,12 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param VerifyContactFieldRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary 校验联系人信息
+     *  *
+     * @param VerifyContactFieldRequest $request VerifyContactFieldRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return VerifyContactFieldResponse
+     * @return VerifyContactFieldResponse VerifyContactFieldResponse
      */
     public function verifyContactFieldWithOptions($request, $runtime)
     {
@@ -7373,9 +7715,11 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param VerifyContactFieldRequest $request
+     * @summary 校验联系人信息
+     *  *
+     * @param VerifyContactFieldRequest $request VerifyContactFieldRequest
      *
-     * @return VerifyContactFieldResponse
+     * @return VerifyContactFieldResponse VerifyContactFieldResponse
      */
     public function verifyContactField($request)
     {
@@ -7385,10 +7729,12 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param VerifyEmailRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary 验证邮箱Token
+     *  *
+     * @param VerifyEmailRequest $request VerifyEmailRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return VerifyEmailResponse
+     * @return VerifyEmailResponse VerifyEmailResponse
      */
     public function verifyEmailWithOptions($request, $runtime)
     {
@@ -7422,9 +7768,11 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param VerifyEmailRequest $request
+     * @summary 验证邮箱Token
+     *  *
+     * @param VerifyEmailRequest $request VerifyEmailRequest
      *
-     * @return VerifyEmailResponse
+     * @return VerifyEmailResponse VerifyEmailResponse
      */
     public function verifyEmail($request)
     {

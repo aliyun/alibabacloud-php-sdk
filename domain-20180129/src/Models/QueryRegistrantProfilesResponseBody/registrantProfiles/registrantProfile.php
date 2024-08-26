@@ -124,6 +124,11 @@ class registrantProfile extends Model
     public $registrantType;
 
     /**
+     * @var string
+     */
+    public $remark;
+
+    /**
      * @example 86
      *
      * @var string
@@ -193,6 +198,7 @@ class registrantProfile extends Model
         'registrantProfileId'      => 'RegistrantProfileId',
         'registrantProfileType'    => 'RegistrantProfileType',
         'registrantType'           => 'RegistrantType',
+        'remark'                   => 'Remark',
         'telArea'                  => 'TelArea',
         'telExt'                   => 'TelExt',
         'telephone'                => 'Telephone',
@@ -261,6 +267,9 @@ class registrantProfile extends Model
         }
         if (null !== $this->registrantType) {
             $res['RegistrantType'] = $this->registrantType;
+        }
+        if (null !== $this->remark) {
+            $res['Remark'] = $this->remark;
         }
         if (null !== $this->telArea) {
             $res['TelArea'] = $this->telArea;
@@ -351,6 +360,9 @@ class registrantProfile extends Model
         }
         if (isset($map['RegistrantType'])) {
             $model->registrantType = $map['RegistrantType'];
+        }
+        if (isset($map['Remark'])) {
+            $model->remark = $map['Remark'];
         }
         if (isset($map['TelArea'])) {
             $model->telArea = $map['TelArea'];

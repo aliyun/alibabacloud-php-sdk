@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SaveSingleTaskForAddingDSRecordRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class SaveSingleTaskForAddingDSRecordRequest extends Model
     public $algorithm;
 
     /**
+     * @description This parameter is required.
+     *
      * @example f58fa917424383934c7b0cf1a90f61d692745680fa06f5ecdbe0924e86de9598
      *
      * @var string
@@ -23,6 +27,8 @@ class SaveSingleTaskForAddingDSRecordRequest extends Model
     public $digest;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2
      *
      * @var int
@@ -30,6 +36,8 @@ class SaveSingleTaskForAddingDSRecordRequest extends Model
     public $digestType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example example.com
      *
      * @var string
@@ -37,6 +45,8 @@ class SaveSingleTaskForAddingDSRecordRequest extends Model
     public $domainName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int

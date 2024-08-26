@@ -16,6 +16,8 @@ class TransferInCheckMailTokenRequest extends Model
     public $lang;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 3bdbaa0e-faa2-4ad2-98f4-bcfeb0237054
      *
      * @var string

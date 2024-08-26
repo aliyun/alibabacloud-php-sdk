@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryArtExtensionRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example test.art
      *
      * @var string

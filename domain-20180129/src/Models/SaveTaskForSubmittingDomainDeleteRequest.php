@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SaveTaskForSubmittingDomainDeleteRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example S20181*****85212
      *
      * @var string

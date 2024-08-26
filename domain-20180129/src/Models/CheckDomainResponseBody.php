@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Domain\V20180129\Models;
 
+use AlibabaCloud\SDK\Domain\V20180129\Models\CheckDomainResponseBody\staticPriceInfo;
 use AlibabaCloud\Tea\Model;
 
 class CheckDomainResponseBody extends Model
@@ -56,14 +57,20 @@ class CheckDomainResponseBody extends Model
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var staticPriceInfo
+     */
+    public $staticPriceInfo;
     protected $_name = [
-        'avail'        => 'Avail',
-        'domainName'   => 'DomainName',
-        'dynamicCheck' => 'DynamicCheck',
-        'premium'      => 'Premium',
-        'price'        => 'Price',
-        'reason'       => 'Reason',
-        'requestId'    => 'RequestId',
+        'avail'           => 'Avail',
+        'domainName'      => 'DomainName',
+        'dynamicCheck'    => 'DynamicCheck',
+        'premium'         => 'Premium',
+        'price'           => 'Price',
+        'reason'          => 'Reason',
+        'requestId'       => 'RequestId',
+        'staticPriceInfo' => 'StaticPriceInfo',
     ];
 
     public function validate()
@@ -93,6 +100,9 @@ class CheckDomainResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->staticPriceInfo) {
+            $res['StaticPriceInfo'] = null !== $this->staticPriceInfo ? $this->staticPriceInfo->toMap() : null;
         }
 
         return $res;
@@ -126,6 +136,9 @@ class CheckDomainResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['StaticPriceInfo'])) {
+            $model->staticPriceInfo = staticPriceInfo::fromMap($map['StaticPriceInfo']);
         }
 
         return $model;

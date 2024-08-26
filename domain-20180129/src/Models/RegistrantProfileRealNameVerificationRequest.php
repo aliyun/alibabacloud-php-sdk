@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RegistrantProfileRealNameVerificationRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example dGVzdA==
      *
      * @var string
@@ -16,6 +18,8 @@ class RegistrantProfileRealNameVerificationRequest extends Model
     public $identityCredential;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 43012512345678****
      *
      * @var string
@@ -23,6 +27,8 @@ class RegistrantProfileRealNameVerificationRequest extends Model
     public $identityCredentialNo;
 
     /**
+     * @description This parameter is required.
+     *
      * @example SFZ
      *
      * @var string
@@ -37,6 +43,8 @@ class RegistrantProfileRealNameVerificationRequest extends Model
     public $lang;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1234567
      *
      * @var int

@@ -11,6 +11,7 @@ class DomainSpecialBizCancelRequest extends Model
     /**
      * @description The business ID.
      *
+     * This parameter is required.
      * @example 3666
      *
      * @var int

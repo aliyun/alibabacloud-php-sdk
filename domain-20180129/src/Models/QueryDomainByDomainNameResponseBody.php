@@ -18,7 +18,7 @@ class QueryDomainByDomainNameResponseBody extends Model
     public $dnsList;
 
     /**
-     * @description The ID of the domain name group. You can call the [QueryDomainGroupList](~~69362~~) operation to query the ID of the domain name group.
+     * @description The ID of the domain name group. You can call the [QueryDomainGroupList](https://help.aliyun.com/document_detail/69362.html) operation to query the ID of the domain name group.
      *
      * @example 123456
      *

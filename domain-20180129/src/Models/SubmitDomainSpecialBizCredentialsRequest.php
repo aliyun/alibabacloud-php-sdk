@@ -20,8 +20,6 @@ class SubmitDomainSpecialBizCredentialsRequest extends Model
     /**
      * @description The certificate information.
      *
-     * @example [{"credentialType":"SHSQB",""credentialUrl":"11212121/1212d**\/sqb.jpg"},{"credentialType":"SFZZM",""credentialUrl":"11212121/1212d**\/sfzzm.jpg"}]
-     *
      * @var string
      */
     public $credentials;
@@ -29,7 +27,7 @@ class SubmitDomainSpecialBizCredentialsRequest extends Model
     /**
      * @description The extended information.
      *
-     * @example {\"addTransferLock\":true}
+     * @example {\\"addTransferLock\\":true}
      *
      * @var string
      */

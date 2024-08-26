@@ -16,6 +16,8 @@ class QueryFailReasonForRegistrantProfileRealNameVerificationRequest extends Mod
     public $lang;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1234567
      *
      * @var int

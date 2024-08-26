@@ -19,6 +19,11 @@ class domain extends Model
     public $ccompany;
 
     /**
+     * @var string
+     */
+    public $chgholderStatus;
+
+    /**
      * @description The state of real-name verification for the domain name. Valid values:
      *
      *   **FAILED**: Real-name verification for the domain name fails.
@@ -207,6 +212,7 @@ class domain extends Model
     public $tag;
     protected $_name = [
         'ccompany'               => 'Ccompany',
+        'chgholderStatus'        => 'ChgholderStatus',
         'domainAuditStatus'      => 'DomainAuditStatus',
         'domainGroupId'          => 'DomainGroupId',
         'domainGroupName'        => 'DomainGroupName',
@@ -237,6 +243,9 @@ class domain extends Model
         $res = [];
         if (null !== $this->ccompany) {
             $res['Ccompany'] = $this->ccompany;
+        }
+        if (null !== $this->chgholderStatus) {
+            $res['ChgholderStatus'] = $this->chgholderStatus;
         }
         if (null !== $this->domainAuditStatus) {
             $res['DomainAuditStatus'] = $this->domainAuditStatus;
@@ -309,6 +318,9 @@ class domain extends Model
         $model = new self();
         if (isset($map['Ccompany'])) {
             $model->ccompany = $map['Ccompany'];
+        }
+        if (isset($map['ChgholderStatus'])) {
+            $model->chgholderStatus = $map['ChgholderStatus'];
         }
         if (isset($map['DomainAuditStatus'])) {
             $model->domainAuditStatus = $map['DomainAuditStatus'];

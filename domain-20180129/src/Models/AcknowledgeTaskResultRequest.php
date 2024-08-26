@@ -16,6 +16,8 @@ class AcknowledgeTaskResultRequest extends Model
     public $lang;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2659c29493e94416b297a7691340ccc4
      *
      * @var string[]

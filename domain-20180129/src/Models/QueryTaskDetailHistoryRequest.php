@@ -30,6 +30,8 @@ class QueryTaskDetailHistoryRequest extends Model
     public $lang;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -44,6 +46,8 @@ class QueryTaskDetailHistoryRequest extends Model
     public $taskDetailNoCursor;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 75addb07-28a3-450e-b5ec-test
      *
      * @var string

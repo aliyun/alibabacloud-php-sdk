@@ -11,6 +11,7 @@ class SaveSingleTaskForGenerateDomainCertificateRequest extends Model
     /**
      * @description The domain name.
      *
+     * This parameter is required.
      * @example test.com
      *
      * @var string

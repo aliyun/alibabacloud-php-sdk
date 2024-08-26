@@ -14,6 +14,7 @@ class CancelDomainVerificationRequest extends Model
      *   **DOMAINAUDIT**: review a domain name review.
      *   **AUDITCONTACT**: review a contact.
      *
+     * This parameter is required.
      * @example AUDITCONTACT
      *
      * @var string
@@ -21,8 +22,9 @@ class CancelDomainVerificationRequest extends Model
     public $actionType;
 
     /**
-     * @description Thee instance ID of the domain name. You can call the [QueryDomainList](~~67712~~) operation to query the instance ID.
+     * @description Thee instance ID of the domain name. You can call the [QueryDomainList](https://help.aliyun.com/document_detail/67712.html) operation to query the instance ID.
      *
+     * This parameter is required.
      * @example S2019270W570xxxx
      *
      * @var string

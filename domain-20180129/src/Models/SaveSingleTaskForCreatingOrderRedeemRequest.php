@@ -16,6 +16,8 @@ class SaveSingleTaskForCreatingOrderRedeemRequest extends Model
     public $couponNo;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 0000
      *
      * @var int
@@ -23,6 +25,8 @@ class SaveSingleTaskForCreatingOrderRedeemRequest extends Model
     public $currentExpirationDate;
 
     /**
+     * @description This parameter is required.
+     *
      * @example example.com
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ConfirmTransferInEmailRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example abc.com
      *
      * @var string[]
@@ -16,6 +18,8 @@ class ConfirmTransferInEmailRequest extends Model
     public $domainName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test@test.com
      *
      * @var string

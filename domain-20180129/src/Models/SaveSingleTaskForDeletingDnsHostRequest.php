@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SaveSingleTaskForDeletingDnsHostRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example dns1
      *
      * @var string
@@ -16,6 +18,8 @@ class SaveSingleTaskForDeletingDnsHostRequest extends Model
     public $dnsName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example S2019270W570xxxx
      *
      * @var string

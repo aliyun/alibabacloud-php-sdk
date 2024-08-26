@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SaveBatchDomainRemarkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example S12344567
      *
      * @var string

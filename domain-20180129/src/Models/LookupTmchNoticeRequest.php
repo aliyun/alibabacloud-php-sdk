@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class LookupTmchNoticeRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 2017092100/8/2/1/kDfu9htHGEx_y-LJ3XSlKMZ70000020001
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SaveSingleTaskForCreatingOrderTransferRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example testCode
      *
      * @var string
@@ -23,6 +25,8 @@ class SaveSingleTaskForCreatingOrderTransferRequest extends Model
     public $couponNo;
 
     /**
+     * @description This parameter is required.
+     *
      * @example example.com
      *
      * @var string
@@ -51,6 +55,8 @@ class SaveSingleTaskForCreatingOrderTransferRequest extends Model
     public $promotionNo;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 123456
      *
      * @var int

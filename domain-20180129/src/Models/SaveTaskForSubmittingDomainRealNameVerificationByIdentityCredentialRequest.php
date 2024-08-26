@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $domainName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $identityCredential;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $identityCredentialNo;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $identityCredentialType;

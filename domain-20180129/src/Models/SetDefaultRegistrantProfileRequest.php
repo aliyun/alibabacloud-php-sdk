@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SetDefaultRegistrantProfileRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 1234567
      *
      * @var int

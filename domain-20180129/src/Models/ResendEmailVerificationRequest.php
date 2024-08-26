@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ResendEmailVerificationRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example test1@aliyun.com,test2@aliyun.com
      *
      * @var string

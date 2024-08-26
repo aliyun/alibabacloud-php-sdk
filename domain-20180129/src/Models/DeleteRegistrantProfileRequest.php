@@ -16,6 +16,8 @@ class DeleteRegistrantProfileRequest extends Model
     public $lang;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 3600000
      *
      * @var int

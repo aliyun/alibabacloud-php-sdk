@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class BatchFuzzyMatchDomainSensitiveWordRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example example.com,aliyundoc.com
      *
      * @var string

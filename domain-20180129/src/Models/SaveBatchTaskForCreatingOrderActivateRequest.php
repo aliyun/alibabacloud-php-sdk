@@ -24,6 +24,8 @@ class SaveBatchTaskForCreatingOrderActivateRequest extends Model
     public $lang;
 
     /**
+     * @description This parameter is required.
+     *
      * @var orderActivateParam[]
      */
     public $orderActivateParam;

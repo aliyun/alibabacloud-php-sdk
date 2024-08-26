@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CancelQualificationVerificationRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example S20181*****85212
      *
      * @var string
@@ -23,6 +25,8 @@ class CancelQualificationVerificationRequest extends Model
     public $lang;
 
     /**
+     * @description This parameter is required.
+     *
      * @example knet
      *
      * @var string

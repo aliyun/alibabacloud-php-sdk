@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SaveSingleTaskForCreatingDnsHostRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example dns1
      *
      * @var string
@@ -16,6 +18,8 @@ class SaveSingleTaskForCreatingDnsHostRequest extends Model
     public $dnsName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example S1234567890
      *
      * @var string
@@ -23,6 +27,8 @@ class SaveSingleTaskForCreatingDnsHostRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 218.xx.xx.236
      *
      * @var string[]

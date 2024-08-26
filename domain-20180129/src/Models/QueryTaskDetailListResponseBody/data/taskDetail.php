@@ -30,6 +30,11 @@ class taskDetail extends Model
     public $errorMsg;
 
     /**
+     * @var string
+     */
+    public $failReason;
+
+    /**
      * @example S20179H1BBI9test
      *
      * @var string
@@ -100,6 +105,7 @@ class taskDetail extends Model
         'createTime'          => 'CreateTime',
         'domainName'          => 'DomainName',
         'errorMsg'            => 'ErrorMsg',
+        'failReason'          => 'FailReason',
         'instanceId'          => 'InstanceId',
         'taskDetailNo'        => 'TaskDetailNo',
         'taskNo'              => 'TaskNo',
@@ -127,6 +133,9 @@ class taskDetail extends Model
         }
         if (null !== $this->errorMsg) {
             $res['ErrorMsg'] = $this->errorMsg;
+        }
+        if (null !== $this->failReason) {
+            $res['FailReason'] = $this->failReason;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -178,6 +187,9 @@ class taskDetail extends Model
         }
         if (isset($map['ErrorMsg'])) {
             $model->errorMsg = $map['ErrorMsg'];
+        }
+        if (isset($map['FailReason'])) {
+            $model->failReason = $map['FailReason'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];

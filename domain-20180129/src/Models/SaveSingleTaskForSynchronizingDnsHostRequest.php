@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SaveSingleTaskForSynchronizingDnsHostRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example ST2017120814571100001303
      *
      * @var string

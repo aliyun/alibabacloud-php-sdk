@@ -16,6 +16,8 @@ class SaveSingleTaskForCreatingOrderRenewRequest extends Model
     public $couponNo;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 0000
      *
      * @var int
@@ -23,6 +25,8 @@ class SaveSingleTaskForCreatingOrderRenewRequest extends Model
     public $currentExpirationDate;
 
     /**
+     * @description This parameter is required.
+     *
      * @example example.com
      *
      * @var string
@@ -44,6 +48,8 @@ class SaveSingleTaskForCreatingOrderRenewRequest extends Model
     public $promotionNo;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int

@@ -11,6 +11,7 @@ class SaveBatchTaskForGenerateDomainCertificateRequest extends Model
     /**
      * @description The domain names.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $domainNames;

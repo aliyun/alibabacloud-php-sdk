@@ -23,8 +23,6 @@ class SubmitOperationCredentialsRequest extends Model
     public $auditType;
 
     /**
-     * @example [{"credentialType":"SHSQB",""credentialUrl":"11212121/1212d**\/sqb.jpg"},{"credentialType":"SFZZM",""credentialUrl":"11212121/1212d**\/sfzzm.jpg"}]
-     *
      * @var string
      */
     public $credentials;

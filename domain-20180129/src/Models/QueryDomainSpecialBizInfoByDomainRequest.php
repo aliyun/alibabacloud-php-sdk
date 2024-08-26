@@ -11,6 +11,7 @@ class QueryDomainSpecialBizInfoByDomainRequest extends Model
     /**
      * @description The business type.
      *
+     * This parameter is required.
      * @example govRegister
      *
      * @var string
@@ -20,6 +21,7 @@ class QueryDomainSpecialBizInfoByDomainRequest extends Model
     /**
      * @description The domain name.
      *
+     * This parameter is required.
      * @example test003.cn
      *
      * @var string

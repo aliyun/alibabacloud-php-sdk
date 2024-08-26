@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryDomainByInstanceIdRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example S20131205001****
      *
      * @var string

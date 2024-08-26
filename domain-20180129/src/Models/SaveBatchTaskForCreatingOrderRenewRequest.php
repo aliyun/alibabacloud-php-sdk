@@ -24,6 +24,8 @@ class SaveBatchTaskForCreatingOrderRenewRequest extends Model
     public $lang;
 
     /**
+     * @description This parameter is required.
+     *
      * @var orderRenewParam[]
      */
     public $orderRenewParam;

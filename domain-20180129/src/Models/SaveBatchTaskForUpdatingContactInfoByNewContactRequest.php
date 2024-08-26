@@ -23,6 +23,8 @@ class SaveBatchTaskForUpdatingContactInfoByNewContactRequest extends Model
     public $city;
 
     /**
+     * @description This parameter is required.
+     *
      * @example registrant
      *
      * @var string
@@ -37,6 +39,8 @@ class SaveBatchTaskForUpdatingContactInfoByNewContactRequest extends Model
     public $country;
 
     /**
+     * @description This parameter is required.
+     *
      * @example alibabacloud.com
      *
      * @var string[]
@@ -86,6 +90,8 @@ class SaveBatchTaskForUpdatingContactInfoByNewContactRequest extends Model
     public $registrantOrganization;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var string

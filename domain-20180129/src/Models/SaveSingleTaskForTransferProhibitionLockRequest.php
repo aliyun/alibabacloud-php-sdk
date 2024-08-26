@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SaveSingleTaskForTransferProhibitionLockRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example example.com
      *
      * @var string
@@ -23,6 +25,8 @@ class SaveSingleTaskForTransferProhibitionLockRequest extends Model
     public $lang;
 
     /**
+     * @description This parameter is required.
+     *
      * @example false
      *
      * @var bool

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SetupDomainAutoRenewRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example S2019270W570xxxx
      *
      * @var string
@@ -16,6 +18,8 @@ class SetupDomainAutoRenewRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example SET
      *
      * @var string

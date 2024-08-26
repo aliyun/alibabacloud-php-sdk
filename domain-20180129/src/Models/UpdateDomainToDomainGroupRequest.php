@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateDomainToDomainGroupRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class UpdateDomainToDomainGroupRequest extends Model
     public $dataSource;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1234
      *
      * @var int
@@ -44,6 +48,8 @@ class UpdateDomainToDomainGroupRequest extends Model
     public $lang;
 
     /**
+     * @description This parameter is required.
+     *
      * @example false
      *
      * @var bool

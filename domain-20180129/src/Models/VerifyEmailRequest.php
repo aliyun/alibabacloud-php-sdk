@@ -16,6 +16,8 @@ class VerifyEmailRequest extends Model
     public $lang;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 0b32247496409441e9e179ea7c2e0****
      *
      * @var string

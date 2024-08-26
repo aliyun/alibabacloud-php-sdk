@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryFailingReasonListForQualificationRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example S20181*****85212
      *
      * @var string
@@ -23,6 +25,8 @@ class QueryFailingReasonListForQualificationRequest extends Model
     public $lang;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 10
      *
      * @var int
@@ -30,6 +34,8 @@ class QueryFailingReasonListForQualificationRequest extends Model
     public $limit;
 
     /**
+     * @description This parameter is required.
+     *
      * @example knet
      *
      * @var string

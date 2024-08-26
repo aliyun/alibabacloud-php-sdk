@@ -58,6 +58,8 @@ class SaveSingleTaskForCreatingOrderActivateRequest extends Model
     public $dns2;
 
     /**
+     * @description This parameter is required.
+     *
      * @example example.com
      *
      * @var string

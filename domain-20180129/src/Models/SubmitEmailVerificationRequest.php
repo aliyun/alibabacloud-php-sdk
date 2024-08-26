@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SubmitEmailVerificationRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example username@example.com
      *
      * @var string

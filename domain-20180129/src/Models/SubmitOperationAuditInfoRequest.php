@@ -14,6 +14,8 @@ class SubmitOperationAuditInfoRequest extends Model
     public $auditInfo;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -21,6 +23,8 @@ class SubmitOperationAuditInfoRequest extends Model
     public $auditType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example example.com,example.org
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryTransferInByInstanceIdRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example S20181T0WLI85212
      *
      * @var string

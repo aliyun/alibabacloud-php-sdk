@@ -2,12 +2,19 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Domain\V20180129\Models\SaveBatchTaskForReserveDropListDomainRequest;
+namespace AlibabaCloud\SDK\Domain\V20180129\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class domains extends Model
+class SaveSingleTaskForReserveDropListDomainRequest extends Model
 {
+    /**
+     * @description This parameter is required.
+     *
+     * @var string
+     */
+    public $contactTemplateId;
+
     /**
      * @var string
      */
@@ -21,15 +28,14 @@ class domains extends Model
     /**
      * @description This parameter is required.
      *
-     * @example example.com
-     *
      * @var string
      */
     public $domainName;
     protected $_name = [
-        'dns1'       => 'Dns1',
-        'dns2'       => 'Dns2',
-        'domainName' => 'DomainName',
+        'contactTemplateId' => 'ContactTemplateId',
+        'dns1'              => 'Dns1',
+        'dns2'              => 'Dns2',
+        'domainName'        => 'DomainName',
     ];
 
     public function validate()
@@ -39,6 +45,9 @@ class domains extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->contactTemplateId) {
+            $res['ContactTemplateId'] = $this->contactTemplateId;
+        }
         if (null !== $this->dns1) {
             $res['Dns1'] = $this->dns1;
         }
@@ -55,11 +64,14 @@ class domains extends Model
     /**
      * @param array $map
      *
-     * @return domains
+     * @return SaveSingleTaskForReserveDropListDomainRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ContactTemplateId'])) {
+            $model->contactTemplateId = $map['ContactTemplateId'];
+        }
         if (isset($map['Dns1'])) {
             $model->dns1 = $map['Dns1'];
         }

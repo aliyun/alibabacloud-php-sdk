@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $instanceId;
@@ -24,6 +28,8 @@ class SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDReques
     public $lang;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $registrantProfileId;

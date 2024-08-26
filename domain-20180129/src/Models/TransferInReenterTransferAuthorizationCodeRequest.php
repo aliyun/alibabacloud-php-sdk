@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class TransferInReenterTransferAuthorizationCodeRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example example.com
      *
      * @var string
@@ -23,6 +25,8 @@ class TransferInReenterTransferAuthorizationCodeRequest extends Model
     public $lang;
 
     /**
+     * @description This parameter is required.
+     *
      * @example testCode
      *
      * @var string

@@ -16,6 +16,8 @@ class ChangeResourceGroupRequest extends Model
     public $lang;
 
     /**
+     * @description This parameter is required.
+     *
      * @example rg-aek2tcx7os7bkmq
      *
      * @var string
@@ -23,6 +25,8 @@ class ChangeResourceGroupRequest extends Model
     public $newResourceGroupId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example S20227H17A561968
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SaveBatchTaskForUpdateProhibitionLockRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example aliyundoc.com
      *
      * @var string[]
@@ -23,6 +25,8 @@ class SaveBatchTaskForUpdateProhibitionLockRequest extends Model
     public $lang;
 
     /**
+     * @description This parameter is required.
+     *
      * @example false
      *
      * @var bool

@@ -24,6 +24,8 @@ class SaveBatchTaskForCreatingOrderRedeemRequest extends Model
     public $lang;
 
     /**
+     * @description This parameter is required.
+     *
      * @var orderRedeemParam[]
      */
     public $orderRedeemParam;

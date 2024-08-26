@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CheckMaxYearOfServerLockRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example activate
      *
      * @var string
@@ -16,6 +18,8 @@ class CheckMaxYearOfServerLockRequest extends Model
     public $checkAction;
 
     /**
+     * @description This parameter is required.
+     *
      * @example example.com
      *
      * @var string

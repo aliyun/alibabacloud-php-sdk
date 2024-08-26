@@ -87,6 +87,11 @@ class QueryAdvancedDomainListRequest extends Model
     public $form;
 
     /**
+     * @var bool
+     */
+    public $isPremiumDomain;
+
+    /**
      * @example test
      *
      * @var string
@@ -115,6 +120,8 @@ class QueryAdvancedDomainListRequest extends Model
     public $lang;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -122,6 +129,8 @@ class QueryAdvancedDomainListRequest extends Model
     public $pageNum;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 10
      *
      * @var int
@@ -214,6 +223,7 @@ class QueryAdvancedDomainListRequest extends Model
         'excludedSuffix'        => 'ExcludedSuffix',
         'expirationDateSort'    => 'ExpirationDateSort',
         'form'                  => 'Form',
+        'isPremiumDomain'       => 'IsPremiumDomain',
         'keyWord'               => 'KeyWord',
         'keyWordPrefix'         => 'KeyWordPrefix',
         'keyWordSuffix'         => 'KeyWordSuffix',
@@ -272,6 +282,9 @@ class QueryAdvancedDomainListRequest extends Model
         }
         if (null !== $this->form) {
             $res['Form'] = $this->form;
+        }
+        if (null !== $this->isPremiumDomain) {
+            $res['IsPremiumDomain'] = $this->isPremiumDomain;
         }
         if (null !== $this->keyWord) {
             $res['KeyWord'] = $this->keyWord;
@@ -374,6 +387,9 @@ class QueryAdvancedDomainListRequest extends Model
         }
         if (isset($map['Form'])) {
             $model->form = $map['Form'];
+        }
+        if (isset($map['IsPremiumDomain'])) {
+            $model->isPremiumDomain = $map['IsPremiumDomain'];
         }
         if (isset($map['KeyWord'])) {
             $model->keyWord = $map['KeyWord'];

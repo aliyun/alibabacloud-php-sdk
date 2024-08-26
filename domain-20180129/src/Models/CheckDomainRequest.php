@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CheckDomainRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example test**.xin
      *
      * @var string

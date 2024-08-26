@@ -23,8 +23,6 @@ class qualificationCredential extends Model
     public $credentialType;
 
     /**
-     * @example 11212121/1212d**\/sqb.jpg
-     *
      * @var string
      */
     public $credentialUrl;

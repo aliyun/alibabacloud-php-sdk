@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ResetQualificationVerificationRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example S20181*****85212
      *
      * @var string
