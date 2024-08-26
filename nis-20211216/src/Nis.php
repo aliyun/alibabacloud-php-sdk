@@ -18,6 +18,21 @@ use AlibabaCloud\SDK\Nis\V20211216\Models\DeleteNetworkPathShrinkRequest;
 use AlibabaCloud\SDK\Nis\V20211216\Models\DeleteNetworkReachableAnalysisRequest;
 use AlibabaCloud\SDK\Nis\V20211216\Models\DeleteNetworkReachableAnalysisResponse;
 use AlibabaCloud\SDK\Nis\V20211216\Models\DeleteNetworkReachableAnalysisShrinkRequest;
+use AlibabaCloud\SDK\Nis\V20211216\Models\DeleteNisInspectionReportRequest;
+use AlibabaCloud\SDK\Nis\V20211216\Models\DeleteNisInspectionReportResponse;
+use AlibabaCloud\SDK\Nis\V20211216\Models\DeleteNisInspectionTaskRequest;
+use AlibabaCloud\SDK\Nis\V20211216\Models\DeleteNisInspectionTaskResponse;
+use AlibabaCloud\SDK\Nis\V20211216\Models\DescribeNisInspectionRecommendationResourcesRequest;
+use AlibabaCloud\SDK\Nis\V20211216\Models\DescribeNisInspectionRecommendationResourcesResponse;
+use AlibabaCloud\SDK\Nis\V20211216\Models\DescribeNisInspectionReportCheckItemsRequest;
+use AlibabaCloud\SDK\Nis\V20211216\Models\DescribeNisInspectionReportCheckItemsResponse;
+use AlibabaCloud\SDK\Nis\V20211216\Models\DescribeNisInspectionReportCheckItemsShrinkRequest;
+use AlibabaCloud\SDK\Nis\V20211216\Models\DescribeNisInspectionReportStatusRequest;
+use AlibabaCloud\SDK\Nis\V20211216\Models\DescribeNisInspectionReportStatusResponse;
+use AlibabaCloud\SDK\Nis\V20211216\Models\DescribeNisInspectionReportSummaryRequest;
+use AlibabaCloud\SDK\Nis\V20211216\Models\DescribeNisInspectionReportSummaryResponse;
+use AlibabaCloud\SDK\Nis\V20211216\Models\DescribeNisInspectionTaskRequest;
+use AlibabaCloud\SDK\Nis\V20211216\Models\DescribeNisInspectionTaskResponse;
 use AlibabaCloud\SDK\Nis\V20211216\Models\GetInternetTupleRequest;
 use AlibabaCloud\SDK\Nis\V20211216\Models\GetInternetTupleResponse;
 use AlibabaCloud\SDK\Nis\V20211216\Models\GetInternetTupleShrinkRequest;
@@ -37,6 +52,15 @@ use AlibabaCloud\SDK\Nis\V20211216\Models\GetTransitRouterFlowTopNShrinkRequest;
 use AlibabaCloud\SDK\Nis\V20211216\Models\GetVbrFlowTopNRequest;
 use AlibabaCloud\SDK\Nis\V20211216\Models\GetVbrFlowTopNResponse;
 use AlibabaCloud\SDK\Nis\V20211216\Models\GetVbrFlowTopNShrinkRequest;
+use AlibabaCloud\SDK\Nis\V20211216\Models\ListNisInspectionResourceTypeResponse;
+use AlibabaCloud\SDK\Nis\V20211216\Models\ListNisInspectionTaskReportsRequest;
+use AlibabaCloud\SDK\Nis\V20211216\Models\ListNisInspectionTaskReportsResponse;
+use AlibabaCloud\SDK\Nis\V20211216\Models\ListNisInspectionTasksRequest;
+use AlibabaCloud\SDK\Nis\V20211216\Models\ListNisInspectionTasksResponse;
+use AlibabaCloud\SDK\Nis\V20211216\Models\StartNisInspectionTaskRequest;
+use AlibabaCloud\SDK\Nis\V20211216\Models\StartNisInspectionTaskResponse;
+use AlibabaCloud\SDK\Nis\V20211216\Models\UpdateNisInspectionTaskRequest;
+use AlibabaCloud\SDK\Nis\V20211216\Models\UpdateNisInspectionTaskResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -388,8 +412,379 @@ class Nis extends OpenApiClient
     }
 
     /**
+     * @summary 删除报告
+     *  *
+     * @param DeleteNisInspectionReportRequest $request DeleteNisInspectionReportRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteNisInspectionReportResponse DeleteNisInspectionReportResponse
+     */
+    public function deleteNisInspectionReportWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->inspectionReportId)) {
+            $query['InspectionReportId'] = $request->inspectionReportId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteNisInspectionReport',
+            'version'     => '2021-12-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteNisInspectionReportResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除报告
+     *  *
+     * @param DeleteNisInspectionReportRequest $request DeleteNisInspectionReportRequest
+     *
+     * @return DeleteNisInspectionReportResponse DeleteNisInspectionReportResponse
+     */
+    public function deleteNisInspectionReport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteNisInspectionReportWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 删除巡检任务
+     *  *
+     * @param DeleteNisInspectionTaskRequest $request DeleteNisInspectionTaskRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteNisInspectionTaskResponse DeleteNisInspectionTaskResponse
+     */
+    public function deleteNisInspectionTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->inspectionTaskId)) {
+            $query['InspectionTaskId'] = $request->inspectionTaskId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteNisInspectionTask',
+            'version'     => '2021-12-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteNisInspectionTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除巡检任务
+     *  *
+     * @param DeleteNisInspectionTaskRequest $request DeleteNisInspectionTaskRequest
+     *
+     * @return DeleteNisInspectionTaskResponse DeleteNisInspectionTaskResponse
+     */
+    public function deleteNisInspectionTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteNisInspectionTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 受影响资源列表
+     *  *
+     * @param DescribeNisInspectionRecommendationResourcesRequest $request DescribeNisInspectionRecommendationResourcesRequest
+     * @param RuntimeOptions                                      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeNisInspectionRecommendationResourcesResponse DescribeNisInspectionRecommendationResourcesResponse
+     */
+    public function describeNisInspectionRecommendationResourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->inspectionReportId)) {
+            $query['InspectionReportId'] = $request->inspectionReportId;
+        }
+        if (!Utils::isUnset($request->language)) {
+            $query['Language'] = $request->language;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->recommendationCode)) {
+            $query['RecommendationCode'] = $request->recommendationCode;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeNisInspectionRecommendationResources',
+            'version'     => '2021-12-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeNisInspectionRecommendationResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 受影响资源列表
+     *  *
+     * @param DescribeNisInspectionRecommendationResourcesRequest $request DescribeNisInspectionRecommendationResourcesRequest
+     *
+     * @return DescribeNisInspectionRecommendationResourcesResponse DescribeNisInspectionRecommendationResourcesResponse
+     */
+    public function describeNisInspectionRecommendationResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeNisInspectionRecommendationResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 报告巡检项列表
+     *  *
+     * @param DescribeNisInspectionReportCheckItemsRequest $tmpReq  DescribeNisInspectionReportCheckItemsRequest
+     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeNisInspectionReportCheckItemsResponse DescribeNisInspectionReportCheckItemsResponse
+     */
+    public function describeNisInspectionReportCheckItemsWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DescribeNisInspectionReportCheckItemsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->resourceType)) {
+            $request->resourceTypeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resourceType, 'ResourceType', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->riskLevel)) {
+            $request->riskLevelShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->riskLevel, 'RiskLevel', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->categoryCode)) {
+            $query['CategoryCode'] = $request->categoryCode;
+        }
+        if (!Utils::isUnset($request->inspectionReportId)) {
+            $query['InspectionReportId'] = $request->inspectionReportId;
+        }
+        if (!Utils::isUnset($request->language)) {
+            $query['Language'] = $request->language;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->resourceTypeShrink)) {
+            $query['ResourceType'] = $request->resourceTypeShrink;
+        }
+        if (!Utils::isUnset($request->riskLevelShrink)) {
+            $query['RiskLevel'] = $request->riskLevelShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeNisInspectionReportCheckItems',
+            'version'     => '2021-12-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeNisInspectionReportCheckItemsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 报告巡检项列表
+     *  *
+     * @param DescribeNisInspectionReportCheckItemsRequest $request DescribeNisInspectionReportCheckItemsRequest
+     *
+     * @return DescribeNisInspectionReportCheckItemsResponse DescribeNisInspectionReportCheckItemsResponse
+     */
+    public function describeNisInspectionReportCheckItems($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeNisInspectionReportCheckItemsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询报告状态
+     *  *
+     * @param DescribeNisInspectionReportStatusRequest $request DescribeNisInspectionReportStatusRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeNisInspectionReportStatusResponse DescribeNisInspectionReportStatusResponse
+     */
+    public function describeNisInspectionReportStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->inspectionReportId)) {
+            $query['InspectionReportId'] = $request->inspectionReportId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeNisInspectionReportStatus',
+            'version'     => '2021-12-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeNisInspectionReportStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询报告状态
+     *  *
+     * @param DescribeNisInspectionReportStatusRequest $request DescribeNisInspectionReportStatusRequest
+     *
+     * @return DescribeNisInspectionReportStatusResponse DescribeNisInspectionReportStatusResponse
+     */
+    public function describeNisInspectionReportStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeNisInspectionReportStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 报告总结信息
+     *  *
+     * @param DescribeNisInspectionReportSummaryRequest $request DescribeNisInspectionReportSummaryRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeNisInspectionReportSummaryResponse DescribeNisInspectionReportSummaryResponse
+     */
+    public function describeNisInspectionReportSummaryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->inspectionReportId)) {
+            $query['InspectionReportId'] = $request->inspectionReportId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeNisInspectionReportSummary',
+            'version'     => '2021-12-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeNisInspectionReportSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 报告总结信息
+     *  *
+     * @param DescribeNisInspectionReportSummaryRequest $request DescribeNisInspectionReportSummaryRequest
+     *
+     * @return DescribeNisInspectionReportSummaryResponse DescribeNisInspectionReportSummaryResponse
+     */
+    public function describeNisInspectionReportSummary($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeNisInspectionReportSummaryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询巡检任务
+     *  *
+     * @param DescribeNisInspectionTaskRequest $request DescribeNisInspectionTaskRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeNisInspectionTaskResponse DescribeNisInspectionTaskResponse
+     */
+    public function describeNisInspectionTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->inspectionTaskId)) {
+            $query['InspectionTaskId'] = $request->inspectionTaskId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeNisInspectionTask',
+            'version'     => '2021-12-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeNisInspectionTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询巡检任务
+     *  *
+     * @param DescribeNisInspectionTaskRequest $request DescribeNisInspectionTaskRequest
+     *
+     * @return DescribeNisInspectionTaskResponse DescribeNisInspectionTaskResponse
+     */
+    public function describeNisInspectionTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeNisInspectionTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @deprecated openAPI GetInternetTuple is deprecated, please use nis::2021-12-16::GetNisNetworkRanking instead
+     *  *
      * @summary Queries the rankings of Internet traffic data in the form of 1-tuple, 2-tuple, or 5-tuple. Internet traffic data can be ranked by metrics such as traffic volumes and the number of packets.
      *  *
+     * Deprecated
+     *
      * @param GetInternetTupleRequest $tmpReq  GetInternetTupleRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -492,8 +887,12 @@ class Nis extends OpenApiClient
     }
 
     /**
+     * @deprecated openAPI GetInternetTuple is deprecated, please use nis::2021-12-16::GetNisNetworkRanking instead
+     *  *
      * @summary Queries the rankings of Internet traffic data in the form of 1-tuple, 2-tuple, or 5-tuple. Internet traffic data can be ranked by metrics such as traffic volumes and the number of packets.
      *  *
+     * Deprecated
+     *
      * @param GetInternetTupleRequest $request GetInternetTupleRequest
      *
      * @return GetInternetTupleResponse GetInternetTupleResponse
@@ -506,8 +905,12 @@ class Nis extends OpenApiClient
     }
 
     /**
+     * @deprecated openAPI GetNatTopN is deprecated, please use nis::2021-12-16::GetNisNetworkRanking instead
+     *  *
      * @summary Queries the real-time SNAT performance ranking of a NAT gateway.
      *  *
+     * Deprecated
+     *
      * @param GetNatTopNRequest $request GetNatTopNRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
@@ -557,8 +960,12 @@ class Nis extends OpenApiClient
     }
 
     /**
+     * @deprecated openAPI GetNatTopN is deprecated, please use nis::2021-12-16::GetNisNetworkRanking instead
+     *  *
      * @summary Queries the real-time SNAT performance ranking of a NAT gateway.
      *  *
+     * Deprecated
+     *
      * @param GetNatTopNRequest $request GetNatTopNRequest
      *
      * @return GetNatTopNResponse GetNatTopNResponse
@@ -790,8 +1197,12 @@ class Nis extends OpenApiClient
     }
 
     /**
+     * @deprecated openAPI GetTransitRouterFlowTopN is deprecated, please use nis::2021-12-16::GetNisNetworkRanking instead
+     *  *
      * @summary Queries the rankings of inter-region traffic data in the form of 1-tuple, 2-tuple, or 5-tuple. Inter-region traffic data can be ranked by metrics such as traffic volumes and the number of packets.
      *  *
+     * Deprecated
+     *
      * @param GetTransitRouterFlowTopNRequest $tmpReq  GetTransitRouterFlowTopNRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -879,8 +1290,12 @@ class Nis extends OpenApiClient
     }
 
     /**
+     * @deprecated openAPI GetTransitRouterFlowTopN is deprecated, please use nis::2021-12-16::GetNisNetworkRanking instead
+     *  *
      * @summary Queries the rankings of inter-region traffic data in the form of 1-tuple, 2-tuple, or 5-tuple. Inter-region traffic data can be ranked by metrics such as traffic volumes and the number of packets.
      *  *
+     * Deprecated
+     *
      * @param GetTransitRouterFlowTopNRequest $request GetTransitRouterFlowTopNRequest
      *
      * @return GetTransitRouterFlowTopNResponse GetTransitRouterFlowTopNResponse
@@ -893,8 +1308,12 @@ class Nis extends OpenApiClient
     }
 
     /**
+     * @deprecated openAPI GetVbrFlowTopN is deprecated, please use nis::2021-12-16::GetNisNetworkRanking instead
+     *  *
      * @summary Queries the rankings of hybrid cloud traffic data in the form of 1-tuple, 2-tuple, or 5-tuple. Hybrid cloud traffic data can be ranked by metrics such as traffic volumes and the number of packets.
      *  *
+     * Deprecated
+     *
      * @param GetVbrFlowTopNRequest $tmpReq  GetVbrFlowTopNRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -982,8 +1401,12 @@ class Nis extends OpenApiClient
     }
 
     /**
+     * @deprecated openAPI GetVbrFlowTopN is deprecated, please use nis::2021-12-16::GetNisNetworkRanking instead
+     *  *
      * @summary Queries the rankings of hybrid cloud traffic data in the form of 1-tuple, 2-tuple, or 5-tuple. Hybrid cloud traffic data can be ranked by metrics such as traffic volumes and the number of packets.
      *  *
+     * Deprecated
+     *
      * @param GetVbrFlowTopNRequest $request GetVbrFlowTopNRequest
      *
      * @return GetVbrFlowTopNResponse GetVbrFlowTopNResponse
@@ -993,5 +1416,254 @@ class Nis extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getVbrFlowTopNWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 巡检资源类型列表
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListNisInspectionResourceTypeResponse ListNisInspectionResourceTypeResponse
+     */
+    public function listNisInspectionResourceTypeWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'ListNisInspectionResourceType',
+            'version'     => '2021-12-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListNisInspectionResourceTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 巡检资源类型列表
+     *  *
+     * @return ListNisInspectionResourceTypeResponse ListNisInspectionResourceTypeResponse
+     */
+    public function listNisInspectionResourceType()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listNisInspectionResourceTypeWithOptions($runtime);
+    }
+
+    /**
+     * @summary 查询巡检报告列表
+     *  *
+     * @param ListNisInspectionTaskReportsRequest $request ListNisInspectionTaskReportsRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListNisInspectionTaskReportsResponse ListNisInspectionTaskReportsResponse
+     */
+    public function listNisInspectionTaskReportsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->inspectionTaskId)) {
+            $query['InspectionTaskId'] = $request->inspectionTaskId;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListNisInspectionTaskReports',
+            'version'     => '2021-12-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListNisInspectionTaskReportsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询巡检报告列表
+     *  *
+     * @param ListNisInspectionTaskReportsRequest $request ListNisInspectionTaskReportsRequest
+     *
+     * @return ListNisInspectionTaskReportsResponse ListNisInspectionTaskReportsResponse
+     */
+    public function listNisInspectionTaskReports($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listNisInspectionTaskReportsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 巡检任务列表
+     *  *
+     * @param ListNisInspectionTasksRequest $request ListNisInspectionTasksRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListNisInspectionTasksResponse ListNisInspectionTasksResponse
+     */
+    public function listNisInspectionTasksWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->inspectionName)) {
+            $query['InspectionName'] = $request->inspectionName;
+        }
+        if (!Utils::isUnset($request->inspectionProject)) {
+            $query['InspectionProject'] = $request->inspectionProject;
+        }
+        if (!Utils::isUnset($request->inspectionTaskId)) {
+            $query['InspectionTaskId'] = $request->inspectionTaskId;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListNisInspectionTasks',
+            'version'     => '2021-12-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListNisInspectionTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 巡检任务列表
+     *  *
+     * @param ListNisInspectionTasksRequest $request ListNisInspectionTasksRequest
+     *
+     * @return ListNisInspectionTasksResponse ListNisInspectionTasksResponse
+     */
+    public function listNisInspectionTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listNisInspectionTasksWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 请补充描述开启任务
+     *  *
+     * @param StartNisInspectionTaskRequest $request StartNisInspectionTaskRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return StartNisInspectionTaskResponse StartNisInspectionTaskResponse
+     */
+    public function startNisInspectionTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->inspectionTaskId)) {
+            $query['InspectionTaskId'] = $request->inspectionTaskId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StartNisInspectionTask',
+            'version'     => '2021-12-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return StartNisInspectionTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 请补充描述开启任务
+     *  *
+     * @param StartNisInspectionTaskRequest $request StartNisInspectionTaskRequest
+     *
+     * @return StartNisInspectionTaskResponse StartNisInspectionTaskResponse
+     */
+    public function startNisInspectionTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->startNisInspectionTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 修改巡检项
+     *  *
+     * @param UpdateNisInspectionTaskRequest $request UpdateNisInspectionTaskRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateNisInspectionTaskResponse UpdateNisInspectionTaskResponse
+     */
+    public function updateNisInspectionTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->inspectionTaskId)) {
+            $query['InspectionTaskId'] = $request->inspectionTaskId;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateNisInspectionTask',
+            'version'     => '2021-12-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateNisInspectionTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 修改巡检项
+     *  *
+     * @param UpdateNisInspectionTaskRequest $request UpdateNisInspectionTaskRequest
+     *
+     * @return UpdateNisInspectionTaskResponse UpdateNisInspectionTaskResponse
+     */
+    public function updateNisInspectionTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateNisInspectionTaskWithOptions($request, $runtime);
     }
 }
