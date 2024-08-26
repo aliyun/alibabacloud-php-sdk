@@ -24,6 +24,11 @@ class VideoPreviewPlayInfo extends Model
     public $liveTranscodingTaskList;
 
     /**
+     * @var string
+     */
+    public $masterUrl;
+
+    /**
      * @var meta
      */
     public $meta;
@@ -35,6 +40,7 @@ class VideoPreviewPlayInfo extends Model
     protected $_name = [
         'category'                    => 'category',
         'liveTranscodingTaskList'     => 'live_transcoding_task_list',
+        'masterUrl'                   => 'master_url',
         'meta'                        => 'meta',
         'offlineVideoTranscodingList' => 'offline_video_transcoding_list',
     ];
@@ -57,6 +63,9 @@ class VideoPreviewPlayInfo extends Model
                     $res['live_transcoding_task_list'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->masterUrl) {
+            $res['master_url'] = $this->masterUrl;
         }
         if (null !== $this->meta) {
             $res['meta'] = null !== $this->meta ? $this->meta->toMap() : null;
@@ -93,6 +102,9 @@ class VideoPreviewPlayInfo extends Model
                     $model->liveTranscodingTaskList[$n++] = null !== $item ? liveTranscodingTaskList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['master_url'])) {
+            $model->masterUrl = $map['master_url'];
         }
         if (isset($map['meta'])) {
             $model->meta = meta::fromMap($map['meta']);

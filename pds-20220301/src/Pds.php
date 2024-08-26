@@ -3577,6 +3577,9 @@ class Pds extends OpenApiClient
         if (!Utils::isUnset($request->getWithoutUrl)) {
             $body['get_without_url'] = $request->getWithoutUrl;
         }
+        if (!Utils::isUnset($request->reTranscode)) {
+            $body['re_transcode'] = $request->reTranscode;
+        }
         if (!Utils::isUnset($request->shareId)) {
             $body['share_id'] = $request->shareId;
         }
@@ -3824,15 +3827,6 @@ class Pds extends OpenApiClient
         $body = [];
         if (!Utils::isUnset($request->driveFileIds)) {
             $body['drive_file_ids'] = $request->driveFileIds;
-        }
-        if (!Utils::isUnset($request->policy)) {
-            $body['policy'] = $request->policy;
-        }
-        if (!Utils::isUnset($request->recursive)) {
-            $body['recursive'] = $request->recursive;
-        }
-        if (!Utils::isUnset($request->userData)) {
-            $body['user_data'] = $request->userData;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,

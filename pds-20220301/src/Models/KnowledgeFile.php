@@ -21,6 +21,11 @@ class KnowledgeFile extends Model
     /**
      * @var string
      */
+    public $driveName;
+
+    /**
+     * @var string
+     */
     public $fileCategory;
 
     /**
@@ -42,6 +47,16 @@ class KnowledgeFile extends Model
      * @var int
      */
     public $fileImageTime;
+
+    /**
+     * @var string
+     */
+    public $fileLastModifierId;
+
+    /**
+     * @var string
+     */
+    public $fileLastModifierType;
 
     /**
      * @var string
@@ -83,21 +98,24 @@ class KnowledgeFile extends Model
      */
     public $revisionId;
     protected $_name = [
-        'creatorId'           => 'creator_id',
-        'driveId'             => 'drive_id',
-        'fileCategory'        => 'file_category',
-        'fileCreatedAt'       => 'file_created_at',
-        'fileCreatorId'       => 'file_creator_id',
-        'fileId'              => 'file_id',
-        'fileImageTime'       => 'file_image_time',
-        'fileName'            => 'file_name',
-        'fileNamePath'        => 'file_name_path',
-        'fileSize'            => 'file_size',
-        'fileUpdatedAt'       => 'file_updated_at',
-        'joinedAt'            => 'joined_at',
-        'knowledgeBaseId'     => 'knowledge_base_id',
-        'knowledgeCategoryId' => 'knowledge_category_id',
-        'revisionId'          => 'revision_id',
+        'creatorId'            => 'creator_id',
+        'driveId'              => 'drive_id',
+        'driveName'            => 'drive_name',
+        'fileCategory'         => 'file_category',
+        'fileCreatedAt'        => 'file_created_at',
+        'fileCreatorId'        => 'file_creator_id',
+        'fileId'               => 'file_id',
+        'fileImageTime'        => 'file_image_time',
+        'fileLastModifierId'   => 'file_last_modifier_id',
+        'fileLastModifierType' => 'file_last_modifier_type',
+        'fileName'             => 'file_name',
+        'fileNamePath'         => 'file_name_path',
+        'fileSize'             => 'file_size',
+        'fileUpdatedAt'        => 'file_updated_at',
+        'joinedAt'             => 'joined_at',
+        'knowledgeBaseId'      => 'knowledge_base_id',
+        'knowledgeCategoryId'  => 'knowledge_category_id',
+        'revisionId'           => 'revision_id',
     ];
 
     public function validate()
@@ -113,6 +131,9 @@ class KnowledgeFile extends Model
         if (null !== $this->driveId) {
             $res['drive_id'] = $this->driveId;
         }
+        if (null !== $this->driveName) {
+            $res['drive_name'] = $this->driveName;
+        }
         if (null !== $this->fileCategory) {
             $res['file_category'] = $this->fileCategory;
         }
@@ -127,6 +148,12 @@ class KnowledgeFile extends Model
         }
         if (null !== $this->fileImageTime) {
             $res['file_image_time'] = $this->fileImageTime;
+        }
+        if (null !== $this->fileLastModifierId) {
+            $res['file_last_modifier_id'] = $this->fileLastModifierId;
+        }
+        if (null !== $this->fileLastModifierType) {
+            $res['file_last_modifier_type'] = $this->fileLastModifierType;
         }
         if (null !== $this->fileName) {
             $res['file_name'] = $this->fileName;
@@ -170,6 +197,9 @@ class KnowledgeFile extends Model
         if (isset($map['drive_id'])) {
             $model->driveId = $map['drive_id'];
         }
+        if (isset($map['drive_name'])) {
+            $model->driveName = $map['drive_name'];
+        }
         if (isset($map['file_category'])) {
             $model->fileCategory = $map['file_category'];
         }
@@ -184,6 +214,12 @@ class KnowledgeFile extends Model
         }
         if (isset($map['file_image_time'])) {
             $model->fileImageTime = $map['file_image_time'];
+        }
+        if (isset($map['file_last_modifier_id'])) {
+            $model->fileLastModifierId = $map['file_last_modifier_id'];
+        }
+        if (isset($map['file_last_modifier_type'])) {
+            $model->fileLastModifierType = $map['file_last_modifier_type'];
         }
         if (isset($map['file_name'])) {
             $model->fileName = $map['file_name'];

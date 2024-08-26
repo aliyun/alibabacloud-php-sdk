@@ -57,6 +57,11 @@ class GetVideoPreviewPlayInfoRequest extends Model
     public $getWithoutUrl;
 
     /**
+     * @var bool
+     */
+    public $reTranscode;
+
+    /**
      * @description The share ID. If you want to manage a file by using a sharing link, carry the `x-share-token` header in the request and specify share_id. In this case, `drive_id` is invalid. Otherwise, use an `AccessKey pair` or `access token` for authentication and specify `drive_id`. You must specify at least either `share_id` or `drive_id`.
      *
      * @example 7JQX1FswpQ8
@@ -88,6 +93,7 @@ class GetVideoPreviewPlayInfoRequest extends Model
         'fileId'        => 'file_id',
         'getMasterUrl'  => 'get_master_url',
         'getWithoutUrl' => 'get_without_url',
+        'reTranscode'   => 're_transcode',
         'shareId'       => 'share_id',
         'templateId'    => 'template_id',
         'urlExpireSec'  => 'url_expire_sec',
@@ -114,6 +120,9 @@ class GetVideoPreviewPlayInfoRequest extends Model
         }
         if (null !== $this->getWithoutUrl) {
             $res['get_without_url'] = $this->getWithoutUrl;
+        }
+        if (null !== $this->reTranscode) {
+            $res['re_transcode'] = $this->reTranscode;
         }
         if (null !== $this->shareId) {
             $res['share_id'] = $this->shareId;
@@ -150,6 +159,9 @@ class GetVideoPreviewPlayInfoRequest extends Model
         }
         if (isset($map['get_without_url'])) {
             $model->getWithoutUrl = $map['get_without_url'];
+        }
+        if (isset($map['re_transcode'])) {
+            $model->reTranscode = $map['re_transcode'];
         }
         if (isset($map['share_id'])) {
             $model->shareId = $map['share_id'];
