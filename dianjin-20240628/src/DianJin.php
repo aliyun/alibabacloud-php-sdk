@@ -23,6 +23,8 @@ use AlibabaCloud\SDK\DianJin\V20240628\Models\GetDocumentUrlRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\GetDocumentUrlResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\GetFilterDocumentListRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\GetFilterDocumentListResponse;
+use AlibabaCloud\SDK\DianJin\V20240628\Models\GetHistoryListByBizTypeRequest;
+use AlibabaCloud\SDK\DianJin\V20240628\Models\GetHistoryListByBizTypeResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\GetLibraryListRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\GetLibraryListResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\GetLibraryRequest;
@@ -39,6 +41,8 @@ use AlibabaCloud\SDK\DianJin\V20240628\Models\ReIndexRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\ReIndexResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\RunChatResultGenerationRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\RunChatResultGenerationResponse;
+use AlibabaCloud\SDK\DianJin\V20240628\Models\RunLibraryChatGenerationRequest;
+use AlibabaCloud\SDK\DianJin\V20240628\Models\RunLibraryChatGenerationResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\UpdateDocumentRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\UpdateDocumentResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\UpdateLibraryRequest;
@@ -620,6 +624,67 @@ class DianJin extends OpenApiClient
     }
 
     /**
+     * @summary 分页查询文档库列表
+     *  *
+     * @param string                         $workspaceId
+     * @param GetHistoryListByBizTypeRequest $request     GetHistoryListByBizTypeRequest
+     * @param string[]                       $headers     map
+     * @param RuntimeOptions                 $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return GetHistoryListByBizTypeResponse GetHistoryListByBizTypeResponse
+     */
+    public function getHistoryListByBizTypeWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $query['bizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->bizType)) {
+            $query['bizType'] = $request->bizType;
+        }
+        if (!Utils::isUnset($request->page)) {
+            $query['page'] = $request->page;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['pageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetHistoryListByBizType',
+            'version'     => '2024-06-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/api/history/list',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetHistoryListByBizTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 分页查询文档库列表
+     *  *
+     * @param string                         $workspaceId
+     * @param GetHistoryListByBizTypeRequest $request     GetHistoryListByBizTypeRequest
+     *
+     * @return GetHistoryListByBizTypeResponse GetHistoryListByBizTypeResponse
+     */
+    public function getHistoryListByBizType($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getHistoryListByBizTypeWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
      * @summary 获取文档库配置详情
      *  *
      * @param string            $workspaceId
@@ -1069,6 +1134,109 @@ class DianJin extends OpenApiClient
         $headers = [];
 
         return $this->runChatResultGenerationWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 获取生成式对话结果
+     *  *
+     * @param string                          $workspaceId
+     * @param RunLibraryChatGenerationRequest $request     RunLibraryChatGenerationRequest
+     * @param string[]                        $headers     map
+     * @param RuntimeOptions                  $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return RunLibraryChatGenerationResponse RunLibraryChatGenerationResponse
+     */
+    public function runLibraryChatGenerationWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->docIdList)) {
+            $body['docIdList'] = $request->docIdList;
+        }
+        if (!Utils::isUnset($request->enableFollowUp)) {
+            $body['enableFollowUp'] = $request->enableFollowUp;
+        }
+        if (!Utils::isUnset($request->enableMultiQuery)) {
+            $body['enableMultiQuery'] = $request->enableMultiQuery;
+        }
+        if (!Utils::isUnset($request->enableOpenQa)) {
+            $body['enableOpenQa'] = $request->enableOpenQa;
+        }
+        if (!Utils::isUnset($request->followUpLlm)) {
+            $body['followUpLlm'] = $request->followUpLlm;
+        }
+        if (!Utils::isUnset($request->libraryId)) {
+            $body['libraryId'] = $request->libraryId;
+        }
+        if (!Utils::isUnset($request->llmType)) {
+            $body['llmType'] = $request->llmType;
+        }
+        if (!Utils::isUnset($request->multiQueryLlm)) {
+            $body['multiQueryLlm'] = $request->multiQueryLlm;
+        }
+        if (!Utils::isUnset($request->query)) {
+            $body['query'] = $request->query;
+        }
+        if (!Utils::isUnset($request->queryCriteria)) {
+            $body['queryCriteria'] = $request->queryCriteria;
+        }
+        if (!Utils::isUnset($request->rerankType)) {
+            $body['rerankType'] = $request->rerankType;
+        }
+        if (!Utils::isUnset($request->sessionId)) {
+            $body['sessionId'] = $request->sessionId;
+        }
+        if (!Utils::isUnset($request->stream)) {
+            $body['stream'] = $request->stream;
+        }
+        if (!Utils::isUnset($request->subQueryList)) {
+            $body['subQueryList'] = $request->subQueryList;
+        }
+        if (!Utils::isUnset($request->textSearchParameter)) {
+            $body['textSearchParameter'] = $request->textSearchParameter;
+        }
+        if (!Utils::isUnset($request->topK)) {
+            $body['topK'] = $request->topK;
+        }
+        if (!Utils::isUnset($request->vectorSearchParameter)) {
+            $body['vectorSearchParameter'] = $request->vectorSearchParameter;
+        }
+        if (!Utils::isUnset($request->withDocumentReference)) {
+            $body['withDocumentReference'] = $request->withDocumentReference;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RunLibraryChatGeneration',
+            'version'     => '2024-06-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/api/run/library/chat/generation',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return RunLibraryChatGenerationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取生成式对话结果
+     *  *
+     * @param string                          $workspaceId
+     * @param RunLibraryChatGenerationRequest $request     RunLibraryChatGenerationRequest
+     *
+     * @return RunLibraryChatGenerationResponse RunLibraryChatGenerationResponse
+     */
+    public function runLibraryChatGeneration($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->runLibraryChatGenerationWithOptions($workspaceId, $request, $headers, $runtime);
     }
 
     /**
