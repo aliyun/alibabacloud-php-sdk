@@ -56,6 +56,11 @@ class CreateVpcRequest extends Model
     public $dryRun;
 
     /**
+     * @var bool
+     */
+    public $enableDnsHostname;
+
+    /**
      * @description Specifies whether to enable IPv6. Valid values:
      *
      *   **false** (default)
@@ -176,6 +181,7 @@ class CreateVpcRequest extends Model
         'clientToken'          => 'ClientToken',
         'description'          => 'Description',
         'dryRun'               => 'DryRun',
+        'enableDnsHostname'    => 'EnableDnsHostname',
         'enableIpv6'           => 'EnableIpv6',
         'ipv4CidrMask'         => 'Ipv4CidrMask',
         'ipv4IpamPoolId'       => 'Ipv4IpamPoolId',
@@ -210,6 +216,9 @@ class CreateVpcRequest extends Model
         }
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
+        }
+        if (null !== $this->enableDnsHostname) {
+            $res['EnableDnsHostname'] = $this->enableDnsHostname;
         }
         if (null !== $this->enableIpv6) {
             $res['EnableIpv6'] = $this->enableIpv6;
@@ -282,6 +291,9 @@ class CreateVpcRequest extends Model
         }
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
+        }
+        if (isset($map['EnableDnsHostname'])) {
+            $model->enableDnsHostname = $map['EnableDnsHostname'];
         }
         if (isset($map['EnableIpv6'])) {
             $model->enableIpv6 = $map['EnableIpv6'];

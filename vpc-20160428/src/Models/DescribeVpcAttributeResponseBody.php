@@ -101,6 +101,11 @@ class DescribeVpcAttributeResponseBody extends Model
     public $dhcpOptionsSetStatus;
 
     /**
+     * @var string
+     */
+    public $dnsHostnameStatus;
+
+    /**
      * @description Indicates whether the VPC enables IPv6 .
      * - false
      * @example false
@@ -270,6 +275,7 @@ class DescribeVpcAttributeResponseBody extends Model
         'description'                  => 'Description',
         'dhcpOptionsSetId'             => 'DhcpOptionsSetId',
         'dhcpOptionsSetStatus'         => 'DhcpOptionsSetStatus',
+        'dnsHostnameStatus'            => 'DnsHostnameStatus',
         'enabledIpv6'                  => 'EnabledIpv6',
         'ipv4GatewayId'                => 'Ipv4GatewayId',
         'ipv6CidrBlock'                => 'Ipv6CidrBlock',
@@ -323,6 +329,9 @@ class DescribeVpcAttributeResponseBody extends Model
         }
         if (null !== $this->dhcpOptionsSetStatus) {
             $res['DhcpOptionsSetStatus'] = $this->dhcpOptionsSetStatus;
+        }
+        if (null !== $this->dnsHostnameStatus) {
+            $res['DnsHostnameStatus'] = $this->dnsHostnameStatus;
         }
         if (null !== $this->enabledIpv6) {
             $res['EnabledIpv6'] = $this->enabledIpv6;
@@ -416,6 +425,9 @@ class DescribeVpcAttributeResponseBody extends Model
         }
         if (isset($map['DhcpOptionsSetStatus'])) {
             $model->dhcpOptionsSetStatus = $map['DhcpOptionsSetStatus'];
+        }
+        if (isset($map['DnsHostnameStatus'])) {
+            $model->dnsHostnameStatus = $map['DnsHostnameStatus'];
         }
         if (isset($map['EnabledIpv6'])) {
             $model->enabledIpv6 = $map['EnabledIpv6'];

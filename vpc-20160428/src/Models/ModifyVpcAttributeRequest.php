@@ -29,6 +29,11 @@ class ModifyVpcAttributeRequest extends Model
     public $description;
 
     /**
+     * @var bool
+     */
+    public $enableDnsHostname;
+
+    /**
      * @description Specifies whether to enable IPv6 CIDR blocks. Valid values:
      *
      *   **true**
@@ -116,6 +121,7 @@ class ModifyVpcAttributeRequest extends Model
     protected $_name = [
         'cidrBlock'            => 'CidrBlock',
         'description'          => 'Description',
+        'enableDnsHostname'    => 'EnableDnsHostname',
         'enableIPv6'           => 'EnableIPv6',
         'ipv6CidrBlock'        => 'Ipv6CidrBlock',
         'ipv6Isp'              => 'Ipv6Isp',
@@ -140,6 +146,9 @@ class ModifyVpcAttributeRequest extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->enableDnsHostname) {
+            $res['EnableDnsHostname'] = $this->enableDnsHostname;
         }
         if (null !== $this->enableIPv6) {
             $res['EnableIPv6'] = $this->enableIPv6;
@@ -188,6 +197,9 @@ class ModifyVpcAttributeRequest extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['EnableDnsHostname'])) {
+            $model->enableDnsHostname = $map['EnableDnsHostname'];
         }
         if (isset($map['EnableIPv6'])) {
             $model->enableIPv6 = $map['EnableIPv6'];

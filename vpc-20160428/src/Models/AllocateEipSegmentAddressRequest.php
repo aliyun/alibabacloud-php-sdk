@@ -51,7 +51,7 @@ class AllocateEipSegmentAddressRequest extends Model
     public $eipMask;
 
     /**
-     * @description The metering method of the contiguous EIP group. Valid values:
+     * @description The metering method of contiguous EIPs. Valid values:
      *
      *   **PayByBandwidth** (default)
      *   **PayByTraffic**
