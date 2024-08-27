@@ -4826,6 +4826,9 @@ class Polardb extends OpenApiClient
         if (!Utils::isUnset($request->DBEndpointId)) {
             $query['DBEndpointId'] = $request->DBEndpointId;
         }
+        if (!Utils::isUnset($request->DBNodeId)) {
+            $query['DBNodeId'] = $request->DBNodeId;
+        }
         if (!Utils::isUnset($request->endTime)) {
             $query['EndTime'] = $request->endTime;
         }

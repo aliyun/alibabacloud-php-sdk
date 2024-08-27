@@ -28,6 +28,11 @@ class DescribeDBProxyPerformanceRequest extends Model
     public $DBEndpointId;
 
     /**
+     * @var string
+     */
+    public $DBNodeId;
+
+    /**
      * @description The end of the time range to query. Specify the time in the `yyyy-MM-ddTHH:mmZ` format. The time must be in UTC.
      *
      * This parameter is required.
@@ -77,6 +82,7 @@ class DescribeDBProxyPerformanceRequest extends Model
     protected $_name = [
         'DBClusterId'  => 'DBClusterId',
         'DBEndpointId' => 'DBEndpointId',
+        'DBNodeId'     => 'DBNodeId',
         'endTime'      => 'EndTime',
         'interval'     => 'Interval',
         'key'          => 'Key',
@@ -96,6 +102,9 @@ class DescribeDBProxyPerformanceRequest extends Model
         }
         if (null !== $this->DBEndpointId) {
             $res['DBEndpointId'] = $this->DBEndpointId;
+        }
+        if (null !== $this->DBNodeId) {
+            $res['DBNodeId'] = $this->DBNodeId;
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
@@ -129,6 +138,9 @@ class DescribeDBProxyPerformanceRequest extends Model
         }
         if (isset($map['DBEndpointId'])) {
             $model->DBEndpointId = $map['DBEndpointId'];
+        }
+        if (isset($map['DBNodeId'])) {
+            $model->DBNodeId = $map['DBNodeId'];
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
