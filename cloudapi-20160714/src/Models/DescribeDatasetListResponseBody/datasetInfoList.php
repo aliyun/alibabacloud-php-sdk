@@ -59,7 +59,7 @@ class datasetInfoList extends Model
     public $modifiedTime;
 
     /**
-     * @description The tags of the dataset.
+     * @description 标签
      *
      * @var tags[]
      */

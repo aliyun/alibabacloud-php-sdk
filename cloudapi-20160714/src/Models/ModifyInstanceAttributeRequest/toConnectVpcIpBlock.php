@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class toConnectVpcIpBlock extends Model
 {
     /**
+     * @description The CIDR block of the VSwitch.
+     *
      * @example 172.16.0.0/16
      *
      * @var string
@@ -16,6 +18,8 @@ class toConnectVpcIpBlock extends Model
     public $cidrBlock;
 
     /**
+     * @description Specifies whether the CIDR block is a custom CIDR block.
+     *
      * @example false
      *
      * @var bool
@@ -23,6 +27,8 @@ class toConnectVpcIpBlock extends Model
     public $customized;
 
     /**
+     * @description The vSwitch ID.
+     *
      * @example vsw-wz94cqvaoe1ipxxxxxx
      *
      * @var string
@@ -30,6 +36,8 @@ class toConnectVpcIpBlock extends Model
     public $vswitchId;
 
     /**
+     * @description The zone ID.
+     *
      * @example cn-hangzhou-a
      *
      * @var string

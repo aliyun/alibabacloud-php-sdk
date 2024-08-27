@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class mockHeader extends Model
 {
     /**
-     * @description The name of the HTTP header parameter.
+     * @description The HTTP headers.
      *
      * @example Content-Type
      *
@@ -18,7 +18,7 @@ class mockHeader extends Model
     public $headerName;
 
     /**
-     * @description The value of the HTTP header parameter.
+     * @description The values of the HTTP headers.
      *
      * @example 86400
      *

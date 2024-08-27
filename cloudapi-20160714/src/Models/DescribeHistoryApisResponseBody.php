@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeHistoryApisResponseBody extends Model
 {
     /**
-     * @description The returned API information. It is an array consisting of ApiHisItem data.
+     * @description The returned API information. It is an array consisting of ApiHisItems.
      *
      * @var apiHisItems
      */

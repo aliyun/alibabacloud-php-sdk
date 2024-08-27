@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeApisByVpcAccessResponseBody extends Model
 {
     /**
+     * @description The returned API information. It is an array consisting of ApiInfo data.
+     *
      * @var apiVpcAccessInfos
      */
     public $apiVpcAccessInfos;
 
     /**
+     * @description The page number. Pages start from page 1. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class DescribeApisByVpcAccessResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Valid values: 1 to 100. Default value: 10.
+     *
      * @example 10
      *
      * @var int
@@ -29,6 +35,8 @@ class DescribeApisByVpcAccessResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
      * @example 4E707B25-5119-5ACF-9D26-7D2A2762F05C
      *
      * @var string
@@ -36,6 +44,8 @@ class DescribeApisByVpcAccessResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 12
      *
      * @var int

@@ -99,7 +99,7 @@ class requestParameter extends Model
     public $location;
 
     /**
-     * @description The maximum parameter length when ParameterType is set to String.
+     * @description The maximum parameter length when **ParameterType** is set to String.
      *
      * @example 123456
      *
@@ -108,7 +108,7 @@ class requestParameter extends Model
     public $maxLength;
 
     /**
-     * @description The maximum parameter value when ParameterType is set to Int, Long, Float, or Double.
+     * @description The maximum parameter value when **ParameterType** is set to Int, Long, Float, or Double.
      *
      * @example 123456
      *
@@ -117,7 +117,7 @@ class requestParameter extends Model
     public $maxValue;
 
     /**
-     * @description The minimum parameter length when ParameterType is set to String.
+     * @description The minimum parameter length when **ParameterType** is set to String.
      *
      * @example 123456
      *
@@ -126,7 +126,7 @@ class requestParameter extends Model
     public $minLength;
 
     /**
-     * @description The minimum parameter value when ParameterType is set to Int, Long, Float, or Double.
+     * @description The minimum parameter value when **ParameterType** is set to Int, Long, Float, or Double.
      *
      * @example 123456
      *
@@ -144,7 +144,7 @@ class requestParameter extends Model
     public $parameterType;
 
     /**
-     * @description The regular expression that is used for parameter validation when ParameterType is set to String.
+     * @description The regular expression that is used for parameter validation when **ParameterType** is set to String.
      *
      * @example xxx
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class aclEntry extends Model
 {
     /**
-     * @description The description of an entry.
+     * @description The entry description.
      *
      * @example default
      *
@@ -18,7 +18,7 @@ class aclEntry extends Model
     public $aclEntryComment;
 
     /**
-     * @description The entries of the access control policy.
+     * @description The ACL entry.
      *
      * @example 192.168.1.0/24
      *

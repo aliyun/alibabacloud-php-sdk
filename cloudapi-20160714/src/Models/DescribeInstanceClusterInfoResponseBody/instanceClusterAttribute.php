@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class instanceClusterAttribute extends Model
 {
     /**
+     * @description The internal CIDR block of the user VPC that can be accessed by the cluster if the cluster consists of VPC integration instances.
+     *
      * @example ["192.168.1.0/24","192.168.0.0/24"]
      *
      * @var string
@@ -16,6 +18,8 @@ class instanceClusterAttribute extends Model
     public $connectCidrBlocks;
 
     /**
+     * @description The ID of the user VPC that is connected to the cluster if the cluster consists of VPC integration instances.
+     *
      * @example vpc-p0w3kxxxxxxxxxxxxxxxx
      *
      * @var string
@@ -23,6 +27,8 @@ class instanceClusterAttribute extends Model
     public $connectVpcId;
 
     /**
+     * @description Indicates whether outbound IPv6 traffic is supported.
+     *
      * @example true
      *
      * @var bool
@@ -30,6 +36,8 @@ class instanceClusterAttribute extends Model
     public $egressIpv6Enable;
 
     /**
+     * @description The HTTPS security policy.
+     *
      * @example HTTPS2_TLS1_0
      *
      * @var string
@@ -37,6 +45,8 @@ class instanceClusterAttribute extends Model
     public $httpsPolicies;
 
     /**
+     * @description The ID of the IPv4 access control list (ACL).
+     *
      * @example acl-t4n8i4rvvp70kcyuoXXXX
      *
      * @var string
@@ -44,6 +54,8 @@ class instanceClusterAttribute extends Model
     public $IPV4AclId;
 
     /**
+     * @description The name of the IPv4 ACL.
+     *
      * @example test-black
      *
      * @var string
@@ -51,6 +63,11 @@ class instanceClusterAttribute extends Model
     public $IPV4AclName;
 
     /**
+     * @description Indicates whether IPv4 access control is enabled. Valid values:
+     *
+     *   on
+     *   off
+     *
      * @example on
      *
      * @var string
@@ -58,6 +75,11 @@ class instanceClusterAttribute extends Model
     public $IPV4AclStatus;
 
     /**
+     * @description The type of the IPv4 ACL.
+     *
+     *   black: blacklist
+     *   white: whitelist
+     *
      * @example black
      *
      * @var string
@@ -65,6 +87,8 @@ class instanceClusterAttribute extends Model
     public $IPV4AclType;
 
     /**
+     * @description The ID of the IPv6 ACL.
+     *
      * @example acl-t4nevzhwbpe7cup18XXXX
      *
      * @var string
@@ -72,6 +96,8 @@ class instanceClusterAttribute extends Model
     public $IPV6AclId;
 
     /**
+     * @description The name of the IPv6 ACL.
+     *
      * @example test
      *
      * @var string
@@ -79,6 +105,11 @@ class instanceClusterAttribute extends Model
     public $IPV6AclName;
 
     /**
+     * @description Indicates whether IPv6 access control is enabled. Valid values:
+     *
+     *   **on**
+     *   **off**
+     *
      * @example on
      *
      * @var string
@@ -86,6 +117,11 @@ class instanceClusterAttribute extends Model
     public $IPV6AclStatus;
 
     /**
+     * @description The type of the IPv6 ACL. Valid values:
+     *
+     *   black: blacklist
+     *   white: whitelist
+     *
      * @example white
      *
      * @var string
@@ -93,6 +129,8 @@ class instanceClusterAttribute extends Model
     public $IPV6AclType;
 
     /**
+     * @description The outbound public IP address.
+     *
      * @example 39.106.XX.XX
      *
      * @var string
@@ -100,6 +138,8 @@ class instanceClusterAttribute extends Model
     public $internetEgressAddress;
 
     /**
+     * @description The outbound private IP address.
+     *
      * @example 100.104.XX.XX/26
      *
      * @var string
@@ -107,6 +147,8 @@ class instanceClusterAttribute extends Model
     public $intranetEgressAddress;
 
     /**
+     * @description The custom CIDR block. The configured CIDR block is considered as a private block.
+     *
      * @example 123.0.0.1
      *
      * @var string
@@ -114,6 +156,8 @@ class instanceClusterAttribute extends Model
     public $intranetSegments;
 
     /**
+     * @description Indicates whether IPv6 traffic is supported.
+     *
      * @example true
      *
      * @var bool
@@ -121,6 +165,8 @@ class instanceClusterAttribute extends Model
     public $supportIpv6;
 
     /**
+     * @description The ID of the client VPC.
+     *
      * @example vpc-2zew2v4vcg78mXXXX
      *
      * @var string
@@ -128,6 +174,8 @@ class instanceClusterAttribute extends Model
     public $userVpcId;
 
     /**
+     * @description The vSwitch of the client VPC.
+     *
      * @example vsw-2zecr5r7ao44tslsXXXX
      *
      * @var string
@@ -135,6 +183,8 @@ class instanceClusterAttribute extends Model
     public $userVswitchId;
 
     /**
+     * @description The VIPs of the cluster.
+     *
      * @example VPC_INTERNET_IPV6
      *
      * @var string
@@ -142,11 +192,15 @@ class instanceClusterAttribute extends Model
     public $vipTypeList;
 
     /**
+     * @description Indicates whether a virtual private cloud (VPC) domain name is enabled.
+     *
      * @var bool
      */
     public $vpcIntranetEnable;
 
     /**
+     * @description The ID of the account to which the VPC belongs.
+     *
      * @example 165438596694XXXX
      *
      * @var int
@@ -154,6 +208,8 @@ class instanceClusterAttribute extends Model
     public $vpcOwnerId;
 
     /**
+     * @description Indicates whether self-calling is enabled.
+     *
      * @example false
      *
      * @var bool

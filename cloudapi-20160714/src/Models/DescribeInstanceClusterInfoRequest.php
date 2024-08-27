@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceClusterInfoRequest extends Model
 {
     /**
+     * @description The name of the dedicated instance cluster.
+     *
      * @example testvpc
      *
      * @var string

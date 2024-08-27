@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteAppKeyRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The application ID.
      *
+     * This parameter is required.
      * @example 110840611
      *
      * @var string
@@ -18,8 +19,9 @@ class DeleteAppKeyRequest extends Model
     public $appId;
 
     /**
-     * @description This parameter is required.
+     * @description The AppKey of the application. The AppKey is used for calling an API.
      *
+     * This parameter is required.
      * @example 203708622
      *
      * @var string

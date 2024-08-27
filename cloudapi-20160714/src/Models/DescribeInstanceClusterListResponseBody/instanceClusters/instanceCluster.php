@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class instanceCluster extends Model
 {
     /**
+     * @description The time when the cluster was created. The time is displayed in UTC.
+     *
      * @example 2023-08-14T17:46:59+08:00
      *
      * @var string
@@ -16,6 +18,8 @@ class instanceCluster extends Model
     public $createdTime;
 
     /**
+     * @description The cluster description.
+     *
      * @example Test TrafficControl
      *
      * @var string
@@ -23,26 +27,44 @@ class instanceCluster extends Model
     public $description;
 
     /**
+     * @description The cluster ID.
+     *
+     * @example apigateway-cluster-hz-xxxxxxxxxxxx
+     *
      * @var string
      */
     public $instanceClusterId;
 
     /**
+     * @description The cluster name.
+     *
+     * @example test-cluster
+     *
      * @var string
      */
     public $instanceClusterName;
 
     /**
+     * @description The cluster status.
+     *
+     * @example RUNNING
+     *
      * @var string
      */
     public $instanceClusterStatus;
 
     /**
+     * @description The cluster type.
+     *
+     * @example normal
+     *
      * @var string
      */
     public $instanceClusterType;
 
     /**
+     * @description The time when the cluster was last modified. The time is displayed in UTC.
+     *
      * @example 2024-01-12T10:11:08+08:00
      *
      * @var string
@@ -50,6 +72,8 @@ class instanceCluster extends Model
     public $modifiedTime;
 
     /**
+     * @description The region ID of the cluster.
+     *
      * @example cn-shenzhen
      *
      * @var string

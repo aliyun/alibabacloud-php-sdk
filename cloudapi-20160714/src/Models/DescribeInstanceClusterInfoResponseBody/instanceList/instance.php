@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class instance extends Model
 {
     /**
+     * @description The error message returned if the call fails.
+     *
      * @example Instance not found.
      *
      * @var string
@@ -16,6 +18,8 @@ class instance extends Model
     public $errorMessage;
 
     /**
+     * @description The instance ID.
+     *
      * @example apigateway-ht-04e41d95e9c1
      *
      * @var string
@@ -23,6 +27,8 @@ class instance extends Model
     public $instanceId;
 
     /**
+     * @description The instance name.
+     *
      * @example tf-testacceu-central-1apigatewayinstance8752
      *
      * @var string
@@ -30,6 +36,8 @@ class instance extends Model
     public $instanceName;
 
     /**
+     * @description The instance status.
+     *
      * @example RUNNING
      *
      * @var string

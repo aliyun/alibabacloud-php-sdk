@@ -19,7 +19,7 @@ class SetAppsAuthoritiesRequest extends Model
     public $apiId;
 
     /**
-     * @description The API ID for the specified operation. Separate multiple API IDs with commas (,). A maximum of 100 API IDs can be entered.
+     * @description The IDs of applications. Separate multiple application IDs with commas (,). A maximum of 100 applications IDs can be entered.
      *
      * This parameter is required.
      * @example 2386789,3389798

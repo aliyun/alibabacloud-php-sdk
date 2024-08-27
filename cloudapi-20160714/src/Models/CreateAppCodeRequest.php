@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateAppCodeRequest extends Model
 {
     /**
+     * @description The application AppCode.
+     *
      * @example 3aaf905a0a1f4f0eabc6d891dfa08afc
      *
      * @var string
@@ -16,8 +18,9 @@ class CreateAppCodeRequest extends Model
     public $appCode;
 
     /**
-     * @description This parameter is required.
+     * @description The application ID.
      *
+     * This parameter is required.
      * @example 111203109
      *
      * @var string

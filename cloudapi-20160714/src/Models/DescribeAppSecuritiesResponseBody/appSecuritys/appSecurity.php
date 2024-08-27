@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class appSecurity extends Model
 {
     /**
+     * @description The application AppCode.
+     *
      * @example d2350ecd62c44cbfbe35a7f182e35105
      *
      * @var string
@@ -16,6 +18,8 @@ class appSecurity extends Model
     public $appCode;
 
     /**
+     * @description The application AppKey.
+     *
      * @example 34379343
      *
      * @var string
@@ -23,6 +27,8 @@ class appSecurity extends Model
     public $appKey;
 
     /**
+     * @description The application AppSecret.
+     *
      * @example ea5291a7aff343769eb3139a2f6de8c9
      *
      * @var string
@@ -30,6 +36,8 @@ class appSecurity extends Model
     public $appSecret;
 
     /**
+     * @description The time when the AppKey was created.
+     *
      * @example 2021-09-14T18:50:59
      *
      * @var string
@@ -37,6 +45,8 @@ class appSecurity extends Model
     public $createdTime;
 
     /**
+     * @description The time when the AppSecret was last modified. The time is displayed in UTC.
+     *
      * @example 2023-08-14T18:03:00+08:00
      *
      * @var string

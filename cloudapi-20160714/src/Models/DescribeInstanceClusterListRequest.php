@@ -9,16 +9,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceClusterListRequest extends Model
 {
     /**
+     * @description The cluster ID.
+     *
+     * @example apigateway-cluster-hz-xxxxxxxxxxxx
+     *
      * @var string
      */
     public $instanceClusterId;
 
     /**
+     * @description The cluster name.
+     *
+     * @example test-cluster
+     *
      * @var string
      */
     public $instanceClusterName;
 
     /**
+     * @description The page number of the page to return.
+     *
      * @example 1
      *
      * @var int
@@ -26,6 +36,8 @@ class DescribeInstanceClusterListRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 10
      *
      * @var int

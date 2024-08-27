@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class SwitchApiRequest extends Model
 {
     /**
-     * @description The ID of the API.
+     * @description The API ID.
      *
      * This parameter is required.
      * @example d6f679aeb3be4b91b3688e887ca1fe16
@@ -19,7 +19,7 @@ class SwitchApiRequest extends Model
     public $apiId;
 
     /**
-     * @description The description of the switch operation.
+     * @description The description. The description can be up to 200 characters in length.
      *
      * This parameter is required.
      * @example for_demo
@@ -29,7 +29,7 @@ class SwitchApiRequest extends Model
     public $description;
 
     /**
-     * @description The ID of the API group.
+     * @description The API group ID.
      *
      * @example 123
      *
@@ -38,7 +38,7 @@ class SwitchApiRequest extends Model
     public $groupId;
 
     /**
-     * @description The historical version that you want to switch to.
+     * @description The historical version number of the API.
      *
      * This parameter is required.
      * @example 20160705104552292
@@ -53,10 +53,11 @@ class SwitchApiRequest extends Model
     public $securityToken;
 
     /**
-     * @description The name of the runtime environment. Valid values:
+     * @description The environment. Valid values:
      *
-     *   **RELEASE**
-     *   **TEST**
+     *   **RELEASE**: the production environment
+     *   **PRE**: the staging environment
+     *   **TEST**: the test environment
      *
      * This parameter is required.
      * @example RELEASE

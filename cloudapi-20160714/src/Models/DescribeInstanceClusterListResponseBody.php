@@ -15,6 +15,8 @@ class DescribeInstanceClusterListResponseBody extends Model
     public $instanceClusters;
 
     /**
+     * @description The page number of the returned page.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +24,8 @@ class DescribeInstanceClusterListResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 10
      *
      * @var int
@@ -29,6 +33,8 @@ class DescribeInstanceClusterListResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
      * @example CEF72CEB-54B6-4AE8-B225-F876FF7BZ015
      *
      * @var string
@@ -36,6 +42,8 @@ class DescribeInstanceClusterListResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 2
      *
      * @var int

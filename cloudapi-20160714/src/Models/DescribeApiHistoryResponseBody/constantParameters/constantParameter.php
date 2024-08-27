@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class constantParameter extends Model
 {
     /**
-     * @description The constant value.
+     * @description The value of the constant parameter.
      *
      * @example constance
      *
@@ -18,7 +18,7 @@ class constantParameter extends Model
     public $constantValue;
 
     /**
-     * @description The description.
+     * @description The parameter description.
      *
      * @example for_test1
      *
@@ -36,7 +36,7 @@ class constantParameter extends Model
     public $location;
 
     /**
-     * @description The name of the backend service parameter.
+     * @description The mapped parameter name in the backend service.
      *
      * @example constance
      *

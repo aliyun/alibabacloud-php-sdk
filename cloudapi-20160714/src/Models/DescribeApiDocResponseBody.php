@@ -120,7 +120,7 @@ class DescribeApiDocResponseBody extends Model
     public $regionId;
 
     /**
-     * @description The returned API frontend definition information. It is an array consisting of RequestConfig data.
+     * @description The returned API frontend definition. It is an array consisting of RequestConfig data.
      *
      * @var requestConfig
      */

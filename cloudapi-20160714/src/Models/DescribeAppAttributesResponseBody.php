@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeAppAttributesResponseBody extends Model
 {
     /**
-     * @description The returned application information. It is an array that consists of AppAttribute data.
+     * @description The returned app information. It is an array that consists of AppAttribute data.
      *
      * @var apps
      */

@@ -35,7 +35,7 @@ class DescribeAccessControlListAttributeResponseBody extends Model
     public $aclName;
 
     /**
-     * @description The IP version. Valid values: **ipv4** and **ipv6**.
+     * @description The IP protocol version. Valid values: **ipv4** and **ipv6**.
      *
      * @example ipv4
      *

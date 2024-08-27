@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateAppKeyRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The application ID.
      *
+     * This parameter is required.
      * @example 111053351
      *
      * @var string
@@ -18,6 +19,8 @@ class CreateAppKeyRequest extends Model
     public $appId;
 
     /**
+     * @description The application AppKey.
+     *
      * @example 204203237
      *
      * @var string
@@ -25,6 +28,8 @@ class CreateAppKeyRequest extends Model
     public $appKey;
 
     /**
+     * @description The application AppSecret.
+     *
      * @example 6f0a4ad7918a4b41a57fc087d5b066d0
      *
      * @var string

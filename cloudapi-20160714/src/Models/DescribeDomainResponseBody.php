@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainResponseBody extends Model
 {
     /**
-     * @description The certificate content.
+     * @description The content of the certificate.
      *
      * @example xxx
      *
@@ -27,7 +27,7 @@ class DescribeDomainResponseBody extends Model
     public $certificateId;
 
     /**
-     * @description The SSL certificate name.
+     * @description The name of the SSL certificate.
      *
      * @example myCertificate
      *
@@ -45,7 +45,7 @@ class DescribeDomainResponseBody extends Model
     public $certificatePrivateKey;
 
     /**
-     * @description The time when the certificate expires. The value is a timestamp. Unit: milliseconds.
+     * @description 证书失效时间戳（毫秒）
      *
      * @example 1704038400000
      *
@@ -54,7 +54,7 @@ class DescribeDomainResponseBody extends Model
     public $certificateValidEnd;
 
     /**
-     * @description The time when the certificate takes effect. The value is a timestamp. Unit: milliseconds.
+     * @description 证书生效时间戳（毫秒）
      *
      * @example 1672502400000
      *
@@ -65,8 +65,8 @@ class DescribeDomainResponseBody extends Model
     /**
      * @description The binding status of the custom domain name. Valid values:
      *
-     *   BINDING: The domain name is bound to the API group.
-     *   BOUND: The domain name is not bound to the API group.
+     *   BINDING: The domain name has been bound.
+     *   BOUND: The domain name has not been bound.
      *
      * @example BINDING
      *
@@ -90,7 +90,7 @@ class DescribeDomainResponseBody extends Model
      * @description The validity status of the domain name. Valid values:
      *
      *   NORMAL
-     *   ABNORMAL: This status affects API calls and must be rectified as soon as possible.
+     *   ABNORMAL: This status affects API calls and must be resolved as soon as possible.
      *
      * @example NORMAL
      *
@@ -110,7 +110,7 @@ class DescribeDomainResponseBody extends Model
     /**
      * @description Remarks about the domain name, such as the cause of an exception.
      *
-     * @example The status of the domain name that uses WebSocket.
+     * @example The domain name does not have an ICP filing.
      *
      * @var string
      */
@@ -135,7 +135,7 @@ class DescribeDomainResponseBody extends Model
     public $groupId;
 
     /**
-     * @description The request ID.
+     * @description The ID of the request.
      *
      * @example 6EF60BEC-0242-43AF-BB20-270359FB54A7
      *

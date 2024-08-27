@@ -17,7 +17,7 @@ class DescribeModelsResponseBody extends Model
     public $modelDetails;
 
     /**
-     * @description The page number of the returned page.
+     * @description The page number of the page to return.
      *
      * @example 1
      *
@@ -26,7 +26,7 @@ class DescribeModelsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The number of entries per page.
      *
      * @example 10
      *
@@ -35,7 +35,7 @@ class DescribeModelsResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 40306469-2FB5-417A-B723-AF1F4A4FA204
      *

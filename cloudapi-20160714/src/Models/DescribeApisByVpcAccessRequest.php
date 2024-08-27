@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeApisByVpcAccessRequest extends Model
 {
     /**
+     * @description The page number. Pages start from page 1. Default value: 1.
+     *
      * @example 2
      *
      * @var int
@@ -16,6 +18,8 @@ class DescribeApisByVpcAccessRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Valid values: 1 to 100. Default value: 10.
+     *
      * @example 10
      *
      * @var int
@@ -28,6 +32,8 @@ class DescribeApisByVpcAccessRequest extends Model
     public $securityToken;
 
     /**
+     * @description The name of the VPC access authorization.
+     *
      * @example lynkco-iov-uat
      *
      * @var string

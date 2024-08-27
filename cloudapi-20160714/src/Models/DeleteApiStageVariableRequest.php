@@ -24,7 +24,7 @@ class DeleteApiStageVariableRequest extends Model
     public $securityToken;
 
     /**
-     * @description The ID of the runtime environment.
+     * @description The ID of the environment.
      *
      * This parameter is required.
      * @example 6EF60BEC-0242-43AF-BB20-270359FB54A7

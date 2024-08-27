@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class deployedApiItem extends Model
 {
     /**
-     * @description The API ID.
+     * @description The ID of the API.
      *
      * @example c076144d7878437b8f82fb85890ce6a0
      *
@@ -18,8 +18,6 @@ class deployedApiItem extends Model
     public $apiId;
 
     /**
-     * @description The HTTP method of the API request.
-     *
      * @example POST
      *
      * @var string
@@ -27,7 +25,7 @@ class deployedApiItem extends Model
     public $apiMethod;
 
     /**
-     * @description The API name.
+     * @description The name of the API.
      *
      * @example DescribeObjects
      *
@@ -36,8 +34,6 @@ class deployedApiItem extends Model
     public $apiName;
 
     /**
-     * @description The request path of the API.
-     *
      * @example /trademark/search
      *
      * @var string
@@ -45,7 +41,7 @@ class deployedApiItem extends Model
     public $apiPath;
 
     /**
-     * @description The time when the API was published. The time is displayed in UTC.
+     * @description The publising time (UTC) of the API.
      *
      * @example 2016-07-23T08:28:48Z
      *
@@ -54,16 +50,16 @@ class deployedApiItem extends Model
     public $deployedTime;
 
     /**
-     * @description The API description.
+     * @description The description of the API.
      *
-     * @example Queries objects by page
+     * @example Queries objects by pages
      *
      * @var string
      */
     public $description;
 
     /**
-     * @description The API group ID.
+     * @description The ID of the API group.
      *
      * @example 63be9002440b4778a61122f14c2b2bbb
      *
@@ -72,7 +68,7 @@ class deployedApiItem extends Model
     public $groupId;
 
     /**
-     * @description The name of the API group to which the API belongs.
+     * @description The name of the group to which the API belongs.
      *
      * @example myGroup3
      *
@@ -81,7 +77,7 @@ class deployedApiItem extends Model
     public $groupName;
 
     /**
-     * @description The region ID of the API.
+     * @description The region where the API is located.
      *
      * @example cn-qingdao
      *
@@ -90,7 +86,7 @@ class deployedApiItem extends Model
     public $regionId;
 
     /**
-     * @description The environment name. Valid values:
+     * @description The name of the runtime environment. Valid values:
      *
      *   **RELEASE**
      *   **TEST**

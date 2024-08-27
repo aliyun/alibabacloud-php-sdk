@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class resultDescription extends Model
 {
     /**
-     * @description The description.
+     * @description The subnode description.
      *
      * @example for_test1
      *
@@ -18,7 +18,7 @@ class resultDescription extends Model
     public $description;
 
     /**
-     * @description Specifies whether a subnode exists.
+     * @description Indicates whether a subnode exists.
      *
      * @example true
      *
@@ -27,7 +27,7 @@ class resultDescription extends Model
     public $hasChild;
 
     /**
-     * @description The ID of the result.
+     * @description The result ID.
      *
      * @example id
      *
@@ -45,7 +45,7 @@ class resultDescription extends Model
     public $key;
 
     /**
-     * @description Specifies whether the parameter is required.
+     * @description Indicates whether the parameter is required.
      *
      * @example true
      *
@@ -54,7 +54,7 @@ class resultDescription extends Model
     public $mandatory;
 
     /**
-     * @description The name of the result.
+     * @description The result name.
      *
      * @example fwqf
      *
@@ -72,7 +72,7 @@ class resultDescription extends Model
     public $pid;
 
     /**
-     * @description The type of the result.
+     * @description The result type.
      *
      * @example String
      *

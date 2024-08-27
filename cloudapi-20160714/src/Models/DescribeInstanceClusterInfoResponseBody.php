@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceClusterInfoResponseBody extends Model
 {
     /**
+     * @description The time when the cluster was created.
+     *
      * @example 2022-10-10T18:29:27
      *
      * @var string
@@ -18,6 +20,8 @@ class DescribeInstanceClusterInfoResponseBody extends Model
     public $createdTime;
 
     /**
+     * @description The cluster description, which can be up to 200 characters in length.
+     *
      * @example v0.0.4
      *
      * @var string
@@ -25,11 +29,15 @@ class DescribeInstanceClusterInfoResponseBody extends Model
     public $description;
 
     /**
+     * @description The cluster details.
+     *
      * @var instanceClusterAttribute
      */
     public $instanceClusterAttribute;
 
     /**
+     * @description The cluster ID.
+     *
      * @example apigateway-ht-04e41d95e9c1
      *
      * @var string
@@ -37,6 +45,8 @@ class DescribeInstanceClusterInfoResponseBody extends Model
     public $instanceClusterId;
 
     /**
+     * @description The cluster name.
+     *
      * @example test
      *
      * @var string
@@ -44,6 +54,8 @@ class DescribeInstanceClusterInfoResponseBody extends Model
     public $instanceClusterName;
 
     /**
+     * @description The cluster status.
+     *
      * @example RUNNING
      *
      * @var string
@@ -51,6 +63,8 @@ class DescribeInstanceClusterInfoResponseBody extends Model
     public $instanceClusterStatus;
 
     /**
+     * @description The cluster type.
+     *
      * @example normal
      *
      * @var string
@@ -58,6 +72,8 @@ class DescribeInstanceClusterInfoResponseBody extends Model
     public $instanceClusterType;
 
     /**
+     * @description The cluster version.
+     *
      * @example 3.5.3.856
      *
      * @var string
@@ -65,11 +81,15 @@ class DescribeInstanceClusterInfoResponseBody extends Model
     public $instanceClusterVersion;
 
     /**
+     * @description The dedicated instances contained in the cluster.
+     *
      * @var instanceList
      */
     public $instanceList;
 
     /**
+     * @description The time when the cluster was last modified.
+     *
      * @example 2023-06-19 10:40:29 +0800
      *
      * @var string
@@ -77,6 +97,8 @@ class DescribeInstanceClusterInfoResponseBody extends Model
     public $modifiedTime;
 
     /**
+     * @description The region ID of the cluster.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -84,6 +106,8 @@ class DescribeInstanceClusterInfoResponseBody extends Model
     public $regionId;
 
     /**
+     * @description The request ID.
+     *
      * @example CEF72CEB-54B6-4AE8-B225-F876FF7BZ015
      *
      * @var string

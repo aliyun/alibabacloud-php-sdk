@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class apiHisItem extends Model
 {
     /**
-     * @description The ID of the API.
+     * @description The API ID.
      *
      * @example 5af418828f0344a3b588c0cc1331a3bc
      *
@@ -18,7 +18,7 @@ class apiHisItem extends Model
     public $apiId;
 
     /**
-     * @description The name of the API.
+     * @description The API name.
      *
      * @example v2_role_assign
      *
@@ -27,7 +27,7 @@ class apiHisItem extends Model
     public $apiName;
 
     /**
-     * @description The publising time (UTC) of the API.
+     * @description The time when the API was published. The time is displayed in UTC.
      *
      * @example 2016-07-20T08:28:48Z
      *
@@ -36,7 +36,7 @@ class apiHisItem extends Model
     public $deployedTime;
 
     /**
-     * @description The description of the API.
+     * @description The API description.
      *
      * @example Creates an object
      *
@@ -45,7 +45,7 @@ class apiHisItem extends Model
     public $description;
 
     /**
-     * @description The ID of the API group.
+     * @description The API group ID.
      *
      * @example 1084f9034c744137901057206b39d2b6
      *
@@ -54,7 +54,7 @@ class apiHisItem extends Model
     public $groupId;
 
     /**
-     * @description The name of the group to which the API belongs.
+     * @description The name of the API group to which the API belongs.
      *
      * @example myGroup2
      *
@@ -72,7 +72,7 @@ class apiHisItem extends Model
     public $historyVersion;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID.
      *
      * @example cn-qingdao
      *
@@ -81,7 +81,7 @@ class apiHisItem extends Model
     public $regionId;
 
     /**
-     * @description Environmental alias
+     * @description The environment alias.
      *
      * @example Online
      *
@@ -90,10 +90,10 @@ class apiHisItem extends Model
     public $stageAlias;
 
     /**
-     * @description The name of the runtime environment. Valid values:
+     * @description The environment name. Valid values:
      *
      *   **RELEASE**
-     *   **TEST.
+     *   **TEST**
      *
      * @example RELEASE
      *

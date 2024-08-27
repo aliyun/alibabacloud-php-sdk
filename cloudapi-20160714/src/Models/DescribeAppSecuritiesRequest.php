@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeAppSecuritiesRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The application ID.
      *
+     * This parameter is required.
      * @example 110862931
      *
      * @var int

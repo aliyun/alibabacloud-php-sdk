@@ -74,6 +74,8 @@ class backendConfig extends Model
     public $serviceAddress;
 
     /**
+     * @example 10000
+     *
      * @var int
      */
     public $serviceTimeout;

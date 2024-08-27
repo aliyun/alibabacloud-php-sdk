@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeAuthorizedAppsResponseBody extends Model
 {
     /**
-     * @description The returned group set.
+     * @description The authorized applications.
      *
      * @var authorizedApps
      */

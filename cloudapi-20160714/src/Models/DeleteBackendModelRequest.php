@@ -33,13 +33,12 @@ class DeleteBackendModelRequest extends Model
     public $securityToken;
 
     /**
-     * @description The environment to which the API is published. Valid values:
+     * @description The name of the runtime environment. Valid values:
      *
      *   **RELEASE**
      *   **PRE**
      *   **TEST**
      *
-     * If you do not specify this parameter, APIs in the draft state are returned.
      * @example TEST
      *
      * @var string

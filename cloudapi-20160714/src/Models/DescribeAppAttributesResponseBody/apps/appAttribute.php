@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class appAttribute extends Model
 {
     /**
-     * @description The application ID.
+     * @description The ID of the app.
      *
      * @example 20112314518278
      *
@@ -19,7 +19,7 @@ class appAttribute extends Model
     public $appId;
 
     /**
-     * @description The application name.
+     * @description The name of the app.
      *
      * @example CreateApptest
      *
@@ -28,7 +28,7 @@ class appAttribute extends Model
     public $appName;
 
     /**
-     * @description The creation time (UTC) of the application.
+     * @description The creation time (UTC) of the app.
      *
      * @example 2016-07-31T04:10:19Z
      *
@@ -37,7 +37,7 @@ class appAttribute extends Model
     public $createdTime;
 
     /**
-     * @description The application description.
+     * @description The description of the app.
      *
      * @example App test
      *
@@ -46,7 +46,7 @@ class appAttribute extends Model
     public $description;
 
     /**
-     * @description The extended information.
+     * @description 扩展信息
      *
      * @example 110461946884
      *
@@ -55,7 +55,7 @@ class appAttribute extends Model
     public $extend;
 
     /**
-     * @description The modification time (UTC) of the application.
+     * @description The modification time (UTC) of the app.
      *
      * @example 2016-07-31T04:10:19Z
      *

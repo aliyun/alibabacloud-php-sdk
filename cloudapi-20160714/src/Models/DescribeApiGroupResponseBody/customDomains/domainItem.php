@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class domainItem extends Model
 {
     /**
-     * @description Bind runtime environment alias
+     * @description The alias of the associated environment.
      *
      * @example TEST1
      *

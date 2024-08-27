@@ -19,7 +19,7 @@ class modelDetail extends Model
     public $createdTime;
 
     /**
-     * @description The definition of the model description.
+     * @description The description of the model definition.
      *
      * @example Model Description
      *
@@ -64,7 +64,7 @@ class modelDetail extends Model
     public $modelRef;
 
     /**
-     * @description The last modification time of the model.
+     * @description The time when the model was last modified.
      *
      * @example 2019-01-29T11:07:48Z
      *
@@ -82,6 +82,8 @@ class modelDetail extends Model
     public $schema;
 
     /**
+     * @description The tags of the model.
+     *
      * @var tags
      */
     public $tags;

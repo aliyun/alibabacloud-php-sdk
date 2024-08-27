@@ -18,7 +18,7 @@ class errorCodeSample extends Model
     public $code;
 
     /**
-     * @description The description of the error code.
+     * @description The error description.
      *
      * @example Unauthorized
      *

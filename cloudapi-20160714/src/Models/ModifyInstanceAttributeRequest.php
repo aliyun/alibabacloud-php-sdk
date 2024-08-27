@@ -75,6 +75,8 @@ class ModifyInstanceAttributeRequest extends Model
     public $maintainStartTime;
 
     /**
+     * @description The information about the CIDR block that API Gateway can use to access the virtual private cloud (VPC) of the backend service.
+     *
      * @var toConnectVpcIpBlock
      */
     public $toConnectVpcIpBlock;

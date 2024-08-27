@@ -19,12 +19,16 @@ class mockConfig extends Model
     /**
      * @description The result returned for service mocking.
      *
+     * @example test
+     *
      * @var string
      */
     public $mockResult;
 
     /**
      * @description The status code that is returned for service mocking.
+     *
+     * @example 200
      *
      * @var string
      */

@@ -1410,7 +1410,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * @summary 创建新的AppCode
+     * @summary Adds an AppCode to an application.
      *  *
      * @param CreateAppCodeRequest $request CreateAppCodeRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -1446,7 +1446,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * @summary 创建新的AppCode
+     * @summary Adds an AppCode to an application.
      *  *
      * @param CreateAppCodeRequest $request CreateAppCodeRequest
      *
@@ -1460,7 +1460,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * @summary 创建新的AK、SK
+     * @summary Adds an AppKey and AppSecret pair to an application.
      *  *
      * @param CreateAppKeyRequest $request CreateAppKeyRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
@@ -1499,7 +1499,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * @summary 创建新的AK、SK
+     * @summary Adds an AppKey and AppSecret pair to an application.
      *  *
      * @param CreateAppKeyRequest $request CreateAppKeyRequest
      *
@@ -2444,7 +2444,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an API.
+     * @summary Deletes the definition of a specified API.
      *  *
      * @description *   This operation is intended for API providers and cannot be undone after it is complete.
      * *   An API that is running in the runtime environment must be unpublished before you can delete the API.****
@@ -2487,7 +2487,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an API.
+     * @summary Deletes the definition of a specified API.
      *  *
      * @description *   This operation is intended for API providers and cannot be undone after it is complete.
      * *   An API that is running in the runtime environment must be unpublished before you can delete the API.****
@@ -2741,7 +2741,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * @summary 删除新的AppCode
+     * @summary Deletes the AppCode of an application.
      *  *
      * @param DeleteAppCodeRequest $request DeleteAppCodeRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -2777,7 +2777,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * @summary 删除新的AppCode
+     * @summary Deletes the AppCode of an application.
      *  *
      * @param DeleteAppCodeRequest $request DeleteAppCodeRequest
      *
@@ -2791,7 +2791,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * @summary 删除新的AppKey
+     * @summary Deletes the AppKey and AppSecret of an application.
      *  *
      * @param DeleteAppKeyRequest $request DeleteAppKeyRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
@@ -2827,7 +2827,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * @summary 删除新的AppKey
+     * @summary Deletes the AppKey and AppSecret of an application.
      *  *
      * @param DeleteAppKeyRequest $request DeleteAppKeyRequest
      *
@@ -3050,7 +3050,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * @summary Unbinds a custom domain name from a specified API group.
+     * @summary Unbinds a custom domain name from an API group.
      *  *
      * @description *   This operation is intended for API providers.
      * *   If the specified domain name does not exist, a successful response will still appear.
@@ -3093,7 +3093,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * @summary Unbinds a custom domain name from a specified API group.
+     * @summary Unbinds a custom domain name from an API group.
      *  *
      * @description *   This operation is intended for API providers.
      * *   If the specified domain name does not exist, a successful response will still appear.
@@ -3325,7 +3325,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a model from Model Management for an API group.
+     * @summary Deletes a model.
      *  *
      * @param DeleteModelRequest $request DeleteModelRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
@@ -3361,7 +3361,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a model from Model Management for an API group.
+     * @summary Deletes a model.
      *  *
      * @param DeleteModelRequest $request DeleteModelRequest
      *
@@ -5319,6 +5319,8 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
+     * @summary Queries the APIs that are associated with a virtual private cloud (VPC) access authorization in a region.
+     *  *
      * @param DescribeApisByVpcAccessRequest $request DescribeApisByVpcAccessRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -5359,6 +5361,8 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
+     * @summary Queries the APIs that are associated with a virtual private cloud (VPC) access authorization in a region.
+     *  *
      * @param DescribeApisByVpcAccessRequest $request DescribeApisByVpcAccessRequest
      *
      * @return DescribeApisByVpcAccessResponse DescribeApisByVpcAccessResponse
@@ -5575,7 +5579,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * @summary 查询APP的密钥信息
+     * @summary Queries the key-related information of an application.
      *  *
      * @param DescribeAppSecuritiesRequest $request DescribeAppSecuritiesRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -5611,7 +5615,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * @summary 查询APP的密钥信息
+     * @summary Queries the key-related information of an application.
      *  *
      * @param DescribeAppSecuritiesRequest $request DescribeAppSecuritiesRequest
      *
@@ -5682,10 +5686,10 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * @summary Queries the apps. App information is returned only to the app owner.
+     * @summary Queries the apps of a user. App information is returned only to the app owner.
      *  *
      * @description *   This API is intended for API providers.
-     * *   API providers can use the app IDs or their Apsara Stack tenant accounts to query app information.
+     * *   API providers can use the app IDs or their Alibaba Cloud accounts to query app information.
      * *   Each provider can call this operation for a maximum of 200 times every day in a region.
      *  *
      * @param DescribeAppsRequest $request DescribeAppsRequest
@@ -5731,10 +5735,10 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * @summary Queries the apps. App information is returned only to the app owner.
+     * @summary Queries the apps of a user. App information is returned only to the app owner.
      *  *
      * @description *   This API is intended for API providers.
-     * *   API providers can use the app IDs or their Apsara Stack tenant accounts to query app information.
+     * *   API providers can use the app IDs or their Alibaba Cloud accounts to query app information.
      * *   Each provider can call this operation for a maximum of 200 times every day in a region.
      *  *
      * @param DescribeAppsRequest $request DescribeAppsRequest
@@ -6389,9 +6393,9 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * @summary Queries the APIs that are published to and running in an environment.
+     * @summary Queries the APIs that have been published to a specified environment.
      *  *
-     * @description *   This operation is intended for API callers.
+     * @description *   This API is intended for API providers.
      *  *
      * @param DescribeDeployedApisRequest $request DescribeDeployedApisRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -6454,9 +6458,9 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * @summary Queries the APIs that are published to and running in an environment.
+     * @summary Queries the APIs that have been published to a specified environment.
      *  *
-     * @description *   This operation is intended for API callers.
+     * @description *   This API is intended for API providers.
      *  *
      * @param DescribeDeployedApisRequest $request DescribeDeployedApisRequest
      *
@@ -6470,7 +6474,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details about a bound custom domain name, including the system assigned second-level domain name, custom domain name, and SSL certificate.
+     * @summary Queries details about a bound custom domain name, including the automatically assigned second-level domain name, custom domain name, and SSL certificate.
      *  *
      * @param DescribeDomainRequest $request DescribeDomainRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -6509,7 +6513,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details about a bound custom domain name, including the system assigned second-level domain name, custom domain name, and SSL certificate.
+     * @summary Queries details about a bound custom domain name, including the automatically assigned second-level domain name, custom domain name, and SSL certificate.
      *  *
      * @param DescribeDomainRequest $request DescribeDomainRequest
      *
@@ -6815,7 +6819,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * @summary 查询专享实例集群的详情
+     * @summary Queries the information about a dedicated instance cluster.
      *  *
      * @param DescribeInstanceClusterInfoRequest $request DescribeInstanceClusterInfoRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
@@ -6851,7 +6855,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * @summary 查询专享实例集群的详情
+     * @summary Queries the information about a dedicated instance cluster.
      *  *
      * @param DescribeInstanceClusterInfoRequest $request DescribeInstanceClusterInfoRequest
      *
@@ -6865,7 +6869,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * @summary 查询专享实例集群列表
+     * @summary Queries dedicated instance clusters.
      *  *
      * @param DescribeInstanceClusterListRequest $request DescribeInstanceClusterListRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
@@ -6910,7 +6914,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * @summary 查询专享实例集群列表
+     * @summary Queries dedicated instance clusters.
      *  *
      * @param DescribeInstanceClusterListRequest $request DescribeInstanceClusterListRequest
      *
@@ -7747,7 +7751,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * @summary Obtains the created models of an API group.
+     * @summary Queries the created models of an API group.
      *  *
      * @description *   Fuzzy queries are supported.
      *  *
@@ -7797,7 +7801,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * @summary Obtains the created models of an API group.
+     * @summary Queries the created models of an API group.
      *  *
      * @description *   Fuzzy queries are supported.
      *  *
@@ -8175,7 +8179,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * @summary Queries API groups that are purchased from Alibaba Cloud Marketplace.
+     * @summary Queries the API groups purchased from Alibaba Cloud Marketplace.
      *  *
      * @param DescribePurchasedApiGroupsRequest $request DescribePurchasedApiGroupsRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -8214,7 +8218,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * @summary Queries API groups that are purchased from Alibaba Cloud Marketplace.
+     * @summary Queries the API groups purchased from Alibaba Cloud Marketplace.
      *  *
      * @param DescribePurchasedApiGroupsRequest $request DescribePurchasedApiGroupsRequest
      *
@@ -9858,6 +9862,9 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->description)) {
             $query['Description'] = $request->description;
         }
+        if (!Utils::isUnset($request->filterAppCodeForBackend)) {
+            $query['FilterAppCodeForBackend'] = $request->filterAppCodeForBackend;
+        }
         if (!Utils::isUnset($request->groupId)) {
             $query['GroupId'] = $request->groupId;
         }
@@ -11211,7 +11218,7 @@ class CloudAPI extends OpenApiClient
      *  *
      * @description *   This operation is intended for API providers.
      * *   You must solve the problem that is mentioned in the domain name exception prompt before you can reactivate the domain name.
-     * *   A typical reason why a custom domain name becomes abnormal is that the domain name does not have an ICP filing or the domain name is included in a blacklist by the administration. When a custom domain name is abnormal, users cannot use it to access APIs.
+     * *   A typical reason why a custom domain name becomes abnormal is that the domain name does not have an ICP filing or the domain name is included in a blacklist by the administration. When a custom domain name is abnormal, users cannot use it to call APIs.
      * *   You can call this operation to reactivate the domain name to resume normal access.
      *  *
      * @param ReactivateDomainRequest $request ReactivateDomainRequest
@@ -11255,7 +11262,7 @@ class CloudAPI extends OpenApiClient
      *  *
      * @description *   This operation is intended for API providers.
      * *   You must solve the problem that is mentioned in the domain name exception prompt before you can reactivate the domain name.
-     * *   A typical reason why a custom domain name becomes abnormal is that the domain name does not have an ICP filing or the domain name is included in a blacklist by the administration. When a custom domain name is abnormal, users cannot use it to access APIs.
+     * *   A typical reason why a custom domain name becomes abnormal is that the domain name does not have an ICP filing or the domain name is included in a blacklist by the administration. When a custom domain name is abnormal, users cannot use it to call APIs.
      * *   You can call this operation to reactivate the domain name to resume normal access.
      *  *
      * @param ReactivateDomainRequest $request ReactivateDomainRequest
@@ -11888,7 +11895,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * @summary Resets the AppCode of an app.
+     * @summary Resets the AppCode of an application. You can call this operation only once per minute.
      *  *
      * @param ResetAppCodeRequest $request ResetAppCodeRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
@@ -11927,7 +11934,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * @summary Resets the AppCode of an app.
+     * @summary Resets the AppCode of an application. You can call this operation only once per minute.
      *  *
      * @param ResetAppCodeRequest $request ResetAppCodeRequest
      *
@@ -12276,8 +12283,8 @@ class CloudAPI extends OpenApiClient
      * @summary Authorizes a specified application to call multiple APIs.
      *  *
      * @description *   This operation is intended for API providers and callers.
-     * *   API providers can authorize any apps to call their APIs.
-     * *   API callers can authorize their own apps to call the APIs that they have purchased.
+     * *   API providers can authorize all applications to call their APIs.
+     * *   API callers can authorize their own applications to call the APIs that they have purchased.
      *  *
      * @param SetApisAuthoritiesRequest $request SetApisAuthoritiesRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -12331,8 +12338,8 @@ class CloudAPI extends OpenApiClient
      * @summary Authorizes a specified application to call multiple APIs.
      *  *
      * @description *   This operation is intended for API providers and callers.
-     * *   API providers can authorize any apps to call their APIs.
-     * *   API callers can authorize their own apps to call the APIs that they have purchased.
+     * *   API providers can authorize all applications to call their APIs.
+     * *   API callers can authorize their own applications to call the APIs that they have purchased.
      *  *
      * @param SetApisAuthoritiesRequest $request SetApisAuthoritiesRequest
      *
@@ -12408,8 +12415,8 @@ class CloudAPI extends OpenApiClient
      * @summary Grants access permissions on a specified API to multiple applications.
      *  *
      * @description *   This operation is intended for API providers and callers.
-     * *   API providers can authorize any apps to call their APIs.
-     * *   API callers can authorize their own apps to call the APIs that they have purchased.
+     * *   API providers can authorize all applications to call their APIs.
+     * *   API callers can authorize their own applications to call the APIs that they have purchased.
      *  *
      * @param SetAppsAuthoritiesRequest $request SetAppsAuthoritiesRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -12463,8 +12470,8 @@ class CloudAPI extends OpenApiClient
      * @summary Grants access permissions on a specified API to multiple applications.
      *  *
      * @description *   This operation is intended for API providers and callers.
-     * *   API providers can authorize any apps to call their APIs.
-     * *   API callers can authorize their own apps to call the APIs that they have purchased.
+     * *   API providers can authorize all applications to call their APIs.
+     * *   API callers can authorize their own applications to call the APIs that they have purchased.
      *  *
      * @param SetAppsAuthoritiesRequest $request SetAppsAuthoritiesRequest
      *
@@ -12540,7 +12547,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * @summary Uploads an SSL certificate for a custom domain name.
+     * @summary Uploads an SSL certificate for a specified custom domain name.
      *  *
      * @description *   This operation is intended for API providers.
      * *   The SSL certificate must match the custom domain name.
@@ -12598,7 +12605,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * @summary Uploads an SSL certificate for a custom domain name.
+     * @summary Uploads an SSL certificate for a specified custom domain name.
      *  *
      * @description *   This operation is intended for API providers.
      * *   The SSL certificate must match the custom domain name.
@@ -13045,12 +13052,6 @@ class CloudAPI extends OpenApiClient
     /**
      * @summary Switches the definition of an API in a specified runtime environment to a historical version.
      *  *
-     * @description *   This API is intended for API providers.
-     * *   The historical version can be obtained by calling the **DescribeHistoryApis** operation.
-     * *   Only APIs that have been published more than once have historical versions.
-     * *   This operation can only be performed on running APIs. Exercise caution when you perform this operation because the operation cannot be undone. The operation takes up to 5 seconds.
-     * *   The switch operation is essentially a publish operation. A reason for this operation must be provided.
-     *  *
      * @param SwitchApiRequest $request SwitchApiRequest
      * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
@@ -13098,12 +13099,6 @@ class CloudAPI extends OpenApiClient
 
     /**
      * @summary Switches the definition of an API in a specified runtime environment to a historical version.
-     *  *
-     * @description *   This API is intended for API providers.
-     * *   The historical version can be obtained by calling the **DescribeHistoryApis** operation.
-     * *   Only APIs that have been published more than once have historical versions.
-     * *   This operation can only be performed on running APIs. Exercise caution when you perform this operation because the operation cannot be undone. The operation takes up to 5 seconds.
-     * *   The switch operation is essentially a publish operation. A reason for this operation must be provided.
      *  *
      * @param SwitchApiRequest $request SwitchApiRequest
      *

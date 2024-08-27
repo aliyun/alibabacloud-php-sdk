@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class edasConfig extends Model
 {
     /**
+     * @example 6cd0c599-dxxx-496d-b3d5-6a71c657xxxxx
+     *
      * @var string
      */
     public $edasAppId;
 
     /**
+     * @example cn-hangzhou:edasNacos
+     *
      * @var string
      */
     public $microserviceNamespace;
 
     /**
+     * @example cn-hangzhou:edasNacos
+     *
      * @var string
      */
     public $microserviceNamespaceId;
 
     /**
+     * @example Edas-Nacos
+     *
      * @var string
      */
     public $microserviceNamespaceName;
 
     /**
+     * @example mse-cn-jia3n1rxxxx
+     *
      * @var string
      */
     public $mseInstanceId;
 
     /**
+     * @example EDAS
+     *
      * @var string
      */
     public $registryType;
 
     /**
+     * @example service
+     *
      * @var string
      */
     public $serviceName;

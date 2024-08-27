@@ -42,7 +42,7 @@ class DescribeDatasetListRequest extends Model
     public $securityToken;
 
     /**
-     * @description The tag of objects that match the rule. You can specify multiple tags.
+     * @description 指定规则所适用的对象标签，可设置多个
      *
      * @var tag[]
      */

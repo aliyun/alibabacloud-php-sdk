@@ -45,7 +45,7 @@ class requestParameter extends Model
     public $demoValue;
 
     /**
-     * @description The description.
+     * @description The parameter description.
      *
      * @example Parameters
      *
@@ -72,7 +72,7 @@ class requestParameter extends Model
     public $docShow;
 
     /**
-     * @description The hash values that can be specified if the **ParameterType** parameter is set to Int, Long, Float, Double, or String. Separate multiple hash values with commas (,). Examples: 1,2,3,4,9 and A,B,C,E,F.
+     * @description The hash values that are supported when **ParameterType** is set to Int, Long, Float, Double, or String. Separate values with commas (,). Examples: 1,2,3,4,9 and A,B,C,E,F.
      *
      * @example boy,girl
      *
@@ -144,7 +144,7 @@ class requestParameter extends Model
     public $parameterType;
 
     /**
-     * @description The regular expression that is used to validate the parameter if the **ParameterType** parameter is set to String.
+     * @description The regular expression that is used for parameter validation when **ParameterType** is set to String.
      *
      * @example xxx
      *

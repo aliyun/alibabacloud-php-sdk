@@ -11,12 +11,16 @@ class mockHeaders extends Model
     /**
      * @description The name of the header parameter.
      *
+     * @example test
+     *
      * @var string
      */
     public $headerName;
 
     /**
      * @description The value of the header parameter.
+     *
+     * @example 123
      *
      * @var string
      */

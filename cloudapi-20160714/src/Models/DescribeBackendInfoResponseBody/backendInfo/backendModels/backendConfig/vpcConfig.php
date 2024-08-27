@@ -65,6 +65,8 @@ class vpcConfig extends Model
     /**
      * @description The host of the backend service.
      *
+     * @example openapi.alipan.com
+     *
      * @var string
      */
     public $vpcTargetHostName;

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateAccessControlListResponseBody extends Model
 {
     /**
-     * @description The ID of the access control policy.
+     * @description The ACL ID.
      *
      * @example acl-bp1uqwgwmkbutnzq2r59z
      *

@@ -208,7 +208,7 @@ class DescribeApiHistoryResponseBody extends Model
     public $regionId;
 
     /**
-     * @description Configuration items of API requests sent by the consumer to API Gateway.
+     * @description The configuration items of API requests sent by the consumer to API Gateway.
      *
      * For more information, see [RequestConfig](https://help.aliyun.com/document_detail/43985.html).
      * @var requestConfig

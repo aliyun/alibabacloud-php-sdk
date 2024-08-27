@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class apiVpcAccessInfo extends Model
 {
     /**
+     * @description The API ID.
+     *
      * @example 09839002de484e76b5a213b040a6a3ca
      *
      * @var string
@@ -16,6 +18,8 @@ class apiVpcAccessInfo extends Model
     public $apiId;
 
     /**
+     * @description The API name.
+     *
      * @example iwc
      *
      * @var string
@@ -23,6 +27,8 @@ class apiVpcAccessInfo extends Model
     public $apiName;
 
     /**
+     * @description The description, which can be up to 200 characters in length.
+     *
      * @example 123
      *
      * @var string
@@ -30,6 +36,8 @@ class apiVpcAccessInfo extends Model
     public $description;
 
     /**
+     * @description The ID of the API group to which the API belongs.
+     *
      * @example 41c33748cbfb41f6b00870156203b72a
      *
      * @var string
@@ -37,6 +45,8 @@ class apiVpcAccessInfo extends Model
     public $groupId;
 
     /**
+     * @description The name of the API group to which the API belongs.
+     *
      * @example RT_PLU_IP_CTRL_group
      *
      * @var string
@@ -44,6 +54,8 @@ class apiVpcAccessInfo extends Model
     public $groupName;
 
     /**
+     * @description The instance ID or IP address in the VPC access authorization.
+     *
      * @example Ib-04e41XXXXXd95e9c1
      *
      * @var string
@@ -51,6 +63,8 @@ class apiVpcAccessInfo extends Model
     public $instanceId;
 
     /**
+     * @description The HTTP request method of the API.
+     *
      * @example POST
      *
      * @var string
@@ -58,6 +72,8 @@ class apiVpcAccessInfo extends Model
     public $method;
 
     /**
+     * @description The request path of the API.
+     *
      * @example /api/v1/friends/rc/status
      *
      * @var string
@@ -65,6 +81,8 @@ class apiVpcAccessInfo extends Model
     public $path;
 
     /**
+     * @description The port number.
+     *
      * @example 443
      *
      * @var int
@@ -72,6 +90,8 @@ class apiVpcAccessInfo extends Model
     public $port;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-shanghai
      *
      * @var string
@@ -79,6 +99,8 @@ class apiVpcAccessInfo extends Model
     public $regionId;
 
     /**
+     * @description The environment ID.
+     *
      * @example 57e17906a69b4424914fb1e05f67c78a
      *
      * @var string
@@ -86,6 +108,12 @@ class apiVpcAccessInfo extends Model
     public $stageId;
 
     /**
+     * @description The environment to which the API is published. Valid values:
+     *
+     *   **RELEASE**: the production environment
+     *   **PRE**: the staging environment
+     *   **TEST**: the test environment
+     *
      * @example RELEASE
      *
      * @var string
@@ -102,6 +130,8 @@ class apiVpcAccessInfo extends Model
     public $vpcId;
 
     /**
+     * @description The name of the VPC access authorization.
+     *
      * @example aliYun_service_prod
      *
      * @var string

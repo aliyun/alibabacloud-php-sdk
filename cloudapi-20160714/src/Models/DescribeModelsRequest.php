@@ -56,6 +56,8 @@ class DescribeModelsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The tag of objects that match the rule. You can specify multiple tags.
+     *
      * @var tag[]
      */
     public $tag;

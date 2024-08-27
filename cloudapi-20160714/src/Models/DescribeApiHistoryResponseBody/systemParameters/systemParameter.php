@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class systemParameter extends Model
 {
     /**
-     * @description The sample value of the parameter.
+     * @description The sample value.
      *
      * @example 192.168.1.1
      *
@@ -36,7 +36,7 @@ class systemParameter extends Model
     public $location;
 
     /**
-     * @description The name of the system parameter. Valid values: CaClientIp, CaDomain, CaRequestHandleTime, CaAppId, CaRequestId, CaHttpSchema, and CaProxy.
+     * @description The system parameter. Valid values: CaClientIp, CaDomain, CaRequestHandleTime, CaAppId, CaRequestId, CaHttpSchema, and CaProxy.
      *
      * @example CaClientIp
      *
@@ -45,7 +45,7 @@ class systemParameter extends Model
     public $parameterName;
 
     /**
-     * @description The name of the corresponding backend parameter.
+     * @description The mapped parameter name in the backend service.
      *
      * @example clientIp
      *

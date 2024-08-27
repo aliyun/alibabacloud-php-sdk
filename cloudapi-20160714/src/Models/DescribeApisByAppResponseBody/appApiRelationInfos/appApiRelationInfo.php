@@ -81,7 +81,7 @@ class appApiRelationInfo extends Model
     public $groupName;
 
     /**
-     * @description The HTTP request method of the API.
+     * @description The HTTP method of the API.
      *
      * @example GET
      *
@@ -120,7 +120,7 @@ class appApiRelationInfo extends Model
     public $regionId;
 
     /**
-     * @description Environmental alias.
+     * @description The environment alias.
      *
      * @example Online
      *
@@ -129,7 +129,7 @@ class appApiRelationInfo extends Model
     public $stageAlias;
 
     /**
-     * @description The environment.
+     * @description The environment name.
      *
      * @example RELEASE
      *
