@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListDeviceCredentialClientIdRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example GID_xxx
      *
      * @var string
@@ -16,6 +18,8 @@ class ListDeviceCredentialClientIdRequest extends Model
     public $groupId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example mqtt-xxxxxxxx
      *
      * @var string
@@ -35,6 +39,8 @@ class ListDeviceCredentialClientIdRequest extends Model
     public $pageNo;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 100
      *
      * @var string

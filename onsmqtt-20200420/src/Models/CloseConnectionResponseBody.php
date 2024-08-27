@@ -6,11 +6,9 @@ namespace AlibabaCloud\SDK\OnsMqtt\V20200420\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class AddCustomAuthIdentityResponseBody extends Model
+class CloseConnectionResponseBody extends Model
 {
     /**
-     * @description The HTTP status code. The status code 200 indicates that the request is successful.
-     *
      * @example 200
      *
      * @var int
@@ -18,8 +16,6 @@ class AddCustomAuthIdentityResponseBody extends Model
     public $code;
 
     /**
-     * @description The message returned.
-     *
      * @example operation success.
      *
      * @var string
@@ -27,17 +23,15 @@ class AddCustomAuthIdentityResponseBody extends Model
     public $message;
 
     /**
-     * @description The request ID.
+     * @description Id of the request
      *
-     * @example 020F6A43-19E6-4B6E-B846-44EB31DF****
+     * @example 82B9E503-F4A1-4F30-976F-C6999FF9****
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Indicates whether the operation is successful. Valid values: true and false.
-     *
      * @example True
      *
      * @var bool
@@ -76,7 +70,7 @@ class AddCustomAuthIdentityResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return AddCustomAuthIdentityResponseBody
+     * @return CloseConnectionResponseBody
      */
     public static function fromMap($map = [])
     {

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class InactivateCaCertificateRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example post-cn-7mz2d******
      *
      * @var string
@@ -16,6 +18,8 @@ class InactivateCaCertificateRequest extends Model
     public $mqttInstanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 007269004887******
      *
      * @var string

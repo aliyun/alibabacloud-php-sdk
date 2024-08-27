@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteCustomAuthPermissionResponseBody extends Model
 {
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -16,6 +18,8 @@ class DeleteCustomAuthPermissionResponseBody extends Model
     public $code;
 
     /**
+     * @description The message returned.
+     *
      * @example operation success.
      *
      * @var string
@@ -23,7 +27,7 @@ class DeleteCustomAuthPermissionResponseBody extends Model
     public $message;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example 34063BCA-0946-49C1-B824-2ED2C905****
      *
@@ -32,6 +36,8 @@ class DeleteCustomAuthPermissionResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful. Valid values: true and false.
+     *
      * @example True
      *
      * @var bool

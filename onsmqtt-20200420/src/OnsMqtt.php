@@ -20,6 +20,8 @@ use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\ApplyTokenRequest;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\ApplyTokenResponse;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\BatchQuerySessionByClientIdsRequest;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\BatchQuerySessionByClientIdsResponse;
+use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\CloseConnectionRequest;
+use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\CloseConnectionResponse;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\CreateGroupIdRequest;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\CreateGroupIdResponse;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\DeleteCaCertificateRequest;
@@ -130,10 +132,12 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @param ActiveCaCertificateRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary 激活CA证书
+     *  *
+     * @param ActiveCaCertificateRequest $request ActiveCaCertificateRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ActiveCaCertificateResponse
+     * @return ActiveCaCertificateResponse ActiveCaCertificateResponse
      */
     public function activeCaCertificateWithOptions($request, $runtime)
     {
@@ -164,9 +168,11 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @param ActiveCaCertificateRequest $request
+     * @summary 激活CA证书
+     *  *
+     * @param ActiveCaCertificateRequest $request ActiveCaCertificateRequest
      *
-     * @return ActiveCaCertificateResponse
+     * @return ActiveCaCertificateResponse ActiveCaCertificateResponse
      */
     public function activeCaCertificate($request)
     {
@@ -176,10 +182,12 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @param ActiveDeviceCertificateRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary 激活设备证书
+     *  *
+     * @param ActiveDeviceCertificateRequest $request ActiveDeviceCertificateRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return ActiveDeviceCertificateResponse
+     * @return ActiveDeviceCertificateResponse ActiveDeviceCertificateResponse
      */
     public function activeDeviceCertificateWithOptions($request, $runtime)
     {
@@ -213,9 +221,11 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @param ActiveDeviceCertificateRequest $request
+     * @summary 激活设备证书
+     *  *
+     * @param ActiveDeviceCertificateRequest $request ActiveDeviceCertificateRequest
      *
-     * @return ActiveDeviceCertificateResponse
+     * @return ActiveDeviceCertificateResponse ActiveDeviceCertificateResponse
      */
     public function activeDeviceCertificate($request)
     {
@@ -225,10 +235,12 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @param AddCustomAuthConnectBlackRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Adds a device to the connection blacklist to disable connections from the device.
+     *  *
+     * @param AddCustomAuthConnectBlackRequest $request AddCustomAuthConnectBlackRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddCustomAuthConnectBlackResponse
+     * @return AddCustomAuthConnectBlackResponse AddCustomAuthConnectBlackResponse
      */
     public function addCustomAuthConnectBlackWithOptions($request, $runtime)
     {
@@ -259,9 +271,11 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @param AddCustomAuthConnectBlackRequest $request
+     * @summary Adds a device to the connection blacklist to disable connections from the device.
+     *  *
+     * @param AddCustomAuthConnectBlackRequest $request AddCustomAuthConnectBlackRequest
      *
-     * @return AddCustomAuthConnectBlackResponse
+     * @return AddCustomAuthConnectBlackResponse AddCustomAuthConnectBlackResponse
      */
     public function addCustomAuthConnectBlack($request)
     {
@@ -271,10 +285,12 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @param AddCustomAuthIdentityRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Adds the information about identity authentication. The identity can be accurate to a client.
+     *  *
+     * @param AddCustomAuthIdentityRequest $request AddCustomAuthIdentityRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddCustomAuthIdentityResponse
+     * @return AddCustomAuthIdentityResponse AddCustomAuthIdentityResponse
      */
     public function addCustomAuthIdentityWithOptions($request, $runtime)
     {
@@ -317,9 +333,11 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @param AddCustomAuthIdentityRequest $request
+     * @summary Adds the information about identity authentication. The identity can be accurate to a client.
+     *  *
+     * @param AddCustomAuthIdentityRequest $request AddCustomAuthIdentityRequest
      *
-     * @return AddCustomAuthIdentityResponse
+     * @return AddCustomAuthIdentityResponse AddCustomAuthIdentityResponse
      */
     public function addCustomAuthIdentity($request)
     {
@@ -329,10 +347,12 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @param AddCustomAuthPermissionRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Adds permissions on topics. You must create a level-1 topic in the ApsaraMQ for MQTT console before you call this operation.
+     *  *
+     * @param AddCustomAuthPermissionRequest $request AddCustomAuthPermissionRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddCustomAuthPermissionResponse
+     * @return AddCustomAuthPermissionResponse AddCustomAuthPermissionResponse
      */
     public function addCustomAuthPermissionWithOptions($request, $runtime)
     {
@@ -375,9 +395,11 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @param AddCustomAuthPermissionRequest $request
+     * @summary Adds permissions on topics. You must create a level-1 topic in the ApsaraMQ for MQTT console before you call this operation.
+     *  *
+     * @param AddCustomAuthPermissionRequest $request AddCustomAuthPermissionRequest
      *
-     * @return AddCustomAuthPermissionResponse
+     * @return AddCustomAuthPermissionResponse AddCustomAuthPermissionResponse
      */
     public function addCustomAuthPermission($request)
     {
@@ -387,9 +409,11 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation up to 100 times per second per account. If you want to increase the limit, join the DingTalk group 35228338 to contact ApsaraMQ for MQTT technical support.
-     *   * *   Each successful call to the **ApplyToken** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](~~52819~~).
-     *   *
+     * @summary Applies for a token from ApsaraMQ for MQTT. If token-based authentication is used for permission authentication on an ApsaraMQ for MQTT broker, a token that is issued by the broker is required for authentication each time a client is connected to the broker.
+     *  *
+     * @description *   You can call this operation up to 100 times per second per account. If you want to increase the limit, join the DingTalk group 35228338 to contact ApsaraMQ for MQTT technical support.
+     * *   Each successful call to the **ApplyToken** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
+     *  *
      * @param ApplyTokenRequest $request ApplyTokenRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
@@ -430,9 +454,11 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation up to 100 times per second per account. If you want to increase the limit, join the DingTalk group 35228338 to contact ApsaraMQ for MQTT technical support.
-     *   * *   Each successful call to the **ApplyToken** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](~~52819~~).
-     *   *
+     * @summary Applies for a token from ApsaraMQ for MQTT. If token-based authentication is used for permission authentication on an ApsaraMQ for MQTT broker, a token that is issued by the broker is required for authentication each time a client is connected to the broker.
+     *  *
+     * @description *   You can call this operation up to 100 times per second per account. If you want to increase the limit, join the DingTalk group 35228338 to contact ApsaraMQ for MQTT technical support.
+     * *   Each successful call to the **ApplyToken** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
+     *  *
      * @param ApplyTokenRequest $request ApplyTokenRequest
      *
      * @return ApplyTokenResponse ApplyTokenResponse
@@ -445,10 +471,12 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * *   You can call the **BatchQuerySessionByClientIds** operation up to 100 times per second. For more information, see [Limits on QPS](~~163047~~).
-     *   * *   You can call the **BatchQuerySessionByClientIds** operation to query the status of up to 10 ApsaraMQ for MQTT clients in a single query.
-     *   * *   Each successful call to the **BatchQuerySessionByClientIds** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](~~52819~~).
-     *   *
+     * @summary Queries the status of multiple ApsaraMQ for MQTT clients by client ID.
+     *  *
+     * @description *   You can call the **BatchQuerySessionByClientIds** operation up to 100 times per second. For more information, see [Limits on QPS](https://help.aliyun.com/document_detail/163047.html).
+     * *   You can call the **BatchQuerySessionByClientIds** operation to query the status of up to 10 ApsaraMQ for MQTT clients in a single query.
+     * *   Each successful call to the **BatchQuerySessionByClientIds** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
+     *  *
      * @param BatchQuerySessionByClientIdsRequest $request BatchQuerySessionByClientIdsRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
@@ -483,10 +511,12 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * *   You can call the **BatchQuerySessionByClientIds** operation up to 100 times per second. For more information, see [Limits on QPS](~~163047~~).
-     *   * *   You can call the **BatchQuerySessionByClientIds** operation to query the status of up to 10 ApsaraMQ for MQTT clients in a single query.
-     *   * *   Each successful call to the **BatchQuerySessionByClientIds** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](~~52819~~).
-     *   *
+     * @summary Queries the status of multiple ApsaraMQ for MQTT clients by client ID.
+     *  *
+     * @description *   You can call the **BatchQuerySessionByClientIds** operation up to 100 times per second. For more information, see [Limits on QPS](https://help.aliyun.com/document_detail/163047.html).
+     * *   You can call the **BatchQuerySessionByClientIds** operation to query the status of up to 10 ApsaraMQ for MQTT clients in a single query.
+     * *   Each successful call to the **BatchQuerySessionByClientIds** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
+     *  *
      * @param BatchQuerySessionByClientIdsRequest $request BatchQuerySessionByClientIdsRequest
      *
      * @return BatchQuerySessionByClientIdsResponse BatchQuerySessionByClientIdsResponse
@@ -499,8 +529,60 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * Each successful call to the **CreateGroupId** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](~~52819~~).
-     *   *
+     * @summary 关闭设备连接
+     *  *
+     * @param CloseConnectionRequest $request CloseConnectionRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CloseConnectionResponse CloseConnectionResponse
+     */
+    public function closeConnectionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientId)) {
+            $query['ClientId'] = $request->clientId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CloseConnection',
+            'version'     => '2020-04-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CloseConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 关闭设备连接
+     *  *
+     * @param CloseConnectionRequest $request CloseConnectionRequest
+     *
+     * @return CloseConnectionResponse CloseConnectionResponse
+     */
+    public function closeConnection($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->closeConnectionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Creates a group ID. Before you connect producers and consumers to an ApsaraMQ for MQTT broker to send and receive messages, you must specify a unique ID for each client for identification. A client ID is in the format of \\<GroupID>@@@\\<DeviceID>. In the preceding format, DeviceID is the custom ID that you specify for the client, and GroupID is the ID of the group that you create on the ApsaraMQ for MQTT broker in advance.
+     *  *
+     * @description Each successful call to the **CreateGroupId** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
+     *  *
      * @param CreateGroupIdRequest $request CreateGroupIdRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -535,8 +617,10 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * Each successful call to the **CreateGroupId** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](~~52819~~).
-     *   *
+     * @summary Creates a group ID. Before you connect producers and consumers to an ApsaraMQ for MQTT broker to send and receive messages, you must specify a unique ID for each client for identification. A client ID is in the format of \\<GroupID>@@@\\<DeviceID>. In the preceding format, DeviceID is the custom ID that you specify for the client, and GroupID is the ID of the group that you create on the ApsaraMQ for MQTT broker in advance.
+     *  *
+     * @description Each successful call to the **CreateGroupId** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
+     *  *
      * @param CreateGroupIdRequest $request CreateGroupIdRequest
      *
      * @return CreateGroupIdResponse CreateGroupIdResponse
@@ -549,10 +633,12 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @param DeleteCaCertificateRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary 删除CA证书
+     *  *
+     * @param DeleteCaCertificateRequest $request DeleteCaCertificateRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteCaCertificateResponse
+     * @return DeleteCaCertificateResponse DeleteCaCertificateResponse
      */
     public function deleteCaCertificateWithOptions($request, $runtime)
     {
@@ -583,9 +669,11 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @param DeleteCaCertificateRequest $request
+     * @summary 删除CA证书
+     *  *
+     * @param DeleteCaCertificateRequest $request DeleteCaCertificateRequest
      *
-     * @return DeleteCaCertificateResponse
+     * @return DeleteCaCertificateResponse DeleteCaCertificateResponse
      */
     public function deleteCaCertificate($request)
     {
@@ -595,10 +683,12 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @param DeleteCustomAuthConnectBlackRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary 删除自定义权限连接黑名单
+     *  *
+     * @param DeleteCustomAuthConnectBlackRequest $request DeleteCustomAuthConnectBlackRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteCustomAuthConnectBlackResponse
+     * @return DeleteCustomAuthConnectBlackResponse DeleteCustomAuthConnectBlackResponse
      */
     public function deleteCustomAuthConnectBlackWithOptions($request, $runtime)
     {
@@ -629,9 +719,11 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @param DeleteCustomAuthConnectBlackRequest $request
+     * @summary 删除自定义权限连接黑名单
+     *  *
+     * @param DeleteCustomAuthConnectBlackRequest $request DeleteCustomAuthConnectBlackRequest
      *
-     * @return DeleteCustomAuthConnectBlackResponse
+     * @return DeleteCustomAuthConnectBlackResponse DeleteCustomAuthConnectBlackResponse
      */
     public function deleteCustomAuthConnectBlack($request)
     {
@@ -641,10 +733,12 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @param DeleteCustomAuthIdentityRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Deletes an identity for custom authorization.
+     *  *
+     * @param DeleteCustomAuthIdentityRequest $request DeleteCustomAuthIdentityRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteCustomAuthIdentityResponse
+     * @return DeleteCustomAuthIdentityResponse DeleteCustomAuthIdentityResponse
      */
     public function deleteCustomAuthIdentityWithOptions($request, $runtime)
     {
@@ -681,9 +775,11 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @param DeleteCustomAuthIdentityRequest $request
+     * @summary Deletes an identity for custom authorization.
+     *  *
+     * @param DeleteCustomAuthIdentityRequest $request DeleteCustomAuthIdentityRequest
      *
-     * @return DeleteCustomAuthIdentityResponse
+     * @return DeleteCustomAuthIdentityResponse DeleteCustomAuthIdentityResponse
      */
     public function deleteCustomAuthIdentity($request)
     {
@@ -693,10 +789,12 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @param DeleteCustomAuthPermissionRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Deletes permissions on a topic.
+     *  *
+     * @param DeleteCustomAuthPermissionRequest $request DeleteCustomAuthPermissionRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteCustomAuthPermissionResponse
+     * @return DeleteCustomAuthPermissionResponse DeleteCustomAuthPermissionResponse
      */
     public function deleteCustomAuthPermissionWithOptions($request, $runtime)
     {
@@ -733,9 +831,11 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @param DeleteCustomAuthPermissionRequest $request
+     * @summary Deletes permissions on a topic.
+     *  *
+     * @param DeleteCustomAuthPermissionRequest $request DeleteCustomAuthPermissionRequest
      *
-     * @return DeleteCustomAuthPermissionResponse
+     * @return DeleteCustomAuthPermissionResponse DeleteCustomAuthPermissionResponse
      */
     public function deleteCustomAuthPermission($request)
     {
@@ -745,10 +845,12 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @param DeleteDeviceCertificateRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary 删除设备证书
+     *  *
+     * @param DeleteDeviceCertificateRequest $request DeleteDeviceCertificateRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteDeviceCertificateResponse
+     * @return DeleteDeviceCertificateResponse DeleteDeviceCertificateResponse
      */
     public function deleteDeviceCertificateWithOptions($request, $runtime)
     {
@@ -782,9 +884,11 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @param DeleteDeviceCertificateRequest $request
+     * @summary 删除设备证书
+     *  *
+     * @param DeleteDeviceCertificateRequest $request DeleteDeviceCertificateRequest
      *
-     * @return DeleteDeviceCertificateResponse
+     * @return DeleteDeviceCertificateResponse DeleteDeviceCertificateResponse
      */
     public function deleteDeviceCertificate($request)
     {
@@ -794,8 +898,10 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * Each successful call to the **DeleteGroupId** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](~~52819~~).
-     *   *
+     * @summary Deletes a group from an ApsaraMQ for MQTT instance.
+     *  *
+     * @description Each successful call to the **DeleteGroupId** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
+     *  *
      * @param DeleteGroupIdRequest $request DeleteGroupIdRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -830,8 +936,10 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * Each successful call to the **DeleteGroupId** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](~~52819~~).
-     *   *
+     * @summary Deletes a group from an ApsaraMQ for MQTT instance.
+     *  *
+     * @description Each successful call to the **DeleteGroupId** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
+     *  *
      * @param DeleteGroupIdRequest $request DeleteGroupIdRequest
      *
      * @return DeleteGroupIdResponse DeleteGroupIdResponse
@@ -844,10 +952,12 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @param GetCaCertificateRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary 根据SN返回CA证书
+     *  *
+     * @param GetCaCertificateRequest $request GetCaCertificateRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetCaCertificateResponse
+     * @return GetCaCertificateResponse GetCaCertificateResponse
      */
     public function getCaCertificateWithOptions($request, $runtime)
     {
@@ -872,9 +982,11 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @param GetCaCertificateRequest $request
+     * @summary 根据SN返回CA证书
+     *  *
+     * @param GetCaCertificateRequest $request GetCaCertificateRequest
      *
-     * @return GetCaCertificateResponse
+     * @return GetCaCertificateResponse GetCaCertificateResponse
      */
     public function getCaCertificate($request)
     {
@@ -884,10 +996,12 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @param GetDeviceCertificateRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary 获取设备证书
+     *  *
+     * @param GetDeviceCertificateRequest $request GetDeviceCertificateRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetDeviceCertificateResponse
+     * @return GetDeviceCertificateResponse GetDeviceCertificateResponse
      */
     public function getDeviceCertificateWithOptions($request, $runtime)
     {
@@ -912,9 +1026,11 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @param GetDeviceCertificateRequest $request
+     * @summary 获取设备证书
+     *  *
+     * @param GetDeviceCertificateRequest $request GetDeviceCertificateRequest
      *
-     * @return GetDeviceCertificateResponse
+     * @return GetDeviceCertificateResponse GetDeviceCertificateResponse
      */
     public function getDeviceCertificate($request)
     {
@@ -924,9 +1040,11 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation up to 500 times per second per account. If the limit is exceeded, throttling is triggered. We recommend that you take note of this limit when you call this operation. For more information, see [Limits on QPS](~~163047~~).
-     *   * *   Each successful call to the **GetDeviceCredential** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](~~52819~~).
-     *   *
+     * @summary Queries the access credential of a device. If unique-certificate-per-device authentication is used as the authentication method on an ApsaraMQ for MQTT broker, an access credential that you apply for in advance is required for authentication when you connect your device to the broker. The connection can be established only after the authentication is passed.
+     *  *
+     * @description *   You can call this operation up to 500 times per second per account. If the limit is exceeded, throttling is triggered. We recommend that you take note of this limit when you call this operation. For more information, see [Limits on QPS](https://help.aliyun.com/document_detail/163047.html).
+     * *   Each successful call to the **GetDeviceCredential** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
+     *  *
      * @param GetDeviceCredentialRequest $request GetDeviceCredentialRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -961,9 +1079,11 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation up to 500 times per second per account. If the limit is exceeded, throttling is triggered. We recommend that you take note of this limit when you call this operation. For more information, see [Limits on QPS](~~163047~~).
-     *   * *   Each successful call to the **GetDeviceCredential** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](~~52819~~).
-     *   *
+     * @summary Queries the access credential of a device. If unique-certificate-per-device authentication is used as the authentication method on an ApsaraMQ for MQTT broker, an access credential that you apply for in advance is required for authentication when you connect your device to the broker. The connection can be established only after the authentication is passed.
+     *  *
+     * @description *   You can call this operation up to 500 times per second per account. If the limit is exceeded, throttling is triggered. We recommend that you take note of this limit when you call this operation. For more information, see [Limits on QPS](https://help.aliyun.com/document_detail/163047.html).
+     * *   Each successful call to the **GetDeviceCredential** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
+     *  *
      * @param GetDeviceCredentialRequest $request GetDeviceCredentialRequest
      *
      * @return GetDeviceCredentialResponse GetDeviceCredentialResponse
@@ -976,10 +1096,12 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @param GetRegisterCodeRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary 获取添加CA证书的注册码
+     *  *
+     * @param GetRegisterCodeRequest $request GetRegisterCodeRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetRegisterCodeResponse
+     * @return GetRegisterCodeResponse GetRegisterCodeResponse
      */
     public function getRegisterCodeWithOptions($request, $runtime)
     {
@@ -1004,9 +1126,11 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @param GetRegisterCodeRequest $request
+     * @summary 获取添加CA证书的注册码
+     *  *
+     * @param GetRegisterCodeRequest $request GetRegisterCodeRequest
      *
-     * @return GetRegisterCodeResponse
+     * @return GetRegisterCodeResponse GetRegisterCodeResponse
      */
     public function getRegisterCode($request)
     {
@@ -1016,10 +1140,12 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @param InactivateCaCertificateRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary 注销CA证书
+     *  *
+     * @param InactivateCaCertificateRequest $request InactivateCaCertificateRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return InactivateCaCertificateResponse
+     * @return InactivateCaCertificateResponse InactivateCaCertificateResponse
      */
     public function inactivateCaCertificateWithOptions($request, $runtime)
     {
@@ -1050,9 +1176,11 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @param InactivateCaCertificateRequest $request
+     * @summary 注销CA证书
+     *  *
+     * @param InactivateCaCertificateRequest $request InactivateCaCertificateRequest
      *
-     * @return InactivateCaCertificateResponse
+     * @return InactivateCaCertificateResponse InactivateCaCertificateResponse
      */
     public function inactivateCaCertificate($request)
     {
@@ -1062,10 +1190,12 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @param InactivateDeviceCertificateRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary 注销设备证书
+     *  *
+     * @param InactivateDeviceCertificateRequest $request InactivateDeviceCertificateRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return InactivateDeviceCertificateResponse
+     * @return InactivateDeviceCertificateResponse InactivateDeviceCertificateResponse
      */
     public function inactivateDeviceCertificateWithOptions($request, $runtime)
     {
@@ -1099,9 +1229,11 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @param InactivateDeviceCertificateRequest $request
+     * @summary 注销设备证书
+     *  *
+     * @param InactivateDeviceCertificateRequest $request InactivateDeviceCertificateRequest
      *
-     * @return InactivateDeviceCertificateResponse
+     * @return InactivateDeviceCertificateResponse InactivateDeviceCertificateResponse
      */
     public function inactivateDeviceCertificate($request)
     {
@@ -1111,10 +1243,12 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @param ListCaCertificateRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary 根据实例ID 分页获取CA证书
+     *  *
+     * @param ListCaCertificateRequest $request ListCaCertificateRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListCaCertificateResponse
+     * @return ListCaCertificateResponse ListCaCertificateResponse
      */
     public function listCaCertificateWithOptions($request, $runtime)
     {
@@ -1139,9 +1273,11 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @param ListCaCertificateRequest $request
+     * @summary 根据实例ID 分页获取CA证书
+     *  *
+     * @param ListCaCertificateRequest $request ListCaCertificateRequest
      *
-     * @return ListCaCertificateResponse
+     * @return ListCaCertificateResponse ListCaCertificateResponse
      */
     public function listCaCertificate($request)
     {
@@ -1151,10 +1287,12 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @param ListDeviceCertificateRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary 获取设备证书列表
+     *  *
+     * @param ListDeviceCertificateRequest $request ListDeviceCertificateRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListDeviceCertificateResponse
+     * @return ListDeviceCertificateResponse ListDeviceCertificateResponse
      */
     public function listDeviceCertificateWithOptions($request, $runtime)
     {
@@ -1179,9 +1317,11 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @param ListDeviceCertificateRequest $request
+     * @summary 获取设备证书列表
+     *  *
+     * @param ListDeviceCertificateRequest $request ListDeviceCertificateRequest
      *
-     * @return ListDeviceCertificateResponse
+     * @return ListDeviceCertificateResponse ListDeviceCertificateResponse
      */
     public function listDeviceCertificate($request)
     {
@@ -1191,10 +1331,12 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @param ListDeviceCertificateByCaSnRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary 获取设备证书列表
+     *  *
+     * @param ListDeviceCertificateByCaSnRequest $request ListDeviceCertificateByCaSnRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListDeviceCertificateByCaSnResponse
+     * @return ListDeviceCertificateByCaSnResponse ListDeviceCertificateByCaSnResponse
      */
     public function listDeviceCertificateByCaSnWithOptions($request, $runtime)
     {
@@ -1219,9 +1361,11 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @param ListDeviceCertificateByCaSnRequest $request
+     * @summary 获取设备证书列表
+     *  *
+     * @param ListDeviceCertificateByCaSnRequest $request ListDeviceCertificateByCaSnRequest
      *
-     * @return ListDeviceCertificateByCaSnResponse
+     * @return ListDeviceCertificateByCaSnResponse ListDeviceCertificateByCaSnResponse
      */
     public function listDeviceCertificateByCaSn($request)
     {
@@ -1231,10 +1375,12 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @param ListDeviceCredentialClientIdRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary 列出注册的一机一密的设备ID
+     *  *
+     * @param ListDeviceCredentialClientIdRequest $request ListDeviceCredentialClientIdRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListDeviceCredentialClientIdResponse
+     * @return ListDeviceCredentialClientIdResponse ListDeviceCredentialClientIdResponse
      */
     public function listDeviceCredentialClientIdWithOptions($request, $runtime)
     {
@@ -1274,9 +1420,11 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @param ListDeviceCredentialClientIdRequest $request
+     * @summary 列出注册的一机一密的设备ID
+     *  *
+     * @param ListDeviceCredentialClientIdRequest $request ListDeviceCredentialClientIdRequest
      *
-     * @return ListDeviceCredentialClientIdResponse
+     * @return ListDeviceCredentialClientIdResponse ListDeviceCredentialClientIdResponse
      */
     public function listDeviceCredentialClientId($request)
     {
@@ -1286,8 +1434,10 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * Each successful call to the **ListGroupId** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](~~52819~~).
-     *   *
+     * @summary Queries all groups on an ApsaraMQ for MQTT instance.
+     *  *
+     * @description Each successful call to the **ListGroupId** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
+     *  *
      * @param ListGroupIdRequest $request ListGroupIdRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
@@ -1319,8 +1469,10 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * Each successful call to the **ListGroupId** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](~~52819~~).
-     *   *
+     * @summary Queries all groups on an ApsaraMQ for MQTT instance.
+     *  *
+     * @description Each successful call to the **ListGroupId** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
+     *  *
      * @param ListGroupIdRequest $request ListGroupIdRequest
      *
      * @return ListGroupIdResponse ListGroupIdResponse
@@ -1333,10 +1485,12 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @param QueryCustomAuthConnectBlackRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Queries a client ID in a connection blacklist.
+     *  *
+     * @param QueryCustomAuthConnectBlackRequest $request QueryCustomAuthConnectBlackRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryCustomAuthConnectBlackResponse
+     * @return QueryCustomAuthConnectBlackResponse QueryCustomAuthConnectBlackResponse
      */
     public function queryCustomAuthConnectBlackWithOptions($request, $runtime)
     {
@@ -1361,9 +1515,11 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @param QueryCustomAuthConnectBlackRequest $request
+     * @summary Queries a client ID in a connection blacklist.
+     *  *
+     * @param QueryCustomAuthConnectBlackRequest $request QueryCustomAuthConnectBlackRequest
      *
-     * @return QueryCustomAuthConnectBlackResponse
+     * @return QueryCustomAuthConnectBlackResponse QueryCustomAuthConnectBlackResponse
      */
     public function queryCustomAuthConnectBlack($request)
     {
@@ -1373,10 +1529,12 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @param QueryCustomAuthIdentityRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries the information about custom identity authentication.
+     *  *
+     * @param QueryCustomAuthIdentityRequest $request QueryCustomAuthIdentityRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryCustomAuthIdentityResponse
+     * @return QueryCustomAuthIdentityResponse QueryCustomAuthIdentityResponse
      */
     public function queryCustomAuthIdentityWithOptions($request, $runtime)
     {
@@ -1401,9 +1559,11 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @param QueryCustomAuthIdentityRequest $request
+     * @summary Queries the information about custom identity authentication.
+     *  *
+     * @param QueryCustomAuthIdentityRequest $request QueryCustomAuthIdentityRequest
      *
-     * @return QueryCustomAuthIdentityResponse
+     * @return QueryCustomAuthIdentityResponse QueryCustomAuthIdentityResponse
      */
     public function queryCustomAuthIdentity($request)
     {
@@ -1413,10 +1573,12 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @param QueryCustomAuthPermissionRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Queries the authorization information about a topic.
+     *  *
+     * @param QueryCustomAuthPermissionRequest $request QueryCustomAuthPermissionRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryCustomAuthPermissionResponse
+     * @return QueryCustomAuthPermissionResponse QueryCustomAuthPermissionResponse
      */
     public function queryCustomAuthPermissionWithOptions($request, $runtime)
     {
@@ -1441,9 +1603,11 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @param QueryCustomAuthPermissionRequest $request
+     * @summary Queries the authorization information about a topic.
+     *  *
+     * @param QueryCustomAuthPermissionRequest $request QueryCustomAuthPermissionRequest
      *
-     * @return QueryCustomAuthPermissionResponse
+     * @return QueryCustomAuthPermissionResponse QueryCustomAuthPermissionResponse
      */
     public function queryCustomAuthPermission($request)
     {
@@ -1453,9 +1617,11 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * *   Each successful call to the **QueryMqttTraceDevice** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](~~52819~~).
-     *   * *   You can call this operation up to 500 times per second per account. If the limit is exceeded, throttling is triggered. This may affect your business. We recommend that you take note of this limit when you call this operation. For more information, see [Limits on QPS](~~163047~~).
-     *   *
+     * @summary Queries the trace of a device that corresponds to an ApsaraMQ for MQTT client by page. When the status of a device is abnormal, you can call this operation to query the connection history of the device. This helps you efficiently troubleshoot issues.
+     *  *
+     * @description *   Each successful call to the **QueryMqttTraceDevice** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
+     * *   You can call this operation up to 500 times per second per account. If the limit is exceeded, throttling is triggered. This may affect your business. We recommend that you take note of this limit when you call this operation. For more information, see [Limits on QPS](https://help.aliyun.com/document_detail/163047.html).
+     *  *
      * @param QueryMqttTraceDeviceRequest $request QueryMqttTraceDeviceRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -1508,9 +1674,11 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * *   Each successful call to the **QueryMqttTraceDevice** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](~~52819~~).
-     *   * *   You can call this operation up to 500 times per second per account. If the limit is exceeded, throttling is triggered. This may affect your business. We recommend that you take note of this limit when you call this operation. For more information, see [Limits on QPS](~~163047~~).
-     *   *
+     * @summary Queries the trace of a device that corresponds to an ApsaraMQ for MQTT client by page. When the status of a device is abnormal, you can call this operation to query the connection history of the device. This helps you efficiently troubleshoot issues.
+     *  *
+     * @description *   Each successful call to the **QueryMqttTraceDevice** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
+     * *   You can call this operation up to 500 times per second per account. If the limit is exceeded, throttling is triggered. This may affect your business. We recommend that you take note of this limit when you call this operation. For more information, see [Limits on QPS](https://help.aliyun.com/document_detail/163047.html).
+     *  *
      * @param QueryMqttTraceDeviceRequest $request QueryMqttTraceDeviceRequest
      *
      * @return QueryMqttTraceDeviceResponse QueryMqttTraceDeviceResponse
@@ -1523,9 +1691,11 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * *   Each successful call to the **QueryMqttTraceMessageOfClient** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](~~52819~~).
-     *   * *   You can call this operation up to 500 times per second per account. If the limit is exceeded, throttling is triggered. This may affect your business. We recommend that you take note of this limit when you call this operation. For more information, see [Limits on QPS](~~163047~~).
-     *   *
+     * @summary Queries messages on a device within a specific period of time. If a message is not sent or received as expected, you can call this operation to query the messaging status of the message to efficiently troubleshoot issues.
+     *  *
+     * @description *   Each successful call to the **QueryMqttTraceMessageOfClient** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
+     * *   You can call this operation up to 500 times per second per account. If the limit is exceeded, throttling is triggered. This may affect your business. We recommend that you take note of this limit when you call this operation. For more information, see [Limits on QPS](https://help.aliyun.com/document_detail/163047.html).
+     *  *
      * @param QueryMqttTraceMessageOfClientRequest $request QueryMqttTraceMessageOfClientRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
@@ -1578,9 +1748,11 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * *   Each successful call to the **QueryMqttTraceMessageOfClient** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](~~52819~~).
-     *   * *   You can call this operation up to 500 times per second per account. If the limit is exceeded, throttling is triggered. This may affect your business. We recommend that you take note of this limit when you call this operation. For more information, see [Limits on QPS](~~163047~~).
-     *   *
+     * @summary Queries messages on a device within a specific period of time. If a message is not sent or received as expected, you can call this operation to query the messaging status of the message to efficiently troubleshoot issues.
+     *  *
+     * @description *   Each successful call to the **QueryMqttTraceMessageOfClient** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
+     * *   You can call this operation up to 500 times per second per account. If the limit is exceeded, throttling is triggered. This may affect your business. We recommend that you take note of this limit when you call this operation. For more information, see [Limits on QPS](https://help.aliyun.com/document_detail/163047.html).
+     *  *
      * @param QueryMqttTraceMessageOfClientRequest $request QueryMqttTraceMessageOfClientRequest
      *
      * @return QueryMqttTraceMessageOfClientResponse QueryMqttTraceMessageOfClientResponse
@@ -1593,9 +1765,11 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * *   Each successful call to the **QueryMqttTraceMessagePublish** operation increases the messaging transactions per second (TPS). This affects the billing of your instance. For more information, see [Billing rules](~~52819~~).
-     *   * *   You can call this operation up to 500 times per second per account. If the limit is exceeded, throttling is triggered. This may affect your business. We recommend that you take note of this limit when you call this operation. For more information, see [Limits on QPS](~~163047~~).
-     *   *
+     * @summary Queries the trace of a message. If a message is not sent or received as expected, you can call this operation to view the message details to troubleshoot the issue. For example, you can query the time when the message is published and the client that publishes the message.
+     *  *
+     * @description *   Each successful call to the **QueryMqttTraceMessagePublish** operation increases the messaging transactions per second (TPS). This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
+     * *   You can call this operation up to 500 times per second per account. If the limit is exceeded, throttling is triggered. This may affect your business. We recommend that you take note of this limit when you call this operation. For more information, see [Limits on QPS](https://help.aliyun.com/document_detail/163047.html).
+     *  *
      * @param QueryMqttTraceMessagePublishRequest $request QueryMqttTraceMessagePublishRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
@@ -1639,9 +1813,11 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * *   Each successful call to the **QueryMqttTraceMessagePublish** operation increases the messaging transactions per second (TPS). This affects the billing of your instance. For more information, see [Billing rules](~~52819~~).
-     *   * *   You can call this operation up to 500 times per second per account. If the limit is exceeded, throttling is triggered. This may affect your business. We recommend that you take note of this limit when you call this operation. For more information, see [Limits on QPS](~~163047~~).
-     *   *
+     * @summary Queries the trace of a message. If a message is not sent or received as expected, you can call this operation to view the message details to troubleshoot the issue. For example, you can query the time when the message is published and the client that publishes the message.
+     *  *
+     * @description *   Each successful call to the **QueryMqttTraceMessagePublish** operation increases the messaging transactions per second (TPS). This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
+     * *   You can call this operation up to 500 times per second per account. If the limit is exceeded, throttling is triggered. This may affect your business. We recommend that you take note of this limit when you call this operation. For more information, see [Limits on QPS](https://help.aliyun.com/document_detail/163047.html).
+     *  *
      * @param QueryMqttTraceMessagePublishRequest $request QueryMqttTraceMessagePublishRequest
      *
      * @return QueryMqttTraceMessagePublishResponse QueryMqttTraceMessagePublishResponse
@@ -1654,9 +1830,11 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * *   Each successful call to the **QueryMqttTraceMessageSubscribe** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](~~52819~~).
-     *   * *   You can call this operation up to 500 times per second per account. If the limit is exceeded, throttling is triggered. This may affect your business. We recommend that you take note of this limit when you call this operation. For more information, see [Limits on QPS](~~163047~~).
-     *   *
+     * @summary Queries the delivery trace of a message. If a message is not sent or received as expected, you can call this operation to view the details about the message. For example, you can query the clients that subscribe to the message and the time when the message is delivered. This operation helps you locate the problem and identify the cause of the problem.
+     *  *
+     * @description *   Each successful call to the **QueryMqttTraceMessageSubscribe** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
+     * *   You can call this operation up to 500 times per second per account. If the limit is exceeded, throttling is triggered. This may affect your business. We recommend that you take note of this limit when you call this operation. For more information, see [Limits on QPS](https://help.aliyun.com/document_detail/163047.html).
+     *  *
      * @param QueryMqttTraceMessageSubscribeRequest $request QueryMqttTraceMessageSubscribeRequest
      * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
@@ -1712,9 +1890,11 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * *   Each successful call to the **QueryMqttTraceMessageSubscribe** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](~~52819~~).
-     *   * *   You can call this operation up to 500 times per second per account. If the limit is exceeded, throttling is triggered. This may affect your business. We recommend that you take note of this limit when you call this operation. For more information, see [Limits on QPS](~~163047~~).
-     *   *
+     * @summary Queries the delivery trace of a message. If a message is not sent or received as expected, you can call this operation to view the details about the message. For example, you can query the clients that subscribe to the message and the time when the message is delivered. This operation helps you locate the problem and identify the cause of the problem.
+     *  *
+     * @description *   Each successful call to the **QueryMqttTraceMessageSubscribe** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
+     * *   You can call this operation up to 500 times per second per account. If the limit is exceeded, throttling is triggered. This may affect your business. We recommend that you take note of this limit when you call this operation. For more information, see [Limits on QPS](https://help.aliyun.com/document_detail/163047.html).
+     *  *
      * @param QueryMqttTraceMessageSubscribeRequest $request QueryMqttTraceMessageSubscribeRequest
      *
      * @return QueryMqttTraceMessageSubscribeResponse QueryMqttTraceMessageSubscribeResponse
@@ -1727,9 +1907,11 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation up to 500 times per second.**** For more information, see [Limits on QPS](~~163047~~).
-     *   * *   Each successful call to the **QuerySessionByClientId** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](~~52819~~).
-     *   *
+     * @summary Queries the running status of an ApsaraMQ for MQTT client. You can troubleshoot issues based on the queried results. You can enter the ID of an ApsaraMQ for MQTT client to check the connection status and IP address of the device.
+     *  *
+     * @description *   You can call this operation up to 500 times per second.**** For more information, see [Limits on QPS](https://help.aliyun.com/document_detail/163047.html).
+     * *   Each successful call to the **QuerySessionByClientId** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
+     *  *
      * @param QuerySessionByClientIdRequest $request QuerySessionByClientIdRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -1764,9 +1946,11 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation up to 500 times per second.**** For more information, see [Limits on QPS](~~163047~~).
-     *   * *   Each successful call to the **QuerySessionByClientId** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](~~52819~~).
-     *   *
+     * @summary Queries the running status of an ApsaraMQ for MQTT client. You can troubleshoot issues based on the queried results. You can enter the ID of an ApsaraMQ for MQTT client to check the connection status and IP address of the device.
+     *  *
+     * @description *   You can call this operation up to 500 times per second.**** For more information, see [Limits on QPS](https://help.aliyun.com/document_detail/163047.html).
+     * *   Each successful call to the **QuerySessionByClientId** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
+     *  *
      * @param QuerySessionByClientIdRequest $request QuerySessionByClientIdRequest
      *
      * @return QuerySessionByClientIdResponse QuerySessionByClientIdResponse
@@ -1779,9 +1963,11 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation up to 100 times per second per account. If you want to increase the limit, join the DingTalk group 35228338 to contact ApsaraMQ for MQTT technical support.
-     *   * *   Each successful call to the **QueryToken** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](~~52819~~).
-     *   *
+     * @summary Queries the status of a token. If token-based authentication is used for permission authentication on an ApsaraMQ for MQTT broker, a token that is issued by the broker is required for authentication each time a client is connected to the broker. A token is a temporary credential and is valid only within a specific period of time. You can call this operation to query whether a token expires.
+     *  *
+     * @description *   You can call this operation up to 100 times per second per account. If you want to increase the limit, join the DingTalk group 35228338 to contact ApsaraMQ for MQTT technical support.
+     * *   Each successful call to the **QueryToken** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
+     *  *
      * @param QueryTokenRequest $request QueryTokenRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
@@ -1816,9 +2002,11 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation up to 100 times per second per account. If you want to increase the limit, join the DingTalk group 35228338 to contact ApsaraMQ for MQTT technical support.
-     *   * *   Each successful call to the **QueryToken** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](~~52819~~).
-     *   *
+     * @summary Queries the status of a token. If token-based authentication is used for permission authentication on an ApsaraMQ for MQTT broker, a token that is issued by the broker is required for authentication each time a client is connected to the broker. A token is a temporary credential and is valid only within a specific period of time. You can call this operation to query whether a token expires.
+     *  *
+     * @description *   You can call this operation up to 100 times per second per account. If you want to increase the limit, join the DingTalk group 35228338 to contact ApsaraMQ for MQTT technical support.
+     * *   Each successful call to the **QueryToken** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
+     *  *
      * @param QueryTokenRequest $request QueryTokenRequest
      *
      * @return QueryTokenResponse QueryTokenResponse
@@ -1831,10 +2019,12 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * ## [](#)Limits
-     *   * You can call this operation up to 500 times per second per account. If the limit is exceeded, throttling is triggered. This may affect your business. We recommend that you take note of this limit when you call this operation. For more information, see [Limits on QPS](~~163047~~).
-     *   * >  Each successful call to the **RefreshDeviceCredential** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](~~52819~~).
-     *   *
+     * @summary Updates the access credential of a device.
+     *  *
+     * @description ## [](#)Limits
+     * You can call this operation up to 500 times per second per account. If the limit is exceeded, throttling is triggered. This may affect your business. We recommend that you take note of this limit when you call this operation. For more information, see [Limits on QPS](https://help.aliyun.com/document_detail/163047.html).
+     * >  Each successful call to the **RefreshDeviceCredential** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
+     *  *
      * @param RefreshDeviceCredentialRequest $request RefreshDeviceCredentialRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -1869,10 +2059,12 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * ## [](#)Limits
-     *   * You can call this operation up to 500 times per second per account. If the limit is exceeded, throttling is triggered. This may affect your business. We recommend that you take note of this limit when you call this operation. For more information, see [Limits on QPS](~~163047~~).
-     *   * >  Each successful call to the **RefreshDeviceCredential** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](~~52819~~).
-     *   *
+     * @summary Updates the access credential of a device.
+     *  *
+     * @description ## [](#)Limits
+     * You can call this operation up to 500 times per second per account. If the limit is exceeded, throttling is triggered. This may affect your business. We recommend that you take note of this limit when you call this operation. For more information, see [Limits on QPS](https://help.aliyun.com/document_detail/163047.html).
+     * >  Each successful call to the **RefreshDeviceCredential** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
+     *  *
      * @param RefreshDeviceCredentialRequest $request RefreshDeviceCredentialRequest
      *
      * @return RefreshDeviceCredentialResponse RefreshDeviceCredentialResponse
@@ -1885,10 +2077,12 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @param RegisterCaCertificateRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary 注册CA证书
+     *  *
+     * @param RegisterCaCertificateRequest $request RegisterCaCertificateRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return RegisterCaCertificateResponse
+     * @return RegisterCaCertificateResponse RegisterCaCertificateResponse
      */
     public function registerCaCertificateWithOptions($request, $runtime)
     {
@@ -1925,9 +2119,11 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @param RegisterCaCertificateRequest $request
+     * @summary 注册CA证书
+     *  *
+     * @param RegisterCaCertificateRequest $request RegisterCaCertificateRequest
      *
-     * @return RegisterCaCertificateResponse
+     * @return RegisterCaCertificateResponse RegisterCaCertificateResponse
      */
     public function registerCaCertificate($request)
     {
@@ -1937,9 +2133,11 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation up to 500 times per second per account. If the limit is exceeded, throttling is triggered. This may affect your business. We recommend that you take note of this limit when you call this operation. For more information, see [Limits on QPS](~~163047~~).
-     *   * *   Each successful call to the **RegisterDeviceCredential** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](~~52819~~).
-     *   *
+     * @summary Registers an access credential for a device. In unique-certificate-per-device authentication mode, an application server applies a unique access credential for each device from the corresponding ApsaraMQ for MQTT broker. The access credential of a device consists of the client ID, AccessKey ID, and AccessKey secret of the device. When you connect a device to ApsaraMQ for MQTT, you must configure Username and Password based on the access credential of the device for authentication. You can activate the device and transfer data between the device and ApsaraMQ for MQTT only after the authentication is passed.
+     *  *
+     * @description *   You can call this operation up to 500 times per second per account. If the limit is exceeded, throttling is triggered. This may affect your business. We recommend that you take note of this limit when you call this operation. For more information, see [Limits on QPS](https://help.aliyun.com/document_detail/163047.html).
+     * *   Each successful call to the **RegisterDeviceCredential** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
+     *  *
      * @param RegisterDeviceCredentialRequest $request RegisterDeviceCredentialRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -1974,9 +2172,11 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation up to 500 times per second per account. If the limit is exceeded, throttling is triggered. This may affect your business. We recommend that you take note of this limit when you call this operation. For more information, see [Limits on QPS](~~163047~~).
-     *   * *   Each successful call to the **RegisterDeviceCredential** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](~~52819~~).
-     *   *
+     * @summary Registers an access credential for a device. In unique-certificate-per-device authentication mode, an application server applies a unique access credential for each device from the corresponding ApsaraMQ for MQTT broker. The access credential of a device consists of the client ID, AccessKey ID, and AccessKey secret of the device. When you connect a device to ApsaraMQ for MQTT, you must configure Username and Password based on the access credential of the device for authentication. You can activate the device and transfer data between the device and ApsaraMQ for MQTT only after the authentication is passed.
+     *  *
+     * @description *   You can call this operation up to 500 times per second per account. If the limit is exceeded, throttling is triggered. This may affect your business. We recommend that you take note of this limit when you call this operation. For more information, see [Limits on QPS](https://help.aliyun.com/document_detail/163047.html).
+     * *   Each successful call to the **RegisterDeviceCredential** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
+     *  *
      * @param RegisterDeviceCredentialRequest $request RegisterDeviceCredentialRequest
      *
      * @return RegisterDeviceCredentialResponse RegisterDeviceCredentialResponse
@@ -1989,9 +2189,11 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation up to 5 times per second per account. If you want to increase the limit, join the DingTalk group 35228338 to contact ApsaraMQ for MQTT technical support.
-     *   * *   Each successful call to the **RevokeToken** operation increases the messaging transactions per second (TPS). This affects the billing of your instance. For more information, see [Billing rules](~~52819~~).
-     *   *
+     * @summary Revokes a token.
+     *  *
+     * @description *   You can call this operation up to 5 times per second per account. If you want to increase the limit, join the DingTalk group 35228338 to contact ApsaraMQ for MQTT technical support.
+     * *   Each successful call to the **RevokeToken** operation increases the messaging transactions per second (TPS). This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
+     *  *
      * @param RevokeTokenRequest $request RevokeTokenRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
@@ -2026,9 +2228,11 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation up to 5 times per second per account. If you want to increase the limit, join the DingTalk group 35228338 to contact ApsaraMQ for MQTT technical support.
-     *   * *   Each successful call to the **RevokeToken** operation increases the messaging transactions per second (TPS). This affects the billing of your instance. For more information, see [Billing rules](~~52819~~).
-     *   *
+     * @summary Revokes a token.
+     *  *
+     * @description *   You can call this operation up to 5 times per second per account. If you want to increase the limit, join the DingTalk group 35228338 to contact ApsaraMQ for MQTT technical support.
+     * *   Each successful call to the **RevokeToken** operation increases the messaging transactions per second (TPS). This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
+     *  *
      * @param RevokeTokenRequest $request RevokeTokenRequest
      *
      * @return RevokeTokenResponse RevokeTokenResponse
@@ -2041,11 +2245,13 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * *   The **SendMessage** operation is called by applications on cloud servers. It is complementary to the operation that is called by ApsaraMQ for MQTT clients to send messages. For information about the differences between the scenarios of sending messages from applications on cloud servers and the scenarios of sending messages from ApsaraMQ for MQTT clients, see [Developer guide](~~179160~~).
-     *   * *   Before you call the **SendMessage** operation, make sure that the kernel version of your ApsaraMQ for MQTT instance is 3.3.0 or later. You can obtain the information about the kernel version on the [Instance Details](https://mqtt.console.aliyun.com) page that corresponds to the instance in the **ApsaraMQ for MQTT console**.
-     *   * *   Messages that are sent by calling the **SendMessage** operation cannot be forwarded to ApsaraMQ for RocketMQ. If you want to use an ApsaraMQ for MQTT to forward messages to ApsaraMQ for RocketMQ, send the messages by using an SDK. For more information, see [Export data from ApsaraMQ for MQTT to other Alibaba Cloud services](~~174527~~). You can call the **SendMessage** operation up to 1,000 times per second. For more information, see [Limits on QPS](~~163047~~).
-     *   * *   Each successful call to the **SendMessage** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For information about the billing details, see [Billing rules](~~52819~~).
-     *   *
+     * @summary Sends a single message from an application on a cloud server to ApsaraMQ for MQTT.
+     *  *
+     * @description *   The **SendMessage** operation is called by applications on cloud servers. It is complementary to the operation that is called by ApsaraMQ for MQTT clients to send messages. For information about the differences between the scenarios of sending messages from applications on cloud servers and the scenarios of sending messages from ApsaraMQ for MQTT clients, see [Developer guide](https://help.aliyun.com/document_detail/179160.html).
+     * *   Before you call the **SendMessage** operation, make sure that the kernel version of your ApsaraMQ for MQTT instance is 3.3.0 or later. You can obtain the information about the kernel version on the [Instance Details](https://mqtt.console.aliyun.com) page that corresponds to the instance in the **ApsaraMQ for MQTT console**.
+     * *   Messages that are sent by calling the **SendMessage** operation cannot be forwarded to ApsaraMQ for RocketMQ. If you want to use an ApsaraMQ for MQTT to forward messages to ApsaraMQ for RocketMQ, send the messages by using an SDK. For more information, see [Export data from ApsaraMQ for MQTT to other Alibaba Cloud services](https://help.aliyun.com/document_detail/174527.html). You can call the **SendMessage** operation up to 1,000 times per second. For more information, see [Limits on QPS](https://help.aliyun.com/document_detail/163047.html).
+     * *   Each successful call to the **SendMessage** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For information about the billing details, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
+     *  *
      * @param SendMessageRequest $request SendMessageRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
@@ -2083,11 +2289,13 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * *   The **SendMessage** operation is called by applications on cloud servers. It is complementary to the operation that is called by ApsaraMQ for MQTT clients to send messages. For information about the differences between the scenarios of sending messages from applications on cloud servers and the scenarios of sending messages from ApsaraMQ for MQTT clients, see [Developer guide](~~179160~~).
-     *   * *   Before you call the **SendMessage** operation, make sure that the kernel version of your ApsaraMQ for MQTT instance is 3.3.0 or later. You can obtain the information about the kernel version on the [Instance Details](https://mqtt.console.aliyun.com) page that corresponds to the instance in the **ApsaraMQ for MQTT console**.
-     *   * *   Messages that are sent by calling the **SendMessage** operation cannot be forwarded to ApsaraMQ for RocketMQ. If you want to use an ApsaraMQ for MQTT to forward messages to ApsaraMQ for RocketMQ, send the messages by using an SDK. For more information, see [Export data from ApsaraMQ for MQTT to other Alibaba Cloud services](~~174527~~). You can call the **SendMessage** operation up to 1,000 times per second. For more information, see [Limits on QPS](~~163047~~).
-     *   * *   Each successful call to the **SendMessage** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For information about the billing details, see [Billing rules](~~52819~~).
-     *   *
+     * @summary Sends a single message from an application on a cloud server to ApsaraMQ for MQTT.
+     *  *
+     * @description *   The **SendMessage** operation is called by applications on cloud servers. It is complementary to the operation that is called by ApsaraMQ for MQTT clients to send messages. For information about the differences between the scenarios of sending messages from applications on cloud servers and the scenarios of sending messages from ApsaraMQ for MQTT clients, see [Developer guide](https://help.aliyun.com/document_detail/179160.html).
+     * *   Before you call the **SendMessage** operation, make sure that the kernel version of your ApsaraMQ for MQTT instance is 3.3.0 or later. You can obtain the information about the kernel version on the [Instance Details](https://mqtt.console.aliyun.com) page that corresponds to the instance in the **ApsaraMQ for MQTT console**.
+     * *   Messages that are sent by calling the **SendMessage** operation cannot be forwarded to ApsaraMQ for RocketMQ. If you want to use an ApsaraMQ for MQTT to forward messages to ApsaraMQ for RocketMQ, send the messages by using an SDK. For more information, see [Export data from ApsaraMQ for MQTT to other Alibaba Cloud services](https://help.aliyun.com/document_detail/174527.html). You can call the **SendMessage** operation up to 1,000 times per second. For more information, see [Limits on QPS](https://help.aliyun.com/document_detail/163047.html).
+     * *   Each successful call to the **SendMessage** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For information about the billing details, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
+     *  *
      * @param SendMessageRequest $request SendMessageRequest
      *
      * @return SendMessageResponse SendMessageResponse
@@ -2100,9 +2308,11 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation up to 500 times per second per account. If the limit is exceeded, throttling is triggered. This may affect your business. We recommend that you take note of this limit when you call this operation. For more information, see [Limits on QPS](~~163047~~).
-     *   * *   Each successful call to the **UnRegisterDeviceCredential** operation increases the number of transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](~~52819~~).
-     *   *
+     * @summary Deregisters the access credential of a device. After the access credential of a device is deregistered, you can no longer use the access credential to authenticate the device on the ApsaraMQ for MQTT broker.
+     *  *
+     * @description *   You can call this operation up to 500 times per second per account. If the limit is exceeded, throttling is triggered. This may affect your business. We recommend that you take note of this limit when you call this operation. For more information, see [Limits on QPS](https://help.aliyun.com/document_detail/163047.html).
+     * *   Each successful call to the **UnRegisterDeviceCredential** operation increases the number of transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
+     *  *
      * @param UnRegisterDeviceCredentialRequest $request UnRegisterDeviceCredentialRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
@@ -2137,9 +2347,11 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation up to 500 times per second per account. If the limit is exceeded, throttling is triggered. This may affect your business. We recommend that you take note of this limit when you call this operation. For more information, see [Limits on QPS](~~163047~~).
-     *   * *   Each successful call to the **UnRegisterDeviceCredential** operation increases the number of transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](~~52819~~).
-     *   *
+     * @summary Deregisters the access credential of a device. After the access credential of a device is deregistered, you can no longer use the access credential to authenticate the device on the ApsaraMQ for MQTT broker.
+     *  *
+     * @description *   You can call this operation up to 500 times per second per account. If the limit is exceeded, throttling is triggered. This may affect your business. We recommend that you take note of this limit when you call this operation. For more information, see [Limits on QPS](https://help.aliyun.com/document_detail/163047.html).
+     * *   Each successful call to the **UnRegisterDeviceCredential** operation increases the number of transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
+     *  *
      * @param UnRegisterDeviceCredentialRequest $request UnRegisterDeviceCredentialRequest
      *
      * @return UnRegisterDeviceCredentialResponse UnRegisterDeviceCredentialResponse
@@ -2152,10 +2364,12 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @param UpdateCustomAuthIdentityRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Updates the information about custom identity authentication.
+     *  *
+     * @param UpdateCustomAuthIdentityRequest $request UpdateCustomAuthIdentityRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateCustomAuthIdentityResponse
+     * @return UpdateCustomAuthIdentityResponse UpdateCustomAuthIdentityResponse
      */
     public function updateCustomAuthIdentityWithOptions($request, $runtime)
     {
@@ -2198,9 +2412,11 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @param UpdateCustomAuthIdentityRequest $request
+     * @summary Updates the information about custom identity authentication.
+     *  *
+     * @param UpdateCustomAuthIdentityRequest $request UpdateCustomAuthIdentityRequest
      *
-     * @return UpdateCustomAuthIdentityResponse
+     * @return UpdateCustomAuthIdentityResponse UpdateCustomAuthIdentityResponse
      */
     public function updateCustomAuthIdentity($request)
     {
@@ -2210,10 +2426,12 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @param UpdateCustomAuthPermissionRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary 更新自定义权限授权
+     *  *
+     * @param UpdateCustomAuthPermissionRequest $request UpdateCustomAuthPermissionRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateCustomAuthPermissionResponse
+     * @return UpdateCustomAuthPermissionResponse UpdateCustomAuthPermissionResponse
      */
     public function updateCustomAuthPermissionWithOptions($request, $runtime)
     {
@@ -2256,9 +2474,11 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @param UpdateCustomAuthPermissionRequest $request
+     * @summary 更新自定义权限授权
+     *  *
+     * @param UpdateCustomAuthPermissionRequest $request UpdateCustomAuthPermissionRequest
      *
-     * @return UpdateCustomAuthPermissionResponse
+     * @return UpdateCustomAuthPermissionResponse UpdateCustomAuthPermissionResponse
      */
     public function updateCustomAuthPermission($request)
     {

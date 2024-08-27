@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetRegisterCodeRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example post-cn-7mz2d******
      *
      * @var string

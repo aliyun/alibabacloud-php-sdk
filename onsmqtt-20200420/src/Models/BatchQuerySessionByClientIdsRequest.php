@@ -11,6 +11,7 @@ class BatchQuerySessionByClientIdsRequest extends Model
     /**
      * @description The ApsaraMQ for MQTT clients.
      *
+     * This parameter is required.
      * @example ClientIdList.1
      *
      * @var string[]
@@ -20,6 +21,7 @@ class BatchQuerySessionByClientIdsRequest extends Model
     /**
      * @description The ID of the ApsaraMQ for MQTT instance. The ID must be consistent with the ID of the instance that the ApsaraMQ for MQTT client uses. You can obtain the instance ID on the **Instance Details** page that corresponds to the instance in the [ApsaraMQ for MQTT console](https://mqtt.console.aliyun.com).
      *
+     * This parameter is required.
      * @example post-cn-0pp12gl****
      *
      * @var string

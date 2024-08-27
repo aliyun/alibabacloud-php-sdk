@@ -9,13 +9,17 @@ use AlibabaCloud\Tea\Model;
 class RegisterCaCertificateRequest extends Model
 {
     /**
-     * @example -----BEGIN CERTIFICATE-----\nMIIDuzCCAqdGVzdC5jbi1xaW5n******\n-----END CERTIFICATE-----
+     * @description This parameter is required.
+     *
+     * @example -----BEGIN CERTIFICATE-----\\nMIIDuzCCAqdGVzdC5jbi1xaW5n******\\n-----END CERTIFICATE-----
      *
      * @var string
      */
     public $caContent;
 
     /**
+     * @description This parameter is required.
+     *
      * @example mqtt_ca
      *
      * @var string
@@ -23,6 +27,8 @@ class RegisterCaCertificateRequest extends Model
     public $caName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example post-cn-7mz2d******
      *
      * @var string
@@ -30,7 +36,9 @@ class RegisterCaCertificateRequest extends Model
     public $mqttInstanceId;
 
     /**
-     * @example -----BEGIN CERTIFICATE-----\nMIID/DCCAu+Y5sRMpp9tnd+4s******\n-----END CERTIFICATE-----
+     * @description This parameter is required.
+     *
+     * @example -----BEGIN CERTIFICATE-----\\nMIID/DCCAu+Y5sRMpp9tnd+4s******\\n-----END CERTIFICATE-----
      *
      * @var string
      */

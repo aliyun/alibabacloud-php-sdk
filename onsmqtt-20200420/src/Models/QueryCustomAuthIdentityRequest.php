@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryCustomAuthIdentityRequest extends Model
 {
     /**
+     * @description The client ID if you set IdentityType to CLIENT.
+     *
      * @example GID_test@@@test
      *
      * @var string
@@ -16,6 +18,13 @@ class QueryCustomAuthIdentityRequest extends Model
     public $clientId;
 
     /**
+     * @description The identity type.
+     *
+     * Valid values:
+     *
+     *   USER
+     *   CLIENT
+     *
      * @example USER
      *
      * @var string
@@ -23,6 +32,9 @@ class QueryCustomAuthIdentityRequest extends Model
     public $identityType;
 
     /**
+     * @description The ID of the ApsaraMQ for MQTT instance.
+     *
+     * This parameter is required.
      * @example post-111****
      *
      * @var string
@@ -30,6 +42,8 @@ class QueryCustomAuthIdentityRequest extends Model
     public $instanceId;
 
     /**
+     * @description The token that marks the end position of the previous returned page. To obtain the next batch of data, call the operation again by using the value of NextToken returned by the previous request. If you call this operation for the first time or want to query all results, set NextToken to an empty string.
+     *
      * @example eyJhY2NvdW50IjoiMTM4MTcxODk3NDQzMjQ1OSIsImV2ZW50SWQiOiJGMkUxOUE3QS1FM0Q0LTVCOEYtQkU4OS1CNkMyM0RBM0UyRjIiLCJsb2dJZCI6IjY2LTEzODE3MTg5NzQ0MzI0NTkiLCJydyI6IlciLCJ0aW1lIjoxNjc4MzI2MTI1MDAwfQ
      *
      * @var string
@@ -37,6 +51,9 @@ class QueryCustomAuthIdentityRequest extends Model
     public $nextToken;
 
     /**
+     * @description The number of identities to be queried. Maximum value: 100.
+     *
+     * This parameter is required.
      * @example 100
      *
      * @var int
@@ -44,6 +61,8 @@ class QueryCustomAuthIdentityRequest extends Model
     public $size;
 
     /**
+     * @description The username.
+     *
      * @example test
      *
      * @var string

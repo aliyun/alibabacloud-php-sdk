@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetDeviceCertificateRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 007269004887******
      *
      * @var string
@@ -16,6 +18,8 @@ class GetDeviceCertificateRequest extends Model
     public $caSn;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 356217374433******
      *
      * @var string
@@ -23,6 +27,8 @@ class GetDeviceCertificateRequest extends Model
     public $deviceSn;
 
     /**
+     * @description This parameter is required.
+     *
      * @example post-cn-7mz2d******
      *
      * @var string

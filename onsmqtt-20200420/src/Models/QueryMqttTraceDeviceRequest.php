@@ -11,6 +11,7 @@ class QueryMqttTraceDeviceRequest extends Model
     /**
      * @description The beginning of the time range to query. The value of this parameter is a UNIX timestamp in milliseconds.
      *
+     * This parameter is required.
      * @example 1621580400000
      *
      * @var int
@@ -20,6 +21,7 @@ class QueryMqttTraceDeviceRequest extends Model
     /**
      * @description The client ID of the device whose trace you want to query.
      *
+     * This parameter is required.
      * @example GID_test@@@producer
      *
      * @var string
@@ -29,6 +31,7 @@ class QueryMqttTraceDeviceRequest extends Model
     /**
      * @description The number of the page to return. Pages start from page 1. If the input parameter value is greater than the total number of pages, the returned result is empty.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -38,6 +41,7 @@ class QueryMqttTraceDeviceRequest extends Model
     /**
      * @description The end of the time range to query. The value of this parameter is a UNIX timestamp in milliseconds.
      *
+     * This parameter is required.
      * @example 1621584000000
      *
      * @var int
@@ -47,6 +51,7 @@ class QueryMqttTraceDeviceRequest extends Model
     /**
      * @description The ID of the ApsaraMQ for MQTT instance. The ID must be consistent with the ID of the instance that the ApsaraMQ for MQTT client uses. You can view the instance ID in the **Basic Information** section on the **Instance Details** page that corresponds to the instance in the ApsaraMQ for MQTT console.
      *
+     * This parameter is required.
      * @example mqtt-cn-i7m26mf****
      *
      * @var string
@@ -54,8 +59,9 @@ class QueryMqttTraceDeviceRequest extends Model
     public $instanceId;
 
     /**
-     * @description The ID of the region where the ApsaraMQ for MQTT instance resides. For more information, see [Endpoints](~~181438~~).
+     * @description The ID of the region where the ApsaraMQ for MQTT instance resides. For more information, see [Endpoints](https://help.aliyun.com/document_detail/181438.html).
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -65,6 +71,7 @@ class QueryMqttTraceDeviceRequest extends Model
     /**
      * @description The number of entries to return on each page. Valid values: 1 to 100.
      *
+     * This parameter is required.
      * @example 5
      *
      * @var int

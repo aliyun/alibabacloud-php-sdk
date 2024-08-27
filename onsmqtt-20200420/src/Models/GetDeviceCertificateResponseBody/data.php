@@ -16,7 +16,7 @@ class data extends Model
     public $caSn;
 
     /**
-     * @example -----BEGIN DEVICECERTIFICATE-----\nMIIDuzCCAqdGVzdC5jbi1xaW5n******\n-----END DEVICECERTIFICATE-----
+     * @example -----BEGIN DEVICECERTIFICATE-----\\nMIIDuzCCAqdGVzdC5jbi1xaW5n******\\n-----END DEVICECERTIFICATE-----
      *
      * @var string
      */

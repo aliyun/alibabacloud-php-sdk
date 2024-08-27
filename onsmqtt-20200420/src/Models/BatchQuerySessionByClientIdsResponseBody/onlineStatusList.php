@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class onlineStatusList extends Model
 {
     /**
-     * @description The ID of the ApsaraMQ for MQTT client. For more information about client IDs, see [Terms](~~42420~~).
+     * @description The ID of the ApsaraMQ for MQTT client. For more information about client IDs, see [Terms](https://help.aliyun.com/document_detail/42420.html).
      *
      * @example GID_test@0001
      *

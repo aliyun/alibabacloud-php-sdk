@@ -6,12 +6,11 @@ namespace AlibabaCloud\SDK\OnsMqtt\V20200420\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class QuerySessionByClientIdRequest extends Model
+class CloseConnectionRequest extends Model
 {
     /**
-     * @description The ID of the ApsaraMQ for MQTT client that you want to query.
+     * @description This parameter is required.
      *
-     * This parameter is required.
      * @example GID_test@@@test
      *
      * @var string
@@ -19,9 +18,8 @@ class QuerySessionByClientIdRequest extends Model
     public $clientId;
 
     /**
-     * @description The ID of the ApsaraMQ for MQTT instance. The ID must be consistent with the ID of the instance that the ApsaraMQ for MQTT client uses. You can obtain the instance ID on the **Instance Details** page that corresponds to the instance in the [ApsaraMQ for MQTT console](https://mqtt.console.aliyun.com).
+     * @description This parameter is required.
      *
-     * This parameter is required.
      * @example post-cn-0pp12gl****
      *
      * @var string
@@ -52,7 +50,7 @@ class QuerySessionByClientIdRequest extends Model
     /**
      * @param array $map
      *
-     * @return QuerySessionByClientIdRequest
+     * @return CloseConnectionRequest
      */
     public static function fromMap($map = [])
     {

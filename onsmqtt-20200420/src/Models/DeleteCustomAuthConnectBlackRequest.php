@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteCustomAuthConnectBlackRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example GID_test@@@test
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteCustomAuthConnectBlackRequest extends Model
     public $clientId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example post-cn-0pp12gl****
      *
      * @var string

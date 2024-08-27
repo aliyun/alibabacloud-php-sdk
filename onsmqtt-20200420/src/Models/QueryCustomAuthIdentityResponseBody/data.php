@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description If excess return values exist, this parameter is returned.
+     *
      * @example AAAAAXA+GzVqTutYpgkFjBrchKzuvSbpuTqtt6OF9tsC9QnJ
      *
      * @var string
@@ -17,6 +19,8 @@ class data extends Model
     public $nextToken;
 
     /**
+     * @description The returned results.
+     *
      * @var results[]
      */
     public $results;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateCustomAuthPermissionRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example ALLOW
      *
      * @var string
@@ -16,6 +18,8 @@ class UpdateCustomAuthPermissionRequest extends Model
     public $effect;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test
      *
      * @var string
@@ -23,6 +27,8 @@ class UpdateCustomAuthPermissionRequest extends Model
     public $identity;
 
     /**
+     * @description This parameter is required.
+     *
      * @example USER
      *
      * @var string
@@ -30,6 +36,8 @@ class UpdateCustomAuthPermissionRequest extends Model
     public $identityType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example post-cn-0pp12gl****
      *
      * @var string
@@ -37,6 +45,8 @@ class UpdateCustomAuthPermissionRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example PUB_SUB
      *
      * @var string
@@ -44,6 +54,8 @@ class UpdateCustomAuthPermissionRequest extends Model
     public $permitAction;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test/t1
      *
      * @var string

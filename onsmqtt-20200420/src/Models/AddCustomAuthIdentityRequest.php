@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AddCustomAuthIdentityRequest extends Model
 {
     /**
+     * @description The client ID if you set IdentityType to CLIENT.
+     *
      * @example GID_test@@@test
      *
      * @var string
@@ -16,6 +18,9 @@ class AddCustomAuthIdentityRequest extends Model
     public $clientId;
 
     /**
+     * @description The identity type. Valid values: USER and CLIENT.
+     *
+     * This parameter is required.
      * @example USER
      *
      * @var string
@@ -23,6 +28,9 @@ class AddCustomAuthIdentityRequest extends Model
     public $identityType;
 
     /**
+     * @description The ID of the Message Queue for MQTT instance.
+     *
+     * This parameter is required.
      * @example mqtt-cn-xxxx
      *
      * @var string
@@ -30,6 +38,9 @@ class AddCustomAuthIdentityRequest extends Model
     public $instanceId;
 
     /**
+     * @description The AccessKey secret.
+     *
+     * This parameter is required.
      * @example xxxxx
      *
      * @var string
@@ -37,6 +48,8 @@ class AddCustomAuthIdentityRequest extends Model
     public $secret;
 
     /**
+     * @description The signature verification mode. ORIGIN: compares the password and the AccessKey secret. SIGNED: uses the HMAC_SHA1 algorithm to sign the client ID to obtain a password and then compares the password.
+     *
      * @example SIGNED
      *
      * @var string
@@ -44,6 +57,9 @@ class AddCustomAuthIdentityRequest extends Model
     public $signMode;
 
     /**
+     * @description The username.
+     *
+     * This parameter is required.
      * @example test
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteCustomAuthIdentityResponseBody extends Model
 {
     /**
+     * @description The HTTP status code. The status code 200 indicates that the request is successful. Other status codes indicate that the request failed.
+     *
      * @example 200
      *
      * @var int
@@ -16,6 +18,8 @@ class DeleteCustomAuthIdentityResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned message.
+     *
      * @example operation success.
      *
      * @var string
@@ -23,7 +27,7 @@ class DeleteCustomAuthIdentityResponseBody extends Model
     public $message;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example 11568B5B-13A8-4E72-9DBA-3A14F7D3****
      *
@@ -32,6 +36,8 @@ class DeleteCustomAuthIdentityResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the operation is successful. Valid values: true and false.
+     *
      * @example True
      *
      * @var bool

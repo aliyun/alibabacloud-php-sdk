@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class results extends Model
 {
     /**
+     * @description The client ID.
+     *
      * @example GID_TEST@@@test
      *
      * @var string
@@ -16,6 +18,8 @@ class results extends Model
     public $clientId;
 
     /**
+     * @description Indicates whether to allow or deny access.
+     *
      * @example ALLOW
      *
      * @var string
@@ -23,6 +27,8 @@ class results extends Model
     public $effect;
 
     /**
+     * @description The authorized permissions.
+     *
      * @example CONNECT
      *
      * @var string

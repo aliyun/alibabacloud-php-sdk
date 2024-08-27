@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListDeviceCertificateRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example post-cn-7mz2d******
      *
      * @var string
@@ -16,6 +18,8 @@ class ListDeviceCertificateRequest extends Model
     public $mqttInstanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2
      *
      * @var string
@@ -23,6 +27,8 @@ class ListDeviceCertificateRequest extends Model
     public $pageNo;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 10
      *
      * @var string

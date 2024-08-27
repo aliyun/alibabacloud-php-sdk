@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteCustomAuthIdentityRequest extends Model
 {
     /**
+     * @description The client ID if you set IdentityType to CLIENT.
+     *
      * @example GID_test@@@test
      *
      * @var string
@@ -16,6 +18,12 @@ class DeleteCustomAuthIdentityRequest extends Model
     public $clientId;
 
     /**
+     * @description The identity type. Valid values:
+     *
+     *   USER
+     *   CLIENT
+     *
+     * This parameter is required.
      * @example USER
      *
      * @var string
@@ -23,6 +31,9 @@ class DeleteCustomAuthIdentityRequest extends Model
     public $identityType;
 
     /**
+     * @description The ID of the ApsaraMQ for MQTT instance.
+     *
+     * This parameter is required.
      * @example post-cn-0pp12gl****
      *
      * @var string
@@ -30,6 +41,9 @@ class DeleteCustomAuthIdentityRequest extends Model
     public $instanceId;
 
     /**
+     * @description The username.
+     *
+     * This parameter is required.
      * @example test
      *
      * @var string

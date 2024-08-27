@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results.
+     *
      * @example AAAAAZ0cM0HTqLXvgm7oMHWXcvc=
      *
      * @var string
@@ -17,6 +19,8 @@ class data extends Model
     public $nextToken;
 
     /**
+     * @description The returned results.
+     *
      * @var results[]
      */
     public $results;

@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteCustomAuthPermissionRequest extends Model
 {
     /**
+     * @description The username or client ID.
+     *
+     * This parameter is required.
      * @example test
      *
      * @var string
@@ -16,6 +19,12 @@ class DeleteCustomAuthPermissionRequest extends Model
     public $identity;
 
     /**
+     * @description The identity type. Valid values:
+     *
+     *   USER
+     *   CLIENT
+     *
+     * This parameter is required.
      * @example USER
      *
      * @var string
@@ -23,6 +32,9 @@ class DeleteCustomAuthPermissionRequest extends Model
     public $identityType;
 
     /**
+     * @description The ID of the ApsaraMQ for MQTT instance.
+     *
+     * This parameter is required.
      * @example mqtt-cn-0pp1ldu****
      *
      * @var string
@@ -30,6 +42,9 @@ class DeleteCustomAuthPermissionRequest extends Model
     public $instanceId;
 
     /**
+     * @description The topic on which you want to grant permissions. Multi-level topics and Wildcard characters are supported.
+     *
+     * This parameter is required.
      * @example test/t1
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class results extends Model
 {
     /**
+     * @description The client ID if IdentityType is set to CLIENT.
+     *
      * @example GID_ICP@@@4d378084
      *
      * @var string
@@ -16,6 +18,11 @@ class results extends Model
     public $clientId;
 
     /**
+     * @description The identity type. Valid values:
+     *
+     *   USER
+     *   CLIENT
+     *
      * @example USER
      *
      * @var string
@@ -23,6 +30,8 @@ class results extends Model
     public $identityType;
 
     /**
+     * @description The AccessKey secret.
+     *
      * @example 62a5916d71767185b48907d85c2efae2
      *
      * @var string
@@ -30,6 +39,8 @@ class results extends Model
     public $secret;
 
     /**
+     * @description The signature verification mode. ORIGIN: compares the password and the AccessKey secret. SIGNED: uses the HMAC_SHA1 algorithm to sign the client ID to obtain a password and then compares the password.
+     *
      * @example SIGNED
      *
      * @var string
@@ -37,6 +48,8 @@ class results extends Model
     public $signMode;
 
     /**
+     * @description The username.
+     *
      * @example test
      *
      * @var string

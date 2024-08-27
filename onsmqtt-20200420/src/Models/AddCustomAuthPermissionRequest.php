@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class AddCustomAuthPermissionRequest extends Model
 {
     /**
+     * @description Specify whether to allow or deny the permissions.
+     *
+     * This parameter is required.
      * @example ALLOW
      *
      * @var string
@@ -16,6 +19,9 @@ class AddCustomAuthPermissionRequest extends Model
     public $effect;
 
     /**
+     * @description The username or client ID.
+     *
+     * This parameter is required.
      * @example test
      *
      * @var string
@@ -23,6 +29,9 @@ class AddCustomAuthPermissionRequest extends Model
     public $identity;
 
     /**
+     * @description The identity type. Valid values: USER and CLIENT.
+     *
+     * This parameter is required.
      * @example USER
      *
      * @var string
@@ -30,6 +39,9 @@ class AddCustomAuthPermissionRequest extends Model
     public $identityType;
 
     /**
+     * @description The ID of the ApsaraMQ for MQTT instance.
+     *
+     * This parameter is required.
      * @example mqtt-cn-0pp12gl****
      *
      * @var string
@@ -37,6 +49,9 @@ class AddCustomAuthPermissionRequest extends Model
     public $instanceId;
 
     /**
+     * @description The permissions that you want to add.
+     *
+     * This parameter is required.
      * @example PUB_SUB
      *
      * @var string
@@ -44,6 +59,9 @@ class AddCustomAuthPermissionRequest extends Model
     public $permitAction;
 
     /**
+     * @description The topic on which you want to add the permissions. Multi-level topics and wildcard characters are supported.
+     *
+     * This parameter is required.
      * @example test/t1
      *
      * @var string

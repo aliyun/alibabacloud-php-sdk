@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class caCertificateVOS extends Model
 {
     /**
-     * @example -----BEGIN CERTIFICATE-----\nMIIDuzCCAqdGVzdC5jbi1xaW5n******\n-----END CERTIFICATE-----
+     * @example -----BEGIN CERTIFICATE-----\\nMIIDuzCCAqdGVzdC5jbi1xaW5n******\\n-----END CERTIFICATE-----
      *
      * @var string
      */
@@ -58,7 +58,7 @@ class caCertificateVOS extends Model
     public $validEnd;
 
     /**
-     * @example -----BEGIN CERTIFICATE-----\nMIID/DCCAu+Y5sRMpp9tnd+4s******\n-----END CERTIFICATE-----
+     * @example -----BEGIN CERTIFICATE-----\\nMIID/DCCAu+Y5sRMpp9tnd+4s******\\n-----END CERTIFICATE-----
      *
      * @var string
      */

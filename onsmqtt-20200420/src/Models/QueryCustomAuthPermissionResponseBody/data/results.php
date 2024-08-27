@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class results extends Model
 {
     /**
+     * @description Indicates whether to allow or deny access.
+     *
      * @example ALLOW
      *
      * @var string
@@ -16,6 +18,8 @@ class results extends Model
     public $effect;
 
     /**
+     * @description The username or client ID.
+     *
      * @example test
      *
      * @var string
@@ -23,6 +27,11 @@ class results extends Model
     public $identity;
 
     /**
+     * @description The identity type. Valid values:
+     *
+     *   USER
+     *   CLIENT
+     *
      * @example USER
      *
      * @var string
@@ -30,6 +39,8 @@ class results extends Model
     public $identityType;
 
     /**
+     * @description The authorized permissions.
+     *
      * @example PUB_SUB
      *
      * @var string
@@ -37,6 +48,8 @@ class results extends Model
     public $permitAction;
 
     /**
+     * @description The topic name. Multi-level topics and wildcard characters are supported.
+     *
      * @example test
      *
      * @var string

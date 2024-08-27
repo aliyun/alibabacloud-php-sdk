@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class AddCustomAuthConnectBlackRequest extends Model
 {
     /**
+     * @description The client ID of the device whose connections you want to disable.
+     *
+     * This parameter is required.
      * @example GID_test@@@test
      *
      * @var string
@@ -16,6 +19,9 @@ class AddCustomAuthConnectBlackRequest extends Model
     public $clientId;
 
     /**
+     * @description The ID of the ApsaraMQ for MQTT instance.
+     *
+     * This parameter is required.
      * @example mqtt-cn-i7m26mf****
      *
      * @var string

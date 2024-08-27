@@ -15,6 +15,7 @@ class ApplyTokenRequest extends Model
      *   **W**: write-only. You can only send messages to the specified topics.
      *   **R,W**: read and write. You can send messages to and subscribe to the specified topics. Separate **R** and **W** with a comma (,).
      *
+     * This parameter is required.
      * @example R
      *
      * @var string
@@ -25,6 +26,8 @@ class ApplyTokenRequest extends Model
      * @description The timestamp that indicates the point in time when the token expires. Unit: milliseconds. The minimum validity period of a token is 60 seconds, and the maximum validity period of a token is 30 days. If you specify a validity period of more than 30 days for a token, no errors are returned. However, the token is valid only for 30 days.
      *
      * For example, you want to specify a validity period of 60 seconds for a token. If the current system timestamp is 1609434061000, you must set this parameter to **1609434121000**. The value is calculated by using the following formula: 1609434061000 + 60 x 1000 = 1609434121000.
+     *
+     * This parameter is required.
      * @example 1609434121000
      *
      * @var int
@@ -34,6 +37,7 @@ class ApplyTokenRequest extends Model
     /**
      * @description The ID of the ApsaraMQ for MQTT instance. The ID must be consistent with the ID of the instance that the ApsaraMQ for MQTT client uses. You can obtain the instance ID on the **Instance Details** page that corresponds to the instance in the [ApsaraMQ for MQTT console](https://mqtt.console.aliyun.com/).
      *
+     * This parameter is required.
      * @example post-cn-0pp12gl****
      *
      * @var string
@@ -45,7 +49,7 @@ class ApplyTokenRequest extends Model
      *
      * For example, if you set the **Resources** parameter to Topic1/+ when you apply for a token, the ApsaraMQ for MQTT client can manage the topics in Topic1/xxx. If you set the **Resources** parameter to Topic1/# when you apply for a token, the ApsaraMQ for MQTT client can manage topics of any level in Topic1/xxx/xxx/xxx.
      *
-     * >  ApsaraMQ for MQTT supports subtopics. You can specify subtopics in the code for messaging instead of configuring them in the ApsaraMQ for MQTT console. Forward slashes (/) are used to separate topics of different levels. For more information, see [Terms](~~42420~~).
+     * This parameter is required.
      * @example TopicA/+
      *
      * @var string

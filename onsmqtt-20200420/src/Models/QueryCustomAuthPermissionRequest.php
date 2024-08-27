@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryCustomAuthPermissionRequest extends Model
 {
     /**
+     * @description The username or client ID.
+     *
      * @example test
      *
      * @var string
@@ -16,6 +18,13 @@ class QueryCustomAuthPermissionRequest extends Model
     public $identity;
 
     /**
+     * @description The identity type.
+     *
+     * Valid values:
+     *
+     *   USER
+     *   CLIENT
+     *
      * @example USER
      *
      * @var string
@@ -23,6 +32,9 @@ class QueryCustomAuthPermissionRequest extends Model
     public $identityType;
 
     /**
+     * @description The ID of the ApsaraMQ for MQTT instance.
+     *
+     * This parameter is required.
      * @example post-cn-0pp12gl****
      *
      * @var string
@@ -30,6 +42,8 @@ class QueryCustomAuthPermissionRequest extends Model
     public $instanceId;
 
     /**
+     * @description The token that marks the end position of the previous returned page. To obtain the next batch of data, call the operation again by using the value of NextToken returned by the previous request. If you call this operation for the first time or want to query all results, set NextToken to an empty string.
+     *
      * @example AAAAAThmKW2HkRgzo4G7IRRTK2fC6zZmAk6y0bwoNPFOOcSP
      *
      * @var string
@@ -37,6 +51,9 @@ class QueryCustomAuthPermissionRequest extends Model
     public $nextToken;
 
     /**
+     * @description The number of queries to be returned. Maximum value: 100.
+     *
+     * This parameter is required.
      * @example 100
      *
      * @var int
@@ -44,6 +61,8 @@ class QueryCustomAuthPermissionRequest extends Model
     public $size;
 
     /**
+     * @description The topic whose authorization information you want to query. Multi-level topics and wildcard characters are supported.
+     *
      * @example test
      *
      * @var string

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QueryCustomAuthConnectBlackResponseBody extends Model
 {
     /**
+     * @description The HTTP status code. The status code 200 indicates that the request is successful. Other status codes indicate that the request failed. For a list of error codes, see Error codes.
+     *
      * @example 200
      *
      * @var int
@@ -17,11 +19,15 @@ class QueryCustomAuthConnectBlackResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned data.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The returned message.
+     *
      * @example operation success.
      *
      * @var string
@@ -29,7 +35,7 @@ class QueryCustomAuthConnectBlackResponseBody extends Model
     public $message;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example 020F6A43-19E6-4B6E-B846-44EB31DF****
      *
@@ -38,6 +44,8 @@ class QueryCustomAuthConnectBlackResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful. Valid values: true and false.
+     *
      * @example True
      *
      * @var bool

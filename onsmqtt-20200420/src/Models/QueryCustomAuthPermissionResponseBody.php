@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QueryCustomAuthPermissionResponseBody extends Model
 {
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -17,11 +19,15 @@ class QueryCustomAuthPermissionResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned data.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The returned message.
+     *
      * @example operation success.
      *
      * @var string
@@ -29,7 +35,7 @@ class QueryCustomAuthPermissionResponseBody extends Model
     public $message;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example 63309FDB-ED6C-46AE-B31C-A172FBA0****
      *
@@ -38,6 +44,8 @@ class QueryCustomAuthPermissionResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful. Valid values: true and false.
+     *
      * @example True
      *
      * @var bool

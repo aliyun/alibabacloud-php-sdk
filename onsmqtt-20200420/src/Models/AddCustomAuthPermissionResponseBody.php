@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AddCustomAuthPermissionResponseBody extends Model
 {
     /**
+     * @description The HTTP status code. The status code 200 indicates that the request is successful.
+     *
      * @example 200
      *
      * @var int
@@ -16,6 +18,8 @@ class AddCustomAuthPermissionResponseBody extends Model
     public $code;
 
     /**
+     * @description The error message returned.
+     *
      * @example operation success.
      *
      * @var string
@@ -23,7 +27,7 @@ class AddCustomAuthPermissionResponseBody extends Model
     public $message;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example 82B9E503-F4A1-4F30-976F-C6999FF9****
      *
@@ -32,6 +36,8 @@ class AddCustomAuthPermissionResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful. Valid values: true and false.
+     *
      * @example True
      *
      * @var bool
