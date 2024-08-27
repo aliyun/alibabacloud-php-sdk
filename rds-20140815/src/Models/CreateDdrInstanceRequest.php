@@ -93,6 +93,11 @@ class CreateDdrInstanceRequest extends Model
     public $DBInstanceStorageType;
 
     /**
+     * @var string
+     */
+    public $encryptionKey;
+
+    /**
      * @description The database engine of the destination instance. Valid values:
      *
      *   **MySQL**
@@ -233,6 +238,11 @@ class CreateDdrInstanceRequest extends Model
     public $restoreType;
 
     /**
+     * @var string
+     */
+    public $roleARN;
+
+    /**
      * @description The IP address whitelist of the destination instance. If you want to add more than one entry to the IP address whitelist, separate the entries with commas (,). Each entry must be unique. You can add a maximum of 1,000 entries. For more information, see [Configure an IP address whitelist for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/43185.html). The entries in the IP address whitelist must be in one of the following formats:
      *
      *   IP address. Example: 10.23.12.24.
@@ -330,6 +340,7 @@ class CreateDdrInstanceRequest extends Model
         'DBInstanceNetType'     => 'DBInstanceNetType',
         'DBInstanceStorage'     => 'DBInstanceStorage',
         'DBInstanceStorageType' => 'DBInstanceStorageType',
+        'encryptionKey'         => 'EncryptionKey',
         'engine'                => 'Engine',
         'engineVersion'         => 'EngineVersion',
         'instanceNetworkType'   => 'InstanceNetworkType',
@@ -344,6 +355,7 @@ class CreateDdrInstanceRequest extends Model
         'resourceOwnerId'       => 'ResourceOwnerId',
         'restoreTime'           => 'RestoreTime',
         'restoreType'           => 'RestoreType',
+        'roleARN'               => 'RoleARN',
         'securityIPList'        => 'SecurityIPList',
         'sourceDBInstanceName'  => 'SourceDBInstanceName',
         'sourceRegion'          => 'SourceRegion',
@@ -384,6 +396,9 @@ class CreateDdrInstanceRequest extends Model
         }
         if (null !== $this->DBInstanceStorageType) {
             $res['DBInstanceStorageType'] = $this->DBInstanceStorageType;
+        }
+        if (null !== $this->encryptionKey) {
+            $res['EncryptionKey'] = $this->encryptionKey;
         }
         if (null !== $this->engine) {
             $res['Engine'] = $this->engine;
@@ -426,6 +441,9 @@ class CreateDdrInstanceRequest extends Model
         }
         if (null !== $this->restoreType) {
             $res['RestoreType'] = $this->restoreType;
+        }
+        if (null !== $this->roleARN) {
+            $res['RoleARN'] = $this->roleARN;
         }
         if (null !== $this->securityIPList) {
             $res['SecurityIPList'] = $this->securityIPList;
@@ -487,6 +505,9 @@ class CreateDdrInstanceRequest extends Model
         if (isset($map['DBInstanceStorageType'])) {
             $model->DBInstanceStorageType = $map['DBInstanceStorageType'];
         }
+        if (isset($map['EncryptionKey'])) {
+            $model->encryptionKey = $map['EncryptionKey'];
+        }
         if (isset($map['Engine'])) {
             $model->engine = $map['Engine'];
         }
@@ -528,6 +549,9 @@ class CreateDdrInstanceRequest extends Model
         }
         if (isset($map['RestoreType'])) {
             $model->restoreType = $map['RestoreType'];
+        }
+        if (isset($map['RoleARN'])) {
+            $model->roleARN = $map['RoleARN'];
         }
         if (isset($map['SecurityIPList'])) {
             $model->securityIPList = $map['SecurityIPList'];

@@ -3499,6 +3499,9 @@ class Rds extends OpenApiClient
         if (!Utils::isUnset($request->DBInstanceStorageType)) {
             $query['DBInstanceStorageType'] = $request->DBInstanceStorageType;
         }
+        if (!Utils::isUnset($request->encryptionKey)) {
+            $query['EncryptionKey'] = $request->encryptionKey;
+        }
         if (!Utils::isUnset($request->engine)) {
             $query['Engine'] = $request->engine;
         }
@@ -3540,6 +3543,9 @@ class Rds extends OpenApiClient
         }
         if (!Utils::isUnset($request->restoreType)) {
             $query['RestoreType'] = $request->restoreType;
+        }
+        if (!Utils::isUnset($request->roleARN)) {
+            $query['RoleARN'] = $request->roleARN;
         }
         if (!Utils::isUnset($request->securityIPList)) {
             $query['SecurityIPList'] = $request->securityIPList;
@@ -12048,7 +12054,7 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary 事件中心事件统计
+     * @summary Queries event statistics in the event center.
      *  *
      * @param DescribeHistoryEventsStatRequest $request DescribeHistoryEventsStatRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -12093,7 +12099,7 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary 事件中心事件统计
+     * @summary Queries event statistics in the event center.
      *  *
      * @param DescribeHistoryEventsStatRequest $request DescribeHistoryEventsStatRequest
      *

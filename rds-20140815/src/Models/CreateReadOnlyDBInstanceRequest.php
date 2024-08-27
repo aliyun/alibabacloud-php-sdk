@@ -9,11 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CreateReadOnlyDBInstanceRequest extends Model
 {
     /**
-     * @description 是否自动创建代理。取值范围：
+     * @description Specifies whether to automatically create database proxies. Valid values:
      *
-     * - **true**：开启自动创建，默认为通用代理。
+     *   **true**: enables the feature. By default, general-purpose database proxies are created.
+     *   **false**: disables the feature. No database proxies are created.
      *
-     * - **false**：不开启自动创建。
      * @example false
      *
      * @var bool

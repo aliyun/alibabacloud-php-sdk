@@ -56,12 +56,10 @@ class ModifyDBInstanceTDERequest extends Model
     /**
      * @description Specifies whether to replace the key. Valid values:
      *
-     *   **true**: replaces the key.
-     *   **false**: does not replace the key.
+     *   **true**
+     *   **false** (default)
      *
-     * Default value: **false**
-     *
-     * > This parameter is available only when the instance runs PostgreSQL.
+     * >  This parameter is available for only ApsaraDB RDS for PostgreSQL instances.
      * @example false
      *
      * @var bool
