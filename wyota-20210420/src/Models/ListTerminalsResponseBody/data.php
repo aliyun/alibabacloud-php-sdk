@@ -56,6 +56,11 @@ class data extends Model
     public $locationInfo;
 
     /**
+     * @var string
+     */
+    public $manageTime;
+
+    /**
      * @example US01
      *
      * @var string
@@ -84,6 +89,11 @@ class data extends Model
     public $serialNumber;
 
     /**
+     * @var string
+     */
+    public $setPasswordFreeLoginUserTime;
+
+    /**
      * @example tg-default
      *
      * @var string
@@ -97,19 +107,21 @@ class data extends Model
      */
     public $uuid;
     protected $_name = [
-        'alias'                 => 'Alias',
-        'buildId'               => 'BuildId',
-        'clientType'            => 'ClientType',
-        'currentConnectDesktop' => 'CurrentConnectDesktop',
-        'currentLoginUser'      => 'CurrentLoginUser',
-        'ipv4'                  => 'Ipv4',
-        'locationInfo'          => 'LocationInfo',
-        'model'                 => 'Model',
-        'online'                => 'Online',
-        'passwordFreeLoginUser' => 'PasswordFreeLoginUser',
-        'serialNumber'          => 'SerialNumber',
-        'terminalGroupId'       => 'TerminalGroupId',
-        'uuid'                  => 'Uuid',
+        'alias'                        => 'Alias',
+        'buildId'                      => 'BuildId',
+        'clientType'                   => 'ClientType',
+        'currentConnectDesktop'        => 'CurrentConnectDesktop',
+        'currentLoginUser'             => 'CurrentLoginUser',
+        'ipv4'                         => 'Ipv4',
+        'locationInfo'                 => 'LocationInfo',
+        'manageTime'                   => 'ManageTime',
+        'model'                        => 'Model',
+        'online'                       => 'Online',
+        'passwordFreeLoginUser'        => 'PasswordFreeLoginUser',
+        'serialNumber'                 => 'SerialNumber',
+        'setPasswordFreeLoginUserTime' => 'SetPasswordFreeLoginUserTime',
+        'terminalGroupId'              => 'TerminalGroupId',
+        'uuid'                         => 'Uuid',
     ];
 
     public function validate()
@@ -140,6 +152,9 @@ class data extends Model
         if (null !== $this->locationInfo) {
             $res['LocationInfo'] = $this->locationInfo;
         }
+        if (null !== $this->manageTime) {
+            $res['ManageTime'] = $this->manageTime;
+        }
         if (null !== $this->model) {
             $res['Model'] = $this->model;
         }
@@ -151,6 +166,9 @@ class data extends Model
         }
         if (null !== $this->serialNumber) {
             $res['SerialNumber'] = $this->serialNumber;
+        }
+        if (null !== $this->setPasswordFreeLoginUserTime) {
+            $res['SetPasswordFreeLoginUserTime'] = $this->setPasswordFreeLoginUserTime;
         }
         if (null !== $this->terminalGroupId) {
             $res['TerminalGroupId'] = $this->terminalGroupId;
@@ -191,6 +209,9 @@ class data extends Model
         if (isset($map['LocationInfo'])) {
             $model->locationInfo = $map['LocationInfo'];
         }
+        if (isset($map['ManageTime'])) {
+            $model->manageTime = $map['ManageTime'];
+        }
         if (isset($map['Model'])) {
             $model->model = $map['Model'];
         }
@@ -202,6 +223,9 @@ class data extends Model
         }
         if (isset($map['SerialNumber'])) {
             $model->serialNumber = $map['SerialNumber'];
+        }
+        if (isset($map['SetPasswordFreeLoginUserTime'])) {
+            $model->setPasswordFreeLoginUserTime = $map['SetPasswordFreeLoginUserTime'];
         }
         if (isset($map['TerminalGroupId'])) {
             $model->terminalGroupId = $map['TerminalGroupId'];
