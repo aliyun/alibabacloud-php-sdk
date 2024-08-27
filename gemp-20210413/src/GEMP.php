@@ -5257,6 +5257,12 @@ class GEMP extends OpenApiClient
         if (!Utils::isUnset($request->endTime)) {
             $body['endTime'] = $request->endTime;
         }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['pageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['pageSize'] = $request->pageSize;
+        }
         if (!Utils::isUnset($request->serviceGroupName)) {
             $body['serviceGroupName'] = $request->serviceGroupName;
         }

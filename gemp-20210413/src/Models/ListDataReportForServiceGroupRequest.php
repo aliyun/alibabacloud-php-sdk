@@ -16,6 +16,16 @@ class ListDataReportForServiceGroupRequest extends Model
     public $endTime;
 
     /**
+     * @var int
+     */
+    public $pageNumber;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
+
+    /**
      * @example A服务组
      *
      * @var string
@@ -30,6 +40,8 @@ class ListDataReportForServiceGroupRequest extends Model
     public $startTime;
     protected $_name = [
         'endTime'          => 'endTime',
+        'pageNumber'       => 'pageNumber',
+        'pageSize'         => 'pageSize',
         'serviceGroupName' => 'serviceGroupName',
         'startTime'        => 'startTime',
     ];
@@ -43,6 +55,12 @@ class ListDataReportForServiceGroupRequest extends Model
         $res = [];
         if (null !== $this->endTime) {
             $res['endTime'] = $this->endTime;
+        }
+        if (null !== $this->pageNumber) {
+            $res['pageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['pageSize'] = $this->pageSize;
         }
         if (null !== $this->serviceGroupName) {
             $res['serviceGroupName'] = $this->serviceGroupName;
@@ -64,6 +82,12 @@ class ListDataReportForServiceGroupRequest extends Model
         $model = new self();
         if (isset($map['endTime'])) {
             $model->endTime = $map['endTime'];
+        }
+        if (isset($map['pageNumber'])) {
+            $model->pageNumber = $map['pageNumber'];
+        }
+        if (isset($map['pageSize'])) {
+            $model->pageSize = $map['pageSize'];
         }
         if (isset($map['serviceGroupName'])) {
             $model->serviceGroupName = $map['serviceGroupName'];
