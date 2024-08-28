@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Milvus\V20231012\Models\GetInstanceDetailResponseBody;
 
 use AlibabaCloud\SDK\Milvus\V20231012\Models\GetInstanceDetailResponseBody\data\clusterInfo;
+use AlibabaCloud\SDK\Milvus\V20231012\Models\GetInstanceDetailResponseBody\data\measureConfig;
 use AlibabaCloud\Tea\Model;
 
 class data extends Model
@@ -71,6 +72,11 @@ class data extends Model
     public $instanceStatus;
 
     /**
+     * @var measureConfig
+     */
+    public $measureConfig;
+
+    /**
      * @example true
      *
      * @var bool
@@ -104,6 +110,13 @@ class data extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @example rg-123xxx
+     *
+     * @var string
+     */
+    public $resourceGroupId;
 
     /**
      * @example 1743679
@@ -170,11 +183,13 @@ class data extends Model
         'expireTime'      => 'ExpireTime',
         'instanceId'      => 'InstanceId',
         'instanceStatus'  => 'InstanceStatus',
+        'measureConfig'   => 'MeasureConfig',
         'openPublicNet'   => 'OpenPublicNet',
         'packageType'     => 'PackageType',
         'payType'         => 'PayType',
         'productCode'     => 'ProductCode',
         'regionId'        => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'runningTime'     => 'RunningTime',
         'sgId'            => 'SgId',
         'templateVersion' => 'TemplateVersion',
@@ -219,6 +234,9 @@ class data extends Model
         if (null !== $this->instanceStatus) {
             $res['InstanceStatus'] = $this->instanceStatus;
         }
+        if (null !== $this->measureConfig) {
+            $res['MeasureConfig'] = null !== $this->measureConfig ? $this->measureConfig->toMap() : null;
+        }
         if (null !== $this->openPublicNet) {
             $res['OpenPublicNet'] = $this->openPublicNet;
         }
@@ -233,6 +251,9 @@ class data extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->runningTime) {
             $res['RunningTime'] = $this->runningTime;
@@ -297,6 +318,9 @@ class data extends Model
         if (isset($map['InstanceStatus'])) {
             $model->instanceStatus = $map['InstanceStatus'];
         }
+        if (isset($map['MeasureConfig'])) {
+            $model->measureConfig = measureConfig::fromMap($map['MeasureConfig']);
+        }
         if (isset($map['OpenPublicNet'])) {
             $model->openPublicNet = $map['OpenPublicNet'];
         }
@@ -311,6 +335,9 @@ class data extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['RunningTime'])) {
             $model->runningTime = $map['RunningTime'];

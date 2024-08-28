@@ -85,6 +85,13 @@ class data extends Model
     public $regionId;
 
     /**
+     * @example rg-123xxx
+     *
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @example 536611
      *
      * @var int
@@ -119,22 +126,23 @@ class data extends Model
      */
     public $zoneId;
     protected $_name = [
-        'beginTime'      => 'BeginTime',
-        'clusterInfo'    => 'ClusterInfo',
-        'clusterName'    => 'ClusterName',
-        'expireTime'     => 'ExpireTime',
-        'instanceId'     => 'InstanceId',
-        'instanceStatus' => 'InstanceStatus',
-        'openPublicNet'  => 'OpenPublicNet',
-        'packageType'    => 'PackageType',
-        'payType'        => 'PayType',
-        'productCode'    => 'ProductCode',
-        'regionId'       => 'RegionId',
-        'runningTime'    => 'RunningTime',
-        'sgId'           => 'SgId',
-        'vpcId'          => 'VpcId',
-        'vswId'          => 'VswId',
-        'zoneId'         => 'ZoneId',
+        'beginTime'       => 'BeginTime',
+        'clusterInfo'     => 'ClusterInfo',
+        'clusterName'     => 'ClusterName',
+        'expireTime'      => 'ExpireTime',
+        'instanceId'      => 'InstanceId',
+        'instanceStatus'  => 'InstanceStatus',
+        'openPublicNet'   => 'OpenPublicNet',
+        'packageType'     => 'PackageType',
+        'payType'         => 'PayType',
+        'productCode'     => 'ProductCode',
+        'regionId'        => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'runningTime'     => 'RunningTime',
+        'sgId'            => 'SgId',
+        'vpcId'           => 'VpcId',
+        'vswId'           => 'VswId',
+        'zoneId'          => 'ZoneId',
     ];
 
     public function validate()
@@ -176,6 +184,9 @@ class data extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->runningTime) {
             $res['RunningTime'] = $this->runningTime;
@@ -236,6 +247,9 @@ class data extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['RunningTime'])) {
             $model->runningTime = $map['RunningTime'];

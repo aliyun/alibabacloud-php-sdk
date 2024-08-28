@@ -42,12 +42,20 @@ class ListInstancesRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @example rg-123xxx
+     *
+     * @var string
+     */
+    public $resourceGroupId;
     protected $_name = [
-        'clusterId'   => 'ClusterId',
-        'clusterName' => 'ClusterName',
-        'pageNumber'  => 'PageNumber',
-        'pageSize'    => 'PageSize',
-        'regionId'    => 'RegionId',
+        'clusterId'       => 'ClusterId',
+        'clusterName'     => 'ClusterName',
+        'pageNumber'      => 'PageNumber',
+        'pageSize'        => 'PageSize',
+        'regionId'        => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -71,6 +79,9 @@ class ListInstancesRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -98,6 +109,9 @@ class ListInstancesRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;
