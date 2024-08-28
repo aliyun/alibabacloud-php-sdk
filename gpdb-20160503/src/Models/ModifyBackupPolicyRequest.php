@@ -41,7 +41,7 @@ class ModifyBackupPolicyRequest extends Model
     public $enableRecoveryPoint;
 
     /**
-     * @description The cycle based on which you want to perform a backup. Separate multiple values with commas (,). Valid values:
+     * @description The cycle based on which backups are performed. If more than one day of the week is specified, the days of the week are separated by commas (,). Valid values:
      *
      *   Monday
      *   Tuesday

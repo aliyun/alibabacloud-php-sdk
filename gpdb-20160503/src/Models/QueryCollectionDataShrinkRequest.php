@@ -180,6 +180,11 @@ class QueryCollectionDataShrinkRequest extends Model
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $relationalTableFilterShrink;
+
+    /**
      * @description This parameter is required.
      *
      * @example 10
@@ -203,24 +208,25 @@ class QueryCollectionDataShrinkRequest extends Model
      */
     public $workspaceId;
     protected $_name = [
-        'collection'             => 'Collection',
-        'content'                => 'Content',
-        'DBInstanceId'           => 'DBInstanceId',
-        'filter'                 => 'Filter',
-        'hybridSearch'           => 'HybridSearch',
-        'hybridSearchArgsShrink' => 'HybridSearchArgs',
-        'includeMetadataFields'  => 'IncludeMetadataFields',
-        'includeValues'          => 'IncludeValues',
-        'metrics'                => 'Metrics',
-        'namespace'              => 'Namespace',
-        'namespacePassword'      => 'NamespacePassword',
-        'offset'                 => 'Offset',
-        'orderBy'                => 'OrderBy',
-        'ownerId'                => 'OwnerId',
-        'regionId'               => 'RegionId',
-        'topK'                   => 'TopK',
-        'vectorShrink'           => 'Vector',
-        'workspaceId'            => 'WorkspaceId',
+        'collection'                  => 'Collection',
+        'content'                     => 'Content',
+        'DBInstanceId'                => 'DBInstanceId',
+        'filter'                      => 'Filter',
+        'hybridSearch'                => 'HybridSearch',
+        'hybridSearchArgsShrink'      => 'HybridSearchArgs',
+        'includeMetadataFields'       => 'IncludeMetadataFields',
+        'includeValues'               => 'IncludeValues',
+        'metrics'                     => 'Metrics',
+        'namespace'                   => 'Namespace',
+        'namespacePassword'           => 'NamespacePassword',
+        'offset'                      => 'Offset',
+        'orderBy'                     => 'OrderBy',
+        'ownerId'                     => 'OwnerId',
+        'regionId'                    => 'RegionId',
+        'relationalTableFilterShrink' => 'RelationalTableFilter',
+        'topK'                        => 'TopK',
+        'vectorShrink'                => 'Vector',
+        'workspaceId'                 => 'WorkspaceId',
     ];
 
     public function validate()
@@ -274,6 +280,9 @@ class QueryCollectionDataShrinkRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->relationalTableFilterShrink) {
+            $res['RelationalTableFilter'] = $this->relationalTableFilterShrink;
         }
         if (null !== $this->topK) {
             $res['TopK'] = $this->topK;
@@ -340,6 +349,9 @@ class QueryCollectionDataShrinkRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['RelationalTableFilter'])) {
+            $model->relationalTableFilterShrink = $map['RelationalTableFilter'];
         }
         if (isset($map['TopK'])) {
             $model->topK = $map['TopK'];

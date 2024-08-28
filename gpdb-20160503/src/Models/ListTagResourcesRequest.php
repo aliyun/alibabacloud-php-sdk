@@ -58,10 +58,7 @@ class ListTagResourcesRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The storage mode of the instance. Valid values:
-     *
-     *   `instance`: reserved storage mode
-     *   `ALIYUN::GPDB::INSTANCE`: elastic storage mode
+     * @description The resource type. Set the value to instance.
      *
      * This parameter is required.
      * @example instance

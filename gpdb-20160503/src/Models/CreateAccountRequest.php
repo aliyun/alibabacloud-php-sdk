@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateAccountRequest extends Model
 {
     /**
-     * @description The description of the privileged account.
+     * @description The description of the initial account.
      *
      * @example testacc02
      *
@@ -18,7 +18,7 @@ class CreateAccountRequest extends Model
     public $accountDescription;
 
     /**
-     * @description The name of the privileged account.
+     * @description The name of the initial account.
      *
      *   The name can contain lowercase letters, digits, and underscores (_).
      *   The name must start with a lowercase letter and end with a lowercase letter or a digit.
@@ -33,8 +33,7 @@ class CreateAccountRequest extends Model
     public $accountName;
 
     /**
-     * @description The password of the privileged account.
-     *
+     * @description The password of the initial account.
      *   The password must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
      *   Special characters include `! @ # $ % ^ & * ( ) _ + - =`
      *   The password must be 8 to 32 characters in length.
@@ -47,6 +46,10 @@ class CreateAccountRequest extends Model
     public $accountPassword;
 
     /**
+     * @description The type of the initial account. Default value: Super, which specifies a privileged account. To create a standard account, set the value to Normal.
+     *
+     * @example Super
+     *
      * @var string
      */
     public $accountType;

@@ -14,7 +14,7 @@ class DescribeDataShareInstancesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The page number. Pages start from page 1. Default value: 1
+     * @description The page number. Pages start from page 1. Default value: 1.
      *
      * @example 1
      *

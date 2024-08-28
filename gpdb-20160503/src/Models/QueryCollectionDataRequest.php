@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\QueryCollectionDataRequest\relationalTableFilter;
 use AlibabaCloud\Tea\Model;
 
 class QueryCollectionDataRequest extends Model
@@ -180,6 +181,11 @@ class QueryCollectionDataRequest extends Model
     public $regionId;
 
     /**
+     * @var relationalTableFilter
+     */
+    public $relationalTableFilter;
+
+    /**
      * @description This parameter is required.
      *
      * @example 10
@@ -218,6 +224,7 @@ class QueryCollectionDataRequest extends Model
         'orderBy'               => 'OrderBy',
         'ownerId'               => 'OwnerId',
         'regionId'              => 'RegionId',
+        'relationalTableFilter' => 'RelationalTableFilter',
         'topK'                  => 'TopK',
         'vector'                => 'Vector',
         'workspaceId'           => 'WorkspaceId',
@@ -274,6 +281,9 @@ class QueryCollectionDataRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->relationalTableFilter) {
+            $res['RelationalTableFilter'] = null !== $this->relationalTableFilter ? $this->relationalTableFilter->toMap() : null;
         }
         if (null !== $this->topK) {
             $res['TopK'] = $this->topK;
@@ -340,6 +350,9 @@ class QueryCollectionDataRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['RelationalTableFilter'])) {
+            $model->relationalTableFilter = relationalTableFilter::fromMap($map['RelationalTableFilter']);
         }
         if (isset($map['TopK'])) {
             $model->topK = $map['TopK'];
