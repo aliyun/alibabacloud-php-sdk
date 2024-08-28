@@ -14,6 +14,16 @@ class ipSegments extends Model
     public $createDate;
 
     /**
+     * @var int
+     */
+    public $createTimestamp;
+
+    /**
+     * @var string
+     */
+    public $id;
+
+    /**
      * @var string
      */
     public $ip;
@@ -31,6 +41,11 @@ class ipSegments extends Model
     /**
      * @var string
      */
+    public $secretKey;
+
+    /**
+     * @var string
+     */
     public $state;
 
     /**
@@ -38,12 +53,15 @@ class ipSegments extends Model
      */
     public $updateDate;
     protected $_name = [
-        'createDate' => 'CreateDate',
-        'ip'         => 'Ip',
-        'mask'       => 'Mask',
-        'name'       => 'Name',
-        'state'      => 'State',
-        'updateDate' => 'UpdateDate',
+        'createDate'      => 'CreateDate',
+        'createTimestamp' => 'CreateTimestamp',
+        'id'              => 'Id',
+        'ip'              => 'Ip',
+        'mask'            => 'Mask',
+        'name'            => 'Name',
+        'secretKey'       => 'SecretKey',
+        'state'           => 'State',
+        'updateDate'      => 'UpdateDate',
     ];
 
     public function validate()
@@ -56,6 +74,12 @@ class ipSegments extends Model
         if (null !== $this->createDate) {
             $res['CreateDate'] = $this->createDate;
         }
+        if (null !== $this->createTimestamp) {
+            $res['CreateTimestamp'] = $this->createTimestamp;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
+        }
         if (null !== $this->ip) {
             $res['Ip'] = $this->ip;
         }
@@ -64,6 +88,9 @@ class ipSegments extends Model
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->secretKey) {
+            $res['SecretKey'] = $this->secretKey;
         }
         if (null !== $this->state) {
             $res['State'] = $this->state;
@@ -86,6 +113,12 @@ class ipSegments extends Model
         if (isset($map['CreateDate'])) {
             $model->createDate = $map['CreateDate'];
         }
+        if (isset($map['CreateTimestamp'])) {
+            $model->createTimestamp = $map['CreateTimestamp'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
+        }
         if (isset($map['Ip'])) {
             $model->ip = $map['Ip'];
         }
@@ -94,6 +127,9 @@ class ipSegments extends Model
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['SecretKey'])) {
+            $model->secretKey = $map['SecretKey'];
         }
         if (isset($map['State'])) {
             $model->state = $map['State'];

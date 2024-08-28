@@ -21,6 +21,11 @@ class userInfo extends Model
     /**
      * @var string
      */
+    public $secretKey;
+
+    /**
+     * @var string
+     */
     public $serviceType;
 
     /**
@@ -40,6 +45,7 @@ class userInfo extends Model
     protected $_name = [
         'availableService'      => 'AvailableService',
         'pdnsId'                => 'PdnsId',
+        'secretKey'             => 'SecretKey',
         'serviceType'           => 'ServiceType',
         'state'                 => 'State',
         'statisticSwitchStatus' => 'StatisticSwitchStatus',
@@ -58,6 +64,9 @@ class userInfo extends Model
         }
         if (null !== $this->pdnsId) {
             $res['PdnsId'] = $this->pdnsId;
+        }
+        if (null !== $this->secretKey) {
+            $res['SecretKey'] = $this->secretKey;
         }
         if (null !== $this->serviceType) {
             $res['ServiceType'] = $this->serviceType;
@@ -88,6 +97,9 @@ class userInfo extends Model
         }
         if (isset($map['PdnsId'])) {
             $model->pdnsId = $map['PdnsId'];
+        }
+        if (isset($map['SecretKey'])) {
+            $model->secretKey = $map['SecretKey'];
         }
         if (isset($map['ServiceType'])) {
             $model->serviceType = $map['ServiceType'];

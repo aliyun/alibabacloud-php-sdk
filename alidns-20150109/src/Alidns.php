@@ -3123,6 +3123,8 @@ class Alidns extends OpenApiClient
     }
 
     /**
+     * @summary Queries the complete configuration information about a Global Traffic Manager (GTM) instance, including the details about the access domain name, alert notifications, address pools, and addresses.
+     *  *
      * @param DescribeCloudGtmInstanceConfigFullInfoRequest $request DescribeCloudGtmInstanceConfigFullInfoRequest
      * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
      *
@@ -3163,6 +3165,8 @@ class Alidns extends OpenApiClient
     }
 
     /**
+     * @summary Queries the complete configuration information about a Global Traffic Manager (GTM) instance, including the details about the access domain name, alert notifications, address pools, and addresses.
+     *  *
      * @param DescribeCloudGtmInstanceConfigFullInfoRequest $request DescribeCloudGtmInstanceConfigFullInfoRequest
      *
      * @return DescribeCloudGtmInstanceConfigFullInfoResponse DescribeCloudGtmInstanceConfigFullInfoResponse
