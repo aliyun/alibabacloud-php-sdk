@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class trafficQosQueues extends Model
 {
     /**
+     * @var string
+     */
+    public $bandwidth;
+
+    /**
      * @description The Differentiated Services Code Point (DSCP) value that matches the current queue.
      *
      * Each QoS policy supports at most three queues. You can specify at most 60 DSCP values for each queue. Separate multiple DCSP values with commas (,).
@@ -50,6 +55,7 @@ class trafficQosQueues extends Model
      */
     public $remainBandwidthPercent;
     protected $_name = [
+        'bandwidth'              => 'Bandwidth',
         'dscps'                  => 'Dscps',
         'qosQueueDescription'    => 'QosQueueDescription',
         'qosQueueName'           => 'QosQueueName',
@@ -63,6 +69,9 @@ class trafficQosQueues extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->bandwidth) {
+            $res['Bandwidth'] = $this->bandwidth;
+        }
         if (null !== $this->dscps) {
             $res['Dscps'] = $this->dscps;
         }
@@ -87,6 +96,9 @@ class trafficQosQueues extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Bandwidth'])) {
+            $model->bandwidth = $map['Bandwidth'];
+        }
         if (isset($map['Dscps'])) {
             if (!empty($map['Dscps'])) {
                 $model->dscps = $map['Dscps'];

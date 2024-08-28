@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateCenInterRegionTrafficQosQueueAttributeRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $bandwidth;
+
+    /**
      * @description The client token that is used to ensure the idempotence of the request.
      *
      * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
@@ -97,6 +102,7 @@ class UpdateCenInterRegionTrafficQosQueueAttributeRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
+        'bandwidth'              => 'Bandwidth',
         'clientToken'            => 'ClientToken',
         'dryRun'                 => 'DryRun',
         'dscps'                  => 'Dscps',
@@ -117,6 +123,9 @@ class UpdateCenInterRegionTrafficQosQueueAttributeRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->bandwidth) {
+            $res['Bandwidth'] = $this->bandwidth;
+        }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
@@ -162,6 +171,9 @@ class UpdateCenInterRegionTrafficQosQueueAttributeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Bandwidth'])) {
+            $model->bandwidth = $map['Bandwidth'];
+        }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }

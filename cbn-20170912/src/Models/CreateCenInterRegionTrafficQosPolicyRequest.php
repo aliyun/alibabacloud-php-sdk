@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class CreateCenInterRegionTrafficQosPolicyRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $bandwidthGuaranteeMode;
+
+    /**
      * @description The client token that is used to ensure the idempotence of the request.
      *
      * You can use the client to generate the value, but you must make sure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
@@ -99,6 +104,7 @@ class CreateCenInterRegionTrafficQosPolicyRequest extends Model
      */
     public $transitRouterId;
     protected $_name = [
+        'bandwidthGuaranteeMode'      => 'BandwidthGuaranteeMode',
         'clientToken'                 => 'ClientToken',
         'dryRun'                      => 'DryRun',
         'ownerAccount'                => 'OwnerAccount',
@@ -119,6 +125,9 @@ class CreateCenInterRegionTrafficQosPolicyRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->bandwidthGuaranteeMode) {
+            $res['BandwidthGuaranteeMode'] = $this->bandwidthGuaranteeMode;
+        }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
@@ -170,6 +179,9 @@ class CreateCenInterRegionTrafficQosPolicyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BandwidthGuaranteeMode'])) {
+            $model->bandwidthGuaranteeMode = $map['BandwidthGuaranteeMode'];
+        }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }

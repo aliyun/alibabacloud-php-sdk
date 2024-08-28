@@ -9,11 +9,21 @@ use AlibabaCloud\Tea\Model;
 class trafficQosQueues extends Model
 {
     /**
+     * @var string
+     */
+    public $bandwidth;
+
+    /**
      * @description The Differentiated Services Code Point (DSCP) value that matches the current QoS queue.
      *
      * @var int[]
      */
     public $dscps;
+
+    /**
+     * @var string
+     */
+    public $effectiveBandwidth;
 
     /**
      * @description The percentage of the inter-region bandwidth that can be consumed by the QoS queue.
@@ -92,7 +102,9 @@ class trafficQosQueues extends Model
      */
     public $transitRouterId;
     protected $_name = [
+        'bandwidth'                  => 'Bandwidth',
         'dscps'                      => 'Dscps',
+        'effectiveBandwidth'         => 'EffectiveBandwidth',
         'remainBandwidthPercent'     => 'RemainBandwidthPercent',
         'status'                     => 'Status',
         'trafficQosPolicyId'         => 'TrafficQosPolicyId',
@@ -110,8 +122,14 @@ class trafficQosQueues extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->bandwidth) {
+            $res['Bandwidth'] = $this->bandwidth;
+        }
         if (null !== $this->dscps) {
             $res['Dscps'] = $this->dscps;
+        }
+        if (null !== $this->effectiveBandwidth) {
+            $res['EffectiveBandwidth'] = $this->effectiveBandwidth;
         }
         if (null !== $this->remainBandwidthPercent) {
             $res['RemainBandwidthPercent'] = $this->remainBandwidthPercent;
@@ -149,10 +167,16 @@ class trafficQosQueues extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Bandwidth'])) {
+            $model->bandwidth = $map['Bandwidth'];
+        }
         if (isset($map['Dscps'])) {
             if (!empty($map['Dscps'])) {
                 $model->dscps = $map['Dscps'];
             }
+        }
+        if (isset($map['EffectiveBandwidth'])) {
+            $model->effectiveBandwidth = $map['EffectiveBandwidth'];
         }
         if (isset($map['RemainBandwidthPercent'])) {
             $model->remainBandwidthPercent = $map['RemainBandwidthPercent'];

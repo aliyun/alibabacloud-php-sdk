@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CreateCenInterRegionTrafficQosQueueRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $bandwidth;
+
+    /**
      * @example 123e4567-e89b-12d3-a456-426****
      *
      * @var string
@@ -79,6 +84,7 @@ class CreateCenInterRegionTrafficQosQueueRequest extends Model
      */
     public $trafficQosPolicyId;
     protected $_name = [
+        'bandwidth'              => 'Bandwidth',
         'clientToken'            => 'ClientToken',
         'dryRun'                 => 'DryRun',
         'dscps'                  => 'Dscps',
@@ -99,6 +105,9 @@ class CreateCenInterRegionTrafficQosQueueRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->bandwidth) {
+            $res['Bandwidth'] = $this->bandwidth;
+        }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
@@ -144,6 +153,9 @@ class CreateCenInterRegionTrafficQosQueueRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Bandwidth'])) {
+            $model->bandwidth = $map['Bandwidth'];
+        }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }

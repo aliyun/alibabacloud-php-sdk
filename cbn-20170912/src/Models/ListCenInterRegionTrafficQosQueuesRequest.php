@@ -4,10 +4,16 @@
 
 namespace AlibabaCloud\SDK\Cbn\V20170912\Models;
 
+use AlibabaCloud\SDK\Cbn\V20170912\Models\ListCenInterRegionTrafficQosQueuesRequest\effectiveBandwidthFilter;
 use AlibabaCloud\Tea\Model;
 
 class ListCenInterRegionTrafficQosQueuesRequest extends Model
 {
+    /**
+     * @var effectiveBandwidthFilter
+     */
+    public $effectiveBandwidthFilter;
+
     /**
      * @description The number of entries to return on each page. Valid values: **1** to **100**. Default value: **20**.
      *
@@ -105,6 +111,7 @@ class ListCenInterRegionTrafficQosQueuesRequest extends Model
      */
     public $transitRouterId;
     protected $_name = [
+        'effectiveBandwidthFilter'   => 'EffectiveBandwidthFilter',
         'maxResults'                 => 'MaxResults',
         'nextToken'                  => 'NextToken',
         'ownerAccount'               => 'OwnerAccount',
@@ -126,6 +133,9 @@ class ListCenInterRegionTrafficQosQueuesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->effectiveBandwidthFilter) {
+            $res['EffectiveBandwidthFilter'] = null !== $this->effectiveBandwidthFilter ? $this->effectiveBandwidthFilter->toMap() : null;
+        }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
@@ -174,6 +184,9 @@ class ListCenInterRegionTrafficQosQueuesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EffectiveBandwidthFilter'])) {
+            $model->effectiveBandwidthFilter = effectiveBandwidthFilter::fromMap($map['EffectiveBandwidthFilter']);
+        }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }

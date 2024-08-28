@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class trafficQosPolicies extends Model
 {
     /**
+     * @var string
+     */
+    public $bandwidthGuaranteeMode;
+
+    /**
      * @description The description of the QoS policy.
      *
      * @example desctest
@@ -75,6 +80,7 @@ class trafficQosPolicies extends Model
      */
     public $transitRouterId;
     protected $_name = [
+        'bandwidthGuaranteeMode'      => 'BandwidthGuaranteeMode',
         'trafficQosPolicyDescription' => 'TrafficQosPolicyDescription',
         'trafficQosPolicyId'          => 'TrafficQosPolicyId',
         'trafficQosPolicyName'        => 'TrafficQosPolicyName',
@@ -91,6 +97,9 @@ class trafficQosPolicies extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->bandwidthGuaranteeMode) {
+            $res['BandwidthGuaranteeMode'] = $this->bandwidthGuaranteeMode;
+        }
         if (null !== $this->trafficQosPolicyDescription) {
             $res['TrafficQosPolicyDescription'] = $this->trafficQosPolicyDescription;
         }
@@ -130,6 +139,9 @@ class trafficQosPolicies extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BandwidthGuaranteeMode'])) {
+            $model->bandwidthGuaranteeMode = $map['BandwidthGuaranteeMode'];
+        }
         if (isset($map['TrafficQosPolicyDescription'])) {
             $model->trafficQosPolicyDescription = $map['TrafficQosPolicyDescription'];
         }

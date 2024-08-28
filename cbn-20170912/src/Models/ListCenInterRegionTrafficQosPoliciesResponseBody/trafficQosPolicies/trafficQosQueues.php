@@ -9,11 +9,21 @@ use AlibabaCloud\Tea\Model;
 class trafficQosQueues extends Model
 {
     /**
+     * @var string
+     */
+    public $bandwidth;
+
+    /**
      * @description The differentiated services code point (DSCP) value that is used to match packets.
      *
      * @var int[]
      */
     public $dscps;
+
+    /**
+     * @var string
+     */
+    public $effectiveBandwidth;
 
     /**
      * @description The description of the queue.
@@ -51,7 +61,9 @@ class trafficQosQueues extends Model
      */
     public $remainBandwidthPercent;
     protected $_name = [
+        'bandwidth'              => 'Bandwidth',
         'dscps'                  => 'Dscps',
+        'effectiveBandwidth'     => 'EffectiveBandwidth',
         'qosQueueDescription'    => 'QosQueueDescription',
         'qosQueueId'             => 'QosQueueId',
         'qosQueueName'           => 'QosQueueName',
@@ -65,8 +77,14 @@ class trafficQosQueues extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->bandwidth) {
+            $res['Bandwidth'] = $this->bandwidth;
+        }
         if (null !== $this->dscps) {
             $res['Dscps'] = $this->dscps;
+        }
+        if (null !== $this->effectiveBandwidth) {
+            $res['EffectiveBandwidth'] = $this->effectiveBandwidth;
         }
         if (null !== $this->qosQueueDescription) {
             $res['QosQueueDescription'] = $this->qosQueueDescription;
@@ -92,10 +110,16 @@ class trafficQosQueues extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Bandwidth'])) {
+            $model->bandwidth = $map['Bandwidth'];
+        }
         if (isset($map['Dscps'])) {
             if (!empty($map['Dscps'])) {
                 $model->dscps = $map['Dscps'];
             }
+        }
+        if (isset($map['EffectiveBandwidth'])) {
+            $model->effectiveBandwidth = $map['EffectiveBandwidth'];
         }
         if (isset($map['QosQueueDescription'])) {
             $model->qosQueueDescription = $map['QosQueueDescription'];
