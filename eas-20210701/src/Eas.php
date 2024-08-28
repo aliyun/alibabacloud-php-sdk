@@ -104,6 +104,8 @@ use AlibabaCloud\SDK\Eas\V20210701\Models\ListServicesResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListServicesShrinkRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListServiceVersionsRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListServiceVersionsResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\ListTenantAddonsResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\ReinstallTenantAddonResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ReleaseServiceRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ReleaseServiceResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\RestartServiceResponse;
@@ -3461,6 +3463,93 @@ class Eas extends OpenApiClient
         $headers = [];
 
         return $this->listServicesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 获取租户配置列表
+     *  *
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListTenantAddonsResponse ListTenantAddonsResponse
+     */
+    public function listTenantAddonsWithOptions($headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'ListTenantAddons',
+            'version'     => '2021-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/tenantaddons',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListTenantAddonsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取租户配置列表
+     *  *
+     * @return ListTenantAddonsResponse ListTenantAddonsResponse
+     */
+    public function listTenantAddons()
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listTenantAddonsWithOptions($headers, $runtime);
+    }
+
+    /**
+     * @summary 重置租户配置
+     *  *
+     * @param string         $ClusterId
+     * @param string         $TenantAddonName
+     * @param string[]       $headers         map
+     * @param RuntimeOptions $runtime         runtime options for this request RuntimeOptions
+     *
+     * @return ReinstallTenantAddonResponse ReinstallTenantAddonResponse
+     */
+    public function reinstallTenantAddonWithOptions($ClusterId, $TenantAddonName, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'ReinstallTenantAddon',
+            'version'     => '2021-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/tenantaddons/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($TenantAddonName) . '/reinstall',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ReinstallTenantAddonResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 重置租户配置
+     *  *
+     * @param string $ClusterId
+     * @param string $TenantAddonName
+     *
+     * @return ReinstallTenantAddonResponse ReinstallTenantAddonResponse
+     */
+    public function reinstallTenantAddon($ClusterId, $TenantAddonName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->reinstallTenantAddonWithOptions($ClusterId, $TenantAddonName, $headers, $runtime);
     }
 
     /**

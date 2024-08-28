@@ -18,6 +18,10 @@ class ListServicesShrinkRequest extends Model
     public $filter;
 
     /**
+     * @description The ID of the private gateway.
+     *
+     * @example gw-1uhcqmsc7x22******
+     *
      * @var string
      */
     public $gateway;
