@@ -62,12 +62,18 @@ class CreateGatewayRequest extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @var int
+     */
+    public $replicas;
     protected $_name = [
         'resourceName'   => 'ResourceName',
         'enableInternet' => 'EnableInternet',
         'enableIntranet' => 'EnableIntranet',
         'instanceType'   => 'InstanceType',
         'name'           => 'Name',
+        'replicas'       => 'Replicas',
     ];
 
     public function validate()
@@ -91,6 +97,9 @@ class CreateGatewayRequest extends Model
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->replicas) {
+            $res['Replicas'] = $this->replicas;
         }
 
         return $res;
@@ -118,6 +127,9 @@ class CreateGatewayRequest extends Model
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['Replicas'])) {
+            $model->replicas = $map['Replicas'];
         }
 
         return $model;

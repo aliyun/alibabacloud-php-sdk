@@ -8,7 +8,11 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Eas\V20210701\Models\CloneServiceRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\CloneServiceResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\CloneServiceShrinkRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\CommitServiceResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\CreateAclPolicyRequest;
+use AlibabaCloud\SDK\Eas\V20210701\Models\CreateAclPolicyResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\CreateAclPolicyShrinkRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\CreateAppServiceRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\CreateAppServiceResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\CreateBenchmarkTaskRequest;
@@ -32,6 +36,9 @@ use AlibabaCloud\SDK\Eas\V20210701\Models\CreateServiceMirrorResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\CreateServiceRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\CreateServiceResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\CreateServiceShrinkRequest;
+use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteAclPolicyRequest;
+use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteAclPolicyResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteAclPolicyShrinkRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteBenchmarkTaskResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteGatewayIntranetLinkedVpcRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteGatewayIntranetLinkedVpcResponse;
@@ -72,9 +79,13 @@ use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeSpotDiscountHistoryRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeSpotDiscountHistoryResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DevelopServiceRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DevelopServiceResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\ListAclPolicyRequest;
+use AlibabaCloud\SDK\Eas\V20210701\Models\ListAclPolicyResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListBenchmarkTaskRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListBenchmarkTaskResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListGatewayIntranetLinkedVpcResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\ListGatewayRequest;
+use AlibabaCloud\SDK\Eas\V20210701\Models\ListGatewayResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListGroupsRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListGroupsResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListResourceInstancesRequest;
@@ -189,17 +200,27 @@ class Eas extends OpenApiClient
      *  *
      * @param string              $ClusterId
      * @param string              $ServiceName
-     * @param CloneServiceRequest $request     CloneServiceRequest
+     * @param CloneServiceRequest $tmpReq      CloneServiceRequest
      * @param string[]            $headers     map
      * @param RuntimeOptions      $runtime     runtime options for this request RuntimeOptions
      *
      * @return CloneServiceResponse CloneServiceResponse
      */
-    public function cloneServiceWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime)
+    public function cloneServiceWithOptions($ClusterId, $ServiceName, $tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new CloneServiceShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->labels)) {
+            $request->labelsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->labels, 'Labels', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->labelsShrink)) {
+            $query['Labels'] = $request->labelsShrink;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
             'body'    => $request->body,
         ]);
         $params = new Params([
@@ -278,6 +299,68 @@ class Eas extends OpenApiClient
         $headers = [];
 
         return $this->commitServiceWithOptions($ClusterId, $ServiceName, $headers, $runtime);
+    }
+
+    /**
+     * @summary 创建网关访问权限ACL Policy
+     *  *
+     * @param string                 $ClusterId
+     * @param string                 $GatewayId
+     * @param CreateAclPolicyRequest $tmpReq    CreateAclPolicyRequest
+     * @param string[]               $headers   map
+     * @param RuntimeOptions         $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return CreateAclPolicyResponse CreateAclPolicyResponse
+     */
+    public function createAclPolicyWithOptions($ClusterId, $GatewayId, $tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateAclPolicyShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->aclPolicyList)) {
+            $request->aclPolicyListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->aclPolicyList, 'AclPolicyList', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->aclPolicyListShrink)) {
+            $query['AclPolicyList'] = $request->aclPolicyListShrink;
+        }
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateAclPolicy',
+            'version'     => '2021-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/gateways/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($GatewayId) . '/acl_policy',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateAclPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建网关访问权限ACL Policy
+     *  *
+     * @param string                 $ClusterId
+     * @param string                 $GatewayId
+     * @param CreateAclPolicyRequest $request   CreateAclPolicyRequest
+     *
+     * @return CreateAclPolicyResponse CreateAclPolicyResponse
+     */
+    public function createAclPolicy($ClusterId, $GatewayId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createAclPolicyWithOptions($ClusterId, $GatewayId, $request, $headers, $runtime);
     }
 
     /**
@@ -427,6 +510,9 @@ class Eas extends OpenApiClient
         }
         if (!Utils::isUnset($request->name)) {
             $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->replicas)) {
+            $body['Replicas'] = $request->replicas;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -965,6 +1051,68 @@ class Eas extends OpenApiClient
         $headers = [];
 
         return $this->createServiceMirrorWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 移除网关acl policy entry
+     *  *
+     * @param string                 $ClusterId
+     * @param string                 $GatewayId
+     * @param DeleteAclPolicyRequest $tmpReq    DeleteAclPolicyRequest
+     * @param string[]               $headers   map
+     * @param RuntimeOptions         $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return DeleteAclPolicyResponse DeleteAclPolicyResponse
+     */
+    public function deleteAclPolicyWithOptions($ClusterId, $GatewayId, $tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DeleteAclPolicyShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->aclPolicyList)) {
+            $request->aclPolicyListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->aclPolicyList, 'AclPolicyList', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->aclPolicyListShrink)) {
+            $query['AclPolicyList'] = $request->aclPolicyListShrink;
+        }
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteAclPolicy',
+            'version'     => '2021-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/gateways/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($GatewayId) . '/acl_policy',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteAclPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 移除网关acl policy entry
+     *  *
+     * @param string                 $ClusterId
+     * @param string                 $GatewayId
+     * @param DeleteAclPolicyRequest $request   DeleteAclPolicyRequest
+     *
+     * @return DeleteAclPolicyResponse DeleteAclPolicyResponse
+     */
+    public function deleteAclPolicy($ClusterId, $GatewayId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteAclPolicyWithOptions($ClusterId, $GatewayId, $request, $headers, $runtime);
     }
 
     /**
@@ -2477,6 +2625,60 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary 查询网关所有ACL Policy
+     *  *
+     * @param string               $ClusterId
+     * @param string               $GatewayId
+     * @param ListAclPolicyRequest $request   ListAclPolicyRequest
+     * @param string[]             $headers   map
+     * @param RuntimeOptions       $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return ListAclPolicyResponse ListAclPolicyResponse
+     */
+    public function listAclPolicyWithOptions($ClusterId, $GatewayId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAclPolicy',
+            'version'     => '2021-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/gateways/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($GatewayId) . '/acl_policy',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListAclPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询网关所有ACL Policy
+     *  *
+     * @param string               $ClusterId
+     * @param string               $GatewayId
+     * @param ListAclPolicyRequest $request   ListAclPolicyRequest
+     *
+     * @return ListAclPolicyResponse ListAclPolicyResponse
+     */
+    public function listAclPolicy($ClusterId, $GatewayId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listAclPolicyWithOptions($ClusterId, $GatewayId, $request, $headers, $runtime);
+    }
+
+    /**
      * @summary Queries a list of stress testing tasks that are created by the current user.
      *  *
      * @param ListBenchmarkTaskRequest $request ListBenchmarkTaskRequest
@@ -2533,6 +2735,65 @@ class Eas extends OpenApiClient
         $headers = [];
 
         return $this->listBenchmarkTaskWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 列举gateway
+     *  *
+     * @param ListGatewayRequest $request ListGatewayRequest
+     * @param string[]           $headers map
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListGatewayResponse ListGatewayResponse
+     */
+    public function listGatewayWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->gatewayId)) {
+            $query['GatewayId'] = $request->gatewayId;
+        }
+        if (!Utils::isUnset($request->gatewayName)) {
+            $query['GatewayName'] = $request->gatewayName;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListGateway',
+            'version'     => '2021-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/gateways',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListGatewayResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 列举gateway
+     *  *
+     * @param ListGatewayRequest $request ListGatewayRequest
+     *
+     * @return ListGatewayResponse ListGatewayResponse
+     */
+    public function listGateway($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listGatewayWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2781,8 +3042,12 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @deprecated OpenAPI ListResourceServices is deprecated
+     *  *
      * @summary Queries a list of services that are deployed in the dedicated resource group.
      *  *
+     * Deprecated
+     *
      * @param string                      $ClusterId
      * @param string                      $ResourceId
      * @param ListResourceServicesRequest $request    ListResourceServicesRequest
@@ -2821,8 +3086,12 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @deprecated OpenAPI ListResourceServices is deprecated
+     *  *
      * @summary Queries a list of services that are deployed in the dedicated resource group.
      *  *
+     * Deprecated
+     *
      * @param string                      $ClusterId
      * @param string                      $ResourceId
      * @param ListResourceServicesRequest $request    ListResourceServicesRequest
@@ -3114,6 +3383,9 @@ class Eas extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->filter)) {
             $query['Filter'] = $request->filter;
+        }
+        if (!Utils::isUnset($request->gateway)) {
+            $query['Gateway'] = $request->gateway;
         }
         if (!Utils::isUnset($request->groupName)) {
             $query['GroupName'] = $request->groupName;
@@ -3626,8 +3898,14 @@ class Eas extends OpenApiClient
         if (!Utils::isUnset($request->instanceType)) {
             $body['InstanceType'] = $request->instanceType;
         }
+        if (!Utils::isUnset($request->isDefault)) {
+            $body['IsDefault'] = $request->isDefault;
+        }
         if (!Utils::isUnset($request->name)) {
             $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->replicas)) {
+            $body['Replicas'] = $request->replicas;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,

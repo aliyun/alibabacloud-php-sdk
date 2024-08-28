@@ -18,6 +18,11 @@ class ListServicesShrinkRequest extends Model
     public $filter;
 
     /**
+     * @var string
+     */
+    public $gateway;
+
+    /**
      * @description The name of the service group. For more information about how to query the name of a service group, see [ListServices](https://help.aliyun.com/document_detail/412109.html).
      *
      * @example foo
@@ -240,6 +245,7 @@ class ListServicesShrinkRequest extends Model
     public $workspaceId;
     protected $_name = [
         'filter'           => 'Filter',
+        'gateway'          => 'Gateway',
         'groupName'        => 'GroupName',
         'labelShrink'      => 'Label',
         'order'            => 'Order',
@@ -265,6 +271,9 @@ class ListServicesShrinkRequest extends Model
         $res = [];
         if (null !== $this->filter) {
             $res['Filter'] = $this->filter;
+        }
+        if (null !== $this->gateway) {
+            $res['Gateway'] = $this->gateway;
         }
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
@@ -322,6 +331,9 @@ class ListServicesShrinkRequest extends Model
         $model = new self();
         if (isset($map['Filter'])) {
             $model->filter = $map['Filter'];
+        }
+        if (isset($map['Gateway'])) {
+            $model->gateway = $map['Gateway'];
         }
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];

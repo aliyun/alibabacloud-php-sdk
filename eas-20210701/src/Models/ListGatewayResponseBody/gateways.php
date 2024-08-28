@@ -2,15 +2,13 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Eas\V20210701\Models;
+namespace AlibabaCloud\SDK\Eas\V20210701\Models\ListGatewayResponseBody;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeGatewayResponseBody extends Model
+class gateways extends Model
 {
     /**
-     * @description The time when the private gateway was created. The time is displayed in UTC.
-     *
      * @example 2020-05-19T14:19:42Z
      *
      * @var string
@@ -18,17 +16,6 @@ class DescribeGatewayResponseBody extends Model
     public $createTime;
 
     /**
-     * @description The ID of the self-managed cluster.
-     *
-     * @example c935eadf284c14c2da57a2a13ad6******
-     *
-     * @var string
-     */
-    public $externalClusterId;
-
-    /**
-     * @description The ID of the private gateway.
-     *
      * @example gw-1uhcqmsc7x22******
      *
      * @var string
@@ -36,8 +23,6 @@ class DescribeGatewayResponseBody extends Model
     public $gatewayId;
 
     /**
-     * @description The private gateway alias.
-     *
      * @example mygateway1
      *
      * @var string
@@ -45,26 +30,20 @@ class DescribeGatewayResponseBody extends Model
     public $gatewayName;
 
     /**
-     * @description The instance type used for the private gateway.
-     *
-     * @example ecs.c6.4xlarge
+     * @example 2c4g
      *
      * @var string
      */
     public $instanceType;
 
     /**
-     * @description The public endpoint.
-     *
-     * @example gw-1uhcqmsc7x22******-1801786532******.cn-hangzhou.pai-eas.aliyuncs.com
+     * @example gw-1uhcqmsc7x22******-1801786532******.cn-wulanchabu.pai-eas.aliyuncs.com
      *
      * @var string
      */
     public $internetDomain;
 
     /**
-     * @description Indicates whether Internet access is enabled.
-     *
      * @example true
      *
      * @var bool
@@ -72,70 +51,51 @@ class DescribeGatewayResponseBody extends Model
     public $internetEnabled;
 
     /**
-     * @var string
-     */
-    public $internetStatus;
-
-    /**
-     * @description The internal endpoint.
-     *
-     * @example gw-1uhcqmsc7x22******-1801786532******-vpc.cn-hangzhou.pai-eas.aliyuncs.com
+     * @example gw-1uhcqmsc7x22******-1801786532******-vpc.cn-wulanchabu.pai-eas.aliyuncs.com
      *
      * @var string
      */
     public $intranetDomain;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isDefault;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $replicas;
 
     /**
-     * @description The request ID.
-     *
-     * @example 40325405-579C-4D82****
-     *
-     * @var string
-     */
-    public $requestId;
-
-    /**
-     * @description The state of the private gateway.
-     *
-     * @example PrivateGatewayRunning
+     * @example Running
      *
      * @var string
      */
     public $status;
 
     /**
-     * @description The time when the private gateway was updated. The time is displayed in UTC.
-     *
      * @example 2021-02-24T11:52:17Z
      *
      * @var string
      */
     public $updateTime;
     protected $_name = [
-        'createTime'        => 'CreateTime',
-        'externalClusterId' => 'ExternalClusterId',
-        'gatewayId'         => 'GatewayId',
-        'gatewayName'       => 'GatewayName',
-        'instanceType'      => 'InstanceType',
-        'internetDomain'    => 'InternetDomain',
-        'internetEnabled'   => 'InternetEnabled',
-        'internetStatus'    => 'InternetStatus',
-        'intranetDomain'    => 'IntranetDomain',
-        'isDefault'         => 'IsDefault',
-        'replicas'          => 'Replicas',
-        'requestId'         => 'RequestId',
-        'status'            => 'Status',
-        'updateTime'        => 'UpdateTime',
+        'createTime'      => 'CreateTime',
+        'gatewayId'       => 'GatewayId',
+        'gatewayName'     => 'GatewayName',
+        'instanceType'    => 'InstanceType',
+        'internetDomain'  => 'InternetDomain',
+        'internetEnabled' => 'InternetEnabled',
+        'intranetDomain'  => 'IntranetDomain',
+        'isDefault'       => 'IsDefault',
+        'replicas'        => 'Replicas',
+        'status'          => 'Status',
+        'updateTime'      => 'UpdateTime',
     ];
 
     public function validate()
@@ -147,9 +107,6 @@ class DescribeGatewayResponseBody extends Model
         $res = [];
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
-        }
-        if (null !== $this->externalClusterId) {
-            $res['ExternalClusterId'] = $this->externalClusterId;
         }
         if (null !== $this->gatewayId) {
             $res['GatewayId'] = $this->gatewayId;
@@ -166,9 +123,6 @@ class DescribeGatewayResponseBody extends Model
         if (null !== $this->internetEnabled) {
             $res['InternetEnabled'] = $this->internetEnabled;
         }
-        if (null !== $this->internetStatus) {
-            $res['InternetStatus'] = $this->internetStatus;
-        }
         if (null !== $this->intranetDomain) {
             $res['IntranetDomain'] = $this->intranetDomain;
         }
@@ -177,9 +131,6 @@ class DescribeGatewayResponseBody extends Model
         }
         if (null !== $this->replicas) {
             $res['Replicas'] = $this->replicas;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -194,16 +145,13 @@ class DescribeGatewayResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return DescribeGatewayResponseBody
+     * @return gateways
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
-        }
-        if (isset($map['ExternalClusterId'])) {
-            $model->externalClusterId = $map['ExternalClusterId'];
         }
         if (isset($map['GatewayId'])) {
             $model->gatewayId = $map['GatewayId'];
@@ -220,9 +168,6 @@ class DescribeGatewayResponseBody extends Model
         if (isset($map['InternetEnabled'])) {
             $model->internetEnabled = $map['InternetEnabled'];
         }
-        if (isset($map['InternetStatus'])) {
-            $model->internetStatus = $map['InternetStatus'];
-        }
         if (isset($map['IntranetDomain'])) {
             $model->intranetDomain = $map['IntranetDomain'];
         }
@@ -231,9 +176,6 @@ class DescribeGatewayResponseBody extends Model
         }
         if (isset($map['Replicas'])) {
             $model->replicas = $map['Replicas'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

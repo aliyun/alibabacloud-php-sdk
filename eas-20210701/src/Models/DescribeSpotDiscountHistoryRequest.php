@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeSpotDiscountHistoryRequest extends Model
 {
     /**
-     * @description The type of the Elastic Compute Service (ECS) instance.
+     * @description The type of the Elastic Algorithm Service (EAS) instance.
      *
      * This parameter is required.
      * @example ecs.c6.4xlarge

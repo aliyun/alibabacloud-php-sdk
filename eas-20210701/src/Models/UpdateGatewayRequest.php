@@ -45,6 +45,11 @@ class UpdateGatewayRequest extends Model
     public $instanceType;
 
     /**
+     * @var bool
+     */
+    public $isDefault;
+
+    /**
      * @description The private gateway alias.
      *
      * @example mygateway1
@@ -52,11 +57,18 @@ class UpdateGatewayRequest extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @var int
+     */
+    public $replicas;
     protected $_name = [
         'enableInternet' => 'EnableInternet',
         'enableIntranet' => 'EnableIntranet',
         'instanceType'   => 'InstanceType',
+        'isDefault'      => 'IsDefault',
         'name'           => 'Name',
+        'replicas'       => 'Replicas',
     ];
 
     public function validate()
@@ -75,8 +87,14 @@ class UpdateGatewayRequest extends Model
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
         }
+        if (null !== $this->isDefault) {
+            $res['IsDefault'] = $this->isDefault;
+        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->replicas) {
+            $res['Replicas'] = $this->replicas;
         }
 
         return $res;
@@ -99,8 +117,14 @@ class UpdateGatewayRequest extends Model
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
         }
+        if (isset($map['IsDefault'])) {
+            $model->isDefault = $map['IsDefault'];
+        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['Replicas'])) {
+            $model->replicas = $map['Replicas'];
         }
 
         return $model;

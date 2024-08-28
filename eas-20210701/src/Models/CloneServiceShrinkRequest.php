@@ -6,12 +6,12 @@ namespace AlibabaCloud\SDK\Eas\V20210701\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CloneServiceRequest extends Model
+class CloneServiceShrinkRequest extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $labels;
+    public $labelsShrink;
 
     /**
      * @description The request body. For more information, see [CreateService](https://help.aliyun.com/document_detail/412086.html).
@@ -22,8 +22,8 @@ class CloneServiceRequest extends Model
      */
     public $body;
     protected $_name = [
-        'labels' => 'Labels',
-        'body'   => 'body',
+        'labelsShrink' => 'Labels',
+        'body'         => 'body',
     ];
 
     public function validate()
@@ -33,8 +33,8 @@ class CloneServiceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->labels) {
-            $res['Labels'] = $this->labels;
+        if (null !== $this->labelsShrink) {
+            $res['Labels'] = $this->labelsShrink;
         }
         if (null !== $this->body) {
             $res['body'] = $this->body;
@@ -46,13 +46,13 @@ class CloneServiceRequest extends Model
     /**
      * @param array $map
      *
-     * @return CloneServiceRequest
+     * @return CloneServiceShrinkRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Labels'])) {
-            $model->labels = $map['Labels'];
+            $model->labelsShrink = $map['Labels'];
         }
         if (isset($map['body'])) {
             $model->body = $map['body'];

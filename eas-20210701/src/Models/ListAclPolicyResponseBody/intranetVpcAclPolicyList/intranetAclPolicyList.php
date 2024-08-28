@@ -2,51 +2,28 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Eas\V20210701\Models\DescribeGatewayResponseBody;
+namespace AlibabaCloud\SDK\Eas\V20210701\Models\ListAclPolicyResponseBody\intranetVpcAclPolicyList;
 
 use AlibabaCloud\Tea\Model;
 
-class internetAclPolicyList extends Model
+class intranetAclPolicyList extends Model
 {
     /**
-     * @description The description.
-     *
-     * @example test
+     * @example Test Entry
      *
      * @var string
      */
     public $comment;
 
     /**
-     * @description The Classless Inter-Domain Routing (CIDR) block that is allowed to access the private gateway.
-     *
-     * @example 192.168.1.1/32
+     * @example 192.168.XX.XX/24
      *
      * @var string
      */
     public $entry;
-
-    /**
-     * @description The state of the private gateway.
-     *
-     * Valid values:
-     *
-     *   Creating
-     *
-     * <!-- -->
-     *
-     *   Running
-     *
-     * <!-- -->
-     * @example Running
-     *
-     * @var string
-     */
-    public $status;
     protected $_name = [
         'comment' => 'Comment',
         'entry'   => 'Entry',
-        'status'  => 'Status',
     ];
 
     public function validate()
@@ -62,9 +39,6 @@ class internetAclPolicyList extends Model
         if (null !== $this->entry) {
             $res['Entry'] = $this->entry;
         }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
 
         return $res;
     }
@@ -72,7 +46,7 @@ class internetAclPolicyList extends Model
     /**
      * @param array $map
      *
-     * @return internetAclPolicyList
+     * @return intranetAclPolicyList
      */
     public static function fromMap($map = [])
     {
@@ -82,9 +56,6 @@ class internetAclPolicyList extends Model
         }
         if (isset($map['Entry'])) {
             $model->entry = $map['Entry'];
-        }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
         }
 
         return $model;
