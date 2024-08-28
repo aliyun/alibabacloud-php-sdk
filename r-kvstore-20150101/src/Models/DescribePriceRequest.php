@@ -191,6 +191,11 @@ class DescribePriceRequest extends Model
     public $securityToken;
 
     /**
+     * @var int
+     */
+    public $shardCount;
+
+    /**
      * @description The zone ID of the instance. You can call the [DescribeZones](https://help.aliyun.com/document_detail/94527.html) operation to query the most recent zone list.
      *
      * @example cn-hangzhou-e
@@ -218,6 +223,7 @@ class DescribePriceRequest extends Model
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'securityToken'        => 'SecurityToken',
+        'shardCount'           => 'ShardCount',
         'zoneId'               => 'ZoneId',
     ];
 
@@ -284,6 +290,9 @@ class DescribePriceRequest extends Model
         }
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
+        }
+        if (null !== $this->shardCount) {
+            $res['ShardCount'] = $this->shardCount;
         }
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
@@ -356,6 +365,9 @@ class DescribePriceRequest extends Model
         }
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
+        }
+        if (isset($map['ShardCount'])) {
+            $model->shardCount = $map['ShardCount'];
         }
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];

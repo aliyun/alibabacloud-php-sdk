@@ -42,6 +42,13 @@ class ModifyInstanceParameterRequest extends Model
     public $parameters;
 
     /**
+     * @description This parameter is required.
+     *
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @var string
      */
     public $resourceOwnerAccount;
@@ -61,6 +68,7 @@ class ModifyInstanceParameterRequest extends Model
         'ownerId'              => 'OwnerId',
         'parameterGroupId'     => 'ParameterGroupId',
         'parameters'           => 'Parameters',
+        'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'securityToken'        => 'SecurityToken',
@@ -87,6 +95,9 @@ class ModifyInstanceParameterRequest extends Model
         }
         if (null !== $this->parameters) {
             $res['Parameters'] = $this->parameters;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -123,6 +134,9 @@ class ModifyInstanceParameterRequest extends Model
         }
         if (isset($map['Parameters'])) {
             $model->parameters = $map['Parameters'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];

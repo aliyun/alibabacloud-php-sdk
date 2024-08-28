@@ -271,7 +271,6 @@ class Rkvstore extends OpenApiClient
             'cn-shenzhen'                 => 'r-kvstore.aliyuncs.com',
             'cn-heyuan'                   => 'r-kvstore.aliyuncs.com',
             'cn-guangzhou'                => 'r-kvstore.aliyuncs.com',
-            'cn-hongkong'                 => 'r-kvstore.aliyuncs.com',
             'cn-hangzhou-finance'         => 'r-kvstore.aliyuncs.com',
             'cn-shanghai-finance-1'       => 'r-kvstore.aliyuncs.com',
             'cn-shenzhen-finance-1'       => 'r-kvstore.aliyuncs.com',
@@ -4551,7 +4550,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of parameters that can be configured for different versions of parameter templates.
+     * @summary Queries the parameters that can be configured in parameter templates across different database versions.
      *  *
      * @param DescribeParameterGroupSupportParamRequest $request DescribeParameterGroupSupportParamRequest
      * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
@@ -4605,7 +4604,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of parameters that can be configured for different versions of parameter templates.
+     * @summary Queries the parameters that can be configured in parameter templates across different database versions.
      *  *
      * @param DescribeParameterGroupSupportParamRequest $request DescribeParameterGroupSupportParamRequest
      *
@@ -5021,6 +5020,9 @@ class Rkvstore extends OpenApiClient
         }
         if (!Utils::isUnset($request->securityToken)) {
             $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->shardCount)) {
+            $query['ShardCount'] = $request->shardCount;
         }
         if (!Utils::isUnset($request->zoneId)) {
             $query['ZoneId'] = $request->zoneId;
@@ -7649,6 +7651,9 @@ class Rkvstore extends OpenApiClient
         }
         if (!Utils::isUnset($request->parameters)) {
             $query['Parameters'] = $request->parameters;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
