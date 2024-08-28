@@ -8,6 +8,9 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\TrafficFxOpen\V20240815\Models\GetTokenRequest;
 use AlibabaCloud\SDK\TrafficFxOpen\V20240815\Models\GetTokenResponse;
+use AlibabaCloud\SDK\TrafficFxOpen\V20240815\Models\SearchHeaders;
+use AlibabaCloud\SDK\TrafficFxOpen\V20240815\Models\SearchRequest;
+use AlibabaCloud\SDK\TrafficFxOpen\V20240815\Models\SearchResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -98,5 +101,77 @@ class TrafficFxOpen extends OpenApiClient
         $headers = [];
 
         return $this->getTokenWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 分销报价接口
+     *  *
+     * @param SearchRequest  $request SearchRequest
+     * @param SearchHeaders  $headers SearchHeaders
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     *
+     * @return SearchResponse SearchResponse
+     */
+    public function searchWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->scene)) {
+            $body['scene'] = $request->scene;
+        }
+        if (!Utils::isUnset($request->searchParam)) {
+            $body['searchParam'] = $request->searchParam;
+        }
+        if (!Utils::isUnset($request->source)) {
+            $body['source'] = $request->source;
+        }
+        if (!Utils::isUnset($request->terminal)) {
+            $body['terminal'] = $request->terminal;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $body['userId'] = $request->userId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsAirticketAccessToken)) {
+            $realHeaders['xAcsAirticketAccessToken'] = Utils::toJSONString($headers->xAcsAirticketAccessToken);
+        }
+        if (!Utils::isUnset($headers->xAcsAirticketLanguage)) {
+            $realHeaders['xAcsAirticketLanguage'] = Utils::toJSONString($headers->xAcsAirticketLanguage);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'Search',
+            'version'     => '2024-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v1/distribution/trade/search',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SearchResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 分销报价接口
+     *  *
+     * @param SearchRequest $request SearchRequest
+     *
+     * @return SearchResponse SearchResponse
+     */
+    public function search($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new SearchHeaders([]);
+
+        return $this->searchWithOptions($request, $headers, $runtime);
     }
 }
