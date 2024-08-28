@@ -18,6 +18,11 @@ class configserverAttribute extends Model
     public $connectString;
 
     /**
+     * @var string
+     */
+    public $lockMode;
+
+    /**
      * @description The maximum number of connections to the Configserver node.
      *
      * @example 1000
@@ -90,6 +95,7 @@ class configserverAttribute extends Model
     public $status;
     protected $_name = [
         'connectString'   => 'ConnectString',
+        'lockMode'        => 'LockMode',
         'maxConnections'  => 'MaxConnections',
         'maxIOPS'         => 'MaxIOPS',
         'nodeClass'       => 'NodeClass',
@@ -109,6 +115,9 @@ class configserverAttribute extends Model
         $res = [];
         if (null !== $this->connectString) {
             $res['ConnectString'] = $this->connectString;
+        }
+        if (null !== $this->lockMode) {
+            $res['LockMode'] = $this->lockMode;
         }
         if (null !== $this->maxConnections) {
             $res['MaxConnections'] = $this->maxConnections;
@@ -148,6 +157,9 @@ class configserverAttribute extends Model
         $model = new self();
         if (isset($map['ConnectString'])) {
             $model->connectString = $map['ConnectString'];
+        }
+        if (isset($map['LockMode'])) {
+            $model->lockMode = $map['LockMode'];
         }
         if (isset($map['MaxConnections'])) {
             $model->maxConnections = $map['MaxConnections'];

@@ -18,6 +18,11 @@ class shardAttribute extends Model
     public $connectString;
 
     /**
+     * @var string
+     */
+    public $lockMode;
+
+    /**
      * @description The maximum number of connections to the shard node.
      *
      * @example 8000
@@ -108,6 +113,7 @@ class shardAttribute extends Model
     public $status;
     protected $_name = [
         'connectString'    => 'ConnectString',
+        'lockMode'         => 'LockMode',
         'maxConnections'   => 'MaxConnections',
         'maxDiskMbps'      => 'MaxDiskMbps',
         'maxIOPS'          => 'MaxIOPS',
@@ -129,6 +135,9 @@ class shardAttribute extends Model
         $res = [];
         if (null !== $this->connectString) {
             $res['ConnectString'] = $this->connectString;
+        }
+        if (null !== $this->lockMode) {
+            $res['LockMode'] = $this->lockMode;
         }
         if (null !== $this->maxConnections) {
             $res['MaxConnections'] = $this->maxConnections;
@@ -174,6 +183,9 @@ class shardAttribute extends Model
         $model = new self();
         if (isset($map['ConnectString'])) {
             $model->connectString = $map['ConnectString'];
+        }
+        if (isset($map['LockMode'])) {
+            $model->lockMode = $map['LockMode'];
         }
         if (isset($map['MaxConnections'])) {
             $model->maxConnections = $map['MaxConnections'];

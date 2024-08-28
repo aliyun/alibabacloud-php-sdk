@@ -18,6 +18,11 @@ class mongosAttribute extends Model
     public $connectSting;
 
     /**
+     * @var string
+     */
+    public $lockMode;
+
+    /**
      * @description The maximum number of connections to the mongos node.
      *
      * @example 1000
@@ -110,6 +115,7 @@ class mongosAttribute extends Model
     public $vpcCloudInstanceId;
     protected $_name = [
         'connectSting'       => 'ConnectSting',
+        'lockMode'           => 'LockMode',
         'maxConnections'     => 'MaxConnections',
         'maxIOPS'            => 'MaxIOPS',
         'nodeClass'          => 'NodeClass',
@@ -131,6 +137,9 @@ class mongosAttribute extends Model
         $res = [];
         if (null !== $this->connectSting) {
             $res['ConnectSting'] = $this->connectSting;
+        }
+        if (null !== $this->lockMode) {
+            $res['LockMode'] = $this->lockMode;
         }
         if (null !== $this->maxConnections) {
             $res['MaxConnections'] = $this->maxConnections;
@@ -176,6 +185,9 @@ class mongosAttribute extends Model
         $model = new self();
         if (isset($map['ConnectSting'])) {
             $model->connectSting = $map['ConnectSting'];
+        }
+        if (isset($map['LockMode'])) {
+            $model->lockMode = $map['LockMode'];
         }
         if (isset($map['MaxConnections'])) {
             $model->maxConnections = $map['MaxConnections'];
