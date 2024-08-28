@@ -30,6 +30,11 @@ class CreateWebCustomDomainInput extends Model
     public $protocol;
 
     /**
+     * @var RouteConfig
+     */
+    public $routeConfig;
+
+    /**
      * @var WebCertConfig
      */
     public $webCertConfig;
@@ -47,6 +52,7 @@ class CreateWebCustomDomainInput extends Model
         'defaultForwardingAppName' => 'DefaultForwardingAppName',
         'domainName'               => 'DomainName',
         'protocol'                 => 'Protocol',
+        'routeConfig'              => 'RouteConfig',
         'webCertConfig'            => 'WebCertConfig',
         'webTLSConfig'             => 'WebTLSConfig',
         'webWAFConfig'             => 'WebWAFConfig',
@@ -67,6 +73,9 @@ class CreateWebCustomDomainInput extends Model
         }
         if (null !== $this->protocol) {
             $res['Protocol'] = $this->protocol;
+        }
+        if (null !== $this->routeConfig) {
+            $res['RouteConfig'] = null !== $this->routeConfig ? $this->routeConfig->toMap() : null;
         }
         if (null !== $this->webCertConfig) {
             $res['WebCertConfig'] = null !== $this->webCertConfig ? $this->webCertConfig->toMap() : null;
@@ -97,6 +106,9 @@ class CreateWebCustomDomainInput extends Model
         }
         if (isset($map['Protocol'])) {
             $model->protocol = $map['Protocol'];
+        }
+        if (isset($map['RouteConfig'])) {
+            $model->routeConfig = RouteConfig::fromMap($map['RouteConfig']);
         }
         if (isset($map['WebCertConfig'])) {
             $model->webCertConfig = WebCertConfig::fromMap($map['WebCertConfig']);

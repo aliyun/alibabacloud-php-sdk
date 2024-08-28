@@ -59,7 +59,7 @@ class DescribeWebCustomDomainResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = WebCustomDomainBody::fromMap($map['body']);
+            $model->body = WebCustomDomain::fromMap($map['body']);
         }
 
         return $model;

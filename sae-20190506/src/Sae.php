@@ -658,6 +658,9 @@ class Sae extends OpenApiClient
         if (!Utils::isUnset($request->enableEbpf)) {
             $query['EnableEbpf'] = $request->enableEbpf;
         }
+        if (!Utils::isUnset($request->enableNewArms)) {
+            $query['EnableNewArms'] = $request->enableNewArms;
+        }
         if (!Utils::isUnset($request->envs)) {
             $query['Envs'] = $request->envs;
         }
@@ -923,7 +926,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @summary name
+     * @summary Create a ConfigMap in a namespace.
      *  *
      * @param CreateConfigMapRequest $request CreateConfigMapRequest
      * @param string[]               $headers map
@@ -969,7 +972,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @summary name
+     * @summary Create a ConfigMap in a namespace.
      *  *
      * @param CreateConfigMapRequest $request CreateConfigMapRequest
      *
@@ -2231,6 +2234,9 @@ class Sae extends OpenApiClient
         }
         if (!Utils::isUnset($request->enableGreyTagRoute)) {
             $query['EnableGreyTagRoute'] = $request->enableGreyTagRoute;
+        }
+        if (!Utils::isUnset($request->enableNewArms)) {
+            $query['EnableNewArms'] = $request->enableNewArms;
         }
         if (!Utils::isUnset($request->envs)) {
             $query['Envs'] = $request->envs;

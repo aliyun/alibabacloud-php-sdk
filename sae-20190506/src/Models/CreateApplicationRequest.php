@@ -142,6 +142,11 @@ class CreateApplicationRequest extends Model
     public $enableEbpf;
 
     /**
+     * @var bool
+     */
+    public $enableNewArms;
+
+    /**
      * @description [{"name":"envtmp","value":"0"}]
      *
      * @example [{"name":"envtmp","value":"0"}]
@@ -534,6 +539,7 @@ class CreateApplicationRequest extends Model
         'deploy'                        => 'Deploy',
         'edasContainerVersion'          => 'EdasContainerVersion',
         'enableEbpf'                    => 'EnableEbpf',
+        'enableNewArms'                 => 'EnableNewArms',
         'envs'                          => 'Envs',
         'imagePullSecrets'              => 'ImagePullSecrets',
         'imageUrl'                      => 'ImageUrl',
@@ -635,6 +641,9 @@ class CreateApplicationRequest extends Model
         }
         if (null !== $this->enableEbpf) {
             $res['EnableEbpf'] = $this->enableEbpf;
+        }
+        if (null !== $this->enableNewArms) {
+            $res['EnableNewArms'] = $this->enableNewArms;
         }
         if (null !== $this->envs) {
             $res['Envs'] = $this->envs;
@@ -830,6 +839,9 @@ class CreateApplicationRequest extends Model
         }
         if (isset($map['EnableEbpf'])) {
             $model->enableEbpf = $map['EnableEbpf'];
+        }
+        if (isset($map['EnableNewArms'])) {
+            $model->enableNewArms = $map['EnableNewArms'];
         }
         if (isset($map['Envs'])) {
             $model->envs = $map['Envs'];

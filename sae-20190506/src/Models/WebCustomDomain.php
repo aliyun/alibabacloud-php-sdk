@@ -9,13 +9,6 @@ use AlibabaCloud\Tea\Model;
 class WebCustomDomain extends Model
 {
     /**
-     * @example 123xxxxxx
-     *
-     * @var string
-     */
-    public $accountId;
-
-    /**
      * @example 2023-03-30T08:02:19Z
      *
      * @var string
@@ -56,6 +49,11 @@ class WebCustomDomain extends Model
     public $protocol;
 
     /**
+     * @var RouteConfig
+     */
+    public $routeConfig;
+
+    /**
      * @var WebCertConfig
      */
     public $webCertConfig;
@@ -69,17 +67,25 @@ class WebCustomDomain extends Model
      * @var WebWAFConfig
      */
     public $webWAFConfig;
+
+    /**
+     * @example 123xxxxxx
+     *
+     * @var string
+     */
+    public $accountId;
     protected $_name = [
-        'accountId'                => 'AccountId',
         'createdTime'              => 'CreatedTime',
         'defaultForwardingAppName' => 'DefaultForwardingAppName',
         'domainName'               => 'DomainName',
         'lastModifiedTime'         => 'LastModifiedTime',
         'namespaceId'              => 'NamespaceId',
         'protocol'                 => 'Protocol',
+        'routeConfig'              => 'RouteConfig',
         'webCertConfig'            => 'WebCertConfig',
         'webTLSConfig'             => 'WebTLSConfig',
         'webWAFConfig'             => 'WebWAFConfig',
+        'accountId'                => 'accountId',
     ];
 
     public function validate()
@@ -89,9 +95,6 @@ class WebCustomDomain extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->accountId) {
-            $res['AccountId'] = $this->accountId;
-        }
         if (null !== $this->createdTime) {
             $res['CreatedTime'] = $this->createdTime;
         }
@@ -110,6 +113,9 @@ class WebCustomDomain extends Model
         if (null !== $this->protocol) {
             $res['Protocol'] = $this->protocol;
         }
+        if (null !== $this->routeConfig) {
+            $res['RouteConfig'] = null !== $this->routeConfig ? $this->routeConfig->toMap() : null;
+        }
         if (null !== $this->webCertConfig) {
             $res['WebCertConfig'] = null !== $this->webCertConfig ? $this->webCertConfig->toMap() : null;
         }
@@ -118,6 +124,9 @@ class WebCustomDomain extends Model
         }
         if (null !== $this->webWAFConfig) {
             $res['WebWAFConfig'] = null !== $this->webWAFConfig ? $this->webWAFConfig->toMap() : null;
+        }
+        if (null !== $this->accountId) {
+            $res['accountId'] = $this->accountId;
         }
 
         return $res;
@@ -131,9 +140,6 @@ class WebCustomDomain extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AccountId'])) {
-            $model->accountId = $map['AccountId'];
-        }
         if (isset($map['CreatedTime'])) {
             $model->createdTime = $map['CreatedTime'];
         }
@@ -152,6 +158,9 @@ class WebCustomDomain extends Model
         if (isset($map['Protocol'])) {
             $model->protocol = $map['Protocol'];
         }
+        if (isset($map['RouteConfig'])) {
+            $model->routeConfig = RouteConfig::fromMap($map['RouteConfig']);
+        }
         if (isset($map['WebCertConfig'])) {
             $model->webCertConfig = WebCertConfig::fromMap($map['WebCertConfig']);
         }
@@ -160,6 +169,9 @@ class WebCustomDomain extends Model
         }
         if (isset($map['WebWAFConfig'])) {
             $model->webWAFConfig = WebWAFConfig::fromMap($map['WebWAFConfig']);
+        }
+        if (isset($map['accountId'])) {
+            $model->accountId = $map['accountId'];
         }
 
         return $model;

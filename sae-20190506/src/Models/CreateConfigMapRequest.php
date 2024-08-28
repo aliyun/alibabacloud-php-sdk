@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateConfigMapRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The key-value pairs of the ConfigMap in the JSON format. Format:
      *
+     * This parameter is required.
      * @example {"env.shell": "/bin/sh"}
      *
      * @var string
@@ -18,6 +19,8 @@ class CreateConfigMapRequest extends Model
     public $data;
 
     /**
+     * @description The description. The description must be 1 to 255 characters in length, and cannot contain spaces.
+     *
      * @example test-desc
      *
      * @var string
@@ -25,7 +28,7 @@ class CreateConfigMapRequest extends Model
     public $description;
 
     /**
-     * @description cn-hangzhou
+     * @description The name of the ConfigMap. The name can contain digits, letters, and underscores (_). The name must start with a letter.
      *
      * This parameter is required.
      * @example name
@@ -35,7 +38,7 @@ class CreateConfigMapRequest extends Model
     public $name;
 
     /**
-     * @description The ID of the request.
+     * @description The ID of the namespace to which the ConfigMap instance belongs.
      *
      * This parameter is required.
      * @example cn-hangzhou

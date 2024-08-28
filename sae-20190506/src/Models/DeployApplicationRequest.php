@@ -177,6 +177,11 @@ class DeployApplicationRequest extends Model
     public $enableGreyTagRoute;
 
     /**
+     * @var bool
+     */
+    public $enableNewArms;
+
+    /**
      * @description The environment variables. You can configure custom environment variables or reference a ConfigMap. If you want to reference a ConfigMap, you must first create a ConfigMap. For more information, see [CreateConfigMap](https://help.aliyun.com/document_detail/176914.html). Take note of the following rules:
      *
      *   Customize
@@ -675,6 +680,7 @@ class DeployApplicationRequest extends Model
         'edasContainerVersion'             => 'EdasContainerVersion',
         'enableAhas'                       => 'EnableAhas',
         'enableGreyTagRoute'               => 'EnableGreyTagRoute',
+        'enableNewArms'                    => 'EnableNewArms',
         'envs'                             => 'Envs',
         'imagePullSecrets'                 => 'ImagePullSecrets',
         'imageUrl'                         => 'ImageUrl',
@@ -775,6 +781,9 @@ class DeployApplicationRequest extends Model
         }
         if (null !== $this->enableGreyTagRoute) {
             $res['EnableGreyTagRoute'] = $this->enableGreyTagRoute;
+        }
+        if (null !== $this->enableNewArms) {
+            $res['EnableNewArms'] = $this->enableNewArms;
         }
         if (null !== $this->envs) {
             $res['Envs'] = $this->envs;
@@ -967,6 +976,9 @@ class DeployApplicationRequest extends Model
         }
         if (isset($map['EnableGreyTagRoute'])) {
             $model->enableGreyTagRoute = $map['EnableGreyTagRoute'];
+        }
+        if (isset($map['EnableNewArms'])) {
+            $model->enableNewArms = $map['EnableNewArms'];
         }
         if (isset($map['Envs'])) {
             $model->envs = $map['Envs'];

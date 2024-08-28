@@ -10,10 +10,12 @@ use AlibabaCloud\Tea\Model;
 class CreateConfigMapResponseBody extends Model
 {
     /**
-     * @description Indicates whether the ConfigMap instance was created. Valid values:
+     * @description The HTTP status code. Valid values:
      *
-     *   **true**: The instance was created.
-     *   **false**: The call failed to be created.
+     *   **2xx**: The call was successful.
+     *   **3xx**: The call was redirected.
+     *   **4xx**: The call failed.
+     *   **5xx**: A server error occurred.
      *
      * @example 200
      *
@@ -22,26 +24,26 @@ class CreateConfigMapResponseBody extends Model
     public $code;
 
     /**
-     * @description The ID of the ConfigMap instance that was created.
+     * @description The returned result.
      *
      * @var data
      */
     public $data;
 
     /**
-     * @description The HTTP status code. Valid values:
+     * @description The error code. Valid values:
      *
-     *   **2xx**: indicates that the call was successful.
-     *   **3xx**: indicates that the call was redirected.
-     *   **4xx**: indicates that the call failed.
-     *   **5xx**: indicates that a server error occurred.
+     *   If the call is successful, the **ErrorCode** parameter is not returned.
+     *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
+     *
+     * @example Empty
      *
      * @var string
      */
     public $errorCode;
 
     /**
-     * @description The ID of the trace. The ID is used to query the details of a request.
+     * @description The returned message.
      *
      * @example success
      *
@@ -50,7 +52,7 @@ class CreateConfigMapResponseBody extends Model
     public $message;
 
     /**
-     * @description The returned information.
+     * @description The request ID.
      *
      * @example 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
      *
@@ -59,6 +61,11 @@ class CreateConfigMapResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the ConfigMap was created. Valid values:
+     *
+     *   **true**: The ConfigMap was created.
+     *   **false**: The ConfigMap failed to be created.
+     *
      * @example true
      *
      * @var bool
@@ -66,7 +73,7 @@ class CreateConfigMapResponseBody extends Model
     public $success;
 
     /**
-     * @description The returned result.
+     * @description The trace ID that is used to query the details of the request.
      *
      * @example 0a98a02315955564772843261e****
      *
