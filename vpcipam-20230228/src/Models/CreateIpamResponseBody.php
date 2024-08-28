@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class CreateIpamResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $defaultResourceDiscoveryAssociationId;
+
+    /**
+     * @var string
+     */
+    public $defaultResourceDiscoveryId;
+
+    /**
      * @example ipam-ccxbnsbhew0d6t****
      *
      * @var string
@@ -35,11 +45,19 @@ class CreateIpamResponseBody extends Model
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var int
+     */
+    public $resourceDiscoveryAssociationCount;
     protected $_name = [
-        'ipamId'                => 'IpamId',
-        'privateDefaultScopeId' => 'PrivateDefaultScopeId',
-        'publicDefaultScopeId'  => 'PublicDefaultScopeId',
-        'requestId'             => 'RequestId',
+        'defaultResourceDiscoveryAssociationId' => 'DefaultResourceDiscoveryAssociationId',
+        'defaultResourceDiscoveryId'            => 'DefaultResourceDiscoveryId',
+        'ipamId'                                => 'IpamId',
+        'privateDefaultScopeId'                 => 'PrivateDefaultScopeId',
+        'publicDefaultScopeId'                  => 'PublicDefaultScopeId',
+        'requestId'                             => 'RequestId',
+        'resourceDiscoveryAssociationCount'     => 'ResourceDiscoveryAssociationCount',
     ];
 
     public function validate()
@@ -49,6 +67,12 @@ class CreateIpamResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->defaultResourceDiscoveryAssociationId) {
+            $res['DefaultResourceDiscoveryAssociationId'] = $this->defaultResourceDiscoveryAssociationId;
+        }
+        if (null !== $this->defaultResourceDiscoveryId) {
+            $res['DefaultResourceDiscoveryId'] = $this->defaultResourceDiscoveryId;
+        }
         if (null !== $this->ipamId) {
             $res['IpamId'] = $this->ipamId;
         }
@@ -60,6 +84,9 @@ class CreateIpamResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->resourceDiscoveryAssociationCount) {
+            $res['ResourceDiscoveryAssociationCount'] = $this->resourceDiscoveryAssociationCount;
         }
 
         return $res;
@@ -73,6 +100,12 @@ class CreateIpamResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DefaultResourceDiscoveryAssociationId'])) {
+            $model->defaultResourceDiscoveryAssociationId = $map['DefaultResourceDiscoveryAssociationId'];
+        }
+        if (isset($map['DefaultResourceDiscoveryId'])) {
+            $model->defaultResourceDiscoveryId = $map['DefaultResourceDiscoveryId'];
+        }
         if (isset($map['IpamId'])) {
             $model->ipamId = $map['IpamId'];
         }
@@ -84,6 +117,9 @@ class CreateIpamResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['ResourceDiscoveryAssociationCount'])) {
+            $model->resourceDiscoveryAssociationCount = $map['ResourceDiscoveryAssociationCount'];
         }
 
         return $model;

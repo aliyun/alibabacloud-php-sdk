@@ -17,6 +17,16 @@ class ipams extends Model
     public $createTime;
 
     /**
+     * @var string
+     */
+    public $defaultResourceDiscoveryAssociationId;
+
+    /**
+     * @var string
+     */
+    public $defaultResourceDiscoveryId;
+
+    /**
      * @example test description
      *
      * @var string
@@ -78,6 +88,11 @@ class ipams extends Model
     public $regionId;
 
     /**
+     * @var int
+     */
+    public $resourceDiscoveryAssociationCount;
+
+    /**
      * @example rg-aek2dbprgpt****
      *
      * @var string
@@ -96,19 +111,22 @@ class ipams extends Model
      */
     public $tags;
     protected $_name = [
-        'createTime'            => 'CreateTime',
-        'ipamDescription'       => 'IpamDescription',
-        'ipamId'                => 'IpamId',
-        'ipamName'              => 'IpamName',
-        'ipamStatus'            => 'IpamStatus',
-        'operatingRegionList'   => 'OperatingRegionList',
-        'ownerId'               => 'OwnerId',
-        'privateDefaultScopeId' => 'PrivateDefaultScopeId',
-        'publicDefaultScopeId'  => 'PublicDefaultScopeId',
-        'regionId'              => 'RegionId',
-        'resourceGroupId'       => 'ResourceGroupId',
-        'scopeCount'            => 'ScopeCount',
-        'tags'                  => 'Tags',
+        'createTime'                            => 'CreateTime',
+        'defaultResourceDiscoveryAssociationId' => 'DefaultResourceDiscoveryAssociationId',
+        'defaultResourceDiscoveryId'            => 'DefaultResourceDiscoveryId',
+        'ipamDescription'                       => 'IpamDescription',
+        'ipamId'                                => 'IpamId',
+        'ipamName'                              => 'IpamName',
+        'ipamStatus'                            => 'IpamStatus',
+        'operatingRegionList'                   => 'OperatingRegionList',
+        'ownerId'                               => 'OwnerId',
+        'privateDefaultScopeId'                 => 'PrivateDefaultScopeId',
+        'publicDefaultScopeId'                  => 'PublicDefaultScopeId',
+        'regionId'                              => 'RegionId',
+        'resourceDiscoveryAssociationCount'     => 'ResourceDiscoveryAssociationCount',
+        'resourceGroupId'                       => 'ResourceGroupId',
+        'scopeCount'                            => 'ScopeCount',
+        'tags'                                  => 'Tags',
     ];
 
     public function validate()
@@ -120,6 +138,12 @@ class ipams extends Model
         $res = [];
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->defaultResourceDiscoveryAssociationId) {
+            $res['DefaultResourceDiscoveryAssociationId'] = $this->defaultResourceDiscoveryAssociationId;
+        }
+        if (null !== $this->defaultResourceDiscoveryId) {
+            $res['DefaultResourceDiscoveryId'] = $this->defaultResourceDiscoveryId;
         }
         if (null !== $this->ipamDescription) {
             $res['IpamDescription'] = $this->ipamDescription;
@@ -147,6 +171,9 @@ class ipams extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceDiscoveryAssociationCount) {
+            $res['ResourceDiscoveryAssociationCount'] = $this->resourceDiscoveryAssociationCount;
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
@@ -178,6 +205,12 @@ class ipams extends Model
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
+        if (isset($map['DefaultResourceDiscoveryAssociationId'])) {
+            $model->defaultResourceDiscoveryAssociationId = $map['DefaultResourceDiscoveryAssociationId'];
+        }
+        if (isset($map['DefaultResourceDiscoveryId'])) {
+            $model->defaultResourceDiscoveryId = $map['DefaultResourceDiscoveryId'];
+        }
         if (isset($map['IpamDescription'])) {
             $model->ipamDescription = $map['IpamDescription'];
         }
@@ -206,6 +239,9 @@ class ipams extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceDiscoveryAssociationCount'])) {
+            $model->resourceDiscoveryAssociationCount = $map['ResourceDiscoveryAssociationCount'];
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];

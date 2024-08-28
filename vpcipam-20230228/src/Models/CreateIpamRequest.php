@@ -37,6 +37,8 @@ class CreateIpamRequest extends Model
     public $ipamName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $operatingRegionList;
