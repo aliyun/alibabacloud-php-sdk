@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example EQ4W772D0VJ33IV1
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @example 1645516991000
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example DEPLOY
+     *
      * @var string
      */
     public $currentProcess;
@@ -30,6 +36,8 @@ class data extends Model
     public $deletingNodeList;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $deployPercent;
@@ -45,6 +53,8 @@ class data extends Model
     public $deployingNodeList;
 
     /**
+     * @example OperationNotSupport.SubscriptionCommodityCanNotDelete
+     *
      * @var string
      */
     public $error;
@@ -65,11 +75,15 @@ class data extends Model
     public $orderIdList;
 
     /**
+     * @example https://cadt-studio-publish.oss-cn-hangzhou.aliyuncs.com/1986207497633020/deployReport-EXN4FNUR12M35KJM.pdf?Expires=1716967763&OSSAccessKeyId=********nw4rvYAweFuQc3&Signature=*******fKo6164wykT9jBOsSGeQ%3D
+     *
      * @var string
      */
     public $pdfUrl;
 
     /**
+     * @example rg-aekzhfgmw4e6fwq
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -80,11 +94,15 @@ class data extends Model
     public $resourceList;
 
     /**
+     * @example Revised
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example https://cadt-studio-publish.oss-cn-hangzhou.aliyuncs.com/1986207497633020/app_EXN4FNUR12M35KJM.tf?Expires=1716967763&OSSAccessKeyId=*******nw4rvYAweFuQc3&Signature=%2********lYROqJLNvyA8g6qD9U%3D
+     *
      * @var string
      */
     public $terraformScriptUrl;

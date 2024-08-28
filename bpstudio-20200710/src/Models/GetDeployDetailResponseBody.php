@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetDeployDetailResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var int
      */
     public $code;
@@ -20,21 +22,29 @@ class GetDeployDetailResponseBody extends Model
     public $data;
 
     /**
+     * @example Success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $nextToken;
 
     /**
+     * @example E15B71B4-5D8F-5484-BC07-989E2987EE7C
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $totalCount;

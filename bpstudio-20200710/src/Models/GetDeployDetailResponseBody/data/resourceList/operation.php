@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class operation extends Model
 {
     /**
+     * @example ecsDelete
+     *
      * @var string
      */
     public $name;

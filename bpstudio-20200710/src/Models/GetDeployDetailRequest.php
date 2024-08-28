@@ -9,41 +9,63 @@ use AlibabaCloud\Tea\Model;
 class GetDeployDetailRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 30GRJUY95TMYWBYJ
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 40
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $nextToken;
 
     /**
+     * @example 1713597738
+     *
      * @var string
      */
     public $refId;
 
     /**
+     * @example rg-aekz44tg3bnpyba
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @example vsw-xxxxxxxxxxxx
+     *
      * @var string
      */
     public $resourceId;
 
     /**
+     * @example rgm-ecs
+     *
      * @var string
      */
     public $resourceName;
 
     /**
+     * @example ecs
+     *
      * @var string
      */
     public $resourceType;

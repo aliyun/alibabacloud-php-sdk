@@ -50,10 +50,12 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * @param BillingApplicationRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary BillingApplication
+     *  *
+     * @param BillingApplicationRequest $request BillingApplicationRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return BillingApplicationResponse
+     * @return BillingApplicationResponse BillingApplicationResponse
      */
     public function billingApplicationWithOptions($request, $runtime)
     {
@@ -87,9 +89,11 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * @param BillingApplicationRequest $request
+     * @summary BillingApplication
+     *  *
+     * @param BillingApplicationRequest $request BillingApplicationRequest
      *
-     * @return BillingApplicationResponse
+     * @return BillingApplicationResponse BillingApplicationResponse
      */
     public function billingApplication($request)
     {
@@ -99,10 +103,12 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * @param GetDeployDetailRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary 分页查询部署清单
+     *  *
+     * @param GetDeployDetailRequest $request GetDeployDetailRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetDeployDetailResponse
+     * @return GetDeployDetailResponse GetDeployDetailResponse
      */
     public function getDeployDetailWithOptions($request, $runtime)
     {
@@ -151,9 +157,11 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * @param GetDeployDetailRequest $request
+     * @summary 分页查询部署清单
+     *  *
+     * @param GetDeployDetailRequest $request GetDeployDetailRequest
      *
-     * @return GetDeployDetailResponse
+     * @return GetDeployDetailResponse GetDeployDetailResponse
      */
     public function getDeployDetail($request)
     {

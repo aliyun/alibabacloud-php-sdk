@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\BPStudio\V20200710\Models\GetDeployDetailResponseBody\data;
 
 use AlibabaCloud\SDK\BPStudio\V20200710\Models\GetDeployDetailResponseBody\data\resourceList\operation;
+use AlibabaCloud\SDK\BPStudio\V20200710\Models\GetDeployDetailResponseBody\data\resourceList\resourceTimeList;
 use AlibabaCloud\Tea\Model;
 
 class resourceList extends Model
@@ -15,26 +16,36 @@ class resourceList extends Model
     public $buyDuration;
 
     /**
+     * @example Free
+     *
      * @var string
      */
     public $chargeType;
 
     /**
+     * @example OpenApi
+     *
      * @var string
      */
     public $executionStrategy;
 
     /**
+     * @example 1714031840000
+     *
      * @var int
      */
     public $modifiedTime;
 
     /**
+     * @example https://cloudmonitor.console.aliyun.com/?#/generalcharts/product=vpc&group=&type=&return&region=cn-hangzhou&dimension=instanceId:vpc-bp1n6uc5jqxtff2euhnx5
+     *
      * @var string
      */
     public $monitorURL;
 
     /**
+     * @example vpc
+     *
      * @var string
      */
     public $nodeName;
@@ -45,31 +56,48 @@ class resourceList extends Model
     public $operation;
 
     /**
+     * @example 1716049421
+     *
      * @var int
      */
     public $refId;
 
     /**
+     * @example {\\"Description\\":\\"\\",\\"ClassicLinkEnabled\\":false,\\"ResourceGroupId\\":\\"rg-acfm4mlwqjalz7a\\",\\"SecondaryCidrBlocks\\":[],\\"CidrBlock\\":\\"192.168.0.0/16\\",\\"UserCidrs\\":[],\\"NetworkAclNum\\":\\"0\\",\\"VRouterId\\":\\"vrt-m5ek7vcyld0x5ym8m9hix\\",\\"OwnerId\\":1986207497633020,\\"AssociatedCens\\":[],\\"id\\":\\"vpc-m5e3c9nz4lj19byan9m2g\\",\\"CloudResources\\":[{\\"ResourceCount\\":1,\\"ResourceType\\":\\"VSwitch\\"},{\\"ResourceCount\\":1,\\"ResourceType\\":\\"VRouter\\"},{\\"ResourceCount\\":1,\\"ResourceType\\":\\"RouteTable\\"}],\\"Tags\\":[],\\"Status\\":\\"Available\\",\\"IsDefault\\":false,\\"RequestId\\":\\"494646FB-14C0-5B4C-9684-B6EFBF4DF01C\\",\\"SupportIpv4Gateway\\":false,\\"Ipv4GatewayId\\":\\"\\",\\"VSwitchIds\\":[\\"vsw-m5egl9wtppiadysjwlgb1\\"],\\"VpcId\\":\\"vpc-m5e3c9nz4lj19byan9m2g\\",\\"CreationTime\\":\\"2024-04-25T07:56:59Z\\",\\"VpcName\\":\\"vpc\\",\\"refId\\":\\"1714031764_0\\",\\"RegionId\\":\\"cn-qingdao\\",\\"Ipv6CidrBlock\\":\\"\\",\\"Ipv6CidrBlocks\\":[]}
+     *
      * @var string
      */
     public $remark;
 
     /**
+     * @example ecs
+     *
      * @var string
      */
     public $resourceCode;
 
     /**
+     * @example i-2zehnzxqixu1pywsfbx1
+     *
      * @var string
      */
     public $resourceId;
 
     /**
+     * @var resourceTimeList[]
+     */
+    public $resourceTimeList;
+
+    /**
+     * @example vpc
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @example Finish
+     *
      * @var string
      */
     public $status;
@@ -85,6 +113,7 @@ class resourceList extends Model
         'remark'            => 'Remark',
         'resourceCode'      => 'ResourceCode',
         'resourceId'        => 'ResourceId',
+        'resourceTimeList'  => 'ResourceTimeList',
         'resourceType'      => 'ResourceType',
         'status'            => 'Status',
     ];
@@ -128,6 +157,15 @@ class resourceList extends Model
         }
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
+        }
+        if (null !== $this->resourceTimeList) {
+            $res['ResourceTimeList'] = [];
+            if (null !== $this->resourceTimeList && \is_array($this->resourceTimeList)) {
+                $n = 0;
+                foreach ($this->resourceTimeList as $item) {
+                    $res['ResourceTimeList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
@@ -179,6 +217,15 @@ class resourceList extends Model
         }
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];
+        }
+        if (isset($map['ResourceTimeList'])) {
+            if (!empty($map['ResourceTimeList'])) {
+                $model->resourceTimeList = [];
+                $n                       = 0;
+                foreach ($map['ResourceTimeList'] as $item) {
+                    $model->resourceTimeList[$n++] = null !== $item ? resourceTimeList::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
