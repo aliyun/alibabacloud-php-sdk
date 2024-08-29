@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetFoTaskStatusResponseBody extends Model
 {
     /**
+     * @description The response code.
+     *
      * @example 200
      *
      * @var string
@@ -16,6 +18,8 @@ class GetFoTaskStatusResponseBody extends Model
     public $code;
 
     /**
+     * @description The status of the switchover task.
+     *
      * @example Running
      *
      * @var string
@@ -23,6 +27,8 @@ class GetFoTaskStatusResponseBody extends Model
     public $data;
 
     /**
+     * @description The returned message. If the request was successful, a success message is returned. If the request failed, an error message is returned.
+     *
      * @example OKITHEVRQCN6ULQG
      *
      * @var string
@@ -30,6 +36,8 @@ class GetFoTaskStatusResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 923692F0-A15B-58B4-BAF4-2AFA4AF46240
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AppFailOverRequest extends Model
 {
     /**
+     * @description The application ID.
+     *
      * @example BE68D71ZY5YYIU9R
      *
      * @var string
@@ -16,6 +18,8 @@ class AppFailOverRequest extends Model
     public $applicationId;
 
     /**
+     * @description The destination zone to which you want to switch the disaster recovery application.
+     *
      * @example cn-hangzhou-g
      *
      * @var string

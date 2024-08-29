@@ -27,6 +27,8 @@ use AlibabaCloud\SDK\BPStudio\V20210931\Models\ExecuteOperationSyncResponse;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\ExecuteOperationSyncShrinkRequest;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\GetApplicationRequest;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\GetApplicationResponse;
+use AlibabaCloud\SDK\BPStudio\V20210931\Models\GetApplicationVariables4FailRequest;
+use AlibabaCloud\SDK\BPStudio\V20210931\Models\GetApplicationVariables4FailResponse;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\GetExecuteOperationResultRequest;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\GetExecuteOperationResultResponse;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\GetFoTaskStatusRequest;
@@ -46,6 +48,8 @@ use AlibabaCloud\SDK\BPStudio\V20210931\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\ListTemplateRequest;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\ListTemplateResponse;
+use AlibabaCloud\SDK\BPStudio\V20210931\Models\ReConfigApplicationRequest;
+use AlibabaCloud\SDK\BPStudio\V20210931\Models\ReConfigApplicationResponse;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\ReleaseApplicationRequest;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\ReleaseApplicationResponse;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\ValidateApplicationRequest;
@@ -96,7 +100,9 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * @summary 容灾应用切回
+     * @summary Switches a disaster recovery application back to the primary zone.
+     *  *
+     * @description You can call this operation to switch a disaster recovery application back to the primary zone.
      *  *
      * @param AppFailBackRequest $request AppFailBackRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
@@ -129,7 +135,9 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * @summary 容灾应用切回
+     * @summary Switches a disaster recovery application back to the primary zone.
+     *  *
+     * @description You can call this operation to switch a disaster recovery application back to the primary zone.
      *  *
      * @param AppFailBackRequest $request AppFailBackRequest
      *
@@ -143,7 +151,9 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * @summary 容灾应用切换
+     * @summary Switches a disaster recovery application to another supported zone.
+     *  *
+     * @description You can call this operation to switch a disaster recovery application to another supported zone.
      *  *
      * @param AppFailOverRequest $request AppFailOverRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
@@ -179,7 +189,9 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * @summary 容灾应用切换
+     * @summary Switches a disaster recovery application to another supported zone.
+     *  *
+     * @description You can call this operation to switch a disaster recovery application to another supported zone.
      *  *
      * @param AppFailOverRequest $request AppFailOverRequest
      *
@@ -618,6 +630,53 @@ class BPStudio extends OpenApiClient
     }
 
     /**
+     * @summary 获取需要重新配置的变量列表
+     *  *
+     * @param GetApplicationVariables4FailRequest $request GetApplicationVariables4FailRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetApplicationVariables4FailResponse GetApplicationVariables4FailResponse
+     */
+    public function getApplicationVariables4FailWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetApplicationVariables4Fail',
+            'version'     => '2021-09-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetApplicationVariables4FailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取需要重新配置的变量列表
+     *  *
+     * @param GetApplicationVariables4FailRequest $request GetApplicationVariables4FailRequest
+     *
+     * @return GetApplicationVariables4FailResponse GetApplicationVariables4FailResponse
+     */
+    public function getApplicationVariables4Fail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getApplicationVariables4FailWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Asynchronously queries the result of an operation that is performed on a service instance.
      *  *
      * @param GetExecuteOperationResultRequest $request GetExecuteOperationResultRequest
@@ -668,7 +727,9 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * @summary 获取容灾切换任务状态
+     * @summary Queries the status of a disaster recovery switchover task by task ID.
+     *  *
+     * @description You can call this operation to query the status of a disaster recovery switchover task by task ID.
      *  *
      * @param GetFoTaskStatusRequest $request GetFoTaskStatusRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -701,7 +762,9 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * @summary 获取容灾切换任务状态
+     * @summary Queries the status of a disaster recovery switchover task by task ID.
+     *  *
+     * @description You can call this operation to query the status of a disaster recovery switchover task by task ID.
      *  *
      * @param GetFoTaskStatusRequest $request GetFoTaskStatusRequest
      *
@@ -715,7 +778,9 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * @summary 获取容灾服务可切换的可用区列表
+     * @summary Queries the zones where the specified disaster recovery service can be switched.
+     *  *
+     * @description You can call this operation to query the zones where the specified disaster recovery service can be switched.
      *  *
      * @param GetPotentialFailZonesRequest $request GetPotentialFailZonesRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -751,7 +816,9 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * @summary 获取容灾服务可切换的可用区列表
+     * @summary Queries the zones where the specified disaster recovery service can be switched.
+     *  *
+     * @description You can call this operation to query the zones where the specified disaster recovery service can be switched.
      *  *
      * @param GetPotentialFailZonesRequest $request GetPotentialFailZonesRequest
      *
@@ -877,7 +944,9 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * @summary 准备应用切换
+     * @summary Prepares for application switchover and initiates a switchover task.
+     *  *
+     * @description You can call this operation to prepare for application switchover and initiate a switchover task.
      *  *
      * @param InitAppFailOverRequest $request InitAppFailOverRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -910,7 +979,9 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * @summary 准备应用切换
+     * @summary Prepares for application switchover and initiates a switchover task.
+     *  *
+     * @description You can call this operation to prepare for application switchover and initiate a switchover task.
      *  *
      * @param InitAppFailOverRequest $request InitAppFailOverRequest
      *
@@ -992,7 +1063,9 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * @summary 获取已经创建的APP
+     * @summary Queries disaster recovery plans.
+     *  *
+     * @description You can call this operation to query all disaster recovery plans.
      *  *
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
@@ -1017,7 +1090,9 @@ class BPStudio extends OpenApiClient
     }
 
     /**
-     * @summary 获取已经创建的APP
+     * @summary Queries disaster recovery plans.
+     *  *
+     * @description You can call this operation to query all disaster recovery plans.
      *  *
      * @return ListFoCreatedAppsResponse ListFoCreatedAppsResponse
      */
@@ -1155,6 +1230,56 @@ class BPStudio extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 重新配置应用
+     *  *
+     * @param ReConfigApplicationRequest $request ReConfigApplicationRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ReConfigApplicationResponse ReConfigApplicationResponse
+     */
+    public function reConfigApplicationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->variables)) {
+            $body['Variables'] = $request->variables;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ReConfigApplication',
+            'version'     => '2021-09-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ReConfigApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 重新配置应用
+     *  *
+     * @param ReConfigApplicationRequest $request ReConfigApplicationRequest
+     *
+     * @return ReConfigApplicationResponse ReConfigApplicationResponse
+     */
+    public function reConfigApplication($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->reConfigApplicationWithOptions($request, $runtime);
     }
 
     /**

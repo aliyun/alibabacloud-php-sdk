@@ -6,18 +6,16 @@ namespace AlibabaCloud\SDK\BPStudio\V20210931\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetFoTaskStatusRequest extends Model
+class GetApplicationVariables4FailRequest extends Model
 {
     /**
-     * @description The disaster recovery switchover task ID.
+     * @example Q2P4O9YSOKCT35L9
      *
-     * @example 2615
-     *
-     * @var int
+     * @var string
      */
-    public $taskId;
+    public $appId;
     protected $_name = [
-        'taskId' => 'TaskId',
+        'appId' => 'AppId',
     ];
 
     public function validate()
@@ -27,8 +25,8 @@ class GetFoTaskStatusRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->taskId) {
-            $res['TaskId'] = $this->taskId;
+        if (null !== $this->appId) {
+            $res['AppId'] = $this->appId;
         }
 
         return $res;
@@ -37,13 +35,13 @@ class GetFoTaskStatusRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetFoTaskStatusRequest
+     * @return GetApplicationVariables4FailRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TaskId'])) {
-            $model->taskId = $map['TaskId'];
+        if (isset($map['AppId'])) {
+            $model->appId = $map['AppId'];
         }
 
         return $model;

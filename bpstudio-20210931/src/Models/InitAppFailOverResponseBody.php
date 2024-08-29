@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class InitAppFailOverResponseBody extends Model
 {
     /**
+     * @description The response code.
+     *
      * @example 200
      *
      * @var string
@@ -16,6 +18,8 @@ class InitAppFailOverResponseBody extends Model
     public $code;
 
     /**
+     * @description The switchover task ID.
+     *
      * @example 7250
      *
      * @var int
@@ -23,6 +27,8 @@ class InitAppFailOverResponseBody extends Model
     public $data;
 
     /**
+     * @description The returned message. If the request was successful, a success message is returned. If the request failed, an error message is returned.
+     *
      * @example Unsupported Operation PrepareEvent->FailOverPrepareSuccess FoApp_DDLJK2WM8ETU9JAC
      *
      * @var string
@@ -30,6 +36,8 @@ class InitAppFailOverResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example A07FFDF2-78FA-1B48-9E38-88E833A93187
      *
      * @var string

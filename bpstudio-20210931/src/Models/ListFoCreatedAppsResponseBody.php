@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListFoCreatedAppsResponseBody extends Model
 {
     /**
+     * @description The response code.
+     *
      * @example 200
      *
      * @var string
@@ -17,11 +19,15 @@ class ListFoCreatedAppsResponseBody extends Model
     public $code;
 
     /**
+     * @description The information about disaster recovery plans.
+     *
      * @var data[]
      */
     public $data;
 
     /**
+     * @description The returned message. If the request was successful, a success message is returned. If the request failed, an error message is returned.
+     *
      * @example Cannot find region according to your domain.
      *
      * @var string
@@ -29,7 +35,7 @@ class ListFoCreatedAppsResponseBody extends Model
     public $message;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example 40F63F07-3AB6-53B3-8825-0580C130E3EA
      *

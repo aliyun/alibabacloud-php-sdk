@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetPotentialFailZonesRequest extends Model
 {
     /**
+     * @description Specifies whether the value of this parameter is the ID of a disaster recovery set.
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +18,8 @@ class GetPotentialFailZonesRequest extends Model
     public $isPlanId;
 
     /**
+     * @description If you set IsPlanId to false, specify the ID of a disaster recovery application. If you set IsPlanId to true, specify the ID of a disaster recovery set.
+     *
      * @example FS3ATPTOSC4SE1GG
      *
      * @var string

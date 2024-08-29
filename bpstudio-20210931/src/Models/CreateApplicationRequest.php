@@ -80,7 +80,7 @@ class CreateApplicationRequest extends Model
      *
      * @example {"variable1":"1"}
      *
-     * @var string[]
+     * @var mixed[]
      */
     public $variables;
     protected $_name = [

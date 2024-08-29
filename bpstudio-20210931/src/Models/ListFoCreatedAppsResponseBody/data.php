@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description 应用ID
+     *
+     * @example JIX9NEZUALGS46UI
+     *
      * @var string
      */
     public $applicationId;
 
     /**
+     * @description The URL of an error report.
+     *
      * @example https://api.aliyun.com/troubleshoot?q=ServiceUnavailable&product=BPStudio&requestId=4CDA03A3-C652-1408-8ABD-7E652A7CBFB6
      *
      * @var string
@@ -21,6 +27,8 @@ class data extends Model
     public $reportUrl;
 
     /**
+     * @description The status of the disaster recovery plan.
+     *
      * @example Deployed_Success
      * Destroyed_Success
      * @var string
@@ -28,6 +36,8 @@ class data extends Model
     public $status;
 
     /**
+     * @description The title.
+     *
      * @var string
      */
     public $title;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetPotentialFailZonesResponseBody extends Model
 {
     /**
+     * @description The response code.
+     *
      * @example 200
      *
      * @var string
@@ -16,11 +18,15 @@ class GetPotentialFailZonesResponseBody extends Model
     public $code;
 
     /**
+     * @description The zones where the current disaster recovery service can be switched.
+     *
      * @var string[]
      */
     public $data;
 
     /**
+     * @description The error message.
+     *
      * @example The specified ResourceIds are not found in our records.
      *
      * @var string
@@ -28,6 +34,8 @@ class GetPotentialFailZonesResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example BFB7F5C8-FE7A-06CA-9F87-ABBF6B848F0C
      *
      * @var string

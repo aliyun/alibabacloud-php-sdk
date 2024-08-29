@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class InitAppFailOverRequest extends Model
 {
     /**
+     * @description The application ID.
+     *
      * @example 002XWH7MXB8MJRU0
      *
      * @var string

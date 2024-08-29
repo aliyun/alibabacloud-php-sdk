@@ -4,39 +4,34 @@
 
 namespace AlibabaCloud\SDK\BPStudio\V20210931\Models;
 
+use AlibabaCloud\SDK\BPStudio\V20210931\Models\GetApplicationVariables4FailResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class AppFailOverResponseBody extends Model
+class GetApplicationVariables4FailResponseBody extends Model
 {
     /**
-     * @description The response code.
-     *
      * @example 200
      *
-     * @var string
+     * @var int
      */
     public $code;
 
     /**
-     * @description The disaster recovery switchover task ID.
-     *
-     * @example 7441
-     *
-     * @var int
+     * @var data[]
      */
     public $data;
 
     /**
-     * @description The returned message. If the request was successful, a success message is returned. If the request failed, an error message is returned.
+     * @example Success
      *
      * @var string
      */
     public $message;
 
     /**
-     * @description The request ID.
+     * @description Id of the request
      *
-     * @example 9656C816-1E9A-58D2-86D5-710678D61AF1
+     * @example BFB7F5C8-FE7A-06CA-9F87-ABBF6B848F0C
      *
      * @var string
      */
@@ -59,7 +54,13 @@ class AppFailOverResponseBody extends Model
             $res['Code'] = $this->code;
         }
         if (null !== $this->data) {
-            $res['Data'] = $this->data;
+            $res['Data'] = [];
+            if (null !== $this->data && \is_array($this->data)) {
+                $n = 0;
+                foreach ($this->data as $item) {
+                    $res['Data'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -74,7 +75,7 @@ class AppFailOverResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return AppFailOverResponseBody
+     * @return GetApplicationVariables4FailResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -83,7 +84,13 @@ class AppFailOverResponseBody extends Model
             $model->code = $map['Code'];
         }
         if (isset($map['Data'])) {
-            $model->data = $map['Data'];
+            if (!empty($map['Data'])) {
+                $model->data = [];
+                $n           = 0;
+                foreach ($map['Data'] as $item) {
+                    $model->data[$n++] = null !== $item ? data::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];

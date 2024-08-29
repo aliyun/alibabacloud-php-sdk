@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AppFailBackResponseBody extends Model
 {
     /**
+     * @description The response code.
+     *
      * @example 200
      *
      * @var string
@@ -16,6 +18,8 @@ class AppFailBackResponseBody extends Model
     public $code;
 
     /**
+     * @description The disaster recovery switchback task ID.
+     *
      * @example 3309
      *
      * @var int
@@ -23,6 +27,8 @@ class AppFailBackResponseBody extends Model
     public $data;
 
     /**
+     * @description The returned message. If the request was successful, a success message is returned. If the request failed, an error message is returned.
+     *
      * @example OKITHEVRQCN6ULQG
      *
      * @var string
@@ -30,6 +36,8 @@ class AppFailBackResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 7036DDBE-0ABA-52D7-A39D-75E511970F07
      *
      * @var string
