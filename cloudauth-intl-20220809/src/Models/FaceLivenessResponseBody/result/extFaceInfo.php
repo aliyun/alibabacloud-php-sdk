@@ -9,11 +9,21 @@ use AlibabaCloud\Tea\Model;
 class extFaceInfo extends Model
 {
     /**
+     * @var int
+     */
+    public $faceAge;
+
+    /**
      * @example Y
      *
      * @var string
      */
     public $faceAttack;
+
+    /**
+     * @var string
+     */
+    public $faceGender;
 
     /**
      * @example 87.19
@@ -29,7 +39,9 @@ class extFaceInfo extends Model
      */
     public $occlusionResult;
     protected $_name = [
+        'faceAge'          => 'FaceAge',
         'faceAttack'       => 'FaceAttack',
+        'faceGender'       => 'FaceGender',
         'faceQualityScore' => 'FaceQualityScore',
         'occlusionResult'  => 'OcclusionResult',
     ];
@@ -41,8 +53,14 @@ class extFaceInfo extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->faceAge) {
+            $res['FaceAge'] = $this->faceAge;
+        }
         if (null !== $this->faceAttack) {
             $res['FaceAttack'] = $this->faceAttack;
+        }
+        if (null !== $this->faceGender) {
+            $res['FaceGender'] = $this->faceGender;
         }
         if (null !== $this->faceQualityScore) {
             $res['FaceQualityScore'] = $this->faceQualityScore;
@@ -62,8 +80,14 @@ class extFaceInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['FaceAge'])) {
+            $model->faceAge = $map['FaceAge'];
+        }
         if (isset($map['FaceAttack'])) {
             $model->faceAttack = $map['FaceAttack'];
+        }
+        if (isset($map['FaceGender'])) {
+            $model->faceGender = $map['FaceGender'];
         }
         if (isset($map['FaceQualityScore'])) {
             $model->faceQualityScore = $map['FaceQualityScore'];
