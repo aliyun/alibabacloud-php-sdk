@@ -1511,6 +1511,9 @@ class Ddoscoo extends OpenApiClient
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
+        if (!Utils::isUnset($request->proxyEnable)) {
+            $query['ProxyEnable'] = $request->proxyEnable;
+        }
         if (!Utils::isUnset($request->realServers)) {
             $query['RealServers'] = $request->realServers;
         }
@@ -2357,7 +2360,7 @@ class Ddoscoo extends OpenApiClient
     /**
      * @deprecated openAPI DeleteWebCCRule is deprecated, please use ddoscoo::2020-01-01::DeleteWebCCRuleV2 instead
      *  *
-     * @summary Deletes custom frequency control rules of a website.
+     * @summary Deletes a custom frequency control rule of a website.
      *  *
      * Deprecated
      *
@@ -2400,7 +2403,7 @@ class Ddoscoo extends OpenApiClient
     /**
      * @deprecated openAPI DeleteWebCCRule is deprecated, please use ddoscoo::2020-01-01::DeleteWebCCRuleV2 instead
      *  *
-     * @summary Deletes custom frequency control rules of a website.
+     * @summary Deletes a custom frequency control rule of a website.
      *  *
      * Deprecated
      *
@@ -2906,7 +2909,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the back-to-origin CIDR blocks of Anti-DDoS Pro or Anti-DDoS Premium.
+     * @summary Queries the back-to-origin CIDR blocks of Anti-DDoS Proxy.
      *  *
      * @param DescribeBackSourceCidrRequest $request DescribeBackSourceCidrRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -2945,7 +2948,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the back-to-origin CIDR blocks of Anti-DDoS Pro or Anti-DDoS Premium.
+     * @summary Queries the back-to-origin CIDR blocks of Anti-DDoS Proxy.
      *  *
      * @param DescribeBackSourceCidrRequest $request DescribeBackSourceCidrRequest
      *
@@ -8028,7 +8031,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Disables the Frequency Control policy for a website.
+     * @summary Disables frequency control for a website.
      *  *
      * @param DisableWebCCRequest $request DisableWebCCRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
@@ -8064,7 +8067,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Disables the Frequency Control policy for a website.
+     * @summary Disables frequency control for a website.
      *  *
      * @param DisableWebCCRequest $request DisableWebCCRequest
      *
@@ -8078,7 +8081,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Turns off the Custom Rule switch of the Frequency Control policy for a website.
+     * @summary Disables custom frequency control rules for a website.
      *  *
      * @param DisableWebCCRuleRequest $request DisableWebCCRuleRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -8114,7 +8117,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Turns off the Custom Rule switch of the Frequency Control policy for a website.
+     * @summary Disables custom frequency control rules for a website.
      *  *
      * @param DisableWebCCRuleRequest $request DisableWebCCRuleRequest
      *
@@ -8416,7 +8419,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Turns on the Custom Rule switch of the Frequency Control policy for a website.
+     * @summary Enables custom frequency control rules for a website.
      *  *
      * @param EnableWebCCRuleRequest $request EnableWebCCRuleRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -8452,7 +8455,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Turns on the Custom Rule switch of the Frequency Control policy for a website.
+     * @summary Enables custom frequency control rules for a website.
      *  *
      * @param EnableWebCCRuleRequest $request EnableWebCCRuleRequest
      *
@@ -9321,6 +9324,9 @@ class Ddoscoo extends OpenApiClient
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
+        if (!Utils::isUnset($request->proxyEnable)) {
+            $query['ProxyEnable'] = $request->proxyEnable;
+        }
         if (!Utils::isUnset($request->realServers)) {
             $query['RealServers'] = $request->realServers;
         }
@@ -9633,7 +9639,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Changes the mode of the Intelligent Protection policy for a website.
+     * @summary Changes the mode of the intelligent protection feature for a website.
      *  *
      * @param ModifyWebAIProtectModeRequest $request ModifyWebAIProtectModeRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -9672,7 +9678,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Changes the mode of the Intelligent Protection policy for a website.
+     * @summary Changes the mode of the intelligent protection feature for a website.
      *  *
      * @param ModifyWebAIProtectModeRequest $request ModifyWebAIProtectModeRequest
      *
@@ -10308,7 +10314,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Enables or disables the Accurate Access Control policy for a website.
+     * @summary Enables or disables accurate access control for a website.
      *  *
      * @param ModifyWebPreciseAccessSwitchRequest $request ModifyWebPreciseAccessSwitchRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
@@ -10347,7 +10353,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Enables or disables the Accurate Access Control policy for a website.
+     * @summary Enables or disables accurate access control for a website.
      *  *
      * @param ModifyWebPreciseAccessSwitchRequest $request ModifyWebPreciseAccessSwitchRequest
      *

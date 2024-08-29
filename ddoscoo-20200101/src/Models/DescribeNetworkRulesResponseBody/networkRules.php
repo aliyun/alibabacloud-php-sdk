@@ -48,6 +48,11 @@ class networkRules extends Model
     public $isAutoCreate;
 
     /**
+     * @var int
+     */
+    public $payloadRuleEnable;
+
+    /**
      * @description The forwarding protocol. Valid values:
      *
      *   **tcp**
@@ -58,6 +63,16 @@ class networkRules extends Model
      * @var string
      */
     public $protocol;
+
+    /**
+     * @var int
+     */
+    public $proxyEnable;
+
+    /**
+     * @var string
+     */
+    public $proxyStatus;
 
     /**
      * @description The IP addresses of origin servers.
@@ -75,13 +90,16 @@ class networkRules extends Model
      */
     public $remark;
     protected $_name = [
-        'backendPort'  => 'BackendPort',
-        'frontendPort' => 'FrontendPort',
-        'instanceId'   => 'InstanceId',
-        'isAutoCreate' => 'IsAutoCreate',
-        'protocol'     => 'Protocol',
-        'realServers'  => 'RealServers',
-        'remark'       => 'Remark',
+        'backendPort'       => 'BackendPort',
+        'frontendPort'      => 'FrontendPort',
+        'instanceId'        => 'InstanceId',
+        'isAutoCreate'      => 'IsAutoCreate',
+        'payloadRuleEnable' => 'PayloadRuleEnable',
+        'protocol'          => 'Protocol',
+        'proxyEnable'       => 'ProxyEnable',
+        'proxyStatus'       => 'ProxyStatus',
+        'realServers'       => 'RealServers',
+        'remark'            => 'Remark',
     ];
 
     public function validate()
@@ -103,8 +121,17 @@ class networkRules extends Model
         if (null !== $this->isAutoCreate) {
             $res['IsAutoCreate'] = $this->isAutoCreate;
         }
+        if (null !== $this->payloadRuleEnable) {
+            $res['PayloadRuleEnable'] = $this->payloadRuleEnable;
+        }
         if (null !== $this->protocol) {
             $res['Protocol'] = $this->protocol;
+        }
+        if (null !== $this->proxyEnable) {
+            $res['ProxyEnable'] = $this->proxyEnable;
+        }
+        if (null !== $this->proxyStatus) {
+            $res['ProxyStatus'] = $this->proxyStatus;
         }
         if (null !== $this->realServers) {
             $res['RealServers'] = $this->realServers;
@@ -136,8 +163,17 @@ class networkRules extends Model
         if (isset($map['IsAutoCreate'])) {
             $model->isAutoCreate = $map['IsAutoCreate'];
         }
+        if (isset($map['PayloadRuleEnable'])) {
+            $model->payloadRuleEnable = $map['PayloadRuleEnable'];
+        }
         if (isset($map['Protocol'])) {
             $model->protocol = $map['Protocol'];
+        }
+        if (isset($map['ProxyEnable'])) {
+            $model->proxyEnable = $map['ProxyEnable'];
+        }
+        if (isset($map['ProxyStatus'])) {
+            $model->proxyStatus = $map['ProxyStatus'];
         }
         if (isset($map['RealServers'])) {
             if (!empty($map['RealServers'])) {

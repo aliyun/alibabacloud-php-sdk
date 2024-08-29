@@ -9,10 +9,10 @@ use AlibabaCloud\Tea\Model;
 class webCCRules extends Model
 {
     /**
-     * @description The blocking type. Valid values:
+     * @description The action triggered if the rule is matched. Valid values:
      *
-     *   **close**: blocks requests.
-     *   **captcha**: enables Completely Automated Public Turing test to tell Computers and Humans Apart (CAPTCHA) verification.
+     *   **close**: The requests that match the rule are blocked.
+     *   **captcha**: Completely Automated Public Turing test to tell Computers and Humans Apart (CAPTCHA) verification for the requests that match the rule is implemented.
      *
      * @example close
      *
@@ -21,7 +21,7 @@ class webCCRules extends Model
     public $act;
 
     /**
-     * @description The number of requests that are allowed from an individual IP address. Valid values: **2** to **2000**.
+     * @description The number of requests that are allowed from a single IP address. Valid values: **2** to **2000**.
      *
      * @example 3
      *
@@ -30,7 +30,7 @@ class webCCRules extends Model
     public $count;
 
     /**
-     * @description The check intervals. Valid values: **5** to **10800**. Unit: seconds.
+     * @description The check interval. Valid values: **5** to **10800**. Unit: seconds.
      *
      * @example 5
      *
@@ -41,8 +41,8 @@ class webCCRules extends Model
     /**
      * @description The match mode. Valid values:
      *
-     *   **prefix**: prefix match
-     *   **match**: exact match
+     *   **prefix**: prefix match.
+     *   **match**: exact match.
      *
      * @example prefix
      *
@@ -60,7 +60,7 @@ class webCCRules extends Model
     public $name;
 
     /**
-     * @description The blocking duration. Valid values: **1** to **1440**. Unit: minutes.
+     * @description The validity period. Valid values: **1** to **1440**. Unit: minutes.
      *
      * @example 60
      *

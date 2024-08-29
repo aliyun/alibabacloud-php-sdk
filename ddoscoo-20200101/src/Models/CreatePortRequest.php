@@ -51,6 +51,11 @@ class CreatePortRequest extends Model
     public $instanceId;
 
     /**
+     * @var int
+     */
+    public $proxyEnable;
+
+    /**
      * @description An array that consists of the IP addresses of origin servers.
      *
      * This parameter is required.
@@ -62,6 +67,7 @@ class CreatePortRequest extends Model
         'frontendPort'     => 'FrontendPort',
         'frontendProtocol' => 'FrontendProtocol',
         'instanceId'       => 'InstanceId',
+        'proxyEnable'      => 'ProxyEnable',
         'realServers'      => 'RealServers',
     ];
 
@@ -83,6 +89,9 @@ class CreatePortRequest extends Model
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->proxyEnable) {
+            $res['ProxyEnable'] = $this->proxyEnable;
         }
         if (null !== $this->realServers) {
             $res['RealServers'] = $this->realServers;
@@ -110,6 +119,9 @@ class CreatePortRequest extends Model
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['ProxyEnable'])) {
+            $model->proxyEnable = $map['ProxyEnable'];
         }
         if (isset($map['RealServers'])) {
             if (!empty($map['RealServers'])) {

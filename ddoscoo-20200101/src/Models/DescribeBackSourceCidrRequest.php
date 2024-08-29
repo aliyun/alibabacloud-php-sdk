@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackSourceCidrRequest extends Model
 {
     /**
-     * @description The IP version of the back-to-origin CIDR block.
+     * @description The IP version of the back-to-origin CIDR blocks.
      *
      *   **Ipv4**
      *   **Ipv6**

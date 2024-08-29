@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class instanceDetails extends Model
 {
     /**
-     * @description The information about the IP address of the instance.
+     * @description The IP address information about the Anti-DDoS Proxy instance.
      *
      * @var eipInfos[]
      */

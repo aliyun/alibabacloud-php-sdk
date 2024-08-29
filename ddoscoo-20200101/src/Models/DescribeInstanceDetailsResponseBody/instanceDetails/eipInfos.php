@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class eipInfos extends Model
 {
     /**
+     * @description Indicates whether a custom certificate is configured.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $certConfigured;
@@ -23,6 +27,10 @@ class eipInfos extends Model
     public $eip;
 
     /**
+     * @description The type of the instance.
+     *
+     * @example default
+     *
      * @var string
      */
     public $functionVersion;
@@ -52,6 +60,10 @@ class eipInfos extends Model
     public $ipVersion;
 
     /**
+     * @description Indicates whether the TLS 1.3 version is supported.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $ssl13Enabled;
@@ -72,6 +84,10 @@ class eipInfos extends Model
     public $status;
 
     /**
+     * @description The Transport Layer Security (TLS) version that is configured.
+     *
+     * @example tls1.2
+     *
      * @var string
      */
     public $tlsVersion;

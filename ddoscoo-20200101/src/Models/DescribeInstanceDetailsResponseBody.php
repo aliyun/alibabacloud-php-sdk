@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceDetailsResponseBody extends Model
 {
     /**
-     * @description The IP address and ISP line information about the instance.
+     * @description The IP address and ISP line information about the Anti-DDoS Proxy instance.
      *
      * @var instanceDetails[]
      */
     public $instanceDetails;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 3C814429-21A5-4673-827E-FDD19DC75681
      *
