@@ -82,6 +82,11 @@ class Logstore extends Model
     /**
      * @var string
      */
+    public $processorId;
+
+    /**
+     * @var string
+     */
     public $productType;
 
     /**
@@ -118,6 +123,7 @@ class Logstore extends Model
         'logstoreName'        => 'logstoreName',
         'maxSplitShard'       => 'maxSplitShard',
         'mode'                => 'mode',
+        'processorId'         => 'processorId',
         'productType'         => 'productType',
         'shardCount'          => 'shardCount',
         'telemetryType'       => 'telemetryType',
@@ -163,6 +169,9 @@ class Logstore extends Model
         }
         if (null !== $this->mode) {
             $res['mode'] = $this->mode;
+        }
+        if (null !== $this->processorId) {
+            $res['processorId'] = $this->processorId;
         }
         if (null !== $this->productType) {
             $res['productType'] = $this->productType;
@@ -220,6 +229,9 @@ class Logstore extends Model
         }
         if (isset($map['mode'])) {
             $model->mode = $map['mode'];
+        }
+        if (isset($map['processorId'])) {
+            $model->processorId = $map['processorId'];
         }
         if (isset($map['productType'])) {
             $model->productType = $map['productType'];

@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ListScheduledSQLsRequest extends Model
 {
     /**
+     * @description The name of the Logstore.
+     *
+     * @example ali-test-logstore
+     *
      * @var string
      */
     public $logstore;

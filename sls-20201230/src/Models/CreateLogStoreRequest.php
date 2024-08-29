@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateLogStoreRequest extends Model
 {
     /**
-     * @description Specifies whether to record public IP addresses. Default value: false. Valid values:
+     * @description Specifies whether to record public IP addresses. Default value: false.
      *
      *   true
      *   false
@@ -21,7 +21,7 @@ class CreateLogStoreRequest extends Model
     public $appendMeta;
 
     /**
-     * @description Specifies whether to enable automatic sharding. Valid values:
+     * @description Specifies whether to enable automatic sharding.
      *
      *   true
      *   false
@@ -33,7 +33,7 @@ class CreateLogStoreRequest extends Model
     public $autoSplit;
 
     /**
-     * @description Specifies whether to enable the web tracking feature. Default value: false. Valid values:
+     * @description Specifies whether to enable the web tracking feature. Default value: false.
      *
      *   true
      *   false
@@ -45,16 +45,16 @@ class CreateLogStoreRequest extends Model
     public $enableTracking;
 
     /**
-     * @description The data structure of the encryption configuration.
+     * @description The data structure of the encryption configuration. The following parameters are included: `enable`, `encrypt_type`, and `user_cmk_info`. For more information, see [EncryptConf](https://help.aliyun.com/document_detail/409461.html).
      *
      * @var EncryptConf
      */
     public $encryptConf;
 
     /**
-     * @description The retention period of data in the hot storage tier of the Logstore. Unit: days. You can specify a value that ranges from 30 to the value of ttl.
+     * @description The retention period of data in the hot storage tier of the Logstore. Valid values: 7 to 3000. Unit: days.
      *
-     * Hot data that is stored for longer than the period specified by hot_ttl is converted to cold data. For more information, see [Enable hot and cold-tiered storage for a Logstore](https://help.aliyun.com/document_detail/308645.html).
+     * After the retention period that is specified for the hot storage tier elapses, the data is moved to the Infrequent Access (IA) storage tier. For more information, see [Enable hot and cold-tiered storage for a Logstore](https://help.aliyun.com/document_detail/308645.html).
      * @example 60
      *
      * @var int
@@ -62,6 +62,10 @@ class CreateLogStoreRequest extends Model
     public $hotTtl;
 
     /**
+     * @description The retention period of data in the IA storage tier of the Logstore. You must set this parameter to at least 30 days. After the data retention period that you specify for the IA storage tier elapses, the data is moved to the Archive storage tier.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $infrequentAccessTTL;
@@ -82,9 +86,9 @@ class CreateLogStoreRequest extends Model
     public $logstoreName;
 
     /**
-     * @description The maximum number of shards into which existing shards can be automatically split. Valid values: 1 to 64.
+     * @description The maximum number of shards into which existing shards can be automatically split. Valid values: 1 to 256.
      *
-     * > If you set autoSplit to true, you must configure this parameter.
+     * >  If you set autoSplit to true, you must specify maxSplitShard.
      * @example 64
      *
      * @var int
@@ -92,16 +96,21 @@ class CreateLogStoreRequest extends Model
     public $maxSplitShard;
 
     /**
-     * @description The type of the Logstore. Log Service provides the following types of Logstores: Standard Logstores and Query Logstores. Valid values:
+     * @description The type of the Logstore. Simple Log Service provides two types of Logstores: Standard Logstores and Query Logstores. Valid values:
      *
      *   **standard**: Standard Logstore. This type of Logstore supports the log analysis feature and is suitable for scenarios such as real-time monitoring and interactive analysis. You can also use this type of Logstore to build a comprehensive observability system.
-     *   **query**: Query Logstore. This type of Logstore supports high-performance queries. The index traffic fee of a Query Logstore is approximately half that of a Standard Logstore. Query Logstores do not support SQL analysis. Query Logstores are suitable for scenarios in which the amount of data is large, the log retention period is long, or log analysis is not required. Log retention periods of weeks or months are considered long.
+     *   **query**: Query Logstore. This type of Logstore supports high-performance queries. The index traffic fee of a query Logstore is approximately half that of a Standard Logstore. Query Logstores do not support SQL analysis. Query Logstores are suitable for scenarios in which the amount of data is large, the log retention period is long, or log analysis is not required. If logs are stored for weeks or months, the log retention period is considered long.
      *
      * @example standard
      *
      * @var string
      */
     public $mode;
+
+    /**
+     * @var string
+     */
+    public $processorId;
 
     /**
      * @description The number of shards.
@@ -116,8 +125,8 @@ class CreateLogStoreRequest extends Model
     /**
      * @description The type of the observable data. Valid values:
      *
-     *   None: logs
-     *   Metrics: metrics
+     *   **None** (default): log data
+     *   **Metrics**: metric data
      *
      * @example None
      *
@@ -126,7 +135,7 @@ class CreateLogStoreRequest extends Model
     public $telemetryType;
 
     /**
-     * @description The retention period of data. Unit: days. Valid values: 1 to 3000. If you set this parameter to 3650, data is permanently stored.
+     * @description The retention period of data. Unit: days. Valid values: 1 to 3000. If you set this parameter to 3650, logs are permanently stored.
      *
      * This parameter is required.
      * @example 1
@@ -144,6 +153,7 @@ class CreateLogStoreRequest extends Model
         'logstoreName'        => 'logstoreName',
         'maxSplitShard'       => 'maxSplitShard',
         'mode'                => 'mode',
+        'processorId'         => 'processorId',
         'shardCount'          => 'shardCount',
         'telemetryType'       => 'telemetryType',
         'ttl'                 => 'ttl',
@@ -182,6 +192,9 @@ class CreateLogStoreRequest extends Model
         }
         if (null !== $this->mode) {
             $res['mode'] = $this->mode;
+        }
+        if (null !== $this->processorId) {
+            $res['processorId'] = $this->processorId;
         }
         if (null !== $this->shardCount) {
             $res['shardCount'] = $this->shardCount;
@@ -230,6 +243,9 @@ class CreateLogStoreRequest extends Model
         }
         if (isset($map['mode'])) {
             $model->mode = $map['mode'];
+        }
+        if (isset($map['processorId'])) {
+            $model->processorId = $map['processorId'];
         }
         if (isset($map['shardCount'])) {
             $model->shardCount = $map['shardCount'];

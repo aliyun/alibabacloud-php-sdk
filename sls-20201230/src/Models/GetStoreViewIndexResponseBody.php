@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetStoreViewIndexResponseBody extends Model
 {
     /**
+     * @description The index configurations.
+     *
      * @var indexes[]
      */
     public $indexes;

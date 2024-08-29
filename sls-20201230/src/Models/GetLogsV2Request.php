@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetLogsV2Request extends Model
 {
     /**
-     * @description Specifies whether to page forward or backward for the scan-based query or the phrase search.
+     * @description Specifies whether to page forward or backward for the scan-based query or phrase search.
      *
      * @example false
      *
@@ -28,12 +28,16 @@ class GetLogsV2Request extends Model
     public $from;
 
     /**
+     * @description Specifies whether to highlight the returned result.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $highlight;
 
     /**
-     * @description The maximum number of logs to return for the request. This parameter takes effect only when the query parameter is set to a search statement. Minimum value: 0. Maximum value: 100. Default value: 100.
+     * @description The maximum number of logs to return for the request. This parameter takes effect only when the query parameter is set to a search statement. Valid values: 0 to 100. Default value: 100.
      *
      * @example 100
      *
@@ -60,11 +64,11 @@ class GetLogsV2Request extends Model
     public $powerSql;
 
     /**
-     * @description The search statement or the query statement. For more information, see the "Log search overview" and "Log analysis overview" topics.
+     * @description The search statement or query statement. For more information, see the "Log search overview" and "Log analysis overview" topics.
      *
-     * If you add set session parallel_sql=true; to the analytic statement in the query parameter, Dedicated SQL is used. For example, you can set the query parameter to \\* | set session parallel_sql=true; select count(\\*) as pv.
+     * If you add set session parallel_sql=true; to the analytic statement in the query parameter, Dedicated SQL is used. Example: \\* | set session parallel_sql=true; select count(\\*) as pv.
      *
-     * Note: If you specify an analytic statement in the query parameter, the line and offset parameters do not take effect in this operation. In this case, we recommend that you set the line and offset parameters to 0 and use the LIMIT clause to limit the number of logs to return on each page. For more information, see the "Perform paged queries" topic.
+     * Note: If you specify an analytic statement in the query parameter, the line and offset parameters do not take effect in this operation. In this case, we recommend that you set the line and offset parameters to 0 and use the LIMIT clause to specify the number of logs to return on each page. For more information, see the "Perform paged queries" topic.
      * @example status: 401 | SELECT remote_addr,COUNT(*) as pv GROUP by remote_addr ORDER by pv desc limit 5
      *
      * @var string
@@ -72,7 +76,7 @@ class GetLogsV2Request extends Model
     public $query;
 
     /**
-     * @description Specifies whether to return logs in reverse chronological order of log timestamps. The log timestamps are accurate to the minute. Valid values:
+     * @description Specifies whether to return logs in reverse chronological order of log timestamps. The log timestamps are accurate to minutes. Valid values:
      *
      * true: Logs are returned in reverse chronological order of log timestamps. false (default): Logs are returned in chronological order of log timestamps. Note: The reverse parameter takes effect only when the query parameter is set to a search statement. The reverse parameter specifies the method used to sort returned logs. If the query parameter is set to a query statement, the reverse parameter does not take effect. The method used to sort returned logs is specified by the ORDER BY clause in the analytic statement. If you use the keyword asc in the ORDER BY clause, the logs are sorted in chronological order. If you use the keyword desc in the ORDER BY clause, the logs are sorted in reverse chronological order. By default, asc is used in the ORDER BY clause.
      * @example false

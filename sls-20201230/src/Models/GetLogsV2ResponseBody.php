@@ -17,7 +17,7 @@ class GetLogsV2ResponseBody extends Model
     public $data;
 
     /**
-     * @description The metadata that is returned.
+     * @description The metadata of the returned data.
      *
      * @var meta
      */

@@ -34,11 +34,15 @@ class meta extends Model
     public $count;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $cpuCores;
 
     /**
+     * @example 0.002
+     *
      * @var float
      */
     public $cpuSec;
@@ -67,7 +71,7 @@ class meta extends Model
     public $highlights;
 
     /**
-     * @description Indicates whether the returned result is accurate.
+     * @description Indicates whether the returned result is accurate to seconds.
      *
      * @example true
      *
@@ -83,11 +87,15 @@ class meta extends Model
     public $keys;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $limited;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $mode;
@@ -128,6 +136,8 @@ class meta extends Model
     public $progress;
 
     /**
+     * @example 1024
+     *
      * @var int
      */
     public $scanBytes;

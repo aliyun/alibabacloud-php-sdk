@@ -26,6 +26,8 @@ class policyConfig extends Model
     public $resourceMode;
 
     /**
+     * @example {"tag1":"value1","tag2":"value2"}
+     *
      * @var mixed[]
      */
     public $resourceTags;

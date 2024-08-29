@@ -9,25 +9,31 @@ use AlibabaCloud\Tea\Model;
 class UpdateOSSIngestionRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The configurations of the OSS data import job.
      *
+     * This parameter is required.
      * @var OSSIngestionConfiguration
      */
     public $configuration;
 
     /**
+     * @description The description of the OSS data import job.
+     *
      * @var string
      */
     public $description;
 
     /**
-     * @description This parameter is required.
+     * @description The display name of the OSS data import job.
      *
+     * This parameter is required.
      * @var string
      */
     public $displayName;
 
     /**
+     * @description The scheduling type. By default, you do not need to specify this parameter. If you want to import data at regular intervals, such as importing data every Monday at 08: 00., you can specify a cron expression.
+     *
      * @var Schedule
      */
     public $schedule;

@@ -15,6 +15,8 @@ class statistics extends Model
     public $policySourceList;
 
     /**
+     * @example oss
+     *
      * @var string
      */
     public $productCode;

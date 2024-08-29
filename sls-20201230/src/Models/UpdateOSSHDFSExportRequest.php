@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class UpdateOSSHDFSExportRequest extends Model
 {
     /**
+     * @description The configuration details of the job.
+     *
      * @var OSSExportConfiguration
      */
     public $configuration;
 
     /**
+     * @description The description of the job.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The display name of the job.
+     *
      * @example ali-test-oss-hdfs-job
      *
      * @var string

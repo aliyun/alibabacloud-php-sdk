@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetMetricStoreMeteringModeResponseBody extends Model
 {
     /**
+     * @description The billing mode. Default value: ChargeByFunction. Valid values: ChargeByFunction and ChargeByDataIngest.
+     *
      * @example ChargeByFunction
      *
      * @var string

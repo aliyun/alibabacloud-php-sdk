@@ -44,6 +44,8 @@ class data extends Model
     public $enabled;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $internalPolicy;
@@ -61,6 +63,8 @@ class data extends Model
     public $policyName;
 
     /**
+     * @example 148***********50
+     *
      * @var string
      */
     public $policyUid;

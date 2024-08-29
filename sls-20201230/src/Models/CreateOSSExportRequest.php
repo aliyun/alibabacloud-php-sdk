@@ -9,20 +9,24 @@ use AlibabaCloud\Tea\Model;
 class CreateOSSExportRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The configuration details of the job.
      *
+     * This parameter is required.
      * @var OSSExportConfiguration
      */
     public $configuration;
 
     /**
+     * @description The description of the job.
+     *
      * @var string
      */
     public $description;
 
     /**
-     * @description This parameter is required.
+     * @description The display name of the job.
      *
+     * This parameter is required.
      * @example ali-test-oss-job
      *
      * @var string
@@ -30,8 +34,9 @@ class CreateOSSExportRequest extends Model
     public $displayName;
 
     /**
-     * @description This parameter is required.
+     * @description The unique identifier of the OSS data shipping job.
      *
+     * This parameter is required.
      * @example job-123456789-123456
      *
      * @var string

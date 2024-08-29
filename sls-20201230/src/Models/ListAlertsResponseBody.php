@@ -9,16 +9,26 @@ use AlibabaCloud\Tea\Model;
 class ListAlertsResponseBody extends Model
 {
     /**
+     * @description The number of alert rules that are returned.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @description The alert rules.
+     *
      * @var Alert[]
      */
     public $results;
 
     /**
+     * @description The total number of alert rules in the project.
+     *
+     * @example 80
+     *
      * @var int
      */
     public $total;

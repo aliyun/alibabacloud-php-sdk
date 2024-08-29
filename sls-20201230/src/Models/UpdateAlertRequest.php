@@ -9,27 +9,36 @@ use AlibabaCloud\Tea\Model;
 class UpdateAlertRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The detailed configurations of the alert rule.
      *
+     * This parameter is required.
      * @var AlertConfiguration
      */
     public $configuration;
 
     /**
+     * @description The description of the alert rule.
+     *
+     * @example this is description
+     *
      * @var string
      */
     public $description;
 
     /**
-     * @description This parameter is required.
+     * @description The display name of the alert rule.
+     *
+     * This parameter is required.
+     * @example this is alert
      *
      * @var string
      */
     public $displayName;
 
     /**
-     * @description This parameter is required.
+     * @description The scheduling settings of the alert rule.
      *
+     * This parameter is required.
      * @var Schedule
      */
     public $schedule;

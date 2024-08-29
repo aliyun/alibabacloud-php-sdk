@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetContextLogsRequest extends Model
 {
     /**
-     * @description The number of logs that you want to obtain and are generated before the generation time of the start log. Valid values: (0,100].
+     * @description The number of logs that you want to obtain and are generated before the generation time of the start log. Valid values: `(0,100]`.
      *
      * This parameter is required.
      * @example 10
@@ -19,7 +19,7 @@ class GetContextLogsRequest extends Model
     public $backLines;
 
     /**
-     * @description The number of logs that you want to obtain and are generated after the generation time of the start log. Valid values: (0,100].
+     * @description The number of logs that you want to obtain and are generated after the generation time of the start log. Valid values: `(0,100]`.
      *
      * This parameter is required.
      * @example 10

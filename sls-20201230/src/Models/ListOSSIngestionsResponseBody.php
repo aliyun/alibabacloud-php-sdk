@@ -9,16 +9,26 @@ use AlibabaCloud\Tea\Model;
 class ListOSSIngestionsResponseBody extends Model
 {
     /**
+     * @description The number of OSS data import jobs that are returned.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @description The OSS data import jobs.
+     *
      * @var OSSIngestion[]
      */
     public $results;
 
     /**
+     * @description The total number of OSS data import jobs in the project.
+     *
+     * @example 80
+     *
      * @var int
      */
     public $total;

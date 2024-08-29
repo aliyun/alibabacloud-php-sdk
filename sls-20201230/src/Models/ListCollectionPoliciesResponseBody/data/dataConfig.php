@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class dataConfig extends Model
 {
     /**
+     * @example ""
+     *
      * @var string
      */
     public $dataProject;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $dataRegion;

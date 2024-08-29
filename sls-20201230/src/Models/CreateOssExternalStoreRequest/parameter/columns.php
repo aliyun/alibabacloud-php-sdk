@@ -19,7 +19,7 @@ class columns extends Model
     public $name;
 
     /**
-     * @description The type of the field.
+     * @description The data type of the field.
      *
      * This parameter is required.
      * @example sls

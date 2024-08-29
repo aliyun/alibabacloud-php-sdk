@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class parameter extends Model
 {
     /**
-     * @description The AccessKey ID of your account.
+     * @description The AccessKey ID.
      *
      * This parameter is required.
      * @example LTAI5tFsHGGeYry*****1Sz
@@ -20,7 +20,7 @@ class parameter extends Model
     public $accessid;
 
     /**
-     * @description The AccessKey secret of your account.
+     * @description The AccessKey secret.
      *
      * This parameter is required.
      * @example GyviCLDVHkHrOztdkxuE6******Rp6
@@ -40,7 +40,7 @@ class parameter extends Model
     public $bucket;
 
     /**
-     * @description The fields that are associated to the external store.
+     * @description The associated fields.
      *
      * This parameter is required.
      * @var columns[]
@@ -48,7 +48,7 @@ class parameter extends Model
     public $columns;
 
     /**
-     * @description The Object Storage Service (OSS) endpoint.
+     * @description The OSS endpoint. For more information, see [Regions and endpoints](https://help.aliyun.com/document_detail/31837.html).
      *
      * This parameter is required.
      * @example oss-cn-hangzhou.aliyuncs.com
@@ -58,7 +58,7 @@ class parameter extends Model
     public $endpoint;
 
     /**
-     * @description The names of the OSS objects that are associated to the external store.
+     * @description The associated OSS objects. Valid values of n: 1 to 100.
      *
      * This parameter is required.
      * @var string[]

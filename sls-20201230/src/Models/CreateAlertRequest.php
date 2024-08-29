@@ -9,34 +9,46 @@ use AlibabaCloud\Tea\Model;
 class CreateAlertRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The detailed configurations of the alert rule.
      *
+     * This parameter is required.
      * @var AlertConfiguration
      */
     public $configuration;
 
     /**
+     * @description The description of the alert rule.
+     *
+     * @example An alert rule
+     *
      * @var string
      */
     public $description;
 
     /**
-     * @description This parameter is required.
+     * @description The display name of the alert rule.
+     *
+     * This parameter is required.
+     * @example test-alert
      *
      * @var string
      */
     public $displayName;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the alert rule. Make sure that the name is unique in a project.
+     *
+     * This parameter is required.
+     * @example alert-123456
      *
      * @var string
      */
     public $name;
 
     /**
-     * @description This parameter is required.
+     * @description The scheduling configurations of the alert rule.
      *
+     * This parameter is required.
      * @var Schedule
      */
     public $schedule;

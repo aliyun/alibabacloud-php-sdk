@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class indexes extends Model
 {
     /**
+     * @description The index configurations of the Logstore.
+     *
      * @var Index
      */
     public $index;
 
     /**
+     * @description The name of the Logstore.
+     *
      * @example my-logstore
      *
      * @var string
@@ -22,6 +26,8 @@ class indexes extends Model
     public $logstore;
 
     /**
+     * @description The name of the project to which the Logstore belongs.
+     *
      * @example example-project
      *
      * @var string

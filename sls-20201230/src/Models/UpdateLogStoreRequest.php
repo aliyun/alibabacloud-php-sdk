@@ -52,7 +52,7 @@ class UpdateLogStoreRequest extends Model
     public $encryptConf;
 
     /**
-     * @description The retention period of data in the hot storage tier of the Logstore. Minimum value: 30. Unit: day. You can specify a value that ranges from 30 to the value of ttl. Hot data that is stored for longer than the period specified by hot_ttl is converted to cold data. For more information, see [Enable hot and cold-tiered storage for a Logstore](https://help.aliyun.com/document_detail/308645.html).
+     * @description The retention period of data in the hot storage tier of the Logstore. Valid values: 7 to 3000. Unit: days. After the retention period that is specified for the hot storage tier elapses, the data is moved to the Infrequent Access (IA) storage tier. For more information, see [Enable hot and cold-tiered storage for a Logstore](https://help.aliyun.com/document_detail/308645.html).
      *
      * @example 60
      *
@@ -61,6 +61,10 @@ class UpdateLogStoreRequest extends Model
     public $hotTtl;
 
     /**
+     * @description The retention period of data in the IA storage tier of the Logstore. You must set this parameter to at least 30 days. After the data retention period that you specify for the IA storage tier elapses, the data is moved to the Archive storage tier.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $infrequentAccessTTL;
@@ -76,9 +80,9 @@ class UpdateLogStoreRequest extends Model
     public $logstoreName;
 
     /**
-     * @description The maximum number of shards into which existing shards can be automatically split. Valid values: 1 to 64.
+     * @description The maximum number of shards into which existing shards can be automatically split. Valid values: 1 to 256.
      *
-     * > If you set autoSplit to true, you must specify maxSplitShard.
+     * >  If you set autoSplit to true, you must specify maxSplitShard.
      * @example 64
      *
      * @var int
@@ -86,10 +90,10 @@ class UpdateLogStoreRequest extends Model
     public $maxSplitShard;
 
     /**
-     * @description The type of the Logstore. Simple Log Service provides two types of Logstores: Standard Logstores and Query Logstores.
+     * @description The type of the Logstore. Simple Log Service provides two types of Logstores: Standard Logstores and Query Logstores. Valid values:
      *
      *   **standard**: Standard Logstore. This type of Logstore supports the log analysis feature and is suitable for scenarios such as real-time monitoring and interactive analysis. You can also use this type of Logstore to build a comprehensive observability system.
-     *   **query**: Query Logstore. This type of Logstore supports high-performance queries. The index traffic fee of a Query Logstore is approximately half that of a Standard Logstore. Query Logstores do not support SQL analysis. Query Logstores are suitable for scenarios in which the volume of data is large, the log retention period is long, or log analysis is not required. Log retention periods of weeks or months are considered long.
+     *   **query**: Query Logstore. This type of Logstore supports high-performance queries. The index traffic fee of a Query Logstore is approximately half that of a Standard Logstore. Query Logstores do not support SQL analysis. Query Logstores are suitable for scenarios in which the amount of data is large, the log retention period is long, or log analysis is not required. If logs are stored for weeks or months, the log retention period is considered long.
      *
      * @example standard
      *
@@ -98,9 +102,14 @@ class UpdateLogStoreRequest extends Model
     public $mode;
 
     /**
+     * @var string
+     */
+    public $processorId;
+
+    /**
      * @description The number of shards.
      *
-     * > You cannot call the UpdateLogstore operation to change the number of shards. You can call the SplitShard or MergeShards operation to change the number of shards.
+     * >  You cannot call the UpdateLogStore operation to change the number of shards. You can call the SplitShard or MergeShards operation to change the number of shards.
      * @example 2
      *
      * @deprecated
@@ -110,10 +119,10 @@ class UpdateLogStoreRequest extends Model
     public $shardCount;
 
     /**
-     * @description The type of the log that you want to query. Valid values:
+     * @description The type of the observable data. Valid values:
      *
-     *   None: all types of logs.
-     *   Metrics: metrics.
+     *   None (default): log data.
+     *   Metrics: metric data.
      *
      * @example None
      *
@@ -124,7 +133,7 @@ class UpdateLogStoreRequest extends Model
     public $telemetryType;
 
     /**
-     * @description The retention period of data. Unit: day. Valid values: 1 to 3650. If you set ttl to 3650, data is permanently stored.
+     * @description The retention period of data. Unit: days. Valid values: 1 to 3650. If you set this parameter to 3650, logs are permanently stored.
      *
      * This parameter is required.
      * @example 30
@@ -142,6 +151,7 @@ class UpdateLogStoreRequest extends Model
         'logstoreName'        => 'logstoreName',
         'maxSplitShard'       => 'maxSplitShard',
         'mode'                => 'mode',
+        'processorId'         => 'processorId',
         'shardCount'          => 'shardCount',
         'telemetryType'       => 'telemetryType',
         'ttl'                 => 'ttl',
@@ -180,6 +190,9 @@ class UpdateLogStoreRequest extends Model
         }
         if (null !== $this->mode) {
             $res['mode'] = $this->mode;
+        }
+        if (null !== $this->processorId) {
+            $res['processorId'] = $this->processorId;
         }
         if (null !== $this->shardCount) {
             $res['shardCount'] = $this->shardCount;
@@ -228,6 +241,9 @@ class UpdateLogStoreRequest extends Model
         }
         if (isset($map['mode'])) {
             $model->mode = $map['mode'];
+        }
+        if (isset($map['processorId'])) {
+            $model->processorId = $map['processorId'];
         }
         if (isset($map['shardCount'])) {
             $model->shardCount = $map['shardCount'];

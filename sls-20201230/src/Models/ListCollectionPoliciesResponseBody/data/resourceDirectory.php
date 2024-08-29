@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class resourceDirectory extends Model
 {
     /**
+     * @example all,custom
+     *
      * @var string
      */
     public $accountGroupType;

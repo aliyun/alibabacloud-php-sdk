@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class phraseQueryInfo extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $beginOffset;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $endOffset;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $scanAll;

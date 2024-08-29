@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListCollectionPoliciesRequest extends Model
 {
     /**
+     * @example your-central-project1
+     *
      * @var string
      */
     public $centralProject;
@@ -28,6 +30,8 @@ class ListCollectionPoliciesRequest extends Model
     public $instanceId;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $offset;
@@ -47,6 +51,8 @@ class ListCollectionPoliciesRequest extends Model
     public $productCode;
 
     /**
+     * @example 50
+     *
      * @var int
      */
     public $size;

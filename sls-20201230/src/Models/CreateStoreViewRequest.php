@@ -9,8 +9,13 @@ use AlibabaCloud\Tea\Model;
 class CreateStoreViewRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The name of the dataset.
      *
+     *   The name can contain lowercase letters, digits, and underscores (_).
+     *   The name must start with a lowercase letter.
+     *   The name must be 3 to 62 characters in length.
+     *
+     * This parameter is required.
      * @example my_storeview
      *
      * @var string
@@ -18,8 +23,9 @@ class CreateStoreViewRequest extends Model
     public $name;
 
     /**
-     * @description This parameter is required.
+     * @description The type of the dataset. Valid values: metricstore and logstore.
      *
+     * This parameter is required.
      * @example logstore
      *
      * @var string
@@ -27,8 +33,9 @@ class CreateStoreViewRequest extends Model
     public $storeType;
 
     /**
-     * @description This parameter is required.
+     * @description The Logstores or Metricstores.
      *
+     * This parameter is required.
      * @var StoreViewStore[]
      */
     public $stores;

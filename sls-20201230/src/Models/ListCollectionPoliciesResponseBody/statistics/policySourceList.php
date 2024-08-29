@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class policySourceList extends Model
 {
     /**
+     * @example policy_name1_from148
+     *
      * @var string
      */
     public $policyName;
 
     /**
+     * @example 148***********50
+     *
      * @var string
      */
     public $policyUid;

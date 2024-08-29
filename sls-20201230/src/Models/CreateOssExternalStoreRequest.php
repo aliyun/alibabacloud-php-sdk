@@ -20,7 +20,7 @@ class CreateOssExternalStoreRequest extends Model
     public $externalStoreName;
 
     /**
-     * @description The parameters that are configured for the external store.
+     * @description The parameters of the external store.
      *
      * This parameter is required.
      * @var parameter

@@ -9,6 +9,17 @@ use AlibabaCloud\Tea\Model;
 class GetStoreViewResponseBody extends Model
 {
     /**
+     * @description The type of the dataset.
+     *
+     * Valid values:
+     *
+     *   metricstore
+     *
+     * <!-- -->
+     *
+     *   logstore
+     *
+     * <!-- -->
      * @example logstore
      *
      * @var string
@@ -16,6 +27,8 @@ class GetStoreViewResponseBody extends Model
     public $storeType;
 
     /**
+     * @description The Logstores or Metricstores.
+     *
      * @var StoreViewStore[]
      */
     public $stores;

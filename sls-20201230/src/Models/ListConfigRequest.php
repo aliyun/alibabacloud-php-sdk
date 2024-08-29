@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListConfigRequest extends Model
 {
     /**
-     * @description The name of the Logtail configuration.
+     * @description The name of the Logtail configuration, which is used for fuzzy match.
      *
      * @example logtail-config-sample
      *

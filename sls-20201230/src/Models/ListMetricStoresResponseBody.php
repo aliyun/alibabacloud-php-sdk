@@ -6,36 +6,26 @@ namespace AlibabaCloud\SDK\Sls\V20201230\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListStoreViewsResponseBody extends Model
+class ListMetricStoresResponseBody extends Model
 {
     /**
-     * @description The number of returned datasets.
-     *
-     * @example 100
-     *
      * @var int
      */
     public $count;
 
     /**
-     * @description The dataset names.
-     *
      * @var string[]
      */
-    public $storeviews;
+    public $metricstores;
 
     /**
-     * @description The total number of datasets in the project.
-     *
-     * @example 100
-     *
      * @var int
      */
     public $total;
     protected $_name = [
-        'count'      => 'count',
-        'storeviews' => 'storeviews',
-        'total'      => 'total',
+        'count'        => 'count',
+        'metricstores' => 'metricstores',
+        'total'        => 'total',
     ];
 
     public function validate()
@@ -48,8 +38,8 @@ class ListStoreViewsResponseBody extends Model
         if (null !== $this->count) {
             $res['count'] = $this->count;
         }
-        if (null !== $this->storeviews) {
-            $res['storeviews'] = $this->storeviews;
+        if (null !== $this->metricstores) {
+            $res['metricstores'] = $this->metricstores;
         }
         if (null !== $this->total) {
             $res['total'] = $this->total;
@@ -61,7 +51,7 @@ class ListStoreViewsResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ListStoreViewsResponseBody
+     * @return ListMetricStoresResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -69,9 +59,9 @@ class ListStoreViewsResponseBody extends Model
         if (isset($map['count'])) {
             $model->count = $map['count'];
         }
-        if (isset($map['storeviews'])) {
-            if (!empty($map['storeviews'])) {
-                $model->storeviews = $map['storeviews'];
+        if (isset($map['metricstores'])) {
+            if (!empty($map['metricstores'])) {
+                $model->metricstores = $map['metricstores'];
             }
         }
         if (isset($map['total'])) {
