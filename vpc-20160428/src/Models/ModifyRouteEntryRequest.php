@@ -19,6 +19,11 @@ class ModifyRouteEntryRequest extends Model
     public $description;
 
     /**
+     * @var string
+     */
+    public $destinationCidrBlock;
+
+    /**
      * @description The ID of the new next hop instance.
      *
      * @example eni-bp17y37ytsenqyim****
@@ -69,7 +74,6 @@ class ModifyRouteEntryRequest extends Model
     /**
      * @description The ID of the custom route entry.
      *
-     * This parameter is required.
      * @example rte-acfvgfsghfdd****
      *
      * @var string
@@ -85,8 +89,14 @@ class ModifyRouteEntryRequest extends Model
      * @var string
      */
     public $routeEntryName;
+
+    /**
+     * @var string
+     */
+    public $routeTableId;
     protected $_name = [
         'description'          => 'Description',
+        'destinationCidrBlock' => 'DestinationCidrBlock',
         'newNextHopId'         => 'NewNextHopId',
         'newNextHopType'       => 'NewNextHopType',
         'ownerAccount'         => 'OwnerAccount',
@@ -96,6 +106,7 @@ class ModifyRouteEntryRequest extends Model
         'resourceOwnerId'      => 'ResourceOwnerId',
         'routeEntryId'         => 'RouteEntryId',
         'routeEntryName'       => 'RouteEntryName',
+        'routeTableId'         => 'RouteTableId',
     ];
 
     public function validate()
@@ -107,6 +118,9 @@ class ModifyRouteEntryRequest extends Model
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->destinationCidrBlock) {
+            $res['DestinationCidrBlock'] = $this->destinationCidrBlock;
         }
         if (null !== $this->newNextHopId) {
             $res['NewNextHopId'] = $this->newNextHopId;
@@ -135,6 +149,9 @@ class ModifyRouteEntryRequest extends Model
         if (null !== $this->routeEntryName) {
             $res['RouteEntryName'] = $this->routeEntryName;
         }
+        if (null !== $this->routeTableId) {
+            $res['RouteTableId'] = $this->routeTableId;
+        }
 
         return $res;
     }
@@ -149,6 +166,9 @@ class ModifyRouteEntryRequest extends Model
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['DestinationCidrBlock'])) {
+            $model->destinationCidrBlock = $map['DestinationCidrBlock'];
         }
         if (isset($map['NewNextHopId'])) {
             $model->newNextHopId = $map['NewNextHopId'];
@@ -176,6 +196,9 @@ class ModifyRouteEntryRequest extends Model
         }
         if (isset($map['RouteEntryName'])) {
             $model->routeEntryName = $map['RouteEntryName'];
+        }
+        if (isset($map['RouteTableId'])) {
+            $model->routeTableId = $map['RouteTableId'];
         }
 
         return $model;

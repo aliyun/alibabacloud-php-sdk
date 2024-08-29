@@ -25939,6 +25939,9 @@ class Vpc extends OpenApiClient
         if (!Utils::isUnset($request->description)) {
             $query['Description'] = $request->description;
         }
+        if (!Utils::isUnset($request->destinationCidrBlock)) {
+            $query['DestinationCidrBlock'] = $request->destinationCidrBlock;
+        }
         if (!Utils::isUnset($request->newNextHopId)) {
             $query['NewNextHopId'] = $request->newNextHopId;
         }
@@ -25965,6 +25968,9 @@ class Vpc extends OpenApiClient
         }
         if (!Utils::isUnset($request->routeEntryName)) {
             $query['RouteEntryName'] = $request->routeEntryName;
+        }
+        if (!Utils::isUnset($request->routeTableId)) {
+            $query['RouteTableId'] = $request->routeTableId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
