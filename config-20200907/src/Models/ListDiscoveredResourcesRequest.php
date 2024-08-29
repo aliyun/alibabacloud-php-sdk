@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class ListDiscoveredResourcesRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $endUpdateTimestamp;
+
+    /**
+     * @var string
+     */
+    public $excludeResourceTypes;
+
+    /**
      * @description The maximum number of entries returned for a single request. Valid values: 1 to 100.
      *
      * This parameter is required.
@@ -65,13 +75,21 @@ class ListDiscoveredResourcesRequest extends Model
      * @var string
      */
     public $resourceTypes;
+
+    /**
+     * @var int
+     */
+    public $startUpdateTimestamp;
     protected $_name = [
-        'maxResults'      => 'MaxResults',
-        'nextToken'       => 'NextToken',
-        'regions'         => 'Regions',
-        'resourceDeleted' => 'ResourceDeleted',
-        'resourceId'      => 'ResourceId',
-        'resourceTypes'   => 'ResourceTypes',
+        'endUpdateTimestamp'   => 'EndUpdateTimestamp',
+        'excludeResourceTypes' => 'ExcludeResourceTypes',
+        'maxResults'           => 'MaxResults',
+        'nextToken'            => 'NextToken',
+        'regions'              => 'Regions',
+        'resourceDeleted'      => 'ResourceDeleted',
+        'resourceId'           => 'ResourceId',
+        'resourceTypes'        => 'ResourceTypes',
+        'startUpdateTimestamp' => 'StartUpdateTimestamp',
     ];
 
     public function validate()
@@ -81,6 +99,12 @@ class ListDiscoveredResourcesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->endUpdateTimestamp) {
+            $res['EndUpdateTimestamp'] = $this->endUpdateTimestamp;
+        }
+        if (null !== $this->excludeResourceTypes) {
+            $res['ExcludeResourceTypes'] = $this->excludeResourceTypes;
+        }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
@@ -99,6 +123,9 @@ class ListDiscoveredResourcesRequest extends Model
         if (null !== $this->resourceTypes) {
             $res['ResourceTypes'] = $this->resourceTypes;
         }
+        if (null !== $this->startUpdateTimestamp) {
+            $res['StartUpdateTimestamp'] = $this->startUpdateTimestamp;
+        }
 
         return $res;
     }
@@ -111,6 +138,12 @@ class ListDiscoveredResourcesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EndUpdateTimestamp'])) {
+            $model->endUpdateTimestamp = $map['EndUpdateTimestamp'];
+        }
+        if (isset($map['ExcludeResourceTypes'])) {
+            $model->excludeResourceTypes = $map['ExcludeResourceTypes'];
+        }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
@@ -128,6 +161,9 @@ class ListDiscoveredResourcesRequest extends Model
         }
         if (isset($map['ResourceTypes'])) {
             $model->resourceTypes = $map['ResourceTypes'];
+        }
+        if (isset($map['StartUpdateTimestamp'])) {
+            $model->startUpdateTimestamp = $map['StartUpdateTimestamp'];
         }
 
         return $model;

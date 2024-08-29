@@ -114,6 +114,11 @@ class discoveredResourceProfileList extends Model
     public $tags;
 
     /**
+     * @var int
+     */
+    public $updateTime;
+
+    /**
      * @description The build version of the resource.
      *
      * @example 1
@@ -133,6 +138,7 @@ class discoveredResourceProfileList extends Model
         'resourceStatus'       => 'ResourceStatus',
         'resourceType'         => 'ResourceType',
         'tags'                 => 'Tags',
+        'updateTime'           => 'UpdateTime',
         'version'              => 'Version',
     ];
 
@@ -175,6 +181,9 @@ class discoveredResourceProfileList extends Model
         }
         if (null !== $this->tags) {
             $res['Tags'] = $this->tags;
+        }
+        if (null !== $this->updateTime) {
+            $res['UpdateTime'] = $this->updateTime;
         }
         if (null !== $this->version) {
             $res['Version'] = $this->version;
@@ -223,6 +232,9 @@ class discoveredResourceProfileList extends Model
         }
         if (isset($map['Tags'])) {
             $model->tags = $map['Tags'];
+        }
+        if (isset($map['UpdateTime'])) {
+            $model->updateTime = $map['UpdateTime'];
         }
         if (isset($map['Version'])) {
             $model->version = $map['Version'];

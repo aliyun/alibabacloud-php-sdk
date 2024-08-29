@@ -19,6 +19,16 @@ class ListAggregateDiscoveredResourcesRequest extends Model
     public $aggregatorId;
 
     /**
+     * @var int
+     */
+    public $endUpdateTimestamp;
+
+    /**
+     * @var string
+     */
+    public $excludeResourceTypes;
+
+    /**
      * @description The maximum number of entries to return for a single request. Valid values: 1 to 100.
      *
      * This parameter is required.
@@ -91,16 +101,24 @@ class ListAggregateDiscoveredResourcesRequest extends Model
      * @var string
      */
     public $resourceTypes;
+
+    /**
+     * @var int
+     */
+    public $startUpdateTimestamp;
     protected $_name = [
-        'aggregatorId'      => 'AggregatorId',
-        'maxResults'        => 'MaxResults',
-        'nextToken'         => 'NextToken',
-        'regions'           => 'Regions',
-        'resourceAccountId' => 'ResourceAccountId',
-        'resourceDeleted'   => 'ResourceDeleted',
-        'resourceId'        => 'ResourceId',
-        'resourceOwnerId'   => 'ResourceOwnerId',
-        'resourceTypes'     => 'ResourceTypes',
+        'aggregatorId'         => 'AggregatorId',
+        'endUpdateTimestamp'   => 'EndUpdateTimestamp',
+        'excludeResourceTypes' => 'ExcludeResourceTypes',
+        'maxResults'           => 'MaxResults',
+        'nextToken'            => 'NextToken',
+        'regions'              => 'Regions',
+        'resourceAccountId'    => 'ResourceAccountId',
+        'resourceDeleted'      => 'ResourceDeleted',
+        'resourceId'           => 'ResourceId',
+        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceTypes'        => 'ResourceTypes',
+        'startUpdateTimestamp' => 'StartUpdateTimestamp',
     ];
 
     public function validate()
@@ -112,6 +130,12 @@ class ListAggregateDiscoveredResourcesRequest extends Model
         $res = [];
         if (null !== $this->aggregatorId) {
             $res['AggregatorId'] = $this->aggregatorId;
+        }
+        if (null !== $this->endUpdateTimestamp) {
+            $res['EndUpdateTimestamp'] = $this->endUpdateTimestamp;
+        }
+        if (null !== $this->excludeResourceTypes) {
+            $res['ExcludeResourceTypes'] = $this->excludeResourceTypes;
         }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
@@ -137,6 +161,9 @@ class ListAggregateDiscoveredResourcesRequest extends Model
         if (null !== $this->resourceTypes) {
             $res['ResourceTypes'] = $this->resourceTypes;
         }
+        if (null !== $this->startUpdateTimestamp) {
+            $res['StartUpdateTimestamp'] = $this->startUpdateTimestamp;
+        }
 
         return $res;
     }
@@ -151,6 +178,12 @@ class ListAggregateDiscoveredResourcesRequest extends Model
         $model = new self();
         if (isset($map['AggregatorId'])) {
             $model->aggregatorId = $map['AggregatorId'];
+        }
+        if (isset($map['EndUpdateTimestamp'])) {
+            $model->endUpdateTimestamp = $map['EndUpdateTimestamp'];
+        }
+        if (isset($map['ExcludeResourceTypes'])) {
+            $model->excludeResourceTypes = $map['ExcludeResourceTypes'];
         }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
@@ -175,6 +208,9 @@ class ListAggregateDiscoveredResourcesRequest extends Model
         }
         if (isset($map['ResourceTypes'])) {
             $model->resourceTypes = $map['ResourceTypes'];
+        }
+        if (isset($map['StartUpdateTimestamp'])) {
+            $model->startUpdateTimestamp = $map['StartUpdateTimestamp'];
         }
 
         return $model;
