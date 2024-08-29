@@ -36,7 +36,7 @@ class ModifyMasterSpecRequest extends Model
      *   16 CU
      *   32 CU
      *
-     * >  You are charged for coordinator node resources of more than 8 compute units (CUs).
+     * This parameter is required.
      * @example 8 CU
      *
      * @var int
