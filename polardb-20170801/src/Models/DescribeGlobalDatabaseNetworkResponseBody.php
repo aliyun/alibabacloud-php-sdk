@@ -99,6 +99,11 @@ class DescribeGlobalDatabaseNetworkResponseBody extends Model
     public $GDNStatus;
 
     /**
+     * @var string
+     */
+    public $globalDomainName;
+
+    /**
      * @description The ID of the request.
      *
      * @example 67F2E75F-AE67-4FB2-821F-A81237EACD15
@@ -116,17 +121,18 @@ class DescribeGlobalDatabaseNetworkResponseBody extends Model
      */
     public $resourceGroupId;
     protected $_name = [
-        'connections'     => 'Connections',
-        'createTime'      => 'CreateTime',
-        'DBClusterId'     => 'DBClusterId',
-        'DBClusters'      => 'DBClusters',
-        'DBType'          => 'DBType',
-        'DBVersion'       => 'DBVersion',
-        'GDNDescription'  => 'GDNDescription',
-        'GDNId'           => 'GDNId',
-        'GDNStatus'       => 'GDNStatus',
-        'requestId'       => 'RequestId',
-        'resourceGroupId' => 'ResourceGroupId',
+        'connections'      => 'Connections',
+        'createTime'       => 'CreateTime',
+        'DBClusterId'      => 'DBClusterId',
+        'DBClusters'       => 'DBClusters',
+        'DBType'           => 'DBType',
+        'DBVersion'        => 'DBVersion',
+        'GDNDescription'   => 'GDNDescription',
+        'GDNId'            => 'GDNId',
+        'GDNStatus'        => 'GDNStatus',
+        'globalDomainName' => 'GlobalDomainName',
+        'requestId'        => 'RequestId',
+        'resourceGroupId'  => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -174,6 +180,9 @@ class DescribeGlobalDatabaseNetworkResponseBody extends Model
         }
         if (null !== $this->GDNStatus) {
             $res['GDNStatus'] = $this->GDNStatus;
+        }
+        if (null !== $this->globalDomainName) {
+            $res['GlobalDomainName'] = $this->globalDomainName;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -231,6 +240,9 @@ class DescribeGlobalDatabaseNetworkResponseBody extends Model
         }
         if (isset($map['GDNStatus'])) {
             $model->GDNStatus = $map['GDNStatus'];
+        }
+        if (isset($map['GlobalDomainName'])) {
+            $model->globalDomainName = $map['GlobalDomainName'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

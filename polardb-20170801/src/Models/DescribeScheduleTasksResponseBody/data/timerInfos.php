@@ -64,6 +64,11 @@ class timerInfos extends Model
     public $plannedEndTime;
 
     /**
+     * @var string
+     */
+    public $plannedFlashingOffTime;
+
+    /**
      * @description The earliest start time of the task that you specified when you created the scheduled task. The time is displayed in UTC.
      *
      * @example 2021-01-28T12:00Z
@@ -120,18 +125,19 @@ class timerInfos extends Model
      */
     public $taskId;
     protected $_name = [
-        'action'               => 'Action',
-        'DBClusterId'          => 'DBClusterId',
-        'dbClusterDescription' => 'DbClusterDescription',
-        'dbClusterStatus'      => 'DbClusterStatus',
-        'orderId'              => 'OrderId',
-        'plannedEndTime'       => 'PlannedEndTime',
-        'plannedStartTime'     => 'PlannedStartTime',
-        'plannedTime'          => 'PlannedTime',
-        'region'               => 'Region',
-        'status'               => 'Status',
-        'taskCancel'           => 'TaskCancel',
-        'taskId'               => 'TaskId',
+        'action'                 => 'Action',
+        'DBClusterId'            => 'DBClusterId',
+        'dbClusterDescription'   => 'DbClusterDescription',
+        'dbClusterStatus'        => 'DbClusterStatus',
+        'orderId'                => 'OrderId',
+        'plannedEndTime'         => 'PlannedEndTime',
+        'plannedFlashingOffTime' => 'PlannedFlashingOffTime',
+        'plannedStartTime'       => 'PlannedStartTime',
+        'plannedTime'            => 'PlannedTime',
+        'region'                 => 'Region',
+        'status'                 => 'Status',
+        'taskCancel'             => 'TaskCancel',
+        'taskId'                 => 'TaskId',
     ];
 
     public function validate()
@@ -158,6 +164,9 @@ class timerInfos extends Model
         }
         if (null !== $this->plannedEndTime) {
             $res['PlannedEndTime'] = $this->plannedEndTime;
+        }
+        if (null !== $this->plannedFlashingOffTime) {
+            $res['PlannedFlashingOffTime'] = $this->plannedFlashingOffTime;
         }
         if (null !== $this->plannedStartTime) {
             $res['PlannedStartTime'] = $this->plannedStartTime;
@@ -206,6 +215,9 @@ class timerInfos extends Model
         }
         if (isset($map['PlannedEndTime'])) {
             $model->plannedEndTime = $map['PlannedEndTime'];
+        }
+        if (isset($map['PlannedFlashingOffTime'])) {
+            $model->plannedFlashingOffTime = $map['PlannedFlashingOffTime'];
         }
         if (isset($map['PlannedStartTime'])) {
             $model->plannedStartTime = $map['PlannedStartTime'];

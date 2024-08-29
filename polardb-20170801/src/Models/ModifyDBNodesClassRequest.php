@@ -71,6 +71,11 @@ class ModifyDBNodesClassRequest extends Model
     public $plannedEndTime;
 
     /**
+     * @var string
+     */
+    public $plannedFlashingOffTime;
+
+    /**
      * @description The earliest start time to upgrade the specifications within the scheduled time period. Specify the time in the ISO 8601 standard in the `YYYY-MM-DDThh:mm:ssZ` format. The time must be in UTC.
      *
      * > *   This parameter takes effect only when `ModifyType` is set to `Upgrade`.
@@ -104,17 +109,18 @@ class ModifyDBNodesClassRequest extends Model
      */
     public $subCategory;
     protected $_name = [
-        'clientToken'          => 'ClientToken',
-        'DBClusterId'          => 'DBClusterId',
-        'DBNode'               => 'DBNode',
-        'modifyType'           => 'ModifyType',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'plannedEndTime'       => 'PlannedEndTime',
-        'plannedStartTime'     => 'PlannedStartTime',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'subCategory'          => 'SubCategory',
+        'clientToken'            => 'ClientToken',
+        'DBClusterId'            => 'DBClusterId',
+        'DBNode'                 => 'DBNode',
+        'modifyType'             => 'ModifyType',
+        'ownerAccount'           => 'OwnerAccount',
+        'ownerId'                => 'OwnerId',
+        'plannedEndTime'         => 'PlannedEndTime',
+        'plannedFlashingOffTime' => 'PlannedFlashingOffTime',
+        'plannedStartTime'       => 'PlannedStartTime',
+        'resourceOwnerAccount'   => 'ResourceOwnerAccount',
+        'resourceOwnerId'        => 'ResourceOwnerId',
+        'subCategory'            => 'SubCategory',
     ];
 
     public function validate()
@@ -150,6 +156,9 @@ class ModifyDBNodesClassRequest extends Model
         }
         if (null !== $this->plannedEndTime) {
             $res['PlannedEndTime'] = $this->plannedEndTime;
+        }
+        if (null !== $this->plannedFlashingOffTime) {
+            $res['PlannedFlashingOffTime'] = $this->plannedFlashingOffTime;
         }
         if (null !== $this->plannedStartTime) {
             $res['PlannedStartTime'] = $this->plannedStartTime;
@@ -201,6 +210,9 @@ class ModifyDBNodesClassRequest extends Model
         }
         if (isset($map['PlannedEndTime'])) {
             $model->plannedEndTime = $map['PlannedEndTime'];
+        }
+        if (isset($map['PlannedFlashingOffTime'])) {
+            $model->plannedFlashingOffTime = $map['PlannedFlashingOffTime'];
         }
         if (isset($map['PlannedStartTime'])) {
             $model->plannedStartTime = $map['PlannedStartTime'];

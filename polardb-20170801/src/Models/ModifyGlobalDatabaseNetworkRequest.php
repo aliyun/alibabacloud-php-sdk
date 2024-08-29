@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ModifyGlobalDatabaseNetworkRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $enableGlobalDomainName;
+
+    /**
      * @description The description of the GDN. The description must meet the following requirements:
      *
      *   It cannot start with `http://` or `https://`.
@@ -16,7 +21,6 @@ class ModifyGlobalDatabaseNetworkRequest extends Model
      *   It can contain letters, digits, underscores (_), and hyphens (-).
      *   It must be 2 to 126 characters in length.
      *
-     * This parameter is required.
      * @example GDN-fortest
      *
      * @var string
@@ -67,14 +71,15 @@ class ModifyGlobalDatabaseNetworkRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'GDNDescription'       => 'GDNDescription',
-        'GDNId'                => 'GDNId',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'resourceGroupId'      => 'ResourceGroupId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'securityToken'        => 'SecurityToken',
+        'enableGlobalDomainName' => 'EnableGlobalDomainName',
+        'GDNDescription'         => 'GDNDescription',
+        'GDNId'                  => 'GDNId',
+        'ownerAccount'           => 'OwnerAccount',
+        'ownerId'                => 'OwnerId',
+        'resourceGroupId'        => 'ResourceGroupId',
+        'resourceOwnerAccount'   => 'ResourceOwnerAccount',
+        'resourceOwnerId'        => 'ResourceOwnerId',
+        'securityToken'          => 'SecurityToken',
     ];
 
     public function validate()
@@ -84,6 +89,9 @@ class ModifyGlobalDatabaseNetworkRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->enableGlobalDomainName) {
+            $res['EnableGlobalDomainName'] = $this->enableGlobalDomainName;
+        }
         if (null !== $this->GDNDescription) {
             $res['GDNDescription'] = $this->GDNDescription;
         }
@@ -120,6 +128,9 @@ class ModifyGlobalDatabaseNetworkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EnableGlobalDomainName'])) {
+            $model->enableGlobalDomainName = $map['EnableGlobalDomainName'];
+        }
         if (isset($map['GDNDescription'])) {
             $model->GDNDescription = $map['GDNDescription'];
         }

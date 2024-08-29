@@ -19,6 +19,11 @@ class CreateGlobalDatabaseNetworkRequest extends Model
     public $DBClusterId;
 
     /**
+     * @var bool
+     */
+    public $enableGlobalDomainName;
+
+    /**
      * @description The description of the GDN. The description must meet the following requirements:
      *
      *   It cannot start with [http:// or https://.](http://https://。)
@@ -66,14 +71,15 @@ class CreateGlobalDatabaseNetworkRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'DBClusterId'          => 'DBClusterId',
-        'GDNDescription'       => 'GDNDescription',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'resourceGroupId'      => 'ResourceGroupId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'securityToken'        => 'SecurityToken',
+        'DBClusterId'            => 'DBClusterId',
+        'enableGlobalDomainName' => 'EnableGlobalDomainName',
+        'GDNDescription'         => 'GDNDescription',
+        'ownerAccount'           => 'OwnerAccount',
+        'ownerId'                => 'OwnerId',
+        'resourceGroupId'        => 'ResourceGroupId',
+        'resourceOwnerAccount'   => 'ResourceOwnerAccount',
+        'resourceOwnerId'        => 'ResourceOwnerId',
+        'securityToken'          => 'SecurityToken',
     ];
 
     public function validate()
@@ -85,6 +91,9 @@ class CreateGlobalDatabaseNetworkRequest extends Model
         $res = [];
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
+        }
+        if (null !== $this->enableGlobalDomainName) {
+            $res['EnableGlobalDomainName'] = $this->enableGlobalDomainName;
         }
         if (null !== $this->GDNDescription) {
             $res['GDNDescription'] = $this->GDNDescription;
@@ -121,6 +130,9 @@ class CreateGlobalDatabaseNetworkRequest extends Model
         $model = new self();
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
+        }
+        if (isset($map['EnableGlobalDomainName'])) {
+            $model->enableGlobalDomainName = $map['EnableGlobalDomainName'];
         }
         if (isset($map['GDNDescription'])) {
             $model->GDNDescription = $map['GDNDescription'];

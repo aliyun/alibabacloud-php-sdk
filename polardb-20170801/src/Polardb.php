@@ -1711,6 +1711,9 @@ class Polardb extends OpenApiClient
         if (!Utils::isUnset($request->DBClusterId)) {
             $query['DBClusterId'] = $request->DBClusterId;
         }
+        if (!Utils::isUnset($request->enableGlobalDomainName)) {
+            $query['EnableGlobalDomainName'] = $request->enableGlobalDomainName;
+        }
         if (!Utils::isUnset($request->GDNDescription)) {
             $query['GDNDescription'] = $request->GDNDescription;
         }
@@ -8854,6 +8857,9 @@ class Polardb extends OpenApiClient
         if (!Utils::isUnset($request->plannedEndTime)) {
             $query['PlannedEndTime'] = $request->plannedEndTime;
         }
+        if (!Utils::isUnset($request->plannedFlashingOffTime)) {
+            $query['PlannedFlashingOffTime'] = $request->plannedFlashingOffTime;
+        }
         if (!Utils::isUnset($request->plannedStartTime)) {
             $query['PlannedStartTime'] = $request->plannedStartTime;
         }
@@ -8996,6 +9002,9 @@ class Polardb extends OpenApiClient
         if (!Utils::isUnset($request->plannedEndTime)) {
             $query['PlannedEndTime'] = $request->plannedEndTime;
         }
+        if (!Utils::isUnset($request->plannedFlashingOffTime)) {
+            $query['PlannedFlashingOffTime'] = $request->plannedFlashingOffTime;
+        }
         if (!Utils::isUnset($request->plannedStartTime)) {
             $query['PlannedStartTime'] = $request->plannedStartTime;
         }
@@ -9129,6 +9138,9 @@ class Polardb extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->enableGlobalDomainName)) {
+            $query['EnableGlobalDomainName'] = $request->enableGlobalDomainName;
+        }
         if (!Utils::isUnset($request->GDNDescription)) {
             $query['GDNDescription'] = $request->GDNDescription;
         }

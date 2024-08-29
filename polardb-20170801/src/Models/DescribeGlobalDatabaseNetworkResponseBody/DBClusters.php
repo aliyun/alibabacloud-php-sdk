@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DBClusters extends Model
 {
     /**
+     * @var string
+     */
+    public $category;
+
+    /**
      * @description The description of the cluster.
      *
      * @example test
@@ -155,6 +160,7 @@ class DBClusters extends Model
      */
     public $storageUsed;
     protected $_name = [
+        'category'             => 'Category',
         'DBClusterDescription' => 'DBClusterDescription',
         'DBClusterId'          => 'DBClusterId',
         'DBClusterStatus'      => 'DBClusterStatus',
@@ -179,6 +185,9 @@ class DBClusters extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->category) {
+            $res['Category'] = $this->category;
+        }
         if (null !== $this->DBClusterDescription) {
             $res['DBClusterDescription'] = $this->DBClusterDescription;
         }
@@ -242,6 +251,9 @@ class DBClusters extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Category'])) {
+            $model->category = $map['Category'];
+        }
         if (isset($map['DBClusterDescription'])) {
             $model->DBClusterDescription = $map['DBClusterDescription'];
         }
