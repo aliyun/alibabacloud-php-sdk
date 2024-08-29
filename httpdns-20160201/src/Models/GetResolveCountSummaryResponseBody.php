@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetResolveCountSummaryResponseBody extends Model
 {
     /**
+     * @example 3106FFF3-3612-542A-B2CD-3CF4CD48****
+     *
      * @var string
      */
     public $requestId;

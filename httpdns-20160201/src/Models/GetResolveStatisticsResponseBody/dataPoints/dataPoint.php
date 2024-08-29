@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class dataPoint extends Model
 {
     /**
+     * @example 9703
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @example 1488297600
+     *
      * @var int
      */
     public $time;

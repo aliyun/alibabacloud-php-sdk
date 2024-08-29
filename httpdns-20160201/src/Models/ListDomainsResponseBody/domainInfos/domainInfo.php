@@ -9,35 +9,51 @@ use AlibabaCloud\Tea\Model;
 class domainInfo extends Model
 {
     /**
+     * @example www.example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $resolved;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $resolved6;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $resolvedHttps;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $resolvedHttps6;
+
+    /**
+     * @var int
+     */
+    public $timeModified;
     protected $_name = [
         'domainName'     => 'DomainName',
         'resolved'       => 'Resolved',
         'resolved6'      => 'Resolved6',
         'resolvedHttps'  => 'ResolvedHttps',
         'resolvedHttps6' => 'ResolvedHttps6',
+        'timeModified'   => 'TimeModified',
     ];
 
     public function validate()
@@ -61,6 +77,9 @@ class domainInfo extends Model
         }
         if (null !== $this->resolvedHttps6) {
             $res['ResolvedHttps6'] = $this->resolvedHttps6;
+        }
+        if (null !== $this->timeModified) {
+            $res['TimeModified'] = $this->timeModified;
         }
 
         return $res;
@@ -88,6 +107,9 @@ class domainInfo extends Model
         }
         if (isset($map['ResolvedHttps6'])) {
             $model->resolvedHttps6 = $map['ResolvedHttps6'];
+        }
+        if (isset($map['TimeModified'])) {
+            $model->timeModified = $map['TimeModified'];
         }
 
         return $model;

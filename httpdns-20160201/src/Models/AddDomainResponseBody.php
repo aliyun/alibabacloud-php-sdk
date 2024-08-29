@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class AddDomainResponseBody extends Model
 {
     /**
+     * @example www.example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example ADA27798-6911-4B06-AF34-53F62F62XXXX
+     *
      * @var string
      */
     public $requestId;

@@ -9,17 +9,27 @@ use AlibabaCloud\Tea\Model;
 class ListDomainsRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $search;
     protected $_name = [
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
+        'search'     => 'Search',
     ];
 
     public function validate()
@@ -34,6 +44,9 @@ class ListDomainsRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->search) {
+            $res['Search'] = $this->search;
         }
 
         return $res;
@@ -52,6 +65,9 @@ class ListDomainsRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['Search'])) {
+            $model->search = $map['Search'];
         }
 
         return $model;

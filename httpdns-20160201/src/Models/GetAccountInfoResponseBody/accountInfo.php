@@ -9,53 +9,85 @@ use AlibabaCloud\Tea\Model;
 class accountInfo extends Model
 {
     /**
+     * @example 1337****
+     *
      * @var string
      */
     public $accountId;
 
     /**
+     * @example 1500000
+     *
      * @var int
      */
     public $monthFreeCount;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $monthHttpsResolveCount;
 
     /**
+     * @example 9927326
+     *
      * @var int
      */
     public $monthResolveCount;
 
     /**
+     * @example 0
+     *
+     * @var int
+     */
+    public $packageCount;
+
+    /**
+     * @example 50F9C40E****
+     *
      * @var string
      */
     public $signSecret;
 
     /**
+     * @example 611523
+     *
      * @var int
      */
     public $signedCount;
 
     /**
+     * @example 1523
+     *
      * @var int
      */
     public $unsignedCount;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $unsignedEnabled;
+
+    /**
+     * @example 1
+     *
+     * @var int
+     */
+    public $userStatus;
     protected $_name = [
         'accountId'              => 'AccountId',
         'monthFreeCount'         => 'MonthFreeCount',
         'monthHttpsResolveCount' => 'MonthHttpsResolveCount',
         'monthResolveCount'      => 'MonthResolveCount',
+        'packageCount'           => 'PackageCount',
         'signSecret'             => 'SignSecret',
         'signedCount'            => 'SignedCount',
         'unsignedCount'          => 'UnsignedCount',
         'unsignedEnabled'        => 'UnsignedEnabled',
+        'userStatus'             => 'UserStatus',
     ];
 
     public function validate()
@@ -77,6 +109,9 @@ class accountInfo extends Model
         if (null !== $this->monthResolveCount) {
             $res['MonthResolveCount'] = $this->monthResolveCount;
         }
+        if (null !== $this->packageCount) {
+            $res['PackageCount'] = $this->packageCount;
+        }
         if (null !== $this->signSecret) {
             $res['SignSecret'] = $this->signSecret;
         }
@@ -88,6 +123,9 @@ class accountInfo extends Model
         }
         if (null !== $this->unsignedEnabled) {
             $res['UnsignedEnabled'] = $this->unsignedEnabled;
+        }
+        if (null !== $this->userStatus) {
+            $res['UserStatus'] = $this->userStatus;
         }
 
         return $res;
@@ -113,6 +151,9 @@ class accountInfo extends Model
         if (isset($map['MonthResolveCount'])) {
             $model->monthResolveCount = $map['MonthResolveCount'];
         }
+        if (isset($map['PackageCount'])) {
+            $model->packageCount = $map['PackageCount'];
+        }
         if (isset($map['SignSecret'])) {
             $model->signSecret = $map['SignSecret'];
         }
@@ -124,6 +165,9 @@ class accountInfo extends Model
         }
         if (isset($map['UnsignedEnabled'])) {
             $model->unsignedEnabled = $map['UnsignedEnabled'];
+        }
+        if (isset($map['UserStatus'])) {
+            $model->userStatus = $map['UserStatus'];
         }
 
         return $model;

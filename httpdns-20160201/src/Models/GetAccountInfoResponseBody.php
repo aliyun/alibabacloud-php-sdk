@@ -15,6 +15,8 @@ class GetAccountInfoResponseBody extends Model
     public $accountInfo;
 
     /**
+     * @example 50F9C40E-188D-4208-BE2C-74271337****
+     *
      * @var string
      */
     public $requestId;

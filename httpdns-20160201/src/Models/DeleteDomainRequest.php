@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class DeleteDomainRequest extends Model
 {
     /**
+     * @example 12****
+     *
      * @var string
      */
     public $accountId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example www.example.com
+     *
      * @var string
      */
     public $domainName;

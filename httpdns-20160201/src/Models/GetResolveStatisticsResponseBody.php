@@ -15,6 +15,8 @@ class GetResolveStatisticsResponseBody extends Model
     public $dataPoints;
 
     /**
+     * @example 50F9C40E-188D-B00B-BE2C-7427E531****
+     *
      * @var string
      */
     public $requestId;

@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class GetResolveCountSummaryRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example day
+     *
      * @var string
      */
     public $granularity;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 7
+     *
      * @var int
      */
     public $timeSpan;

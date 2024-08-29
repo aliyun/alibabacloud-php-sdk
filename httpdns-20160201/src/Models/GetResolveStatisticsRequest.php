@@ -9,21 +9,35 @@ use AlibabaCloud\Tea\Model;
 class GetResolveStatisticsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example www.aliyun.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example month
+     *
      * @var string
      */
     public $granularity;
 
     /**
+     * @example https
+     *
      * @var string
      */
     public $protocolName;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $timeSpan;

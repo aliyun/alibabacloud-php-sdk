@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class resolveSummary extends Model
 {
     /**
+     * @example 123
+     *
      * @var int
      */
     public $http;
 
     /**
+     * @example 123
+     *
      * @var int
      */
     public $http6;
 
     /**
+     * @example 123
+     *
      * @var int
      */
     public $https;
 
     /**
+     * @example 123
+     *
      * @var int
      */
     public $https6;

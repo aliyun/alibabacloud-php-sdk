@@ -15,21 +15,29 @@ class ListDomainsResponseBody extends Model
     public $domainInfos;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 50F9C40E-188D-4208-BE2C-7427E531****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 18
+     *
      * @var int
      */
     public $totalCount;

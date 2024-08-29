@@ -59,20 +59,23 @@ class Httpdns extends OpenApiClient
     }
 
     /**
-     * @param AddDomainRequest $request
-     * @param RuntimeOptions   $runtime
+     * @param AddDomainRequest $request AddDomainRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddDomainResponse
+     * @return AddDomainResponse AddDomainResponse
      */
     public function addDomainWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['AccountId']  = $request->accountId;
-        $query['DomainName'] = $request->domainName;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'AddDomain',
@@ -82,7 +85,7 @@ class Httpdns extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -90,9 +93,9 @@ class Httpdns extends OpenApiClient
     }
 
     /**
-     * @param AddDomainRequest $request
+     * @param AddDomainRequest $request AddDomainRequest
      *
-     * @return AddDomainResponse
+     * @return AddDomainResponse AddDomainResponse
      */
     public function addDomain($request)
     {
@@ -102,20 +105,23 @@ class Httpdns extends OpenApiClient
     }
 
     /**
-     * @param DeleteDomainRequest $request
-     * @param RuntimeOptions      $runtime
+     * @param DeleteDomainRequest $request DeleteDomainRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteDomainResponse
+     * @return DeleteDomainResponse DeleteDomainResponse
      */
     public function deleteDomainWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['AccountId']  = $request->accountId;
-        $query['DomainName'] = $request->domainName;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteDomain',
@@ -125,7 +131,7 @@ class Httpdns extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -133,9 +139,9 @@ class Httpdns extends OpenApiClient
     }
 
     /**
-     * @param DeleteDomainRequest $request
+     * @param DeleteDomainRequest $request DeleteDomainRequest
      *
-     * @return DeleteDomainResponse
+     * @return DeleteDomainResponse DeleteDomainResponse
      */
     public function deleteDomain($request)
     {
@@ -145,21 +151,26 @@ class Httpdns extends OpenApiClient
     }
 
     /**
-     * @param DescribeDomainsRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param DescribeDomainsRequest $request DescribeDomainsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDomainsResponse
+     * @return DescribeDomainsResponse DescribeDomainsResponse
      */
     public function describeDomainsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['AccountId']  = $request->accountId;
-        $query['PageNumber'] = $request->pageNumber;
-        $query['PageSize']   = $request->pageSize;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeDomains',
@@ -169,7 +180,7 @@ class Httpdns extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -177,9 +188,9 @@ class Httpdns extends OpenApiClient
     }
 
     /**
-     * @param DescribeDomainsRequest $request
+     * @param DescribeDomainsRequest $request DescribeDomainsRequest
      *
-     * @return DescribeDomainsResponse
+     * @return DescribeDomainsResponse DescribeDomainsResponse
      */
     public function describeDomains($request)
     {
@@ -189,9 +200,9 @@ class Httpdns extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetAccountInfoResponse
+     * @return GetAccountInfoResponse GetAccountInfoResponse
      */
     public function getAccountInfoWithOptions($runtime)
     {
@@ -204,7 +215,7 @@ class Httpdns extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -212,7 +223,7 @@ class Httpdns extends OpenApiClient
     }
 
     /**
-     * @return GetAccountInfoResponse
+     * @return GetAccountInfoResponse GetAccountInfoResponse
      */
     public function getAccountInfo()
     {
@@ -222,20 +233,23 @@ class Httpdns extends OpenApiClient
     }
 
     /**
-     * @param GetResolveCountSummaryRequest $request
-     * @param RuntimeOptions                $runtime
+     * @param GetResolveCountSummaryRequest $request GetResolveCountSummaryRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetResolveCountSummaryResponse
+     * @return GetResolveCountSummaryResponse GetResolveCountSummaryResponse
      */
     public function getResolveCountSummaryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['Granularity'] = $request->granularity;
-        $query['TimeSpan']    = $request->timeSpan;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->granularity)) {
+            $query['Granularity'] = $request->granularity;
+        }
+        if (!Utils::isUnset($request->timeSpan)) {
+            $query['TimeSpan'] = $request->timeSpan;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetResolveCountSummary',
@@ -245,7 +259,7 @@ class Httpdns extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -253,9 +267,9 @@ class Httpdns extends OpenApiClient
     }
 
     /**
-     * @param GetResolveCountSummaryRequest $request
+     * @param GetResolveCountSummaryRequest $request GetResolveCountSummaryRequest
      *
-     * @return GetResolveCountSummaryResponse
+     * @return GetResolveCountSummaryResponse GetResolveCountSummaryResponse
      */
     public function getResolveCountSummary($request)
     {
@@ -265,22 +279,29 @@ class Httpdns extends OpenApiClient
     }
 
     /**
-     * @param GetResolveStatisticsRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param GetResolveStatisticsRequest $request GetResolveStatisticsRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetResolveStatisticsResponse
+     * @return GetResolveStatisticsResponse GetResolveStatisticsResponse
      */
     public function getResolveStatisticsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['DomainName']   = $request->domainName;
-        $query['Granularity']  = $request->granularity;
-        $query['ProtocolName'] = $request->protocolName;
-        $query['TimeSpan']     = $request->timeSpan;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->granularity)) {
+            $query['Granularity'] = $request->granularity;
+        }
+        if (!Utils::isUnset($request->protocolName)) {
+            $query['ProtocolName'] = $request->protocolName;
+        }
+        if (!Utils::isUnset($request->timeSpan)) {
+            $query['TimeSpan'] = $request->timeSpan;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetResolveStatistics',
@@ -290,7 +311,7 @@ class Httpdns extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -298,9 +319,9 @@ class Httpdns extends OpenApiClient
     }
 
     /**
-     * @param GetResolveStatisticsRequest $request
+     * @param GetResolveStatisticsRequest $request GetResolveStatisticsRequest
      *
-     * @return GetResolveStatisticsResponse
+     * @return GetResolveStatisticsResponse GetResolveStatisticsResponse
      */
     public function getResolveStatistics($request)
     {
@@ -310,20 +331,26 @@ class Httpdns extends OpenApiClient
     }
 
     /**
-     * @param ListDomainsRequest $request
-     * @param RuntimeOptions     $runtime
+     * @param ListDomainsRequest $request ListDomainsRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListDomainsResponse
+     * @return ListDomainsResponse ListDomainsResponse
      */
     public function listDomainsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['PageNumber'] = $request->pageNumber;
-        $query['PageSize']   = $request->pageSize;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->search)) {
+            $query['Search'] = $request->search;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListDomains',
@@ -333,7 +360,7 @@ class Httpdns extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -341,9 +368,9 @@ class Httpdns extends OpenApiClient
     }
 
     /**
-     * @param ListDomainsRequest $request
+     * @param ListDomainsRequest $request ListDomainsRequest
      *
-     * @return ListDomainsResponse
+     * @return ListDomainsResponse ListDomainsResponse
      */
     public function listDomains($request)
     {

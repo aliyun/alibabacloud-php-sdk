@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteDomainResponseBody extends Model
 {
     /**
+     * @example www.example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example FA8C2599-362D-4113-8FB4-E88A40C2****
+     *
      * @var string
      */
     public $requestId;
