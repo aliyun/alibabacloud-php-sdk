@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models\DescribeDiagnosisRecordsResponseBody;
 
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeDiagnosisRecordsResponseBody\querys\queryProperties;
 use AlibabaCloud\Tea\Model;
 
 class querys extends Model
@@ -89,6 +90,11 @@ class querys extends Model
      * @var string
      */
     public $processId;
+
+    /**
+     * @var queryProperties[]
+     */
+    public $queryProperties;
 
     /**
      * @description The amount of time that is consumed for queuing. Unit: milliseconds.
@@ -234,6 +240,7 @@ class querys extends Model
         'outputRows'            => 'OutputRows',
         'peakMemory'            => 'PeakMemory',
         'processId'             => 'ProcessId',
+        'queryProperties'       => 'QueryProperties',
         'queueTime'             => 'QueueTime',
         'rcHost'                => 'RcHost',
         'resourceCostRank'      => 'ResourceCostRank',
@@ -283,6 +290,15 @@ class querys extends Model
         }
         if (null !== $this->processId) {
             $res['ProcessId'] = $this->processId;
+        }
+        if (null !== $this->queryProperties) {
+            $res['QueryProperties'] = [];
+            if (null !== $this->queryProperties && \is_array($this->queryProperties)) {
+                $n = 0;
+                foreach ($this->queryProperties as $item) {
+                    $res['QueryProperties'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->queueTime) {
             $res['QueueTime'] = $this->queueTime;
@@ -364,6 +380,15 @@ class querys extends Model
         }
         if (isset($map['ProcessId'])) {
             $model->processId = $map['ProcessId'];
+        }
+        if (isset($map['QueryProperties'])) {
+            if (!empty($map['QueryProperties'])) {
+                $model->queryProperties = [];
+                $n                      = 0;
+                foreach ($map['QueryProperties'] as $item) {
+                    $model->queryProperties[$n++] = null !== $item ? queryProperties::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['QueueTime'])) {
             $model->queueTime = $map['QueueTime'];
