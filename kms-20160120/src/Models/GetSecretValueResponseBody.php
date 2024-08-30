@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Kms\V20160120\Models;
 
+use AlibabaCloud\SDK\Kms\V20160120\Models\GetSecretValueResponseBody\versionStages;
 use AlibabaCloud\Tea\Model;
 
 class GetSecretValueResponseBody extends Model
@@ -147,7 +148,7 @@ class GetSecretValueResponseBody extends Model
     /**
      * @description The stage labels that mark the secret versions.
      *
-     * @var string[]
+     * @var versionStages
      */
     public $versionStages;
     protected $_name = [
@@ -210,7 +211,7 @@ class GetSecretValueResponseBody extends Model
             $res['VersionId'] = $this->versionId;
         }
         if (null !== $this->versionStages) {
-            $res['VersionStages'] = $this->versionStages;
+            $res['VersionStages'] = null !== $this->versionStages ? $this->versionStages->toMap() : null;
         }
 
         return $res;
@@ -261,9 +262,7 @@ class GetSecretValueResponseBody extends Model
             $model->versionId = $map['VersionId'];
         }
         if (isset($map['VersionStages'])) {
-            if (!empty($map['VersionStages'])) {
-                $model->versionStages = $map['VersionStages'];
-            }
+            $model->versionStages = versionStages::fromMap($map['VersionStages']);
         }
 
         return $model;
