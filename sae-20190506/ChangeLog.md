@@ -1,3 +1,12 @@
+2024-08-30 Version: 1.22.6
+- Update API CreateApplicationScalingRule: add param EnableIdle.
+- Update API CreateApplicationScalingRule: update response param.
+- Update API DescribeApplicationScalingRule: update response param.
+- Update API DescribeApplicationScalingRules: update response param.
+- Update API UpdateApplicationScalingRule: add param EnableIdle.
+- Update API UpdateApplicationScalingRule: update response param.
+
+
 2024-08-28 Version: 1.22.5
 - Update API CreateApplication: add param EnableNewArms.
 - Update API DeployApplication: add param EnableNewArms.

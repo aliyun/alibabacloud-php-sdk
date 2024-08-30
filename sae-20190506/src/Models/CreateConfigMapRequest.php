@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateConfigMapRequest extends Model
 {
     /**
-     * @description The key-value pairs of the ConfigMap in the JSON format. Format:
+     * @description The ConfigMap data.
      *
      * This parameter is required.
      * @example {"env.shell": "/bin/sh"}
@@ -19,8 +19,9 @@ class CreateConfigMapRequest extends Model
     public $data;
 
     /**
-     * @description The description. The description must be 1 to 255 characters in length, and cannot contain spaces.
+     * @description The key-value pairs of the ConfigMap in the JSON format. Format:
      *
+     * k specifies a key and v specifies a value. For more information, see [Manage a Kubernetes ConfigMap](https://help.aliyun.com/document_detail/171326.html).
      * @example test-desc
      *
      * @var string

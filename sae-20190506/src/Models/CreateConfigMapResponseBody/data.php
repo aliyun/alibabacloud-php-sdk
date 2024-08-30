@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The ID of the ConfigMap that was created.
+     * @description The returned result.
      *
      * @example 1
      *

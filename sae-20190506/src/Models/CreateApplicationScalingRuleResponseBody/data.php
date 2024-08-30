@@ -25,6 +25,11 @@ class data extends Model
     public $createTime;
 
     /**
+     * @var bool
+     */
+    public $enableIdle;
+
+    /**
      * @example 1641882854484
      *
      * @var int
@@ -71,6 +76,7 @@ class data extends Model
     protected $_name = [
         'appId'            => 'AppId',
         'createTime'       => 'CreateTime',
+        'enableIdle'       => 'EnableIdle',
         'lastDisableTime'  => 'LastDisableTime',
         'metric'           => 'Metric',
         'scaleRuleEnabled' => 'ScaleRuleEnabled',
@@ -92,6 +98,9 @@ class data extends Model
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->enableIdle) {
+            $res['EnableIdle'] = $this->enableIdle;
         }
         if (null !== $this->lastDisableTime) {
             $res['LastDisableTime'] = $this->lastDisableTime;
@@ -131,6 +140,9 @@ class data extends Model
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['EnableIdle'])) {
+            $model->enableIdle = $map['EnableIdle'];
         }
         if (isset($map['LastDisableTime'])) {
             $model->lastDisableTime = $map['LastDisableTime'];

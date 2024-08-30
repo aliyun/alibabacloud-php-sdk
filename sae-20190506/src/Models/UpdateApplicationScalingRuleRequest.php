@@ -19,6 +19,11 @@ class UpdateApplicationScalingRuleRequest extends Model
     public $appId;
 
     /**
+     * @var bool
+     */
+    public $enableIdle;
+
+    /**
      * @description The percentage of the minimum number of available instances. Take note of the following rules:
      *
      *   If you set the value to **-1**, the minimum number of available instances is not determined based on this parameter. This is the default value.
@@ -148,6 +153,7 @@ class UpdateApplicationScalingRuleRequest extends Model
     public $scalingRuleTimer;
     protected $_name = [
         'appId'                 => 'AppId',
+        'enableIdle'            => 'EnableIdle',
         'minReadyInstanceRatio' => 'MinReadyInstanceRatio',
         'minReadyInstances'     => 'MinReadyInstances',
         'scalingRuleMetric'     => 'ScalingRuleMetric',
@@ -164,6 +170,9 @@ class UpdateApplicationScalingRuleRequest extends Model
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
+        }
+        if (null !== $this->enableIdle) {
+            $res['EnableIdle'] = $this->enableIdle;
         }
         if (null !== $this->minReadyInstanceRatio) {
             $res['MinReadyInstanceRatio'] = $this->minReadyInstanceRatio;
@@ -194,6 +203,9 @@ class UpdateApplicationScalingRuleRequest extends Model
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
+        }
+        if (isset($map['EnableIdle'])) {
+            $model->enableIdle = $map['EnableIdle'];
         }
         if (isset($map['MinReadyInstanceRatio'])) {
             $model->minReadyInstanceRatio = $map['MinReadyInstanceRatio'];

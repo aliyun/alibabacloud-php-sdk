@@ -18,6 +18,11 @@ class CreateApplicationScalingRuleRequest extends Model
     public $appId;
 
     /**
+     * @var bool
+     */
+    public $enableIdle;
+
+    /**
      * @example -1
      *
      * @var int
@@ -71,6 +76,7 @@ class CreateApplicationScalingRuleRequest extends Model
     public $scalingRuleType;
     protected $_name = [
         'appId'                 => 'AppId',
+        'enableIdle'            => 'EnableIdle',
         'minReadyInstanceRatio' => 'MinReadyInstanceRatio',
         'minReadyInstances'     => 'MinReadyInstances',
         'scalingRuleEnable'     => 'ScalingRuleEnable',
@@ -89,6 +95,9 @@ class CreateApplicationScalingRuleRequest extends Model
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
+        }
+        if (null !== $this->enableIdle) {
+            $res['EnableIdle'] = $this->enableIdle;
         }
         if (null !== $this->minReadyInstanceRatio) {
             $res['MinReadyInstanceRatio'] = $this->minReadyInstanceRatio;
@@ -125,6 +134,9 @@ class CreateApplicationScalingRuleRequest extends Model
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
+        }
+        if (isset($map['EnableIdle'])) {
+            $model->enableIdle = $map['EnableIdle'];
         }
         if (isset($map['MinReadyInstanceRatio'])) {
             $model->minReadyInstanceRatio = $map['MinReadyInstanceRatio'];
