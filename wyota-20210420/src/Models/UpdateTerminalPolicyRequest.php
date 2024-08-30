@@ -11,6 +11,11 @@ class UpdateTerminalPolicyRequest extends Model
     /**
      * @var string
      */
+    public $backgroundModeTitle;
+
+    /**
+     * @var string
+     */
     public $displayLayout;
 
     /**
@@ -36,12 +41,22 @@ class UpdateTerminalPolicyRequest extends Model
     /**
      * @var int
      */
+    public $enableBackgroundMode;
+
+    /**
+     * @var int
+     */
     public $enableBluetooth;
 
     /**
      * @var int
      */
     public $enableModifyPassword;
+
+    /**
+     * @var int
+     */
+    public $enableScheduledReboot;
 
     /**
      * @var int
@@ -96,6 +111,11 @@ class UpdateTerminalPolicyRequest extends Model
     /**
      * @var string
      */
+    public $scheduledReboot;
+
+    /**
+     * @var string
+     */
     public $scheduledShutdown;
 
     /**
@@ -108,13 +128,16 @@ class UpdateTerminalPolicyRequest extends Model
      */
     public $terminalPolicyId;
     protected $_name = [
+        'backgroundModeTitle'     => 'BackgroundModeTitle',
         'displayLayout'           => 'DisplayLayout',
         'displayResolution'       => 'DisplayResolution',
         'displayScaleRatio'       => 'DisplayScaleRatio',
         'enableAutoLockScreen'    => 'EnableAutoLockScreen',
         'enableAutoLogin'         => 'EnableAutoLogin',
+        'enableBackgroundMode'    => 'EnableBackgroundMode',
         'enableBluetooth'         => 'EnableBluetooth',
         'enableModifyPassword'    => 'EnableModifyPassword',
+        'enableScheduledReboot'   => 'EnableScheduledReboot',
         'enableScheduledShutdown' => 'EnableScheduledShutdown',
         'enableSwitchPersonal'    => 'EnableSwitchPersonal',
         'enableWlan'              => 'EnableWlan',
@@ -125,6 +148,7 @@ class UpdateTerminalPolicyRequest extends Model
         'powerButtonDefineForAs'  => 'PowerButtonDefineForAs',
         'powerButtonDefineForNs'  => 'PowerButtonDefineForNs',
         'powerOnBehavior'         => 'PowerOnBehavior',
+        'scheduledReboot'         => 'ScheduledReboot',
         'scheduledShutdown'       => 'ScheduledShutdown',
         'settingLock'             => 'SettingLock',
         'terminalPolicyId'        => 'TerminalPolicyId',
@@ -137,6 +161,9 @@ class UpdateTerminalPolicyRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->backgroundModeTitle) {
+            $res['BackgroundModeTitle'] = $this->backgroundModeTitle;
+        }
         if (null !== $this->displayLayout) {
             $res['DisplayLayout'] = $this->displayLayout;
         }
@@ -152,11 +179,17 @@ class UpdateTerminalPolicyRequest extends Model
         if (null !== $this->enableAutoLogin) {
             $res['EnableAutoLogin'] = $this->enableAutoLogin;
         }
+        if (null !== $this->enableBackgroundMode) {
+            $res['EnableBackgroundMode'] = $this->enableBackgroundMode;
+        }
         if (null !== $this->enableBluetooth) {
             $res['EnableBluetooth'] = $this->enableBluetooth;
         }
         if (null !== $this->enableModifyPassword) {
             $res['EnableModifyPassword'] = $this->enableModifyPassword;
+        }
+        if (null !== $this->enableScheduledReboot) {
+            $res['EnableScheduledReboot'] = $this->enableScheduledReboot;
         }
         if (null !== $this->enableScheduledShutdown) {
             $res['EnableScheduledShutdown'] = $this->enableScheduledShutdown;
@@ -188,6 +221,9 @@ class UpdateTerminalPolicyRequest extends Model
         if (null !== $this->powerOnBehavior) {
             $res['PowerOnBehavior'] = $this->powerOnBehavior;
         }
+        if (null !== $this->scheduledReboot) {
+            $res['ScheduledReboot'] = $this->scheduledReboot;
+        }
         if (null !== $this->scheduledShutdown) {
             $res['ScheduledShutdown'] = $this->scheduledShutdown;
         }
@@ -209,6 +245,9 @@ class UpdateTerminalPolicyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BackgroundModeTitle'])) {
+            $model->backgroundModeTitle = $map['BackgroundModeTitle'];
+        }
         if (isset($map['DisplayLayout'])) {
             $model->displayLayout = $map['DisplayLayout'];
         }
@@ -224,11 +263,17 @@ class UpdateTerminalPolicyRequest extends Model
         if (isset($map['EnableAutoLogin'])) {
             $model->enableAutoLogin = $map['EnableAutoLogin'];
         }
+        if (isset($map['EnableBackgroundMode'])) {
+            $model->enableBackgroundMode = $map['EnableBackgroundMode'];
+        }
         if (isset($map['EnableBluetooth'])) {
             $model->enableBluetooth = $map['EnableBluetooth'];
         }
         if (isset($map['EnableModifyPassword'])) {
             $model->enableModifyPassword = $map['EnableModifyPassword'];
+        }
+        if (isset($map['EnableScheduledReboot'])) {
+            $model->enableScheduledReboot = $map['EnableScheduledReboot'];
         }
         if (isset($map['EnableScheduledShutdown'])) {
             $model->enableScheduledShutdown = $map['EnableScheduledShutdown'];
@@ -259,6 +304,9 @@ class UpdateTerminalPolicyRequest extends Model
         }
         if (isset($map['PowerOnBehavior'])) {
             $model->powerOnBehavior = $map['PowerOnBehavior'];
+        }
+        if (isset($map['ScheduledReboot'])) {
+            $model->scheduledReboot = $map['ScheduledReboot'];
         }
         if (isset($map['ScheduledShutdown'])) {
             $model->scheduledShutdown = $map['ScheduledShutdown'];

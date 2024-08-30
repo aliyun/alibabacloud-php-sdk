@@ -44,6 +44,11 @@ class appOtaInfoDTOList extends Model
     public $osType;
 
     /**
+     * @var int
+     */
+    public $otaType;
+
+    /**
      * @var string
      */
     public $project;
@@ -100,6 +105,7 @@ class appOtaInfoDTOList extends Model
         'gmtCreate'       => 'GmtCreate',
         'md5'             => 'Md5',
         'osType'          => 'OsType',
+        'otaType'         => 'OtaType',
         'project'         => 'Project',
         'protocolType'    => 'ProtocolType',
         'releaseNote'     => 'ReleaseNote',
@@ -139,6 +145,9 @@ class appOtaInfoDTOList extends Model
         }
         if (null !== $this->osType) {
             $res['OsType'] = $this->osType;
+        }
+        if (null !== $this->otaType) {
+            $res['OtaType'] = $this->otaType;
         }
         if (null !== $this->project) {
             $res['Project'] = $this->project;
@@ -202,6 +211,9 @@ class appOtaInfoDTOList extends Model
         }
         if (isset($map['OsType'])) {
             $model->osType = $map['OsType'];
+        }
+        if (isset($map['OtaType'])) {
+            $model->otaType = $map['OtaType'];
         }
         if (isset($map['Project'])) {
             $model->project = $map['Project'];

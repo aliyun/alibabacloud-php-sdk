@@ -141,6 +141,7 @@ use AlibabaCloud\SDK\Wyota\V20210420\Models\UpdateTerminalPolicyResponse;
 use AlibabaCloud\Tea\Tea;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
+use Darabonba\GatewayPop\Client;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -150,8 +151,10 @@ class Wyota extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_signatureAlgorithm = 'v2';
-        $this->_endpointRule       = '';
+        $this->_productId    = 'wyota';
+        $gatewayClient       = new Client();
+        $this->_spi          = $gatewayClient;
+        $this->_endpointRule = '';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('wyota', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -209,7 +212,7 @@ class Wyota extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return ActivateDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ActivateDeviceResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
     }
 
     /**
@@ -270,8 +273,11 @@ class Wyota extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return AddDeviceFromSNResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AddDeviceFromSNResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddDeviceFromSNResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -336,7 +342,7 @@ class Wyota extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return AddDeviceSeatsAndLabelsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddDeviceSeatsAndLabelsResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
     }
 
     /**
@@ -394,8 +400,11 @@ class Wyota extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return AddDevicesFromCSVResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AddDevicesFromCSVResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddDevicesFromCSVResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -441,8 +450,11 @@ class Wyota extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return AddLabelsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AddLabelsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddLabelsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -494,8 +506,11 @@ class Wyota extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return AddOrUpdateDeviceSeatsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AddOrUpdateDeviceSeatsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddOrUpdateDeviceSeatsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -547,8 +562,11 @@ class Wyota extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return AddTerminalResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AddTerminalResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddTerminalResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -597,8 +615,11 @@ class Wyota extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return AttachEndUsersResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AttachEndUsersResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AttachEndUsersResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -650,8 +671,11 @@ class Wyota extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return AttachLabelResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AttachLabelResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AttachLabelResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -703,8 +727,11 @@ class Wyota extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return AttachLabelsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AttachLabelsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AttachLabelsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -756,8 +783,11 @@ class Wyota extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return BindAccountLessLoginUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return BindAccountLessLoginUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BindAccountLessLoginUserResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -828,7 +858,7 @@ class Wyota extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return CheckUuidValidResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CheckUuidValidResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
     }
 
     /**
@@ -913,8 +943,11 @@ class Wyota extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateAppOtaTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateAppOtaTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateAppOtaTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1014,8 +1047,11 @@ class Wyota extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateAppOtaVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateAppOtaVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateAppOtaVersionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1061,8 +1097,11 @@ class Wyota extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteAppOtaVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteAppOtaVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteAppOtaVersionsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1116,8 +1155,11 @@ class Wyota extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteDevicesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteDevicesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteDevicesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1169,8 +1211,11 @@ class Wyota extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteLabelResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteLabelResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteLabelResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1234,8 +1279,11 @@ class Wyota extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeAppOtaVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeAppOtaVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeAppOtaVersionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1297,7 +1345,7 @@ class Wyota extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return DescribeDeviceSeatsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDeviceSeatsResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
     }
 
     /**
@@ -1353,7 +1401,7 @@ class Wyota extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return DescribeDeviceVersionDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDeviceVersionDetailResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
     }
 
     /**
@@ -1408,8 +1456,11 @@ class Wyota extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeSnLabelCountsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeSnLabelCountsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeSnLabelCountsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1468,7 +1519,7 @@ class Wyota extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return DescribeWorkZonesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeWorkZonesResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
     }
 
     /**
@@ -1517,8 +1568,11 @@ class Wyota extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DetachEndUsersResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DetachEndUsersResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DetachEndUsersResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1570,8 +1624,11 @@ class Wyota extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DetachLabelResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DetachLabelResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DetachLabelResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1623,8 +1680,11 @@ class Wyota extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DetachLabelsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DetachLabelsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DetachLabelsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1674,7 +1734,7 @@ class Wyota extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return GenerateOssUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GenerateOssUrlResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
     }
 
     /**
@@ -1733,7 +1793,7 @@ class Wyota extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return GetAppOtaLatestVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetAppOtaLatestVersionResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
     }
 
     /**
@@ -1795,7 +1855,7 @@ class Wyota extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return GetDeviceConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDeviceConfigsResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
     }
 
     /**
@@ -1841,8 +1901,11 @@ class Wyota extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetDeviceOtaAutoStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetDeviceOtaAutoStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDeviceOtaAutoStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1916,7 +1979,7 @@ class Wyota extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return GetDeviceOtaInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDeviceOtaInfoResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
     }
 
     /**
@@ -1971,8 +2034,11 @@ class Wyota extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetDeviceOtaInfoTestResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetDeviceOtaInfoTestResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDeviceOtaInfoTestResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2018,8 +2084,11 @@ class Wyota extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetDeviceOtaTaskVersionInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetDeviceOtaTaskVersionInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDeviceOtaTaskVersionInfoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2074,8 +2143,11 @@ class Wyota extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetDeviceUpgradeStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetDeviceUpgradeStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDeviceUpgradeStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2127,8 +2199,11 @@ class Wyota extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetExportDeviceInfoOssUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetExportDeviceInfoOssUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetExportDeviceInfoOssUrlResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2181,7 +2256,7 @@ class Wyota extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return GetFbOssConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetFbOssConfigResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
     }
 
     /**
@@ -2227,8 +2302,11 @@ class Wyota extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetOssConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetOssConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetOssConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2274,8 +2352,11 @@ class Wyota extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetVersionDownloadUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetVersionDownloadUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetVersionDownloadUrlResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2324,8 +2405,11 @@ class Wyota extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListDeviceOtaTaskByTenantResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListDeviceOtaTaskByTenantResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListDeviceOtaTaskByTenantResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2383,8 +2467,11 @@ class Wyota extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListDeviceSeatsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListDeviceSeatsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListDeviceSeatsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2483,8 +2570,11 @@ class Wyota extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListDevicesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListDevicesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListDevicesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2523,7 +2613,7 @@ class Wyota extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return ListFbIssueLabelsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListFbIssueLabelsResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
     }
 
     /**
@@ -2571,7 +2661,7 @@ class Wyota extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return ListFbIssueLabelsByLCResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListFbIssueLabelsByLCResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
     }
 
     /**
@@ -2626,8 +2716,11 @@ class Wyota extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListLabelsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListLabelsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListLabelsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2679,8 +2772,11 @@ class Wyota extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListTenantDeviceOtaInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListTenantDeviceOtaInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListTenantDeviceOtaInfoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2762,8 +2858,11 @@ class Wyota extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListTerminalResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListTerminalResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListTerminalResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2826,8 +2925,11 @@ class Wyota extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListTerminalsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListTerminalsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListTerminalsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2883,7 +2985,7 @@ class Wyota extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return ListTrustDevicesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListTrustDevicesResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
     }
 
     /**
@@ -2954,7 +3056,7 @@ class Wyota extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return ListUserFbAcIssuesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListUserFbAcIssuesResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
     }
 
     /**
@@ -3055,7 +3157,7 @@ class Wyota extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return ListUserFbIssuesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListUserFbIssuesResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
     }
 
     /**
@@ -3107,8 +3209,11 @@ class Wyota extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ModifyDevicesSecureNetworkTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyDevicesSecureNetworkTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyDevicesSecureNetworkTypeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3157,8 +3262,11 @@ class Wyota extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ModifySecureNetworkTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifySecureNetworkTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifySecureNetworkTypeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3244,7 +3352,7 @@ class Wyota extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return RegisterDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RegisterDeviceResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
     }
 
     /**
@@ -3315,7 +3423,7 @@ class Wyota extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return ReportAppOtaInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ReportAppOtaInfoResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
     }
 
     /**
@@ -3377,7 +3485,7 @@ class Wyota extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return ReportDeviceOtaInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ReportDeviceOtaInfoResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
     }
 
     /**
@@ -3453,7 +3561,7 @@ class Wyota extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return ReportUserFbAcIssueResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ReportUserFbAcIssueResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
     }
 
     /**
@@ -3577,7 +3685,7 @@ class Wyota extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return ReportUserFbIssueResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ReportUserFbIssueResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
     }
 
     /**
@@ -3639,8 +3747,11 @@ class Wyota extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return SendOpsMessageToTerminalsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SendOpsMessageToTerminalsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SendOpsMessageToTerminalsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3698,8 +3809,11 @@ class Wyota extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return SetDeviceOtaAutoStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SetDeviceOtaAutoStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SetDeviceOtaAutoStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3748,8 +3862,11 @@ class Wyota extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return SetDeviceOtaTaskStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SetDeviceOtaTaskStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SetDeviceOtaTaskStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3798,8 +3915,11 @@ class Wyota extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UnbindAccountLessLoginUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UnbindAccountLessLoginUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UnbindAccountLessLoginUserResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3850,8 +3970,11 @@ class Wyota extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UnbindDeviceSeatsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UnbindDeviceSeatsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UnbindDeviceSeatsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3903,8 +4026,11 @@ class Wyota extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UpdateAliasResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateAliasResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateAliasResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3965,8 +4091,11 @@ class Wyota extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UpdateDeviceBindedEndUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateDeviceBindedEndUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateDeviceBindedEndUserResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4015,8 +4144,11 @@ class Wyota extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UpdateLabelResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateLabelResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateLabelResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4045,6 +4177,9 @@ class Wyota extends OpenApiClient
     {
         Utils::validateModel($request);
         $body = [];
+        if (!Utils::isUnset($request->backgroundModeTitle)) {
+            $body['BackgroundModeTitle'] = $request->backgroundModeTitle;
+        }
         if (!Utils::isUnset($request->displayLayout)) {
             $body['DisplayLayout'] = $request->displayLayout;
         }
@@ -4060,11 +4195,17 @@ class Wyota extends OpenApiClient
         if (!Utils::isUnset($request->enableAutoLogin)) {
             $body['EnableAutoLogin'] = $request->enableAutoLogin;
         }
+        if (!Utils::isUnset($request->enableBackgroundMode)) {
+            $body['EnableBackgroundMode'] = $request->enableBackgroundMode;
+        }
         if (!Utils::isUnset($request->enableBluetooth)) {
             $body['EnableBluetooth'] = $request->enableBluetooth;
         }
         if (!Utils::isUnset($request->enableModifyPassword)) {
             $body['EnableModifyPassword'] = $request->enableModifyPassword;
+        }
+        if (!Utils::isUnset($request->enableScheduledReboot)) {
+            $body['EnableScheduledReboot'] = $request->enableScheduledReboot;
         }
         if (!Utils::isUnset($request->enableScheduledShutdown)) {
             $body['EnableScheduledShutdown'] = $request->enableScheduledShutdown;
@@ -4096,6 +4237,9 @@ class Wyota extends OpenApiClient
         if (!Utils::isUnset($request->powerOnBehavior)) {
             $body['PowerOnBehavior'] = $request->powerOnBehavior;
         }
+        if (!Utils::isUnset($request->scheduledReboot)) {
+            $body['ScheduledReboot'] = $request->scheduledReboot;
+        }
         if (!Utils::isUnset($request->scheduledShutdown)) {
             $body['ScheduledShutdown'] = $request->scheduledShutdown;
         }
@@ -4119,8 +4263,11 @@ class Wyota extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UpdateTerminalPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateTerminalPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateTerminalPolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
