@@ -44,6 +44,13 @@ class instancePatternInfos extends Model
     public $cores;
 
     /**
+     * @description The CPU architectures of the instance types. Valid values:
+     *
+     * >  You can specify 1 to 2 CPU architectures.
+     *
+     *   x86
+     *   Arm
+     *
      * @var string[]
      */
     public $cpuArchitectures;
@@ -59,11 +66,34 @@ class instancePatternInfos extends Model
     public $excludedInstanceTypes;
 
     /**
+     * @description The GPU models.
+     *
      * @var string[]
      */
     public $gpuSpecs;
 
     /**
+     * @description The categories of the instance.families. Valid values:
+     *
+     * >  You can specify 1 to 10 categories.
+     *
+     *   General-purpose
+     *   Compute-optimized
+     *   Memory-optimized
+     *   Big data
+     *   Local SSDs
+     *   High Clock Speed
+     *   Enhanced
+     *   Shared
+     *   Compute-optimized with GPU
+     *   Visual Compute-optimized
+     *   Heterogeneous Service
+     *   Compute-optimized with FPGA
+     *   Compute-optimized with NPU
+     *   ECS Bare Metal
+     *   Super Computing Cluster
+     *   High Performance Compute
+     *
      * @var string[]
      */
     public $instanceCategories;
@@ -82,6 +112,8 @@ class instancePatternInfos extends Model
     public $instanceFamilyLevel;
 
     /**
+     * @description The instance families that are queried. You can query 1 to 10 instance families in each call.
+     *
      * @var string[]
      */
     public $instanceTypeFamilies;
@@ -96,16 +128,29 @@ class instancePatternInfos extends Model
     public $maxPrice;
 
     /**
+     * @description The maximum number of vCPUs per instance type.
+     *
+     * >  The value of MaximumCpuCoreCount cannot exceed four times the value of MinimumCpuCoreCount.
+     * @example 4
+     *
      * @var int
      */
     public $maximumCpuCoreCount;
 
     /**
+     * @description The maximum number of GPUs per instance. The value must be a positive integer.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $maximumGpuAmount;
 
     /**
+     * @description The maximum memory size per instance. Unit: GiB.
+     *
+     * @example 4
+     *
      * @var float
      */
     public $maximumMemorySize;
@@ -120,46 +165,80 @@ class instancePatternInfos extends Model
     public $memory;
 
     /**
+     * @description The baseline vCPU computing performance (overall baseline performance of all vCPUs) per t5 or t6 burstable instance.
+     *
+     * @example 12
+     *
      * @var int
      */
     public $minimumBaselineCredit;
 
     /**
+     * @description The minimum number of vCPUs per instance type.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $minimumCpuCoreCount;
 
     /**
+     * @description The minimum number of IPv6 addresses per ENI.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $minimumEniIpv6AddressQuantity;
 
     /**
+     * @description The minimum number of IPv4 addresses per ENI.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $minimumEniPrivateIpAddressQuantity;
 
     /**
+     * @description The minimum number of elastic network interfaces (ENIs) per instance.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $minimumEniQuantity;
 
     /**
+     * @description The minimum number of GPUs per instance. The value must be a positive integer.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $minimumGpuAmount;
 
     /**
+     * @description The initial vCPU credits per t5 or t6 burstable instance.
+     *
+     * @example 12
+     *
      * @var int
      */
     public $minimumInitialCredit;
 
     /**
+     * @description The minimum memory size per instance. Unit: GiB.
+     *
+     * @example 4
+     *
      * @var float
      */
     public $minimumMemorySize;
 
     /**
+     * @description The processor models of the instance types. You can specify 1 to 10 processor models.
+     *
      * @var string[]
      */
     public $physicalProcessorModels;

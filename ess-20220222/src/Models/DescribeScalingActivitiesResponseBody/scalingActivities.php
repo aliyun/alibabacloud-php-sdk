@@ -123,6 +123,11 @@ class scalingActivities extends Model
     public $errorMessage;
 
     /**
+     * @var string
+     */
+    public $instanceRefreshTaskId;
+
+    /**
      * @description The context of the lifecycle hook.
      *
      * @var lifecycleHookContext
@@ -279,6 +284,7 @@ class scalingActivities extends Model
         'endTime'               => 'EndTime',
         'errorCode'             => 'ErrorCode',
         'errorMessage'          => 'ErrorMessage',
+        'instanceRefreshTaskId' => 'InstanceRefreshTaskId',
         'lifecycleHookContext'  => 'LifecycleHookContext',
         'progress'              => 'Progress',
         'scalingActivityId'     => 'ScalingActivityId',
@@ -341,6 +347,9 @@ class scalingActivities extends Model
         }
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
+        }
+        if (null !== $this->instanceRefreshTaskId) {
+            $res['InstanceRefreshTaskId'] = $this->instanceRefreshTaskId;
         }
         if (null !== $this->lifecycleHookContext) {
             $res['LifecycleHookContext'] = null !== $this->lifecycleHookContext ? $this->lifecycleHookContext->toMap() : null;
@@ -441,6 +450,9 @@ class scalingActivities extends Model
         }
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
+        }
+        if (isset($map['InstanceRefreshTaskId'])) {
+            $model->instanceRefreshTaskId = $map['InstanceRefreshTaskId'];
         }
         if (isset($map['LifecycleHookContext'])) {
             $model->lifecycleHookContext = lifecycleHookContext::fromMap($map['LifecycleHookContext']);

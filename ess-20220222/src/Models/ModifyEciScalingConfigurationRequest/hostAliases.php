@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class hostAliases extends Model
 {
     /**
-     * @description The hostnames that you want to add.
+     * @description The names of the hosts that you want to add.
      *
      * @var string[]
      */

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeNotificationConfigurationsResponseBody extends Model
 {
     /**
-     * @description Details of the notifications.
+     * @description The notification settings.
      *
      * @var notificationConfigurationModels[]
      */

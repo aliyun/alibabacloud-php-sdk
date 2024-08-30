@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class imageOptions extends Model
 {
     /**
+     * @description Specifies whether to use ecs-user to log on to an ECS instance created from the scaling configuration. For information about logon usernames, see [Manage the logon username of an instance](https://help.aliyun.com/document_detail/388447.html). Valid values:
+     *
+     * false
      * @example false
      *
      * @var bool

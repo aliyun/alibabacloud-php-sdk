@@ -18,12 +18,12 @@ class systemDisk extends Model
     public $autoSnapshotPolicyId;
 
     /**
-     * @description Specifies whether to enable the burst feature for the system disk. Valid values:
+     * @description Specifies whether to enable the Burst feature for the system disk. Valid values:
      *
      *   true
      *   false
      *
-     * > This parameter is available only if you set `SystemDisk.Category` to `cloud_auto`.
+     * >  If you set `SystemDisk.Category` to `cloud_auto`, you can specify this parameter.
      * @example false
      *
      * @var bool
@@ -33,13 +33,13 @@ class systemDisk extends Model
     /**
      * @description The category of the system disk. Valid values:
      *
-     *   cloud: basic disk
-     *   cloud_efficiency: ultra disk
-     *   cloud_ssd: standard SSD
-     *   cloud_essd: enhanced SSD (ESSD)
-     *   ephemeral_ssd: local SSD
+     *   cloud: basic disk.
+     *   cloud_efficiency: ultra disk.
+     *   cloud_ssd: standard SSD.
+     *   cloud_essd: Enterprise SSD (ESSD).
+     *   ephemeral_ssd: local SSD.
      *
-     * If you specify SystemDisk.Category, you cannot specify `SystemDiskCategories`. If you do not specify SystemDisk.Category or `SystemDiskCategories`, the default value of SystemDisk.Category is used. For non-I/O optimized instances of Generation I instance types, the default value is cloud. For instances of other instance types, the default value is cloud_efficiency.
+     * If you specify SystemDisk.Category, you cannot specify `SystemDiskCategories`. If you do not specify SystemDisk.Category or `SystemDiskCategories`, the default value of SystemDisk.Category is used. The default value for non-I/O optimized instances of Generation I instance families is cloud. The default value for other instances is cloud_efficiency.
      * @example cloud_efficiency
      *
      * @var string
@@ -66,12 +66,12 @@ class systemDisk extends Model
     public $diskName;
 
     /**
-     * @description The algorithm that you want to use to encrypt the system disk. Valid values:
+     * @description The encryption algorithm of the system disk. Valid values:
      *
      *   AES-256
      *   SM4-128
      *
-     * Default value: AES-256
+     * Default value: AES-256.
      * @example AES-256
      *
      * @var string
@@ -84,7 +84,7 @@ class systemDisk extends Model
      *   true
      *   false
      *
-     * Default value: false
+     * Default value: false.
      * @example false
      *
      * @var bool
@@ -108,7 +108,7 @@ class systemDisk extends Model
      *   PL2: An ESSD can provide up to 100,000 random read/write IOPS.
      *   PL3: An ESSD can provide up to 1,000,000 random read/write IOPS.
      *
-     * > For more information about how to select ESSD PLs, see [ESSD](https://help.aliyun.com/document_detail/122389.html).
+     * >  For more information about how to select ESSD PLs, see [ESSDs](https://help.aliyun.com/document_detail/122389.html).
      * @example PL0
      *
      * @var string

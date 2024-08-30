@@ -11,6 +11,11 @@ class DescribeScalingActivitiesRequest extends Model
     /**
      * @var string
      */
+    public $instanceRefreshTaskId;
+
+    /**
+     * @var string
+     */
     public $ownerAccount;
 
     /**
@@ -91,16 +96,17 @@ class DescribeScalingActivitiesRequest extends Model
      */
     public $statusCode;
     protected $_name = [
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'pageNumber'           => 'PageNumber',
-        'pageSize'             => 'PageSize',
-        'regionId'             => 'RegionId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'scalingActivityIds'   => 'ScalingActivityIds',
-        'scalingGroupId'       => 'ScalingGroupId',
-        'statusCode'           => 'StatusCode',
+        'instanceRefreshTaskId' => 'InstanceRefreshTaskId',
+        'ownerAccount'          => 'OwnerAccount',
+        'ownerId'               => 'OwnerId',
+        'pageNumber'            => 'PageNumber',
+        'pageSize'              => 'PageSize',
+        'regionId'              => 'RegionId',
+        'resourceOwnerAccount'  => 'ResourceOwnerAccount',
+        'resourceOwnerId'       => 'ResourceOwnerId',
+        'scalingActivityIds'    => 'ScalingActivityIds',
+        'scalingGroupId'        => 'ScalingGroupId',
+        'statusCode'            => 'StatusCode',
     ];
 
     public function validate()
@@ -110,6 +116,9 @@ class DescribeScalingActivitiesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->instanceRefreshTaskId) {
+            $res['InstanceRefreshTaskId'] = $this->instanceRefreshTaskId;
+        }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
@@ -152,6 +161,9 @@ class DescribeScalingActivitiesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['InstanceRefreshTaskId'])) {
+            $model->instanceRefreshTaskId = $map['InstanceRefreshTaskId'];
+        }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }

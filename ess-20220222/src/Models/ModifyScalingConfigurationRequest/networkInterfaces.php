@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class networkInterfaces extends Model
 {
     /**
+     * @description The ENI type. If you specify this parameter, you must use NetworkInterfaces to specify a primary ENI. In addition, you cannot specify SecurityGroupId or SecurityGroupIds. Valid values:
+     *
+     *   Primary: the primary ENI.
+     *   Secondary: the secondary ENI.
+     *
+     * Default value: Secondary.
      * @example Primary
      *
      * @var string
@@ -16,6 +22,9 @@ class networkInterfaces extends Model
     public $instanceType;
 
     /**
+     * @description The number of randomly generated IPv6 addresses that you want to allocate to the primary ENI. Before you specify this parameter, take note of the following items:
+     *
+     * After you specify this parameter, you can no longer specify Ipv6AddressCount.
      * @example 1
      *
      * @var int
@@ -23,6 +32,12 @@ class networkInterfaces extends Model
     public $ipv6AddressCount;
 
     /**
+     * @description The communication mode of the ENI. Valid values:
+     *
+     *   Standard: uses the TCP communication mode.
+     *   HighPerformance: uses the remote direct memory access (RDMA) communication mode with Elastic RDMA Interface (ERI) enabled.
+     *
+     * >  The number of ERIs on an instance cannot exceed the maximum number of ERIs supported by the instance type. For more information, see [Overview of instance families](https://help.aliyun.com/document_detail/25378.html).
      * @example HighPerformance
      *
      * @var string
@@ -30,6 +45,8 @@ class networkInterfaces extends Model
     public $networkInterfaceTrafficMode;
 
     /**
+     * @description The IDs of the security groups to which you want to assign the ENI.
+     *
      * @var string[]
      */
     public $securityGroupIds;

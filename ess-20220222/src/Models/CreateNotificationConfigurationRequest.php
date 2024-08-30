@@ -9,18 +9,18 @@ use AlibabaCloud\Tea\Model;
 class CreateNotificationConfigurationRequest extends Model
 {
     /**
-     * @description The Alibaba Cloud Resource Name (ARN) of the notification method. The following list describes the value formats of this parameter:
+     * @description The Alibaba Cloud Resource Name (ARN) of the notification recipient. The following list describes the value formats of this parameter:
      *
-     *   If you use CloudMonitor as the notification method, the value format of this parameter is acs:ess:{region-id}:{account-id}:cloudmonitor.
-     *   If you use an MNS queue as the notification method, the value format of this parameter is acs:mns:{region-id}:{account-id}:queue/{queuename}.
-     *   If you use an MNS topic as the notification method, the value format of this parameter is acs:mns:{region-id}:{account-id}:topic/{topicname}.
+     *   If you specify CloudMonitor as the notification recipient, specify the value in the `acs:ess:{region-id}:{account-id}:cloudmonitor` format.
+     *   If you specify an MNS queue as the notification recipient, specify the value in the `acs:mns:{region-id}:{account-id}:queue/{queuename}` format.
+     *   If you specify an MNS topic as the notification recipient, specify the value in the `acs:mns:{region-id}:{account-id}:topic/{topicname}` format.
      *
      * The variables in the preceding formats have the following meanings:
      *
-     *   region-id: the region ID of the scaling group.
-     *   account-id: the ID of the Alibaba Cloud account.
-     *   queuename: the name of the MNS queue.
-     *   topicname: the name of the MNS topic.
+     *   `region-id`: the region ID of the scaling group.
+     *   `account-id`: the ID of the Alibaba Cloud account.
+     *   `queuename`: the name of the MNS queue.
+     *   `topicname`: the name of the MNS topic.
      *
      * This parameter is required.
      * @example acs:mns:cn-beijing:161456884340****:queue/modifyLifecycleHo****
@@ -30,7 +30,7 @@ class CreateNotificationConfigurationRequest extends Model
     public $notificationArn;
 
     /**
-     * @description The types of the notifications that you want to create. You can create one to eight notifications. Specify multiple values in the repeated list form.
+     * @description The notification types. Specify multiple IDs in the repeated list form.
      *
      * This parameter is required.
      * @var string[]
@@ -67,6 +67,10 @@ class CreateNotificationConfigurationRequest extends Model
     public $scalingGroupId;
 
     /**
+     * @description The time zone of the notification. Specify the value in UTC. For example, a value of UTC+8 specifies that the time is 8 hours ahead of Coordinated Universal Time, and a value of UTC-7 specifies that the time is 7 hours behind Coordinated Universal Time.
+     *
+     * @example UTC+8
+     *
      * @var string
      */
     public $timeZone;

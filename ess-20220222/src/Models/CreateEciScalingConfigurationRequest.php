@@ -56,8 +56,9 @@ class CreateEciScalingConfigurationRequest extends Model
     public $autoMatchImageCache;
 
     /**
-     * @description The name of the elastic container instance.
+     * @description The name series of elastic container instances.
      *
+     * If you want to use an ordered container group name, specify the value for this parameter in the following format: name_prefix[begin_number,bits]name_suffix.
      * @example nginx-test
      *
      * @var string

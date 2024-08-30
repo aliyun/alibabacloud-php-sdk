@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ApplyScalingGroupResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example CC107349-57B7-4405-B1BF-9BF5AF7F****
      *
      * @var string
@@ -16,6 +18,8 @@ class ApplyScalingGroupResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the enabled scaling group.
+     *
      * @example asg-bp1igpak5ft1flyp****
      *
      * @var string

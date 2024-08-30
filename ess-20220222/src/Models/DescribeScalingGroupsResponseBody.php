@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeScalingGroupsResponseBody extends Model
 {
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -17,6 +19,8 @@ class DescribeScalingGroupsResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 10
      *
      * @var int
@@ -24,6 +28,8 @@ class DescribeScalingGroupsResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
      *
      * @var string
@@ -31,13 +37,15 @@ class DescribeScalingGroupsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The information about the scaling groups.
+     * @description The scaling groups.
      *
      * @var scalingGroups[]
      */
     public $scalingGroups;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 1
      *
      * @var int

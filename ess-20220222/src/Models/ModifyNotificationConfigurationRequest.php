@@ -67,6 +67,10 @@ class ModifyNotificationConfigurationRequest extends Model
     public $scalingGroupId;
 
     /**
+     * @description The time zone of the notification. Specify the value in UTC. For example, a value of UTC+8 specifies that the time is 8 hours ahead of Coordinated Universal Time, and a value of UTC-7 specifies that the time is 7 hours behind Coordinated Universal Time.
+     *
+     * @example UTC+8
+     *
      * @var string
      */
     public $timeZone;

@@ -88,12 +88,13 @@ class CreateScalingRuleRequest extends Model
      *
      * Valid values if you set ScalingRuleType to TargetTrackingScalingRule:
      *
+     *   CpuUtilizationAgent (recommended): the CPU utilization.
+     *   MemoryUtilization (recommended): the memory usage.
      *   CpuUtilization: the average CPU utilization.
      *   IntranetTx: the outbound traffic over an internal network.
      *   IntranetRx: the inbound traffic over an internal network.
      *   VpcInternetTx: the outbound traffic from a virtual private cloud (VPC) to the Internet.
      *   VpcInternetRx: the inbound traffic from the Internet to a VPC.
-     *   MemoryUtilization: the memory usage.
      *   LoadBalancerRealServerAverageQps:the queries per second (QPS) per Application Load Balancer (ALB) server group.
      *
      * Valid values if you set ScalingRuleType to PredictiveScalingRule:
@@ -102,6 +103,7 @@ class CreateScalingRuleRequest extends Model
      *   IntranetRx: the inbound traffic over an internal network.
      *   IntranetTx: the outbound traffic over an internal network.
      *
+     * For more information, see [Event-triggered tasks of the system monitoring type](https://www.alibabacloud.com/help/zh/auto-scaling/user-guide/event-triggered-tasks-of-the-system-monitoring-type).
      * @example CpuUtilization
      *
      * @var string

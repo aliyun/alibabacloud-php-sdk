@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeScalingInstancesResponseBody extends Model
 {
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -17,6 +19,8 @@ class DescribeScalingInstancesResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 10
      *
      * @var int
@@ -33,13 +37,15 @@ class DescribeScalingInstancesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The information about the ECS instances.
+     * @description The ECS instances.
      *
      * @var scalingInstances[]
      */
     public $scalingInstances;
 
     /**
+     * @description The total number of ECS instances in the scaling group.
+     *
      * @example 1
      *
      * @var int
@@ -47,6 +53,8 @@ class DescribeScalingInstancesResponseBody extends Model
     public $totalCount;
 
     /**
+     * @description The total number of preemptible instances that run as expected in the scaling group.
+     *
      * @example 4
      *
      * @var int

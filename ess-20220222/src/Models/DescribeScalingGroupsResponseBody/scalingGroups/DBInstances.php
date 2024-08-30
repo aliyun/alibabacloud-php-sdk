@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DBInstances extends Model
 {
     /**
-     * @description The database ID.
+     * @description The ID of the database.
      *
      * @example rm-m5eqju85s45mu0***
      *
@@ -18,7 +18,7 @@ class DBInstances extends Model
     public $DBInstanceId;
 
     /**
-     * @description The IDs of the security groups added to the security group whitelist of the attached database.
+     * @description The IDs of the security groups that are added to the security group whitelist of the attached database.
      *
      * @var string[]
      */
@@ -27,9 +27,9 @@ class DBInstances extends Model
     /**
      * @description The type of the database. Valid values:
      *
-     *   RDS
-     *   Redis
-     *   MongoDB
+     *   RDS.
+     *   Redis.
+     *   MongoDB.
      *
      * @example RDS
      *

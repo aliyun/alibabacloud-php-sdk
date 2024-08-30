@@ -19,6 +19,8 @@ class ApplyScalingGroupRequest extends Model
     public $content;
 
     /**
+     * @description Optional. The format of the configuration file. Default value: YAML. Set the value to YAML.
+     *
      * @example YAML
      *
      * @var string
@@ -26,6 +28,8 @@ class ApplyScalingGroupRequest extends Model
     public $format;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string

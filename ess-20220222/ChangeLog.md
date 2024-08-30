@@ -1,3 +1,15 @@
+2024-08-30 Version: 1.6.0
+- Support API CancelInstanceRefresh.
+- Support API DescribeInstanceRefreshes.
+- Support API ResumeInstanceRefresh.
+- Support API RollbackInstanceRefresh.
+- Support API StartInstanceRefresh.
+- Support API SuspendInstanceRefresh.
+- Update API DescribeScalingActivities: add param InstanceRefreshTaskId.
+- Update API DescribeScalingActivities: update response param.
+- Update API DescribeScalingGroups: update response param.
+
+
 2024-08-06 Version: 1.5.4
 - Generated php 2022-02-22 for Ess.
 

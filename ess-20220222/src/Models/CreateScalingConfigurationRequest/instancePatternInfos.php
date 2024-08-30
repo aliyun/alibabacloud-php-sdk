@@ -9,13 +9,13 @@ use AlibabaCloud\Tea\Model;
 class instancePatternInfos extends Model
 {
     /**
-     * @description The architecture types of the instance types. Valid values:
+     * @description The architecture types of instance types. Valid values:
      *
-     *   X86: x86
-     *   Heterogeneous: heterogeneous computing, such as GPU-accelerated or FPGA-accelerated
-     *   BareMetal: ECS Bare Metal Instance
-     *   Arm: Arm
-     *   SuperComputeCluster: Super Computing Cluster
+     *   X86: x86.
+     *   Heterogeneous: heterogeneous computing, such as GPU-accelerated or FPGA-accelerated.
+     *   BareMetal: ECS Bare Metal Instance.
+     *   Arm: Arm.
+     *   SuperComputeCluster: Super Computing Cluster.
      *
      * By default, all values are included.
      * @var string[]
@@ -37,13 +37,13 @@ class instancePatternInfos extends Model
     public $burstablePerformance;
 
     /**
-     * @description The number of vCPUs per instance type in intelligent configuration mode. You can use this parameter to filter the available instance types that meet the specified criteria. For more information, see [Overview of instance families](https://help.aliyun.com/document_detail/25378.html).
+     * @description The number of vCPUs per instance type in intelligent configuration mode. You can use this parameter to match the available instance types. For more information, see [Overview of instance families](https://help.aliyun.com/document_detail/25378.html).
      *
-     * Before you specify this parameter, take note of the following items:
+     * Take note of the following items:
      *
-     *   InstancePatternInfos is applicable only to the scaling groups that reside in virtual private clouds (VPCs).
+     *   InstancePatternInfos applies only to the scaling groups that reside in virtual private clouds (VPCs).
      *   If you specify InstancePatternInfos, you must also specify InstancePatternInfos.Cores and InstancePatternInfos.Memory.
-     *   If you specify InstanceType or InstanceTypes, Auto Scaling preferentially uses the instance type specified by InstanceType or InstanceTypes to create instances during scale-out events. If the specified instance type does not have sufficient inventory, Auto Scaling uses the lowest-priced instance type specified by InstancePatternInfos to create instances during scale-out events.
+     *   If you specify InstanceType or InstanceTypes, Auto Scaling preferentially uses the instance type specified by InstanceType or InstanceTypes to create instances during scale-out events. If the specified instance type has insufficient inventory, Auto Scaling uses the lowest-priced instance type specified by InstancePatternInfos to create instances during scale-out events.
      *
      * @example 2
      *
@@ -52,6 +52,13 @@ class instancePatternInfos extends Model
     public $cores;
 
     /**
+     * @description The CPU architectures of instance types. Valid values:
+     *
+     * >  You can specify 1 to 2 CPU architectures.
+     *
+     *   x86
+     *   Arm
+     *
      * @var string[]
      */
     public $cpuArchitectures;
@@ -67,17 +74,40 @@ class instancePatternInfos extends Model
     public $excludedInstanceTypes;
 
     /**
+     * @description The GPU models.
+     *
      * @var string[]
      */
     public $gpuSpecs;
 
     /**
+     * @description The categories of instance types. Valid values:
+     *
+     * >  You can specify up to 10 categories.
+     *
+     *   General-purpose
+     *   Compute-optimized
+     *   Memory-optimized
+     *   Big data
+     *   Local SSDs
+     *   High Clock Speed
+     *   Enhanced
+     *   Shared
+     *   Compute-optimized with GPU
+     *   Visual Compute-optimized
+     *   Heterogeneous Service
+     *   Compute-optimized with FPGA
+     *   Compute-optimized with NPU
+     *   ECS Bare Metal
+     *   Super Computing Cluster
+     *   High Performance Compute
+     *
      * @var string[]
      */
     public $instanceCategories;
 
     /**
-     * @description The level of the instance family. You can specify this parameter to specify the available instance types. This parameter takes effect only if you set `CostOptimization` to true. Valid values:
+     * @description The level of the instance family. You can use this parameter to match the available instance types. This parameter takes effect only if you set `CostOptimization` to true. Valid values:
      *
      *   EntryLevel: entry level (shared instance type). Instance types of this level are the most cost-effective but may not provide stable computing performance. Instance types of this level are suitable for scenarios in which the CPU utilization is low. For more information, see [Shared instance families](https://help.aliyun.com/document_detail/108489.html).
      *   EnterpriseLevel: enterprise level. Instance types of this level provide stable performance and dedicated resources, and are suitable for business scenarios that require high stability. For more information, see [Overview of instance families](https://help.aliyun.com/document_detail/25378.html).
@@ -90,6 +120,8 @@ class instancePatternInfos extends Model
     public $instanceFamilyLevel;
 
     /**
+     * @description The instance families that you want to specify. You can specify up to 10 instance families in each call.
+     *
      * @var string[]
      */
     public $instanceTypeFamilies;
@@ -105,6 +137,9 @@ class instancePatternInfos extends Model
     public $maxPrice;
 
     /**
+     * @description The maximum number of vCPUs per instance type.
+     *
+     * >  The value of MaximumCpuCoreCount cannot exceed four times the value of MinimumCpuCoreCount.
      * @example 4
      *
      * @var int
@@ -112,6 +147,8 @@ class instancePatternInfos extends Model
     public $maximumCpuCoreCount;
 
     /**
+     * @description The maximum number of GPUs per instance. The value must be a positive integer.
+     *
      * @example 2
      *
      * @var int
@@ -119,6 +156,8 @@ class instancePatternInfos extends Model
     public $maximumGpuAmount;
 
     /**
+     * @description The maximum memory size per instance. Unit: GiB.
+     *
      * @example 4
      *
      * @var float
@@ -126,7 +165,7 @@ class instancePatternInfos extends Model
     public $maximumMemorySize;
 
     /**
-     * @description The memory size per instance type in intelligent configuration mode. Unit: GiB. You can specify this parameter to filter the available instance types.
+     * @description The memory size per instance type in intelligent configuration mode. Unit: GiB. You can use this parameter to match the available instance types.
      *
      * @example 4
      *
@@ -135,6 +174,8 @@ class instancePatternInfos extends Model
     public $memory;
 
     /**
+     * @description The baseline vCPU computing performance (overall baseline performance of all vCPUs) per t5 or t6 burstable instance.
+     *
      * @example 12
      *
      * @var int
@@ -142,6 +183,8 @@ class instancePatternInfos extends Model
     public $minimumBaselineCredit;
 
     /**
+     * @description The minimum number of vCPUs per instance type.
+     *
      * @example 2
      *
      * @var int
@@ -149,6 +192,8 @@ class instancePatternInfos extends Model
     public $minimumCpuCoreCount;
 
     /**
+     * @description The minimum number of IPv6 addresses per ENI.
+     *
      * @example 1
      *
      * @var int
@@ -156,6 +201,8 @@ class instancePatternInfos extends Model
     public $minimumEniIpv6AddressQuantity;
 
     /**
+     * @description The minimum number of IPv4 addresses per ENI.
+     *
      * @example 2
      *
      * @var int
@@ -163,6 +210,8 @@ class instancePatternInfos extends Model
     public $minimumEniPrivateIpAddressQuantity;
 
     /**
+     * @description The minimum number of elastic network interfaces (ENIs) per instance.
+     *
      * @example 2
      *
      * @var int
@@ -170,6 +219,8 @@ class instancePatternInfos extends Model
     public $minimumEniQuantity;
 
     /**
+     * @description The minimum number of GPUs per instance. The value must be a positive integer.
+     *
      * @example 2
      *
      * @var int
@@ -177,6 +228,8 @@ class instancePatternInfos extends Model
     public $minimumGpuAmount;
 
     /**
+     * @description The initial vCPU credits per t5 or t6 burstable instance.
+     *
      * @example 12
      *
      * @var int
@@ -184,6 +237,8 @@ class instancePatternInfos extends Model
     public $minimumInitialCredit;
 
     /**
+     * @description The minimum memory size per instance. Unit: GiB.
+     *
      * @example 4
      *
      * @var float
@@ -191,6 +246,8 @@ class instancePatternInfos extends Model
     public $minimumMemorySize;
 
     /**
+     * @description The processor models of instance types. You can specify up to 10 processor models.
+     *
      * @var string[]
      */
     public $physicalProcessorModels;

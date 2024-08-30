@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyEciScalingConfigurationResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 89945DD3-9072-47D0-A318-353284CF****
      *

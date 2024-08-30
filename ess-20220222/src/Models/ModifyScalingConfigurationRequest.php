@@ -33,10 +33,10 @@ class ModifyScalingConfigurationRequest extends Model
     public $systemDisk;
 
     /**
-     * @description Specifies whether to associate an ECS instance on a dedicated host with the dedicated host. Valid values:
+     * @description Specifies whether to associate the instance on a dedicated host with the dedicated host. Valid values:
      *
-     *   default: does not associate the ECS instance with the dedicated host. If you start an instance that is stopped in economical mode and the original dedicated host has insufficient resources, the instance is automatically deployed to another dedicated host in the automatic deployment resource pool.
-     *   host: associates the ECS instance with the dedicated host. If you start an ECS instance that is stopped in economical mode, the ECS instance remains on the original dedicated host. If the original dedicated host has insufficient resources, the ECS instance fails to start.
+     *   default: does not associate the instance on the dedicated host with the dedicated host. If you restart an instance that was stopped in Economical Mode and the original dedicated host of the instance has insufficient resources, the instance is automatically deployed to another dedicated host in the automatic deployment resource pool.
+     *   host: associates the instance on a dedicated host with the dedicated host. If you restart an instance that was stopped in Economical Mode, the instance remains on the original dedicated host. If the original dedicated host has insufficient resources, the instance cannot be started.
      *
      * @example default
      *
@@ -55,10 +55,10 @@ class ModifyScalingConfigurationRequest extends Model
     public $cpu;
 
     /**
-     * @description The performance mode of the burstable instance. Valid values:
+     * @description The performance mode of burstable instances. Valid values:
      *
-     *   Standard: standard mode. For more information, see the "Standard mode" section in the [Burstable instances](https://help.aliyun.com/document_detail/59977.html) topic.
-     *   Unlimited: unlimited mode. For more information, see the "Unlimited mode" section in the [Burstable instances](https://help.aliyun.com/document_detail/59977.html) topic.
+     *   Standard: the standard mode. For more information, see the "Standard mode" section in the [Overview of burstable instances](https://help.aliyun.com/document_detail/59977.html) topic.
+     *   Unlimited: the unlimited mode. For more information, see the "Unlimited mode" section in the [Overview of burstable instances](https://help.aliyun.com/document_detail/59977.html) topic.
      *
      * @example Standard
      *
@@ -67,6 +67,12 @@ class ModifyScalingConfigurationRequest extends Model
     public $creditSpecification;
 
     /**
+     * @description The priority of the custom ECS instance type + vSwitch combination.
+     *
+     * >  If you specify the priorities of only a part of custom ECS instance type + vSwitch combinations, Auto Scaling preferentially creates ECS instances by using the custom combinations that have the specified priorities. If the custom combinations that have the specified priorities do not provide sufficient resources, Auto Scaling creates ECS instances by using the custom combinations that do not have the specified priorities based on the specified orders of vSwitches and instance types.
+     *
+     *   Example: The specified order of vSwitches for your scaling group is vsw1 and vsw2, and the specified order of instance types in your scaling configuration is type1 and type 2. In addition, you use CustomPriorities to specify ["vsw2+type2", "vsw1+type2"]. In this example, the vsw2+type2 combination has the highest priority and the vsw2+type1 combination has the lowest priority. The vsw1+type2 combination has a higher priority than the vsw1+type1 combination.
+     *
      * @var customPriorities[]
      */
     public $customPriorities;
@@ -98,6 +104,12 @@ class ModifyScalingConfigurationRequest extends Model
     public $dedicatedHostId;
 
     /**
+     * @description Specifies whether to enable the Release Protection feature for ECS instances. If you enable this feature, you cannot directly release the ECS instances in the ECS console or by calling the DeleteInstance operation. Valid values:
+     *
+     *   true: enables the Release Protection feature. In this case, you cannot directly release the ECS instances in the ECS console or by calling the DeleteInstance operation.
+     *   false: disables the Release Protection feature. In this case, you can directly release the ECS instances in the ECS console or by calling the DeleteInstance operation.
+     *
+     * >  You can enable the Release Protection feature only for pay-as-you-go instances to prevent accidental instance deletion. The Release Protection feature does not affect normal scaling activities. An instance that meets the criteria of scale-in policies can be removed from a scaling group during a scale-in event, regardless of whether you enabled the Release Protection feature for the instance.
      * @example false
      *
      * @var bool
@@ -182,7 +194,7 @@ class ModifyScalingConfigurationRequest extends Model
     public $instanceName;
 
     /**
-     * @description The intelligent configuration settings, which determine the available instance types.
+     * @description The information about the intelligent configuration settings, which determine the available instance types.
      *
      * @var instancePatternInfos[]
      */
@@ -204,10 +216,10 @@ class ModifyScalingConfigurationRequest extends Model
     public $instanceTypes;
 
     /**
-     * @description The metering method for network usage. Valid values:
+     * @description The billing method for network usage. Valid values:
      *
-     *   PayByBandwidth: You are charged for the maximum available bandwidth that is specified by InternetMaxBandwidthOut.
-     *   PayByTraffic: You are charged for the actual data transfer. InternetMaxBandwidthOut specifies only the maximum available bandwidth.
+     *   PayByBandwidth: pay-by-bandwidth. You are charged for the bandwidth specified by InternetMaxBandwidthOut.
+     *   PayByTraffic: pay-by-traffic. You are charged for the actual traffic generated. InternetMaxBandwidthOut specifies only the maximum available bandwidth.
      *
      * @example PayByBandwidth
      *
@@ -228,10 +240,10 @@ class ModifyScalingConfigurationRequest extends Model
     public $internetMaxBandwidthOut;
 
     /**
-     * @description Specifies whether to create an I/O optimized instance. Valid values:
+     * @description Specifies whether to create I/O optimized instances from the scaling configuration. Valid values:
      *
-     *   none: does not create an I/O optimized instance.
-     *   optimized: creates an I/O optimized instance.
+     *   none: creates non-I/O optimized instances from the scaling configuration.
+     *   optimized: creates I/O optimized instances from the scaling configuration.
      *
      * @example none
      *
@@ -280,12 +292,14 @@ class ModifyScalingConfigurationRequest extends Model
     public $memory;
 
     /**
+     * @description The ENIs.
+     *
      * @var networkInterfaces[]
      */
     public $networkInterfaces;
 
     /**
-     * @description Specifies whether to override existing data. Valid values:
+     * @description Specifies whether to overwrite existing data. Valid values:
      *
      *   true
      *   false
@@ -307,6 +321,11 @@ class ModifyScalingConfigurationRequest extends Model
     public $ownerId;
 
     /**
+     * @description The password of the ECS instance. The password must be 8 to 30 characters in length and contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. The following special characters are supported:
+     *
+     * \\`()~!@#$%^&\\*-_+=|{}[]:;\\"<>,.?/
+     *
+     * >  We recommend that you use HTTPS to send requests if you specify Password to avoid password leakage.
      * @example 123abc****
      *
      * @var string
@@ -391,11 +410,12 @@ class ModifyScalingConfigurationRequest extends Model
     public $securityGroupIds;
 
     /**
-     * @description The retention period of the preemptible instance. Unit: hours. Valid values: 0, 1, 2, 3, 4, 5, and 6.
+     * @description The protection period of preemptible instances. Unit: hours. Valid values:
      *
-     *   The following retention periods are available in invitational preview: 2, 3, 4, 5, and 6 hours. If you want to set this parameter to one of these values, submit a ticket.
-     *   If you set this parameter to 0, no retention period is specified for the preemptible instance.
+     *   1: After a preemptible instance is created, Alibaba Cloud ensures that the instance is not automatically released within 1 hour. After the 1-hour protection period ends, Alibaba Cloud compares the bidding price with the market price and checks the resource inventory to determine whether to release the instance.
+     *   0: After a preemptible instance is created, Alibaba Cloud does not ensure that the instance is not automatically released within 1 hour. Alibaba Cloud compares the biding price with the market price and checks the resource inventory to determine whether to release the instance.
      *
+     * Default value: 1.
      * @example 1
      *
      * @var int
@@ -419,11 +439,11 @@ class ModifyScalingConfigurationRequest extends Model
     public $spotPriceLimits;
 
     /**
-     * @description The preemption policy that you want to apply to pay-as-you-go instances and preemptible instances. Valid values:
+     * @description The preemption policy of pay-as-you-go instances. Valid values:
      *
-     *   NoSpot: The instance is created as a pay-as-you-go instance.
-     *   SpotWithPriceLimit: The instance is a preemptible instance that has a user-defined maximum hourly price.
-     *   SpotAsPriceGo: The instance is created as a preemptible instance for which the market price at the time of purchase is automatically used as the bidding price.
+     *   NoSpot: The instances are created as regular pay-as-you-go instances.
+     *   SpotWithPriceLimit: The instances are preemptible instances that have a user-defined maximum hourly price.
+     *   SpotAsPriceGo: The instances are preemptible instances for which the market price at the time of purchase is automatically used as the bid price.
      *
      * @example NoSpot
      *
@@ -446,14 +466,14 @@ class ModifyScalingConfigurationRequest extends Model
     public $storageSetPartitionNumber;
 
     /**
-     * @description The categories of the system disks. If Auto Scaling cannot create instances by using the disk category that has the highest priority, Auto Scaling creates instances by using the disk category that has the next highest priority. Valid values:
+     * @description The categories of the system disks. If Auto Scaling cannot create disks by using the disk category of the highest priority, Auto Scaling creates disks by using the disk category of the next highest priority. Valid values:
      *
-     *   cloud: basic disk
-     *   cloud_efficiency: ultra disk
-     *   cloud_ssd: standard SSD
-     *   cloud_essd: ESSD
+     *   cloud: basic disk.
+     *   cloud_efficiency: ultra disk.
+     *   cloud_ssd: standard SSD.
+     *   cloud_essd: ESSD.
      *
-     * > If you specify SystemDiskCategories, you cannot specify `SystemDisk.Category`.
+     * >  If you specify this parameter, you cannot specify `SystemDisk.Category`.
      * @var string[]
      */
     public $systemDiskCategories;
@@ -471,10 +491,10 @@ class ModifyScalingConfigurationRequest extends Model
     public $tags;
 
     /**
-     * @description Specifies whether to create an ECS instance on a dedicated host. Valid values:
+     * @description Specifies whether to create ECS instances on dedicated hosts. Valid values:
      *
-     *   default: does not create the ECS instance on a dedicated host.
-     *   host: creates the ECS instance on a dedicated host. If you do not specify DedicatedHostId, Alibaba Cloud selects a dedicated host for the ECS instance.
+     *   default: creates ECS instances on non-dedicated hosts.
+     *   host: creates ECS instances on dedicated hosts. If you do not specify DedicatedHostId, the system randomly selects a dedicated host for an ECS instance.
      *
      * @example default
      *

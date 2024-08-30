@@ -18,12 +18,12 @@ class dataDisks extends Model
     public $autoSnapshotPolicyId;
 
     /**
-     * @description Specifies whether to enable the burst feature for the system disk. Valid values:
+     * @description Specifies whether to enable the Burst feature for the system disk. Valid values:
      *
      *   true
      *   false
      *
-     * > This parameter is available only if you set `SystemDisk.Category` to `cloud_auto`.
+     * >  If you set `SystemDisk.Category` to `cloud_auto`, you can specify this parameter.
      * @example false
      *
      * @var bool
@@ -31,14 +31,14 @@ class dataDisks extends Model
     public $burstingEnabled;
 
     /**
-     * @description The categories of the data disks. Valid values:
+     * @description The categories of data disks. Valid values:
      *
-     *   cloud: basic disk. The DeleteWithInstance attribute of a basic disk that is created together with the instance is set to true.
+     *   cloud: basic disk. The DeleteWithInstance attribute of a basic disk created along with each ECS instance is set to true.
      *   cloud_efficiency: ultra disk.
      *   cloud_ssd: standard SSD.
      *   cloud_essd: ESSD.
      *
-     * > If you specify Categories, you cannot specify `DataDisk.Category`.
+     * >  If you specify this parameter, you cannot specify `DataDisk.Category`.
      * @var string[]
      */
     public $categories;
@@ -46,13 +46,13 @@ class dataDisks extends Model
     /**
      * @description The category of the data disk. Valid values:
      *
-     *   cloud: basic disk. The DeleteWithInstance attribute of a basic disk that is created together with the instance is set to true.
+     *   cloud: basic disk. The DeleteWithInstance attribute of a basic disk created along with each ECS instance is set to true.
      *   cloud_efficiency: ultra disk.
      *   cloud_ssd: standard SSD.
      *   ephemeral_ssd: local SSD.
      *   cloud_essd: ESSD.
      *
-     * If you specify Category, you cannot specify `Categories`. If you do not specify Category or `Categories`, the default value of Category is used:
+     * If you specify this parameter, you cannot specify `DataDisk.Categories`. If you leave this parameter and `DataDisk.Categories` empty at the same time, the default value of this parameter is used.
      *
      *   For I/O optimized instances, the default value is cloud_efficiency.
      *   For non-I/O optimized instances, the default value is cloud.
@@ -64,12 +64,12 @@ class dataDisks extends Model
     public $category;
 
     /**
-     * @description Specifies whether to release the data disk when the instance to which the data disk is attached is released. Valid values:
+     * @description Specifies whether to release the data disk if the instance to which the data disk is attached is released. Valid values:
      *
      *   true
      *   false
      *
-     * This parameter is available only for independent disks whose Category is set to cloud, cloud_efficiency, cloud_ssd, cloud_essd, or cloud_auto. If you specify this parameter for other disks, an error is reported.
+     * If you set DataDisk.Category to cloud, cloud_efficiency, cloud_ssd, cloud_essd, or cloud_auto, you can specify this parameter. If you specify this parameter for data disks of other categories, an error is returned.
      * @example true
      *
      * @var bool
@@ -77,7 +77,7 @@ class dataDisks extends Model
     public $deleteWithInstance;
 
     /**
-     * @description The description of the system disk. The description must be 2 to 256 characters in length. The description can contain letters but cannot start with `http://` or `https://`.
+     * @description The description of the system disk. The description must be 2 to 256 characters in length, and cannot start with `http://` or `https://`.
      *
      * @example Test data disk.
      *
@@ -86,7 +86,7 @@ class dataDisks extends Model
     public $description;
 
     /**
-     * @description The mount target of the data disk. If you do not specify Device, a mount target is automatically assigned when Auto Scaling creates ECS instances. The name of the mount target ranges from /dev/xvdb to /dev/xvdz.
+     * @description The mount target of the data disk. If you do not specify this parameter, the system automatically assigns a mount target when Auto Scaling creates an ECS instance. Valid values: /dev/xvdb to /dev/xvdz.
      *
      * @example /dev/xvdd
      *
@@ -116,7 +116,7 @@ class dataDisks extends Model
     public $encrypted;
 
     /**
-     * @description The ID of the Key Management Service (KMS) key that you want to use to encrypt the data disk.
+     * @description The ID of the Key Management Service (KMS) key that you want to apply to the data disk.
      *
      * @example 0e478b7a-4262-4802-b8cb-00d3fb40****
      *
@@ -132,7 +132,7 @@ class dataDisks extends Model
      *   PL2: An ESSD can provide up to 100,000 random read/write IOPS.
      *   PL3: An ESSD can provide up to 1,000,000 random read/write IOPS.
      *
-     * > For more information about how to select ESSD PLs, see [ESSD](https://help.aliyun.com/document_detail/122389.html).
+     * >  For more information about how to select ESSD PLs, see [ESSDs](https://help.aliyun.com/document_detail/122389.html).
      * @example PL1
      *
      * @var string
@@ -140,9 +140,9 @@ class dataDisks extends Model
     public $performanceLevel;
 
     /**
-     * @description The IOPS metric that is preconfigured for the data disk.
+     * @description The provisioned IOPS of the data disk.
      *
-     * > IOPS measures the number of read and write operations that an Elastic Block Storage (EBS) device can process per second.
+     * >  IOPS measures the number of read and write operations that an Elastic Block Storage (EBS) device can process per second.
      * @example 100
      *
      * @var int
@@ -150,15 +150,15 @@ class dataDisks extends Model
     public $provisionedIops;
 
     /**
-     * @description The size of the data disk. Unit: GiB. Valid values:
+     * @description The size of the data disk. Unit: GB. Valid values:
      *
-     *   If you set Categories cloud: 5 to 2000.
-     *   If you set Categories to cloud_efficiency: 20 to 32768.
-     *   If you set Categories to cloud_ssd: 20 to 32768.
-     *   If you set Categories to cloud_essd: 20 to 32768.
-     *   If you set Categories to ephemeral_ssd: 5 to 800.
+     *   5 to 2000 if you set DataDisk.Category to cloud.
+     *   20 to 32768 if you set DataDisk.Category to cloud_efficiency.
+     *   20 to 32768 if you set DataDisk.Category to cloud_ssd.
+     *   20 to 32768 if you set DataDisk.Category to cloud_essd.
+     *   5 to 800 if you set DataDisk.Category to ephemeral_ssd.
      *
-     * The size of the data disk must be greater than or equal to the size of the snapshot that is specified by SnapshotId.
+     * Set Size to a value that is greater than or equal to the size of the snapshot specified by SnapshotId.
      * @example 100
      *
      * @var int
@@ -166,9 +166,9 @@ class dataDisks extends Model
     public $size;
 
     /**
-     * @description The ID of the snapshot that you want to use to create data disks. If you specify this parameter, DataDisk.N.Size is ignored. The size of the disk is the same as the size of the specified snapshot.
+     * @description The ID of the snapshot that you want to use to create data disks. If you specify this parameter, DataDisk.Size is ignored. The size of the data disk created by using the snapshot is the same as the size of the snapshot.
      *
-     * If you specify a snapshot that is created on or before July 15, 2013, the operation fails and the system returns InvalidSnapshot.TooOld.
+     * If the snapshot was created on or before July 15, 2013, the API request is rejected and the InvalidSnapshot.TooOld message is returned.
      * @example s-snapshot****
      *
      * @var string

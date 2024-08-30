@@ -40,7 +40,7 @@ class volumes extends Model
     public $NFSVolume;
 
     /**
-     * @description The paths to configuration files.
+     * @description The paths to the configuration files.
      *
      * @var configFileVolumeConfigFileToPath[]
      */

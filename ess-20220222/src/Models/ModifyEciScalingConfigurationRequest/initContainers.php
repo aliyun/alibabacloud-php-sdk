@@ -18,21 +18,21 @@ class initContainers extends Model
     public $securityContext;
 
     /**
-     * @description The startup parameter of the container.
+     * @description The container startup arguments.
      *
      * @var string[]
      */
     public $args;
 
     /**
-     * @description The commands that you want to run to start the container.
+     * @description The commands that you can run to start the init container.
      *
      * @var string[]
      */
     public $commands;
 
     /**
-     * @description The number of vCPUs that you want to allocate to the container.
+     * @description The number of vCPUs per init container.
      *
      * @example 0.5
      *
@@ -41,7 +41,7 @@ class initContainers extends Model
     public $cpu;
 
     /**
-     * @description The number of GPUs that you want to allocate to the container.
+     * @description The number of GPUs per init container.
      *
      * @example 1
      *
@@ -50,7 +50,7 @@ class initContainers extends Model
     public $gpu;
 
     /**
-     * @description The container image.
+     * @description The image of the init container.
      *
      * @example nginx
      *
@@ -61,9 +61,9 @@ class initContainers extends Model
     /**
      * @description The image pulling policy. Valid values:
      *
-     *   Always: pulls images each time.
-     *   IfNotPresent: pulls images only if no on-premises images are available. On-premises images are preferentially used. If no on-premises images are available, image pulling is performed.
-     *   Never: never pulls images. On-premises images are always used. Image pulling is not performed.
+     *   Always: Image pulling is performed each time instances are created.
+     *   IfNotPresent: Image pulling is performed as needed. On-premises images are preferentially used. If no on-premises images are available, image pulling is performed.
+     *   Never: On-premises images are always used. Image pulling is not performed.
      *
      * @example Always
      *
@@ -86,14 +86,14 @@ class initContainers extends Model
     public $initContainerPorts;
 
     /**
-     * @description Information about the volume mounts of the init container.
+     * @description The volume mounts of the init container.
      *
      * @var initContainerVolumeMounts[]
      */
     public $initContainerVolumeMounts;
 
     /**
-     * @description The size of the memory. Unit: GiB.
+     * @description The memory size per init container. Unit: GiB.
      *
      * @example 1.0
      *
@@ -102,7 +102,7 @@ class initContainers extends Model
     public $memory;
 
     /**
-     * @description The name of the container.
+     * @description The name of the init container.
      *
      * @example test-init
      *

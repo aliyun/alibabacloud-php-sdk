@@ -12,8 +12,8 @@ class DescribeScalingGroupsRequest extends Model
     /**
      * @description The type of instances that are managed by the scaling group. Valid values:
      *
-     *   ECS: ECS instances
-     *   ECI: elastic container instances
+     *   ECS: Elastic Compute Service (ECS) instances.
+     *   ECI: elastic container instances.
      *
      * @example ECS
      *
@@ -52,8 +52,9 @@ class DescribeScalingGroupsRequest extends Model
     public $pageSize;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID of the scaling group.
      *
+     * This parameter is required.
      * @example cn-qingdao
      *
      * @var string
@@ -61,6 +62,9 @@ class DescribeScalingGroupsRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which the scaling group that you want to query belongs.
+     *
+     * >  If no scaling group belongs to the specified resource group, the query result is empty and no error is reported.
      * @example rg-123******
      *
      * @var string
@@ -78,11 +82,16 @@ class DescribeScalingGroupsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The IDs of the scaling groups that you want to query.
+     *
+     * The IDs of inactive scaling groups are not included in the query results, and no error is returned.
      * @var string[]
      */
     public $scalingGroupIds;
 
     /**
+     * @description The name of the scaling group.
+     *
      * @example scalinggroup****
      *
      * @var string
@@ -90,11 +99,16 @@ class DescribeScalingGroupsRequest extends Model
     public $scalingGroupName;
 
     /**
+     * @description The names of the scaling groups that you want to query.
+     *
+     * The names of inactive scaling groups are not displayed in the query results, and no error is reported.
      * @var string[]
      */
     public $scalingGroupNames;
 
     /**
+     * @description The tags of the scaling group.
+     *
      * @var tags[]
      */
     public $tags;

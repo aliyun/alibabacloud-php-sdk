@@ -11,7 +11,7 @@ class tags extends Model
     /**
      * @description Indicates whether the tags of the scaling group can be propagated to instances. Valid values:
      *
-     *   true: The tags of the scaling group can be propagated to only instances that are newly created.
+     *   true: The tags of the scaling group can be propagated only to new instances.
      *   false: The tags of the scaling group cannot be propagated to instances.
      *
      * Default value: false.

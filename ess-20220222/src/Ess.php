@@ -22,6 +22,8 @@ use AlibabaCloud\SDK\Ess\V20220222\Models\AttachServerGroupsRequest;
 use AlibabaCloud\SDK\Ess\V20220222\Models\AttachServerGroupsResponse;
 use AlibabaCloud\SDK\Ess\V20220222\Models\AttachVServerGroupsRequest;
 use AlibabaCloud\SDK\Ess\V20220222\Models\AttachVServerGroupsResponse;
+use AlibabaCloud\SDK\Ess\V20220222\Models\CancelInstanceRefreshRequest;
+use AlibabaCloud\SDK\Ess\V20220222\Models\CancelInstanceRefreshResponse;
 use AlibabaCloud\SDK\Ess\V20220222\Models\ChangeResourceGroupRequest;
 use AlibabaCloud\SDK\Ess\V20220222\Models\ChangeResourceGroupResponse;
 use AlibabaCloud\SDK\Ess\V20220222\Models\CompleteLifecycleActionRequest;
@@ -69,6 +71,8 @@ use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeEciScalingConfigurationDetailR
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeEciScalingConfigurationDetailResponse;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeEciScalingConfigurationsRequest;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeEciScalingConfigurationsResponse;
+use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeInstanceRefreshesRequest;
+use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeInstanceRefreshesResponse;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeLifecycleActionsRequest;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeLifecycleActionsResponse;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeLifecycleHooksRequest;
@@ -158,8 +162,12 @@ use AlibabaCloud\SDK\Ess\V20220222\Models\RecordLifecycleActionHeartbeatRequest;
 use AlibabaCloud\SDK\Ess\V20220222\Models\RecordLifecycleActionHeartbeatResponse;
 use AlibabaCloud\SDK\Ess\V20220222\Models\RemoveInstancesRequest;
 use AlibabaCloud\SDK\Ess\V20220222\Models\RemoveInstancesResponse;
+use AlibabaCloud\SDK\Ess\V20220222\Models\ResumeInstanceRefreshRequest;
+use AlibabaCloud\SDK\Ess\V20220222\Models\ResumeInstanceRefreshResponse;
 use AlibabaCloud\SDK\Ess\V20220222\Models\ResumeProcessesRequest;
 use AlibabaCloud\SDK\Ess\V20220222\Models\ResumeProcessesResponse;
+use AlibabaCloud\SDK\Ess\V20220222\Models\RollbackInstanceRefreshRequest;
+use AlibabaCloud\SDK\Ess\V20220222\Models\RollbackInstanceRefreshResponse;
 use AlibabaCloud\SDK\Ess\V20220222\Models\ScaleWithAdjustmentRequest;
 use AlibabaCloud\SDK\Ess\V20220222\Models\ScaleWithAdjustmentResponse;
 use AlibabaCloud\SDK\Ess\V20220222\Models\ScaleWithAdjustmentShrinkRequest;
@@ -169,6 +177,10 @@ use AlibabaCloud\SDK\Ess\V20220222\Models\SetInstanceHealthRequest;
 use AlibabaCloud\SDK\Ess\V20220222\Models\SetInstanceHealthResponse;
 use AlibabaCloud\SDK\Ess\V20220222\Models\SetInstancesProtectionRequest;
 use AlibabaCloud\SDK\Ess\V20220222\Models\SetInstancesProtectionResponse;
+use AlibabaCloud\SDK\Ess\V20220222\Models\StartInstanceRefreshRequest;
+use AlibabaCloud\SDK\Ess\V20220222\Models\StartInstanceRefreshResponse;
+use AlibabaCloud\SDK\Ess\V20220222\Models\SuspendInstanceRefreshRequest;
+use AlibabaCloud\SDK\Ess\V20220222\Models\SuspendInstanceRefreshResponse;
 use AlibabaCloud\SDK\Ess\V20220222\Models\SuspendProcessesRequest;
 use AlibabaCloud\SDK\Ess\V20220222\Models\SuspendProcessesResponse;
 use AlibabaCloud\SDK\Ess\V20220222\Models\TagResourcesRequest;
@@ -339,7 +351,6 @@ class Ess extends OpenApiClient
      * You can use a Kubernetes Deployment YAML file to manage a scaling group based on the following logic:
      * * If an existing scaling group has a mapping relationship with your Kubernetes Deployment YAML file, you can update the scaling group by using the YAML file.
      * * If no scaling group that has a mapping relationship with your Kubernetes Deployment YAML file exists, you can create a scaling group with ease by using the YAML file.
-     * ### Precautions
      * 1. If you do not specify a virtual private cloud (VPC), vSwitch, security group, or annotation in your Kubernetes Deployment YAML file, the system creates a default VPC that has default vSwitches and uses the default security group ess-default-sg of Auto Scaling. By default, the security group rule allows traffic on Transmission Control Protocol (TCP)-based port 22 and port 3389 and enables Internet Control Message Protocol (ICMP) for IPv4 addresses. If you want to enable other ports or protocols, you can create custom security group rules.
      * 2. If you want to use a public image, you must enable the Internet access feature and configure the k8s.aliyun.com/eci-with-eip pod annotation to enable the elastic IP address (EIP) feature.
      * 3. After you call the ApplyScalingGroup operation to apply a Kubernetes Deployment YAML file, the scaling group immediately enters the Enabled state and the scaling configuration immediately enters the Active state. If the number of replicas that you specified in the YAML file is grater than 0, elastic container instances are automatically created.
@@ -350,22 +361,22 @@ class Ess extends OpenApiClient
      * |k8s.aliyun.com/ess-scaling-group-min-size|1|The minimum size of the scaling group that you want to create. Default value: 0.|
      * |k8s.aliyun.com/ess-scaling-group-max-size|20|The maximum size of the scaling group that you want to create. Default value: maximum number of replicas or 30, whichever is greater.|
      * |k8s.aliyun.com/eci-ntp-server|100.100.*.*|The IP address of the Network Time Protocol (NTP) server.|
-     * |k8s.aliyun.com/eci-use-specs|2-4Gi|The specifications of 2 vCPUs and 4 GB memory. For more information, see [Create pods by specifying multiple specifications](https://help.aliyun.com/document_detail/451267.html).|
+     * |k8s.aliyun.com/eci-use-specs|2-4Gi|The specifications of 2 vCPUs and 4 GiB of memory. For more information, see [Create pods by specifying multiple specifications](https://help.aliyun.com/document_detail/451267.html).|
      * |k8s.aliyun.com/eci-vswitch|vsw-bp1xpiowfm5vo8o3c\\*\\*\\*\\*|The ID of the vSwitch. You can specify multiple vSwitches to specify multiple zones.|
      * |k8s.aliyun.com/eci-security-group|sg-bp1dktddjsg5nktv\\*\\*\\*\\*|The ID of the security group. Before you configure this annotation, take note of the following requirements:<ul data-sourcepos="26:74-26:168"><li data-sourcepos="26:78-26:114">You can specify one or more security groups. You can specify up to five security groups for each scaling group.</li><li data-sourcepos="26:114-26:140">If you specify multiple security groups, the security groups must belong to the same VPC.</li><li data-sourcepos="26:140-26:163">If you specify multiple security groups, the security groups must be of the same type.</li></ul>|
      * |k8s.aliyun.com/eci-sls-enable|"false"|If you set the value to false, the log collection feature is disabled.
      * If you do not want to use Custom Resource Definition (CRD) for Simple Log Service to collect logs of specific pods, you can configure this annotation for the pods and set the value to false. This prevents resource wastes caused by Logtails created by the system.|
-     * |k8s.aliyun.com/eci-spot-strategy|SpotAsPriceGo|The bidding policy for the preemptible instance. Valid values:<ul data-sourcepos="28:69-28:204"><li data-sourcepos="28:73-28:158">SpotWithPriceLimit: The instance is created as a preemptible instance for which you specify the maximum hourly price If you set the value to SpotWithPriceLimit, you must configure the k8s.aliyun.com/eci-spot-price-limit annotation.</li><li data-sourcepos="28:158-28:199">SpotAsPriceGo: The instance is a preemptible instance for which the market price at the time of purchase is used as the bid price.</li></ul>|
-     * |k8s.aliyun.com/eci-spot-price-limit|"0.5"|The maximum hourly price of the preemptible instance. This value can be accurate to up to three decimal places.
+     * |k8s.aliyun.com/eci-spot-strategy|SpotAsPriceGo|The bidding policy for preemptible instances. Valid values:<ul data-sourcepos="28:69-28:204"><li data-sourcepos="28:73-28:158">SpotWithPriceLimit: The instances are created as preemptible instances with a maximum hourly price. If you set the value to SpotWithPriceLimit, you must configure the k8s.aliyun.com/eci-spot-price-limit annotation.</li><li data-sourcepos="28:158-28:199">SpotAsPriceGo: The instances are created as preemptible instances for which the market price at the time of purchase is automatically used as the bid price.</li></ul>|
+     * |k8s.aliyun.com/eci-spot-price-limit|"0.5"|The maximum hourly price of preemptible instances. This value can be accurate to up to three decimal places.
      * This annotation takes effect only when you set the k8s.aliyun.com/eci-spot-strategy annotation to SpotWithPriceLimit.|
-     * |k8s.aliyun.com/eci-with-eip|"true"|If you set the value to true, an EIP is automatically created and bound to each elastic container instance.|
-     * |k8s.aliyun.com/eci-data-cache-bucket|default|The bucket of the specified DataCache. If you want to use a DataCache to create a pod, you must configure this annotation.|
-     * |k8s.aliyun.com/eci-data-cache-pl|PL1|The performance level (PL) of the cloud disk that you want to create by using the specified DataCache.
-     * By default, enhanced SSDs (ESSDs) are created. Default value: PL1.|
-     * |k8s.aliyun.com/eci-data-cache-provisionedIops|"40000"|The provisioned read/write IOPS of the ESSD AutoPL disk. Valid values: 0 to min{50000, 1000 × Capacity - Baseline IOPS}. Baseline IOPS = min{1,800 + 50 × Capacity, 50,000}. For more information, see [ESSD AutoPL](https://help.aliyun.com/document_detail/368372.html).
-     * If you configure this annotation, the cloud disk that is created by using the specified DataCache is of the ESSD AutoPL type.|
-     * |k8s.aliyun.com/eci-data-cache-burstingEnabled|"true"|Specifies whether the Burst feature is enabled for the ESSD AutoPL disk. For more information, see [ESSD AutoPL](https://help.aliyun.com/document_detail/368372.html).
-     * If you configure this annotation, the cloud disk that is created by using the specified DataCache is of the ESSD AutoPL type.|
+     * |k8s.aliyun.com/eci-with-eip|"true"|If you set the value to true, an elastic IP address (EIP) is automatically created and bound to each elastic container instance.|
+     * |k8s.aliyun.com/eci-data-cache-bucket|default|The bucket of data caches. If you want to create a pod based on data caches, you must configure this annotation.|
+     * |k8s.aliyun.com/eci-data-cache-pl|PL1|The performance level (PL) of the cloud disk that you want to create based on data caches.
+     * By default, enterprise SSDs (ESSDs) are created. Default value: PL1.|
+     * |k8s.aliyun.com/eci-data-cache-provisionedIops|"40000"|The provisioned read/write IOPS of the ESSD AutoPL disk. Valid values: 0 to min{50000, 1000 × Capacity - Baseline IOPS}. Baseline IOPS = min{1,800 + 50 × Capacity, 50,000}. For more information, see [ESSD AutoPL disks](https://help.aliyun.com/document_detail/368372.html).
+     * If you configure this annotation, the cloud disk that is created based on data caches is of the ESSD AutoPL type.|
+     * |k8s.aliyun.com/eci-data-cache-burstingEnabled|"true"|Specifies whether the Burst feature is enabled for the ESSD AutoPL disk. For more information, see [ESSD AutoPL disks](https://help.aliyun.com/document_detail/368372.html).
+     * If you configure this annotation, the cloud disk that is created based on data caches is of the ESSD AutoPL type.|
      * |k8s.aliyun.com/eci-custom-tags|"env:test,name:alice"|The tags that you want to add to each elastic container instance. You can add up to three tags for each elastic container instance. Separate a tag key and a tag value with a colon (:). Separate multiple tags with commas (,).|
      *  *
      * @param ApplyScalingGroupRequest $request ApplyScalingGroupRequest
@@ -412,7 +423,6 @@ class Ess extends OpenApiClient
      * You can use a Kubernetes Deployment YAML file to manage a scaling group based on the following logic:
      * * If an existing scaling group has a mapping relationship with your Kubernetes Deployment YAML file, you can update the scaling group by using the YAML file.
      * * If no scaling group that has a mapping relationship with your Kubernetes Deployment YAML file exists, you can create a scaling group with ease by using the YAML file.
-     * ### Precautions
      * 1. If you do not specify a virtual private cloud (VPC), vSwitch, security group, or annotation in your Kubernetes Deployment YAML file, the system creates a default VPC that has default vSwitches and uses the default security group ess-default-sg of Auto Scaling. By default, the security group rule allows traffic on Transmission Control Protocol (TCP)-based port 22 and port 3389 and enables Internet Control Message Protocol (ICMP) for IPv4 addresses. If you want to enable other ports or protocols, you can create custom security group rules.
      * 2. If you want to use a public image, you must enable the Internet access feature and configure the k8s.aliyun.com/eci-with-eip pod annotation to enable the elastic IP address (EIP) feature.
      * 3. After you call the ApplyScalingGroup operation to apply a Kubernetes Deployment YAML file, the scaling group immediately enters the Enabled state and the scaling configuration immediately enters the Active state. If the number of replicas that you specified in the YAML file is grater than 0, elastic container instances are automatically created.
@@ -423,22 +433,22 @@ class Ess extends OpenApiClient
      * |k8s.aliyun.com/ess-scaling-group-min-size|1|The minimum size of the scaling group that you want to create. Default value: 0.|
      * |k8s.aliyun.com/ess-scaling-group-max-size|20|The maximum size of the scaling group that you want to create. Default value: maximum number of replicas or 30, whichever is greater.|
      * |k8s.aliyun.com/eci-ntp-server|100.100.*.*|The IP address of the Network Time Protocol (NTP) server.|
-     * |k8s.aliyun.com/eci-use-specs|2-4Gi|The specifications of 2 vCPUs and 4 GB memory. For more information, see [Create pods by specifying multiple specifications](https://help.aliyun.com/document_detail/451267.html).|
+     * |k8s.aliyun.com/eci-use-specs|2-4Gi|The specifications of 2 vCPUs and 4 GiB of memory. For more information, see [Create pods by specifying multiple specifications](https://help.aliyun.com/document_detail/451267.html).|
      * |k8s.aliyun.com/eci-vswitch|vsw-bp1xpiowfm5vo8o3c\\*\\*\\*\\*|The ID of the vSwitch. You can specify multiple vSwitches to specify multiple zones.|
      * |k8s.aliyun.com/eci-security-group|sg-bp1dktddjsg5nktv\\*\\*\\*\\*|The ID of the security group. Before you configure this annotation, take note of the following requirements:<ul data-sourcepos="26:74-26:168"><li data-sourcepos="26:78-26:114">You can specify one or more security groups. You can specify up to five security groups for each scaling group.</li><li data-sourcepos="26:114-26:140">If you specify multiple security groups, the security groups must belong to the same VPC.</li><li data-sourcepos="26:140-26:163">If you specify multiple security groups, the security groups must be of the same type.</li></ul>|
      * |k8s.aliyun.com/eci-sls-enable|"false"|If you set the value to false, the log collection feature is disabled.
      * If you do not want to use Custom Resource Definition (CRD) for Simple Log Service to collect logs of specific pods, you can configure this annotation for the pods and set the value to false. This prevents resource wastes caused by Logtails created by the system.|
-     * |k8s.aliyun.com/eci-spot-strategy|SpotAsPriceGo|The bidding policy for the preemptible instance. Valid values:<ul data-sourcepos="28:69-28:204"><li data-sourcepos="28:73-28:158">SpotWithPriceLimit: The instance is created as a preemptible instance for which you specify the maximum hourly price If you set the value to SpotWithPriceLimit, you must configure the k8s.aliyun.com/eci-spot-price-limit annotation.</li><li data-sourcepos="28:158-28:199">SpotAsPriceGo: The instance is a preemptible instance for which the market price at the time of purchase is used as the bid price.</li></ul>|
-     * |k8s.aliyun.com/eci-spot-price-limit|"0.5"|The maximum hourly price of the preemptible instance. This value can be accurate to up to three decimal places.
+     * |k8s.aliyun.com/eci-spot-strategy|SpotAsPriceGo|The bidding policy for preemptible instances. Valid values:<ul data-sourcepos="28:69-28:204"><li data-sourcepos="28:73-28:158">SpotWithPriceLimit: The instances are created as preemptible instances with a maximum hourly price. If you set the value to SpotWithPriceLimit, you must configure the k8s.aliyun.com/eci-spot-price-limit annotation.</li><li data-sourcepos="28:158-28:199">SpotAsPriceGo: The instances are created as preemptible instances for which the market price at the time of purchase is automatically used as the bid price.</li></ul>|
+     * |k8s.aliyun.com/eci-spot-price-limit|"0.5"|The maximum hourly price of preemptible instances. This value can be accurate to up to three decimal places.
      * This annotation takes effect only when you set the k8s.aliyun.com/eci-spot-strategy annotation to SpotWithPriceLimit.|
-     * |k8s.aliyun.com/eci-with-eip|"true"|If you set the value to true, an EIP is automatically created and bound to each elastic container instance.|
-     * |k8s.aliyun.com/eci-data-cache-bucket|default|The bucket of the specified DataCache. If you want to use a DataCache to create a pod, you must configure this annotation.|
-     * |k8s.aliyun.com/eci-data-cache-pl|PL1|The performance level (PL) of the cloud disk that you want to create by using the specified DataCache.
-     * By default, enhanced SSDs (ESSDs) are created. Default value: PL1.|
-     * |k8s.aliyun.com/eci-data-cache-provisionedIops|"40000"|The provisioned read/write IOPS of the ESSD AutoPL disk. Valid values: 0 to min{50000, 1000 × Capacity - Baseline IOPS}. Baseline IOPS = min{1,800 + 50 × Capacity, 50,000}. For more information, see [ESSD AutoPL](https://help.aliyun.com/document_detail/368372.html).
-     * If you configure this annotation, the cloud disk that is created by using the specified DataCache is of the ESSD AutoPL type.|
-     * |k8s.aliyun.com/eci-data-cache-burstingEnabled|"true"|Specifies whether the Burst feature is enabled for the ESSD AutoPL disk. For more information, see [ESSD AutoPL](https://help.aliyun.com/document_detail/368372.html).
-     * If you configure this annotation, the cloud disk that is created by using the specified DataCache is of the ESSD AutoPL type.|
+     * |k8s.aliyun.com/eci-with-eip|"true"|If you set the value to true, an elastic IP address (EIP) is automatically created and bound to each elastic container instance.|
+     * |k8s.aliyun.com/eci-data-cache-bucket|default|The bucket of data caches. If you want to create a pod based on data caches, you must configure this annotation.|
+     * |k8s.aliyun.com/eci-data-cache-pl|PL1|The performance level (PL) of the cloud disk that you want to create based on data caches.
+     * By default, enterprise SSDs (ESSDs) are created. Default value: PL1.|
+     * |k8s.aliyun.com/eci-data-cache-provisionedIops|"40000"|The provisioned read/write IOPS of the ESSD AutoPL disk. Valid values: 0 to min{50000, 1000 × Capacity - Baseline IOPS}. Baseline IOPS = min{1,800 + 50 × Capacity, 50,000}. For more information, see [ESSD AutoPL disks](https://help.aliyun.com/document_detail/368372.html).
+     * If you configure this annotation, the cloud disk that is created based on data caches is of the ESSD AutoPL type.|
+     * |k8s.aliyun.com/eci-data-cache-burstingEnabled|"true"|Specifies whether the Burst feature is enabled for the ESSD AutoPL disk. For more information, see [ESSD AutoPL disks](https://help.aliyun.com/document_detail/368372.html).
+     * If you configure this annotation, the cloud disk that is created based on data caches is of the ESSD AutoPL type.|
      * |k8s.aliyun.com/eci-custom-tags|"env:test,name:alice"|The tags that you want to add to each elastic container instance. You can add up to three tags for each elastic container instance. Separate a tag key and a tag value with a colon (:). Separate multiple tags with commas (,).|
      *  *
      * @param ApplyScalingGroupRequest $request ApplyScalingGroupRequest
@@ -959,6 +969,61 @@ class Ess extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->attachVServerGroupsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CancelInstanceRefreshRequest $request CancelInstanceRefreshRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CancelInstanceRefreshResponse CancelInstanceRefreshResponse
+     */
+    public function cancelInstanceRefreshWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceRefreshTaskId)) {
+            $query['InstanceRefreshTaskId'] = $request->instanceRefreshTaskId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->scalingGroupId)) {
+            $query['ScalingGroupId'] = $request->scalingGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CancelInstanceRefresh',
+            'version'     => '2022-02-22',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CancelInstanceRefreshResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CancelInstanceRefreshRequest $request CancelInstanceRefreshRequest
+     *
+     * @return CancelInstanceRefreshResponse CancelInstanceRefreshResponse
+     */
+    public function cancelInstanceRefresh($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cancelInstanceRefreshWithOptions($request, $runtime);
     }
 
     /**
@@ -1498,8 +1563,9 @@ class Ess extends OpenApiClient
     /**
      * @summary Creates a notification rule. You can call the CreateNotificationConfiguration operation to create a notification rule to stay informed about scaling events or resource changes. This helps you learn about the dynamic status of your scaling group in real time and further automates the management of scaling events.
      *  *
-     * @description ## Description
-     * You can configure CloudMonitor system events, Message Service (MNS) queues, or MNS topics to receive notifications. When a specified type of scaling activity or resource change occurs in a scaling group, Auto Scaling sends notifications by using CloudMonitor or MNS.
+     * @description *   You can enable a CloudMonitor system event, Message Service (MNS) queue, or MNS topic to receive notifications. When a scaling event of the specified type or resource change occurs in your scaling group, Auto Scaling automatically sends notifications to CloudMonitor or MNS.
+     * *   You cannot specify the same recipient for notifications of different event types in a scaling group.
+     *     For example, you cannot enable the same CloudMonitor system event, MNS topic, or MNS queue to receive notifications of different event types in a scaling group.
      *  *
      * @param CreateNotificationConfigurationRequest $request CreateNotificationConfigurationRequest
      * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
@@ -1552,8 +1618,9 @@ class Ess extends OpenApiClient
     /**
      * @summary Creates a notification rule. You can call the CreateNotificationConfiguration operation to create a notification rule to stay informed about scaling events or resource changes. This helps you learn about the dynamic status of your scaling group in real time and further automates the management of scaling events.
      *  *
-     * @description ## Description
-     * You can configure CloudMonitor system events, Message Service (MNS) queues, or MNS topics to receive notifications. When a specified type of scaling activity or resource change occurs in a scaling group, Auto Scaling sends notifications by using CloudMonitor or MNS.
+     * @description *   You can enable a CloudMonitor system event, Message Service (MNS) queue, or MNS topic to receive notifications. When a scaling event of the specified type or resource change occurs in your scaling group, Auto Scaling automatically sends notifications to CloudMonitor or MNS.
+     * *   You cannot specify the same recipient for notifications of different event types in a scaling group.
+     *     For example, you cannot enable the same CloudMonitor system event, MNS topic, or MNS queue to receive notifications of different event types in a scaling group.
      *  *
      * @param CreateNotificationConfigurationRequest $request CreateNotificationConfigurationRequest
      *
@@ -1567,7 +1634,7 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * @summary Creates a scaling configuration.
+     * @summary Creates scaling configurations. When you call the CreateScalingConfiguration operation, you can specify the scaling group ID, instance type, and image to create a scaling configuration of the Elastic Compute Service (ECS) type.
      *  *
      * @description Auto Scaling automatically creates Elastic Compute Service (ECS) instances based on the specified scaling configuration. ECS instances can be created in the following modes:
      * *   InstancePatternInfos: intelligent configuration mode. In this mode, you need to only specify the number of vCPUs, memory size, instance family, and maximum price. Auto Scaling selects the instance type that has the lowest price based on the configurations to create ECS instances. This mode is available only for scaling groups that reside in virtual private clouds (VPCs). This mode reduces scale-out failures caused by insufficient inventory of instance types.
@@ -1781,7 +1848,7 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * @summary Creates a scaling configuration.
+     * @summary Creates scaling configurations. When you call the CreateScalingConfiguration operation, you can specify the scaling group ID, instance type, and image to create a scaling configuration of the Elastic Compute Service (ECS) type.
      *  *
      * @description Auto Scaling automatically creates Elastic Compute Service (ECS) instances based on the specified scaling configuration. ECS instances can be created in the following modes:
      * *   InstancePatternInfos: intelligent configuration mode. In this mode, you need to only specify the number of vCPUs, memory size, instance family, and maximum price. Auto Scaling selects the instance type that has the lowest price based on the configurations to create ECS instances. This mode is available only for scaling groups that reside in virtual private clouds (VPCs). This mode reduces scale-out failures caused by insufficient inventory of instance types.
@@ -3129,6 +3196,73 @@ class Ess extends OpenApiClient
     }
 
     /**
+     * @param DescribeInstanceRefreshesRequest $request DescribeInstanceRefreshesRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeInstanceRefreshesResponse DescribeInstanceRefreshesResponse
+     */
+    public function describeInstanceRefreshesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceRefreshTaskIds)) {
+            $query['InstanceRefreshTaskIds'] = $request->instanceRefreshTaskIds;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->scalingGroupId)) {
+            $query['ScalingGroupId'] = $request->scalingGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeInstanceRefreshes',
+            'version'     => '2022-02-22',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeInstanceRefreshesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeInstanceRefreshesRequest $request DescribeInstanceRefreshesRequest
+     *
+     * @return DescribeInstanceRefreshesResponse DescribeInstanceRefreshesResponse
+     */
+    public function describeInstanceRefreshes($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeInstanceRefreshesWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries the details of a lifecycle hook. If you want to query the details of a lifecycle hook, you can call the DescribeLifecycleActions operation. For example, you can query the execution status and ID of a lifecycle hook, along with the Elastic Compute Service (ECS) instances on which the lifecycle hook takes effect. When you call this operation, you can specify parameters such as ScalingActivityId, LifecycleActionToken, and MaxResults to query the details of a lifecycle hook.
      *  *
      * @description If a scaling activity is executed and a lifecycle hook is created for the scaling activity, the lifecycle hook triggers a lifecycle action. A lifecycle action can be in one of the following states:
@@ -3337,7 +3471,7 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * @summary Queries notifications. If you want to learn about a notification regarding the status of a scaling event or resource changes, you can call the DescribeNotificationConfigurations operation. This operation enables you to retrieve notification details, analyze resource change data, and refine scaling policies to efficiently utilize resources and fulfill business needs.
+     * @summary Queries notification settings. You can call the DescribeNotificationConfiguration operation to query notification settings of scaling events or resource changes, including the notification types and methods.
      *  *
      * @param DescribeNotificationConfigurationsRequest $request DescribeNotificationConfigurationsRequest
      * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
@@ -3379,7 +3513,7 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * @summary Queries notifications. If you want to learn about a notification regarding the status of a scaling event or resource changes, you can call the DescribeNotificationConfigurations operation. This operation enables you to retrieve notification details, analyze resource change data, and refine scaling policies to efficiently utilize resources and fulfill business needs.
+     * @summary Queries notification settings. You can call the DescribeNotificationConfiguration operation to query notification settings of scaling events or resource changes, including the notification types and methods.
      *  *
      * @param DescribeNotificationConfigurationsRequest $request DescribeNotificationConfigurationsRequest
      *
@@ -3558,6 +3692,9 @@ class Ess extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->instanceRefreshTaskId)) {
+            $query['InstanceRefreshTaskId'] = $request->instanceRefreshTaskId;
+        }
         if (!Utils::isUnset($request->ownerAccount)) {
             $query['OwnerAccount'] = $request->ownerAccount;
         }
@@ -3811,7 +3948,7 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * @summary Queries scaling groups. If you want to query the basic information, instances, and scaling configurations of a scaling group, you can call the DescribeScalingGroups operation.
+     * @summary Queries information about scaling groups, such as the basic information, instances, and scaling configurations.
      *  *
      * @param DescribeScalingGroupsRequest $request DescribeScalingGroupsRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -3880,7 +4017,7 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * @summary Queries scaling groups. If you want to query the basic information, instances, and scaling configurations of a scaling group, you can call the DescribeScalingGroups operation.
+     * @summary Queries information about scaling groups, such as the basic information, instances, and scaling configurations.
      *  *
      * @param DescribeScalingGroupsRequest $request DescribeScalingGroupsRequest
      *
@@ -3894,7 +4031,7 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * @summary Queries instances in a scaling group. You can call the DescribeScalingInstances operation to query instance details such as the number of preemptible instances in the Running state, the number of Elastic Compute Service (ECS) instances, the warm-up status of ECS instances, and the lifecycle status of ECS instances in a scaling group. You can specify the desired scaling group whose instances you want to query by scaling group ID. In addition, if you want to filter instances based on conditions such as the instance health status, lifecycle status, or creation method, you can also call this operation.
+     * @summary Queries instances in a scaling group. You can call the DescribeScalingInstances operation to query instance details, such as the number of preemptible instances in the Running state, the number of Elastic Compute Service (ECS) instances, the warm-up status of ECS instances, and the lifecycle status of ECS instances in a scaling group. You can specify the scaling group whose instances you want to query by scaling group ID. If you want to filter instances based on conditions, such as the instance health status, lifecycle status, or creation method, you can also call this operation.
      *  *
      * @param DescribeScalingInstancesRequest $request DescribeScalingInstancesRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -3972,7 +4109,7 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * @summary Queries instances in a scaling group. You can call the DescribeScalingInstances operation to query instance details such as the number of preemptible instances in the Running state, the number of Elastic Compute Service (ECS) instances, the warm-up status of ECS instances, and the lifecycle status of ECS instances in a scaling group. You can specify the desired scaling group whose instances you want to query by scaling group ID. In addition, if you want to filter instances based on conditions such as the instance health status, lifecycle status, or creation method, you can also call this operation.
+     * @summary Queries instances in a scaling group. You can call the DescribeScalingInstances operation to query instance details, such as the number of preemptible instances in the Running state, the number of Elastic Compute Service (ECS) instances, the warm-up status of ECS instances, and the lifecycle status of ECS instances in a scaling group. You can specify the scaling group whose instances you want to query by scaling group ID. If you want to filter instances based on conditions, such as the instance health status, lifecycle status, or creation method, you can also call this operation.
      *  *
      * @param DescribeScalingInstancesRequest $request DescribeScalingInstancesRequest
      *
@@ -5497,10 +5634,10 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * @summary Modifies scaling configurations of the Elastic Container Instance type. When you call the ModifyEciScalingConfiguration operation, you can specify the ID, name, and instance properties of the desired scaling configuration to modify information such as the instance restart policy, instance bidding policy, and elastic IP address (EIP) bandwidth.
+     * @summary Modifies a scaling configuration of the Elastic Container Instance type. When you call the ModifyEciScalingConfiguration operation, you can specify the ID, name, and instance properties of the scaling configuration whose information you want to modify. You can modify the instance restart policy, instance bidding policy, and elastic IP address (EIP) bandwidth.
      *  *
      * @description *   If you want to change the name of a scaling configuration in a scaling group, make sure that the new name is unique within the scaling group.
-     * *   You can call the [ModifyEciScalingConfiguration](https://help.aliyun.com/document_detail/459378.html) operation to verify the modification result.
+     * *   You can call the [ModifyEciScalingConfiguration](https://help.aliyun.com/document_detail/459378.html) operation to check the modification result.
      *  *
      * @param ModifyEciScalingConfigurationRequest $request ModifyEciScalingConfigurationRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
@@ -5680,10 +5817,10 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * @summary Modifies scaling configurations of the Elastic Container Instance type. When you call the ModifyEciScalingConfiguration operation, you can specify the ID, name, and instance properties of the desired scaling configuration to modify information such as the instance restart policy, instance bidding policy, and elastic IP address (EIP) bandwidth.
+     * @summary Modifies a scaling configuration of the Elastic Container Instance type. When you call the ModifyEciScalingConfiguration operation, you can specify the ID, name, and instance properties of the scaling configuration whose information you want to modify. You can modify the instance restart policy, instance bidding policy, and elastic IP address (EIP) bandwidth.
      *  *
      * @description *   If you want to change the name of a scaling configuration in a scaling group, make sure that the new name is unique within the scaling group.
-     * *   You can call the [ModifyEciScalingConfiguration](https://help.aliyun.com/document_detail/459378.html) operation to verify the modification result.
+     * *   You can call the [ModifyEciScalingConfiguration](https://help.aliyun.com/document_detail/459378.html) operation to check the modification result.
      *  *
      * @param ModifyEciScalingConfigurationRequest $request ModifyEciScalingConfigurationRequest
      *
@@ -5917,7 +6054,10 @@ class Ess extends OpenApiClient
     /**
      * @summary Modifies a scaling configuration.
      *  *
-     * @description You can change the name of a scaling configuration in a scaling group. The name must be unique within the scaling group.
+     * @description *   If you want to change the name of a scaling configuration in a scaling group, make sure that the new name is unique within the scaling group.
+     * *   If you want to bind a primary elastic network interface (ENI) when you call this operation, you must use one of the following methods. If you use the following methods at the same time, the call fails and an error is reported. In addition, if you use one of the following methods to modify the ENI information when you call this operation, the ENI information configured by using the other method is cleared.
+     *     *   You can specify SecurityGroupId, SecurityGroupIds, and Ipv6AddressCount to configure ENI-related information.
+     *     *   You can specify NetworkInterfaces to configure primary and secondary ENIs. You must use NetworkInterface to specify at least one primary ENI. If you set NetworkInterface.InstanceType to Primary, it specifies that a primary ENI is configured. If you set NetworkInterface.InstanceType to Secondary or leave it empty, it specifies that a secondary ENI is configured.
      *  *
      * @param ModifyScalingConfigurationRequest $tmpReq  ModifyScalingConfigurationRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -6116,7 +6256,10 @@ class Ess extends OpenApiClient
     /**
      * @summary Modifies a scaling configuration.
      *  *
-     * @description You can change the name of a scaling configuration in a scaling group. The name must be unique within the scaling group.
+     * @description *   If you want to change the name of a scaling configuration in a scaling group, make sure that the new name is unique within the scaling group.
+     * *   If you want to bind a primary elastic network interface (ENI) when you call this operation, you must use one of the following methods. If you use the following methods at the same time, the call fails and an error is reported. In addition, if you use one of the following methods to modify the ENI information when you call this operation, the ENI information configured by using the other method is cleared.
+     *     *   You can specify SecurityGroupId, SecurityGroupIds, and Ipv6AddressCount to configure ENI-related information.
+     *     *   You can specify NetworkInterfaces to configure primary and secondary ENIs. You must use NetworkInterface to specify at least one primary ENI. If you set NetworkInterface.InstanceType to Primary, it specifies that a primary ENI is configured. If you set NetworkInterface.InstanceType to Secondary or leave it empty, it specifies that a secondary ENI is configured.
      *  *
      * @param ModifyScalingConfigurationRequest $request ModifyScalingConfigurationRequest
      *
@@ -6763,6 +6906,61 @@ class Ess extends OpenApiClient
     }
 
     /**
+     * @param ResumeInstanceRefreshRequest $request ResumeInstanceRefreshRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ResumeInstanceRefreshResponse ResumeInstanceRefreshResponse
+     */
+    public function resumeInstanceRefreshWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceRefreshTaskId)) {
+            $query['InstanceRefreshTaskId'] = $request->instanceRefreshTaskId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->scalingGroupId)) {
+            $query['ScalingGroupId'] = $request->scalingGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ResumeInstanceRefresh',
+            'version'     => '2022-02-22',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ResumeInstanceRefreshResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ResumeInstanceRefreshRequest $request ResumeInstanceRefreshRequest
+     *
+     * @return ResumeInstanceRefreshResponse ResumeInstanceRefreshResponse
+     */
+    public function resumeInstanceRefresh($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->resumeInstanceRefreshWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Resumes suspended processes in a scaling group.
      *  *
      * @param ResumeProcessesRequest $request ResumeProcessesRequest
@@ -6822,6 +7020,61 @@ class Ess extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->resumeProcessesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RollbackInstanceRefreshRequest $request RollbackInstanceRefreshRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return RollbackInstanceRefreshResponse RollbackInstanceRefreshResponse
+     */
+    public function rollbackInstanceRefreshWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceRefreshTaskId)) {
+            $query['InstanceRefreshTaskId'] = $request->instanceRefreshTaskId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->scalingGroupId)) {
+            $query['ScalingGroupId'] = $request->scalingGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RollbackInstanceRefresh',
+            'version'     => '2022-02-22',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RollbackInstanceRefreshResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RollbackInstanceRefreshRequest $request RollbackInstanceRefreshRequest
+     *
+     * @return RollbackInstanceRefreshResponse RollbackInstanceRefreshResponse
+     */
+    public function rollbackInstanceRefresh($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->rollbackInstanceRefreshWithOptions($request, $runtime);
     }
 
     /**
@@ -7111,6 +7364,125 @@ class Ess extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->setInstancesProtectionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param StartInstanceRefreshRequest $request StartInstanceRefreshRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return StartInstanceRefreshResponse StartInstanceRefreshResponse
+     */
+    public function startInstanceRefreshWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->desiredConfiguration)) {
+            $query['DesiredConfiguration'] = $request->desiredConfiguration;
+        }
+        if (!Utils::isUnset($request->maxHealthyPercentage)) {
+            $query['MaxHealthyPercentage'] = $request->maxHealthyPercentage;
+        }
+        if (!Utils::isUnset($request->minHealthyPercentage)) {
+            $query['MinHealthyPercentage'] = $request->minHealthyPercentage;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->scalingGroupId)) {
+            $query['ScalingGroupId'] = $request->scalingGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StartInstanceRefresh',
+            'version'     => '2022-02-22',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return StartInstanceRefreshResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param StartInstanceRefreshRequest $request StartInstanceRefreshRequest
+     *
+     * @return StartInstanceRefreshResponse StartInstanceRefreshResponse
+     */
+    public function startInstanceRefresh($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->startInstanceRefreshWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SuspendInstanceRefreshRequest $request SuspendInstanceRefreshRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return SuspendInstanceRefreshResponse SuspendInstanceRefreshResponse
+     */
+    public function suspendInstanceRefreshWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceRefreshTaskId)) {
+            $query['InstanceRefreshTaskId'] = $request->instanceRefreshTaskId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->scalingGroupId)) {
+            $query['ScalingGroupId'] = $request->scalingGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SuspendInstanceRefresh',
+            'version'     => '2022-02-22',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SuspendInstanceRefreshResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SuspendInstanceRefreshRequest $request SuspendInstanceRefreshRequest
+     *
+     * @return SuspendInstanceRefreshResponse SuspendInstanceRefreshResponse
+     */
+    public function suspendInstanceRefresh($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->suspendInstanceRefreshWithOptions($request, $runtime);
     }
 
     /**

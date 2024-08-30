@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class customPriorities extends Model
 {
     /**
+     * @description The ECS instance type.
+     *
+     * >  The ECS instance type must be included in the instance types specified in the scaling configuration.
      * @example ecs.c6a.4xlarge
      *
      * @var string
@@ -16,6 +19,9 @@ class customPriorities extends Model
     public $instanceType;
 
     /**
+     * @description The vSwitch ID.
+     *
+     * >  The vSwitch must be included in the vSwitch list of the scaling group.
      * @example vsw-bp14zolna43z266bq****
      *
      * @var string

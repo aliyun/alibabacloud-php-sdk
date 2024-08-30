@@ -18,7 +18,7 @@ class initContainerPorts extends Model
     public $port;
 
     /**
-     * @description The type of the protocol. Valid values:
+     * @description The protocol type. Valid values:
      *
      *   TCP
      *   UDP

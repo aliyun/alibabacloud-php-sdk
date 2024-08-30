@@ -216,7 +216,7 @@ class scalingConfigurations extends Model
     public $instanceName;
 
     /**
-     * @description The intelligent configuration settings, which determine the available instance types.
+     * @description The information about the intelligent configuration settings, which determine the available instance types.
      *
      * @var instancePatternInfos[]
      */
@@ -349,6 +349,10 @@ class scalingConfigurations extends Model
     public $passwordInherit;
 
     /**
+     * @description Indicates whether a password is configured for the instance.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $passwordSetted;
