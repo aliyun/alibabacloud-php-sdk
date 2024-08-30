@@ -122,6 +122,11 @@ class quotaApplication extends Model
     public $quotaArn;
 
     /**
+     * @var string
+     */
+    public $quotaCategory;
+
+    /**
      * @description The description of the quota.
      *
      * @example The maximum number of security groups that can be owned by the current account
@@ -183,6 +188,7 @@ class quotaApplication extends Model
         'productCode'      => 'ProductCode',
         'quotaActionCode'  => 'QuotaActionCode',
         'quotaArn'         => 'QuotaArn',
+        'quotaCategory'    => 'QuotaCategory',
         'quotaDescription' => 'QuotaDescription',
         'quotaName'        => 'QuotaName',
         'quotaUnit'        => 'QuotaUnit',
@@ -232,6 +238,9 @@ class quotaApplication extends Model
         }
         if (null !== $this->quotaArn) {
             $res['QuotaArn'] = $this->quotaArn;
+        }
+        if (null !== $this->quotaCategory) {
+            $res['QuotaCategory'] = $this->quotaCategory;
         }
         if (null !== $this->quotaDescription) {
             $res['QuotaDescription'] = $this->quotaDescription;
@@ -295,6 +304,9 @@ class quotaApplication extends Model
         }
         if (isset($map['QuotaArn'])) {
             $model->quotaArn = $map['QuotaArn'];
+        }
+        if (isset($map['QuotaCategory'])) {
+            $model->quotaCategory = $map['QuotaCategory'];
         }
         if (isset($map['QuotaDescription'])) {
             $model->quotaDescription = $map['QuotaDescription'];

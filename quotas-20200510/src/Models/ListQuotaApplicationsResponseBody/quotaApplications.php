@@ -137,6 +137,11 @@ class quotaApplications extends Model
     public $quotaArn;
 
     /**
+     * @var string
+     */
+    public $quotaCategory;
+
+    /**
      * @description The description of the quota.
      *
      * @example The maximum number of nodes in a cluster
@@ -200,6 +205,7 @@ class quotaApplications extends Model
         'productCode'      => 'ProductCode',
         'quotaActionCode'  => 'QuotaActionCode',
         'quotaArn'         => 'QuotaArn',
+        'quotaCategory'    => 'QuotaCategory',
         'quotaDescription' => 'QuotaDescription',
         'quotaName'        => 'QuotaName',
         'quotaUnit'        => 'QuotaUnit',
@@ -255,6 +261,9 @@ class quotaApplications extends Model
         }
         if (null !== $this->quotaArn) {
             $res['QuotaArn'] = $this->quotaArn;
+        }
+        if (null !== $this->quotaCategory) {
+            $res['QuotaCategory'] = $this->quotaCategory;
         }
         if (null !== $this->quotaDescription) {
             $res['QuotaDescription'] = $this->quotaDescription;
@@ -324,6 +333,9 @@ class quotaApplications extends Model
         }
         if (isset($map['QuotaArn'])) {
             $model->quotaArn = $map['QuotaArn'];
+        }
+        if (isset($map['QuotaCategory'])) {
+            $model->quotaCategory = $map['QuotaCategory'];
         }
         if (isset($map['QuotaDescription'])) {
             $model->quotaDescription = $map['QuotaDescription'];
