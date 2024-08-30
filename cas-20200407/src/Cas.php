@@ -20,8 +20,6 @@ use AlibabaCloud\SDK\Cas\V20200407\Models\CreateCsrRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\CreateCsrResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\CreateDeploymentJobRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\CreateDeploymentJobResponse;
-use AlibabaCloud\SDK\Cas\V20200407\Models\CreateWHClientCertificateRequest;
-use AlibabaCloud\SDK\Cas\V20200407\Models\CreateWHClientCertificateResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\DecryptRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\DecryptResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\DeleteCertificateRequestRequest;
@@ -80,8 +78,6 @@ use AlibabaCloud\SDK\Cas\V20200407\Models\MoveResourceGroupRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\MoveResourceGroupResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\RenewCertificateOrderForPackageRequestRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\RenewCertificateOrderForPackageRequestResponse;
-use AlibabaCloud\SDK\Cas\V20200407\Models\RevokeWHClientCertificateRequest;
-use AlibabaCloud\SDK\Cas\V20200407\Models\RevokeWHClientCertificateResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\SignRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\SignResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\UpdateCsrRequest;
@@ -94,8 +90,6 @@ use AlibabaCloud\SDK\Cas\V20200407\Models\UpdateWorkerResourceStatusRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\UpdateWorkerResourceStatusResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\UploadCsrRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\UploadCsrResponse;
-use AlibabaCloud\SDK\Cas\V20200407\Models\UploadPCACertRequest;
-use AlibabaCloud\SDK\Cas\V20200407\Models\UploadPCACertResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\UploadUserCertificateRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\UploadUserCertificateResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\VerifyRequest;
@@ -648,97 +642,6 @@ class Cas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createDeploymentJobWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateWHClientCertificateRequest $request CreateWHClientCertificateRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
-     *
-     * @return CreateWHClientCertificateResponse CreateWHClientCertificateResponse
-     */
-    public function createWHClientCertificateWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->afterTime)) {
-            $query['AfterTime'] = $request->afterTime;
-        }
-        if (!Utils::isUnset($request->algorithm)) {
-            $query['Algorithm'] = $request->algorithm;
-        }
-        if (!Utils::isUnset($request->beforeTime)) {
-            $query['BeforeTime'] = $request->beforeTime;
-        }
-        if (!Utils::isUnset($request->commonName)) {
-            $query['CommonName'] = $request->commonName;
-        }
-        if (!Utils::isUnset($request->country)) {
-            $query['Country'] = $request->country;
-        }
-        if (!Utils::isUnset($request->csr)) {
-            $query['Csr'] = $request->csr;
-        }
-        if (!Utils::isUnset($request->days)) {
-            $query['Days'] = $request->days;
-        }
-        if (!Utils::isUnset($request->immediately)) {
-            $query['Immediately'] = $request->immediately;
-        }
-        if (!Utils::isUnset($request->locality)) {
-            $query['Locality'] = $request->locality;
-        }
-        if (!Utils::isUnset($request->months)) {
-            $query['Months'] = $request->months;
-        }
-        if (!Utils::isUnset($request->organization)) {
-            $query['Organization'] = $request->organization;
-        }
-        if (!Utils::isUnset($request->organizationUnit)) {
-            $query['OrganizationUnit'] = $request->organizationUnit;
-        }
-        if (!Utils::isUnset($request->parentIdentifier)) {
-            $query['ParentIdentifier'] = $request->parentIdentifier;
-        }
-        if (!Utils::isUnset($request->sanType)) {
-            $query['SanType'] = $request->sanType;
-        }
-        if (!Utils::isUnset($request->sanValue)) {
-            $query['SanValue'] = $request->sanValue;
-        }
-        if (!Utils::isUnset($request->state)) {
-            $query['State'] = $request->state;
-        }
-        if (!Utils::isUnset($request->years)) {
-            $query['Years'] = $request->years;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateWHClientCertificate',
-            'version'     => '2020-04-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return CreateWHClientCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param CreateWHClientCertificateRequest $request CreateWHClientCertificateRequest
-     *
-     * @return CreateWHClientCertificateResponse CreateWHClientCertificateResponse
-     */
-    public function createWHClientCertificate($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createWHClientCertificateWithOptions($request, $runtime);
     }
 
     /**
@@ -2300,57 +2203,6 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * @summary Revokes a client certificate or a server certificate in a certificate repository.
-     *  *
-     * @description You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param RevokeWHClientCertificateRequest $request RevokeWHClientCertificateRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
-     *
-     * @return RevokeWHClientCertificateResponse RevokeWHClientCertificateResponse
-     */
-    public function revokeWHClientCertificateWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->identifier)) {
-            $query['Identifier'] = $request->identifier;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'RevokeWHClientCertificate',
-            'version'     => '2020-04-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return RevokeWHClientCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary Revokes a client certificate or a server certificate in a certificate repository.
-     *  *
-     * @description You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param RevokeWHClientCertificateRequest $request RevokeWHClientCertificateRequest
-     *
-     * @return RevokeWHClientCertificateResponse RevokeWHClientCertificateResponse
-     */
-    public function revokeWHClientCertificate($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->revokeWHClientCertificateWithOptions($request, $runtime);
-    }
-
-    /**
      * @summary Signs a private certificate in a certificate application repository.
      *  *
      * @description You can call the Sign operation to sign a private certificate in a certificate application repository.
@@ -2680,70 +2532,6 @@ class Cas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->uploadCsrWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary The private key of the certificate.
-     *  *
-     * @description You can call this operation to upload a private certificate to a certificate repository.
-     * ## [](#qps-)Limits
-     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param UploadPCACertRequest $request UploadPCACertRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
-     *
-     * @return UploadPCACertResponse UploadPCACertResponse
-     */
-    public function uploadPCACertWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->cert)) {
-            $query['Cert'] = $request->cert;
-        }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
-        }
-        if (!Utils::isUnset($request->privateKey)) {
-            $query['PrivateKey'] = $request->privateKey;
-        }
-        if (!Utils::isUnset($request->warehouseId)) {
-            $query['WarehouseId'] = $request->warehouseId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'UploadPCACert',
-            'version'     => '2020-04-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return UploadPCACertResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary The private key of the certificate.
-     *  *
-     * @description You can call this operation to upload a private certificate to a certificate repository.
-     * ## [](#qps-)Limits
-     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param UploadPCACertRequest $request UploadPCACertRequest
-     *
-     * @return UploadPCACertResponse UploadPCACertResponse
-     */
-    public function uploadPCACert($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->uploadPCACertWithOptions($request, $runtime);
     }
 
     /**
