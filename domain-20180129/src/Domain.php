@@ -24,6 +24,8 @@ use AlibabaCloud\SDK\Domain\V20180129\Models\CheckDomainRequest;
 use AlibabaCloud\SDK\Domain\V20180129\Models\CheckDomainResponse;
 use AlibabaCloud\SDK\Domain\V20180129\Models\CheckDomainSunriseClaimRequest;
 use AlibabaCloud\SDK\Domain\V20180129\Models\CheckDomainSunriseClaimResponse;
+use AlibabaCloud\SDK\Domain\V20180129\Models\CheckIntlFixPriceDomainStatusRequest;
+use AlibabaCloud\SDK\Domain\V20180129\Models\CheckIntlFixPriceDomainStatusResponse;
 use AlibabaCloud\SDK\Domain\V20180129\Models\CheckMaxYearOfServerLockRequest;
 use AlibabaCloud\SDK\Domain\V20180129\Models\CheckMaxYearOfServerLockResponse;
 use AlibabaCloud\SDK\Domain\V20180129\Models\CheckProcessingServerLockApplyRequest;
@@ -32,6 +34,8 @@ use AlibabaCloud\SDK\Domain\V20180129\Models\CheckTransferInFeasibilityRequest;
 use AlibabaCloud\SDK\Domain\V20180129\Models\CheckTransferInFeasibilityResponse;
 use AlibabaCloud\SDK\Domain\V20180129\Models\ConfirmTransferInEmailRequest;
 use AlibabaCloud\SDK\Domain\V20180129\Models\ConfirmTransferInEmailResponse;
+use AlibabaCloud\SDK\Domain\V20180129\Models\CreateIntlFixedPriceDomainOrderRequest;
+use AlibabaCloud\SDK\Domain\V20180129\Models\CreateIntlFixedPriceDomainOrderResponse;
 use AlibabaCloud\SDK\Domain\V20180129\Models\DeleteContactTemplatesRequest;
 use AlibabaCloud\SDK\Domain\V20180129\Models\DeleteContactTemplatesResponse;
 use AlibabaCloud\SDK\Domain\V20180129\Models\DeleteDomainGroupRequest;
@@ -46,6 +50,8 @@ use AlibabaCloud\SDK\Domain\V20180129\Models\EmailVerifiedRequest;
 use AlibabaCloud\SDK\Domain\V20180129\Models\EmailVerifiedResponse;
 use AlibabaCloud\SDK\Domain\V20180129\Models\FuzzyMatchDomainSensitiveWordRequest;
 use AlibabaCloud\SDK\Domain\V20180129\Models\FuzzyMatchDomainSensitiveWordResponse;
+use AlibabaCloud\SDK\Domain\V20180129\Models\GetIntlFixPriceDomainListUrlRequest;
+use AlibabaCloud\SDK\Domain\V20180129\Models\GetIntlFixPriceDomainListUrlResponse;
 use AlibabaCloud\SDK\Domain\V20180129\Models\GetOperationOssUploadPolicyRequest;
 use AlibabaCloud\SDK\Domain\V20180129\Models\GetOperationOssUploadPolicyResponse;
 use AlibabaCloud\SDK\Domain\V20180129\Models\GetQualificationUploadPolicyRequest;
@@ -98,6 +104,8 @@ use AlibabaCloud\SDK\Domain\V20180129\Models\QueryFailReasonForDomainRealNameVer
 use AlibabaCloud\SDK\Domain\V20180129\Models\QueryFailReasonForDomainRealNameVerificationResponse;
 use AlibabaCloud\SDK\Domain\V20180129\Models\QueryFailReasonForRegistrantProfileRealNameVerificationRequest;
 use AlibabaCloud\SDK\Domain\V20180129\Models\QueryFailReasonForRegistrantProfileRealNameVerificationResponse;
+use AlibabaCloud\SDK\Domain\V20180129\Models\QueryIntlFixedPriceOrderListRequest;
+use AlibabaCloud\SDK\Domain\V20180129\Models\QueryIntlFixedPriceOrderListResponse;
 use AlibabaCloud\SDK\Domain\V20180129\Models\QueryLocalEnsAssociationRequest;
 use AlibabaCloud\SDK\Domain\V20180129\Models\QueryLocalEnsAssociationResponse;
 use AlibabaCloud\SDK\Domain\V20180129\Models\QueryOperationAuditInfoDetailRequest;
@@ -773,6 +781,53 @@ class Domain extends OpenApiClient
     }
 
     /**
+     * @summary 校验在售国际一口价域名状态和询价
+     *  *
+     * @param CheckIntlFixPriceDomainStatusRequest $request CheckIntlFixPriceDomainStatusRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CheckIntlFixPriceDomainStatusResponse CheckIntlFixPriceDomainStatusResponse
+     */
+    public function checkIntlFixPriceDomainStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CheckIntlFixPriceDomainStatus',
+            'version'     => '2018-01-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CheckIntlFixPriceDomainStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 校验在售国际一口价域名状态和询价
+     *  *
+     * @param CheckIntlFixPriceDomainStatusRequest $request CheckIntlFixPriceDomainStatusRequest
+     *
+     * @return CheckIntlFixPriceDomainStatusResponse CheckIntlFixPriceDomainStatusResponse
+     */
+    public function checkIntlFixPriceDomainStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->checkIntlFixPriceDomainStatusWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CheckMaxYearOfServerLockRequest $request CheckMaxYearOfServerLockRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -978,6 +1033,62 @@ class Domain extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->confirmTransferInEmailWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 创建国际一口价订单
+     *  *
+     * @param CreateIntlFixedPriceDomainOrderRequest $request CreateIntlFixedPriceDomainOrderRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateIntlFixedPriceDomainOrderResponse CreateIntlFixedPriceDomainOrderResponse
+     */
+    public function createIntlFixedPriceDomainOrderWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->autoPay)) {
+            $query['AutoPay'] = $request->autoPay;
+        }
+        if (!Utils::isUnset($request->contactId)) {
+            $query['ContactId'] = $request->contactId;
+        }
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->expectedPrice)) {
+            $query['ExpectedPrice'] = $request->expectedPrice;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateIntlFixedPriceDomainOrder',
+            'version'     => '2018-01-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateIntlFixedPriceDomainOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建国际一口价订单
+     *  *
+     * @param CreateIntlFixedPriceDomainOrderRequest $request CreateIntlFixedPriceDomainOrderRequest
+     *
+     * @return CreateIntlFixedPriceDomainOrderResponse CreateIntlFixedPriceDomainOrderResponse
+     */
+    public function createIntlFixedPriceDomainOrder($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createIntlFixedPriceDomainOrderWithOptions($request, $runtime);
     }
 
     /**
@@ -1345,6 +1456,53 @@ class Domain extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->fuzzyMatchDomainSensitiveWordWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询国际一口价在售域名列表
+     *  *
+     * @param GetIntlFixPriceDomainListUrlRequest $request GetIntlFixPriceDomainListUrlRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetIntlFixPriceDomainListUrlResponse GetIntlFixPriceDomainListUrlResponse
+     */
+    public function getIntlFixPriceDomainListUrlWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->listDate)) {
+            $query['ListDate'] = $request->listDate;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetIntlFixPriceDomainListUrl',
+            'version'     => '2018-01-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetIntlFixPriceDomainListUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询国际一口价在售域名列表
+     *  *
+     * @param GetIntlFixPriceDomainListUrlRequest $request GetIntlFixPriceDomainListUrlRequest
+     *
+     * @return GetIntlFixPriceDomainListUrlResponse GetIntlFixPriceDomainListUrlResponse
+     */
+    public function getIntlFixPriceDomainListUrl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getIntlFixPriceDomainListUrlWithOptions($request, $runtime);
     }
 
     /**
@@ -2850,6 +3008,62 @@ class Domain extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryFailingReasonListForQualificationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询国际一口价订单列表
+     *  *
+     * @param QueryIntlFixedPriceOrderListRequest $request QueryIntlFixedPriceOrderListRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return QueryIntlFixedPriceOrderListResponse QueryIntlFixedPriceOrderListResponse
+     */
+    public function queryIntlFixedPriceOrderListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryIntlFixedPriceOrderList',
+            'version'     => '2018-01-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryIntlFixedPriceOrderListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询国际一口价订单列表
+     *  *
+     * @param QueryIntlFixedPriceOrderListRequest $request QueryIntlFixedPriceOrderListRequest
+     *
+     * @return QueryIntlFixedPriceOrderListResponse QueryIntlFixedPriceOrderListResponse
+     */
+    public function queryIntlFixedPriceOrderList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryIntlFixedPriceOrderListWithOptions($request, $runtime);
     }
 
     /**
