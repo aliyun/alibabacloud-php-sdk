@@ -37,7 +37,7 @@ class fileDownload extends Model
     public $downloadKernel;
 
     /**
-     * @description Specifies whether to ignore CA certificate authentication errors. Valid values: 0: No. 1: Yes. Default value: 1.
+     * @description Specifies whether to ignore CA certificate authentication errors. Valid values: 0: no. 1: yes. Default value: 1.
      *
      * @example 0
      *
@@ -46,7 +46,7 @@ class fileDownload extends Model
     public $ignoreCertificateAuthError;
 
     /**
-     * @description Specifies whether to ignore certificate revocation errors. Valid values: 0: No. 1: Yes. Default value: 1.
+     * @description Specifies whether to ignore certificate revocation errors. Valid values: 0: no. 1: yes. Default value: 1.
      *
      * @example 0
      *
@@ -55,7 +55,7 @@ class fileDownload extends Model
     public $ignoreCertificateCanceledError;
 
     /**
-     * @description Specifies whether to ignore certificate invalidity. Valid values: 0: No. 1: Yes. Default value: 1.
+     * @description Specifies whether to ignore certificate invalidity. Valid values: 0: no. 1: yes. Default value: 1.
      *
      * @example 0
      *
@@ -64,7 +64,7 @@ class fileDownload extends Model
     public $ignoreCertificateOutOfDateError;
 
     /**
-     * @description Specifies whether to ignore certificate status errors. 0: No. 1: Yes. Default value: 1.
+     * @description Specifies whether to ignore certificate status errors. 0: no. 1: yes. Default value: 1.
      *
      * @example 0
      *
@@ -73,7 +73,7 @@ class fileDownload extends Model
     public $ignoreCertificateStatusError;
 
     /**
-     * @description Specifies whether to ignore certificate incredibility. Valid values: 0: No. 1: Yes. Default value: 1.
+     * @description Specifies whether to ignore certificate incredibility. Valid values: 0: no. 1: yes. Default value: 1.
      *
      * @example 0
      *
@@ -82,7 +82,7 @@ class fileDownload extends Model
     public $ignoreCertificateUntrustworthyError;
 
     /**
-     * @description Specifies whether to ignore certificate usage errors. Valid values: 0: No. 1: Yes. Default value: 1.
+     * @description Specifies whether to ignore certificate usage errors. Valid values: 0: no. 1: yes. Default value: 1.
      *
      * @example 0
      *
@@ -91,7 +91,7 @@ class fileDownload extends Model
     public $ignoreCertificateUsingError;
 
     /**
-     * @description Specifies whether to ignore host invalidity. Valid values: 0: No. 1: Yes. Default value: 1.
+     * @description Specifies whether to ignore host invalidity. Valid values: 0: no. 1: yes. Default value: 1.
      *
      * @example 0
      *
@@ -113,7 +113,7 @@ class fileDownload extends Model
      *
      *   1: HTTP/1
      *   2: HTTP/2
-     *   3: HTTP/3
+     *   3: http3
      *
      * @example 1
      *
@@ -122,7 +122,7 @@ class fileDownload extends Model
     public $quickProtocol;
 
     /**
-     * @description Specifies whether to support redirection. Valid values: 0: No. 1: Yes. Default value: 1.
+     * @description Specifies whether to support redirection. Valid values: 0: no. 1: yes. Default value: 1.
      *
      * @example 0
      *

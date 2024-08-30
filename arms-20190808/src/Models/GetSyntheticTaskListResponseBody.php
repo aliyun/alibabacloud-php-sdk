@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetSyntheticTaskListResponseBody extends Model
 {
     /**
+     * @description The query results.
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
+     * @description The request ID.
+     *
      * @example A5EC8221-08F2-4C95-9AF1-49FD998C****
      *
      * @var string

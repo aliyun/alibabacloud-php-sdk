@@ -16,28 +16,44 @@ use AlibabaCloud\Tea\Model;
 class taskDetail extends Model
 {
     /**
+     * @description The list of common parameters.
+     *
      * @var commonParam
      */
     public $commonParam;
 
     /**
-     * @description 文件下载任务。
+     * @description The file download task.
      *
      * @var download
      */
     public $download;
 
     /**
-     * @description 自定义扩展频率。
+     * @description The frequency.
      *
      * @var extendInterval
      */
     public $extendInterval;
 
     /**
-     * @description 拨测频率，单位为分钟。可选频率如下：
+     * @description The interval at which synthetic monitoring is performed. Unit: minutes. Valid values:
      *
-     * - 1440
+     *   1
+     *   5
+     *   10
+     *   15
+     *   20
+     *   30
+     *   60
+     *   120
+     *   180
+     *   240
+     *   360
+     *   480
+     *   720
+     *   1440
+     *
      * @example 20
      *
      * @var int
@@ -45,9 +61,11 @@ class taskDetail extends Model
     public $intervalTime;
 
     /**
-     * @description 监测周期类型：
+     * @description The interval type. Valid values:
      *
-     * 1：自定义扩展频率
+     *   0: daily
+     *   1: custom frequency
+     *
      * @example 0
      *
      * @var int
@@ -55,9 +73,12 @@ class taskDetail extends Model
     public $intervalType;
 
     /**
-     * @description IP类型：
+     * @description The IP version. Valid values:
      *
-     * 2：IPv6
+     *   0: A version is automatically selected.
+     *   1: IPv4.
+     *   2: IPv6.
+     *
      * @example 0
      *
      * @var int
@@ -65,13 +86,15 @@ class taskDetail extends Model
     public $ipType;
 
     /**
-     * @description 拨测任务的检测点列表。
+     * @description The detection points.
      *
      * @var monitorList[]
      */
     public $monitorList;
 
     /**
+     * @description The detection points.
+     *
      * @example 12
      *
      * @var string
@@ -79,22 +102,28 @@ class taskDetail extends Model
     public $monitorListString;
 
     /**
+     * @description The browser test task.
+     *
      * @var nav
      */
     public $nav;
 
     /**
+     * @description The network synthetic monitoring task.
+     *
      * @var net
      */
     public $net;
 
     /**
+     * @description The synthetic monitoring task of the API performance type.
+     *
      * @var protocol
      */
     public $protocol;
 
     /**
-     * @description 云拨测任务ID。
+     * @description The ID of the synthetic monitoring task.
      *
      * @example 19584
      *
@@ -103,7 +132,7 @@ class taskDetail extends Model
     public $taskId;
 
     /**
-     * @description 任务名称。
+     * @description The name of the task.
      *
      * @example net-test
      *
@@ -112,9 +141,9 @@ class taskDetail extends Model
     public $taskName;
 
     /**
-     * @description 任务类型：
+     * @description The type of the task. Valid values:
      *
-     * 7：API性能
+     * 5.  7: API performance
      * @example 0
      *
      * @var int
@@ -122,7 +151,7 @@ class taskDetail extends Model
     public $taskType;
 
     /**
-     * @description 拨测地址。
+     * @description The URL for synthetic monitoring.
      *
      * @example www.example.com
      *

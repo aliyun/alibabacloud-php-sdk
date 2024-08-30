@@ -10,8 +10,9 @@ use AlibabaCloud\Tea\Model;
 class CreatePrometheusAlertRuleRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The name of the alert rule.
      *
+     * This parameter is required.
      * @example Prometheus_Alert
      *
      * @var string
@@ -19,6 +20,8 @@ class CreatePrometheusAlertRuleRequest extends Model
     public $alertName;
 
     /**
+     * @description The annotations that are described in a JSON string. You must specify the name and value of each annotation.
+     *
      * @example [{"Value": "xxx","Name": "description"}]
      *
      * @var string
@@ -26,8 +29,9 @@ class CreatePrometheusAlertRuleRequest extends Model
     public $annotations;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the cluster.
      *
+     * This parameter is required.
      * @example c0bad479465464e1d8c1e641b0afb****
      *
      * @var string
@@ -35,6 +39,8 @@ class CreatePrometheusAlertRuleRequest extends Model
     public $clusterId;
 
     /**
+     * @description The ID of the notification policy. This parameter is required if the NotifyType parameter is set to `DISPATCH_RULE`.
+     *
      * @example 10282
      *
      * @var int
@@ -42,15 +48,19 @@ class CreatePrometheusAlertRuleRequest extends Model
     public $dispatchRuleId;
 
     /**
-     * @description This parameter is required.
+     * @description The duration. The value ranges from 1 to 1440 minutes.
+     *
+     * This parameter is required.
+     * @example 10m
      *
      * @var string
      */
     public $duration;
 
     /**
-     * @description This parameter is required.
+     * @description The expression of the alert rule. The expression must follow the PromQL syntax.
      *
+     * This parameter is required.
      * @example 100 * (sum(rate(container_cpu_usage_seconds_total[1m])) by (pod_name) / sum(label_replace(kube_pod_container_resource_limits_cpu_cores, \\"pod_name\\", \\"$1\\", \\"pod\\", \\"(.*)\\")) by (pod_name))>75
      *
      * @var string
@@ -58,6 +68,8 @@ class CreatePrometheusAlertRuleRequest extends Model
     public $expression;
 
     /**
+     * @description The tags that are described in a JSON string. You must specify the name and value of each tag.
+     *
      * @example [{"Value": "critical","Name": "severity"}]
      *
      * @var string
@@ -65,13 +77,19 @@ class CreatePrometheusAlertRuleRequest extends Model
     public $labels;
 
     /**
-     * @description This parameter is required.
+     * @description The content of the alert notification. Tags can be referenced in the {{$labels.xxx}} format.
+     *
+     * This parameter is required.
+     * @example The CPU utilization of ${{$labels.pod_name}} has exceeded 80%. Current value: {{$value}}%
      *
      * @var string
      */
     public $message;
 
     /**
+     * @description The method that is used to send alert notifications. Valid values:
+     *
+     * - `DISPATCH_RULE`: Alert notifications are sent based on the specified notification policy.
      * @example ALERT_MANAGER
      *
      * @var string
@@ -79,8 +97,9 @@ class CreatePrometheusAlertRuleRequest extends Model
     public $notifyType;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the region.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -88,11 +107,16 @@ class CreatePrometheusAlertRuleRequest extends Model
     public $regionId;
 
     /**
+     * @description The tags.
+     *
      * @var tags[]
      */
     public $tags;
 
     /**
+     * @description The type of the alert rule. Valid values:
+     *
+     * - 101: Prometheus Service alert
      * @example 101
      *
      * @var string

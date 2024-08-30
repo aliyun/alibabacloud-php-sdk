@@ -11,7 +11,7 @@ class netDNS extends Model
     /**
      * @description The IP version of the DNS server.
      *
-     *   0 (default value): IPv4.
+     *   0 (default): IPv4.
      *   1: IPv6.
      *   2: A version is automatically selected.
      *
@@ -33,7 +33,7 @@ class netDNS extends Model
     /**
      * @description The DNS query method. Valid values:
      *
-     *   0 (default value): recursive
+     *   0 (default): recursive
      *   1: iterative
      *
      * @example 0

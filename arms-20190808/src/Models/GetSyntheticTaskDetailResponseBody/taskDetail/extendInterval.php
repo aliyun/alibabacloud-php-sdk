@@ -9,15 +9,23 @@ use AlibabaCloud\Tea\Model;
 class extendInterval extends Model
 {
     /**
-     * @description 拨测执行周期。
+     * @description The day on which synthetic monitoring is performed. Valid values:
      *
-     * - 6：周六
+     *   \\-1: every day
+     *   0: Sunday
+     *   1: Monday
+     *   2: Tuesday
+     *   3: Wednesday
+     *   4: Thursday
+     *   5: Friday
+     *   6: Saturday
+     *
      * @var int[]
      */
     public $days;
 
     /**
-     * @description 当天结束分钟数。
+     * @description The minute at which synthetic monitoring ends.
      *
      * @example 20
      *
@@ -26,7 +34,7 @@ class extendInterval extends Model
     public $endMinute;
 
     /**
-     * @description 周期结束时间 ，格式为yyyy-MM-dd HH。
+     * @description The time when synthetic monitoring ends. Format: `yyyy-MM-dd HH`.
      *
      * @example 2022-05-03 11:40
      *
@@ -35,7 +43,7 @@ class extendInterval extends Model
     public $endTime;
 
     /**
-     * @description 当天结束小时数。
+     * @description The hour at which synthetic monitoring ends.
      *
      * @example 12
      *
@@ -44,7 +52,7 @@ class extendInterval extends Model
     public $endhour;
 
     /**
-     * @description 当天开始拨测时间的小时数。
+     * @description The hour at which synthetic monitoring starts.
      *
      * @example 9
      *
@@ -53,7 +61,7 @@ class extendInterval extends Model
     public $startHour;
 
     /**
-     * @description 当天开始拨测时间的分钟数。
+     * @description The minute at which synthetic monitoring starts.
      *
      * @example 20
      *
@@ -62,7 +70,7 @@ class extendInterval extends Model
     public $startMinute;
 
     /**
-     * @description 周期开始时间，格式yyyy-MM-dd HH 。
+     * @description The time when synthetic monitoring starts. Format: yyyy-MM-dd HH.
      *
      * @example 2022-02-26 11:40
      *

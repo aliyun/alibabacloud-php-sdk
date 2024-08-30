@@ -37,8 +37,16 @@ class CreateGrafanaWorkspaceRequest extends Model
     public $grafanaVersion;
 
     /**
-     * @description This parameter is required.
+     * @description The edition.
      *
+     **Valid values:**
+     *
+     *   standard: `Beta Edition or Standard Edition`
+     *   personal_edition: Developer Edition
+     *   experts_edition: Pro Edition
+     *   advanced_edition: Advanced Edition
+     *
+     * This parameter is required.
      * @example experts_edition
      *
      * @var string

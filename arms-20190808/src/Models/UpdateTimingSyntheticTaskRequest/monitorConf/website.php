@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class website extends Model
 {
     /**
-     * @description Specifies whether to automatically scroll up and down the screen to load a page. Valid values: 0: No. 1: Yes. Default value: 0.
+     * @description Specifies whether to automatically scroll up and down the screen to load a page. Valid values: 0: no. 1: yes. Default value: 0.
      *
      * @example 0
      *
@@ -18,7 +18,7 @@ class website extends Model
     public $automaticScrolling;
 
     /**
-     * @description Specifies whether to create a custom header. Valid values: 0: No. 1: The first packet is modified. 2: All packets are modified. Default value: 0.
+     * @description Specifies whether to create a custom header. Valid values: 0: no. 1: The first packet is modified. 2: All packets are modified. Default value: 0.
      *
      * @example 0
      *
@@ -44,7 +44,7 @@ class website extends Model
     public $DNSHijackWhitelist;
 
     /**
-     * @description Specifies whether to disable the cache. Valid values: 0: No. 1: Yes. Default value: 1.
+     * @description Specifies whether to disable the cache. Valid values: 0: no. 1: yes. Default value: 1.
      *
      * @example 0
      *
@@ -53,7 +53,7 @@ class website extends Model
     public $disableCache;
 
     /**
-     * @description Specifies whether to accept compressed files based on the HTTP Accept-Encoding request header. Valid values: 0: No. 1: Yes. Default value: 0.
+     * @description Specifies whether to accept compressed files based on the HTTP Accept-Encoding request header. Valid values: 0: no. 1: yes. Default value: 0.
      *
      * @example 0
      *
@@ -73,8 +73,8 @@ class website extends Model
     /**
      * @description Specifies whether to exclude invalid IP addresses. Valid values:
      *
-     *   1: No
-     *   0: Yes
+     *   1: no
+     *   0: yes
      *
      * @example 0
      *
@@ -101,7 +101,7 @@ class website extends Model
     public $flowHijackLogo;
 
     /**
-     * @description Specifies whether to ignore SSL certificate errors during browsing. Valid values: 0: No. 1: Yes. Default value: 1.
+     * @description Specifies whether to ignore SSL certificate errors during browsing. Valid values: 0: no. 1: yes. Default value: 1.
      *
      * @example 0
      *
@@ -128,7 +128,7 @@ class website extends Model
     public $pageTamper;
 
     /**
-     * @description Specifies whether to continue browsing after redirection. Valid values: 0: No. 1:Yes. Default value: 1.
+     * @description Specifies whether to continue browsing after redirection. Valid values: 0: no. 1: yes. Default value: 1.
      *
      * @example 0
      *

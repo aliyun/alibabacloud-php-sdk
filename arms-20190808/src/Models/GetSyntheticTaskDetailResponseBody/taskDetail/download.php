@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class download extends Model
 {
     /**
+     * @description The timeout period of the file download task.
+     *
      * @example 200
      *
      * @var int
@@ -16,6 +18,8 @@ class download extends Model
     public $connectionTimeout;
 
     /**
+     * @description The items to be ignored in a certificate error. Multiple values are concatenated with vertical bars (|).
+     *
      * @example char
      *
      * @var string
@@ -23,6 +27,11 @@ class download extends Model
     public $downloadCustomHeaderContent;
 
     /**
+     * @description The custom host. Valid values:
+     *
+     *   1: round robin
+     *   0: random
+     *
      * @example 0
      *
      * @var int
@@ -30,6 +39,8 @@ class download extends Model
     public $downloadCustomHost;
 
     /**
+     * @description The custom IP address of the host. Multiple IP addresses are separated with commas (,).
+     *
      * @example 168.23.45.1
      *
      * @var string
@@ -37,6 +48,11 @@ class download extends Model
     public $downloadCustomHostIp;
 
     /**
+     * @description The kernel type. Valid values:
+     *
+     *   1: curl
+     *   0: WinInet
+     *
      * @example 1
      *
      * @var int
@@ -44,6 +60,8 @@ class download extends Model
     public $downloadKernel;
 
     /**
+     * @description Indicates whether redirection is supported.
+     *
      * @example 1
      *
      * @var int
@@ -51,6 +69,8 @@ class download extends Model
     public $downloadRedirect;
 
     /**
+     * @description The file size. Unit: KB.
+     *
      * @example 20
      *
      * @var int
@@ -58,6 +78,8 @@ class download extends Model
     public $downloadTransmissionSize;
 
     /**
+     * @description The monitoring duration.
+     *
      * @example 12
      *
      * @var int
@@ -65,6 +87,12 @@ class download extends Model
     public $monitorTimeout;
 
     /**
+     * @description The QUIC protocol type. Valid values:
+     *
+     *   1: HTTP/1
+     *   2: HTTP/2
+     *   3: http3
+     *
      * @example 1
      *
      * @var string
@@ -72,6 +100,8 @@ class download extends Model
     public $quickProtocol;
 
     /**
+     * @description The keyword that is used in verification.
+     *
      * @example test
      *
      * @var string
@@ -79,6 +109,13 @@ class download extends Model
     public $validateKeywords;
 
     /**
+     * @description The method that is used to verify the response content. Valid values:
+     *
+     *   0: no verification.
+     *   1: exact match with the verification string.
+     *   2: partial match with the verification string.
+     *   3: MD5 verification.
+     *
      * @example 0
      *
      * @var int
@@ -86,6 +123,9 @@ class download extends Model
     public $verifyWay;
 
     /**
+     * @description The whitelisted objects that are used to avoid DNS hijacking. Format: `<domain name>:<objects>`.
+     *
+     * >  WAP networks do not support hijacking.
      * @example [{\\"src\\":\\"211.154.166.174\\"}]
      *
      * @var string

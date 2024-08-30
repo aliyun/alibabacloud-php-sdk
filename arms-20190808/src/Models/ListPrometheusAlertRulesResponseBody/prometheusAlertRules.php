@@ -12,6 +12,8 @@ use AlibabaCloud\Tea\Model;
 class prometheusAlertRules extends Model
 {
     /**
+     * @description The ID of the alert rule.
+     *
      * @example 3888704
      *
      * @var int
@@ -19,6 +21,8 @@ class prometheusAlertRules extends Model
     public $alertId;
 
     /**
+     * @description The name of the alert rule.
+     *
      * @example Prometheus_Alert
      *
      * @var string
@@ -26,11 +30,15 @@ class prometheusAlertRules extends Model
     public $alertName;
 
     /**
+     * @description The annotations of the alert rule.
+     *
      * @var annotations[]
      */
     public $annotations;
 
     /**
+     * @description The ID of the cluster.
+     *
      * @example c0bad479465464e1d8c1e641b0afb****
      *
      * @var string
@@ -38,6 +46,8 @@ class prometheusAlertRules extends Model
     public $clusterId;
 
     /**
+     * @description The ID of the notification policy. This parameter is returned if the NotifyType parameter is set to `DISPATCH_RULE`.
+     *
      * @example 10282
      *
      * @var int
@@ -45,6 +55,8 @@ class prometheusAlertRules extends Model
     public $dispatchRuleId;
 
     /**
+     * @description The duration of the alert. Valid values: 1 to 1440. Unit: minutes.
+     *
      * @example 1m
      *
      * @var string
@@ -52,6 +64,8 @@ class prometheusAlertRules extends Model
     public $duration;
 
     /**
+     * @description The expression of the alert rule.
+     *
      * @example 100 * (sum(rate(container_cpu_usage_seconds_total[1m])) by (pod_name) / sum(label_replace(kube_pod_container_resource_limits_cpu_cores, \\"pod_name\\", \\"$1\\", \\"pod\\", \\"(.*)\\")) by (pod_name))>75
      *
      * @var string
@@ -59,16 +73,25 @@ class prometheusAlertRules extends Model
     public $expression;
 
     /**
+     * @description The tags of the alert rule.
+     *
      * @var labels[]
      */
     public $labels;
 
     /**
+     * @description The alert message. Tags can be referenced in the {{$labels.xxx}} format.
+     *
+     * @example The CPU utilization of ${{$labels.pod_name}} exceeds 80%. Current value: {{$value}}%
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The method that is used to send alert notifications. Valid values:
+     *
+     * - DISPATCH_RULE: Alert notifications are
      * @example ALERT_MANAGER
      *
      * @var string
@@ -76,6 +99,9 @@ class prometheusAlertRules extends Model
     public $notifyType;
 
     /**
+     * @description Indicates whether the alert rule is enabled. Valid values:
+     *
+     * - 0: The alert rule is disabled.
      * @example 1
      *
      * @var int
@@ -83,11 +109,17 @@ class prometheusAlertRules extends Model
     public $status;
 
     /**
+     * @description The tags.
+     *
      * @var tags[]
      */
     public $tags;
 
     /**
+     * @description The type of the alert rule.
+     *
+     * @example Custom
+     *
      * @var string
      */
     public $type;

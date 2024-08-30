@@ -44,7 +44,7 @@ class monitorConf extends Model
     public $netICMP;
 
     /**
-     * @description The parameters of the TCP synthetic test. This parameter is required if the TaskType parameter is set to 2.
+     * @description The parameters of the TCP synthetic test.
      *
      * @var netTCP
      */

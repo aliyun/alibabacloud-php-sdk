@@ -37,6 +37,9 @@ class apiHTTP extends Model
     public $method;
 
     /**
+     * @description The ALPN protocol version. You can configure this parameter when you perform an HTTPS synthetic test on a WAP mobile client. Valid values:
+     *
+     * 3: disables the ALPN protocol
      * @example 1
      *
      * @var int

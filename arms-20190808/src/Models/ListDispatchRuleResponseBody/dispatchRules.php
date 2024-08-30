@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class dispatchRules extends Model
 {
     /**
+     * @description The name of the notification policy.
+     *
      * @example Prod
      *
      * @var string
@@ -16,6 +18,8 @@ class dispatchRules extends Model
     public $name;
 
     /**
+     * @description The ID of the notification policy.
+     *
      * @example 10282
      *
      * @var int
@@ -23,6 +27,11 @@ class dispatchRules extends Model
     public $ruleId;
 
     /**
+     * @description Indicates whether the notification policy is enabled. Valid values:
+     *
+     *   `true`
+     *   `false`
+     *
      * @example true
      *
      * @var string

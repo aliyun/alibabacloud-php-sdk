@@ -99,6 +99,8 @@ class UpdatePrometheusAlertRuleRequest extends Model
     public $regionId;
 
     /**
+     * @description The tags.
+     *
      * @var tags[]
      */
     public $tags;

@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class ListActivatedAlertsResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $message;
+
+    /**
      * @description The struct returned.
      *
      * @var page
@@ -25,6 +30,7 @@ class ListActivatedAlertsResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
+        'message'   => 'Message',
         'page'      => 'Page',
         'requestId' => 'RequestId',
     ];
@@ -36,6 +42,9 @@ class ListActivatedAlertsResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
+        }
         if (null !== $this->page) {
             $res['Page'] = null !== $this->page ? $this->page->toMap() : null;
         }
@@ -54,6 +63,9 @@ class ListActivatedAlertsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
+        }
         if (isset($map['Page'])) {
             $model->page = page::fromMap($map['Page']);
         }

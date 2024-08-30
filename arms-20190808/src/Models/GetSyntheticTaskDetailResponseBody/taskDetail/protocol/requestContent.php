@@ -11,16 +11,25 @@ use AlibabaCloud\Tea\Model;
 class requestContent extends Model
 {
     /**
+     * @description The content of the request body.
+     *
      * @var body
      */
     public $body;
 
     /**
+     * @description The request header.
+     *
      * @var header[]
      */
     public $header;
 
     /**
+     * @description The request method. Valid values:
+     *
+     *   POST
+     *   GET
+     *
      * @example POST
      *
      * @var string

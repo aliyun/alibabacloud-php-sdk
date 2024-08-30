@@ -15,6 +15,8 @@ use AlibabaCloud\Tea\Model;
 class CreateTimingSyntheticTaskRequest extends Model
 {
     /**
+     * @description The list of assertions.
+     *
      * @var availableAssertions[]
      */
     public $availableAssertions;
@@ -27,13 +29,16 @@ class CreateTimingSyntheticTaskRequest extends Model
     public $commonSetting;
 
     /**
+     * @description The general settings.
+     *
      * @var customPeriod
      */
     public $customPeriod;
 
     /**
-     * @description This parameter is required.
+     * @description The detection frequency. Valid values: 1m, 5m, 10m, 15m, 20m, 30m, 1h, 2h, 3h, 4h, 6h, 8h, 12h, and 24h.
      *
+     * This parameter is required.
      * @example 5m
      *
      * @var string
@@ -41,8 +46,9 @@ class CreateTimingSyntheticTaskRequest extends Model
     public $frequency;
 
     /**
-     * @description This parameter is required.
+     * @description The detection point type. Valid values:
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -58,8 +64,9 @@ class CreateTimingSyntheticTaskRequest extends Model
     public $monitorConf;
 
     /**
-     * @description This parameter is required.
+     * @description The list of detection points.
      *
+     * This parameter is required.
      * @var monitors[]
      */
     public $monitors;
@@ -85,6 +92,8 @@ class CreateTimingSyntheticTaskRequest extends Model
     public $regionId;
 
     /**
+     * @description The parameter is optional.
+     *
      * @example xxxx
      *
      * @var string
@@ -92,6 +101,8 @@ class CreateTimingSyntheticTaskRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description The tag list.
+     *
      * @var tags[]
      */
     public $tags;

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class net extends Model
 {
     /**
+     * @description Indicates whether the data is displayed in the DIG format. Valid values:
+     *
+     *   0: no
+     *   1: yes
+     *
      * @example 0
      *
      * @var int
@@ -16,6 +21,8 @@ class net extends Model
     public $netDigSwitch;
 
     /**
+     * @description The NS server.
+     *
      * @example 189.12.32.124
      *
      * @var string
@@ -23,6 +30,11 @@ class net extends Model
     public $netDnsNs;
 
     /**
+     * @description The DNS query method. Valid values:
+     *
+     *   1: recursive
+     *   2: iterative
+     *
      * @example 1
      *
      * @var string
@@ -30,6 +42,12 @@ class net extends Model
     public $netDnsQueryMethod;
 
     /**
+     * @description The type of the DNS server. Valid values:
+     *
+     *   0: ipv4
+     *   1: ipv6
+     *   2: A version is automatically selected.
+     *
      * @example 0
      *
      * @var int
@@ -37,6 +55,11 @@ class net extends Model
     public $netDnsServer;
 
     /**
+     * @description Indicates whether DNS test is enabled. Valid values:
+     *
+     *   0: no
+     *   1: yes
+     *
      * @example 0
      *
      * @var int
@@ -44,6 +67,8 @@ class net extends Model
     public $netDnsSwitch;
 
     /**
+     * @description The timeout period of DNS requests.
+     *
      * @example 10
      *
      * @var string
@@ -51,6 +76,11 @@ class net extends Model
     public $netDnsTimeout;
 
     /**
+     * @description The protocol type. Valid values:
+     *
+     *   0 : ICMP
+     *   1 : TCP
+     *
      * @example 0
      *
      * @var int
@@ -58,6 +88,11 @@ class net extends Model
     public $netIcmpActive;
 
     /**
+     * @description Indicates whether packets are split. Valid values:
+     *
+     *   0: no
+     *   1: yes
+     *
      * @example 0
      *
      * @var int
@@ -65,6 +100,8 @@ class net extends Model
     public $netIcmpDataCut;
 
     /**
+     * @description The interval at which the synthetic monitoring task is executed.
+     *
      * @example 10
      *
      * @var int
@@ -72,6 +109,8 @@ class net extends Model
     public $netIcmpInterval;
 
     /**
+     * @description The number of packets.
+     *
      * @example 10
      *
      * @var int
@@ -79,6 +118,8 @@ class net extends Model
     public $netIcmpNum;
 
     /**
+     * @description The packet size.
+     *
      * @example 30
      *
      * @var int
@@ -86,6 +127,11 @@ class net extends Model
     public $netIcmpSize;
 
     /**
+     * @description Indicates whether ICMP test is enabled. Valid values:
+     *
+     *   0: no.
+     *   1: yes. If you set this parameter to 1, you must also set the Icmp parameter.
+     *
      * @example 0
      *
      * @var int
@@ -93,6 +139,8 @@ class net extends Model
     public $netIcmpSwitch;
 
     /**
+     * @description The monitoring timeout period.
+     *
      * @example 20
      *
      * @var int
@@ -100,6 +148,8 @@ class net extends Model
     public $netIcmpTimeout;
 
     /**
+     * @description The maximum number of active detection points.
+     *
      * @example 30
      *
      * @var int
@@ -107,6 +157,11 @@ class net extends Model
     public $netTraceRouteNum;
 
     /**
+     * @description Indicates whether Tracert test is enabled. Valid values:
+     *
+     *   0: no
+     *   1: yes. If you set this parameter to 1, you must also set the Tracert parameter.
+     *
      * @example 0
      *
      * @var int
@@ -114,6 +169,8 @@ class net extends Model
     public $netTraceRouteSwitch;
 
     /**
+     * @description The monitoring timeout period. Valid values: 0 to 300. Unit: seconds.
+     *
      * @example 20
      *
      * @var int
@@ -121,6 +178,9 @@ class net extends Model
     public $netTraceRouteTimeout;
 
     /**
+     * @description The whitelisted objects that are used to avoid DNS hijacking. Format: `<domain name>:<objects>`.
+     *
+     * >  WAP networks do not support hijacking.
      * @example 119.119.53.156/32
      *
      * @var string

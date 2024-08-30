@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class alertList extends Model
 {
     /**
+     * @description The low-risk alert.
+     *
      * @example 1
      *
      * @var string
@@ -16,6 +18,8 @@ class alertList extends Model
     public $generalAlert;
 
     /**
+     * @description Indicates whether the condition is essential.
+     *
      * @example 0
      *
      * @var string
@@ -23,6 +27,8 @@ class alertList extends Model
     public $isCritical;
 
     /**
+     * @description The alert name.
+     *
      * @example alert-test
      *
      * @var string
@@ -30,6 +36,8 @@ class alertList extends Model
     public $name;
 
     /**
+     * @description The Critical-level alert.
+     *
      * @example 1
      *
      * @var string
@@ -37,6 +45,8 @@ class alertList extends Model
     public $seriousAlert;
 
     /**
+     * @description Greater than or less than.
+     *
      * @example 1
      *
      * @var string

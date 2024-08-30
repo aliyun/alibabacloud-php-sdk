@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The task status. Valid values:
+     *
+     * - DONE: The task is complete.
      * @example RUNNING
      *
      * @var string
@@ -16,6 +19,8 @@ class data extends Model
     public $status;
 
     /**
+     * @description The ID of the synthetic monitoring task.
+     *
      * @example 5308a2691f59422c8c3b7aeccec9cd3b
      *
      * @var string

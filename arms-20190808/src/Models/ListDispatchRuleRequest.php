@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListDispatchRuleRequest extends Model
 {
     /**
+     * @description The name of the notification policy. Fuzzy match is supported.
+     *
      * @example Prod
      *
      * @var string
@@ -16,8 +18,9 @@ class ListDispatchRuleRequest extends Model
     public $name;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -25,6 +28,10 @@ class ListDispatchRuleRequest extends Model
     public $regionId;
 
     /**
+     * @description *   The type of notification policies to be queried. Valid values: `false` (default): notification policies created in Application Real-Time Monitoring Service (ARMS).
+     *   `true`: notification policies created in an external system.
+     *
+     * >  You cannot use the ARMS console to modify the dispatch rules of a notification policy that is created in an external system.
      * @example true
      *
      * @var bool

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetSyntheticTaskListRequest extends Model
 {
     /**
+     * @description The order by which the queried tasks are sorted. Valid values:
+     *
+     *   **asc**: ascending
+     *   **desc**: descending
+     *
      * @example asc
      *
      * @var string
@@ -16,6 +21,8 @@ class GetSyntheticTaskListRequest extends Model
     public $direction;
 
     /**
+     * @description The condition by which the queried tasks are sorted.
+     *
      * @example CreateTime
      *
      * @var string
@@ -23,6 +30,8 @@ class GetSyntheticTaskListRequest extends Model
     public $order;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -30,6 +39,8 @@ class GetSyntheticTaskListRequest extends Model
     public $pageNum;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 10
      *
      * @var int
@@ -37,6 +48,8 @@ class GetSyntheticTaskListRequest extends Model
     public $pageSize;
 
     /**
+     * @description The region ID. Default value: **cn-hangzhou**.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -44,6 +57,8 @@ class GetSyntheticTaskListRequest extends Model
     public $regionId;
 
     /**
+     * @description The task name.
+     *
      * @example net-test
      *
      * @var string
@@ -51,6 +66,12 @@ class GetSyntheticTaskListRequest extends Model
     public $taskName;
 
     /**
+     * @description The status of the task. Valid values:
+     *
+     *   **0**: The task is stopped.
+     *   **1**: The task is started.
+     *   **9**: The task is ended.
+     *
      * @example 1
      *
      * @var string
@@ -58,6 +79,9 @@ class GetSyntheticTaskListRequest extends Model
     public $taskStatus;
 
     /**
+     * @description The type of the task. Valid values:
+     *
+     * 5.  7: API performance
      * @example 0
      *
      * @var string
@@ -65,6 +89,8 @@ class GetSyntheticTaskListRequest extends Model
     public $taskType;
 
     /**
+     * @description The URL for synthetic monitoring.
+     *
      * @example https://www.example.com
      *
      * @var string

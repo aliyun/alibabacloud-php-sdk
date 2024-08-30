@@ -10,6 +10,13 @@ use AlibabaCloud\Tea\Model;
 class protocol extends Model
 {
     /**
+     * @description The encoding format. Valid values:
+     *
+     *   0: UTF-8
+     *   1: GBK
+     *   2: GB2312
+     *   3: Unicode
+     *
      * @example 0
      *
      * @var int
@@ -17,6 +24,11 @@ class protocol extends Model
     public $characterEncoding;
 
     /**
+     * @description The custom host. Valid values:
+     *
+     *   1: round robin
+     *   0: random
+     *
      * @example 1
      *
      * @var int
@@ -24,6 +36,8 @@ class protocol extends Model
     public $customHost;
 
     /**
+     * @description The custom IP address of the host. Multiple IP addresses are separated with commas (,).
+     *
      * @example 119.119.53.156
      *
      * @var string
@@ -31,6 +45,8 @@ class protocol extends Model
     public $customHostIp;
 
     /**
+     * @description The timeout period.
+     *
      * @example 20
      *
      * @var int
@@ -38,6 +54,8 @@ class protocol extends Model
     public $protocolConnectionTimeout;
 
     /**
+     * @description The timeout period of API performance monitoring. Unit: seconds.
+     *
      * @example 30
      *
      * @var int
@@ -45,6 +63,8 @@ class protocol extends Model
     public $protocolMonitorTimeout;
 
     /**
+     * @description The size of the received data. This parameter is returned when **VerifyWay** is set to 2.
+     *
      * @example 30
      *
      * @var int
@@ -52,11 +72,15 @@ class protocol extends Model
     public $receivedDataSize;
 
     /**
+     * @description The request content, including the header and body.
+     *
      * @var requestContent
      */
     public $requestContent;
 
     /**
+     * @description The verification string.
+     *
      * @example list
      *
      * @var string
@@ -64,6 +88,13 @@ class protocol extends Model
     public $verifyContent;
 
     /**
+     * @description The method that is used to verify the response content. Valid values:
+     *
+     *   0: no verification.
+     *   1: exact match with the verification string.
+     *   2: partial match with the verification string.
+     *   3: MD5 verification.
+     *
      * @example 0
      *
      * @var int

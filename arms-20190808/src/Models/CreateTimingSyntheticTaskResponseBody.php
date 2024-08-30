@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateTimingSyntheticTaskResponseBody extends Model
 {
     /**
+     * @description The HTTP status code returned. The status code 200 indicates that the request was successful.
+     *
      * @example 200
      *
      * @var int
@@ -17,11 +19,15 @@ class CreateTimingSyntheticTaskResponseBody extends Model
     public $code;
 
     /**
+     * @description The struct returned.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The message returned.
+     *
      * @example success
      *
      * @var string
@@ -38,6 +44,8 @@ class CreateTimingSyntheticTaskResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values: true and false.
+     *
      * @example true
      *
      * @var bool

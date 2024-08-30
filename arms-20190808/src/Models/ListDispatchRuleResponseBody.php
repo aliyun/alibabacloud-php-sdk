@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListDispatchRuleResponseBody extends Model
 {
     /**
+     * @description The returned struct.
+     *
      * @var dispatchRules[]
      */
     public $dispatchRules;
 
     /**
+     * @description The request ID.
+     *
      * @example 34ED024E-9E31-434A-9E4E-D9D15C3****
      *
      * @var string

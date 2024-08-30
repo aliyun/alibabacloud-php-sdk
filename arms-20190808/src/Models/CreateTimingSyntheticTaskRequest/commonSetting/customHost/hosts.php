@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class hosts extends Model
 {
     /**
-     * @description The domain name
+     * @description The domain name.
      *
      * This parameter is required.
      * @example www.aliyun.com

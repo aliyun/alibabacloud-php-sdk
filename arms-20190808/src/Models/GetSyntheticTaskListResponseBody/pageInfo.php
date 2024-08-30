@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class pageInfo extends Model
 {
     /**
+     * @description Indicates whether the current page is followed by a page.
+     *
      * @example false
      *
      * @var string
@@ -17,6 +19,8 @@ class pageInfo extends Model
     public $hasNextPage;
 
     /**
+     * @description Indicates whether a previous page exists.
+     *
      * @example true
      *
      * @var bool
@@ -24,6 +28,8 @@ class pageInfo extends Model
     public $hasPreviousPage;
 
     /**
+     * @description Indicates whether the page is the first page.
+     *
      * @example true
      *
      * @var bool
@@ -31,6 +37,8 @@ class pageInfo extends Model
     public $isFirstPage;
 
     /**
+     * @description Indicates whether the page is the last page.
+     *
      * @example true
      *
      * @var bool
@@ -38,11 +46,15 @@ class pageInfo extends Model
     public $isLastPage;
 
     /**
+     * @description The task information.
+     *
      * @var list_[]
      */
     public $list;
 
     /**
+     * @description The first page on the navigation bar.
+     *
      * @example 1
      *
      * @var string
@@ -50,6 +62,8 @@ class pageInfo extends Model
     public $navigateFirstPage;
 
     /**
+     * @description The last page on the navigation bar.
+     *
      * @example 3
      *
      * @var string
@@ -57,6 +71,8 @@ class pageInfo extends Model
     public $navigateLastPage;
 
     /**
+     * @description All navigation page numbers.
+     *
      * @example 1,2,3
      *
      * @var string
@@ -64,6 +80,8 @@ class pageInfo extends Model
     public $navigatePageNums;
 
     /**
+     * @description The next page.
+     *
      * @example 3
      *
      * @var string
@@ -71,6 +89,8 @@ class pageInfo extends Model
     public $nextPage;
 
     /**
+     * @description The total number of pages returned.
+     *
      * @example 10
      *
      * @var string
@@ -78,6 +98,8 @@ class pageInfo extends Model
     public $pages;
 
     /**
+     * @description The previous page.
+     *
      * @example 1
      *
      * @var string
@@ -85,6 +107,8 @@ class pageInfo extends Model
     public $prepage;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 10
      *
      * @var int
@@ -92,6 +116,8 @@ class pageInfo extends Model
     public $size;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 15
      *
      * @var int

@@ -11,7 +11,7 @@ class website extends Model
     /**
      * @description Specifies whether to automatically scroll up and down the screen to load a page.
      *
-     *   0 (default value): no
+     *   0 (default): no
      *   1: yes
      *
      * @example 0
@@ -23,7 +23,7 @@ class website extends Model
     /**
      * @description Specifies whether to create a custom header.
      *
-     *   0 (default value): No custom header is created.
+     *   0 (default): No custom header is created.
      *   1: A custom header is created for the first packet.
      *   2: A custom header is created for all packets.
      *
@@ -54,7 +54,7 @@ class website extends Model
      * @description Specifies whether to disable caching.
      *
      *   0: no
-     *   1 (default value): yes
+     *   1 (default): yes
      *
      * @example 1
      *

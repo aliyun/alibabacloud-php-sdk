@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class ListAlertsResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $message;
+
+    /**
      * @description The information about the array object.
      *
      * @var pageBean
@@ -25,6 +30,7 @@ class ListAlertsResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
+        'message'   => 'Message',
         'pageBean'  => 'PageBean',
         'requestId' => 'RequestId',
     ];
@@ -36,6 +42,9 @@ class ListAlertsResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
+        }
         if (null !== $this->pageBean) {
             $res['PageBean'] = null !== $this->pageBean ? $this->pageBean->toMap() : null;
         }
@@ -54,6 +63,9 @@ class ListAlertsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
+        }
         if (isset($map['PageBean'])) {
             $model->pageBean = pageBean::fromMap($map['PageBean']);
         }

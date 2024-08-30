@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class monitors extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The city code.
      *
+     * This parameter is required.
      * @example 100023
      *
      * @var string
@@ -18,8 +19,9 @@ class monitors extends Model
     public $cityCode;
 
     /**
-     * @description This parameter is required.
+     * @description The client type of the detection point. Valid values:
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -27,8 +29,9 @@ class monitors extends Model
     public $clientType;
 
     /**
-     * @description This parameter is required.
+     * @description The carrier code.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var string

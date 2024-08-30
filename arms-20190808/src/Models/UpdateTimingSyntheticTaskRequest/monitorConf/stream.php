@@ -30,8 +30,8 @@ class stream extends Model
     /**
      * @description The address type of the resource. Valid values:
      *
-     *   1: resource URL
-     *   0: page URL Default value: 0.
+     *   1: resource URL.
+     *   0: page URL. Default value: 0.
      *
      * @example 1
      *

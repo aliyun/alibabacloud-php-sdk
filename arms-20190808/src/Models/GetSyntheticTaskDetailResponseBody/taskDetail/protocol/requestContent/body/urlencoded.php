@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class urlencoded extends Model
 {
     /**
+     * @description The tag key.
+     *
      * @example appId
      *
      * @var string
@@ -16,6 +18,8 @@ class urlencoded extends Model
     public $key;
 
     /**
+     * @description The tag value.
+     *
      * @example 11080
      *
      * @var string

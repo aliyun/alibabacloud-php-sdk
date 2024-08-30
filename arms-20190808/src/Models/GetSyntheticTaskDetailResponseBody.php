@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetSyntheticTaskDetailResponseBody extends Model
 {
     /**
-     * @description 请求ID。
+     * @description The request ID.
      *
      * @example 4D6C358A-A58B-4F4B-94CE-F5AAF023****
      *
@@ -19,7 +19,7 @@ class GetSyntheticTaskDetailResponseBody extends Model
     public $requestId;
 
     /**
-     * @description 任务详情。
+     * @description The details of the task.
      *
      * @var taskDetail
      */

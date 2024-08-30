@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateTimingSyntheticTaskShrinkRequest extends Model
 {
     /**
+     * @description The list of assertions.
+     *
      * @var string
      */
     public $availableAssertionsShrink;
@@ -21,13 +23,16 @@ class CreateTimingSyntheticTaskShrinkRequest extends Model
     public $commonSettingShrink;
 
     /**
+     * @description The general settings.
+     *
      * @var string
      */
     public $customPeriodShrink;
 
     /**
-     * @description This parameter is required.
+     * @description The detection frequency. Valid values: 1m, 5m, 10m, 15m, 20m, 30m, 1h, 2h, 3h, 4h, 6h, 8h, 12h, and 24h.
      *
+     * This parameter is required.
      * @example 5m
      *
      * @var string
@@ -35,8 +40,9 @@ class CreateTimingSyntheticTaskShrinkRequest extends Model
     public $frequency;
 
     /**
-     * @description This parameter is required.
+     * @description The detection point type. Valid values:
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -52,8 +58,9 @@ class CreateTimingSyntheticTaskShrinkRequest extends Model
     public $monitorConfShrink;
 
     /**
-     * @description This parameter is required.
+     * @description The list of detection points.
      *
+     * This parameter is required.
      * @var string
      */
     public $monitorsShrink;
@@ -79,6 +86,8 @@ class CreateTimingSyntheticTaskShrinkRequest extends Model
     public $regionId;
 
     /**
+     * @description The parameter is optional.
+     *
      * @example xxxx
      *
      * @var string
@@ -86,6 +95,8 @@ class CreateTimingSyntheticTaskShrinkRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description The tag list.
+     *
      * @var string
      */
     public $tagsShrink;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class annotations extends Model
 {
     /**
+     * @description The name of the annotation.
+     *
      * @example message
      *
      * @var string
@@ -16,6 +18,10 @@ class annotations extends Model
     public $name;
 
     /**
+     * @description The value of the annotation.
+     *
+     * @example The CPU utilization of ${{$labels.pod_name}} has exceeded 80%. Current value: {{$value}}%
+     *
      * @var string
      */
     public $value;

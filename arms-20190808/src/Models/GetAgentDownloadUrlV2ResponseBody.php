@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
-use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdatePrometheusAlertRuleResponseBody\prometheusAlertRule;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\GetAgentDownloadUrlV2ResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class UpdatePrometheusAlertRuleResponseBody extends Model
+class GetAgentDownloadUrlV2ResponseBody extends Model
 {
     /**
-     * @description The HTTP status code. The status code 200 indicates that the request was successful. Other status codes indicate that the request failed.
-     *
      * @example 200
      *
      * @var int
@@ -19,43 +17,34 @@ class UpdatePrometheusAlertRuleResponseBody extends Model
     public $code;
 
     /**
-     * @description The returned message.
-     *
-     * @example success
-     *
+     * @var data
+     */
+    public $data;
+
+    /**
      * @var string
      */
     public $message;
 
     /**
-     * @var prometheusAlertRule
-     */
-    public $prometheusAlertRule;
-
-    /**
-     * @example 9FEA6D00-317F-45E3-9004-7FB8B0B7****
+     * @example 78901766-3806-4E96-8E47-CFEF59E4****
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Indicates whether the request was successful. Valid values:
-     *
-     *   `true`
-     *   `false`
-     *
-     * @example True
+     * @example true
      *
      * @var bool
      */
     public $success;
     protected $_name = [
-        'code'                => 'Code',
-        'message'             => 'Message',
-        'prometheusAlertRule' => 'PrometheusAlertRule',
-        'requestId'           => 'RequestId',
-        'success'             => 'Success',
+        'code'      => 'Code',
+        'data'      => 'Data',
+        'message'   => 'Message',
+        'requestId' => 'RequestId',
+        'success'   => 'Success',
     ];
 
     public function validate()
@@ -68,11 +57,11 @@ class UpdatePrometheusAlertRuleResponseBody extends Model
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+        if (null !== $this->data) {
+            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
-        }
-        if (null !== $this->prometheusAlertRule) {
-            $res['PrometheusAlertRule'] = null !== $this->prometheusAlertRule ? $this->prometheusAlertRule->toMap() : null;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -87,7 +76,7 @@ class UpdatePrometheusAlertRuleResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return UpdatePrometheusAlertRuleResponseBody
+     * @return GetAgentDownloadUrlV2ResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -95,11 +84,11 @@ class UpdatePrometheusAlertRuleResponseBody extends Model
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+        if (isset($map['Data'])) {
+            $model->data = data::fromMap($map['Data']);
+        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
-        }
-        if (isset($map['PrometheusAlertRule'])) {
-            $model->prometheusAlertRule = prometheusAlertRule::fromMap($map['PrometheusAlertRule']);
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class monitorList extends Model
 {
     /**
-     * @description 城市编码。
+     * @description The city code.
      *
      * @example 110100
      *
@@ -18,8 +18,8 @@ class monitorList extends Model
     public $cityCode;
 
     /**
-     * @description 监测类型：
-     * - Mobile
+     * @description The type of the detection point.
+     *
      * @example IDC
      *
      * @var int
@@ -27,7 +27,7 @@ class monitorList extends Model
     public $monitorType;
 
     /**
-     * @description 运营商ID。
+     * @description The ID of the network service.
      *
      * @example 12001
      *
@@ -36,7 +36,7 @@ class monitorList extends Model
     public $netServiceId;
 
     /**
-     * @description 下发次数。
+     * @description The number of times that the system sends detection requests.
      *
      * @example 20
      *

@@ -19,6 +19,8 @@ class commonSetting extends Model
     public $customHost;
 
     /**
+     * @description The reserved parameters.
+     *
      * @var customPrometheusSetting
      */
     public $customPrometheusSetting;

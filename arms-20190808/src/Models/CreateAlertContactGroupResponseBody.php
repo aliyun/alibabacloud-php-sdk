@@ -18,7 +18,7 @@ class CreateAlertContactGroupResponseBody extends Model
     public $contactGroupId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 70675725-8F11-4817-8106-CFE0AD71****
      *

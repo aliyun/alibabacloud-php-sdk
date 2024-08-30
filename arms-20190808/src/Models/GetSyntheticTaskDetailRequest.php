@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetSyntheticTaskDetailRequest extends Model
 {
     /**
-     * @description 地域ID。默认为cn-hangzhou。
+     * @description The region ID. Default value: cn-hangzhou.
      *
      * @example cn-hangzhou
      *
@@ -18,7 +18,7 @@ class GetSyntheticTaskDetailRequest extends Model
     public $regionId;
 
     /**
-     * @description 云拨测任务ID。
+     * @description The ID of the synthetic monitoring task.
      *
      * This parameter is required.
      * @example 123

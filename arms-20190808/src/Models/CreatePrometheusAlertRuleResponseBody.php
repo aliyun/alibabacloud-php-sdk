@@ -10,21 +10,33 @@ use AlibabaCloud\Tea\Model;
 class CreatePrometheusAlertRuleResponseBody extends Model
 {
     /**
+     * @description The HTTP status code. The status code 200 indicates that the request was successful.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The returned message.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The returned struct.
+     *
      * @var prometheusAlertRule
      */
     public $prometheusAlertRule;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 9FEA6D00-317F-45E3-9004-7FB8B0B7****
      *
      * @var string
@@ -32,6 +44,10 @@ class CreatePrometheusAlertRuleResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

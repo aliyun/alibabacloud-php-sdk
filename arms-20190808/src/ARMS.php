@@ -211,6 +211,8 @@ use AlibabaCloud\SDK\ARMS\V20190808\Models\EnableMetricRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\EnableMetricResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetAgentDownloadUrlRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetAgentDownloadUrlResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\GetAgentDownloadUrlV2Request;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\GetAgentDownloadUrlV2Response;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetAlertRulesRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetAlertRulesResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetAppApiByPageRequest;
@@ -871,8 +873,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
+     * @deprecated openAPI AddPrometheusInstance is deprecated, please use ARMS::2019-08-08::CreatePrometheusInstance instead
+     *  *
      * @summary Creates a Prometheus instance for Remote Write.
      *  *
+     * Deprecated
+     *
      * @param AddPrometheusInstanceRequest $request AddPrometheusInstanceRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -910,8 +916,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
+     * @deprecated openAPI AddPrometheusInstance is deprecated, please use ARMS::2019-08-08::CreatePrometheusInstance instead
+     *  *
      * @summary Creates a Prometheus instance for Remote Write.
      *  *
+     * Deprecated
+     *
      * @param AddPrometheusInstanceRequest $request AddPrometheusInstanceRequest
      *
      * @return AddPrometheusInstanceResponse AddPrometheusInstanceResponse
@@ -1791,7 +1801,7 @@ class ARMS extends OpenApiClient
     /**
      * @summary Creates an alert contact group.
      *  *
-     * @description ************
+     * @description The current API operation is no longer maintained. Call the CreateOrUpdateContactGroup operation of the new Alert Management module to create or modify alert contact groups.
      *  *
      * @param CreateAlertContactGroupRequest $request CreateAlertContactGroupRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -1832,7 +1842,7 @@ class ARMS extends OpenApiClient
     /**
      * @summary Creates an alert contact group.
      *  *
-     * @description ************
+     * @description The current API operation is no longer maintained. Call the CreateOrUpdateContactGroup operation of the new Alert Management module to create or modify alert contact groups.
      *  *
      * @param CreateAlertContactGroupRequest $request CreateAlertContactGroupRequest
      *
@@ -2940,7 +2950,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 创建Prometheus告警规则
+     * @summary Creates an alert rule.
      *  *
      * @param CreatePrometheusAlertRuleRequest $request CreatePrometheusAlertRuleRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -3006,7 +3016,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 创建Prometheus告警规则
+     * @summary Creates an alert rule.
      *  *
      * @param CreatePrometheusAlertRuleRequest $request CreatePrometheusAlertRuleRequest
      *
@@ -5389,7 +5399,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 删除云拨测任务
+     * @summary Deletes scheduled synthetic monitoring tasks.
      *  *
      * @param DeleteSyntheticTaskRequest $request DeleteSyntheticTaskRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -5425,7 +5435,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 删除云拨测任务
+     * @summary Deletes scheduled synthetic monitoring tasks.
      *  *
      * @param DeleteSyntheticTaskRequest $request DeleteSyntheticTaskRequest
      *
@@ -6166,7 +6176,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details about an alert rule of Prometheus Service.
+     * @summary Queries the details about an alert rule for a Prometheus instance.
      *  *
      * @param DescribePrometheusAlertRuleRequest $request DescribePrometheusAlertRuleRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
@@ -6202,7 +6212,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details about an alert rule of Prometheus Service.
+     * @summary Queries the details about an alert rule for a Prometheus instance.
      *  *
      * @param DescribePrometheusAlertRuleRequest $request DescribePrometheusAlertRuleRequest
      *
@@ -6451,6 +6461,59 @@ class ARMS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getAgentDownloadUrlWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取探针下载地址
+     *  *
+     * @param GetAgentDownloadUrlV2Request $request GetAgentDownloadUrlV2Request
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetAgentDownloadUrlV2Response GetAgentDownloadUrlV2Response
+     */
+    public function getAgentDownloadUrlV2WithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentType)) {
+            $query['AgentType'] = $request->agentType;
+        }
+        if (!Utils::isUnset($request->archType)) {
+            $query['ArchType'] = $request->archType;
+        }
+        if (!Utils::isUnset($request->osType)) {
+            $query['OsType'] = $request->osType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAgentDownloadUrlV2',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetAgentDownloadUrlV2Response::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取探针下载地址
+     *  *
+     * @param GetAgentDownloadUrlV2Request $request GetAgentDownloadUrlV2Request
+     *
+     * @return GetAgentDownloadUrlV2Response GetAgentDownloadUrlV2Response
+     */
+    public function getAgentDownloadUrlV2($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAgentDownloadUrlV2WithOptions($request, $runtime);
     }
 
     /**
@@ -6745,8 +6808,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
+     * @deprecated openAPI GetClusterAllUrl is deprecated, please use ARMS::2019-08-08::GetPrometheusInstance instead
+     *  *
      * @summary Obtains all the URLs of a cluster, including remote read and write URLs, Pushgateway URLs, and Grafana URLs.
      *  *
+     * Deprecated
+     *
      * @param GetClusterAllUrlRequest $request GetClusterAllUrlRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -6781,8 +6848,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
+     * @deprecated openAPI GetClusterAllUrl is deprecated, please use ARMS::2019-08-08::GetPrometheusInstance instead
+     *  *
      * @summary Obtains all the URLs of a cluster, including remote read and write URLs, Pushgateway URLs, and Grafana URLs.
      *  *
+     * Deprecated
+     *
      * @param GetClusterAllUrlRequest $request GetClusterAllUrlRequest
      *
      * @return GetClusterAllUrlResponse GetClusterAllUrlResponse
@@ -8254,7 +8325,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 获取单个拨测任务的详情
+     * @summary Queries the details of a scheduled synthetic monitoring task.
      *  *
      * @param GetSyntheticTaskDetailRequest $request GetSyntheticTaskDetailRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -8290,7 +8361,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 获取单个拨测任务的详情
+     * @summary Queries the details of a scheduled synthetic monitoring task.
      *  *
      * @param GetSyntheticTaskDetailRequest $request GetSyntheticTaskDetailRequest
      *
@@ -8304,7 +8375,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 获取拨测任务列表
+     * @summary Queries a list of scheduled synthetic monitoring tasks.
      *  *
      * @param GetSyntheticTaskListRequest $request GetSyntheticTaskListRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -8361,7 +8432,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 获取拨测任务列表
+     * @summary Queries a list of scheduled synthetic monitoring tasks.
      *  *
      * @param GetSyntheticTaskListRequest $request GetSyntheticTaskListRequest
      *
@@ -8579,7 +8650,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries all custom settings of an application monitored by Application Monitoring, such as trace sampling settings and agent switches.
+     * @summary Queries all custom settings of an application monitored by Application Monitoring, such as trace sampling settings and agent switches. This operation is applicable only to applications that are monitored by Application Monitoring. It is not applicable to applications that are monitored by Managed Service for OpenTelemetry.
      *  *
      * @param GetTraceAppConfigRequest $request GetTraceAppConfigRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -8612,7 +8683,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries all custom settings of an application monitored by Application Monitoring, such as trace sampling settings and agent switches.
+     * @summary Queries all custom settings of an application monitored by Application Monitoring, such as trace sampling settings and agent switches. This operation is applicable only to applications that are monitored by Application Monitoring. It is not applicable to applications that are monitored by Managed Service for OpenTelemetry.
      *  *
      * @param GetTraceAppConfigRequest $request GetTraceAppConfigRequest
      *
@@ -9610,6 +9681,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
+     * @summary Queries notification policies.
+     *  *
+     * @description The current API operation is no longer maintained. To query the notification policy information, call the ListNotificationPolicies operation instead.
+     *  *
      * @param ListDispatchRuleRequest $request ListDispatchRuleRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -9647,6 +9722,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
+     * @summary Queries notification policies.
+     *  *
+     * @description The current API operation is no longer maintained. To query the notification policy information, call the ListNotificationPolicies operation instead.
+     *  *
      * @param ListDispatchRuleRequest $request ListDispatchRuleRequest
      *
      * @return ListDispatchRuleResponse ListDispatchRuleResponse
@@ -10359,7 +10438,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary The value of the annotation.
+     * @summary Queries the alert rules created for a Prometheus instance.
      *  *
      * @param ListPrometheusAlertRulesRequest $request ListPrometheusAlertRulesRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -10410,7 +10489,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary The value of the annotation.
+     * @summary Queries the alert rules created for a Prometheus instance.
      *  *
      * @param ListPrometheusAlertRulesRequest $request ListPrometheusAlertRulesRequest
      *
@@ -13027,7 +13106,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 启动或者禁用云拨测的任务
+     * @summary Starts or stops a scheduled synthetic monitoring task.
      *  *
      * @param SwitchSyntheticTaskStatusRequest $request SwitchSyntheticTaskStatusRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -13063,7 +13142,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 启动或者禁用云拨测的任务
+     * @summary Starts or stops a scheduled synthetic monitoring task.
      *  *
      * @param SwitchSyntheticTaskStatusRequest $request SwitchSyntheticTaskStatusRequest
      *

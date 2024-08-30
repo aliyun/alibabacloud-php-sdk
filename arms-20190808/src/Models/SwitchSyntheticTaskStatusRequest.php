@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class SwitchSyntheticTaskStatusRequest extends Model
 {
     /**
+     * @description Specifies whether to start or stop the task. Valid values:
+     *
+     *   **0**: stops the task
+     *   **1**: starts the task
+     *
      * @example 0
      *
      * @var int
@@ -16,6 +21,8 @@ class SwitchSyntheticTaskStatusRequest extends Model
     public $switchStatus;
 
     /**
+     * @description The task IDs. You can specify up to 30 task IDs at a time.
+     *
      * @var int[]
      */
     public $taskIds;

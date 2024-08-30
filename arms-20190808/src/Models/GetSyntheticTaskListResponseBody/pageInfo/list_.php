@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
+     * @description The time when the task was created.
+     *
      * @example 1634005438000
      *
      * @var string
@@ -16,6 +18,8 @@ class list_ extends Model
     public $createTime;
 
     /**
+     * @description The number of detection points.
+     *
      * @example 2
      *
      * @var int
@@ -23,6 +27,8 @@ class list_ extends Model
     public $monitorNumber;
 
     /**
+     * @description The ID of the synthetic monitoring task.
+     *
      * @example 2118709
      *
      * @var string
@@ -30,6 +36,8 @@ class list_ extends Model
     public $taskId;
 
     /**
+     * @description The task name.
+     *
      * @example net-test
      *
      * @var string
@@ -37,6 +45,12 @@ class list_ extends Model
     public $taskName;
 
     /**
+     * @description The status of the task. Valid values:
+     *
+     *   **0**: The task is stopped.
+     *   **1**: The task is started.
+     *   **9**: The task is ended.
+     *
      * @example 0
      *
      * @var string
@@ -44,6 +58,9 @@ class list_ extends Model
     public $taskStatus;
 
     /**
+     * @description The type of the task. Valid values:
+     *
+     * 5.  7: API performance
      * @example 0
      *
      * @var int
@@ -51,11 +68,15 @@ class list_ extends Model
     public $taskType;
 
     /**
+     * @description The name of the task type.
+     *
      * @var string
      */
     public $taskTypeName;
 
     /**
+     * @description The URL for synthetic monitoring.
+     *
      * @example www.example.com
      *
      * @var string
@@ -63,6 +84,8 @@ class list_ extends Model
     public $url;
 
     /**
+     * @description The availability. Only the data of the last day is counted. If no data is available for the last day, an empty value is returned.
+     *
      * @example 0.80
      *
      * @var float

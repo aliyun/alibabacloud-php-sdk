@@ -19,6 +19,10 @@ class DescribePrometheusAlertRuleRequest extends Model
     public $alertId;
 
     /**
+     * @description The ID of the Prometheus instance.
+     *
+     * @example cc7a37ee31aea4ed1a059eff8034b****
+     *
      * @var string
      */
     public $clusterId;

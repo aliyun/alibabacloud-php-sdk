@@ -28,7 +28,7 @@ class CreateAlertContactGroupRequest extends Model
     public $contactIds;
 
     /**
-     * @description The ID of the region. Default value: `cn-hangzhou`.
+     * @description The region ID. Default value: `cn-hangzhou`.
      *
      * This parameter is required.
      * @example cn-hangzhou

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class StartTimingSyntheticTaskShrinkRequest extends Model
 {
     /**
+     * @description The region ID. Default value: cn-hangzhou.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -16,6 +18,8 @@ class StartTimingSyntheticTaskShrinkRequest extends Model
     public $regionId;
 
     /**
+     * @description The task IDs.
+     *
      * @var string
      */
     public $taskIdsShrink;

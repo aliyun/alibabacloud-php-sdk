@@ -10,8 +10,9 @@ use AlibabaCloud\Tea\Model;
 class ListPrometheusAlertRulesRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the cluster.
      *
+     * This parameter is required.
      * @example c0bad479465464e1d8c1e641b0afb****
      *
      * @var string
@@ -19,6 +20,8 @@ class ListPrometheusAlertRulesRequest extends Model
     public $clusterId;
 
     /**
+     * @description The tag match conditions that are described in a JSON string. For more information about this parameter, see the **Additional description of the MatchExpressions parameter** section.
+     *
      * @example [{"key":"severity","value":"critical","operator":"re"}]
      *
      * @var string
@@ -26,6 +29,8 @@ class ListPrometheusAlertRulesRequest extends Model
     public $matchExpressions;
 
     /**
+     * @description The name of the alert rule.
+     *
      * @example Prometheus_Alert
      *
      * @var string
@@ -33,8 +38,9 @@ class ListPrometheusAlertRulesRequest extends Model
     public $name;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID of the instance.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -42,6 +48,9 @@ class ListPrometheusAlertRulesRequest extends Model
     public $regionId;
 
     /**
+     * @description Specifies whether the alert rule is enabled. Valid values:
+     *
+     * - 0: disables the alert rule.
      * @example 1
      *
      * @var int
@@ -49,11 +58,17 @@ class ListPrometheusAlertRulesRequest extends Model
     public $status;
 
     /**
+     * @description The tags.
+     *
      * @var tags[]
      */
     public $tags;
 
     /**
+     * @description The type of the alert rule.
+     *
+     * @example Custom
+     *
      * @var string
      */
     public $type;

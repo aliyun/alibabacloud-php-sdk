@@ -19,6 +19,8 @@ class commonSetting extends Model
     public $customHost;
 
     /**
+     * @description The reserved parameters.
+     *
      * @var customPrometheusSetting
      */
     public $customPrometheusSetting;
@@ -55,8 +57,8 @@ class commonSetting extends Model
     /**
      * @description Specifies whether to evenly distribute monitoring samples. Valid values:
      *
-     *   0: no.
-     *   1: yes.
+     *   0: no
+     *   1: yes
      *
      * @example 0
      *

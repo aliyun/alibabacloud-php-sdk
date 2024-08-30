@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class netDNS extends Model
 {
     /**
-     * @description Specifies whether to use the dig command to display the data. Valid values: 0: No. 1: Yes.
+     * @description Specifies whether to use the dig command to display the data. Valid values: 0: no. 1: yes.
      *
      * @example 0
      *
@@ -54,7 +54,7 @@ class netDNS extends Model
     public $targetUrl;
 
     /**
-     * @description The timeout period for the DNS synthetic test. Unit: milliseconds. The minimum value is 1000 and the maximum value is 45000. Default value: 5000.
+     * @description The timeout period for the DNS synthetic test. Unit: milliseconds. Minimum value: 1000. Maximum value: 45000. Default value: 5000.
      *
      * @example 1000
      *

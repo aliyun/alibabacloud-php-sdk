@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteSyntheticTaskResponseBody extends Model
 {
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example 1A9C645C-C83F-4C9D-8CCB-29BEC9E1****
      *
@@ -18,6 +18,11 @@ class DeleteSyntheticTaskResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the specified tasks are deleted.
+     *
+     *   `true`: The tasks are deleted.
+     *   `false`: The tasks fail to be deleted.
+     *
      * @example true
      *
      * @var string
