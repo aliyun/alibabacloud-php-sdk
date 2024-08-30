@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class instances extends Model
 {
     /**
+     * @example train1oug3yehan4-master-0
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example master
+     *
      * @var string
      */
     public $role;
 
     /**
+     * @example Succeeded
+     *
      * @var string
      */
     public $status;

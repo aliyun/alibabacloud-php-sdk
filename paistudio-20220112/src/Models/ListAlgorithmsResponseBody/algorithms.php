@@ -14,41 +14,57 @@ class algorithms extends Model
     public $algorithmDescription;
 
     /**
+     * @example algo-sidjc8134hv
+     *
      * @var string
      */
     public $algorithmId;
 
     /**
+     * @example llm_train
+     *
      * @var string
      */
     public $algorithmName;
 
     /**
+     * @example pai
+     *
      * @var string
      */
     public $algorithmProvider;
 
     /**
+     * @example LLM Train
+     *
      * @var string
      */
     public $displayName;
 
     /**
+     * @example 2023-07-21T03:35:24Z
+     *
      * @var string
      */
     public $gmtCreateTime;
 
     /**
+     * @example 2023-07-25T02:15:40Z
+     *
      * @var string
      */
     public $gmtModifiedTime;
 
     /**
+     * @example 123456789
+     *
      * @var string
      */
     public $userId;
 
     /**
+     * @example 12345
+     *
      * @var string
      */
     public $workspaceId;

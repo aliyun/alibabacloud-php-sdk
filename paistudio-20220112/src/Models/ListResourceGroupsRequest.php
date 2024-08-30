@@ -9,12 +9,14 @@ use AlibabaCloud\Tea\Model;
 class ListResourceGroupsRequest extends Model
 {
     /**
+     * @example Ecs
+     *
      * @var string
      */
     public $computingResourceProvider;
 
     /**
-     * @example RG1
+     * @example rgf0zhfqn1d4ity2
      *
      * @var string
      */
@@ -42,11 +44,15 @@ class ListResourceGroupsRequest extends Model
     public $pageSize;
 
     /**
+     * @example Lingjun
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $showAll;

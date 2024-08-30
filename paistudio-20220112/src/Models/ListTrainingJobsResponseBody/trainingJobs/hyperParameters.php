@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class hyperParameters extends Model
 {
     /**
+     * @example learning_rate
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 0.001
+     *
      * @var string
      */
     public $value;

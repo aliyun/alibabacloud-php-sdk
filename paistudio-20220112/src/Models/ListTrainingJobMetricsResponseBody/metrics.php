@@ -9,16 +9,24 @@ use AlibabaCloud\Tea\Model;
 class metrics extends Model
 {
     /**
+     * @example accuracy
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description Use the UTC time format: yyyy-MM-ddTHH:mmZ
+     *
+     * @example 2022-04-18T22:20:55Z
+     *
      * @var string
      */
     public $timestamp;
 
     /**
+     * @example 0.97
+     *
      * @var float
      */
     public $value;

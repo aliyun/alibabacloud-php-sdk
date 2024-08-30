@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class statusTransitions extends Model
 {
     /**
+     * @example 2024-07-10T11:49:47Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example TrainingJobSucceed
+     *
      * @var string
      */
     public $reasonCode;
 
     /**
+     * @example KubeDL job runs successfully
+     *
      * @var string
      */
     public $reasonMessage;
 
     /**
+     * @example 2024-07-10T11:49:47Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example Creating
+     *
      * @var string
      */
     public $status;

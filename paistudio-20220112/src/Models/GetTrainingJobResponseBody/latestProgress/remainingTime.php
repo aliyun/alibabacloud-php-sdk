@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class remainingTime extends Model
 {
     /**
+     * @example 2023-07-04T13:20:18Z
+     *
      * @var string
      */
     public $timestamp;
 
     /**
+     * @example 3600
+     *
      * @var int
      */
     public $value;

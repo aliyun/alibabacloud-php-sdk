@@ -24,10 +24,22 @@ class UpdateQuotaRequest extends Model
      * @var string
      */
     public $queueStrategy;
+
+    /**
+     * @var QuotaConfig
+     */
+    public $quotaConfig;
+
+    /**
+     * @var string
+     */
+    public $quotaName;
     protected $_name = [
         'description'   => 'Description',
         'labels'        => 'Labels',
         'queueStrategy' => 'QueueStrategy',
+        'quotaConfig'   => 'QuotaConfig',
+        'quotaName'     => 'QuotaName',
     ];
 
     public function validate()
@@ -51,6 +63,12 @@ class UpdateQuotaRequest extends Model
         }
         if (null !== $this->queueStrategy) {
             $res['QueueStrategy'] = $this->queueStrategy;
+        }
+        if (null !== $this->quotaConfig) {
+            $res['QuotaConfig'] = null !== $this->quotaConfig ? $this->quotaConfig->toMap() : null;
+        }
+        if (null !== $this->quotaName) {
+            $res['QuotaName'] = $this->quotaName;
         }
 
         return $res;
@@ -78,6 +96,12 @@ class UpdateQuotaRequest extends Model
         }
         if (isset($map['QueueStrategy'])) {
             $model->queueStrategy = $map['QueueStrategy'];
+        }
+        if (isset($map['QuotaConfig'])) {
+            $model->quotaConfig = QuotaConfig::fromMap($map['QuotaConfig']);
+        }
+        if (isset($map['QuotaName'])) {
+            $model->quotaName = $map['QuotaName'];
         }
 
         return $model;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class experimentConfig extends Model
 {
     /**
+     * @example exp-ds9aefia90v
+     *
      * @var string
      */
     public $experimentId;
 
     /**
+     * @example large_language_model
+     *
      * @var string
      */
     public $experimentName;

@@ -14,16 +14,24 @@ class userVpc extends Model
     public $extendedCIDRs;
 
     /**
+     * @example sg-abcdef****
+     *
      * @var string
      */
     public $securityGroupId;
 
     /**
+     * @example vs-abcdef****
+     *
      * @var string
      */
     public $switchId;
 
     /**
+     * @description VPC ID。
+     *
+     * @example vpc-abcdef****
+     *
      * @var string
      */
     public $vpcId;

@@ -9,36 +9,54 @@ use AlibabaCloud\Tea\Model;
 class GetUserViewMetricsRequest extends Model
 {
     /**
+     * @example DESC
+     *
      * @var string
      */
     public $order;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $pageNumber;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 10
+     *
      * @var string
      */
     public $pageSize;
 
     /**
+     * @example GmtModified
+     *
      * @var string
      */
     public $sortBy;
 
     /**
+     * @example 1h
+     *
      * @var string
      */
     public $timeStep;
 
     /**
+     * @example 123456
+     *
      * @var string
      */
     public $userId;
 
     /**
+     * @example 86995
+     *
      * @var string
      */
     public $workspaceId;

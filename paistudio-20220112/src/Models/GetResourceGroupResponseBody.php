@@ -10,56 +10,78 @@ use AlibabaCloud\Tea\Model;
 class GetResourceGroupResponseBody extends Model
 {
     /**
+     * @example cb2c7bde30b774e46a329c
+     *
      * @var string
      */
     public $clusterID;
 
     /**
+     * @example ECS
+     *
      * @var string
      */
     public $computingResourceProvider;
 
     /**
+     * @example 1612285282502324
+     *
      * @var string
      */
     public $creatorID;
 
     /**
+     * @example testDescription
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 2023-06-22T00:00:00Z
+     *
      * @var string
      */
     public $gmtCreatedTime;
 
     /**
+     * @example 2023-06-22T00:00:00Z
+     *
      * @var string
      */
     public $gmtModifiedTime;
 
     /**
+     * @example TestResourceGroup
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 18D5A1C6-14B8-545E-8408-0A7DDB4C6B5E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example Ecs
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @example Ready
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $supportRDMA;
@@ -75,6 +97,8 @@ class GetResourceGroupResponseBody extends Model
     public $userVpc;
 
     /**
+     * @example 35201
+     *
      * @var string
      */
     public $workspaceID;

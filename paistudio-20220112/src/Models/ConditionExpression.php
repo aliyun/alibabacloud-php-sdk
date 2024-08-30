@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ConditionExpression extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example SupportedMachineTypes
      *
      * @var string
@@ -16,6 +18,8 @@ class ConditionExpression extends Model
     public $key;
 
     /**
+     * @description This parameter is required.
+     *
      * @example in
      *
      * @var string
@@ -23,6 +27,8 @@ class ConditionExpression extends Model
     public $operator;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $values;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class policy extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $value;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $version;

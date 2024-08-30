@@ -60,6 +60,11 @@ class MachineGroup extends Model
     /**
      * @var string
      */
+    public $orderInstanceId;
+
+    /**
+     * @var string
+     */
     public $paymentDuration;
 
     /**
@@ -106,6 +111,7 @@ class MachineGroup extends Model
         'gmtModifiedTime'     => 'GmtModifiedTime',
         'gmtStartedTime'      => 'GmtStartedTime',
         'machineGroupID'      => 'MachineGroupID',
+        'orderInstanceId'     => 'OrderInstanceId',
         'paymentDuration'     => 'PaymentDuration',
         'paymentDurationUnit' => 'PaymentDurationUnit',
         'paymentType'         => 'PaymentType',
@@ -149,6 +155,9 @@ class MachineGroup extends Model
         }
         if (null !== $this->machineGroupID) {
             $res['MachineGroupID'] = $this->machineGroupID;
+        }
+        if (null !== $this->orderInstanceId) {
+            $res['OrderInstanceId'] = $this->orderInstanceId;
         }
         if (null !== $this->paymentDuration) {
             $res['PaymentDuration'] = $this->paymentDuration;
@@ -212,6 +221,9 @@ class MachineGroup extends Model
         }
         if (isset($map['MachineGroupID'])) {
             $model->machineGroupID = $map['MachineGroupID'];
+        }
+        if (isset($map['OrderInstanceId'])) {
+            $model->orderInstanceId = $map['OrderInstanceId'];
         }
         if (isset($map['PaymentDuration'])) {
             $model->paymentDuration = $map['PaymentDuration'];

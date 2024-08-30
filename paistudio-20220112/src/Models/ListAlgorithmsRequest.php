@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class ListAlgorithmsRequest extends Model
 {
     /**
+     * @example algo-xsldfvu1334
+     *
      * @var string
      */
     public $algorithmId;
 
     /**
+     * @example llm_training
+     *
      * @var string
      */
     public $algorithmName;
 
     /**
+     * @example pai
+     *
      * @var string
      */
     public $algorithmProvider;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 12345
+     *
      * @var string
      */
     public $workspaceId;

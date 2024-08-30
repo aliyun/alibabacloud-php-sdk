@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class outputModel extends Model
 {
     /**
+     * @example model
+     *
      * @var string
      */
     public $outputChannelName;
 
     /**
+     * @example oss://test-bucket.oss-cn-hangzhou-internal.aliyuncs.com/path/to/model/output/
+     *
      * @var string
      */
     public $uri;

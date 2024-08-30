@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class GetResourceGroupRequestRequest extends Model
 {
     /**
+     * @example Running
+     *
      * @var string
      */
     public $podStatus;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example rgf0zhfqn1d4ity2
+     *
      * @var string
      */
     public $resourceGroupID;

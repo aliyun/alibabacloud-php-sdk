@@ -10,21 +10,29 @@ use AlibabaCloud\Tea\Model;
 class CreateResourceGroupRequest extends Model
 {
     /**
+     * @example Ecs
+     *
      * @var string
      */
     public $computingResourceProvider;
 
     /**
+     * @example test_api_report
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example testResourceGroup
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example Ecs
+     *
      * @var string
      */
     public $resourceType;

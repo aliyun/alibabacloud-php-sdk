@@ -17,6 +17,8 @@ class AlgorithmSpec extends Model
     public $codeDir;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $command;
@@ -37,6 +39,8 @@ class AlgorithmSpec extends Model
     public $hyperParameters;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $image;
@@ -47,6 +51,8 @@ class AlgorithmSpec extends Model
     public $inputChannels;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $jobType;

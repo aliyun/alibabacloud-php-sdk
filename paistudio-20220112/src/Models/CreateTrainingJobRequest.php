@@ -18,11 +18,15 @@ use AlibabaCloud\Tea\Model;
 class CreateTrainingJobRequest extends Model
 {
     /**
+     * @example ev_classification
+     *
      * @var string
      */
     public $algorithmName;
 
     /**
+     * @example pai
+     *
      * @var string
      */
     public $algorithmProvider;
@@ -33,6 +37,8 @@ class CreateTrainingJobRequest extends Model
     public $algorithmSpec;
 
     /**
+     * @example v1.0.0
+     *
      * @var string
      */
     public $algorithmVersion;
@@ -46,6 +52,11 @@ class CreateTrainingJobRequest extends Model
      * @var computeResource
      */
     public $computeResource;
+
+    /**
+     * @var string[]
+     */
+    public $environments;
 
     /**
      * @var experimentConfig
@@ -73,6 +84,13 @@ class CreateTrainingJobRequest extends Model
     public $outputChannels;
 
     /**
+     * @var string[]
+     */
+    public $pythonRequirements;
+
+    /**
+     * @example acs:ram::1157703270994901:role/aliyunserviceroleforpaiworkspace
+     *
      * @var string
      */
     public $roleArn;
@@ -88,11 +106,17 @@ class CreateTrainingJobRequest extends Model
     public $settings;
 
     /**
+     * @example qwen large language model training
+     *
      * @var string
      */
     public $trainingJobDescription;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example qwen_llm
+     *
      * @var string
      */
     public $trainingJobName;
@@ -103,6 +127,10 @@ class CreateTrainingJobRequest extends Model
     public $userVpc;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 12345
+     *
      * @var string
      */
     public $workspaceId;
@@ -113,11 +141,13 @@ class CreateTrainingJobRequest extends Model
         'algorithmVersion'       => 'AlgorithmVersion',
         'codeDir'                => 'CodeDir',
         'computeResource'        => 'ComputeResource',
+        'environments'           => 'Environments',
         'experimentConfig'       => 'ExperimentConfig',
         'hyperParameters'        => 'HyperParameters',
         'inputChannels'          => 'InputChannels',
         'labels'                 => 'Labels',
         'outputChannels'         => 'OutputChannels',
+        'pythonRequirements'     => 'PythonRequirements',
         'roleArn'                => 'RoleArn',
         'scheduler'              => 'Scheduler',
         'settings'               => 'Settings',
@@ -151,6 +181,9 @@ class CreateTrainingJobRequest extends Model
         }
         if (null !== $this->computeResource) {
             $res['ComputeResource'] = null !== $this->computeResource ? $this->computeResource->toMap() : null;
+        }
+        if (null !== $this->environments) {
+            $res['Environments'] = $this->environments;
         }
         if (null !== $this->experimentConfig) {
             $res['ExperimentConfig'] = null !== $this->experimentConfig ? $this->experimentConfig->toMap() : null;
@@ -190,6 +223,9 @@ class CreateTrainingJobRequest extends Model
                     $res['OutputChannels'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->pythonRequirements) {
+            $res['PythonRequirements'] = $this->pythonRequirements;
         }
         if (null !== $this->roleArn) {
             $res['RoleArn'] = $this->roleArn;
@@ -242,6 +278,9 @@ class CreateTrainingJobRequest extends Model
         if (isset($map['ComputeResource'])) {
             $model->computeResource = computeResource::fromMap($map['ComputeResource']);
         }
+        if (isset($map['Environments'])) {
+            $model->environments = $map['Environments'];
+        }
         if (isset($map['ExperimentConfig'])) {
             $model->experimentConfig = experimentConfig::fromMap($map['ExperimentConfig']);
         }
@@ -279,6 +318,11 @@ class CreateTrainingJobRequest extends Model
                 foreach ($map['OutputChannels'] as $item) {
                     $model->outputChannels[$n++] = null !== $item ? outputChannels::fromMap($item) : $item;
                 }
+            }
+        }
+        if (isset($map['PythonRequirements'])) {
+            if (!empty($map['PythonRequirements'])) {
+                $model->pythonRequirements = $map['PythonRequirements'];
             }
         }
         if (isset($map['RoleArn'])) {

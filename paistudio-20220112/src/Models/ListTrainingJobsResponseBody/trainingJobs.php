@@ -18,16 +18,22 @@ use AlibabaCloud\Tea\Model;
 class trainingJobs extends Model
 {
     /**
+     * @example llm_train
+     *
      * @var string
      */
     public $algorithmName;
 
     /**
+     * @example pai
+     *
      * @var string
      */
     public $algorithmProvider;
 
     /**
+     * @example v0.0.1
+     *
      * @var string
      */
     public $algorithmVersion;
@@ -38,16 +44,25 @@ class trainingJobs extends Model
     public $computeResource;
 
     /**
+     * @var string[]
+     */
+    public $environments;
+
+    /**
      * @var experimentConfig
      */
     public $experimentConfig;
 
     /**
+     * @example 2024-07-10T11:49:47Z
+     *
      * @var string
      */
     public $gmtCreateTime;
 
     /**
+     * @example 2024-07-10T11:49:47Z
+     *
      * @var string
      */
     public $gmtModifiedTime;
@@ -63,6 +78,8 @@ class trainingJobs extends Model
     public $inputChannels;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isTempAlgo;
@@ -78,16 +95,27 @@ class trainingJobs extends Model
     public $outputChannels;
 
     /**
+     * @var string[]
+     */
+    public $pythonRequirements;
+
+    /**
+     * @example TrainingJobSucceed
+     *
      * @var string
      */
     public $reasonCode;
 
     /**
+     * @example None
+     *
      * @var string
      */
     public $reasonMessage;
 
     /**
+     * @example acs:ram::{accountID}:role/{roleName}
+     *
      * @var string
      */
     public $roleArn;
@@ -98,6 +126,8 @@ class trainingJobs extends Model
     public $scheduler;
 
     /**
+     * @example Running
+     *
      * @var string
      */
     public $status;
@@ -113,16 +143,22 @@ class trainingJobs extends Model
     public $trainingJobDescription;
 
     /**
+     * @example train1layo6js8ra
+     *
      * @var string
      */
     public $trainingJobId;
 
     /**
+     * @example qwen2-7b
+     *
      * @var string
      */
     public $trainingJobName;
 
     /**
+     * @example 123456789
+     *
      * @var string
      */
     public $userId;
@@ -133,6 +169,8 @@ class trainingJobs extends Model
     public $userVpc;
 
     /**
+     * @example 1234
+     *
      * @var string
      */
     public $workspaceId;
@@ -141,6 +179,7 @@ class trainingJobs extends Model
         'algorithmProvider'      => 'AlgorithmProvider',
         'algorithmVersion'       => 'AlgorithmVersion',
         'computeResource'        => 'ComputeResource',
+        'environments'           => 'Environments',
         'experimentConfig'       => 'ExperimentConfig',
         'gmtCreateTime'          => 'GmtCreateTime',
         'gmtModifiedTime'        => 'GmtModifiedTime',
@@ -149,6 +188,7 @@ class trainingJobs extends Model
         'isTempAlgo'             => 'IsTempAlgo',
         'labels'                 => 'Labels',
         'outputChannels'         => 'OutputChannels',
+        'pythonRequirements'     => 'PythonRequirements',
         'reasonCode'             => 'ReasonCode',
         'reasonMessage'          => 'ReasonMessage',
         'roleArn'                => 'RoleArn',
@@ -181,6 +221,9 @@ class trainingJobs extends Model
         }
         if (null !== $this->computeResource) {
             $res['ComputeResource'] = null !== $this->computeResource ? $this->computeResource->toMap() : null;
+        }
+        if (null !== $this->environments) {
+            $res['Environments'] = $this->environments;
         }
         if (null !== $this->experimentConfig) {
             $res['ExperimentConfig'] = null !== $this->experimentConfig ? $this->experimentConfig->toMap() : null;
@@ -229,6 +272,9 @@ class trainingJobs extends Model
                     $res['OutputChannels'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->pythonRequirements) {
+            $res['PythonRequirements'] = $this->pythonRequirements;
         }
         if (null !== $this->reasonCode) {
             $res['ReasonCode'] = $this->reasonCode;
@@ -296,6 +342,9 @@ class trainingJobs extends Model
         if (isset($map['ComputeResource'])) {
             $model->computeResource = computeResource::fromMap($map['ComputeResource']);
         }
+        if (isset($map['Environments'])) {
+            $model->environments = $map['Environments'];
+        }
         if (isset($map['ExperimentConfig'])) {
             $model->experimentConfig = experimentConfig::fromMap($map['ExperimentConfig']);
         }
@@ -342,6 +391,11 @@ class trainingJobs extends Model
                 foreach ($map['OutputChannels'] as $item) {
                     $model->outputChannels[$n++] = null !== $item ? outputChannels::fromMap($item) : $item;
                 }
+            }
+        }
+        if (isset($map['PythonRequirements'])) {
+            if (!empty($map['PythonRequirements'])) {
+                $model->pythonRequirements = $map['PythonRequirements'];
             }
         }
         if (isset($map['ReasonCode'])) {

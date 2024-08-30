@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class GetNodeMetricsRequest extends Model
 {
     /**
+     * @example 2024-07-10T10:17:06
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example V100
+     *
      * @var string
      */
     public $GPUType;
 
     /**
+     * @example 2024-07-08T02:23:30.292Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example 1h
+     *
      * @var string
      */
     public $timeStep;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $verbose;

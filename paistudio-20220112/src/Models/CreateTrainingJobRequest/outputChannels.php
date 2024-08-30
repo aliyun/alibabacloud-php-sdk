@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class outputChannels extends Model
 {
     /**
+     * @example d-475megosidivjfgfq6
+     *
      * @var string
      */
     public $datasetId;
 
     /**
+     * @example model
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example oss://pai-quickstart-cn-hangzhou.oss-cn-hangzhou-internal.aliyuncs.com/modelscope/models/qwen2-0.5b/main/
+     *
      * @var string
      */
     public $outputUri;

@@ -84,11 +84,21 @@ class ListQuotasRequest extends Model
     public $statuses;
 
     /**
+     * @var bool
+     */
+    public $verbose;
+
+    /**
      * @example 21345,38727
      *
      * @var string
      */
     public $workspaceIds;
+
+    /**
+     * @var string
+     */
+    public $workspaceName;
     protected $_name = [
         'labels'        => 'Labels',
         'layoutMode'    => 'LayoutMode',
@@ -101,7 +111,9 @@ class ListQuotasRequest extends Model
         'resourceType'  => 'ResourceType',
         'sortBy'        => 'SortBy',
         'statuses'      => 'Statuses',
+        'verbose'       => 'Verbose',
         'workspaceIds'  => 'WorkspaceIds',
+        'workspaceName' => 'WorkspaceName',
     ];
 
     public function validate()
@@ -144,8 +156,14 @@ class ListQuotasRequest extends Model
         if (null !== $this->statuses) {
             $res['Statuses'] = $this->statuses;
         }
+        if (null !== $this->verbose) {
+            $res['Verbose'] = $this->verbose;
+        }
         if (null !== $this->workspaceIds) {
             $res['WorkspaceIds'] = $this->workspaceIds;
+        }
+        if (null !== $this->workspaceName) {
+            $res['WorkspaceName'] = $this->workspaceName;
         }
 
         return $res;
@@ -192,8 +210,14 @@ class ListQuotasRequest extends Model
         if (isset($map['Statuses'])) {
             $model->statuses = $map['Statuses'];
         }
+        if (isset($map['Verbose'])) {
+            $model->verbose = $map['Verbose'];
+        }
         if (isset($map['WorkspaceIds'])) {
             $model->workspaceIds = $map['WorkspaceIds'];
+        }
+        if (isset($map['WorkspaceName'])) {
+            $model->workspaceName = $map['WorkspaceName'];
         }
 
         return $model;

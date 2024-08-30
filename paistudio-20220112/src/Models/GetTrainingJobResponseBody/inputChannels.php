@@ -9,23 +9,35 @@ use AlibabaCloud\Tea\Model;
 class inputChannels extends Model
 {
     /**
+     * @example d-475megosidivjfgfq6
+     *
      * @var string
      */
     public $datasetId;
 
     /**
+     * @example oss://test-bucket.oss-cn-hangzhou-internal.aliyuncs.com/path/to/input/model/
+     *
      * @var string
      */
     public $inputUri;
 
     /**
+     * @example model
+     *
      * @var string
      */
     public $name;
+
+    /**
+     * @var string
+     */
+    public $options;
     protected $_name = [
         'datasetId' => 'DatasetId',
         'inputUri'  => 'InputUri',
         'name'      => 'Name',
+        'options'   => 'Options',
     ];
 
     public function validate()
@@ -43,6 +55,9 @@ class inputChannels extends Model
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->options) {
+            $res['Options'] = $this->options;
         }
 
         return $res;
@@ -64,6 +79,9 @@ class inputChannels extends Model
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['Options'])) {
+            $model->options = $map['Options'];
         }
 
         return $model;

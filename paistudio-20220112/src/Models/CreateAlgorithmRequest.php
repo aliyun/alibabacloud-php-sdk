@@ -14,6 +14,8 @@ class CreateAlgorithmRequest extends Model
     public $algorithmDescription;
 
     /**
+     * @example llm_training
+     *
      * @var string
      */
     public $algorithmName;
@@ -24,6 +26,8 @@ class CreateAlgorithmRequest extends Model
     public $displayName;
 
     /**
+     * @example 12345
+     *
      * @var string
      */
     public $workspaceId;

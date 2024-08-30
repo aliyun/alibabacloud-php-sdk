@@ -24,6 +24,8 @@ class HyperParameterDefinition extends Model
     public $displayName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $name;
@@ -39,6 +41,8 @@ class HyperParameterDefinition extends Model
     public $required;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $type;

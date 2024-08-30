@@ -9,56 +9,85 @@ use AlibabaCloud\Tea\Model;
 class ListResourceGroupMachineGroupsRequest extends Model
 {
     /**
+     * @example 1612285282502326
+     *
      * @var string
      */
     public $creatorID;
 
     /**
+     * @example ecs.c6.large
+     *
      * @var string
      */
     public $ecsSpec;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example DESC
+     *
      * @var string
      */
     public $order;
 
     /**
+     * @example 236553689400333
+     *
+     * @var string
+     */
+    public $orderInstanceId;
+
+    /**
+     * @example 2
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $paymentDuration;
 
     /**
+     * @example Month
+     *
      * @var string
      */
     public $paymentDurationUnit;
 
     /**
+     * @example PREPAY
+     *
      * @var string
      */
     public $paymentType;
 
     /**
+     * @example GmtCreatedTime
+     *
      * @var string
      */
     public $sortBy;
 
     /**
+     * @example Ready
+     *
      * @var string
      */
     public $status;
@@ -67,6 +96,7 @@ class ListResourceGroupMachineGroupsRequest extends Model
         'ecsSpec'             => 'EcsSpec',
         'name'                => 'Name',
         'order'               => 'Order',
+        'orderInstanceId'     => 'OrderInstanceId',
         'pageNumber'          => 'PageNumber',
         'pageSize'            => 'PageSize',
         'paymentDuration'     => 'PaymentDuration',
@@ -94,6 +124,9 @@ class ListResourceGroupMachineGroupsRequest extends Model
         }
         if (null !== $this->order) {
             $res['Order'] = $this->order;
+        }
+        if (null !== $this->orderInstanceId) {
+            $res['OrderInstanceId'] = $this->orderInstanceId;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -139,6 +172,9 @@ class ListResourceGroupMachineGroupsRequest extends Model
         }
         if (isset($map['Order'])) {
             $model->order = $map['Order'];
+        }
+        if (isset($map['OrderInstanceId'])) {
+            $model->orderInstanceId = $map['OrderInstanceId'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class userVpc extends Model
 {
     /**
+     * @example eth0
+     *
      * @var string
      */
     public $defaultRoute;
@@ -19,16 +21,24 @@ class userVpc extends Model
     public $extendedCIDRs;
 
     /**
+     * @example sg-qdfasd13sdasf
+     *
      * @var string
      */
     public $securityGroupId;
 
     /**
+     * @example vs-icrc813vdsfol
+     *
      * @var string
      */
     public $switchId;
 
     /**
+     * @description VPC ID。
+     *
+     * @example vpc-dxiflssjx978sl
+     *
      * @var string
      */
     public $vpcId;

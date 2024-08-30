@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class UpdateResourceGroupRequest extends Model
 {
     /**
+     * @example test_new_havpn_tf
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example prophet
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $unbind;

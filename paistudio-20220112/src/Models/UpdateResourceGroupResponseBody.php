@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class UpdateResourceGroupResponseBody extends Model
 {
     /**
+     * @example rgf0zhfqn1d4ity2
+     *
      * @var string
      */
     public $resourceGroupID;
 
     /**
+     * @example FFB1D4B4-B253-540A-9B3B-AA711C48A1B7
+     *
      * @var string
      */
     public $requestId;

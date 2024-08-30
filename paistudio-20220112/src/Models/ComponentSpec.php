@@ -14,6 +14,8 @@ class ComponentSpec extends Model
     public $codeDir;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $command;
@@ -24,6 +26,8 @@ class ComponentSpec extends Model
     public $hyperParameters;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $image;
@@ -34,6 +38,8 @@ class ComponentSpec extends Model
     public $inputChannels;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $jobType;

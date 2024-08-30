@@ -10,96 +10,134 @@ use AlibabaCloud\Tea\Model;
 class GetResourceGroupMachineGroupResponseBody extends Model
 {
     /**
+     * @example 2
+     *
      * @var string
      */
     public $cpu;
 
     /**
+     * @example 535
+     *
      * @var string
      */
     public $defaultDriver;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $ecsCount;
 
     /**
+     * @example ecs.c6.large
+     *
      * @var string
      */
     public $ecsSpec;
 
     /**
+     * @example 2023-06-22T00:00:00Z
+     *
      * @var string
      */
     public $gmtCreatedTime;
 
     /**
+     * @example 2023-06-22T00:00:00Z
+     *
      * @var string
      */
     public $gmtExpiredTime;
 
     /**
+     * @example 2023-06-22T00:00:00Z
+     *
      * @var string
      */
     public $gmtModifiedTime;
 
     /**
+     * @example 2023-06-22T00:00:00Z
+     *
      * @var string
      */
     public $gmtStartedTime;
 
     /**
+     * @example 8
+     *
      * @var string
      */
     public $gpu;
 
     /**
+     * @example A100
+     *
      * @var string
      */
     public $gpuType;
 
     /**
+     * @example mgmioirqjgw6c5lg
+     *
      * @var string
      */
     public $machineGroupID;
 
     /**
+     * @example 64
+     *
      * @var string
      */
     public $memory;
 
     /**
+     * @example testMachineGroup
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $paymentDuration;
 
     /**
+     * @example Month
+     *
      * @var string
      */
     public $paymentDurationUnit;
 
     /**
+     * @example PREPAY
+     *
      * @var string
      */
     public $paymentType;
 
     /**
+     * @example 18D5A1C6-14B8-545E-8408-0A7DDB4C6B5E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example rgf0zhfqn1d4ity2
+     *
      * @var string
      */
     public $resourceGroupID;
 
     /**
+     * @example Ready
+     *
      * @var string
      */
     public $status;

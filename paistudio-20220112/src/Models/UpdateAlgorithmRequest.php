@@ -14,6 +14,8 @@ class UpdateAlgorithmRequest extends Model
     public $algorithmDescription;
 
     /**
+     * @example LLM Train
+     *
      * @var string
      */
     public $displayName;

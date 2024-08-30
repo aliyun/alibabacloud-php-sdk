@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class latestMetrics extends Model
 {
     /**
+     * @example loss
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 2024-07-10T11:49:47Z
+     *
      * @var string
      */
     public $timestamp;
 
     /**
+     * @example 0.11
+     *
      * @var float
      */
     public $value;

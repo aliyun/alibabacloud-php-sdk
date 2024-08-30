@@ -16,6 +16,8 @@ class MetricDefinition extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @example train:oob_score
      *
      * @var string
@@ -23,6 +25,8 @@ class MetricDefinition extends Model
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
      * @example .*train:oob_score=([-+]?[0-9]*\\.?[0-9]+(?:[eE][-+]?[0-9]+)?).*
      *
      * @var string

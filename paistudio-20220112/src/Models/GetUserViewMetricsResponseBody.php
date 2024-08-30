@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetUserViewMetricsResponseBody extends Model
 {
     /**
+     * @example rgf0zhfqn1d4ity2
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -19,6 +21,8 @@ class GetUserViewMetricsResponseBody extends Model
     public $summary;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $total;

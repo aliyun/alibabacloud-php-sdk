@@ -14,51 +14,71 @@ class GetAlgorithmResponseBody extends Model
     public $algorithmDescription;
 
     /**
+     * @example algo-xsldfvu1334
+     *
      * @var string
      */
     public $algorithmId;
 
     /**
+     * @example llm_training
+     *
      * @var string
      */
     public $algorithmName;
 
     /**
+     * @example pai
+     *
      * @var string
      */
     public $algorithmProvider;
 
     /**
+     * @example llm_training
+     *
      * @var string
      */
     public $displayName;
 
     /**
+     * @example 2024-07-10T11:49:47Z
+     *
      * @var string
      */
     public $gmtCreateTime;
 
     /**
+     * @example 2024-07-10T11:49:47Z
+     *
      * @var string
      */
     public $gmtModifiedTime;
 
     /**
+     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 123456789
+     *
      * @var string
      */
     public $tenantId;
 
     /**
+     * @example 123456789
+     *
      * @var string
      */
     public $userId;
 
     /**
+     * @example 12345
+     *
      * @var string
      */
     public $workspaceId;

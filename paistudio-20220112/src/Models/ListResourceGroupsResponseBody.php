@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListResourceGroupsResponseBody extends Model
 {
     /**
+     * @example 9CFA2665-1FFE-5929-8468-C14C25890486
+     *
      * @var string
      */
     public $requestId;
@@ -21,6 +23,8 @@ class ListResourceGroupsResponseBody extends Model
     public $resourceGroups;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2
      *
      * @var int

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class settings extends Model
 {
     /**
+     * @example ecs.c6.large
+     *
      * @var string
      */
     public $AIMasterType;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enableErrorMonitoringInAIMaster;
 
     /**
+     * @example --enable-log-hang-detection true
+     *
      * @var string
      */
     public $errorMonitoringArgs;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $priority;

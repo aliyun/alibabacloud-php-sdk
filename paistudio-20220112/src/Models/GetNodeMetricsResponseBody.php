@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetNodeMetricsResponseBody extends Model
 {
     /**
+     * @example DiskWriteRate
+     *
      * @var string
      */
     public $metricType;
@@ -19,6 +21,8 @@ class GetNodeMetricsResponseBody extends Model
     public $nodesMetrics;
 
     /**
+     * @example rgf0zhfqn1d4ity2
+     *
      * @var string
      */
     public $resourceGroupID;

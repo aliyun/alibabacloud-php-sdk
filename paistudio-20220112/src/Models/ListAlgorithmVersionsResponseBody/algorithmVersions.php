@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class algorithmVersions extends Model
 {
     /**
+     * @example algo-sidjc8134hv
+     *
      * @var string
      */
     public $algorithmId;
 
     /**
+     * @example llm_train
+     *
      * @var string
      */
     public $algorithmName;
 
     /**
+     * @example pai
+     *
      * @var string
      */
     public $algorithmProvider;
 
     /**
+     * @example v0.1.0
+     *
      * @var string
      */
     public $algorithmVersion;
 
     /**
+     * @example 2024-01-19T02:00:26Z
+     *
      * @var string
      */
     public $gmtCreateTime;
 
     /**
+     * @example 2024-01-22T02:00:59Z
+     *
      * @var string
      */
     public $gmtModifiedTime;
 
     /**
+     * @example 123456789
+     *
      * @var string
      */
     public $tenantId;
 
     /**
+     * @example 123456789
+     *
      * @var string
      */
     public $userId;

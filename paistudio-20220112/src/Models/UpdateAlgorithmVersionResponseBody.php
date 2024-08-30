@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class UpdateAlgorithmVersionResponseBody extends Model
 {
     /**
+     * @example algo-sidjc8134hv
+     *
      * @var string
      */
     public $algorithmId;
 
     /**
+     * @example v0.1.0
+     *
      * @var string
      */
     public $algorithmVersion;

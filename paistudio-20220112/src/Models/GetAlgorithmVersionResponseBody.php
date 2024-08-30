@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class GetAlgorithmVersionResponseBody extends Model
 {
     /**
+     * @example algo-xsldfvu1334
+     *
      * @var string
      */
     public $algorithmId;
 
     /**
+     * @example llm_training
+     *
      * @var string
      */
     public $algorithmName;
 
     /**
+     * @example pai
+     *
      * @var string
      */
     public $algorithmProvider;
@@ -29,26 +35,36 @@ class GetAlgorithmVersionResponseBody extends Model
     public $algorithmSpec;
 
     /**
+     * @example v0.0.1
+     *
      * @var string
      */
     public $algorithmVersion;
 
     /**
+     * @example 2024-07-10T11:49:47Z
+     *
      * @var string
      */
     public $gmtCreateTime;
 
     /**
+     * @example 2024-07-10T11:49:47Z
+     *
      * @var string
      */
     public $gmtModifiedTime;
 
     /**
+     * @example 123456789
+     *
      * @var string
      */
     public $tenantId;
 
     /**
+     * @example 123456789
+     *
      * @var string
      */
     public $userId;

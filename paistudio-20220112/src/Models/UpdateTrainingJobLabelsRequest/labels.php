@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class labels extends Model
 {
     /**
+     * @example RootModelID
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @example model-ad8cv770kl
+     *
      * @var string
      */
     public $value;

@@ -28,6 +28,11 @@ class QuotaConfig extends Model
     public $defaultGPUDriver;
 
     /**
+     * @var bool
+     */
+    public $enablePreemptSubquotaWorkloads;
+
+    /**
      * @var WorkspaceSpecs[]
      */
     public $resourceSpecs;
@@ -49,13 +54,14 @@ class QuotaConfig extends Model
      */
     public $userVpc;
     protected $_name = [
-        'ACS'               => 'ACS',
-        'clusterId'         => 'ClusterId',
-        'defaultGPUDriver'  => 'DefaultGPUDriver',
-        'resourceSpecs'     => 'ResourceSpecs',
-        'supportGPUDrivers' => 'SupportGPUDrivers',
-        'supportRDMA'       => 'SupportRDMA',
-        'userVpc'           => 'UserVpc',
+        'ACS'                            => 'ACS',
+        'clusterId'                      => 'ClusterId',
+        'defaultGPUDriver'               => 'DefaultGPUDriver',
+        'enablePreemptSubquotaWorkloads' => 'EnablePreemptSubquotaWorkloads',
+        'resourceSpecs'                  => 'ResourceSpecs',
+        'supportGPUDrivers'              => 'SupportGPUDrivers',
+        'supportRDMA'                    => 'SupportRDMA',
+        'userVpc'                        => 'UserVpc',
     ];
 
     public function validate()
@@ -73,6 +79,9 @@ class QuotaConfig extends Model
         }
         if (null !== $this->defaultGPUDriver) {
             $res['DefaultGPUDriver'] = $this->defaultGPUDriver;
+        }
+        if (null !== $this->enablePreemptSubquotaWorkloads) {
+            $res['EnablePreemptSubquotaWorkloads'] = $this->enablePreemptSubquotaWorkloads;
         }
         if (null !== $this->resourceSpecs) {
             $res['ResourceSpecs'] = [];
@@ -112,6 +121,9 @@ class QuotaConfig extends Model
         }
         if (isset($map['DefaultGPUDriver'])) {
             $model->defaultGPUDriver = $map['DefaultGPUDriver'];
+        }
+        if (isset($map['EnablePreemptSubquotaWorkloads'])) {
+            $model->enablePreemptSubquotaWorkloads = $map['EnablePreemptSubquotaWorkloads'];
         }
         if (isset($map['ResourceSpecs'])) {
             if (!empty($map['ResourceSpecs'])) {

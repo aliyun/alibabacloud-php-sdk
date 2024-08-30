@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class computeResource extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $ecsCount;
 
     /**
+     * @example ecs.gn5-c8g1.2xlarge
+     *
      * @var string
      */
     public $ecsSpec;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $instanceCount;
@@ -30,15 +36,23 @@ class computeResource extends Model
     public $instanceSpec;
 
     /**
+     * @example quotam670lixikcl
+     *
      * @var string
      */
     public $resourceId;
+
+    /**
+     * @var string
+     */
+    public $resourceName;
     protected $_name = [
         'ecsCount'      => 'EcsCount',
         'ecsSpec'       => 'EcsSpec',
         'instanceCount' => 'InstanceCount',
         'instanceSpec'  => 'InstanceSpec',
         'resourceId'    => 'ResourceId',
+        'resourceName'  => 'ResourceName',
     ];
 
     public function validate()
@@ -62,6 +76,9 @@ class computeResource extends Model
         }
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
+        }
+        if (null !== $this->resourceName) {
+            $res['ResourceName'] = $this->resourceName;
         }
 
         return $res;
@@ -89,6 +106,9 @@ class computeResource extends Model
         }
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];
+        }
+        if (isset($map['ResourceName'])) {
+            $model->resourceName = $map['ResourceName'];
         }
 
         return $model;

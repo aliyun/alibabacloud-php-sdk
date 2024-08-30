@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListTrainingJobMetricsRequest extends Model
 {
     /**
+     * @description Use the UTC time format: yyyy-MM-ddTHH:mmZ
+     *
      * @example 2020-11-08T16:00:00Z
      *
      * @var string
@@ -16,11 +18,15 @@ class ListTrainingJobMetricsRequest extends Model
     public $endTime;
 
     /**
+     * @example accuracy
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example DESC
+     *
      * @var string
      */
     public $order;
@@ -40,6 +46,8 @@ class ListTrainingJobMetricsRequest extends Model
     public $pageSize;
 
     /**
+     * @description Use the UTC time format: yyyy-MM-ddTHH:mmZ
+     *
      * @example 2020-11-08T16:00:00Z
      *
      * @var string

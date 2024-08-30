@@ -61,6 +61,11 @@ class GetMachineGroupResponseBody extends Model
     /**
      * @var string
      */
+    public $orderInstanceId;
+
+    /**
+     * @var string
+     */
     public $PAIResourceID;
 
     /**
@@ -103,6 +108,7 @@ class GetMachineGroupResponseBody extends Model
         'gmtStarted'       => 'GmtStarted',
         'machineGroupID'   => 'MachineGroupID',
         'orderID'          => 'OrderID',
+        'orderInstanceId'  => 'OrderInstanceId',
         'PAIResourceID'    => 'PAIResourceID',
         'payType'          => 'PayType',
         'pricingCycle'     => 'PricingCycle',
@@ -148,6 +154,9 @@ class GetMachineGroupResponseBody extends Model
         }
         if (null !== $this->orderID) {
             $res['OrderID'] = $this->orderID;
+        }
+        if (null !== $this->orderInstanceId) {
+            $res['OrderInstanceId'] = $this->orderInstanceId;
         }
         if (null !== $this->PAIResourceID) {
             $res['PAIResourceID'] = $this->PAIResourceID;
@@ -211,6 +220,9 @@ class GetMachineGroupResponseBody extends Model
         }
         if (isset($map['OrderID'])) {
             $model->orderID = $map['OrderID'];
+        }
+        if (isset($map['OrderInstanceId'])) {
+            $model->orderInstanceId = $map['OrderInstanceId'];
         }
         if (isset($map['PAIResourceID'])) {
             $model->PAIResourceID = $map['PAIResourceID'];

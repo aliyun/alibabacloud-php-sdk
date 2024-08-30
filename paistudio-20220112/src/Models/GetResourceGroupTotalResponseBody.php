@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetResourceGroupTotalResponseBody extends Model
 {
     /**
+     * @example 100
+     *
      * @var int
      */
     public $totalCPU;
 
     /**
+     * @example 24
+     *
      * @var int
      */
     public $totalGPU;
@@ -24,6 +28,8 @@ class GetResourceGroupTotalResponseBody extends Model
     public $totalGPUInfos;
 
     /**
+     * @example 300
+     *
      * @var int
      */
     public $totalMemory;

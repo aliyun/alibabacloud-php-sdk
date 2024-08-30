@@ -14,11 +14,15 @@ class ListTrainingJobLogsResponseBody extends Model
     public $logs;
 
     /**
+     * @example CBF05F13-B24C-5129-9048-4FA684DCD579
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 23
+     *
      * @var string
      */
     public $totalCount;

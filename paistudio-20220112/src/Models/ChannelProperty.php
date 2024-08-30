@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ChannelProperty extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example SKlearn
      *
      * @var string
@@ -16,6 +18,8 @@ class ChannelProperty extends Model
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Framework
      *
      * @var string

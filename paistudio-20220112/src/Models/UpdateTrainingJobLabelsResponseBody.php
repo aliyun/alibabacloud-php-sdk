@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateTrainingJobLabelsResponseBody extends Model
 {
     /**
+     * @example F082BD0D-21E1-5F9B-81A0-AB07485B03CD
+     *
      * @var string
      */
     public $requestId;

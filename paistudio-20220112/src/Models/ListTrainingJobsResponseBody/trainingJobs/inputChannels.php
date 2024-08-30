@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class inputChannels extends Model
 {
     /**
+     * @example d-475megosidivjfgfq6
+     *
      * @var string
      */
     public $datasetId;
 
     /**
+     * @example oss://test-bucket.oss-cn-hangzhou-internal.aliyuncs.com/path/to/input/channel/
+     *
      * @var string
      */
     public $inputUri;
 
     /**
+     * @example model
+     *
      * @var string
      */
     public $name;

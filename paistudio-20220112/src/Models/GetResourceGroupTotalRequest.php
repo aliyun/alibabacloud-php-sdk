@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetResourceGroupTotalRequest extends Model
 {
     /**
+     * @example rgf0zhfqn1d4ity2
+     *
      * @var string
      */
     public $resourceGroupID;

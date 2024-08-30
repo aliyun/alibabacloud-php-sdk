@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class instanceSpec extends Model
 {
     /**
+     * @example 8
+     *
      * @var string
      */
     public $CPU;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $GPU;
 
     /**
+     * @example V100
+     *
      * @var string
      */
     public $GPUType;
 
     /**
+     * @example 32
+     *
      * @var string
      */
     public $memory;
 
     /**
+     * @example 32
+     *
      * @var string
      */
     public $sharedMemory;

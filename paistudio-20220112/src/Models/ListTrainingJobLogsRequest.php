@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListTrainingJobLogsRequest extends Model
 {
     /**
+     * @description Use the UTC time format: yyyy-MM-ddTHH:mmZ
+     *
      * @example 2020-11-08T16:00:00Z
      *
      * @var string
@@ -16,6 +18,8 @@ class ListTrainingJobLogsRequest extends Model
     public $endTime;
 
     /**
+     * @example train129f212o89d-master-0
+     *
      * @var string
      */
     public $instanceId;
@@ -35,6 +39,8 @@ class ListTrainingJobLogsRequest extends Model
     public $pageSize;
 
     /**
+     * @description Use the UTC time format: yyyy-MM-ddTHH:mmZ
+     *
      * @example 2020-11-08T16:00:00Z
      *
      * @var string
@@ -42,6 +48,8 @@ class ListTrainingJobLogsRequest extends Model
     public $startTime;
 
     /**
+     * @example train129f212o89d-master-0
+     *
      * @var string
      */
     public $workerId;

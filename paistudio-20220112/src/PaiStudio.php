@@ -6,26 +6,35 @@ namespace AlibabaCloud\SDK\PaiStudio\V20220112;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\PaiStudio\V20220112\Models\CheckInstanceWebTerminalRequest;
+use AlibabaCloud\SDK\PaiStudio\V20220112\Models\CheckInstanceWebTerminalResponse;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\CreateAlgorithmRequest;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\CreateAlgorithmResponse;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\CreateAlgorithmVersionRequest;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\CreateAlgorithmVersionResponse;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\CreateAlgorithmVersionShrinkRequest;
+use AlibabaCloud\SDK\PaiStudio\V20220112\Models\CreateInstanceWebTerminalResponse;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\CreateQuotaRequest;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\CreateQuotaResponse;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\CreateResourceGroupRequest;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\CreateResourceGroupResponse;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\CreateTrainingJobRequest;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\CreateTrainingJobResponse;
+use AlibabaCloud\SDK\PaiStudio\V20220112\Models\DeleteAlgorithmResponse;
+use AlibabaCloud\SDK\PaiStudio\V20220112\Models\DeleteAlgorithmVersionResponse;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\DeleteMachineGroupResponse;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\DeleteQuotaResponse;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\DeleteResourceGroupMachineGroupResponse;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\DeleteResourceGroupResponse;
+use AlibabaCloud\SDK\PaiStudio\V20220112\Models\DeleteTrainingJobLabelsRequest;
+use AlibabaCloud\SDK\PaiStudio\V20220112\Models\DeleteTrainingJobLabelsResponse;
+use AlibabaCloud\SDK\PaiStudio\V20220112\Models\DeleteTrainingJobResponse;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\GetAlgorithmResponse;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\GetAlgorithmVersionResponse;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\GetMachineGroupResponse;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\GetNodeMetricsRequest;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\GetNodeMetricsResponse;
+use AlibabaCloud\SDK\PaiStudio\V20220112\Models\GetQuotaRequest;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\GetQuotaResponse;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\GetResourceGroupMachineGroupRequest;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\GetResourceGroupMachineGroupResponse;
@@ -37,6 +46,11 @@ use AlibabaCloud\SDK\PaiStudio\V20220112\Models\GetResourceGroupResponse;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\GetResourceGroupShrinkRequest;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\GetResourceGroupTotalRequest;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\GetResourceGroupTotalResponse;
+use AlibabaCloud\SDK\PaiStudio\V20220112\Models\GetTokenRequest;
+use AlibabaCloud\SDK\PaiStudio\V20220112\Models\GetTokenResponse;
+use AlibabaCloud\SDK\PaiStudio\V20220112\Models\GetTrainingJobErrorInfoResponse;
+use AlibabaCloud\SDK\PaiStudio\V20220112\Models\GetTrainingJobLatestMetricsRequest;
+use AlibabaCloud\SDK\PaiStudio\V20220112\Models\GetTrainingJobLatestMetricsResponse;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\GetTrainingJobResponse;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\GetUserViewMetricsRequest;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\GetUserViewMetricsResponse;
@@ -44,16 +58,25 @@ use AlibabaCloud\SDK\PaiStudio\V20220112\Models\ListAlgorithmsRequest;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\ListAlgorithmsResponse;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\ListAlgorithmVersionsRequest;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\ListAlgorithmVersionsResponse;
+use AlibabaCloud\SDK\PaiStudio\V20220112\Models\ListNodesRequest;
+use AlibabaCloud\SDK\PaiStudio\V20220112\Models\ListNodesResponse;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\ListQuotasRequest;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\ListQuotasResponse;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\ListResourceGroupMachineGroupsRequest;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\ListResourceGroupMachineGroupsResponse;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\ListResourceGroupsRequest;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\ListResourceGroupsResponse;
+use AlibabaCloud\SDK\PaiStudio\V20220112\Models\ListTrainingJobEventsRequest;
+use AlibabaCloud\SDK\PaiStudio\V20220112\Models\ListTrainingJobEventsResponse;
+use AlibabaCloud\SDK\PaiStudio\V20220112\Models\ListTrainingJobInstanceEventsRequest;
+use AlibabaCloud\SDK\PaiStudio\V20220112\Models\ListTrainingJobInstanceEventsResponse;
+use AlibabaCloud\SDK\PaiStudio\V20220112\Models\ListTrainingJobInstanceMetricsRequest;
+use AlibabaCloud\SDK\PaiStudio\V20220112\Models\ListTrainingJobInstanceMetricsResponse;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\ListTrainingJobLogsRequest;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\ListTrainingJobLogsResponse;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\ListTrainingJobMetricsRequest;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\ListTrainingJobMetricsResponse;
+use AlibabaCloud\SDK\PaiStudio\V20220112\Models\ListTrainingJobOutputModelsResponse;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\ListTrainingJobsRequest;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\ListTrainingJobsResponse;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\ListTrainingJobsShrinkRequest;
@@ -129,11 +152,67 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @param CreateAlgorithmRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @summary 检查WebTerminal
+     *  *
+     * @param string                          $TrainingJobId
+     * @param string                          $InstanceId
+     * @param CheckInstanceWebTerminalRequest $request       CheckInstanceWebTerminalRequest
+     * @param string[]                        $headers       map
+     * @param RuntimeOptions                  $runtime       runtime options for this request RuntimeOptions
      *
-     * @return CreateAlgorithmResponse
+     * @return CheckInstanceWebTerminalResponse CheckInstanceWebTerminalResponse
+     */
+    public function checkInstanceWebTerminalWithOptions($TrainingJobId, $InstanceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->checkInfo)) {
+            $body['CheckInfo'] = $request->checkInfo;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CheckInstanceWebTerminal',
+            'version'     => '2022-01-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/trainingjobs/' . OpenApiUtilClient::getEncodeParam($TrainingJobId) . '/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/webterminals/action/check',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CheckInstanceWebTerminalResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 检查WebTerminal
+     *  *
+     * @param string                          $TrainingJobId
+     * @param string                          $InstanceId
+     * @param CheckInstanceWebTerminalRequest $request       CheckInstanceWebTerminalRequest
+     *
+     * @return CheckInstanceWebTerminalResponse CheckInstanceWebTerminalResponse
+     */
+    public function checkInstanceWebTerminal($TrainingJobId, $InstanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->checkInstanceWebTerminalWithOptions($TrainingJobId, $InstanceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 创建新的算法
+     *  *
+     * @param CreateAlgorithmRequest $request CreateAlgorithmRequest
+     * @param string[]               $headers map
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateAlgorithmResponse CreateAlgorithmResponse
      */
     public function createAlgorithmWithOptions($request, $headers, $runtime)
     {
@@ -171,9 +250,11 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @param CreateAlgorithmRequest $request
+     * @summary 创建新的算法
+     *  *
+     * @param CreateAlgorithmRequest $request CreateAlgorithmRequest
      *
-     * @return CreateAlgorithmResponse
+     * @return CreateAlgorithmResponse CreateAlgorithmResponse
      */
     public function createAlgorithm($request)
     {
@@ -184,13 +265,15 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
+     * @summary 创建一个新的算法版本
+     *  *
      * @param string                        $AlgorithmId
      * @param string                        $AlgorithmVersion
-     * @param CreateAlgorithmVersionRequest $tmpReq
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
+     * @param CreateAlgorithmVersionRequest $tmpReq           CreateAlgorithmVersionRequest
+     * @param string[]                      $headers          map
+     * @param RuntimeOptions                $runtime          runtime options for this request RuntimeOptions
      *
-     * @return CreateAlgorithmVersionResponse
+     * @return CreateAlgorithmVersionResponse CreateAlgorithmVersionResponse
      */
     public function createAlgorithmVersionWithOptions($AlgorithmId, $AlgorithmVersion, $tmpReq, $headers, $runtime)
     {
@@ -224,11 +307,13 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
+     * @summary 创建一个新的算法版本
+     *  *
      * @param string                        $AlgorithmId
      * @param string                        $AlgorithmVersion
-     * @param CreateAlgorithmVersionRequest $request
+     * @param CreateAlgorithmVersionRequest $request          CreateAlgorithmVersionRequest
      *
-     * @return CreateAlgorithmVersionResponse
+     * @return CreateAlgorithmVersionResponse CreateAlgorithmVersionResponse
      */
     public function createAlgorithmVersion($AlgorithmId, $AlgorithmVersion, $request)
     {
@@ -239,11 +324,59 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @param CreateQuotaRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @summary 创建WebTerminal
+     *  *
+     * @param string         $TrainingJobId
+     * @param string         $InstanceId
+     * @param string[]       $headers       map
+     * @param RuntimeOptions $runtime       runtime options for this request RuntimeOptions
      *
-     * @return CreateQuotaResponse
+     * @return CreateInstanceWebTerminalResponse CreateInstanceWebTerminalResponse
+     */
+    public function createInstanceWebTerminalWithOptions($TrainingJobId, $InstanceId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'CreateInstanceWebTerminal',
+            'version'     => '2022-01-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/trainingjobs/' . OpenApiUtilClient::getEncodeParam($TrainingJobId) . '/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/webterminals',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateInstanceWebTerminalResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建WebTerminal
+     *  *
+     * @param string $TrainingJobId
+     * @param string $InstanceId
+     *
+     * @return CreateInstanceWebTerminalResponse CreateInstanceWebTerminalResponse
+     */
+    public function createInstanceWebTerminal($TrainingJobId, $InstanceId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createInstanceWebTerminalWithOptions($TrainingJobId, $InstanceId, $headers, $runtime);
+    }
+
+    /**
+     * @summary 创建Quota
+     *  *
+     * @param CreateQuotaRequest $request CreateQuotaRequest
+     * @param string[]           $headers map
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateQuotaResponse CreateQuotaResponse
      */
     public function createQuotaWithOptions($request, $headers, $runtime)
     {
@@ -299,9 +432,11 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @param CreateQuotaRequest $request
+     * @summary 创建Quota
+     *  *
+     * @param CreateQuotaRequest $request CreateQuotaRequest
      *
-     * @return CreateQuotaResponse
+     * @return CreateQuotaResponse CreateQuotaResponse
      */
     public function createQuota($request)
     {
@@ -312,11 +447,13 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @param CreateResourceGroupRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @summary 创建资源组
+     *  *
+     * @param CreateResourceGroupRequest $request CreateResourceGroupRequest
+     * @param string[]                   $headers map
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateResourceGroupResponse
+     * @return CreateResourceGroupResponse CreateResourceGroupResponse
      */
     public function createResourceGroupWithOptions($request, $headers, $runtime)
     {
@@ -360,9 +497,11 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @param CreateResourceGroupRequest $request
+     * @summary 创建资源组
+     *  *
+     * @param CreateResourceGroupRequest $request CreateResourceGroupRequest
      *
-     * @return CreateResourceGroupResponse
+     * @return CreateResourceGroupResponse CreateResourceGroupResponse
      */
     public function createResourceGroup($request)
     {
@@ -373,11 +512,13 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @param CreateTrainingJobRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @summary 创建TrainingJob
+     *  *
+     * @param CreateTrainingJobRequest $request CreateTrainingJobRequest
+     * @param string[]                 $headers map
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateTrainingJobResponse
+     * @return CreateTrainingJobResponse CreateTrainingJobResponse
      */
     public function createTrainingJobWithOptions($request, $headers, $runtime)
     {
@@ -401,6 +542,9 @@ class PaiStudio extends OpenApiClient
         if (!Utils::isUnset($request->computeResource)) {
             $body['ComputeResource'] = $request->computeResource;
         }
+        if (!Utils::isUnset($request->environments)) {
+            $body['Environments'] = $request->environments;
+        }
         if (!Utils::isUnset($request->experimentConfig)) {
             $body['ExperimentConfig'] = $request->experimentConfig;
         }
@@ -415,6 +559,9 @@ class PaiStudio extends OpenApiClient
         }
         if (!Utils::isUnset($request->outputChannels)) {
             $body['OutputChannels'] = $request->outputChannels;
+        }
+        if (!Utils::isUnset($request->pythonRequirements)) {
+            $body['PythonRequirements'] = $request->pythonRequirements;
         }
         if (!Utils::isUnset($request->roleArn)) {
             $body['RoleArn'] = $request->roleArn;
@@ -457,9 +604,11 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @param CreateTrainingJobRequest $request
+     * @summary 创建TrainingJob
+     *  *
+     * @param CreateTrainingJobRequest $request CreateTrainingJobRequest
      *
-     * @return CreateTrainingJobResponse
+     * @return CreateTrainingJobResponse CreateTrainingJobResponse
      */
     public function createTrainingJob($request)
     {
@@ -470,11 +619,107 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @param string         $MachineGroupID
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @summary 删除算法
+     *  *
+     * @param string         $AlgorithmId
+     * @param string[]       $headers     map
+     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
      *
-     * @return DeleteMachineGroupResponse
+     * @return DeleteAlgorithmResponse DeleteAlgorithmResponse
+     */
+    public function deleteAlgorithmWithOptions($AlgorithmId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteAlgorithm',
+            'version'     => '2022-01-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/algorithms/' . OpenApiUtilClient::getEncodeParam($AlgorithmId) . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteAlgorithmResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除算法
+     *  *
+     * @param string $AlgorithmId
+     *
+     * @return DeleteAlgorithmResponse DeleteAlgorithmResponse
+     */
+    public function deleteAlgorithm($AlgorithmId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteAlgorithmWithOptions($AlgorithmId, $headers, $runtime);
+    }
+
+    /**
+     * @summary 删除算法版本
+     *  *
+     * @param string         $AlgorithmId
+     * @param string         $AlgorithmVersion
+     * @param string[]       $headers          map
+     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
+     *
+     * @return DeleteAlgorithmVersionResponse DeleteAlgorithmVersionResponse
+     */
+    public function deleteAlgorithmVersionWithOptions($AlgorithmId, $AlgorithmVersion, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteAlgorithmVersion',
+            'version'     => '2022-01-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/algorithms/' . OpenApiUtilClient::getEncodeParam($AlgorithmId) . '/versions/' . OpenApiUtilClient::getEncodeParam($AlgorithmVersion) . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteAlgorithmVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除算法版本
+     *  *
+     * @param string $AlgorithmId
+     * @param string $AlgorithmVersion
+     *
+     * @return DeleteAlgorithmVersionResponse DeleteAlgorithmVersionResponse
+     */
+    public function deleteAlgorithmVersion($AlgorithmId, $AlgorithmVersion)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteAlgorithmVersionWithOptions($AlgorithmId, $AlgorithmVersion, $headers, $runtime);
+    }
+
+    /**
+     * @deprecated OpenAPI DeleteMachineGroup is deprecated
+     *  *
+     * @summary delete machine group
+     *  *
+     * Deprecated
+     *
+     * @param string         $MachineGroupID
+     * @param string[]       $headers        map
+     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
+     *
+     * @return DeleteMachineGroupResponse DeleteMachineGroupResponse
      */
     public function deleteMachineGroupWithOptions($MachineGroupID, $headers, $runtime)
     {
@@ -497,9 +742,15 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
+     * @deprecated OpenAPI DeleteMachineGroup is deprecated
+     *  *
+     * @summary delete machine group
+     *  *
+     * Deprecated
+     *
      * @param string $MachineGroupID
      *
-     * @return DeleteMachineGroupResponse
+     * @return DeleteMachineGroupResponse DeleteMachineGroupResponse
      */
     public function deleteMachineGroup($MachineGroupID)
     {
@@ -510,11 +761,13 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
+     * @summary 删除Quota
+     *  *
      * @param string         $QuotaId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteQuotaResponse
+     * @return DeleteQuotaResponse DeleteQuotaResponse
      */
     public function deleteQuotaWithOptions($QuotaId, $headers, $runtime)
     {
@@ -537,9 +790,11 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
+     * @summary 删除Quota
+     *  *
      * @param string $QuotaId
      *
-     * @return DeleteQuotaResponse
+     * @return DeleteQuotaResponse DeleteQuotaResponse
      */
     public function deleteQuota($QuotaId)
     {
@@ -550,11 +805,13 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
+     * @summary 删除资源组
+     *  *
      * @param string         $ResourceGroupID
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers         map
+     * @param RuntimeOptions $runtime         runtime options for this request RuntimeOptions
      *
-     * @return DeleteResourceGroupResponse
+     * @return DeleteResourceGroupResponse DeleteResourceGroupResponse
      */
     public function deleteResourceGroupWithOptions($ResourceGroupID, $headers, $runtime)
     {
@@ -577,9 +834,11 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
+     * @summary 删除资源组
+     *  *
      * @param string $ResourceGroupID
      *
-     * @return DeleteResourceGroupResponse
+     * @return DeleteResourceGroupResponse DeleteResourceGroupResponse
      */
     public function deleteResourceGroup($ResourceGroupID)
     {
@@ -590,12 +849,18 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
+     * @deprecated OpenAPI DeleteResourceGroupMachineGroup is deprecated
+     *  *
+     * @summary delete machine group
+     *  *
+     * Deprecated
+     *
      * @param string         $MachineGroupID
      * @param string         $ResourceGroupID
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers         map
+     * @param RuntimeOptions $runtime         runtime options for this request RuntimeOptions
      *
-     * @return DeleteResourceGroupMachineGroupResponse
+     * @return DeleteResourceGroupMachineGroupResponse DeleteResourceGroupMachineGroupResponse
      */
     public function deleteResourceGroupMachineGroupWithOptions($MachineGroupID, $ResourceGroupID, $headers, $runtime)
     {
@@ -618,10 +883,16 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
+     * @deprecated OpenAPI DeleteResourceGroupMachineGroup is deprecated
+     *  *
+     * @summary delete machine group
+     *  *
+     * Deprecated
+     *
      * @param string $MachineGroupID
      * @param string $ResourceGroupID
      *
-     * @return DeleteResourceGroupMachineGroupResponse
+     * @return DeleteResourceGroupMachineGroupResponse DeleteResourceGroupMachineGroupResponse
      */
     public function deleteResourceGroupMachineGroup($MachineGroupID, $ResourceGroupID)
     {
@@ -632,11 +903,109 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @param string         $AlgorithmId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @summary 删除一个TrainingJob
+     *  *
+     * @param string         $TrainingJobId
+     * @param string[]       $headers       map
+     * @param RuntimeOptions $runtime       runtime options for this request RuntimeOptions
      *
-     * @return GetAlgorithmResponse
+     * @return DeleteTrainingJobResponse DeleteTrainingJobResponse
+     */
+    public function deleteTrainingJobWithOptions($TrainingJobId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteTrainingJob',
+            'version'     => '2022-01-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/trainingjobs/' . OpenApiUtilClient::getEncodeParam($TrainingJobId) . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteTrainingJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除一个TrainingJob
+     *  *
+     * @param string $TrainingJobId
+     *
+     * @return DeleteTrainingJobResponse DeleteTrainingJobResponse
+     */
+    public function deleteTrainingJob($TrainingJobId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteTrainingJobWithOptions($TrainingJobId, $headers, $runtime);
+    }
+
+    /**
+     * @summary 删除TrainingJob的Labels
+     *  *
+     * @param string                         $TrainingJobId
+     * @param DeleteTrainingJobLabelsRequest $request       DeleteTrainingJobLabelsRequest
+     * @param string[]                       $headers       map
+     * @param RuntimeOptions                 $runtime       runtime options for this request RuntimeOptions
+     *
+     * @return DeleteTrainingJobLabelsResponse DeleteTrainingJobLabelsResponse
+     */
+    public function deleteTrainingJobLabelsWithOptions($TrainingJobId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->keys)) {
+            $query['Keys'] = $request->keys;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteTrainingJobLabels',
+            'version'     => '2022-01-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/trainingjobs/' . OpenApiUtilClient::getEncodeParam($TrainingJobId) . '/labels',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteTrainingJobLabelsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除TrainingJob的Labels
+     *  *
+     * @param string                         $TrainingJobId
+     * @param DeleteTrainingJobLabelsRequest $request       DeleteTrainingJobLabelsRequest
+     *
+     * @return DeleteTrainingJobLabelsResponse DeleteTrainingJobLabelsResponse
+     */
+    public function deleteTrainingJobLabels($TrainingJobId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteTrainingJobLabelsWithOptions($TrainingJobId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 获取一个算法信息
+     *  *
+     * @param string         $AlgorithmId
+     * @param string[]       $headers     map
+     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return GetAlgorithmResponse GetAlgorithmResponse
      */
     public function getAlgorithmWithOptions($AlgorithmId, $headers, $runtime)
     {
@@ -659,9 +1028,11 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
+     * @summary 获取一个算法信息
+     *  *
      * @param string $AlgorithmId
      *
-     * @return GetAlgorithmResponse
+     * @return GetAlgorithmResponse GetAlgorithmResponse
      */
     public function getAlgorithm($AlgorithmId)
     {
@@ -672,12 +1043,14 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
+     * @summary 创建一个新的算法版本
+     *  *
      * @param string         $AlgorithmId
      * @param string         $AlgorithmVersion
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers          map
+     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
      *
-     * @return GetAlgorithmVersionResponse
+     * @return GetAlgorithmVersionResponse GetAlgorithmVersionResponse
      */
     public function getAlgorithmVersionWithOptions($AlgorithmId, $AlgorithmVersion, $headers, $runtime)
     {
@@ -700,10 +1073,12 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
+     * @summary 创建一个新的算法版本
+     *  *
      * @param string $AlgorithmId
      * @param string $AlgorithmVersion
      *
-     * @return GetAlgorithmVersionResponse
+     * @return GetAlgorithmVersionResponse GetAlgorithmVersionResponse
      */
     public function getAlgorithmVersion($AlgorithmId, $AlgorithmVersion)
     {
@@ -714,11 +1089,17 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @param string         $MachineGroupID
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @deprecated OpenAPI GetMachineGroup is deprecated
+     *  *
+     * @summary get machine group
+     *  *
+     * Deprecated
      *
-     * @return GetMachineGroupResponse
+     * @param string         $MachineGroupID
+     * @param string[]       $headers        map
+     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
+     *
+     * @return GetMachineGroupResponse GetMachineGroupResponse
      */
     public function getMachineGroupWithOptions($MachineGroupID, $headers, $runtime)
     {
@@ -741,9 +1122,15 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
+     * @deprecated OpenAPI GetMachineGroup is deprecated
+     *  *
+     * @summary get machine group
+     *  *
+     * Deprecated
+     *
      * @param string $MachineGroupID
      *
-     * @return GetMachineGroupResponse
+     * @return GetMachineGroupResponse GetMachineGroupResponse
      */
     public function getMachineGroup($MachineGroupID)
     {
@@ -754,13 +1141,15 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
+     * @summary get resource group node metrics
+     *  *
      * @param string                $ResourceGroupID
      * @param string                $MetricType
-     * @param GetNodeMetricsRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @param GetNodeMetricsRequest $request         GetNodeMetricsRequest
+     * @param string[]              $headers         map
+     * @param RuntimeOptions        $runtime         runtime options for this request RuntimeOptions
      *
-     * @return GetNodeMetricsResponse
+     * @return GetNodeMetricsResponse GetNodeMetricsResponse
      */
     public function getNodeMetricsWithOptions($ResourceGroupID, $MetricType, $request, $headers, $runtime)
     {
@@ -801,11 +1190,13 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
+     * @summary get resource group node metrics
+     *  *
      * @param string                $ResourceGroupID
      * @param string                $MetricType
-     * @param GetNodeMetricsRequest $request
+     * @param GetNodeMetricsRequest $request         GetNodeMetricsRequest
      *
-     * @return GetNodeMetricsResponse
+     * @return GetNodeMetricsResponse GetNodeMetricsResponse
      */
     public function getNodeMetrics($ResourceGroupID, $MetricType, $request)
     {
@@ -816,16 +1207,25 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @param string         $QuotaId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @summary 获取Quota
+     *  *
+     * @param string          $QuotaId
+     * @param GetQuotaRequest $request GetQuotaRequest
+     * @param string[]        $headers map
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetQuotaResponse
+     * @return GetQuotaResponse GetQuotaResponse
      */
-    public function getQuotaWithOptions($QuotaId, $headers, $runtime)
+    public function getQuotaWithOptions($QuotaId, $request, $headers, $runtime)
     {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->verbose)) {
+            $query['Verbose'] = $request->verbose;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetQuota',
@@ -843,25 +1243,30 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @param string $QuotaId
+     * @summary 获取Quota
+     *  *
+     * @param string          $QuotaId
+     * @param GetQuotaRequest $request GetQuotaRequest
      *
-     * @return GetQuotaResponse
+     * @return GetQuotaResponse GetQuotaResponse
      */
-    public function getQuota($QuotaId)
+    public function getQuota($QuotaId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getQuotaWithOptions($QuotaId, $headers, $runtime);
+        return $this->getQuotaWithOptions($QuotaId, $request, $headers, $runtime);
     }
 
     /**
+     * @summary get resource group by group id
+     *  *
      * @param string                  $ResourceGroupID
-     * @param GetResourceGroupRequest $tmpReq
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @param GetResourceGroupRequest $tmpReq          GetResourceGroupRequest
+     * @param string[]                $headers         map
+     * @param RuntimeOptions          $runtime         runtime options for this request RuntimeOptions
      *
-     * @return GetResourceGroupResponse
+     * @return GetResourceGroupResponse GetResourceGroupResponse
      */
     public function getResourceGroupWithOptions($ResourceGroupID, $tmpReq, $headers, $runtime)
     {
@@ -898,10 +1303,12 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
+     * @summary get resource group by group id
+     *  *
      * @param string                  $ResourceGroupID
-     * @param GetResourceGroupRequest $request
+     * @param GetResourceGroupRequest $request         GetResourceGroupRequest
      *
-     * @return GetResourceGroupResponse
+     * @return GetResourceGroupResponse GetResourceGroupResponse
      */
     public function getResourceGroup($ResourceGroupID, $request)
     {
@@ -912,13 +1319,15 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
+     * @summary get machine group
+     *  *
      * @param string                              $MachineGroupID
      * @param string                              $ResourceGroupID
-     * @param GetResourceGroupMachineGroupRequest $tmpReq
-     * @param string[]                            $headers
-     * @param RuntimeOptions                      $runtime
+     * @param GetResourceGroupMachineGroupRequest $tmpReq          GetResourceGroupMachineGroupRequest
+     * @param string[]                            $headers         map
+     * @param RuntimeOptions                      $runtime         runtime options for this request RuntimeOptions
      *
-     * @return GetResourceGroupMachineGroupResponse
+     * @return GetResourceGroupMachineGroupResponse GetResourceGroupMachineGroupResponse
      */
     public function getResourceGroupMachineGroupWithOptions($MachineGroupID, $ResourceGroupID, $tmpReq, $headers, $runtime)
     {
@@ -952,11 +1361,13 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
+     * @summary get machine group
+     *  *
      * @param string                              $MachineGroupID
      * @param string                              $ResourceGroupID
-     * @param GetResourceGroupMachineGroupRequest $request
+     * @param GetResourceGroupMachineGroupRequest $request         GetResourceGroupMachineGroupRequest
      *
-     * @return GetResourceGroupMachineGroupResponse
+     * @return GetResourceGroupMachineGroupResponse GetResourceGroupMachineGroupResponse
      */
     public function getResourceGroupMachineGroup($MachineGroupID, $ResourceGroupID, $request)
     {
@@ -967,11 +1378,13 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @param GetResourceGroupRequestRequest $request
-     * @param string[]                       $headers
-     * @param RuntimeOptions                 $runtime
+     * @summary get resource group requested resource by resource group id
+     *  *
+     * @param GetResourceGroupRequestRequest $request GetResourceGroupRequestRequest
+     * @param string[]                       $headers map
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetResourceGroupRequestResponse
+     * @return GetResourceGroupRequestResponse GetResourceGroupRequestResponse
      */
     public function getResourceGroupRequestWithOptions($request, $headers, $runtime)
     {
@@ -1003,9 +1416,11 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @param GetResourceGroupRequestRequest $request
+     * @summary get resource group requested resource by resource group id
+     *  *
+     * @param GetResourceGroupRequestRequest $request GetResourceGroupRequestRequest
      *
-     * @return GetResourceGroupRequestResponse
+     * @return GetResourceGroupRequestResponse GetResourceGroupRequestResponse
      */
     public function getResourceGroupRequest($request)
     {
@@ -1016,11 +1431,13 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @param GetResourceGroupTotalRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @summary get resource group total resource by group id
+     *  *
+     * @param GetResourceGroupTotalRequest $request GetResourceGroupTotalRequest
+     * @param string[]                     $headers map
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetResourceGroupTotalResponse
+     * @return GetResourceGroupTotalResponse GetResourceGroupTotalResponse
      */
     public function getResourceGroupTotalWithOptions($request, $headers, $runtime)
     {
@@ -1049,9 +1466,11 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @param GetResourceGroupTotalRequest $request
+     * @summary get resource group total resource by group id
+     *  *
+     * @param GetResourceGroupTotalRequest $request GetResourceGroupTotalRequest
      *
-     * @return GetResourceGroupTotalResponse
+     * @return GetResourceGroupTotalResponse GetResourceGroupTotalResponse
      */
     public function getResourceGroupTotal($request)
     {
@@ -1062,11 +1481,66 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @param string         $TrainingJobId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @summary 调用GetToken获取临时鉴权信息
+     *  *
+     * @param GetTokenRequest $request GetTokenRequest
+     * @param string[]        $headers map
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetTrainingJobResponse
+     * @return GetTokenResponse GetTokenResponse
+     */
+    public function getTokenWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->expireTime)) {
+            $query['ExpireTime'] = $request->expireTime;
+        }
+        if (!Utils::isUnset($request->trainingJobId)) {
+            $query['TrainingJobId'] = $request->trainingJobId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetToken',
+            'version'     => '2022-01-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/tokens',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 调用GetToken获取临时鉴权信息
+     *  *
+     * @param GetTokenRequest $request GetTokenRequest
+     *
+     * @return GetTokenResponse GetTokenResponse
+     */
+    public function getToken($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getTokenWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 获取TrainingJob的详情
+     *  *
+     * @param string         $TrainingJobId
+     * @param string[]       $headers       map
+     * @param RuntimeOptions $runtime       runtime options for this request RuntimeOptions
+     *
+     * @return GetTrainingJobResponse GetTrainingJobResponse
      */
     public function getTrainingJobWithOptions($TrainingJobId, $headers, $runtime)
     {
@@ -1089,9 +1563,11 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
+     * @summary 获取TrainingJob的详情
+     *  *
      * @param string $TrainingJobId
      *
-     * @return GetTrainingJobResponse
+     * @return GetTrainingJobResponse GetTrainingJobResponse
      */
     public function getTrainingJob($TrainingJobId)
     {
@@ -1102,12 +1578,110 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @param string                    $ResourceGroupID
-     * @param GetUserViewMetricsRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @summary 获取Training Job的算法错误信息
+     *  *
+     * @param string         $TrainingJobId
+     * @param string[]       $headers       map
+     * @param RuntimeOptions $runtime       runtime options for this request RuntimeOptions
      *
-     * @return GetUserViewMetricsResponse
+     * @return GetTrainingJobErrorInfoResponse GetTrainingJobErrorInfoResponse
+     */
+    public function getTrainingJobErrorInfoWithOptions($TrainingJobId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'GetTrainingJobErrorInfo',
+            'version'     => '2022-01-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/trainingjobs/' . OpenApiUtilClient::getEncodeParam($TrainingJobId) . '/errorinfo',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetTrainingJobErrorInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取Training Job的算法错误信息
+     *  *
+     * @param string $TrainingJobId
+     *
+     * @return GetTrainingJobErrorInfoResponse GetTrainingJobErrorInfoResponse
+     */
+    public function getTrainingJobErrorInfo($TrainingJobId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getTrainingJobErrorInfoWithOptions($TrainingJobId, $headers, $runtime);
+    }
+
+    /**
+     * @summary 获取TrainingJob最近的Metrics
+     *  *
+     * @param string                             $TrainingJobId
+     * @param GetTrainingJobLatestMetricsRequest $request       GetTrainingJobLatestMetricsRequest
+     * @param string[]                           $headers       map
+     * @param RuntimeOptions                     $runtime       runtime options for this request RuntimeOptions
+     *
+     * @return GetTrainingJobLatestMetricsResponse GetTrainingJobLatestMetricsResponse
+     */
+    public function getTrainingJobLatestMetricsWithOptions($TrainingJobId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->names)) {
+            $query['Names'] = $request->names;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetTrainingJobLatestMetrics',
+            'version'     => '2022-01-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/trainingjobs/' . OpenApiUtilClient::getEncodeParam($TrainingJobId) . '/latestmetrics',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetTrainingJobLatestMetricsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取TrainingJob最近的Metrics
+     *  *
+     * @param string                             $TrainingJobId
+     * @param GetTrainingJobLatestMetricsRequest $request       GetTrainingJobLatestMetricsRequest
+     *
+     * @return GetTrainingJobLatestMetricsResponse GetTrainingJobLatestMetricsResponse
+     */
+    public function getTrainingJobLatestMetrics($TrainingJobId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getTrainingJobLatestMetricsWithOptions($TrainingJobId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary get user view  metrics
+     *  *
+     * @param string                    $ResourceGroupID
+     * @param GetUserViewMetricsRequest $request         GetUserViewMetricsRequest
+     * @param string[]                  $headers         map
+     * @param RuntimeOptions            $runtime         runtime options for this request RuntimeOptions
+     *
+     * @return GetUserViewMetricsResponse GetUserViewMetricsResponse
      */
     public function getUserViewMetricsWithOptions($ResourceGroupID, $request, $headers, $runtime)
     {
@@ -1154,10 +1728,12 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
+     * @summary get user view  metrics
+     *  *
      * @param string                    $ResourceGroupID
-     * @param GetUserViewMetricsRequest $request
+     * @param GetUserViewMetricsRequest $request         GetUserViewMetricsRequest
      *
-     * @return GetUserViewMetricsResponse
+     * @return GetUserViewMetricsResponse GetUserViewMetricsResponse
      */
     public function getUserViewMetrics($ResourceGroupID, $request)
     {
@@ -1168,12 +1744,14 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
+     * @summary 获取算法的所有版本信息
+     *  *
      * @param string                       $AlgorithmId
-     * @param ListAlgorithmVersionsRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @param ListAlgorithmVersionsRequest $request     ListAlgorithmVersionsRequest
+     * @param string[]                     $headers     map
+     * @param RuntimeOptions               $runtime     runtime options for this request RuntimeOptions
      *
-     * @return ListAlgorithmVersionsResponse
+     * @return ListAlgorithmVersionsResponse ListAlgorithmVersionsResponse
      */
     public function listAlgorithmVersionsWithOptions($AlgorithmId, $request, $headers, $runtime)
     {
@@ -1205,10 +1783,12 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
+     * @summary 获取算法的所有版本信息
+     *  *
      * @param string                       $AlgorithmId
-     * @param ListAlgorithmVersionsRequest $request
+     * @param ListAlgorithmVersionsRequest $request     ListAlgorithmVersionsRequest
      *
-     * @return ListAlgorithmVersionsResponse
+     * @return ListAlgorithmVersionsResponse ListAlgorithmVersionsResponse
      */
     public function listAlgorithmVersions($AlgorithmId, $request)
     {
@@ -1219,11 +1799,13 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @param ListAlgorithmsRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @summary 获取算法列表
+     *  *
+     * @param ListAlgorithmsRequest $request ListAlgorithmsRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListAlgorithmsResponse
+     * @return ListAlgorithmsResponse ListAlgorithmsResponse
      */
     public function listAlgorithmsWithOptions($request, $headers, $runtime)
     {
@@ -1267,9 +1849,11 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @param ListAlgorithmsRequest $request
+     * @summary 获取算法列表
+     *  *
+     * @param ListAlgorithmsRequest $request ListAlgorithmsRequest
      *
-     * @return ListAlgorithmsResponse
+     * @return ListAlgorithmsResponse ListAlgorithmsResponse
      */
     public function listAlgorithms($request)
     {
@@ -1280,11 +1864,105 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @param ListQuotasRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
+     * @summary 获取资源节点列表
+     *  *
+     * @param ListNodesRequest $request ListNodesRequest
+     * @param string[]         $headers map
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListQuotasResponse
+     * @return ListNodesResponse ListNodesResponse
+     */
+    public function listNodesWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceleratorType)) {
+            $query['AcceleratorType'] = $request->acceleratorType;
+        }
+        if (!Utils::isUnset($request->filterByQuotaId)) {
+            $query['FilterByQuotaId'] = $request->filterByQuotaId;
+        }
+        if (!Utils::isUnset($request->filterByResourceGroupIds)) {
+            $query['FilterByResourceGroupIds'] = $request->filterByResourceGroupIds;
+        }
+        if (!Utils::isUnset($request->GPUType)) {
+            $query['GPUType'] = $request->GPUType;
+        }
+        if (!Utils::isUnset($request->nodeNames)) {
+            $query['NodeNames'] = $request->nodeNames;
+        }
+        if (!Utils::isUnset($request->nodeStatuses)) {
+            $query['NodeStatuses'] = $request->nodeStatuses;
+        }
+        if (!Utils::isUnset($request->nodeTypes)) {
+            $query['NodeTypes'] = $request->nodeTypes;
+        }
+        if (!Utils::isUnset($request->order)) {
+            $query['Order'] = $request->order;
+        }
+        if (!Utils::isUnset($request->orderStatuses)) {
+            $query['OrderStatuses'] = $request->orderStatuses;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->quotaId)) {
+            $query['QuotaId'] = $request->quotaId;
+        }
+        if (!Utils::isUnset($request->resourceGroupIds)) {
+            $query['ResourceGroupIds'] = $request->resourceGroupIds;
+        }
+        if (!Utils::isUnset($request->sortBy)) {
+            $query['SortBy'] = $request->sortBy;
+        }
+        if (!Utils::isUnset($request->verbose)) {
+            $query['Verbose'] = $request->verbose;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListNodes',
+            'version'     => '2022-01-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/nodes',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListNodesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取资源节点列表
+     *  *
+     * @param ListNodesRequest $request ListNodesRequest
+     *
+     * @return ListNodesResponse ListNodesResponse
+     */
+    public function listNodes($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listNodesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 获取Quota列表
+     *  *
+     * @param ListQuotasRequest $request ListQuotasRequest
+     * @param string[]          $headers map
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListQuotasResponse ListQuotasResponse
      */
     public function listQuotasWithOptions($request, $headers, $runtime)
     {
@@ -1323,8 +2001,14 @@ class PaiStudio extends OpenApiClient
         if (!Utils::isUnset($request->statuses)) {
             $query['Statuses'] = $request->statuses;
         }
+        if (!Utils::isUnset($request->verbose)) {
+            $query['Verbose'] = $request->verbose;
+        }
         if (!Utils::isUnset($request->workspaceIds)) {
             $query['WorkspaceIds'] = $request->workspaceIds;
+        }
+        if (!Utils::isUnset($request->workspaceName)) {
+            $query['WorkspaceName'] = $request->workspaceName;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -1346,9 +2030,11 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @param ListQuotasRequest $request
+     * @summary 获取Quota列表
+     *  *
+     * @param ListQuotasRequest $request ListQuotasRequest
      *
-     * @return ListQuotasResponse
+     * @return ListQuotasResponse ListQuotasResponse
      */
     public function listQuotas($request)
     {
@@ -1359,12 +2045,14 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
+     * @summary list machine groups
+     *  *
      * @param string                                $ResourceGroupID
-     * @param ListResourceGroupMachineGroupsRequest $request
-     * @param string[]                              $headers
-     * @param RuntimeOptions                        $runtime
+     * @param ListResourceGroupMachineGroupsRequest $request         ListResourceGroupMachineGroupsRequest
+     * @param string[]                              $headers         map
+     * @param RuntimeOptions                        $runtime         runtime options for this request RuntimeOptions
      *
-     * @return ListResourceGroupMachineGroupsResponse
+     * @return ListResourceGroupMachineGroupsResponse ListResourceGroupMachineGroupsResponse
      */
     public function listResourceGroupMachineGroupsWithOptions($ResourceGroupID, $request, $headers, $runtime)
     {
@@ -1381,6 +2069,9 @@ class PaiStudio extends OpenApiClient
         }
         if (!Utils::isUnset($request->order)) {
             $query['Order'] = $request->order;
+        }
+        if (!Utils::isUnset($request->orderInstanceId)) {
+            $query['OrderInstanceId'] = $request->orderInstanceId;
         }
         if (!Utils::isUnset($request->pageNumber)) {
             $query['PageNumber'] = $request->pageNumber;
@@ -1423,10 +2114,12 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
+     * @summary list machine groups
+     *  *
      * @param string                                $ResourceGroupID
-     * @param ListResourceGroupMachineGroupsRequest $request
+     * @param ListResourceGroupMachineGroupsRequest $request         ListResourceGroupMachineGroupsRequest
      *
-     * @return ListResourceGroupMachineGroupsResponse
+     * @return ListResourceGroupMachineGroupsResponse ListResourceGroupMachineGroupsResponse
      */
     public function listResourceGroupMachineGroups($ResourceGroupID, $request)
     {
@@ -1437,11 +2130,13 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @param ListResourceGroupsRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @summary list resource group
+     *  *
+     * @param ListResourceGroupsRequest $request ListResourceGroupsRequest
+     * @param string[]                  $headers map
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListResourceGroupsResponse
+     * @return ListResourceGroupsResponse ListResourceGroupsResponse
      */
     public function listResourceGroupsWithOptions($request, $headers, $runtime)
     {
@@ -1494,9 +2189,11 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @param ListResourceGroupsRequest $request
+     * @summary list resource group
+     *  *
+     * @param ListResourceGroupsRequest $request ListResourceGroupsRequest
      *
-     * @return ListResourceGroupsResponse
+     * @return ListResourceGroupsResponse ListResourceGroupsResponse
      */
     public function listResourceGroups($request)
     {
@@ -1507,12 +2204,202 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @param string                     $TrainingJobId
-     * @param ListTrainingJobLogsRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @summary 获取指定TrainingJob的事件。
+     *  *
+     * @param string                       $TrainingJobId
+     * @param ListTrainingJobEventsRequest $request       ListTrainingJobEventsRequest
+     * @param string[]                     $headers       map
+     * @param RuntimeOptions               $runtime       runtime options for this request RuntimeOptions
      *
-     * @return ListTrainingJobLogsResponse
+     * @return ListTrainingJobEventsResponse ListTrainingJobEventsResponse
+     */
+    public function listTrainingJobEventsWithOptions($TrainingJobId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTrainingJobEvents',
+            'version'     => '2022-01-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/trainingjobs/' . OpenApiUtilClient::getEncodeParam($TrainingJobId) . '/events',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListTrainingJobEventsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取指定TrainingJob的事件。
+     *  *
+     * @param string                       $TrainingJobId
+     * @param ListTrainingJobEventsRequest $request       ListTrainingJobEventsRequest
+     *
+     * @return ListTrainingJobEventsResponse ListTrainingJobEventsResponse
+     */
+    public function listTrainingJobEvents($TrainingJobId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listTrainingJobEventsWithOptions($TrainingJobId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 获取指定Instance（TrainingJob的运行单元）的日志。
+     *  *
+     * @param string                               $TrainingJobId
+     * @param string                               $InstanceId
+     * @param ListTrainingJobInstanceEventsRequest $request       ListTrainingJobInstanceEventsRequest
+     * @param string[]                             $headers       map
+     * @param RuntimeOptions                       $runtime       runtime options for this request RuntimeOptions
+     *
+     * @return ListTrainingJobInstanceEventsResponse ListTrainingJobInstanceEventsResponse
+     */
+    public function listTrainingJobInstanceEventsWithOptions($TrainingJobId, $InstanceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTrainingJobInstanceEvents',
+            'version'     => '2022-01-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/trainingjobs/' . OpenApiUtilClient::getEncodeParam($TrainingJobId) . '/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/events',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListTrainingJobInstanceEventsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取指定Instance（TrainingJob的运行单元）的日志。
+     *  *
+     * @param string                               $TrainingJobId
+     * @param string                               $InstanceId
+     * @param ListTrainingJobInstanceEventsRequest $request       ListTrainingJobInstanceEventsRequest
+     *
+     * @return ListTrainingJobInstanceEventsResponse ListTrainingJobInstanceEventsResponse
+     */
+    public function listTrainingJobInstanceEvents($TrainingJobId, $InstanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listTrainingJobInstanceEventsWithOptions($TrainingJobId, $InstanceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 获取Training Job实例的Metrics
+     *  *
+     * @param string                                $TrainingJobId
+     * @param ListTrainingJobInstanceMetricsRequest $request       ListTrainingJobInstanceMetricsRequest
+     * @param string[]                              $headers       map
+     * @param RuntimeOptions                        $runtime       runtime options for this request RuntimeOptions
+     *
+     * @return ListTrainingJobInstanceMetricsResponse ListTrainingJobInstanceMetricsResponse
+     */
+    public function listTrainingJobInstanceMetricsWithOptions($TrainingJobId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->metricType)) {
+            $query['MetricType'] = $request->metricType;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->timeStep)) {
+            $query['TimeStep'] = $request->timeStep;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTrainingJobInstanceMetrics',
+            'version'     => '2022-01-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/trainingjobs/' . OpenApiUtilClient::getEncodeParam($TrainingJobId) . '/instancemetrics',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListTrainingJobInstanceMetricsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取Training Job实例的Metrics
+     *  *
+     * @param string                                $TrainingJobId
+     * @param ListTrainingJobInstanceMetricsRequest $request       ListTrainingJobInstanceMetricsRequest
+     *
+     * @return ListTrainingJobInstanceMetricsResponse ListTrainingJobInstanceMetricsResponse
+     */
+    public function listTrainingJobInstanceMetrics($TrainingJobId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listTrainingJobInstanceMetricsWithOptions($TrainingJobId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 获取Training Job的日志
+     *  *
+     * @param string                     $TrainingJobId
+     * @param ListTrainingJobLogsRequest $request       ListTrainingJobLogsRequest
+     * @param string[]                   $headers       map
+     * @param RuntimeOptions             $runtime       runtime options for this request RuntimeOptions
+     *
+     * @return ListTrainingJobLogsResponse ListTrainingJobLogsResponse
      */
     public function listTrainingJobLogsWithOptions($TrainingJobId, $request, $headers, $runtime)
     {
@@ -1556,10 +2443,12 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
+     * @summary 获取Training Job的日志
+     *  *
      * @param string                     $TrainingJobId
-     * @param ListTrainingJobLogsRequest $request
+     * @param ListTrainingJobLogsRequest $request       ListTrainingJobLogsRequest
      *
-     * @return ListTrainingJobLogsResponse
+     * @return ListTrainingJobLogsResponse ListTrainingJobLogsResponse
      */
     public function listTrainingJobLogs($TrainingJobId, $request)
     {
@@ -1570,12 +2459,14 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
+     * @summary 获取Training Job的Metrics
+     *  *
      * @param string                        $TrainingJobId
-     * @param ListTrainingJobMetricsRequest $request
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
+     * @param ListTrainingJobMetricsRequest $request       ListTrainingJobMetricsRequest
+     * @param string[]                      $headers       map
+     * @param RuntimeOptions                $runtime       runtime options for this request RuntimeOptions
      *
-     * @return ListTrainingJobMetricsResponse
+     * @return ListTrainingJobMetricsResponse ListTrainingJobMetricsResponse
      */
     public function listTrainingJobMetricsWithOptions($TrainingJobId, $request, $headers, $runtime)
     {
@@ -1619,10 +2510,12 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
+     * @summary 获取Training Job的Metrics
+     *  *
      * @param string                        $TrainingJobId
-     * @param ListTrainingJobMetricsRequest $request
+     * @param ListTrainingJobMetricsRequest $request       ListTrainingJobMetricsRequest
      *
-     * @return ListTrainingJobMetricsResponse
+     * @return ListTrainingJobMetricsResponse ListTrainingJobMetricsResponse
      */
     public function listTrainingJobMetrics($TrainingJobId, $request)
     {
@@ -1633,11 +2526,57 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @param ListTrainingJobsRequest $tmpReq
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @summary 获取Training Job 产出的所有模型信息
+     *  *
+     * @param string         $TrainingJobId
+     * @param string[]       $headers       map
+     * @param RuntimeOptions $runtime       runtime options for this request RuntimeOptions
      *
-     * @return ListTrainingJobsResponse
+     * @return ListTrainingJobOutputModelsResponse ListTrainingJobOutputModelsResponse
+     */
+    public function listTrainingJobOutputModelsWithOptions($TrainingJobId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'ListTrainingJobOutputModels',
+            'version'     => '2022-01-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/trainingjobs/' . OpenApiUtilClient::getEncodeParam($TrainingJobId) . '/outputmodels',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListTrainingJobOutputModelsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取Training Job 产出的所有模型信息
+     *  *
+     * @param string $TrainingJobId
+     *
+     * @return ListTrainingJobOutputModelsResponse ListTrainingJobOutputModelsResponse
+     */
+    public function listTrainingJobOutputModels($TrainingJobId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listTrainingJobOutputModelsWithOptions($TrainingJobId, $headers, $runtime);
+    }
+
+    /**
+     * @summary 获取TrainingJob的列表
+     *  *
+     * @param ListTrainingJobsRequest $tmpReq  ListTrainingJobsRequest
+     * @param string[]                $headers map
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListTrainingJobsResponse ListTrainingJobsResponse
      */
     public function listTrainingJobsWithOptions($tmpReq, $headers, $runtime)
     {
@@ -1710,9 +2649,11 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @param ListTrainingJobsRequest $request
+     * @summary 获取TrainingJob的列表
+     *  *
+     * @param ListTrainingJobsRequest $request ListTrainingJobsRequest
      *
-     * @return ListTrainingJobsResponse
+     * @return ListTrainingJobsResponse ListTrainingJobsResponse
      */
     public function listTrainingJobs($request)
     {
@@ -1723,12 +2664,14 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
+     * @summary 扩缩容Quota
+     *  *
      * @param string            $QuotaId
-     * @param ScaleQuotaRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
+     * @param ScaleQuotaRequest $request ScaleQuotaRequest
+     * @param string[]          $headers map
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ScaleQuotaResponse
+     * @return ScaleQuotaResponse ScaleQuotaResponse
      */
     public function scaleQuotaWithOptions($QuotaId, $request, $headers, $runtime)
     {
@@ -1760,10 +2703,12 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
+     * @summary 扩缩容Quota
+     *  *
      * @param string            $QuotaId
-     * @param ScaleQuotaRequest $request
+     * @param ScaleQuotaRequest $request ScaleQuotaRequest
      *
-     * @return ScaleQuotaResponse
+     * @return ScaleQuotaResponse ScaleQuotaResponse
      */
     public function scaleQuota($QuotaId, $request)
     {
@@ -1774,11 +2719,13 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
+     * @summary 停止一个TrainingJob
+     *  *
      * @param string         $TrainingJobId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers       map
+     * @param RuntimeOptions $runtime       runtime options for this request RuntimeOptions
      *
-     * @return StopTrainingJobResponse
+     * @return StopTrainingJobResponse StopTrainingJobResponse
      */
     public function stopTrainingJobWithOptions($TrainingJobId, $headers, $runtime)
     {
@@ -1801,9 +2748,11 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
+     * @summary 停止一个TrainingJob
+     *  *
      * @param string $TrainingJobId
      *
-     * @return StopTrainingJobResponse
+     * @return StopTrainingJobResponse StopTrainingJobResponse
      */
     public function stopTrainingJob($TrainingJobId)
     {
@@ -1814,12 +2763,14 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
+     * @summary 更新算法
+     *  *
      * @param string                 $AlgorithmId
-     * @param UpdateAlgorithmRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @param UpdateAlgorithmRequest $request     UpdateAlgorithmRequest
+     * @param string[]               $headers     map
+     * @param RuntimeOptions         $runtime     runtime options for this request RuntimeOptions
      *
-     * @return UpdateAlgorithmResponse
+     * @return UpdateAlgorithmResponse UpdateAlgorithmResponse
      */
     public function updateAlgorithmWithOptions($AlgorithmId, $request, $headers, $runtime)
     {
@@ -1851,10 +2802,12 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
+     * @summary 更新算法
+     *  *
      * @param string                 $AlgorithmId
-     * @param UpdateAlgorithmRequest $request
+     * @param UpdateAlgorithmRequest $request     UpdateAlgorithmRequest
      *
-     * @return UpdateAlgorithmResponse
+     * @return UpdateAlgorithmResponse UpdateAlgorithmResponse
      */
     public function updateAlgorithm($AlgorithmId, $request)
     {
@@ -1865,13 +2818,15 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
+     * @summary 更新算法
+     *  *
      * @param string                        $AlgorithmId
      * @param string                        $AlgorithmVersion
-     * @param UpdateAlgorithmVersionRequest $tmpReq
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
+     * @param UpdateAlgorithmVersionRequest $tmpReq           UpdateAlgorithmVersionRequest
+     * @param string[]                      $headers          map
+     * @param RuntimeOptions                $runtime          runtime options for this request RuntimeOptions
      *
-     * @return UpdateAlgorithmVersionResponse
+     * @return UpdateAlgorithmVersionResponse UpdateAlgorithmVersionResponse
      */
     public function updateAlgorithmVersionWithOptions($AlgorithmId, $AlgorithmVersion, $tmpReq, $headers, $runtime)
     {
@@ -1905,11 +2860,13 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
+     * @summary 更新算法
+     *  *
      * @param string                        $AlgorithmId
      * @param string                        $AlgorithmVersion
-     * @param UpdateAlgorithmVersionRequest $request
+     * @param UpdateAlgorithmVersionRequest $request          UpdateAlgorithmVersionRequest
      *
-     * @return UpdateAlgorithmVersionResponse
+     * @return UpdateAlgorithmVersionResponse UpdateAlgorithmVersionResponse
      */
     public function updateAlgorithmVersion($AlgorithmId, $AlgorithmVersion, $request)
     {
@@ -1920,12 +2877,14 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
+     * @summary 更新Quota
+     *  *
      * @param string             $QuotaId
-     * @param UpdateQuotaRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @param UpdateQuotaRequest $request UpdateQuotaRequest
+     * @param string[]           $headers map
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateQuotaResponse
+     * @return UpdateQuotaResponse UpdateQuotaResponse
      */
     public function updateQuotaWithOptions($QuotaId, $request, $headers, $runtime)
     {
@@ -1939,6 +2898,12 @@ class PaiStudio extends OpenApiClient
         }
         if (!Utils::isUnset($request->queueStrategy)) {
             $body['QueueStrategy'] = $request->queueStrategy;
+        }
+        if (!Utils::isUnset($request->quotaConfig)) {
+            $body['QuotaConfig'] = $request->quotaConfig;
+        }
+        if (!Utils::isUnset($request->quotaName)) {
+            $body['QuotaName'] = $request->quotaName;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -1960,10 +2925,12 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
+     * @summary 更新Quota
+     *  *
      * @param string             $QuotaId
-     * @param UpdateQuotaRequest $request
+     * @param UpdateQuotaRequest $request UpdateQuotaRequest
      *
-     * @return UpdateQuotaResponse
+     * @return UpdateQuotaResponse UpdateQuotaResponse
      */
     public function updateQuota($QuotaId, $request)
     {
@@ -1974,12 +2941,14 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
+     * @summary 更新Resource Group
+     *  *
      * @param string                     $ResourceGroupID
-     * @param UpdateResourceGroupRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @param UpdateResourceGroupRequest $request         UpdateResourceGroupRequest
+     * @param string[]                   $headers         map
+     * @param RuntimeOptions             $runtime         runtime options for this request RuntimeOptions
      *
-     * @return UpdateResourceGroupResponse
+     * @return UpdateResourceGroupResponse UpdateResourceGroupResponse
      */
     public function updateResourceGroupWithOptions($ResourceGroupID, $request, $headers, $runtime)
     {
@@ -2017,10 +2986,12 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
+     * @summary 更新Resource Group
+     *  *
      * @param string                     $ResourceGroupID
-     * @param UpdateResourceGroupRequest $request
+     * @param UpdateResourceGroupRequest $request         UpdateResourceGroupRequest
      *
-     * @return UpdateResourceGroupResponse
+     * @return UpdateResourceGroupResponse UpdateResourceGroupResponse
      */
     public function updateResourceGroup($ResourceGroupID, $request)
     {
@@ -2031,12 +3002,14 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
+     * @summary 更新一个TrainingJob的Labels
+     *  *
      * @param string                         $TrainingJobId
-     * @param UpdateTrainingJobLabelsRequest $request
-     * @param string[]                       $headers
-     * @param RuntimeOptions                 $runtime
+     * @param UpdateTrainingJobLabelsRequest $request       UpdateTrainingJobLabelsRequest
+     * @param string[]                       $headers       map
+     * @param RuntimeOptions                 $runtime       runtime options for this request RuntimeOptions
      *
-     * @return UpdateTrainingJobLabelsResponse
+     * @return UpdateTrainingJobLabelsResponse UpdateTrainingJobLabelsResponse
      */
     public function updateTrainingJobLabelsWithOptions($TrainingJobId, $request, $headers, $runtime)
     {
@@ -2065,10 +3038,12 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
+     * @summary 更新一个TrainingJob的Labels
+     *  *
      * @param string                         $TrainingJobId
-     * @param UpdateTrainingJobLabelsRequest $request
+     * @param UpdateTrainingJobLabelsRequest $request       UpdateTrainingJobLabelsRequest
      *
-     * @return UpdateTrainingJobLabelsResponse
+     * @return UpdateTrainingJobLabelsResponse UpdateTrainingJobLabelsResponse
      */
     public function updateTrainingJobLabels($TrainingJobId, $request)
     {

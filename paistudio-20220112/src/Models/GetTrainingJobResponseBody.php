@@ -23,16 +23,22 @@ use AlibabaCloud\Tea\Model;
 class GetTrainingJobResponseBody extends Model
 {
     /**
+     * @example algo-xsldfvu1334
+     *
      * @var string
      */
     public $algorithmId;
 
     /**
+     * @example llm_training
+     *
      * @var string
      */
     public $algorithmName;
 
     /**
+     * @example pai
+     *
      * @var string
      */
     public $algorithmProvider;
@@ -43,6 +49,8 @@ class GetTrainingJobResponseBody extends Model
     public $algorithmSpec;
 
     /**
+     * @example v0.0.1
+     *
      * @var string
      */
     public $algorithmVersion;
@@ -53,9 +61,16 @@ class GetTrainingJobResponseBody extends Model
     public $computeResource;
 
     /**
+     * @example 7200
+     *
      * @var int
      */
     public $duration;
+
+    /**
+     * @var string[]
+     */
+    public $environments;
 
     /**
      * @var experimentConfig
@@ -63,11 +78,15 @@ class GetTrainingJobResponseBody extends Model
     public $experimentConfig;
 
     /**
+     * @example 2024-07-10T11:49:47Z
+     *
      * @var string
      */
     public $gmtCreateTime;
 
     /**
+     * @example 2024-07-10T11:49:47Z
+     *
      * @var string
      */
     public $gmtModifiedTime;
@@ -88,6 +107,8 @@ class GetTrainingJobResponseBody extends Model
     public $instances;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isTempAlgo;
@@ -118,21 +139,34 @@ class GetTrainingJobResponseBody extends Model
     public $outputModel;
 
     /**
+     * @var string[]
+     */
+    public $pythonRequirements;
+
+    /**
+     * @example TrainingJobSucceed
+     *
      * @var string
      */
     public $reasonCode;
 
     /**
+     * @example None
+     *
      * @var string
      */
     public $reasonMessage;
 
     /**
+     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example acs:ram::{accountID}:role/{roleName}
+     *
      * @var string
      */
     public $roleArn;
@@ -148,6 +182,8 @@ class GetTrainingJobResponseBody extends Model
     public $settings;
 
     /**
+     * @example Running
+     *
      * @var string
      */
     public $status;
@@ -163,21 +199,29 @@ class GetTrainingJobResponseBody extends Model
     public $trainingJobDescription;
 
     /**
+     * @example traini6hhxiq69eo
+     *
      * @var string
      */
     public $trainingJobId;
 
     /**
+     * @example qwen_llm
+     *
      * @var string
      */
     public $trainingJobName;
 
     /**
+     * @example https://pai.console.aliyun.com/?regionId=cn-hangzhou&workspaceId=1234#/training/jobs/train1ouyadsl8n4
+     *
      * @var string
      */
     public $trainingJobUrl;
 
     /**
+     * @example 123456789
+     *
      * @var string
      */
     public $userId;
@@ -188,6 +232,8 @@ class GetTrainingJobResponseBody extends Model
     public $userVpc;
 
     /**
+     * @example 86995
+     *
      * @var string
      */
     public $workspaceId;
@@ -199,6 +245,7 @@ class GetTrainingJobResponseBody extends Model
         'algorithmVersion'       => 'AlgorithmVersion',
         'computeResource'        => 'ComputeResource',
         'duration'               => 'Duration',
+        'environments'           => 'Environments',
         'experimentConfig'       => 'ExperimentConfig',
         'gmtCreateTime'          => 'GmtCreateTime',
         'gmtModifiedTime'        => 'GmtModifiedTime',
@@ -211,6 +258,7 @@ class GetTrainingJobResponseBody extends Model
         'latestProgress'         => 'LatestProgress',
         'outputChannels'         => 'OutputChannels',
         'outputModel'            => 'OutputModel',
+        'pythonRequirements'     => 'PythonRequirements',
         'reasonCode'             => 'ReasonCode',
         'reasonMessage'          => 'ReasonMessage',
         'requestId'              => 'RequestId',
@@ -255,6 +303,9 @@ class GetTrainingJobResponseBody extends Model
         }
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
+        }
+        if (null !== $this->environments) {
+            $res['Environments'] = $this->environments;
         }
         if (null !== $this->experimentConfig) {
             $res['ExperimentConfig'] = null !== $this->experimentConfig ? $this->experimentConfig->toMap() : null;
@@ -327,6 +378,9 @@ class GetTrainingJobResponseBody extends Model
         }
         if (null !== $this->outputModel) {
             $res['OutputModel'] = null !== $this->outputModel ? $this->outputModel->toMap() : null;
+        }
+        if (null !== $this->pythonRequirements) {
+            $res['PythonRequirements'] = $this->pythonRequirements;
         }
         if (null !== $this->reasonCode) {
             $res['ReasonCode'] = $this->reasonCode;
@@ -412,6 +466,9 @@ class GetTrainingJobResponseBody extends Model
         if (isset($map['Duration'])) {
             $model->duration = $map['Duration'];
         }
+        if (isset($map['Environments'])) {
+            $model->environments = $map['Environments'];
+        }
         if (isset($map['ExperimentConfig'])) {
             $model->experimentConfig = experimentConfig::fromMap($map['ExperimentConfig']);
         }
@@ -483,6 +540,11 @@ class GetTrainingJobResponseBody extends Model
         }
         if (isset($map['OutputModel'])) {
             $model->outputModel = outputModel::fromMap($map['OutputModel']);
+        }
+        if (isset($map['PythonRequirements'])) {
+            if (!empty($map['PythonRequirements'])) {
+                $model->pythonRequirements = $map['PythonRequirements'];
+            }
         }
         if (isset($map['ReasonCode'])) {
             $model->reasonCode = $map['ReasonCode'];

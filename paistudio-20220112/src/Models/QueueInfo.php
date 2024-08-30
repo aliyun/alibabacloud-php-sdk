@@ -23,6 +23,11 @@ class QueueInfo extends Model
     public $codeType;
 
     /**
+     * @var string
+     */
+    public $gmtCreatedTime;
+
+    /**
      * @example "2023-06-22T00:00:00Z"
      *
      * @var string
@@ -110,11 +115,21 @@ class QueueInfo extends Model
     public $userId;
 
     /**
+     * @var string
+     */
+    public $userName;
+
+    /**
      * @example dlcxxxx
      *
      * @var string
      */
     public $workloadId;
+
+    /**
+     * @var string
+     */
+    public $workloadName;
 
     /**
      * @example dlc
@@ -132,6 +147,7 @@ class QueueInfo extends Model
     protected $_name = [
         'code'                    => 'Code',
         'codeType'                => 'CodeType',
+        'gmtCreatedTime'          => 'GmtCreatedTime',
         'gmtDequeuedTime'         => 'GmtDequeuedTime',
         'gmtEnqueuedTime'         => 'GmtEnqueuedTime',
         'gmtPositionModifiedTime' => 'GmtPositionModifiedTime',
@@ -145,7 +161,9 @@ class QueueInfo extends Model
         'status'                  => 'Status',
         'subStatus'               => 'SubStatus',
         'userId'                  => 'UserId',
+        'userName'                => 'UserName',
         'workloadId'              => 'WorkloadId',
+        'workloadName'            => 'WorkloadName',
         'workloadType'            => 'WorkloadType',
         'workspaceId'             => 'WorkspaceId',
     ];
@@ -162,6 +180,9 @@ class QueueInfo extends Model
         }
         if (null !== $this->codeType) {
             $res['CodeType'] = $this->codeType;
+        }
+        if (null !== $this->gmtCreatedTime) {
+            $res['GmtCreatedTime'] = $this->gmtCreatedTime;
         }
         if (null !== $this->gmtDequeuedTime) {
             $res['GmtDequeuedTime'] = $this->gmtDequeuedTime;
@@ -202,8 +223,14 @@ class QueueInfo extends Model
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
+        if (null !== $this->userName) {
+            $res['UserName'] = $this->userName;
+        }
         if (null !== $this->workloadId) {
             $res['WorkloadId'] = $this->workloadId;
+        }
+        if (null !== $this->workloadName) {
+            $res['WorkloadName'] = $this->workloadName;
         }
         if (null !== $this->workloadType) {
             $res['WorkloadType'] = $this->workloadType;
@@ -228,6 +255,9 @@ class QueueInfo extends Model
         }
         if (isset($map['CodeType'])) {
             $model->codeType = $map['CodeType'];
+        }
+        if (isset($map['GmtCreatedTime'])) {
+            $model->gmtCreatedTime = $map['GmtCreatedTime'];
         }
         if (isset($map['GmtDequeuedTime'])) {
             $model->gmtDequeuedTime = $map['GmtDequeuedTime'];
@@ -268,8 +298,14 @@ class QueueInfo extends Model
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }
+        if (isset($map['UserName'])) {
+            $model->userName = $map['UserName'];
+        }
         if (isset($map['WorkloadId'])) {
             $model->workloadId = $map['WorkloadId'];
+        }
+        if (isset($map['WorkloadName'])) {
+            $model->workloadName = $map['WorkloadName'];
         }
         if (isset($map['WorkloadType'])) {
             $model->workloadType = $map['WorkloadType'];

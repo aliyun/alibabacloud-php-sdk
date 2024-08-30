@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetResourceGroupShrinkRequest extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isAIWorkspaceDataEnabled;
