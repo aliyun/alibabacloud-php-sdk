@@ -62,6 +62,7 @@ use AlibabaCloud\SDK\BPStudio\V20210931\Models\ValuateTemplateShrinkRequest;
 use AlibabaCloud\Tea\Tea;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
+use Darabonba\GatewayPop\Client;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -71,6 +72,9 @@ class BPStudio extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
+        $this->_productId    = 'BPStudio';
+        $gatewayClient       = new Client();
+        $this->_spi          = $gatewayClient;
         $this->_endpointRule = '';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('bpstudio', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -130,8 +134,11 @@ class BPStudio extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return AppFailBackResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AppFailBackResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AppFailBackResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -184,8 +191,11 @@ class BPStudio extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return AppFailOverResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AppFailOverResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AppFailOverResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -239,8 +249,11 @@ class BPStudio extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ChangeResourceGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -318,8 +331,11 @@ class BPStudio extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateApplicationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -370,8 +386,11 @@ class BPStudio extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteApplicationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -427,8 +446,11 @@ class BPStudio extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeployApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeployApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeployApplicationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -494,8 +516,11 @@ class BPStudio extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ExecuteOperationASyncResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ExecuteOperationASyncResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ExecuteOperationASyncResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -561,8 +586,11 @@ class BPStudio extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ExecuteOperationSyncResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ExecuteOperationSyncResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ExecuteOperationSyncResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -611,8 +639,11 @@ class BPStudio extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetApplicationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -658,8 +689,11 @@ class BPStudio extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetApplicationVariables4FailResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetApplicationVariables4FailResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetApplicationVariables4FailResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -708,8 +742,11 @@ class BPStudio extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetExecuteOperationResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetExecuteOperationResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetExecuteOperationResultResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -757,8 +794,11 @@ class BPStudio extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetFoTaskStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetFoTaskStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetFoTaskStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -811,8 +851,11 @@ class BPStudio extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetPotentialFailZonesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetPotentialFailZonesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetPotentialFailZonesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -866,8 +909,11 @@ class BPStudio extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetTemplateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -919,8 +965,11 @@ class BPStudio extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetTokenResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -974,8 +1023,11 @@ class BPStudio extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return InitAppFailOverResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return InitAppFailOverResponse::fromMap($this->callApi($params, $req, $runtime));
+        return InitAppFailOverResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1044,8 +1096,11 @@ class BPStudio extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListApplicationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1085,8 +1140,11 @@ class BPStudio extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListFoCreatedAppsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListFoCreatedAppsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListFoCreatedAppsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1149,8 +1207,11 @@ class BPStudio extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListTagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1214,8 +1275,11 @@ class BPStudio extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListTemplateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1264,8 +1328,11 @@ class BPStudio extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ReConfigApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ReConfigApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ReConfigApplicationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1317,8 +1384,11 @@ class BPStudio extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ReleaseApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ReleaseApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ReleaseApplicationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1372,8 +1442,11 @@ class BPStudio extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ValidateApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ValidateApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ValidateApplicationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1425,8 +1498,11 @@ class BPStudio extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ValuateApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ValuateApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ValuateApplicationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1495,8 +1571,11 @@ class BPStudio extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ValuateTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ValuateTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ValuateTemplateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**

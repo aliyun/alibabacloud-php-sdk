@@ -37,6 +37,11 @@ class data extends Model
     public $createTime;
 
     /**
+     * @var float
+     */
+    public $deployPercent;
+
+    /**
      * @description Application description
      *
      * @example remark
@@ -116,6 +121,7 @@ class data extends Model
         'applicationId'   => 'ApplicationId',
         'checklist'       => 'Checklist',
         'createTime'      => 'CreateTime',
+        'deployPercent'   => 'DeployPercent',
         'description'     => 'Description',
         'error'           => 'Error',
         'imageURL'        => 'ImageURL',
@@ -148,6 +154,9 @@ class data extends Model
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->deployPercent) {
+            $res['DeployPercent'] = $this->deployPercent;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
@@ -214,6 +223,9 @@ class data extends Model
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['DeployPercent'])) {
+            $model->deployPercent = $map['DeployPercent'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
