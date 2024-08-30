@@ -30,6 +30,11 @@ class ProductSaleInfo extends Model
     public $fuzzyQuantity;
 
     /**
+     * @var LimitRule[]
+     */
+    public $limitRules;
+
+    /**
      * @example 21000017-4580902812
      *
      * @var string
@@ -86,6 +91,7 @@ class ProductSaleInfo extends Model
         'canSell'       => 'canSell',
         'divisionCode'  => 'divisionCode',
         'fuzzyQuantity' => 'fuzzyQuantity',
+        'limitRules'    => 'limitRules',
         'lmItemId'      => 'lmItemId',
         'productId'     => 'productId',
         'productStatus' => 'productStatus',
@@ -111,6 +117,15 @@ class ProductSaleInfo extends Model
         }
         if (null !== $this->fuzzyQuantity) {
             $res['fuzzyQuantity'] = $this->fuzzyQuantity;
+        }
+        if (null !== $this->limitRules) {
+            $res['limitRules'] = [];
+            if (null !== $this->limitRules && \is_array($this->limitRules)) {
+                $n = 0;
+                foreach ($this->limitRules as $item) {
+                    $res['limitRules'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->lmItemId) {
             $res['lmItemId'] = $this->lmItemId;
@@ -162,6 +177,15 @@ class ProductSaleInfo extends Model
         }
         if (isset($map['fuzzyQuantity'])) {
             $model->fuzzyQuantity = $map['fuzzyQuantity'];
+        }
+        if (isset($map['limitRules'])) {
+            if (!empty($map['limitRules'])) {
+                $model->limitRules = [];
+                $n                 = 0;
+                foreach ($map['limitRules'] as $item) {
+                    $model->limitRules[$n++] = null !== $item ? LimitRule::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['lmItemId'])) {
             $model->lmItemId = $map['lmItemId'];
