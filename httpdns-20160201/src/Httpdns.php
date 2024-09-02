@@ -349,6 +349,9 @@ class Httpdns extends OpenApiClient
         if (!Utils::isUnset($request->search)) {
             $query['Search'] = $request->search;
         }
+        if (!Utils::isUnset($request->withoutMeteringData)) {
+            $query['WithoutMeteringData'] = $request->withoutMeteringData;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);

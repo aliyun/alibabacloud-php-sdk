@@ -26,10 +26,16 @@ class ListDomainsRequest extends Model
      * @var string
      */
     public $search;
+
+    /**
+     * @var bool
+     */
+    public $withoutMeteringData;
     protected $_name = [
-        'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'search'     => 'Search',
+        'pageNumber'          => 'PageNumber',
+        'pageSize'            => 'PageSize',
+        'search'              => 'Search',
+        'withoutMeteringData' => 'WithoutMeteringData',
     ];
 
     public function validate()
@@ -47,6 +53,9 @@ class ListDomainsRequest extends Model
         }
         if (null !== $this->search) {
             $res['Search'] = $this->search;
+        }
+        if (null !== $this->withoutMeteringData) {
+            $res['WithoutMeteringData'] = $this->withoutMeteringData;
         }
 
         return $res;
@@ -68,6 +77,9 @@ class ListDomainsRequest extends Model
         }
         if (isset($map['Search'])) {
             $model->search = $map['Search'];
+        }
+        if (isset($map['WithoutMeteringData'])) {
+            $model->withoutMeteringData = $map['WithoutMeteringData'];
         }
 
         return $model;
