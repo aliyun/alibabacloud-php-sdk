@@ -21,7 +21,7 @@ class GetIndexResponseBody extends Model
     /**
      * @description The configurations of field indexes. A field index is in the key-value format in which the key specifies the name of the field and the value specifies the index configuration of the field.
      *
-     * @var KeysValue[]
+     * @var IndexKey[]
      */
     public $keys;
 
@@ -85,6 +85,7 @@ class GetIndexResponseBody extends Model
     /**
      * @description The lifecycle of the index file. Valid values: 7, 30, and 90. Unit: day.
      *
+     * This parameter is required.
      * @example 30
      *
      * @var int

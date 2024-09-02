@@ -49,6 +49,7 @@ class line extends Model
     /**
      * @description The delimiters.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $token;

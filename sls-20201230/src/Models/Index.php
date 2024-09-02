@@ -10,16 +10,9 @@ use AlibabaCloud\Tea\Model;
 class Index extends Model
 {
     /**
-     * @var IndexKeysValue[]
+     * @var IndexKey[]
      */
     public $keys;
-
-    /**
-     * @example 1622186280
-     *
-     * @var int
-     */
-    public $lastModifyTime;
 
     /**
      * @var line
@@ -49,24 +42,13 @@ class Index extends Model
      * @var int
      */
     public $maxTextLen;
-
-    /**
-     * @description This parameter is required.
-     *
-     * @example 30
-     *
-     * @var int
-     */
-    public $ttl;
     protected $_name = [
         'keys'               => 'keys',
-        'lastModifyTime'     => 'lastModifyTime',
         'line'               => 'line',
         'logReduce'          => 'log_reduce',
         'logReduceBlackList' => 'log_reduce_black_list',
         'logReduceWhiteList' => 'log_reduce_white_list',
         'maxTextLen'         => 'max_text_len',
-        'ttl'                => 'ttl',
     ];
 
     public function validate()
@@ -84,9 +66,6 @@ class Index extends Model
                 }
             }
         }
-        if (null !== $this->lastModifyTime) {
-            $res['lastModifyTime'] = $this->lastModifyTime;
-        }
         if (null !== $this->line) {
             $res['line'] = null !== $this->line ? $this->line->toMap() : null;
         }
@@ -102,9 +81,6 @@ class Index extends Model
         if (null !== $this->maxTextLen) {
             $res['max_text_len'] = $this->maxTextLen;
         }
-        if (null !== $this->ttl) {
-            $res['ttl'] = $this->ttl;
-        }
 
         return $res;
     }
@@ -119,9 +95,6 @@ class Index extends Model
         $model = new self();
         if (isset($map['keys'])) {
             $model->keys = $map['keys'];
-        }
-        if (isset($map['lastModifyTime'])) {
-            $model->lastModifyTime = $map['lastModifyTime'];
         }
         if (isset($map['line'])) {
             $model->line = line::fromMap($map['line']);
@@ -141,9 +114,6 @@ class Index extends Model
         }
         if (isset($map['max_text_len'])) {
             $model->maxTextLen = $map['max_text_len'];
-        }
-        if (isset($map['ttl'])) {
-            $model->ttl = $map['ttl'];
         }
 
         return $model;

@@ -6,8 +6,22 @@ namespace AlibabaCloud\SDK\Sls\V20201230\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class IndexKeysValue extends Model
+class IndexJsonKey extends Model
 {
+    /**
+     * @example myAlias
+     *
+     * @var string
+     */
+    public $alias;
+
+    /**
+     * @example true
+     *
+     * @var bool
+     */
+    public $caseSensitive;
+
     /**
      * @example true
      *
@@ -20,19 +34,12 @@ class IndexKeysValue extends Model
      *
      * @var bool
      */
-    public $caseSensitive;
+    public $docValue;
 
     /**
      * @var string[]
      */
     public $token;
-
-    /**
-     * @example myAlias
-     *
-     * @var string
-     */
-    public $alias;
 
     /**
      * @description This parameter is required.
@@ -42,20 +49,13 @@ class IndexKeysValue extends Model
      * @var string
      */
     public $type;
-
-    /**
-     * @example true
-     *
-     * @var bool
-     */
-    public $docValue;
     protected $_name = [
-        'chn'           => 'chn',
-        'caseSensitive' => 'caseSensitive',
-        'token'         => 'token',
         'alias'         => 'alias',
-        'type'          => 'type',
+        'caseSensitive' => 'caseSensitive',
+        'chn'           => 'chn',
         'docValue'      => 'doc_value',
+        'token'         => 'token',
+        'type'          => 'type',
     ];
 
     public function validate()
@@ -65,23 +65,23 @@ class IndexKeysValue extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->chn) {
-            $res['chn'] = $this->chn;
+        if (null !== $this->alias) {
+            $res['alias'] = $this->alias;
         }
         if (null !== $this->caseSensitive) {
             $res['caseSensitive'] = $this->caseSensitive;
         }
-        if (null !== $this->token) {
-            $res['token'] = $this->token;
-        }
-        if (null !== $this->alias) {
-            $res['alias'] = $this->alias;
-        }
-        if (null !== $this->type) {
-            $res['type'] = $this->type;
+        if (null !== $this->chn) {
+            $res['chn'] = $this->chn;
         }
         if (null !== $this->docValue) {
             $res['doc_value'] = $this->docValue;
+        }
+        if (null !== $this->token) {
+            $res['token'] = $this->token;
+        }
+        if (null !== $this->type) {
+            $res['type'] = $this->type;
         }
 
         return $res;
@@ -90,30 +90,30 @@ class IndexKeysValue extends Model
     /**
      * @param array $map
      *
-     * @return IndexKeysValue
+     * @return IndexJsonKey
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['chn'])) {
-            $model->chn = $map['chn'];
+        if (isset($map['alias'])) {
+            $model->alias = $map['alias'];
         }
         if (isset($map['caseSensitive'])) {
             $model->caseSensitive = $map['caseSensitive'];
+        }
+        if (isset($map['chn'])) {
+            $model->chn = $map['chn'];
+        }
+        if (isset($map['doc_value'])) {
+            $model->docValue = $map['doc_value'];
         }
         if (isset($map['token'])) {
             if (!empty($map['token'])) {
                 $model->token = $map['token'];
             }
         }
-        if (isset($map['alias'])) {
-            $model->alias = $map['alias'];
-        }
         if (isset($map['type'])) {
             $model->type = $map['type'];
-        }
-        if (isset($map['doc_value'])) {
-            $model->docValue = $map['doc_value'];
         }
 
         return $model;

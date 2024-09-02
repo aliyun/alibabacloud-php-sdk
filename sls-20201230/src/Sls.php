@@ -205,8 +205,6 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\PutProjectTransferAccelerationRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\PutProjectTransferAccelerationResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\PutWebtrackingRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\PutWebtrackingResponse;
-use AlibabaCloud\SDK\Sls\V20201230\Models\QueryMLServiceResultsRequest;
-use AlibabaCloud\SDK\Sls\V20201230\Models\QueryMLServiceResultsResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\RefreshTokenRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\RefreshTokenResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\RemoveConfigFromMachineGroupResponse;
@@ -1152,32 +1150,10 @@ class Sls extends OpenApiClient
         Utils::validateModel($request);
         $hostMap            = [];
         $hostMap['project'] = $project;
-        $body               = [];
-        if (!Utils::isUnset($request->keys)) {
-            $body['keys'] = $request->keys;
-        }
-        if (!Utils::isUnset($request->line)) {
-            $body['line'] = $request->line;
-        }
-        if (!Utils::isUnset($request->logReduce)) {
-            $body['log_reduce'] = $request->logReduce;
-        }
-        if (!Utils::isUnset($request->logReduceBlackList)) {
-            $body['log_reduce_black_list'] = $request->logReduceBlackList;
-        }
-        if (!Utils::isUnset($request->logReduceWhiteList)) {
-            $body['log_reduce_white_list'] = $request->logReduceWhiteList;
-        }
-        if (!Utils::isUnset($request->maxTextLen)) {
-            $body['max_text_len'] = $request->maxTextLen;
-        }
-        if (!Utils::isUnset($request->ttl)) {
-            $body['ttl'] = $request->ttl;
-        }
-        $req = new OpenApiRequest([
+        $req                = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => OpenApiUtilClient::parseToMap($request->body),
         ]);
         $params = new Params([
             'action'      => 'CreateIndex',
@@ -8184,67 +8160,6 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI QueryMLServiceResults is deprecated
-     *  *
-     * @summary queryMLServiceResults
-     *  *
-     * Deprecated
-     *
-     * @param string                       $serviceName
-     * @param QueryMLServiceResultsRequest $request     QueryMLServiceResultsRequest
-     * @param string[]                     $headers     map
-     * @param RuntimeOptions               $runtime     runtime options for this request RuntimeOptions
-     *
-     * @return QueryMLServiceResultsResponse QueryMLServiceResultsResponse
-     */
-    public function queryMLServiceResultsWithOptions($serviceName, $request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->allowBuiltin)) {
-            $query['allowBuiltin'] = $request->allowBuiltin;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryMLServiceResults',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/ml/service/' . $serviceName . '/analysis',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return QueryMLServiceResultsResponse::fromMap($this->execute($params, $req, $runtime));
-    }
-
-    /**
-     * @deprecated OpenAPI QueryMLServiceResults is deprecated
-     *  *
-     * @summary queryMLServiceResults
-     *  *
-     * Deprecated
-     *
-     * @param string                       $serviceName
-     * @param QueryMLServiceResultsRequest $request     QueryMLServiceResultsRequest
-     *
-     * @return QueryMLServiceResultsResponse QueryMLServiceResultsResponse
-     */
-    public function queryMLServiceResults($serviceName, $request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->queryMLServiceResultsWithOptions($serviceName, $request, $headers, $runtime);
-    }
-
-    /**
      * @summary 刷新token
      *  *
      * @param RefreshTokenRequest $request RefreshTokenRequest
@@ -9433,32 +9348,10 @@ class Sls extends OpenApiClient
         Utils::validateModel($request);
         $hostMap            = [];
         $hostMap['project'] = $project;
-        $body               = [];
-        if (!Utils::isUnset($request->keys)) {
-            $body['keys'] = $request->keys;
-        }
-        if (!Utils::isUnset($request->line)) {
-            $body['line'] = $request->line;
-        }
-        if (!Utils::isUnset($request->logReduce)) {
-            $body['log_reduce'] = $request->logReduce;
-        }
-        if (!Utils::isUnset($request->logReduceBlackList)) {
-            $body['log_reduce_black_list'] = $request->logReduceBlackList;
-        }
-        if (!Utils::isUnset($request->logReduceWhiteList)) {
-            $body['log_reduce_white_list'] = $request->logReduceWhiteList;
-        }
-        if (!Utils::isUnset($request->maxTextLen)) {
-            $body['max_text_len'] = $request->maxTextLen;
-        }
-        if (!Utils::isUnset($request->ttl)) {
-            $body['ttl'] = $request->ttl;
-        }
-        $req = new OpenApiRequest([
+        $req                = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => OpenApiUtilClient::parseToMap($request->body),
         ]);
         $params = new Params([
             'action'      => 'UpdateIndex',

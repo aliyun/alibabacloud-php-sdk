@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetMetricStoreResponseBody extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $autoSplit;
