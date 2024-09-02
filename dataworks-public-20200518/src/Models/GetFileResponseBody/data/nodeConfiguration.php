@@ -13,6 +13,11 @@ use AlibabaCloud\Tea\Model;
 class nodeConfiguration extends Model
 {
     /**
+     * @var string
+     */
+    public $applyScheduleImmediately;
+
+    /**
      * @description The interval between automatic reruns after an error occurs. Unit: milliseconds.
      *
      * The interval that you specify in the DataWorks console is measured in minutes. Pay attention to the conversion between the units of time when you call the operation.
@@ -195,24 +200,25 @@ class nodeConfiguration extends Model
      */
     public $stop;
     protected $_name = [
-        'autoRerunIntervalMillis' => 'AutoRerunIntervalMillis',
-        'autoRerunTimes'          => 'AutoRerunTimes',
-        'cronExpress'             => 'CronExpress',
-        'cycleType'               => 'CycleType',
-        'dependentNodeIdList'     => 'DependentNodeIdList',
-        'dependentType'           => 'DependentType',
-        'endEffectDate'           => 'EndEffectDate',
-        'inputList'               => 'InputList',
-        'inputParameters'         => 'InputParameters',
-        'outputList'              => 'OutputList',
-        'outputParameters'        => 'OutputParameters',
-        'paraValue'               => 'ParaValue',
-        'rerunMode'               => 'RerunMode',
-        'resourceGroupId'         => 'ResourceGroupId',
-        'schedulerType'           => 'SchedulerType',
-        'startEffectDate'         => 'StartEffectDate',
-        'startImmediately'        => 'StartImmediately',
-        'stop'                    => 'Stop',
+        'applyScheduleImmediately' => 'ApplyScheduleImmediately',
+        'autoRerunIntervalMillis'  => 'AutoRerunIntervalMillis',
+        'autoRerunTimes'           => 'AutoRerunTimes',
+        'cronExpress'              => 'CronExpress',
+        'cycleType'                => 'CycleType',
+        'dependentNodeIdList'      => 'DependentNodeIdList',
+        'dependentType'            => 'DependentType',
+        'endEffectDate'            => 'EndEffectDate',
+        'inputList'                => 'InputList',
+        'inputParameters'          => 'InputParameters',
+        'outputList'               => 'OutputList',
+        'outputParameters'         => 'OutputParameters',
+        'paraValue'                => 'ParaValue',
+        'rerunMode'                => 'RerunMode',
+        'resourceGroupId'          => 'ResourceGroupId',
+        'schedulerType'            => 'SchedulerType',
+        'startEffectDate'          => 'StartEffectDate',
+        'startImmediately'         => 'StartImmediately',
+        'stop'                     => 'Stop',
     ];
 
     public function validate()
@@ -222,6 +228,9 @@ class nodeConfiguration extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->applyScheduleImmediately) {
+            $res['ApplyScheduleImmediately'] = $this->applyScheduleImmediately;
+        }
         if (null !== $this->autoRerunIntervalMillis) {
             $res['AutoRerunIntervalMillis'] = $this->autoRerunIntervalMillis;
         }
@@ -312,6 +321,9 @@ class nodeConfiguration extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ApplyScheduleImmediately'])) {
+            $model->applyScheduleImmediately = $map['ApplyScheduleImmediately'];
+        }
         if (isset($map['AutoRerunIntervalMillis'])) {
             $model->autoRerunIntervalMillis = $map['AutoRerunIntervalMillis'];
         }

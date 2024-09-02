@@ -492,6 +492,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListSuccessInstanceAmountR
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListSuccessInstanceAmountResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListTableLevelRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListTableLevelResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListTablesRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListTablesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListTableThemeRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListTableThemeResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListTopicsRequest;
@@ -2377,6 +2379,9 @@ class Dataworkspublic extends OpenApiClient
         $body = [];
         if (!Utils::isUnset($request->advancedSettings)) {
             $body['AdvancedSettings'] = $request->advancedSettings;
+        }
+        if (!Utils::isUnset($request->applyScheduleImmediately)) {
+            $body['ApplyScheduleImmediately'] = $request->applyScheduleImmediately;
         }
         if (!Utils::isUnset($request->autoParsing)) {
             $body['AutoParsing'] = $request->autoParsing;
@@ -14483,6 +14488,59 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @summary 分页获取租户下面的数据源类型粒度的表名称
+     *  *
+     * @param ListTablesRequest $request ListTablesRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListTablesResponse ListTablesResponse
+     */
+    public function listTablesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dataSourceType)) {
+            $query['DataSourceType'] = $request->dataSourceType;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTables',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListTablesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 分页获取租户下面的数据源类型粒度的表名称
+     *  *
+     * @param ListTablesRequest $request ListTablesRequest
+     *
+     * @return ListTablesResponse ListTablesResponse
+     */
+    public function listTables($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTablesWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries events.
      *  *
      * @param ListTopicsRequest $request ListTopicsRequest
@@ -17764,6 +17822,9 @@ class Dataworkspublic extends OpenApiClient
         $body = [];
         if (!Utils::isUnset($request->advancedSettings)) {
             $body['AdvancedSettings'] = $request->advancedSettings;
+        }
+        if (!Utils::isUnset($request->applyScheduleImmediately)) {
+            $body['ApplyScheduleImmediately'] = $request->applyScheduleImmediately;
         }
         if (!Utils::isUnset($request->autoParsing)) {
             $body['AutoParsing'] = $request->autoParsing;

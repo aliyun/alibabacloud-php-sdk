@@ -19,6 +19,11 @@ class CreateFileRequest extends Model
     public $advancedSettings;
 
     /**
+     * @var bool
+     */
+    public $applyScheduleImmediately;
+
+    /**
      * @description Specifies whether to enable the automatic parsing feature for the file. Valid values:
      *
      *   true
@@ -335,6 +340,7 @@ class CreateFileRequest extends Model
     public $stop;
     protected $_name = [
         'advancedSettings'                => 'AdvancedSettings',
+        'applyScheduleImmediately'        => 'ApplyScheduleImmediately',
         'autoParsing'                     => 'AutoParsing',
         'autoRerunIntervalMillis'         => 'AutoRerunIntervalMillis',
         'autoRerunTimes'                  => 'AutoRerunTimes',
@@ -376,6 +382,9 @@ class CreateFileRequest extends Model
         $res = [];
         if (null !== $this->advancedSettings) {
             $res['AdvancedSettings'] = $this->advancedSettings;
+        }
+        if (null !== $this->applyScheduleImmediately) {
+            $res['ApplyScheduleImmediately'] = $this->applyScheduleImmediately;
         }
         if (null !== $this->autoParsing) {
             $res['AutoParsing'] = $this->autoParsing;
@@ -481,6 +490,9 @@ class CreateFileRequest extends Model
         $model = new self();
         if (isset($map['AdvancedSettings'])) {
             $model->advancedSettings = $map['AdvancedSettings'];
+        }
+        if (isset($map['ApplyScheduleImmediately'])) {
+            $model->applyScheduleImmediately = $map['ApplyScheduleImmediately'];
         }
         if (isset($map['AutoParsing'])) {
             $model->autoParsing = $map['AutoParsing'];
