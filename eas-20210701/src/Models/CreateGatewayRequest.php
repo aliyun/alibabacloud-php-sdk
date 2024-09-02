@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateGatewayRequest extends Model
 {
     /**
-     * @description The name of the resource group.
+     * @description The resource group ID. To obtain a resource group ID, see the ResourceId field in the response of the [ListResources](https://help.aliyun.com/document_detail/412133.html) operation.
      *
      * @example eas-r-4gt8twzwllfo******
      *
@@ -23,12 +23,8 @@ class CreateGatewayRequest extends Model
      * Valid values:
      *
      *   true
-     *
-     * <!-- -->
-     *
      *   false
      *
-     * <!-- -->
      * @example false
      *
      * @var bool
@@ -36,7 +32,12 @@ class CreateGatewayRequest extends Model
     public $enableInternet;
 
     /**
-     * @description Specifies whether to enable internal network access. Default value: true.
+     * @description Specifies whether to enable private access. Default value: true.
+     *
+     * Valid values:
+     *
+     *   true
+     *   false
      *
      * @example true
      *
@@ -45,7 +46,12 @@ class CreateGatewayRequest extends Model
     public $enableIntranet;
 
     /**
-     * @description The instance type used for the private gateway.
+     * @description The instance type used by the private gateway. Valid values:
+     *
+     *   2c4g
+     *   4c8g
+     *   8c16g
+     *   16c32g
      *
      * This parameter is required.
      * @example ecs.c6.4xlarge
@@ -55,7 +61,7 @@ class CreateGatewayRequest extends Model
     public $instanceType;
 
     /**
-     * @description The private gateway alias.
+     * @description The alias of the private gateway.
      *
      * @example mygateway1
      *
@@ -64,6 +70,10 @@ class CreateGatewayRequest extends Model
     public $name;
 
     /**
+     * @description The number of nodes in the private gateway.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $replicas;

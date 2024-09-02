@@ -36,7 +36,7 @@ class DescribeGatewayResponseBody extends Model
     public $gatewayId;
 
     /**
-     * @description The private gateway alias.
+     * @description The alias of the private gateway.
      *
      * @example mygateway1
      *
@@ -45,7 +45,14 @@ class DescribeGatewayResponseBody extends Model
     public $gatewayName;
 
     /**
-     * @description The instance type used for the private gateway.
+     * @description The instance type used by the private gateway.
+     *
+     * Valid values:
+     *
+     *   8c16g
+     *   4c8g
+     *   2c4g
+     *   16c32g
      *
      * @example ecs.c6.4xlarge
      *
@@ -72,6 +79,18 @@ class DescribeGatewayResponseBody extends Model
     public $internetEnabled;
 
     /**
+     * @description Indicates whether Internet access is enabled.
+     *
+     * Valid values:
+     *
+     *   Creating: Internet access is being enabled.
+     *   Failed: Internet access failed to be enabled or deleted.
+     *   Running: Internet access is running.
+     *   Deleted: Internet access is deleted.
+     *   Deleting: Internet access is being deleted.
+     *
+     * @example Running
+     *
      * @var string
      */
     public $internetStatus;
@@ -86,11 +105,19 @@ class DescribeGatewayResponseBody extends Model
     public $intranetDomain;
 
     /**
+     * @description Indicates whether it is the default private gateway.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isDefault;
 
     /**
+     * @description The number of nodes in the private gateway.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $replicas;
@@ -105,7 +132,17 @@ class DescribeGatewayResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The state of the private gateway.
+     * @description The status of the private gateway.
+     *
+     * Valid values:
+     *
+     *   Creating
+     *   Stopped
+     *   Failed
+     *   Running
+     *   Deleted
+     *   Deleting
+     *   Waiting
      *
      * @example PrivateGatewayRunning
      *

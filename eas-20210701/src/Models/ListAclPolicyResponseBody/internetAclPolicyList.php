@@ -4,26 +4,17 @@
 
 namespace AlibabaCloud\SDK\Eas\V20210701\Models\ListAclPolicyResponseBody;
 
+use AlibabaCloud\SDK\Eas\V20210701\Models\ListAclPolicyResponseBody\internetAclPolicyList\aclPolicyList;
 use AlibabaCloud\Tea\Model;
 
 class internetAclPolicyList extends Model
 {
     /**
-     * @example default
-     *
-     * @var string
+     * @var aclPolicyList[]
      */
-    public $comment;
-
-    /**
-     * @example 10.23.XX.XX/32
-     *
-     * @var string
-     */
-    public $entry;
+    public $aclPolicyList;
     protected $_name = [
-        'comment' => 'Comment',
-        'entry'   => 'Entry',
+        'aclPolicyList' => 'AclPolicyList',
     ];
 
     public function validate()
@@ -33,11 +24,14 @@ class internetAclPolicyList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->comment) {
-            $res['Comment'] = $this->comment;
-        }
-        if (null !== $this->entry) {
-            $res['Entry'] = $this->entry;
+        if (null !== $this->aclPolicyList) {
+            $res['AclPolicyList'] = [];
+            if (null !== $this->aclPolicyList && \is_array($this->aclPolicyList)) {
+                $n = 0;
+                foreach ($this->aclPolicyList as $item) {
+                    $res['AclPolicyList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -51,11 +45,14 @@ class internetAclPolicyList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Comment'])) {
-            $model->comment = $map['Comment'];
-        }
-        if (isset($map['Entry'])) {
-            $model->entry = $map['Entry'];
+        if (isset($map['AclPolicyList'])) {
+            if (!empty($map['AclPolicyList'])) {
+                $model->aclPolicyList = [];
+                $n                    = 0;
+                foreach ($map['AclPolicyList'] as $item) {
+                    $model->aclPolicyList[$n++] = null !== $item ? aclPolicyList::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

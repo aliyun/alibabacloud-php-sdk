@@ -45,6 +45,10 @@ class UpdateGatewayRequest extends Model
     public $instanceType;
 
     /**
+     * @description Indicates whether it is the default private gateway.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isDefault;
@@ -59,6 +63,10 @@ class UpdateGatewayRequest extends Model
     public $name;
 
     /**
+     * @description The number of nodes in the private gateway.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $replicas;

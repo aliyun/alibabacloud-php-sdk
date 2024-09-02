@@ -6,18 +6,14 @@ namespace AlibabaCloud\SDK\Eas\V20210701\Models\ListAclPolicyResponseBody\intran
 
 use AlibabaCloud\Tea\Model;
 
-class intranetAclPolicyList extends Model
+class aclPolicyList extends Model
 {
     /**
-     * @example Test Entry
-     *
      * @var string
      */
     public $comment;
 
     /**
-     * @example 192.168.XX.XX/24
-     *
      * @var string
      */
     public $entry;
@@ -46,7 +42,7 @@ class intranetAclPolicyList extends Model
     /**
      * @param array $map
      *
-     * @return intranetAclPolicyList
+     * @return aclPolicyList
      */
     public static function fromMap($map = [])
     {

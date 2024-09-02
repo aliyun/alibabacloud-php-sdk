@@ -4,15 +4,15 @@
 
 namespace AlibabaCloud\SDK\Eas\V20210701\Models\ListAclPolicyResponseBody;
 
-use AlibabaCloud\SDK\Eas\V20210701\Models\ListAclPolicyResponseBody\intranetVpcAclPolicyList\intranetAclPolicyList;
+use AlibabaCloud\SDK\Eas\V20210701\Models\ListAclPolicyResponseBody\intranetVpcAclPolicyList\aclPolicyList;
 use AlibabaCloud\Tea\Model;
 
 class intranetVpcAclPolicyList extends Model
 {
     /**
-     * @var intranetAclPolicyList[]
+     * @var aclPolicyList[]
      */
-    public $intranetAclPolicyList;
+    public $aclPolicyList;
 
     /**
      * @example vpc-uf66uio7md****
@@ -21,8 +21,8 @@ class intranetVpcAclPolicyList extends Model
      */
     public $vpcId;
     protected $_name = [
-        'intranetAclPolicyList' => 'IntranetAclPolicyList',
-        'vpcId'                 => 'VpcId',
+        'aclPolicyList' => 'AclPolicyList',
+        'vpcId'         => 'VpcId',
     ];
 
     public function validate()
@@ -32,12 +32,12 @@ class intranetVpcAclPolicyList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->intranetAclPolicyList) {
-            $res['IntranetAclPolicyList'] = [];
-            if (null !== $this->intranetAclPolicyList && \is_array($this->intranetAclPolicyList)) {
+        if (null !== $this->aclPolicyList) {
+            $res['AclPolicyList'] = [];
+            if (null !== $this->aclPolicyList && \is_array($this->aclPolicyList)) {
                 $n = 0;
-                foreach ($this->intranetAclPolicyList as $item) {
-                    $res['IntranetAclPolicyList'][$n++] = null !== $item ? $item->toMap() : $item;
+                foreach ($this->aclPolicyList as $item) {
+                    $res['AclPolicyList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -56,12 +56,12 @@ class intranetVpcAclPolicyList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IntranetAclPolicyList'])) {
-            if (!empty($map['IntranetAclPolicyList'])) {
-                $model->intranetAclPolicyList = [];
-                $n                            = 0;
-                foreach ($map['IntranetAclPolicyList'] as $item) {
-                    $model->intranetAclPolicyList[$n++] = null !== $item ? intranetAclPolicyList::fromMap($item) : $item;
+        if (isset($map['AclPolicyList'])) {
+            if (!empty($map['AclPolicyList'])) {
+                $model->aclPolicyList = [];
+                $n                    = 0;
+                foreach ($map['AclPolicyList'] as $item) {
+                    $model->aclPolicyList[$n++] = null !== $item ? aclPolicyList::fromMap($item) : $item;
                 }
             }
         }
