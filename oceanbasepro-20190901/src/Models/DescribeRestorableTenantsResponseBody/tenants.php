@@ -109,7 +109,7 @@ class tenants extends Model
     /**
      * @example Oracle
      *
-     * @var int
+     * @var string
      */
     public $tenantMode;
 
