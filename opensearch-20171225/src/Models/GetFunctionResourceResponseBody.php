@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetFunctionResourceResponseBody extends Model
 {
     /**
+     * @description The error code returned. If no error occurs, this value is empty.
+     *
      * @example Resource.NotExist
      *
      * @var string
@@ -17,6 +19,8 @@ class GetFunctionResourceResponseBody extends Model
     public $code;
 
     /**
+     * @description The HTTP status code returned.
+     *
      * @example 200
      *
      * @var int
@@ -24,6 +28,8 @@ class GetFunctionResourceResponseBody extends Model
     public $httpCode;
 
     /**
+     * @description The time consumed for the API request. Unit: milliseconds.
+     *
      * @example 123
      *
      * @var float
@@ -31,6 +37,8 @@ class GetFunctionResourceResponseBody extends Model
     public $latency;
 
     /**
+     * @description The error message returned.
+     *
      * @example Resource not exist.
      *
      * @var string
@@ -38,6 +46,8 @@ class GetFunctionResourceResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example E215C843-0795-5293-AC9A-14FE0723E890
      *
      * @var string
@@ -45,11 +55,18 @@ class GetFunctionResourceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The returned results.
+     *
      * @var result
      */
     public $result;
 
     /**
+     * @description The HTTP status code. Valid values:
+     *
+     *   OK
+     *   FAIL
+     *
      * @example OK
      *
      * @var string

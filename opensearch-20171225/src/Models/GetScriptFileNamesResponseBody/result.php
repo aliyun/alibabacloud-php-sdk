@@ -36,6 +36,8 @@ class result extends Model
     public $modifyTime;
 
     /**
+     * @description The path name of the script file.
+     *
      * @example src
      *
      * @var string

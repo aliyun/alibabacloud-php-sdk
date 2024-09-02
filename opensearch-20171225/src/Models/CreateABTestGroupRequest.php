@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class CreateABTestGroupRequest extends Model
 {
     /**
+     * @description The request body. For more information, see [ABTestGroup](https://help.aliyun.com/document_detail/178935.html).
+     *
      * @var ABTestGroup
      */
     public $body;
 
     /**
+     * @description Specifies whether to check the validity of input parameters. Default value: false.
+     *
+     * Valid values:
+     *
+     *   **true**: checks only the validity of input parameters.
+     *   **false**: checks the validity of input parameters and creates an attribution configuration.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $dryRun;

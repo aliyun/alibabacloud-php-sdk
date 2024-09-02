@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListFunctionResourcesResponseBody extends Model
 {
     /**
+     * @description The error code returned. If no error occurs, this value is empty.
+     *
      * @example Resource.InvalidResourceName
      *
      * @var string
@@ -17,6 +19,8 @@ class ListFunctionResourcesResponseBody extends Model
     public $code;
 
     /**
+     * @description The HTTP status code returned.
+     *
      * @example 200
      *
      * @var int
@@ -24,6 +28,8 @@ class ListFunctionResourcesResponseBody extends Model
     public $httpCode;
 
     /**
+     * @description The amount of time consumed for the request. Unit: milliseconds.
+     *
      * @example 123
      *
      * @var float
@@ -31,6 +37,8 @@ class ListFunctionResourcesResponseBody extends Model
     public $latency;
 
     /**
+     * @description The error message returned.
+     *
      * @example Invalid resource name.
      *
      * @var string
@@ -38,6 +46,8 @@ class ListFunctionResourcesResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example "3A809095-C554-5CF5-8FCE-BE19D4673790"
      *
      * @var string
@@ -45,11 +55,15 @@ class ListFunctionResourcesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The results returned.
+     *
      * @var result[]
      */
     public $result;
 
     /**
+     * @description The status of the request. Valid values: OK and FAIL.
+     *
      * @example OK
      *
      * @var string
@@ -57,6 +71,8 @@ class ListFunctionResourcesResponseBody extends Model
     public $status;
 
     /**
+     * @description The total number of records that meet the requirements.
+     *
      * @example 2
      *
      * @var int

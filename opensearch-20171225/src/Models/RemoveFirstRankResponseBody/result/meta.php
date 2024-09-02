@@ -31,7 +31,7 @@ class meta extends Model
     /**
      * @description The weight.
      *
-     * Valid values: \[-100000,100000] (excluding 0).
+     * Valid values: [-100000,100000] (excluding 0).
      * @example 10
      *
      * @var float

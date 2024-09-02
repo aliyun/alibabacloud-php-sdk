@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class UpdateFunctionResourceRequest extends Model
 {
     /**
+     * @description The resource data. The data structure varies with the resource type.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The description of the resource.
+     *
      * @example updated description
      *
      * @var string

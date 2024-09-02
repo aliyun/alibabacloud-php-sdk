@@ -4,11 +4,14 @@
 
 namespace AlibabaCloud\SDK\OpenSearch\V20171225\Models;
 
+use AlibabaCloud\SDK\OpenSearch\V20171225\Models\DescribeAppsResponseBody\result;
 use AlibabaCloud\Tea\Model;
 
 class DescribeAppsResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 77CAA411-0010-4DB9-82E2-1C384E590AFF
      *
      * @var string
@@ -16,7 +19,9 @@ class DescribeAppsResponseBody extends Model
     public $requestId;
 
     /**
-     * @var mixed[][]
+     * @description The information about each version.
+     *
+     * @var result[]
      */
     public $result;
     protected $_name = [
@@ -35,7 +40,13 @@ class DescribeAppsResponseBody extends Model
             $res['requestId'] = $this->requestId;
         }
         if (null !== $this->result) {
-            $res['result'] = $this->result;
+            $res['result'] = [];
+            if (null !== $this->result && \is_array($this->result)) {
+                $n = 0;
+                foreach ($this->result as $item) {
+                    $res['result'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -54,7 +65,11 @@ class DescribeAppsResponseBody extends Model
         }
         if (isset($map['result'])) {
             if (!empty($map['result'])) {
-                $model->result = $map['result'];
+                $model->result = [];
+                $n             = 0;
+                foreach ($map['result'] as $item) {
+                    $model->result[$n++] = null !== $item ? result::fromMap($item) : $item;
+                }
             }
         }
 

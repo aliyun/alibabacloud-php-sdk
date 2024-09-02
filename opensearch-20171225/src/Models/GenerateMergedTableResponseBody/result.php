@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The tables on which the JOIN operation is performed.
+     *
      * @example -
      *
      * @var mixed[]
@@ -16,6 +18,8 @@ class result extends Model
     public $fromTable;
 
     /**
+     * @description The wide table that is generated after the JOIN operation is performed on multiple tables.
+     *
      * @example -
      *
      * @var mixed[]
@@ -23,6 +27,8 @@ class result extends Model
     public $mergeTable;
 
     /**
+     * @description The primary key.
+     *
      * @example -
      *
      * @var string

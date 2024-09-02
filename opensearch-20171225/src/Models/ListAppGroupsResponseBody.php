@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListAppGroupsResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 0A6EB64B-B4C8-CF02-810F-E660812972FF
      *
@@ -19,9 +19,9 @@ class ListAppGroupsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The information about each application.
+     * @description The information about the application.
      *
-     * For more information, see [AppGroup](~~170000~~).
+     * For more information, see [AppGroup](https://help.aliyun.com/document_detail/170000.html).
      * @example []
      *
      * @var result[]

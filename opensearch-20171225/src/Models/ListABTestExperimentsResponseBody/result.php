@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description The time when the test was created.
+     * @description The time when the experiment was created.
      *
      * @example 1588842080
      *
@@ -18,7 +18,7 @@ class result extends Model
     public $created;
 
     /**
-     * @description The ID of the test group.
+     * @description The experiment ID.
      *
      * @example 12888
      *
@@ -27,7 +27,7 @@ class result extends Model
     public $id;
 
     /**
-     * @description The name of the test group.
+     * @description The group alias.
      *
      * @example test1
      *
@@ -36,10 +36,10 @@ class result extends Model
     public $name;
 
     /**
-     * @description The status of the test. Valid values:
+     * @description Indicates whether the experiment is in effect. Valid values:
      *
-     *   true: in effect
-     *   false: not in effect
+     *   true
+     *   false
      *
      * @example true
      *
@@ -48,7 +48,7 @@ class result extends Model
     public $online;
 
     /**
-     * @description The parameters of the test.
+     * @description The experiment parameters.
      *
      * @example 1
      *
@@ -57,9 +57,9 @@ class result extends Model
     public $params;
 
     /**
-     * @description The percentage of traffic that is routed to the test.
+     * @description The percentage of traffic that is routed to the experiment.
      *
-     * Valid values: \[0,100].
+     * Valid values: [0,100]
      * @example 30
      *
      * @var int
@@ -67,7 +67,7 @@ class result extends Model
     public $traffic;
 
     /**
-     * @description The time when the test was last modified.
+     * @description The time when the experiment was last modified.
      *
      * @example 1588842080
      *

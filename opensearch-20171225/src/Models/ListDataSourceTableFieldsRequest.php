@@ -13,12 +13,13 @@ class ListDataSourceTableFieldsRequest extends Model
      *
      * Different types of data sources use different parameters. For more information, see the following sections of the "DataSource" topic:
      *
-     *   [rds](~~170005~~)
-     *   [polardb](~~170005~~)
-     *   [odps](~~170005~~)
-     *   [mysql](~~173627~~)
-     *   [drds](~~173627~~)
+     *   [rds](https://help.aliyun.com/document_detail/170005.html)
+     *   [polardb](https://help.aliyun.com/document_detail/170005.html)
+     *   [odps](https://help.aliyun.com/document_detail/170005.html)
+     *   [mysql](https://help.aliyun.com/document_detail/173627.html)
+     *   [drds](https://help.aliyun.com/document_detail/173627.html)
      *
+     * This parameter is required.
      * @example {}
      *
      * @var string
@@ -26,7 +27,7 @@ class ListDataSourceTableFieldsRequest extends Model
     public $params;
 
     /**
-     * @description Whether to return the original field type of the data source
+     * @description Specifies whether to return the original field types of the data source.
      *
      * @example false
      *

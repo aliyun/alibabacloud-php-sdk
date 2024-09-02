@@ -9,7 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeUserAnalyzerRequest extends Model
 {
     /**
-     * @description all
+     * @description The Associated information,output properties based on hierarchy.
+     * **all**: Outputs associated app information
      *
      * @example all
      *

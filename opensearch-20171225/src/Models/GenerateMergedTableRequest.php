@@ -9,13 +9,16 @@ use AlibabaCloud\Tea\Model;
 class GenerateMergedTableRequest extends Model
 {
     /**
+     * @description The request body parameters.
+     *
      * @var Schema
      */
     public $body;
 
     /**
-     * @description \-
+     * @description The specifications of the OpenSearch instance. This parameter is used to check whether the OpenSearch instance meets the special limits on an exclusive instance.
      *
+     * For more information, see the description of the spec field in the Quota topic.
      * @example "opensearch.share.common"
      *
      * @var string

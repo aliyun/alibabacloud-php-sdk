@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ValidateDataSourcesRequest extends Model
 {
     /**
+     * @description The request parameter. For more information, see [DataSource](https://help.aliyun.com/document_detail/170005.html).
+     *
      * @var DataSource
      */
     public $body;

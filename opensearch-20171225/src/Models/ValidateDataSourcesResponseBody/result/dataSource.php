@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class dataSource extends Model
 {
     /**
+     * @description The parameters of the data source.
+     *
      * @example {}
      *
      * @var mixed[]
@@ -16,6 +18,8 @@ class dataSource extends Model
     public $parameters;
 
     /**
+     * @description The name of the table.
+     *
      * @example user_activity_decision
      *
      * @var string
@@ -23,6 +27,8 @@ class dataSource extends Model
     public $tableName;
 
     /**
+     * @description The type of the data source.
+     *
      * @example rds
      *
      * @var string

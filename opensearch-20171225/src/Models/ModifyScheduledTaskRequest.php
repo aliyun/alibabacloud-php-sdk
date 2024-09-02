@@ -9,7 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyScheduledTaskRequest extends Model
 {
     /**
-     * @description 请求参数。
+     * @description The request parameters.
+     *
+     * @example The request parameters.
      *
      * @var mixed
      */

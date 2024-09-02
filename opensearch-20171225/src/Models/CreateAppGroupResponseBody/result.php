@@ -70,11 +70,22 @@ class result extends Model
     public $description;
 
     /**
+     * @description The type of the industry. Valid values:
+     *
+     *   GENERAL: general.
+     *   ECOMMERCE: e-commerce.
+     *   IT_CONTENT: IT content.
+     *
      * @example GENERAL
      *
      * @var string
      */
     public $domain;
+
+    /**
+     * @var string
+     */
+    public $engineType;
 
     /**
      * @description The expiration time.
@@ -84,15 +95,6 @@ class result extends Model
      * @var string
      */
     public $expireOn;
-
-    /**
-     * @description The ID of the created rough sort expression.
-     *
-     * @example 0
-     *
-     * @var int
-     */
-    public $firstRankAlgoDeploymentId;
 
     /**
      * @description The approval status of the quotas. Valid values:
@@ -138,15 +140,6 @@ class result extends Model
     public $lockMode;
 
     /**
-     * @description Indicates whether the instance is automatically locked after it expires.
-     *
-     * @example 0
-     *
-     * @var int
-     */
-    public $lockedByExpiration;
-
-    /**
      * @description The name of the application.
      *
      * @example lsh_test_1
@@ -154,24 +147,6 @@ class result extends Model
      * @var string
      */
     public $name;
-
-    /**
-     * @description The ID of the fine sort expression that is being created.
-     *
-     * @example 0
-     *
-     * @var int
-     */
-    public $pendingSecondRankAlgoDeploymentId;
-
-    /**
-     * @description The ID of the order that is not complete for the instance. For example, an order is one that is initiated to create the instance or change the quotas or billing method.
-     *
-     * @example -
-     *
-     * @var string
-     */
-    public $processingOrderId;
 
     /**
      * @description Indicates whether the order is complete. Valid values:
@@ -200,15 +175,6 @@ class result extends Model
      * @var quota
      */
     public $quota;
-
-    /**
-     * @description The ID of the created fine sort expression.
-     *
-     * @example 0
-     *
-     * @var int
-     */
-    public $secondRankAlgoDeploymentId;
 
     /**
      * @description The status of the application. Valid values:
@@ -256,31 +222,27 @@ class result extends Model
      */
     public $updated;
     protected $_name = [
-        'chargeType'                        => 'chargeType',
-        'chargingWay'                       => 'chargingWay',
-        'commodityCode'                     => 'commodityCode',
-        'created'                           => 'created',
-        'currentVersion'                    => 'currentVersion',
-        'description'                       => 'description',
-        'domain'                            => 'domain',
-        'expireOn'                          => 'expireOn',
-        'firstRankAlgoDeploymentId'         => 'firstRankAlgoDeploymentId',
-        'hasPendingQuotaReviewTask'         => 'hasPendingQuotaReviewTask',
-        'id'                                => 'id',
-        'instanceId'                        => 'instanceId',
-        'lockMode'                          => 'lockMode',
-        'lockedByExpiration'                => 'lockedByExpiration',
-        'name'                              => 'name',
-        'pendingSecondRankAlgoDeploymentId' => 'pendingSecondRankAlgoDeploymentId',
-        'processingOrderId'                 => 'processingOrderId',
-        'produced'                          => 'produced',
-        'projectId'                         => 'projectId',
-        'quota'                             => 'quota',
-        'secondRankAlgoDeploymentId'        => 'secondRankAlgoDeploymentId',
-        'status'                            => 'status',
-        'switchedTime'                      => 'switchedTime',
-        'type'                              => 'type',
-        'updated'                           => 'updated',
+        'chargeType'                => 'chargeType',
+        'chargingWay'               => 'chargingWay',
+        'commodityCode'             => 'commodityCode',
+        'created'                   => 'created',
+        'currentVersion'            => 'currentVersion',
+        'description'               => 'description',
+        'domain'                    => 'domain',
+        'engineType'                => 'engineType',
+        'expireOn'                  => 'expireOn',
+        'hasPendingQuotaReviewTask' => 'hasPendingQuotaReviewTask',
+        'id'                        => 'id',
+        'instanceId'                => 'instanceId',
+        'lockMode'                  => 'lockMode',
+        'name'                      => 'name',
+        'produced'                  => 'produced',
+        'projectId'                 => 'projectId',
+        'quota'                     => 'quota',
+        'status'                    => 'status',
+        'switchedTime'              => 'switchedTime',
+        'type'                      => 'type',
+        'updated'                   => 'updated',
     ];
 
     public function validate()
@@ -311,11 +273,11 @@ class result extends Model
         if (null !== $this->domain) {
             $res['domain'] = $this->domain;
         }
+        if (null !== $this->engineType) {
+            $res['engineType'] = $this->engineType;
+        }
         if (null !== $this->expireOn) {
             $res['expireOn'] = $this->expireOn;
-        }
-        if (null !== $this->firstRankAlgoDeploymentId) {
-            $res['firstRankAlgoDeploymentId'] = $this->firstRankAlgoDeploymentId;
         }
         if (null !== $this->hasPendingQuotaReviewTask) {
             $res['hasPendingQuotaReviewTask'] = $this->hasPendingQuotaReviewTask;
@@ -329,17 +291,8 @@ class result extends Model
         if (null !== $this->lockMode) {
             $res['lockMode'] = $this->lockMode;
         }
-        if (null !== $this->lockedByExpiration) {
-            $res['lockedByExpiration'] = $this->lockedByExpiration;
-        }
         if (null !== $this->name) {
             $res['name'] = $this->name;
-        }
-        if (null !== $this->pendingSecondRankAlgoDeploymentId) {
-            $res['pendingSecondRankAlgoDeploymentId'] = $this->pendingSecondRankAlgoDeploymentId;
-        }
-        if (null !== $this->processingOrderId) {
-            $res['processingOrderId'] = $this->processingOrderId;
         }
         if (null !== $this->produced) {
             $res['produced'] = $this->produced;
@@ -349,9 +302,6 @@ class result extends Model
         }
         if (null !== $this->quota) {
             $res['quota'] = null !== $this->quota ? $this->quota->toMap() : null;
-        }
-        if (null !== $this->secondRankAlgoDeploymentId) {
-            $res['secondRankAlgoDeploymentId'] = $this->secondRankAlgoDeploymentId;
         }
         if (null !== $this->status) {
             $res['status'] = $this->status;
@@ -398,11 +348,11 @@ class result extends Model
         if (isset($map['domain'])) {
             $model->domain = $map['domain'];
         }
+        if (isset($map['engineType'])) {
+            $model->engineType = $map['engineType'];
+        }
         if (isset($map['expireOn'])) {
             $model->expireOn = $map['expireOn'];
-        }
-        if (isset($map['firstRankAlgoDeploymentId'])) {
-            $model->firstRankAlgoDeploymentId = $map['firstRankAlgoDeploymentId'];
         }
         if (isset($map['hasPendingQuotaReviewTask'])) {
             $model->hasPendingQuotaReviewTask = $map['hasPendingQuotaReviewTask'];
@@ -416,17 +366,8 @@ class result extends Model
         if (isset($map['lockMode'])) {
             $model->lockMode = $map['lockMode'];
         }
-        if (isset($map['lockedByExpiration'])) {
-            $model->lockedByExpiration = $map['lockedByExpiration'];
-        }
         if (isset($map['name'])) {
             $model->name = $map['name'];
-        }
-        if (isset($map['pendingSecondRankAlgoDeploymentId'])) {
-            $model->pendingSecondRankAlgoDeploymentId = $map['pendingSecondRankAlgoDeploymentId'];
-        }
-        if (isset($map['processingOrderId'])) {
-            $model->processingOrderId = $map['processingOrderId'];
         }
         if (isset($map['produced'])) {
             $model->produced = $map['produced'];
@@ -436,9 +377,6 @@ class result extends Model
         }
         if (isset($map['quota'])) {
             $model->quota = quota::fromMap($map['quota']);
-        }
-        if (isset($map['secondRankAlgoDeploymentId'])) {
-            $model->secondRankAlgoDeploymentId = $map['secondRankAlgoDeploymentId'];
         }
         if (isset($map['status'])) {
             $model->status = $map['status'];

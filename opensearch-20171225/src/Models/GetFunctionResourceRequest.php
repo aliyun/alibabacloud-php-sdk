@@ -9,6 +9,14 @@ use AlibabaCloud\Tea\Model;
 class GetFunctionResourceRequest extends Model
 {
     /**
+     * @description The output level.
+     *
+     * Valid values:
+     *
+     *   simple
+     *   normal
+     *   detail
+     *
      * @example detail
      *
      * @var string

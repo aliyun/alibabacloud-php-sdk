@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetSortScriptResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example ABCDEFGH
      *
@@ -19,7 +19,7 @@ class GetSortScriptResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The details of the script
+     * @description The details of the script.
      *
      * @var result
      */

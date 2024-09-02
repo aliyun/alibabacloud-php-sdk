@@ -9,12 +9,16 @@ use AlibabaCloud\Tea\Model;
 class ModifyQueryProcessorRequest extends Model
 {
     /**
+     * @description The request parameters.
+     *
+     * @example {
+     * }
      * @var mixed
      */
     public $body;
 
     /**
-     * @description true
+     * @description Specifies whether the request is a dry run.
      *
      * @example true
      *

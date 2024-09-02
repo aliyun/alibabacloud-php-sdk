@@ -4,16 +4,41 @@
 
 namespace AlibabaCloud\SDK\OpenSearch\V20171225\Models;
 
+use AlibabaCloud\SDK\OpenSearch\V20171225\Models\CreateAppGroupRequest\quota;
 use AlibabaCloud\Tea\Model;
 
 class CreateAppGroupRequest extends Model
 {
     /**
-     * @var AppGroup
+     * @var string
      */
-    public $body;
+    public $chargeType;
+
+    /**
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @var quota
+     */
+    public $quota;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
-        'body' => 'body',
+        'chargeType'      => 'chargeType',
+        'name'            => 'name',
+        'quota'           => 'quota',
+        'resourceGroupId' => 'resourceGroupId',
+        'type'            => 'type',
     ];
 
     public function validate()
@@ -23,8 +48,20 @@ class CreateAppGroupRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        if (null !== $this->chargeType) {
+            $res['chargeType'] = $this->chargeType;
+        }
+        if (null !== $this->name) {
+            $res['name'] = $this->name;
+        }
+        if (null !== $this->quota) {
+            $res['quota'] = null !== $this->quota ? $this->quota->toMap() : null;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['resourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->type) {
+            $res['type'] = $this->type;
         }
 
         return $res;
@@ -38,8 +75,20 @@ class CreateAppGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['body'])) {
-            $model->body = AppGroup::fromMap($map['body']);
+        if (isset($map['chargeType'])) {
+            $model->chargeType = $map['chargeType'];
+        }
+        if (isset($map['name'])) {
+            $model->name = $map['name'];
+        }
+        if (isset($map['quota'])) {
+            $model->quota = quota::fromMap($map['quota']);
+        }
+        if (isset($map['resourceGroupId'])) {
+            $model->resourceGroupId = $map['resourceGroupId'];
+        }
+        if (isset($map['type'])) {
+            $model->type = $map['type'];
         }
 
         return $model;

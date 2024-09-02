@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description The ID of the application.
+     * @description The application ID.
      *
      * @example 120123456
      *
@@ -18,7 +18,7 @@ class result extends Model
     public $appGroupId;
 
     /**
-     * @description The name of the application.
+     * @description The application name.
      *
      * @example "td_test_os"
      *
@@ -27,7 +27,7 @@ class result extends Model
     public $appGroupName;
 
     /**
-     * @description The type of the application.
+     * @description The application type.
      *
      * @example "standard"
      *
@@ -45,7 +45,7 @@ class result extends Model
     public $approved;
 
     /**
-     * @description Indicates whether the model is available.
+     * @description Indicates whether the application is available.
      *
      * @example true
      *
@@ -72,7 +72,7 @@ class result extends Model
     public $gmtModified;
 
     /**
-     * @description The ID of the ticket.
+     * @description The ticket ID.
      *
      * @example 142
      *
@@ -81,7 +81,7 @@ class result extends Model
     public $id;
 
     /**
-     * @description The remarks of the ticket.
+     * @description The remarks.
      *
      * @example null
      *
@@ -135,7 +135,7 @@ class result extends Model
     public $oldDocSize;
 
     /**
-     * @description The original application specifications.
+     * @description The original specifications of the application.
      *
      * @example "opensearch.private.common"
      *

@@ -20,7 +20,7 @@ class result extends Model
     /**
      * @description The extended information, which is a JSON string.
      *
-     * @example {\"recall\":91,\"errors\":[]}
+     * @example {\\"recall\\":91,\\"errors\\":[]}
      *
      * @var string
      */

@@ -21,7 +21,7 @@ class ListABTestGroupsResponseBody extends Model
     /**
      * @description The test groups.
      *
-     * For more information, see [ABTestGroup](~~178935~~).
+     * For more information, see [ABTestGroup](https://help.aliyun.com/document_detail/178935.html).
      * @var result[]
      */
     public $result;

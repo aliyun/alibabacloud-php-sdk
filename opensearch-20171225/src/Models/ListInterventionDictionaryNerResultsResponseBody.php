@@ -21,7 +21,7 @@ class ListInterventionDictionaryNerResultsResponseBody extends Model
     /**
      * @description The NER result.
      *
-     * For more information, see [InterventionDictionaryEntry](~~173606~~).
+     * For more information, see [InterventionDictionaryEntry](https://help.aliyun.com/document_detail/173606.html).
      * @var result[]
      */
     public $result;

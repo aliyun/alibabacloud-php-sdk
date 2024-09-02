@@ -18,7 +18,7 @@ class RemoveAppResponseBody extends Model
     public $requestId;
 
     /**
-     * @description N/A
+     * @description The return result.
      *
      * @var int[]
      */

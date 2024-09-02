@@ -18,7 +18,7 @@ class result extends Model
     public $created;
 
     /**
-     * @description The ID of the test.
+     * @description The test ID.
      *
      * @example 12888
      *
@@ -27,7 +27,7 @@ class result extends Model
     public $id;
 
     /**
-     * @description The name of the test.
+     * @description The alias of the test.
      *
      * @example test1
      *
@@ -36,10 +36,10 @@ class result extends Model
     public $name;
 
     /**
-     * @description The status of the test. Valid values:
+     * @description Indicates whether the test is in effect. Valid values:
      *
-     *   true: in effect
-     *   false: not in effect
+     *   true
+     *   false
      *
      * @example true
      *
@@ -48,7 +48,7 @@ class result extends Model
     public $online;
 
     /**
-     * @description The parameters of the test.
+     * @description The test parameters.
      *
      * @example {}
      *
@@ -57,9 +57,8 @@ class result extends Model
     public $params;
 
     /**
-     * @description The percentage of traffic that is routed to the test.
+     * @description The percentage of traffic that is routed to the test. Valid values: [0,100]
      *
-     * Value values: 0 to 100.
      * @example 30
      *
      * @var int

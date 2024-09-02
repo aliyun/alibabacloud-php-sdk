@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetDomainResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example ABCDEFGH
      *
@@ -18,7 +18,7 @@ class GetDomainResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The return results.
+     * @description The returned result.
      *
      * @example -
      *

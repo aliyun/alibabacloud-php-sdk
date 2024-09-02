@@ -11,6 +11,7 @@ class ListQueryProcessorAnalyzerResultsRequest extends Model
     /**
      * @description The text to be tested.
      *
+     * This parameter is required.
      * @example "abcde"
      *
      * @var string

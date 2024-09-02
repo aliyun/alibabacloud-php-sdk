@@ -19,6 +19,8 @@ class result extends Model
     public $active;
 
     /**
+     * @description The time when the cluster was created.
+     *
      * @example 0
      *
      * @var int
@@ -53,6 +55,8 @@ class result extends Model
     public $name;
 
     /**
+     * @description The time when the cluster was updated.
+     *
      * @example 0
      *
      * @var int

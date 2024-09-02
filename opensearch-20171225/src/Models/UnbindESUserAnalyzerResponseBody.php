@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UnbindESUserAnalyzerResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 0A6EB64B-B4C8-CF02-810F-E660812972FF
      *
      * @var string
@@ -16,6 +18,8 @@ class UnbindESUserAnalyzerResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The custom analyzer.
+     *
      * @example []
      *
      * @var mixed[]

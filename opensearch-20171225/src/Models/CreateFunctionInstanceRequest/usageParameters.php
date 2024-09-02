@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class usageParameters extends Model
 {
     /**
-     * @description The name of the parameter.
+     * @description The parameter name.
      *
      * @example allow_dict_id
      *
@@ -18,7 +18,7 @@ class usageParameters extends Model
     public $name;
 
     /**
-     * @description The value of the parameter.
+     * @description The parameter value.
      *
      * @example 123
      *

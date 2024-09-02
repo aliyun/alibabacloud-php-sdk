@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class features extends Model
 {
     /**
+     * @description The name of the feature.
+     *
      * @example system_item_id
      *
      * @var string
@@ -16,6 +18,17 @@ class features extends Model
     public $name;
 
     /**
+     * @description The type of the feature.
+     *
+     * Valid values:
+     *
+     *   item
+     *
+     * <!-- -->
+     *
+     *   user
+     *
+     * <!-- -->
      * @example item
      *
      * @var string

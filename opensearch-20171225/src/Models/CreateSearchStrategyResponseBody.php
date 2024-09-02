@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateSearchStrategyResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example "abc123"
      *
      * @var string

@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class BindESUserAnalyzerRequest extends Model
 {
     /**
+     * @description The request parameters.
+     *
+     * @example {
+     * }
      * @var mixed
      */
     public $body;

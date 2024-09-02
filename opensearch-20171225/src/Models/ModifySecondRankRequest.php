@@ -9,12 +9,14 @@ use AlibabaCloud\Tea\Model;
 class ModifySecondRankRequest extends Model
 {
     /**
+     * @description The request parameters.
+     *
      * @var SecondRank
      */
     public $body;
 
     /**
-     * @description true
+     * @description Specifies whether the request is a dry run.
      *
      * @example true
      *

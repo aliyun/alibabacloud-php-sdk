@@ -21,7 +21,7 @@ class ListFirstRanksResponseBody extends Model
     /**
      * @description The information about each rough sort expression.
      *
-     * For more information, see [FirstRank](~~170007~~).
+     * For more information, see [FirstRank](https://help.aliyun.com/document_detail/170007.html).
      * @example []
      *
      * @var result[]

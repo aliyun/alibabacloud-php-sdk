@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class domain extends Model
 {
     /**
+     * @description The category. By default, this parameter is left empty.
+     *
      * @example -
      *
      * @var string
@@ -17,6 +19,8 @@ class domain extends Model
     public $category;
 
     /**
+     * @description search functions
+     *
      * @example {}
      *
      * @var functions
@@ -24,6 +28,8 @@ class domain extends Model
     public $functions;
 
     /**
+     * @description The name
+     *
      * @example test
      *
      * @var string

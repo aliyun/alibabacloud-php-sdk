@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The content of the file that corresponds to a resource of the raw_file type.
+     *
      * @example "abc"
      *
      * @var string
@@ -17,6 +19,8 @@ class data extends Model
     public $content;
 
     /**
+     * @description The feature generators that correspond to resources of the feature_generator type.
+     *
      * @var generators[]
      */
     public $generators;

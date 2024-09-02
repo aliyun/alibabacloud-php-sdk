@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListInterventionDictionaryEntriesRequest extends Model
 {
     /**
-     * @description 1
+     * @description The page number. Default value: 1.
      *
      * @example 1
      *
@@ -18,7 +18,7 @@ class ListInterventionDictionaryEntriesRequest extends Model
     public $pageNumber;
 
     /**
-     * @description 10
+     * @description The number of entries returned per page. Default value: 10.
      *
      * @example 10
      *
@@ -27,7 +27,9 @@ class ListInterventionDictionaryEntriesRequest extends Model
     public $pageSize;
 
     /**
-     * @description Test
+     * @description The intervention entry.
+     *
+     * @example test
      *
      * @var string
      */

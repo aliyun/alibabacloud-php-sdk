@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class BindEsInstanceRequest extends Model
 {
     /**
+     * @description The body of the request.
+     *
+     * @example {
+     * }
      * @var mixed[]
      */
     public $body;

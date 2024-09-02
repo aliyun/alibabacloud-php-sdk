@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class CreateFunctionInstanceRequest extends Model
 {
     /**
-     * @description The parameters that are used to create the instance.
+     * @description The parameters used to create the instance.
      *
      * @example [   { "name": "param1", "value": "val1"   } ]
      *
@@ -20,7 +20,7 @@ class CreateFunctionInstanceRequest extends Model
     public $createParameters;
 
     /**
-     * @description The cron expression used to schedule periodic training, in the format of (Minutes Hours DayofMonth Month DayofWeek). The default value is empty, which indicates that no periodic training is performed. DayofWeek 0 indicates Sunday.
+     * @description The CRON expression used to schedule periodic training, in the format of Minutes Hours DayofMonth Month DayofWeek. The default value is empty, which specifies that no periodic training is performed. A value of 0 for DayofWeek specifies Sunday.
      *
      * @example 0 0 ? * 0,1,2,3,4,5,6
      *
@@ -38,9 +38,9 @@ class CreateFunctionInstanceRequest extends Model
     public $description;
 
     /**
-     * @description The type of the feature. Valid values:
+     * @description The feature type.
      *
-     *   PAAS: This is the default value. Training is required before you can use the feature.
+     *   Default value: PAAS. Training is required before you can use the feature.
      *
      * @example PAAS
      *
@@ -49,8 +49,9 @@ class CreateFunctionInstanceRequest extends Model
     public $functionType;
 
     /**
-     * @description The name of the instance. The name must be 1 to 30 characters in length and can contain letters, digits, and underscores (\_). The name is case-sensitive and must start with a letter.
+     * @description The instance name. The name must be 1 to 30 characters in length and can contain letters, digits, and underscores (_). The name is case-sensitive and must start with a letter.
      *
+     * This parameter is required.
      * @example ctr_test
      *
      * @var string
@@ -58,17 +59,21 @@ class CreateFunctionInstanceRequest extends Model
     public $instanceName;
 
     /**
-     * @description The type of the model. The following features correspond to different model types:
+     * @description The model type. The value varies based on the model.
      *
-     *   click-through rate (CTR) model: tf_checkpoint
+     *   Click-through rate (CTR) model: tf_checkpoint
      *   Popularity model: pop
      *   Category model: offline_inference
      *   Hotword model: offline_inference
-     *   Shading model: offline_inference
+     *   Hint model: offline_inference
+     *   Hotword model for real-time top searches: near_realtime
+     *   Personalized hint model: near_realtime
      *   Drop-down suggestion model: offline_inference
-     *   Word segmentation model: text
+     *   Tokenization model: text
      *   Term weight model: tf_checkpoint
+     *   Synonym model: offline_inference
      *
+     * This parameter is required.
      * @example tf_checkpoint
      *
      * @var string
@@ -76,7 +81,7 @@ class CreateFunctionInstanceRequest extends Model
     public $modelType;
 
     /**
-     * @description The parameters that are used to use the instance.
+     * @description The parameters used to use the instance.
      *
      * @var usageParameters[]
      */

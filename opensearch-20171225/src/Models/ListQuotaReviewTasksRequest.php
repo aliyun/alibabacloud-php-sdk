@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListQuotaReviewTasksRequest extends Model
 {
     /**
-     * @description 1
+     * @description The page number. Default value: 1.
      *
      * @example 1
      *
@@ -18,7 +18,7 @@ class ListQuotaReviewTasksRequest extends Model
     public $pageNumber;
 
     /**
-     * @description 10
+     * @description The number of entries to return on each page. Default value: 10.
      *
      * @example 10
      *

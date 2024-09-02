@@ -27,7 +27,7 @@ class result extends Model
     public $createTime;
 
     /**
-     * @description The last time when the script was last modified.
+     * @description The time when the script was last modified.
      *
      * @example 2020-04-02 21:21:14
      *
@@ -36,7 +36,7 @@ class result extends Model
     public $modifyTime;
 
     /**
-     * @description The version of the script.
+     * @description The version of the script content.
      *
      * @example 123456
      *

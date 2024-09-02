@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyScheduledTaskResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example D77D0DAF-790D-F5F5-A9C0-133738165014
      *
@@ -18,9 +18,9 @@ class ModifyScheduledTaskResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The details of the scheduled task.
+     * @description The information about the scheduled task.
      *
-     * @example (Array|Object)
+     * @example Array
      *
      * @var mixed[]
      */

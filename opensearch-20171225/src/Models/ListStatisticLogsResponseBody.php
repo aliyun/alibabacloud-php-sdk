@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListStatisticLogsResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example F76ACE3D-E510-EE2C-B7B1-39B3136A61EE
      *
@@ -18,9 +18,9 @@ class ListStatisticLogsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The return result. For more information, see:
+     * @description The returned result. For more information, see
      *
-     *   [Parameters of hotwords rankings](~~421248~~)
+     *   [Parameters of hotwords rankings](https://help.aliyun.com/document_detail/421248.html).
      *
      * @example []
      *
@@ -29,7 +29,7 @@ class ListStatisticLogsResponseBody extends Model
     public $result;
 
     /**
-     * @description The total number of the queried logs.
+     * @description The total number of entries returned.
      *
      * @example 1
      *

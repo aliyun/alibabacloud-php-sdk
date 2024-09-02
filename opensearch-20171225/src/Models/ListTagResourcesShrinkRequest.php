@@ -27,6 +27,7 @@ class ListTagResourcesShrinkRequest extends Model
     /**
      * @description The resource type.
      *
+     * This parameter is required.
      * @example BIGDATA
      *
      * @var string

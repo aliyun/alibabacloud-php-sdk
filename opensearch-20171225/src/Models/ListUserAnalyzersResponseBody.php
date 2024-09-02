@@ -21,7 +21,7 @@ class ListUserAnalyzersResponseBody extends Model
     /**
      * @description The custom analyzer.
      *
-     * For more information, see [UserAnalyzer](~~178934~~).
+     * For more information, see [UserAnalyzer](https://help.aliyun.com/document_detail/178934.html).
      * @var result[]
      */
     public $result;

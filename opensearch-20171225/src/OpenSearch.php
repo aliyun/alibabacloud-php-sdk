@@ -17,6 +17,8 @@ use AlibabaCloud\SDK\OpenSearch\V20171225\Models\CreateABTestGroupRequest;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\CreateABTestGroupResponse;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\CreateABTestSceneRequest;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\CreateABTestSceneResponse;
+use AlibabaCloud\SDK\OpenSearch\V20171225\Models\CreateAppGroupCredentialsRequest;
+use AlibabaCloud\SDK\OpenSearch\V20171225\Models\CreateAppGroupCredentialsResponse;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\CreateAppGroupRequest;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\CreateAppGroupResponse;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\CreateAppRequest;
@@ -158,7 +160,6 @@ use AlibabaCloud\SDK\OpenSearch\V20171225\Models\PushInterventionDictionaryEntri
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\PushInterventionDictionaryEntriesResponse;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\PushUserAnalyzerEntriesRequest;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\PushUserAnalyzerEntriesResponse;
-use AlibabaCloud\SDK\OpenSearch\V20171225\Models\RankPreviewQueryResponse;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\ReleaseSortScriptResponse;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\RemoveAppGroupResponse;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\RemoveAppResponse;
@@ -247,13 +248,15 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Binds a custom analyzer to an Elasticsearch instance.
+     *  *
      * @param string                    $appGroupIdentity
      * @param string                    $esInstanceId
-     * @param BindESUserAnalyzerRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @param BindESUserAnalyzerRequest $request          BindESUserAnalyzerRequest
+     * @param string[]                  $headers          map
+     * @param RuntimeOptions            $runtime          runtime options for this request RuntimeOptions
      *
-     * @return BindESUserAnalyzerResponse
+     * @return BindESUserAnalyzerResponse BindESUserAnalyzerResponse
      */
     public function bindESUserAnalyzerWithOptions($appGroupIdentity, $esInstanceId, $request, $headers, $runtime)
     {
@@ -278,11 +281,13 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Binds a custom analyzer to an Elasticsearch instance.
+     *  *
      * @param string                    $appGroupIdentity
      * @param string                    $esInstanceId
-     * @param BindESUserAnalyzerRequest $request
+     * @param BindESUserAnalyzerRequest $request          BindESUserAnalyzerRequest
      *
-     * @return BindESUserAnalyzerResponse
+     * @return BindESUserAnalyzerResponse BindESUserAnalyzerResponse
      */
     public function bindESUserAnalyzer($appGroupIdentity, $esInstanceId, $request)
     {
@@ -293,12 +298,14 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Binds an Elasticsearch instance.
+     *  *
      * @param string                $appGroupIdentity
-     * @param BindEsInstanceRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @param BindEsInstanceRequest $request          BindEsInstanceRequest
+     * @param string[]              $headers          map
+     * @param RuntimeOptions        $runtime          runtime options for this request RuntimeOptions
      *
-     * @return BindEsInstanceResponse
+     * @return BindEsInstanceResponse BindEsInstanceResponse
      */
     public function bindEsInstanceWithOptions($appGroupIdentity, $request, $headers, $runtime)
     {
@@ -327,10 +334,12 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Binds an Elasticsearch instance.
+     *  *
      * @param string                $appGroupIdentity
-     * @param BindEsInstanceRequest $request
+     * @param BindEsInstanceRequest $request          BindEsInstanceRequest
      *
-     * @return BindEsInstanceResponse
+     * @return BindEsInstanceResponse BindEsInstanceResponse
      */
     public function bindEsInstance($appGroupIdentity, $request)
     {
@@ -344,10 +353,10 @@ class OpenSearch extends OpenApiClient
      * @param string         $appGroupIdentity
      * @param string         $scriptName
      * @param string         $appVersionId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers          map
+     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
      *
-     * @return CompileSortScriptResponse
+     * @return CompileSortScriptResponse CompileSortScriptResponse
      */
     public function compileSortScriptWithOptions($appGroupIdentity, $scriptName, $appVersionId, $headers, $runtime)
     {
@@ -374,7 +383,7 @@ class OpenSearch extends OpenApiClient
      * @param string $scriptName
      * @param string $appVersionId
      *
-     * @return CompileSortScriptResponse
+     * @return CompileSortScriptResponse CompileSortScriptResponse
      */
     public function compileSortScript($appGroupIdentity, $scriptName, $appVersionId)
     {
@@ -385,14 +394,16 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Creates an experiment.
+     *  *
      * @param string                        $appGroupIdentity
      * @param string                        $sceneId
      * @param string                        $groupId
-     * @param CreateABTestExperimentRequest $request
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
+     * @param CreateABTestExperimentRequest $request          CreateABTestExperimentRequest
+     * @param string[]                      $headers          map
+     * @param RuntimeOptions                $runtime          runtime options for this request RuntimeOptions
      *
-     * @return CreateABTestExperimentResponse
+     * @return CreateABTestExperimentResponse CreateABTestExperimentResponse
      */
     public function createABTestExperimentWithOptions($appGroupIdentity, $sceneId, $groupId, $request, $headers, $runtime)
     {
@@ -422,12 +433,14 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Creates an experiment.
+     *  *
      * @param string                        $appGroupIdentity
      * @param string                        $sceneId
      * @param string                        $groupId
-     * @param CreateABTestExperimentRequest $request
+     * @param CreateABTestExperimentRequest $request          CreateABTestExperimentRequest
      *
-     * @return CreateABTestExperimentResponse
+     * @return CreateABTestExperimentResponse CreateABTestExperimentResponse
      */
     public function createABTestExperiment($appGroupIdentity, $sceneId, $groupId, $request)
     {
@@ -438,13 +451,15 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Creates a test group.
+     *  *
      * @param string                   $appGroupIdentity
      * @param string                   $sceneId
-     * @param CreateABTestGroupRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @param CreateABTestGroupRequest $request          CreateABTestGroupRequest
+     * @param string[]                 $headers          map
+     * @param RuntimeOptions           $runtime          runtime options for this request RuntimeOptions
      *
-     * @return CreateABTestGroupResponse
+     * @return CreateABTestGroupResponse CreateABTestGroupResponse
      */
     public function createABTestGroupWithOptions($appGroupIdentity, $sceneId, $request, $headers, $runtime)
     {
@@ -474,11 +489,13 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Creates a test group.
+     *  *
      * @param string                   $appGroupIdentity
      * @param string                   $sceneId
-     * @param CreateABTestGroupRequest $request
+     * @param CreateABTestGroupRequest $request          CreateABTestGroupRequest
      *
-     * @return CreateABTestGroupResponse
+     * @return CreateABTestGroupResponse CreateABTestGroupResponse
      */
     public function createABTestGroup($appGroupIdentity, $sceneId, $request)
     {
@@ -490,11 +507,11 @@ class OpenSearch extends OpenApiClient
 
     /**
      * @param string                   $appGroupIdentity
-     * @param CreateABTestSceneRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @param CreateABTestSceneRequest $request          CreateABTestSceneRequest
+     * @param string[]                 $headers          map
+     * @param RuntimeOptions           $runtime          runtime options for this request RuntimeOptions
      *
-     * @return CreateABTestSceneResponse
+     * @return CreateABTestSceneResponse CreateABTestSceneResponse
      */
     public function createABTestSceneWithOptions($appGroupIdentity, $request, $headers, $runtime)
     {
@@ -525,9 +542,9 @@ class OpenSearch extends OpenApiClient
 
     /**
      * @param string                   $appGroupIdentity
-     * @param CreateABTestSceneRequest $request
+     * @param CreateABTestSceneRequest $request          CreateABTestSceneRequest
      *
-     * @return CreateABTestSceneResponse
+     * @return CreateABTestSceneResponse CreateABTestSceneResponse
      */
     public function createABTestScene($appGroupIdentity, $request)
     {
@@ -538,11 +555,13 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * *   When you create a standard application, a new version of the application is created if the specified application name already exists.
-     *   * *   When you create a version of an existing application, you must specify the autoSwitch and realtimeShared parameters.
-     *   * *   When you create a version of an existing application, the value of the quota parameter is the same as that of the quota parameter in the previous version of the application.
-     *   * *   When you create a version of an existing application, the modification of the value of the quota parameter does not take effect.
-     *   *
+     * @summary Creates a version for an OpenSearch application.
+     *  *
+     * @description *   When you create a standard application, a new version of the application is created if the specified application name already exists.
+     * *   When you create a version of an existing application, you must specify the autoSwitch and realtimeShared parameters.
+     * *   When you create a version of an existing application, the value of the quota parameter is the same as that of the quota parameter in the previous version of the application.
+     * *   When you create a version of an existing application, the modification of the value of the quota parameter does not take effect.
+     *  *
      * @param string           $appGroupIdentity
      * @param CreateAppRequest $request          CreateAppRequest
      * @param string[]         $headers          map
@@ -557,10 +576,50 @@ class OpenSearch extends OpenApiClient
         if (!Utils::isUnset($request->dryRun)) {
             $query['dryRun'] = $request->dryRun;
         }
+        $body = [];
+        if (!Utils::isUnset($request->autoSwitch)) {
+            $body['autoSwitch'] = $request->autoSwitch;
+        }
+        if (!Utils::isUnset($request->cluster)) {
+            $body['cluster'] = $request->cluster;
+        }
+        if (!Utils::isUnset($request->dataSources)) {
+            $body['dataSources'] = $request->dataSources;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $body['description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->domain)) {
+            $body['domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->fetchFields)) {
+            $body['fetchFields'] = $request->fetchFields;
+        }
+        if (!Utils::isUnset($request->firstRanks)) {
+            $body['firstRanks'] = $request->firstRanks;
+        }
+        if (!Utils::isUnset($request->networkType)) {
+            $body['networkType'] = $request->networkType;
+        }
+        if (!Utils::isUnset($request->queryProcessors)) {
+            $body['queryProcessors'] = $request->queryProcessors;
+        }
+        if (!Utils::isUnset($request->schema)) {
+            $body['schema'] = $request->schema;
+        }
+        if (!Utils::isUnset($request->schemas)) {
+            $body['schemas'] = $request->schemas;
+        }
+        if (!Utils::isUnset($request->secondRanks)) {
+            $body['secondRanks'] = $request->secondRanks;
+        }
+        if (!Utils::isUnset($request->summaries)) {
+            $body['summaries'] = $request->summaries;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateApp',
@@ -578,11 +637,13 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * *   When you create a standard application, a new version of the application is created if the specified application name already exists.
-     *   * *   When you create a version of an existing application, you must specify the autoSwitch and realtimeShared parameters.
-     *   * *   When you create a version of an existing application, the value of the quota parameter is the same as that of the quota parameter in the previous version of the application.
-     *   * *   When you create a version of an existing application, the modification of the value of the quota parameter does not take effect.
-     *   *
+     * @summary Creates a version for an OpenSearch application.
+     *  *
+     * @description *   When you create a standard application, a new version of the application is created if the specified application name already exists.
+     * *   When you create a version of an existing application, you must specify the autoSwitch and realtimeShared parameters.
+     * *   When you create a version of an existing application, the value of the quota parameter is the same as that of the quota parameter in the previous version of the application.
+     * *   When you create a version of an existing application, the modification of the value of the quota parameter does not take effect.
+     *  *
      * @param string           $appGroupIdentity
      * @param CreateAppRequest $request          CreateAppRequest
      *
@@ -597,18 +658,36 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @param CreateAppGroupRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @summary Create an OpenSearch application.
+     *  *
+     * @param CreateAppGroupRequest $request CreateAppGroupRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateAppGroupResponse
+     * @return CreateAppGroupResponse CreateAppGroupResponse
      */
     public function createAppGroupWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->chargeType)) {
+            $body['chargeType'] = $request->chargeType;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->quota)) {
+            $body['quota'] = $request->quota;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $body['resourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $body['type'] = $request->type;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateAppGroup',
@@ -626,9 +705,11 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @param CreateAppGroupRequest $request
+     * @summary Create an OpenSearch application.
+     *  *
+     * @param CreateAppGroupRequest $request CreateAppGroupRequest
      *
-     * @return CreateAppGroupResponse
+     * @return CreateAppGroupResponse CreateAppGroupResponse
      */
     public function createAppGroup($request)
     {
@@ -639,13 +720,68 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @param string                           $appGroupIdentity
+     * @param CreateAppGroupCredentialsRequest $request          CreateAppGroupCredentialsRequest
+     * @param string[]                         $headers          map
+     * @param RuntimeOptions                   $runtime          runtime options for this request RuntimeOptions
+     *
+     * @return CreateAppGroupCredentialsResponse CreateAppGroupCredentialsResponse
+     */
+    public function createAppGroupCredentialsWithOptions($appGroupIdentity, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['dryRun'] = $request->dryRun;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->type)) {
+            $body['type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateAppGroupCredentials',
+            'version'     => '2017-12-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/credentials',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateAppGroupCredentialsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                           $appGroupIdentity
+     * @param CreateAppGroupCredentialsRequest $request          CreateAppGroupCredentialsRequest
+     *
+     * @return CreateAppGroupCredentialsResponse CreateAppGroupCredentialsResponse
+     */
+    public function createAppGroupCredentials($appGroupIdentity, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createAppGroupCredentialsWithOptions($appGroupIdentity, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary Creates a rough sort expression for a version of an OpenSearch application. If you set dryRun to true, this operation checks the specified rough sort expression. By default, the value of dryRun is false if you do not set this parameter.
+     *  *
      * @param string                 $appGroupIdentity
      * @param string                 $appId
-     * @param CreateFirstRankRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @param CreateFirstRankRequest $request          CreateFirstRankRequest
+     * @param string[]               $headers          map
+     * @param RuntimeOptions         $runtime          runtime options for this request RuntimeOptions
      *
-     * @return CreateFirstRankResponse
+     * @return CreateFirstRankResponse CreateFirstRankResponse
      */
     public function createFirstRankWithOptions($appGroupIdentity, $appId, $request, $headers, $runtime)
     {
@@ -675,11 +811,13 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Creates a rough sort expression for a version of an OpenSearch application. If you set dryRun to true, this operation checks the specified rough sort expression. By default, the value of dryRun is false if you do not set this parameter.
+     *  *
      * @param string                 $appGroupIdentity
      * @param string                 $appId
-     * @param CreateFirstRankRequest $request
+     * @param CreateFirstRankRequest $request          CreateFirstRankRequest
      *
-     * @return CreateFirstRankResponse
+     * @return CreateFirstRankResponse CreateFirstRankResponse
      */
     public function createFirstRank($appGroupIdentity, $appId, $request)
     {
@@ -690,8 +828,10 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * You can call the [GetFunctionCurrentVersion](~~421377~~) operation to query the latest version of the current feature. The response of the operation includes the createParameters parameter that is used to create an algorithm instance, the usageParameters parameter, and the requirements for setting these parameters.
-     *   *
+     * @summary Creates an algorithm instance of a feature.
+     *  *
+     * @description You can call the [GetFunctionCurrentVersion](https://help.aliyun.com/document_detail/421377.html) operation to query the latest version of a feature. The response of the operation includes the createParameters parameter that is used to create an algorithm instance, the usageParameters parameter, and the requirements for setting these parameters.
+     *  *
      * @param string                        $appGroupIdentity
      * @param string                        $functionName
      * @param CreateFunctionInstanceRequest $request          CreateFunctionInstanceRequest
@@ -745,8 +885,10 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * You can call the [GetFunctionCurrentVersion](~~421377~~) operation to query the latest version of the current feature. The response of the operation includes the createParameters parameter that is used to create an algorithm instance, the usageParameters parameter, and the requirements for setting these parameters.
-     *   *
+     * @summary Creates an algorithm instance of a feature.
+     *  *
+     * @description You can call the [GetFunctionCurrentVersion](https://help.aliyun.com/document_detail/421377.html) operation to query the latest version of a feature. The response of the operation includes the createParameters parameter that is used to create an algorithm instance, the usageParameters parameter, and the requirements for setting these parameters.
+     *  *
      * @param string                        $appGroupIdentity
      * @param string                        $functionName
      * @param CreateFunctionInstanceRequest $request          CreateFunctionInstanceRequest
@@ -762,13 +904,15 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Creates an algorithm resource for a specific feature.
+     *  *
      * @param string                        $appGroupIdentity
      * @param string                        $functionName
-     * @param CreateFunctionResourceRequest $request
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
+     * @param CreateFunctionResourceRequest $request          CreateFunctionResourceRequest
+     * @param string[]                      $headers          map
+     * @param RuntimeOptions                $runtime          runtime options for this request RuntimeOptions
      *
-     * @return CreateFunctionResourceResponse
+     * @return CreateFunctionResourceResponse CreateFunctionResourceResponse
      */
     public function createFunctionResourceWithOptions($appGroupIdentity, $functionName, $request, $headers, $runtime)
     {
@@ -806,11 +950,13 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Creates an algorithm resource for a specific feature.
+     *  *
      * @param string                        $appGroupIdentity
      * @param string                        $functionName
-     * @param CreateFunctionResourceRequest $request
+     * @param CreateFunctionResourceRequest $request          CreateFunctionResourceRequest
      *
-     * @return CreateFunctionResourceResponse
+     * @return CreateFunctionResourceResponse CreateFunctionResourceResponse
      */
     public function createFunctionResource($appGroupIdentity, $functionName, $request)
     {
@@ -821,13 +967,15 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Starts a training task for an algorithm instance.
+     *  *
      * @param string         $appGroupIdentity
      * @param string         $functionName
      * @param string         $instanceName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers          map
+     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
      *
-     * @return CreateFunctionTaskResponse
+     * @return CreateFunctionTaskResponse CreateFunctionTaskResponse
      */
     public function createFunctionTaskWithOptions($appGroupIdentity, $functionName, $instanceName, $headers, $runtime)
     {
@@ -850,11 +998,13 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Starts a training task for an algorithm instance.
+     *  *
      * @param string $appGroupIdentity
      * @param string $functionName
      * @param string $instanceName
      *
-     * @return CreateFunctionTaskResponse
+     * @return CreateFunctionTaskResponse CreateFunctionTaskResponse
      */
     public function createFunctionTask($appGroupIdentity, $functionName, $instanceName)
     {
@@ -865,11 +1015,13 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @param CreateInterventionDictionaryRequest $request
-     * @param string[]                            $headers
-     * @param RuntimeOptions                      $runtime
+     * @summary Create an intervention dictionary.
+     *  *
+     * @param CreateInterventionDictionaryRequest $request CreateInterventionDictionaryRequest
+     * @param string[]                            $headers map
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateInterventionDictionaryResponse
+     * @return CreateInterventionDictionaryResponse CreateInterventionDictionaryResponse
      */
     public function createInterventionDictionaryWithOptions($request, $headers, $runtime)
     {
@@ -909,9 +1061,11 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @param CreateInterventionDictionaryRequest $request
+     * @summary Create an intervention dictionary.
+     *  *
+     * @param CreateInterventionDictionaryRequest $request CreateInterventionDictionaryRequest
      *
-     * @return CreateInterventionDictionaryResponse
+     * @return CreateInterventionDictionaryResponse CreateInterventionDictionaryResponse
      */
     public function createInterventionDictionary($request)
     {
@@ -922,13 +1076,15 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Creates a query analysis rule. If you set dryRun to true, this operation checks the specified query analysis rule. By default, the value of dryRun is false if you do not set this parameter.
+     *  *
      * @param string                      $appGroupIdentity
      * @param string                      $appId
-     * @param CreateQueryProcessorRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @param CreateQueryProcessorRequest $request          CreateQueryProcessorRequest
+     * @param string[]                    $headers          map
+     * @param RuntimeOptions              $runtime          runtime options for this request RuntimeOptions
      *
-     * @return CreateQueryProcessorResponse
+     * @return CreateQueryProcessorResponse CreateQueryProcessorResponse
      */
     public function createQueryProcessorWithOptions($appGroupIdentity, $appId, $request, $headers, $runtime)
     {
@@ -958,11 +1114,13 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Creates a query analysis rule. If you set dryRun to true, this operation checks the specified query analysis rule. By default, the value of dryRun is false if you do not set this parameter.
+     *  *
      * @param string                      $appGroupIdentity
      * @param string                      $appId
-     * @param CreateQueryProcessorRequest $request
+     * @param CreateQueryProcessorRequest $request          CreateQueryProcessorRequest
      *
-     * @return CreateQueryProcessorResponse
+     * @return CreateQueryProcessorResponse CreateQueryProcessorResponse
      */
     public function createQueryProcessor($appGroupIdentity, $appId, $request)
     {
@@ -974,11 +1132,11 @@ class OpenSearch extends OpenApiClient
 
     /**
      * @param string                     $appGroupIdentity
-     * @param CreateScheduledTaskRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @param CreateScheduledTaskRequest $request          CreateScheduledTaskRequest
+     * @param string[]                   $headers          map
+     * @param RuntimeOptions             $runtime          runtime options for this request RuntimeOptions
      *
-     * @return CreateScheduledTaskResponse
+     * @return CreateScheduledTaskResponse CreateScheduledTaskResponse
      */
     public function createScheduledTaskWithOptions($appGroupIdentity, $request, $headers, $runtime)
     {
@@ -1004,9 +1162,9 @@ class OpenSearch extends OpenApiClient
 
     /**
      * @param string                     $appGroupIdentity
-     * @param CreateScheduledTaskRequest $request
+     * @param CreateScheduledTaskRequest $request          CreateScheduledTaskRequest
      *
-     * @return CreateScheduledTaskResponse
+     * @return CreateScheduledTaskResponse CreateScheduledTaskResponse
      */
     public function createScheduledTask($appGroupIdentity, $request)
     {
@@ -1017,13 +1175,15 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Creates a query policy.
+     *  *
      * @param string                      $appGroupIdentity
      * @param string                      $appId
-     * @param CreateSearchStrategyRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @param CreateSearchStrategyRequest $request          CreateSearchStrategyRequest
+     * @param string[]                    $headers          map
+     * @param RuntimeOptions              $runtime          runtime options for this request RuntimeOptions
      *
-     * @return CreateSearchStrategyResponse
+     * @return CreateSearchStrategyResponse CreateSearchStrategyResponse
      */
     public function createSearchStrategyWithOptions($appGroupIdentity, $appId, $request, $headers, $runtime)
     {
@@ -1048,11 +1208,13 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Creates a query policy.
+     *  *
      * @param string                      $appGroupIdentity
      * @param string                      $appId
-     * @param CreateSearchStrategyRequest $request
+     * @param CreateSearchStrategyRequest $request          CreateSearchStrategyRequest
      *
-     * @return CreateSearchStrategyResponse
+     * @return CreateSearchStrategyResponse CreateSearchStrategyResponse
      */
     public function createSearchStrategy($appGroupIdentity, $appId, $request)
     {
@@ -1063,13 +1225,15 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Creates a fine sort expression for a version of an OpenSearch application. If you set dryRun to true, this operation checks the specified fine sort expression. The default value of dryRun is false if you do not set this parameter.
+     *  *
      * @param string                  $appGroupIdentity
      * @param string                  $appId
-     * @param CreateSecondRankRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @param CreateSecondRankRequest $request          CreateSecondRankRequest
+     * @param string[]                $headers          map
+     * @param RuntimeOptions          $runtime          runtime options for this request RuntimeOptions
      *
-     * @return CreateSecondRankResponse
+     * @return CreateSecondRankResponse CreateSecondRankResponse
      */
     public function createSecondRankWithOptions($appGroupIdentity, $appId, $request, $headers, $runtime)
     {
@@ -1099,11 +1263,13 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Creates a fine sort expression for a version of an OpenSearch application. If you set dryRun to true, this operation checks the specified fine sort expression. The default value of dryRun is false if you do not set this parameter.
+     *  *
      * @param string                  $appGroupIdentity
      * @param string                  $appId
-     * @param CreateSecondRankRequest $request
+     * @param CreateSecondRankRequest $request          CreateSecondRankRequest
      *
-     * @return CreateSecondRankResponse
+     * @return CreateSecondRankResponse CreateSecondRankResponse
      */
     public function createSecondRank($appGroupIdentity, $appId, $request)
     {
@@ -1114,13 +1280,15 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Creates a sort script.
+     *  *
      * @param string                  $appGroupIdentity
      * @param string                  $appVersionId
-     * @param CreateSortScriptRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @param CreateSortScriptRequest $request          CreateSortScriptRequest
+     * @param string[]                $headers          map
+     * @param RuntimeOptions          $runtime          runtime options for this request RuntimeOptions
      *
-     * @return CreateSortScriptResponse
+     * @return CreateSortScriptResponse CreateSortScriptResponse
      */
     public function createSortScriptWithOptions($appGroupIdentity, $appVersionId, $request, $headers, $runtime)
     {
@@ -1155,11 +1323,13 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Creates a sort script.
+     *  *
      * @param string                  $appGroupIdentity
      * @param string                  $appVersionId
-     * @param CreateSortScriptRequest $request
+     * @param CreateSortScriptRequest $request          CreateSortScriptRequest
      *
-     * @return CreateSortScriptResponse
+     * @return CreateSortScriptResponse CreateSortScriptResponse
      */
     public function createSortScript($appGroupIdentity, $appVersionId, $request)
     {
@@ -1170,9 +1340,6 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * ## Debugging
-     *   * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=OpenSearch\\&api=CreateUserAnalyzer\\&type=ROA\\&version=2017-12-25).
-     *   *
      * @param CreateUserAnalyzerRequest $request CreateUserAnalyzerRequest
      * @param string[]                  $headers map
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -1223,9 +1390,6 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * ## Debugging
-     *   * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=OpenSearch\\&api=CreateUserAnalyzer\\&type=ROA\\&version=2017-12-25).
-     *   *
      * @param CreateUserAnalyzerRequest $request CreateUserAnalyzerRequest
      *
      * @return CreateUserAnalyzerResponse CreateUserAnalyzerResponse
@@ -1243,10 +1407,10 @@ class OpenSearch extends OpenApiClient
      * @param string         $sceneId
      * @param string         $groupId
      * @param string         $experimentId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers          map
+     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
      *
-     * @return DeleteABTestExperimentResponse
+     * @return DeleteABTestExperimentResponse DeleteABTestExperimentResponse
      */
     public function deleteABTestExperimentWithOptions($appGroupIdentity, $sceneId, $groupId, $experimentId, $headers, $runtime)
     {
@@ -1274,7 +1438,7 @@ class OpenSearch extends OpenApiClient
      * @param string $groupId
      * @param string $experimentId
      *
-     * @return DeleteABTestExperimentResponse
+     * @return DeleteABTestExperimentResponse DeleteABTestExperimentResponse
      */
     public function deleteABTestExperiment($appGroupIdentity, $sceneId, $groupId, $experimentId)
     {
@@ -1288,10 +1452,10 @@ class OpenSearch extends OpenApiClient
      * @param string         $appGroupIdentity
      * @param string         $sceneId
      * @param string         $groupId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers          map
+     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
      *
-     * @return DeleteABTestGroupResponse
+     * @return DeleteABTestGroupResponse DeleteABTestGroupResponse
      */
     public function deleteABTestGroupWithOptions($appGroupIdentity, $sceneId, $groupId, $headers, $runtime)
     {
@@ -1318,7 +1482,7 @@ class OpenSearch extends OpenApiClient
      * @param string $sceneId
      * @param string $groupId
      *
-     * @return DeleteABTestGroupResponse
+     * @return DeleteABTestGroupResponse DeleteABTestGroupResponse
      */
     public function deleteABTestGroup($appGroupIdentity, $sceneId, $groupId)
     {
@@ -1329,12 +1493,14 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Deletes an A/B test scenario.
+     *  *
      * @param string         $appGroupIdentity
      * @param string         $sceneId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers          map
+     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
      *
-     * @return DeleteABTestSceneResponse
+     * @return DeleteABTestSceneResponse DeleteABTestSceneResponse
      */
     public function deleteABTestSceneWithOptions($appGroupIdentity, $sceneId, $headers, $runtime)
     {
@@ -1357,10 +1523,12 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Deletes an A/B test scenario.
+     *  *
      * @param string $appGroupIdentity
      * @param string $sceneId
      *
-     * @return DeleteABTestSceneResponse
+     * @return DeleteABTestSceneResponse DeleteABTestSceneResponse
      */
     public function deleteABTestScene($appGroupIdentity, $sceneId)
     {
@@ -1371,13 +1539,15 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Deletes an algorithm instance. Before you delete an instance, make sure that it is not in use to prevent service interruptions.
+     *  *
      * @param string         $appGroupIdentity
      * @param string         $functionName
      * @param string         $instanceName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers          map
+     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
      *
-     * @return DeleteFunctionInstanceResponse
+     * @return DeleteFunctionInstanceResponse DeleteFunctionInstanceResponse
      */
     public function deleteFunctionInstanceWithOptions($appGroupIdentity, $functionName, $instanceName, $headers, $runtime)
     {
@@ -1400,11 +1570,13 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Deletes an algorithm instance. Before you delete an instance, make sure that it is not in use to prevent service interruptions.
+     *  *
      * @param string $appGroupIdentity
      * @param string $functionName
      * @param string $instanceName
      *
-     * @return DeleteFunctionInstanceResponse
+     * @return DeleteFunctionInstanceResponse DeleteFunctionInstanceResponse
      */
     public function deleteFunctionInstance($appGroupIdentity, $functionName, $instanceName)
     {
@@ -1415,13 +1587,15 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Deletes an algorithm resource.
+     *  *
      * @param string         $appGroupIdentity
      * @param string         $functionName
      * @param string         $resourceName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers          map
+     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
      *
-     * @return DeleteFunctionResourceResponse
+     * @return DeleteFunctionResourceResponse DeleteFunctionResourceResponse
      */
     public function deleteFunctionResourceWithOptions($appGroupIdentity, $functionName, $resourceName, $headers, $runtime)
     {
@@ -1444,11 +1618,13 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Deletes an algorithm resource.
+     *  *
      * @param string $appGroupIdentity
      * @param string $functionName
      * @param string $resourceName
      *
-     * @return DeleteFunctionResourceResponse
+     * @return DeleteFunctionResourceResponse DeleteFunctionResourceResponse
      */
     public function deleteFunctionResource($appGroupIdentity, $functionName, $resourceName)
     {
@@ -1459,14 +1635,16 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Deletes a training task. The training task in progress cannot be deleted.
+     *  *
      * @param string         $appGroupIdentity
      * @param string         $functionName
      * @param string         $instanceName
      * @param string         $generation
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers          map
+     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
      *
-     * @return DeleteFunctionTaskResponse
+     * @return DeleteFunctionTaskResponse DeleteFunctionTaskResponse
      */
     public function deleteFunctionTaskWithOptions($appGroupIdentity, $functionName, $instanceName, $generation, $headers, $runtime)
     {
@@ -1489,12 +1667,14 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Deletes a training task. The training task in progress cannot be deleted.
+     *  *
      * @param string $appGroupIdentity
      * @param string $functionName
      * @param string $instanceName
      * @param string $generation
      *
-     * @return DeleteFunctionTaskResponse
+     * @return DeleteFunctionTaskResponse DeleteFunctionTaskResponse
      */
     public function deleteFunctionTask($appGroupIdentity, $functionName, $instanceName, $generation)
     {
@@ -1508,10 +1688,10 @@ class OpenSearch extends OpenApiClient
      * @param string         $appGroupIdentity
      * @param string         $scriptName
      * @param string         $appVersionId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers          map
+     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
      *
-     * @return DeleteSortScriptResponse
+     * @return DeleteSortScriptResponse DeleteSortScriptResponse
      */
     public function deleteSortScriptWithOptions($appGroupIdentity, $scriptName, $appVersionId, $headers, $runtime)
     {
@@ -1538,7 +1718,7 @@ class OpenSearch extends OpenApiClient
      * @param string $scriptName
      * @param string $appVersionId
      *
-     * @return DeleteSortScriptResponse
+     * @return DeleteSortScriptResponse DeleteSortScriptResponse
      */
     public function deleteSortScript($appGroupIdentity, $scriptName, $appVersionId)
     {
@@ -1553,10 +1733,10 @@ class OpenSearch extends OpenApiClient
      * @param string         $appVersionId
      * @param string         $scriptName
      * @param string         $fileName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers          map
+     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
      *
-     * @return DeleteSortScriptFileResponse
+     * @return DeleteSortScriptFileResponse DeleteSortScriptFileResponse
      */
     public function deleteSortScriptFileWithOptions($appGroupIdentity, $appVersionId, $scriptName, $fileName, $headers, $runtime)
     {
@@ -1584,7 +1764,7 @@ class OpenSearch extends OpenApiClient
      * @param string $scriptName
      * @param string $fileName
      *
-     * @return DeleteSortScriptFileResponse
+     * @return DeleteSortScriptFileResponse DeleteSortScriptFileResponse
      */
     public function deleteSortScriptFile($appGroupIdentity, $appVersionId, $scriptName, $fileName)
     {
@@ -1599,10 +1779,10 @@ class OpenSearch extends OpenApiClient
      * @param string         $sceneId
      * @param string         $groupId
      * @param string         $experimentId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers          map
+     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
      *
-     * @return DescribeABTestExperimentResponse
+     * @return DescribeABTestExperimentResponse DescribeABTestExperimentResponse
      */
     public function describeABTestExperimentWithOptions($appGroupIdentity, $sceneId, $groupId, $experimentId, $headers, $runtime)
     {
@@ -1630,7 +1810,7 @@ class OpenSearch extends OpenApiClient
      * @param string $groupId
      * @param string $experimentId
      *
-     * @return DescribeABTestExperimentResponse
+     * @return DescribeABTestExperimentResponse DescribeABTestExperimentResponse
      */
     public function describeABTestExperiment($appGroupIdentity, $sceneId, $groupId, $experimentId)
     {
@@ -1644,10 +1824,10 @@ class OpenSearch extends OpenApiClient
      * @param string         $appGroupIdentity
      * @param string         $sceneId
      * @param string         $groupId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers          map
+     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
      *
-     * @return DescribeABTestGroupResponse
+     * @return DescribeABTestGroupResponse DescribeABTestGroupResponse
      */
     public function describeABTestGroupWithOptions($appGroupIdentity, $sceneId, $groupId, $headers, $runtime)
     {
@@ -1674,7 +1854,7 @@ class OpenSearch extends OpenApiClient
      * @param string $sceneId
      * @param string $groupId
      *
-     * @return DescribeABTestGroupResponse
+     * @return DescribeABTestGroupResponse DescribeABTestGroupResponse
      */
     public function describeABTestGroup($appGroupIdentity, $sceneId, $groupId)
     {
@@ -1685,12 +1865,14 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Queries the information about an A/B test scenario.
+     *  *
      * @param string         $appGroupIdentity
      * @param string         $sceneId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers          map
+     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
      *
-     * @return DescribeABTestSceneResponse
+     * @return DescribeABTestSceneResponse DescribeABTestSceneResponse
      */
     public function describeABTestSceneWithOptions($appGroupIdentity, $sceneId, $headers, $runtime)
     {
@@ -1713,10 +1895,12 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Queries the information about an A/B test scenario.
+     *  *
      * @param string $appGroupIdentity
      * @param string $sceneId
      *
-     * @return DescribeABTestSceneResponse
+     * @return DescribeABTestSceneResponse DescribeABTestSceneResponse
      */
     public function describeABTestScene($appGroupIdentity, $sceneId)
     {
@@ -1729,10 +1913,10 @@ class OpenSearch extends OpenApiClient
     /**
      * @param string         $appGroupIdentity
      * @param string         $appId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers          map
+     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
      *
-     * @return DescribeAppResponse
+     * @return DescribeAppResponse DescribeAppResponse
      */
     public function describeAppWithOptions($appGroupIdentity, $appId, $headers, $runtime)
     {
@@ -1758,7 +1942,7 @@ class OpenSearch extends OpenApiClient
      * @param string $appGroupIdentity
      * @param string $appId
      *
-     * @return DescribeAppResponse
+     * @return DescribeAppResponse DescribeAppResponse
      */
     public function describeApp($appGroupIdentity, $appId)
     {
@@ -1769,11 +1953,13 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Queries the details of an OpenSearch application.
+     *  *
      * @param string         $appGroupIdentity
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers          map
+     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
      *
-     * @return DescribeAppGroupResponse
+     * @return DescribeAppGroupResponse DescribeAppGroupResponse
      */
     public function describeAppGroupWithOptions($appGroupIdentity, $headers, $runtime)
     {
@@ -1796,9 +1982,11 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Queries the details of an OpenSearch application.
+     *  *
      * @param string $appGroupIdentity
      *
-     * @return DescribeAppGroupResponse
+     * @return DescribeAppGroupResponse DescribeAppGroupResponse
      */
     public function describeAppGroup($appGroupIdentity)
     {
@@ -1811,10 +1999,10 @@ class OpenSearch extends OpenApiClient
     /**
      * @param string         $appGroupIdentity
      * @param string         $appId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers          map
+     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
      *
-     * @return DescribeAppStatisticsResponse
+     * @return DescribeAppStatisticsResponse DescribeAppStatisticsResponse
      */
     public function describeAppStatisticsWithOptions($appGroupIdentity, $appId, $headers, $runtime)
     {
@@ -1840,7 +2028,7 @@ class OpenSearch extends OpenApiClient
      * @param string $appGroupIdentity
      * @param string $appId
      *
-     * @return DescribeAppStatisticsResponse
+     * @return DescribeAppStatisticsResponse DescribeAppStatisticsResponse
      */
     public function describeAppStatistics($appGroupIdentity, $appId)
     {
@@ -1852,10 +2040,10 @@ class OpenSearch extends OpenApiClient
 
     /**
      * @param string         $appGroupIdentity
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers          map
+     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
      *
-     * @return DescribeAppsResponse
+     * @return DescribeAppsResponse DescribeAppsResponse
      */
     public function describeAppsWithOptions($appGroupIdentity, $headers, $runtime)
     {
@@ -1880,7 +2068,7 @@ class OpenSearch extends OpenApiClient
     /**
      * @param string $appGroupIdentity
      *
-     * @return DescribeAppsResponse
+     * @return DescribeAppsResponse DescribeAppsResponse
      */
     public function describeApps($appGroupIdentity)
     {
@@ -1891,12 +2079,14 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Queries the details of a data collection task of an application.
+     *  *
      * @param string         $appGroupIdentity
      * @param string         $dataCollectionIdentity
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers                map
+     * @param RuntimeOptions $runtime                runtime options for this request RuntimeOptions
      *
-     * @return DescribeDataCollctionResponse
+     * @return DescribeDataCollctionResponse DescribeDataCollctionResponse
      */
     public function describeDataCollctionWithOptions($appGroupIdentity, $dataCollectionIdentity, $headers, $runtime)
     {
@@ -1919,10 +2109,12 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Queries the details of a data collection task of an application.
+     *  *
      * @param string $appGroupIdentity
      * @param string $dataCollectionIdentity
      *
-     * @return DescribeDataCollctionResponse
+     * @return DescribeDataCollctionResponse DescribeDataCollctionResponse
      */
     public function describeDataCollction($appGroupIdentity, $dataCollectionIdentity)
     {
@@ -1936,10 +2128,10 @@ class OpenSearch extends OpenApiClient
      * @param string         $appGroupIdentity
      * @param string         $appId
      * @param string         $name
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers          map
+     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
      *
-     * @return DescribeFirstRankResponse
+     * @return DescribeFirstRankResponse DescribeFirstRankResponse
      */
     public function describeFirstRankWithOptions($appGroupIdentity, $appId, $name, $headers, $runtime)
     {
@@ -1966,7 +2158,7 @@ class OpenSearch extends OpenApiClient
      * @param string $appId
      * @param string $name
      *
-     * @return DescribeFirstRankResponse
+     * @return DescribeFirstRankResponse DescribeFirstRankResponse
      */
     public function describeFirstRank($appGroupIdentity, $appId, $name)
     {
@@ -1978,10 +2170,10 @@ class OpenSearch extends OpenApiClient
 
     /**
      * @param string         $name
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeInterventionDictionaryResponse
+     * @return DescribeInterventionDictionaryResponse DescribeInterventionDictionaryResponse
      */
     public function describeInterventionDictionaryWithOptions($name, $headers, $runtime)
     {
@@ -2006,7 +2198,7 @@ class OpenSearch extends OpenApiClient
     /**
      * @param string $name
      *
-     * @return DescribeInterventionDictionaryResponse
+     * @return DescribeInterventionDictionaryResponse DescribeInterventionDictionaryResponse
      */
     public function describeInterventionDictionary($name)
     {
@@ -2020,10 +2212,10 @@ class OpenSearch extends OpenApiClient
      * @param string         $appGroupIdentity
      * @param string         $appId
      * @param string         $name
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers          map
+     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
      *
-     * @return DescribeQueryProcessorResponse
+     * @return DescribeQueryProcessorResponse DescribeQueryProcessorResponse
      */
     public function describeQueryProcessorWithOptions($appGroupIdentity, $appId, $name, $headers, $runtime)
     {
@@ -2050,7 +2242,7 @@ class OpenSearch extends OpenApiClient
      * @param string $appId
      * @param string $name
      *
-     * @return DescribeQueryProcessorResponse
+     * @return DescribeQueryProcessorResponse DescribeQueryProcessorResponse
      */
     public function describeQueryProcessor($appGroupIdentity, $appId, $name)
     {
@@ -2061,10 +2253,12 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @summary Queries the endpoints of all regions that support OpenSearch.
+     *  *
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegionsWithOptions($headers, $runtime)
     {
@@ -2087,7 +2281,9 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @return DescribeRegionsResponse
+     * @summary Queries the endpoints of all regions that support OpenSearch.
+     *  *
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegions()
     {
@@ -2100,10 +2296,10 @@ class OpenSearch extends OpenApiClient
     /**
      * @param string         $appGroupIdentity
      * @param string         $taskId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers          map
+     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
      *
-     * @return DescribeScheduledTaskResponse
+     * @return DescribeScheduledTaskResponse DescribeScheduledTaskResponse
      */
     public function describeScheduledTaskWithOptions($appGroupIdentity, $taskId, $headers, $runtime)
     {
@@ -2129,7 +2325,7 @@ class OpenSearch extends OpenApiClient
      * @param string $appGroupIdentity
      * @param string $taskId
      *
-     * @return DescribeScheduledTaskResponse
+     * @return DescribeScheduledTaskResponse DescribeScheduledTaskResponse
      */
     public function describeScheduledTask($appGroupIdentity, $taskId)
     {
@@ -2143,10 +2339,10 @@ class OpenSearch extends OpenApiClient
      * @param string         $appGroupIdentity
      * @param string         $appId
      * @param string         $name
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers          map
+     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
      *
-     * @return DescribeSecondRankResponse
+     * @return DescribeSecondRankResponse DescribeSecondRankResponse
      */
     public function describeSecondRankWithOptions($appGroupIdentity, $appId, $name, $headers, $runtime)
     {
@@ -2173,7 +2369,7 @@ class OpenSearch extends OpenApiClient
      * @param string $appId
      * @param string $name
      *
-     * @return DescribeSecondRankResponse
+     * @return DescribeSecondRankResponse DescribeSecondRankResponse
      */
     public function describeSecondRank($appGroupIdentity, $appId, $name)
     {
@@ -2185,10 +2381,10 @@ class OpenSearch extends OpenApiClient
 
     /**
      * @param string         $appGroupIdentity
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers          map
+     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
      *
-     * @return DescribeSlowQueryStatusResponse
+     * @return DescribeSlowQueryStatusResponse DescribeSlowQueryStatusResponse
      */
     public function describeSlowQueryStatusWithOptions($appGroupIdentity, $headers, $runtime)
     {
@@ -2213,7 +2409,7 @@ class OpenSearch extends OpenApiClient
     /**
      * @param string $appGroupIdentity
      *
-     * @return DescribeSlowQueryStatusResponse
+     * @return DescribeSlowQueryStatusResponse DescribeSlowQueryStatusResponse
      */
     public function describeSlowQueryStatus($appGroupIdentity)
     {
@@ -2225,11 +2421,11 @@ class OpenSearch extends OpenApiClient
 
     /**
      * @param string                      $name
-     * @param DescribeUserAnalyzerRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @param DescribeUserAnalyzerRequest $request DescribeUserAnalyzerRequest
+     * @param string[]                    $headers map
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeUserAnalyzerResponse
+     * @return DescribeUserAnalyzerResponse DescribeUserAnalyzerResponse
      */
     public function describeUserAnalyzerWithOptions($name, $request, $headers, $runtime)
     {
@@ -2259,9 +2455,9 @@ class OpenSearch extends OpenApiClient
 
     /**
      * @param string                      $name
-     * @param DescribeUserAnalyzerRequest $request
+     * @param DescribeUserAnalyzerRequest $request DescribeUserAnalyzerRequest
      *
-     * @return DescribeUserAnalyzerResponse
+     * @return DescribeUserAnalyzerResponse DescribeUserAnalyzerResponse
      */
     public function describeUserAnalyzer($name, $request)
     {
@@ -2273,10 +2469,10 @@ class OpenSearch extends OpenApiClient
 
     /**
      * @param string         $appGroupIdentity
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers          map
+     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
      *
-     * @return DisableSlowQueryResponse
+     * @return DisableSlowQueryResponse DisableSlowQueryResponse
      */
     public function disableSlowQueryWithOptions($appGroupIdentity, $headers, $runtime)
     {
@@ -2301,7 +2497,7 @@ class OpenSearch extends OpenApiClient
     /**
      * @param string $appGroupIdentity
      *
-     * @return DisableSlowQueryResponse
+     * @return DisableSlowQueryResponse DisableSlowQueryResponse
      */
     public function disableSlowQuery($appGroupIdentity)
     {
@@ -2313,10 +2509,10 @@ class OpenSearch extends OpenApiClient
 
     /**
      * @param string         $appGroupIdentity
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers          map
+     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
      *
-     * @return EnableSlowQueryResponse
+     * @return EnableSlowQueryResponse EnableSlowQueryResponse
      */
     public function enableSlowQueryWithOptions($appGroupIdentity, $headers, $runtime)
     {
@@ -2341,7 +2537,7 @@ class OpenSearch extends OpenApiClient
     /**
      * @param string $appGroupIdentity
      *
-     * @return EnableSlowQueryResponse
+     * @return EnableSlowQueryResponse EnableSlowQueryResponse
      */
     public function enableSlowQuery($appGroupIdentity)
     {
@@ -2352,11 +2548,13 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @param GenerateMergedTableRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @summary Queries the information about a wide table that is generated after a JOIN operation is performed on multiple tables.
+     *  *
+     * @param GenerateMergedTableRequest $request GenerateMergedTableRequest
+     * @param string[]                   $headers map
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return GenerateMergedTableResponse
+     * @return GenerateMergedTableResponse GenerateMergedTableResponse
      */
     public function generateMergedTableWithOptions($request, $headers, $runtime)
     {
@@ -2386,9 +2584,11 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @param GenerateMergedTableRequest $request
+     * @summary Queries the information about a wide table that is generated after a JOIN operation is performed on multiple tables.
+     *  *
+     * @param GenerateMergedTableRequest $request GenerateMergedTableRequest
      *
-     * @return GenerateMergedTableResponse
+     * @return GenerateMergedTableResponse GenerateMergedTableResponse
      */
     public function generateMergedTable($request)
     {
@@ -2399,12 +2599,14 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Queries the type of an industry.
+     *  *
      * @param string           $domainName
-     * @param GetDomainRequest $request
-     * @param string[]         $headers
-     * @param RuntimeOptions   $runtime
+     * @param GetDomainRequest $request    GetDomainRequest
+     * @param string[]         $headers    map
+     * @param RuntimeOptions   $runtime    runtime options for this request RuntimeOptions
      *
-     * @return GetDomainResponse
+     * @return GetDomainResponse GetDomainResponse
      */
     public function getDomainWithOptions($domainName, $request, $headers, $runtime)
     {
@@ -2433,10 +2635,12 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Queries the type of an industry.
+     *  *
      * @param string           $domainName
-     * @param GetDomainRequest $request
+     * @param GetDomainRequest $request    GetDomainRequest
      *
-     * @return GetDomainResponse
+     * @return GetDomainResponse GetDomainResponse
      */
     public function getDomain($domainName, $request)
     {
@@ -2447,12 +2651,14 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Queries the version information about the current feature when you create an instance.
+     *  *
      * @param string                           $functionName
-     * @param GetFunctionCurrentVersionRequest $request
-     * @param string[]                         $headers
-     * @param RuntimeOptions                   $runtime
+     * @param GetFunctionCurrentVersionRequest $request      GetFunctionCurrentVersionRequest
+     * @param string[]                         $headers      map
+     * @param RuntimeOptions                   $runtime      runtime options for this request RuntimeOptions
      *
-     * @return GetFunctionCurrentVersionResponse
+     * @return GetFunctionCurrentVersionResponse GetFunctionCurrentVersionResponse
      */
     public function getFunctionCurrentVersionWithOptions($functionName, $request, $headers, $runtime)
     {
@@ -2490,10 +2696,12 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Queries the version information about the current feature when you create an instance.
+     *  *
      * @param string                           $functionName
-     * @param GetFunctionCurrentVersionRequest $request
+     * @param GetFunctionCurrentVersionRequest $request      GetFunctionCurrentVersionRequest
      *
-     * @return GetFunctionCurrentVersionResponse
+     * @return GetFunctionCurrentVersionResponse GetFunctionCurrentVersionResponse
      */
     public function getFunctionCurrentVersion($functionName, $request)
     {
@@ -2504,12 +2712,14 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Queries the algorithm instance that an application uses by default.
+     *  *
      * @param string         $appGroupIdentity
      * @param string         $functionName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers          map
+     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
      *
-     * @return GetFunctionDefaultInstanceResponse
+     * @return GetFunctionDefaultInstanceResponse GetFunctionDefaultInstanceResponse
      */
     public function getFunctionDefaultInstanceWithOptions($appGroupIdentity, $functionName, $headers, $runtime)
     {
@@ -2532,10 +2742,12 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Queries the algorithm instance that an application uses by default.
+     *  *
      * @param string $appGroupIdentity
      * @param string $functionName
      *
-     * @return GetFunctionDefaultInstanceResponse
+     * @return GetFunctionDefaultInstanceResponse GetFunctionDefaultInstanceResponse
      */
     public function getFunctionDefaultInstance($appGroupIdentity, $functionName)
     {
@@ -2546,14 +2758,16 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Queries the details of an algorithm instance by instance name.
+     *  *
      * @param string                     $appGroupIdentity
      * @param string                     $functionName
      * @param string                     $instanceName
-     * @param GetFunctionInstanceRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @param GetFunctionInstanceRequest $request          GetFunctionInstanceRequest
+     * @param string[]                   $headers          map
+     * @param RuntimeOptions             $runtime          runtime options for this request RuntimeOptions
      *
-     * @return GetFunctionInstanceResponse
+     * @return GetFunctionInstanceResponse GetFunctionInstanceResponse
      */
     public function getFunctionInstanceWithOptions($appGroupIdentity, $functionName, $instanceName, $request, $headers, $runtime)
     {
@@ -2582,12 +2796,14 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Queries the details of an algorithm instance by instance name.
+     *  *
      * @param string                     $appGroupIdentity
      * @param string                     $functionName
      * @param string                     $instanceName
-     * @param GetFunctionInstanceRequest $request
+     * @param GetFunctionInstanceRequest $request          GetFunctionInstanceRequest
      *
-     * @return GetFunctionInstanceResponse
+     * @return GetFunctionInstanceResponse GetFunctionInstanceResponse
      */
     public function getFunctionInstance($appGroupIdentity, $functionName, $instanceName, $request)
     {
@@ -2598,14 +2814,16 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Queries an algorithm resource.
+     *  *
      * @param string                     $appGroupIdentity
      * @param string                     $functionName
      * @param string                     $resourceName
-     * @param GetFunctionResourceRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @param GetFunctionResourceRequest $request          GetFunctionResourceRequest
+     * @param string[]                   $headers          map
+     * @param RuntimeOptions             $runtime          runtime options for this request RuntimeOptions
      *
-     * @return GetFunctionResourceResponse
+     * @return GetFunctionResourceResponse GetFunctionResourceResponse
      */
     public function getFunctionResourceWithOptions($appGroupIdentity, $functionName, $resourceName, $request, $headers, $runtime)
     {
@@ -2634,12 +2852,14 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Queries an algorithm resource.
+     *  *
      * @param string                     $appGroupIdentity
      * @param string                     $functionName
      * @param string                     $resourceName
-     * @param GetFunctionResourceRequest $request
+     * @param GetFunctionResourceRequest $request          GetFunctionResourceRequest
      *
-     * @return GetFunctionResourceResponse
+     * @return GetFunctionResourceResponse GetFunctionResourceResponse
      */
     public function getFunctionResource($appGroupIdentity, $functionName, $resourceName, $request)
     {
@@ -2650,14 +2870,16 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Queries the details of a training task.
+     *  *
      * @param string         $appGroupIdentity
      * @param string         $functionName
      * @param string         $instanceName
      * @param string         $generation
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers          map
+     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
      *
-     * @return GetFunctionTaskResponse
+     * @return GetFunctionTaskResponse GetFunctionTaskResponse
      */
     public function getFunctionTaskWithOptions($appGroupIdentity, $functionName, $instanceName, $generation, $headers, $runtime)
     {
@@ -2680,12 +2902,14 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Queries the details of a training task.
+     *  *
      * @param string $appGroupIdentity
      * @param string $functionName
      * @param string $instanceName
      * @param string $generation
      *
-     * @return GetFunctionTaskResponse
+     * @return GetFunctionTaskResponse GetFunctionTaskResponse
      */
     public function getFunctionTask($appGroupIdentity, $functionName, $instanceName, $generation)
     {
@@ -2696,12 +2920,14 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Queries version information by version ID.
+     *  *
      * @param string         $functionName
      * @param string         $versionId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers      map
+     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
      *
-     * @return GetFunctionVersionResponse
+     * @return GetFunctionVersionResponse GetFunctionVersionResponse
      */
     public function getFunctionVersionWithOptions($functionName, $versionId, $headers, $runtime)
     {
@@ -2724,10 +2950,12 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Queries version information by version ID.
+     *  *
      * @param string $functionName
      * @param string $versionId
      *
-     * @return GetFunctionVersionResponse
+     * @return GetFunctionVersionResponse GetFunctionVersionResponse
      */
     public function getFunctionVersion($functionName, $versionId)
     {
@@ -2741,10 +2969,10 @@ class OpenSearch extends OpenApiClient
      * @param string         $appGroupIdentity
      * @param string         $appVersionId
      * @param string         $scriptName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers          map
+     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
      *
-     * @return GetScriptFileNamesResponse
+     * @return GetScriptFileNamesResponse GetScriptFileNamesResponse
      */
     public function getScriptFileNamesWithOptions($appGroupIdentity, $appVersionId, $scriptName, $headers, $runtime)
     {
@@ -2771,7 +2999,7 @@ class OpenSearch extends OpenApiClient
      * @param string $appVersionId
      * @param string $scriptName
      *
-     * @return GetScriptFileNamesResponse
+     * @return GetScriptFileNamesResponse GetScriptFileNamesResponse
      */
     public function getScriptFileNames($appGroupIdentity, $appVersionId, $scriptName)
     {
@@ -2782,13 +3010,15 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Queries the details of a query policy.
+     *  *
      * @param string         $appGroupIdentity
      * @param string         $appId
      * @param string         $strategyName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers          map
+     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
      *
-     * @return GetSearchStrategyResponse
+     * @return GetSearchStrategyResponse GetSearchStrategyResponse
      */
     public function getSearchStrategyWithOptions($appGroupIdentity, $appId, $strategyName, $headers, $runtime)
     {
@@ -2811,11 +3041,13 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Queries the details of a query policy.
+     *  *
      * @param string $appGroupIdentity
      * @param string $appId
      * @param string $strategyName
      *
-     * @return GetSearchStrategyResponse
+     * @return GetSearchStrategyResponse GetSearchStrategyResponse
      */
     public function getSearchStrategy($appGroupIdentity, $appId, $strategyName)
     {
@@ -2826,13 +3058,15 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Queries the details of a sort script.
+     *  *
      * @param string         $appGroupIdentity
      * @param string         $scriptName
      * @param string         $appVersionId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers          map
+     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
      *
-     * @return GetSortScriptResponse
+     * @return GetSortScriptResponse GetSortScriptResponse
      */
     public function getSortScriptWithOptions($appGroupIdentity, $scriptName, $appVersionId, $headers, $runtime)
     {
@@ -2855,11 +3089,13 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Queries the details of a sort script.
+     *  *
      * @param string $appGroupIdentity
      * @param string $scriptName
      * @param string $appVersionId
      *
-     * @return GetSortScriptResponse
+     * @return GetSortScriptResponse GetSortScriptResponse
      */
     public function getSortScript($appGroupIdentity, $scriptName, $appVersionId)
     {
@@ -2870,14 +3106,16 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Queries the content of a sort script.
+     *  *
      * @param string         $appGroupIdentity
      * @param string         $scriptName
      * @param string         $appVersionId
      * @param string         $fileName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers          map
+     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
      *
-     * @return GetSortScriptFileResponse
+     * @return GetSortScriptFileResponse GetSortScriptFileResponse
      */
     public function getSortScriptFileWithOptions($appGroupIdentity, $scriptName, $appVersionId, $fileName, $headers, $runtime)
     {
@@ -2900,12 +3138,14 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Queries the content of a sort script.
+     *  *
      * @param string $appGroupIdentity
      * @param string $scriptName
      * @param string $appVersionId
      * @param string $fileName
      *
-     * @return GetSortScriptFileResponse
+     * @return GetSortScriptFileResponse GetSortScriptFileResponse
      */
     public function getSortScriptFile($appGroupIdentity, $scriptName, $appVersionId, $fileName)
     {
@@ -2916,13 +3156,15 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Queries a list of experiments.
+     *  *
      * @param string         $appGroupIdentity
      * @param string         $sceneId
      * @param string         $groupId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers          map
+     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
      *
-     * @return ListABTestExperimentsResponse
+     * @return ListABTestExperimentsResponse ListABTestExperimentsResponse
      */
     public function listABTestExperimentsWithOptions($appGroupIdentity, $sceneId, $groupId, $headers, $runtime)
     {
@@ -2945,11 +3187,13 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Queries a list of experiments.
+     *  *
      * @param string $appGroupIdentity
      * @param string $sceneId
      * @param string $groupId
      *
-     * @return ListABTestExperimentsResponse
+     * @return ListABTestExperimentsResponse ListABTestExperimentsResponse
      */
     public function listABTestExperiments($appGroupIdentity, $sceneId, $groupId)
     {
@@ -2964,10 +3208,10 @@ class OpenSearch extends OpenApiClient
      * @param string         $sceneId
      * @param string         $groupId
      * @param string         $experimentId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers          map
+     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
      *
-     * @return ListABTestFixedFlowDividersResponse
+     * @return ListABTestFixedFlowDividersResponse ListABTestFixedFlowDividersResponse
      */
     public function listABTestFixedFlowDividersWithOptions($appGroupIdentity, $sceneId, $groupId, $experimentId, $headers, $runtime)
     {
@@ -2995,7 +3239,7 @@ class OpenSearch extends OpenApiClient
      * @param string $groupId
      * @param string $experimentId
      *
-     * @return ListABTestFixedFlowDividersResponse
+     * @return ListABTestFixedFlowDividersResponse ListABTestFixedFlowDividersResponse
      */
     public function listABTestFixedFlowDividers($appGroupIdentity, $sceneId, $groupId, $experimentId)
     {
@@ -3008,10 +3252,10 @@ class OpenSearch extends OpenApiClient
     /**
      * @param string         $appGroupIdentity
      * @param string         $sceneId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers          map
+     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
      *
-     * @return ListABTestGroupsResponse
+     * @return ListABTestGroupsResponse ListABTestGroupsResponse
      */
     public function listABTestGroupsWithOptions($appGroupIdentity, $sceneId, $headers, $runtime)
     {
@@ -3037,7 +3281,7 @@ class OpenSearch extends OpenApiClient
      * @param string $appGroupIdentity
      * @param string $sceneId
      *
-     * @return ListABTestGroupsResponse
+     * @return ListABTestGroupsResponse ListABTestGroupsResponse
      */
     public function listABTestGroups($appGroupIdentity, $sceneId)
     {
@@ -3049,10 +3293,10 @@ class OpenSearch extends OpenApiClient
 
     /**
      * @param string         $appGroupIdentity
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers          map
+     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
      *
-     * @return ListABTestScenesResponse
+     * @return ListABTestScenesResponse ListABTestScenesResponse
      */
     public function listABTestScenesWithOptions($appGroupIdentity, $headers, $runtime)
     {
@@ -3077,7 +3321,7 @@ class OpenSearch extends OpenApiClient
     /**
      * @param string $appGroupIdentity
      *
-     * @return ListABTestScenesResponse
+     * @return ListABTestScenesResponse ListABTestScenesResponse
      */
     public function listABTestScenes($appGroupIdentity)
     {
@@ -3088,10 +3332,12 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * *   This operation allows you to query applications by application name, instance ID, and application type.
-     *   * *   This operation can sort the applications based on their creation time.
-     *   * *   This operation supports the parameters for paging.
-     *   *
+     * @summary Queries a list of OpenSearch applications.
+     *  *
+     * @description *   This operation allows you to query applications by application name, instance ID, and application type.
+     * *   This operation allows you to sort the applications based on their creation time.
+     * *   This operation supports the parameters for paging.
+     *  *
      * @param ListAppGroupsRequest $tmpReq  ListAppGroupsRequest
      * @param string[]             $headers map
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -3151,10 +3397,12 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * *   This operation allows you to query applications by application name, instance ID, and application type.
-     *   * *   This operation can sort the applications based on their creation time.
-     *   * *   This operation supports the parameters for paging.
-     *   *
+     * @summary Queries a list of OpenSearch applications.
+     *  *
+     * @description *   This operation allows you to query applications by application name, instance ID, and application type.
+     * *   This operation allows you to sort the applications based on their creation time.
+     * *   This operation supports the parameters for paging.
+     *  *
      * @param ListAppGroupsRequest $request ListAppGroupsRequest
      *
      * @return ListAppGroupsResponse ListAppGroupsResponse
@@ -3169,11 +3417,11 @@ class OpenSearch extends OpenApiClient
 
     /**
      * @param string                     $appGroupIdentity
-     * @param ListDataCollectionsRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @param ListDataCollectionsRequest $request          ListDataCollectionsRequest
+     * @param string[]                   $headers          map
+     * @param RuntimeOptions             $runtime          runtime options for this request RuntimeOptions
      *
-     * @return ListDataCollectionsResponse
+     * @return ListDataCollectionsResponse ListDataCollectionsResponse
      */
     public function listDataCollectionsWithOptions($appGroupIdentity, $request, $headers, $runtime)
     {
@@ -3206,9 +3454,9 @@ class OpenSearch extends OpenApiClient
 
     /**
      * @param string                     $appGroupIdentity
-     * @param ListDataCollectionsRequest $request
+     * @param ListDataCollectionsRequest $request          ListDataCollectionsRequest
      *
-     * @return ListDataCollectionsResponse
+     * @return ListDataCollectionsResponse ListDataCollectionsResponse
      */
     public function listDataCollections($appGroupIdentity, $request)
     {
@@ -3219,12 +3467,14 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Queries all fields in a table of a data source. This operation is for internal use only.
+     *  *
      * @param string                           $dataSourceType
-     * @param ListDataSourceTableFieldsRequest $request
-     * @param string[]                         $headers
-     * @param RuntimeOptions                   $runtime
+     * @param ListDataSourceTableFieldsRequest $request        ListDataSourceTableFieldsRequest
+     * @param string[]                         $headers        map
+     * @param RuntimeOptions                   $runtime        runtime options for this request RuntimeOptions
      *
-     * @return ListDataSourceTableFieldsResponse
+     * @return ListDataSourceTableFieldsResponse ListDataSourceTableFieldsResponse
      */
     public function listDataSourceTableFieldsWithOptions($dataSourceType, $request, $headers, $runtime)
     {
@@ -3256,10 +3506,12 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Queries all fields in a table of a data source. This operation is for internal use only.
+     *  *
      * @param string                           $dataSourceType
-     * @param ListDataSourceTableFieldsRequest $request
+     * @param ListDataSourceTableFieldsRequest $request        ListDataSourceTableFieldsRequest
      *
-     * @return ListDataSourceTableFieldsResponse
+     * @return ListDataSourceTableFieldsResponse ListDataSourceTableFieldsResponse
      */
     public function listDataSourceTableFields($dataSourceType, $request)
     {
@@ -3271,11 +3523,11 @@ class OpenSearch extends OpenApiClient
 
     /**
      * @param string                      $dataSourceType
-     * @param ListDataSourceTablesRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @param ListDataSourceTablesRequest $request        ListDataSourceTablesRequest
+     * @param string[]                    $headers        map
+     * @param RuntimeOptions              $runtime        runtime options for this request RuntimeOptions
      *
-     * @return ListDataSourceTablesResponse
+     * @return ListDataSourceTablesResponse ListDataSourceTablesResponse
      */
     public function listDataSourceTablesWithOptions($dataSourceType, $request, $headers, $runtime)
     {
@@ -3305,9 +3557,9 @@ class OpenSearch extends OpenApiClient
 
     /**
      * @param string                      $dataSourceType
-     * @param ListDataSourceTablesRequest $request
+     * @param ListDataSourceTablesRequest $request        ListDataSourceTablesRequest
      *
-     * @return ListDataSourceTablesResponse
+     * @return ListDataSourceTablesResponse ListDataSourceTablesResponse
      */
     public function listDataSourceTables($dataSourceType, $request)
     {
@@ -3320,10 +3572,10 @@ class OpenSearch extends OpenApiClient
     /**
      * @param string         $appGroupIdentity
      * @param string         $appId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers          map
+     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
      *
-     * @return ListFirstRanksResponse
+     * @return ListFirstRanksResponse ListFirstRanksResponse
      */
     public function listFirstRanksWithOptions($appGroupIdentity, $appId, $headers, $runtime)
     {
@@ -3349,7 +3601,7 @@ class OpenSearch extends OpenApiClient
      * @param string $appGroupIdentity
      * @param string $appId
      *
-     * @return ListFirstRanksResponse
+     * @return ListFirstRanksResponse ListFirstRanksResponse
      */
     public function listFirstRanks($appGroupIdentity, $appId)
     {
@@ -3360,13 +3612,15 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Queries all algorithm instances of a user, which meet specified conditions.
+     *  *
      * @param string                       $appGroupIdentity
      * @param string                       $functionName
-     * @param ListFunctionInstancesRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @param ListFunctionInstancesRequest $request          ListFunctionInstancesRequest
+     * @param string[]                     $headers          map
+     * @param RuntimeOptions               $runtime          runtime options for this request RuntimeOptions
      *
-     * @return ListFunctionInstancesResponse
+     * @return ListFunctionInstancesResponse ListFunctionInstancesResponse
      */
     public function listFunctionInstancesWithOptions($appGroupIdentity, $functionName, $request, $headers, $runtime)
     {
@@ -3410,11 +3664,13 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Queries all algorithm instances of a user, which meet specified conditions.
+     *  *
      * @param string                       $appGroupIdentity
      * @param string                       $functionName
-     * @param ListFunctionInstancesRequest $request
+     * @param ListFunctionInstancesRequest $request          ListFunctionInstancesRequest
      *
-     * @return ListFunctionInstancesResponse
+     * @return ListFunctionInstancesResponse ListFunctionInstancesResponse
      */
     public function listFunctionInstances($appGroupIdentity, $functionName, $request)
     {
@@ -3425,13 +3681,15 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Queries algorithm resources.
+     *  *
      * @param string                       $appGroupIdentity
      * @param string                       $functionName
-     * @param ListFunctionResourcesRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @param ListFunctionResourcesRequest $request          ListFunctionResourcesRequest
+     * @param string[]                     $headers          map
+     * @param RuntimeOptions               $runtime          runtime options for this request RuntimeOptions
      *
-     * @return ListFunctionResourcesResponse
+     * @return ListFunctionResourcesResponse ListFunctionResourcesResponse
      */
     public function listFunctionResourcesWithOptions($appGroupIdentity, $functionName, $request, $headers, $runtime)
     {
@@ -3469,11 +3727,13 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Queries algorithm resources.
+     *  *
      * @param string                       $appGroupIdentity
      * @param string                       $functionName
-     * @param ListFunctionResourcesRequest $request
+     * @param ListFunctionResourcesRequest $request          ListFunctionResourcesRequest
      *
-     * @return ListFunctionResourcesResponse
+     * @return ListFunctionResourcesResponse ListFunctionResourcesResponse
      */
     public function listFunctionResources($appGroupIdentity, $functionName, $request)
     {
@@ -3484,14 +3744,16 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Queries the training tasks. The returned results are sorted by start time in descending order.
+     *  *
      * @param string                   $appGroupIdentity
      * @param string                   $functionName
      * @param string                   $instanceName
-     * @param ListFunctionTasksRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @param ListFunctionTasksRequest $request          ListFunctionTasksRequest
+     * @param string[]                 $headers          map
+     * @param RuntimeOptions           $runtime          runtime options for this request RuntimeOptions
      *
-     * @return ListFunctionTasksResponse
+     * @return ListFunctionTasksResponse ListFunctionTasksResponse
      */
     public function listFunctionTasksWithOptions($appGroupIdentity, $functionName, $instanceName, $request, $headers, $runtime)
     {
@@ -3532,12 +3794,14 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Queries the training tasks. The returned results are sorted by start time in descending order.
+     *  *
      * @param string                   $appGroupIdentity
      * @param string                   $functionName
      * @param string                   $instanceName
-     * @param ListFunctionTasksRequest $request
+     * @param ListFunctionTasksRequest $request          ListFunctionTasksRequest
      *
-     * @return ListFunctionTasksResponse
+     * @return ListFunctionTasksResponse ListFunctionTasksResponse
      */
     public function listFunctionTasks($appGroupIdentity, $functionName, $instanceName, $request)
     {
@@ -3548,11 +3812,11 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @param ListInterventionDictionariesRequest $request
-     * @param string[]                            $headers
-     * @param RuntimeOptions                      $runtime
+     * @param ListInterventionDictionariesRequest $request ListInterventionDictionariesRequest
+     * @param string[]                            $headers map
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListInterventionDictionariesResponse
+     * @return ListInterventionDictionariesResponse ListInterventionDictionariesResponse
      */
     public function listInterventionDictionariesWithOptions($request, $headers, $runtime)
     {
@@ -3587,9 +3851,9 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @param ListInterventionDictionariesRequest $request
+     * @param ListInterventionDictionariesRequest $request ListInterventionDictionariesRequest
      *
-     * @return ListInterventionDictionariesResponse
+     * @return ListInterventionDictionariesResponse ListInterventionDictionariesResponse
      */
     public function listInterventionDictionaries($request)
     {
@@ -3600,12 +3864,14 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Queries the intervention entries in an intervention dictionary.
+     *  *
      * @param string                                   $name
-     * @param ListInterventionDictionaryEntriesRequest $request
-     * @param string[]                                 $headers
-     * @param RuntimeOptions                           $runtime
+     * @param ListInterventionDictionaryEntriesRequest $request ListInterventionDictionaryEntriesRequest
+     * @param string[]                                 $headers map
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListInterventionDictionaryEntriesResponse
+     * @return ListInterventionDictionaryEntriesResponse ListInterventionDictionaryEntriesResponse
      */
     public function listInterventionDictionaryEntriesWithOptions($name, $request, $headers, $runtime)
     {
@@ -3640,10 +3906,12 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Queries the intervention entries in an intervention dictionary.
+     *  *
      * @param string                                   $name
-     * @param ListInterventionDictionaryEntriesRequest $request
+     * @param ListInterventionDictionaryEntriesRequest $request ListInterventionDictionaryEntriesRequest
      *
-     * @return ListInterventionDictionaryEntriesResponse
+     * @return ListInterventionDictionaryEntriesResponse ListInterventionDictionaryEntriesResponse
      */
     public function listInterventionDictionaryEntries($name, $request)
     {
@@ -3655,11 +3923,11 @@ class OpenSearch extends OpenApiClient
 
     /**
      * @param string                                      $name
-     * @param ListInterventionDictionaryNerResultsRequest $request
-     * @param string[]                                    $headers
-     * @param RuntimeOptions                              $runtime
+     * @param ListInterventionDictionaryNerResultsRequest $request ListInterventionDictionaryNerResultsRequest
+     * @param string[]                                    $headers map
+     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListInterventionDictionaryNerResultsResponse
+     * @return ListInterventionDictionaryNerResultsResponse ListInterventionDictionaryNerResultsResponse
      */
     public function listInterventionDictionaryNerResultsWithOptions($name, $request, $headers, $runtime)
     {
@@ -3689,9 +3957,9 @@ class OpenSearch extends OpenApiClient
 
     /**
      * @param string                                      $name
-     * @param ListInterventionDictionaryNerResultsRequest $request
+     * @param ListInterventionDictionaryNerResultsRequest $request ListInterventionDictionaryNerResultsRequest
      *
-     * @return ListInterventionDictionaryNerResultsResponse
+     * @return ListInterventionDictionaryNerResultsResponse ListInterventionDictionaryNerResultsResponse
      */
     public function listInterventionDictionaryNerResults($name, $request)
     {
@@ -3703,10 +3971,10 @@ class OpenSearch extends OpenApiClient
 
     /**
      * @param string         $name
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListInterventionDictionaryRelatedEntitiesResponse
+     * @return ListInterventionDictionaryRelatedEntitiesResponse ListInterventionDictionaryRelatedEntitiesResponse
      */
     public function listInterventionDictionaryRelatedEntitiesWithOptions($name, $headers, $runtime)
     {
@@ -3731,7 +3999,7 @@ class OpenSearch extends OpenApiClient
     /**
      * @param string $name
      *
-     * @return ListInterventionDictionaryRelatedEntitiesResponse
+     * @return ListInterventionDictionaryRelatedEntitiesResponse ListInterventionDictionaryRelatedEntitiesResponse
      */
     public function listInterventionDictionaryRelatedEntities($name)
     {
@@ -3742,12 +4010,14 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary 查看当前的处理流
+     *  *
      * @param string                 $appGroupIdentity
-     * @param ListProceedingsRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @param ListProceedingsRequest $request          ListProceedingsRequest
+     * @param string[]               $headers          map
+     * @param RuntimeOptions         $runtime          runtime options for this request RuntimeOptions
      *
-     * @return ListProceedingsResponse
+     * @return ListProceedingsResponse ListProceedingsResponse
      */
     public function listProceedingsWithOptions($appGroupIdentity, $request, $headers, $runtime)
     {
@@ -3776,10 +4046,12 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary 查看当前的处理流
+     *  *
      * @param string                 $appGroupIdentity
-     * @param ListProceedingsRequest $request
+     * @param ListProceedingsRequest $request          ListProceedingsRequest
      *
-     * @return ListProceedingsResponse
+     * @return ListProceedingsResponse ListProceedingsResponse
      */
     public function listProceedings($appGroupIdentity, $request)
     {
@@ -3790,14 +4062,16 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Queries the results of a query analysis test. This API operation is available only to existing applications of OpenSearch Open Source Compatible Edition.
+     *  *
      * @param string                                   $appGroupIdentity
      * @param string                                   $appId
      * @param string                                   $name
-     * @param ListQueryProcessorAnalyzerResultsRequest $request
-     * @param string[]                                 $headers
-     * @param RuntimeOptions                           $runtime
+     * @param ListQueryProcessorAnalyzerResultsRequest $request          ListQueryProcessorAnalyzerResultsRequest
+     * @param string[]                                 $headers          map
+     * @param RuntimeOptions                           $runtime          runtime options for this request RuntimeOptions
      *
-     * @return ListQueryProcessorAnalyzerResultsResponse
+     * @return ListQueryProcessorAnalyzerResultsResponse ListQueryProcessorAnalyzerResultsResponse
      */
     public function listQueryProcessorAnalyzerResultsWithOptions($appGroupIdentity, $appId, $name, $request, $headers, $runtime)
     {
@@ -3826,12 +4100,14 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Queries the results of a query analysis test. This API operation is available only to existing applications of OpenSearch Open Source Compatible Edition.
+     *  *
      * @param string                                   $appGroupIdentity
      * @param string                                   $appId
      * @param string                                   $name
-     * @param ListQueryProcessorAnalyzerResultsRequest $request
+     * @param ListQueryProcessorAnalyzerResultsRequest $request          ListQueryProcessorAnalyzerResultsRequest
      *
-     * @return ListQueryProcessorAnalyzerResultsResponse
+     * @return ListQueryProcessorAnalyzerResultsResponse ListQueryProcessorAnalyzerResultsResponse
      */
     public function listQueryProcessorAnalyzerResults($appGroupIdentity, $appId, $name, $request)
     {
@@ -3842,11 +4118,13 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @param ListQueryProcessorNersRequest $request
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
+     * @summary Queries the recommended priority settings of entity types for named entity recognition (NER).
+     *  *
+     * @param ListQueryProcessorNersRequest $request ListQueryProcessorNersRequest
+     * @param string[]                      $headers map
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListQueryProcessorNersResponse
+     * @return ListQueryProcessorNersResponse ListQueryProcessorNersResponse
      */
     public function listQueryProcessorNersWithOptions($request, $headers, $runtime)
     {
@@ -3875,9 +4153,11 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @param ListQueryProcessorNersRequest $request
+     * @summary Queries the recommended priority settings of entity types for named entity recognition (NER).
+     *  *
+     * @param ListQueryProcessorNersRequest $request ListQueryProcessorNersRequest
      *
-     * @return ListQueryProcessorNersResponse
+     * @return ListQueryProcessorNersResponse ListQueryProcessorNersResponse
      */
     public function listQueryProcessorNers($request)
     {
@@ -3888,13 +4168,15 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Queries a list of query analysis rules that are configured for a version of an OpenSearch application.
+     *  *
      * @param string                     $appGroupIdentity
      * @param string                     $appId
-     * @param ListQueryProcessorsRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @param ListQueryProcessorsRequest $request          ListQueryProcessorsRequest
+     * @param string[]                   $headers          map
+     * @param RuntimeOptions             $runtime          runtime options for this request RuntimeOptions
      *
-     * @return ListQueryProcessorsResponse
+     * @return ListQueryProcessorsResponse ListQueryProcessorsResponse
      */
     public function listQueryProcessorsWithOptions($appGroupIdentity, $appId, $request, $headers, $runtime)
     {
@@ -3923,11 +4205,13 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Queries a list of query analysis rules that are configured for a version of an OpenSearch application.
+     *  *
      * @param string                     $appGroupIdentity
      * @param string                     $appId
-     * @param ListQueryProcessorsRequest $request
+     * @param ListQueryProcessorsRequest $request          ListQueryProcessorsRequest
      *
-     * @return ListQueryProcessorsResponse
+     * @return ListQueryProcessorsResponse ListQueryProcessorsResponse
      */
     public function listQueryProcessors($appGroupIdentity, $appId, $request)
     {
@@ -3938,12 +4222,14 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Queries tickets that are submitted to apply for quotas for an OpenSearch application.
+     *  *
      * @param string                      $appGroupIdentity
-     * @param ListQuotaReviewTasksRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @param ListQuotaReviewTasksRequest $request          ListQuotaReviewTasksRequest
+     * @param string[]                    $headers          map
+     * @param RuntimeOptions              $runtime          runtime options for this request RuntimeOptions
      *
-     * @return ListQuotaReviewTasksResponse
+     * @return ListQuotaReviewTasksResponse ListQuotaReviewTasksResponse
      */
     public function listQuotaReviewTasksWithOptions($appGroupIdentity, $request, $headers, $runtime)
     {
@@ -3975,10 +4261,12 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Queries tickets that are submitted to apply for quotas for an OpenSearch application.
+     *  *
      * @param string                      $appGroupIdentity
-     * @param ListQuotaReviewTasksRequest $request
+     * @param ListQuotaReviewTasksRequest $request          ListQuotaReviewTasksRequest
      *
-     * @return ListQuotaReviewTasksResponse
+     * @return ListQuotaReviewTasksResponse ListQuotaReviewTasksResponse
      */
     public function listQuotaReviewTasks($appGroupIdentity, $request)
     {
@@ -3989,12 +4277,14 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Queries a list of scheduled tasks of an OpenSearch application.
+     *  *
      * @param string                    $appGroupIdentity
-     * @param ListScheduledTasksRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @param ListScheduledTasksRequest $request          ListScheduledTasksRequest
+     * @param string[]                  $headers          map
+     * @param RuntimeOptions            $runtime          runtime options for this request RuntimeOptions
      *
-     * @return ListScheduledTasksResponse
+     * @return ListScheduledTasksResponse ListScheduledTasksResponse
      */
     public function listScheduledTasksWithOptions($appGroupIdentity, $request, $headers, $runtime)
     {
@@ -4029,10 +4319,12 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Queries a list of scheduled tasks of an OpenSearch application.
+     *  *
      * @param string                    $appGroupIdentity
-     * @param ListScheduledTasksRequest $request
+     * @param ListScheduledTasksRequest $request          ListScheduledTasksRequest
      *
-     * @return ListScheduledTasksResponse
+     * @return ListScheduledTasksResponse ListScheduledTasksResponse
      */
     public function listScheduledTasks($appGroupIdentity, $request)
     {
@@ -4043,12 +4335,14 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Queries the details of query policies.
+     *  *
      * @param string         $appGroupIdentity
      * @param string         $appId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers          map
+     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
      *
-     * @return ListSearchStrategiesResponse
+     * @return ListSearchStrategiesResponse ListSearchStrategiesResponse
      */
     public function listSearchStrategiesWithOptions($appGroupIdentity, $appId, $headers, $runtime)
     {
@@ -4071,10 +4365,12 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Queries the details of query policies.
+     *  *
      * @param string $appGroupIdentity
      * @param string $appId
      *
-     * @return ListSearchStrategiesResponse
+     * @return ListSearchStrategiesResponse ListSearchStrategiesResponse
      */
     public function listSearchStrategies($appGroupIdentity, $appId)
     {
@@ -4087,10 +4383,10 @@ class OpenSearch extends OpenApiClient
     /**
      * @param string         $appGroupIdentity
      * @param string         $appId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers          map
+     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
      *
-     * @return ListSecondRanksResponse
+     * @return ListSecondRanksResponse ListSecondRanksResponse
      */
     public function listSecondRanksWithOptions($appGroupIdentity, $appId, $headers, $runtime)
     {
@@ -4116,7 +4412,7 @@ class OpenSearch extends OpenApiClient
      * @param string $appGroupIdentity
      * @param string $appId
      *
-     * @return ListSecondRanksResponse
+     * @return ListSecondRanksResponse ListSecondRanksResponse
      */
     public function listSecondRanks($appGroupIdentity, $appId)
     {
@@ -4127,11 +4423,13 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Queries the suggestions that are provided by Optimization Master for slow queries.
+     *  *
      * @param string         $appGroupIdentity
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers          map
+     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
      *
-     * @return ListSlowQueryCategoriesResponse
+     * @return ListSlowQueryCategoriesResponse ListSlowQueryCategoriesResponse
      */
     public function listSlowQueryCategoriesWithOptions($appGroupIdentity, $headers, $runtime)
     {
@@ -4154,9 +4452,11 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Queries the suggestions that are provided by Optimization Master for slow queries.
+     *  *
      * @param string $appGroupIdentity
      *
-     * @return ListSlowQueryCategoriesResponse
+     * @return ListSlowQueryCategoriesResponse ListSlowQueryCategoriesResponse
      */
     public function listSlowQueryCategories($appGroupIdentity)
     {
@@ -4169,10 +4469,10 @@ class OpenSearch extends OpenApiClient
     /**
      * @param string         $appGroupIdentity
      * @param string         $categoryIndex
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers          map
+     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
      *
-     * @return ListSlowQueryQueriesResponse
+     * @return ListSlowQueryQueriesResponse ListSlowQueryQueriesResponse
      */
     public function listSlowQueryQueriesWithOptions($appGroupIdentity, $categoryIndex, $headers, $runtime)
     {
@@ -4198,7 +4498,7 @@ class OpenSearch extends OpenApiClient
      * @param string $appGroupIdentity
      * @param string $categoryIndex
      *
-     * @return ListSlowQueryQueriesResponse
+     * @return ListSlowQueryQueriesResponse ListSlowQueryQueriesResponse
      */
     public function listSlowQueryQueries($appGroupIdentity, $categoryIndex)
     {
@@ -4209,12 +4509,14 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Queries a list of sort expressions that are configured for a version of an OpenSearch application.
+     *  *
      * @param string         $appGroupIdentity
      * @param string         $appId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers          map
+     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
      *
-     * @return ListSortExpressionsResponse
+     * @return ListSortExpressionsResponse ListSortExpressionsResponse
      */
     public function listSortExpressionsWithOptions($appGroupIdentity, $appId, $headers, $runtime)
     {
@@ -4237,10 +4539,12 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Queries a list of sort expressions that are configured for a version of an OpenSearch application.
+     *  *
      * @param string $appGroupIdentity
      * @param string $appId
      *
-     * @return ListSortExpressionsResponse
+     * @return ListSortExpressionsResponse ListSortExpressionsResponse
      */
     public function listSortExpressions($appGroupIdentity, $appId)
     {
@@ -4251,12 +4555,14 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Queries all sort scripts of an application version.
+     *  *
      * @param string         $appGroupIdentity
      * @param string         $appVersionId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers          map
+     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
      *
-     * @return ListSortScriptsResponse
+     * @return ListSortScriptsResponse ListSortScriptsResponse
      */
     public function listSortScriptsWithOptions($appGroupIdentity, $appVersionId, $headers, $runtime)
     {
@@ -4279,10 +4585,12 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Queries all sort scripts of an application version.
+     *  *
      * @param string $appGroupIdentity
      * @param string $appVersionId
      *
-     * @return ListSortScriptsResponse
+     * @return ListSortScriptsResponse ListSortScriptsResponse
      */
     public function listSortScripts($appGroupIdentity, $appVersionId)
     {
@@ -4293,13 +4601,15 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Queries log statistics, such as application error logs, hotword rankings, and slow query logs.
+     *  *
      * @param string                   $appGroupIdentity
      * @param string                   $moduleName
-     * @param ListStatisticLogsRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @param ListStatisticLogsRequest $request          ListStatisticLogsRequest
+     * @param string[]                 $headers          map
+     * @param RuntimeOptions           $runtime          runtime options for this request RuntimeOptions
      *
-     * @return ListStatisticLogsResponse
+     * @return ListStatisticLogsResponse ListStatisticLogsResponse
      */
     public function listStatisticLogsWithOptions($appGroupIdentity, $moduleName, $request, $headers, $runtime)
     {
@@ -4349,11 +4659,13 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Queries log statistics, such as application error logs, hotword rankings, and slow query logs.
+     *  *
      * @param string                   $appGroupIdentity
      * @param string                   $moduleName
-     * @param ListStatisticLogsRequest $request
+     * @param ListStatisticLogsRequest $request          ListStatisticLogsRequest
      *
-     * @return ListStatisticLogsResponse
+     * @return ListStatisticLogsResponse ListStatisticLogsResponse
      */
     public function listStatisticLogs($appGroupIdentity, $moduleName, $request)
     {
@@ -4366,11 +4678,11 @@ class OpenSearch extends OpenApiClient
     /**
      * @param string                     $appGroupIdentity
      * @param string                     $moduleName
-     * @param ListStatisticReportRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @param ListStatisticReportRequest $request          ListStatisticReportRequest
+     * @param string[]                   $headers          map
+     * @param RuntimeOptions             $runtime          runtime options for this request RuntimeOptions
      *
-     * @return ListStatisticReportResponse
+     * @return ListStatisticReportResponse ListStatisticReportResponse
      */
     public function listStatisticReportWithOptions($appGroupIdentity, $moduleName, $request, $headers, $runtime)
     {
@@ -4416,9 +4728,9 @@ class OpenSearch extends OpenApiClient
     /**
      * @param string                     $appGroupIdentity
      * @param string                     $moduleName
-     * @param ListStatisticReportRequest $request
+     * @param ListStatisticReportRequest $request          ListStatisticReportRequest
      *
-     * @return ListStatisticReportResponse
+     * @return ListStatisticReportResponse ListStatisticReportResponse
      */
     public function listStatisticReport($appGroupIdentity, $moduleName, $request)
     {
@@ -4429,11 +4741,13 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @param ListTagResourcesRequest $tmpReq
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @summary Queries tagged resources.
+     *  *
+     * @param ListTagResourcesRequest $tmpReq  ListTagResourcesRequest
+     * @param string[]                $headers map
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResourcesWithOptions($tmpReq, $headers, $runtime)
     {
@@ -4479,9 +4793,11 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @param ListTagResourcesRequest $request
+     * @summary Queries tagged resources.
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
      *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResources($request)
     {
@@ -4492,12 +4808,14 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Queries the entries of a custom analyzer.
+     *  *
      * @param string                         $name
-     * @param ListUserAnalyzerEntriesRequest $request
-     * @param string[]                       $headers
-     * @param RuntimeOptions                 $runtime
+     * @param ListUserAnalyzerEntriesRequest $request ListUserAnalyzerEntriesRequest
+     * @param string[]                       $headers map
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListUserAnalyzerEntriesResponse
+     * @return ListUserAnalyzerEntriesResponse ListUserAnalyzerEntriesResponse
      */
     public function listUserAnalyzerEntriesWithOptions($name, $request, $headers, $runtime)
     {
@@ -4532,10 +4850,12 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Queries the entries of a custom analyzer.
+     *  *
      * @param string                         $name
-     * @param ListUserAnalyzerEntriesRequest $request
+     * @param ListUserAnalyzerEntriesRequest $request ListUserAnalyzerEntriesRequest
      *
-     * @return ListUserAnalyzerEntriesResponse
+     * @return ListUserAnalyzerEntriesResponse ListUserAnalyzerEntriesResponse
      */
     public function listUserAnalyzerEntries($name, $request)
     {
@@ -4546,11 +4866,13 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @param ListUserAnalyzersRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @summary Queries the custom analyzers that belong to the current account.
+     *  *
+     * @param ListUserAnalyzersRequest $request ListUserAnalyzersRequest
+     * @param string[]                 $headers map
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListUserAnalyzersResponse
+     * @return ListUserAnalyzersResponse ListUserAnalyzersResponse
      */
     public function listUserAnalyzersWithOptions($request, $headers, $runtime)
     {
@@ -4582,9 +4904,11 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @param ListUserAnalyzersRequest $request
+     * @summary Queries the custom analyzers that belong to the current account.
+     *  *
+     * @param ListUserAnalyzersRequest $request ListUserAnalyzersRequest
      *
-     * @return ListUserAnalyzersResponse
+     * @return ListUserAnalyzersResponse ListUserAnalyzersResponse
      */
     public function listUserAnalyzers($request)
     {
@@ -4595,12 +4919,14 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Modifies the properties of an OpenSearch application or sets the online version of an OpenSearch application.
+     *  *
      * @param string                $appGroupIdentity
-     * @param ModifyAppGroupRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @param ModifyAppGroupRequest $request          ModifyAppGroupRequest
+     * @param string[]              $headers          map
+     * @param RuntimeOptions        $runtime          runtime options for this request RuntimeOptions
      *
-     * @return ModifyAppGroupResponse
+     * @return ModifyAppGroupResponse ModifyAppGroupResponse
      */
     public function modifyAppGroupWithOptions($appGroupIdentity, $request, $headers, $runtime)
     {
@@ -4643,10 +4969,12 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Modifies the properties of an OpenSearch application or sets the online version of an OpenSearch application.
+     *  *
      * @param string                $appGroupIdentity
-     * @param ModifyAppGroupRequest $request
+     * @param ModifyAppGroupRequest $request          ModifyAppGroupRequest
      *
-     * @return ModifyAppGroupResponse
+     * @return ModifyAppGroupResponse ModifyAppGroupResponse
      */
     public function modifyAppGroup($appGroupIdentity, $request)
     {
@@ -4658,11 +4986,11 @@ class OpenSearch extends OpenApiClient
 
     /**
      * @param string                     $appGroupIdentity
-     * @param ModifyAppGroupQuotaRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @param ModifyAppGroupQuotaRequest $request          ModifyAppGroupQuotaRequest
+     * @param string[]                   $headers          map
+     * @param RuntimeOptions             $runtime          runtime options for this request RuntimeOptions
      *
-     * @return ModifyAppGroupQuotaResponse
+     * @return ModifyAppGroupQuotaResponse ModifyAppGroupQuotaResponse
      */
     public function modifyAppGroupQuotaWithOptions($appGroupIdentity, $request, $headers, $runtime)
     {
@@ -4693,9 +5021,9 @@ class OpenSearch extends OpenApiClient
 
     /**
      * @param string                     $appGroupIdentity
-     * @param ModifyAppGroupQuotaRequest $request
+     * @param ModifyAppGroupQuotaRequest $request          ModifyAppGroupQuotaRequest
      *
-     * @return ModifyAppGroupQuotaResponse
+     * @return ModifyAppGroupQuotaResponse ModifyAppGroupQuotaResponse
      */
     public function modifyAppGroupQuota($appGroupIdentity, $request)
     {
@@ -4706,14 +5034,16 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Modifies a rough sort expression for an OpenSearch application. If you set dryRun to true, this operation checks the rough sort expression after the expression is modified. If you do not specify this parameter, false is used by default.
+     *  *
      * @param string                 $appGroupIdentity
      * @param string                 $appId
      * @param string                 $name
-     * @param ModifyFirstRankRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @param ModifyFirstRankRequest $request          ModifyFirstRankRequest
+     * @param string[]               $headers          map
+     * @param RuntimeOptions         $runtime          runtime options for this request RuntimeOptions
      *
-     * @return ModifyFirstRankResponse
+     * @return ModifyFirstRankResponse ModifyFirstRankResponse
      */
     public function modifyFirstRankWithOptions($appGroupIdentity, $appId, $name, $request, $headers, $runtime)
     {
@@ -4743,12 +5073,14 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Modifies a rough sort expression for an OpenSearch application. If you set dryRun to true, this operation checks the rough sort expression after the expression is modified. If you do not specify this parameter, false is used by default.
+     *  *
      * @param string                 $appGroupIdentity
      * @param string                 $appId
      * @param string                 $name
-     * @param ModifyFirstRankRequest $request
+     * @param ModifyFirstRankRequest $request          ModifyFirstRankRequest
      *
-     * @return ModifyFirstRankResponse
+     * @return ModifyFirstRankResponse ModifyFirstRankResponse
      */
     public function modifyFirstRank($appGroupIdentity, $appId, $name, $request)
     {
@@ -4759,14 +5091,16 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Modifies a query analysis rule for a specific application version. If you set dryRun to true, this operation checks the specified query analysis rule. By default, the value of dryRun is false if you do not specify this parameter.
+     *  *
      * @param string                      $appGroupIdentity
      * @param string                      $appId
      * @param string                      $name
-     * @param ModifyQueryProcessorRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @param ModifyQueryProcessorRequest $request          ModifyQueryProcessorRequest
+     * @param string[]                    $headers          map
+     * @param RuntimeOptions              $runtime          runtime options for this request RuntimeOptions
      *
-     * @return ModifyQueryProcessorResponse
+     * @return ModifyQueryProcessorResponse ModifyQueryProcessorResponse
      */
     public function modifyQueryProcessorWithOptions($appGroupIdentity, $appId, $name, $request, $headers, $runtime)
     {
@@ -4796,12 +5130,14 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Modifies a query analysis rule for a specific application version. If you set dryRun to true, this operation checks the specified query analysis rule. By default, the value of dryRun is false if you do not specify this parameter.
+     *  *
      * @param string                      $appGroupIdentity
      * @param string                      $appId
      * @param string                      $name
-     * @param ModifyQueryProcessorRequest $request
+     * @param ModifyQueryProcessorRequest $request          ModifyQueryProcessorRequest
      *
-     * @return ModifyQueryProcessorResponse
+     * @return ModifyQueryProcessorResponse ModifyQueryProcessorResponse
      */
     public function modifyQueryProcessor($appGroupIdentity, $appId, $name, $request)
     {
@@ -4812,13 +5148,15 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Modifies a scheduled task.
+     *  *
      * @param string                     $appGroupIdentity
      * @param string                     $taskId
-     * @param ModifyScheduledTaskRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @param ModifyScheduledTaskRequest $request          ModifyScheduledTaskRequest
+     * @param string[]                   $headers          map
+     * @param RuntimeOptions             $runtime          runtime options for this request RuntimeOptions
      *
-     * @return ModifyScheduledTaskResponse
+     * @return ModifyScheduledTaskResponse ModifyScheduledTaskResponse
      */
     public function modifyScheduledTaskWithOptions($appGroupIdentity, $taskId, $request, $headers, $runtime)
     {
@@ -4843,11 +5181,13 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Modifies a scheduled task.
+     *  *
      * @param string                     $appGroupIdentity
      * @param string                     $taskId
-     * @param ModifyScheduledTaskRequest $request
+     * @param ModifyScheduledTaskRequest $request          ModifyScheduledTaskRequest
      *
-     * @return ModifyScheduledTaskResponse
+     * @return ModifyScheduledTaskResponse ModifyScheduledTaskResponse
      */
     public function modifyScheduledTask($appGroupIdentity, $taskId, $request)
     {
@@ -4858,14 +5198,16 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Modifies a fine sort expression that is configured for a specific OpenSearch application version. If you set dryRun to true, the specified fine sort expression is checked after the expression is modified. By default, the value of dryRun is false if you do not specify this parameter.
+     *  *
      * @param string                  $appGroupIdentity
      * @param string                  $appId
      * @param string                  $name
-     * @param ModifySecondRankRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @param ModifySecondRankRequest $request          ModifySecondRankRequest
+     * @param string[]                $headers          map
+     * @param RuntimeOptions          $runtime          runtime options for this request RuntimeOptions
      *
-     * @return ModifySecondRankResponse
+     * @return ModifySecondRankResponse ModifySecondRankResponse
      */
     public function modifySecondRankWithOptions($appGroupIdentity, $appId, $name, $request, $headers, $runtime)
     {
@@ -4895,12 +5237,14 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Modifies a fine sort expression that is configured for a specific OpenSearch application version. If you set dryRun to true, the specified fine sort expression is checked after the expression is modified. By default, the value of dryRun is false if you do not specify this parameter.
+     *  *
      * @param string                  $appGroupIdentity
      * @param string                  $appId
      * @param string                  $name
-     * @param ModifySecondRankRequest $request
+     * @param ModifySecondRankRequest $request          ModifySecondRankRequest
      *
-     * @return ModifySecondRankResponse
+     * @return ModifySecondRankResponse ModifySecondRankResponse
      */
     public function modifySecondRank($appGroupIdentity, $appId, $name, $request)
     {
@@ -4911,12 +5255,14 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Accepts the changes in intervention entries.
+     *  *
      * @param string                                   $name
-     * @param PushInterventionDictionaryEntriesRequest $request
-     * @param string[]                                 $headers
-     * @param RuntimeOptions                           $runtime
+     * @param PushInterventionDictionaryEntriesRequest $request PushInterventionDictionaryEntriesRequest
+     * @param string[]                                 $headers map
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @return PushInterventionDictionaryEntriesResponse
+     * @return PushInterventionDictionaryEntriesResponse PushInterventionDictionaryEntriesResponse
      */
     public function pushInterventionDictionaryEntriesWithOptions($name, $request, $headers, $runtime)
     {
@@ -4946,10 +5292,12 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Accepts the changes in intervention entries.
+     *  *
      * @param string                                   $name
-     * @param PushInterventionDictionaryEntriesRequest $request
+     * @param PushInterventionDictionaryEntriesRequest $request PushInterventionDictionaryEntriesRequest
      *
-     * @return PushInterventionDictionaryEntriesResponse
+     * @return PushInterventionDictionaryEntriesResponse PushInterventionDictionaryEntriesResponse
      */
     public function pushInterventionDictionaryEntries($name, $request)
     {
@@ -4960,12 +5308,14 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Accepts the changes in the entries of a custom analyzer.
+     *  *
      * @param string                         $name
-     * @param PushUserAnalyzerEntriesRequest $request
-     * @param string[]                       $headers
-     * @param RuntimeOptions                 $runtime
+     * @param PushUserAnalyzerEntriesRequest $request PushUserAnalyzerEntriesRequest
+     * @param string[]                       $headers map
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return PushUserAnalyzerEntriesResponse
+     * @return PushUserAnalyzerEntriesResponse PushUserAnalyzerEntriesResponse
      */
     public function pushUserAnalyzerEntriesWithOptions($name, $request, $headers, $runtime)
     {
@@ -4999,10 +5349,12 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Accepts the changes in the entries of a custom analyzer.
+     *  *
      * @param string                         $name
-     * @param PushUserAnalyzerEntriesRequest $request
+     * @param PushUserAnalyzerEntriesRequest $request PushUserAnalyzerEntriesRequest
      *
-     * @return PushUserAnalyzerEntriesResponse
+     * @return PushUserAnalyzerEntriesResponse PushUserAnalyzerEntriesResponse
      */
     public function pushUserAnalyzerEntries($name, $request)
     {
@@ -5014,54 +5366,12 @@ class OpenSearch extends OpenApiClient
 
     /**
      * @param string         $appGroupIdentity
-     * @param string         $modelName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
-     *
-     * @return RankPreviewQueryResponse
-     */
-    public function rankPreviewQueryWithOptions($appGroupIdentity, $modelName, $headers, $runtime)
-    {
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-        ]);
-        $params = new Params([
-            'action'      => 'RankPreviewQuery',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/algorithm/models/' . OpenApiUtilClient::getEncodeParam($modelName) . '/actions/query-rank',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return RankPreviewQueryResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param string $appGroupIdentity
-     * @param string $modelName
-     *
-     * @return RankPreviewQueryResponse
-     */
-    public function rankPreviewQuery($appGroupIdentity, $modelName)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->rankPreviewQueryWithOptions($appGroupIdentity, $modelName, $headers, $runtime);
-    }
-
-    /**
-     * @param string         $appGroupIdentity
      * @param string         $scriptName
      * @param string         $appVersionId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers          map
+     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
      *
-     * @return ReleaseSortScriptResponse
+     * @return ReleaseSortScriptResponse ReleaseSortScriptResponse
      */
     public function releaseSortScriptWithOptions($appGroupIdentity, $scriptName, $appVersionId, $headers, $runtime)
     {
@@ -5088,7 +5398,7 @@ class OpenSearch extends OpenApiClient
      * @param string $scriptName
      * @param string $appVersionId
      *
-     * @return ReleaseSortScriptResponse
+     * @return ReleaseSortScriptResponse ReleaseSortScriptResponse
      */
     public function releaseSortScript($appGroupIdentity, $scriptName, $appVersionId)
     {
@@ -5099,12 +5409,14 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Deletes a version of an OpenSearch application.
+     *  *
      * @param string         $appGroupIdentity
      * @param string         $appId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers          map
+     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
      *
-     * @return RemoveAppResponse
+     * @return RemoveAppResponse RemoveAppResponse
      */
     public function removeAppWithOptions($appGroupIdentity, $appId, $headers, $runtime)
     {
@@ -5127,10 +5439,12 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Deletes a version of an OpenSearch application.
+     *  *
      * @param string $appGroupIdentity
      * @param string $appId
      *
-     * @return RemoveAppResponse
+     * @return RemoveAppResponse RemoveAppResponse
      */
     public function removeApp($appGroupIdentity, $appId)
     {
@@ -5142,10 +5456,10 @@ class OpenSearch extends OpenApiClient
 
     /**
      * @param string         $appGroupIdentity
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers          map
+     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
      *
-     * @return RemoveAppGroupResponse
+     * @return RemoveAppGroupResponse RemoveAppGroupResponse
      */
     public function removeAppGroupWithOptions($appGroupIdentity, $headers, $runtime)
     {
@@ -5170,7 +5484,7 @@ class OpenSearch extends OpenApiClient
     /**
      * @param string $appGroupIdentity
      *
-     * @return RemoveAppGroupResponse
+     * @return RemoveAppGroupResponse RemoveAppGroupResponse
      */
     public function removeAppGroup($appGroupIdentity)
     {
@@ -5181,12 +5495,14 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Disables data collection.
+     *  *
      * @param string         $appGroupIdentity
      * @param string         $dataCollectionIdentity
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers                map
+     * @param RuntimeOptions $runtime                runtime options for this request RuntimeOptions
      *
-     * @return RemoveDataCollectionResponse
+     * @return RemoveDataCollectionResponse RemoveDataCollectionResponse
      */
     public function removeDataCollectionWithOptions($appGroupIdentity, $dataCollectionIdentity, $headers, $runtime)
     {
@@ -5209,10 +5525,12 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Disables data collection.
+     *  *
      * @param string $appGroupIdentity
      * @param string $dataCollectionIdentity
      *
-     * @return RemoveDataCollectionResponse
+     * @return RemoveDataCollectionResponse RemoveDataCollectionResponse
      */
     public function removeDataCollection($appGroupIdentity, $dataCollectionIdentity)
     {
@@ -5226,10 +5544,10 @@ class OpenSearch extends OpenApiClient
      * @param string         $appGroupIdentity
      * @param string         $appId
      * @param string         $name
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers          map
+     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
      *
-     * @return RemoveFirstRankResponse
+     * @return RemoveFirstRankResponse RemoveFirstRankResponse
      */
     public function removeFirstRankWithOptions($appGroupIdentity, $appId, $name, $headers, $runtime)
     {
@@ -5256,7 +5574,7 @@ class OpenSearch extends OpenApiClient
      * @param string $appId
      * @param string $name
      *
-     * @return RemoveFirstRankResponse
+     * @return RemoveFirstRankResponse RemoveFirstRankResponse
      */
     public function removeFirstRank($appGroupIdentity, $appId, $name)
     {
@@ -5268,10 +5586,10 @@ class OpenSearch extends OpenApiClient
 
     /**
      * @param string         $name
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return RemoveInterventionDictionaryResponse
+     * @return RemoveInterventionDictionaryResponse RemoveInterventionDictionaryResponse
      */
     public function removeInterventionDictionaryWithOptions($name, $headers, $runtime)
     {
@@ -5296,7 +5614,7 @@ class OpenSearch extends OpenApiClient
     /**
      * @param string $name
      *
-     * @return RemoveInterventionDictionaryResponse
+     * @return RemoveInterventionDictionaryResponse RemoveInterventionDictionaryResponse
      */
     public function removeInterventionDictionary($name)
     {
@@ -5310,10 +5628,10 @@ class OpenSearch extends OpenApiClient
      * @param string         $appGroupIdentity
      * @param string         $appId
      * @param string         $name
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers          map
+     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
      *
-     * @return RemoveQueryProcessorResponse
+     * @return RemoveQueryProcessorResponse RemoveQueryProcessorResponse
      */
     public function removeQueryProcessorWithOptions($appGroupIdentity, $appId, $name, $headers, $runtime)
     {
@@ -5340,7 +5658,7 @@ class OpenSearch extends OpenApiClient
      * @param string $appId
      * @param string $name
      *
-     * @return RemoveQueryProcessorResponse
+     * @return RemoveQueryProcessorResponse RemoveQueryProcessorResponse
      */
     public function removeQueryProcessor($appGroupIdentity, $appId, $name)
     {
@@ -5353,10 +5671,10 @@ class OpenSearch extends OpenApiClient
     /**
      * @param string         $appGroupIdentity
      * @param string         $taskId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers          map
+     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
      *
-     * @return RemoveScheduledTaskResponse
+     * @return RemoveScheduledTaskResponse RemoveScheduledTaskResponse
      */
     public function removeScheduledTaskWithOptions($appGroupIdentity, $taskId, $headers, $runtime)
     {
@@ -5382,7 +5700,7 @@ class OpenSearch extends OpenApiClient
      * @param string $appGroupIdentity
      * @param string $taskId
      *
-     * @return RemoveScheduledTaskResponse
+     * @return RemoveScheduledTaskResponse RemoveScheduledTaskResponse
      */
     public function removeScheduledTask($appGroupIdentity, $taskId)
     {
@@ -5393,13 +5711,15 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Deletes a query policy.
+     *  *
      * @param string         $appGroupIdentity
      * @param string         $appId
      * @param string         $strategyName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers          map
+     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
      *
-     * @return RemoveSearchStrategyResponse
+     * @return RemoveSearchStrategyResponse RemoveSearchStrategyResponse
      */
     public function removeSearchStrategyWithOptions($appGroupIdentity, $appId, $strategyName, $headers, $runtime)
     {
@@ -5422,11 +5742,13 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Deletes a query policy.
+     *  *
      * @param string $appGroupIdentity
      * @param string $appId
      * @param string $strategyName
      *
-     * @return RemoveSearchStrategyResponse
+     * @return RemoveSearchStrategyResponse RemoveSearchStrategyResponse
      */
     public function removeSearchStrategy($appGroupIdentity, $appId, $strategyName)
     {
@@ -5440,10 +5762,10 @@ class OpenSearch extends OpenApiClient
      * @param string         $appGroupIdentity
      * @param string         $appId
      * @param string         $name
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers          map
+     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
      *
-     * @return RemoveSecondRankResponse
+     * @return RemoveSecondRankResponse RemoveSecondRankResponse
      */
     public function removeSecondRankWithOptions($appGroupIdentity, $appId, $name, $headers, $runtime)
     {
@@ -5470,7 +5792,7 @@ class OpenSearch extends OpenApiClient
      * @param string $appId
      * @param string $name
      *
-     * @return RemoveSecondRankResponse
+     * @return RemoveSecondRankResponse RemoveSecondRankResponse
      */
     public function removeSecondRank($appGroupIdentity, $appId, $name)
     {
@@ -5482,10 +5804,10 @@ class OpenSearch extends OpenApiClient
 
     /**
      * @param string         $name
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return RemoveUserAnalyzerResponse
+     * @return RemoveUserAnalyzerResponse RemoveUserAnalyzerResponse
      */
     public function removeUserAnalyzerWithOptions($name, $headers, $runtime)
     {
@@ -5510,7 +5832,7 @@ class OpenSearch extends OpenApiClient
     /**
      * @param string $name
      *
-     * @return RemoveUserAnalyzerResponse
+     * @return RemoveUserAnalyzerResponse RemoveUserAnalyzerResponse
      */
     public function removeUserAnalyzer($name)
     {
@@ -5521,12 +5843,14 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Renews an application. This operation is not available now. You must renew an application in the OpenSearch console.
+     *  *
      * @param string               $appGroupIdentity
-     * @param RenewAppGroupRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @param RenewAppGroupRequest $request          RenewAppGroupRequest
+     * @param string[]             $headers          map
+     * @param RuntimeOptions       $runtime          runtime options for this request RuntimeOptions
      *
-     * @return RenewAppGroupResponse
+     * @return RenewAppGroupResponse RenewAppGroupResponse
      */
     public function renewAppGroupWithOptions($appGroupIdentity, $request, $headers, $runtime)
     {
@@ -5556,10 +5880,12 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Renews an application. This operation is not available now. You must renew an application in the OpenSearch console.
+     *  *
      * @param string               $appGroupIdentity
-     * @param RenewAppGroupRequest $request
+     * @param RenewAppGroupRequest $request          RenewAppGroupRequest
      *
-     * @return RenewAppGroupResponse
+     * @return RenewAppGroupResponse RenewAppGroupResponse
      */
     public function renewAppGroup($appGroupIdentity, $request)
     {
@@ -5570,11 +5896,13 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Converts a service-based application to an instance-based application.
+     *  *
      * @param string         $appGroupIdentity
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers          map
+     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
      *
-     * @return ReplaceAppGroupCommodityCodeResponse
+     * @return ReplaceAppGroupCommodityCodeResponse ReplaceAppGroupCommodityCodeResponse
      */
     public function replaceAppGroupCommodityCodeWithOptions($appGroupIdentity, $headers, $runtime)
     {
@@ -5597,9 +5925,11 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Converts a service-based application to an instance-based application.
+     *  *
      * @param string $appGroupIdentity
      *
-     * @return ReplaceAppGroupCommodityCodeResponse
+     * @return ReplaceAppGroupCommodityCodeResponse ReplaceAppGroupCommodityCodeResponse
      */
     public function replaceAppGroupCommodityCode($appGroupIdentity)
     {
@@ -5610,15 +5940,17 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Uploads a sort script.
+     *  *
      * @param string                    $appGroupIdentity
      * @param string                    $scriptName
      * @param string                    $appVersionId
      * @param string                    $fileName
-     * @param SaveSortScriptFileRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @param SaveSortScriptFileRequest $request          SaveSortScriptFileRequest
+     * @param string[]                  $headers          map
+     * @param RuntimeOptions            $runtime          runtime options for this request RuntimeOptions
      *
-     * @return SaveSortScriptFileResponse
+     * @return SaveSortScriptFileResponse SaveSortScriptFileResponse
      */
     public function saveSortScriptFileWithOptions($appGroupIdentity, $scriptName, $appVersionId, $fileName, $request, $headers, $runtime)
     {
@@ -5650,13 +5982,15 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Uploads a sort script.
+     *  *
      * @param string                    $appGroupIdentity
      * @param string                    $scriptName
      * @param string                    $appVersionId
      * @param string                    $fileName
-     * @param SaveSortScriptFileRequest $request
+     * @param SaveSortScriptFileRequest $request          SaveSortScriptFileRequest
      *
-     * @return SaveSortScriptFileResponse
+     * @return SaveSortScriptFileResponse SaveSortScriptFileResponse
      */
     public function saveSortScriptFile($appGroupIdentity, $scriptName, $appVersionId, $fileName, $request)
     {
@@ -5668,10 +6002,10 @@ class OpenSearch extends OpenApiClient
 
     /**
      * @param string         $appGroupIdentity
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers          map
+     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
      *
-     * @return StartSlowQueryAnalyzerResponse
+     * @return StartSlowQueryAnalyzerResponse StartSlowQueryAnalyzerResponse
      */
     public function startSlowQueryAnalyzerWithOptions($appGroupIdentity, $headers, $runtime)
     {
@@ -5696,7 +6030,7 @@ class OpenSearch extends OpenApiClient
     /**
      * @param string $appGroupIdentity
      *
-     * @return StartSlowQueryAnalyzerResponse
+     * @return StartSlowQueryAnalyzerResponse StartSlowQueryAnalyzerResponse
      */
     public function startSlowQueryAnalyzer($appGroupIdentity)
     {
@@ -5707,11 +6041,13 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @param TagResourcesRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @summary Adds tags to resources.
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
+     * @param string[]            $headers map
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResourcesWithOptions($request, $headers, $runtime)
     {
@@ -5746,9 +6082,11 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @param TagResourcesRequest $request
+     * @summary Adds tags to resources.
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
      *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResources($request)
     {
@@ -5759,8 +6097,10 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * The ID of the request.
-     *   *
+     * @summary Unbinds a custom analyzer from an Elasticsearch instance.
+     *  *
+     * @description You can call this operation to unbind a custom analyzer from an Elasticsearch instance.
+     *  *
      * @param string                      $appGroupIdentity
      * @param string                      $esInstanceId
      * @param UnbindESUserAnalyzerRequest $request          UnbindESUserAnalyzerRequest
@@ -5792,8 +6132,10 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * The ID of the request.
-     *   *
+     * @summary Unbinds a custom analyzer from an Elasticsearch instance.
+     *  *
+     * @description You can call this operation to unbind a custom analyzer from an Elasticsearch instance.
+     *  *
      * @param string                      $appGroupIdentity
      * @param string                      $esInstanceId
      * @param UnbindESUserAnalyzerRequest $request          UnbindESUserAnalyzerRequest
@@ -5809,11 +6151,13 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Unbinds an Elasticsearch instance from an OpenSearch application.
+     *  *
      * @param string         $appGroupIdentity
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers          map
+     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
      *
-     * @return UnbindEsInstanceResponse
+     * @return UnbindEsInstanceResponse UnbindEsInstanceResponse
      */
     public function unbindEsInstanceWithOptions($appGroupIdentity, $headers, $runtime)
     {
@@ -5836,9 +6180,11 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Unbinds an Elasticsearch instance from an OpenSearch application.
+     *  *
      * @param string $appGroupIdentity
      *
-     * @return UnbindEsInstanceResponse
+     * @return UnbindEsInstanceResponse UnbindEsInstanceResponse
      */
     public function unbindEsInstance($appGroupIdentity)
     {
@@ -5849,11 +6195,13 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @param UntagResourcesRequest $tmpReq
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @summary Remove tags from resources.
+     *  *
+     * @param UntagResourcesRequest $tmpReq  UntagResourcesRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResourcesWithOptions($tmpReq, $headers, $runtime)
     {
@@ -5899,9 +6247,11 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @param UntagResourcesRequest $request
+     * @summary Remove tags from resources.
+     *  *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
      *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResources($request)
     {
@@ -5912,15 +6262,17 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Modifies the parameters of an A/B test.
+     *  *
      * @param string                        $appGroupIdentity
      * @param string                        $sceneId
      * @param string                        $groupId
      * @param string                        $experimentId
-     * @param UpdateABTestExperimentRequest $request
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
+     * @param UpdateABTestExperimentRequest $request          UpdateABTestExperimentRequest
+     * @param string[]                      $headers          map
+     * @param RuntimeOptions                $runtime          runtime options for this request RuntimeOptions
      *
-     * @return UpdateABTestExperimentResponse
+     * @return UpdateABTestExperimentResponse UpdateABTestExperimentResponse
      */
     public function updateABTestExperimentWithOptions($appGroupIdentity, $sceneId, $groupId, $experimentId, $request, $headers, $runtime)
     {
@@ -5950,13 +6302,15 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Modifies the parameters of an A/B test.
+     *  *
      * @param string                        $appGroupIdentity
      * @param string                        $sceneId
      * @param string                        $groupId
      * @param string                        $experimentId
-     * @param UpdateABTestExperimentRequest $request
+     * @param UpdateABTestExperimentRequest $request          UpdateABTestExperimentRequest
      *
-     * @return UpdateABTestExperimentResponse
+     * @return UpdateABTestExperimentResponse UpdateABTestExperimentResponse
      */
     public function updateABTestExperiment($appGroupIdentity, $sceneId, $groupId, $experimentId, $request)
     {
@@ -5967,15 +6321,17 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Modifies whitelists.
+     *  *
      * @param string                               $appGroupIdentity
      * @param string                               $sceneId
      * @param string                               $groupId
      * @param string                               $experimentId
-     * @param UpdateABTestFixedFlowDividersRequest $request
-     * @param string[]                             $headers
-     * @param RuntimeOptions                       $runtime
+     * @param UpdateABTestFixedFlowDividersRequest $request          UpdateABTestFixedFlowDividersRequest
+     * @param string[]                             $headers          map
+     * @param RuntimeOptions                       $runtime          runtime options for this request RuntimeOptions
      *
-     * @return UpdateABTestFixedFlowDividersResponse
+     * @return UpdateABTestFixedFlowDividersResponse UpdateABTestFixedFlowDividersResponse
      */
     public function updateABTestFixedFlowDividersWithOptions($appGroupIdentity, $sceneId, $groupId, $experimentId, $request, $headers, $runtime)
     {
@@ -6000,13 +6356,15 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Modifies whitelists.
+     *  *
      * @param string                               $appGroupIdentity
      * @param string                               $sceneId
      * @param string                               $groupId
      * @param string                               $experimentId
-     * @param UpdateABTestFixedFlowDividersRequest $request
+     * @param UpdateABTestFixedFlowDividersRequest $request          UpdateABTestFixedFlowDividersRequest
      *
-     * @return UpdateABTestFixedFlowDividersResponse
+     * @return UpdateABTestFixedFlowDividersResponse UpdateABTestFixedFlowDividersResponse
      */
     public function updateABTestFixedFlowDividers($appGroupIdentity, $sceneId, $groupId, $experimentId, $request)
     {
@@ -6017,14 +6375,16 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Modifies a test group.
+     *  *
      * @param string                   $appGroupIdentity
      * @param string                   $sceneId
      * @param string                   $groupId
-     * @param UpdateABTestGroupRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @param UpdateABTestGroupRequest $request          UpdateABTestGroupRequest
+     * @param string[]                 $headers          map
+     * @param RuntimeOptions           $runtime          runtime options for this request RuntimeOptions
      *
-     * @return UpdateABTestGroupResponse
+     * @return UpdateABTestGroupResponse UpdateABTestGroupResponse
      */
     public function updateABTestGroupWithOptions($appGroupIdentity, $sceneId, $groupId, $request, $headers, $runtime)
     {
@@ -6054,12 +6414,14 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Modifies a test group.
+     *  *
      * @param string                   $appGroupIdentity
      * @param string                   $sceneId
      * @param string                   $groupId
-     * @param UpdateABTestGroupRequest $request
+     * @param UpdateABTestGroupRequest $request          UpdateABTestGroupRequest
      *
-     * @return UpdateABTestGroupResponse
+     * @return UpdateABTestGroupResponse UpdateABTestGroupResponse
      */
     public function updateABTestGroup($appGroupIdentity, $sceneId, $groupId, $request)
     {
@@ -6070,13 +6432,15 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Modifies an A/B test scenario.
+     *  *
      * @param string                   $appGroupIdentity
      * @param string                   $sceneId
-     * @param UpdateABTestSceneRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @param UpdateABTestSceneRequest $request          UpdateABTestSceneRequest
+     * @param string[]                 $headers          map
+     * @param RuntimeOptions           $runtime          runtime options for this request RuntimeOptions
      *
-     * @return UpdateABTestSceneResponse
+     * @return UpdateABTestSceneResponse UpdateABTestSceneResponse
      */
     public function updateABTestSceneWithOptions($appGroupIdentity, $sceneId, $request, $headers, $runtime)
     {
@@ -6106,11 +6470,13 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Modifies an A/B test scenario.
+     *  *
      * @param string                   $appGroupIdentity
      * @param string                   $sceneId
-     * @param UpdateABTestSceneRequest $request
+     * @param UpdateABTestSceneRequest $request          UpdateABTestSceneRequest
      *
-     * @return UpdateABTestSceneResponse
+     * @return UpdateABTestSceneResponse UpdateABTestSceneResponse
      */
     public function updateABTestScene($appGroupIdentity, $sceneId, $request)
     {
@@ -6123,11 +6489,11 @@ class OpenSearch extends OpenApiClient
     /**
      * @param string                   $appGroupIdentity
      * @param string                   $appId
-     * @param UpdateFetchFieldsRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @param UpdateFetchFieldsRequest $request          UpdateFetchFieldsRequest
+     * @param string[]                 $headers          map
+     * @param RuntimeOptions           $runtime          runtime options for this request RuntimeOptions
      *
-     * @return UpdateFetchFieldsResponse
+     * @return UpdateFetchFieldsResponse UpdateFetchFieldsResponse
      */
     public function updateFetchFieldsWithOptions($appGroupIdentity, $appId, $request, $headers, $runtime)
     {
@@ -6159,9 +6525,9 @@ class OpenSearch extends OpenApiClient
     /**
      * @param string                   $appGroupIdentity
      * @param string                   $appId
-     * @param UpdateFetchFieldsRequest $request
+     * @param UpdateFetchFieldsRequest $request          UpdateFetchFieldsRequest
      *
-     * @return UpdateFetchFieldsResponse
+     * @return UpdateFetchFieldsResponse UpdateFetchFieldsResponse
      */
     public function updateFetchFields($appGroupIdentity, $appId, $request)
     {
@@ -6172,13 +6538,15 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Sets the default algorithm instance used by the specified application. The new algorithm instance automatically overwrites the most recently set default instance. If no instance is set, the default instance is canceled.
+     *  *
      * @param string                               $appGroupIdentity
      * @param string                               $functionName
-     * @param UpdateFunctionDefaultInstanceRequest $request
-     * @param string[]                             $headers
-     * @param RuntimeOptions                       $runtime
+     * @param UpdateFunctionDefaultInstanceRequest $request          UpdateFunctionDefaultInstanceRequest
+     * @param string[]                             $headers          map
+     * @param RuntimeOptions                       $runtime          runtime options for this request RuntimeOptions
      *
-     * @return UpdateFunctionDefaultInstanceResponse
+     * @return UpdateFunctionDefaultInstanceResponse UpdateFunctionDefaultInstanceResponse
      */
     public function updateFunctionDefaultInstanceWithOptions($appGroupIdentity, $functionName, $request, $headers, $runtime)
     {
@@ -6207,11 +6575,13 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Sets the default algorithm instance used by the specified application. The new algorithm instance automatically overwrites the most recently set default instance. If no instance is set, the default instance is canceled.
+     *  *
      * @param string                               $appGroupIdentity
      * @param string                               $functionName
-     * @param UpdateFunctionDefaultInstanceRequest $request
+     * @param UpdateFunctionDefaultInstanceRequest $request          UpdateFunctionDefaultInstanceRequest
      *
-     * @return UpdateFunctionDefaultInstanceResponse
+     * @return UpdateFunctionDefaultInstanceResponse UpdateFunctionDefaultInstanceResponse
      */
     public function updateFunctionDefaultInstance($appGroupIdentity, $functionName, $request)
     {
@@ -6222,14 +6592,16 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Updates an algorithm instance.
+     *  *
      * @param string                        $appGroupIdentity
      * @param string                        $functionName
      * @param string                        $instanceName
-     * @param UpdateFunctionInstanceRequest $request
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
+     * @param UpdateFunctionInstanceRequest $request          UpdateFunctionInstanceRequest
+     * @param string[]                      $headers          map
+     * @param RuntimeOptions                $runtime          runtime options for this request RuntimeOptions
      *
-     * @return UpdateFunctionInstanceResponse
+     * @return UpdateFunctionInstanceResponse UpdateFunctionInstanceResponse
      */
     public function updateFunctionInstanceWithOptions($appGroupIdentity, $functionName, $instanceName, $request, $headers, $runtime)
     {
@@ -6267,12 +6639,14 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Updates an algorithm instance.
+     *  *
      * @param string                        $appGroupIdentity
      * @param string                        $functionName
      * @param string                        $instanceName
-     * @param UpdateFunctionInstanceRequest $request
+     * @param UpdateFunctionInstanceRequest $request          UpdateFunctionInstanceRequest
      *
-     * @return UpdateFunctionInstanceResponse
+     * @return UpdateFunctionInstanceResponse UpdateFunctionInstanceResponse
      */
     public function updateFunctionInstance($appGroupIdentity, $functionName, $instanceName, $request)
     {
@@ -6283,14 +6657,18 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Updates an algorithm resource.
+     *  *
+     * @description You can call this operation to update the information about resources by resource name. You can modify only the values of data and description.
+     *  *
      * @param string                        $appGroupIdentity
      * @param string                        $functionName
      * @param string                        $resourceName
-     * @param UpdateFunctionResourceRequest $request
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
+     * @param UpdateFunctionResourceRequest $request          UpdateFunctionResourceRequest
+     * @param string[]                      $headers          map
+     * @param RuntimeOptions                $runtime          runtime options for this request RuntimeOptions
      *
-     * @return UpdateFunctionResourceResponse
+     * @return UpdateFunctionResourceResponse UpdateFunctionResourceResponse
      */
     public function updateFunctionResourceWithOptions($appGroupIdentity, $functionName, $resourceName, $request, $headers, $runtime)
     {
@@ -6322,12 +6700,16 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Updates an algorithm resource.
+     *  *
+     * @description You can call this operation to update the information about resources by resource name. You can modify only the values of data and description.
+     *  *
      * @param string                        $appGroupIdentity
      * @param string                        $functionName
      * @param string                        $resourceName
-     * @param UpdateFunctionResourceRequest $request
+     * @param UpdateFunctionResourceRequest $request          UpdateFunctionResourceRequest
      *
-     * @return UpdateFunctionResourceResponse
+     * @return UpdateFunctionResourceResponse UpdateFunctionResourceResponse
      */
     public function updateFunctionResource($appGroupIdentity, $functionName, $resourceName, $request)
     {
@@ -6338,14 +6720,16 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Modifies a query policy.
+     *  *
      * @param string                      $appGroupIdentity
      * @param string                      $appId
      * @param string                      $strategyName
-     * @param UpdateSearchStrategyRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @param UpdateSearchStrategyRequest $request          UpdateSearchStrategyRequest
+     * @param string[]                    $headers          map
+     * @param RuntimeOptions              $runtime          runtime options for this request RuntimeOptions
      *
-     * @return UpdateSearchStrategyResponse
+     * @return UpdateSearchStrategyResponse UpdateSearchStrategyResponse
      */
     public function updateSearchStrategyWithOptions($appGroupIdentity, $appId, $strategyName, $request, $headers, $runtime)
     {
@@ -6370,12 +6754,14 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Modifies a query policy.
+     *  *
      * @param string                      $appGroupIdentity
      * @param string                      $appId
      * @param string                      $strategyName
-     * @param UpdateSearchStrategyRequest $request
+     * @param UpdateSearchStrategyRequest $request          UpdateSearchStrategyRequest
      *
-     * @return UpdateSearchStrategyResponse
+     * @return UpdateSearchStrategyResponse UpdateSearchStrategyResponse
      */
     public function updateSearchStrategy($appGroupIdentity, $appId, $strategyName, $request)
     {
@@ -6386,8 +6772,10 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * You can call this operation to modify the description of a sort script.
-     *   *
+     * @summary Modifies the description of a sort script.
+     *  *
+     * @description You can call this operation to modify the description of a sort script.
+     *  *
      * @param string         $appGroupIdentity
      * @param string         $appVersionId
      * @param string         $scriptName
@@ -6417,8 +6805,10 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * You can call this operation to modify the description of a sort script.
-     *   *
+     * @summary Modifies the description of a sort script.
+     *  *
+     * @description You can call this operation to modify the description of a sort script.
+     *  *
      * @param string $appGroupIdentity
      * @param string $appVersionId
      * @param string $scriptName
@@ -6434,13 +6824,15 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Updates summaries. A dry run is supported.
+     *  *
      * @param string                 $appGroupIdentity
      * @param string                 $appId
-     * @param UpdateSummariesRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @param UpdateSummariesRequest $request          UpdateSummariesRequest
+     * @param string[]               $headers          map
+     * @param RuntimeOptions         $runtime          runtime options for this request RuntimeOptions
      *
-     * @return UpdateSummariesResponse
+     * @return UpdateSummariesResponse UpdateSummariesResponse
      */
     public function updateSummariesWithOptions($appGroupIdentity, $appId, $request, $headers, $runtime)
     {
@@ -6470,11 +6862,13 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @summary Updates summaries. A dry run is supported.
+     *  *
      * @param string                 $appGroupIdentity
      * @param string                 $appId
-     * @param UpdateSummariesRequest $request
+     * @param UpdateSummariesRequest $request          UpdateSummariesRequest
      *
-     * @return UpdateSummariesResponse
+     * @return UpdateSummariesResponse UpdateSummariesResponse
      */
     public function updateSummaries($appGroupIdentity, $appId, $request)
     {
@@ -6485,11 +6879,13 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @param ValidateDataSourcesRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @summary Verifies data sources.
+     *  *
+     * @param ValidateDataSourcesRequest $request ValidateDataSourcesRequest
+     * @param string[]                   $headers map
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ValidateDataSourcesResponse
+     * @return ValidateDataSourcesResponse ValidateDataSourcesResponse
      */
     public function validateDataSourcesWithOptions($request, $headers, $runtime)
     {
@@ -6514,9 +6910,11 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @param ValidateDataSourcesRequest $request
+     * @summary Verifies data sources.
+     *  *
+     * @param ValidateDataSourcesRequest $request ValidateDataSourcesRequest
      *
-     * @return ValidateDataSourcesResponse
+     * @return ValidateDataSourcesResponse ValidateDataSourcesResponse
      */
     public function validateDataSources($request)
     {

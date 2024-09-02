@@ -21,7 +21,7 @@ class ListSecondRanksResponseBody extends Model
     /**
      * @description The information about each fine sort expression.
      *
-     * For more information, see [SecondRank](~~170008~~).
+     * For more information, see [SecondRank](https://help.aliyun.com/document_detail/170008.html).
      * @var result[]
      */
     public $result;

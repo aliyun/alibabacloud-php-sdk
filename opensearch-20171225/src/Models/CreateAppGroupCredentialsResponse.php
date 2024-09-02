@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\OpenSearch\V20171225\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class RankPreviewQueryResponse extends Model
+class CreateAppGroupCredentialsResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class RankPreviewQueryResponse extends Model
     public $statusCode;
 
     /**
-     * @var RankPreviewQueryResponseBody
+     * @var CreateAppGroupCredentialsResponseBody
      */
     public $body;
     protected $_name = [
@@ -30,9 +30,6 @@ class RankPreviewQueryResponse extends Model
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('statusCode', $this->statusCode, true);
-        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
@@ -54,7 +51,7 @@ class RankPreviewQueryResponse extends Model
     /**
      * @param array $map
      *
-     * @return RankPreviewQueryResponse
+     * @return CreateAppGroupCredentialsResponse
      */
     public static function fromMap($map = [])
     {
@@ -66,7 +63,7 @@ class RankPreviewQueryResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = RankPreviewQueryResponseBody::fromMap($map['body']);
+            $model->body = CreateAppGroupCredentialsResponseBody::fromMap($map['body']);
         }
 
         return $model;

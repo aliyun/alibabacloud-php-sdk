@@ -36,12 +36,16 @@ class result extends Model
     public $scope;
 
     /**
+     * @description The name of the script.
+     *
+     * @example rank_cava_20230606_v7
+     *
      * @var string
      */
     public $scriptName;
 
     /**
-     * @description The status of the script. For more information, see the Script status table.
+     * @description The status of the script. For more information, see the description of the status response parameter in the ListSortScripts topic.
      *
      * @example released
      *

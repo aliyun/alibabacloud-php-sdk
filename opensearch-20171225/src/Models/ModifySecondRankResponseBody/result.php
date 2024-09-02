@@ -18,6 +18,8 @@ class result extends Model
     public $active;
 
     /**
+     * @description The time when the expression was created.
+     *
      * @example 1
      *
      * @var int
@@ -34,7 +36,7 @@ class result extends Model
     public $description;
 
     /**
-     * @description The ID of the expression. This parameter appears only in the response.
+     * @description The expression ID. This parameter is displayed only in the response.
      *
      * @example 890473
      *
@@ -43,10 +45,10 @@ class result extends Model
     public $id;
 
     /**
-     * @description Indicates whether the expression is the default one. This parameter appears only in the response. Valid values:
+     * @description Indicates whether the expression is the default one. This parameter is displayed only in the response. Valid values:
      *
-     *   true
-     *   false
+     *   true: the expression is the default one.
+     *   false: the expression is not the default one.
      *
      * @example true
      *
@@ -55,10 +57,10 @@ class result extends Model
     public $isDefault;
 
     /**
-     * @description Indicates whether the expression is a system expression. This parameter appears only in the response. Valid values:
+     * @description Indicates whether the expression is a system expression. This parameter is displayed only in the response. Valid values:
      *
-     *   true
-     *   false
+     *   true: The expression is a system expression.
+     *   false:The expression is not a system expression
      *
      * @example false
      *
@@ -67,9 +69,8 @@ class result extends Model
     public $isSys;
 
     /**
-     * @description The content of the fine sort expression.
+     * @description The content of the fine sort expression. You can define an expression that consists of fields, feature functions, and mathematical functions to implement complex sort logic.
      *
-     * You can define an expression that consists of fields, feature functions, and mathematical functions to implement complex sort logic.
      * @example cate_id > 0 and cate_id < 1000
      *
      * @var string
@@ -77,7 +78,7 @@ class result extends Model
     public $meta;
 
     /**
-     * @description The name of the expression.
+     * @description The expression name.
      *
      * @example lsh_second_1
      *
@@ -86,6 +87,8 @@ class result extends Model
     public $name;
 
     /**
+     * @description The time when the expression was updated.
+     *
      * @example 1
      *
      * @var int

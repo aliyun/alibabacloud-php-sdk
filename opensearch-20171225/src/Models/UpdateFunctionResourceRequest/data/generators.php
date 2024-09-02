@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class generators extends Model
 {
     /**
+     * @description The type of the feature generator.
+     *
      * @example combo
      *
      * @var string
@@ -17,11 +19,15 @@ class generators extends Model
     public $generator;
 
     /**
+     * @description The input.
+     *
      * @var input
      */
     public $input;
 
     /**
+     * @description The name of the output feature.
+     *
      * @example feature1
      *
      * @var string

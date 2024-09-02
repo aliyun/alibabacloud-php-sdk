@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListScheduledTasksResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 0A6EB64B-B4C8-CF02-810F-E660812972FF
      *
@@ -18,15 +18,12 @@ class ListScheduledTasksResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The details of the scheduled tasks.
-     *
-     * For more information, see [ScheduledTask](~~173610~~).
      * @var mixed[][]
      */
     public $result;
 
     /**
-     * @description The total number of the returned scheduled tasks.
+     * @description The total number of entries returned.
      *
      * @example 1
      *

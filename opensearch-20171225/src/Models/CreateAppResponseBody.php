@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\OpenSearch\V20171225\Models;
 
+use AlibabaCloud\SDK\OpenSearch\V20171225\Models\CreateAppResponseBody\result;
 use AlibabaCloud\Tea\Model;
 
 class CreateAppResponseBody extends Model
@@ -22,7 +23,7 @@ class CreateAppResponseBody extends Model
      *
      * @example {}
      *
-     * @var mixed[]
+     * @var result
      */
     public $result;
     protected $_name = [
@@ -41,7 +42,7 @@ class CreateAppResponseBody extends Model
             $res['requestId'] = $this->requestId;
         }
         if (null !== $this->result) {
-            $res['result'] = $this->result;
+            $res['result'] = null !== $this->result ? $this->result->toMap() : null;
         }
 
         return $res;
@@ -59,7 +60,7 @@ class CreateAppResponseBody extends Model
             $model->requestId = $map['requestId'];
         }
         if (isset($map['result'])) {
-            $model->result = $map['result'];
+            $model->result = result::fromMap($map['result']);
         }
 
         return $model;

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateSummariesResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 7A389E09-7964-5A2B-FE9D-F6CFA7162852
      *
@@ -18,7 +18,7 @@ class UpdateSummariesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the operation was successful.
+     * @description Indicates whether the request was successful.
      *
      * @example true
      *

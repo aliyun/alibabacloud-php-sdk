@@ -9,7 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListQueryProcessorNersRequest extends Model
 {
     /**
-     * @description ECOMMERCE
+     * @description The type of the industry.
+     *
+     *   ECOMMERCE
      *
      * @example ECOMMERCE
      *

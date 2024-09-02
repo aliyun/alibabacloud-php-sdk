@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ModifySecondRankResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example C5E2F73C-8241-81F8-3A62-65478C5A3111
      *

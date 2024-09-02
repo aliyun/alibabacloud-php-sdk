@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The code returned for the request.
+     *
      * @example SUCCEED
      *
      * @var string
@@ -17,6 +19,8 @@ class result extends Model
     public $code;
 
     /**
+     * @description The data source.
+     *
      * @example {}
      *
      * @var dataSource
@@ -24,6 +28,10 @@ class result extends Model
     public $dataSource;
 
     /**
+     * @description The status of the execution.
+     *
+     * @example successful
+     *
      * @var string
      */
     public $message;

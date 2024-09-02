@@ -18,6 +18,8 @@ class DeleteABTestExperimentResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The result that was returned.
+     *
      * @example {}
      *
      * @var mixed[]

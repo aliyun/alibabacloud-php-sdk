@@ -11,10 +11,10 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description The billing method of the application. Valid values:
+     * @description The billing method. Valid values:
      *
-     *   POSTPAY: pay-as-you-go
-     *   PREPAY: subscription
+     *   POSTPAY: pay-as-you-go.
+     *   PREPAY: subscription.
      *
      * @example POSTPAY
      *
@@ -23,10 +23,10 @@ class result extends Model
     public $chargeType;
 
     /**
-     * @description The billing model. Valid values:
+     * @description The billable item. Valid values:
      *
-     *   1: computing resources
-     *   2: queries per second (QPS)
+     *   1: computing resources.
+     *   2: queries per second (QPS).
      *
      * @example 1
      *
@@ -35,7 +35,7 @@ class result extends Model
     public $chargingWay;
 
     /**
-     * @description The code of the commodity.
+     * @description The commodity code.
      *
      * @example opensearch
      *
@@ -71,11 +71,18 @@ class result extends Model
     public $description;
 
     /**
+     * @description The industry of the application.
+     *
      * @example ecommerce
      *
      * @var string
      */
     public $domain;
+
+    /**
+     * @var string
+     */
+    public $engineType;
 
     /**
      * @description The expiration time.
@@ -96,10 +103,10 @@ class result extends Model
     public $firstRankAlgoDeploymentId;
 
     /**
-     * @description The approval status of the quotas. Valid values:
+     * @description The approval state of the quotas. Valid values:
      *
-     *   0: The quotas are approved.
-     *   1: The quotas are being approved.
+     *   0: The application is in service.
+     *   1: The quotas are being reviewed.
      *
      * @example 0
      *
@@ -108,7 +115,7 @@ class result extends Model
     public $hasPendingQuotaReviewTask;
 
     /**
-     * @description The ID of the application.
+     * @description The application ID.
      *
      * @example 110116134
      *
@@ -117,7 +124,7 @@ class result extends Model
     public $id;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example -
      *
@@ -126,9 +133,9 @@ class result extends Model
     public $instanceId;
 
     /**
-     * @description The lock mode of the instance. Valid values:
+     * @description The lock state. Valid values:
      *
-     *   Unlock: The instance is not locked.
+     *   Unlock: The instance is unlocked.
      *   LockByExpiration: The instance is automatically locked after it expires.
      *   ManualLock: The instance is manually locked.
      *
@@ -148,7 +155,7 @@ class result extends Model
     public $lockedByExpiration;
 
     /**
-     * @description The name of the application.
+     * @description The application name.
      *
      * @example os_function_test_v1
      *
@@ -166,7 +173,7 @@ class result extends Model
     public $pendingSecondRankAlgoDeploymentId;
 
     /**
-     * @description The ID of the order that is not complete for the instance. For example, an order is one that is initiated to create the instance or change the quotas or billing method.
+     * @description The ID of the order that is not complete.
      *
      * @example -
      *
@@ -175,10 +182,10 @@ class result extends Model
     public $processingOrderId;
 
     /**
-     * @description Indicates whether the order is complete. Valid values:
+     * @description Indicates whether the application is created. Valid values:
      *
-     *   0: The order is in progress.
-     *   1: The order is complete.
+     *   0: The application is being created.
+     *   1: The application is created.
      *
      * @example 1
      *
@@ -203,6 +210,10 @@ class result extends Model
     public $quota;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-acfmoiyerh6nzly
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -217,13 +228,13 @@ class result extends Model
     public $secondRankAlgoDeploymentId;
 
     /**
-     * @description The status of the application. Valid values:
+     * @description The state of the application. Valid values:
      *
-     *   producing
-     *   review_pending
-     *   config_pending
-     *   normal
-     *   frozen
+     *   producing: The application is being created.
+     *   review_pending: The application is being reviewed.
+     *   config_pending: The application is to be configured.
+     *   normal: The application is in service.
+     *   frozen: The application is frozen.
      *
      * @example normal
      *
@@ -241,6 +252,8 @@ class result extends Model
     public $switchedTime;
 
     /**
+     * @description The application tags.
+     *
      * @var tags[]
      */
     public $tags;
@@ -248,9 +261,9 @@ class result extends Model
     /**
      * @description The type of the application. Valid values:
      *
-     *   standard: a standard application.
-     *   advance: an advanced application which is of an old application type. New applications cannot be of this type.
-     *   enhanced: an advanced application which is of a new application type.
+     *   standard: a High-performance Search Edition application.
+     *
+     *   enhanced: an Industry Algorithm Edition application.
      *
      * @example enhanced
      *
@@ -274,6 +287,7 @@ class result extends Model
         'currentVersion'                    => 'currentVersion',
         'description'                       => 'description',
         'domain'                            => 'domain',
+        'engineType'                        => 'engineType',
         'expireOn'                          => 'expireOn',
         'firstRankAlgoDeploymentId'         => 'firstRankAlgoDeploymentId',
         'hasPendingQuotaReviewTask'         => 'hasPendingQuotaReviewTask',
@@ -323,6 +337,9 @@ class result extends Model
         }
         if (null !== $this->domain) {
             $res['domain'] = $this->domain;
+        }
+        if (null !== $this->engineType) {
+            $res['engineType'] = $this->engineType;
         }
         if (null !== $this->expireOn) {
             $res['expireOn'] = $this->expireOn;
@@ -422,6 +439,9 @@ class result extends Model
         }
         if (isset($map['domain'])) {
             $model->domain = $map['domain'];
+        }
+        if (isset($map['engineType'])) {
+            $model->engineType = $map['engineType'];
         }
         if (isset($map['expireOn'])) {
             $model->expireOn = $map['expireOn'];

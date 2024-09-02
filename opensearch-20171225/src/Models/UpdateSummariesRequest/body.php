@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class body extends Model
 {
     /**
+     * @description The HTML tag that is used to highlight terms in red.
+     *
+     * @example "em"
+     *
      * @var string
      */
     public $element;
 
     /**
+     * @description The connector that is used to connect segments.
+     *
+     * @example "..."
+     *
      * @var string
      */
     public $ellipsis;
 
     /**
+     * @description The field.
+     *
+     * @example "title"
+     *
      * @var string
      */
     public $field;
 
     /**
+     * @description The length of a segment.
+     *
+     * @example 50
+     *
      * @var int
      */
     public $len;
 
     /**
+     * @description The number of segments.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $snippet;

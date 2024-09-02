@@ -10,12 +10,14 @@ use AlibabaCloud\Tea\Model;
 class UpdateSummariesRequest extends Model
 {
     /**
+     * @description The request body.
+     *
      * @var body[]
      */
     public $body;
 
     /**
-     * @description true
+     * @description Specifies whether the request is a dry run.
      *
      * @example true
      *

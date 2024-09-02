@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateFetchFieldsRequest extends Model
 {
     /**
+     * @description The request body.
+     *
      * @var string[]
      */
     public $body;

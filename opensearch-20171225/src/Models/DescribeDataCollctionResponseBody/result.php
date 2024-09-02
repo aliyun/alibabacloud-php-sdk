@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description The time when the data collection task was created.
+     * @description The time when the task was created.
      *
      * @example 1581065837
      *
@@ -18,11 +18,11 @@ class result extends Model
     public $created;
 
     /**
-     * @description The type of the data that is collected by the task. Valid values:
+     * @description The type of data collected. Valid values:
      *
-     *   behavior: behavioral data
-     *   item_info: project data
-     *   industry_specific: industry-specific data
+     *   behavior: behavioral data.
+     *   item_info: project information.
+     *   industry_specific: industry-specific data.
      *
      * @example BEHAVIOR
      *
@@ -40,7 +40,7 @@ class result extends Model
     public $id;
 
     /**
-     * @description The industry to which the data collection task applies. Valid values:
+     * @description The industry name. Valid values:
      *
      *   general
      *   ecommerce
@@ -61,12 +61,12 @@ class result extends Model
     public $name;
 
     /**
-     * @description The status of the data collection task. Valid values:
+     * @description The status of the data collection feature. Valid values:
      *
-     *   0: disabled
-     *   1: being enabled
-     *   2: enabled
-     *   3: failed to be enabled
+     *   0: The feature is disabled.
+     *   1: The feature is being enabled.
+     *   2: The feature is enabled.
+     *   3: The feature failed to be enabled.
      *
      * @example 2
      *
@@ -75,7 +75,7 @@ class result extends Model
     public $status;
 
     /**
-     * @description The ID of the sundial.
+     * @description The sundial ID.
      *
      * @example 1755
      *
@@ -84,15 +84,12 @@ class result extends Model
     public $sundialId;
 
     /**
-     * @description The type of the data source. Valid values:
+     * @description The type of the source from which data was collected. Valid values:
      *
      *   server
-     *
      *   web
+     *   app Note: Only server is supported.
      *
-     *   app
-     *
-     * Note: Only server is supported.
      * @example server
      *
      * @var string

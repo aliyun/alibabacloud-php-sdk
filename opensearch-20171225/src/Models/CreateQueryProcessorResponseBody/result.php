@@ -58,7 +58,7 @@ class result extends Model
     /**
      * @description The features that are used in the query analysis rule.
      *
-     * For more information, see [QueryProcessor](~~170014~~).
+     * For more information, see [QueryProcessor](https://help.aliyun.com/document_detail/170014.html).
      * @var mixed[][]
      */
     public $processors;

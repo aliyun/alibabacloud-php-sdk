@@ -75,7 +75,7 @@ class GetFunctionDefaultInstanceResponseBody extends Model
     /**
      * @description The result of the request.
      *
-     * @example {\"Pagination\": {\"TotalCount\": 0, \"PageNumber\": 1, \"PageSize\": 10}, \"AntConsortiums\": []}
+     * @example {\\"Pagination\\": {\\"TotalCount\\": 0, \\"PageNumber\\": 1, \\"PageSize\\": 10}, \\"AntConsortiums\\": []}
      *
      * @var result
      */

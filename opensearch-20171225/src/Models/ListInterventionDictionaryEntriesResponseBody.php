@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListInterventionDictionaryEntriesResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 516A02B7-2167-8D92-12D0-B639A2A0F3C5
      *
@@ -19,9 +19,9 @@ class ListInterventionDictionaryEntriesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The information about each intervention entry.
+     * @description The information about intervention entries.
      *
-     * For more information, see [InterventionDictionaryEntry](~~173606~~).
+     * For more information, see [InterventionDictionaryEntry](https://help.aliyun.com/document_detail/173606.html).
      * @var result[]
      */
     public $result;

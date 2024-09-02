@@ -19,7 +19,7 @@ class UpdateABTestSceneResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The details of the test scenario. For more information, see [ABTestScene](~~173618~~).
+     * @description The details of the test scenario. For more information, see [ABTestScene](https://help.aliyun.com/document_detail/173618.html).
      *
      * @example {}
      *

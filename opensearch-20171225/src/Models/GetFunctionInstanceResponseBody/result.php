@@ -38,7 +38,7 @@ class result extends Model
     /**
      * @description The cron expression used to schedule training, in the format of (Minutes Hours DayofMonth Month DayofWeek). If the value is empty, it indicates that no periodic training is performed.
      *
-     * @example 0 3 ? \* 0,1,3,5 (at 3 a.m. on Sunday, Monday, Wednesday, and Friday)
+     * @example 0 3 ? \\* 0,1,3,5 (at 3 a.m. on Sunday, Monday, Wednesday, and Friday)
      *
      * @var string
      */
@@ -56,7 +56,7 @@ class result extends Model
     /**
      * @description The extended information, which is a JSON string.
      *
-     * @example {\"dataReport\":{},\"errors\":{}}
+     * @example {\\"dataReport\\":{},\\"errors\\":{}}
      *
      * @var string
      */

@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class ModifyAppGroupQuotaRequest extends Model
 {
     /**
+     * @description The request body.
+     *
      * @var Quota
      */
     public $body;
 
     /**
+     * @description Specifies whether to verify the application before modification. Valid values: true and false.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;

@@ -19,7 +19,7 @@ class result extends Model
     public $active;
 
     /**
-     * @description The description of the expression.
+     * @description The description of the rough sort expression.
      *
      * @example 1
      *
@@ -28,7 +28,7 @@ class result extends Model
     public $description;
 
     /**
-     * @description The content of the expression.
+     * @description The information about the expression.
      *
      * @var meta[]
      */

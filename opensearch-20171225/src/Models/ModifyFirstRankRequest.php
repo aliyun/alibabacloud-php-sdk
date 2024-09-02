@@ -9,12 +9,14 @@ use AlibabaCloud\Tea\Model;
 class ModifyFirstRankRequest extends Model
 {
     /**
+     * @description The request body.
+     *
      * @var FirstRank
      */
     public $body;
 
     /**
-     * @description true
+     * @description Specifies whether the request is a dry run.
      *
      * @example true
      *

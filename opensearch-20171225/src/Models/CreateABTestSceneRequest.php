@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class CreateABTestSceneRequest extends Model
 {
     /**
+     * @description The request body.
+     *
      * @var ABTestScene
      */
     public $body;
 
     /**
+     * @description Specifies whether to perform only a dry run, without performing the actual request. Default value: false.
+     *
+     * Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;

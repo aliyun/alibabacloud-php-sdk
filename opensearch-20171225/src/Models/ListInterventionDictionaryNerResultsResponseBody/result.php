@@ -66,12 +66,16 @@ class result extends Model
     /**
      * @description The description of the internal name of the identified entity type.
      *
+     * @example category
+     *
      * @var string
      */
     public $tagLabel;
 
     /**
      * @description The entity.
+     *
+     * @example eaa73f35-007a-4be7-88c7-37dca4a04ab7
      *
      * @var string
      */

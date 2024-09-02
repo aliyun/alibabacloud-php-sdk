@@ -18,7 +18,7 @@ class ListUserAnalyzerEntriesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The entries of the custom analyzer. For more information, see UserAnalyzerEntry.
+     * @description The entries of the custom analyzer. For more information, see [UserAnalyzerEntry](https://www.alibabacloud.com/help/en/open-search/industry-algorithm-edition/useranalyzerentry).
      *
      * @example []
      *

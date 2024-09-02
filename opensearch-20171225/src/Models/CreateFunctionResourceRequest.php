@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class CreateFunctionResourceRequest extends Model
 {
     /**
+     * @description The resource data. The data structure varies with the resource type.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The description of the resource.
+     *
      * @example ""
      *
      * @var string
@@ -22,6 +26,8 @@ class CreateFunctionResourceRequest extends Model
     public $description;
 
     /**
+     * @description The name of the resource.
+     *
      * @example fg_jsoon
      *
      * @var string
@@ -29,6 +35,17 @@ class CreateFunctionResourceRequest extends Model
     public $resourceName;
 
     /**
+     * @description The resource type.
+     *
+     * Valid values:
+     *
+     *   feature_generator
+     *
+     * <!-- -->
+     *
+     *   raw_file
+     *
+     * <!-- -->
      * @example feature_generator
      *
      * @var string

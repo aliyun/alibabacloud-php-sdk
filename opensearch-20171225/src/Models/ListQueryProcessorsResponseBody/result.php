@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description Indicates whether the query analysis rule is the default one.
+     * @description Indicates whether the query analysis rule is a default rule.
      *
      * @example true
      *
@@ -27,7 +27,7 @@ class result extends Model
     public $created;
 
     /**
-     * @description The type of the industry. Valid values:
+     * @description The type of the industry to which the query analysis rule is applied. Valid values:
      *
      *   GENERAL
      *   ECOMMERCE
@@ -40,7 +40,7 @@ class result extends Model
     public $domain;
 
     /**
-     * @description The indexes to which the query analysis rule applies.
+     * @description The indexes to which the query analysis rule is applied.
      *
      * @var string[]
      */
@@ -58,13 +58,12 @@ class result extends Model
     /**
      * @description The features that are used in the query analysis rule.
      *
-     * For more information, see the ["Processor"](~~170014~~) section of the QueryProcessor topic.
      * @var mixed[][]
      */
     public $processors;
 
     /**
-     * @description The time when the query analysis rule was last updated.
+     * @description The time when the query analysis rule was last modified.
      *
      * @example 1587398402
      *

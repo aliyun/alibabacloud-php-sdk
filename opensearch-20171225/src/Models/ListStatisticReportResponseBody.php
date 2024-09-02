@@ -20,7 +20,7 @@ class ListStatisticReportResponseBody extends Model
     /**
      * @description The queried reports. Valid values:
      *
-     * For more information about the metrics in query analysis reports, see the Query analysis metrics section of [Metrics of statistical reports](~~187654~~).
+     * For more information about the metrics in query analysis reports, see the Query analysis metrics section of [Metrics of statistical reports](https://help.aliyun.com/document_detail/187654.html).
      * @example []
      *
      * @var mixed[][]

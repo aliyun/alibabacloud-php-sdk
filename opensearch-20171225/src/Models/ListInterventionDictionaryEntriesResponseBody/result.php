@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description The action. Valid values:
+     * @description The command. Valid values:
      *
      *   add
      *   delete
@@ -31,9 +31,8 @@ class result extends Model
     public $created;
 
     /**
-     * @description The content of an intervention entry for category prediction.
+     * @description The content of an intervention entry for category prediction. The field value consists of key-value pairs. The key in a key-value pair indicates the ID of the category. The value in a key-value pair indicates the relevance to the category. A value of 0 indicates irrelevant. A value of 1 indicates slightly relevant. A value of 2 indicates relevant. Example: {"2":1, "100":0}
      *
-     * Example: {"2":1, "100":0}
      * @example {                 "100": "0",                 "200": "2"             }
      *
      * @var mixed[]
@@ -52,7 +51,7 @@ class result extends Model
     public $status;
 
     /**
-     * @description The content of an intervention entry for term weight analysis.
+     * @description The content of the intervention entry for term weight analysis.
      *
      * @var tokens[]
      */
@@ -68,9 +67,9 @@ class result extends Model
     public $updated;
 
     /**
-     * @description The intervention query in the intervention entry.
+     * @description The intervention entry.
      *
-     * @example \u8fc7\u513f
+     * @example \\u8fc7\\u513f
      *
      * @var string
      */

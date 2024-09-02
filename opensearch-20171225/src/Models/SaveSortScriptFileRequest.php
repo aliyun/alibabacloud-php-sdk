@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class SaveSortScriptFileRequest extends Model
 {
     /**
+     * @description The script content that is encoded in the Base64 format.
+     *
+     * @example 4769#0: *28194492991 a client request body is buffered to a temporary file /usr/local/webserver/openresty/nginx/client_body_temp/0000624474,
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @description The version number of the script content.
+     *
+     * @example 2022-12-01
+     *
      * @var int
      */
     public $version;

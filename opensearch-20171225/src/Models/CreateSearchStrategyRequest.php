@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateSearchStrategyRequest extends Model
 {
     /**
+     * @description The query policy.
+     *
      * @var SearchStrategy
      */
     public $body;

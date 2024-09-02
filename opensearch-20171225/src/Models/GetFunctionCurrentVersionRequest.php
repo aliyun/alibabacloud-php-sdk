@@ -50,6 +50,7 @@ class GetFunctionCurrentVersionRequest extends Model
      *   Word segmentation model: text
      *   Word weight model: tf_checkpoint
      *
+     * This parameter is required.
      * @example tf_checkpoint
      *
      * @var string

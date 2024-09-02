@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteFunctionResourceResponseBody extends Model
 {
     /**
+     * @description The error code returned. If no error occurs, this value is empty.
+     *
      * @example ""
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteFunctionResourceResponseBody extends Model
     public $code;
 
     /**
+     * @description The HTTP status code returned.
+     *
      * @example 200
      *
      * @var int
@@ -23,6 +27,8 @@ class DeleteFunctionResourceResponseBody extends Model
     public $httpCode;
 
     /**
+     * @description The time consumed for the request. Unit: milliseconds.
+     *
      * @example 123
      *
      * @var float
@@ -30,6 +36,8 @@ class DeleteFunctionResourceResponseBody extends Model
     public $latency;
 
     /**
+     * @description The error message.
+     *
      * @example ""
      *
      * @var string
@@ -37,6 +45,8 @@ class DeleteFunctionResourceResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example A4D487A9-A456-5AA5-A9C6-B7BF2889CF74
      *
      * @var string
@@ -44,6 +54,11 @@ class DeleteFunctionResourceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The status code. Valid values:
+     *
+     *   OK
+     *   FAIL
+     *
      * @example OK
      *
      * @var string

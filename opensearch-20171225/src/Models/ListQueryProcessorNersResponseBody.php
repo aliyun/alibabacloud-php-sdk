@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListQueryProcessorNersResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 0A6EB64B-B4C8-CF02-810F-E660812972FF
      *
@@ -21,7 +21,7 @@ class ListQueryProcessorNersResponseBody extends Model
     /**
      * @description The priority settings of entity types.
      *
-     * For more information, see [Priority settings of entity types](~~173616~~).
+     * For more information, see [Priority settings of entity types](https://help.aliyun.com/document_detail/173616.html).
      * @var result[]
      */
     public $result;

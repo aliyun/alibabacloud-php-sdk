@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class input extends Model
 {
     /**
+     * @description The input features.
+     *
      * @var features[]
      */
     public $features;

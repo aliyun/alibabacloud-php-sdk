@@ -21,7 +21,7 @@ class ListABTestScenesResponseBody extends Model
     /**
      * @description The details of the test scenarios.
      *
-     * For more information, see [ABTestScene](~~173618~~).
+     * For more information, see [ABTestScene](https://help.aliyun.com/document_detail/173618.html).
      * @var result[]
      */
     public $result;

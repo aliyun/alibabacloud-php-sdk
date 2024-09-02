@@ -21,10 +21,10 @@ class result extends Model
     /**
      * @description The basic analyzer. Valid values:
      *
-     *   chn_standard: [a common analyzer in Chinese](~~179424~~)
+     *   chn_standard: [a common analyzer in Chinese](https://help.aliyun.com/document_detail/179424.html)
      *   chn_scene_name: an analyzer for person names in Chinese
-     *   chn_ecommerce: [an analyzer for E-commerce in Chinese](~~179424~~)
-     *   chn_it_content: [an analyzer for IT content in Chinese](~~179424~~)
+     *   chn_ecommerce: [an analyzer for E-commerce in Chinese](https://help.aliyun.com/document_detail/179424.html)
+     *   chn_it_content: [an analyzer for IT content in Chinese](https://help.aliyun.com/document_detail/179424.html)
      *   en_min: a small-granularity analyzer in English
      *   th_standard: a common analyzer in Thai
      *   th_ecommerce: an analyzer for E-commerce in Thai
@@ -52,7 +52,7 @@ class result extends Model
     /**
      * @description The dictionaries that are used by the custom analyzer.
      *
-     * For more information, see [UserDict](~~178933~~).
+     * For more information, see [UserDict](https://help.aliyun.com/document_detail/178933.html).
      * @var dicts[]
      */
     public $dicts;

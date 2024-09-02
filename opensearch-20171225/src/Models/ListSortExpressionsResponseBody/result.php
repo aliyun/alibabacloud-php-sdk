@@ -18,7 +18,7 @@ class result extends Model
     public $active;
 
     /**
-     * @description The time when the expression was created.
+     * @description The timestamp when the sort expression was created.
      *
      * @example 1655793690
      *
@@ -27,7 +27,7 @@ class result extends Model
     public $created;
 
     /**
-     * @description The description of the expression.
+     * @description The description of the sort expression.
      *
      * @example ""
      *
@@ -36,7 +36,7 @@ class result extends Model
     public $description;
 
     /**
-     * @description The name of the expression.
+     * @description The name of the sort expression.
      *
      * @example default
      *
@@ -45,7 +45,7 @@ class result extends Model
     public $name;
 
     /**
-     * @description The time when the expression was last updated.
+     * @description The timestamp when the sort expression was updated.
      *
      * @example 1655793690
      *

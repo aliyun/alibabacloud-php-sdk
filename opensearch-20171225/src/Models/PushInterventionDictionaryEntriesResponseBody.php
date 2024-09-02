@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class PushInterventionDictionaryEntriesResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example D77D0DAF-790D-F5F5-A9C0-133738165014
      *
      * @var string
@@ -16,6 +18,8 @@ class PushInterventionDictionaryEntriesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The returned results.
+     *
      * @var string[]
      */
     public $result;

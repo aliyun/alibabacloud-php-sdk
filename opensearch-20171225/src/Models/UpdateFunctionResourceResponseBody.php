@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateFunctionResourceResponseBody extends Model
 {
     /**
+     * @description The error code. If no error occurs, this parameter is left empty.
+     *
      * @example InvalidRequest
      *
      * @var string
@@ -16,6 +18,8 @@ class UpdateFunctionResourceResponseBody extends Model
     public $code;
 
     /**
+     * @description The HTTP status code returned.
+     *
      * @example 200
      *
      * @var int
@@ -23,6 +27,8 @@ class UpdateFunctionResourceResponseBody extends Model
     public $httpCode;
 
     /**
+     * @description The time consumed for the request. Unit: milliseconds.
+     *
      * @example 123
      *
      * @var float
@@ -30,6 +36,8 @@ class UpdateFunctionResourceResponseBody extends Model
     public $latency;
 
     /**
+     * @description The error message returned.
+     *
      * @example Invalid request.
      *
      * @var string
@@ -37,6 +45,8 @@ class UpdateFunctionResourceResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 7E375703-5B12-5466-8B48-C4D01AE1291A
      *
      * @var string
@@ -44,6 +54,8 @@ class UpdateFunctionResourceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The status of the request.
+     *
      * @example OK
      *
      * @var string

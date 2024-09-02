@@ -27,7 +27,7 @@ class result extends Model
     public $id;
 
     /**
-     * @description The name of the test group.
+     * @description The alias of the test group.
      *
      * @example Group_2020-5-7_15:23:3
      *
@@ -48,7 +48,7 @@ class result extends Model
     public $status;
 
     /**
-     * @description The time when the test group was last modified.
+     * @description The time when the test group was last updated.
      *
      * @example 1588839490
      *

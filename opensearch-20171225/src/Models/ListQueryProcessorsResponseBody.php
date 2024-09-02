@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListQueryProcessorsResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 0A6EB64B-B4C8-CF02-810F-E660812972FF
      *
@@ -19,9 +19,9 @@ class ListQueryProcessorsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The information about each query analysis rule.
+     * @description The information about the query analysis rule.
      *
-     * For more information, see [QueryProcessor](~~170014~~).
+     * For more information, see [QueryProcessor](https://help.aliyun.com/document_detail/170014.html).
      * @var result[]
      */
     public $result;

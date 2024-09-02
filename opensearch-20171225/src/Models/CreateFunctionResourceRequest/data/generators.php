@@ -10,6 +10,33 @@ use AlibabaCloud\Tea\Model;
 class generators extends Model
 {
     /**
+     * @description The type of the feature generator.
+     *
+     * Valid values:
+     *
+     *   lookup
+     *
+     * <!-- -->
+     *
+     *   sequence
+     *
+     * <!-- -->
+     *
+     *   overlap
+     *
+     * <!-- -->
+     *
+     *   raw
+     *
+     * <!-- -->
+     *
+     *   combo
+     *
+     * <!-- -->
+     *
+     *   id
+     *
+     * <!-- -->
      * @example id
      *
      * @var string
@@ -17,11 +44,15 @@ class generators extends Model
     public $generator;
 
     /**
+     * @description The input.
+     *
      * @var input
      */
     public $input;
 
     /**
+     * @description The name of the output feature.
+     *
      * @example item_id_feature
      *
      * @var string

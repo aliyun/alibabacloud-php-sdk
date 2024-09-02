@@ -9,12 +9,14 @@ use AlibabaCloud\Tea\Model;
 class CreateSecondRankRequest extends Model
 {
     /**
+     * @description The request body. For more information, see [SecondRank](https://help.aliyun.com/document_detail/170008.html).
+     *
      * @var SecondRank
      */
     public $body;
 
     /**
-     * @description true
+     * @description Specifies whether to perform a dry run.
      *
      * @example true
      *

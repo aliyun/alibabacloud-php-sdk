@@ -20,7 +20,6 @@ class meta extends Model
     /**
      * @description The attribute, feature function, or field to be searched for.
      *
-     * For more information about supported feature functions, see Rough sort functions.
      * @example static_bm25()
      *
      * @var string
@@ -28,9 +27,8 @@ class meta extends Model
     public $attribute;
 
     /**
-     * @description The weight.
+     * @description The weight. Valid values: -100000 to 100000. The value cannot be 0.
      *
-     * Valid values: \[-100000,100000] (excluding 0).
      * @example 10
      *
      * @var float

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListAppGroupsShrinkRequest extends Model
 {
     /**
-     * @description ops-cn-xxxx
+     * @description The ID of the instance. Exact match is used.
      *
      * @example ops-cn-xxxx
      *
@@ -18,7 +18,7 @@ class ListAppGroupsShrinkRequest extends Model
     public $instanceId;
 
     /**
-     * @description my_name
+     * @description The name of the application.
      *
      * @example my_name
      *
@@ -27,7 +27,7 @@ class ListAppGroupsShrinkRequest extends Model
     public $name;
 
     /**
-     * @description 1
+     * @description The page number. Default value: 1.
      *
      * @example 1
      *
@@ -36,7 +36,7 @@ class ListAppGroupsShrinkRequest extends Model
     public $pageNumber;
 
     /**
-     * @description 10
+     * @description The number of entries per page. Default value: 10.
      *
      * @example 10
      *
@@ -45,7 +45,7 @@ class ListAppGroupsShrinkRequest extends Model
     public $pageSize;
 
     /**
-     * @description ""
+     * @description The ID of the resource group.
      *
      * @example "110123123"
      *
@@ -54,8 +54,12 @@ class ListAppGroupsShrinkRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description 0
+     * @description The method based on which applications are sorted. Valid values:
      *
+     *   0: sorts applications in descending order by creation time.
+     *   1: sorts applications in descending order by modification time.
+     *
+     * Default value: 0.
      * @example 0
      *
      * @var int
@@ -63,12 +67,17 @@ class ListAppGroupsShrinkRequest extends Model
     public $sortBy;
 
     /**
+     * @description The tags.
+     *
      * @var string
      */
     public $tagsShrink;
 
     /**
-     * @description standard
+     * @description The type of the application. Valid values:
+     *
+     *   standard: a High-performance Search Edition application.
+     *   enhanced: an Industry Algorithm Edition application.
      *
      * @example standard
      *

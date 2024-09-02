@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListScheduledTasksRequest extends Model
 {
     /**
-     * @description 1
+     * @description The page number. Default value: 1.
      *
      * @example 1
      *
@@ -18,7 +18,7 @@ class ListScheduledTasksRequest extends Model
     public $pageNumber;
 
     /**
-     * @description 10
+     * @description The number of entries per page. Default value: 10.
      *
      * @example 10
      *
@@ -27,7 +27,12 @@ class ListScheduledTasksRequest extends Model
     public $pageSize;
 
     /**
-     * @description wipe
+     * @description The scheduled task type. Valid values:
+     *
+     *   wipe: data cleaning.
+     *   fork: reindexing.
+     *   check-status: application status check.
+     *   index: reindexing.
      *
      * @example wipe
      *

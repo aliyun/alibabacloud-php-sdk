@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class BindEsInstanceResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example F5099063-6B86-F398-D843-905F9EFB683A
      *
      * @var string
@@ -16,7 +18,9 @@ class BindEsInstanceResponseBody extends Model
     public $requestId;
 
     /**
-     * @example {}
+     * @description The result
+     *
+     * @example []
      *
      * @var mixed[]
      */

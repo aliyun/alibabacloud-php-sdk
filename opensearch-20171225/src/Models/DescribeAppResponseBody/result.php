@@ -4,21 +4,20 @@
 
 namespace AlibabaCloud\SDK\OpenSearch\V20171225\Models\DescribeAppResponseBody;
 
+use AlibabaCloud\SDK\OpenSearch\V20171225\Models\DescribeAppResponseBody\result\cluster;
+use AlibabaCloud\SDK\OpenSearch\V20171225\Models\DescribeAppResponseBody\result\dataSources;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\DescribeAppResponseBody\result\domain;
+use AlibabaCloud\SDK\OpenSearch\V20171225\Models\DescribeAppResponseBody\result\firstRanks;
+use AlibabaCloud\SDK\OpenSearch\V20171225\Models\DescribeAppResponseBody\result\queryProcessors;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\DescribeAppResponseBody\result\quota;
+use AlibabaCloud\SDK\OpenSearch\V20171225\Models\DescribeAppResponseBody\result\schema;
+use AlibabaCloud\SDK\OpenSearch\V20171225\Models\DescribeAppResponseBody\result\schemas;
+use AlibabaCloud\SDK\OpenSearch\V20171225\Models\DescribeAppResponseBody\result\secondRanks;
+use AlibabaCloud\SDK\OpenSearch\V20171225\Models\DescribeAppResponseBody\result\summaries;
 use AlibabaCloud\Tea\Model;
 
 class result extends Model
 {
-    /**
-     * @description The ID of the created rough sort expression.
-     *
-     * @example 0
-     *
-     * @var int
-     */
-    public $algoDeploymentId;
-
     /**
      * @description Indicates whether the version is automatically published to the online environment.
      *
@@ -29,6 +28,13 @@ class result extends Model
     public $autoSwitch;
 
     /**
+     * @var cluster
+     */
+    public $cluster;
+
+    /**
+     * @description The name of the cluster.
+     *
      * @example -
      *
      * @var string
@@ -36,13 +42,9 @@ class result extends Model
     public $clusterName;
 
     /**
-     * @description The timestamp when the version was created.
-     *
-     * @example 1590977140
-     *
-     * @var int
+     * @var dataSources[]
      */
-    public $created;
+    public $dataSources;
 
     /**
      * @description The description of the version.
@@ -54,6 +56,12 @@ class result extends Model
     public $description;
 
     /**
+     * @description The type of the industry. Valid values:
+     *
+     *   GENERAL
+     *   ECOMMERCE
+     *   IT_CONTENT
+     *
      * @example GENERAL
      *
      * @var domain
@@ -70,6 +78,11 @@ class result extends Model
     public $fetchFields;
 
     /**
+     * @var firstRanks[]
+     */
+    public $firstRanks;
+
+    /**
      * @description The ID of the version.
      *
      * @example 100303063
@@ -79,6 +92,16 @@ class result extends Model
     public $id;
 
     /**
+     * @var mixed[]
+     */
+    public $interpretations;
+
+    /**
+     * @var bool
+     */
+    public $isCurrent;
+
+    /**
      * @description The progress of data import, in percentage. For example, a value of 83 indicates 83%.
      *
      * @example 100
@@ -86,6 +109,16 @@ class result extends Model
      * @var int
      */
     public $progressPercent;
+
+    /**
+     * @var mixed[][]
+     */
+    public $prompts;
+
+    /**
+     * @var queryProcessors[]
+     */
+    public $queryProcessors;
 
     /**
      * @description The quota information about the version.
@@ -101,9 +134,19 @@ class result extends Model
      *
      * @example {}
      *
-     * @var mixed[]
+     * @var schema
      */
     public $schema;
+
+    /**
+     * @var schemas[]
+     */
+    public $schemas;
+
+    /**
+     * @var secondRanks[]
+     */
+    public $secondRanks;
 
     /**
      * @description The status of the version. Valid values:
@@ -123,6 +166,11 @@ class result extends Model
     public $status;
 
     /**
+     * @var summaries[]
+     */
+    public $summaries;
+
+    /**
      * @description The type of the application. Valid values:
      *
      *   standard: a standard application.
@@ -135,19 +183,27 @@ class result extends Model
      */
     public $type;
     protected $_name = [
-        'algoDeploymentId' => 'algoDeploymentId',
-        'autoSwitch'       => 'autoSwitch',
-        'clusterName'      => 'clusterName',
-        'created'          => 'created',
-        'description'      => 'description',
-        'domain'           => 'domain',
-        'fetchFields'      => 'fetchFields',
-        'id'               => 'id',
-        'progressPercent'  => 'progressPercent',
-        'quota'            => 'quota',
-        'schema'           => 'schema',
-        'status'           => 'status',
-        'type'             => 'type',
+        'autoSwitch'      => 'autoSwitch',
+        'cluster'         => 'cluster',
+        'clusterName'     => 'clusterName',
+        'dataSources'     => 'dataSources',
+        'description'     => 'description',
+        'domain'          => 'domain',
+        'fetchFields'     => 'fetchFields',
+        'firstRanks'      => 'firstRanks',
+        'id'              => 'id',
+        'interpretations' => 'interpretations',
+        'isCurrent'       => 'isCurrent',
+        'progressPercent' => 'progressPercent',
+        'prompts'         => 'prompts',
+        'queryProcessors' => 'queryProcessors',
+        'quota'           => 'quota',
+        'schema'          => 'schema',
+        'schemas'         => 'schemas',
+        'secondRanks'     => 'secondRanks',
+        'status'          => 'status',
+        'summaries'       => 'summaries',
+        'type'            => 'type',
     ];
 
     public function validate()
@@ -157,17 +213,23 @@ class result extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->algoDeploymentId) {
-            $res['algoDeploymentId'] = $this->algoDeploymentId;
-        }
         if (null !== $this->autoSwitch) {
             $res['autoSwitch'] = $this->autoSwitch;
+        }
+        if (null !== $this->cluster) {
+            $res['cluster'] = null !== $this->cluster ? $this->cluster->toMap() : null;
         }
         if (null !== $this->clusterName) {
             $res['clusterName'] = $this->clusterName;
         }
-        if (null !== $this->created) {
-            $res['created'] = $this->created;
+        if (null !== $this->dataSources) {
+            $res['dataSources'] = [];
+            if (null !== $this->dataSources && \is_array($this->dataSources)) {
+                $n = 0;
+                foreach ($this->dataSources as $item) {
+                    $res['dataSources'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->description) {
             $res['description'] = $this->description;
@@ -178,20 +240,74 @@ class result extends Model
         if (null !== $this->fetchFields) {
             $res['fetchFields'] = $this->fetchFields;
         }
+        if (null !== $this->firstRanks) {
+            $res['firstRanks'] = [];
+            if (null !== $this->firstRanks && \is_array($this->firstRanks)) {
+                $n = 0;
+                foreach ($this->firstRanks as $item) {
+                    $res['firstRanks'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->id) {
             $res['id'] = $this->id;
         }
+        if (null !== $this->interpretations) {
+            $res['interpretations'] = $this->interpretations;
+        }
+        if (null !== $this->isCurrent) {
+            $res['isCurrent'] = $this->isCurrent;
+        }
         if (null !== $this->progressPercent) {
             $res['progressPercent'] = $this->progressPercent;
+        }
+        if (null !== $this->prompts) {
+            $res['prompts'] = $this->prompts;
+        }
+        if (null !== $this->queryProcessors) {
+            $res['queryProcessors'] = [];
+            if (null !== $this->queryProcessors && \is_array($this->queryProcessors)) {
+                $n = 0;
+                foreach ($this->queryProcessors as $item) {
+                    $res['queryProcessors'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->quota) {
             $res['quota'] = null !== $this->quota ? $this->quota->toMap() : null;
         }
         if (null !== $this->schema) {
-            $res['schema'] = $this->schema;
+            $res['schema'] = null !== $this->schema ? $this->schema->toMap() : null;
+        }
+        if (null !== $this->schemas) {
+            $res['schemas'] = [];
+            if (null !== $this->schemas && \is_array($this->schemas)) {
+                $n = 0;
+                foreach ($this->schemas as $item) {
+                    $res['schemas'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->secondRanks) {
+            $res['secondRanks'] = [];
+            if (null !== $this->secondRanks && \is_array($this->secondRanks)) {
+                $n = 0;
+                foreach ($this->secondRanks as $item) {
+                    $res['secondRanks'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->status) {
             $res['status'] = $this->status;
+        }
+        if (null !== $this->summaries) {
+            $res['summaries'] = [];
+            if (null !== $this->summaries && \is_array($this->summaries)) {
+                $n = 0;
+                foreach ($this->summaries as $item) {
+                    $res['summaries'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->type) {
             $res['type'] = $this->type;
@@ -208,17 +324,23 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['algoDeploymentId'])) {
-            $model->algoDeploymentId = $map['algoDeploymentId'];
-        }
         if (isset($map['autoSwitch'])) {
             $model->autoSwitch = $map['autoSwitch'];
+        }
+        if (isset($map['cluster'])) {
+            $model->cluster = cluster::fromMap($map['cluster']);
         }
         if (isset($map['clusterName'])) {
             $model->clusterName = $map['clusterName'];
         }
-        if (isset($map['created'])) {
-            $model->created = $map['created'];
+        if (isset($map['dataSources'])) {
+            if (!empty($map['dataSources'])) {
+                $model->dataSources = [];
+                $n                  = 0;
+                foreach ($map['dataSources'] as $item) {
+                    $model->dataSources[$n++] = null !== $item ? dataSources::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['description'])) {
             $model->description = $map['description'];
@@ -231,20 +353,76 @@ class result extends Model
                 $model->fetchFields = $map['fetchFields'];
             }
         }
+        if (isset($map['firstRanks'])) {
+            if (!empty($map['firstRanks'])) {
+                $model->firstRanks = [];
+                $n                 = 0;
+                foreach ($map['firstRanks'] as $item) {
+                    $model->firstRanks[$n++] = null !== $item ? firstRanks::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['id'])) {
             $model->id = $map['id'];
         }
+        if (isset($map['interpretations'])) {
+            $model->interpretations = $map['interpretations'];
+        }
+        if (isset($map['isCurrent'])) {
+            $model->isCurrent = $map['isCurrent'];
+        }
         if (isset($map['progressPercent'])) {
             $model->progressPercent = $map['progressPercent'];
+        }
+        if (isset($map['prompts'])) {
+            if (!empty($map['prompts'])) {
+                $model->prompts = $map['prompts'];
+            }
+        }
+        if (isset($map['queryProcessors'])) {
+            if (!empty($map['queryProcessors'])) {
+                $model->queryProcessors = [];
+                $n                      = 0;
+                foreach ($map['queryProcessors'] as $item) {
+                    $model->queryProcessors[$n++] = null !== $item ? queryProcessors::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['quota'])) {
             $model->quota = quota::fromMap($map['quota']);
         }
         if (isset($map['schema'])) {
-            $model->schema = $map['schema'];
+            $model->schema = schema::fromMap($map['schema']);
+        }
+        if (isset($map['schemas'])) {
+            if (!empty($map['schemas'])) {
+                $model->schemas = [];
+                $n              = 0;
+                foreach ($map['schemas'] as $item) {
+                    $model->schemas[$n++] = null !== $item ? schemas::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['secondRanks'])) {
+            if (!empty($map['secondRanks'])) {
+                $model->secondRanks = [];
+                $n                  = 0;
+                foreach ($map['secondRanks'] as $item) {
+                    $model->secondRanks[$n++] = null !== $item ? secondRanks::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['status'])) {
             $model->status = $map['status'];
+        }
+        if (isset($map['summaries'])) {
+            if (!empty($map['summaries'])) {
+                $model->summaries = [];
+                $n                = 0;
+                foreach ($map['summaries'] as $item) {
+                    $model->summaries[$n++] = null !== $item ? summaries::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['type'])) {
             $model->type = $map['type'];

@@ -11,6 +11,7 @@ class ListDataSourceTablesRequest extends Model
     /**
      * @description N/A
      *
+     * This parameter is required.
      * @example -
      *
      * @var string

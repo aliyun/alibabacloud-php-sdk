@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateABTestFixedFlowDividersRequest extends Model
 {
     /**
+     * @description The request body.
+     *
      * @var string[]
      */
     public $body;

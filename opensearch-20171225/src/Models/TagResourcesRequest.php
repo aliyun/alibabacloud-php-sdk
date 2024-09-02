@@ -12,6 +12,7 @@ class TagResourcesRequest extends Model
     /**
      * @description The resource IDs. You can specify a maximum number of 50 resource IDs.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $resourceId;
@@ -19,6 +20,7 @@ class TagResourcesRequest extends Model
     /**
      * @description The resource type.
      *
+     * This parameter is required.
      * @example ProductVersion
      *
      * @var string
@@ -28,6 +30,7 @@ class TagResourcesRequest extends Model
     /**
      * @description The tags. You can specify a maximum number of 20 tags.
      *
+     * This parameter is required.
      * @var tag[]
      */
     public $tag;

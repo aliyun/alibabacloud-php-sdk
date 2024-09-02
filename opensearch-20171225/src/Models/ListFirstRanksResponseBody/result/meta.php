@@ -11,7 +11,7 @@ class meta extends Model
     /**
      * @description The parameters that are used by a function in the expression.
      *
-     * For more information, see [Rough sort functions](~~180765~~).
+     * For more information, see [Rough sort functions](https://help.aliyun.com/document_detail/180765.html).
      * @example ""
      *
      * @var string
@@ -21,7 +21,7 @@ class meta extends Model
     /**
      * @description The attribute, feature function, or field to be searched for.
      *
-     * For more information about supported feature functions, see [Rough sort functions](~~180765~~).
+     * For more information about supported feature functions, see [Rough sort functions](https://help.aliyun.com/document_detail/180765.html).
      * @example static_bm25()
      *
      * @var string
@@ -31,7 +31,7 @@ class meta extends Model
     /**
      * @description The weight.
      *
-     * Valid values: \[-100000,100000] (excluding 0).
+     * Valid values: [-100000,100000] (excluding 0).
      * @example 1
      *
      * @var int

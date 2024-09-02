@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description 脚本的作用范围
+     * @description The sort phase to which the script applies.
      *
      * @example second_rank
      *
@@ -18,7 +18,7 @@ class result extends Model
     public $scope;
 
     /**
-     * @description 脚本名称
+     * @description The script name.
      *
      * @example rank_cava_20230606_v7
      *
@@ -27,7 +27,7 @@ class result extends Model
     public $scriptName;
 
     /**
-     * @description 脚本的类型
+     * @description The script type.
      *
      * @example cava_script
      *

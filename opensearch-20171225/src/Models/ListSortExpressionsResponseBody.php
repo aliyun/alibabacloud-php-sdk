@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListSortExpressionsResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example D77D0DAF-790D-F5F5-A9C0-133738165014
      *
@@ -19,9 +19,9 @@ class ListSortExpressionsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The information about the rough sort or fine sort expressions that were returned.
+     * @description The information about the rough sort or fine sort expressions that are returned.
      *
-     * For more information, see [FirstRank](~~170007~~) and [SecondRank](~~170008~~).
+     * For more information, see [FirstRank](https://help.aliyun.com/document_detail/170007.html) and [SecondRank](https://help.aliyun.com/document_detail/170008.html).
      * @var result[]
      */
     public $result;

@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class UpdateABTestGroupResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
-     * @example \"\"1111\"\"
+     * @example \\"\\"1111\\"\\"
      *
      * @var string
      */

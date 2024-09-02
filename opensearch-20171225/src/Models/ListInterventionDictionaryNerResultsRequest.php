@@ -9,7 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ListInterventionDictionaryNerResultsRequest extends Model
 {
     /**
-     * @description Soymilk
+     * @description Query keywords.
+     *
+     * This parameter is required.
+     * @example "hello world"
      *
      * @var string
      */

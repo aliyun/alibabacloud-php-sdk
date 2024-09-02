@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The time when the resource was created. Unit: milliseconds.
+     *
      * @example 1234
      *
      * @var int
@@ -17,11 +19,15 @@ class result extends Model
     public $createTime;
 
     /**
+     * @description The resource data. The data structure varies with the resource type.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The description of the resource.
+     *
      * @example resource description
      *
      * @var string
@@ -29,6 +35,8 @@ class result extends Model
     public $description;
 
     /**
+     * @description The name of the feature.
+     *
      * @example rank
      *
      * @var string
@@ -36,6 +44,8 @@ class result extends Model
     public $functionName;
 
     /**
+     * @description The time when the resource was modified. Unit: milliseconds.
+     *
      * @example 1234
      *
      * @var int
@@ -43,11 +53,15 @@ class result extends Model
     public $modifyTime;
 
     /**
+     * @description The algorithm instances that are referenced.
+     *
      * @var string[]
      */
     public $referencedInstances;
 
     /**
+     * @description The name of the resource.
+     *
      * @example fg_json
      *
      * @var string
@@ -55,6 +69,8 @@ class result extends Model
     public $resourceName;
 
     /**
+     * @description The type of the resource.
+     *
      * @example feature_generator
      *
      * @var string

@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListStatisticLogsRequest extends Model
 {
     /**
-     * @description The fields to query. Example: columns=wordsTopPv.
+     * @description The fields to query. Format: columns=wordsTopPv.
      *
-     * For more information, see [Metrics in statistical reports](https://www.alibabacloud.com/help/en/opensearch/latest/statistical-report).
+     * For more information, see [Metrics in statistical reports](https://help.aliyun.com/document_detail/187665.html).
      * @example wordsTopPv
      *
      * @var string
@@ -19,7 +19,7 @@ class ListStatisticLogsRequest extends Model
     public $columns;
 
     /**
-     * @description The content of the query clause.
+     * @description Specifies whether to use the distinct clause.
      *
      * @example true
      *
@@ -28,7 +28,7 @@ class ListStatisticLogsRequest extends Model
     public $distinct;
 
     /**
-     * @description The number of the page to return. Default value: 1.
+     * @description The page number. Default value: 1.
      *
      * @example 1
      *
@@ -37,7 +37,7 @@ class ListStatisticLogsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Default value: 10.
+     * @description The number of entries per page. Default value: 10.
      *
      * @example 10
      *
@@ -48,7 +48,7 @@ class ListStatisticLogsRequest extends Model
     /**
      * @description The content of the query clause.
      *
-     * @example "default:\"OpenSearch\""
+     * @example "default:\\"OpenSearch\\""
      *
      * @var string
      */

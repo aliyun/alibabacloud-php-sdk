@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description The URL of the OpenSearch console.
+     * @description The console URL.
      *
      * @example https://opensearch-cn-hangzhou.console.aliyun.com
      *
@@ -18,7 +18,7 @@ class result extends Model
     public $consoleUrl;
 
     /**
-     * @description The endpoint of the region.
+     * @description The endpoint.
      *
      * @example opensearch.cn-hangzhou.aliyuncs.com
      *
@@ -27,14 +27,16 @@ class result extends Model
     public $endpoint;
 
     /**
-     * @description The name of the region.
+     * @description The region name.
+     *
+     * @example China (Hangzhou)
      *
      * @var string
      */
     public $localName;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *

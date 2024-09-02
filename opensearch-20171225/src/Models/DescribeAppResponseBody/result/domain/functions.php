@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class functions extends Model
 {
     /**
+     * @description Algorithm structure
+     *
      * @example []
      *
      * @var string[]
@@ -16,6 +18,8 @@ class functions extends Model
     public $algo;
 
     /**
+     * @description Queryprocessor description
+     *
      * @example []
      *
      * @var string[]
@@ -23,6 +27,8 @@ class functions extends Model
     public $qp;
 
     /**
+     * @description Function description
+     *
      * @example []
      *
      * @var string[]

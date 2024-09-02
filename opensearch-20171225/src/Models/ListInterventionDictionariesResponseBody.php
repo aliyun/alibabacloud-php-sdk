@@ -21,7 +21,7 @@ class ListInterventionDictionariesResponseBody extends Model
     /**
      * @description The information about each intervention dictionary.
      *
-     * For more information, see [InterventionDictionary](~~173608~~).
+     * For more information, see [InterventionDictionary](https://help.aliyun.com/document_detail/173608.html).
      * @var result[]
      */
     public $result;

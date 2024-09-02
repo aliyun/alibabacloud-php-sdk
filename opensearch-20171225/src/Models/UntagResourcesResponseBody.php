@@ -11,6 +11,8 @@ class UntagResourcesResponseBody extends Model
     /**
      * @description The ID of the request.
      *
+     * @example 1-A-0-B
+     *
      * @var string
      */
     public $tequestId;

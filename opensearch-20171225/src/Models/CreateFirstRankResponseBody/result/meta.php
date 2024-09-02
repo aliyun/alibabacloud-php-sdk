@@ -27,7 +27,7 @@ class meta extends Model
     public $attribute;
 
     /**
-     * @description The weight. Valid values: \[-100000,100000]. The value cannot be 0.
+     * @description The weight. Valid values: [-100000,100000]. The value cannot be 0.
      *
      * @example 10
      *

@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class PushInterventionDictionaryEntriesRequest extends Model
 {
     /**
+     * @description The request body.
+     *
      * @var mixed[][]
      */
     public $body;
 
     /**
+     * @description Specifies whether to check the validity of input parameters. Default value: false.
+     *
+     * Valid values:
+     *
+     *   **true**: checks only the validity of input parameters.
+     *   **false**: checks the validity of input parameters and creates an attribution configuration.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;

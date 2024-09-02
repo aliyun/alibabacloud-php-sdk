@@ -11,14 +11,15 @@ class result extends Model
     /**
      * @description The name of the entity type.
      *
+     * @example brand
+     *
      * @var string
      */
     public $label;
 
     /**
-     * @description The priority of an entity type among entity types that have the same priority level.
+     * @description The priority of an entity type among entity types that have the same priority level. A smaller value indicates a higher priority. Default value: 0.
      *
-     * A smaller value indicates a higher priority. Default value: 0.
      * @example 1
      *
      * @var int
@@ -26,7 +27,7 @@ class result extends Model
     public $order;
 
     /**
-     * @description The priority level of the entity type.
+     * @description The priority level of the entity type. Valid values:
      *
      *   HIGH
      *   MIDDLE

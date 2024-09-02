@@ -9,6 +9,14 @@ use AlibabaCloud\Tea\Model;
 class ListFunctionResourcesRequest extends Model
 {
     /**
+     * @description The output level.
+     *
+     * Valid values:
+     *
+     *   simple
+     *   normal
+     *   detail
+     *
      * @example detail
      *
      * @var string
@@ -16,6 +24,8 @@ class ListFunctionResourcesRequest extends Model
     public $output;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +33,8 @@ class ListFunctionResourcesRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
      * @example 10
      *
      * @var int
@@ -30,6 +42,17 @@ class ListFunctionResourcesRequest extends Model
     public $pageSize;
 
     /**
+     * @description The type of the resource.
+     *
+     * Valid values:
+     *
+     *   feature_generator
+     *
+     * <!-- -->
+     *
+     *   raw_file
+     *
+     * <!-- -->
      * @example feature_generator
      *
      * @var string

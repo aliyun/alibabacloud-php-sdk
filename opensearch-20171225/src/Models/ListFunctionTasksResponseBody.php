@@ -57,7 +57,7 @@ class ListFunctionTasksResponseBody extends Model
     /**
      * @description The returned result.
      *
-     * @example [         {             "functionName": "ctr",             "progress": 100,             "status": "success",             "startTime": 100010,             "endTime": 200020,             "extendInfo": "{\"recall\":91,\"errors\":[]}",             "runId": "trigger__2021-03-05T12:18:41"         }     ]
+     * @example [         {             "functionName": "ctr",             "progress": 100,             "status": "success",             "startTime": 100010,             "endTime": 200020,             "extendInfo": "{\\"recall\\":91,\\"errors\\":[]}",             "runId": "trigger__2021-03-05T12:18:41"         }     ]
      *
      * @var result[]
      */
