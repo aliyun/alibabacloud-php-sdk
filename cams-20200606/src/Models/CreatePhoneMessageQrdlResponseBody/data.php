@@ -23,6 +23,8 @@ class data extends Model
     public $generateQrImage;
 
     /**
+     * @description The phone number.
+     *
      * @example 8613800
      *
      * @var string

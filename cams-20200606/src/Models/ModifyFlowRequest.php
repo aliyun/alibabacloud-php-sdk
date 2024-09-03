@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyFlowRequest extends Model
 {
     /**
-     * @description The categories of the Flow.
+     * @description The information about the categories of the Flow.
      *
      * This parameter is required.
      * @var string[]

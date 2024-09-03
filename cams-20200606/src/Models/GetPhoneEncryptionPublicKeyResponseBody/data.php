@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The public key.
+     *
      * @example -----BEGIN PUBLIC KEY-----
      * -----END PUBLIC KEY-----
      * @var string
@@ -16,6 +18,11 @@ class data extends Model
     public $encryptionPublicKey;
 
     /**
+     * @description The validity state of the public key. Valid values:
+     *
+     *   MISMATCH: The public key is invalid.
+     *   VALID: The public key is valid.
+     *
      * @example VALID
      *
      * @var string
@@ -23,6 +30,8 @@ class data extends Model
     public $encryptionPublicKeyStatus;
 
     /**
+     * @description The phone number.
+     *
      * @example 86138000**
      *
      * @var string

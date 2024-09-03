@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ChatappPhoneNumberDeregisterRequest extends Model
 {
     /**
-     * @description The space ID of the user within the independent software vendor (ISV) account.
+     * @description The space ID of the RAM user within the independent software vendor (ISV) account.
      *
      * This parameter is required.
      * @example 939283893939
@@ -19,7 +19,7 @@ class ChatappPhoneNumberDeregisterRequest extends Model
     public $custSpaceId;
 
     /**
-     * @description The phone number.
+     * @description The phone number that you want to deregister.
      *
      * This parameter is required.
      * @example 8613800000000

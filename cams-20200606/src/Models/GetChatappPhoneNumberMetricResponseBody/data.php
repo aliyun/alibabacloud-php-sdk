@@ -27,12 +27,11 @@ class data extends Model
     public $end;
 
     /**
-     * @description The metric granularity.
+     * @description The granularity of the metric.
      *
-     * >  Valid values:
+     * Valid values:
      *
      *   DAILY
-     *
      *   HALF_HOUR
      *
      * @example DAILY

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeprecateFlowRequest extends Model
 {
     /**
+     * @description The space ID of the RAM user within the independent software vendor (ISV) account.
+     *
      * @example 38877483
      *
      * @var string
@@ -16,7 +18,7 @@ class DeprecateFlowRequest extends Model
     public $custSpaceId;
 
     /**
-     * @description Flow ID。
+     * @description The Flow ID.
      *
      * This parameter is required.
      * @example flow_001

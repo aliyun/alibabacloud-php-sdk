@@ -10,7 +10,10 @@ use AlibabaCloud\Tea\Model;
 class GetPreValidatePhoneIdResponseBody extends Model
 {
     /**
-     * @description The response code. The value OK indicates the request was successful.
+     * @description The response code.
+     *
+     *   The value OK indicates that the request was successful.
+     *   For more information about other response codes, see [Error codes](https://www.alibabacloud.com/help/zh/cams/latest/api-error-codes).
      *
      * @example OK
      *

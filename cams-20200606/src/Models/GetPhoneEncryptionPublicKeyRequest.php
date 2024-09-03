@@ -16,8 +16,9 @@ class GetPhoneEncryptionPublicKeyRequest extends Model
     public $custSpaceId;
 
     /**
-     * @description This parameter is required.
+     * @description The phone number.
      *
+     * This parameter is required.
      * @example flow_001
      *
      * @var string

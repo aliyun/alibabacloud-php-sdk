@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetFlowJSONAssestRequest extends Model
 {
     /**
+     * @description The space ID of the user within the independent software vendor (ISV) account.
+     *
      * @example 83883873
      *
      * @var string
@@ -16,7 +18,7 @@ class GetFlowJSONAssestRequest extends Model
     public $custSpaceId;
 
     /**
-     * @description Flow ID。
+     * @description The Flow ID.
      *
      * This parameter is required.
      * @example flow_001

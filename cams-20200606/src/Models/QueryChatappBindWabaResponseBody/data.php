@@ -33,6 +33,20 @@ class data extends Model
     public $authInternationalRateEligibility;
 
     /**
+     * @example 19293988***
+     *
+     * @var string
+     */
+    public $businessId;
+
+    /**
+     * @example Alibaba
+     *
+     * @var string
+     */
+    public $businessName;
+
+    /**
      * @description The currency.
      *
      * @example USD
@@ -77,6 +91,8 @@ class data extends Model
     protected $_name = [
         'accountReviewStatus'              => 'AccountReviewStatus',
         'authInternationalRateEligibility' => 'AuthInternationalRateEligibility',
+        'businessId'                       => 'BusinessId',
+        'businessName'                     => 'BusinessName',
         'currency'                         => 'Currency',
         'id'                               => 'Id',
         'messageTemplateNamespace'         => 'MessageTemplateNamespace',
@@ -96,6 +112,12 @@ class data extends Model
         }
         if (null !== $this->authInternationalRateEligibility) {
             $res['AuthInternationalRateEligibility'] = $this->authInternationalRateEligibility;
+        }
+        if (null !== $this->businessId) {
+            $res['BusinessId'] = $this->businessId;
+        }
+        if (null !== $this->businessName) {
+            $res['BusinessName'] = $this->businessName;
         }
         if (null !== $this->currency) {
             $res['Currency'] = $this->currency;
@@ -129,6 +151,12 @@ class data extends Model
         }
         if (isset($map['AuthInternationalRateEligibility'])) {
             $model->authInternationalRateEligibility = $map['AuthInternationalRateEligibility'];
+        }
+        if (isset($map['BusinessId'])) {
+            $model->businessId = $map['BusinessId'];
+        }
+        if (isset($map['BusinessName'])) {
+            $model->businessName = $map['BusinessName'];
         }
         if (isset($map['Currency'])) {
             $model->currency = $map['Currency'];

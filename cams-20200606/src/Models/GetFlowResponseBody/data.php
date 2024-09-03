@@ -16,7 +16,7 @@ class data extends Model
     public $categories;
 
     /**
-     * @description The API version.
+     * @description The version number of the API.
      *
      * @example 3.0
      *
@@ -34,7 +34,7 @@ class data extends Model
     public $flowId;
 
     /**
-     * @description The name of the Flow.
+     * @description The Flow name.
      *
      * @example dnjn
      *

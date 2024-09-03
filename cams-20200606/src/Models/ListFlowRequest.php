@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListFlowRequest extends Model
 {
     /**
-     * @description The space ID of the user within the independent software vendor (ISV) account.
+     * @description The space ID of the RAM user within the independent software vendor (ISV) account.
      *
      * @example 99948484
      *
@@ -19,7 +19,7 @@ class ListFlowRequest extends Model
     public $custSpaceId;
 
     /**
-     * @description The name of the Flow.
+     * @description The name of the Flow that you want to query. If FlowName is left empty, the information about all Flows is queried.
      *
      * @example flow_001
      *

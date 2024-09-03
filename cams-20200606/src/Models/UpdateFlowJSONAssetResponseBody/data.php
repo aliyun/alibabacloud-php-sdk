@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description Flow ID。
+     * @description The Flow ID.
      *
      * @example 84848847****
      *

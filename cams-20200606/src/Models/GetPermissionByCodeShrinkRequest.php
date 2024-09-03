@@ -18,6 +18,8 @@ class GetPermissionByCodeShrinkRequest extends Model
     public $code;
 
     /**
+     * @description The space ID of the RAM user within the independent software vendor (ISV) account.
+     *
      * @example 393847477
      *
      * @var string
@@ -25,6 +27,8 @@ class GetPermissionByCodeShrinkRequest extends Model
     public $custSpaceId;
 
     /**
+     * @description The permissions.
+     *
      * @var string
      */
     public $permissionsShrink;

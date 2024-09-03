@@ -25,7 +25,7 @@ class UpdateFlowJSONAssetRequest extends Model
     public $filePath;
 
     /**
-     * @description Flow ID。
+     * @description The Flow ID.
      *
      * This parameter is required.
      * @example flow_001

@@ -27,7 +27,7 @@ class UpdatePhoneMessageQrdlResponseBody extends Model
     public $message;
 
     /**
-     * @description Id of the request。
+     * @description The request ID.
      *
      * @example 1612C226-E271-4CFE-9F18-4066D******
      *

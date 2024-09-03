@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The file path.
+     *
      * @example https://url.com/json.json
      *
      * @var string
@@ -16,7 +18,7 @@ class data extends Model
     public $filePath;
 
     /**
-     * @description flow ID。
+     * @description The Flow ID.
      *
      * @example flow_id_arms
      *

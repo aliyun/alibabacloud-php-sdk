@@ -17,6 +17,8 @@ class CreatePhoneMessageQrdlResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned data.
+     *
      * @var data
      */
     public $data;
@@ -29,7 +31,7 @@ class CreatePhoneMessageQrdlResponseBody extends Model
     public $message;
 
     /**
-     * @description Id of the request。
+     * @description The request ID.
      *
      * @example 90E63D28-E31D-1EB2-8939-A94866411B2O
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetChatappTemplateMetricRequest extends Model
 {
     /**
-     * @description The space ID of the user within the ISV account.
+     * @description The space ID of the RAM user within the ISV account.
      *
      * @example 293483938849493
      *
@@ -28,11 +28,12 @@ class GetChatappTemplateMetricRequest extends Model
     public $end;
 
     /**
-     * @description The metric granularity.
+     * @description The granularity of the metric.
      *
-     * >  Valid values:
+     * Valid values:
      *
      *   DAILY
+     *   HALF_HOUR
      *
      * @example DAILY
      *
@@ -41,7 +42,7 @@ class GetChatappTemplateMetricRequest extends Model
     public $granularity;
 
     /**
-     * @description The verification code used to verify whether the RAM user is authorized by the independent software vendor (ISV) account.
+     * @description The independent software vendor (ISV) verification code, which is used to verify whether the RAM user is authorized by the ISV account.
      *
      * @example skdi3kksloslikdkkdk
      *
@@ -79,7 +80,12 @@ class GetChatappTemplateMetricRequest extends Model
     public $templateCode;
 
     /**
-     * @description The template type. Valid values: WHATSAPP and VIBER. If you do not specify this parameter, WHATSAPP is used by default.
+     * @description The template type. If you do not specify this parameter, the default value WHATSAPP is used.
+     *
+     * Valid values:
+     *
+     *   VIBER
+     *   WHATSAPP
      *
      * @example WHATSAPP
      *

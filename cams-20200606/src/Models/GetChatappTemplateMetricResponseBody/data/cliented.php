@@ -29,13 +29,11 @@ class cliented extends Model
     /**
      * @description The button type.
      *
-     * >  Valid values:
-     *
-     *   url_button
-     *
-     *   quick_relpy_button
+     * Valid values:
      *
      *   phone_number_button
+     *   url_button
+     *   quick_relpy_button
      *
      * @example quick_reply_button
      *

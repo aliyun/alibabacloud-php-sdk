@@ -25,7 +25,7 @@ class data extends Model
     public $flowId;
 
     /**
-     * @description The name of the Flow.
+     * @description The Flow name.
      *
      * @example flow-00203
      *

@@ -25,8 +25,9 @@ class UpdatePhoneEncryptionPublicKeyRequest extends Model
     public $encryptionPublicKey;
 
     /**
-     * @description This parameter is required.
+     * @description The phone number.
      *
+     * This parameter is required.
      * @example 86138000
      *
      * @var string
