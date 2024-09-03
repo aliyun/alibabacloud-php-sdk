@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @var string
+     */
+    public $nextToken;
+
+    /**
      * @var tableEntityList[]
      */
     public $tableEntityList;
@@ -21,6 +26,7 @@ class data extends Model
      */
     public $total;
     protected $_name = [
+        'nextToken'       => 'NextToken',
         'tableEntityList' => 'TableEntityList',
         'total'           => 'Total',
     ];
@@ -32,6 +38,9 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
+        }
         if (null !== $this->tableEntityList) {
             $res['TableEntityList'] = [];
             if (null !== $this->tableEntityList && \is_array($this->tableEntityList)) {
@@ -56,6 +65,9 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
+        }
         if (isset($map['TableEntityList'])) {
             if (!empty($map['TableEntityList'])) {
                 $model->tableEntityList = [];
