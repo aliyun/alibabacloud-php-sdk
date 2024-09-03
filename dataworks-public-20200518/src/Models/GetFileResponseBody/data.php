@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetFileResponseBody;
 
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetFileResponseBody\data\file;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetFileResponseBody\data\nodeConfiguration;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetFileResponseBody\data\resourceDownloadLink;
 use AlibabaCloud\Tea\Model;
 
 class data extends Model
@@ -23,9 +24,15 @@ class data extends Model
      * @var nodeConfiguration
      */
     public $nodeConfiguration;
+
+    /**
+     * @var resourceDownloadLink
+     */
+    public $resourceDownloadLink;
     protected $_name = [
-        'file'              => 'File',
-        'nodeConfiguration' => 'NodeConfiguration',
+        'file'                 => 'File',
+        'nodeConfiguration'    => 'NodeConfiguration',
+        'resourceDownloadLink' => 'ResourceDownloadLink',
     ];
 
     public function validate()
@@ -40,6 +47,9 @@ class data extends Model
         }
         if (null !== $this->nodeConfiguration) {
             $res['NodeConfiguration'] = null !== $this->nodeConfiguration ? $this->nodeConfiguration->toMap() : null;
+        }
+        if (null !== $this->resourceDownloadLink) {
+            $res['ResourceDownloadLink'] = null !== $this->resourceDownloadLink ? $this->resourceDownloadLink->toMap() : null;
         }
 
         return $res;
@@ -58,6 +68,9 @@ class data extends Model
         }
         if (isset($map['NodeConfiguration'])) {
             $model->nodeConfiguration = nodeConfiguration::fromMap($map['NodeConfiguration']);
+        }
+        if (isset($map['ResourceDownloadLink'])) {
+            $model->resourceDownloadLink = resourceDownloadLink::fromMap($map['ResourceDownloadLink']);
         }
 
         return $model;
