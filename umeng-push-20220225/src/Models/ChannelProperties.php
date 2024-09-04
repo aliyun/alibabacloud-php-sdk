@@ -39,6 +39,13 @@ class ChannelProperties extends Model
     public $oppoChannelId;
 
     /**
+     * @example "true",默认"false"
+     *
+     * @var string
+     */
+    public $vivoAddBadge;
+
+    /**
      * @var string
      */
     public $vivoCategory;
@@ -54,6 +61,7 @@ class ChannelProperties extends Model
         'huaweiChannelImportance' => 'huaweiChannelImportance',
         'mainActivity'            => 'mainActivity',
         'oppoChannelId'           => 'oppoChannelId',
+        'vivoAddBadge'            => 'vivoAddBadge',
         'vivoCategory'            => 'vivoCategory',
         'xiaomiChannelId'         => 'xiaomiChannelId',
     ];
@@ -82,6 +90,9 @@ class ChannelProperties extends Model
         }
         if (null !== $this->oppoChannelId) {
             $res['oppoChannelId'] = $this->oppoChannelId;
+        }
+        if (null !== $this->vivoAddBadge) {
+            $res['vivoAddBadge'] = $this->vivoAddBadge;
         }
         if (null !== $this->vivoCategory) {
             $res['vivoCategory'] = $this->vivoCategory;
@@ -118,6 +129,9 @@ class ChannelProperties extends Model
         }
         if (isset($map['oppoChannelId'])) {
             $model->oppoChannelId = $map['oppoChannelId'];
+        }
+        if (isset($map['vivoAddBadge'])) {
+            $model->vivoAddBadge = $map['vivoAddBadge'];
         }
         if (isset($map['vivoCategory'])) {
             $model->vivoCategory = $map['vivoCategory'];

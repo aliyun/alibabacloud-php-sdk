@@ -70,11 +70,13 @@ class Umengpush extends OpenApiClient
     }
 
     /**
-     * @param CancelByMsgIdRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @summary 根据消息ID取消发送
+     *  *
+     * @param CancelByMsgIdRequest $request CancelByMsgIdRequest
+     * @param string[]             $headers map
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return CancelByMsgIdResponse
+     * @return CancelByMsgIdResponse CancelByMsgIdResponse
      */
     public function cancelByMsgIdWithOptions($request, $headers, $runtime)
     {
@@ -103,9 +105,11 @@ class Umengpush extends OpenApiClient
     }
 
     /**
-     * @param CancelByMsgIdRequest $request
+     * @summary 根据消息ID取消发送
+     *  *
+     * @param CancelByMsgIdRequest $request CancelByMsgIdRequest
      *
-     * @return CancelByMsgIdResponse
+     * @return CancelByMsgIdResponse CancelByMsgIdResponse
      */
     public function cancelByMsgId($request)
     {
@@ -116,11 +120,13 @@ class Umengpush extends OpenApiClient
     }
 
     /**
-     * @param QueryMsgStatRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @summary 消息状态查询
+     *  *
+     * @param QueryMsgStatRequest $request QueryMsgStatRequest
+     * @param string[]            $headers map
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryMsgStatResponse
+     * @return QueryMsgStatResponse QueryMsgStatResponse
      */
     public function queryMsgStatWithOptions($request, $headers, $runtime)
     {
@@ -149,9 +155,11 @@ class Umengpush extends OpenApiClient
     }
 
     /**
-     * @param QueryMsgStatRequest $request
+     * @summary 消息状态查询
+     *  *
+     * @param QueryMsgStatRequest $request QueryMsgStatRequest
      *
-     * @return QueryMsgStatResponse
+     * @return QueryMsgStatResponse QueryMsgStatResponse
      */
     public function queryMsgStat($request)
     {
@@ -162,11 +170,13 @@ class Umengpush extends OpenApiClient
     }
 
     /**
-     * @param SendByAliasRequest $tmpReq
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @summary 指定别名发送
+     *  *
+     * @param SendByAliasRequest $tmpReq  SendByAliasRequest
+     * @param string[]           $headers map
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return SendByAliasResponse
+     * @return SendByAliasResponse SendByAliasResponse
      */
     public function sendByAliasWithOptions($tmpReq, $headers, $runtime)
     {
@@ -239,9 +249,11 @@ class Umengpush extends OpenApiClient
     }
 
     /**
-     * @param SendByAliasRequest $request
+     * @summary 指定别名发送
+     *  *
+     * @param SendByAliasRequest $request SendByAliasRequest
      *
-     * @return SendByAliasResponse
+     * @return SendByAliasResponse SendByAliasResponse
      */
     public function sendByAlias($request)
     {
@@ -252,11 +264,13 @@ class Umengpush extends OpenApiClient
     }
 
     /**
-     * @param SendByAliasFileIdRequest $tmpReq
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @summary 指定别名文件发送
+     *  *
+     * @param SendByAliasFileIdRequest $tmpReq  SendByAliasFileIdRequest
+     * @param string[]                 $headers map
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return SendByAliasFileIdResponse
+     * @return SendByAliasFileIdResponse SendByAliasFileIdResponse
      */
     public function sendByAliasFileIdWithOptions($tmpReq, $headers, $runtime)
     {
@@ -329,9 +343,11 @@ class Umengpush extends OpenApiClient
     }
 
     /**
-     * @param SendByAliasFileIdRequest $request
+     * @summary 指定别名文件发送
+     *  *
+     * @param SendByAliasFileIdRequest $request SendByAliasFileIdRequest
      *
-     * @return SendByAliasFileIdResponse
+     * @return SendByAliasFileIdResponse SendByAliasFileIdResponse
      */
     public function sendByAliasFileId($request)
     {
@@ -342,11 +358,13 @@ class Umengpush extends OpenApiClient
     }
 
     /**
-     * @param SendByAppRequest $tmpReq
-     * @param string[]         $headers
-     * @param RuntimeOptions   $runtime
+     * @summary 广播
+     *  *
+     * @param SendByAppRequest $tmpReq  SendByAppRequest
+     * @param string[]         $headers map
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return SendByAppResponse
+     * @return SendByAppResponse SendByAppResponse
      */
     public function sendByAppWithOptions($tmpReq, $headers, $runtime)
     {
@@ -413,9 +431,11 @@ class Umengpush extends OpenApiClient
     }
 
     /**
-     * @param SendByAppRequest $request
+     * @summary 广播
+     *  *
+     * @param SendByAppRequest $request SendByAppRequest
      *
-     * @return SendByAppResponse
+     * @return SendByAppResponse SendByAppResponse
      */
     public function sendByApp($request)
     {
@@ -426,11 +446,13 @@ class Umengpush extends OpenApiClient
     }
 
     /**
-     * @param SendByDeviceRequest $tmpReq
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @summary 指定设备发送
+     *  *
+     * @param SendByDeviceRequest $tmpReq  SendByDeviceRequest
+     * @param string[]            $headers map
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return SendByDeviceResponse
+     * @return SendByDeviceResponse SendByDeviceResponse
      */
     public function sendByDeviceWithOptions($tmpReq, $headers, $runtime)
     {
@@ -500,9 +522,11 @@ class Umengpush extends OpenApiClient
     }
 
     /**
-     * @param SendByDeviceRequest $request
+     * @summary 指定设备发送
+     *  *
+     * @param SendByDeviceRequest $request SendByDeviceRequest
      *
-     * @return SendByDeviceResponse
+     * @return SendByDeviceResponse SendByDeviceResponse
      */
     public function sendByDevice($request)
     {
@@ -513,11 +537,13 @@ class Umengpush extends OpenApiClient
     }
 
     /**
-     * @param SendByDeviceFileIdRequest $tmpReq
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @summary 指定设备文件发送
+     *  *
+     * @param SendByDeviceFileIdRequest $tmpReq  SendByDeviceFileIdRequest
+     * @param string[]                  $headers map
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return SendByDeviceFileIdResponse
+     * @return SendByDeviceFileIdResponse SendByDeviceFileIdResponse
      */
     public function sendByDeviceFileIdWithOptions($tmpReq, $headers, $runtime)
     {
@@ -587,9 +613,11 @@ class Umengpush extends OpenApiClient
     }
 
     /**
-     * @param SendByDeviceFileIdRequest $request
+     * @summary 指定设备文件发送
+     *  *
+     * @param SendByDeviceFileIdRequest $request SendByDeviceFileIdRequest
      *
-     * @return SendByDeviceFileIdResponse
+     * @return SendByDeviceFileIdResponse SendByDeviceFileIdResponse
      */
     public function sendByDeviceFileId($request)
     {
@@ -600,11 +628,13 @@ class Umengpush extends OpenApiClient
     }
 
     /**
-     * @param SendByFilterRequest $tmpReq
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @summary 根据筛选条件发送
+     *  *
+     * @param SendByFilterRequest $tmpReq  SendByFilterRequest
+     * @param string[]            $headers map
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return SendByFilterResponse
+     * @return SendByFilterResponse SendByFilterResponse
      */
     public function sendByFilterWithOptions($tmpReq, $headers, $runtime)
     {
@@ -674,9 +704,11 @@ class Umengpush extends OpenApiClient
     }
 
     /**
-     * @param SendByFilterRequest $request
+     * @summary 根据筛选条件发送
+     *  *
+     * @param SendByFilterRequest $request SendByFilterRequest
      *
-     * @return SendByFilterResponse
+     * @return SendByFilterResponse SendByFilterResponse
      */
     public function sendByFilter($request)
     {
@@ -687,11 +719,13 @@ class Umengpush extends OpenApiClient
     }
 
     /**
-     * @param UploadDeviceRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @summary 上传设备列表创建设备文件
+     *  *
+     * @param UploadDeviceRequest $request UploadDeviceRequest
+     * @param string[]            $headers map
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return UploadDeviceResponse
+     * @return UploadDeviceResponse UploadDeviceResponse
      */
     public function uploadDeviceWithOptions($request, $headers, $runtime)
     {
@@ -720,9 +754,11 @@ class Umengpush extends OpenApiClient
     }
 
     /**
-     * @param UploadDeviceRequest $request
+     * @summary 上传设备列表创建设备文件
+     *  *
+     * @param UploadDeviceRequest $request UploadDeviceRequest
      *
-     * @return UploadDeviceResponse
+     * @return UploadDeviceResponse UploadDeviceResponse
      */
     public function uploadDevice($request)
     {

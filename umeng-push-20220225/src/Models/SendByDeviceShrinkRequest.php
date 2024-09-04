@@ -24,6 +24,8 @@ class SendByDeviceShrinkRequest extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ArdNyIzFCH2K3szXA8arpu0Y7ywOdA67mCSumtpnMnmf
      *
      * @var string

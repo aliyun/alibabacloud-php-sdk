@@ -24,6 +24,8 @@ class SendByDeviceFileIdShrinkRequest extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @example PF835431668603208261
      *
      * @var string
