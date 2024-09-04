@@ -1012,7 +1012,7 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary 创建绑定
+     * @summary 创建一个绑定任务，将 IMM 的数据集和 OSS Bucket 进行绑定，自动对其文件进行索引。
      *  *
      * @param CreateBindingRequest $request CreateBindingRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -1051,7 +1051,7 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary 创建绑定
+     * @summary 创建一个绑定任务，将 IMM 的数据集和 OSS Bucket 进行绑定，自动对其文件进行索引。
      *  *
      * @param CreateBindingRequest $request CreateBindingRequest
      *
@@ -4332,7 +4332,7 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary 获取绑定
+     * @summary 获取一个绑定任务的运行详情。
      *  *
      * @param GetBindingRequest $request GetBindingRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
@@ -4371,7 +4371,7 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary 获取绑定
+     * @summary 获取一个绑定任务的运行详情。
      *  *
      * @param GetBindingRequest $request GetBindingRequest
      *
@@ -6252,6 +6252,9 @@ class Imm extends OpenApiClient
         if (!Utils::isUnset($tmpReq->mediaTypes)) {
             $request->mediaTypesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->mediaTypes, 'MediaTypes', 'json');
         }
+        if (!Utils::isUnset($tmpReq->smartClusterIds)) {
+            $request->smartClusterIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->smartClusterIds, 'SmartClusterIds', 'json');
+        }
         if (!Utils::isUnset($tmpReq->withFields)) {
             $request->withFieldsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->withFields, 'WithFields', 'json');
         }
@@ -6273,6 +6276,9 @@ class Imm extends OpenApiClient
         }
         if (!Utils::isUnset($request->query)) {
             $query['Query'] = $request->query;
+        }
+        if (!Utils::isUnset($request->smartClusterIdsShrink)) {
+            $query['SmartClusterIds'] = $request->smartClusterIdsShrink;
         }
         if (!Utils::isUnset($request->withFieldsShrink)) {
             $query['WithFields'] = $request->withFieldsShrink;

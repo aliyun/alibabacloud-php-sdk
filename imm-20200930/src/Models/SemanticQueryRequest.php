@@ -55,15 +55,21 @@ class SemanticQueryRequest extends Model
     /**
      * @var string[]
      */
+    public $smartClusterIds;
+
+    /**
+     * @var string[]
+     */
     public $withFields;
     protected $_name = [
-        'datasetName' => 'DatasetName',
-        'maxResults'  => 'MaxResults',
-        'mediaTypes'  => 'MediaTypes',
-        'nextToken'   => 'NextToken',
-        'projectName' => 'ProjectName',
-        'query'       => 'Query',
-        'withFields'  => 'WithFields',
+        'datasetName'     => 'DatasetName',
+        'maxResults'      => 'MaxResults',
+        'mediaTypes'      => 'MediaTypes',
+        'nextToken'       => 'NextToken',
+        'projectName'     => 'ProjectName',
+        'query'           => 'Query',
+        'smartClusterIds' => 'SmartClusterIds',
+        'withFields'      => 'WithFields',
     ];
 
     public function validate()
@@ -90,6 +96,9 @@ class SemanticQueryRequest extends Model
         }
         if (null !== $this->query) {
             $res['Query'] = $this->query;
+        }
+        if (null !== $this->smartClusterIds) {
+            $res['SmartClusterIds'] = $this->smartClusterIds;
         }
         if (null !== $this->withFields) {
             $res['WithFields'] = $this->withFields;
@@ -125,6 +134,11 @@ class SemanticQueryRequest extends Model
         }
         if (isset($map['Query'])) {
             $model->query = $map['Query'];
+        }
+        if (isset($map['SmartClusterIds'])) {
+            if (!empty($map['SmartClusterIds'])) {
+                $model->smartClusterIds = $map['SmartClusterIds'];
+            }
         }
         if (isset($map['WithFields'])) {
             if (!empty($map['WithFields'])) {

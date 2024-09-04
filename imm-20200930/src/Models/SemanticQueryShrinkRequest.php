@@ -55,15 +55,21 @@ class SemanticQueryShrinkRequest extends Model
     /**
      * @var string
      */
+    public $smartClusterIdsShrink;
+
+    /**
+     * @var string
+     */
     public $withFieldsShrink;
     protected $_name = [
-        'datasetName'      => 'DatasetName',
-        'maxResults'       => 'MaxResults',
-        'mediaTypesShrink' => 'MediaTypes',
-        'nextToken'        => 'NextToken',
-        'projectName'      => 'ProjectName',
-        'query'            => 'Query',
-        'withFieldsShrink' => 'WithFields',
+        'datasetName'           => 'DatasetName',
+        'maxResults'            => 'MaxResults',
+        'mediaTypesShrink'      => 'MediaTypes',
+        'nextToken'             => 'NextToken',
+        'projectName'           => 'ProjectName',
+        'query'                 => 'Query',
+        'smartClusterIdsShrink' => 'SmartClusterIds',
+        'withFieldsShrink'      => 'WithFields',
     ];
 
     public function validate()
@@ -90,6 +96,9 @@ class SemanticQueryShrinkRequest extends Model
         }
         if (null !== $this->query) {
             $res['Query'] = $this->query;
+        }
+        if (null !== $this->smartClusterIdsShrink) {
+            $res['SmartClusterIds'] = $this->smartClusterIdsShrink;
         }
         if (null !== $this->withFieldsShrink) {
             $res['WithFields'] = $this->withFieldsShrink;
@@ -123,6 +132,9 @@ class SemanticQueryShrinkRequest extends Model
         }
         if (isset($map['Query'])) {
             $model->query = $map['Query'];
+        }
+        if (isset($map['SmartClusterIds'])) {
+            $model->smartClusterIdsShrink = $map['SmartClusterIds'];
         }
         if (isset($map['WithFields'])) {
             $model->withFieldsShrink = $map['WithFields'];
