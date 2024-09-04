@@ -6,6 +6,9 @@ namespace AlibabaCloud\SDK\TrafficFxOpen\V20240815;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\TrafficFxOpen\V20240815\Models\ConvertUrlHeaders;
+use AlibabaCloud\SDK\TrafficFxOpen\V20240815\Models\ConvertUrlRequest;
+use AlibabaCloud\SDK\TrafficFxOpen\V20240815\Models\ConvertUrlResponse;
 use AlibabaCloud\SDK\TrafficFxOpen\V20240815\Models\GetTokenRequest;
 use AlibabaCloud\SDK\TrafficFxOpen\V20240815\Models\GetTokenResponse;
 use AlibabaCloud\SDK\TrafficFxOpen\V20240815\Models\SearchHeaders;
@@ -48,6 +51,87 @@ class TrafficFxOpen extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @summary 转换联登链接
+     *  *
+     * @param ConvertUrlRequest $request ConvertUrlRequest
+     * @param ConvertUrlHeaders $headers ConvertUrlHeaders
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ConvertUrlResponse ConvertUrlResponse
+     */
+    public function convertUrlWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->countryCallingCode)) {
+            $body['countryCallingCode'] = $request->countryCallingCode;
+        }
+        if (!Utils::isUnset($request->jumpUrl)) {
+            $body['jumpUrl'] = $request->jumpUrl;
+        }
+        if (!Utils::isUnset($request->phone)) {
+            $body['phone'] = $request->phone;
+        }
+        if (!Utils::isUnset($request->scene)) {
+            $body['scene'] = $request->scene;
+        }
+        if (!Utils::isUnset($request->source)) {
+            $body['source'] = $request->source;
+        }
+        if (!Utils::isUnset($request->thirdId)) {
+            $body['thirdId'] = $request->thirdId;
+        }
+        if (!Utils::isUnset($request->uid)) {
+            $body['uid'] = $request->uid;
+        }
+        if (!Utils::isUnset($request->xenv)) {
+            $body['xenv'] = $request->xenv;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsAirticketAccessToken)) {
+            $realHeaders['xAcsAirticketAccessToken'] = Utils::toJSONString($headers->xAcsAirticketAccessToken);
+        }
+        if (!Utils::isUnset($headers->xAcsAirticketLanguage)) {
+            $realHeaders['xAcsAirticketLanguage'] = Utils::toJSONString($headers->xAcsAirticketLanguage);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ConvertUrl',
+            'version'     => '2024-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v1/distribution/trade/convertUrl',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ConvertUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 转换联登链接
+     *  *
+     * @param ConvertUrlRequest $request ConvertUrlRequest
+     *
+     * @return ConvertUrlResponse ConvertUrlResponse
+     */
+    public function convertUrl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new ConvertUrlHeaders([]);
+
+        return $this->convertUrlWithOptions($request, $headers, $runtime);
     }
 
     /**
