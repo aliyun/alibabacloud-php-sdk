@@ -11,15 +11,17 @@ class VoiceSyncScanRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $clientInfo;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
-    public $clientInfo;
+    public $regionId;
     protected $_name = [
-        'regionId'   => 'RegionId',
         'clientInfo' => 'ClientInfo',
+        'regionId'   => 'RegionId',
     ];
 
     public function validate()
@@ -29,11 +31,11 @@ class VoiceSyncScanRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->clientInfo) {
             $res['ClientInfo'] = $this->clientInfo;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -47,11 +49,11 @@ class VoiceSyncScanRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['ClientInfo'])) {
             $model->clientInfo = $map['ClientInfo'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

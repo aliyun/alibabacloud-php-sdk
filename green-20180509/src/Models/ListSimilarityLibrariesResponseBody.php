@@ -6,14 +6,14 @@ namespace AlibabaCloud\SDK\Green\V20180509\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetAddVideoDnaResultsRequest extends Model
+class ListSimilarityLibrariesResponseBody extends Model
 {
     /**
      * @var string
      */
-    public $clientInfo;
+    public $requestId;
     protected $_name = [
-        'clientInfo' => 'ClientInfo',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -23,8 +23,8 @@ class GetAddVideoDnaResultsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->clientInfo) {
-            $res['ClientInfo'] = $this->clientInfo;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -33,13 +33,13 @@ class GetAddVideoDnaResultsRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetAddVideoDnaResultsRequest
+     * @return ListSimilarityLibrariesResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ClientInfo'])) {
-            $model->clientInfo = $map['ClientInfo'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

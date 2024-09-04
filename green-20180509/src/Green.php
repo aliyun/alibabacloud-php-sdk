@@ -40,8 +40,7 @@ use AlibabaCloud\SDK\Green\V20180509\Models\FileAsyncScanRequest;
 use AlibabaCloud\SDK\Green\V20180509\Models\FileAsyncScanResponse;
 use AlibabaCloud\SDK\Green\V20180509\Models\FileAsyncScanResultsRequest;
 use AlibabaCloud\SDK\Green\V20180509\Models\FileAsyncScanResultsResponse;
-use AlibabaCloud\SDK\Green\V20180509\Models\GetAddVideoDnaResultsRequest;
-use AlibabaCloud\SDK\Green\V20180509\Models\GetAddVideoDnaResultsResponse;
+use AlibabaCloud\SDK\Green\V20180509\Models\FileAsyncScanV2Response;
 use AlibabaCloud\SDK\Green\V20180509\Models\GetFacesRequest;
 use AlibabaCloud\SDK\Green\V20180509\Models\GetFacesResponse;
 use AlibabaCloud\SDK\Green\V20180509\Models\GetGroupsRequest;
@@ -76,8 +75,6 @@ use AlibabaCloud\SDK\Green\V20180509\Models\LiveStreamAsyncScanResultsRequest;
 use AlibabaCloud\SDK\Green\V20180509\Models\LiveStreamAsyncScanResultsResponse;
 use AlibabaCloud\SDK\Green\V20180509\Models\LiveStreamCancelScanRequest;
 use AlibabaCloud\SDK\Green\V20180509\Models\LiveStreamCancelScanResponse;
-use AlibabaCloud\SDK\Green\V20180509\Models\SearchPersonRequest;
-use AlibabaCloud\SDK\Green\V20180509\Models\SearchPersonResponse;
 use AlibabaCloud\SDK\Green\V20180509\Models\SetPersonRequest;
 use AlibabaCloud\SDK\Green\V20180509\Models\SetPersonResponse;
 use AlibabaCloud\SDK\Green\V20180509\Models\TextAsyncManualScanRequest;
@@ -139,6 +136,7 @@ use AlibabaCloud\SDK\Green\V20180509\Models\WebpageSyncScanResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class Green extends OpenApiClient
@@ -195,9 +193,49 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param AddFacesRequest $request
+     * @summary 添加人脸
+     *  *
+     * @param AddFacesRequest $request AddFacesRequest
+     * @param string[]        $headers map
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddFacesResponse
+     * @return AddFacesResponse AddFacesResponse
+     */
+    public function addFacesWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientInfo)) {
+            $query['ClientInfo'] = $request->clientInfo;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddFaces',
+            'version'     => '2018-05-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/green/sface/face/add',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddFacesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 添加人脸
+     *  *
+     * @param AddFacesRequest $request AddFacesRequest
+     *
+     * @return AddFacesResponse AddFacesResponse
      */
     public function addFaces($request)
     {
@@ -208,34 +246,49 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param AddFacesRequest $request
-     * @param string[]        $headers
-     * @param RuntimeOptions  $runtime
+     * @summary 添加分组
+     *  *
+     * @param AddGroupsRequest $request AddGroupsRequest
+     * @param string[]         $headers map
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddFacesResponse
+     * @return AddGroupsResponse AddGroupsResponse
      */
-    public function addFacesWithOptions($request, $headers, $runtime)
+    public function addGroupsWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            @$query['RegionId'] = $request->regionId;
-        }
         if (!Utils::isUnset($request->clientInfo)) {
-            @$query['ClientInfo'] = $request->clientInfo;
+            $query['ClientInfo'] = $request->clientInfo;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'AddGroups',
+            'version'     => '2018-05-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/green/sface/person/groups/add',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return AddFacesResponse::fromMap($this->doROARequest('AddFaces', '2018-05-09', 'HTTPS', 'POST', 'AK', '/green/sface/face/add', 'none', $req, $runtime));
+        return AddGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param AddGroupsRequest $request
+     * @summary 添加分组
+     *  *
+     * @param AddGroupsRequest $request AddGroupsRequest
      *
-     * @return AddGroupsResponse
+     * @return AddGroupsResponse AddGroupsResponse
      */
     public function addGroups($request)
     {
@@ -246,34 +299,49 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param AddGroupsRequest $request
-     * @param string[]         $headers
-     * @param RuntimeOptions   $runtime
+     * @summary 添加个体
+     *  *
+     * @param AddPersonRequest $request AddPersonRequest
+     * @param string[]         $headers map
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddGroupsResponse
+     * @return AddPersonResponse AddPersonResponse
      */
-    public function addGroupsWithOptions($request, $headers, $runtime)
+    public function addPersonWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            @$query['RegionId'] = $request->regionId;
-        }
         if (!Utils::isUnset($request->clientInfo)) {
-            @$query['ClientInfo'] = $request->clientInfo;
+            $query['ClientInfo'] = $request->clientInfo;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'AddPerson',
+            'version'     => '2018-05-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/green/sface/person/add',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return AddGroupsResponse::fromMap($this->doROARequest('AddGroups', '2018-05-09', 'HTTPS', 'POST', 'AK', '/green/sface/person/groups/add', 'none', $req, $runtime));
+        return AddPersonResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param AddPersonRequest $request
+     * @summary 添加个体
+     *  *
+     * @param AddPersonRequest $request AddPersonRequest
      *
-     * @return AddPersonResponse
+     * @return AddPersonResponse AddPersonResponse
      */
     public function addPerson($request)
     {
@@ -284,34 +352,46 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param AddPersonRequest $request
-     * @param string[]         $headers
-     * @param RuntimeOptions   $runtime
+     * @summary 添加相似图
+     *  *
+     * @param AddSimilarityImageRequest $request AddSimilarityImageRequest
+     * @param string[]                  $headers map
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddPersonResponse
+     * @return AddSimilarityImageResponse AddSimilarityImageResponse
      */
-    public function addPersonWithOptions($request, $headers, $runtime)
+    public function addSimilarityImageWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            @$query['RegionId'] = $request->regionId;
-        }
         if (!Utils::isUnset($request->clientInfo)) {
-            @$query['ClientInfo'] = $request->clientInfo;
+            $query['ClientInfo'] = $request->clientInfo;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'AddSimilarityImage',
+            'version'     => '2018-05-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/green/similarity/image/add',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return AddPersonResponse::fromMap($this->doROARequest('AddPerson', '2018-05-09', 'HTTPS', 'POST', 'AK', '/green/sface/person/add', 'none', $req, $runtime));
+        return AddSimilarityImageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param AddSimilarityImageRequest $request
+     * @summary 添加相似图
+     *  *
+     * @param AddSimilarityImageRequest $request AddSimilarityImageRequest
      *
-     * @return AddSimilarityImageResponse
+     * @return AddSimilarityImageResponse AddSimilarityImageResponse
      */
     public function addSimilarityImage($request)
     {
@@ -322,31 +402,46 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param AddSimilarityImageRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @summary 添加相似图库
+     *  *
+     * @param AddSimilarityLibraryRequest $request AddSimilarityLibraryRequest
+     * @param string[]                    $headers map
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddSimilarityImageResponse
+     * @return AddSimilarityLibraryResponse AddSimilarityLibraryResponse
      */
-    public function addSimilarityImageWithOptions($request, $headers, $runtime)
+    public function addSimilarityLibraryWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->clientInfo)) {
-            @$query['ClientInfo'] = $request->clientInfo;
+            $query['ClientInfo'] = $request->clientInfo;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'AddSimilarityLibrary',
+            'version'     => '2018-05-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/green/similarity/library/add',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return AddSimilarityImageResponse::fromMap($this->doROARequest('AddSimilarityImage', '2018-05-09', 'HTTPS', 'POST', 'AK', '/green/similarity/image/add', 'none', $req, $runtime));
+        return AddSimilarityLibraryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param AddSimilarityLibraryRequest $request
+     * @summary 添加相似图库
+     *  *
+     * @param AddSimilarityLibraryRequest $request AddSimilarityLibraryRequest
      *
-     * @return AddSimilarityLibraryResponse
+     * @return AddSimilarityLibraryResponse AddSimilarityLibraryResponse
      */
     public function addSimilarityLibrary($request)
     {
@@ -357,31 +452,46 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param AddSimilarityLibraryRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @summary 添加视频Dna
+     *  *
+     * @param AddVideoDnaRequest $request AddVideoDnaRequest
+     * @param string[]           $headers map
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddSimilarityLibraryResponse
+     * @return AddVideoDnaResponse AddVideoDnaResponse
      */
-    public function addSimilarityLibraryWithOptions($request, $headers, $runtime)
+    public function addVideoDnaWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->clientInfo)) {
-            @$query['ClientInfo'] = $request->clientInfo;
+            $query['ClientInfo'] = $request->clientInfo;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'AddVideoDna',
+            'version'     => '2018-05-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/green/video/dna/add',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return AddSimilarityLibraryResponse::fromMap($this->doROARequest('AddSimilarityLibrary', '2018-05-09', 'HTTPS', 'POST', 'AK', '/green/similarity/library/add', 'none', $req, $runtime));
+        return AddVideoDnaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param AddVideoDnaRequest $request
+     * @summary 添加视频Dna
+     *  *
+     * @param AddVideoDnaRequest $request AddVideoDnaRequest
      *
-     * @return AddVideoDnaResponse
+     * @return AddVideoDnaResponse AddVideoDnaResponse
      */
     public function addVideoDna($request)
     {
@@ -392,31 +502,46 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param AddVideoDnaRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @summary 添加视频Dna分组
+     *  *
+     * @param AddVideoDnaGroupRequest $request AddVideoDnaGroupRequest
+     * @param string[]                $headers map
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddVideoDnaResponse
+     * @return AddVideoDnaGroupResponse AddVideoDnaGroupResponse
      */
-    public function addVideoDnaWithOptions($request, $headers, $runtime)
+    public function addVideoDnaGroupWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->clientInfo)) {
-            @$query['ClientInfo'] = $request->clientInfo;
+            $query['ClientInfo'] = $request->clientInfo;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'AddVideoDnaGroup',
+            'version'     => '2018-05-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/green/video/dna/group/add',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return AddVideoDnaResponse::fromMap($this->doROARequest('AddVideoDna', '2018-05-09', 'HTTPS', 'POST', 'AK', '/green/video/dna/add', 'none', $req, $runtime));
+        return AddVideoDnaGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param AddVideoDnaGroupRequest $request
+     * @summary 添加视频Dna分组
+     *  *
+     * @param AddVideoDnaGroupRequest $request AddVideoDnaGroupRequest
      *
-     * @return AddVideoDnaGroupResponse
+     * @return AddVideoDnaGroupResponse AddVideoDnaGroupResponse
      */
     public function addVideoDnaGroup($request)
     {
@@ -427,31 +552,49 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param AddVideoDnaGroupRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @summary 删除人脸
+     *  *
+     * @param DeleteFacesRequest $request DeleteFacesRequest
+     * @param string[]           $headers map
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddVideoDnaGroupResponse
+     * @return DeleteFacesResponse DeleteFacesResponse
      */
-    public function addVideoDnaGroupWithOptions($request, $headers, $runtime)
+    public function deleteFacesWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->clientInfo)) {
-            @$query['ClientInfo'] = $request->clientInfo;
+            $query['ClientInfo'] = $request->clientInfo;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'DeleteFaces',
+            'version'     => '2018-05-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/green/sface/face/delete',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return AddVideoDnaGroupResponse::fromMap($this->doROARequest('AddVideoDnaGroup', '2018-05-09', 'HTTPS', 'POST', 'AK', '/green/video/dna/group/add', 'none', $req, $runtime));
+        return DeleteFacesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DeleteFacesRequest $request
+     * @summary 删除人脸
+     *  *
+     * @param DeleteFacesRequest $request DeleteFacesRequest
      *
-     * @return DeleteFacesResponse
+     * @return DeleteFacesResponse DeleteFacesResponse
      */
     public function deleteFaces($request)
     {
@@ -462,34 +605,49 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param DeleteFacesRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @summary 删除分组
+     *  *
+     * @param DeleteGroupsRequest $request DeleteGroupsRequest
+     * @param string[]            $headers map
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteFacesResponse
+     * @return DeleteGroupsResponse DeleteGroupsResponse
      */
-    public function deleteFacesWithOptions($request, $headers, $runtime)
+    public function deleteGroupsWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            @$query['RegionId'] = $request->regionId;
-        }
         if (!Utils::isUnset($request->clientInfo)) {
-            @$query['ClientInfo'] = $request->clientInfo;
+            $query['ClientInfo'] = $request->clientInfo;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'DeleteGroups',
+            'version'     => '2018-05-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/green/sface/person/groups/delete',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DeleteFacesResponse::fromMap($this->doROARequest('DeleteFaces', '2018-05-09', 'HTTPS', 'POST', 'AK', '/green/sface/face/delete', 'none', $req, $runtime));
+        return DeleteGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DeleteGroupsRequest $request
+     * @summary 删除分组
+     *  *
+     * @param DeleteGroupsRequest $request DeleteGroupsRequest
      *
-     * @return DeleteGroupsResponse
+     * @return DeleteGroupsResponse DeleteGroupsResponse
      */
     public function deleteGroups($request)
     {
@@ -500,34 +658,49 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param DeleteGroupsRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @summary 删除个体
+     *  *
+     * @param DeletePersonRequest $request DeletePersonRequest
+     * @param string[]            $headers map
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteGroupsResponse
+     * @return DeletePersonResponse DeletePersonResponse
      */
-    public function deleteGroupsWithOptions($request, $headers, $runtime)
+    public function deletePersonWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            @$query['RegionId'] = $request->regionId;
-        }
         if (!Utils::isUnset($request->clientInfo)) {
-            @$query['ClientInfo'] = $request->clientInfo;
+            $query['ClientInfo'] = $request->clientInfo;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'DeletePerson',
+            'version'     => '2018-05-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/green/sface/person/delete',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DeleteGroupsResponse::fromMap($this->doROARequest('DeleteGroups', '2018-05-09', 'HTTPS', 'POST', 'AK', '/green/sface/person/groups/delete', 'none', $req, $runtime));
+        return DeletePersonResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DeletePersonRequest $request
+     * @summary 删除个体
+     *  *
+     * @param DeletePersonRequest $request DeletePersonRequest
      *
-     * @return DeletePersonResponse
+     * @return DeletePersonResponse DeletePersonResponse
      */
     public function deletePerson($request)
     {
@@ -538,34 +711,46 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param DeletePersonRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @summary 删除相似图
+     *  *
+     * @param DeleteSimilarityImageRequest $request DeleteSimilarityImageRequest
+     * @param string[]                     $headers map
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeletePersonResponse
+     * @return DeleteSimilarityImageResponse DeleteSimilarityImageResponse
      */
-    public function deletePersonWithOptions($request, $headers, $runtime)
+    public function deleteSimilarityImageWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            @$query['RegionId'] = $request->regionId;
-        }
         if (!Utils::isUnset($request->clientInfo)) {
-            @$query['ClientInfo'] = $request->clientInfo;
+            $query['ClientInfo'] = $request->clientInfo;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'DeleteSimilarityImage',
+            'version'     => '2018-05-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/green/similarity/image/delete',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DeletePersonResponse::fromMap($this->doROARequest('DeletePerson', '2018-05-09', 'HTTPS', 'POST', 'AK', '/green/sface/person/delete', 'none', $req, $runtime));
+        return DeleteSimilarityImageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DeleteSimilarityImageRequest $request
+     * @summary 删除相似图
+     *  *
+     * @param DeleteSimilarityImageRequest $request DeleteSimilarityImageRequest
      *
-     * @return DeleteSimilarityImageResponse
+     * @return DeleteSimilarityImageResponse DeleteSimilarityImageResponse
      */
     public function deleteSimilarityImage($request)
     {
@@ -576,31 +761,46 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param DeleteSimilarityImageRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @summary 删除相似图库
+     *  *
+     * @param DeleteSimilarityLibraryRequest $request DeleteSimilarityLibraryRequest
+     * @param string[]                       $headers map
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteSimilarityImageResponse
+     * @return DeleteSimilarityLibraryResponse DeleteSimilarityLibraryResponse
      */
-    public function deleteSimilarityImageWithOptions($request, $headers, $runtime)
+    public function deleteSimilarityLibraryWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->clientInfo)) {
-            @$query['ClientInfo'] = $request->clientInfo;
+            $query['ClientInfo'] = $request->clientInfo;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'DeleteSimilarityLibrary',
+            'version'     => '2018-05-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/green/similarity/library/delete',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DeleteSimilarityImageResponse::fromMap($this->doROARequest('DeleteSimilarityImage', '2018-05-09', 'HTTPS', 'POST', 'AK', '/green/similarity/image/delete', 'none', $req, $runtime));
+        return DeleteSimilarityLibraryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DeleteSimilarityLibraryRequest $request
+     * @summary 删除相似图库
+     *  *
+     * @param DeleteSimilarityLibraryRequest $request DeleteSimilarityLibraryRequest
      *
-     * @return DeleteSimilarityLibraryResponse
+     * @return DeleteSimilarityLibraryResponse DeleteSimilarityLibraryResponse
      */
     public function deleteSimilarityLibrary($request)
     {
@@ -611,31 +811,46 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param DeleteSimilarityLibraryRequest $request
-     * @param string[]                       $headers
-     * @param RuntimeOptions                 $runtime
+     * @summary 删除视频Dna
+     *  *
+     * @param DeleteVideoDnaRequest $request DeleteVideoDnaRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteSimilarityLibraryResponse
+     * @return DeleteVideoDnaResponse DeleteVideoDnaResponse
      */
-    public function deleteSimilarityLibraryWithOptions($request, $headers, $runtime)
+    public function deleteVideoDnaWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->clientInfo)) {
-            @$query['ClientInfo'] = $request->clientInfo;
+            $query['ClientInfo'] = $request->clientInfo;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'DeleteVideoDna',
+            'version'     => '2018-05-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/green/video/dna/delete',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DeleteSimilarityLibraryResponse::fromMap($this->doROARequest('DeleteSimilarityLibrary', '2018-05-09', 'HTTPS', 'POST', 'AK', '/green/similarity/library/delete', 'none', $req, $runtime));
+        return DeleteVideoDnaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DeleteVideoDnaRequest $request
+     * @summary 删除视频Dna
+     *  *
+     * @param DeleteVideoDnaRequest $request DeleteVideoDnaRequest
      *
-     * @return DeleteVideoDnaResponse
+     * @return DeleteVideoDnaResponse DeleteVideoDnaResponse
      */
     public function deleteVideoDna($request)
     {
@@ -646,31 +861,46 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param DeleteVideoDnaRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @summary 删除视频Dna分组
+     *  *
+     * @param DeleteVideoDnaGroupRequest $request DeleteVideoDnaGroupRequest
+     * @param string[]                   $headers map
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteVideoDnaResponse
+     * @return DeleteVideoDnaGroupResponse DeleteVideoDnaGroupResponse
      */
-    public function deleteVideoDnaWithOptions($request, $headers, $runtime)
+    public function deleteVideoDnaGroupWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->clientInfo)) {
-            @$query['ClientInfo'] = $request->clientInfo;
+            $query['ClientInfo'] = $request->clientInfo;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'DeleteVideoDnaGroup',
+            'version'     => '2018-05-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/green/video/dna/group/delete',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DeleteVideoDnaResponse::fromMap($this->doROARequest('DeleteVideoDna', '2018-05-09', 'HTTPS', 'POST', 'AK', '/green/video/dna/delete', 'none', $req, $runtime));
+        return DeleteVideoDnaGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DeleteVideoDnaGroupRequest $request
+     * @summary 删除视频Dna分组
+     *  *
+     * @param DeleteVideoDnaGroupRequest $request DeleteVideoDnaGroupRequest
      *
-     * @return DeleteVideoDnaGroupResponse
+     * @return DeleteVideoDnaGroupResponse DeleteVideoDnaGroupResponse
      */
     public function deleteVideoDnaGroup($request)
     {
@@ -681,31 +911,46 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param DeleteVideoDnaGroupRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @summary 人脸属性检测
+     *  *
+     * @param DetectFaceRequest $request DetectFaceRequest
+     * @param string[]          $headers map
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteVideoDnaGroupResponse
+     * @return DetectFaceResponse DetectFaceResponse
      */
-    public function deleteVideoDnaGroupWithOptions($request, $headers, $runtime)
+    public function detectFaceWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->clientInfo)) {
-            @$query['ClientInfo'] = $request->clientInfo;
+            $query['ClientInfo'] = $request->clientInfo;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'DetectFace',
+            'version'     => '2018-05-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/green/face/detect',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DeleteVideoDnaGroupResponse::fromMap($this->doROARequest('DeleteVideoDnaGroup', '2018-05-09', 'HTTPS', 'POST', 'AK', '/green/video/dna/group/delete', 'none', $req, $runtime));
+        return DetectFaceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DetectFaceRequest $request
+     * @summary 人脸属性检测
+     *  *
+     * @param DetectFaceRequest $request DetectFaceRequest
      *
-     * @return DetectFaceResponse
+     * @return DetectFaceResponse DetectFaceResponse
      */
     public function detectFace($request)
     {
@@ -716,31 +961,46 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param DetectFaceRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
+     * @summary 文件异步检测
+     *  *
+     * @param FileAsyncScanRequest $request FileAsyncScanRequest
+     * @param string[]             $headers map
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DetectFaceResponse
+     * @return FileAsyncScanResponse FileAsyncScanResponse
      */
-    public function detectFaceWithOptions($request, $headers, $runtime)
+    public function fileAsyncScanWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->clientInfo)) {
-            @$query['ClientInfo'] = $request->clientInfo;
+            $query['ClientInfo'] = $request->clientInfo;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'FileAsyncScan',
+            'version'     => '2018-05-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/green/file/asyncscan',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DetectFaceResponse::fromMap($this->doROARequest('DetectFace', '2018-05-09', 'HTTPS', 'POST', 'AK', '/green/face/detect', 'none', $req, $runtime));
+        return FileAsyncScanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param FileAsyncScanRequest $request
+     * @summary 文件异步检测
+     *  *
+     * @param FileAsyncScanRequest $request FileAsyncScanRequest
      *
-     * @return FileAsyncScanResponse
+     * @return FileAsyncScanResponse FileAsyncScanResponse
      */
     public function fileAsyncScan($request)
     {
@@ -751,31 +1011,46 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param FileAsyncScanRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @summary 文件异步检测结果
+     *  *
+     * @param FileAsyncScanResultsRequest $request FileAsyncScanResultsRequest
+     * @param string[]                    $headers map
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return FileAsyncScanResponse
+     * @return FileAsyncScanResultsResponse FileAsyncScanResultsResponse
      */
-    public function fileAsyncScanWithOptions($request, $headers, $runtime)
+    public function fileAsyncScanResultsWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->clientInfo)) {
-            @$query['ClientInfo'] = $request->clientInfo;
+            $query['ClientInfo'] = $request->clientInfo;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'FileAsyncScanResults',
+            'version'     => '2018-05-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/green/file/results',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return FileAsyncScanResponse::fromMap($this->doROARequest('FileAsyncScan', '2018-05-09', 'HTTPS', 'POST', 'AK', '/green/file/asyncscan', 'none', $req, $runtime));
+        return FileAsyncScanResultsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param FileAsyncScanResultsRequest $request
+     * @summary 文件异步检测结果
+     *  *
+     * @param FileAsyncScanResultsRequest $request FileAsyncScanResultsRequest
      *
-     * @return FileAsyncScanResultsResponse
+     * @return FileAsyncScanResultsResponse FileAsyncScanResultsResponse
      */
     public function fileAsyncScanResults($request)
     {
@@ -786,66 +1061,90 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param FileAsyncScanResultsRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @summary 文件检测新版本
+     *  *
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return FileAsyncScanResultsResponse
+     * @return FileAsyncScanV2Response FileAsyncScanV2Response
      */
-    public function fileAsyncScanResultsWithOptions($request, $headers, $runtime)
+    public function fileAsyncScanV2WithOptions($headers, $runtime)
     {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->clientInfo)) {
-            @$query['ClientInfo'] = $request->clientInfo;
-        }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'FileAsyncScanV2',
+            'version'     => '2018-05-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/green/file/asyncscanv2',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return FileAsyncScanResultsResponse::fromMap($this->doROARequest('FileAsyncScanResults', '2018-05-09', 'HTTPS', 'POST', 'AK', '/green/file/results', 'none', $req, $runtime));
+        return FileAsyncScanV2Response::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param GetAddVideoDnaResultsRequest $request
-     *
-     * @return GetAddVideoDnaResultsResponse
+     * @summary 文件检测新版本
+     *  *
+     * @return FileAsyncScanV2Response FileAsyncScanV2Response
      */
-    public function getAddVideoDnaResults($request)
+    public function fileAsyncScanV2()
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getAddVideoDnaResultsWithOptions($request, $headers, $runtime);
+        return $this->fileAsyncScanV2WithOptions($headers, $runtime);
     }
 
     /**
-     * @param GetAddVideoDnaResultsRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @summary 获取人脸列表
+     *  *
+     * @param GetFacesRequest $request GetFacesRequest
+     * @param string[]        $headers map
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetAddVideoDnaResultsResponse
+     * @return GetFacesResponse GetFacesResponse
      */
-    public function getAddVideoDnaResultsWithOptions($request, $headers, $runtime)
+    public function getFacesWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->clientInfo)) {
-            @$query['ClientInfo'] = $request->clientInfo;
+            $query['ClientInfo'] = $request->clientInfo;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'GetFaces',
+            'version'     => '2018-05-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/green/sface/faces',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetAddVideoDnaResultsResponse::fromMap($this->doROARequest('GetAddVideoDnaResults', '2018-05-09', 'HTTPS', 'POST', 'AK', '/green/video/dna/add/results', 'none', $req, $runtime));
+        return GetFacesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param GetFacesRequest $request
+     * @summary 获取人脸列表
+     *  *
+     * @param GetFacesRequest $request GetFacesRequest
      *
-     * @return GetFacesResponse
+     * @return GetFacesResponse GetFacesResponse
      */
     public function getFaces($request)
     {
@@ -856,34 +1155,49 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param GetFacesRequest $request
-     * @param string[]        $headers
-     * @param RuntimeOptions  $runtime
+     * @summary 获取组列表
+     *  *
+     * @param GetGroupsRequest $request GetGroupsRequest
+     * @param string[]         $headers map
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetFacesResponse
+     * @return GetGroupsResponse GetGroupsResponse
      */
-    public function getFacesWithOptions($request, $headers, $runtime)
+    public function getGroupsWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            @$query['RegionId'] = $request->regionId;
-        }
         if (!Utils::isUnset($request->clientInfo)) {
-            @$query['ClientInfo'] = $request->clientInfo;
+            $query['ClientInfo'] = $request->clientInfo;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'GetGroups',
+            'version'     => '2018-05-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/green/sface/groups',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetFacesResponse::fromMap($this->doROARequest('GetFaces', '2018-05-09', 'HTTPS', 'POST', 'AK', '/green/sface/faces', 'json', $req, $runtime));
+        return GetGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param GetGroupsRequest $request
+     * @summary 获取组列表
+     *  *
+     * @param GetGroupsRequest $request GetGroupsRequest
      *
-     * @return GetGroupsResponse
+     * @return GetGroupsResponse GetGroupsResponse
      */
     public function getGroups($request)
     {
@@ -894,34 +1208,49 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param GetGroupsRequest $request
-     * @param string[]         $headers
-     * @param RuntimeOptions   $runtime
+     * @summary 获取单个个体
+     *  *
+     * @param GetPersonRequest $request GetPersonRequest
+     * @param string[]         $headers map
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetGroupsResponse
+     * @return GetPersonResponse GetPersonResponse
      */
-    public function getGroupsWithOptions($request, $headers, $runtime)
+    public function getPersonWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            @$query['RegionId'] = $request->regionId;
-        }
         if (!Utils::isUnset($request->clientInfo)) {
-            @$query['ClientInfo'] = $request->clientInfo;
+            $query['ClientInfo'] = $request->clientInfo;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'GetPerson',
+            'version'     => '2018-05-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/green/sface/person',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetGroupsResponse::fromMap($this->doROARequest('GetGroups', '2018-05-09', 'HTTPS', 'POST', 'AK', '/green/sface/groups', 'none', $req, $runtime));
+        return GetPersonResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param GetPersonRequest $request
+     * @summary 获取单个个体
+     *  *
+     * @param GetPersonRequest $request GetPersonRequest
      *
-     * @return GetPersonResponse
+     * @return GetPersonResponse GetPersonResponse
      */
     public function getPerson($request)
     {
@@ -932,34 +1261,49 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param GetPersonRequest $request
-     * @param string[]         $headers
-     * @param RuntimeOptions   $runtime
+     * @summary 获取个体列表
+     *  *
+     * @param GetPersonsRequest $request GetPersonsRequest
+     * @param string[]          $headers map
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetPersonResponse
+     * @return GetPersonsResponse GetPersonsResponse
      */
-    public function getPersonWithOptions($request, $headers, $runtime)
+    public function getPersonsWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            @$query['RegionId'] = $request->regionId;
-        }
         if (!Utils::isUnset($request->clientInfo)) {
-            @$query['ClientInfo'] = $request->clientInfo;
+            $query['ClientInfo'] = $request->clientInfo;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'GetPersons',
+            'version'     => '2018-05-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/green/sface/group/persons',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetPersonResponse::fromMap($this->doROARequest('GetPerson', '2018-05-09', 'HTTPS', 'POST', 'AK', '/green/sface/person', 'none', $req, $runtime));
+        return GetPersonsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param GetPersonsRequest $request
+     * @summary 获取个体列表
+     *  *
+     * @param GetPersonsRequest $request GetPersonsRequest
      *
-     * @return GetPersonsResponse
+     * @return GetPersonsResponse GetPersonsResponse
      */
     public function getPersons($request)
     {
@@ -970,34 +1314,46 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param GetPersonsRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
+     * @summary 获取相似图
+     *  *
+     * @param GetSimilarityImageRequest $request GetSimilarityImageRequest
+     * @param string[]                  $headers map
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetPersonsResponse
+     * @return GetSimilarityImageResponse GetSimilarityImageResponse
      */
-    public function getPersonsWithOptions($request, $headers, $runtime)
+    public function getSimilarityImageWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            @$query['RegionId'] = $request->regionId;
-        }
         if (!Utils::isUnset($request->clientInfo)) {
-            @$query['ClientInfo'] = $request->clientInfo;
+            $query['ClientInfo'] = $request->clientInfo;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'GetSimilarityImage',
+            'version'     => '2018-05-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/green/similarity/image/get',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetPersonsResponse::fromMap($this->doROARequest('GetPersons', '2018-05-09', 'HTTPS', 'POST', 'AK', '/green/sface/group/persons', 'none', $req, $runtime));
+        return GetSimilarityImageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param GetSimilarityImageRequest $request
+     * @summary 获取相似图
+     *  *
+     * @param GetSimilarityImageRequest $request GetSimilarityImageRequest
      *
-     * @return GetSimilarityImageResponse
+     * @return GetSimilarityImageResponse GetSimilarityImageResponse
      */
     public function getSimilarityImage($request)
     {
@@ -1008,31 +1364,46 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param GetSimilarityImageRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @summary 获取相似图库
+     *  *
+     * @param GetSimilarityLibraryRequest $request GetSimilarityLibraryRequest
+     * @param string[]                    $headers map
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetSimilarityImageResponse
+     * @return GetSimilarityLibraryResponse GetSimilarityLibraryResponse
      */
-    public function getSimilarityImageWithOptions($request, $headers, $runtime)
+    public function getSimilarityLibraryWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->clientInfo)) {
-            @$query['ClientInfo'] = $request->clientInfo;
+            $query['ClientInfo'] = $request->clientInfo;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'GetSimilarityLibrary',
+            'version'     => '2018-05-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/green/similarity/library/get',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetSimilarityImageResponse::fromMap($this->doROARequest('GetSimilarityImage', '2018-05-09', 'HTTPS', 'POST', 'AK', '/green/similarity/image/get', 'none', $req, $runtime));
+        return GetSimilarityLibraryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param GetSimilarityLibraryRequest $request
+     * @summary 获取相似图库
+     *  *
+     * @param GetSimilarityLibraryRequest $request GetSimilarityLibraryRequest
      *
-     * @return GetSimilarityLibraryResponse
+     * @return GetSimilarityLibraryResponse GetSimilarityLibraryResponse
      */
     public function getSimilarityLibrary($request)
     {
@@ -1043,31 +1414,46 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param GetSimilarityLibraryRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @summary 图片人工异步审核
+     *  *
+     * @param ImageAsyncManualScanRequest $request ImageAsyncManualScanRequest
+     * @param string[]                    $headers map
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetSimilarityLibraryResponse
+     * @return ImageAsyncManualScanResponse ImageAsyncManualScanResponse
      */
-    public function getSimilarityLibraryWithOptions($request, $headers, $runtime)
+    public function imageAsyncManualScanWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->clientInfo)) {
-            @$query['ClientInfo'] = $request->clientInfo;
+            $query['ClientInfo'] = $request->clientInfo;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ImageAsyncManualScan',
+            'version'     => '2018-05-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/green/image/manual/asyncScan',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetSimilarityLibraryResponse::fromMap($this->doROARequest('GetSimilarityLibrary', '2018-05-09', 'HTTPS', 'POST', 'AK', '/green/similarity/library/get', 'none', $req, $runtime));
+        return ImageAsyncManualScanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ImageAsyncManualScanRequest $request
+     * @summary 图片人工异步审核
+     *  *
+     * @param ImageAsyncManualScanRequest $request ImageAsyncManualScanRequest
      *
-     * @return ImageAsyncManualScanResponse
+     * @return ImageAsyncManualScanResponse ImageAsyncManualScanResponse
      */
     public function imageAsyncManualScan($request)
     {
@@ -1078,31 +1464,46 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param ImageAsyncManualScanRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @summary 图片人工异步审核结果
+     *  *
+     * @param ImageAsyncManualScanResultsRequest $request ImageAsyncManualScanResultsRequest
+     * @param string[]                           $headers map
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ImageAsyncManualScanResponse
+     * @return ImageAsyncManualScanResultsResponse ImageAsyncManualScanResultsResponse
      */
-    public function imageAsyncManualScanWithOptions($request, $headers, $runtime)
+    public function imageAsyncManualScanResultsWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->clientInfo)) {
-            @$query['ClientInfo'] = $request->clientInfo;
+            $query['ClientInfo'] = $request->clientInfo;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ImageAsyncManualScanResults',
+            'version'     => '2018-05-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/green/image/manual/scan/results',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ImageAsyncManualScanResponse::fromMap($this->doROARequest('ImageAsyncManualScan', '2018-05-09', 'HTTPS', 'POST', 'AK', '/green/image/manual/asyncScan', 'none', $req, $runtime));
+        return ImageAsyncManualScanResultsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ImageAsyncManualScanResultsRequest $request
+     * @summary 图片人工异步审核结果
+     *  *
+     * @param ImageAsyncManualScanResultsRequest $request ImageAsyncManualScanResultsRequest
      *
-     * @return ImageAsyncManualScanResultsResponse
+     * @return ImageAsyncManualScanResultsResponse ImageAsyncManualScanResultsResponse
      */
     public function imageAsyncManualScanResults($request)
     {
@@ -1113,31 +1514,46 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param ImageAsyncManualScanResultsRequest $request
-     * @param string[]                           $headers
-     * @param RuntimeOptions                     $runtime
+     * @summary 图片异步检测
+     *  *
+     * @param ImageAsyncScanRequest $request ImageAsyncScanRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ImageAsyncManualScanResultsResponse
+     * @return ImageAsyncScanResponse ImageAsyncScanResponse
      */
-    public function imageAsyncManualScanResultsWithOptions($request, $headers, $runtime)
+    public function imageAsyncScanWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->clientInfo)) {
-            @$query['ClientInfo'] = $request->clientInfo;
+            $query['ClientInfo'] = $request->clientInfo;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ImageAsyncScan',
+            'version'     => '2018-05-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/green/image/asyncscan',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ImageAsyncManualScanResultsResponse::fromMap($this->doROARequest('ImageAsyncManualScanResults', '2018-05-09', 'HTTPS', 'POST', 'AK', '/green/image/manual/scan/results', 'none', $req, $runtime));
+        return ImageAsyncScanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ImageAsyncScanRequest $request
+     * @summary 图片异步检测
+     *  *
+     * @param ImageAsyncScanRequest $request ImageAsyncScanRequest
      *
-     * @return ImageAsyncScanResponse
+     * @return ImageAsyncScanResponse ImageAsyncScanResponse
      */
     public function imageAsyncScan($request)
     {
@@ -1148,31 +1564,46 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param ImageAsyncScanRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @summary 图片异步检测结果
+     *  *
+     * @param ImageAsyncScanResultsRequest $request ImageAsyncScanResultsRequest
+     * @param string[]                     $headers map
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ImageAsyncScanResponse
+     * @return ImageAsyncScanResultsResponse ImageAsyncScanResultsResponse
      */
-    public function imageAsyncScanWithOptions($request, $headers, $runtime)
+    public function imageAsyncScanResultsWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->clientInfo)) {
-            @$query['ClientInfo'] = $request->clientInfo;
+            $query['ClientInfo'] = $request->clientInfo;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ImageAsyncScanResults',
+            'version'     => '2018-05-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/green/image/results',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ImageAsyncScanResponse::fromMap($this->doROARequest('ImageAsyncScan', '2018-05-09', 'HTTPS', 'POST', 'AK', '/green/image/asyncscan', 'none', $req, $runtime));
+        return ImageAsyncScanResultsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ImageAsyncScanResultsRequest $request
+     * @summary 图片异步检测结果
+     *  *
+     * @param ImageAsyncScanResultsRequest $request ImageAsyncScanResultsRequest
      *
-     * @return ImageAsyncScanResultsResponse
+     * @return ImageAsyncScanResultsResponse ImageAsyncScanResultsResponse
      */
     public function imageAsyncScanResults($request)
     {
@@ -1183,31 +1614,46 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param ImageAsyncScanResultsRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @summary 图片检测反馈
+     *  *
+     * @param ImageScanFeedbackRequest $request ImageScanFeedbackRequest
+     * @param string[]                 $headers map
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ImageAsyncScanResultsResponse
+     * @return ImageScanFeedbackResponse ImageScanFeedbackResponse
      */
-    public function imageAsyncScanResultsWithOptions($request, $headers, $runtime)
+    public function imageScanFeedbackWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->clientInfo)) {
-            @$query['ClientInfo'] = $request->clientInfo;
+            $query['ClientInfo'] = $request->clientInfo;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ImageScanFeedback',
+            'version'     => '2018-05-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/green/image/feedback',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ImageAsyncScanResultsResponse::fromMap($this->doROARequest('ImageAsyncScanResults', '2018-05-09', 'HTTPS', 'POST', 'AK', '/green/image/results', 'none', $req, $runtime));
+        return ImageScanFeedbackResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ImageScanFeedbackRequest $request
+     * @summary 图片检测反馈
+     *  *
+     * @param ImageScanFeedbackRequest $request ImageScanFeedbackRequest
      *
-     * @return ImageScanFeedbackResponse
+     * @return ImageScanFeedbackResponse ImageScanFeedbackResponse
      */
     public function imageScanFeedback($request)
     {
@@ -1218,31 +1664,46 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param ImageScanFeedbackRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @summary 图片同步检测
+     *  *
+     * @param ImageSyncScanRequest $request ImageSyncScanRequest
+     * @param string[]             $headers map
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ImageScanFeedbackResponse
+     * @return ImageSyncScanResponse ImageSyncScanResponse
      */
-    public function imageScanFeedbackWithOptions($request, $headers, $runtime)
+    public function imageSyncScanWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->clientInfo)) {
-            @$query['ClientInfo'] = $request->clientInfo;
+            $query['ClientInfo'] = $request->clientInfo;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ImageSyncScan',
+            'version'     => '2018-05-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/green/image/scan',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ImageScanFeedbackResponse::fromMap($this->doROARequest('ImageScanFeedback', '2018-05-09', 'HTTPS', 'POST', 'AK', '/green/image/feedback', 'none', $req, $runtime));
+        return ImageSyncScanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ImageSyncScanRequest $request
+     * @summary 图片同步检测
+     *  *
+     * @param ImageSyncScanRequest $request ImageSyncScanRequest
      *
-     * @return ImageSyncScanResponse
+     * @return ImageSyncScanResponse ImageSyncScanResponse
      */
     public function imageSyncScan($request)
     {
@@ -1253,31 +1714,46 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param ImageSyncScanRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @summary 获取相似图
+     *  *
+     * @param ListSimilarityImagesRequest $request ListSimilarityImagesRequest
+     * @param string[]                    $headers map
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ImageSyncScanResponse
+     * @return ListSimilarityImagesResponse ListSimilarityImagesResponse
      */
-    public function imageSyncScanWithOptions($request, $headers, $runtime)
+    public function listSimilarityImagesWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->clientInfo)) {
-            @$query['ClientInfo'] = $request->clientInfo;
+            $query['ClientInfo'] = $request->clientInfo;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ListSimilarityImages',
+            'version'     => '2018-05-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/green/similarity/image/list',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ImageSyncScanResponse::fromMap($this->doROARequest('ImageSyncScan', '2018-05-09', 'HTTPS', 'POST', 'AK', '/green/image/scan', 'none', $req, $runtime));
+        return ListSimilarityImagesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ListSimilarityImagesRequest $request
+     * @summary 获取相似图
+     *  *
+     * @param ListSimilarityImagesRequest $request ListSimilarityImagesRequest
      *
-     * @return ListSimilarityImagesResponse
+     * @return ListSimilarityImagesResponse ListSimilarityImagesResponse
      */
     public function listSimilarityImages($request)
     {
@@ -1288,31 +1764,46 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param ListSimilarityImagesRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @summary 获取相似图库
+     *  *
+     * @param ListSimilarityLibrariesRequest $request ListSimilarityLibrariesRequest
+     * @param string[]                       $headers map
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListSimilarityImagesResponse
+     * @return ListSimilarityLibrariesResponse ListSimilarityLibrariesResponse
      */
-    public function listSimilarityImagesWithOptions($request, $headers, $runtime)
+    public function listSimilarityLibrariesWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->clientInfo)) {
-            @$query['ClientInfo'] = $request->clientInfo;
+            $query['ClientInfo'] = $request->clientInfo;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ListSimilarityLibraries',
+            'version'     => '2018-05-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/green/similarity/library/list',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListSimilarityImagesResponse::fromMap($this->doROARequest('ListSimilarityImages', '2018-05-09', 'HTTPS', 'POST', 'AK', '/green/similarity/image/list', 'none', $req, $runtime));
+        return ListSimilarityLibrariesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ListSimilarityLibrariesRequest $request
+     * @summary 获取相似图库
+     *  *
+     * @param ListSimilarityLibrariesRequest $request ListSimilarityLibrariesRequest
      *
-     * @return ListSimilarityLibrariesResponse
+     * @return ListSimilarityLibrariesResponse ListSimilarityLibrariesResponse
      */
     public function listSimilarityLibraries($request)
     {
@@ -1323,31 +1814,46 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param ListSimilarityLibrariesRequest $request
-     * @param string[]                       $headers
-     * @param RuntimeOptions                 $runtime
+     * @summary 直播流异步检测
+     *  *
+     * @param LiveStreamAsyncScanRequest $request LiveStreamAsyncScanRequest
+     * @param string[]                   $headers map
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListSimilarityLibrariesResponse
+     * @return LiveStreamAsyncScanResponse LiveStreamAsyncScanResponse
      */
-    public function listSimilarityLibrariesWithOptions($request, $headers, $runtime)
+    public function liveStreamAsyncScanWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->clientInfo)) {
-            @$query['ClientInfo'] = $request->clientInfo;
+            $query['ClientInfo'] = $request->clientInfo;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'LiveStreamAsyncScan',
+            'version'     => '2018-05-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/green/livestream/asyncscan',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListSimilarityLibrariesResponse::fromMap($this->doROARequest('ListSimilarityLibraries', '2018-05-09', 'HTTPS', 'POST', 'AK', '/green/similarity/library/list', 'none', $req, $runtime));
+        return LiveStreamAsyncScanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param LiveStreamAsyncScanRequest $request
+     * @summary 直播流异步检测
+     *  *
+     * @param LiveStreamAsyncScanRequest $request LiveStreamAsyncScanRequest
      *
-     * @return LiveStreamAsyncScanResponse
+     * @return LiveStreamAsyncScanResponse LiveStreamAsyncScanResponse
      */
     public function liveStreamAsyncScan($request)
     {
@@ -1358,31 +1864,46 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param LiveStreamAsyncScanRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @summary 直播流异步检测结果
+     *  *
+     * @param LiveStreamAsyncScanResultsRequest $request LiveStreamAsyncScanResultsRequest
+     * @param string[]                          $headers map
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return LiveStreamAsyncScanResponse
+     * @return LiveStreamAsyncScanResultsResponse LiveStreamAsyncScanResultsResponse
      */
-    public function liveStreamAsyncScanWithOptions($request, $headers, $runtime)
+    public function liveStreamAsyncScanResultsWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->clientInfo)) {
-            @$query['ClientInfo'] = $request->clientInfo;
+            $query['ClientInfo'] = $request->clientInfo;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'LiveStreamAsyncScanResults',
+            'version'     => '2018-05-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/green/livestream/results',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return LiveStreamAsyncScanResponse::fromMap($this->doROARequest('LiveStreamAsyncScan', '2018-05-09', 'HTTPS', 'POST', 'AK', '/green/livestream/asyncscan', 'none', $req, $runtime));
+        return LiveStreamAsyncScanResultsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param LiveStreamAsyncScanResultsRequest $request
+     * @summary 直播流异步检测结果
+     *  *
+     * @param LiveStreamAsyncScanResultsRequest $request LiveStreamAsyncScanResultsRequest
      *
-     * @return LiveStreamAsyncScanResultsResponse
+     * @return LiveStreamAsyncScanResultsResponse LiveStreamAsyncScanResultsResponse
      */
     public function liveStreamAsyncScanResults($request)
     {
@@ -1393,31 +1914,46 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param LiveStreamAsyncScanResultsRequest $request
-     * @param string[]                          $headers
-     * @param RuntimeOptions                    $runtime
+     * @summary 直播流取消检测
+     *  *
+     * @param LiveStreamCancelScanRequest $request LiveStreamCancelScanRequest
+     * @param string[]                    $headers map
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return LiveStreamAsyncScanResultsResponse
+     * @return LiveStreamCancelScanResponse LiveStreamCancelScanResponse
      */
-    public function liveStreamAsyncScanResultsWithOptions($request, $headers, $runtime)
+    public function liveStreamCancelScanWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->clientInfo)) {
-            @$query['ClientInfo'] = $request->clientInfo;
+            $query['ClientInfo'] = $request->clientInfo;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'LiveStreamCancelScan',
+            'version'     => '2018-05-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/green/livestream/cancelscan',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return LiveStreamAsyncScanResultsResponse::fromMap($this->doROARequest('LiveStreamAsyncScanResults', '2018-05-09', 'HTTPS', 'POST', 'AK', '/green/livestream/results', 'none', $req, $runtime));
+        return LiveStreamCancelScanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param LiveStreamCancelScanRequest $request
+     * @summary 直播流取消检测
+     *  *
+     * @param LiveStreamCancelScanRequest $request LiveStreamCancelScanRequest
      *
-     * @return LiveStreamCancelScanResponse
+     * @return LiveStreamCancelScanResponse LiveStreamCancelScanResponse
      */
     public function liveStreamCancelScan($request)
     {
@@ -1428,69 +1964,49 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param LiveStreamCancelScanRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @summary 设置个体
+     *  *
+     * @param SetPersonRequest $request SetPersonRequest
+     * @param string[]         $headers map
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return LiveStreamCancelScanResponse
+     * @return SetPersonResponse SetPersonResponse
      */
-    public function liveStreamCancelScanWithOptions($request, $headers, $runtime)
+    public function setPersonWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->clientInfo)) {
-            @$query['ClientInfo'] = $request->clientInfo;
+            $query['ClientInfo'] = $request->clientInfo;
         }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-
-        return LiveStreamCancelScanResponse::fromMap($this->doROARequest('LiveStreamCancelScan', '2018-05-09', 'HTTPS', 'POST', 'AK', '/green/livestream/cancelscan', 'none', $req, $runtime));
-    }
-
-    /**
-     * @param SearchPersonRequest $request
-     *
-     * @return SearchPersonResponse
-     */
-    public function searchPerson($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->searchPersonWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param SearchPersonRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
-     *
-     * @return SearchPersonResponse
-     */
-    public function searchPersonWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
         if (!Utils::isUnset($request->regionId)) {
-            @$query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->clientInfo)) {
-            @$query['ClientInfo'] = $request->clientInfo;
+            $query['RegionId'] = $request->regionId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'SetPerson',
+            'version'     => '2018-05-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/green/sface/person/update',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return SearchPersonResponse::fromMap($this->doROARequest('SearchPerson', '2018-05-09', 'HTTPS', 'POST', 'AK', '/green/sface/search', 'none', $req, $runtime));
+        return SetPersonResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param SetPersonRequest $request
+     * @summary 设置个体
+     *  *
+     * @param SetPersonRequest $request SetPersonRequest
      *
-     * @return SetPersonResponse
+     * @return SetPersonResponse SetPersonResponse
      */
     public function setPerson($request)
     {
@@ -1501,34 +2017,46 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param SetPersonRequest $request
-     * @param string[]         $headers
-     * @param RuntimeOptions   $runtime
+     * @summary 文本异步人工审核
+     *  *
+     * @param TextAsyncManualScanRequest $request TextAsyncManualScanRequest
+     * @param string[]                   $headers map
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetPersonResponse
+     * @return TextAsyncManualScanResponse TextAsyncManualScanResponse
      */
-    public function setPersonWithOptions($request, $headers, $runtime)
+    public function textAsyncManualScanWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            @$query['RegionId'] = $request->regionId;
-        }
         if (!Utils::isUnset($request->clientInfo)) {
-            @$query['ClientInfo'] = $request->clientInfo;
+            $query['ClientInfo'] = $request->clientInfo;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'TextAsyncManualScan',
+            'version'     => '2018-05-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/green/text/manual/asyncScan',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return SetPersonResponse::fromMap($this->doROARequest('SetPerson', '2018-05-09', 'HTTPS', 'POST', 'AK', '/green/sface/person/update', 'none', $req, $runtime));
+        return TextAsyncManualScanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param TextAsyncManualScanRequest $request
+     * @summary 文本异步人工审核
+     *  *
+     * @param TextAsyncManualScanRequest $request TextAsyncManualScanRequest
      *
-     * @return TextAsyncManualScanResponse
+     * @return TextAsyncManualScanResponse TextAsyncManualScanResponse
      */
     public function textAsyncManualScan($request)
     {
@@ -1539,31 +2067,46 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param TextAsyncManualScanRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @summary 文本异步人工审核结果
+     *  *
+     * @param TextAsyncManualScanResultsRequest $request TextAsyncManualScanResultsRequest
+     * @param string[]                          $headers map
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return TextAsyncManualScanResponse
+     * @return TextAsyncManualScanResultsResponse TextAsyncManualScanResultsResponse
      */
-    public function textAsyncManualScanWithOptions($request, $headers, $runtime)
+    public function textAsyncManualScanResultsWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->clientInfo)) {
-            @$query['ClientInfo'] = $request->clientInfo;
+            $query['ClientInfo'] = $request->clientInfo;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'TextAsyncManualScanResults',
+            'version'     => '2018-05-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/green/text/manual/scan/results',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return TextAsyncManualScanResponse::fromMap($this->doROARequest('TextAsyncManualScan', '2018-05-09', 'HTTPS', 'POST', 'AK', '/green/text/manual/asyncScan', 'none', $req, $runtime));
+        return TextAsyncManualScanResultsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param TextAsyncManualScanResultsRequest $request
+     * @summary 文本异步人工审核结果
+     *  *
+     * @param TextAsyncManualScanResultsRequest $request TextAsyncManualScanResultsRequest
      *
-     * @return TextAsyncManualScanResultsResponse
+     * @return TextAsyncManualScanResultsResponse TextAsyncManualScanResultsResponse
      */
     public function textAsyncManualScanResults($request)
     {
@@ -1574,31 +2117,46 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param TextAsyncManualScanResultsRequest $request
-     * @param string[]                          $headers
-     * @param RuntimeOptions                    $runtime
+     * @summary 文本结果反馈
+     *  *
+     * @param TextFeedbackRequest $request TextFeedbackRequest
+     * @param string[]            $headers map
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return TextAsyncManualScanResultsResponse
+     * @return TextFeedbackResponse TextFeedbackResponse
      */
-    public function textAsyncManualScanResultsWithOptions($request, $headers, $runtime)
+    public function textFeedbackWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->clientInfo)) {
-            @$query['ClientInfo'] = $request->clientInfo;
+            $query['ClientInfo'] = $request->clientInfo;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'TextFeedback',
+            'version'     => '2018-05-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/green/text/feedback',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return TextAsyncManualScanResultsResponse::fromMap($this->doROARequest('TextAsyncManualScanResults', '2018-05-09', 'HTTPS', 'POST', 'AK', '/green/text/manual/scan/results', 'none', $req, $runtime));
+        return TextFeedbackResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param TextFeedbackRequest $request
+     * @summary 文本结果反馈
+     *  *
+     * @param TextFeedbackRequest $request TextFeedbackRequest
      *
-     * @return TextFeedbackResponse
+     * @return TextFeedbackResponse TextFeedbackResponse
      */
     public function textFeedback($request)
     {
@@ -1609,31 +2167,42 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param TextFeedbackRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @param TextScanRequest $request TextScanRequest
+     * @param string[]        $headers map
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
-     * @return TextFeedbackResponse
+     * @return TextScanResponse TextScanResponse
      */
-    public function textFeedbackWithOptions($request, $headers, $runtime)
+    public function textScanWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->clientInfo)) {
-            @$query['ClientInfo'] = $request->clientInfo;
+            $query['ClientInfo'] = $request->clientInfo;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'TextScan',
+            'version'     => '2018-05-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/green/text/scan',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return TextFeedbackResponse::fromMap($this->doROARequest('TextFeedback', '2018-05-09', 'HTTPS', 'POST', 'AK', '/green/text/feedback', 'none', $req, $runtime));
+        return TextScanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param TextScanRequest $request
+     * @param TextScanRequest $request TextScanRequest
      *
-     * @return TextScanResponse
+     * @return TextScanResponse TextScanResponse
      */
     public function textScan($request)
     {
@@ -1644,31 +2213,49 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param TextScanRequest $request
-     * @param string[]        $headers
-     * @param RuntimeOptions  $runtime
+     * @summary 获取上传证书
+     *  *
+     * @param UploadCredentialsRequest $request UploadCredentialsRequest
+     * @param string[]                 $headers map
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return TextScanResponse
+     * @return UploadCredentialsResponse UploadCredentialsResponse
      */
-    public function textScanWithOptions($request, $headers, $runtime)
+    public function uploadCredentialsWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->clientInfo)) {
-            @$query['ClientInfo'] = $request->clientInfo;
+            $query['ClientInfo'] = $request->clientInfo;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'UploadCredentials',
+            'version'     => '2018-05-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/green/credentials/uploadcredentials',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return TextScanResponse::fromMap($this->doROARequest('TextScan', '2018-05-09', 'HTTPS', 'POST', 'AK', '/green/text/scan', 'none', $req, $runtime));
+        return UploadCredentialsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param UploadCredentialsRequest $request
+     * @summary 获取上传证书
+     *  *
+     * @param UploadCredentialsRequest $request UploadCredentialsRequest
      *
-     * @return UploadCredentialsResponse
+     * @return UploadCredentialsResponse UploadCredentialsResponse
      */
     public function uploadCredentials($request)
     {
@@ -1679,34 +2266,46 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param UploadCredentialsRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @summary 视频异步人工审核
+     *  *
+     * @param VideoAsyncManualScanRequest $request VideoAsyncManualScanRequest
+     * @param string[]                    $headers map
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return UploadCredentialsResponse
+     * @return VideoAsyncManualScanResponse VideoAsyncManualScanResponse
      */
-    public function uploadCredentialsWithOptions($request, $headers, $runtime)
+    public function videoAsyncManualScanWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            @$query['RegionId'] = $request->regionId;
-        }
         if (!Utils::isUnset($request->clientInfo)) {
-            @$query['ClientInfo'] = $request->clientInfo;
+            $query['ClientInfo'] = $request->clientInfo;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'VideoAsyncManualScan',
+            'version'     => '2018-05-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/green/video/manual/asyncScan',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return UploadCredentialsResponse::fromMap($this->doROARequest('UploadCredentials', '2018-05-09', 'HTTPS', 'POST', 'AK', '/green/credentials/uploadcredentials', 'none', $req, $runtime));
+        return VideoAsyncManualScanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param VideoAsyncManualScanRequest $request
+     * @summary 视频异步人工审核
+     *  *
+     * @param VideoAsyncManualScanRequest $request VideoAsyncManualScanRequest
      *
-     * @return VideoAsyncManualScanResponse
+     * @return VideoAsyncManualScanResponse VideoAsyncManualScanResponse
      */
     public function videoAsyncManualScan($request)
     {
@@ -1717,31 +2316,46 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param VideoAsyncManualScanRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @summary 视频异步人工审核结果
+     *  *
+     * @param VideoAsyncManualScanResultsRequest $request VideoAsyncManualScanResultsRequest
+     * @param string[]                           $headers map
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return VideoAsyncManualScanResponse
+     * @return VideoAsyncManualScanResultsResponse VideoAsyncManualScanResultsResponse
      */
-    public function videoAsyncManualScanWithOptions($request, $headers, $runtime)
+    public function videoAsyncManualScanResultsWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->clientInfo)) {
-            @$query['ClientInfo'] = $request->clientInfo;
+            $query['ClientInfo'] = $request->clientInfo;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'VideoAsyncManualScanResults',
+            'version'     => '2018-05-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/green/video/manual/scan/results',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return VideoAsyncManualScanResponse::fromMap($this->doROARequest('VideoAsyncManualScan', '2018-05-09', 'HTTPS', 'POST', 'AK', '/green/video/manual/asyncScan', 'none', $req, $runtime));
+        return VideoAsyncManualScanResultsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param VideoAsyncManualScanResultsRequest $request
+     * @summary 视频异步人工审核结果
+     *  *
+     * @param VideoAsyncManualScanResultsRequest $request VideoAsyncManualScanResultsRequest
      *
-     * @return VideoAsyncManualScanResultsResponse
+     * @return VideoAsyncManualScanResultsResponse VideoAsyncManualScanResultsResponse
      */
     public function videoAsyncManualScanResults($request)
     {
@@ -1752,31 +2366,46 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param VideoAsyncManualScanResultsRequest $request
-     * @param string[]                           $headers
-     * @param RuntimeOptions                     $runtime
+     * @summary 视频异步检测
+     *  *
+     * @param VideoAsyncScanRequest $request VideoAsyncScanRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return VideoAsyncManualScanResultsResponse
+     * @return VideoAsyncScanResponse VideoAsyncScanResponse
      */
-    public function videoAsyncManualScanResultsWithOptions($request, $headers, $runtime)
+    public function videoAsyncScanWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->clientInfo)) {
-            @$query['ClientInfo'] = $request->clientInfo;
+            $query['ClientInfo'] = $request->clientInfo;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'VideoAsyncScan',
+            'version'     => '2018-05-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/green/video/asyncscan',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return VideoAsyncManualScanResultsResponse::fromMap($this->doROARequest('VideoAsyncManualScanResults', '2018-05-09', 'HTTPS', 'POST', 'AK', '/green/video/manual/scan/results', 'none', $req, $runtime));
+        return VideoAsyncScanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param VideoAsyncScanRequest $request
+     * @summary 视频异步检测
+     *  *
+     * @param VideoAsyncScanRequest $request VideoAsyncScanRequest
      *
-     * @return VideoAsyncScanResponse
+     * @return VideoAsyncScanResponse VideoAsyncScanResponse
      */
     public function videoAsyncScan($request)
     {
@@ -1787,31 +2416,46 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param VideoAsyncScanRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @summary 视频异步检测结果
+     *  *
+     * @param VideoAsyncScanResultsRequest $request VideoAsyncScanResultsRequest
+     * @param string[]                     $headers map
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return VideoAsyncScanResponse
+     * @return VideoAsyncScanResultsResponse VideoAsyncScanResultsResponse
      */
-    public function videoAsyncScanWithOptions($request, $headers, $runtime)
+    public function videoAsyncScanResultsWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->clientInfo)) {
-            @$query['ClientInfo'] = $request->clientInfo;
+            $query['ClientInfo'] = $request->clientInfo;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'VideoAsyncScanResults',
+            'version'     => '2018-05-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/green/video/results',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return VideoAsyncScanResponse::fromMap($this->doROARequest('VideoAsyncScan', '2018-05-09', 'HTTPS', 'POST', 'AK', '/green/video/asyncscan', 'none', $req, $runtime));
+        return VideoAsyncScanResultsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param VideoAsyncScanResultsRequest $request
+     * @summary 视频异步检测结果
+     *  *
+     * @param VideoAsyncScanResultsRequest $request VideoAsyncScanResultsRequest
      *
-     * @return VideoAsyncScanResultsResponse
+     * @return VideoAsyncScanResultsResponse VideoAsyncScanResultsResponse
      */
     public function videoAsyncScanResults($request)
     {
@@ -1822,31 +2466,46 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param VideoAsyncScanResultsRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @summary 视频取消检测
+     *  *
+     * @param VideoCancelScanRequest $request VideoCancelScanRequest
+     * @param string[]               $headers map
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return VideoAsyncScanResultsResponse
+     * @return VideoCancelScanResponse VideoCancelScanResponse
      */
-    public function videoAsyncScanResultsWithOptions($request, $headers, $runtime)
+    public function videoCancelScanWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->clientInfo)) {
-            @$query['ClientInfo'] = $request->clientInfo;
+            $query['ClientInfo'] = $request->clientInfo;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'VideoCancelScan',
+            'version'     => '2018-05-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/green/video/cancelscan',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return VideoAsyncScanResultsResponse::fromMap($this->doROARequest('VideoAsyncScanResults', '2018-05-09', 'HTTPS', 'POST', 'AK', '/green/video/results', 'none', $req, $runtime));
+        return VideoCancelScanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param VideoCancelScanRequest $request
+     * @summary 视频取消检测
+     *  *
+     * @param VideoCancelScanRequest $request VideoCancelScanRequest
      *
-     * @return VideoCancelScanResponse
+     * @return VideoCancelScanResponse VideoCancelScanResponse
      */
     public function videoCancelScan($request)
     {
@@ -1857,31 +2516,46 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param VideoCancelScanRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @summary 视频结果反馈
+     *  *
+     * @param VideoFeedbackRequest $request VideoFeedbackRequest
+     * @param string[]             $headers map
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return VideoCancelScanResponse
+     * @return VideoFeedbackResponse VideoFeedbackResponse
      */
-    public function videoCancelScanWithOptions($request, $headers, $runtime)
+    public function videoFeedbackWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->clientInfo)) {
-            @$query['ClientInfo'] = $request->clientInfo;
+            $query['ClientInfo'] = $request->clientInfo;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'VideoFeedback',
+            'version'     => '2018-05-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/green/video/feedback',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return VideoCancelScanResponse::fromMap($this->doROARequest('VideoCancelScan', '2018-05-09', 'HTTPS', 'POST', 'AK', '/green/video/cancelscan', 'none', $req, $runtime));
+        return VideoFeedbackResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param VideoFeedbackRequest $request
+     * @summary 视频结果反馈
+     *  *
+     * @param VideoFeedbackRequest $request VideoFeedbackRequest
      *
-     * @return VideoFeedbackResponse
+     * @return VideoFeedbackResponse VideoFeedbackResponse
      */
     public function videoFeedback($request)
     {
@@ -1892,31 +2566,46 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param VideoFeedbackRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @summary 视频同步检测
+     *  *
+     * @param VideoSyncScanRequest $request VideoSyncScanRequest
+     * @param string[]             $headers map
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return VideoFeedbackResponse
+     * @return VideoSyncScanResponse VideoSyncScanResponse
      */
-    public function videoFeedbackWithOptions($request, $headers, $runtime)
+    public function videoSyncScanWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->clientInfo)) {
-            @$query['ClientInfo'] = $request->clientInfo;
+            $query['ClientInfo'] = $request->clientInfo;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'VideoSyncScan',
+            'version'     => '2018-05-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/green/video/syncscan',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return VideoFeedbackResponse::fromMap($this->doROARequest('VideoFeedback', '2018-05-09', 'HTTPS', 'POST', 'AK', '/green/video/feedback', 'none', $req, $runtime));
+        return VideoSyncScanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param VideoSyncScanRequest $request
+     * @summary 视频同步检测
+     *  *
+     * @param VideoSyncScanRequest $request VideoSyncScanRequest
      *
-     * @return VideoSyncScanResponse
+     * @return VideoSyncScanResponse VideoSyncScanResponse
      */
     public function videoSyncScan($request)
     {
@@ -1927,31 +2616,46 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param VideoSyncScanRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @summary 视频点播异步检测
+     *  *
+     * @param VodAsyncScanRequest $request VodAsyncScanRequest
+     * @param string[]            $headers map
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return VideoSyncScanResponse
+     * @return VodAsyncScanResponse VodAsyncScanResponse
      */
-    public function videoSyncScanWithOptions($request, $headers, $runtime)
+    public function vodAsyncScanWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->clientInfo)) {
-            @$query['ClientInfo'] = $request->clientInfo;
+            $query['ClientInfo'] = $request->clientInfo;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'VodAsyncScan',
+            'version'     => '2018-05-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/green/vod/asyncscan',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return VideoSyncScanResponse::fromMap($this->doROARequest('VideoSyncScan', '2018-05-09', 'HTTPS', 'POST', 'AK', '/green/video/syncscan', 'none', $req, $runtime));
+        return VodAsyncScanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param VodAsyncScanRequest $request
+     * @summary 视频点播异步检测
+     *  *
+     * @param VodAsyncScanRequest $request VodAsyncScanRequest
      *
-     * @return VodAsyncScanResponse
+     * @return VodAsyncScanResponse VodAsyncScanResponse
      */
     public function vodAsyncScan($request)
     {
@@ -1962,31 +2666,46 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param VodAsyncScanRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @summary 视频点播异步检测结果
+     *  *
+     * @param VodAsyncScanResultsRequest $request VodAsyncScanResultsRequest
+     * @param string[]                   $headers map
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return VodAsyncScanResponse
+     * @return VodAsyncScanResultsResponse VodAsyncScanResultsResponse
      */
-    public function vodAsyncScanWithOptions($request, $headers, $runtime)
+    public function vodAsyncScanResultsWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->clientInfo)) {
-            @$query['ClientInfo'] = $request->clientInfo;
+            $query['ClientInfo'] = $request->clientInfo;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'VodAsyncScanResults',
+            'version'     => '2018-05-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/green/vod/results',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return VodAsyncScanResponse::fromMap($this->doROARequest('VodAsyncScan', '2018-05-09', 'HTTPS', 'POST', 'AK', '/green/vod/asyncscan', 'none', $req, $runtime));
+        return VodAsyncScanResultsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param VodAsyncScanResultsRequest $request
+     * @summary 视频点播异步检测结果
+     *  *
+     * @param VodAsyncScanResultsRequest $request VodAsyncScanResultsRequest
      *
-     * @return VodAsyncScanResultsResponse
+     * @return VodAsyncScanResultsResponse VodAsyncScanResultsResponse
      */
     public function vodAsyncScanResults($request)
     {
@@ -1997,31 +2716,46 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param VodAsyncScanResultsRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @summary 语音异步人工审核
+     *  *
+     * @param VoiceAsyncManualScanRequest $request VoiceAsyncManualScanRequest
+     * @param string[]                    $headers map
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return VodAsyncScanResultsResponse
+     * @return VoiceAsyncManualScanResponse VoiceAsyncManualScanResponse
      */
-    public function vodAsyncScanResultsWithOptions($request, $headers, $runtime)
+    public function voiceAsyncManualScanWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->clientInfo)) {
-            @$query['ClientInfo'] = $request->clientInfo;
+            $query['ClientInfo'] = $request->clientInfo;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'VoiceAsyncManualScan',
+            'version'     => '2018-05-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/green/voice/manual/asyncScan',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return VodAsyncScanResultsResponse::fromMap($this->doROARequest('VodAsyncScanResults', '2018-05-09', 'HTTPS', 'POST', 'AK', '/green/vod/results', 'none', $req, $runtime));
+        return VoiceAsyncManualScanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param VoiceAsyncManualScanRequest $request
+     * @summary 语音异步人工审核
+     *  *
+     * @param VoiceAsyncManualScanRequest $request VoiceAsyncManualScanRequest
      *
-     * @return VoiceAsyncManualScanResponse
+     * @return VoiceAsyncManualScanResponse VoiceAsyncManualScanResponse
      */
     public function voiceAsyncManualScan($request)
     {
@@ -2032,31 +2766,46 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param VoiceAsyncManualScanRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @summary 语音异步人工审核结果
+     *  *
+     * @param VoiceAsyncManualScanResultsRequest $request VoiceAsyncManualScanResultsRequest
+     * @param string[]                           $headers map
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return VoiceAsyncManualScanResponse
+     * @return VoiceAsyncManualScanResultsResponse VoiceAsyncManualScanResultsResponse
      */
-    public function voiceAsyncManualScanWithOptions($request, $headers, $runtime)
+    public function voiceAsyncManualScanResultsWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->clientInfo)) {
-            @$query['ClientInfo'] = $request->clientInfo;
+            $query['ClientInfo'] = $request->clientInfo;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'VoiceAsyncManualScanResults',
+            'version'     => '2018-05-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/green/voice/manual/scan/results',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return VoiceAsyncManualScanResponse::fromMap($this->doROARequest('VoiceAsyncManualScan', '2018-05-09', 'HTTPS', 'POST', 'AK', '/green/voice/manual/asyncScan', 'none', $req, $runtime));
+        return VoiceAsyncManualScanResultsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param VoiceAsyncManualScanResultsRequest $request
+     * @summary 语音异步人工审核结果
+     *  *
+     * @param VoiceAsyncManualScanResultsRequest $request VoiceAsyncManualScanResultsRequest
      *
-     * @return VoiceAsyncManualScanResultsResponse
+     * @return VoiceAsyncManualScanResultsResponse VoiceAsyncManualScanResultsResponse
      */
     public function voiceAsyncManualScanResults($request)
     {
@@ -2067,31 +2816,46 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param VoiceAsyncManualScanResultsRequest $request
-     * @param string[]                           $headers
-     * @param RuntimeOptions                     $runtime
+     * @summary 语音异步检测
+     *  *
+     * @param VoiceAsyncScanRequest $request VoiceAsyncScanRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return VoiceAsyncManualScanResultsResponse
+     * @return VoiceAsyncScanResponse VoiceAsyncScanResponse
      */
-    public function voiceAsyncManualScanResultsWithOptions($request, $headers, $runtime)
+    public function voiceAsyncScanWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->clientInfo)) {
-            @$query['ClientInfo'] = $request->clientInfo;
+            $query['ClientInfo'] = $request->clientInfo;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'VoiceAsyncScan',
+            'version'     => '2018-05-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/green/voice/asyncscan',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return VoiceAsyncManualScanResultsResponse::fromMap($this->doROARequest('VoiceAsyncManualScanResults', '2018-05-09', 'HTTPS', 'POST', 'AK', '/green/voice/manual/scan/results', 'none', $req, $runtime));
+        return VoiceAsyncScanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param VoiceAsyncScanRequest $request
+     * @summary 语音异步检测
+     *  *
+     * @param VoiceAsyncScanRequest $request VoiceAsyncScanRequest
      *
-     * @return VoiceAsyncScanResponse
+     * @return VoiceAsyncScanResponse VoiceAsyncScanResponse
      */
     public function voiceAsyncScan($request)
     {
@@ -2102,31 +2866,46 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param VoiceAsyncScanRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @summary 语音异步检测结果
+     *  *
+     * @param VoiceAsyncScanResultsRequest $request VoiceAsyncScanResultsRequest
+     * @param string[]                     $headers map
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return VoiceAsyncScanResponse
+     * @return VoiceAsyncScanResultsResponse VoiceAsyncScanResultsResponse
      */
-    public function voiceAsyncScanWithOptions($request, $headers, $runtime)
+    public function voiceAsyncScanResultsWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->clientInfo)) {
-            @$query['ClientInfo'] = $request->clientInfo;
+            $query['ClientInfo'] = $request->clientInfo;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'VoiceAsyncScanResults',
+            'version'     => '2018-05-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/green/voice/results',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return VoiceAsyncScanResponse::fromMap($this->doROARequest('VoiceAsyncScan', '2018-05-09', 'HTTPS', 'POST', 'AK', '/green/voice/asyncscan', 'none', $req, $runtime));
+        return VoiceAsyncScanResultsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param VoiceAsyncScanResultsRequest $request
+     * @summary 语音异步检测结果
+     *  *
+     * @param VoiceAsyncScanResultsRequest $request VoiceAsyncScanResultsRequest
      *
-     * @return VoiceAsyncScanResultsResponse
+     * @return VoiceAsyncScanResultsResponse VoiceAsyncScanResultsResponse
      */
     public function voiceAsyncScanResults($request)
     {
@@ -2137,31 +2916,46 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param VoiceAsyncScanResultsRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @summary 语音取消检测
+     *  *
+     * @param VoiceCancelScanRequest $request VoiceCancelScanRequest
+     * @param string[]               $headers map
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return VoiceAsyncScanResultsResponse
+     * @return VoiceCancelScanResponse VoiceCancelScanResponse
      */
-    public function voiceAsyncScanResultsWithOptions($request, $headers, $runtime)
+    public function voiceCancelScanWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->clientInfo)) {
-            @$query['ClientInfo'] = $request->clientInfo;
+            $query['ClientInfo'] = $request->clientInfo;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'VoiceCancelScan',
+            'version'     => '2018-05-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/green/voice/cancelscan',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return VoiceAsyncScanResultsResponse::fromMap($this->doROARequest('VoiceAsyncScanResults', '2018-05-09', 'HTTPS', 'POST', 'AK', '/green/voice/results', 'none', $req, $runtime));
+        return VoiceCancelScanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param VoiceCancelScanRequest $request
+     * @summary 语音取消检测
+     *  *
+     * @param VoiceCancelScanRequest $request VoiceCancelScanRequest
      *
-     * @return VoiceCancelScanResponse
+     * @return VoiceCancelScanResponse VoiceCancelScanResponse
      */
     public function voiceCancelScan($request)
     {
@@ -2172,31 +2966,49 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param VoiceCancelScanRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @summary 声纹比对
+     *  *
+     * @param VoiceIdentityCheckRequest $request VoiceIdentityCheckRequest
+     * @param string[]                  $headers map
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return VoiceCancelScanResponse
+     * @return VoiceIdentityCheckResponse VoiceIdentityCheckResponse
      */
-    public function voiceCancelScanWithOptions($request, $headers, $runtime)
+    public function voiceIdentityCheckWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->clientInfo)) {
-            @$query['ClientInfo'] = $request->clientInfo;
+            $query['ClientInfo'] = $request->clientInfo;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'VoiceIdentityCheck',
+            'version'     => '2018-05-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/green/voice/auth/check',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return VoiceCancelScanResponse::fromMap($this->doROARequest('VoiceCancelScan', '2018-05-09', 'HTTPS', 'POST', 'AK', '/green/voice/cancelscan', 'none', $req, $runtime));
+        return VoiceIdentityCheckResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param VoiceIdentityCheckRequest $request
+     * @summary 声纹比对
+     *  *
+     * @param VoiceIdentityCheckRequest $request VoiceIdentityCheckRequest
      *
-     * @return VoiceIdentityCheckResponse
+     * @return VoiceIdentityCheckResponse VoiceIdentityCheckResponse
      */
     public function voiceIdentityCheck($request)
     {
@@ -2207,34 +3019,49 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param VoiceIdentityCheckRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @summary 声纹注册
+     *  *
+     * @param VoiceIdentityRegisterRequest $request VoiceIdentityRegisterRequest
+     * @param string[]                     $headers map
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return VoiceIdentityCheckResponse
+     * @return VoiceIdentityRegisterResponse VoiceIdentityRegisterResponse
      */
-    public function voiceIdentityCheckWithOptions($request, $headers, $runtime)
+    public function voiceIdentityRegisterWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            @$query['RegionId'] = $request->regionId;
-        }
         if (!Utils::isUnset($request->clientInfo)) {
-            @$query['ClientInfo'] = $request->clientInfo;
+            $query['ClientInfo'] = $request->clientInfo;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'VoiceIdentityRegister',
+            'version'     => '2018-05-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/green/voice/auth/register',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return VoiceIdentityCheckResponse::fromMap($this->doROARequest('VoiceIdentityCheck', '2018-05-09', 'HTTPS', 'POST', 'AK', '/green/voice/auth/check', 'none', $req, $runtime));
+        return VoiceIdentityRegisterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param VoiceIdentityRegisterRequest $request
+     * @summary 声纹注册
+     *  *
+     * @param VoiceIdentityRegisterRequest $request VoiceIdentityRegisterRequest
      *
-     * @return VoiceIdentityRegisterResponse
+     * @return VoiceIdentityRegisterResponse VoiceIdentityRegisterResponse
      */
     public function voiceIdentityRegister($request)
     {
@@ -2245,34 +3072,49 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param VoiceIdentityRegisterRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @summary 声纹开始比对
+     *  *
+     * @param VoiceIdentityStartCheckRequest $request VoiceIdentityStartCheckRequest
+     * @param string[]                       $headers map
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return VoiceIdentityRegisterResponse
+     * @return VoiceIdentityStartCheckResponse VoiceIdentityStartCheckResponse
      */
-    public function voiceIdentityRegisterWithOptions($request, $headers, $runtime)
+    public function voiceIdentityStartCheckWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            @$query['RegionId'] = $request->regionId;
-        }
         if (!Utils::isUnset($request->clientInfo)) {
-            @$query['ClientInfo'] = $request->clientInfo;
+            $query['ClientInfo'] = $request->clientInfo;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'VoiceIdentityStartCheck',
+            'version'     => '2018-05-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/green/voice/auth/start/check',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return VoiceIdentityRegisterResponse::fromMap($this->doROARequest('VoiceIdentityRegister', '2018-05-09', 'HTTPS', 'POST', 'AK', '/green/voice/auth/register', 'none', $req, $runtime));
+        return VoiceIdentityStartCheckResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param VoiceIdentityStartCheckRequest $request
+     * @summary 声纹开始比对
+     *  *
+     * @param VoiceIdentityStartCheckRequest $request VoiceIdentityStartCheckRequest
      *
-     * @return VoiceIdentityStartCheckResponse
+     * @return VoiceIdentityStartCheckResponse VoiceIdentityStartCheckResponse
      */
     public function voiceIdentityStartCheck($request)
     {
@@ -2283,34 +3125,49 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param VoiceIdentityStartCheckRequest $request
-     * @param string[]                       $headers
-     * @param RuntimeOptions                 $runtime
+     * @summary 声纹开始注册
+     *  *
+     * @param VoiceIdentityStartRegisterRequest $request VoiceIdentityStartRegisterRequest
+     * @param string[]                          $headers map
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return VoiceIdentityStartCheckResponse
+     * @return VoiceIdentityStartRegisterResponse VoiceIdentityStartRegisterResponse
      */
-    public function voiceIdentityStartCheckWithOptions($request, $headers, $runtime)
+    public function voiceIdentityStartRegisterWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            @$query['RegionId'] = $request->regionId;
-        }
         if (!Utils::isUnset($request->clientInfo)) {
-            @$query['ClientInfo'] = $request->clientInfo;
+            $query['ClientInfo'] = $request->clientInfo;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'VoiceIdentityStartRegister',
+            'version'     => '2018-05-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/green/voice/auth/start/register',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return VoiceIdentityStartCheckResponse::fromMap($this->doROARequest('VoiceIdentityStartCheck', '2018-05-09', 'HTTPS', 'POST', 'AK', '/green/voice/auth/start/check', 'none', $req, $runtime));
+        return VoiceIdentityStartRegisterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param VoiceIdentityStartRegisterRequest $request
+     * @summary 声纹开始注册
+     *  *
+     * @param VoiceIdentityStartRegisterRequest $request VoiceIdentityStartRegisterRequest
      *
-     * @return VoiceIdentityStartRegisterResponse
+     * @return VoiceIdentityStartRegisterResponse VoiceIdentityStartRegisterResponse
      */
     public function voiceIdentityStartRegister($request)
     {
@@ -2321,34 +3178,49 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param VoiceIdentityStartRegisterRequest $request
-     * @param string[]                          $headers
-     * @param RuntimeOptions                    $runtime
+     * @summary 声纹注销
+     *  *
+     * @param VoiceIdentityUnregisterRequest $request VoiceIdentityUnregisterRequest
+     * @param string[]                       $headers map
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return VoiceIdentityStartRegisterResponse
+     * @return VoiceIdentityUnregisterResponse VoiceIdentityUnregisterResponse
      */
-    public function voiceIdentityStartRegisterWithOptions($request, $headers, $runtime)
+    public function voiceIdentityUnregisterWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            @$query['RegionId'] = $request->regionId;
-        }
         if (!Utils::isUnset($request->clientInfo)) {
-            @$query['ClientInfo'] = $request->clientInfo;
+            $query['ClientInfo'] = $request->clientInfo;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'VoiceIdentityUnregister',
+            'version'     => '2018-05-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/green/voice/auth/unregister',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return VoiceIdentityStartRegisterResponse::fromMap($this->doROARequest('VoiceIdentityStartRegister', '2018-05-09', 'HTTPS', 'POST', 'AK', '/green/voice/auth/start/register', 'none', $req, $runtime));
+        return VoiceIdentityUnregisterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param VoiceIdentityUnregisterRequest $request
+     * @summary 声纹注销
+     *  *
+     * @param VoiceIdentityUnregisterRequest $request VoiceIdentityUnregisterRequest
      *
-     * @return VoiceIdentityUnregisterResponse
+     * @return VoiceIdentityUnregisterResponse VoiceIdentityUnregisterResponse
      */
     public function voiceIdentityUnregister($request)
     {
@@ -2359,34 +3231,49 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param VoiceIdentityUnregisterRequest $request
-     * @param string[]                       $headers
-     * @param RuntimeOptions                 $runtime
+     * @summary 语音同步检测
+     *  *
+     * @param VoiceSyncScanRequest $request VoiceSyncScanRequest
+     * @param string[]             $headers map
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return VoiceIdentityUnregisterResponse
+     * @return VoiceSyncScanResponse VoiceSyncScanResponse
      */
-    public function voiceIdentityUnregisterWithOptions($request, $headers, $runtime)
+    public function voiceSyncScanWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            @$query['RegionId'] = $request->regionId;
-        }
         if (!Utils::isUnset($request->clientInfo)) {
-            @$query['ClientInfo'] = $request->clientInfo;
+            $query['ClientInfo'] = $request->clientInfo;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'VoiceSyncScan',
+            'version'     => '2018-05-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/green/voice/syncscan',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return VoiceIdentityUnregisterResponse::fromMap($this->doROARequest('VoiceIdentityUnregister', '2018-05-09', 'HTTPS', 'POST', 'AK', '/green/voice/auth/unregister', 'none', $req, $runtime));
+        return VoiceSyncScanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param VoiceSyncScanRequest $request
+     * @summary 语音同步检测
+     *  *
+     * @param VoiceSyncScanRequest $request VoiceSyncScanRequest
      *
-     * @return VoiceSyncScanResponse
+     * @return VoiceSyncScanResponse VoiceSyncScanResponse
      */
     public function voiceSyncScan($request)
     {
@@ -2397,34 +3284,46 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param VoiceSyncScanRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @summary 站点异步检测
+     *  *
+     * @param WebpageAsyncScanRequest $request WebpageAsyncScanRequest
+     * @param string[]                $headers map
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return VoiceSyncScanResponse
+     * @return WebpageAsyncScanResponse WebpageAsyncScanResponse
      */
-    public function voiceSyncScanWithOptions($request, $headers, $runtime)
+    public function webpageAsyncScanWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            @$query['RegionId'] = $request->regionId;
-        }
         if (!Utils::isUnset($request->clientInfo)) {
-            @$query['ClientInfo'] = $request->clientInfo;
+            $query['ClientInfo'] = $request->clientInfo;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'WebpageAsyncScan',
+            'version'     => '2018-05-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/green/webpage/asyncscan',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return VoiceSyncScanResponse::fromMap($this->doROARequest('VoiceSyncScan', '2018-05-09', 'HTTPS', 'POST', 'AK', '/green/voice/syncscan', 'none', $req, $runtime));
+        return WebpageAsyncScanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param WebpageAsyncScanRequest $request
+     * @summary 站点异步检测
+     *  *
+     * @param WebpageAsyncScanRequest $request WebpageAsyncScanRequest
      *
-     * @return WebpageAsyncScanResponse
+     * @return WebpageAsyncScanResponse WebpageAsyncScanResponse
      */
     public function webpageAsyncScan($request)
     {
@@ -2435,31 +3334,46 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param WebpageAsyncScanRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @summary 站点异步检测结果
+     *  *
+     * @param WebpageAsyncScanResultsRequest $request WebpageAsyncScanResultsRequest
+     * @param string[]                       $headers map
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return WebpageAsyncScanResponse
+     * @return WebpageAsyncScanResultsResponse WebpageAsyncScanResultsResponse
      */
-    public function webpageAsyncScanWithOptions($request, $headers, $runtime)
+    public function webpageAsyncScanResultsWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->clientInfo)) {
-            @$query['ClientInfo'] = $request->clientInfo;
+            $query['ClientInfo'] = $request->clientInfo;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'WebpageAsyncScanResults',
+            'version'     => '2018-05-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/green/webpage/results',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return WebpageAsyncScanResponse::fromMap($this->doROARequest('WebpageAsyncScan', '2018-05-09', 'HTTPS', 'POST', 'AK', '/green/webpage/asyncscan', 'none', $req, $runtime));
+        return WebpageAsyncScanResultsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param WebpageAsyncScanResultsRequest $request
+     * @summary 站点异步检测结果
+     *  *
+     * @param WebpageAsyncScanResultsRequest $request WebpageAsyncScanResultsRequest
      *
-     * @return WebpageAsyncScanResultsResponse
+     * @return WebpageAsyncScanResultsResponse WebpageAsyncScanResultsResponse
      */
     public function webpageAsyncScanResults($request)
     {
@@ -2470,31 +3384,46 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param WebpageAsyncScanResultsRequest $request
-     * @param string[]                       $headers
-     * @param RuntimeOptions                 $runtime
+     * @summary 站点同步检测
+     *  *
+     * @param WebpageSyncScanRequest $request WebpageSyncScanRequest
+     * @param string[]               $headers map
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return WebpageAsyncScanResultsResponse
+     * @return WebpageSyncScanResponse WebpageSyncScanResponse
      */
-    public function webpageAsyncScanResultsWithOptions($request, $headers, $runtime)
+    public function webpageSyncScanWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->clientInfo)) {
-            @$query['ClientInfo'] = $request->clientInfo;
+            $query['ClientInfo'] = $request->clientInfo;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'WebpageSyncScan',
+            'version'     => '2018-05-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/green/webpage/scan',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return WebpageAsyncScanResultsResponse::fromMap($this->doROARequest('WebpageAsyncScanResults', '2018-05-09', 'HTTPS', 'POST', 'AK', '/green/webpage/results', 'none', $req, $runtime));
+        return WebpageSyncScanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param WebpageSyncScanRequest $request
+     * @summary 站点同步检测
+     *  *
+     * @param WebpageSyncScanRequest $request WebpageSyncScanRequest
      *
-     * @return WebpageSyncScanResponse
+     * @return WebpageSyncScanResponse WebpageSyncScanResponse
      */
     public function webpageSyncScan($request)
     {
@@ -2502,27 +3431,5 @@ class Green extends OpenApiClient
         $headers = [];
 
         return $this->webpageSyncScanWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param WebpageSyncScanRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
-     *
-     * @return WebpageSyncScanResponse
-     */
-    public function webpageSyncScanWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->clientInfo)) {
-            @$query['ClientInfo'] = $request->clientInfo;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-
-        return WebpageSyncScanResponse::fromMap($this->doROARequest('WebpageSyncScan', '2018-05-09', 'HTTPS', 'POST', 'AK', '/green/webpage/scan', 'none', $req, $runtime));
     }
 }

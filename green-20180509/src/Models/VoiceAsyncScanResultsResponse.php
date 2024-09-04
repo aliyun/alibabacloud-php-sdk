@@ -12,13 +12,24 @@ class VoiceAsyncScanResultsResponse extends Model
      * @var string[]
      */
     public $headers;
+
+    /**
+     * @var int
+     */
+    public $statusCode;
+
+    /**
+     * @var VoiceAsyncScanResultsResponseBody
+     */
+    public $body;
     protected $_name = [
-        'headers' => 'headers',
+        'headers'    => 'headers',
+        'statusCode' => 'statusCode',
+        'body'       => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
     }
 
     public function toMap()
@@ -26,6 +37,12 @@ class VoiceAsyncScanResultsResponse extends Model
         $res = [];
         if (null !== $this->headers) {
             $res['headers'] = $this->headers;
+        }
+        if (null !== $this->statusCode) {
+            $res['statusCode'] = $this->statusCode;
+        }
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -41,6 +58,12 @@ class VoiceAsyncScanResultsResponse extends Model
         $model = new self();
         if (isset($map['headers'])) {
             $model->headers = $map['headers'];
+        }
+        if (isset($map['statusCode'])) {
+            $model->statusCode = $map['statusCode'];
+        }
+        if (isset($map['body'])) {
+            $model->body = VoiceAsyncScanResultsResponseBody::fromMap($map['body']);
         }
 
         return $model;

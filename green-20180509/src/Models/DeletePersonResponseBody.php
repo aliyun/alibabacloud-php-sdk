@@ -6,26 +6,25 @@ namespace AlibabaCloud\SDK\Green\V20180509\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class SearchPersonResponse extends Model
+class DeletePersonResponseBody extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $headers;
+    public $requestId;
     protected $_name = [
-        'headers' => 'headers',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->headers) {
-            $res['headers'] = $this->headers;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -34,13 +33,13 @@ class SearchPersonResponse extends Model
     /**
      * @param array $map
      *
-     * @return SearchPersonResponse
+     * @return DeletePersonResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['headers'])) {
-            $model->headers = $map['headers'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;
