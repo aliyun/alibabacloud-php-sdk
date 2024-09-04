@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeHistoryTasksStatResponseBody extends Model
 {
     /**
-     * @description The information about the task.
+     * @description The queried tasks.
      *
      * @var items[]
      */

@@ -179,8 +179,12 @@ class ModifyBackupPolicyRequest extends Model
      *   **True** or **1**: enables the log backup feature.
      *   **False** or **0**: disables the log backup feature.
      *
-     * > *   You must specify this parameter when you set the **BackupPolicyMode** parameter to **LogBackupPolicy**.
-     * > *   This parameter takes effect only when you set the **BackupPolicyMode** parameter to **LogBackupPolicy**.
+     * >
+     *
+     *   You must specify this parameter when you set the **BackupPolicyMode** parameter to **LogBackupPolicy**.
+     *
+     *   This parameter takes effect only when you set the **BackupPolicyMode** parameter to **LogBackupPolicy**.
+     *
      * @example 1
      *
      * @var string
@@ -251,8 +255,12 @@ class ModifyBackupPolicyRequest extends Model
     /**
      * @description The number of binary log files that you want to retain on the instance. Default value: **60**. Valid values: **6** to **100**.
      *
-     * > *   This parameter takes effect only when you set the **BackupPolicyMode** parameter to **LogBackupPolicy**.
-     * > *   If the instance runs MySQL, you can set this parameter to \\*\\*-1\\*\\*. The value \\*\\*-1\\*\\* specifies that an unlimited number of binary log files can be retained on the instance.
+     * >
+     *
+     *   This parameter takes effect only when you set the **BackupPolicyMode** parameter to **LogBackupPolicy**.
+     *
+     *   If the instance runs MySQL, you can set this parameter to \\*\\*-1\\*\\*. The value \\*\\*-1\\*\\* specifies that an unlimited number of binary log files can be retained on the instance.
+     *
      * @example 60
      *
      * @var int

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteReplicationLinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example pgm-bp1trqb4p1xd****
      *
      * @var string
@@ -18,8 +19,12 @@ class DeleteReplicationLinkRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description This parameter is required.
+     * @description Specifies whether to promote the disaster recovery instance to the primary instance. Valid values:
      *
+     *   **true**
+     *   **false**
+     *
+     * This parameter is required.
      * @example true
      *
      * @var bool

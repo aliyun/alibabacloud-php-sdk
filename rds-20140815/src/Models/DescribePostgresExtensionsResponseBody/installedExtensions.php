@@ -94,6 +94,11 @@ class installedExtensions extends Model
      * @var string
      */
     public $requires;
+
+    /**
+     * @var string
+     */
+    public $uid;
     protected $_name = [
         'category'         => 'Category',
         'comment'          => 'Comment',
@@ -103,6 +108,7 @@ class installedExtensions extends Model
         'owner'            => 'Owner',
         'priority'         => 'Priority',
         'requires'         => 'Requires',
+        'uid'              => 'Uid',
     ];
 
     public function validate()
@@ -135,6 +141,9 @@ class installedExtensions extends Model
         }
         if (null !== $this->requires) {
             $res['Requires'] = $this->requires;
+        }
+        if (null !== $this->uid) {
+            $res['Uid'] = $this->uid;
         }
 
         return $res;
@@ -171,6 +180,9 @@ class installedExtensions extends Model
         }
         if (isset($map['Requires'])) {
             $model->requires = $map['Requires'];
+        }
+        if (isset($map['Uid'])) {
+            $model->uid = $map['Uid'];
         }
 
         return $model;

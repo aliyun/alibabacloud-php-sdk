@@ -72,7 +72,7 @@ class CreateAccountRequest extends Model
      *   **Super**: privileged account.
      *   **Sysadmin**: system admin account. The account type is available only for ApsaraDB RDS for SQL Server instances.
      *
-     * Before you create a system admin account, check whether the RDS instance meets all prerequisites. For more information, see [Create a system admin account](https://help.aliyun.com/document_detail/170736.html).
+     * Before you create a system admin account, check whether the instance meets all prerequisites. For more information, see [Create a system admin account](https://help.aliyun.com/document_detail/170736.html).
      * @example Normal
      *
      * @var string

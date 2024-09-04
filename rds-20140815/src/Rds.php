@@ -4630,7 +4630,10 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary 创建复制链路
+     * @summary Creates a disaster recovery instance for an ApsaraDB RDS instance and configures a data synchronization link.
+     *  *
+     * @description ### [](#)Supported database engine
+     * *   PostgreSQL
      *  *
      * @param CreateReplicationLinkRequest $request CreateReplicationLinkRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -4693,7 +4696,10 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary 创建复制链路
+     * @summary Creates a disaster recovery instance for an ApsaraDB RDS instance and configures a data synchronization link.
+     *  *
+     * @description ### [](#)Supported database engine
+     * *   PostgreSQL
      *  *
      * @param CreateReplicationLinkRequest $request CreateReplicationLinkRequest
      *
@@ -6323,7 +6329,10 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary 删除复制链路
+     * @summary Deletes the data synchronization link of a disaster recovery RDS instance and promotes the disaster recovery instance to the primary instance.
+     *  *
+     * @description ### [](#)Supported database engine
+     * *   PostgreSQL
      *  *
      * @param DeleteReplicationLinkRequest $request DeleteReplicationLinkRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -6362,7 +6371,10 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary 删除复制链路
+     * @summary Deletes the data synchronization link of a disaster recovery RDS instance and promotes the disaster recovery instance to the primary instance.
+     *  *
+     * @description ### [](#)Supported database engine
+     * *   PostgreSQL
      *  *
      * @param DeleteReplicationLinkRequest $request DeleteReplicationLinkRequest
      *
@@ -14713,7 +14725,7 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of the regions that are available for ApsaraDB RDS.
+     * @summary Queries the details of all regions and zones for ApsaraDB RDS. The regions that are no longer supported are also queried. Exercise caution when you call this operation.
      *  *
      * @description ### [](#)Supported database engines
      * *   MySQL
@@ -14755,7 +14767,7 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of the regions that are available for ApsaraDB RDS.
+     * @summary Queries the details of all regions and zones for ApsaraDB RDS. The regions that are no longer supported are also queried. Exercise caution when you call this operation.
      *  *
      * @description ### [](#)Supported database engines
      * *   MySQL
@@ -14876,7 +14888,10 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary 查询复制链路操作日志
+     * @summary Queries the details of the task that is used to create a disaster recovery instance for an ApsaraDB RDS instance.
+     *  *
+     * @description ### [](#)Supported database engine
+     * *   PostgreSQL
      *  *
      * @param DescribeReplicationLinkLogsRequest $request DescribeReplicationLinkLogsRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
@@ -14924,7 +14939,10 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary 查询复制链路操作日志
+     * @summary Queries the details of the task that is used to create a disaster recovery instance for an ApsaraDB RDS instance.
+     *  *
+     * @description ### [](#)Supported database engine
+     * *   PostgreSQL
      *  *
      * @param DescribeReplicationLinkLogsRequest $request DescribeReplicationLinkLogsRequest
      *
@@ -22629,7 +22647,7 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary 任务中心修改任务信息
+     * @summary Modifies the task information in the task center.
      *  *
      * @param ModifyTaskInfoRequest $request ModifyTaskInfoRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -22683,7 +22701,7 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary 任务中心修改任务信息
+     * @summary Modifies the task information in the task center.
      *  *
      * @param ModifyTaskInfoRequest $request ModifyTaskInfoRequest
      *
@@ -23327,7 +23345,7 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary Restores an ApsaraDB RDS for SQL Server instance.
+     * @summary Restores backup data of an ApsaraDB RDS for SQL Server instance to an existing instance or a new instance.
      *  *
      * @description ### [](#)Supported database engines
      * SQL Server 2012 or later
@@ -23411,7 +23429,7 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary Restores an ApsaraDB RDS for SQL Server instance.
+     * @summary Restores backup data of an ApsaraDB RDS for SQL Server instance to an existing instance or a new instance.
      *  *
      * @description ### [](#)Supported database engines
      * SQL Server 2012 or later

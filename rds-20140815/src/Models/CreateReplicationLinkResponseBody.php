@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateReplicationLinkResponseBody extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
      * @example pgm-****.pg.rds.aliyuncs.com
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateReplicationLinkResponseBody extends Model
     public $DBInstanceId;
 
     /**
+     * @description The request ID.
+     *
      * @example 9F8C06AD-3F37-57A0-ABBF-ABD7824F55CE
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateReplicationLinkResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the task.
+     *
      * @example 564532302
      *
      * @var int
@@ -30,6 +36,8 @@ class CreateReplicationLinkResponseBody extends Model
     public $taskId;
 
     /**
+     * @description The name of the task.
+     *
      * @example test01
      *
      * @var string

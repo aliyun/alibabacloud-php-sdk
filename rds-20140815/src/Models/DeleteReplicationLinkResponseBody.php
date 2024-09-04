@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteReplicationLinkResponseBody extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
      * @example pgm-bp1trqb4p1xd****
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteReplicationLinkResponseBody extends Model
     public $DBInstanceId;
 
     /**
+     * @description The request ID.
+     *
      * @example 847BA085-B377-4BFA-8267-F82345ECE1D2
      *
      * @var string
@@ -23,6 +27,8 @@ class DeleteReplicationLinkResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the task.
+     *
      * @example 3472****
      *
      * @var int
@@ -30,6 +36,8 @@ class DeleteReplicationLinkResponseBody extends Model
     public $taskId;
 
     /**
+     * @description The name of the task.
+     *
      * @example test01
      *
      * @var string

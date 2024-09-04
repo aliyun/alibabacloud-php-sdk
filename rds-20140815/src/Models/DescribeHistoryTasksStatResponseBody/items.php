@@ -9,15 +9,15 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
-     * @description The task status. Valid values:
+     * @description The status of the task. Valid values:
      *
-     *   Scheduled
-     *   Running
-     *   Succeed
-     *   Failed
-     *   Cancelling
-     *   Canceled
-     *   Waiting
+     *   **Scheduled**
+     *   **Running**
+     *   **Succeed**
+     *   **Failed**
+     *   **Cancelling**
+     *   **Canceled**
+     *   **Waiting**
      *
      * @example Succeed,Waiting
      *

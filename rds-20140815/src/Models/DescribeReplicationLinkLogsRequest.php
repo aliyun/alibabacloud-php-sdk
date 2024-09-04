@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeReplicationLinkLogsRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example pgm-bp1trqb4p1xd****
      *
      * @var string
@@ -18,6 +19,8 @@ class DescribeReplicationLinkLogsRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -25,6 +28,8 @@ class DescribeReplicationLinkLogsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 30
      *
      * @var int
@@ -32,6 +37,8 @@ class DescribeReplicationLinkLogsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the task. You can call the **CreateReplicationLink** operation to create the task ID of the disaster recovery instance.
+     *
      * @example 8413252
      *
      * @var int
@@ -39,6 +46,8 @@ class DescribeReplicationLinkLogsRequest extends Model
     public $taskId;
 
     /**
+     * @description The name of the task. You can call the **CreateReplicationLink** operation to create a disaster recovery instance. You can specify a task name in the request parameters of the call.
+     *
      * @example test01
      *
      * @var string
@@ -46,8 +55,17 @@ class DescribeReplicationLinkLogsRequest extends Model
     public $taskName;
 
     /**
-     * @description This parameter is required.
+     * @description The type of the task. Valid values:
      *
+     *   **create**: creates a synchronization link.
+     *   **create-dryrun**: performs a precheck before a synchronization link is created.
+     *
+     * Valid values:
+     *
+     *   create: creates a replication link.
+     *   create-dryrun: performs a precheck before a replication link is created.
+     *
+     * This parameter is required.
      * @example create
      *
      * @var string

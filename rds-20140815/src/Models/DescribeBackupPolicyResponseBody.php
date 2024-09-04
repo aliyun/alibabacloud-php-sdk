@@ -319,6 +319,11 @@ class DescribeBackupPolicyResponseBody extends Model
      * @var int
      */
     public $supportVolumeShadowCopy;
+
+    /**
+     * @var int
+     */
+    public $supportsHighFrequencyBackup;
     protected $_name = [
         'archiveBackupKeepCount'        => 'ArchiveBackupKeepCount',
         'archiveBackupKeepPolicy'       => 'ArchiveBackupKeepPolicy',
@@ -348,6 +353,7 @@ class DescribeBackupPolicyResponseBody extends Model
         'supportModifyBackupPriority'   => 'SupportModifyBackupPriority',
         'supportReleasedKeep'           => 'SupportReleasedKeep',
         'supportVolumeShadowCopy'       => 'SupportVolumeShadowCopy',
+        'supportsHighFrequencyBackup'   => 'SupportsHighFrequencyBackup',
     ];
 
     public function validate()
@@ -440,6 +446,9 @@ class DescribeBackupPolicyResponseBody extends Model
         }
         if (null !== $this->supportVolumeShadowCopy) {
             $res['SupportVolumeShadowCopy'] = $this->supportVolumeShadowCopy;
+        }
+        if (null !== $this->supportsHighFrequencyBackup) {
+            $res['SupportsHighFrequencyBackup'] = $this->supportsHighFrequencyBackup;
         }
 
         return $res;
@@ -536,6 +545,9 @@ class DescribeBackupPolicyResponseBody extends Model
         }
         if (isset($map['SupportVolumeShadowCopy'])) {
             $model->supportVolumeShadowCopy = $map['SupportVolumeShadowCopy'];
+        }
+        if (isset($map['SupportsHighFrequencyBackup'])) {
+            $model->supportsHighFrequencyBackup = $map['SupportsHighFrequencyBackup'];
         }
 
         return $model;

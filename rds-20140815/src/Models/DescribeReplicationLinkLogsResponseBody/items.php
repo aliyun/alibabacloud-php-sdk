@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @description The details of the task.
+     *
      * @example [Check rds empty]\\nCheck rds databases: success\\n[Check source connectivity]\\nCheck ip connectable: success\\nCheck port connectable: success\\nCheck database connectable: success\\nCheck account replication privilege: success\\nCheck account createrole privilege: success\\nCheck account monitor privilege: success\\n[Check source version]\\nCheck major version consistent: success\\n[Check source glibc version]\\nCheck source glibc version compatible: warning(warning:source glibc version is not compatible with rds pg)\\n[Check disk size]\\nCheck disk size enough: success\\n[Check wal keep size]\\nCheck wal keep size large enough: success\\n[Check spec params]\\nCheck if spec params too large: success\\n [Check triggers]\\nCheck triggers compatible: success\\n[Check user functions]\\nCheck user functions compatible: success\\n*Migrate check success*
      *
      * @var string
@@ -16,6 +18,8 @@ class items extends Model
     public $detail;
 
     /**
+     * @description The creation time. The time is displayed in UTC.
+     *
      * @example 2022-02-25T06:57:41Z
      *
      * @var string
@@ -23,6 +27,8 @@ class items extends Model
     public $gmtCreated;
 
     /**
+     * @description The modification time. The time is displayed in UTC.
+     *
      * @example 2022-03-01T06:39:51Z
      *
      * @var string
@@ -30,6 +36,8 @@ class items extends Model
     public $gmtModified;
 
     /**
+     * @description The synchronization information. This parameter is a reserved parameter.
+     *
      * @example None
      *
      * @var string
@@ -37,6 +45,12 @@ class items extends Model
     public $replicationInfo;
 
     /**
+     * @description The status of the synchronization. Valid values:
+     *
+     *   **steaming**: The synchronization is in progress.
+     *   **finish**: The synchronization is complete.
+     *   **disconnect**: The synchronization is disconnected.
+     *
      * @example finish
      *
      * @var string
@@ -44,6 +58,8 @@ class items extends Model
     public $replicationState;
 
     /**
+     * @description The account of the database that is used for data synchronization.
+     *
      * @example testdbuser
      *
      * @var string
@@ -51,6 +67,8 @@ class items extends Model
     public $replicatorAccount;
 
     /**
+     * @description The password of the account.
+     *
      * @example testpassword
      *
      * @var string
@@ -58,6 +76,8 @@ class items extends Model
     public $replicatorPassword;
 
     /**
+     * @description The endpoint of the source instance.
+     *
      * @example pgm-****.pg.rds.aliyuncs.com
      *
      * @var string
@@ -65,6 +85,11 @@ class items extends Model
     public $sourceAddress;
 
     /**
+     * @description The type of the source instance. Valid values:
+     *
+     *   other: other instances
+     *   aliyunRDS: an ApsaraDB RDS instance
+     *
      * @example aliyunRDS
      *
      * @var string
@@ -72,6 +97,8 @@ class items extends Model
     public $sourceCategory;
 
     /**
+     * @description The port number of the source instance.
+     *
      * @example 5432
      *
      * @var int
@@ -79,6 +106,8 @@ class items extends Model
     public $sourcePort;
 
     /**
+     * @description The destination instance ID.
+     *
      * @example pgm-bp1l4dutw453****
      *
      * @var string
@@ -86,6 +115,8 @@ class items extends Model
     public $targetInstanceId;
 
     /**
+     * @description The ID of the task.
+     *
      * @example 8413252
      *
      * @var int
@@ -93,6 +124,8 @@ class items extends Model
     public $taskId;
 
     /**
+     * @description The name of the task.
+     *
      * @example test01
      *
      * @var string
@@ -100,6 +133,13 @@ class items extends Model
     public $taskName;
 
     /**
+     * @description The stage of the task. Valid values:
+     *
+     *   **precheck**: the precheck stage.
+     *   **basebackup**: the basic backup stage.
+     *   **startup**: the startup stage.
+     *   **increment**: the incremental synchronization stage.
+     *
      * @example increment
      *
      * @var string
@@ -107,6 +147,12 @@ class items extends Model
     public $taskStage;
 
     /**
+     * @description The status of the task. Valid values:
+     *
+     *   **success**
+     *   **failure**
+     *   **running**
+     *
      * @example success
      *
      * @var string
@@ -114,6 +160,11 @@ class items extends Model
     public $taskStatus;
 
     /**
+     * @description The type of the task. Valid values:
+     *
+     *   **create**: creates a synchronization link.
+     *   **create-dryrun**: performs a precheck before a synchronization link is created.
+     *
      * @example create
      *
      * @var string

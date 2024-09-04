@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateReplicationLinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example pgm-bp1trqb4p1xd****
      *
      * @var string
@@ -18,8 +19,12 @@ class CreateReplicationLinkRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description This parameter is required.
+     * @description Specifies whether to perform a dry run. Valid values:
      *
+     *   **true**: performs a dry run but does not create the instance. The system checks items such as the request parameters, request format, service limits, and available resources.
+     *   **false** (default): performs a dry run and sends the request. If the request passes the dry run, the instance is created.
+     *
+     * This parameter is required.
      * @example false
      *
      * @var bool
@@ -27,6 +32,8 @@ class CreateReplicationLinkRequest extends Model
     public $dryRun;
 
     /**
+     * @description The account of the database that is used for data synchronization.
+     *
      * @example testdbuser
      *
      * @var string
@@ -34,6 +41,8 @@ class CreateReplicationLinkRequest extends Model
     public $replicatorAccount;
 
     /**
+     * @description The password of the account.
+     *
      * @example testpassword
      *
      * @var string
@@ -41,6 +50,8 @@ class CreateReplicationLinkRequest extends Model
     public $replicatorPassword;
 
     /**
+     * @description The endpoint of the source instance.
+     *
      * @example pgm-****.pg.rds.aliyuncs.com
      *
      * @var string
@@ -48,6 +59,11 @@ class CreateReplicationLinkRequest extends Model
     public $sourceAddress;
 
     /**
+     * @description The type of the source instance. Valid values:
+     *
+     *   **other**: other instances
+     *   **aliyunRDS**: an ApsaraDB RDS instance
+     *
      * @example aliyunRDS
      *
      * @var string
@@ -55,6 +71,9 @@ class CreateReplicationLinkRequest extends Model
     public $sourceCategory;
 
     /**
+     * @description The name of the source instance.
+     *
+     * >  You must specify this parameter if **SourceCategory** is set to **aliyunRDS**.
      * @example testInstance
      *
      * @var string
@@ -62,6 +81,9 @@ class CreateReplicationLinkRequest extends Model
     public $sourceInstanceName;
 
     /**
+     * @description The ID of the region where the source instance is located.
+     *
+     * >  You must specify this parameter if **SourceCategory** is set to **aliyunRDS**.
      * @example cn-hangzhou
      *
      * @var string
@@ -69,6 +91,8 @@ class CreateReplicationLinkRequest extends Model
     public $sourceInstanceRegionId;
 
     /**
+     * @description The port number of the source instance.
+     *
      * @example 5432
      *
      * @var int
@@ -76,6 +100,8 @@ class CreateReplicationLinkRequest extends Model
     public $sourcePort;
 
     /**
+     * @description The task ID of the successful dry run.
+     *
      * @example 439946016
      *
      * @var int
@@ -83,6 +109,8 @@ class CreateReplicationLinkRequest extends Model
     public $taskId;
 
     /**
+     * @description The name of the task. You can specify a custom task name. If you do not specify this parameter, ApsaraDB RDS automatically generates a task name.
+     *
      * @example test01
      *
      * @var string

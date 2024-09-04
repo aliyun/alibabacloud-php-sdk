@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeReplicationLinkLogsResponseBody extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
      * @example pgm-bp1trqb4p1xd****
      *
      * @var string
@@ -17,11 +19,15 @@ class DescribeReplicationLinkLogsResponseBody extends Model
     public $DBInstanceId;
 
     /**
+     * @description The items.
+     *
      * @var items[]
      */
     public $items;
 
     /**
+     * @description The request ID.
+     *
      * @example 16C62438-491B-5C02-9B49-BA924A1372A2
      *
      * @var string
@@ -29,6 +35,8 @@ class DescribeReplicationLinkLogsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 1
      *
      * @var int

@@ -139,9 +139,9 @@ class ModifyDBInstanceSpecShrinkRequest extends Model
     /**
      * @description The effective time. Valid values:
      *
-     *   **Immediate** (default)
+     *   **Immediate** (default): The effective time immediately takes effect.
      *   **MaintainTime**: The effective time is within the maintenance window. For more information, see ModifyDBInstanceMaintainTime.
-     *   **ScheduleTime**: The change takes effect at the point in time that you specify. The schedule time must be a specific point in time that is 12 hours later than the current time. In this case, EffectiveTime is calculated by using the following formula: EffectiveTime = ScheduleTime + SwitchTime.
+     *   **ScheduleTime**: The effective time takes effect at the point in time that you specify. The schedule time must be a specific point in time that is 12 hours later than the current time. In this case, EffectiveTime is calculated by using the following formula: EffectiveTime = ScheduleTime + SwitchTime.
      *
      * @example MaintainTime
      *

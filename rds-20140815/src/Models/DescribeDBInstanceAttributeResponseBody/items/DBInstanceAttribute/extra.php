@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class extra extends Model
 {
     /**
+     * @var string
+     */
+    public $accountSecurityPolicy;
+
+    /**
      * @description The instance IDs.
      *
      * @var DBInstanceIds
@@ -25,8 +30,9 @@ class extra extends Model
      */
     public $recoveryModel;
     protected $_name = [
-        'DBInstanceIds' => 'DBInstanceIds',
-        'recoveryModel' => 'RecoveryModel',
+        'accountSecurityPolicy' => 'AccountSecurityPolicy',
+        'DBInstanceIds'         => 'DBInstanceIds',
+        'recoveryModel'         => 'RecoveryModel',
     ];
 
     public function validate()
@@ -36,6 +42,9 @@ class extra extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accountSecurityPolicy) {
+            $res['AccountSecurityPolicy'] = $this->accountSecurityPolicy;
+        }
         if (null !== $this->DBInstanceIds) {
             $res['DBInstanceIds'] = null !== $this->DBInstanceIds ? $this->DBInstanceIds->toMap() : null;
         }
@@ -54,6 +63,9 @@ class extra extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccountSecurityPolicy'])) {
+            $model->accountSecurityPolicy = $map['AccountSecurityPolicy'];
+        }
         if (isset($map['DBInstanceIds'])) {
             $model->DBInstanceIds = DBInstanceIds::fromMap($map['DBInstanceIds']);
         }

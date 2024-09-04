@@ -342,6 +342,16 @@ class DBInstanceAttribute extends Model
     public $deletionProtection;
 
     /**
+     * @var string
+     */
+    public $disasterRecoveryInfo;
+
+    /**
+     * @var string
+     */
+    public $disasterRecoveryInstances;
+
+    /**
      * @description The database engine of the instance. Valid values:
      *
      *   **MySQL**
@@ -803,6 +813,8 @@ class DBInstanceAttribute extends Model
         'DBMaxQuantity'                  => 'DBMaxQuantity',
         'dedicatedHostGroupId'           => 'DedicatedHostGroupId',
         'deletionProtection'             => 'DeletionProtection',
+        'disasterRecoveryInfo'           => 'DisasterRecoveryInfo',
+        'disasterRecoveryInstances'      => 'DisasterRecoveryInstances',
         'engine'                         => 'Engine',
         'engineVersion'                  => 'EngineVersion',
         'expireTime'                     => 'ExpireTime',
@@ -951,6 +963,12 @@ class DBInstanceAttribute extends Model
         }
         if (null !== $this->deletionProtection) {
             $res['DeletionProtection'] = $this->deletionProtection;
+        }
+        if (null !== $this->disasterRecoveryInfo) {
+            $res['DisasterRecoveryInfo'] = $this->disasterRecoveryInfo;
+        }
+        if (null !== $this->disasterRecoveryInstances) {
+            $res['DisasterRecoveryInstances'] = $this->disasterRecoveryInstances;
         }
         if (null !== $this->engine) {
             $res['Engine'] = $this->engine;
@@ -1191,6 +1209,12 @@ class DBInstanceAttribute extends Model
         }
         if (isset($map['DeletionProtection'])) {
             $model->deletionProtection = $map['DeletionProtection'];
+        }
+        if (isset($map['DisasterRecoveryInfo'])) {
+            $model->disasterRecoveryInfo = $map['DisasterRecoveryInfo'];
+        }
+        if (isset($map['DisasterRecoveryInstances'])) {
+            $model->disasterRecoveryInstances = $map['DisasterRecoveryInstances'];
         }
         if (isset($map['Engine'])) {
             $model->engine = $map['Engine'];

@@ -76,17 +76,17 @@ class DescribeHistoryTasksStatRequest extends Model
     public $securityToken;
 
     /**
-     * @description The task status. Valid values:
+     * @description The status of the task. Valid values:
      *
-     *   Scheduled
-     *   Running
-     *   Succeed
-     *   Failed
-     *   Cancelling
-     *   Canceled
-     *   Waiting
+     *   **Scheduled**
+     *   **Running**
+     *   **Succeed**
+     *   **Failed**
+     *   **Cancelling**
+     *   **Canceled**
+     *   **Waiting**
      *
-     * Separate multiple states with commas (,). This parameter is empty by default, which indicates that tasks in all states are queried.
+     * Separate multiple statuses with commas (,). By default, this parameter is left empty. This indicates that tasks in all statuses are queried.
      * @example Scheduled
      *
      * @var string
