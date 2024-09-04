@@ -11,6 +11,7 @@ class CancelSubscriptionBillRequest extends Model
     /**
      * @description The type of the bill to which you want to cancel the subscription. Valid values: PartnerBillingItemDetailForBillingPeriod, PartnerBillingItemDetailMonthly, PartnerInstanceDetailForBillingPeriod, and PartnerInstanceDetailMonthly.
      *
+     * This parameter is required.
      * @example PartnerBillingItemDetailForBillingPeriod
      *
      * @var string

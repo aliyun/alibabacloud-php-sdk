@@ -11,6 +11,7 @@ class CustomerQuotaRecordListRequest extends Model
     /**
      * @description End Date Format: yyyy-MM-dd
      *
+     * This parameter is required.
      * @example 2023-09-24
      *
      * @var string
@@ -20,6 +21,7 @@ class CustomerQuotaRecordListRequest extends Model
     /**
      * @description Customer UID
      *
+     * This parameter is required.
      * @example 5113766248601929
      *
      * @var int
@@ -37,7 +39,7 @@ class CustomerQuotaRecordListRequest extends Model
 
     /**
      * @description Operation Type Enum</br>
-     * quota_amount_adjust Adjust the amount of quota</br>
+     * This parameter is required.
      * @example all
      *
      * @var string
@@ -47,6 +49,7 @@ class CustomerQuotaRecordListRequest extends Model
     /**
      * @description Pagination, current page number, starting from 1.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -56,6 +59,7 @@ class CustomerQuotaRecordListRequest extends Model
     /**
      * @description Pagination, record number on each page. Maximum 100.
      *
+     * This parameter is required.
      * @example 10
      *
      * @var int
@@ -65,6 +69,7 @@ class CustomerQuotaRecordListRequest extends Model
     /**
      * @description Start Date Format: yyyy-MM-dd
      *
+     * This parameter is required.
      * @example 2023-01-02
      *
      * @var string

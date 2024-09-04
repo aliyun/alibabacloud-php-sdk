@@ -11,7 +11,7 @@ class SubscriptionBillRequest extends Model
     /**
      * @description The start month from which the bills are pushed. Specify the value in the yyyy-MM format.
      *
-     * After the subscription is generated, the system automatically pushes the bill data that is generated from the month that you specified to the current point in time. Data of up to six months can be pushed. The current month is included. If you subscribe to the bills for more than six months, the subscription is invalid.
+     * This parameter is required.
      * @example 2022-10
      *
      * @var string
@@ -21,7 +21,7 @@ class SubscriptionBillRequest extends Model
     /**
      * @description The file format of the bill. Valid values: csv and parquet.
      *
-     * If you subscribe to the bills of multiple file formats, we recommend that you store the bills in different OSS buckets to prevent file overwriting.
+     * This parameter is required.
      * @example csv
      *
      * @var string
@@ -31,7 +31,7 @@ class SubscriptionBillRequest extends Model
     /**
      * @description The ID of the user to which the OSS bucket belongs.
      *
-     * If you are an eco-partner of Alibaba Cloud and you need to push the bills to the OSS bucket of your own account, your account must be granted the [AliyunConsumeDump2OSSRole](https://ram.console.aliyun.com/?spm=api-workbench.API%20Document.0.0.68c71e0fhmTSJp#/role/authorize?request=%7B%22Requests%22:%20%7B%22request1%22:%20%7B%22RoleName%22:%20%22AliyunConsumeDump2OSSRole%22,%20%22TemplateId%22:%20%22Dump2OSSRole%22%7D%7D,%20%22ReturnUrl%22:%20%22https:%2F%2Fusercenter2.aliyun.com%22,%20%22Service%22:%20%22Consume%22%7D) permission.
+     * This parameter is required.
      * @example 5569414254138836
      *
      * @var int
@@ -41,6 +41,7 @@ class SubscriptionBillRequest extends Model
     /**
      * @description The name of the Object Storage Service (OSS) bucket in which you want to store the bills.
      *
+     * This parameter is required.
      * @example bill-bucket
      *
      * @var string
@@ -60,6 +61,7 @@ class SubscriptionBillRequest extends Model
     /**
      * @description The type of the bill to which you want to subscribe. Valid values: PartnerBillingItemDetailForBillingPeriod, PartnerBillingItemDetailMonthly, PartnerInstanceDetailForBillingPeriod, and PartnerInstanceDetailMonthly.
      *
+     * This parameter is required.
      * @example PartnerBillingItemDetailForBillingPeriod
      *
      * @var string

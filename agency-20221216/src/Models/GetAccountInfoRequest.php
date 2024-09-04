@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetAccountInfoRequest extends Model
 {
     /**
-     * @description Pagination, current page.
+     * @description Message
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -18,16 +19,17 @@ class GetAccountInfoRequest extends Model
     public $currentPage;
 
     /**
-     * @description Pagination, record number on each page, maximum 20.
+     * @description Success
      *
-     * @example 10 (Value <= 20)
+     * This parameter is required.
+     * @example 10
      *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description Account UID of Distribution Customer. This parameter and the UserType parameter must have one filled. If this parameter is empty, then check all Distribution Customer accounts of the selected UserType.
+     * @description 10 (Value <= 20)
      *
      * @example 1215848086704806
      *
@@ -36,8 +38,8 @@ class GetAccountInfoRequest extends Model
     public $uid;
 
     /**
-     * @description Distribution Customer\"s Account Type:
-     * - 3 T2 Partner
+     * @description Result Code - Error Code. Value Range:
+     * - 3063: UserType value out of range.
      * @example 1
      *
      * @var string

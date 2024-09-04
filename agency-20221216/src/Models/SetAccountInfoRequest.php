@@ -9,33 +9,40 @@ use AlibabaCloud\Tea\Model;
 class SetAccountInfoRequest extends Model
 {
     /**
-     * @description Sub Account Nickname.
-     * Use the official name of Company, if Sub Account is an enterprise.
-     * Use the official name of Partner, if Sub Account is a T2 reseller.
+     * @description Result Code:
+     *   200 OK
+     *   1109 System error
+     *   3030 Sub Account Nickname exceeds maximum length,  maximum length 150 bytes.
+     *   3031 Remark exceeds maximum length,  maximum length 3000 bytes.
      *
-     * @example my account
+     * @example Message information
      *
      * @var string
      */
     public $accountNickname;
 
     /**
+     * @description Customer manager（limited 50 character）
+     *
+     * @example abc
+     *
      * @var string
      */
     public $customerBd;
 
     /**
-     * @description Description of Sub Account.
+     * @description success
      *
-     * @example test account
+     * @example Candidate Value: True/False, which indicates whether the current API call itself is successful. It does not guarantee the success of subsequent business operations.
      *
      * @var string
      */
     public $remark;
 
     /**
-     * @description The UID of Sub Account.
+     * @description Request ID, Alibaba Cloud will track errors with this.
      *
+     * This parameter is required.
      * @example 1133166938931507
      *
      * @var int

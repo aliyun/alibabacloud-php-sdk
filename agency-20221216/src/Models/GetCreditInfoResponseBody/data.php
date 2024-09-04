@@ -54,7 +54,7 @@ class data extends Model
     public $creditLine;
 
     /**
-     * @description The Credit have been consumed by Sub Account, and haven\"t be paid.
+     * @description The Credit have been consumed by Sub Account, and haven\\"t be paid.
      *
      * @example 200
      *

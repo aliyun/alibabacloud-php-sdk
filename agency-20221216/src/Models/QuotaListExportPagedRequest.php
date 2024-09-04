@@ -11,6 +11,7 @@ class QuotaListExportPagedRequest extends Model
     /**
      * @description Pagination, current page number, starting from 1.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -29,6 +30,7 @@ class QuotaListExportPagedRequest extends Model
     /**
      * @description Pagination, record number on each page, maximum 100.
      *
+     * This parameter is required.
      * @example 10
      *
      * @var int

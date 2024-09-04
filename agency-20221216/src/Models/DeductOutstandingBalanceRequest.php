@@ -11,6 +11,7 @@ class DeductOutstandingBalanceRequest extends Model
     /**
      * @description The Deducted Credit to be offset.
      *
+     * This parameter is required.
      * @example 300
      *
      * @var string
@@ -20,6 +21,7 @@ class DeductOutstandingBalanceRequest extends Model
     /**
      * @description Account UID of Distribution Customer.
      *
+     * This parameter is required.
      * @example 1133166938931507
      *
      * @var int

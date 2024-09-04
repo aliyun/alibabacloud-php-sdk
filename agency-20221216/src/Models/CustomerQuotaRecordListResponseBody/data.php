@@ -45,7 +45,7 @@ class data extends Model
     public $operationTypeDesc;
 
     /**
-     * @description The UID of operator(Partner\"s UID).
+     * @description The UID of operator(Partner\\"s UID).
      *
      * @example 5113766248601929
      *

@@ -13,7 +13,7 @@ class EditZeroCreditShutdownRequest extends Model
      *
      * @example Shutdown Policy</br>
      *
-     * - noStop, The instances of the specified End User\"s account will not be shutdown, after EU have triggered the Shutdown Policy.</br>
+     * - noStop, The instances of the specified End User\\"s account will not be shutdown, after EU have triggered the Shutdown Policy.</br>
      * @var string
      */
     public $shutdownPolicy;

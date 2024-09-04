@@ -10,7 +10,7 @@ class GetMonthlyBillRequest extends Model
 {
     /**
      * @description Bill Owner type. Value Range:</br>
-     * 2: Sub account</br>
+     * This parameter is required.
      * @example 1
      *
      * @var string
@@ -20,7 +20,7 @@ class GetMonthlyBillRequest extends Model
     /**
      * @description Value Range:
      *
-     * - MarginReportV2
+     * This parameter is required.
      * @example MonthlyInvoice
      *
      * @var string
@@ -30,6 +30,7 @@ class GetMonthlyBillRequest extends Model
     /**
      * @description Billing Month, Format is YYYY-MM
      *
+     * This parameter is required.
      * @example 2022-11
      *
      * @var string

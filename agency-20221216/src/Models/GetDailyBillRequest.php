@@ -10,7 +10,7 @@ class GetDailyBillRequest extends Model
 {
     /**
      * @description Bill Owner type. Value Range:</br>
-     * 2: Sub account</br>
+     * This parameter is required.
      * @example 1
      *
      * @var string
@@ -20,7 +20,7 @@ class GetDailyBillRequest extends Model
     /**
      * @description BillType. Value Range:</br>
      *
-     * - DailyInstanceBillV2
+     * This parameter is required.
      * @example DailyInstanceBillV2
      *
      * @var string
@@ -30,6 +30,7 @@ class GetDailyBillRequest extends Model
     /**
      * @description Billing date. Format YYYY-MM-DD
      *
+     * This parameter is required.
      * @example 2022-11-24
      *
      * @var string

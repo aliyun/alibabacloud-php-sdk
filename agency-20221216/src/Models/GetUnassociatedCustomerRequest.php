@@ -11,6 +11,7 @@ class GetUnassociatedCustomerRequest extends Model
     /**
      * @description Pagination, current page.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -20,6 +21,7 @@ class GetUnassociatedCustomerRequest extends Model
     /**
      * @description Pagination, record number on each page.
      *
+     * This parameter is required.
      * @example 10
      *
      * @var int

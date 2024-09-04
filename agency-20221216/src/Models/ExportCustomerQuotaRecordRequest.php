@@ -11,6 +11,7 @@ class ExportCustomerQuotaRecordRequest extends Model
     /**
      * @description End Date Format:  yyyy-MM-dd
      *
+     * This parameter is required.
      * @example 2023-12-24
      *
      * @var string
@@ -20,6 +21,7 @@ class ExportCustomerQuotaRecordRequest extends Model
     /**
      * @description Customer UID
      *
+     * This parameter is required.
      * @example 5113766248601929
      *
      * @var int
@@ -37,7 +39,7 @@ class ExportCustomerQuotaRecordRequest extends Model
 
     /**
      * @description Operation Type Enum</br>
-     * quota_amount_adjust Adjust the amount of quota</br>
+     * This parameter is required.
      * @example all
      *
      * @var string
@@ -47,6 +49,7 @@ class ExportCustomerQuotaRecordRequest extends Model
     /**
      * @description Start Date Format:  yyyy-MM-dd
      *
+     * This parameter is required.
      * @example 2023-11-10
      *
      * @var string

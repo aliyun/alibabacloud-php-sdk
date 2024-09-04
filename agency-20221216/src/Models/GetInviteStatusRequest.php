@@ -11,7 +11,7 @@ class GetInviteStatusRequest extends Model
 {
     /**
      * @description inviteId list</br>
-     * `Sub-levels <= 5`
+     * This parameter is required.
      * @var inviteStatusList[]
      */
     public $inviteStatusList;

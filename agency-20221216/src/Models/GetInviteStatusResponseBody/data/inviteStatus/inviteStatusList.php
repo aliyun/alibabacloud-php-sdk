@@ -18,7 +18,7 @@ class inviteStatusList extends Model
     public $associationSuccessTime;
 
     /**
-     * @description Distribution Customer\"s CID
+     * @description Distribution Customer\\"s CID
      *
      * @example 1234567890123
      *
@@ -67,7 +67,7 @@ class inviteStatusList extends Model
     public $subAccountType;
 
     /**
-     * @description Distribution Customer\"s UID
+     * @description Distribution Customer\\"s UID
      *
      * @example 1234567890123
      *

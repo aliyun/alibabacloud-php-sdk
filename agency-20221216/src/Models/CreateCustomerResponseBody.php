@@ -18,7 +18,7 @@ class CreateCustomerResponseBody extends Model
     public $code;
 
     /**
-     * @description Data indicating whether a customer was successfully created. If it\"s "true", the Message contains CID.
+     * @description Data indicating whether a customer was successfully created. If it\\"s "true", the Message contains CID.
      *
      * @example true
      *

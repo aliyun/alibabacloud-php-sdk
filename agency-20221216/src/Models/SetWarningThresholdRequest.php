@@ -11,6 +11,7 @@ class SetWarningThresholdRequest extends Model
     /**
      * @description The UID of the partner‘s customer.
      *
+     * This parameter is required.
      * @example 1792155717328010
      *
      * @var int
@@ -20,6 +21,7 @@ class SetWarningThresholdRequest extends Model
     /**
      * @description Percentage, 1 to 100. When the available credit limit is lower than the credit limit percentage, an email is sent to the main account.
      *
+     * This parameter is required.
      * @example 20
      *
      * @var string

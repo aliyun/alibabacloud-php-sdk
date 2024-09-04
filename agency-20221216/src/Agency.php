@@ -8,6 +8,9 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Agency\V20221216\Models\CancelSubscriptionBillRequest;
 use AlibabaCloud\SDK\Agency\V20221216\Models\CancelSubscriptionBillResponse;
+use AlibabaCloud\SDK\Agency\V20221216\Models\CreateCouponTemplateRequest;
+use AlibabaCloud\SDK\Agency\V20221216\Models\CreateCouponTemplateResponse;
+use AlibabaCloud\SDK\Agency\V20221216\Models\CreateCouponTemplateShrinkRequest;
 use AlibabaCloud\SDK\Agency\V20221216\Models\CreateCustomerRequest;
 use AlibabaCloud\SDK\Agency\V20221216\Models\CreateCustomerResponse;
 use AlibabaCloud\SDK\Agency\V20221216\Models\CustomerQuotaRecordListRequest;
@@ -24,8 +27,12 @@ use AlibabaCloud\SDK\Agency\V20221216\Models\ExportCustomerQuotaRecordRequest;
 use AlibabaCloud\SDK\Agency\V20221216\Models\ExportCustomerQuotaRecordResponse;
 use AlibabaCloud\SDK\Agency\V20221216\Models\GetAccountInfoRequest;
 use AlibabaCloud\SDK\Agency\V20221216\Models\GetAccountInfoResponse;
+use AlibabaCloud\SDK\Agency\V20221216\Models\GetCoupondeductProductCodeRequest;
+use AlibabaCloud\SDK\Agency\V20221216\Models\GetCoupondeductProductCodeResponse;
 use AlibabaCloud\SDK\Agency\V20221216\Models\GetCreditInfoRequest;
 use AlibabaCloud\SDK\Agency\V20221216\Models\GetCreditInfoResponse;
+use AlibabaCloud\SDK\Agency\V20221216\Models\GetCustomerOrdersRequest;
+use AlibabaCloud\SDK\Agency\V20221216\Models\GetCustomerOrdersResponse;
 use AlibabaCloud\SDK\Agency\V20221216\Models\GetDailyBillRequest;
 use AlibabaCloud\SDK\Agency\V20221216\Models\GetDailyBillResponse;
 use AlibabaCloud\SDK\Agency\V20221216\Models\GetInviteStatusRequest;
@@ -36,6 +43,8 @@ use AlibabaCloud\SDK\Agency\V20221216\Models\GetUnassociatedCustomerRequest;
 use AlibabaCloud\SDK\Agency\V20221216\Models\GetUnassociatedCustomerResponse;
 use AlibabaCloud\SDK\Agency\V20221216\Models\InviteSubAccountRequest;
 use AlibabaCloud\SDK\Agency\V20221216\Models\InviteSubAccountResponse;
+use AlibabaCloud\SDK\Agency\V20221216\Models\IssueCouponForCustomerRequest;
+use AlibabaCloud\SDK\Agency\V20221216\Models\IssueCouponForCustomerResponse;
 use AlibabaCloud\SDK\Agency\V20221216\Models\ListCountriesResponse;
 use AlibabaCloud\SDK\Agency\V20221216\Models\ListCouponUsageRequest;
 use AlibabaCloud\SDK\Agency\V20221216\Models\ListCouponUsageResponse;
@@ -149,11 +158,13 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * Make sure that you are a distributor of the Alibaba Cloud international ecosystem.
-     *   * You can call this operation to cancel the subscription to only one type of bill at a time.
-     *   * After the subscription to a type of bill is canceled, bills of this type are no longer pushed to the specified Object Storage Service (OSS) bucket.
-     *   * **This topic is published only on the international site (alibabacloud.com).
-     *   *
+     * @summary Cancels the subscription to multi-level bills as an Alibaba Cloud eco-partner.
+     *  *
+     * @description Make sure that you are a distributor of the Alibaba Cloud international ecosystem.
+     * You can call this operation to cancel the subscription to only one type of bill at a time.
+     * After the subscription to a type of bill is canceled, bills of this type are no longer pushed to the specified Object Storage Service (OSS) bucket.
+     * **This topic is published only on the international site (alibabacloud.com).
+     *  *
      * @param CancelSubscriptionBillRequest $request CancelSubscriptionBillRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -185,11 +196,13 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * Make sure that you are a distributor of the Alibaba Cloud international ecosystem.
-     *   * You can call this operation to cancel the subscription to only one type of bill at a time.
-     *   * After the subscription to a type of bill is canceled, bills of this type are no longer pushed to the specified Object Storage Service (OSS) bucket.
-     *   * **This topic is published only on the international site (alibabacloud.com).
-     *   *
+     * @summary Cancels the subscription to multi-level bills as an Alibaba Cloud eco-partner.
+     *  *
+     * @description Make sure that you are a distributor of the Alibaba Cloud international ecosystem.
+     * You can call this operation to cancel the subscription to only one type of bill at a time.
+     * After the subscription to a type of bill is canceled, bills of this type are no longer pushed to the specified Object Storage Service (OSS) bucket.
+     * **This topic is published only on the international site (alibabacloud.com).
+     *  *
      * @param CancelSubscriptionBillRequest $request CancelSubscriptionBillRequest
      *
      * @return CancelSubscriptionBillResponse CancelSubscriptionBillResponse
@@ -202,10 +215,103 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * @param CreateCustomerRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary 创建优惠券模板
+     *  *
+     * @param CreateCouponTemplateRequest $tmpReq  CreateCouponTemplateRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateCustomerResponse
+     * @return CreateCouponTemplateResponse CreateCouponTemplateResponse
+     */
+    public function createCouponTemplateWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateCouponTemplateShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->productType)) {
+            $request->productTypeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->productType, 'ProductType', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->applicableProducts)) {
+            $query['ApplicableProducts'] = $request->applicableProducts;
+        }
+        if (!Utils::isUnset($request->costBearer)) {
+            $query['CostBearer'] = $request->costBearer;
+        }
+        if (!Utils::isUnset($request->couponDescription)) {
+            $query['CouponDescription'] = $request->couponDescription;
+        }
+        if (!Utils::isUnset($request->expireddate)) {
+            $query['Expireddate'] = $request->expireddate;
+        }
+        if (!Utils::isUnset($request->limitPerPerson)) {
+            $query['LimitPerPerson'] = $request->limitPerPerson;
+        }
+        if (!Utils::isUnset($request->productTypeShrink)) {
+            $query['ProductType'] = $request->productTypeShrink;
+        }
+        if (!Utils::isUnset($request->purchaseType)) {
+            $query['PurchaseType'] = $request->purchaseType;
+        }
+        if (!Utils::isUnset($request->reasonForApplication)) {
+            $query['ReasonForApplication'] = $request->reasonForApplication;
+        }
+        if (!Utils::isUnset($request->templateName)) {
+            $query['TemplateName'] = $request->templateName;
+        }
+        if (!Utils::isUnset($request->vailddate)) {
+            $query['Vailddate'] = $request->vailddate;
+        }
+        if (!Utils::isUnset($request->vaildperioddays)) {
+            $query['Vaildperioddays'] = $request->vaildperioddays;
+        }
+        if (!Utils::isUnset($request->validUntil)) {
+            $query['ValidUntil'] = $request->validUntil;
+        }
+        if (!Utils::isUnset($request->value)) {
+            $query['Value'] = $request->value;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateCouponTemplate',
+            'version'     => '2022-12-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateCouponTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建优惠券模板
+     *  *
+     * @param CreateCouponTemplateRequest $request CreateCouponTemplateRequest
+     *
+     * @return CreateCouponTemplateResponse CreateCouponTemplateResponse
+     */
+    public function createCouponTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createCouponTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary This function is designed for create a customer who is to be invited.
+     *  *
+     * @param CreateCustomerRequest $request CreateCustomerRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateCustomerResponse CreateCustomerResponse
      */
     public function createCustomerWithOptions($request, $runtime)
     {
@@ -245,9 +351,11 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * @param CreateCustomerRequest $request
+     * @summary This function is designed for create a customer who is to be invited.
+     *  *
+     * @param CreateCustomerRequest $request CreateCustomerRequest
      *
-     * @return CreateCustomerResponse
+     * @return CreateCustomerResponse CreateCustomerResponse
      */
     public function createCustomer($request)
     {
@@ -257,10 +365,12 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * @param CustomerQuotaRecordListRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Query quota adjustment list of Distribution Customer from International Site. Not available on Domestic Site.
+     *  *
+     * @param CustomerQuotaRecordListRequest $request CustomerQuotaRecordListRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return CustomerQuotaRecordListResponse
+     * @return CustomerQuotaRecordListResponse CustomerQuotaRecordListResponse
      */
     public function customerQuotaRecordListWithOptions($request, $runtime)
     {
@@ -285,9 +395,11 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * @param CustomerQuotaRecordListRequest $request
+     * @summary Query quota adjustment list of Distribution Customer from International Site. Not available on Domestic Site.
+     *  *
+     * @param CustomerQuotaRecordListRequest $request CustomerQuotaRecordListRequest
      *
-     * @return CustomerQuotaRecordListResponse
+     * @return CustomerQuotaRecordListResponse CustomerQuotaRecordListResponse
      */
     public function customerQuotaRecordList($request)
     {
@@ -297,9 +409,11 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * Note that sometimes you may find that the customer\\"s Used Credit is negative. This indicates that there is no need to restore the Used Credit, and its ready for customer\\"s usage. This phenomenon occurs because a refund is generated while the customer\\"s credit is full, thereby triggered additional increasing on the customer\\"s credit.
-     *   * For example, if the customer\\"s maximum Available Credit is 1000 with no usage, and a refund of 300 occurs, the Used Credit will become -300.
-     *   *
+     * @summary This API is used to offset the Deducted Credit of a Distribution Customer. For example, if the current Deducted Credit is 500 and the Available Credit is 1000, by offsetting 300, the Deducted Credit will then become 200, and the Available Credit becomes 1300.
+     *  *
+     * @description Note that sometimes you may find that the customer\\"s Used Credit is negative. This indicates that there is no need to restore the Used Credit, and its ready for customer\\"s usage. This phenomenon occurs because a refund is generated while the customer\\"s credit is full, thereby triggered additional increasing on the customer\\"s credit.
+     * For example, if the customer\\"s maximum Available Credit is 1000 with no usage, and a refund of 300 occurs, the Used Credit will become -300.
+     *  *
      * @param DeductOutstandingBalanceRequest $request DeductOutstandingBalanceRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -334,9 +448,11 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * Note that sometimes you may find that the customer\\"s Used Credit is negative. This indicates that there is no need to restore the Used Credit, and its ready for customer\\"s usage. This phenomenon occurs because a refund is generated while the customer\\"s credit is full, thereby triggered additional increasing on the customer\\"s credit.
-     *   * For example, if the customer\\"s maximum Available Credit is 1000 with no usage, and a refund of 300 occurs, the Used Credit will become -300.
-     *   *
+     * @summary This API is used to offset the Deducted Credit of a Distribution Customer. For example, if the current Deducted Credit is 500 and the Available Credit is 1000, by offsetting 300, the Deducted Credit will then become 200, and the Available Credit becomes 1300.
+     *  *
+     * @description Note that sometimes you may find that the customer\\"s Used Credit is negative. This indicates that there is no need to restore the Used Credit, and its ready for customer\\"s usage. This phenomenon occurs because a refund is generated while the customer\\"s credit is full, thereby triggered additional increasing on the customer\\"s credit.
+     * For example, if the customer\\"s maximum Available Credit is 1000 with no usage, and a refund of 300 occurs, the Used Credit will become -300.
+     *  *
      * @param DeductOutstandingBalanceRequest $request DeductOutstandingBalanceRequest
      *
      * @return DeductOutstandingBalanceResponse DeductOutstandingBalanceResponse
@@ -349,9 +465,11 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * The caller should be the Partner as identified in the Alibaba Cloud distribution model. </br>
-     *   * **This content is only published on the international site. **.
-     *   *
+     * @summary Set the after-shutdown instance status for post-pay End Users as a Reseller.
+     *  *
+     * @description The caller should be the Partner as identified in the Alibaba Cloud distribution model. </br>
+     * **This content is only published on the international site. **
+     *  *
      * @param EditEndUserStatusRequest $request EditEndUserStatusRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -380,9 +498,11 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * The caller should be the Partner as identified in the Alibaba Cloud distribution model. </br>
-     *   * **This content is only published on the international site. **.
-     *   *
+     * @summary Set the after-shutdown instance status for post-pay End Users as a Reseller.
+     *  *
+     * @description The caller should be the Partner as identified in the Alibaba Cloud distribution model. </br>
+     * **This content is only published on the international site. **
+     *  *
      * @param EditEndUserStatusRequest $request EditEndUserStatusRequest
      *
      * @return EditEndUserStatusResponse EditEndUserStatusResponse
@@ -395,9 +515,11 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * The caller should be the Partner as identified in the Alibaba Cloud distribution model. </br>
-     *   * **This content is only published on the international site. **.
-     *   *
+     * @summary Set the New Buy status for Sub-Customer as a Partner.
+     *  *
+     * @description The caller should be the Partner as identified in the Alibaba Cloud distribution model. </br>
+     * **This content is only published on the international site. **
+     *  *
      * @param EditNewBuyStatusRequest $request EditNewBuyStatusRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -432,9 +554,11 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * The caller should be the Partner as identified in the Alibaba Cloud distribution model. </br>
-     *   * **This content is only published on the international site. **.
-     *   *
+     * @summary Set the New Buy status for Sub-Customer as a Partner.
+     *  *
+     * @description The caller should be the Partner as identified in the Alibaba Cloud distribution model. </br>
+     * **This content is only published on the international site. **
+     *  *
      * @param EditNewBuyStatusRequest $request EditNewBuyStatusRequest
      *
      * @return EditNewBuyStatusResponse EditNewBuyStatusResponse
@@ -447,9 +571,11 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * The caller should be the Partner as identified in the Alibaba Cloud distribution model. </br>
-     *   * **This content is only published on the international site. **.
-     *   *
+     * @summary Modify the End User\\"s Shutdown Policy as a Reseller.
+     *  *
+     * @description The caller should be the Partner as identified in the Alibaba Cloud distribution model. </br>
+     * **This content is only published on the international site. **
+     *  *
      * @param EditZeroCreditShutdownRequest $request EditZeroCreditShutdownRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -484,9 +610,11 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * The caller should be the Partner as identified in the Alibaba Cloud distribution model. </br>
-     *   * **This content is only published on the international site. **.
-     *   *
+     * @summary Modify the End User\\"s Shutdown Policy as a Reseller.
+     *  *
+     * @description The caller should be the Partner as identified in the Alibaba Cloud distribution model. </br>
+     * **This content is only published on the international site. **
+     *  *
      * @param EditZeroCreditShutdownRequest $request EditZeroCreditShutdownRequest
      *
      * @return EditZeroCreditShutdownResponse EditZeroCreditShutdownResponse
@@ -499,8 +627,10 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * Caller must be a Partner from International Site, either Distribution or Reseller will do.
-     *   *
+     * @summary Export quota amount adjustment history as a Distribution Customer from International Site. Only available on International Site.
+     *  *
+     * @description Caller must be a Partner from International Site, either Distribution or Reseller will do.
+     *  *
      * @param ExportCustomerQuotaRecordRequest $request ExportCustomerQuotaRecordRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -544,8 +674,10 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * Caller must be a Partner from International Site, either Distribution or Reseller will do.
-     *   *
+     * @summary Export quota amount adjustment history as a Distribution Customer from International Site. Only available on International Site.
+     *  *
+     * @description Caller must be a Partner from International Site, either Distribution or Reseller will do.
+     *  *
      * @param ExportCustomerQuotaRecordRequest $request ExportCustomerQuotaRecordRequest
      *
      * @return ExportCustomerQuotaRecordResponse ExportCustomerQuotaRecordResponse
@@ -558,10 +690,12 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * @param GetAccountInfoRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Return Distribution Customer\\"s account information.
+     *  *
+     * @param GetAccountInfoRequest $request GetAccountInfoRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetAccountInfoResponse
+     * @return GetAccountInfoResponse GetAccountInfoResponse
      */
     public function getAccountInfoWithOptions($request, $runtime)
     {
@@ -586,9 +720,11 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * @param GetAccountInfoRequest $request
+     * @summary Return Distribution Customer\\"s account information.
+     *  *
+     * @param GetAccountInfoRequest $request GetAccountInfoRequest
      *
-     * @return GetAccountInfoResponse
+     * @return GetAccountInfoResponse GetAccountInfoResponse
      */
     public function getAccountInfo($request)
     {
@@ -598,10 +734,56 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * @param GetCreditInfoRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary 国际渠道分销优惠券可抵扣产品
+     *  *
+     * @param GetCoupondeductProductCodeRequest $request GetCoupondeductProductCodeRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetCreditInfoResponse
+     * @return GetCoupondeductProductCodeResponse GetCoupondeductProductCodeResponse
+     */
+    public function getCoupondeductProductCodeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetCoupondeductProductCode',
+            'version'     => '2022-12-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetCoupondeductProductCodeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 国际渠道分销优惠券可抵扣产品
+     *  *
+     * @param GetCoupondeductProductCodeRequest $request GetCoupondeductProductCodeRequest
+     *
+     * @return GetCoupondeductProductCodeResponse GetCoupondeductProductCodeResponse
+     */
+    public function getCoupondeductProductCode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getCoupondeductProductCodeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Query Credit Control information of Distribution Customers. The PopCreditInfoJson in the Return Parameter will be empty if the Distribution Customer is an Agency. This function is only available for Resellers and Distributors.
+     *  *
+     * @param GetCreditInfoRequest $request GetCreditInfoRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetCreditInfoResponse GetCreditInfoResponse
      */
     public function getCreditInfoWithOptions($request, $runtime)
     {
@@ -626,9 +808,11 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * @param GetCreditInfoRequest $request
+     * @summary Query Credit Control information of Distribution Customers. The PopCreditInfoJson in the Return Parameter will be empty if the Distribution Customer is an Agency. This function is only available for Resellers and Distributors.
+     *  *
+     * @param GetCreditInfoRequest $request GetCreditInfoRequest
      *
-     * @return GetCreditInfoResponse
+     * @return GetCreditInfoResponse GetCreditInfoResponse
      */
     public function getCreditInfo($request)
     {
@@ -638,10 +822,56 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * @param GetDailyBillRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary 客户订单查询
+     *  *
+     * @param GetCustomerOrdersRequest $request GetCustomerOrdersRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetDailyBillResponse
+     * @return GetCustomerOrdersResponse GetCustomerOrdersResponse
+     */
+    public function getCustomerOrdersWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetCustomerOrders',
+            'version'     => '2022-12-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetCustomerOrdersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 客户订单查询
+     *  *
+     * @param GetCustomerOrdersRequest $request GetCustomerOrdersRequest
+     *
+     * @return GetCustomerOrdersResponse GetCustomerOrdersResponse
+     */
+    public function getCustomerOrders($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getCustomerOrdersWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Issue Distributor\\"s daily Bill. This function is only available for Resellers and Distributors.
+     *  *
+     * @param GetDailyBillRequest $request GetDailyBillRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetDailyBillResponse GetDailyBillResponse
      */
     public function getDailyBillWithOptions($request, $runtime)
     {
@@ -675,9 +905,11 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * @param GetDailyBillRequest $request
+     * @summary Issue Distributor\\"s daily Bill. This function is only available for Resellers and Distributors.
+     *  *
+     * @param GetDailyBillRequest $request GetDailyBillRequest
      *
-     * @return GetDailyBillResponse
+     * @return GetDailyBillResponse GetDailyBillResponse
      */
     public function getDailyBill($request)
     {
@@ -687,10 +919,12 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * @param GetInviteStatusRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Query invitation status of customer who have been created and invited.
+     *  *
+     * @param GetInviteStatusRequest $request GetInviteStatusRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetInviteStatusResponse
+     * @return GetInviteStatusResponse GetInviteStatusResponse
      */
     public function getInviteStatusWithOptions($request, $runtime)
     {
@@ -718,9 +952,11 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * @param GetInviteStatusRequest $request
+     * @summary Query invitation status of customer who have been created and invited.
+     *  *
+     * @param GetInviteStatusRequest $request GetInviteStatusRequest
      *
-     * @return GetInviteStatusResponse
+     * @return GetInviteStatusResponse GetInviteStatusResponse
      */
     public function getInviteStatus($request)
     {
@@ -730,10 +966,12 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * @param GetMonthlyBillRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Issue Distributor\\"s Monthly Bill. This function is only available for Resellers and Distributors.
+     *  *
+     * @param GetMonthlyBillRequest $request GetMonthlyBillRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetMonthlyBillResponse
+     * @return GetMonthlyBillResponse GetMonthlyBillResponse
      */
     public function getMonthlyBillWithOptions($request, $runtime)
     {
@@ -767,9 +1005,11 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * @param GetMonthlyBillRequest $request
+     * @summary Issue Distributor\\"s Monthly Bill. This function is only available for Resellers and Distributors.
+     *  *
+     * @param GetMonthlyBillRequest $request GetMonthlyBillRequest
      *
-     * @return GetMonthlyBillResponse
+     * @return GetMonthlyBillResponse GetMonthlyBillResponse
      */
     public function getMonthlyBill($request)
     {
@@ -779,10 +1019,12 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * @param GetUnassociatedCustomerRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Query all the Unassociated Customer.
+     *  *
+     * @param GetUnassociatedCustomerRequest $request GetUnassociatedCustomerRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetUnassociatedCustomerResponse
+     * @return GetUnassociatedCustomerResponse GetUnassociatedCustomerResponse
      */
     public function getUnassociatedCustomerWithOptions($request, $runtime)
     {
@@ -807,9 +1049,11 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * @param GetUnassociatedCustomerRequest $request
+     * @summary Query all the Unassociated Customer.
+     *  *
+     * @param GetUnassociatedCustomerRequest $request GetUnassociatedCustomerRequest
      *
-     * @return GetUnassociatedCustomerResponse
+     * @return GetUnassociatedCustomerResponse GetUnassociatedCustomerResponse
      */
     public function getUnassociatedCustomer($request)
     {
@@ -819,8 +1063,10 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * The current API request rate for the Cloud Product has not been disclosed.
-     *   *
+     * @summary Initiate the Partner registration invitation.
+     *  *
+     * @description The current API request rate for the Cloud Product has not been disclosed.
+     *  *
      * @param InviteSubAccountRequest $request InviteSubAccountRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -852,8 +1098,10 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * The current API request rate for the Cloud Product has not been disclosed.
-     *   *
+     * @summary Initiate the Partner registration invitation.
+     *  *
+     * @description The current API request rate for the Cloud Product has not been disclosed.
+     *  *
      * @param InviteSubAccountRequest $request InviteSubAccountRequest
      *
      * @return InviteSubAccountResponse InviteSubAccountResponse
@@ -866,8 +1114,63 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * The current API request rate for cloud products has not been disclosed.
-     *   *
+     * @summary 发放优惠券
+     *  *
+     * @param IssueCouponForCustomerRequest $request IssueCouponForCustomerRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return IssueCouponForCustomerResponse IssueCouponForCustomerResponse
+     */
+    public function issueCouponForCustomerWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->couponTemplateId)) {
+            $query['CouponTemplateId'] = $request->couponTemplateId;
+        }
+        if (!Utils::isUnset($request->uidlist)) {
+            $query['Uidlist'] = $request->uidlist;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'IssueCouponForCustomer',
+            'version'     => '2022-12-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return IssueCouponForCustomerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 发放优惠券
+     *  *
+     * @param IssueCouponForCustomerRequest $request IssueCouponForCustomerRequest
+     *
+     * @return IssueCouponForCustomerResponse IssueCouponForCustomerResponse
+     */
+    public function issueCouponForCustomer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->issueCouponForCustomerWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary This function is available for all Distributors. It displays the corresponding region code information based on the operable countries as agreed in the Distributor\\"s contract.
+     *  *
+     * @description The current API request rate for cloud products has not been disclosed.
+     *  *
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
      * @return ListCountriesResponse ListCountriesResponse
@@ -891,8 +1194,10 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * The current API request rate for cloud products has not been disclosed.
-     *   *
+     * @summary This function is available for all Distributors. It displays the corresponding region code information based on the operable countries as agreed in the Distributor\\"s contract.
+     *  *
+     * @description The current API request rate for cloud products has not been disclosed.
+     *  *
      * @return ListCountriesResponse ListCountriesResponse
      */
     public function listCountries()
@@ -903,10 +1208,12 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * @param ListCouponUsageRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary 优惠券使用量列表查询
+     *  *
+     * @param ListCouponUsageRequest $request ListCouponUsageRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListCouponUsageResponse
+     * @return ListCouponUsageResponse ListCouponUsageResponse
      */
     public function listCouponUsageWithOptions($request, $runtime)
     {
@@ -949,9 +1256,11 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * @param ListCouponUsageRequest $request
+     * @summary 优惠券使用量列表查询
+     *  *
+     * @param ListCouponUsageRequest $request ListCouponUsageRequest
      *
-     * @return ListCouponUsageResponse
+     * @return ListCouponUsageResponse ListCouponUsageResponse
      */
     public function listCouponUsage($request)
     {
@@ -961,8 +1270,10 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * Caller must be a Partner from International Site, either Distribution or Reseller will do.
-     *   *
+     * @summary Check the result of export quota list as a Distribution Customer from International Site. Only available on International Site.
+     *  *
+     * @description Caller must be a Partner from International Site, either Distribution or Reseller will do.
+     *  *
      * @param QuotaListExportPagedRequest $request QuotaListExportPagedRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -991,8 +1302,10 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * Caller must be a Partner from International Site, either Distribution or Reseller will do.
-     *   *
+     * @summary Check the result of export quota list as a Distribution Customer from International Site. Only available on International Site.
+     *  *
+     * @description Caller must be a Partner from International Site, either Distribution or Reseller will do.
+     *  *
      * @param QuotaListExportPagedRequest $request QuotaListExportPagedRequest
      *
      * @return QuotaListExportPagedResponse QuotaListExportPagedResponse
@@ -1005,10 +1318,12 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * @param ResendEmailRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary Resend invitation email.
+     *  *
+     * @param ResendEmailRequest $request ResendEmailRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ResendEmailResponse
+     * @return ResendEmailResponse ResendEmailResponse
      */
     public function resendEmailWithOptions($request, $runtime)
     {
@@ -1036,9 +1351,11 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * @param ResendEmailRequest $request
+     * @summary Resend invitation email.
+     *  *
+     * @param ResendEmailRequest $request ResendEmailRequest
      *
-     * @return ResendEmailResponse
+     * @return ResendEmailResponse ResendEmailResponse
      */
     public function resendEmail($request)
     {
@@ -1048,10 +1365,12 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * @param SetAccountInfoRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary This function is designed for Sub Account information maintenance, including Nickname and Remark.
+     *  *
+     * @param SetAccountInfoRequest $request SetAccountInfoRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetAccountInfoResponse
+     * @return SetAccountInfoResponse SetAccountInfoResponse
      */
     public function setAccountInfoWithOptions($request, $runtime)
     {
@@ -1088,9 +1407,11 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * @param SetAccountInfoRequest $request
+     * @summary This function is designed for Sub Account information maintenance, including Nickname and Remark.
+     *  *
+     * @param SetAccountInfoRequest $request SetAccountInfoRequest
      *
-     * @return SetAccountInfoResponse
+     * @return SetAccountInfoResponse SetAccountInfoResponse
      */
     public function setAccountInfo($request)
     {
@@ -1100,10 +1421,12 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * @param SetCreditLineRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Set Credit Line for Distribution Customers. This function is only available for Resellers and Distributors.
+     *  *
+     * @param SetCreditLineRequest $request SetCreditLineRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetCreditLineResponse
+     * @return SetCreditLineResponse SetCreditLineResponse
      */
     public function setCreditLineWithOptions($request, $runtime)
     {
@@ -1134,9 +1457,11 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * @param SetCreditLineRequest $request
+     * @summary Set Credit Line for Distribution Customers. This function is only available for Resellers and Distributors.
+     *  *
+     * @param SetCreditLineRequest $request SetCreditLineRequest
      *
-     * @return SetCreditLineResponse
+     * @return SetCreditLineResponse SetCreditLineResponse
      */
     public function setCreditLine($request)
     {
@@ -1146,10 +1471,12 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * @param SetWarningThresholdRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary You can use this API to set the threshold for the use of credit control. When the customer credit control reaches below the threshold, it will pass through the notification email distributor. This feature is for Reseller and Distributor only.
+     *  *
+     * @param SetWarningThresholdRequest $request SetWarningThresholdRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetWarningThresholdResponse
+     * @return SetWarningThresholdResponse SetWarningThresholdResponse
      */
     public function setWarningThresholdWithOptions($request, $runtime)
     {
@@ -1180,9 +1507,11 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * @param SetWarningThresholdRequest $request
+     * @summary You can use this API to set the threshold for the use of credit control. When the customer credit control reaches below the threshold, it will pass through the notification email distributor. This feature is for Reseller and Distributor only.
+     *  *
+     * @param SetWarningThresholdRequest $request SetWarningThresholdRequest
      *
-     * @return SetWarningThresholdResponse
+     * @return SetWarningThresholdResponse SetWarningThresholdResponse
      */
     public function setWarningThreshold($request)
     {
@@ -1192,33 +1521,35 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * *   Make sure that you are a distributor of the Alibaba Cloud international ecosystem.
-     *   * *   You can call this operation to subscribe to only one type of bill at a time.
-     *   * *   After the subscription to a type of bill is generated, the bill for the previous day is pushed on a daily basis from the next day. On the fifth day of each month, the full-data bill for the previous month is pushed.
-     *   * *   A daily bill may be delayed. The delayed bill is pushed the next day after it is generated. The delayed bill may contain the bill data that is delayed until the previous day. We recommend that you query the full-data bill for the previous month at the beginning of each month.
-     *   * *   Your account must be granted the [AliyunConsumeDump2OSSRole](https://ram.console.aliyun.com/?spm=api-workbench.API%20Document.0.0.68c71e0fhmTSJp#/role/authorize?request=%7B%22Requests%22:%20%7B%22request1%22:%20%7B%22RoleName%22:%20%22AliyunConsumeDump2OSSRole%22,%20%22TemplateId%22:%20%22Dump2OSSRole%22%7D%7D,%20%22ReturnUrl%22:%20%22https:%2F%2Fusercenter2.aliyun.com%22,%20%22Service%22:%20%22Consume%22%7D) permission.
-     *   * *   The following file name formats are supported for bills:
-     *   * ```
-     *   * BillingItemDetailForBillingPeriod.
-     *   *
-     *   * File name format of a daily bill: UID_PartnerBillingItemDetail_YYYYMMDD_SquenceNo_fileNo. Example: 169**_BillingItemDetail_20190310_0001_01.
-     *   *
-     *   * File name format of a monthly full-data bill: UID_PartnerBillingItemDetail_YYYYMM_SquenceNo_fileNo. Example: 169**_BillingItemDetail_201903_0001_01.
-     *   * InstanceDetailForBillingPeriod
-     *   *
-     *   *  File name format of a daily bill: UID_PartnerInstanceDetail_YYYYMMDD_SquenceNo_fileNo. Example: 169**_InstanceDetail_20190310_0001_01.
-     *   *
-     *   * File name format of a monthly full-data bill: UID_PartnerInstanceDetail_YYYYMM_SquenceNo_fileNo. Example: 169**_InstanceDetail_201903_1999-0001_01.
-     *   * BillingItemDetailMonthly
-     *   *
-     *   * File name format of a daily bill: UID_PartnerBillingItemDetailMonthly_YYYYMM_SquenceNo_fileNo. Example: 169**_BillingItemDetailMonthly_201903_0001_01. This bill contains the bill data that is generated from the beginning of the current month to the fifth day of the next month.
-     *   * InstanceDetailMonthly
-     *   *
-     *   * File name format of a daily bill: UID_PartnerInstanceDetailMonthly_YYYYMM_SquenceNo_fileNo. Example: 169**_InstanceDetailMonthly_201903_0001_01. This bill contains the bill data that is generated from the beginning of the current month to the fifth day of the next month.
-     *   * The fileNo field exists only when the number of bill rows reaches the maximum rows in a single bill file and the bill is split into multiple files.
-     *   * ```
-     *   * **This topic is published only on the international site (alibabacloud.com).
-     *   *
+     * @summary Generates the subscription to multi-level bills as an Alibaba Cloud eco-partner.
+     *  *
+     * @description *   Make sure that you are a distributor of the Alibaba Cloud international ecosystem.
+     * *   You can call this operation to subscribe to only one type of bill at a time.
+     * *   After the subscription to a type of bill is generated, the bill for the previous day is pushed on a daily basis from the next day. On the fifth day of each month, the full-data bill for the previous month is pushed.
+     * *   A daily bill may be delayed. The delayed bill is pushed the next day after it is generated. The delayed bill may contain the bill data that is delayed until the previous day. We recommend that you query the full-data bill for the previous month at the beginning of each month.
+     * *   Your account must be granted the [AliyunConsumeDump2OSSRole](https://ram.console.aliyun.com/?spm=api-workbench.API%20Document.0.0.68c71e0fhmTSJp#/role/authorize?request=%7B%22Requests%22:%20%7B%22request1%22:%20%7B%22RoleName%22:%20%22AliyunConsumeDump2OSSRole%22,%20%22TemplateId%22:%20%22Dump2OSSRole%22%7D%7D,%20%22ReturnUrl%22:%20%22https:%2F%2Fusercenter2.aliyun.com%22,%20%22Service%22:%20%22Consume%22%7D) permission.
+     * *   The following file name formats are supported for bills:
+     * ```
+     * BillingItemDetailForBillingPeriod
+     *
+     * File name format of a daily bill: UID_PartnerBillingItemDetail_YYYYMMDD_SquenceNo_fileNo. Example: 169**_BillingItemDetail_20190310_0001_01.
+     *
+     * File name format of a monthly full-data bill: UID_PartnerBillingItemDetail_YYYYMM_SquenceNo_fileNo. Example: 169**_BillingItemDetail_201903_0001_01.
+     * InstanceDetailForBillingPeriod
+     *
+     *  File name format of a daily bill: UID_PartnerInstanceDetail_YYYYMMDD_SquenceNo_fileNo. Example: 169**_InstanceDetail_20190310_0001_01.
+     *
+     * File name format of a monthly full-data bill: UID_PartnerInstanceDetail_YYYYMM_SquenceNo_fileNo. Example: 169**_InstanceDetail_201903_1999-0001_01.
+     * BillingItemDetailMonthly
+     *
+     * File name format of a daily bill: UID_PartnerBillingItemDetailMonthly_YYYYMM_SquenceNo_fileNo. Example: 169**_BillingItemDetailMonthly_201903_0001_01. This bill contains the bill data that is generated from the beginning of the current month to the fifth day of the next month.
+     * InstanceDetailMonthly
+     *
+     * File name format of a daily bill: UID_PartnerInstanceDetailMonthly_YYYYMM_SquenceNo_fileNo. Example: 169**_InstanceDetailMonthly_201903_0001_01. This bill contains the bill data that is generated from the beginning of the current month to the fifth day of the next month.
+     * The fileNo field exists only when the number of bill rows reaches the maximum rows in a single bill file and the bill is split into multiple files.
+     * ```
+     * **This topic is published only on the international site (alibabacloud.com).
+     *  *
      * @param SubscriptionBillRequest $request SubscriptionBillRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -1265,33 +1596,35 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * *   Make sure that you are a distributor of the Alibaba Cloud international ecosystem.
-     *   * *   You can call this operation to subscribe to only one type of bill at a time.
-     *   * *   After the subscription to a type of bill is generated, the bill for the previous day is pushed on a daily basis from the next day. On the fifth day of each month, the full-data bill for the previous month is pushed.
-     *   * *   A daily bill may be delayed. The delayed bill is pushed the next day after it is generated. The delayed bill may contain the bill data that is delayed until the previous day. We recommend that you query the full-data bill for the previous month at the beginning of each month.
-     *   * *   Your account must be granted the [AliyunConsumeDump2OSSRole](https://ram.console.aliyun.com/?spm=api-workbench.API%20Document.0.0.68c71e0fhmTSJp#/role/authorize?request=%7B%22Requests%22:%20%7B%22request1%22:%20%7B%22RoleName%22:%20%22AliyunConsumeDump2OSSRole%22,%20%22TemplateId%22:%20%22Dump2OSSRole%22%7D%7D,%20%22ReturnUrl%22:%20%22https:%2F%2Fusercenter2.aliyun.com%22,%20%22Service%22:%20%22Consume%22%7D) permission.
-     *   * *   The following file name formats are supported for bills:
-     *   * ```
-     *   * BillingItemDetailForBillingPeriod.
-     *   *
-     *   * File name format of a daily bill: UID_PartnerBillingItemDetail_YYYYMMDD_SquenceNo_fileNo. Example: 169**_BillingItemDetail_20190310_0001_01.
-     *   *
-     *   * File name format of a monthly full-data bill: UID_PartnerBillingItemDetail_YYYYMM_SquenceNo_fileNo. Example: 169**_BillingItemDetail_201903_0001_01.
-     *   * InstanceDetailForBillingPeriod
-     *   *
-     *   *  File name format of a daily bill: UID_PartnerInstanceDetail_YYYYMMDD_SquenceNo_fileNo. Example: 169**_InstanceDetail_20190310_0001_01.
-     *   *
-     *   * File name format of a monthly full-data bill: UID_PartnerInstanceDetail_YYYYMM_SquenceNo_fileNo. Example: 169**_InstanceDetail_201903_1999-0001_01.
-     *   * BillingItemDetailMonthly
-     *   *
-     *   * File name format of a daily bill: UID_PartnerBillingItemDetailMonthly_YYYYMM_SquenceNo_fileNo. Example: 169**_BillingItemDetailMonthly_201903_0001_01. This bill contains the bill data that is generated from the beginning of the current month to the fifth day of the next month.
-     *   * InstanceDetailMonthly
-     *   *
-     *   * File name format of a daily bill: UID_PartnerInstanceDetailMonthly_YYYYMM_SquenceNo_fileNo. Example: 169**_InstanceDetailMonthly_201903_0001_01. This bill contains the bill data that is generated from the beginning of the current month to the fifth day of the next month.
-     *   * The fileNo field exists only when the number of bill rows reaches the maximum rows in a single bill file and the bill is split into multiple files.
-     *   * ```
-     *   * **This topic is published only on the international site (alibabacloud.com).
-     *   *
+     * @summary Generates the subscription to multi-level bills as an Alibaba Cloud eco-partner.
+     *  *
+     * @description *   Make sure that you are a distributor of the Alibaba Cloud international ecosystem.
+     * *   You can call this operation to subscribe to only one type of bill at a time.
+     * *   After the subscription to a type of bill is generated, the bill for the previous day is pushed on a daily basis from the next day. On the fifth day of each month, the full-data bill for the previous month is pushed.
+     * *   A daily bill may be delayed. The delayed bill is pushed the next day after it is generated. The delayed bill may contain the bill data that is delayed until the previous day. We recommend that you query the full-data bill for the previous month at the beginning of each month.
+     * *   Your account must be granted the [AliyunConsumeDump2OSSRole](https://ram.console.aliyun.com/?spm=api-workbench.API%20Document.0.0.68c71e0fhmTSJp#/role/authorize?request=%7B%22Requests%22:%20%7B%22request1%22:%20%7B%22RoleName%22:%20%22AliyunConsumeDump2OSSRole%22,%20%22TemplateId%22:%20%22Dump2OSSRole%22%7D%7D,%20%22ReturnUrl%22:%20%22https:%2F%2Fusercenter2.aliyun.com%22,%20%22Service%22:%20%22Consume%22%7D) permission.
+     * *   The following file name formats are supported for bills:
+     * ```
+     * BillingItemDetailForBillingPeriod
+     *
+     * File name format of a daily bill: UID_PartnerBillingItemDetail_YYYYMMDD_SquenceNo_fileNo. Example: 169**_BillingItemDetail_20190310_0001_01.
+     *
+     * File name format of a monthly full-data bill: UID_PartnerBillingItemDetail_YYYYMM_SquenceNo_fileNo. Example: 169**_BillingItemDetail_201903_0001_01.
+     * InstanceDetailForBillingPeriod
+     *
+     *  File name format of a daily bill: UID_PartnerInstanceDetail_YYYYMMDD_SquenceNo_fileNo. Example: 169**_InstanceDetail_20190310_0001_01.
+     *
+     * File name format of a monthly full-data bill: UID_PartnerInstanceDetail_YYYYMM_SquenceNo_fileNo. Example: 169**_InstanceDetail_201903_1999-0001_01.
+     * BillingItemDetailMonthly
+     *
+     * File name format of a daily bill: UID_PartnerBillingItemDetailMonthly_YYYYMM_SquenceNo_fileNo. Example: 169**_BillingItemDetailMonthly_201903_0001_01. This bill contains the bill data that is generated from the beginning of the current month to the fifth day of the next month.
+     * InstanceDetailMonthly
+     *
+     * File name format of a daily bill: UID_PartnerInstanceDetailMonthly_YYYYMM_SquenceNo_fileNo. Example: 169**_InstanceDetailMonthly_201903_0001_01. This bill contains the bill data that is generated from the beginning of the current month to the fifth day of the next month.
+     * The fileNo field exists only when the number of bill rows reaches the maximum rows in a single bill file and the bill is split into multiple files.
+     * ```
+     * **This topic is published only on the international site (alibabacloud.com).
+     *  *
      * @param SubscriptionBillRequest $request SubscriptionBillRequest
      *
      * @return SubscriptionBillResponse SubscriptionBillResponse

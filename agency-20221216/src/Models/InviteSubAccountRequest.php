@@ -11,7 +11,7 @@ class InviteSubAccountRequest extends Model
 {
     /**
      * @description List of invited account information,  less than 5 accounts at a time.</br>
-     * `Sub-levels <= 5`
+     * This parameter is required.
      * @var accountInfoList[]
      */
     public $accountInfoList;

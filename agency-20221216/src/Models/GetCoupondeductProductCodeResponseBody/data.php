@@ -2,23 +2,20 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Agency\V20221216\Models;
+namespace AlibabaCloud\SDK\Agency\V20221216\Models\GetCoupondeductProductCodeResponseBody;
 
 use AlibabaCloud\Tea\Model;
 
-class GetCreditInfoRequest extends Model
+class data extends Model
 {
     /**
-     * @description Sub Account UID
+     * @example code1
      *
-     * This parameter is required.
-     * @example 1792155717328010
-     *
-     * @var int
+     * @var mixed
      */
-    public $uid;
+    public $productType;
     protected $_name = [
-        'uid' => 'Uid',
+        'productType' => 'ProductType',
     ];
 
     public function validate()
@@ -28,8 +25,8 @@ class GetCreditInfoRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->uid) {
-            $res['Uid'] = $this->uid;
+        if (null !== $this->productType) {
+            $res['ProductType'] = $this->productType;
         }
 
         return $res;
@@ -38,13 +35,13 @@ class GetCreditInfoRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetCreditInfoRequest
+     * @return data
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Uid'])) {
-            $model->uid = $map['Uid'];
+        if (isset($map['ProductType'])) {
+            $model->productType = $map['ProductType'];
         }
 
         return $model;

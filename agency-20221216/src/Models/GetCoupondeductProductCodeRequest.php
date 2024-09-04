@@ -6,19 +6,18 @@ namespace AlibabaCloud\SDK\Agency\V20221216\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetCreditInfoRequest extends Model
+class GetCoupondeductProductCodeRequest extends Model
 {
     /**
-     * @description Sub Account UID
+     * @description This parameter is required.
      *
-     * This parameter is required.
-     * @example 1792155717328010
+     * @example zh-CN
      *
-     * @var int
+     * @var string
      */
-    public $uid;
+    public $acceptLanguage;
     protected $_name = [
-        'uid' => 'Uid',
+        'acceptLanguage' => 'AcceptLanguage',
     ];
 
     public function validate()
@@ -28,8 +27,8 @@ class GetCreditInfoRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->uid) {
-            $res['Uid'] = $this->uid;
+        if (null !== $this->acceptLanguage) {
+            $res['AcceptLanguage'] = $this->acceptLanguage;
         }
 
         return $res;
@@ -38,13 +37,13 @@ class GetCreditInfoRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetCreditInfoRequest
+     * @return GetCoupondeductProductCodeRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Uid'])) {
-            $model->uid = $map['Uid'];
+        if (isset($map['AcceptLanguage'])) {
+            $model->acceptLanguage = $map['AcceptLanguage'];
         }
 
         return $model;

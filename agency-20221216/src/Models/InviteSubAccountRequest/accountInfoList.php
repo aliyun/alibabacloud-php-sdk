@@ -10,7 +10,7 @@ class accountInfoList extends Model
 {
     /**
      * @description The name of Sub Account:</br>
-     * 2. Use the official name of Partner, if Sub Account is a T2 reseller.</br>
+     * This parameter is required.
      * @example XXX Technology LTD.
      *
      * @var string
@@ -20,6 +20,7 @@ class accountInfoList extends Model
     /**
      * @description The total budget Credit of Sub Account that distributed by Partner.
      *
+     * This parameter is required.
      * @example 100
      *
      * @var string
@@ -34,6 +35,7 @@ class accountInfoList extends Model
     /**
      * @description Customer ID, Returning ID from CreateCustomer API.
      *
+     * This parameter is required.
      * @example 1234567
      *
      * @var string
@@ -43,6 +45,7 @@ class accountInfoList extends Model
     /**
      * @description The email address of End User,  which will receive the invitation email.
      *
+     * This parameter is required.
      * @example 12345@163.com
      *
      * @var string
@@ -51,7 +54,7 @@ class accountInfoList extends Model
 
     /**
      * @description Initial Order Status</br>
-     * 2. normal：Normal--After End User finished registration and authorization, they can issue Cloud Resource order immediately.</br>
+     * This parameter is required.
      * @example ban
      *
      * @var string
@@ -70,7 +73,7 @@ class accountInfoList extends Model
     /**
      * @description The type of Sub Account</br>
      *
-     * 5 Reseller\"s T2 Partner</br>
+     * This parameter is required.
      * @example 1
      *
      * @var string
@@ -78,8 +81,8 @@ class accountInfoList extends Model
     public $subAccountType;
 
     /**
-     * @description Partner\"s Shutdown Policy Management for Sub Account.</br>
-     * 3: immediatelyStop. Once valid quota of Sub Account falls below 0 and be identified as defaulting account, it will trigger the instance shutdown immediately.</br>
+     * @description Partner\\"s Shutdown Policy Management for Sub Account.</br>
+     * This parameter is required.
      * @example 1
      *
      * @var string

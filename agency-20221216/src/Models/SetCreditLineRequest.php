@@ -11,6 +11,7 @@ class SetCreditLineRequest extends Model
     /**
      * @description New Credit Line
      *
+     * This parameter is required.
      * @example 100
      *
      * @var string
@@ -20,6 +21,7 @@ class SetCreditLineRequest extends Model
     /**
      * @description The UID of Sub Account.
      *
+     * This parameter is required.
      * @example 1263644979775567
      *
      * @var int
