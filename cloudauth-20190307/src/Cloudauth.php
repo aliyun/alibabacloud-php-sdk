@@ -194,6 +194,9 @@ class Cloudauth extends OpenApiClient
         if (!Utils::isUnset($request->identifyNum)) {
             $query['IdentifyNum'] = $request->identifyNum;
         }
+        if (!Utils::isUnset($request->identityType)) {
+            $query['IdentityType'] = $request->identityType;
+        }
         if (!Utils::isUnset($request->mobile)) {
             $query['Mobile'] = $request->mobile;
         }

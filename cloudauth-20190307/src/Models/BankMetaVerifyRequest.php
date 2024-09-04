@@ -23,6 +23,11 @@ class BankMetaVerifyRequest extends Model
     public $identifyNum;
 
     /**
+     * @var string
+     */
+    public $identityType;
+
+    /**
      * @example 138******11
      *
      * @var string
@@ -55,13 +60,14 @@ class BankMetaVerifyRequest extends Model
      */
     public $verifyMode;
     protected $_name = [
-        'bankCard'    => 'BankCard',
-        'identifyNum' => 'IdentifyNum',
-        'mobile'      => 'Mobile',
-        'paramType'   => 'ParamType',
-        'productType' => 'ProductType',
-        'userName'    => 'UserName',
-        'verifyMode'  => 'VerifyMode',
+        'bankCard'     => 'BankCard',
+        'identifyNum'  => 'IdentifyNum',
+        'identityType' => 'IdentityType',
+        'mobile'       => 'Mobile',
+        'paramType'    => 'ParamType',
+        'productType'  => 'ProductType',
+        'userName'     => 'UserName',
+        'verifyMode'   => 'VerifyMode',
     ];
 
     public function validate()
@@ -76,6 +82,9 @@ class BankMetaVerifyRequest extends Model
         }
         if (null !== $this->identifyNum) {
             $res['IdentifyNum'] = $this->identifyNum;
+        }
+        if (null !== $this->identityType) {
+            $res['IdentityType'] = $this->identityType;
         }
         if (null !== $this->mobile) {
             $res['Mobile'] = $this->mobile;
@@ -109,6 +118,9 @@ class BankMetaVerifyRequest extends Model
         }
         if (isset($map['IdentifyNum'])) {
             $model->identifyNum = $map['IdentifyNum'];
+        }
+        if (isset($map['IdentityType'])) {
+            $model->identityType = $map['IdentityType'];
         }
         if (isset($map['Mobile'])) {
             $model->mobile = $map['Mobile'];
