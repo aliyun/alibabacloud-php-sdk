@@ -353,6 +353,11 @@ class CreateClusterRequest extends Model
     public $kubernetesVersion;
 
     /**
+     * @var string
+     */
+    public $loadBalancerId;
+
+    /**
      * @description The specification of the Server Load Balancer (SLB) instance. Valid values:
      *
      *   slb.s1.small
@@ -1059,6 +1064,7 @@ class CreateClusterRequest extends Model
         'keepInstanceName'                 => 'keep_instance_name',
         'keyPair'                          => 'key_pair',
         'kubernetesVersion'                => 'kubernetes_version',
+        'loadBalancerId'                   => 'load_balancer_id',
         'loadBalancerSpec'                 => 'load_balancer_spec',
         'loggingType'                      => 'logging_type',
         'loginPassword'                    => 'login_password',
@@ -1222,6 +1228,9 @@ class CreateClusterRequest extends Model
         }
         if (null !== $this->kubernetesVersion) {
             $res['kubernetes_version'] = $this->kubernetesVersion;
+        }
+        if (null !== $this->loadBalancerId) {
+            $res['load_balancer_id'] = $this->loadBalancerId;
         }
         if (null !== $this->loadBalancerSpec) {
             $res['load_balancer_spec'] = $this->loadBalancerSpec;
@@ -1543,6 +1552,9 @@ class CreateClusterRequest extends Model
         }
         if (isset($map['kubernetes_version'])) {
             $model->kubernetesVersion = $map['kubernetes_version'];
+        }
+        if (isset($map['load_balancer_id'])) {
+            $model->loadBalancerId = $map['load_balancer_id'];
         }
         if (isset($map['load_balancer_spec'])) {
             $model->loadBalancerSpec = $map['load_balancer_spec'];

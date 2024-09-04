@@ -4,28 +4,17 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models\DeleteAlertContactResponse;
 
+use AlibabaCloud\SDK\CS\V20151215\Models\DeleteAlertContactResponse\body\result;
 use AlibabaCloud\Tea\Model;
 
 class body extends Model
 {
     /**
-     * @var bool
+     * @var result[]
      */
-    public $status;
-
-    /**
-     * @var string
-     */
-    public $msg;
-
-    /**
-     * @var string
-     */
-    public $contactId;
+    public $result;
     protected $_name = [
-        'status'    => 'status',
-        'msg'       => 'msg',
-        'contactId' => 'contact_id',
+        'result' => 'result',
     ];
 
     public function validate()
@@ -35,14 +24,14 @@ class body extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['status'] = $this->status;
-        }
-        if (null !== $this->msg) {
-            $res['msg'] = $this->msg;
-        }
-        if (null !== $this->contactId) {
-            $res['contact_id'] = $this->contactId;
+        if (null !== $this->result) {
+            $res['result'] = [];
+            if (null !== $this->result && \is_array($this->result)) {
+                $n = 0;
+                foreach ($this->result as $item) {
+                    $res['result'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -56,14 +45,14 @@ class body extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['status'])) {
-            $model->status = $map['status'];
-        }
-        if (isset($map['msg'])) {
-            $model->msg = $map['msg'];
-        }
-        if (isset($map['contact_id'])) {
-            $model->contactId = $map['contact_id'];
+        if (isset($map['result'])) {
+            if (!empty($map['result'])) {
+                $model->result = [];
+                $n             = 0;
+                foreach ($map['result'] as $item) {
+                    $model->result[$n++] = null !== $item ? result::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

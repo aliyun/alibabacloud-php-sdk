@@ -1141,6 +1141,9 @@ class CS extends OpenApiClient
         if (!Utils::isUnset($request->kubernetesVersion)) {
             $body['kubernetes_version'] = $request->kubernetesVersion;
         }
+        if (!Utils::isUnset($request->loadBalancerId)) {
+            $body['load_balancer_id'] = $request->loadBalancerId;
+        }
         if (!Utils::isUnset($request->loadBalancerSpec)) {
             $body['load_balancer_spec'] = $request->loadBalancerSpec;
         }
