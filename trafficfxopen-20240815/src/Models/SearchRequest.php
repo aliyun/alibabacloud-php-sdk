@@ -41,8 +41,6 @@ class SearchRequest extends Model
     public $terminal;
 
     /**
-     * @description This parameter is required.
-     *
      * @example “121343”
      *
      * @var string
