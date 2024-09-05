@@ -25,6 +25,11 @@ class PatchEventShrinkRequest extends Model
     /**
      * @var string
      */
+    public $cardInstancesShrink;
+
+    /**
+     * @var string
+     */
     public $description;
 
     /**
@@ -78,18 +83,19 @@ class PatchEventShrinkRequest extends Model
      */
     public $summary;
     protected $_name = [
-        'attendeesShrink'  => 'Attendees',
-        'calendarId'       => 'CalendarId',
-        'description'      => 'Description',
-        'endShrink'        => 'End',
-        'eventId'          => 'EventId',
-        'extraShrink'      => 'Extra',
-        'isAllDay'         => 'IsAllDay',
-        'locationShrink'   => 'Location',
-        'recurrenceShrink' => 'Recurrence',
-        'remindersShrink'  => 'Reminders',
-        'startShrink'      => 'Start',
-        'summary'          => 'Summary',
+        'attendeesShrink'     => 'Attendees',
+        'calendarId'          => 'CalendarId',
+        'cardInstancesShrink' => 'CardInstances',
+        'description'         => 'Description',
+        'endShrink'           => 'End',
+        'eventId'             => 'EventId',
+        'extraShrink'         => 'Extra',
+        'isAllDay'            => 'IsAllDay',
+        'locationShrink'      => 'Location',
+        'recurrenceShrink'    => 'Recurrence',
+        'remindersShrink'     => 'Reminders',
+        'startShrink'         => 'Start',
+        'summary'             => 'Summary',
     ];
 
     public function validate()
@@ -104,6 +110,9 @@ class PatchEventShrinkRequest extends Model
         }
         if (null !== $this->calendarId) {
             $res['CalendarId'] = $this->calendarId;
+        }
+        if (null !== $this->cardInstancesShrink) {
+            $res['CardInstances'] = $this->cardInstancesShrink;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
@@ -152,6 +161,9 @@ class PatchEventShrinkRequest extends Model
         }
         if (isset($map['CalendarId'])) {
             $model->calendarId = $map['CalendarId'];
+        }
+        if (isset($map['CardInstances'])) {
+            $model->cardInstancesShrink = $map['CardInstances'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];

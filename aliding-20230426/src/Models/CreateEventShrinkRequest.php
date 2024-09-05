@@ -16,6 +16,11 @@ class CreateEventShrinkRequest extends Model
     /**
      * @var string
      */
+    public $cardInstancesShrink;
+
+    /**
+     * @var string
+     */
     public $description;
 
     /**
@@ -89,6 +94,7 @@ class CreateEventShrinkRequest extends Model
     public $startShrink;
     protected $_name = [
         'attendeesShrink'           => 'Attendees',
+        'cardInstancesShrink'       => 'CardInstances',
         'description'               => 'Description',
         'endShrink'                 => 'End',
         'extraShrink'               => 'Extra',
@@ -113,6 +119,9 @@ class CreateEventShrinkRequest extends Model
         $res = [];
         if (null !== $this->attendeesShrink) {
             $res['Attendees'] = $this->attendeesShrink;
+        }
+        if (null !== $this->cardInstancesShrink) {
+            $res['CardInstances'] = $this->cardInstancesShrink;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
@@ -167,6 +176,9 @@ class CreateEventShrinkRequest extends Model
         $model = new self();
         if (isset($map['Attendees'])) {
             $model->attendeesShrink = $map['Attendees'];
+        }
+        if (isset($map['CardInstances'])) {
+            $model->cardInstancesShrink = $map['CardInstances'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];

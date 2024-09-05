@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
 use AlibabaCloud\SDK\Aliding\V20230426\Models\PatchEventRequest\attendees;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\PatchEventRequest\cardInstances;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\PatchEventRequest\end;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\PatchEventRequest\location;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\PatchEventRequest\recurrence;
@@ -27,6 +28,11 @@ class PatchEventRequest extends Model
      * @var string
      */
     public $calendarId;
+
+    /**
+     * @var cardInstances[]
+     */
+    public $cardInstances;
 
     /**
      * @var string
@@ -84,18 +90,19 @@ class PatchEventRequest extends Model
      */
     public $summary;
     protected $_name = [
-        'attendees'   => 'Attendees',
-        'calendarId'  => 'CalendarId',
-        'description' => 'Description',
-        'end'         => 'End',
-        'eventId'     => 'EventId',
-        'extra'       => 'Extra',
-        'isAllDay'    => 'IsAllDay',
-        'location'    => 'Location',
-        'recurrence'  => 'Recurrence',
-        'reminders'   => 'Reminders',
-        'start'       => 'Start',
-        'summary'     => 'Summary',
+        'attendees'     => 'Attendees',
+        'calendarId'    => 'CalendarId',
+        'cardInstances' => 'CardInstances',
+        'description'   => 'Description',
+        'end'           => 'End',
+        'eventId'       => 'EventId',
+        'extra'         => 'Extra',
+        'isAllDay'      => 'IsAllDay',
+        'location'      => 'Location',
+        'recurrence'    => 'Recurrence',
+        'reminders'     => 'Reminders',
+        'start'         => 'Start',
+        'summary'       => 'Summary',
     ];
 
     public function validate()
@@ -116,6 +123,15 @@ class PatchEventRequest extends Model
         }
         if (null !== $this->calendarId) {
             $res['CalendarId'] = $this->calendarId;
+        }
+        if (null !== $this->cardInstances) {
+            $res['CardInstances'] = [];
+            if (null !== $this->cardInstances && \is_array($this->cardInstances)) {
+                $n = 0;
+                foreach ($this->cardInstances as $item) {
+                    $res['CardInstances'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
@@ -176,6 +192,15 @@ class PatchEventRequest extends Model
         }
         if (isset($map['CalendarId'])) {
             $model->calendarId = $map['CalendarId'];
+        }
+        if (isset($map['CardInstances'])) {
+            if (!empty($map['CardInstances'])) {
+                $model->cardInstances = [];
+                $n                    = 0;
+                foreach ($map['CardInstances'] as $item) {
+                    $model->cardInstances[$n++] = null !== $item ? cardInstances::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];

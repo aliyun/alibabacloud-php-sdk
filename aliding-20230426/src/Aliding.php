@@ -460,6 +460,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\GetScheduleRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetScheduleResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetScheduleShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetScheduleShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetSheetContentJobIdHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetSheetContentJobIdRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetSheetContentJobIdResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetSheetContentJobIdShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetSheetContentJobIdShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetSheetHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetSheetRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetSheetResponse;
@@ -484,6 +489,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\GetTemplateListByUserIdResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetTemplateListByUserIdShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetTemplateListByUserIdShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetUserHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetUserIdHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetUserIdRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetUserIdResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetUserIdShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetUserIdShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetUserLatestPlanHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetUserLatestPlanRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetUserLatestPlanResponse;
@@ -2702,6 +2712,9 @@ class Aliding extends OpenApiClient
         if (!Utils::isUnset($tmpReq->attendees)) {
             $request->attendeesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->attendees, 'Attendees', 'json');
         }
+        if (!Utils::isUnset($tmpReq->cardInstances)) {
+            $request->cardInstancesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->cardInstances, 'CardInstances', 'json');
+        }
         if (!Utils::isUnset($tmpReq->end)) {
             $request->endShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->end, 'End', 'json');
         }
@@ -2732,6 +2745,9 @@ class Aliding extends OpenApiClient
         $body = [];
         if (!Utils::isUnset($request->attendeesShrink)) {
             $body['Attendees'] = $request->attendeesShrink;
+        }
+        if (!Utils::isUnset($request->cardInstancesShrink)) {
+            $body['CardInstances'] = $request->cardInstancesShrink;
         }
         if (!Utils::isUnset($request->description)) {
             $body['Description'] = $request->description;
@@ -8696,6 +8712,79 @@ class Aliding extends OpenApiClient
     }
 
     /**
+     * @summary 获取表格文档内容jobId
+     *  *
+     * @param GetSheetContentJobIdRequest $tmpReq    GetSheetContentJobIdRequest
+     * @param GetSheetContentJobIdHeaders $tmpHeader GetSheetContentJobIdHeaders
+     * @param RuntimeOptions              $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return GetSheetContentJobIdResponse GetSheetContentJobIdResponse
+     */
+    public function getSheetContentJobIdWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new GetSheetContentJobIdShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        $headers = new GetSheetContentJobIdShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tenantContext)) {
+            $request->tenantContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->dentryUuid)) {
+            $body['DentryUuid'] = $request->dentryUuid;
+        }
+        if (!Utils::isUnset($request->exportType)) {
+            $body['ExportType'] = $request->exportType;
+        }
+        if (!Utils::isUnset($request->tenantContextShrink)) {
+            $body['TenantContext'] = $request->tenantContextShrink;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetSheetContentJobId',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dingtalk/v2/documents/getSheetContentJobId',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetSheetContentJobIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取表格文档内容jobId
+     *  *
+     * @param GetSheetContentJobIdRequest $request GetSheetContentJobIdRequest
+     *
+     * @return GetSheetContentJobIdResponse GetSheetContentJobIdResponse
+     */
+    public function getSheetContentJobId($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new GetSheetContentJobIdHeaders([]);
+
+        return $this->getSheetContentJobIdWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @summary 查询知识库下的目录结构
      *  *
      * @param GetSpaceDirectoriesRequest $tmpReq    GetSpaceDirectoriesRequest
@@ -9063,6 +9152,76 @@ class Aliding extends OpenApiClient
         $headers = new GetUserHeaders([]);
 
         return $this->getUserWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 根据unionId获取用户userId
+     *  *
+     * @param GetUserIdRequest $tmpReq    GetUserIdRequest
+     * @param GetUserIdHeaders $tmpHeader GetUserIdHeaders
+     * @param RuntimeOptions   $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return GetUserIdResponse GetUserIdResponse
+     */
+    public function getUserIdWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new GetUserIdShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        $headers = new GetUserIdShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tenantContext)) {
+            $request->tenantContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->tenantContextShrink)) {
+            $body['TenantContext'] = $request->tenantContextShrink;
+        }
+        if (!Utils::isUnset($request->unionId)) {
+            $body['UnionId'] = $request->unionId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetUserId',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dingtalk/v1/im/getUserId',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetUserIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 根据unionId获取用户userId
+     *  *
+     * @param GetUserIdRequest $request GetUserIdRequest
+     *
+     * @return GetUserIdResponse GetUserIdResponse
+     */
+    public function getUserId($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new GetUserIdHeaders([]);
+
+        return $this->getUserIdWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -10745,6 +10904,9 @@ class Aliding extends OpenApiClient
         if (!Utils::isUnset($tmpReq->attendees)) {
             $request->attendeesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->attendees, 'Attendees', 'json');
         }
+        if (!Utils::isUnset($tmpReq->cardInstances)) {
+            $request->cardInstancesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->cardInstances, 'CardInstances', 'json');
+        }
         if (!Utils::isUnset($tmpReq->end)) {
             $request->endShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->end, 'End', 'json');
         }
@@ -10769,6 +10931,9 @@ class Aliding extends OpenApiClient
         }
         if (!Utils::isUnset($request->calendarId)) {
             $body['CalendarId'] = $request->calendarId;
+        }
+        if (!Utils::isUnset($request->cardInstancesShrink)) {
+            $body['CardInstances'] = $request->cardInstancesShrink;
         }
         if (!Utils::isUnset($request->description)) {
             $body['Description'] = $request->description;
