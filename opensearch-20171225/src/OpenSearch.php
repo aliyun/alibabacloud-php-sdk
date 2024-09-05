@@ -682,6 +682,9 @@ class OpenSearch extends OpenApiClient
         if (!Utils::isUnset($request->resourceGroupId)) {
             $body['resourceGroupId'] = $request->resourceGroupId;
         }
+        if (!Utils::isUnset($request->tags)) {
+            $body['tags'] = $request->tags;
+        }
         if (!Utils::isUnset($request->type)) {
             $body['type'] = $request->type;
         }
