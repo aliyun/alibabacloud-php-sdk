@@ -33,7 +33,6 @@ use AlibabaCloud\SDK\Supportplan\V20210706\Models\ReplyMessageApiRequest;
 use AlibabaCloud\SDK\Supportplan\V20210706\Models\ReplyMessageApiResponse;
 use AlibabaCloud\SDK\Supportplan\V20210706\Models\RestOpenTaskOrderRequest;
 use AlibabaCloud\SDK\Supportplan\V20210706\Models\RestOpenTaskOrderResponse;
-use AlibabaCloud\Tea\Tea;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -74,20 +73,25 @@ class Supportplan extends OpenApiClient
     }
 
     /**
-     * @param CloseTaskOrderRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary 关闭任务单
+     *  *
+     * @param CloseTaskOrderRequest $request CloseTaskOrderRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return CloseTaskOrderResponse
+     * @return CloseTaskOrderResponse CloseTaskOrderResponse
      */
     public function closeTaskOrderWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query             = [];
-        $query['OrderId']  = $request->orderId;
-        $query['UserName'] = $request->userName;
-        $req               = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->orderId)) {
+            $query['OrderId'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->userName)) {
+            $query['UserName'] = $request->userName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CloseTaskOrder',
@@ -97,7 +101,7 @@ class Supportplan extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -105,9 +109,11 @@ class Supportplan extends OpenApiClient
     }
 
     /**
-     * @param CloseTaskOrderRequest $request
+     * @summary 关闭任务单
+     *  *
+     * @param CloseTaskOrderRequest $request CloseTaskOrderRequest
      *
-     * @return CloseTaskOrderResponse
+     * @return CloseTaskOrderResponse CloseTaskOrderResponse
      */
     public function closeTaskOrder($request)
     {
@@ -117,26 +123,43 @@ class Supportplan extends OpenApiClient
     }
 
     /**
-     * @param CreateTaskOrderRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary 创建工单
+     *  *
+     * @param CreateTaskOrderRequest $request CreateTaskOrderRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateTaskOrderResponse
+     * @return CreateTaskOrderResponse CreateTaskOrderResponse
      */
     public function createTaskOrderWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['CustomerRealName']     = $request->customerRealName;
-        $query['CustomerUserId']       = $request->customerUserId;
-        $query['ImportantDescription'] = $request->importantDescription;
-        $query['IsImportant']          = $request->isImportant;
-        $query['OpenGroupId']          = $request->openGroupId;
-        $query['ProductType']          = $request->productType;
-        $query['ProductTypeName']      = $request->productTypeName;
-        $query['TaskTitle']            = $request->taskTitle;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->customerRealName)) {
+            $query['CustomerRealName'] = $request->customerRealName;
+        }
+        if (!Utils::isUnset($request->customerUserId)) {
+            $query['CustomerUserId'] = $request->customerUserId;
+        }
+        if (!Utils::isUnset($request->importantDescription)) {
+            $query['ImportantDescription'] = $request->importantDescription;
+        }
+        if (!Utils::isUnset($request->isImportant)) {
+            $query['IsImportant'] = $request->isImportant;
+        }
+        if (!Utils::isUnset($request->openGroupId)) {
+            $query['OpenGroupId'] = $request->openGroupId;
+        }
+        if (!Utils::isUnset($request->productType)) {
+            $query['ProductType'] = $request->productType;
+        }
+        if (!Utils::isUnset($request->productTypeName)) {
+            $query['ProductTypeName'] = $request->productTypeName;
+        }
+        if (!Utils::isUnset($request->taskTitle)) {
+            $query['TaskTitle'] = $request->taskTitle;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateTaskOrder',
@@ -146,7 +169,7 @@ class Supportplan extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -154,9 +177,11 @@ class Supportplan extends OpenApiClient
     }
 
     /**
-     * @param CreateTaskOrderRequest $request
+     * @summary 创建工单
+     *  *
+     * @param CreateTaskOrderRequest $request CreateTaskOrderRequest
      *
-     * @return CreateTaskOrderResponse
+     * @return CreateTaskOrderResponse CreateTaskOrderResponse
      */
     public function createTaskOrder($request)
     {
@@ -166,10 +191,12 @@ class Supportplan extends OpenApiClient
     }
 
     /**
-     * @param CreateTaskOrderByEventReportRequest $tmpReq
-     * @param RuntimeOptions                      $runtime
+     * @summary 告警建单
+     *  *
+     * @param CreateTaskOrderByEventReportRequest $tmpReq  CreateTaskOrderByEventReportRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateTaskOrderByEventReportResponse
+     * @return CreateTaskOrderByEventReportResponse CreateTaskOrderByEventReportResponse
      */
     public function createTaskOrderByEventReportWithOptions($tmpReq, $runtime)
     {
@@ -177,25 +204,44 @@ class Supportplan extends OpenApiClient
         $request = new CreateTaskOrderByEventReportShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->eventBody)) {
-            $request->eventBodyShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->eventBody), 'EventBody', 'json');
+            $request->eventBodyShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->eventBody, 'EventBody', 'json');
         }
         if (!Utils::isUnset($tmpReq->extinfo)) {
             $request->extinfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->extinfo, 'Extinfo', 'json');
         }
-        $query                          = [];
-        $query['Business']              = $request->business;
-        $query['CreateRealName']        = $request->createRealName;
-        $query['CreateUserId']          = $request->createUserId;
-        $query['EventBody']             = $request->eventBodyShrink;
-        $query['Extinfo']               = $request->extinfoShrink;
-        $query['ImportantDesc']         = $request->importantDesc;
-        $query['JoinChildGroupUserIds'] = $request->joinChildGroupUserIds;
-        $query['MonitorCongregation']   = $request->monitorCongregation;
-        $query['OpenGroupId']           = $request->openGroupId;
-        $query['ProductType']           = $request->productType;
-        $req                            = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->business)) {
+            $query['Business'] = $request->business;
+        }
+        if (!Utils::isUnset($request->createRealName)) {
+            $query['CreateRealName'] = $request->createRealName;
+        }
+        if (!Utils::isUnset($request->createUserId)) {
+            $query['CreateUserId'] = $request->createUserId;
+        }
+        if (!Utils::isUnset($request->eventBodyShrink)) {
+            $query['EventBody'] = $request->eventBodyShrink;
+        }
+        if (!Utils::isUnset($request->extinfoShrink)) {
+            $query['Extinfo'] = $request->extinfoShrink;
+        }
+        if (!Utils::isUnset($request->importantDesc)) {
+            $query['ImportantDesc'] = $request->importantDesc;
+        }
+        if (!Utils::isUnset($request->joinChildGroupUserIds)) {
+            $query['JoinChildGroupUserIds'] = $request->joinChildGroupUserIds;
+        }
+        if (!Utils::isUnset($request->monitorCongregation)) {
+            $query['MonitorCongregation'] = $request->monitorCongregation;
+        }
+        if (!Utils::isUnset($request->openGroupId)) {
+            $query['OpenGroupId'] = $request->openGroupId;
+        }
+        if (!Utils::isUnset($request->productType)) {
+            $query['ProductType'] = $request->productType;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateTaskOrderByEventReport',
@@ -205,7 +251,7 @@ class Supportplan extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -213,9 +259,11 @@ class Supportplan extends OpenApiClient
     }
 
     /**
-     * @param CreateTaskOrderByEventReportRequest $request
+     * @summary 告警建单
+     *  *
+     * @param CreateTaskOrderByEventReportRequest $request CreateTaskOrderByEventReportRequest
      *
-     * @return CreateTaskOrderByEventReportResponse
+     * @return CreateTaskOrderByEventReportResponse CreateTaskOrderByEventReportResponse
      */
     public function createTaskOrderByEventReport($request)
     {
@@ -225,10 +273,12 @@ class Supportplan extends OpenApiClient
     }
 
     /**
-     * @param DeleteEnterpriseDingtalkGroupCustomerMemberRequest $tmpReq
-     * @param RuntimeOptions                                     $runtime
+     * @summary 删除企业钉群客户侧成员
+     *  *
+     * @param DeleteEnterpriseDingtalkGroupCustomerMemberRequest $tmpReq  DeleteEnterpriseDingtalkGroupCustomerMemberRequest
+     * @param RuntimeOptions                                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteEnterpriseDingtalkGroupCustomerMemberResponse
+     * @return DeleteEnterpriseDingtalkGroupCustomerMemberResponse DeleteEnterpriseDingtalkGroupCustomerMemberResponse
      */
     public function deleteEnterpriseDingtalkGroupCustomerMemberWithOptions($tmpReq, $runtime)
     {
@@ -238,8 +288,15 @@ class Supportplan extends OpenApiClient
         if (!Utils::isUnset($tmpReq->mobiles)) {
             $request->mobilesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->mobiles, 'Mobiles', 'json');
         }
+        $body = [];
+        if (!Utils::isUnset($request->mobilesShrink)) {
+            $body['Mobiles'] = $request->mobilesShrink;
+        }
+        if (!Utils::isUnset($request->openGroupId)) {
+            $body['OpenGroupId'] = $request->openGroupId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeleteEnterpriseDingtalkGroupCustomerMember',
@@ -257,9 +314,11 @@ class Supportplan extends OpenApiClient
     }
 
     /**
-     * @param DeleteEnterpriseDingtalkGroupCustomerMemberRequest $request
+     * @summary 删除企业钉群客户侧成员
+     *  *
+     * @param DeleteEnterpriseDingtalkGroupCustomerMemberRequest $request DeleteEnterpriseDingtalkGroupCustomerMemberRequest
      *
-     * @return DeleteEnterpriseDingtalkGroupCustomerMemberResponse
+     * @return DeleteEnterpriseDingtalkGroupCustomerMemberResponse DeleteEnterpriseDingtalkGroupCustomerMemberResponse
      */
     public function deleteEnterpriseDingtalkGroupCustomerMember($request)
     {
@@ -269,16 +328,22 @@ class Supportplan extends OpenApiClient
     }
 
     /**
-     * @param GetEnterpriseDingtalkGroupRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary 查询企业钉群
+     *  *
+     * @param GetEnterpriseDingtalkGroupRequest $request GetEnterpriseDingtalkGroupRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetEnterpriseDingtalkGroupResponse
+     * @return GetEnterpriseDingtalkGroupResponse GetEnterpriseDingtalkGroupResponse
      */
     public function getEnterpriseDingtalkGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->openGroupId)) {
+            $body['OpenGroupId'] = $request->openGroupId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetEnterpriseDingtalkGroup',
@@ -296,9 +361,11 @@ class Supportplan extends OpenApiClient
     }
 
     /**
-     * @param GetEnterpriseDingtalkGroupRequest $request
+     * @summary 查询企业钉群
+     *  *
+     * @param GetEnterpriseDingtalkGroupRequest $request GetEnterpriseDingtalkGroupRequest
      *
-     * @return GetEnterpriseDingtalkGroupResponse
+     * @return GetEnterpriseDingtalkGroupResponse GetEnterpriseDingtalkGroupResponse
      */
     public function getEnterpriseDingtalkGroup($request)
     {
@@ -308,16 +375,25 @@ class Supportplan extends OpenApiClient
     }
 
     /**
-     * @param GetEnterpriseDingtalkGroupCustomerMemberRequest $request
-     * @param RuntimeOptions                                  $runtime
+     * @summary 获取企业钉群客户侧成员
+     *  *
+     * @param GetEnterpriseDingtalkGroupCustomerMemberRequest $request GetEnterpriseDingtalkGroupCustomerMemberRequest
+     * @param RuntimeOptions                                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetEnterpriseDingtalkGroupCustomerMemberResponse
+     * @return GetEnterpriseDingtalkGroupCustomerMemberResponse GetEnterpriseDingtalkGroupCustomerMemberResponse
      */
     public function getEnterpriseDingtalkGroupCustomerMemberWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->mobile)) {
+            $body['Mobile'] = $request->mobile;
+        }
+        if (!Utils::isUnset($request->openGroupId)) {
+            $body['OpenGroupId'] = $request->openGroupId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetEnterpriseDingtalkGroupCustomerMember',
@@ -335,9 +411,11 @@ class Supportplan extends OpenApiClient
     }
 
     /**
-     * @param GetEnterpriseDingtalkGroupCustomerMemberRequest $request
+     * @summary 获取企业钉群客户侧成员
+     *  *
+     * @param GetEnterpriseDingtalkGroupCustomerMemberRequest $request GetEnterpriseDingtalkGroupCustomerMemberRequest
      *
-     * @return GetEnterpriseDingtalkGroupCustomerMemberResponse
+     * @return GetEnterpriseDingtalkGroupCustomerMemberResponse GetEnterpriseDingtalkGroupCustomerMemberResponse
      */
     public function getEnterpriseDingtalkGroupCustomerMember($request)
     {
@@ -347,25 +425,55 @@ class Supportplan extends OpenApiClient
     }
 
     /**
-     * @param ListDdTaskOrderRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary ListDdTaskOrder
+     *  *
+     * @param ListDdTaskOrderRequest $request ListDdTaskOrderRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListDdTaskOrderResponse
+     * @return ListDdTaskOrderResponse ListDdTaskOrderResponse
      */
     public function listDdTaskOrderWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['CallerParentId'] = $request->callerParentId;
-        $query['CallerType']     = $request->callerType;
-        $query['CallerUid']      = $request->callerUid;
-        $query['OpenGroupId']    = $request->openGroupId;
-        $query['OrderId']        = $request->orderId;
-        $query['RequestId']      = $request->requestId;
-        $query['TaskStatus']     = $request->taskStatus;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->callerParentId)) {
+            $query['CallerParentId'] = $request->callerParentId;
+        }
+        if (!Utils::isUnset($request->callerType)) {
+            $query['CallerType'] = $request->callerType;
+        }
+        if (!Utils::isUnset($request->callerUid)) {
+            $query['CallerUid'] = $request->callerUid;
+        }
+        if (!Utils::isUnset($request->createRealName)) {
+            $query['CreateRealName'] = $request->createRealName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->openGroupId)) {
+            $query['OpenGroupId'] = $request->openGroupId;
+        }
+        if (!Utils::isUnset($request->orderId)) {
+            $query['OrderId'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->requestId)) {
+            $query['RequestId'] = $request->requestId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->taskStatus)) {
+            $query['TaskStatus'] = $request->taskStatus;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListDdTaskOrder',
@@ -375,7 +483,7 @@ class Supportplan extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -383,9 +491,11 @@ class Supportplan extends OpenApiClient
     }
 
     /**
-     * @param ListDdTaskOrderRequest $request
+     * @summary ListDdTaskOrder
+     *  *
+     * @param ListDdTaskOrderRequest $request ListDdTaskOrderRequest
      *
-     * @return ListDdTaskOrderResponse
+     * @return ListDdTaskOrderResponse ListDdTaskOrderResponse
      */
     public function listDdTaskOrder($request)
     {
@@ -395,16 +505,22 @@ class Supportplan extends OpenApiClient
     }
 
     /**
-     * @param ListEnterpriseDingtalkGroupCustomerMembersRequest $request
-     * @param RuntimeOptions                                    $runtime
+     * @summary 获取钉群中所有客户侧人员信息
+     *  *
+     * @param ListEnterpriseDingtalkGroupCustomerMembersRequest $request ListEnterpriseDingtalkGroupCustomerMembersRequest
+     * @param RuntimeOptions                                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListEnterpriseDingtalkGroupCustomerMembersResponse
+     * @return ListEnterpriseDingtalkGroupCustomerMembersResponse ListEnterpriseDingtalkGroupCustomerMembersResponse
      */
     public function listEnterpriseDingtalkGroupCustomerMembersWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->openGroupId)) {
+            $body['OpenGroupId'] = $request->openGroupId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListEnterpriseDingtalkGroupCustomerMembers',
@@ -422,9 +538,11 @@ class Supportplan extends OpenApiClient
     }
 
     /**
-     * @param ListEnterpriseDingtalkGroupCustomerMembersRequest $request
+     * @summary 获取钉群中所有客户侧人员信息
+     *  *
+     * @param ListEnterpriseDingtalkGroupCustomerMembersRequest $request ListEnterpriseDingtalkGroupCustomerMembersRequest
      *
-     * @return ListEnterpriseDingtalkGroupCustomerMembersResponse
+     * @return ListEnterpriseDingtalkGroupCustomerMembersResponse ListEnterpriseDingtalkGroupCustomerMembersResponse
      */
     public function listEnterpriseDingtalkGroupCustomerMembers($request)
     {
@@ -434,9 +552,11 @@ class Supportplan extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary 查询所有企业钉群成员
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListEnterpriseDingtalkGroupsResponse
+     * @return ListEnterpriseDingtalkGroupsResponse ListEnterpriseDingtalkGroupsResponse
      */
     public function listEnterpriseDingtalkGroupsWithOptions($runtime)
     {
@@ -449,7 +569,7 @@ class Supportplan extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -457,7 +577,9 @@ class Supportplan extends OpenApiClient
     }
 
     /**
-     * @return ListEnterpriseDingtalkGroupsResponse
+     * @summary 查询所有企业钉群成员
+     *  *
+     * @return ListEnterpriseDingtalkGroupsResponse ListEnterpriseDingtalkGroupsResponse
      */
     public function listEnterpriseDingtalkGroups()
     {
@@ -467,19 +589,22 @@ class Supportplan extends OpenApiClient
     }
 
     /**
-     * @param ListProductByGroupRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary 获取问题分类
+     *  *
+     * @param ListProductByGroupRequest $request ListProductByGroupRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListProductByGroupResponse
+     * @return ListProductByGroupResponse ListProductByGroupResponse
      */
     public function listProductByGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['OpenGroupId'] = $request->openGroupId;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->openGroupId)) {
+            $query['OpenGroupId'] = $request->openGroupId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListProductByGroup',
@@ -489,7 +614,7 @@ class Supportplan extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -497,9 +622,11 @@ class Supportplan extends OpenApiClient
     }
 
     /**
-     * @param ListProductByGroupRequest $request
+     * @summary 获取问题分类
+     *  *
+     * @param ListProductByGroupRequest $request ListProductByGroupRequest
      *
-     * @return ListProductByGroupResponse
+     * @return ListProductByGroupResponse ListProductByGroupResponse
      */
     public function listProductByGroup($request)
     {
@@ -509,19 +636,22 @@ class Supportplan extends OpenApiClient
     }
 
     /**
-     * @param QueryTaskInfoRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary 获取工单状态
+     *  *
+     * @param QueryTaskInfoRequest $request QueryTaskInfoRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryTaskInfoResponse
+     * @return QueryTaskInfoResponse QueryTaskInfoResponse
      */
     public function queryTaskInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query            = [];
-        $query['OrderId'] = $request->orderId;
-        $req              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->orderId)) {
+            $query['OrderId'] = $request->orderId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'QueryTaskInfo',
@@ -531,7 +661,7 @@ class Supportplan extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -539,9 +669,11 @@ class Supportplan extends OpenApiClient
     }
 
     /**
-     * @param QueryTaskInfoRequest $request
+     * @summary 获取工单状态
+     *  *
+     * @param QueryTaskInfoRequest $request QueryTaskInfoRequest
      *
-     * @return QueryTaskInfoResponse
+     * @return QueryTaskInfoResponse QueryTaskInfoResponse
      */
     public function queryTaskInfo($request)
     {
@@ -551,24 +683,37 @@ class Supportplan extends OpenApiClient
     }
 
     /**
-     * @param ReplyMessageApiRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary 客户回复消息
+     *  *
+     * @param ReplyMessageApiRequest $request ReplyMessageApiRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ReplyMessageApiResponse
+     * @return ReplyMessageApiResponse ReplyMessageApiResponse
      */
     public function replyMessageApiWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['MsgContent']  = $request->msgContent;
-        $query['MsgType']     = $request->msgType;
-        $query['OpenGroupId'] = $request->openGroupId;
-        $query['OrderId']     = $request->orderId;
-        $query['UserId']      = $request->userId;
-        $query['UserName']    = $request->userName;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->msgContent)) {
+            $query['MsgContent'] = $request->msgContent;
+        }
+        if (!Utils::isUnset($request->msgType)) {
+            $query['MsgType'] = $request->msgType;
+        }
+        if (!Utils::isUnset($request->openGroupId)) {
+            $query['OpenGroupId'] = $request->openGroupId;
+        }
+        if (!Utils::isUnset($request->orderId)) {
+            $query['OrderId'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        if (!Utils::isUnset($request->userName)) {
+            $query['UserName'] = $request->userName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ReplyMessageApi',
@@ -578,7 +723,7 @@ class Supportplan extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -586,9 +731,11 @@ class Supportplan extends OpenApiClient
     }
 
     /**
-     * @param ReplyMessageApiRequest $request
+     * @summary 客户回复消息
+     *  *
+     * @param ReplyMessageApiRequest $request ReplyMessageApiRequest
      *
-     * @return ReplyMessageApiResponse
+     * @return ReplyMessageApiResponse ReplyMessageApiResponse
      */
     public function replyMessageApi($request)
     {
@@ -598,23 +745,34 @@ class Supportplan extends OpenApiClient
     }
 
     /**
-     * @param RestOpenTaskOrderRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary 重开任务单(待客户确认状态)
+     *  *
+     * @param RestOpenTaskOrderRequest $request RestOpenTaskOrderRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return RestOpenTaskOrderResponse
+     * @return RestOpenTaskOrderResponse RestOpenTaskOrderResponse
      */
     public function restOpenTaskOrderWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['OpenGroupId']  = $request->openGroupId;
-        $query['OrderId']      = $request->orderId;
-        $query['ResetContent'] = $request->resetContent;
-        $query['ResetType']    = $request->resetType;
-        $query['UserName']     = $request->userName;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->openGroupId)) {
+            $query['OpenGroupId'] = $request->openGroupId;
+        }
+        if (!Utils::isUnset($request->orderId)) {
+            $query['OrderId'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->resetContent)) {
+            $query['ResetContent'] = $request->resetContent;
+        }
+        if (!Utils::isUnset($request->resetType)) {
+            $query['ResetType'] = $request->resetType;
+        }
+        if (!Utils::isUnset($request->userName)) {
+            $query['UserName'] = $request->userName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'RestOpenTaskOrder',
@@ -624,7 +782,7 @@ class Supportplan extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -632,9 +790,11 @@ class Supportplan extends OpenApiClient
     }
 
     /**
-     * @param RestOpenTaskOrderRequest $request
+     * @summary 重开任务单(待客户确认状态)
+     *  *
+     * @param RestOpenTaskOrderRequest $request RestOpenTaskOrderRequest
      *
-     * @return RestOpenTaskOrderResponse
+     * @return RestOpenTaskOrderResponse RestOpenTaskOrderResponse
      */
     public function restOpenTaskOrder($request)
     {

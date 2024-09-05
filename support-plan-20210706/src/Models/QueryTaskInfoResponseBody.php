@@ -4,40 +4,51 @@
 
 namespace AlibabaCloud\SDK\Supportplan\V20210706\Models;
 
+use AlibabaCloud\SDK\Supportplan\V20210706\Models\QueryTaskInfoResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
 class QueryTaskInfoResponseBody extends Model
 {
     /**
-     * @description code
+     * @description The status code or error code.
+     *
+     * @example 200
      *
      * @var string
      */
     public $code;
 
     /**
-     * @description data
+     * @description The data returned.
      *
-     * @var string
+     * @example {"taskStatus": "dealingNode","orderId": "E21111796147LE"}
+     *
+     * @var data
      */
     public $data;
 
     /**
-     * @description msg
+     * @description The returned message.
+     *
+     * @example ok
      *
      * @var string
      */
     public $message;
 
     /**
-     * @description requestId
+     * @description The request ID.
+     *
+     * @example 43135C31-E47A-5AD7-A693-6DC635201CE4
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description success
+     * @description Indicates whether the request is successful.
+     *
+     * @example true
      *
      * @var bool
      */
@@ -61,7 +72,7 @@ class QueryTaskInfoResponseBody extends Model
             $res['Code'] = $this->code;
         }
         if (null !== $this->data) {
-            $res['Data'] = $this->data;
+            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -88,7 +99,7 @@ class QueryTaskInfoResponseBody extends Model
             $model->code = $map['Code'];
         }
         if (isset($map['Data'])) {
-            $model->data = $map['Data'];
+            $model->data = data::fromMap($map['Data']);
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];

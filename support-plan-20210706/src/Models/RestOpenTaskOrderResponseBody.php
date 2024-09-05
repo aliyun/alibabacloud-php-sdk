@@ -9,35 +9,35 @@ use AlibabaCloud\Tea\Model;
 class RestOpenTaskOrderResponseBody extends Model
 {
     /**
-     * @description code
+     * @example 200
      *
      * @var string
      */
     public $code;
 
     /**
-     * @description data
+     * @example null
      *
      * @var string
      */
     public $data;
 
     /**
-     * @description msg
+     * @example 请求成功
      *
      * @var string
      */
     public $message;
 
     /**
-     * @description requestId
+     * @example 123
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description success
+     * @example true
      *
      * @var bool
      */

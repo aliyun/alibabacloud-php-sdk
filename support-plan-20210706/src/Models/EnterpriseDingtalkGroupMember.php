@@ -9,21 +9,27 @@ use AlibabaCloud\Tea\Model;
 class EnterpriseDingtalkGroupMember extends Model
 {
     /**
-     * @description 是否企业钉群管理员
+     * @description 代表资源名称的资源属性字段
+     *
+     * @example true
      *
      * @var bool
      */
     public $isAdmin;
 
     /**
-     * @description 成员手机号
+     * @description 代表资源组的资源属性字段
+     *
+     * @example 130xxxxxxxx
      *
      * @var string
      */
     public $mobile;
 
     /**
-     * @description 成员姓名
+     * @description 代表创建时间的资源属性字段
+     *
+     * @example 张三
      *
      * @var string
      */

@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 钉群名
+     * @example A公司服务群
      *
      * @var string
      */
     public $groupName;
 
     /**
-     * @description 钉群ID
+     * @example 123
      *
      * @var string
      */

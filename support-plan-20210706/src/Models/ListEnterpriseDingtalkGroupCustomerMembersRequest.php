@@ -9,7 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListEnterpriseDingtalkGroupCustomerMembersRequest extends Model
 {
     /**
-     * @description 企业服务群ID
+     * @description This parameter is required.
+     *
+     * @example 123
      *
      * @var string
      */

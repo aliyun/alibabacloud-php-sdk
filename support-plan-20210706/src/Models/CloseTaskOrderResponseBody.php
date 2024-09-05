@@ -11,12 +11,16 @@ class CloseTaskOrderResponseBody extends Model
     /**
      * @description code
      *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
      * @description data
+     *
+     * @example null
      *
      * @var string
      */
@@ -25,6 +29,8 @@ class CloseTaskOrderResponseBody extends Model
     /**
      * @description msg
      *
+     * @example 请求成功
+     *
      * @var string
      */
     public $message;
@@ -32,12 +38,16 @@ class CloseTaskOrderResponseBody extends Model
     /**
      * @description requestId
      *
+     * @example AQWFE#$#ASD
+     *
      * @var string
      */
     public $requestId;
 
     /**
      * @description success
+     *
+     * @example true
      *
      * @var bool
      */

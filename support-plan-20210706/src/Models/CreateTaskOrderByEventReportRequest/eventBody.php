@@ -10,35 +10,35 @@ use AlibabaCloud\Tea\Model;
 class eventBody extends Model
 {
     /**
-     * @description 当前告警描述信息
+     * @description This parameter is required.
+     *
+     * @example 告警内容
      *
      * @var string
      */
     public $eventDesc;
 
     /**
-     * @description 事件id
+     * @example j9uwe-34328987
      *
      * @var string
      */
     public $eventId;
 
     /**
-     * @description 事件级别
+     * @example info,warn,alarm,critical
      *
      * @var string
      */
     public $eventLevel;
 
     /**
-     * @description 事件源标识，自定义和TAM在云企配置的Location指标一致
-     *
      * @var eventLocation
      */
     public $eventLocation;
 
     /**
-     * @description 事件上报时间
+     * @example 123456
      *
      * @var string
      */

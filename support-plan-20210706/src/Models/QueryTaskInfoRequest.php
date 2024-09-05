@@ -9,7 +9,10 @@ use AlibabaCloud\Tea\Model;
 class QueryTaskInfoRequest extends Model
 {
     /**
-     * @description 任务单ID
+     * @description The ID of the order.
+     *
+     * This parameter is required.
+     * @example E220303AE1BYY3
      *
      * @var string
      */

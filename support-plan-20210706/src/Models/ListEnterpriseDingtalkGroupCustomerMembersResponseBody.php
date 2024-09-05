@@ -9,35 +9,33 @@ use AlibabaCloud\Tea\Model;
 class ListEnterpriseDingtalkGroupCustomerMembersResponseBody extends Model
 {
     /**
-     * @description 接口请求结果返回码
+     * @example 200
      *
      * @var string
      */
     public $code;
 
     /**
-     * @description 企业服务群成员列表
-     *
      * @var EnterpriseDingtalkGroupMember[]
      */
     public $data;
 
     /**
-     * @description 错误信息, 当success=false的时候, 可以取到message
+     * @example Invalid data
      *
      * @var string
      */
     public $message;
 
     /**
-     * @description 接口请求的唯一ID, 每次调用requestID唯一
+     * @example 123
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 调用接口返回是否成功, true代表调用正常
+     * @example true
      *
      * @var bool
      */

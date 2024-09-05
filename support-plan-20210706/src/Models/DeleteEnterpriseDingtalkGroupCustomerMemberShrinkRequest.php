@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class DeleteEnterpriseDingtalkGroupCustomerMemberShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $mobilesShrink;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 12345
+     *
      * @var string
      */
     public $openGroupId;

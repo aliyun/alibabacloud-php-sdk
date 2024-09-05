@@ -9,7 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListProductByGroupRequest extends Model
 {
     /**
-     * @description 主群关联Id
+     * @description This parameter is required.
+     *
+     * @example cidXcezGVQJjiWy2PzXylGwvg==
      *
      * @var string
      */

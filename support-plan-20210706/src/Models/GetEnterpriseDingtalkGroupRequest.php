@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class GetEnterpriseDingtalkGroupRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 1234
+     *
      * @var string
      */
     public $openGroupId;

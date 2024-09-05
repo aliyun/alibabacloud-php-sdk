@@ -11,70 +11,74 @@ use AlibabaCloud\Tea\Model;
 class CreateTaskOrderByEventReportRequest extends Model
 {
     /**
-     * @description 告警所属业务
+     * @example 123
      *
      * @var string
      */
     public $business;
 
     /**
-     * @description 提交人姓名
+     * @description This parameter is required.
+     *
+     * @example 小二
      *
      * @var string
      */
     public $createRealName;
 
     /**
-     * @description 提交人userId
+     * @description This parameter is required.
+     *
+     * @example 1830426056957812
      *
      * @var string
      */
     public $createUserId;
 
     /**
-     * @description 告警描述
-     *
      * @var eventBody
      */
     public $eventBody;
 
     /**
-     * @description 扩展信息
-     *
      * @var extinfo[]
      */
     public $extinfo;
 
     /**
-     * @description 当eventLevel为warn时，必传
+     * @example 紧急性原因描述
      *
      * @var string
      */
     public $importantDesc;
 
     /**
-     * @description 建单入群人员
+     * @example 123,456
      *
      * @var string
      */
     public $joinChildGroupUserIds;
 
     /**
-     * @description 监控集如：视频业务的质量监控
+     * @example 监控集如：视频业务的质量监控 123
      *
      * @var string
      */
     public $monitorCongregation;
 
     /**
-     * @description 告警关联主群id
+     * @description This parameter is required.
+     *
+     * @example cid+lUpHxTIXt7DYqJDcpVxlA==
      *
      * @var string
      */
     public $openGroupId;
 
     /**
-     * @description 问题分类
+     * @description This parameter is required.
+     *
+     * @example 3270
      *
      * @var string
      */

@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class extinfo extends Model
 {
     /**
-     * @description 扩展信息名称
+     * @example 扩展信息名称
      *
      * @var string
      */
     public $name;
 
     /**
-     * @description 扩展信息value值
+     * @example 扩展信息value值
      *
      * @var string
      */

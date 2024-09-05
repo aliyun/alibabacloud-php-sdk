@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class eventLocation extends Model
 {
     /**
-     * @description domian域名
+     * @example flv13.bn.netease.com
      *
      * @var string
      */

@@ -9,35 +9,37 @@ use AlibabaCloud\Tea\Model;
 class RestOpenTaskOrderRequest extends Model
 {
     /**
-     * @description 主群关联Id
+     * @example cidXcezGVQJjiWy2PzXylGwvg==
      *
      * @var string
      */
     public $openGroupId;
 
     /**
-     * @description 任务单ID
+     * @description This parameter is required.
+     *
+     * @example E21111796147LE
      *
      * @var string
      */
     public $orderId;
 
     /**
-     * @description 重开说明
+     * @example 重开补充说明
      *
      * @var string
      */
     public $resetContent;
 
     /**
-     * @description 重开类型
+     * @example 枚举值：6:解决方案无效；7:当前问题仍有疑问需要咨询；8:问题重复出现
      *
      * @var string
      */
     public $resetType;
 
     /**
-     * @description 操作人姓名
+     * @example 操作人姓名
      *
      * @var string
      */

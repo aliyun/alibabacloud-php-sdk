@@ -9,42 +9,48 @@ use AlibabaCloud\Tea\Model;
 class ReplyMessageApiRequest extends Model
 {
     /**
-     * @description 消息内容
+     * @description This parameter is required.
+     *
+     * @example 消息内容
      *
      * @var string
      */
     public $msgContent;
 
     /**
-     * @description 消息类型
+     * @example text
      *
      * @var string
      */
     public $msgType;
 
     /**
-     * @description 群Id
+     * @example cid+lUpHxTIXt7DYqJDcpVxlA==
      *
      * @var string
      */
     public $openGroupId;
 
     /**
-     * @description 任务单Id
+     * @description This parameter is required.
+     *
+     * @example E2012312421
      *
      * @var string
      */
     public $orderId;
 
     /**
-     * @description 消息发送人Id
+     * @example 123
      *
      * @var string
      */
     public $userId;
 
     /**
-     * @description 消息发送人
+     * @description This parameter is required.
+     *
+     * @example 用户名
      *
      * @var string
      */

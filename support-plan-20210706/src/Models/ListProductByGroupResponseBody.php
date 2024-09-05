@@ -11,12 +11,16 @@ class ListProductByGroupResponseBody extends Model
     /**
      * @description code
      *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
      * @description data
+     *
+     * @example [     {       "wfNodeId": "dealingNode",//任务单状态       "createEmpId": null,//创建人工号，可以忽略       "createTime": 1637571435000,//任务单创建时间       "orderId": "E2111221H1UKCZ",//任务单号       "isImportant": "normal",//是否紧急       "closeTime": null,//任务单关单时间       "taskTitle": "测试单16点44",//标题       "productType": "3270"//问题分类     },     {       "wfNodeId": "dealingNode",       "createEmpId": null,       "createTime": 1637820497000,       "orderId": "E211125CG111EM",       "isImportant": "normal",       "closeTime": null,       "taskTitle": "测试单14",       "class": "com.aliyun.dingtalklanding.dto.OpenTaskOrderDTO",       "productType": "3270"     }   ]
      *
      * @var string
      */
@@ -25,12 +29,16 @@ class ListProductByGroupResponseBody extends Model
     /**
      * @description msg
      *
+     * @example 请求成功
+     *
      * @var string
      */
     public $message;
 
     /**
-     * @description 接口交互动态值
+     * @description requestId
+     *
+     * @example 123
      *
      * @var string
      */
@@ -38,6 +46,8 @@ class ListProductByGroupResponseBody extends Model
 
     /**
      * @description success
+     *
+     * @example true
      *
      * @var bool
      */

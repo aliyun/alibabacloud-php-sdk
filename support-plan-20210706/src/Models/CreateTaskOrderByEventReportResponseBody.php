@@ -11,12 +11,14 @@ class CreateTaskOrderByEventReportResponseBody extends Model
     /**
      * @description code
      *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
-     * @description 返回信息
+     * @example {  "eid": "E211129DT18M06",     "status": "dealingNode"   }
      *
      * @var string
      */
@@ -25,6 +27,8 @@ class CreateTaskOrderByEventReportResponseBody extends Model
     /**
      * @description msg
      *
+     * @example 请求成功
+     *
      * @var string
      */
     public $message;
@@ -32,12 +36,16 @@ class CreateTaskOrderByEventReportResponseBody extends Model
     /**
      * @description requestId
      *
+     * @example 02A300AC-367E-1716-A37B-F2FB46082610
+     *
      * @var string
      */
     public $requestId;
 
     /**
      * @description success
+     *
+     * @example true
      *
      * @var bool
      */

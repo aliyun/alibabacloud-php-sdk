@@ -2,30 +2,24 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Supportplan\V20210706\Models;
+namespace AlibabaCloud\SDK\Supportplan\V20210706\Models\QueryTaskInfoResponseBody;
 
 use AlibabaCloud\Tea\Model;
 
-class CloseTaskOrderRequest extends Model
+class data extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example E211129AE190Y3
-     *
      * @var string
      */
     public $orderId;
 
     /**
-     * @example 操作人姓名
-     *
      * @var string
      */
-    public $userName;
+    public $taskStatus;
     protected $_name = [
-        'orderId'  => 'OrderId',
-        'userName' => 'UserName',
+        'orderId'    => 'OrderId',
+        'taskStatus' => 'TaskStatus',
     ];
 
     public function validate()
@@ -38,8 +32,8 @@ class CloseTaskOrderRequest extends Model
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
         }
-        if (null !== $this->userName) {
-            $res['UserName'] = $this->userName;
+        if (null !== $this->taskStatus) {
+            $res['TaskStatus'] = $this->taskStatus;
         }
 
         return $res;
@@ -48,7 +42,7 @@ class CloseTaskOrderRequest extends Model
     /**
      * @param array $map
      *
-     * @return CloseTaskOrderRequest
+     * @return data
      */
     public static function fromMap($map = [])
     {
@@ -56,8 +50,8 @@ class CloseTaskOrderRequest extends Model
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
         }
-        if (isset($map['UserName'])) {
-            $model->userName = $map['UserName'];
+        if (isset($map['TaskStatus'])) {
+            $model->taskStatus = $map['TaskStatus'];
         }
 
         return $model;

@@ -11,12 +11,14 @@ class CreateTaskOrderResponseBody extends Model
     /**
      * @description code
      *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
-     * @description 返回任务单号：OrderId
+     * @example E21111796147LE
      *
      * @var string
      */
@@ -25,6 +27,8 @@ class CreateTaskOrderResponseBody extends Model
     /**
      * @description msg
      *
+     * @example ok
+     *
      * @var string
      */
     public $message;
@@ -32,12 +36,16 @@ class CreateTaskOrderResponseBody extends Model
     /**
      * @description requestId
      *
+     * @example 123
+     *
      * @var string
      */
     public $requestId;
 
     /**
      * @description success
+     *
+     * @example true
      *
      * @var bool
      */

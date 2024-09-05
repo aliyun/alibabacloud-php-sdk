@@ -9,35 +9,39 @@ use AlibabaCloud\Tea\Model;
 class CreateTaskOrderRequest extends Model
 {
     /**
-     * @description 建单人姓名：快手客户
+     * @example 建单人姓名：快手客户
      *
      * @var string
      */
     public $customerRealName;
 
     /**
-     * @description 建单人：固定值
+     * @example 123
      *
      * @var string
      */
     public $customerUserId;
 
     /**
-     * @description 重要性描述
+     * @example 重要性描述
      *
      * @var string
      */
     public $importantDescription;
 
     /**
-     * @description 是否紧急
+     * @description This parameter is required.
+     *
+     * @example 如:normal或者hurry
      *
      * @var string
      */
     public $isImportant;
 
     /**
-     * @description 主群关联Id
+     * @description This parameter is required.
+     *
+     * @example cid+lUpHxTIXt7DYqJDcpVxlA==
      *
      * @var string
      */
@@ -46,19 +50,25 @@ class CreateTaskOrderRequest extends Model
     /**
      * @description productType
      *
+     * This parameter is required.
+     * @example 3270
+     *
      * @var string
      */
     public $productType;
 
     /**
-     * @description 问题分类名称
+     * @example lc-云享咨询
      *
      * @var string
      */
     public $productTypeName;
 
     /**
-     * @description 任务单标题
+     * @description taskTitle
+     *
+     * This parameter is required.
+     * @example 任务单标题：必填
      *
      * @var string
      */

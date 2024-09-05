@@ -11,12 +11,16 @@ class ListDdTaskOrderResponseBody extends Model
     /**
      * @description code
      *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
      * @description data
+     *
+     * @example {   "msg": "请求成功",   "code": "200",   "data": [     {       "wfNodeId": "dealingNode",//任务单状态       "createEmpId": null,//创建人工号，可以忽略       "createTime": 1637571435000,//任务单创建时间       "orderId": "E2111221H1UKCZ",//任务单号       "isImportant": "normal",//是否紧急       "closeTime": null,//任务单关单时间       "taskTitle": "测试单16点44",//标题       "productType": "3270"//问题分类     },     {       "wfNodeId": "dealingNode",       "createEmpId": null,       "createTime": 1637820497000,       "orderId": "E211125CG111EM",       "isImportant": "normal",       "closeTime": null,       "taskTitle": "测试单14",       "class": "com.aliyun.dingtalklanding.dto.OpenTaskOrderDTO",       "productType": "3270"     }   ],   "success": true,   "requestId": "123",   "class": "com.aliyun.dingtalklanding.pop.dto.PopResultDTO" }
      *
      * @var string
      */
@@ -25,6 +29,8 @@ class ListDdTaskOrderResponseBody extends Model
     /**
      * @description msg
      *
+     * @example 请求成功
+     *
      * @var string
      */
     public $message;
@@ -32,12 +38,16 @@ class ListDdTaskOrderResponseBody extends Model
     /**
      * @description requestId
      *
+     * @example 2F8557E4-742B-1CF7-8E83-28CD0C1F7B48
+     *
      * @var string
      */
     public $requestId;
 
     /**
      * @description success
+     *
+     * @example true
      *
      * @var bool
      */

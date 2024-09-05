@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class GetEnterpriseDingtalkGroupCustomerMemberRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 13900001111
+     *
      * @var string
      */
     public $mobile;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 123
+     *
      * @var string
      */
     public $openGroupId;
