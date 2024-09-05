@@ -11,6 +11,10 @@ use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunMarketingInformationEx
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunMarketingInformationExtractShrinkRequest;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunMarketingInformationWritingRequest;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunMarketingInformationWritingResponse;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunScriptContinueRequest;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunScriptContinueResponse;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunScriptPlanningRequest;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunScriptPlanningResponse;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunStyleWritingRequest;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunStyleWritingResponse;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunStyleWritingShrinkRequest;
@@ -181,6 +185,134 @@ class QuanMiaoLightApp extends OpenApiClient
         $headers = [];
 
         return $this->runMarketingInformationWritingWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 剧本续写
+     *  *
+     * @param string                   $workspaceId
+     * @param RunScriptContinueRequest $request     RunScriptContinueRequest
+     * @param string[]                 $headers     map
+     * @param RuntimeOptions           $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return RunScriptContinueResponse RunScriptContinueResponse
+     */
+    public function runScriptContinueWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->scriptSummary)) {
+            $body['scriptSummary'] = $request->scriptSummary;
+        }
+        if (!Utils::isUnset($request->scriptTypeKeyword)) {
+            $body['scriptTypeKeyword'] = $request->scriptTypeKeyword;
+        }
+        if (!Utils::isUnset($request->userProvidedContent)) {
+            $body['userProvidedContent'] = $request->userProvidedContent;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RunScriptContinue',
+            'version'     => '2024-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/quanmiao/lightapp/runScriptContinue',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RunScriptContinueResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 剧本续写
+     *  *
+     * @param string                   $workspaceId
+     * @param RunScriptContinueRequest $request     RunScriptContinueRequest
+     *
+     * @return RunScriptContinueResponse RunScriptContinueResponse
+     */
+    public function runScriptContinue($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->runScriptContinueWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 剧本策划
+     *  *
+     * @param string                   $workspaceId
+     * @param RunScriptPlanningRequest $request     RunScriptPlanningRequest
+     * @param string[]                 $headers     map
+     * @param RuntimeOptions           $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return RunScriptPlanningResponse RunScriptPlanningResponse
+     */
+    public function runScriptPlanningWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->additionalNote)) {
+            $body['additionalNote'] = $request->additionalNote;
+        }
+        if (!Utils::isUnset($request->dialogueInScene)) {
+            $body['dialogueInScene'] = $request->dialogueInScene;
+        }
+        if (!Utils::isUnset($request->plotConflict)) {
+            $body['plotConflict'] = $request->plotConflict;
+        }
+        if (!Utils::isUnset($request->scriptName)) {
+            $body['scriptName'] = $request->scriptName;
+        }
+        if (!Utils::isUnset($request->scriptShotCount)) {
+            $body['scriptShotCount'] = $request->scriptShotCount;
+        }
+        if (!Utils::isUnset($request->scriptSummary)) {
+            $body['scriptSummary'] = $request->scriptSummary;
+        }
+        if (!Utils::isUnset($request->scriptTypeKeyword)) {
+            $body['scriptTypeKeyword'] = $request->scriptTypeKeyword;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RunScriptPlanning',
+            'version'     => '2024-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/quanmiao/lightapp/runScriptPlanning',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RunScriptPlanningResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 剧本策划
+     *  *
+     * @param string                   $workspaceId
+     * @param RunScriptPlanningRequest $request     RunScriptPlanningRequest
+     *
+     * @return RunScriptPlanningResponse RunScriptPlanningResponse
+     */
+    public function runScriptPlanning($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->runScriptPlanningWithOptions($workspaceId, $request, $headers, $runtime);
     }
 
     /**
