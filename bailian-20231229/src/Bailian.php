@@ -966,6 +966,12 @@ class Bailian extends OpenApiClient
         if (!Utils::isUnset($request->jobId)) {
             $query['JobId'] = $request->jobId;
         }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['pageSize'] = $request->pageSize;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
