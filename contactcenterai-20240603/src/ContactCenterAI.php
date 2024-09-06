@@ -8,6 +8,10 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\AnalyzeConversationRequest;
 use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\AnalyzeConversationResponse;
+use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\CreateConversationAnalysisTaskRequest;
+use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\CreateConversationAnalysisTaskResponse;
+use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\GetTaskResultRequest;
+use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\GetTaskResultResponse;
 use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\RunCompletionMessageRequest;
 use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\RunCompletionMessageResponse;
 use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\RunCompletionRequest;
@@ -124,6 +128,146 @@ class ContactCenterAI extends OpenApiClient
         $headers = [];
 
         return $this->analyzeConversationWithOptions($workspaceId, $appId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 创建语音文件调用llm任务
+     *  *
+     * @param string                                $workspaceId
+     * @param string                                $appId
+     * @param CreateConversationAnalysisTaskRequest $request     CreateConversationAnalysisTaskRequest
+     * @param string[]                              $headers     map
+     * @param RuntimeOptions                        $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return CreateConversationAnalysisTaskResponse CreateConversationAnalysisTaskResponse
+     */
+    public function createConversationAnalysisTaskWithOptions($workspaceId, $appId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->autoSplit)) {
+            $body['autoSplit'] = $request->autoSplit;
+        }
+        if (!Utils::isUnset($request->clientChannel)) {
+            $body['clientChannel'] = $request->clientChannel;
+        }
+        if (!Utils::isUnset($request->examples)) {
+            $body['examples'] = $request->examples;
+        }
+        if (!Utils::isUnset($request->fields)) {
+            $body['fields'] = $request->fields;
+        }
+        if (!Utils::isUnset($request->fileName)) {
+            $body['fileName'] = $request->fileName;
+        }
+        if (!Utils::isUnset($request->modelCode)) {
+            $body['modelCode'] = $request->modelCode;
+        }
+        if (!Utils::isUnset($request->resultTypes)) {
+            $body['resultTypes'] = $request->resultTypes;
+        }
+        if (!Utils::isUnset($request->sceneName)) {
+            $body['sceneName'] = $request->sceneName;
+        }
+        if (!Utils::isUnset($request->serviceChannel)) {
+            $body['serviceChannel'] = $request->serviceChannel;
+        }
+        if (!Utils::isUnset($request->serviceChannelKeywords)) {
+            $body['serviceChannelKeywords'] = $request->serviceChannelKeywords;
+        }
+        if (!Utils::isUnset($request->serviceInspection)) {
+            $body['serviceInspection'] = $request->serviceInspection;
+        }
+        if (!Utils::isUnset($request->templateIds)) {
+            $body['templateIds'] = $request->templateIds;
+        }
+        if (!Utils::isUnset($request->voiceFileUrl)) {
+            $body['voiceFileUrl'] = $request->voiceFileUrl;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateConversationAnalysisTask',
+            'version'     => '2024-06-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/ccai/app/' . OpenApiUtilClient::getEncodeParam($appId) . '/createConversationAnalysisTask',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateConversationAnalysisTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建语音文件调用llm任务
+     *  *
+     * @param string                                $workspaceId
+     * @param string                                $appId
+     * @param CreateConversationAnalysisTaskRequest $request     CreateConversationAnalysisTaskRequest
+     *
+     * @return CreateConversationAnalysisTaskResponse CreateConversationAnalysisTaskResponse
+     */
+    public function createConversationAnalysisTask($workspaceId, $appId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createConversationAnalysisTaskWithOptions($workspaceId, $appId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 语音文件调用大模型获取结果
+     *  *
+     * @param GetTaskResultRequest $request GetTaskResultRequest
+     * @param string[]             $headers map
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetTaskResultResponse GetTaskResultResponse
+     */
+    public function getTaskResultWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->taskId)) {
+            $query['taskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetTaskResult',
+            'version'     => '2024-06-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/ccai/app/getTaskResult',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetTaskResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 语音文件调用大模型获取结果
+     *  *
+     * @param GetTaskResultRequest $request GetTaskResultRequest
+     *
+     * @return GetTaskResultResponse GetTaskResultResponse
+     */
+    public function getTaskResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getTaskResultWithOptions($request, $headers, $runtime);
     }
 
     /**
