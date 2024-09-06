@@ -28,6 +28,24 @@ class data extends Model
     public $archiveDuration;
 
     /**
+     * @description Read the whitelist policy for password-free addresses.
+     *
+     * @example null
+     *
+     * @var string
+     */
+    public $authFreeReadPolicy;
+
+    /**
+     * @description Write exempt password address whitelist policy.
+     *
+     * @example null
+     *
+     * @var string
+     */
+    public $authFreeWritePolicy;
+
+    /**
      * @description The authorization token.
      *
      * @example GciOiJIUzI1NiJ9***
@@ -76,6 +94,24 @@ class data extends Model
      * @var string
      */
     public $dbInstanceStatus;
+
+    /**
+     * @description Whether to enable password-free reading.
+     *
+     * @example false
+     *
+     * @var bool
+     */
+    public $enableAuthFreeRead;
+
+    /**
+     * @description Whether to enable write access without password.
+     *
+     * @example false
+     *
+     * @var bool
+     */
+    public $enableAuthFreeWrite;
 
     /**
      * @description Indicates whether access token authentication is enabled.
@@ -243,6 +279,8 @@ class data extends Model
     public $subClustersJson;
 
     /**
+     * @description Supported authentication types.
+     *
      * @var string[]
      */
     public $supportAuthTypes;
@@ -283,11 +321,15 @@ class data extends Model
     protected $_name = [
         'accessType'          => 'AccessType',
         'archiveDuration'     => 'ArchiveDuration',
+        'authFreeReadPolicy'  => 'AuthFreeReadPolicy',
+        'authFreeWritePolicy' => 'AuthFreeWritePolicy',
         'authToken'           => 'AuthToken',
         'clusterId'           => 'ClusterId',
         'clusterName'         => 'ClusterName',
         'clusterType'         => 'ClusterType',
         'dbInstanceStatus'    => 'DbInstanceStatus',
+        'enableAuthFreeRead'  => 'EnableAuthFreeRead',
+        'enableAuthFreeWrite' => 'EnableAuthFreeWrite',
         'enableAuthToken'     => 'EnableAuthToken',
         'grafanaInstanceId'   => 'GrafanaInstanceId',
         'httpApiInterUrl'     => 'HttpApiInterUrl',
@@ -326,6 +368,12 @@ class data extends Model
         if (null !== $this->archiveDuration) {
             $res['ArchiveDuration'] = $this->archiveDuration;
         }
+        if (null !== $this->authFreeReadPolicy) {
+            $res['AuthFreeReadPolicy'] = $this->authFreeReadPolicy;
+        }
+        if (null !== $this->authFreeWritePolicy) {
+            $res['AuthFreeWritePolicy'] = $this->authFreeWritePolicy;
+        }
         if (null !== $this->authToken) {
             $res['AuthToken'] = $this->authToken;
         }
@@ -340,6 +388,12 @@ class data extends Model
         }
         if (null !== $this->dbInstanceStatus) {
             $res['DbInstanceStatus'] = $this->dbInstanceStatus;
+        }
+        if (null !== $this->enableAuthFreeRead) {
+            $res['EnableAuthFreeRead'] = $this->enableAuthFreeRead;
+        }
+        if (null !== $this->enableAuthFreeWrite) {
+            $res['EnableAuthFreeWrite'] = $this->enableAuthFreeWrite;
         }
         if (null !== $this->enableAuthToken) {
             $res['EnableAuthToken'] = $this->enableAuthToken;
@@ -434,6 +488,12 @@ class data extends Model
         if (isset($map['ArchiveDuration'])) {
             $model->archiveDuration = $map['ArchiveDuration'];
         }
+        if (isset($map['AuthFreeReadPolicy'])) {
+            $model->authFreeReadPolicy = $map['AuthFreeReadPolicy'];
+        }
+        if (isset($map['AuthFreeWritePolicy'])) {
+            $model->authFreeWritePolicy = $map['AuthFreeWritePolicy'];
+        }
         if (isset($map['AuthToken'])) {
             $model->authToken = $map['AuthToken'];
         }
@@ -448,6 +508,12 @@ class data extends Model
         }
         if (isset($map['DbInstanceStatus'])) {
             $model->dbInstanceStatus = $map['DbInstanceStatus'];
+        }
+        if (isset($map['EnableAuthFreeRead'])) {
+            $model->enableAuthFreeRead = $map['EnableAuthFreeRead'];
+        }
+        if (isset($map['EnableAuthFreeWrite'])) {
+            $model->enableAuthFreeWrite = $map['EnableAuthFreeWrite'];
         }
         if (isset($map['EnableAuthToken'])) {
             $model->enableAuthToken = $map['EnableAuthToken'];

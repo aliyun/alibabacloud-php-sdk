@@ -60,6 +60,11 @@ class UpdateRumAppRequest extends Model
     public $pid;
 
     /**
+     * @var string
+     */
+    public $realRegionId;
+
+    /**
      * @description The region ID.
      *
      * This parameter is required.
@@ -102,6 +107,7 @@ class UpdateRumAppRequest extends Model
         'isSubscribe'                => 'IsSubscribe',
         'nickname'                   => 'Nickname',
         'pid'                        => 'Pid',
+        'realRegionId'               => 'RealRegionId',
         'regionId'                   => 'RegionId',
         'restart'                    => 'Restart',
         'serviceDomainOperationJson' => 'ServiceDomainOperationJson',
@@ -132,6 +138,9 @@ class UpdateRumAppRequest extends Model
         }
         if (null !== $this->pid) {
             $res['Pid'] = $this->pid;
+        }
+        if (null !== $this->realRegionId) {
+            $res['RealRegionId'] = $this->realRegionId;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -174,6 +183,9 @@ class UpdateRumAppRequest extends Model
         }
         if (isset($map['Pid'])) {
             $model->pid = $map['Pid'];
+        }
+        if (isset($map['RealRegionId'])) {
+            $model->realRegionId = $map['RealRegionId'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

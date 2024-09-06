@@ -28,6 +28,11 @@ class DeleteRumAppRequest extends Model
     public $appId;
 
     /**
+     * @var string
+     */
+    public $realRegionId;
+
+    /**
      * @description The ID of the region.
      *
      * This parameter is required.
@@ -37,9 +42,10 @@ class DeleteRumAppRequest extends Model
      */
     public $regionId;
     protected $_name = [
-        'appGroup' => 'AppGroup',
-        'appId'    => 'AppId',
-        'regionId' => 'RegionId',
+        'appGroup'     => 'AppGroup',
+        'appId'        => 'AppId',
+        'realRegionId' => 'RealRegionId',
+        'regionId'     => 'RegionId',
     ];
 
     public function validate()
@@ -54,6 +60,9 @@ class DeleteRumAppRequest extends Model
         }
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
+        }
+        if (null !== $this->realRegionId) {
+            $res['RealRegionId'] = $this->realRegionId;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -75,6 +84,9 @@ class DeleteRumAppRequest extends Model
         }
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
+        }
+        if (isset($map['RealRegionId'])) {
+            $model->realRegionId = $map['RealRegionId'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

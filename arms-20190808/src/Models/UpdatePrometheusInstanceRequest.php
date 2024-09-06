@@ -18,6 +18,16 @@ class UpdatePrometheusInstanceRequest extends Model
     public $archiveDuration;
 
     /**
+     * @var string
+     */
+    public $authFreeReadPolicy;
+
+    /**
+     * @var string
+     */
+    public $authFreeWritePolicy;
+
+    /**
      * @description The ID of the Prometheus instance.
      *
      * This parameter is required.
@@ -26,6 +36,21 @@ class UpdatePrometheusInstanceRequest extends Model
      * @var string
      */
     public $clusterId;
+
+    /**
+     * @var bool
+     */
+    public $enableAuthFreeRead;
+
+    /**
+     * @var bool
+     */
+    public $enableAuthFreeWrite;
+
+    /**
+     * @var bool
+     */
+    public $enableAuthToken;
 
     /**
      * @description The region ID.
@@ -55,11 +80,16 @@ class UpdatePrometheusInstanceRequest extends Model
      */
     public $storageDuration;
     protected $_name = [
-        'archiveDuration' => 'ArchiveDuration',
-        'clusterId'       => 'ClusterId',
-        'regionId'        => 'RegionId',
-        'resourceGroupId' => 'ResourceGroupId',
-        'storageDuration' => 'StorageDuration',
+        'archiveDuration'     => 'ArchiveDuration',
+        'authFreeReadPolicy'  => 'AuthFreeReadPolicy',
+        'authFreeWritePolicy' => 'AuthFreeWritePolicy',
+        'clusterId'           => 'ClusterId',
+        'enableAuthFreeRead'  => 'EnableAuthFreeRead',
+        'enableAuthFreeWrite' => 'EnableAuthFreeWrite',
+        'enableAuthToken'     => 'EnableAuthToken',
+        'regionId'            => 'RegionId',
+        'resourceGroupId'     => 'ResourceGroupId',
+        'storageDuration'     => 'StorageDuration',
     ];
 
     public function validate()
@@ -72,8 +102,23 @@ class UpdatePrometheusInstanceRequest extends Model
         if (null !== $this->archiveDuration) {
             $res['ArchiveDuration'] = $this->archiveDuration;
         }
+        if (null !== $this->authFreeReadPolicy) {
+            $res['AuthFreeReadPolicy'] = $this->authFreeReadPolicy;
+        }
+        if (null !== $this->authFreeWritePolicy) {
+            $res['AuthFreeWritePolicy'] = $this->authFreeWritePolicy;
+        }
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
+        }
+        if (null !== $this->enableAuthFreeRead) {
+            $res['EnableAuthFreeRead'] = $this->enableAuthFreeRead;
+        }
+        if (null !== $this->enableAuthFreeWrite) {
+            $res['EnableAuthFreeWrite'] = $this->enableAuthFreeWrite;
+        }
+        if (null !== $this->enableAuthToken) {
+            $res['EnableAuthToken'] = $this->enableAuthToken;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -99,8 +144,23 @@ class UpdatePrometheusInstanceRequest extends Model
         if (isset($map['ArchiveDuration'])) {
             $model->archiveDuration = $map['ArchiveDuration'];
         }
+        if (isset($map['AuthFreeReadPolicy'])) {
+            $model->authFreeReadPolicy = $map['AuthFreeReadPolicy'];
+        }
+        if (isset($map['AuthFreeWritePolicy'])) {
+            $model->authFreeWritePolicy = $map['AuthFreeWritePolicy'];
+        }
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
+        }
+        if (isset($map['EnableAuthFreeRead'])) {
+            $model->enableAuthFreeRead = $map['EnableAuthFreeRead'];
+        }
+        if (isset($map['EnableAuthFreeWrite'])) {
+            $model->enableAuthFreeWrite = $map['EnableAuthFreeWrite'];
+        }
+        if (isset($map['EnableAuthToken'])) {
+            $model->enableAuthToken = $map['EnableAuthToken'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

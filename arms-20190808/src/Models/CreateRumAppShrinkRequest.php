@@ -55,6 +55,11 @@ class CreateRumAppShrinkRequest extends Model
     public $packageName;
 
     /**
+     * @var string
+     */
+    public $realRegionId;
+
+    /**
      * @description The region ID.
      *
      * This parameter is required.
@@ -104,6 +109,7 @@ class CreateRumAppShrinkRequest extends Model
         'description'     => 'Description',
         'nickName'        => 'NickName',
         'packageName'     => 'PackageName',
+        'realRegionId'    => 'RealRegionId',
         'regionId'        => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
         'siteType'        => 'SiteType',
@@ -132,6 +138,9 @@ class CreateRumAppShrinkRequest extends Model
         }
         if (null !== $this->packageName) {
             $res['PackageName'] = $this->packageName;
+        }
+        if (null !== $this->realRegionId) {
+            $res['RealRegionId'] = $this->realRegionId;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -174,6 +183,9 @@ class CreateRumAppShrinkRequest extends Model
         }
         if (isset($map['PackageName'])) {
             $model->packageName = $map['PackageName'];
+        }
+        if (isset($map['RealRegionId'])) {
+            $model->realRegionId = $map['RealRegionId'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

@@ -3267,6 +3267,9 @@ class ARMS extends OpenApiClient
         if (!Utils::isUnset($request->packageName)) {
             $query['PackageName'] = $request->packageName;
         }
+        if (!Utils::isUnset($request->realRegionId)) {
+            $query['RealRegionId'] = $request->realRegionId;
+        }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
@@ -3317,7 +3320,7 @@ class ARMS extends OpenApiClient
     /**
      * @summary Creates a file upload URL to upload SourceMap files, symbol table files, or dSYM files.
      *  *
-     * @description This operation returns a file upload URL. You can use the file upload URL to upload files. For more information, see [Use a URL to upload files](https://help.aliyun.com/zh/oss/user-guide/upload-a-file-using-a-file-url).
+     * @description This operation returns a file upload URL. You can use the file upload URL to upload files. For more information, see [Use a URL to upload files](https://help.aliyun.com/document_detail/2579659.html).
      *  *
      * @param CreateRumUploadFileUrlRequest $request CreateRumUploadFileUrlRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -3373,7 +3376,7 @@ class ARMS extends OpenApiClient
     /**
      * @summary Creates a file upload URL to upload SourceMap files, symbol table files, or dSYM files.
      *  *
-     * @description This operation returns a file upload URL. You can use the file upload URL to upload files. For more information, see [Use a URL to upload files](https://help.aliyun.com/zh/oss/user-guide/upload-a-file-using-a-file-url).
+     * @description This operation returns a file upload URL. You can use the file upload URL to upload files. For more information, see [Use a URL to upload files](https://help.aliyun.com/document_detail/2579659.html).
      *  *
      * @param CreateRumUploadFileUrlRequest $request CreateRumUploadFileUrlRequest
      *
@@ -5145,6 +5148,9 @@ class ARMS extends OpenApiClient
         }
         if (!Utils::isUnset($request->appId)) {
             $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->realRegionId)) {
+            $query['RealRegionId'] = $request->realRegionId;
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
@@ -14352,8 +14358,23 @@ class ARMS extends OpenApiClient
         if (!Utils::isUnset($request->archiveDuration)) {
             $query['ArchiveDuration'] = $request->archiveDuration;
         }
+        if (!Utils::isUnset($request->authFreeReadPolicy)) {
+            $query['AuthFreeReadPolicy'] = $request->authFreeReadPolicy;
+        }
+        if (!Utils::isUnset($request->authFreeWritePolicy)) {
+            $query['AuthFreeWritePolicy'] = $request->authFreeWritePolicy;
+        }
         if (!Utils::isUnset($request->clusterId)) {
             $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->enableAuthFreeRead)) {
+            $query['EnableAuthFreeRead'] = $request->enableAuthFreeRead;
+        }
+        if (!Utils::isUnset($request->enableAuthFreeWrite)) {
+            $query['EnableAuthFreeWrite'] = $request->enableAuthFreeWrite;
+        }
+        if (!Utils::isUnset($request->enableAuthToken)) {
+            $query['EnableAuthToken'] = $request->enableAuthToken;
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
@@ -14606,6 +14627,9 @@ class ARMS extends OpenApiClient
         }
         if (!Utils::isUnset($request->pid)) {
             $query['Pid'] = $request->pid;
+        }
+        if (!Utils::isUnset($request->realRegionId)) {
+            $query['RealRegionId'] = $request->realRegionId;
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
