@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The ID of the moderated object.
+     * @description The value of dataId that is specified in the API request. If this parameter is not specified in the API request, this field is not available in the response.
      *
      * @example 2a5389eb-4ff8-4584-ac99-644e2a539aa1
      *
@@ -19,7 +19,7 @@ class data extends Model
     public $dataId;
 
     /**
-     * @description Image frame information.
+     * @description The information about the captured frames.
      *
      * @example [{"result":[{"confidence":81.22,"label":"violent_explosion"}]}]
      *
@@ -28,7 +28,7 @@ class data extends Model
     public $frame;
 
     /**
-     * @description Number of result frames
+     * @description The number of frames.
      *
      * @example 1
      *

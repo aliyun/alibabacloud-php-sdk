@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class TextModerationPlusResponseBody extends Model
 {
     /**
-     * @description The returned HTTP status code.
+     * @description The returned HTTP status code. The status code 200 indicates that the request was successful.
      *
      * @example 200
      *
@@ -19,7 +19,7 @@ class TextModerationPlusResponseBody extends Model
     public $code;
 
     /**
-     * @description The data returned.
+     * @description The moderation results.
      *
      * @var data
      */
@@ -35,7 +35,7 @@ class TextModerationPlusResponseBody extends Model
     public $message;
 
     /**
-     * @description The request ID.
+     * @description Id of the request
      *
      * @example AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
      *

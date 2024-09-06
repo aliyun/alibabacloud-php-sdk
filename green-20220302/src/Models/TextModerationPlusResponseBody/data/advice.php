@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class advice extends Model
 {
     /**
-     * @description Answer
+     * @description The answer.
      *
      * @example XXX
      *

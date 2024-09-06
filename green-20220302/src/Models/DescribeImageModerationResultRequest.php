@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeImageModerationResultRequest extends Model
 {
     /**
-     * @description The reqId field returned by the Image Async Moderation API.
+     * @description The ReqId field returned by the asynchronous Image Moderation 2.0 API.
      *
      * @example B0963D30-BAB4-562F-9ED0-7A23AEC51C7C
      *

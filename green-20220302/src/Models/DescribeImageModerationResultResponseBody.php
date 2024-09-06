@@ -19,7 +19,7 @@ class DescribeImageModerationResultResponseBody extends Model
     public $code;
 
     /**
-     * @description The data returned.
+     * @description The image moderation results.
      *
      * @var data
      */
@@ -35,7 +35,7 @@ class DescribeImageModerationResultResponseBody extends Model
     public $msg;
 
     /**
-     * @description The request ID.
+     * @description The request ID, which is used to locate and troubleshoot issues.
      *
      * @example 2881AD4F-638B-52A3-BA20-F74C5B1CEAE3
      *

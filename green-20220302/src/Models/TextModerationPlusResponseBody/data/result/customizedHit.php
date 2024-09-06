@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class customizedHit extends Model
 {
     /**
-     * @description Hit keywords, comma separated.
+     * @description The terms that are hit. Multiple terms are separated by commas (,).
      *
      * @example xxx
      *
@@ -18,7 +18,7 @@ class customizedHit extends Model
     public $keyWords;
 
     /**
-     * @description Library Name
+     * @description The library name.
      *
      * @example test
      *

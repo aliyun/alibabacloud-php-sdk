@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description Confidence score, 0 to 100, reserved to 2 decimal places.
+     * @description The score of the confidence level. Valid values: 0 to 100. The value is accurate to two decimal places.
      *
      * @example 81.22
      *
@@ -19,14 +19,23 @@ class result extends Model
     public $confidence;
 
     /**
-     * @description Custom keyword hits
+     * @description The custom term hit by the moderated content.
      *
      * @var customizedHit[]
      */
     public $customizedHit;
 
     /**
-     * @description Labels.
+     * @description The description of the label.
+     *
+     * @example none
+     *
+     * @var string
+     */
+    public $description;
+
+    /**
+     * @description The label.
      *
      * @example porn
      *
@@ -35,7 +44,7 @@ class result extends Model
     public $label;
 
     /**
-     * @description Risk words
+     * @description The term hit by the moderated content.
      *
      * @example XXX
      *
@@ -45,6 +54,7 @@ class result extends Model
     protected $_name = [
         'confidence'    => 'Confidence',
         'customizedHit' => 'CustomizedHit',
+        'description'   => 'Description',
         'label'         => 'Label',
         'riskWords'     => 'RiskWords',
     ];
@@ -67,6 +77,9 @@ class result extends Model
                     $res['CustomizedHit'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->label) {
             $res['Label'] = $this->label;
@@ -97,6 +110,9 @@ class result extends Model
                     $model->customizedHit[$n++] = null !== $item ? customizedHit::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['Label'])) {
             $model->label = $map['Label'];
