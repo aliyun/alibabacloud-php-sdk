@@ -23,6 +23,16 @@ class CreateWorkflowRequest extends Model
     public $alertStrategy;
 
     /**
+     * @var string
+     */
+    public $taskDefinitionJsonValue;
+
+    /**
+     * @var string
+     */
+    public $taskRelationJsonValue;
+
+    /**
      * @example 0 0 * * * ? *
      *
      * @var string
@@ -151,6 +161,8 @@ class CreateWorkflowRequest extends Model
     protected $_name = [
         'alertGroupId'             => 'alertGroupId',
         'alertStrategy'            => 'alertStrategy',
+        'taskDefinitionJsonValue'  => 'taskDefinitionJsonValue',
+        'taskRelationJsonValue'    => 'taskRelationJsonValue',
         'cronExpr'                 => 'cronExpr',
         'description'              => 'description',
         'executionType'            => 'executionType',
@@ -182,6 +194,12 @@ class CreateWorkflowRequest extends Model
         }
         if (null !== $this->alertStrategy) {
             $res['alertStrategy'] = $this->alertStrategy;
+        }
+        if (null !== $this->taskDefinitionJsonValue) {
+            $res['taskDefinitionJsonValue'] = $this->taskDefinitionJsonValue;
+        }
+        if (null !== $this->taskRelationJsonValue) {
+            $res['taskRelationJsonValue'] = $this->taskRelationJsonValue;
         }
         if (null !== $this->cronExpr) {
             $res['cronExpr'] = $this->cronExpr;
@@ -251,6 +269,12 @@ class CreateWorkflowRequest extends Model
         }
         if (isset($map['alertStrategy'])) {
             $model->alertStrategy = $map['alertStrategy'];
+        }
+        if (isset($map['taskDefinitionJsonValue'])) {
+            $model->taskDefinitionJsonValue = $map['taskDefinitionJsonValue'];
+        }
+        if (isset($map['taskRelationJsonValue'])) {
+            $model->taskRelationJsonValue = $map['taskRelationJsonValue'];
         }
         if (isset($map['cronExpr'])) {
             $model->cronExpr = $map['cronExpr'];

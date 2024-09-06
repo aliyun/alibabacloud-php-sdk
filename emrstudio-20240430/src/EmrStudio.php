@@ -152,9 +152,17 @@ class EmrStudio extends OpenApiClient
         if (!Utils::isUnset($request->workspaceId)) {
             $query['workspaceId'] = $request->workspaceId;
         }
+        $body = [];
+        if (!Utils::isUnset($request->taskDefinitionJsonValue)) {
+            $body['taskDefinitionJsonValue'] = $request->taskDefinitionJsonValue;
+        }
+        if (!Utils::isUnset($request->taskRelationJsonValue)) {
+            $body['taskRelationJsonValue'] = $request->taskRelationJsonValue;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateWorkflow',
@@ -1248,9 +1256,17 @@ class EmrStudio extends OpenApiClient
         if (!Utils::isUnset($request->workspaceId)) {
             $query['workspaceId'] = $request->workspaceId;
         }
+        $body = [];
+        if (!Utils::isUnset($request->taskDefinitionJsonValue)) {
+            $body['taskDefinitionJsonValue'] = $request->taskDefinitionJsonValue;
+        }
+        if (!Utils::isUnset($request->taskRelationJsonValue)) {
+            $body['taskRelationJsonValue'] = $request->taskRelationJsonValue;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateWorkflow',
