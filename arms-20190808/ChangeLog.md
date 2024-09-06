@@ -1,3 +1,7 @@
+2024-09-06 Version: 7.1.2
+- Update API GetPrometheusInstance: update response param.
+
+
 2024-09-06 Version: 7.1.1
 - Update API CreateRumApp: add param RealRegionId.
 - Update API DeleteRumApp: add param RealRegionId.

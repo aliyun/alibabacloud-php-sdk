@@ -123,6 +123,11 @@ class data extends Model
     public $enableAuthToken;
 
     /**
+     * @var string[]
+     */
+    public $extraInfo;
+
+    /**
      * @description The ID of the Grafana workspace.
      *
      * @example grafana-rnggfvhlcdl6m71***
@@ -331,6 +336,7 @@ class data extends Model
         'enableAuthFreeRead'  => 'EnableAuthFreeRead',
         'enableAuthFreeWrite' => 'EnableAuthFreeWrite',
         'enableAuthToken'     => 'EnableAuthToken',
+        'extraInfo'           => 'ExtraInfo',
         'grafanaInstanceId'   => 'GrafanaInstanceId',
         'httpApiInterUrl'     => 'HttpApiInterUrl',
         'httpApiIntraUrl'     => 'HttpApiIntraUrl',
@@ -397,6 +403,9 @@ class data extends Model
         }
         if (null !== $this->enableAuthToken) {
             $res['EnableAuthToken'] = $this->enableAuthToken;
+        }
+        if (null !== $this->extraInfo) {
+            $res['ExtraInfo'] = $this->extraInfo;
         }
         if (null !== $this->grafanaInstanceId) {
             $res['GrafanaInstanceId'] = $this->grafanaInstanceId;
@@ -517,6 +526,9 @@ class data extends Model
         }
         if (isset($map['EnableAuthToken'])) {
             $model->enableAuthToken = $map['EnableAuthToken'];
+        }
+        if (isset($map['ExtraInfo'])) {
+            $model->extraInfo = $map['ExtraInfo'];
         }
         if (isset($map['GrafanaInstanceId'])) {
             $model->grafanaInstanceId = $map['GrafanaInstanceId'];
