@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class RenewElasticityAssurancesResponseBody extends Model
 {
     /**
+     * @description The ID of the renewal order.
+     *
      * @example 182372800****
      *
      * @var string
@@ -17,11 +19,15 @@ class RenewElasticityAssurancesResponseBody extends Model
     public $orderId;
 
     /**
+     * @description The IDs of the elasticity assurances.
+     *
      * @var privatePoolOptionsIdSet
      */
     public $privatePoolOptionsIdSet;
 
     /**
+     * @description The request ID.
+     *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
      *
      * @var string

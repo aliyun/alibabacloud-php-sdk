@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDeploymentSetSupportedInstanceTypeFamilyResponseBody extends Model
 {
     /**
-     * @description The instance families that support deployment sets.
+     * @description The instance families that support the deployment strategy.
      *
      * @example ecs.i2g,ecs.i1,ecs.i2ne,ecs.i2gne
      *

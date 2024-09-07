@@ -17,7 +17,7 @@ class DescribeDeploymentSetsResponseBody extends Model
     public $deploymentSets;
 
     /**
-     * @description The page number of the returned page.
+     * @description The page number.
      *
      * @example 1
      *
@@ -26,7 +26,7 @@ class DescribeDeploymentSetsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The number of entries per page.
      *
      * @example 1
      *
@@ -35,7 +35,7 @@ class DescribeDeploymentSetsResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The region ID of the deployment set.
+     * @description The ID of the region.
      *
      * @example cn-hangzhou
      *
@@ -44,7 +44,7 @@ class DescribeDeploymentSetsResponseBody extends Model
     public $regionId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
      *
@@ -53,7 +53,7 @@ class DescribeDeploymentSetsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The total number of deployment sets returned.
+     * @description The total number of queried deployment sets.
      *
      * @example 1
      *

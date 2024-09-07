@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class privatePoolOptions extends Model
 {
     /**
+     * @description The IDs of elasticity assurances.
+     *
+     **Limits**: You can renew up to 20 elasticity assurances at a time.
+     *
+     * You can call the [DescribeElasticityAssurances](https://help.aliyun.com/document_detail/2679748.html) operation to query the elasticity assurances that you purchased.
      * @var string[]
      */
     public $id;

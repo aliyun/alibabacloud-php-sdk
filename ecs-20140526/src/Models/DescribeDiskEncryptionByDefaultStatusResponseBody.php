@@ -6,17 +6,23 @@ namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ModifyDeploymentSetAttributeResponseBody extends Model
+class DescribeDiskEncryptionByDefaultStatusResponseBody extends Model
 {
     /**
-     * @description The request ID.
+     * @example false
      *
+     * @var bool
+     */
+    public $encrypted;
+
+    /**
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
      *
      * @var string
      */
     public $requestId;
     protected $_name = [
+        'encrypted' => 'Encrypted',
         'requestId' => 'RequestId',
     ];
 
@@ -27,6 +33,9 @@ class ModifyDeploymentSetAttributeResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->encrypted) {
+            $res['Encrypted'] = $this->encrypted;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -37,11 +46,14 @@ class ModifyDeploymentSetAttributeResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ModifyDeploymentSetAttributeResponseBody
+     * @return DescribeDiskEncryptionByDefaultStatusResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Encrypted'])) {
+            $model->encrypted = $map['Encrypted'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

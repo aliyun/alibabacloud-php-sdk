@@ -13,7 +13,7 @@ use AlibabaCloud\Tea\Model;
 class launchConfiguration extends Model
 {
     /**
-     * @description This parameter is unavailable for public use.
+     * @description >  This parameter is in invitational preview and is not publicly available.
      *
      * @var arn[]
      */

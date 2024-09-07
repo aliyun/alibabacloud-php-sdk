@@ -18,7 +18,7 @@ class capacity extends Model
     public $availableAmount;
 
     /**
-     * @description The number of ECS instances that belong to the zone in the deployment set.
+     * @description The number of ECS instances that reside in the zone in the deployment set.
      *
      * @example 2
      *

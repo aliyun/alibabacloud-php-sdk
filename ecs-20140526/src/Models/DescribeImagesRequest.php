@@ -105,7 +105,7 @@ class DescribeImagesRequest extends Model
     public $imageOwnerAlias;
 
     /**
-     * @description The ID of the Alibaba Cloud account to which the image belongs. This parameter takes effect only when you query shared images or community images.
+     * @description The ID of the Alibaba Cloud account to which the image belongs. This parameter takes effect only if you query shared images or community images.
      *
      * @example 1234567890
      *
@@ -251,7 +251,7 @@ class DescribeImagesRequest extends Model
      *   Waiting: The image is waiting to be processed.
      *   Available: The image is available.
      *   UnAvailable: The image is unavailable.
-     *   CreateFailed: The image fails to be created.
+     *   CreateFailed: The image failed to be created.
      *   Deprecated: The image is deprecated.
      *
      * Default value: Available. You can specify multiple values for this parameter. Separate the values with commas (,).

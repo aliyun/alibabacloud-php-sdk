@@ -498,8 +498,13 @@ class CreateInstanceRequest extends Model
     public $spotDuration;
 
     /**
-     * @description The interruption mode of the preemptible instance. The value can only be Terminate, which specifies that the instance is released.
+     * @description The interruption mode of the preemptible instance. Valid values:
      *
+     *   Terminate: The instance is released.
+     *
+     *   Stop: The instance is stopped in economical mode.
+     *
+     * Default value: Terminate.
      * @example Terminate
      *
      * @var string
@@ -547,7 +552,7 @@ class CreateInstanceRequest extends Model
     public $storageSetPartitionNumber;
 
     /**
-     * @description The tags.
+     * @description The tags to add to the instance.
      *
      * @var tag[]
      */

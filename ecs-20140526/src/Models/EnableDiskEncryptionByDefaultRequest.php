@@ -6,18 +6,8 @@ namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DeleteDeploymentSetRequest extends Model
+class EnableDiskEncryptionByDefaultRequest extends Model
 {
-    /**
-     * @description The ID of the deployment set that you want to delete.
-     *
-     * This parameter is required.
-     * @example ds-bp1g5ahlkal88d7x****
-     *
-     * @var string
-     */
-    public $deploymentSetId;
-
     /**
      * @var string
      */
@@ -29,9 +19,8 @@ class DeleteDeploymentSetRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the deployment set. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+     * @description This parameter is required.
      *
-     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -48,7 +37,6 @@ class DeleteDeploymentSetRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
-        'deploymentSetId'      => 'DeploymentSetId',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'regionId'             => 'RegionId',
@@ -63,9 +51,6 @@ class DeleteDeploymentSetRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->deploymentSetId) {
-            $res['DeploymentSetId'] = $this->deploymentSetId;
-        }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
@@ -88,14 +73,11 @@ class DeleteDeploymentSetRequest extends Model
     /**
      * @param array $map
      *
-     * @return DeleteDeploymentSetRequest
+     * @return EnableDiskEncryptionByDefaultRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DeploymentSetId'])) {
-            $model->deploymentSetId = $map['DeploymentSetId'];
-        }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }

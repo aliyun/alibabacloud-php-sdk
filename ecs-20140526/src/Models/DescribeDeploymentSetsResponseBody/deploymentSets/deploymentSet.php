@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class deploymentSet extends Model
 {
     /**
-     * @description Details of the capacities of the deployment set. This parameter is valid only when the deployment set contains Elastic Compute Service (ECS) instances. The value contains the capacities of the deployment set in different zones.
+     * @description Details of the capacities of the deployment set. This parameter is valid only when the deployment set contains ECS instances. The value contains information about the capacities of the deployment set in different zones.
      *
      * @var capacities
      */
@@ -54,7 +54,7 @@ class deploymentSet extends Model
     public $deploymentSetName;
 
     /**
-     * @description The deployment strategy. The value of this response parameter is that of the `Strategy` request parameter.
+     * @description The deployment strategy. The return value of this parameter is the value of the `Strategy` request parameter.
      *
      * @example Availability
      *
@@ -100,7 +100,7 @@ class deploymentSet extends Model
     public $instanceAmount;
 
     /**
-     * @description The IDs of the instances in the deployment set.
+     * @description The IDs of the Elastic Compute Service (ECS) instances in the deployment set.
      *
      * @var instanceIds
      */

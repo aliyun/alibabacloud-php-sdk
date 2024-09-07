@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDeploymentSetsRequest extends Model
 {
     /**
-     * @description The IDs of deployment sets. The value can be a JSON array that consists of up to 100 deployment set IDs in the format of `["ds-xxxxxxxxx", "ds-yyyyyyyyy", … "ds-zzzzzzzzz"]`. Separate multiple deployment set IDs with commas (,).
+     * @description The IDs of deployment sets. The value can be a JSON array that consists of deployment set IDs in the format of `["ds-xxxxxxxxx", "ds-yyyyyyyyy", ... "ds-zzzzzzzzz"]`. You can specify up to 100 deployment set IDs in each request. Separate the deployment set IDs with commas (,).
      *
      * @example ["ds-bp67acfmxazb4ph****", "ds-bp67acfmxazb4pi****", … "ds-bp67acfmxazb4pj****"]
      *
@@ -18,7 +18,7 @@ class DescribeDeploymentSetsRequest extends Model
     public $deploymentSetIds;
 
     /**
-     * @description The name of the deployment set. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (_), and hyphens (-).
+     * @description The name of the deployment set. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http://` or `https://`. The name can contain digits, letters, colons (:), underscores (_), and hyphens (-).
      *
      * @example testDeploymentSetName
      *
@@ -27,7 +27,7 @@ class DescribeDeploymentSetsRequest extends Model
     public $deploymentSetName;
 
     /**
-     * @description > The parameter is deprecated.
+     * @description >  This parameter is deprecated.
      *
      * @example null
      *
@@ -36,7 +36,7 @@ class DescribeDeploymentSetsRequest extends Model
     public $domain;
 
     /**
-     * @description > The parameter is deprecated.
+     * @description >  This parameter is deprecated.
      *
      * @example null
      *
@@ -45,7 +45,7 @@ class DescribeDeploymentSetsRequest extends Model
     public $granularity;
 
     /**
-     * @description > The parameter is deprecated.
+     * @description >  This parameter is deprecated.
      *
      * @example null
      *
@@ -64,7 +64,7 @@ class DescribeDeploymentSetsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return.
+     * @description The page number.
      *
      * Default value: 1.
      * @example 1
@@ -74,7 +74,7 @@ class DescribeDeploymentSetsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The number of entries per page.
      *
      * Default value: 10.
      * @example 10
@@ -106,8 +106,8 @@ class DescribeDeploymentSetsRequest extends Model
     /**
      * @description The deployment strategy. Valid values:
      *
-     *   Availability: high availability strategy.
-     *   AvailabilityGroup: high availability group strategy.
+     *   Availability: high availability strategy
+     *   AvailabilityGroup: high availability group strategy
      *
      * @example Availability
      *

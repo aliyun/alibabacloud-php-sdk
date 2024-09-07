@@ -18,7 +18,7 @@ class CreateDeploymentSetRequest extends Model
     public $clientToken;
 
     /**
-     * @description The name of the deployment set. The name must be 2 to 128 characters in length and can contain Unicode characters under the Decimal Number category and the categories whose names contain Letter. The name can also contain colons (:), underscores (_), periods (.), and hyphens (-).
+     * @description The name of the deployment set. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http://` or `https://`. The name can contain digits, letters, colons (:), underscores (_), and hyphens (-).
      *
      * @example testDeploymentSetName
      *

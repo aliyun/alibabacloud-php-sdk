@@ -11,7 +11,7 @@ class dataDisk extends Model
     /**
      * @description The category of data disk N. Valid values:
      *
-     *   cloud_efficiency: ultra disk.
+     *   cloud_efficiency: utra disk.
      *
      *   cloud_ssd: standard SSD.
      *
@@ -63,7 +63,7 @@ class dataDisk extends Model
     /**
      * @description The mount point of data disk N.
      *
-     * >  This parameter is applicable to scenarios in which a full image is used to create instances. A full image is an image that contains an operating system, application software, and business data. For these scenarios, you can set the parameter to the mount point of data disk N contained in the full image and modify `DataDisk.N.Size` and `DataDisk.N.Category` to change the category and size of data disk N created based on the image.
+     * >  This parameter is applicable to scenarios in which a full image is used to create instances. A full image is an image that contains an operating system, application software, and business data. For these scenarios, you can set this parameter to the mount point of data disk N contained in the full image and modify the `DataDisk.N.Size` and `DataDisk.N.Category` parameters to change the category and size of data disk N created based on the image.
      * @example /dev/xvdb
      *
      * @var string
@@ -128,20 +128,20 @@ class dataDisk extends Model
     /**
      * @description The size of data disk N. Valid values of N: 1 to 16. Unit: GiB. Valid values:
      *
-     *   Valid values when DataDisk.N.Category is set to cloud_efficiency: 20 to 32768.
+     *   Valid values if you set DataDisk.N.Category to cloud_efficiency: 20 to 32768.
      *
-     *   Valid values when DataDisk.N.Category is set to cloud_ssd: 20 to 32768.
+     *   Valid values if you set DataDisk.N.Category to cloud_ssd: 20 to 32768.
      *
-     *   Valid values when DataDisk.N.Category is set to cloud_essd: vary based on the `DataDisk.N.PerformanceLevel` value.
+     *   Valid values if you set DataDisk.N.Category to cloud_essd: vary based on the `DataDisk.N.PerformanceLevel` value.
      *
-     *   Valid values when DataDisk.N.PerformanceLevel is set to PL0: 1 to 32768.
-     *   Valid values when DataDisk.N.PerformanceLevel is set to PL1: 20 to 32768.
-     *   Valid values when DataDisk.N.PerformanceLevel is set to PL2: 461 to 32768.
-     *   Valid values when DataDisk.N.PerformanceLevel is set to PL3: 1261 to 32768.
+     *   Valid values when DataDisk.N.PerformanceLevel is set to PL0: 1 to 65536.
+     *   Valid values when DataDisk.N.PerformanceLevel is set to PL1: 20 to 65536.
+     *   Valid values when DataDisk.N.PerformanceLevel is set to PL2: 461 to 65536.
+     *   Valid values when DataDisk.N.PerformanceLevel is set to PL3: 1261 to 65536.
      *
-     *   Valid values when DataDisk.N.Category is set to cloud: 5 to 2000.
+     *   Valid values if you set DataDisk.N.Category to cloud: 5 to 2000.
      *
-     * >  The value of this parameter must be greater than or equal to the size of the snapshot specified by `DataDisk.N.SnapshotId`.
+     * >  The value of this parameter must be greater than or equal to the size of the snapshot specified by `SnapshotId`.
      * @example 2000
      *
      * @var int
@@ -152,7 +152,7 @@ class dataDisk extends Model
      * @description The ID of the snapshot to use to create data disk N. Valid values of N: 1 to 16.
      *
      *   If `DataDisk.N.SnapshotId` is specified, `DataDisk.N.Size` is ignored. The data disk is created based on the size of the specified snapshot.
-     *   Use snapshots created after July 15, 2013. Otherwise, an error is returned and your request is rejected.
+     *   Use snapshots created on or after July 15, 2013. Otherwise, an error is returned and your request is rejected.
      *
      * @example s-bp17441ohwka0yuh****
      *
@@ -161,7 +161,7 @@ class dataDisk extends Model
     public $snapshotId;
 
     /**
-     * @description The ID of the dedicated block storage cluster to which data disk N belongs. If you want to use a disk in a dedicated block storage cluster as data disk N when you create the instance, you must specify this parameter.
+     * @description The ID of the dedicated block storage cluster to which data disk N belongs. If you want to use a disk in a dedicated block storage cluster as data disk N when you create the instance, specify this parameter.
      *
      * @example dbsc-j5e1sf2vaf5he8m2****
      *

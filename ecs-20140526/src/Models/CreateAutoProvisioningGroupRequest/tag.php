@@ -11,7 +11,7 @@ class tag extends Model
     /**
      * @description The key of tag N to add to the auto provisioning group.
      *
-     * Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot contain http:// or https://. The tag key cannot start with acs: or aliyun.
+     * Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length. It cannot start with aliyun or acs: and cannot contain http:// or https://.
      * @example TestKey
      *
      * @var string

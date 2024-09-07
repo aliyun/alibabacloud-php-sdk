@@ -9,6 +9,14 @@ use AlibabaCloud\Tea\Model;
 class dataDisk extends Model
 {
     /**
+     * @description Specifies whether to enable the performance burst feature for data disk N. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * >  This parameter is available only if you set LaunchConfiguration.DataDisk.N.Category to cloud_auto. For more information, see [ESSD AutoPL disks](https://help.aliyun.com/document_detail/368372.html).
+     * @example false
+     *
      * @var bool
      */
     public $burstingEnabled;
@@ -16,10 +24,10 @@ class dataDisk extends Model
     /**
      * @description The category of data disk N. Valid values of N: 1 to 16. Valid values:
      *
-     *   cloud_efficiency: ultra disk
-     *   cloud_ssd: standard SSD
-     *   cloud_essd: ESSD
-     *   cloud: basic disk
+     *   cloud_efficiency: ultra disk.
+     *   cloud_ssd: standard SSD.
+     *   cloud_essd: ESSD.
+     *   cloud: basic disk.
      *
      * For I/O optimized instances, the default value is cloud_efficiency. For non-I/O optimized instances, the default value is cloud.
      *
@@ -66,7 +74,7 @@ class dataDisk extends Model
     /**
      * @description The name of data disk N. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http://` or `https://`. The name can contain letters, digits, periods (.), colons (:), underscores (_), and hyphens (-).
      *
-     * By default, this parameter is left empty.
+     * This parameter is left empty by default.
      *
      * When both LaunchTemplateId and LaunchConfiguration.\\* parameters are specified, LaunchTemplateId takes precedence.
      * @example cloud_ssdData
@@ -76,6 +84,10 @@ class dataDisk extends Model
     public $diskName;
 
     /**
+     * @description >  This parameter is not publicly available.
+     *
+     * @example null
+     *
      * @var string
      */
     public $encryptAlgorithm;
@@ -105,14 +117,14 @@ class dataDisk extends Model
     public $kmsKeyId;
 
     /**
-     * @description The performance level of the ESSD to use as data disk N. The value of N in this parameter must be the same as the value of N in `LaunchConfiguration.DataDisk.N.Category`. Valid values:
+     * @description The performance level of the Enterprise SSD (ESSD) to use as data disk N. The value of N in this parameter must be the same as the value of N in `LaunchConfiguration.DataDisk.N.Category`. Valid values:
      *
      *   PL0: A single ESSD can deliver up to 10,000 random read/write IOPS.
      *   PL1 (default): A single ESSD can deliver up to 50,000 random read/write IOPS.
      *   PL2: A single ESSD can deliver up to 100,000 random read/write IOPS.
      *   PL3: A single ESSD can deliver up to 1,000,000 random read/write IOPS.
      *
-     * For information about ESSD performance levels, see [ESSDs](https://help.aliyun.com/document_detail/122389.html).
+     * For more information about ESSD performance levels, see [ESSDs](https://help.aliyun.com/document_detail/122389.html).
      *
      * When both LaunchTemplateId and LaunchConfiguration.\\* parameters are specified, LaunchTemplateId takes precedence.
      * @example PL1
@@ -122,6 +134,11 @@ class dataDisk extends Model
     public $performanceLevel;
 
     /**
+     * @description The provisioned read/write IOPS of the ESSD AutoPL disk to use as data disk N. Valid values: 0 to min{50,000, 1,000 × Capacity - Baseline IOPS}.
+     *
+     * >  This parameter is available only if you set LaunchConfiguration.DataDisk.N.Category to cloud_auto. For more information, see [ESSD AutoPL disks](https://help.aliyun.com/document_detail/368372.html).
+     * @example 40000
+     *
      * @var int
      */
     public $provisionedIops;
@@ -154,7 +171,7 @@ class dataDisk extends Model
     /**
      * @description The ID of the snapshot to use to create data disk N. Valid values of N: 1 to 16.
      *
-     * After this parameter is specified, `LaunchConfiguration.DataDisk.N.Size` is ignored. The size of data disk N is the same as that of the snapshot specified by this parameter. Use snapshots created on or after July 15, 2013. Otherwise, an error is returned and your request is rejected.
+     * If you specify this parameter, `LaunchConfiguration.DataDisk.N.Size` is ignored. The size of data disk N is the same as that of the snapshot specified by this parameter. Use snapshots created after July 15, 2013. Otherwise, an error is returned and your request is rejected.
      *
      * When both LaunchTemplateId and LaunchConfiguration.\\* parameters are specified, LaunchTemplateId takes precedence.
      * @example s-bp17441ohwka0yuh****

@@ -68,7 +68,7 @@ class extendedAttribute extends Model
     public $hostType;
 
     /**
-     * @description The inactive disks that have been released and whose data must be cleared.
+     * @description The inactive disks that were released and whose data must be cleared.
      *
      * @var inactiveDisks
      */

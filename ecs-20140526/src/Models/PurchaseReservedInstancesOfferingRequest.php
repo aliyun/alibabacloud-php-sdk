@@ -10,9 +10,11 @@ use AlibabaCloud\Tea\Model;
 class PurchaseReservedInstancesOfferingRequest extends Model
 {
     /**
-     * @description Specifies whether to enable auto-renewal for the reserved instance. Default value: false. Valid values:
+     * @description Specifies whether to enable auto-renewal for the reserved instance. Valid values:
      *
-     * true: enables auto-renewal for the reserved instance. false: does not enable auto-renewal for the reserved instance.
+     *   true
+     *   false (default)
+     *
      * @example true
      *
      * @var bool
@@ -177,6 +179,8 @@ class PurchaseReservedInstancesOfferingRequest extends Model
     public $scope;
 
     /**
+     * @description The time when the reserved instance takes effect. Specify the time in the [ISO 8601 standard](https://help.aliyun.com/document_detail/25696.html) in the `yyyy-MM-ddTHHZ` format. The time must be in UTC.
+     *
      * @example 2024-07-04T15Z
      *
      * @var string

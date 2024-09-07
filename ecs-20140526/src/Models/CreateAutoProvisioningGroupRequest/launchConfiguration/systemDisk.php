@@ -9,12 +9,20 @@ use AlibabaCloud\Tea\Model;
 class systemDisk extends Model
 {
     /**
+     * @description Specifies whether to enable the performance burst feature for the system disk. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * >  This parameter is available only if you set `LaunchConfiguration.SystemDisk.Category` to `cloud_auto`. For more information, see [ESSD AutoPL disks](https://help.aliyun.com/document_detail/368372.html).
+     * @example false
+     *
      * @var bool
      */
     public $burstingEnabled;
 
     /**
-     * @description The algorithm to use to encrypt system disk N. Valid values:
+     * @description The algorithm to use to encrypt the system disk. Valid values:
      *
      *   aes-256
      *   sm4-128
@@ -22,6 +30,8 @@ class systemDisk extends Model
      * Default value: aes-256.
      *
      * When both LaunchTemplateId and LaunchConfiguration.\\* parameters are specified, LaunchTemplateId takes precedence.
+     *
+     * >  This parameter is not publicly available.
      * @example aes-256
      *
      * @var string
@@ -29,7 +39,7 @@ class systemDisk extends Model
     public $encryptAlgorithm;
 
     /**
-     * @description Specifies whether to encrypt system disk N. Valid values:
+     * @description Specifies whether to encrypt the system disk. Valid values:
      *
      *   true
      *   false
@@ -44,7 +54,7 @@ class systemDisk extends Model
     public $encrypted;
 
     /**
-     * @description The ID of the KMS key to use for system disk N.
+     * @description The ID of the KMS key to use for the system disk.
      *
      * When both LaunchTemplateId and LaunchConfiguration.\\* parameters are specified, LaunchTemplateId takes precedence.
      * @example 0e478b7a-4262-4802-b8cb-00d3fb40****
@@ -54,6 +64,11 @@ class systemDisk extends Model
     public $KMSKeyId;
 
     /**
+     * @description The provisioned read/write IOPS of the ESSD AutoPL disk to use as the system disk. Valid values: 0 to min{50,000, 1,000 × Capacity - Baseline IOPS}.
+     *
+     * >  This parameter is available only if you set LaunchConfiguration.SystemDisk.Category to cloud_auto. For more information, see [ESSD AutoPL disks](https://help.aliyun.com/document_detail/368372.html).
+     * @example 40000
+     *
      * @var int
      */
     public $provisionedIops;

@@ -87,7 +87,7 @@ class instanceSystemEventType extends Model
     public $notBefore;
 
     /**
-     * @description The reason why the system event was scheduled.
+     * @description The reason why the system event occurred.
      *
      * @example System maintenance is scheduled due to ***.
      *
@@ -96,6 +96,10 @@ class instanceSystemEventType extends Model
     public $reason;
 
     /**
+     * @description The reason code category for the system event.
+     *
+     * @example VPCMigrationEcs
+     *
      * @var string
      */
     public $reasonCode;

@@ -19,7 +19,7 @@ class ModifyDeploymentSetAttributeRequest extends Model
     public $deploymentSetId;
 
     /**
-     * @description The new name of the deployment set. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with http:// or https://. It can contain letters, digits, colons (:), underscores (_), and hyphens (-).
+     * @description The new name of the deployment set. The name must be 2 to 128 characters in length and can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
      *
      * @example DeploymentSetTestName
      *
@@ -37,15 +37,11 @@ class ModifyDeploymentSetAttributeRequest extends Model
     public $description;
 
     /**
-     * @example ECSforCloud@Alibaba.com
-     *
      * @var string
      */
     public $ownerAccount;
 
     /**
-     * @example 155780923770
-     *
      * @var int
      */
     public $ownerId;
@@ -61,15 +57,11 @@ class ModifyDeploymentSetAttributeRequest extends Model
     public $regionId;
 
     /**
-     * @example ECSforCloud
-     *
      * @var string
      */
     public $resourceOwnerAccount;
 
     /**
-     * @example 155780923770
-     *
      * @var int
      */
     public $resourceOwnerId;

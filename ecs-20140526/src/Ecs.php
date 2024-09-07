@@ -272,6 +272,10 @@ use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDiagnosticReportAttributesRequ
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDiagnosticReportAttributesResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDiagnosticReportsRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDiagnosticReportsResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDiskDefaultKMSKeyIdRequest;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDiskDefaultKMSKeyIdResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDiskEncryptionByDefaultStatusRequest;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDiskEncryptionByDefaultStatusResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDiskMonitorDataRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDiskMonitorDataResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDisksFullStatusRequest;
@@ -460,12 +464,16 @@ use AlibabaCloud\SDK\Ecs\V20140526\Models\DetachNetworkInterfaceRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DetachNetworkInterfaceResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DisableActivationRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DisableActivationResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DisableDiskEncryptionByDefaultRequest;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DisableDiskEncryptionByDefaultResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\EipFillParamsRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\EipFillParamsResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\EipFillProductRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\EipFillProductResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\EipNotifyPaidRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\EipNotifyPaidResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\EnableDiskEncryptionByDefaultRequest;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\EnableDiskEncryptionByDefaultResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\EnablePhysicalConnectionRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\EnablePhysicalConnectionResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ExportImageRequest;
@@ -530,6 +538,8 @@ use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyDiskAttributeRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyDiskAttributeResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyDiskChargeTypeRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyDiskChargeTypeResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyDiskDefaultKMSKeyIdRequest;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyDiskDefaultKMSKeyIdResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyDiskDeploymentRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyDiskDeploymentResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyDiskSpecRequest;
@@ -667,6 +677,8 @@ use AlibabaCloud\SDK\Ecs\V20140526\Models\ReplaceSystemDiskRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ReplaceSystemDiskResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ReportInstancesStatusRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ReportInstancesStatusResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\ResetDiskDefaultKMSKeyIdRequest;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\ResetDiskDefaultKMSKeyIdResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ResetDiskRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ResetDiskResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ResetDisksRequest;
@@ -4143,7 +4155,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary The name of the deployment set. The name must be 2 to 128 characters in length, It must start with a letter and cannot start with \\`http://\\` or \\`https://\\`. It can contain letters, digits, colons (:), underscores (\\_), and hyphens (-).
+     * @summary Creates a deployment set in a region.
      *  *
      * @param CreateDeploymentSetRequest $request CreateDeploymentSetRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -4212,7 +4224,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary The name of the deployment set. The name must be 2 to 128 characters in length, It must start with a letter and cannot start with \\`http://\\` or \\`https://\\`. It can contain letters, digits, colons (:), underscores (\\_), and hyphens (-).
+     * @summary Creates a deployment set in a region.
      *  *
      * @param CreateDeploymentSetRequest $request CreateDeploymentSetRequest
      *
@@ -4344,7 +4356,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Creates a pay-as-you-go or subscription data disk.
+     * @summary Creates a pay-as-you-go or subscription data disk. When you call this operation, you can specify parameters, such as ZoneId, SnapshotId, Size, and DiskCategory, in the request.
      *  *
      * @description ## [](#)Usage notes
      * *   You can enable the multi-attach (`MultiAttach`) feature when you create a disk. Before you enable the multi-attach feature, we recommend that you familiarize yourself with the feature and its limits. For more information, see [NVMe disks](https://help.aliyun.com/document_detail/256487.html) and [Enable multi-attach](https://help.aliyun.com/document_detail/262105.html).
@@ -4464,7 +4476,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Creates a pay-as-you-go or subscription data disk.
+     * @summary Creates a pay-as-you-go or subscription data disk. When you call this operation, you can specify parameters, such as ZoneId, SnapshotId, Size, and DiskCategory, in the request.
      *  *
      * @description ## [](#)Usage notes
      * *   You can enable the multi-attach (`MultiAttach`) feature when you create a disk. Before you enable the multi-attach feature, we recommend that you familiarize yourself with the feature and its limits. For more information, see [NVMe disks](https://help.aliyun.com/document_detail/256487.html) and [Enable multi-attach](https://help.aliyun.com/document_detail/262105.html).
@@ -5189,7 +5201,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Creates a subscription or pay-as-you-go Elastic Compute Service (ECS) instance.
+     * @summary Creates a subscription or pay-as-you-go Elastic Compute Service (ECS) instance. When you call this operation, you can specify parameters, such as ImageId, InstanceType, SecurityGroupId, and InternetChargeType, in the request.
      *  *
      * @description ## [](#)Usage notes
      * >  You can call the [DescribeAvailableResource](https://help.aliyun.com/document_detail/66186.html) operation to query available resources in a specific region or zone. If you want to batch create instances that automatically enter the Running state after they are created, we recommend that you call the [RunInstances](https://help.aliyun.com/document_detail/63440.html) operation.
@@ -5441,7 +5453,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Creates a subscription or pay-as-you-go Elastic Compute Service (ECS) instance.
+     * @summary Creates a subscription or pay-as-you-go Elastic Compute Service (ECS) instance. When you call this operation, you can specify parameters, such as ImageId, InstanceType, SecurityGroupId, and InternetChargeType, in the request.
      *  *
      * @description ## [](#)Usage notes
      * >  You can call the [DescribeAvailableResource](https://help.aliyun.com/document_detail/66186.html) operation to query available resources in a specific region or zone. If you want to batch create instances that automatically enter the Running state after they are created, we recommend that you call the [RunInstances](https://help.aliyun.com/document_detail/63440.html) operation.
@@ -8075,7 +8087,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a deployment set in a region. Make sure that no instances exist in the deployment set that you want to delete. If instances exist in the deployment set, move the instances to a different deployment set or release the instances before you delete the deployment set.
+     * @summary Deletes a deployment set in a region. When you call this operation, specify parameters such as RegionId and DeploymentSetId in the request.
+     *  *
+     * @description Before you delete a deployment set, make sure that no instances exist in the deployment set. If instances exist in the deployment set, move the instances to a different deployment set or release the instances before you delete the deployment set. For more information, see [Change the deployment set of an instance](https://help.aliyun.com/document_detail/108407.html) and [Release an ECS instance](https://help.aliyun.com/document_detail/25442.html).
      *  *
      * @param DeleteDeploymentSetRequest $request DeleteDeploymentSetRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -8123,7 +8137,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a deployment set in a region. Make sure that no instances exist in the deployment set that you want to delete. If instances exist in the deployment set, move the instances to a different deployment set or release the instances before you delete the deployment set.
+     * @summary Deletes a deployment set in a region. When you call this operation, specify parameters such as RegionId and DeploymentSetId in the request.
+     *  *
+     * @description Before you delete a deployment set, make sure that no instances exist in the deployment set. If instances exist in the deployment set, move the instances to a different deployment set or release the instances before you delete the deployment set. For more information, see [Change the deployment set of an instance](https://help.aliyun.com/document_detail/108407.html) and [Release an ECS instance](https://help.aliyun.com/document_detail/25442.html).
      *  *
      * @param DeleteDeploymentSetRequest $request DeleteDeploymentSetRequest
      *
@@ -11981,7 +11997,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Queries the instance families that support deployment sets.
+     * @summary Queries the instance families that support different deployment strategies. When you call this operation, specify parameters, such as RegionId and Strategy, in the request.
      *  *
      * @description ## [](#)Usage notes
      * For information about instance families, see [Overview of instance families](https://help.aliyun.com/document_detail/25378.html).
@@ -12032,7 +12048,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Queries the instance families that support deployment sets.
+     * @summary Queries the instance families that support different deployment strategies. When you call this operation, specify parameters, such as RegionId and Strategy, in the request.
      *  *
      * @description ## [](#)Usage notes
      * For information about instance families, see [Overview of instance families](https://help.aliyun.com/document_detail/25378.html).
@@ -12049,7 +12065,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Queries the attributes of one or more deployment sets.
+     * @summary Queries the details of one or more deployment sets. When you call this operation, you can specify parameters, such as DeploymentSetIds, Strategy, and DeploymentSetName, in the request.
      *  *
      * @param DescribeDeploymentSetsRequest $request DescribeDeploymentSetsRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -12118,7 +12134,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Queries the attributes of one or more deployment sets.
+     * @summary Queries the details of one or more deployment sets. When you call this operation, you can specify parameters, such as DeploymentSetIds, Strategy, and DeploymentSetName, in the request.
      *  *
      * @param DescribeDeploymentSetsRequest $request DescribeDeploymentSetsRequest
      *
@@ -12368,14 +12384,114 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Queries the monitoring data of a disk in a specific period of time.
+     * @summary 查询云盘默认加密加密密钥
+     *  *
+     * @param DescribeDiskDefaultKMSKeyIdRequest $request DescribeDiskDefaultKMSKeyIdRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeDiskDefaultKMSKeyIdResponse DescribeDiskDefaultKMSKeyIdResponse
+     */
+    public function describeDiskDefaultKMSKeyIdWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDiskDefaultKMSKeyId',
+            'version'     => '2014-05-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDiskDefaultKMSKeyIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询云盘默认加密加密密钥
+     *  *
+     * @param DescribeDiskDefaultKMSKeyIdRequest $request DescribeDiskDefaultKMSKeyIdRequest
+     *
+     * @return DescribeDiskDefaultKMSKeyIdResponse DescribeDiskDefaultKMSKeyIdResponse
+     */
+    public function describeDiskDefaultKMSKeyId($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDiskDefaultKMSKeyIdWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 检查云盘默认加密开启状态
+     *  *
+     * @param DescribeDiskEncryptionByDefaultStatusRequest $request DescribeDiskEncryptionByDefaultStatusRequest
+     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeDiskEncryptionByDefaultStatusResponse DescribeDiskEncryptionByDefaultStatusResponse
+     */
+    public function describeDiskEncryptionByDefaultStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDiskEncryptionByDefaultStatus',
+            'version'     => '2014-05-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDiskEncryptionByDefaultStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 检查云盘默认加密开启状态
+     *  *
+     * @param DescribeDiskEncryptionByDefaultStatusRequest $request DescribeDiskEncryptionByDefaultStatusRequest
+     *
+     * @return DescribeDiskEncryptionByDefaultStatusResponse DescribeDiskEncryptionByDefaultStatusResponse
+     */
+    public function describeDiskEncryptionByDefaultStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDiskEncryptionByDefaultStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries the monitoring data of a disk in a specific period of time. When you call this operation, you can specify parameters, such as DiskId, StartTime, and EndTime, in the request.
      *  *
      * @description ## [](#)Usage notes
      * You can query the following monitoring data of a disk: the read IOPS, write IOPS, read bandwidth (byte/s), write bandwidth (byte/s), read latency (microseconds), and write latency (microseconds).
      * Take note of the following items:
-     * *   You can query the monitoring data only of the disks that are in the In Use (`In_use`) state. For more information, see [Disk states](https://help.aliyun.com/document_detail/25689.html).
+     * *   Monitoring data of only disks that are in the In Use (`In_use`) state can be queried. For more information, see [Disk states](https://help.aliyun.com/document_detail/25689.html).
      *     **
-     *     **Note** Some information may be missing from the monitoring data of a disk because the disk is not in the In Use (`In_use`) state and the system cannot obtain the relevant information.
+     *     **Note** Some information may be missing from the monitoring data of a disk because the disk is not in the In Use `(In_use)` state and the system cannot obtain the relevant information.
      * *   Up to 400 monitoring data entries can be returned at a time. Make sure that the `TotalCount` value does not exceed 400. The value is calculated by using the following formula: `TotalCount = (EndTime - StartTime)/Period`. If the TotalCount value is greater than 400, the `InvalidParameter.TooManyDataQueried` error is returned.
      * *   You can query the monitoring data in the last 30 days. If the value of `StartTime` is more than 30 days earlier than the current time, an error is returned.
      *  *
@@ -12431,14 +12547,14 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Queries the monitoring data of a disk in a specific period of time.
+     * @summary Queries the monitoring data of a disk in a specific period of time. When you call this operation, you can specify parameters, such as DiskId, StartTime, and EndTime, in the request.
      *  *
      * @description ## [](#)Usage notes
      * You can query the following monitoring data of a disk: the read IOPS, write IOPS, read bandwidth (byte/s), write bandwidth (byte/s), read latency (microseconds), and write latency (microseconds).
      * Take note of the following items:
-     * *   You can query the monitoring data only of the disks that are in the In Use (`In_use`) state. For more information, see [Disk states](https://help.aliyun.com/document_detail/25689.html).
+     * *   Monitoring data of only disks that are in the In Use (`In_use`) state can be queried. For more information, see [Disk states](https://help.aliyun.com/document_detail/25689.html).
      *     **
-     *     **Note** Some information may be missing from the monitoring data of a disk because the disk is not in the In Use (`In_use`) state and the system cannot obtain the relevant information.
+     *     **Note** Some information may be missing from the monitoring data of a disk because the disk is not in the In Use `(In_use)` state and the system cannot obtain the relevant information.
      * *   Up to 400 monitoring data entries can be returned at a time. Make sure that the `TotalCount` value does not exceed 400. The value is calculated by using the following formula: `TotalCount = (EndTime - StartTime)/Period`. If the TotalCount value is greater than 400, the `InvalidParameter.TooManyDataQueried` error is returned.
      * *   You can query the monitoring data in the last 30 days. If the value of `StartTime` is more than 30 days earlier than the current time, an error is returned.
      *  *
@@ -13819,7 +13935,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Queries available images.
+     * @summary Queries available images. When you call this operation, you can specify parameters, such as ImageId, ImageFamily, and InstanceType, in the request.
      *  *
      * @description ## [](#)Usage notes
      * *   You can query your custom images, public images provided by Alibaba Cloud, Alibaba Cloud Marketplace images, and shared images from other Alibaba Cloud accounts.
@@ -13936,7 +14052,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Queries available images.
+     * @summary Queries available images. When you call this operation, you can specify parameters, such as ImageId, ImageFamily, and InstanceType, in the request.
      *  *
      * @description ## [](#)Usage notes
      * *   You can query your custom images, public images provided by Alibaba Cloud, Alibaba Cloud Marketplace images, and shared images from other Alibaba Cloud accounts.
@@ -14166,7 +14282,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Queries the system events of Elastic Compute Service (ECS) instances. By default, non-active system events are queried.
+     * @summary Queries the system events of Elastic Compute Service (ECS) instances. When you call this operation, you can specify parameters, such as InstanceId and EventType, in the request. By default, non-active system events are queried.
      *  *
      * @description *   You can query system events that were completed within the last 30 days. No limits apply to the time range for querying uncompleted system events.
      * *   You can also specify InstanceEventCycleStatus to query the system events that are in the Scheduled, Executing, or Inquiring state.
@@ -14262,7 +14378,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Queries the system events of Elastic Compute Service (ECS) instances. By default, non-active system events are queried.
+     * @summary Queries the system events of Elastic Compute Service (ECS) instances. When you call this operation, you can specify parameters, such as InstanceId and EventType, in the request. By default, non-active system events are queried.
      *  *
      * @description *   You can query system events that were completed within the last 30 days. No limits apply to the time range for querying uncompleted system events.
      * *   You can also specify InstanceEventCycleStatus to query the system events that are in the Scheduled, Executing, or Inquiring state.
@@ -14590,7 +14706,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Queries the status information of multiple Elastic Compute Service (ECS) instances.
+     * @summary Queries the status information of Elastic Compute Service (ECS) instances. When you call this operation, you can specify parameters, such as RegionId, ZoneId, and InstanceId, in the request.
      *  *
      * @description *   For information about the lifecycle states of an ECS instance, see [Instance states](https://help.aliyun.com/document_detail/25687.html).
      * *   You can also call this operation to query the list of ECS instances.
@@ -14653,7 +14769,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Queries the status information of multiple Elastic Compute Service (ECS) instances.
+     * @summary Queries the status information of Elastic Compute Service (ECS) instances. When you call this operation, you can specify parameters, such as RegionId, ZoneId, and InstanceId, in the request.
      *  *
      * @description *   For information about the lifecycle states of an ECS instance, see [Instance states](https://help.aliyun.com/document_detail/25687.html).
      * *   You can also call this operation to query the list of ECS instances.
@@ -20438,6 +20554,56 @@ class Ecs extends OpenApiClient
     }
 
     /**
+     * @summary 关闭云盘默认加密
+     *  *
+     * @param DisableDiskEncryptionByDefaultRequest $request DisableDiskEncryptionByDefaultRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DisableDiskEncryptionByDefaultResponse DisableDiskEncryptionByDefaultResponse
+     */
+    public function disableDiskEncryptionByDefaultWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DisableDiskEncryptionByDefault',
+            'version'     => '2014-05-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DisableDiskEncryptionByDefaultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 关闭云盘默认加密
+     *  *
+     * @param DisableDiskEncryptionByDefaultRequest $request DisableDiskEncryptionByDefaultRequest
+     *
+     * @return DisableDiskEncryptionByDefaultResponse DisableDiskEncryptionByDefaultResponse
+     */
+    public function disableDiskEncryptionByDefault($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->disableDiskEncryptionByDefaultWithOptions($request, $runtime);
+    }
+
+    /**
      * @deprecated OpenAPI EipFillParams is deprecated
      *  *
      * Deprecated
@@ -20645,6 +20811,65 @@ class Ecs extends OpenApiClient
     }
 
     /**
+     * @summary 启用云盘默认加密
+     *  *
+     * @param EnableDiskEncryptionByDefaultRequest $request EnableDiskEncryptionByDefaultRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return EnableDiskEncryptionByDefaultResponse EnableDiskEncryptionByDefaultResponse
+     */
+    public function enableDiskEncryptionByDefaultWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'EnableDiskEncryptionByDefault',
+            'version'     => '2014-05-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return EnableDiskEncryptionByDefaultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 启用云盘默认加密
+     *  *
+     * @param EnableDiskEncryptionByDefaultRequest $request EnableDiskEncryptionByDefaultRequest
+     *
+     * @return EnableDiskEncryptionByDefaultResponse EnableDiskEncryptionByDefaultResponse
+     */
+    public function enableDiskEncryptionByDefault($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->enableDiskEncryptionByDefaultWithOptions($request, $runtime);
+    }
+
+    /**
      * @deprecated OpenAPI EnablePhysicalConnection is deprecated
      *  *
      * Deprecated
@@ -20722,7 +20947,7 @@ class Ecs extends OpenApiClient
      * @description ## [](#)Usage notes
      * Before you export images, take note of the following items:
      * *   Make sure that you are familiar with the prerequisites and considerations. For more information, see [Export a custom image](https://help.aliyun.com/document_detail/58181.html).
-     * *   The `ImageFormat` parameter is available only for the following regions: India (Mumbai) Closing Down, Japan (Tokyo), Australia (Sydney), Indonesia (Jakarta), Germany (Frankfurt), UAE (Dubai), US (Virginia), UK (London), Singapore, Malaysia (Kuala Lumpur), and US (Silicon Valley). Alibaba Cloud services will be discontinued in the India (Mumbai) region. By default, custom images are exported in the RAW format in regions where the ImageFormat parameter is unsupported.
+     * *   The `ImageFormat` parameter is available only for the following regions: Japan (Tokyo), Australia (Sydney), Indonesia (Jakarta), Germany (Frankfurt), UAE (Dubai), US (Virginia), UK (London), Singapore, Malaysia (Kuala Lumpur), and US (Silicon Valley). Alibaba Cloud services will be discontinued in the India (Mumbai) region. By default, custom images are exported in the RAW format in regions where the ImageFormat parameter is unsupported.
      * *   Use Resource Access Management (RAM) to authorize Elastic Compute Service (ECS) to write data to OSS. To complete the authorization, perform the following operations:
      *     *   Create a role named `AliyunECSImageExportDefaultRole` and attach the following policy to the role:
      *                {
@@ -20822,7 +21047,7 @@ class Ecs extends OpenApiClient
      * @description ## [](#)Usage notes
      * Before you export images, take note of the following items:
      * *   Make sure that you are familiar with the prerequisites and considerations. For more information, see [Export a custom image](https://help.aliyun.com/document_detail/58181.html).
-     * *   The `ImageFormat` parameter is available only for the following regions: India (Mumbai) Closing Down, Japan (Tokyo), Australia (Sydney), Indonesia (Jakarta), Germany (Frankfurt), UAE (Dubai), US (Virginia), UK (London), Singapore, Malaysia (Kuala Lumpur), and US (Silicon Valley). Alibaba Cloud services will be discontinued in the India (Mumbai) region. By default, custom images are exported in the RAW format in regions where the ImageFormat parameter is unsupported.
+     * *   The `ImageFormat` parameter is available only for the following regions: Japan (Tokyo), Australia (Sydney), Indonesia (Jakarta), Germany (Frankfurt), UAE (Dubai), US (Virginia), UK (London), Singapore, Malaysia (Kuala Lumpur), and US (Silicon Valley). Alibaba Cloud services will be discontinued in the India (Mumbai) region. By default, custom images are exported in the RAW format in regions where the ImageFormat parameter is unsupported.
      * *   Use Resource Access Management (RAM) to authorize Elastic Compute Service (ECS) to write data to OSS. To complete the authorization, perform the following operations:
      *     *   Create a role named `AliyunECSImageExportDefaultRole` and attach the following policy to the role:
      *                {
@@ -21761,18 +21986,19 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Adds an Elastic Compute Service (ECS) instance or an elastic network interface (ENI) to a security group.
+     * @summary Adds an Elastic Compute Service (ECS) instance or an elastic network interface (ENI) to a security group. When you call this operation, you can specify parameters, such as SecurityGroupId, InstanceId, and NetworkInterfaceId, in the request.
      *  *
      * @description ## [](#)Usage notes
      * >  This operation is not recommended. We recommend that you call the [ModifyInstanceAttribute](https://help.aliyun.com/document_detail/25503.html) operation to add an instance to or remove an instance from a security group, and call the [ModifyNetworkInterfaceAttribute](https://help.aliyun.com/document_detail/58513.html) operation to add an ENI to or remove an ENI from a security group.
      * Take note of the following items:
      * *   Before you add an instance to a security group, the instance must be in the **Stopped** (Stopped) or **Running** (Running) state.
      * *   An instance can be added to up to five security groups by default.
-     * *   To add an instance to more security groups, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex). An instance can be added to up to 16 security groups.
+     * *   You can [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex) to change the maximum number of security groups to which an instance can be added to 4 or 10.
      * *   A basic security group can contain up to 2,000 instances. An advanced security group can contain up to 65,536 instances.
      * *   The security group and the instance must reside in the same region.
-     * *   The security group and the instance must be of the same network type. If the network type is virtual private cloud (VPC), the security group and the instance must reside in the same VPC.
+     * *   The security group and the instance must be of the same network type. If the network type is Virtual Private Cloud (VPC), the security group and the instance must reside in the same VPC.
      * *   An instance and an ENI cannot be added to a security group at the same time. You cannot specify `InstanceId` and `NetworkInterfaceId` at the same time in a request.
+     * For more information, see [Limits](https://help.aliyun.com/document_detail/25412.html).
      *  *
      * @param JoinSecurityGroupRequest $request JoinSecurityGroupRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -21826,18 +22052,19 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Adds an Elastic Compute Service (ECS) instance or an elastic network interface (ENI) to a security group.
+     * @summary Adds an Elastic Compute Service (ECS) instance or an elastic network interface (ENI) to a security group. When you call this operation, you can specify parameters, such as SecurityGroupId, InstanceId, and NetworkInterfaceId, in the request.
      *  *
      * @description ## [](#)Usage notes
      * >  This operation is not recommended. We recommend that you call the [ModifyInstanceAttribute](https://help.aliyun.com/document_detail/25503.html) operation to add an instance to or remove an instance from a security group, and call the [ModifyNetworkInterfaceAttribute](https://help.aliyun.com/document_detail/58513.html) operation to add an ENI to or remove an ENI from a security group.
      * Take note of the following items:
      * *   Before you add an instance to a security group, the instance must be in the **Stopped** (Stopped) or **Running** (Running) state.
      * *   An instance can be added to up to five security groups by default.
-     * *   To add an instance to more security groups, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex). An instance can be added to up to 16 security groups.
+     * *   You can [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex) to change the maximum number of security groups to which an instance can be added to 4 or 10.
      * *   A basic security group can contain up to 2,000 instances. An advanced security group can contain up to 65,536 instances.
      * *   The security group and the instance must reside in the same region.
-     * *   The security group and the instance must be of the same network type. If the network type is virtual private cloud (VPC), the security group and the instance must reside in the same VPC.
+     * *   The security group and the instance must be of the same network type. If the network type is Virtual Private Cloud (VPC), the security group and the instance must reside in the same VPC.
      * *   An instance and an ENI cannot be added to a security group at the same time. You cannot specify `InstanceId` and `NetworkInterfaceId` at the same time in a request.
+     * For more information, see [Limits](https://help.aliyun.com/document_detail/25412.html).
      *  *
      * @param JoinSecurityGroupRequest $request JoinSecurityGroupRequest
      *
@@ -21851,7 +22078,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Removes an Elastic Compute Service (ECS) instance or an elastic network interface (ENI) from a security group.
+     * @summary Removes an Elastic Compute Service (ECS) instance or an elastic network interface (ENI) from a security group. To remove an ECS instance from a security group, specify SecurityGroupId and InstanceId in the request. To remove an ENI from a security group, specify SecurityGroupId and NetworkInterfaceId in the request.
      *  *
      * @description ## [](#)Usage notes
      * >
@@ -21914,7 +22141,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Removes an Elastic Compute Service (ECS) instance or an elastic network interface (ENI) from a security group.
+     * @summary Removes an Elastic Compute Service (ECS) instance or an elastic network interface (ENI) from a security group. To remove an ECS instance from a security group, specify SecurityGroupId and InstanceId in the request. To remove an ENI from a security group, specify SecurityGroupId and NetworkInterfaceId in the request.
      *  *
      * @description ## [](#)Usage notes
      * >
@@ -23214,6 +23441,8 @@ class Ecs extends OpenApiClient
     }
 
     /**
+     * @summary Modifies the name and description of a deployment set. When you call this operation, you can specify parameters, such as DeploymentSetId and DeploymentSetName, in the request.
+     *  *
      * @param ModifyDeploymentSetAttributeRequest $request ModifyDeploymentSetAttributeRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
@@ -23266,6 +23495,8 @@ class Ecs extends OpenApiClient
     }
 
     /**
+     * @summary Modifies the name and description of a deployment set. When you call this operation, you can specify parameters, such as DeploymentSetId and DeploymentSetName, in the request.
+     *  *
      * @param ModifyDeploymentSetAttributeRequest $request ModifyDeploymentSetAttributeRequest
      *
      * @return ModifyDeploymentSetAttributeResponse ModifyDeploymentSetAttributeResponse
@@ -23518,6 +23749,59 @@ class Ecs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyDiskChargeTypeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 修改云盘默认加密加密密钥
+     *  *
+     * @param ModifyDiskDefaultKMSKeyIdRequest $request ModifyDiskDefaultKMSKeyIdRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyDiskDefaultKMSKeyIdResponse ModifyDiskDefaultKMSKeyIdResponse
+     */
+    public function modifyDiskDefaultKMSKeyIdWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->KMSKeyId)) {
+            $query['KMSKeyId'] = $request->KMSKeyId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyDiskDefaultKMSKeyId',
+            'version'     => '2014-05-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyDiskDefaultKMSKeyIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 修改云盘默认加密加密密钥
+     *  *
+     * @param ModifyDiskDefaultKMSKeyIdRequest $request ModifyDiskDefaultKMSKeyIdRequest
+     *
+     * @return ModifyDiskDefaultKMSKeyIdResponse ModifyDiskDefaultKMSKeyIdResponse
+     */
+    public function modifyDiskDefaultKMSKeyId($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDiskDefaultKMSKeyIdWithOptions($request, $runtime);
     }
 
     /**
@@ -27618,7 +27902,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Purchases a reserved instance. Reserved instances can be automatically matched to pay-as-you-go instances to offset the fees of the pay-as-you-go instances.
+     * @summary Purchases a reserved instance. When you call this operation, you can specify parameters, such as InstanceType and Scope, in the request. Reserved instances can be applied to automatically offset fees for pay-as-you-go Elastic Compute Service (ECS) instances.
      *  *
      * @description ## [](#)Usage notes
      * *   Before you call this operation, make sure that you fully understand the billing method of reserved instances. For more information, see [Reserved instances](https://help.aliyun.com/document_detail/100371.html).
@@ -27715,7 +27999,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Purchases a reserved instance. Reserved instances can be automatically matched to pay-as-you-go instances to offset the fees of the pay-as-you-go instances.
+     * @summary Purchases a reserved instance. When you call this operation, you can specify parameters, such as InstanceType and Scope, in the request. Reserved instances can be applied to automatically offset fees for pay-as-you-go Elastic Compute Service (ECS) instances.
      *  *
      * @description ## [](#)Usage notes
      * *   Before you call this operation, make sure that you fully understand the billing method of reserved instances. For more information, see [Reserved instances](https://help.aliyun.com/document_detail/100371.html).
@@ -28866,7 +29150,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary 续费
+     * @summary Renews one or more elasticity assurances that you purchased. When you call this operation, you can specify parameters, such as PrivatePoolOptionsId and Period, in the request.
      *  *
      * @param RenewElasticityAssurancesRequest $request RenewElasticityAssurancesRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -28926,7 +29210,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary 续费
+     * @summary Renews one or more elasticity assurances that you purchased. When you call this operation, you can specify parameters, such as PrivatePoolOptionsId and Period, in the request.
      *  *
      * @param RenewElasticityAssurancesRequest $request RenewElasticityAssurancesRequest
      *
@@ -29396,6 +29680,56 @@ class Ecs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->resetDiskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 重置云盘默认加密加密密钥为服务密钥
+     *  *
+     * @param ResetDiskDefaultKMSKeyIdRequest $request ResetDiskDefaultKMSKeyIdRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ResetDiskDefaultKMSKeyIdResponse ResetDiskDefaultKMSKeyIdResponse
+     */
+    public function resetDiskDefaultKMSKeyIdWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ResetDiskDefaultKMSKeyId',
+            'version'     => '2014-05-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ResetDiskDefaultKMSKeyIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 重置云盘默认加密加密密钥为服务密钥
+     *  *
+     * @param ResetDiskDefaultKMSKeyIdRequest $request ResetDiskDefaultKMSKeyIdRequest
+     *
+     * @return ResetDiskDefaultKMSKeyIdResponse ResetDiskDefaultKMSKeyIdResponse
+     */
+    public function resetDiskDefaultKMSKeyId($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->resetDiskDefaultKMSKeyIdWithOptions($request, $runtime);
     }
 
     /**
