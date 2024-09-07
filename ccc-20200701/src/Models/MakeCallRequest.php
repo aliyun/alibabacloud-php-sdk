@@ -32,6 +32,11 @@ class MakeCallRequest extends Model
     public $deviceId;
 
     /**
+     * @var string
+     */
+    public $flashSmsVariables;
+
+    /**
      * @description This parameter is required.
      *
      * @example ccc-test
@@ -73,15 +78,16 @@ class MakeCallRequest extends Model
      */
     public $userId;
     protected $_name = [
-        'callee'         => 'Callee',
-        'caller'         => 'Caller',
-        'deviceId'       => 'DeviceId',
-        'instanceId'     => 'InstanceId',
-        'maskedCallee'   => 'MaskedCallee',
-        'mediaType'      => 'MediaType',
-        'tags'           => 'Tags',
-        'timeoutSeconds' => 'TimeoutSeconds',
-        'userId'         => 'UserId',
+        'callee'            => 'Callee',
+        'caller'            => 'Caller',
+        'deviceId'          => 'DeviceId',
+        'flashSmsVariables' => 'FlashSmsVariables',
+        'instanceId'        => 'InstanceId',
+        'maskedCallee'      => 'MaskedCallee',
+        'mediaType'         => 'MediaType',
+        'tags'              => 'Tags',
+        'timeoutSeconds'    => 'TimeoutSeconds',
+        'userId'            => 'UserId',
     ];
 
     public function validate()
@@ -99,6 +105,9 @@ class MakeCallRequest extends Model
         }
         if (null !== $this->deviceId) {
             $res['DeviceId'] = $this->deviceId;
+        }
+        if (null !== $this->flashSmsVariables) {
+            $res['FlashSmsVariables'] = $this->flashSmsVariables;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -138,6 +147,9 @@ class MakeCallRequest extends Model
         }
         if (isset($map['DeviceId'])) {
             $model->deviceId = $map['DeviceId'];
+        }
+        if (isset($map['FlashSmsVariables'])) {
+            $model->flashSmsVariables = $map['FlashSmsVariables'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];

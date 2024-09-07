@@ -6531,6 +6531,12 @@ class CCC extends OpenApiClient
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
         }
+        if (!Utils::isUnset($request->releaseInitiatorList)) {
+            $query['ReleaseInitiatorList'] = $request->releaseInitiatorList;
+        }
+        if (!Utils::isUnset($request->releaseReasonList)) {
+            $query['ReleaseReasonList'] = $request->releaseReasonList;
+        }
         if (!Utils::isUnset($request->satisfactionDescriptionList)) {
             $query['SatisfactionDescriptionList'] = $request->satisfactionDescriptionList;
         }
@@ -9643,6 +9649,9 @@ class CCC extends OpenApiClient
         }
         if (!Utils::isUnset($request->deviceId)) {
             $query['DeviceId'] = $request->deviceId;
+        }
+        if (!Utils::isUnset($request->flashSmsVariables)) {
+            $query['FlashSmsVariables'] = $request->flashSmsVariables;
         }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;

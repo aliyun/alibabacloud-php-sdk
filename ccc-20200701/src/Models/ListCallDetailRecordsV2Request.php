@@ -136,6 +136,16 @@ class ListCallDetailRecordsV2Request extends Model
     /**
      * @var string
      */
+    public $releaseInitiatorList;
+
+    /**
+     * @var string
+     */
+    public $releaseReasonList;
+
+    /**
+     * @var string
+     */
     public $satisfactionDescriptionList;
 
     /**
@@ -195,6 +205,8 @@ class ListCallDetailRecordsV2Request extends Model
         'orderByField'                => 'OrderByField',
         'pageNumber'                  => 'PageNumber',
         'pageSize'                    => 'PageSize',
+        'releaseInitiatorList'        => 'ReleaseInitiatorList',
+        'releaseReasonList'           => 'ReleaseReasonList',
         'satisfactionDescriptionList' => 'SatisfactionDescriptionList',
         'satisfactionRateList'        => 'SatisfactionRateList',
         'satisfactionSurveyChannel'   => 'SatisfactionSurveyChannel',
@@ -261,6 +273,12 @@ class ListCallDetailRecordsV2Request extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->releaseInitiatorList) {
+            $res['ReleaseInitiatorList'] = $this->releaseInitiatorList;
+        }
+        if (null !== $this->releaseReasonList) {
+            $res['ReleaseReasonList'] = $this->releaseReasonList;
         }
         if (null !== $this->satisfactionDescriptionList) {
             $res['SatisfactionDescriptionList'] = $this->satisfactionDescriptionList;
@@ -345,6 +363,12 @@ class ListCallDetailRecordsV2Request extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['ReleaseInitiatorList'])) {
+            $model->releaseInitiatorList = $map['ReleaseInitiatorList'];
+        }
+        if (isset($map['ReleaseReasonList'])) {
+            $model->releaseReasonList = $map['ReleaseReasonList'];
         }
         if (isset($map['SatisfactionDescriptionList'])) {
             $model->satisfactionDescriptionList = $map['SatisfactionDescriptionList'];

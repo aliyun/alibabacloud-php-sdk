@@ -66,6 +66,11 @@ class list_ extends Model
     public $callDuration;
 
     /**
+     * @var string
+     */
+    public $callIds;
+
+    /**
      * @example 1332315****
      *
      * @var string
@@ -363,6 +368,7 @@ class list_ extends Model
         'agentNames'                     => 'AgentNames',
         'broker'                         => 'Broker',
         'callDuration'                   => 'CallDuration',
+        'callIds'                        => 'CallIds',
         'calledNumber'                   => 'CalledNumber',
         'calleeLocation'                 => 'CalleeLocation',
         'callerLocation'                 => 'CallerLocation',
@@ -441,6 +447,9 @@ class list_ extends Model
         }
         if (null !== $this->callDuration) {
             $res['CallDuration'] = $this->callDuration;
+        }
+        if (null !== $this->callIds) {
+            $res['CallIds'] = $this->callIds;
         }
         if (null !== $this->calledNumber) {
             $res['CalledNumber'] = $this->calledNumber;
@@ -609,6 +618,9 @@ class list_ extends Model
         }
         if (isset($map['CallDuration'])) {
             $model->callDuration = $map['CallDuration'];
+        }
+        if (isset($map['CallIds'])) {
+            $model->callIds = $map['CallIds'];
         }
         if (isset($map['CalledNumber'])) {
             $model->calledNumber = $map['CalledNumber'];
