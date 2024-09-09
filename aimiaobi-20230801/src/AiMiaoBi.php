@@ -103,6 +103,34 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListVersionsRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListVersionsResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\QueryAsyncTaskRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\QueryAsyncTaskResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunAbbreviationContentRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunAbbreviationContentResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunContinueContentRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunContinueContentResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunExpandContentRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunExpandContentResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunKeywordsExtractionGenerationRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunKeywordsExtractionGenerationResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunKeywordsExtractionGenerationShrinkRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunStyleFeatureAnalysisRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunStyleFeatureAnalysisResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunStyleFeatureAnalysisShrinkRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunSummaryGenerateRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunSummaryGenerateResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunTextPolishingRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunTextPolishingResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunTitleGenerationRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunTitleGenerationResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunTitleGenerationShrinkRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunTranslateGenerationRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunTranslateGenerationResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunTranslateGenerationShrinkRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunWriteToneGenerationRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunWriteToneGenerationResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunWriteToneGenerationShrinkRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunWritingRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunWritingResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunWritingShrinkRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SaveCustomTextRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SaveCustomTextResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SaveDataSourceOrderConfigRequest;
@@ -2639,6 +2667,631 @@ class AiMiaoBi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryAsyncTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 内容缩写
+     *  *
+     * @param RunAbbreviationContentRequest $request RunAbbreviationContentRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return RunAbbreviationContentResponse RunAbbreviationContentResponse
+     */
+    public function runAbbreviationContentWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->content)) {
+            $body['Content'] = $request->content;
+        }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $body['WorkspaceId'] = $request->workspaceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RunAbbreviationContent',
+            'version'     => '2023-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RunAbbreviationContentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 内容缩写
+     *  *
+     * @param RunAbbreviationContentRequest $request RunAbbreviationContentRequest
+     *
+     * @return RunAbbreviationContentResponse RunAbbreviationContentResponse
+     */
+    public function runAbbreviationContent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->runAbbreviationContentWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 内容续写
+     *  *
+     * @param RunContinueContentRequest $request RunContinueContentRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return RunContinueContentResponse RunContinueContentResponse
+     */
+    public function runContinueContentWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->content)) {
+            $body['Content'] = $request->content;
+        }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $body['WorkspaceId'] = $request->workspaceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RunContinueContent',
+            'version'     => '2023-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RunContinueContentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 内容续写
+     *  *
+     * @param RunContinueContentRequest $request RunContinueContentRequest
+     *
+     * @return RunContinueContentResponse RunContinueContentResponse
+     */
+    public function runContinueContent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->runContinueContentWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 内容扩写
+     *  *
+     * @param RunExpandContentRequest $request RunExpandContentRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return RunExpandContentResponse RunExpandContentResponse
+     */
+    public function runExpandContentWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->content)) {
+            $body['Content'] = $request->content;
+        }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $body['WorkspaceId'] = $request->workspaceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RunExpandContent',
+            'version'     => '2023-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RunExpandContentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 内容扩写
+     *  *
+     * @param RunExpandContentRequest $request RunExpandContentRequest
+     *
+     * @return RunExpandContentResponse RunExpandContentResponse
+     */
+    public function runExpandContent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->runExpandContentWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary AI妙笔-创作-抽取关键词
+     *  *
+     * @param RunKeywordsExtractionGenerationRequest $tmpReq  RunKeywordsExtractionGenerationRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return RunKeywordsExtractionGenerationResponse RunKeywordsExtractionGenerationResponse
+     */
+    public function runKeywordsExtractionGenerationWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new RunKeywordsExtractionGenerationShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->referenceData)) {
+            $request->referenceDataShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->referenceData, 'ReferenceData', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->referenceDataShrink)) {
+            $body['ReferenceData'] = $request->referenceDataShrink;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $body['TaskId'] = $request->taskId;
+        }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $body['WorkspaceId'] = $request->workspaceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RunKeywordsExtractionGeneration',
+            'version'     => '2023-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RunKeywordsExtractionGenerationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary AI妙笔-创作-抽取关键词
+     *  *
+     * @param RunKeywordsExtractionGenerationRequest $request RunKeywordsExtractionGenerationRequest
+     *
+     * @return RunKeywordsExtractionGenerationResponse RunKeywordsExtractionGenerationResponse
+     */
+    public function runKeywordsExtractionGeneration($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->runKeywordsExtractionGenerationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 内容特点分析
+     *  *
+     * @param RunStyleFeatureAnalysisRequest $tmpReq  RunStyleFeatureAnalysisRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return RunStyleFeatureAnalysisResponse RunStyleFeatureAnalysisResponse
+     */
+    public function runStyleFeatureAnalysisWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new RunStyleFeatureAnalysisShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->contents)) {
+            $request->contentsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->contents, 'Contents', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->materialIds)) {
+            $request->materialIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->materialIds, 'MaterialIds', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->contentsShrink)) {
+            $body['Contents'] = $request->contentsShrink;
+        }
+        if (!Utils::isUnset($request->materialIdsShrink)) {
+            $body['MaterialIds'] = $request->materialIdsShrink;
+        }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $body['WorkspaceId'] = $request->workspaceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RunStyleFeatureAnalysis',
+            'version'     => '2023-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RunStyleFeatureAnalysisResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 内容特点分析
+     *  *
+     * @param RunStyleFeatureAnalysisRequest $request RunStyleFeatureAnalysisRequest
+     *
+     * @return RunStyleFeatureAnalysisResponse RunStyleFeatureAnalysisResponse
+     */
+    public function runStyleFeatureAnalysis($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->runStyleFeatureAnalysisWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 内容摘要生成
+     *  *
+     * @param RunSummaryGenerateRequest $request RunSummaryGenerateRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return RunSummaryGenerateResponse RunSummaryGenerateResponse
+     */
+    public function runSummaryGenerateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->content)) {
+            $body['Content'] = $request->content;
+        }
+        if (!Utils::isUnset($request->prompt)) {
+            $body['Prompt'] = $request->prompt;
+        }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $body['WorkspaceId'] = $request->workspaceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RunSummaryGenerate',
+            'version'     => '2023-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RunSummaryGenerateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 内容摘要生成
+     *  *
+     * @param RunSummaryGenerateRequest $request RunSummaryGenerateRequest
+     *
+     * @return RunSummaryGenerateResponse RunSummaryGenerateResponse
+     */
+    public function runSummaryGenerate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->runSummaryGenerateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 创作-文本润色
+     *  *
+     * @param RunTextPolishingRequest $request RunTextPolishingRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return RunTextPolishingResponse RunTextPolishingResponse
+     */
+    public function runTextPolishingWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->content)) {
+            $body['Content'] = $request->content;
+        }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $body['WorkspaceId'] = $request->workspaceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RunTextPolishing',
+            'version'     => '2023-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RunTextPolishingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创作-文本润色
+     *  *
+     * @param RunTextPolishingRequest $request RunTextPolishingRequest
+     *
+     * @return RunTextPolishingResponse RunTextPolishingResponse
+     */
+    public function runTextPolishing($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->runTextPolishingWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 妙笔：标题生成
+     *  *
+     * @param RunTitleGenerationRequest $tmpReq  RunTitleGenerationRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return RunTitleGenerationResponse RunTitleGenerationResponse
+     */
+    public function runTitleGenerationWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new RunTitleGenerationShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->referenceData)) {
+            $request->referenceDataShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->referenceData, 'ReferenceData', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->referenceDataShrink)) {
+            $body['ReferenceData'] = $request->referenceDataShrink;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $body['TaskId'] = $request->taskId;
+        }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $body['WorkspaceId'] = $request->workspaceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RunTitleGeneration',
+            'version'     => '2023-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RunTitleGenerationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 妙笔：标题生成
+     *  *
+     * @param RunTitleGenerationRequest $request RunTitleGenerationRequest
+     *
+     * @return RunTitleGenerationResponse RunTitleGenerationResponse
+     */
+    public function runTitleGeneration($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->runTitleGenerationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary AI妙笔-创作-中英文翻译
+     *  *
+     * @param RunTranslateGenerationRequest $tmpReq  RunTranslateGenerationRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return RunTranslateGenerationResponse RunTranslateGenerationResponse
+     */
+    public function runTranslateGenerationWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new RunTranslateGenerationShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->referenceData)) {
+            $request->referenceDataShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->referenceData, 'ReferenceData', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->prompt)) {
+            $body['Prompt'] = $request->prompt;
+        }
+        if (!Utils::isUnset($request->referenceDataShrink)) {
+            $body['ReferenceData'] = $request->referenceDataShrink;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $body['TaskId'] = $request->taskId;
+        }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $body['WorkspaceId'] = $request->workspaceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RunTranslateGeneration',
+            'version'     => '2023-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RunTranslateGenerationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary AI妙笔-创作-中英文翻译
+     *  *
+     * @param RunTranslateGenerationRequest $request RunTranslateGenerationRequest
+     *
+     * @return RunTranslateGenerationResponse RunTranslateGenerationResponse
+     */
+    public function runTranslateGeneration($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->runTranslateGenerationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary AI妙笔-创作-文风改写
+     *  *
+     * @param RunWriteToneGenerationRequest $tmpReq  RunWriteToneGenerationRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return RunWriteToneGenerationResponse RunWriteToneGenerationResponse
+     */
+    public function runWriteToneGenerationWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new RunWriteToneGenerationShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->referenceData)) {
+            $request->referenceDataShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->referenceData, 'ReferenceData', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->prompt)) {
+            $body['Prompt'] = $request->prompt;
+        }
+        if (!Utils::isUnset($request->referenceDataShrink)) {
+            $body['ReferenceData'] = $request->referenceDataShrink;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $body['TaskId'] = $request->taskId;
+        }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $body['WorkspaceId'] = $request->workspaceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RunWriteToneGeneration',
+            'version'     => '2023-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RunWriteToneGenerationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary AI妙笔-创作-文风改写
+     *  *
+     * @param RunWriteToneGenerationRequest $request RunWriteToneGenerationRequest
+     *
+     * @return RunWriteToneGenerationResponse RunWriteToneGenerationResponse
+     */
+    public function runWriteToneGeneration($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->runWriteToneGenerationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 直接写作
+     *  *
+     * @param RunWritingRequest $tmpReq  RunWritingRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return RunWritingResponse RunWritingResponse
+     */
+    public function runWritingWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new RunWritingShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->referenceData)) {
+            $request->referenceDataShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->referenceData, 'ReferenceData', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->writingConfig)) {
+            $request->writingConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->writingConfig, 'WritingConfig', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->originSessionId)) {
+            $body['OriginSessionId'] = $request->originSessionId;
+        }
+        if (!Utils::isUnset($request->prompt)) {
+            $body['Prompt'] = $request->prompt;
+        }
+        if (!Utils::isUnset($request->referenceDataShrink)) {
+            $body['ReferenceData'] = $request->referenceDataShrink;
+        }
+        if (!Utils::isUnset($request->sessionId)) {
+            $body['SessionId'] = $request->sessionId;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $body['TaskId'] = $request->taskId;
+        }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $body['WorkspaceId'] = $request->workspaceId;
+        }
+        if (!Utils::isUnset($request->writingConfigShrink)) {
+            $body['WritingConfig'] = $request->writingConfigShrink;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RunWriting',
+            'version'     => '2023-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RunWritingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 直接写作
+     *  *
+     * @param RunWritingRequest $request RunWritingRequest
+     *
+     * @return RunWritingResponse RunWritingResponse
+     */
+    public function runWriting($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->runWritingWithOptions($request, $runtime);
     }
 
     /**
