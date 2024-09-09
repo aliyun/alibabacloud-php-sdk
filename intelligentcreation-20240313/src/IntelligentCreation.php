@@ -17,6 +17,8 @@ use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CountTextRequest;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CountTextResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CreateIllustrationTaskRequest;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CreateIllustrationTaskResponse;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CreateRealisticPortraitRequest;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CreateRealisticPortraitResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CreateTextTaskRequest;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CreateTextTaskResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\GetIllustrationResponse;
@@ -41,6 +43,8 @@ use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\QueryAvatarProjectRequ
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\QueryAvatarProjectResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\QueryAvatarResourceRequest;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\QueryAvatarResourceResponse;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\QueryTextStreamResponse;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\SelectImageTaskResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\SelectResourceRequest;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\SelectResourceResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\SendTextMsgRequest;
@@ -53,6 +57,8 @@ use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\StopProjectTaskRequest
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\StopProjectTaskResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\SubmitProjectTaskRequest;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\SubmitProjectTaskResponse;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\TransferPortraitStyleRequest;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\TransferPortraitStyleResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -361,6 +367,95 @@ class IntelligentCreation extends OpenApiClient
         $headers = [];
 
         return $this->createIllustrationTaskWithOptions($textId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 写实人像创作
+     *  *
+     * @param CreateRealisticPortraitRequest $request CreateRealisticPortraitRequest
+     * @param string[]                       $headers map
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateRealisticPortraitResponse CreateRealisticPortraitResponse
+     */
+    public function createRealisticPortraitWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->ages)) {
+            $body['ages'] = $request->ages;
+        }
+        if (!Utils::isUnset($request->cloth)) {
+            $body['cloth'] = $request->cloth;
+        }
+        if (!Utils::isUnset($request->color)) {
+            $body['color'] = $request->color;
+        }
+        if (!Utils::isUnset($request->custom)) {
+            $body['custom'] = $request->custom;
+        }
+        if (!Utils::isUnset($request->face)) {
+            $body['face'] = $request->face;
+        }
+        if (!Utils::isUnset($request->figure)) {
+            $body['figure'] = $request->figure;
+        }
+        if (!Utils::isUnset($request->gender)) {
+            $body['gender'] = $request->gender;
+        }
+        if (!Utils::isUnset($request->hairColor)) {
+            $body['hairColor'] = $request->hairColor;
+        }
+        if (!Utils::isUnset($request->hairstyle)) {
+            $body['hairstyle'] = $request->hairstyle;
+        }
+        if (!Utils::isUnset($request->height)) {
+            $body['height'] = $request->height;
+        }
+        if (!Utils::isUnset($request->imageUrl)) {
+            $body['imageUrl'] = $request->imageUrl;
+        }
+        if (!Utils::isUnset($request->numbers)) {
+            $body['numbers'] = $request->numbers;
+        }
+        if (!Utils::isUnset($request->ratio)) {
+            $body['ratio'] = $request->ratio;
+        }
+        if (!Utils::isUnset($request->width)) {
+            $body['width'] = $request->width;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateRealisticPortrait',
+            'version'     => '2024-03-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/yic/yic-console/openService/v1/images/portrait/realistic',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateRealisticPortraitResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 写实人像创作
+     *  *
+     * @param CreateRealisticPortraitRequest $request CreateRealisticPortraitRequest
+     *
+     * @return CreateRealisticPortraitResponse CreateRealisticPortraitResponse
+     */
+    public function createRealisticPortrait($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createRealisticPortraitWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1091,6 +1186,94 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
+     * @summary 流式输出文案
+     *  *
+     * @param string         $textId
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     *
+     * @return QueryTextStreamResponse QueryTextStreamResponse
+     */
+    public function queryTextStreamWithOptions($textId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'QueryTextStream',
+            'version'     => '2024-03-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/yic/yic-console/openService/v1/stream/queryTextStream/' . OpenApiUtilClient::getEncodeParam($textId) . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryTextStreamResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 流式输出文案
+     *  *
+     * @param string $textId
+     *
+     * @return QueryTextStreamResponse QueryTextStreamResponse
+     */
+    public function queryTextStream($textId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->queryTextStreamWithOptions($textId, $headers, $runtime);
+    }
+
+    /**
+     * @summary 查询图片任务
+     *  *
+     * @param string         $taskId
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     *
+     * @return SelectImageTaskResponse SelectImageTaskResponse
+     */
+    public function selectImageTaskWithOptions($taskId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'SelectImageTask',
+            'version'     => '2024-03-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/yic/yic-console/openService/v1/images/portrait/select/' . OpenApiUtilClient::getEncodeParam($taskId) . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return SelectImageTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询图片任务
+     *  *
+     * @param string $taskId
+     *
+     * @return SelectImageTaskResponse SelectImageTaskResponse
+     */
+    public function selectImageTask($taskId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->selectImageTaskWithOptions($taskId, $headers, $runtime);
+    }
+
+    /**
      * @summary 查询离线数字人剩余资源
      *  *
      * @param SelectResourceRequest $request SelectResourceRequest
@@ -1415,5 +1598,70 @@ class IntelligentCreation extends OpenApiClient
         $headers = [];
 
         return $this->submitProjectTaskWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 人像风格变化
+     *  *
+     * @param TransferPortraitStyleRequest $request TransferPortraitStyleRequest
+     * @param string[]                     $headers map
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return TransferPortraitStyleResponse TransferPortraitStyleResponse
+     */
+    public function transferPortraitStyleWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->height)) {
+            $body['height'] = $request->height;
+        }
+        if (!Utils::isUnset($request->imageUrl)) {
+            $body['imageUrl'] = $request->imageUrl;
+        }
+        if (!Utils::isUnset($request->numbers)) {
+            $body['numbers'] = $request->numbers;
+        }
+        if (!Utils::isUnset($request->redrawAmplitude)) {
+            $body['redrawAmplitude'] = $request->redrawAmplitude;
+        }
+        if (!Utils::isUnset($request->style)) {
+            $body['style'] = $request->style;
+        }
+        if (!Utils::isUnset($request->width)) {
+            $body['width'] = $request->width;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'TransferPortraitStyle',
+            'version'     => '2024-03-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/yic/yic-console/openService/v1/images/portrait/transferPortraitStyle',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return TransferPortraitStyleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 人像风格变化
+     *  *
+     * @param TransferPortraitStyleRequest $request TransferPortraitStyleRequest
+     *
+     * @return TransferPortraitStyleResponse TransferPortraitStyleResponse
+     */
+    public function transferPortraitStyle($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->transferPortraitStyleWithOptions($request, $headers, $runtime);
     }
 }

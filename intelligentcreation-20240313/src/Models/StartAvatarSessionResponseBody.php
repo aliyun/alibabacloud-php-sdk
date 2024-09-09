@@ -26,10 +26,22 @@ class StartAvatarSessionResponseBody extends Model
      * @var string
      */
     public $sessionId;
+
+    /**
+     * @var string
+     */
+    public $token;
+
+    /**
+     * @var string
+     */
+    public $webSocketUrl;
     protected $_name = [
         'channelToken' => 'channelToken',
         'requestId'    => 'requestId',
         'sessionId'    => 'sessionId',
+        'token'        => 'token',
+        'webSocketUrl' => 'webSocketUrl',
     ];
 
     public function validate()
@@ -47,6 +59,12 @@ class StartAvatarSessionResponseBody extends Model
         }
         if (null !== $this->sessionId) {
             $res['sessionId'] = $this->sessionId;
+        }
+        if (null !== $this->token) {
+            $res['token'] = $this->token;
+        }
+        if (null !== $this->webSocketUrl) {
+            $res['webSocketUrl'] = $this->webSocketUrl;
         }
 
         return $res;
@@ -68,6 +86,12 @@ class StartAvatarSessionResponseBody extends Model
         }
         if (isset($map['sessionId'])) {
             $model->sessionId = $map['sessionId'];
+        }
+        if (isset($map['token'])) {
+            $model->token = $map['token'];
+        }
+        if (isset($map['webSocketUrl'])) {
+            $model->webSocketUrl = $map['webSocketUrl'];
         }
 
         return $model;

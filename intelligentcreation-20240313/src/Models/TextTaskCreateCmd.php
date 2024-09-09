@@ -68,6 +68,13 @@ class TextTaskCreateCmd extends Model
     public $relatedRagIds;
 
     /**
+     * @example true
+     *
+     * @var bool
+     */
+    public $streamApi;
+
+    /**
      * @description This parameter is required.
      *
      * @var string
@@ -107,6 +114,7 @@ class TextTaskCreateCmd extends Model
         'point'              => 'point',
         'referenceTag'       => 'referenceTag',
         'relatedRagIds'      => 'relatedRagIds',
+        'streamApi'          => 'streamApi',
         'style'              => 'style',
         'target'             => 'target',
         'textModeType'       => 'textModeType',
@@ -147,6 +155,9 @@ class TextTaskCreateCmd extends Model
         }
         if (null !== $this->relatedRagIds) {
             $res['relatedRagIds'] = $this->relatedRagIds;
+        }
+        if (null !== $this->streamApi) {
+            $res['streamApi'] = $this->streamApi;
         }
         if (null !== $this->style) {
             $res['style'] = $this->style;
@@ -203,6 +214,9 @@ class TextTaskCreateCmd extends Model
             if (!empty($map['relatedRagIds'])) {
                 $model->relatedRagIds = $map['relatedRagIds'];
             }
+        }
+        if (isset($map['streamApi'])) {
+            $model->streamApi = $map['streamApi'];
         }
         if (isset($map['style'])) {
             $model->style = $map['style'];

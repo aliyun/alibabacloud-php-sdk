@@ -28,10 +28,16 @@ class material extends Model
      * @var string
      */
     public $url;
+
+    /**
+     * @var int
+     */
+    public $volume;
     protected $_name = [
         'format' => 'format',
         'id'     => 'id',
         'url'    => 'url',
+        'volume' => 'volume',
     ];
 
     public function validate()
@@ -49,6 +55,9 @@ class material extends Model
         }
         if (null !== $this->url) {
             $res['url'] = $this->url;
+        }
+        if (null !== $this->volume) {
+            $res['volume'] = $this->volume;
         }
 
         return $res;
@@ -70,6 +79,9 @@ class material extends Model
         }
         if (isset($map['url'])) {
             $model->url = $map['url'];
+        }
+        if (isset($map['volume'])) {
+            $model->volume = $map['volume'];
         }
 
         return $model;

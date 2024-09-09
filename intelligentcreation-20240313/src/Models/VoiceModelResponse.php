@@ -14,6 +14,11 @@ class VoiceModelResponse extends Model
     public $resourceTypeDesc;
 
     /**
+     * @var int
+     */
+    public $ttsVersion;
+
+    /**
      * @var string
      */
     public $useScene;
@@ -59,6 +64,7 @@ class VoiceModelResponse extends Model
     public $voiceUrl;
     protected $_name = [
         'resourceTypeDesc' => 'resourceTypeDesc',
+        'ttsVersion'       => 'ttsVersion',
         'useScene'         => 'useScene',
         'voiceDesc'        => 'voiceDesc',
         'voiceGender'      => 'voiceGender',
@@ -79,6 +85,9 @@ class VoiceModelResponse extends Model
         $res = [];
         if (null !== $this->resourceTypeDesc) {
             $res['resourceTypeDesc'] = $this->resourceTypeDesc;
+        }
+        if (null !== $this->ttsVersion) {
+            $res['ttsVersion'] = $this->ttsVersion;
         }
         if (null !== $this->useScene) {
             $res['useScene'] = $this->useScene;
@@ -121,6 +130,9 @@ class VoiceModelResponse extends Model
         $model = new self();
         if (isset($map['resourceTypeDesc'])) {
             $model->resourceTypeDesc = $map['resourceTypeDesc'];
+        }
+        if (isset($map['ttsVersion'])) {
+            $model->ttsVersion = $map['ttsVersion'];
         }
         if (isset($map['useScene'])) {
             $model->useScene = $map['useScene'];
