@@ -6,8 +6,6 @@ namespace AlibabaCloud\SDK\PaiFeatureStore\V20230621;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
-use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ChangeProjectFeatureEntityHotIdVersionRequest;
-use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ChangeProjectFeatureEntityHotIdVersionResponse;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\CheckInstanceDatasourceRequest;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\CheckInstanceDatasourceResponse;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\CreateDatasourceRequest;
@@ -46,10 +44,7 @@ use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\GetLabelTableResponse;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\GetModelFeatureFGFeatureResponse;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\GetModelFeatureFGInfoResponse;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\GetModelFeatureResponse;
-use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\GetProjectFeatureEntityHotIdsResponse;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\GetProjectFeatureEntityResponse;
-use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\GetProjectFeatureViewResponse;
-use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\GetProjectModelFeatureResponse;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\GetProjectResponse;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\GetServiceIdentityRoleResponse;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\GetTaskResponse;
@@ -78,9 +73,7 @@ use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ListModelFeatureAvailableF
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ListModelFeaturesRequest;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ListModelFeaturesResponse;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ListModelFeaturesShrinkRequest;
-use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ListProjectFeatureViewOwnersResponse;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ListProjectFeatureViewsResponse;
-use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ListProjectFeatureViewTagsResponse;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ListProjectsRequest;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ListProjectsResponse;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ListProjectsShrinkRequest;
@@ -105,8 +98,6 @@ use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\UpdateProjectRequest;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\UpdateProjectResponse;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\WriteFeatureViewTableRequest;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\WriteFeatureViewTableResponse;
-use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\WriteProjectFeatureEntityHotIdsRequest;
-use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\WriteProjectFeatureEntityHotIdsResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -144,62 +135,6 @@ class PaiFeatureStore extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
-    }
-
-    /**
-     * @summary 切换生效的热点数据的版本。
-     *  *
-     * @param string                                        $InstanceId
-     * @param string                                        $ProjectId
-     * @param string                                        $FeatureEntityName
-     * @param ChangeProjectFeatureEntityHotIdVersionRequest $request           ChangeProjectFeatureEntityHotIdVersionRequest
-     * @param string[]                                      $headers           map
-     * @param RuntimeOptions                                $runtime           runtime options for this request RuntimeOptions
-     *
-     * @return ChangeProjectFeatureEntityHotIdVersionResponse ChangeProjectFeatureEntityHotIdVersionResponse
-     */
-    public function changeProjectFeatureEntityHotIdVersionWithOptions($InstanceId, $ProjectId, $FeatureEntityName, $request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->version)) {
-            $body['Version'] = $request->version;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'ChangeProjectFeatureEntityHotIdVersion',
-            'version'     => '2023-06-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/projects/' . OpenApiUtilClient::getEncodeParam($ProjectId) . '/featureentities/' . OpenApiUtilClient::getEncodeParam($FeatureEntityName) . '/action/changehotidversion',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return ChangeProjectFeatureEntityHotIdVersionResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary 切换生效的热点数据的版本。
-     *  *
-     * @param string                                        $InstanceId
-     * @param string                                        $ProjectId
-     * @param string                                        $FeatureEntityName
-     * @param ChangeProjectFeatureEntityHotIdVersionRequest $request           ChangeProjectFeatureEntityHotIdVersionRequest
-     *
-     * @return ChangeProjectFeatureEntityHotIdVersionResponse ChangeProjectFeatureEntityHotIdVersionResponse
-     */
-    public function changeProjectFeatureEntityHotIdVersion($InstanceId, $ProjectId, $FeatureEntityName, $request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->changeProjectFeatureEntityHotIdVersionWithOptions($InstanceId, $ProjectId, $FeatureEntityName, $request, $headers, $runtime);
     }
 
     /**
@@ -597,6 +532,9 @@ class PaiFeatureStore extends OpenApiClient
         $body = [];
         if (!Utils::isUnset($request->features)) {
             $body['Features'] = $request->features;
+        }
+        if (!Utils::isUnset($request->labelPriorityLevel)) {
+            $body['LabelPriorityLevel'] = $request->labelPriorityLevel;
         }
         if (!Utils::isUnset($request->labelTableId)) {
             $body['LabelTableId'] = $request->labelTableId;
@@ -1162,6 +1100,9 @@ class PaiFeatureStore extends OpenApiClient
         if (!Utils::isUnset($request->realTimeIterateInterval)) {
             $body['RealTimeIterateInterval'] = $request->realTimeIterateInterval;
         }
+        if (!Utils::isUnset($request->realTimePartitionCountValue)) {
+            $body['RealTimePartitionCountValue'] = $request->realTimePartitionCountValue;
+        }
         if (!Utils::isUnset($request->trainingSetConfig)) {
             $body['TrainingSetConfig'] = $request->trainingSetConfig;
         }
@@ -1707,152 +1648,6 @@ class PaiFeatureStore extends OpenApiClient
         $headers = [];
 
         return $this->getProjectFeatureEntityWithOptions($InstanceId, $ProjectId, $FeatureEntityName, $headers, $runtime);
-    }
-
-    /**
-     * @summary 获取项目下，指定特征实体指定的热点数据。
-     *  *
-     * @param string         $InstanceId
-     * @param string         $ProjectId
-     * @param string         $NextSeqNumber
-     * @param string         $FeatureEntityName
-     * @param string[]       $headers           map
-     * @param RuntimeOptions $runtime           runtime options for this request RuntimeOptions
-     *
-     * @return GetProjectFeatureEntityHotIdsResponse GetProjectFeatureEntityHotIdsResponse
-     */
-    public function getProjectFeatureEntityHotIdsWithOptions($InstanceId, $ProjectId, $NextSeqNumber, $FeatureEntityName, $headers, $runtime)
-    {
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-        ]);
-        $params = new Params([
-            'action'      => 'GetProjectFeatureEntityHotIds',
-            'version'     => '2023-06-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/projects/' . OpenApiUtilClient::getEncodeParam($ProjectId) . '/featureentities/' . OpenApiUtilClient::getEncodeParam($FeatureEntityName) . '/hotids/' . OpenApiUtilClient::getEncodeParam($NextSeqNumber) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetProjectFeatureEntityHotIdsResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary 获取项目下，指定特征实体指定的热点数据。
-     *  *
-     * @param string $InstanceId
-     * @param string $ProjectId
-     * @param string $NextSeqNumber
-     * @param string $FeatureEntityName
-     *
-     * @return GetProjectFeatureEntityHotIdsResponse GetProjectFeatureEntityHotIdsResponse
-     */
-    public function getProjectFeatureEntityHotIds($InstanceId, $ProjectId, $NextSeqNumber, $FeatureEntityName)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->getProjectFeatureEntityHotIdsWithOptions($InstanceId, $ProjectId, $NextSeqNumber, $FeatureEntityName, $headers, $runtime);
-    }
-
-    /**
-     * @summary 获取项目下特征视图详细信息。
-     *  *
-     * @param string         $InstanceId
-     * @param string         $ProjectId
-     * @param string         $FeatureViewName
-     * @param string[]       $headers         map
-     * @param RuntimeOptions $runtime         runtime options for this request RuntimeOptions
-     *
-     * @return GetProjectFeatureViewResponse GetProjectFeatureViewResponse
-     */
-    public function getProjectFeatureViewWithOptions($InstanceId, $ProjectId, $FeatureViewName, $headers, $runtime)
-    {
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-        ]);
-        $params = new Params([
-            'action'      => 'GetProjectFeatureView',
-            'version'     => '2023-06-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/projects/' . OpenApiUtilClient::getEncodeParam($ProjectId) . '/featureviews/' . OpenApiUtilClient::getEncodeParam($FeatureViewName) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetProjectFeatureViewResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary 获取项目下特征视图详细信息。
-     *  *
-     * @param string $InstanceId
-     * @param string $ProjectId
-     * @param string $FeatureViewName
-     *
-     * @return GetProjectFeatureViewResponse GetProjectFeatureViewResponse
-     */
-    public function getProjectFeatureView($InstanceId, $ProjectId, $FeatureViewName)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->getProjectFeatureViewWithOptions($InstanceId, $ProjectId, $FeatureViewName, $headers, $runtime);
-    }
-
-    /**
-     * @summary 获取项目下指定模型特征的详细信息。
-     *  *
-     * @param string         $InstanceId
-     * @param string         $ProjectId
-     * @param string         $ModelFeatureName
-     * @param string[]       $headers          map
-     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
-     *
-     * @return GetProjectModelFeatureResponse GetProjectModelFeatureResponse
-     */
-    public function getProjectModelFeatureWithOptions($InstanceId, $ProjectId, $ModelFeatureName, $headers, $runtime)
-    {
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-        ]);
-        $params = new Params([
-            'action'      => 'GetProjectModelFeature',
-            'version'     => '2023-06-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/projects/' . OpenApiUtilClient::getEncodeParam($ProjectId) . '/modelfeatures/' . OpenApiUtilClient::getEncodeParam($ModelFeatureName) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetProjectModelFeatureResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary 获取项目下指定模型特征的详细信息。
-     *  *
-     * @param string $InstanceId
-     * @param string $ProjectId
-     * @param string $ModelFeatureName
-     *
-     * @return GetProjectModelFeatureResponse GetProjectModelFeatureResponse
-     */
-    public function getProjectModelFeature($InstanceId, $ProjectId, $ModelFeatureName)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->getProjectModelFeatureWithOptions($InstanceId, $ProjectId, $ModelFeatureName, $headers, $runtime);
     }
 
     /**
@@ -2660,98 +2455,6 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * @summary 获取项目下特征视图的所有创建人。
-     *  *
-     * @param string         $InstanceId
-     * @param string         $ProjectId
-     * @param string[]       $headers    map
-     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
-     *
-     * @return ListProjectFeatureViewOwnersResponse ListProjectFeatureViewOwnersResponse
-     */
-    public function listProjectFeatureViewOwnersWithOptions($InstanceId, $ProjectId, $headers, $runtime)
-    {
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-        ]);
-        $params = new Params([
-            'action'      => 'ListProjectFeatureViewOwners',
-            'version'     => '2023-06-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/projects/' . OpenApiUtilClient::getEncodeParam($ProjectId) . '/featureviewowners',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return ListProjectFeatureViewOwnersResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary 获取项目下特征视图的所有创建人。
-     *  *
-     * @param string $InstanceId
-     * @param string $ProjectId
-     *
-     * @return ListProjectFeatureViewOwnersResponse ListProjectFeatureViewOwnersResponse
-     */
-    public function listProjectFeatureViewOwners($InstanceId, $ProjectId)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->listProjectFeatureViewOwnersWithOptions($InstanceId, $ProjectId, $headers, $runtime);
-    }
-
-    /**
-     * @summary 获取项目下特征视图的所有标签。
-     *  *
-     * @param string         $InstanceId
-     * @param string         $ProjectId
-     * @param string[]       $headers    map
-     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
-     *
-     * @return ListProjectFeatureViewTagsResponse ListProjectFeatureViewTagsResponse
-     */
-    public function listProjectFeatureViewTagsWithOptions($InstanceId, $ProjectId, $headers, $runtime)
-    {
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-        ]);
-        $params = new Params([
-            'action'      => 'ListProjectFeatureViewTags',
-            'version'     => '2023-06-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/projects/' . OpenApiUtilClient::getEncodeParam($ProjectId) . '/featureviewtags',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return ListProjectFeatureViewTagsResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary 获取项目下特征视图的所有标签。
-     *  *
-     * @param string $InstanceId
-     * @param string $ProjectId
-     *
-     * @return ListProjectFeatureViewTagsResponse ListProjectFeatureViewTagsResponse
-     */
-    public function listProjectFeatureViewTags($InstanceId, $ProjectId)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->listProjectFeatureViewTagsWithOptions($InstanceId, $ProjectId, $headers, $runtime);
-    }
-
-    /**
      * @summary 获取项目下的所有特征视图、特征信息。
      *  *
      * @param string         $InstanceId
@@ -3488,64 +3191,5 @@ class PaiFeatureStore extends OpenApiClient
         $headers = [];
 
         return $this->writeFeatureViewTableWithOptions($InstanceId, $FeatureViewId, $request, $headers, $runtime);
-    }
-
-    /**
-     * @summary 向指定项目下的特征实体写入热点数据。
-     *  *
-     * @param string                                 $InstanceId
-     * @param string                                 $ProjectId
-     * @param string                                 $FeatureEntityName
-     * @param WriteProjectFeatureEntityHotIdsRequest $request           WriteProjectFeatureEntityHotIdsRequest
-     * @param string[]                               $headers           map
-     * @param RuntimeOptions                         $runtime           runtime options for this request RuntimeOptions
-     *
-     * @return WriteProjectFeatureEntityHotIdsResponse WriteProjectFeatureEntityHotIdsResponse
-     */
-    public function writeProjectFeatureEntityHotIdsWithOptions($InstanceId, $ProjectId, $FeatureEntityName, $request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->hotIds)) {
-            $body['HotIds'] = $request->hotIds;
-        }
-        if (!Utils::isUnset($request->version)) {
-            $body['Version'] = $request->version;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'WriteProjectFeatureEntityHotIds',
-            'version'     => '2023-06-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/projects/' . OpenApiUtilClient::getEncodeParam($ProjectId) . '/featureentities/' . OpenApiUtilClient::getEncodeParam($FeatureEntityName) . '/action/writehotids',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return WriteProjectFeatureEntityHotIdsResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary 向指定项目下的特征实体写入热点数据。
-     *  *
-     * @param string                                 $InstanceId
-     * @param string                                 $ProjectId
-     * @param string                                 $FeatureEntityName
-     * @param WriteProjectFeatureEntityHotIdsRequest $request           WriteProjectFeatureEntityHotIdsRequest
-     *
-     * @return WriteProjectFeatureEntityHotIdsResponse WriteProjectFeatureEntityHotIdsResponse
-     */
-    public function writeProjectFeatureEntityHotIds($InstanceId, $ProjectId, $FeatureEntityName, $request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->writeProjectFeatureEntityHotIdsWithOptions($InstanceId, $ProjectId, $FeatureEntityName, $request, $headers, $runtime);
     }
 }

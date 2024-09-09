@@ -26,14 +26,20 @@ class ExportModelFeatureTrainingSetTableRequest extends Model
     public $realTimeIterateInterval;
 
     /**
+     * @var int
+     */
+    public $realTimePartitionCountValue;
+
+    /**
      * @var trainingSetConfig
      */
     public $trainingSetConfig;
     protected $_name = [
-        'featureViewConfig'       => 'FeatureViewConfig',
-        'labelInputConfig'        => 'LabelInputConfig',
-        'realTimeIterateInterval' => 'RealTimeIterateInterval',
-        'trainingSetConfig'       => 'TrainingSetConfig',
+        'featureViewConfig'           => 'FeatureViewConfig',
+        'labelInputConfig'            => 'LabelInputConfig',
+        'realTimeIterateInterval'     => 'RealTimeIterateInterval',
+        'realTimePartitionCountValue' => 'RealTimePartitionCountValue',
+        'trainingSetConfig'           => 'TrainingSetConfig',
     ];
 
     public function validate()
@@ -56,6 +62,9 @@ class ExportModelFeatureTrainingSetTableRequest extends Model
         }
         if (null !== $this->realTimeIterateInterval) {
             $res['RealTimeIterateInterval'] = $this->realTimeIterateInterval;
+        }
+        if (null !== $this->realTimePartitionCountValue) {
+            $res['RealTimePartitionCountValue'] = $this->realTimePartitionCountValue;
         }
         if (null !== $this->trainingSetConfig) {
             $res['TrainingSetConfig'] = null !== $this->trainingSetConfig ? $this->trainingSetConfig->toMap() : null;
@@ -80,6 +89,9 @@ class ExportModelFeatureTrainingSetTableRequest extends Model
         }
         if (isset($map['RealTimeIterateInterval'])) {
             $model->realTimeIterateInterval = $map['RealTimeIterateInterval'];
+        }
+        if (isset($map['RealTimePartitionCountValue'])) {
+            $model->realTimePartitionCountValue = $map['RealTimePartitionCountValue'];
         }
         if (isset($map['TrainingSetConfig'])) {
             $model->trainingSetConfig = trainingSetConfig::fromMap($map['TrainingSetConfig']);

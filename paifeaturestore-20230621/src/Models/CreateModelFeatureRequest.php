@@ -17,6 +17,13 @@ class CreateModelFeatureRequest extends Model
     public $features;
 
     /**
+     * @example 0
+     *
+     * @var int
+     */
+    public $labelPriorityLevel;
+
+    /**
      * @description This parameter is required.
      *
      * @example 4
@@ -49,6 +56,7 @@ class CreateModelFeatureRequest extends Model
     public $sequenceFeatureViewIds;
     protected $_name = [
         'features'               => 'Features',
+        'labelPriorityLevel'     => 'LabelPriorityLevel',
         'labelTableId'           => 'LabelTableId',
         'name'                   => 'Name',
         'projectId'              => 'ProjectId',
@@ -70,6 +78,9 @@ class CreateModelFeatureRequest extends Model
                     $res['Features'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->labelPriorityLevel) {
+            $res['LabelPriorityLevel'] = $this->labelPriorityLevel;
         }
         if (null !== $this->labelTableId) {
             $res['LabelTableId'] = $this->labelTableId;
@@ -103,6 +114,9 @@ class CreateModelFeatureRequest extends Model
                     $model->features[$n++] = null !== $item ? features::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['LabelPriorityLevel'])) {
+            $model->labelPriorityLevel = $map['LabelPriorityLevel'];
         }
         if (isset($map['LabelTableId'])) {
             $model->labelTableId = $map['LabelTableId'];

@@ -37,6 +37,13 @@ class GetModelFeatureResponseBody extends Model
     public $gmtModifiedTime;
 
     /**
+     * @example 0
+     *
+     * @var int
+     */
+    public $labelPriorityLevel;
+
+    /**
      * @example 3
      *
      * @var string
@@ -108,6 +115,7 @@ class GetModelFeatureResponseBody extends Model
         'features'                     => 'Features',
         'gmtCreateTime'                => 'GmtCreateTime',
         'gmtModifiedTime'              => 'GmtModifiedTime',
+        'labelPriorityLevel'           => 'LabelPriorityLevel',
         'labelTableId'                 => 'LabelTableId',
         'labelTableName'               => 'LabelTableName',
         'name'                         => 'Name',
@@ -144,6 +152,9 @@ class GetModelFeatureResponseBody extends Model
         }
         if (null !== $this->gmtModifiedTime) {
             $res['GmtModifiedTime'] = $this->gmtModifiedTime;
+        }
+        if (null !== $this->labelPriorityLevel) {
+            $res['LabelPriorityLevel'] = $this->labelPriorityLevel;
         }
         if (null !== $this->labelTableId) {
             $res['LabelTableId'] = $this->labelTableId;
@@ -204,6 +215,9 @@ class GetModelFeatureResponseBody extends Model
         }
         if (isset($map['GmtModifiedTime'])) {
             $model->gmtModifiedTime = $map['GmtModifiedTime'];
+        }
+        if (isset($map['LabelPriorityLevel'])) {
+            $model->labelPriorityLevel = $map['LabelPriorityLevel'];
         }
         if (isset($map['LabelTableId'])) {
             $model->labelTableId = $map['LabelTableId'];
