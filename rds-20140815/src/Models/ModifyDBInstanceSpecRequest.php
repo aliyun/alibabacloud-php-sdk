@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBInstanceSpecRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $allowMajorVersionUpgrade;
+
+    /**
      * @description Specifies whether to use vouchers to offset fees. Valid values:
      *
      *   **true**
@@ -269,6 +274,11 @@ class ModifyDBInstanceSpecRequest extends Model
     public $usedTime;
 
     /**
+     * @var string
+     */
+    public $vSwitchId;
+
+    /**
      * @description The RDS edition of the instance. Valid values:
      *
      *   **Basic**: RDS Basic Edition.
@@ -282,32 +292,40 @@ class ModifyDBInstanceSpecRequest extends Model
      * @var string
      */
     public $zoneId;
+
+    /**
+     * @var string
+     */
+    public $zoneIdSlave1;
     protected $_name = [
-        'autoUseCoupon'           => 'AutoUseCoupon',
-        'burstingEnabled'         => 'BurstingEnabled',
-        'category'                => 'Category',
-        'coldDataEnabled'         => 'ColdDataEnabled',
-        'DBInstanceClass'         => 'DBInstanceClass',
-        'DBInstanceId'            => 'DBInstanceId',
-        'DBInstanceStorage'       => 'DBInstanceStorage',
-        'DBInstanceStorageType'   => 'DBInstanceStorageType',
-        'dedicatedHostGroupId'    => 'DedicatedHostGroupId',
-        'direction'               => 'Direction',
-        'effectiveTime'           => 'EffectiveTime',
-        'engineVersion'           => 'EngineVersion',
-        'ioAccelerationEnabled'   => 'IoAccelerationEnabled',
-        'ownerAccount'            => 'OwnerAccount',
-        'ownerId'                 => 'OwnerId',
-        'payType'                 => 'PayType',
-        'resourceGroupId'         => 'ResourceGroupId',
-        'resourceOwnerAccount'    => 'ResourceOwnerAccount',
-        'resourceOwnerId'         => 'ResourceOwnerId',
-        'serverlessConfiguration' => 'ServerlessConfiguration',
-        'sourceBiz'               => 'SourceBiz',
-        'switchTime'              => 'SwitchTime',
-        'targetMinorVersion'      => 'TargetMinorVersion',
-        'usedTime'                => 'UsedTime',
-        'zoneId'                  => 'ZoneId',
+        'allowMajorVersionUpgrade' => 'AllowMajorVersionUpgrade',
+        'autoUseCoupon'            => 'AutoUseCoupon',
+        'burstingEnabled'          => 'BurstingEnabled',
+        'category'                 => 'Category',
+        'coldDataEnabled'          => 'ColdDataEnabled',
+        'DBInstanceClass'          => 'DBInstanceClass',
+        'DBInstanceId'             => 'DBInstanceId',
+        'DBInstanceStorage'        => 'DBInstanceStorage',
+        'DBInstanceStorageType'    => 'DBInstanceStorageType',
+        'dedicatedHostGroupId'     => 'DedicatedHostGroupId',
+        'direction'                => 'Direction',
+        'effectiveTime'            => 'EffectiveTime',
+        'engineVersion'            => 'EngineVersion',
+        'ioAccelerationEnabled'    => 'IoAccelerationEnabled',
+        'ownerAccount'             => 'OwnerAccount',
+        'ownerId'                  => 'OwnerId',
+        'payType'                  => 'PayType',
+        'resourceGroupId'          => 'ResourceGroupId',
+        'resourceOwnerAccount'     => 'ResourceOwnerAccount',
+        'resourceOwnerId'          => 'ResourceOwnerId',
+        'serverlessConfiguration'  => 'ServerlessConfiguration',
+        'sourceBiz'                => 'SourceBiz',
+        'switchTime'               => 'SwitchTime',
+        'targetMinorVersion'       => 'TargetMinorVersion',
+        'usedTime'                 => 'UsedTime',
+        'vSwitchId'                => 'VSwitchId',
+        'zoneId'                   => 'ZoneId',
+        'zoneIdSlave1'             => 'ZoneIdSlave1',
     ];
 
     public function validate()
@@ -317,6 +335,9 @@ class ModifyDBInstanceSpecRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->allowMajorVersionUpgrade) {
+            $res['AllowMajorVersionUpgrade'] = $this->allowMajorVersionUpgrade;
+        }
         if (null !== $this->autoUseCoupon) {
             $res['AutoUseCoupon'] = $this->autoUseCoupon;
         }
@@ -389,8 +410,14 @@ class ModifyDBInstanceSpecRequest extends Model
         if (null !== $this->usedTime) {
             $res['UsedTime'] = $this->usedTime;
         }
+        if (null !== $this->vSwitchId) {
+            $res['VSwitchId'] = $this->vSwitchId;
+        }
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
+        }
+        if (null !== $this->zoneIdSlave1) {
+            $res['ZoneIdSlave1'] = $this->zoneIdSlave1;
         }
 
         return $res;
@@ -404,6 +431,9 @@ class ModifyDBInstanceSpecRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AllowMajorVersionUpgrade'])) {
+            $model->allowMajorVersionUpgrade = $map['AllowMajorVersionUpgrade'];
+        }
         if (isset($map['AutoUseCoupon'])) {
             $model->autoUseCoupon = $map['AutoUseCoupon'];
         }
@@ -476,8 +506,14 @@ class ModifyDBInstanceSpecRequest extends Model
         if (isset($map['UsedTime'])) {
             $model->usedTime = $map['UsedTime'];
         }
+        if (isset($map['VSwitchId'])) {
+            $model->vSwitchId = $map['VSwitchId'];
+        }
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
+        }
+        if (isset($map['ZoneIdSlave1'])) {
+            $model->zoneIdSlave1 = $map['ZoneIdSlave1'];
         }
 
         return $model;

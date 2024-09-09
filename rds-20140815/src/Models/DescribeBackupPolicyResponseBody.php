@@ -321,6 +321,10 @@ class DescribeBackupPolicyResponseBody extends Model
     public $supportVolumeShadowCopy;
 
     /**
+     * @description Whether to support 5-minute log backup of SQL Server.
+     * - 1 : Support
+     * @example 0
+     *
      * @var int
      */
     public $supportsHighFrequencyBackup;

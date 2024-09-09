@@ -142,6 +142,11 @@ class DescribeRCInstanceAttributeResponseBody extends Model
     public $ioOptimized;
 
     /**
+     * @var string
+     */
+    public $keyPairName;
+
+    /**
      * @var int
      */
     public $memory;
@@ -226,6 +231,7 @@ class DescribeRCInstanceAttributeResponseBody extends Model
         'internetMaxBandwidthIn'  => 'InternetMaxBandwidthIn',
         'internetMaxBandwidthOut' => 'InternetMaxBandwidthOut',
         'ioOptimized'             => 'IoOptimized',
+        'keyPairName'             => 'KeyPairName',
         'memory'                  => 'Memory',
         'operationLocks'          => 'OperationLocks',
         'publicIpAddress'         => 'PublicIpAddress',
@@ -321,6 +327,9 @@ class DescribeRCInstanceAttributeResponseBody extends Model
         }
         if (null !== $this->ioOptimized) {
             $res['IoOptimized'] = $this->ioOptimized;
+        }
+        if (null !== $this->keyPairName) {
+            $res['KeyPairName'] = $this->keyPairName;
         }
         if (null !== $this->memory) {
             $res['Memory'] = $this->memory;
@@ -444,6 +453,9 @@ class DescribeRCInstanceAttributeResponseBody extends Model
         }
         if (isset($map['IoOptimized'])) {
             $model->ioOptimized = $map['IoOptimized'];
+        }
+        if (isset($map['KeyPairName'])) {
+            $model->keyPairName = $map['KeyPairName'];
         }
         if (isset($map['Memory'])) {
             $model->memory = $map['Memory'];

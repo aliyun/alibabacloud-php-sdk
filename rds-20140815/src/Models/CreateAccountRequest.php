@@ -80,6 +80,11 @@ class CreateAccountRequest extends Model
     public $accountType;
 
     /**
+     * @var bool
+     */
+    public $checkPolicy;
+
+    /**
      * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
      * This parameter is required.
@@ -113,6 +118,7 @@ class CreateAccountRequest extends Model
         'accountName'          => 'AccountName',
         'accountPassword'      => 'AccountPassword',
         'accountType'          => 'AccountType',
+        'checkPolicy'          => 'CheckPolicy',
         'DBInstanceId'         => 'DBInstanceId',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
@@ -138,6 +144,9 @@ class CreateAccountRequest extends Model
         }
         if (null !== $this->accountType) {
             $res['AccountType'] = $this->accountType;
+        }
+        if (null !== $this->checkPolicy) {
+            $res['CheckPolicy'] = $this->checkPolicy;
         }
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
@@ -177,6 +186,9 @@ class CreateAccountRequest extends Model
         }
         if (isset($map['AccountType'])) {
             $model->accountType = $map['AccountType'];
+        }
+        if (isset($map['CheckPolicy'])) {
+            $model->checkPolicy = $map['CheckPolicy'];
         }
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBInstanceSpecShrinkRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $allowMajorVersionUpgrade;
+
+    /**
      * @description Specifies whether to use vouchers to offset fees. Valid values:
      *
      *   **true**
@@ -268,6 +273,11 @@ class ModifyDBInstanceSpecShrinkRequest extends Model
     public $usedTime;
 
     /**
+     * @var string
+     */
+    public $vSwitchId;
+
+    /**
      * @description The RDS edition of the instance. Valid values:
      *
      *   **Basic**: RDS Basic Edition.
@@ -281,7 +291,13 @@ class ModifyDBInstanceSpecShrinkRequest extends Model
      * @var string
      */
     public $zoneId;
+
+    /**
+     * @var string
+     */
+    public $zoneIdSlave1;
     protected $_name = [
+        'allowMajorVersionUpgrade'      => 'AllowMajorVersionUpgrade',
         'autoUseCoupon'                 => 'AutoUseCoupon',
         'burstingEnabled'               => 'BurstingEnabled',
         'category'                      => 'Category',
@@ -306,7 +322,9 @@ class ModifyDBInstanceSpecShrinkRequest extends Model
         'switchTime'                    => 'SwitchTime',
         'targetMinorVersion'            => 'TargetMinorVersion',
         'usedTime'                      => 'UsedTime',
+        'vSwitchId'                     => 'VSwitchId',
         'zoneId'                        => 'ZoneId',
+        'zoneIdSlave1'                  => 'ZoneIdSlave1',
     ];
 
     public function validate()
@@ -316,6 +334,9 @@ class ModifyDBInstanceSpecShrinkRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->allowMajorVersionUpgrade) {
+            $res['AllowMajorVersionUpgrade'] = $this->allowMajorVersionUpgrade;
+        }
         if (null !== $this->autoUseCoupon) {
             $res['AutoUseCoupon'] = $this->autoUseCoupon;
         }
@@ -388,8 +409,14 @@ class ModifyDBInstanceSpecShrinkRequest extends Model
         if (null !== $this->usedTime) {
             $res['UsedTime'] = $this->usedTime;
         }
+        if (null !== $this->vSwitchId) {
+            $res['VSwitchId'] = $this->vSwitchId;
+        }
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
+        }
+        if (null !== $this->zoneIdSlave1) {
+            $res['ZoneIdSlave1'] = $this->zoneIdSlave1;
         }
 
         return $res;
@@ -403,6 +430,9 @@ class ModifyDBInstanceSpecShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AllowMajorVersionUpgrade'])) {
+            $model->allowMajorVersionUpgrade = $map['AllowMajorVersionUpgrade'];
+        }
         if (isset($map['AutoUseCoupon'])) {
             $model->autoUseCoupon = $map['AutoUseCoupon'];
         }
@@ -475,8 +505,14 @@ class ModifyDBInstanceSpecShrinkRequest extends Model
         if (isset($map['UsedTime'])) {
             $model->usedTime = $map['UsedTime'];
         }
+        if (isset($map['VSwitchId'])) {
+            $model->vSwitchId = $map['VSwitchId'];
+        }
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
+        }
+        if (isset($map['ZoneIdSlave1'])) {
+            $model->zoneIdSlave1 = $map['ZoneIdSlave1'];
         }
 
         return $model;

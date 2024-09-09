@@ -96,6 +96,11 @@ class installedExtensions extends Model
     public $requires;
 
     /**
+     * @description Alibaba Cloud account ID.
+     *
+     * > Only exclusive plug-ins (plug-ins written by users) will return this parameter. Each Alibaba Cloud account only displays its own exclusive plug-ins.
+     * @example 181578148294****
+     *
      * @var string
      */
     public $uid;

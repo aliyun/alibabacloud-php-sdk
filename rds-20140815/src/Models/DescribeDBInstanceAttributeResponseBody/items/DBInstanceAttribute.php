@@ -342,11 +342,19 @@ class DBInstanceAttribute extends Model
     public $deletionProtection;
 
     /**
+     * @description Disaster recovery source instance information.
+     *
+     * @example {"replicatorAccount": "******","sourcePort":******,"sourceAddress": "pgm-2ze******","sourceCategory": "aliyunRDS","sourceInstanceRegionId": "cn-******","replicatorPassword": "******","sourceInstanceName": "pgm-2ze******"}
+     *
      * @var string
      */
     public $disasterRecoveryInfo;
 
     /**
+     * @description All disaster recovery instances of the current instance.
+     *
+     * @example [{"regionId":"cn-******","insName":"pgm-2ze******"},{"regionId":"cn-******","insName":"pgm-2ze******"}]
+     *
      * @var string
      */
     public $disasterRecoveryInstances;

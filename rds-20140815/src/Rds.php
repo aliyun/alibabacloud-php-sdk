@@ -2224,6 +2224,9 @@ class Rds extends OpenApiClient
         if (!Utils::isUnset($request->accountType)) {
             $query['AccountType'] = $request->accountType;
         }
+        if (!Utils::isUnset($request->checkPolicy)) {
+            $query['CheckPolicy'] = $request->checkPolicy;
+        }
         if (!Utils::isUnset($request->DBInstanceId)) {
             $query['DBInstanceId'] = $request->DBInstanceId;
         }
@@ -12240,7 +12243,7 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary 任务中心任务统计
+     * @summary Collects tasks in the task center.
      *  *
      * @param DescribeHistoryTasksStatRequest $request DescribeHistoryTasksStatRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -12312,7 +12315,7 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary 任务中心任务统计
+     * @summary Collects tasks in the task center.
      *  *
      * @param DescribeHistoryTasksStatRequest $request DescribeHistoryTasksStatRequest
      *
@@ -16352,7 +16355,7 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of VSwitch that are available in a virtual private cloud (VPC).
+     * @summary Queries the details of vSwitch that are available in a virtual private cloud (VPC).
      *  *
      * @description ### Supported database engines
      * *   MySQL
@@ -16424,7 +16427,7 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of VSwitch that are available in a virtual private cloud (VPC).
+     * @summary Queries the details of vSwitch that are available in a virtual private cloud (VPC).
      *  *
      * @description ### Supported database engines
      * *   MySQL
@@ -20112,6 +20115,9 @@ class Rds extends OpenApiClient
             $request->serverlessConfigurationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->serverlessConfiguration, 'ServerlessConfiguration', 'json');
         }
         $query = [];
+        if (!Utils::isUnset($request->allowMajorVersionUpgrade)) {
+            $query['AllowMajorVersionUpgrade'] = $request->allowMajorVersionUpgrade;
+        }
         if (!Utils::isUnset($request->autoUseCoupon)) {
             $query['AutoUseCoupon'] = $request->autoUseCoupon;
         }
@@ -20184,8 +20190,14 @@ class Rds extends OpenApiClient
         if (!Utils::isUnset($request->usedTime)) {
             $query['UsedTime'] = $request->usedTime;
         }
+        if (!Utils::isUnset($request->vSwitchId)) {
+            $query['VSwitchId'] = $request->vSwitchId;
+        }
         if (!Utils::isUnset($request->zoneId)) {
             $query['ZoneId'] = $request->zoneId;
+        }
+        if (!Utils::isUnset($request->zoneIdSlave1)) {
+            $query['ZoneIdSlave1'] = $request->zoneIdSlave1;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -24607,6 +24619,9 @@ class Rds extends OpenApiClient
         }
         if (!Utils::isUnset($request->description)) {
             $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
         }
         if (!Utils::isUnset($request->imageId)) {
             $query['ImageId'] = $request->imageId;

@@ -66,6 +66,11 @@ class DBInstanceAccount extends Model
     public $bypassRLS;
 
     /**
+     * @var bool
+     */
+    public $checkPolicy;
+
+    /**
      * @description Indicates whether the account has the permissions to create databases. Valid values:
      *
      *   **t**: The account has the permissions to create databases.
@@ -106,6 +111,11 @@ class DBInstanceAccount extends Model
      * @var databasePrivileges
      */
     public $databasePrivileges;
+
+    /**
+     * @var string
+     */
+    public $passwordExpireTime;
 
     /**
      * @description Indicates whether the number of databases that are managed by the account exceeds the upper limit. Valid values:
@@ -151,10 +161,12 @@ class DBInstanceAccount extends Model
         'accountStatus'      => 'AccountStatus',
         'accountType'        => 'AccountType',
         'bypassRLS'          => 'BypassRLS',
+        'checkPolicy'        => 'CheckPolicy',
         'createDB'           => 'CreateDB',
         'createRole'         => 'CreateRole',
         'DBInstanceId'       => 'DBInstanceId',
         'databasePrivileges' => 'DatabasePrivileges',
+        'passwordExpireTime' => 'PasswordExpireTime',
         'privExceeded'       => 'PrivExceeded',
         'replication'        => 'Replication',
         'validUntil'         => 'ValidUntil',
@@ -182,6 +194,9 @@ class DBInstanceAccount extends Model
         if (null !== $this->bypassRLS) {
             $res['BypassRLS'] = $this->bypassRLS;
         }
+        if (null !== $this->checkPolicy) {
+            $res['CheckPolicy'] = $this->checkPolicy;
+        }
         if (null !== $this->createDB) {
             $res['CreateDB'] = $this->createDB;
         }
@@ -193,6 +208,9 @@ class DBInstanceAccount extends Model
         }
         if (null !== $this->databasePrivileges) {
             $res['DatabasePrivileges'] = null !== $this->databasePrivileges ? $this->databasePrivileges->toMap() : null;
+        }
+        if (null !== $this->passwordExpireTime) {
+            $res['PasswordExpireTime'] = $this->passwordExpireTime;
         }
         if (null !== $this->privExceeded) {
             $res['PrivExceeded'] = $this->privExceeded;
@@ -230,6 +248,9 @@ class DBInstanceAccount extends Model
         if (isset($map['BypassRLS'])) {
             $model->bypassRLS = $map['BypassRLS'];
         }
+        if (isset($map['CheckPolicy'])) {
+            $model->checkPolicy = $map['CheckPolicy'];
+        }
         if (isset($map['CreateDB'])) {
             $model->createDB = $map['CreateDB'];
         }
@@ -241,6 +262,9 @@ class DBInstanceAccount extends Model
         }
         if (isset($map['DatabasePrivileges'])) {
             $model->databasePrivileges = databasePrivileges::fromMap($map['DatabasePrivileges']);
+        }
+        if (isset($map['PasswordExpireTime'])) {
+            $model->passwordExpireTime = $map['PasswordExpireTime'];
         }
         if (isset($map['PrivExceeded'])) {
             $model->privExceeded = $map['PrivExceeded'];

@@ -46,6 +46,11 @@ class RunRCInstancesShrinkRequest extends Model
     public $description;
 
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @var string
      */
     public $imageId;
@@ -143,6 +148,7 @@ class RunRCInstancesShrinkRequest extends Model
         'dataDiskShrink'              => 'DataDisk',
         'deploymentSetId'             => 'DeploymentSetId',
         'description'                 => 'Description',
+        'dryRun'                      => 'DryRun',
         'imageId'                     => 'ImageId',
         'instanceChargeType'          => 'InstanceChargeType',
         'instanceName'                => 'InstanceName',
@@ -189,6 +195,9 @@ class RunRCInstancesShrinkRequest extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
@@ -273,6 +282,9 @@ class RunRCInstancesShrinkRequest extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
