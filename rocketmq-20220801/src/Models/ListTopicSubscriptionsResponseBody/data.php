@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description Indicates whether message consumption is consistent. Valid values:
+     *
+     *   false: Unconsumed messages exist in the consumer group.
+     *   true: No unconsumed message exists in the consumer group.
+     *
+     * @example true
+     *
      * @var string
      */
     public $consistency;
 
     /**
+     * @description The consumer group ID.
+     *
      * @example CID-TEST
      *
      * @var string
@@ -21,6 +30,8 @@ class data extends Model
     public $consumerGroupId;
 
     /**
+     * @description The filter expression.
+     *
      * @example *
      *
      * @var string
@@ -28,6 +39,8 @@ class data extends Model
     public $filterExpression;
 
     /**
+     * @description The type of the filter expression. Valid values: SQL, TAG, and UNSPECIFIED. The value SQL indicates that messages are filtered by using SQL expressions. The value TAG indicates that messages are filtered by using tags. The value UNSPECIFIED indicates that no filter expression type is specified.
+     *
      * @example SQL
      *
      * @var string
@@ -35,6 +48,8 @@ class data extends Model
     public $filterExpressionType;
 
     /**
+     * @description The consumption mode. Valid values: BROADCASTING and CLUSTERING.
+     *
      * @example BROADCASTING
      *
      * @var string
@@ -42,6 +57,8 @@ class data extends Model
     public $messageModel;
 
     /**
+     * @description The subscription status. Valid values: ONLINE and OFFLINE.
+     *
      * @example ONLINE
      *
      * @var string
@@ -49,6 +66,8 @@ class data extends Model
     public $subscriptionStatus;
 
     /**
+     * @description The topic name.
+     *
      * @example topic_test
      *
      * @var string

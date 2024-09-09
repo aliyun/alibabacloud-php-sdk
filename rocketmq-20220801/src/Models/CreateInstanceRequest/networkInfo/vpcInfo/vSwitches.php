@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class vSwitches extends Model
 {
     /**
+     * @description The ID of the vSwitch with which the instance is associated.
+     *
+     * @example vsw-uf6gwtbn6etadpv*******
+     *
      * @var string
      */
     public $vSwitchId;

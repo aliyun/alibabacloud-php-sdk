@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The time when the zone was created.
+     *
      * @example 2022-08-01 20:05:50
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $createTime;
 
     /**
+     * @description The time when the zone was last updated.
+     *
      * @example 2022-08-01 20:05:50
      *
      * @var string
@@ -23,6 +27,8 @@ class data extends Model
     public $updateTime;
 
     /**
+     * @description The ID of the current zone.
+     *
      * @example cn-qingdao-b
      *
      * @var string
@@ -30,6 +36,8 @@ class data extends Model
     public $zoneId;
 
     /**
+     * @description The name of the current zone.
+     *
      * @example ha-cn-t9b30w902vm_qrs
      *
      * @var string

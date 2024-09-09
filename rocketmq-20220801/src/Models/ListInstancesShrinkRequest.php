@@ -18,9 +18,9 @@ class ListInstancesShrinkRequest extends Model
     public $filter;
 
     /**
-     * @description The number of the page to return.
+     * @description The page number.
      *
-     * If the value that you specify for this parameter is less than 1, the system uses 1 as the value. If the value that you specify for this parameter is greater than 100000000, the system uses 100000000 as the value.
+     * If you set this parameter to a value smaller than 1, the system uses 1 as the value. If you set this parameter to a value greater than 100000000, the system uses 100000000 as the value.
      * @example 1
      *
      * @var int
@@ -28,9 +28,9 @@ class ListInstancesShrinkRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned on each page.
+     * @description The number of entries per page.
      *
-     * If the value that you specify for this parameter is less than 10, the system uses 10 as the value. If the value that you specify for this parameter is greater than 200, the system uses 200 as the value.
+     * If you set this parameter to a value smaller than 10, the system uses 10 as the value. If you set this parameter to a value greater than 200, the system uses 200 as the value.
      * @example 10
      *
      * @var int
@@ -47,6 +47,14 @@ class ListInstancesShrinkRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description The primary edition of the instance.
+     *
+     * Valid values:
+     *
+     *   standard: Standard Edition
+     *   ultimate: Enterprise Platinum Edition
+     *   professional: Professional Edition
+     *
      * @var string
      */
     public $seriesCodesShrink;

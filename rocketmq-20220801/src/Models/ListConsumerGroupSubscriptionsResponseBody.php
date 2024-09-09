@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListConsumerGroupSubscriptionsResponseBody extends Model
 {
     /**
-     * @description The returned error code.
+     * @description The error code.
      *
      * @example MissingInstanceId
      *
@@ -26,7 +26,7 @@ class ListConsumerGroupSubscriptionsResponseBody extends Model
     public $data;
 
     /**
-     * @description The returned dynamic error code.
+     * @description The dynamic error code.
      *
      * @example InstanceId
      *
@@ -35,7 +35,7 @@ class ListConsumerGroupSubscriptionsResponseBody extends Model
     public $dynamicCode;
 
     /**
-     * @description The returned dynamic error message.
+     * @description The dynamic error message.
      *
      * @example InstanceId
      *
@@ -44,7 +44,7 @@ class ListConsumerGroupSubscriptionsResponseBody extends Model
     public $dynamicMessage;
 
     /**
-     * @description The returned HTTP status code.
+     * @description The HTTP status code.
      *
      * @example 200
      *
@@ -53,7 +53,7 @@ class ListConsumerGroupSubscriptionsResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The returned error message.
+     * @description The error message.
      *
      * @example Parameter instanceId is mandatory for this action .
      *
@@ -71,7 +71,7 @@ class ListConsumerGroupSubscriptionsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful.
+     * @description Indicates whether the request was successful.
      *
      * @example true
      *

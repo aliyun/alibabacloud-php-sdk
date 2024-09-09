@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The paginated data.
+     * @description The pagination information.
      *
      * @var list_[]
      */

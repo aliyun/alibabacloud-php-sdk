@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class connections extends Model
 {
     /**
+     * @description The ID of the client.
+     *
      * @example 172.17.135.197@17392#1936705963#551717232#9873695589062458
      *
      * @var string
@@ -16,6 +18,8 @@ class connections extends Model
     public $clientId;
 
     /**
+     * @description Host IP/Public IP
+     *
      * @example xx.xx.xx.xx
      *
      * @var string
@@ -23,6 +27,8 @@ class connections extends Model
     public $egressIp;
 
     /**
+     * @description The `hostname` of the cloud-native box.
+     *
      * @example vos
      *
      * @var string
@@ -30,6 +36,8 @@ class connections extends Model
     public $hostname;
 
     /**
+     * @description The language of the client.
+     *
      * @example java
      *
      * @var string
@@ -37,6 +45,8 @@ class connections extends Model
     public $language;
 
     /**
+     * @description Consumption Mode
+     * - CLUSTERING
      * @example BROADCASTING
      *
      * @var string
@@ -44,6 +54,8 @@ class connections extends Model
     public $messageModel;
 
     /**
+     * @description The version of the client.
+     *
      * @example 1.0
      *
      * @var string

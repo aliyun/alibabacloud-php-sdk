@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListAvailableZonesResponseBody extends Model
 {
     /**
+     * @description The error code returned if the call failed.
+     *
      * @example Topic.NotFound
      *
      * @var string
@@ -17,11 +19,15 @@ class ListAvailableZonesResponseBody extends Model
     public $code;
 
     /**
+     * @description The result data that is returned.
+     *
      * @var data[]
      */
     public $data;
 
     /**
+     * @description The dynamic error code.
+     *
      * @example InstanceId
      *
      * @var string
@@ -29,6 +35,8 @@ class ListAvailableZonesResponseBody extends Model
     public $dynamicCode;
 
     /**
+     * @description The dynamic error message.
+     *
      * @example InstanceId
      *
      * @var string
@@ -36,6 +44,8 @@ class ListAvailableZonesResponseBody extends Model
     public $dynamicMessage;
 
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -43,6 +53,8 @@ class ListAvailableZonesResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The error message.
+     *
      * @example Parameter instanceId is mandatory for this action .
      *
      * @var string
@@ -50,6 +62,8 @@ class ListAvailableZonesResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the request. Each request has a unique ID. You can use this ID to troubleshoot issues.
+     *
      * @example AF9A8B10-C426-530F-A0DD-96320B39****
      *
      * @var string
@@ -57,6 +71,8 @@ class ListAvailableZonesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful.
+     *
      * @example true
      *
      * @var bool

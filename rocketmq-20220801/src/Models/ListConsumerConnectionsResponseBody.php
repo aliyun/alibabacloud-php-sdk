@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListConsumerConnectionsResponseBody extends Model
 {
     /**
+     * @description The returned error code.
+     *
      * @example MissingPageNumber
      *
      * @var string
@@ -17,11 +19,15 @@ class ListConsumerConnectionsResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned data.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The dynamic error code.
+     *
      * @example InstanceId
      *
      * @var string
@@ -29,6 +35,8 @@ class ListConsumerConnectionsResponseBody extends Model
     public $dynamicCode;
 
     /**
+     * @description The dynamic error message.
+     *
      * @example instanceId
      *
      * @var string
@@ -36,6 +44,8 @@ class ListConsumerConnectionsResponseBody extends Model
     public $dynamicMessage;
 
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -43,6 +53,8 @@ class ListConsumerConnectionsResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The error message.
+     *
      * @example The instance cannot be found.
      *
      * @var string
@@ -50,6 +62,8 @@ class ListConsumerConnectionsResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the request. Each request has a unique ID. You can use this ID to troubleshoot issues.
+     *
      * @example A3620115-6F1F-5CFB-AA3F-BBD4853B2EC4
      *
      * @var string
@@ -57,6 +71,8 @@ class ListConsumerConnectionsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful.
+     *
      * @example true
      *
      * @var bool

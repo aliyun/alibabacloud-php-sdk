@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListTopicSubscriptionsResponseBody extends Model
 {
     /**
+     * @description The error code.
+     *
      * @example MissingInstanceId
      *
      * @var string
@@ -17,11 +19,15 @@ class ListTopicSubscriptionsResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned data.
+     *
      * @var data[]
      */
     public $data;
 
     /**
+     * @description The dynamic error code.
+     *
      * @example Topic
      *
      * @var string
@@ -29,6 +35,8 @@ class ListTopicSubscriptionsResponseBody extends Model
     public $dynamicCode;
 
     /**
+     * @description The dynamic error message.
+     *
      * @example instanceId
      *
      * @var string
@@ -36,6 +44,8 @@ class ListTopicSubscriptionsResponseBody extends Model
     public $dynamicMessage;
 
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -43,6 +53,8 @@ class ListTopicSubscriptionsResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The error message.
+     *
      * @example The instance cannot be found.
      *
      * @var string
@@ -50,6 +62,8 @@ class ListTopicSubscriptionsResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 92A9BE4E-B794-50C8-979C-0456E4D32943
      *
      * @var string
@@ -57,6 +71,8 @@ class ListTopicSubscriptionsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
      * @example true
      *
      * @var bool

@@ -20,7 +20,7 @@ class list_ extends Model
     public $commodityCode;
 
     /**
-     * @description The time when the instance was created.
+     * @description The time when the version of the instance was updated.
      *
      * @example 2022-08-01 00:00:00
      *
@@ -79,7 +79,7 @@ class list_ extends Model
     public $paymentType;
 
     /**
-     * @description The product information of instance.
+     * @description The product information.
      *
      * @var productInfo
      */
@@ -146,7 +146,7 @@ class list_ extends Model
     public $serviceCode;
 
     /**
-     * @description The time when the instance was started.
+     * @description The time when the instance was created.
      *
      * @example 2022-08-01 00:00:00
      *

@@ -31,6 +31,8 @@ class vpcInfo extends Model
     public $vSwitchId;
 
     /**
+     * @description The vSwitches.
+     *
      * @var vSwitches[]
      */
     public $vSwitches;

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The client connection list
+     *
      * @var connections[]
      */
     public $connections;
 
     /**
+     * @description The consumer group ID.
+     *
      * @example CID-TEST
      *
      * @var string
@@ -22,6 +26,8 @@ class data extends Model
     public $consumerGroupId;
 
     /**
+     * @description The instance ID.
+     *
      * @example rmq-cn-7e22ody****
      *
      * @var string
@@ -29,6 +35,8 @@ class data extends Model
     public $instanceId;
 
     /**
+     * @description The ID of the region in which the instance resides.
+     *
      * @example cn-hangzhou
      *
      * @var string

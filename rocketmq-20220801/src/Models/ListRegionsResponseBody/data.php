@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The time when the ApsaraMQ for RocketMQ instance was created.
+     *
      * @example 2022-08-01 20:05:50
      *
      * @var string
@@ -17,6 +19,8 @@ class data extends Model
     public $createTime;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -24,11 +28,17 @@ class data extends Model
     public $regionId;
 
     /**
+     * @description The region name.
+     *
+     * @example hangzhou
+     *
      * @var string
      */
     public $regionName;
 
     /**
+     * @description Indicates whether ApsaraMQ for RocketMQ V4 is activated.
+     *
      * @example true
      *
      * @var bool
@@ -36,6 +46,8 @@ class data extends Model
     public $supportRocketmqV4;
 
     /**
+     * @description Indicates whether ApsaraMQ for RocketMQ V5 is activated.
+     *
      * @example true
      *
      * @var bool
@@ -43,11 +55,15 @@ class data extends Model
     public $supportRocketmqV5;
 
     /**
+     * @description The region tags.
+     *
      * @var tags[]
      */
     public $tags;
 
     /**
+     * @description The time when the ApsaraMQ for RocketMQ instance was last modified.
+     *
      * @example 2022-08-01 20:05:50
      *
      * @var string
