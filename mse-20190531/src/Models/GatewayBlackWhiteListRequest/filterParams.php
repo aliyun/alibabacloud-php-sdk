@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class filterParams extends Model
 {
     /**
+     * @description The gateway ID.
+     *
      * @example 81
      *
      * @var int
@@ -16,6 +18,8 @@ class filterParams extends Model
     public $gatewayId;
 
     /**
+     * @description The unique ID of the gateway. If this parameter is used together with the GatewayId parameter, the value of the GatewayId parameter is used.
+     *
      * @example gw-5017305290e14centbrveca****
      *
      * @var string
@@ -23,6 +27,8 @@ class filterParams extends Model
     public $gatewayUniqueId;
 
     /**
+     * @description This parameter is unavailable for public use.
+     *
      * @example ""
      *
      * @var bool
@@ -30,6 +36,8 @@ class filterParams extends Model
     public $isWhite;
 
     /**
+     * @description This parameter is unavailable for public use.
+     *
      * @example ""
      *
      * @var string
@@ -37,6 +45,8 @@ class filterParams extends Model
     public $resourceType;
 
     /**
+     * @description The content that you want to query.
+     *
      * @example 1.1.1.1
      *
      * @var string
@@ -44,6 +54,12 @@ class filterParams extends Model
     public $searchContent;
 
     /**
+     * @description The query type. Valid values:
+     *
+     *   ROUTE: The list is queried by route. If the value of this parameter is ROUTE, set the SearchContent parameter to the route name.
+     *   DOMAIN: The list is queried by domain name. If the value of this parameter is DOMAIN, set the SearchContent parameter to the domain name.
+     *   IP: The list is queried by specified IP address. If the value of this parameter is IP, set the SearchContent parameter to the IP address.
+     *
      * @example IP
      *
      * @var string
@@ -51,6 +67,8 @@ class filterParams extends Model
     public $searchType;
 
     /**
+     * @description This parameter is unavailable for public use.
+     *
      * @example ""
      *
      * @var string

@@ -20,7 +20,7 @@ class CloneNacosConfigResponseBody extends Model
     public $code;
 
     /**
-     * @description The number of skipped operations.
+     * @description The data returned.
      *
      * @var data
      */

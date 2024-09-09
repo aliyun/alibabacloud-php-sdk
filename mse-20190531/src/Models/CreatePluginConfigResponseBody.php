@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreatePluginConfigResponseBody extends Model
 {
     /**
+     * @description The plug-in configuration ID.
+     *
      * @example 10
      *
      * @var int
@@ -16,6 +18,8 @@ class CreatePluginConfigResponseBody extends Model
     public $pluginConfigID;
 
     /**
+     * @description The request ID.
+     *
      * @example 03A3E2F4-6804-5663-9D5D-2EC47A1*****
      *
      * @var string

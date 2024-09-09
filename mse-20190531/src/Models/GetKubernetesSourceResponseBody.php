@@ -19,7 +19,7 @@ class GetKubernetesSourceResponseBody extends Model
     public $code;
 
     /**
-     * @description The data structure.
+     * @description The data returned.
      *
      * @var data[]
      */

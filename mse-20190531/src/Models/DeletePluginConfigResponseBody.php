@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeletePluginConfigResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example DC34E4A3-5F1C-4E40-86EA-02EDF967****
      *
      * @var string

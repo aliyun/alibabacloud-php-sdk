@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GatewayBlackWhiteListResponseBody extends Model
 {
     /**
+     * @description The status code. A value of 200 is returned if the request is successful.
+     *
      * @example 200
      *
      * @var int
@@ -17,11 +19,15 @@ class GatewayBlackWhiteListResponseBody extends Model
     public $code;
 
     /**
+     * @description The data returned.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The placeholder in the dynamic error message. This parameter is not returned.
+     *
      * @example code
      *
      * @var string
@@ -29,6 +35,8 @@ class GatewayBlackWhiteListResponseBody extends Model
     public $dynamicCode;
 
     /**
+     * @description The dynamic message. This parameter is not returned.
+     *
      * @example The specified parameter is invalid.
      *
      * @var string
@@ -36,6 +44,8 @@ class GatewayBlackWhiteListResponseBody extends Model
     public $dynamicMessage;
 
     /**
+     * @description The error code.
+     *
      * @example Success
      *
      * @var string
@@ -43,6 +53,8 @@ class GatewayBlackWhiteListResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -50,6 +62,8 @@ class GatewayBlackWhiteListResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The returned message.
+     *
      * @example OK
      *
      * @var string
@@ -57,6 +71,8 @@ class GatewayBlackWhiteListResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 58E06A0A-BD2C-47A0-99C2-B100F353****
      *
      * @var string
@@ -64,6 +80,11 @@ class GatewayBlackWhiteListResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   `true`
+     *   `false`
+     *
      * @example true
      *
      * @var bool

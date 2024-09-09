@@ -164,6 +164,11 @@ class data extends Model
     public $serviceNameInRegistry;
 
     /**
+     * @var int
+     */
+    public $servicePort;
+
+    /**
      * @description The protocol of the service.
      *
      * @example HTTP
@@ -222,6 +227,7 @@ class data extends Model
         'ports'                 => 'Ports',
         'serviceFQDN'           => 'ServiceFQDN',
         'serviceNameInRegistry' => 'ServiceNameInRegistry',
+        'servicePort'           => 'ServicePort',
         'serviceProtocol'       => 'ServiceProtocol',
         'sourceId'              => 'SourceId',
         'sourceType'            => 'SourceType',
@@ -301,6 +307,9 @@ class data extends Model
         }
         if (null !== $this->serviceNameInRegistry) {
             $res['ServiceNameInRegistry'] = $this->serviceNameInRegistry;
+        }
+        if (null !== $this->servicePort) {
+            $res['ServicePort'] = $this->servicePort;
         }
         if (null !== $this->serviceProtocol) {
             $res['ServiceProtocol'] = $this->serviceProtocol;
@@ -410,6 +419,9 @@ class data extends Model
         }
         if (isset($map['ServiceNameInRegistry'])) {
             $model->serviceNameInRegistry = $map['ServiceNameInRegistry'];
+        }
+        if (isset($map['ServicePort'])) {
+            $model->servicePort = $map['ServicePort'];
         }
         if (isset($map['ServiceProtocol'])) {
             $model->serviceProtocol = $map['ServiceProtocol'];

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeletePluginConfigRequest extends Model
 {
     /**
+     * @description The language in which you want to display the results. Valid values: zh and en. zh indicates Chinese, which is the default value. en indicates English.
+     *
      * @example zh
      *
      * @var string
@@ -16,8 +18,9 @@ class DeletePluginConfigRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @description This parameter is required.
+     * @description The unique ID of the gateway.
      *
+     * This parameter is required.
      * @example gw-e2d226bba4b2445c9e29fa7f8216****
      *
      * @var string
@@ -25,8 +28,9 @@ class DeletePluginConfigRequest extends Model
     public $gatewayUniqueId;
 
     /**
-     * @description This parameter is required.
+     * @description The plug-in configuration ID.
      *
+     * This parameter is required.
      * @example 200
      *
      * @var int

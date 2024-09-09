@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayResponseBody\data\result;
 
+use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayResponseBody\data\result\elasticPolicy\enableScaleTimePolicyList;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayResponseBody\data\result\elasticPolicy\timePolicyList;
 use AlibabaCloud\Tea\Model;
 
@@ -30,6 +31,16 @@ class elasticPolicy extends Model
     public $elasticType;
 
     /**
+     * @var enableScaleTimePolicyList[]
+     */
+    public $enableScaleTimePolicyList;
+
+    /**
+     * @var bool
+     */
+    public $loadWarningThreshold;
+
+    /**
      * @description The maximum number of instances that are automatically scaled out. This parameter is used for horizontal scale-out.
      *
      * @example 10
@@ -45,10 +56,12 @@ class elasticPolicy extends Model
      */
     public $timePolicyList;
     protected $_name = [
-        'elastic'        => 'Elastic',
-        'elasticType'    => 'ElasticType',
-        'maxReplica'     => 'MaxReplica',
-        'timePolicyList' => 'TimePolicyList',
+        'elastic'                   => 'Elastic',
+        'elasticType'               => 'ElasticType',
+        'enableScaleTimePolicyList' => 'EnableScaleTimePolicyList',
+        'loadWarningThreshold'      => 'LoadWarningThreshold',
+        'maxReplica'                => 'MaxReplica',
+        'timePolicyList'            => 'TimePolicyList',
     ];
 
     public function validate()
@@ -63,6 +76,18 @@ class elasticPolicy extends Model
         }
         if (null !== $this->elasticType) {
             $res['ElasticType'] = $this->elasticType;
+        }
+        if (null !== $this->enableScaleTimePolicyList) {
+            $res['EnableScaleTimePolicyList'] = [];
+            if (null !== $this->enableScaleTimePolicyList && \is_array($this->enableScaleTimePolicyList)) {
+                $n = 0;
+                foreach ($this->enableScaleTimePolicyList as $item) {
+                    $res['EnableScaleTimePolicyList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->loadWarningThreshold) {
+            $res['LoadWarningThreshold'] = $this->loadWarningThreshold;
         }
         if (null !== $this->maxReplica) {
             $res['MaxReplica'] = $this->maxReplica;
@@ -93,6 +118,18 @@ class elasticPolicy extends Model
         }
         if (isset($map['ElasticType'])) {
             $model->elasticType = $map['ElasticType'];
+        }
+        if (isset($map['EnableScaleTimePolicyList'])) {
+            if (!empty($map['EnableScaleTimePolicyList'])) {
+                $model->enableScaleTimePolicyList = [];
+                $n                                = 0;
+                foreach ($map['EnableScaleTimePolicyList'] as $item) {
+                    $model->enableScaleTimePolicyList[$n++] = null !== $item ? enableScaleTimePolicyList::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['LoadWarningThreshold'])) {
+            $model->loadWarningThreshold = $map['LoadWarningThreshold'];
         }
         if (isset($map['MaxReplica'])) {
             $model->maxReplica = $map['MaxReplica'];

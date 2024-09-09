@@ -3328,7 +3328,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @summary 创建插件配置
+     * @summary Creates a plug-in configuration.
      *  *
      * @param CreatePluginConfigRequest $tmpReq  CreatePluginConfigRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -3384,7 +3384,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @summary 创建插件配置
+     * @summary Creates a plug-in configuration.
      *  *
      * @param CreatePluginConfigRequest $request CreatePluginConfigRequest
      *
@@ -4769,7 +4769,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @summary 删除插件配置
+     * @summary Deletes a plug-in configuration.
      *  *
      * @param DeletePluginConfigRequest $request DeletePluginConfigRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -4808,7 +4808,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @summary 删除插件配置
+     * @summary Deletes a plug-in configuration.
      *  *
      * @param DeletePluginConfigRequest $request DeletePluginConfigRequest
      *
@@ -5406,7 +5406,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @summary 黑白名单列表
+     * @summary Queries a list of blacklists and whitelists of a gateway.
      *  *
      * @param GatewayBlackWhiteListRequest $tmpReq  GatewayBlackWhiteListRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -5459,7 +5459,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @summary 黑白名单列表
+     * @summary Queries a list of blacklists and whitelists of a gateway.
      *  *
      * @param GatewayBlackWhiteListRequest $request GatewayBlackWhiteListRequest
      *

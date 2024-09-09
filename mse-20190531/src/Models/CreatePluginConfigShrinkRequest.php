@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreatePluginConfigShrinkRequest extends Model
 {
     /**
+     * @description The language in which you want to display the results. Valid values: zh and en. zh indicates Chinese, which is the default value. en indicates English.
+     *
      * @example zh
      *
      * @var string
@@ -16,6 +18,8 @@ class CreatePluginConfigShrinkRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @description The plug-in configuration. The configuration content of the WebAssembly (Wasm) plug-in is in the YAML format. The configuration content of the Lua plug-in is Lua code.
+     *
      * @example status_code: 200
      * body: "{\\"rule\\": \\"global\\"}"
      * @var string
@@ -23,8 +27,13 @@ class CreatePluginConfigShrinkRequest extends Model
     public $config;
 
     /**
-     * @description This parameter is required.
+     * @description The application scope of the plug-in. Valid values:
      *
+     *   0: global
+     *   1: route
+     *   2: domain name
+     *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -32,8 +41,9 @@ class CreatePluginConfigShrinkRequest extends Model
     public $configLevel;
 
     /**
-     * @description This parameter is required.
+     * @description Indicates whether the plug-in is enabled.
      *
+     * This parameter is required.
      * @example true
      *
      * @var bool
@@ -41,8 +51,9 @@ class CreatePluginConfigShrinkRequest extends Model
     public $enable;
 
     /**
-     * @description This parameter is required.
+     * @description The unique ID of the gateway.
      *
+     * This parameter is required.
      * @example gw-ubuwqygbq4783gqb2y3f87q****
      *
      * @var string
@@ -50,8 +61,9 @@ class CreatePluginConfigShrinkRequest extends Model
     public $gatewayUniqueId;
 
     /**
-     * @description This parameter is required.
+     * @description The gateway plug-in ID.
      *
+     * This parameter is required.
      * @example 20
      *
      * @var int
@@ -59,6 +71,8 @@ class CreatePluginConfigShrinkRequest extends Model
     public $pluginId;
 
     /**
+     * @description The domain IDs or route IDs. They are distinguished based on ConfigLevel.
+     *
      * @var string
      */
     public $resourceIdListShrink;

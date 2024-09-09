@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GatewayBlackWhiteListRequest extends Model
 {
     /**
+     * @description The language in which you want to display the results. Valid values: zh and en. zh indicates Chinese, which is the default value. en indicates English.
+     *
      * @example zh
      *
      * @var string
@@ -17,6 +19,8 @@ class GatewayBlackWhiteListRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @description This parameter is unavailable for public use.
+     *
      * @example ""
      *
      * @var bool
@@ -24,13 +28,15 @@ class GatewayBlackWhiteListRequest extends Model
     public $descSort;
 
     /**
-     * @description parse from filterParams
+     * @description The filter parameters.
      *
      * @var filterParams
      */
     public $filterParams;
 
     /**
+     * @description This parameter is unavailable for public use.
+     *
      * @example ""
      *
      * @var string
@@ -38,6 +44,8 @@ class GatewayBlackWhiteListRequest extends Model
     public $orderItem;
 
     /**
+     * @description The page number. Pages start from page 1. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -45,6 +53,8 @@ class GatewayBlackWhiteListRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Default value: 1.
+     *
      * @example 1
      *
      * @var int

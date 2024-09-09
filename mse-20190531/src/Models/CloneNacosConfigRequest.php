@@ -21,12 +21,14 @@ class CloneNacosConfigRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @description The configuration items that you want to clone. The value of this parameter is the combination of the values of the dataId and group parameters. Separate multiple configuration items with commas (,).
+     *
      * @var string
      */
     public $dataIds;
 
     /**
-     * @description The data structure.
+     * @description The list of configuration IDs.
      *
      * @example 253661,253662
      *

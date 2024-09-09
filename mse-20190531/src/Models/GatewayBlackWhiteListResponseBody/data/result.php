@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The content of the blacklist.
+     *
      * @example 1.1.1.1
      *
      * @var string
@@ -16,6 +18,8 @@ class result extends Model
     public $content;
 
     /**
+     * @description The gateway ID.
+     *
      * @example 81
      *
      * @var int
@@ -23,6 +27,8 @@ class result extends Model
     public $gatewayId;
 
     /**
+     * @description The unique ID of the gateway.
+     *
      * @example gw-5017305290e14centbrveca****
      *
      * @var string
@@ -30,6 +36,8 @@ class result extends Model
     public $gatewayUniqueId;
 
     /**
+     * @description The time when the blacklist or whitelist was created.
+     *
      * @example 2024-08-02T02:43:40.000+0000
      *
      * @var string
@@ -37,6 +45,8 @@ class result extends Model
     public $gmtCreate;
 
     /**
+     * @description The time when the rule was modified.
+     *
      * @example 2024-08-02T02:43:40.000+0000
      *
      * @var string
@@ -44,6 +54,8 @@ class result extends Model
     public $gmtModified;
 
     /**
+     * @description The ID of the blacklist and whitelist.
+     *
      * @example 549
      *
      * @var int
@@ -51,6 +63,8 @@ class result extends Model
     public $id;
 
     /**
+     * @description Specifies whether to enable the whitelist feature.
+     *
      * @example true
      *
      * @var bool
@@ -58,6 +72,8 @@ class result extends Model
     public $isWhite;
 
     /**
+     * @description The name of the blacklist.
+     *
      * @example test
      *
      * @var string
@@ -65,11 +81,15 @@ class result extends Model
     public $name;
 
     /**
+     * @description The comment.
+     *
      * @var string
      */
     public $note;
 
     /**
+     * @description The resource ID.
+     *
      * @example 549
      *
      * @var int
@@ -77,6 +97,11 @@ class result extends Model
     public $resourceId;
 
     /**
+     * @description The list of resource IDs in the JSON format.
+     *
+     *   If the value of the ResourceType parameter is ROUTE, the value of this parameter is the list of route IDs.
+     *   If the value of the ResourceType parameter is DOMAIN, the value of this parameter is the list of domain names.
+     *
      * @example [234]
      *
      * @var string
@@ -84,6 +109,8 @@ class result extends Model
     public $resourceIdJsonList;
 
     /**
+     * @description The description of the resource name.
+     *
      * @example {}
      *
      * @var string
@@ -91,6 +118,12 @@ class result extends Model
     public $resourceIdNameJson;
 
     /**
+     * @description The effective scope of the blacklist or whitelist. Valid values:
+     *
+     *   GATEWAY
+     *   DOMAIN
+     *   ROUTE
+     *
      * @example GATEWAY
      *
      * @var string
@@ -98,6 +131,11 @@ class result extends Model
     public $resourceType;
 
     /**
+     * @description The status of the blacklist or whitelist.
+     *
+     *   on
+     *   off
+     *
      * @example on
      *
      * @var string
@@ -105,6 +143,8 @@ class result extends Model
     public $status;
 
     /**
+     * @description The type of the blacklist and whitelist. The value is fixed to IP address blacklist and whitelist.
+     *
      * @example IP
      *
      * @var string
