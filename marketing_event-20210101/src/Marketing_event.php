@@ -73,6 +73,12 @@ class Marketing_event extends OpenApiClient
         if (!Utils::isUnset($request->dateTimeString)) {
             $query['DateTimeString'] = $request->dateTimeString;
         }
+        if (!Utils::isUnset($request->endDateTime)) {
+            $query['EndDateTime'] = $request->endDateTime;
+        }
+        if (!Utils::isUnset($request->startDateTime)) {
+            $query['StartDateTime'] = $request->startDateTime;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -122,6 +128,12 @@ class Marketing_event extends OpenApiClient
         }
         if (!Utils::isUnset($request->dateTimeString)) {
             $query['DateTimeString'] = $request->dateTimeString;
+        }
+        if (!Utils::isUnset($request->endDateTime)) {
+            $query['EndDateTime'] = $request->endDateTime;
+        }
+        if (!Utils::isUnset($request->startDateTime)) {
+            $query['StartDateTime'] = $request->startDateTime;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),

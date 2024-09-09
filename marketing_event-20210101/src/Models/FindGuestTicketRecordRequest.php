@@ -21,9 +21,21 @@ class FindGuestTicketRecordRequest extends Model
      * @var string
      */
     public $dateTimeString;
+
+    /**
+     * @var string
+     */
+    public $endDateTime;
+
+    /**
+     * @var string
+     */
+    public $startDateTime;
     protected $_name = [
         'activityId'     => 'ActivityId',
         'dateTimeString' => 'DateTimeString',
+        'endDateTime'    => 'EndDateTime',
+        'startDateTime'  => 'StartDateTime',
     ];
 
     public function validate()
@@ -38,6 +50,12 @@ class FindGuestTicketRecordRequest extends Model
         }
         if (null !== $this->dateTimeString) {
             $res['DateTimeString'] = $this->dateTimeString;
+        }
+        if (null !== $this->endDateTime) {
+            $res['EndDateTime'] = $this->endDateTime;
+        }
+        if (null !== $this->startDateTime) {
+            $res['StartDateTime'] = $this->startDateTime;
         }
 
         return $res;
@@ -56,6 +74,12 @@ class FindGuestTicketRecordRequest extends Model
         }
         if (isset($map['DateTimeString'])) {
             $model->dateTimeString = $map['DateTimeString'];
+        }
+        if (isset($map['EndDateTime'])) {
+            $model->endDateTime = $map['EndDateTime'];
+        }
+        if (isset($map['StartDateTime'])) {
+            $model->startDateTime = $map['StartDateTime'];
         }
 
         return $model;
