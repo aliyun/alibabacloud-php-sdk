@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ChangeResourceGroupRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the new resource group.
      *
+     * This parameter is required.
      * @example rg-acfmwavnfdf****
      *
      * @var string
@@ -18,6 +19,9 @@ class ChangeResourceGroupRequest extends Model
     public $newResourceGroupId;
 
     /**
+     * @description The region ID of the zone.
+     *
+     * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/2412111.html) operation to query the latest region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -25,8 +29,9 @@ class ChangeResourceGroupRequest extends Model
     public $regionId;
 
     /**
-     * @description This parameter is required.
+     * @description The resource ID.
      *
+     * This parameter is required.
      * @example 31a8e4****
      *
      * @var string
@@ -34,8 +39,9 @@ class ChangeResourceGroupRequest extends Model
     public $resourceId;
 
     /**
-     * @description This parameter is required.
+     * @description The resource type.
      *
+     * This parameter is required.
      * @example filesystem
      *
      * @var string

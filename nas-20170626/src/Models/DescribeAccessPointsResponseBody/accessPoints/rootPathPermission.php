@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class rootPathPermission extends Model
 {
     /**
+     * @description The ID of the owner group.
+     *
      * @example 12
      *
      * @var int
@@ -16,6 +18,8 @@ class rootPathPermission extends Model
     public $ownerGroupId;
 
     /**
+     * @description The owner ID.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +27,8 @@ class rootPathPermission extends Model
     public $ownerUserId;
 
     /**
+     * @description The POSIX permission.
+     *
      * @example 0755
      *
      * @var string

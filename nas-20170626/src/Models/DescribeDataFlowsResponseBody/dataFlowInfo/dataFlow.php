@@ -12,6 +12,7 @@ class dataFlow extends Model
     /**
      * @description The details about automatic update policies.
      *
+     * >  Only CPFS supports this parameter.
      * @var autoRefresh
      */
     public $autoRefresh;
@@ -19,7 +20,7 @@ class dataFlow extends Model
     /**
      * @description The automatic update interval. CPFS checks whether data is updated in the directory at the interval specified by this parameter. If data is updated, CPFS starts an automatic update task. Unit: minutes.
      *
-     * Valid values: 5 to 526600. Default value: 10.
+     * >  Only CPFS supports this parameter.
      * @example 10
      *
      * @var int
@@ -29,9 +30,10 @@ class dataFlow extends Model
     /**
      * @description The automatic update policy. The updated data in the source storage is imported into the CPFS file system based on the policy. Valid values:
      *
-     *   None: Updated data in the source storage is not automatically imported to the CPFS file system. You can run a dataflow task to import the updated data from the source storage.
-     *   ImportChanged: Updated data in the source storage is automatically imported to the CPFS file system.
+     *   None: Updated data in the source storage is not automatically imported into the CPFS file system. You can run a data flow task to import the updated data from the source storage.
+     *   ImportChanged: Updated data in the source storage is automatically imported into the CPFS file system.
      *
+     * >  Only CPFS supports this parameter.
      * @example None
      *
      * @var string
@@ -66,6 +68,8 @@ class dataFlow extends Model
      *   The description must start with a letter but cannot start with `http://` or `https://`.
      *   The description can contain letters, digits, colons (:), underscores (_), and hyphens (-).
      *
+     * @example test
+     *
      * @var string
      */
     public $description;
@@ -76,6 +80,8 @@ class dataFlow extends Model
      *   None (default): The dataflow status is normal.
      *   SourceStorageUnreachable: The access path of the source storage is not found.
      *   ThroughputTooLow: The dataflow throughput is low.
+     *
+     * @example SourceStorageUnreachable
      *
      * @var string
      */
@@ -100,6 +106,7 @@ class dataFlow extends Model
      *   The directory must start and end with a forward slash (/).
      *   The directory must be a fileset directory in the CPFS file system.
      *
+     * >  Only CPFS supports this parameter.
      * @example /a/b/c/
      *
      * @var string
@@ -108,6 +115,9 @@ class dataFlow extends Model
 
     /**
      * @description The description of the automatic update.
+     *
+     * >  Only CPFS supports this parameter.
+     * @example FsetTest
      *
      * @var string
      */
@@ -135,11 +145,11 @@ class dataFlow extends Model
     public $sourceSecurityType;
 
     /**
-     * @description The access path of the source storage. Format:://.
+     * @description The access path of the source storage. Format: `<storage type>://<path>`.
      *
      * Parameters:
      *
-     *   storage type: Only OSS is supported.
+     *   storage type: Only Object Storage Service (OSS) is supported.
      *
      *   path: the name of the OSS bucket.
      *
@@ -156,7 +166,10 @@ class dataFlow extends Model
     public $sourceStorage;
 
     /**
-     * @description 源端存储内的访问路径。
+     * @description The access path in the bucket of the source storage.
+     *
+     * >  Only CPFS for LINGJUN supports this parameter.
+     * @example /prefix/
      *
      * @var string
      */

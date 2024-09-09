@@ -10,13 +10,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeAccessPointResponseBody extends Model
 {
     /**
+     * @description The information about the access point.
+     *
      * @var accessPoint
      */
     public $accessPoint;
 
     /**
-     * @description This parameter is required.
+     * @description The request ID.
      *
+     * This parameter is required.
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
      *
      * @var string

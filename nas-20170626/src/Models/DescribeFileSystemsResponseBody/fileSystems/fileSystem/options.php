@@ -9,6 +9,14 @@ use AlibabaCloud\Tea\Model;
 class options extends Model
 {
     /**
+     * @description Specifies whether to enable the oplock feature. Valid values:
+     *
+     *   true: enables the feature.
+     *   false: disables the feature.
+     *
+     * >  Only Server Message Block (SMB) file systems support this feature.
+     * @example true
+     *
      * @var bool
      */
     public $enableOplock;

@@ -48,7 +48,7 @@ class ListRecycleBinJobsRequest extends Model
     public $pageSize;
 
     /**
-     * @description The status of the job. Valid values:
+     * @description The job status. Valid values:
      *
      *   Running: The job is running.
      *   Defragmenting: The job is defragmenting data.
@@ -56,7 +56,7 @@ class ListRecycleBinJobsRequest extends Model
      *   Success: The job is completed.
      *   Fail: The job failed.
      *   Cancelled: The job is canceled.
-     *   All: all.Default value:All.
+     *   all (default)
      *
      * @example All
      *

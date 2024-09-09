@@ -42,7 +42,7 @@ class ListRecycledDirectoriesAndFilesRequest extends Model
      * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request.
      *
      * If all the files and directories are incompletely returned in a query, the return value of the NextToken parameter is not empty. In this case, you can specify a valid value for the NextToken parameter to continue the query.
-     * @example 1256****25
+     * @example CJyNARIsMTY5OTI2NjQ3NTEzMjY2OTMwOF8xODA5NF8ufnl0YkROTl9uZXcuaXB5bmI=
      *
      * @var string
      */

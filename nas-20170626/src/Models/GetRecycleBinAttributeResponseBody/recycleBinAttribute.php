@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class recycleBinAttribute extends Model
 {
     /**
+     * @var int
+     */
+    public $archiveSize;
+
+    /**
      * @description The time at which the recycle bin was enabled.
      *
      * @example 2021-05-30T10:08:08Z
@@ -59,6 +64,7 @@ class recycleBinAttribute extends Model
      */
     public $status;
     protected $_name = [
+        'archiveSize'   => 'ArchiveSize',
         'enableTime'    => 'EnableTime',
         'reservedDays'  => 'ReservedDays',
         'secondarySize' => 'SecondarySize',
@@ -73,6 +79,9 @@ class recycleBinAttribute extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->archiveSize) {
+            $res['ArchiveSize'] = $this->archiveSize;
+        }
         if (null !== $this->enableTime) {
             $res['EnableTime'] = $this->enableTime;
         }
@@ -100,6 +109,9 @@ class recycleBinAttribute extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ArchiveSize'])) {
+            $model->archiveSize = $map['ArchiveSize'];
+        }
         if (isset($map['EnableTime'])) {
             $model->enableTime = $map['EnableTime'];
         }

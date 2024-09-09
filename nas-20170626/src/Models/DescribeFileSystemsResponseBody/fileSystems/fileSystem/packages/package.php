@@ -29,11 +29,7 @@ class package extends Model
     /**
      * @description The type of the storage plan.
      *
-     * Valid values:
-     *
-     *   ssd: the storage plan for Performance NAS file systems
-     *   hybrid: the storage plan for Capacity NAS file systems
-     *
+     * - hybrid: the storage plan for Capacity NAS file systems.
      * @example hybrid
      *
      * @var string

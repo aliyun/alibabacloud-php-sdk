@@ -62,6 +62,8 @@ class lifecyclePolicies extends Model
     public $path;
 
     /**
+     * @description The absolute paths to multiple directories associated with the lifecycle policy.
+     *
      * @var string[]
      */
     public $paths;

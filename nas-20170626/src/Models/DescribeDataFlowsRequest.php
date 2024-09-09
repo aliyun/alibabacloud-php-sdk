@@ -12,6 +12,9 @@ class DescribeDataFlowsRequest extends Model
     /**
      * @description The ID of the file system.
      *
+     *   The IDs of CPFS file systems must start with `cpfs-`. Example: cpfs-125487\\*\\*\\*\\*.
+     *   The IDs of CPFS for LINGJUN file systems must start with `bmcpfs-`. Example: bmcpfs-0015\\*\\*\\*\\*.
+     *
      * This parameter is required.
      * @example cpfs-12345678
      *
@@ -20,7 +23,7 @@ class DescribeDataFlowsRequest extends Model
     public $fileSystemId;
 
     /**
-     * @description The filter that is used to query dataflows.
+     * @description The filter that is used to query data flows.
      *
      * @var filters[]
      */

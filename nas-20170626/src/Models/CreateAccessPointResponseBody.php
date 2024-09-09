@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class CreateAccessPointResponseBody extends Model
 {
     /**
+     * @description The access point.
+     *
      * @var accessPoint
      */
     public $accessPoint;
 
     /**
+     * @description The request ID.
+     *
      * @example 98696EF0-1607-4E9D-B01D-F20930B6****
      *
      * @var string

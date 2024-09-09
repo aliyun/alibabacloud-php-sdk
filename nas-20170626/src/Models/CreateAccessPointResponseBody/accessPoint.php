@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class accessPoint extends Model
 {
     /**
+     * @description The domain name of the access point.
+     *
      * @example ap-ie15ydanoz.001014****-w****.cn-hangzhou.nas.aliyuncs.com
      *
      * @var string
@@ -16,6 +18,8 @@ class accessPoint extends Model
     public $accessPointDomain;
 
     /**
+     * @description The ID of the access point.
+     *
      * @example ap-ie15yd****
      *
      * @var string

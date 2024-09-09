@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteAccessPointRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the access point.
      *
+     * This parameter is required.
      * @example ap-ie15yd****
      *
      * @var string
@@ -18,8 +19,9 @@ class DeleteAccessPointRequest extends Model
     public $accessPointId;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the file system.
      *
+     * This parameter is required.
      * @example 1ca404****
      *
      * @var string

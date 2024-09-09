@@ -61,6 +61,8 @@ class CreateFileSystemRequest extends Model
      *   The description must start with a letter and cannot start with `http://` or `https://`.
      *   The description can contain letters, digits, colons (:), underscores (_), and hyphens (-).
      *
+     * @example test
+     *
      * @var string
      */
     public $description;
@@ -90,15 +92,16 @@ class CreateFileSystemRequest extends Model
     public $duration;
 
     /**
-     * @description Specifies whether to encrypt the data in the NAS file system.
+     * @description Specifies whether to encrypt data in the file system.
      *
      * Valid values:
      *
-     *   0: The data in the file system is not encrypted.
+     *   0 (default): The data in the file system is not encrypted.
      *   1: A NAS-managed key is used to encrypt the data in the file system. This value is valid only if the FileSystemType parameter is set to standard or extreme.
-     *   2: A KMS-managed key is used to encrypt the data in the file system. This value is valid only if the FileSystemType parameter is set to extreme.
+     *   2: A KMS-managed key is used to encrypt the data in the file system. This value is valid only if the FileSystemType parameter is set to standard or extreme.
      *
-     * > You can use KMS-managed keys only in the following regions: US (Silicon Valley), US (Virginia), UK (London), Australia (Sydney), Germany (Frankfurt), India (Mumbai), and Singapore.
+     * >  *   Extreme NAS file system: All regions support KMS-managed keys.
+     * > *   General-purpose NAS file system: KMS-managed keys are supported in the following regions: China (Chengdu), China (Qingdao), China (Hohhot), China (Ulanqab), China (Heyuan), China (Hangzhou), China (Shanghai), China (Beijing), China (Zhangjiakou), China (Shenzhen), China (Guangzhou), China (Hong Kong), Japan (Tokyo), Philippines (Manila), Thailand (Bangkok), Malaysia (Kuala Lumpur), US (Silicon Valley), Indonesia (Jakarta), UK (London), Singapore, US (Virginia), Germany (Frankfurt), Australia (Sydney), and China East 1 Finance.
      * @example 1
      *
      * @var int
@@ -125,6 +128,8 @@ class CreateFileSystemRequest extends Model
      * @description The ID of the KMS-managed key.
      *
      * This parameter is required only if the EncryptType parameter is set to 2.
+     * @example 3c0b3885-2adf-483d-8a65-5e280689****
+     *
      * @var string
      */
     public $kmsKeyId;
@@ -143,6 +148,11 @@ class CreateFileSystemRequest extends Model
     public $protocolType;
 
     /**
+     * @description The resource group ID.
+     *
+     * You can log on to the [Resource Management console](https://resourcemanager.console.aliyun.com/resource-groups?) to view resource group IDs.
+     * @example rg-acfmwavnfdf****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -158,9 +168,9 @@ class CreateFileSystemRequest extends Model
     public $snapshotId;
 
     /**
-     * @description The storage type.
+     * @description The storage class.
      *
-     *   If the FileSystemType parameter is set to standard, you can set the StorageType parameter to Performance or Capacity.
+     *   If the FileSystemType parameter is set to standard, you can set the StorageType parameter to Performance, Capacity, or Premium.
      *   If the FileSystemType parameter is set to extreme, you can set the StorageType parameter to standard or advance.
      *
      * This parameter is required.
@@ -174,6 +184,8 @@ class CreateFileSystemRequest extends Model
      * @description The ID of the vSwitch.
      *
      * This parameter is reserved and does not take effect. You do not need to configure this parameter.
+     * @example vsw-2ze37k6jh8ums2fw2****
+     *
      * @var string
      */
     public $vSwitchId;
@@ -182,6 +194,8 @@ class CreateFileSystemRequest extends Model
      * @description The ID of the virtual private cloud (VPC).
      *
      * This parameter is reserved and does not take effect. You do not need to configure this parameter.
+     * @example vpc-bp1cbv1ljve4j5hlw****
+     *
      * @var string
      */
     public $vpcId;

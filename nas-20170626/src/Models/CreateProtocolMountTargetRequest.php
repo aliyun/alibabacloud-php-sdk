@@ -37,6 +37,8 @@ class CreateProtocolMountTargetRequest extends Model
      *   The description must start with a letter but cannot start with `http://` or `https://`.
      *   The description can contain letters, digits, colons (:), underscores (_), and hyphens (-).
      *
+     * @example test
+     *
      * @var string
      */
     public $description;

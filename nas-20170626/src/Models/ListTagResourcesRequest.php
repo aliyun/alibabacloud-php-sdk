@@ -12,6 +12,8 @@ class ListTagResourcesRequest extends Model
     /**
      * @description The pagination token that is used in the next request to retrieve a new page of results.
      *
+     * @example MTcyNDU1MTYyNjIxNTMyNzM4NiMzNjExMzQxNw==
+     *
      * @var string
      */
     public $nextToken;

@@ -38,17 +38,26 @@ class entries extends Model
     public $fileId;
 
     /**
+     * @description Indicates whether the directory contains files stored in the Archive storage class.
+     *
+     * Valid values:
+     *
+     *   true: The directory contains files stored in the Archive storage class.
+     *   false: The directory does not contain files stored in the Archive storage class.
+     *
+     * @example true
+     *
      * @var string
      */
     public $hasArchiveFile;
 
     /**
-     * @description Indicates whether the directory contains files stored in the IA storage medium.
+     * @description Indicates whether the directory contains files stored in the IA storage class.
      *
      * Valid values:
      *
-     *   true: The directory contains files stored in the IA storage medium.
-     *   false: The directory does not contain files stored in the IA storage medium.
+     *   true: The directory contains files stored in the IA storage class.
+     *   false: The directory does not contain files stored in the IA storage class.
      *
      * @example true
      *
@@ -114,11 +123,12 @@ class entries extends Model
     public $size;
 
     /**
-     * @description The storage type of the file.
+     * @description The storage class.
      *
      * Valid values:
      *
-     *   InfrequentAccess: IA storage medium
+     *   InfrequentAccess: the IA storage class.
+     *   Archive: the Archive storage class.
      *
      * @example InfrequentAccess
      *

@@ -19,12 +19,22 @@ class entrie extends Model
     public $createTime;
 
     /**
+     * @description Specifies whether to enable deletion protection to allow you to release the fileset by using the console or by calling the [DeleteFileset](https://help.aliyun.com/document_detail/2402263.html) operation. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * >  This parameter can protect filesets only against manual releases, but not against automatic releases.
+     * @example true
+     *
      * @var bool
      */
     public $deletionProtection;
 
     /**
      * @description The fileset description.
+     *
+     * @example test
      *
      * @var string
      */

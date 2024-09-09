@@ -54,6 +54,10 @@ class userQuotaInfos extends Model
     public $sizeReal;
 
     /**
+     * @description The total size of files that a user has created in the directory. Unit: bytes.
+     *
+     * @example 858995833870
+     *
      * @var int
      */
     public $sizeRealInByte;
@@ -68,10 +72,10 @@ class userQuotaInfos extends Model
     public $userId;
 
     /**
-     * @description The type of the user ID. Valid values: Uid, Gid, and AllUsers.
+     * @description The type of user. Valid values: Uid, Gid, and AllUsers.
      *
-     *   If the parameter is set to Uid or Gid, the value of the UserId parameter is returned.
-     *   If the parameter is set to AllUsers, the value of the UserID parameter is empty.
+     *   If Uid or Gid is returned, a value is returned for UserId.
+     *   If AllUsers is returned, UserId is empty.
      *
      * @example Uid
      *

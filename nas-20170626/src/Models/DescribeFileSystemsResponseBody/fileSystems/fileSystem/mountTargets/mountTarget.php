@@ -29,7 +29,6 @@ class mountTarget extends Model
 
     /**
      * @description The dual-stack (IPv4 and IPv6) domain name of the mount target.
-     *
      * > Only Extreme NAS file systems that reside in the Chinese mainland support IPv6.
      * @example 174494b666-x****.dualstack.cn-hangzhou.nas.aliyuncs.com
      *
@@ -62,12 +61,12 @@ class mountTarget extends Model
      *
      *   Active: The mount target is available.
      *   Inactive: The mount target is unavailable.
-     *   Pending: The mount target is being created or modified.
+     *   Pending: The mount target is being processed.
      *   Deleting: The mount target is being deleted.
      *   Hibernating: The mount target is being hibernated.
      *   Hibernated: The mount target is hibernated.
      *
-     * @example active
+     * @example Active
      *
      * @var string
      */

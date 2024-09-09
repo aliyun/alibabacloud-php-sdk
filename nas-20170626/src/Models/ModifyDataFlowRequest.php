@@ -37,6 +37,8 @@ class ModifyDataFlowRequest extends Model
      *   The description must start with a letter but cannot start with http:// or https://.
      *   The description can contain letters, digits, colons (:), underscores (_), and hyphens (-).
      *
+     * @example test
+     *
      * @var string
      */
     public $description;
@@ -66,13 +68,13 @@ class ModifyDataFlowRequest extends Model
     public $fileSystemId;
 
     /**
-     * @description The maximum transmission bandwidth for a dataflow. Unit: MB/s. Valid values:
+     * @description The maximum data flow throughput. Unit: MB/s. Valid values:
      *
      *   600
-     *   1,200
-     *   1,500
+     *   1200
+     *   1500
      *
-     * >  The dataflow throughput must be less than the I/O throughput of the file system.
+     * >  The data flow throughput must be less than the I/O throughput of the file system.
      * @example 600
      *
      * @var int

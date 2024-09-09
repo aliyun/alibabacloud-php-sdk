@@ -15,6 +15,10 @@ use AlibabaCloud\Tea\Model;
 class fileSystem extends Model
 {
     /**
+     * @description Number of access points.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $accessPointCount;
@@ -33,7 +37,7 @@ class fileSystem extends Model
      * @description The capacity of the file system.
      *
      * Unit: GiB.
-     * @example 1
+     * @example 100
      *
      * @var int
      */
@@ -42,12 +46,7 @@ class fileSystem extends Model
     /**
      * @description The billing method.
      *
-     * Valid values:
-     *
-     *   Subscription: The subscription billing method is used.
-     *   PayAsYouGo: The pay-as-you-go billing method is used.
-     *   Package: A storage plan is attached to the file system.
-     *
+     * - Package: A storage plan is attached to the file system.
      * @example PayAsYouGo
      *
      * @var string
@@ -66,7 +65,7 @@ class fileSystem extends Model
     /**
      * @description The description of the file system.
      *
-     * @example 31a8e48eda
+     * @example test
      *
      * @var string
      */
@@ -108,12 +107,6 @@ class fileSystem extends Model
     /**
      * @description The type of the file system.
      *
-     * Valid values:
-     *
-     *   standard: General-purpose NAS file system
-     *   extreme: Extreme NAS file system
-     *   cpfs: CPFS file system
-     *
      * > CPFS file systems are available only on the China site (aliyun.com).
      * @example standard
      *
@@ -139,6 +132,11 @@ class fileSystem extends Model
     public $ldap;
 
     /**
+     * @description Archive storage usage.
+     *
+     * Unit: Byte.
+     * @example 1611661312
+     *
      * @var int
      */
     public $meteredArchiveSize;
@@ -171,6 +169,8 @@ class fileSystem extends Model
     public $mountTargets;
 
     /**
+     * @description The options.
+     *
      * @var options
      */
     public $options;
@@ -208,20 +208,18 @@ class fileSystem extends Model
     public $regionId;
 
     /**
+     * @description The resource group ID.
+     *
+     * You can log on to the [Resource Management console](https://resourcemanager.console.aliyun.com/resource-groups?) to view resource group IDs.
+     * @example rg-acfmwavnfdf****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
      * @description The status of the file system. Valid values:
-     *
-     *   Pending: The file system is being created or modified.
-     *   Running: The file system is available. Before you create a mount target for the file system, make sure that the file system is in the Running state.
-     *   Stopped: The file system is unavailable.
-     *   Extending: The file system is being scaled up.
-     *   Stopping: The file system is being stopped.
-     *   Deleting: The file system is being deleted.
-     *
+     * - Deleting: The file system is being deleted.
      * @example Pending
      *
      * @var string
@@ -230,12 +228,6 @@ class fileSystem extends Model
 
     /**
      * @description The storage type.
-     *
-     * Valid values:
-     *
-     *   Valid values for General-purpose NAS file systems: Capacity and Performance.
-     *   Valid values for Extreme NAS file systems: standard and advance.
-     *   Valid values for CPFS file systems: advance_100 (100 MB/s/TiB baseline) and advance_200 (200 MB/s/TiB baseline).
      *
      * > CPFS file systems are available only on the China site (aliyun.com).
      * @example Performance
@@ -261,8 +253,8 @@ class fileSystem extends Model
     /**
      * @description The version number of the file system.
      *
-     * This parameter is available only for Extreme NAS file systems.
-     * @example 1
+     * This parameter is available only for Extreme NAS file systems and CPFS file systems.
+     * @example 2.3.4
      *
      * @var string
      */

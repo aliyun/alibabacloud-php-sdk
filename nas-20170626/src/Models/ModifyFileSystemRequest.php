@@ -38,6 +38,8 @@ class ModifyFileSystemRequest extends Model
     public $fileSystemId;
 
     /**
+     * @description The options.
+     *
      * @var options
      */
     public $options;

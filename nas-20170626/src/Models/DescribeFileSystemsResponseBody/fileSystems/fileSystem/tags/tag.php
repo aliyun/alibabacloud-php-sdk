@@ -11,7 +11,7 @@ class tag extends Model
     /**
      * @description The tag key.
      *
-     * @example sdf
+     * @example test
      *
      * @var string
      */
@@ -20,7 +20,7 @@ class tag extends Model
     /**
      * @description The tag value.
      *
-     * @example asd123
+     * @example test-value
      *
      * @var string
      */

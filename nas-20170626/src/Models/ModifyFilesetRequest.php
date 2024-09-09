@@ -19,12 +19,22 @@ class ModifyFilesetRequest extends Model
     public $clientToken;
 
     /**
+     * @description Specifies whether to enable deletion protection to allow you to release the fileset by using the console or by calling the [DeleteFileset](https://help.aliyun.com/document_detail/2402263.html) operation.
+     *
+     *   true: enables release protection.
+     *   false: disables release protection.
+     *
+     * >  This parameter can protect filesets only against manual releases, but not against automatic releases.
+     * @example false
+     *
      * @var bool
      */
     public $deletionProtection;
 
     /**
      * @description The fileset description.
+     *
+     * @example test
      *
      * @var string
      */
@@ -35,8 +45,8 @@ class ModifyFilesetRequest extends Model
      *
      * Valid values:
      *
-     *   true: performs only a dry run. The system checks the required parameters, request syntax, limits, and available NAS resources. If the request fails the dry run, an error message is returned. If the request passes the dry run, the HTTP status code 200 is returned. No value is returned for the FileSystemId parameter.
-     *   false (default): performs a dry run and sends the request. If the request passes the dry run, a file system is created.
+     *   true: performs only a dry run. The system checks the required parameters, request syntax, service limits, and Apsara File Storage NAS (NAS) inventory data. If the request fails the dry run, an error message is returned. If the request passes the dry run, the HTTP status code 200 is returned.
+     *   false (default): performs a dry run and sends the request. If the request passes the dry run, the specified fileset is modified.
      *
      * @example false
      *

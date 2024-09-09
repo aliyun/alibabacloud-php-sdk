@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class OpenNASServiceResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $accessDeniedDetail;
+
+    /**
      * @description The order ID.
      *
      * @example 20671870151****
@@ -26,8 +31,9 @@ class OpenNASServiceResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'orderId'   => 'OrderId',
-        'requestId' => 'RequestId',
+        'accessDeniedDetail' => 'AccessDeniedDetail',
+        'orderId'            => 'OrderId',
+        'requestId'          => 'RequestId',
     ];
 
     public function validate()
@@ -37,6 +43,9 @@ class OpenNASServiceResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accessDeniedDetail) {
+            $res['AccessDeniedDetail'] = $this->accessDeniedDetail;
+        }
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
         }
@@ -55,6 +64,9 @@ class OpenNASServiceResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccessDeniedDetail'])) {
+            $model->accessDeniedDetail = $map['AccessDeniedDetail'];
+        }
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
         }

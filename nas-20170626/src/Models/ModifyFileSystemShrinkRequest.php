@@ -37,6 +37,8 @@ class ModifyFileSystemShrinkRequest extends Model
     public $fileSystemId;
 
     /**
+     * @description The options.
+     *
      * @var string
      */
     public $optionsShrink;

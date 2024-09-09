@@ -27,6 +27,8 @@ class DescribeProtocolServiceRequest extends Model
      *   The description must start with a letter and cannot start with `http://` or `https://`.
      *   The description can contain letters, digits, colons (:), underscores (_), and hyphens (-).
      *
+     * @example test
+     *
      * @var string
      */
     public $description;
@@ -55,7 +57,7 @@ class DescribeProtocolServiceRequest extends Model
     public $maxResults;
 
     /**
-     * @description The pagination token that is used in the next request to retrieve a new page of results. If not all dataflows are returned in a query, the return value of the NextToken parameter is not empty. You must specify the token that is obtained from the previous query as the value of NextToken.
+     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
      *
      * @example aBcdg==
      *

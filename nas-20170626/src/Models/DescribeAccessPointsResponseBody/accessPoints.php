@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class accessPoints extends Model
 {
     /**
+     * @description The Alibaba Cloud Resource Name (ARN) of the access point.
+     *
      * @example acs:nas:cn-hangzhou:178321033379****:accesspoint/ap-ie15yd****
      *
      * @var string
@@ -18,6 +20,8 @@ class accessPoints extends Model
     public $ARN;
 
     /**
+     * @description The name of the permission group.
+     *
      * @example test
      *
      * @var string
@@ -25,6 +29,8 @@ class accessPoints extends Model
     public $accessGroup;
 
     /**
+     * @description The ID of the access point.
+     *
      * @example ap-ie15yd****
      *
      * @var string
@@ -32,6 +38,8 @@ class accessPoints extends Model
     public $accessPointId;
 
     /**
+     * @description The name of the access point.
+     *
      * @example test
      *
      * @var string
@@ -39,6 +47,8 @@ class accessPoints extends Model
     public $accessPointName;
 
     /**
+     * @description The time when the access point was created.
+     *
      * @example 1709619668276167
      *
      * @var string
@@ -46,6 +56,8 @@ class accessPoints extends Model
     public $createTime;
 
     /**
+     * @description The domain name of the access point.
+     *
      * @example ap-ie15ydanoz.001014****-w****.cn-hangzhou.nas.aliyuncs.com
      *
      * @var string
@@ -53,6 +65,8 @@ class accessPoints extends Model
     public $domainName;
 
     /**
+     * @description Indicates whether the Resource Access Management (RAM) policy is enabled.
+     *
      * @example false
      *
      * @var bool
@@ -60,6 +74,8 @@ class accessPoints extends Model
     public $enabledRam;
 
     /**
+     * @description The ID of the file system.
+     *
      * @example 31a8e4****
      *
      * @var string
@@ -67,6 +83,8 @@ class accessPoints extends Model
     public $fileSystemId;
 
     /**
+     * @description The time when the access point was modified.
+     *
      * @example 1709619668276167
      *
      * @var string
@@ -74,11 +92,15 @@ class accessPoints extends Model
     public $modifyTime;
 
     /**
+     * @description The Portable Operating System Interface for UNIX (POSIX) user.
+     *
      * @var posixUser
      */
     public $posixUser;
 
     /**
+     * @description The root directory.
+     *
      * @example /
      *
      * @var string
@@ -86,11 +108,21 @@ class accessPoints extends Model
     public $rootPath;
 
     /**
+     * @description The permissions on the root directory.
+     *
      * @var rootPathPermission
      */
     public $rootPathPermission;
 
     /**
+     * @description The status of the root directory.
+     *
+     * Valid values:
+     *
+     *   0: The rootpath status is unknown.
+     *   1: The rootpath does not exist and may be deleted.
+     *   2: The rootpath is normal.
+     *
      * @example 2
      *
      * @var string
@@ -98,6 +130,16 @@ class accessPoints extends Model
     public $rootPathStatus;
 
     /**
+     * @description The status of the access point.
+     *
+     * Valid values:
+     *
+     *   Active: The access point is available.
+     *   Inactive: The access point is unavailable.
+     *   Pending: The access point is being created.
+     *   Deleting: The access point is being deleted.
+     *
+     * >  You can mount a file system only if the access point is in the Active state.
      * @example Active
      *
      * @var string
@@ -105,6 +147,8 @@ class accessPoints extends Model
     public $status;
 
     /**
+     * @description The vSwitch ID.
+     *
      * @example vsw-2zevmwkwyztjuoffg****
      *
      * @var string
@@ -112,6 +156,8 @@ class accessPoints extends Model
     public $vSwitchId;
 
     /**
+     * @description The VPC ID.
+     *
      * @example vpc-2zesj9afh3y518k9o****
      *
      * @var string

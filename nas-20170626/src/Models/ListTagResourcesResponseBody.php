@@ -12,6 +12,8 @@ class ListTagResourcesResponseBody extends Model
     /**
      * @description A pagination token. It can be used in the next request to retrieve a new page of results. If the value of this parameter is null, no queries are performed after the current query.
      *
+     * @example MTcyNDU1MTYyNjIxNTMyNzM4NiMzNjExMzQxNw==
+     *
      * @var string
      */
     public $nextToken;

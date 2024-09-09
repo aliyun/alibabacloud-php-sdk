@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateAccessPointRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The name of the permission group.
      *
+     * This parameter is required.
      * @example DEFAULT_VPC_GROUP_NAME
      *
      * @var string
@@ -18,6 +19,8 @@ class CreateAccessPointRequest extends Model
     public $accessGroup;
 
     /**
+     * @description The name of the access point.
+     *
      * @example test
      *
      * @var string
@@ -25,6 +28,12 @@ class CreateAccessPointRequest extends Model
     public $accessPointName;
 
     /**
+     * @description Specifies whether to enable the RAM policy. Valid values:
+     *
+     *   true: The RAM policy is enabled.
+     *   false (default): The RAM policy is disabled.
+     *
+     * >  After the RAM policy is enabled for access points, no RAM user is allowed to use access points to mount and access data by default. To use access points to mount and access data as a RAM user, you must grant the related access permissions to the RAM user. If the RAM policy is disabled, access points can be anonymously mounted.
      * @example false
      *
      * @var bool
@@ -32,8 +41,9 @@ class CreateAccessPointRequest extends Model
     public $enabledRam;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the file system.
      *
+     * This parameter is required.
      * @example 31a8e4****
      *
      * @var string
@@ -41,6 +51,9 @@ class CreateAccessPointRequest extends Model
     public $fileSystemId;
 
     /**
+     * @description The ID of the owner group.
+     *
+     * This parameter is required if the RootDirectory directory does not exist.
      * @example 1
      *
      * @var int
@@ -48,6 +61,9 @@ class CreateAccessPointRequest extends Model
     public $ownerGroupId;
 
     /**
+     * @description The owner ID.
+     *
+     * This parameter is required if the RootDirectory directory does not exist.
      * @example 1
      *
      * @var int
@@ -55,6 +71,9 @@ class CreateAccessPointRequest extends Model
     public $ownerUserId;
 
     /**
+     * @description The Portable Operating System Interface for UNIX (POSIX) permission. Default value: 0777.
+     *
+     * This field takes effect only if you specify the OwnerUserId and OwnerGroupId parameters.
      * @example 0777
      *
      * @var string
@@ -62,6 +81,8 @@ class CreateAccessPointRequest extends Model
     public $permission;
 
     /**
+     * @description The ID of the POSIX user group.
+     *
      * @example 123
      *
      * @var int
@@ -69,6 +90,8 @@ class CreateAccessPointRequest extends Model
     public $posixGroupId;
 
     /**
+     * @description The secondary user group. Separate multiple user group IDs with commas (,).
+     *
      * @example 123,345
      *
      * @var string
@@ -76,6 +99,8 @@ class CreateAccessPointRequest extends Model
     public $posixSecondaryGroupIds;
 
     /**
+     * @description The ID of the POSIX user.
+     *
      * @example 123
      *
      * @var int
@@ -83,6 +108,8 @@ class CreateAccessPointRequest extends Model
     public $posixUserId;
 
     /**
+     * @description The root directory of the access point. The default value is /. If the directory does not exist, you must also specify the OwnerUserId and OwnerGroupId parameters.
+     *
      * @example /
      *
      * @var string
@@ -90,8 +117,9 @@ class CreateAccessPointRequest extends Model
     public $rootDirectory;
 
     /**
-     * @description This parameter is required.
+     * @description The VPC ID.
      *
+     * This parameter is required.
      * @example vpc-2zesj9afh3y518k9o****
      *
      * @var string
@@ -99,8 +127,9 @@ class CreateAccessPointRequest extends Model
     public $vpcId;
 
     /**
-     * @description This parameter is required.
+     * @description The vSwitch ID.
      *
+     * This parameter is required.
      * @example vsw-2zevmwkwyztjuoffg****
      *
      * @var string

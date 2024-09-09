@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyLDAPConfigResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 5B4511A7-C99E-4071-AA8C-32E2529DA963
      *
      * @var string

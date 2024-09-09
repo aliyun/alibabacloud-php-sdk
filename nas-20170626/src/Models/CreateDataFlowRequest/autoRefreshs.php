@@ -16,7 +16,7 @@ class autoRefreshs extends Model
      *   The directory must be 2 to 1,024 characters in length.
      *   The directory must be encoded in UTF-8.
      *   The directory must start and end with a forward slash (/).
-     *   The directory must be an existing directory in the CPFS file system and must be in a fileset where the dataflow is enabled.
+     *   The directory must be an existing directory in the CPFS file system and must be in a fileset where the data flow is enabled.
      *
      * @example /prefix1/prefix2/
      *

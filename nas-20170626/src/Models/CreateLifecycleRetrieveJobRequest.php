@@ -29,6 +29,13 @@ class CreateLifecycleRetrieveJobRequest extends Model
     public $paths;
 
     /**
+     * @description The storage class.
+     *
+     *   InfrequentAccess (default): the Infrequent Access (IA) storage class.
+     *   Archive: the Archive storage class.
+     *
+     * @example InfrequentAccess
+     *
      * @var string
      */
     public $storageType;

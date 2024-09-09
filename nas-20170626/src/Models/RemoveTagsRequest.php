@@ -20,8 +20,9 @@ class RemoveTagsRequest extends Model
     public $fileSystemId;
 
     /**
-     * @description This parameter is required.
+     * @description The details about the tags.
      *
+     * This parameter is required.
      * @var tag[]
      */
     public $tag;

@@ -45,6 +45,17 @@ class accessGroup extends Model
     public $description;
 
     /**
+     * @description The type of the file system.
+     *
+     * Valid values:
+     *
+     *   standard: General-purpose Apsara File Storage NAS (NAS) file system
+     *   extreme: Extreme NAS file system
+     *   cpfs: Cloud Parallel File Storage (CPFS) file system
+     *
+     * >  CPFS file systems are available only on the China site (aliyun.com).
+     * @example standard
+     *
      * @var string
      */
     public $fileSystemType;
@@ -59,6 +70,10 @@ class accessGroup extends Model
     public $mountTargetCount;
 
     /**
+     * @description The region ID.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

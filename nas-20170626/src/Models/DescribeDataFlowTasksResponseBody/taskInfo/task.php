@@ -4,6 +4,8 @@
 
 namespace AlibabaCloud\SDK\NAS\V20170626\Models\DescribeDataFlowTasksResponseBody\taskInfo;
 
+use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeDataFlowTasksResponseBody\taskInfo\task\progressStats;
+use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeDataFlowTasksResponseBody\taskInfo\task\reports;
 use AlibabaCloud\Tea\Model;
 
 class task extends Model
@@ -50,6 +52,11 @@ class task extends Model
     public $directory;
 
     /**
+     * @var string
+     */
+    public $dstDirectory;
+
+    /**
      * @description The time when the task ended.
      *
      * @example 2021-08-04 18:27:35
@@ -57,6 +64,11 @@ class task extends Model
      * @var string
      */
     public $endTime;
+
+    /**
+     * @var string
+     */
+    public $errorMsg;
 
     /**
      * @description *
@@ -107,6 +119,11 @@ class task extends Model
     public $progress;
 
     /**
+     * @var progressStats
+     */
+    public $progressStats;
+
+    /**
      * @description null
      *
      * Limits:
@@ -116,9 +133,16 @@ class task extends Model
      *
      * @example /path_in_cpfs/reportfile.cvs
      *
+     * @deprecated
+     *
      * @var string
      */
     public $reportPath;
+
+    /**
+     * @var reports
+     */
+    public $reports;
 
     /**
      * @description ://
@@ -184,13 +208,17 @@ class task extends Model
         'dataFlowId'     => 'DataFlowId',
         'dataType'       => 'DataType',
         'directory'      => 'Directory',
+        'dstDirectory'   => 'DstDirectory',
         'endTime'        => 'EndTime',
+        'errorMsg'       => 'ErrorMsg',
         'fileSystemPath' => 'FileSystemPath',
         'filesystemId'   => 'FilesystemId',
         'fsPath'         => 'FsPath',
         'originator'     => 'Originator',
         'progress'       => 'Progress',
+        'progressStats'  => 'ProgressStats',
         'reportPath'     => 'ReportPath',
+        'reports'        => 'Reports',
         'sourceStorage'  => 'SourceStorage',
         'startTime'      => 'StartTime',
         'status'         => 'Status',
@@ -220,8 +248,14 @@ class task extends Model
         if (null !== $this->directory) {
             $res['Directory'] = $this->directory;
         }
+        if (null !== $this->dstDirectory) {
+            $res['DstDirectory'] = $this->dstDirectory;
+        }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
+        }
+        if (null !== $this->errorMsg) {
+            $res['ErrorMsg'] = $this->errorMsg;
         }
         if (null !== $this->fileSystemPath) {
             $res['FileSystemPath'] = $this->fileSystemPath;
@@ -238,8 +272,14 @@ class task extends Model
         if (null !== $this->progress) {
             $res['Progress'] = $this->progress;
         }
+        if (null !== $this->progressStats) {
+            $res['ProgressStats'] = null !== $this->progressStats ? $this->progressStats->toMap() : null;
+        }
         if (null !== $this->reportPath) {
             $res['ReportPath'] = $this->reportPath;
+        }
+        if (null !== $this->reports) {
+            $res['Reports'] = null !== $this->reports ? $this->reports->toMap() : null;
         }
         if (null !== $this->sourceStorage) {
             $res['SourceStorage'] = $this->sourceStorage;
@@ -283,8 +323,14 @@ class task extends Model
         if (isset($map['Directory'])) {
             $model->directory = $map['Directory'];
         }
+        if (isset($map['DstDirectory'])) {
+            $model->dstDirectory = $map['DstDirectory'];
+        }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
+        }
+        if (isset($map['ErrorMsg'])) {
+            $model->errorMsg = $map['ErrorMsg'];
         }
         if (isset($map['FileSystemPath'])) {
             $model->fileSystemPath = $map['FileSystemPath'];
@@ -301,8 +347,14 @@ class task extends Model
         if (isset($map['Progress'])) {
             $model->progress = $map['Progress'];
         }
+        if (isset($map['ProgressStats'])) {
+            $model->progressStats = progressStats::fromMap($map['ProgressStats']);
+        }
         if (isset($map['ReportPath'])) {
             $model->reportPath = $map['ReportPath'];
+        }
+        if (isset($map['Reports'])) {
+            $model->reports = reports::fromMap($map['Reports']);
         }
         if (isset($map['SourceStorage'])) {
             $model->sourceStorage = $map['SourceStorage'];

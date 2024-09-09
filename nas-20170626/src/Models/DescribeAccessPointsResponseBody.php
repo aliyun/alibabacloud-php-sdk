@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeAccessPointsResponseBody extends Model
 {
     /**
+     * @description The information about the access point.
+     *
      * @var accessPoints[]
      */
     public $accessPoints;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+     *
      * @example MTY4NzcxOTcwMjAzMDk2Nzc0MyM4MDM4****
      *
      * @var string
@@ -22,8 +26,9 @@ class DescribeAccessPointsResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description This parameter is required.
+     * @description The request ID.
      *
+     * This parameter is required.
      * @example 6299428C-3861-435D-AE54-9B330A00****
      *
      * @var string
@@ -31,6 +36,8 @@ class DescribeAccessPointsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of access points.
+     *
      * @example 20
      *
      * @var int

@@ -13,9 +13,10 @@ class ListDirectoriesAndFilesRequest extends Model
      *
      * Valid values:
      *
-     *   false (default): queries both directories and files
-     *   true: queries only directories
+     *   false (default): queries both directories and files.
+     *   true: queries only directories.
      *
+     * >  If you set the StorageType parameter to All, you must set the DirectoryOnly parameter to true.
      * @example false
      *
      * @var bool
@@ -62,7 +63,11 @@ class ListDirectoriesAndFilesRequest extends Model
     public $path;
 
     /**
-     * @description The storage type of the files.
+     * @description The storage class.
+     *
+     *   InfrequentAccess: the Infrequent Access (IA) storage class.
+     *   Archive: the Archive storage class.
+     *   All: all stored data.
      *
      * This parameter is required.
      * @example InfrequentAccess

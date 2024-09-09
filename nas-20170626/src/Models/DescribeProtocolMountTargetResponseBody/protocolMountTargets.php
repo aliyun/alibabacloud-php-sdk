@@ -29,6 +29,8 @@ class protocolMountTargets extends Model
     /**
      * @description The description of the export directory for the protocol service.
      *
+     * @example test
+     *
      * @var string
      */
     public $description;

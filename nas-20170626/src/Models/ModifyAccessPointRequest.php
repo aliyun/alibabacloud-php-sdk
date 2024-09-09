@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyAccessPointRequest extends Model
 {
     /**
+     * @description The name of the permission group.
+     *
+     * The default permission group for virtual private clouds (VPCs) is named DEFAULT_VPC_GROUP_NAME.
      * @example DEFAULT_VPC_GROUP_NAME
      *
      * @var string
@@ -16,8 +19,9 @@ class ModifyAccessPointRequest extends Model
     public $accessGroup;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the access point.
      *
+     * This parameter is required.
      * @example ap-ie15yd****
      *
      * @var string
@@ -25,6 +29,8 @@ class ModifyAccessPointRequest extends Model
     public $accessPointId;
 
     /**
+     * @description The name of the access point.
+     *
      * @example test
      *
      * @var string
@@ -32,6 +38,12 @@ class ModifyAccessPointRequest extends Model
     public $accessPointName;
 
     /**
+     * @description Specifies whether to enable the Resource Access Management (RAM) policy. Valid values:
+     *
+     *   true: The RAM policy is enabled.
+     *   false (default): The RAM policy is disabled.
+     *
+     * >  After the RAM policy is enabled for access points, no RAM user is allowed to use access points to mount and access data by default. To use access points to mount and access data as a RAM user, you must grant the related access permissions to the RAM user. If the RAM policy is disabled, access points can be anonymously mounted.
      * @example false
      *
      * @var bool
@@ -39,8 +51,9 @@ class ModifyAccessPointRequest extends Model
     public $enabledRam;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the file system.
      *
+     * This parameter is required.
      * @example 1ca404****
      *
      * @var string

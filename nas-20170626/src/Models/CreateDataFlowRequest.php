@@ -12,7 +12,7 @@ class CreateDataFlowRequest extends Model
     /**
      * @description The automatic update interval. CPFS checks whether data is updated in the directory at the interval specified by this parameter. If data is updated, CPFS starts an automatic update task. Unit: minutes.
      *
-     * Valid values: 5 to 525600. Default value: 10.
+     * >  This parameter takes effect only for CPFS file systems.
      * @example 10
      *
      * @var int
@@ -22,9 +22,10 @@ class CreateDataFlowRequest extends Model
     /**
      * @description The automatic update policy. The updated data in the source storage is imported into the CPFS file system based on the policy.
      *
-     *   None (default): Updated data in the source storage is not automatically imported into the CPFS file system. You can run a dataflow task to import the updated data from the source storage.
+     *   None (default): Updated data in the source storage is not automatically imported into the CPFS file system. You can run a data flow task to import the updated data from the source storage.
      *   ImportChanged: Updated data in the source storage is automatically imported into the CPFS file system.
      *
+     * >  This parameter takes effect only for CPFS file systems.
      * @example None
      *
      * @var string
@@ -34,6 +35,7 @@ class CreateDataFlowRequest extends Model
     /**
      * @description The automatic update configurations.
      *
+     * >  This parameter takes effect only for CPFS file systems.
      * @var autoRefreshs[]
      */
     public $autoRefreshs;
@@ -80,6 +82,9 @@ class CreateDataFlowRequest extends Model
     /**
      * @description The ID of the file system.
      *
+     *   The IDs of CPFS file systems must start with `cpfs-`. Example: cpfs-125487\\*\\*\\*\\*.
+     *   The IDs of CPFS for LINGJUN file systems must start with `bmcpfs-`. Example: bmcpfs-0015\\*\\*\\*\\*.
+     *
      * This parameter is required.
      * @example cpfs-099394bd928c****
      *
@@ -88,6 +93,14 @@ class CreateDataFlowRequest extends Model
     public $fileSystemId;
 
     /**
+     * @description The directory in the CPFS for LINGJUN file system. Limits:
+     *
+     *   The directory must start and end with a forward slash (/).
+     *   The directory must be an existing directory in the CPFS for LINGJUN file system.
+     *   The directory must be 1 to 1023 characters in length.
+     *   The directory must be encoded in UTF-8.
+     *
+     * >  This parameter is required for CPFS for LINGJUN file systems.
      * @example /path/
      *
      * @var string
@@ -97,6 +110,7 @@ class CreateDataFlowRequest extends Model
     /**
      * @description The fileset ID.
      *
+     * >  This parameter is required for CPFS file systems.
      * @example fset-1902718ea0ae****
      *
      * @var string
@@ -124,10 +138,9 @@ class CreateDataFlowRequest extends Model
      *
      *   path: the name of the OSS bucket. Limits:
      *
-     *   The name can contain only lowercase letters, digits, and hyphens (-). The name must start and end with a lowercase letter or digit.
-     *   The name must be 8 to 128 characters in length.
-     *   The name must be encoded in UTF-8.
-     *   The name cannot start with `http://` or `https://`.
+     *   The path can contain only lowercase letters, digits, and hyphens (-). The path must start and end with a lowercase letter or digit.
+     *   The path can be up to 128 characters in length.
+     *   The path must be encoded in UTF-8.
      *
      * This parameter is required.
      * @example oss://bucket1
@@ -137,6 +150,14 @@ class CreateDataFlowRequest extends Model
     public $sourceStorage;
 
     /**
+     * @description The access path in the bucket of the source storage. Limits:
+     *
+     *   The path must start and end with a forward slash (/).
+     *   The path is case-sensitive.
+     *   The path must be 1 to 1023 characters in length.
+     *   The path must be encoded in UTF-8.
+     *
+     * >  This parameter is required for CPFS for LINGJUN file systems.
      * @example /prefix/
      *
      * @var string
@@ -144,13 +165,13 @@ class CreateDataFlowRequest extends Model
     public $sourceStoragePath;
 
     /**
-     * @description The maximum dataflow throughput. Unit: MB/s. Valid values:
+     * @description The maximum data flow throughput. Unit: MB/s. Valid values:
      *
      *   600
-     *   1,200
-     *   1,500
+     *   1200
+     *   1500
      *
-     * >  The dataflow throughput must be less than the I/O throughput of the file system
+     * >  The data flow throughput must be less than the I/O throughput of the file system. This parameter is required for CPFS file systems.
      * @example 600
      *
      * @var int

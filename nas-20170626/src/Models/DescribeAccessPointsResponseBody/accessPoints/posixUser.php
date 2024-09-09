@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class posixUser extends Model
 {
     /**
+     * @description The ID of the POSIX user group.
+     *
      * @example 12
      *
      * @var int
@@ -16,11 +18,15 @@ class posixUser extends Model
     public $posixGroupId;
 
     /**
+     * @description The IDs of the secondary user groups.
+     *
      * @var int[]
      */
     public $posixSecondaryGroupIds;
 
     /**
+     * @description The ID of the POSIX user.
+     *
      * @example 123
      *
      * @var int

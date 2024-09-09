@@ -12,12 +12,11 @@ class DescribeFileSystemsRequest extends Model
     /**
      * @description The ID of the file system.
      *
-     *   Sample ID of a General-purpose NAS file system: 31a8e4\\*\\*\\*\\*.
-     *   The IDs of Extreme NAS file systems must start with extreme-, for example, extreme-0015\\*\\*\\*\\*.
-     *   The IDs of Cloud Parallel File Storage (CPFS) file systems must start with cpfs-, for example, cpfs-125487\\*\\*\\*\\*.
-     *
+     * - Sample ID of a General-purpose NAS file system: 31a8e4****.
+     * - The IDs of Extreme NAS file systems must start with extreme-, for example, extreme-0015****.
+     * - The IDs of Cloud Parallel File Storage (CPFS) file systems must start with cpfs-, for example, cpfs-125487****.
      * > CPFS file systems are available only on the China site (aliyun.com).
-     * @example 109c04****
+     * @example 31a8e4****
      *
      * @var string
      */
@@ -25,13 +24,6 @@ class DescribeFileSystemsRequest extends Model
 
     /**
      * @description The type of the file system.
-     *
-     * Valid values:
-     *
-     *   all (default): all types
-     *   standard: General-purpose NAS file system
-     *   extreme: Extreme NAS file system
-     *   cpfs: CPFS file system
      *
      * > CPFS file systems are available only on the China site (aliyun.com).
      * @example standard
@@ -54,13 +46,18 @@ class DescribeFileSystemsRequest extends Model
      * @description The number of entries per page.
      *
      * Default value: 10.
-     * @example 1
+     * @example 10
      *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The resource group ID.
+     *
+     * You can log on to the [Resource Management console](https://resourcemanager.console.aliyun.com/resource-groups?) to view resource group IDs.
+     * @example rg-acfmwavnfdf****
+     *
      * @var string
      */
     public $resourceGroupId;

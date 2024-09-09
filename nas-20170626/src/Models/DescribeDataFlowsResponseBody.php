@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDataFlowsResponseBody extends Model
 {
     /**
-     * @description The details about dataflows.
+     * @description The details about data flows.
      *
      * @var dataFlowInfo
      */

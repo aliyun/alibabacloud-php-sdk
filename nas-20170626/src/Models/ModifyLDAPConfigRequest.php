@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyLDAPConfigRequest extends Model
 {
     /**
+     * @description The LDAP entry.
+     *
      * @example cn=alibaba,dc=com
      *
      * @var string
@@ -16,8 +18,9 @@ class ModifyLDAPConfigRequest extends Model
     public $bindDN;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the file system.
      *
+     * This parameter is required.
      * @example 109c042666
      *
      * @var string
@@ -25,8 +28,9 @@ class ModifyLDAPConfigRequest extends Model
     public $fileSystemId;
 
     /**
-     * @description This parameter is required.
+     * @description The LDAP search base.
      *
+     * This parameter is required.
      * @example dc=example
      *
      * @var string
@@ -34,8 +38,9 @@ class ModifyLDAPConfigRequest extends Model
     public $searchBase;
 
     /**
-     * @description This parameter is required.
+     * @description The LDAP service address.
      *
+     * This parameter is required.
      * @example ldap://ldap.example.example
      *
      * @var string

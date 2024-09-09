@@ -11,12 +11,8 @@ class tag extends Model
     /**
      * @description The key of tag N to add to the resource.
      *
-     * Limits:
-     *
-     *   Valid values of N: 1 to 20.
-     *   The tag key must be 1 to 128 characters in length.
-     *   The tag key cannot start with `aliyun` or `acs:`.
-     *   The tag key cannot contain `http://` or `https://`.
+     * - The tag key cannot contain http:// or https://.
+     * @example test
      *
      * @var string
      */
@@ -25,12 +21,8 @@ class tag extends Model
     /**
      * @description The value of tag N to add to the resource.
      *
-     * Limits:
-     *
-     *   Valid values of N: 1 to 20.
-     *   The tag value must be 1 to 128 characters in length.
-     *   The tag value cannot start with `aliyun` or `acs:`.
-     *   The tag value cannot contain `http://` or `https://`.
+     * - The tag value cannot contain http:// or https://.
+     * @example test-value
      *
      * @var string
      */

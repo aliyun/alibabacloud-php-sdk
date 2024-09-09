@@ -18,7 +18,7 @@ class jobs extends Model
     public $createTime;
 
     /**
-     * @description The error code.
+     * @description The error code returned.
      *
      * A valid value is returned only if you set the Status parameter to Fail or PartialSuccess.
      * @var string
