@@ -60,6 +60,11 @@ class GetInstanceResponseBody extends Model
     public $code;
 
     /**
+     * @var CredentialConfig
+     */
+    public $credentialConfig;
+
+    /**
      * @var datasets[]
      */
     public $datasets;
@@ -337,6 +342,7 @@ class GetInstanceResponseBody extends Model
         'affinity'                   => 'Affinity',
         'cloudDisks'                 => 'CloudDisks',
         'code'                       => 'Code',
+        'credentialConfig'           => 'CredentialConfig',
         'datasets'                   => 'Datasets',
         'driver'                     => 'Driver',
         'ecsSpec'                    => 'EcsSpec',
@@ -409,6 +415,9 @@ class GetInstanceResponseBody extends Model
         }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
+        }
+        if (null !== $this->credentialConfig) {
+            $res['CredentialConfig'] = null !== $this->credentialConfig ? $this->credentialConfig->toMap() : null;
         }
         if (null !== $this->datasets) {
             $res['Datasets'] = [];
@@ -583,6 +592,9 @@ class GetInstanceResponseBody extends Model
         }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
+        }
+        if (isset($map['CredentialConfig'])) {
+            $model->credentialConfig = CredentialConfig::fromMap($map['CredentialConfig']);
         }
         if (isset($map['Datasets'])) {
             if (!empty($map['Datasets'])) {

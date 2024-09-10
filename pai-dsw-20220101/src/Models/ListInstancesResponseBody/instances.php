@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Paidsw\V20220101\Models\ListInstancesResponseBody;
 
+use AlibabaCloud\SDK\Paidsw\V20220101\Models\CredentialConfig;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\ListInstancesResponseBody\instances\affinity;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\ListInstancesResponseBody\instances\cloudDisks;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\ListInstancesResponseBody\instances\datasets;
@@ -50,6 +51,11 @@ class instances extends Model
      * @var cloudDisks[]
      */
     public $cloudDisks;
+
+    /**
+     * @var CredentialConfig
+     */
+    public $credentialConfig;
 
     /**
      * @var datasets[]
@@ -295,6 +301,7 @@ class instances extends Model
         'accumulatedRunningTimeInMs' => 'AccumulatedRunningTimeInMs',
         'affinity'                   => 'Affinity',
         'cloudDisks'                 => 'CloudDisks',
+        'credentialConfig'           => 'CredentialConfig',
         'datasets'                   => 'Datasets',
         'driver'                     => 'Driver',
         'ecsSpec'                    => 'EcsSpec',
@@ -359,6 +366,9 @@ class instances extends Model
                     $res['CloudDisks'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->credentialConfig) {
+            $res['CredentialConfig'] = null !== $this->credentialConfig ? $this->credentialConfig->toMap() : null;
         }
         if (null !== $this->datasets) {
             $res['Datasets'] = [];
@@ -515,6 +525,9 @@ class instances extends Model
                     $model->cloudDisks[$n++] = null !== $item ? cloudDisks::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['CredentialConfig'])) {
+            $model->credentialConfig = CredentialConfig::fromMap($map['CredentialConfig']);
         }
         if (isset($map['Datasets'])) {
             if (!empty($map['Datasets'])) {
