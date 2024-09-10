@@ -37,6 +37,8 @@ class ListEntitiesRequest extends Model
     public $orderBy;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test-workspace
      *
      * @var string

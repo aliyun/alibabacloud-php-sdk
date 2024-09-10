@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetEntityRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example sample
      *
      * @var string
@@ -16,6 +18,8 @@ class GetEntityRequest extends Model
     public $entityType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test-workspace
      *
      * @var string

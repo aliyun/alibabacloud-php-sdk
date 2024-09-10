@@ -14,6 +14,8 @@ class GetPublicDatasetShrinkRequest extends Model
     public $attributesShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 西蒙斯基因组多样性计划
      *
      * @var string

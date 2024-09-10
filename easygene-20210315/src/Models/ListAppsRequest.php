@@ -74,6 +74,8 @@ class ListAppsRequest extends Model
     public $search;
 
     /**
+     * @description This parameter is required.
+     *
      * @example TestWorkspace
      *
      * @var string

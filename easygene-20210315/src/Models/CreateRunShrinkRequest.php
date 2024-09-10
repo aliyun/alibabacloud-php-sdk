@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateRunShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example Sentieon
      *
      * @var string
@@ -58,6 +60,8 @@ class CreateRunShrinkRequest extends Model
     public $executeOptionsShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example {         "workflow1.task1.param1": "helloooo.txt",         "workflow1.task1.param2": "abc",         "workflow1.task2.param1": "new_helloooo.txt",         "workflow1.task2.param2": "def"     }
      *
      * @var string
@@ -100,6 +104,8 @@ class CreateRunShrinkRequest extends Model
     public $runName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test-workspace
      *
      * @var string

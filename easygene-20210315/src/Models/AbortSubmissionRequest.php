@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AbortSubmissionRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example sub-13BeXWnGvrOl3MC124tazcJVKaV
      *
      * @var string
@@ -16,6 +18,8 @@ class AbortSubmissionRequest extends Model
     public $submissionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test-workspace
      *
      * @var string

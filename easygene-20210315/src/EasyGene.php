@@ -159,10 +159,12 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param AbortRunRequest $request
-     * @param RuntimeOptions  $runtime
+     * @summary 暂停任务
+     *  *
+     * @param AbortRunRequest $request AbortRunRequest
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
-     * @return AbortRunResponse
+     * @return AbortRunResponse AbortRunResponse
      */
     public function abortRunWithOptions($request, $runtime)
     {
@@ -193,9 +195,11 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param AbortRunRequest $request
+     * @summary 暂停任务
+     *  *
+     * @param AbortRunRequest $request AbortRunRequest
      *
-     * @return AbortRunResponse
+     * @return AbortRunResponse AbortRunResponse
      */
     public function abortRun($request)
     {
@@ -205,10 +209,12 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param AbortSubmissionRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary 取消投递
+     *  *
+     * @param AbortSubmissionRequest $request AbortSubmissionRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return AbortSubmissionResponse
+     * @return AbortSubmissionResponse AbortSubmissionResponse
      */
     public function abortSubmissionWithOptions($request, $runtime)
     {
@@ -239,9 +245,11 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param AbortSubmissionRequest $request
+     * @summary 取消投递
+     *  *
+     * @param AbortSubmissionRequest $request AbortSubmissionRequest
      *
-     * @return AbortSubmissionResponse
+     * @return AbortSubmissionResponse AbortSubmissionResponse
      */
     public function abortSubmission($request)
     {
@@ -251,10 +259,12 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param CopyPublicEntityRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary 拷贝公共数据集的数据表格
+     *  *
+     * @param CopyPublicEntityRequest $request CopyPublicEntityRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return CopyPublicEntityResponse
+     * @return CopyPublicEntityResponse CopyPublicEntityResponse
      */
     public function copyPublicEntityWithOptions($request, $runtime)
     {
@@ -288,9 +298,11 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param CopyPublicEntityRequest $request
+     * @summary 拷贝公共数据集的数据表格
+     *  *
+     * @param CopyPublicEntityRequest $request CopyPublicEntityRequest
      *
-     * @return CopyPublicEntityResponse
+     * @return CopyPublicEntityResponse CopyPublicEntityResponse
      */
     public function copyPublicEntity($request)
     {
@@ -300,10 +312,12 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param CreateAppRequest $tmpReq
-     * @param RuntimeOptions   $runtime
+     * @summary 创建应用
+     *  *
+     * @param CreateAppRequest $tmpReq  CreateAppRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateAppResponse
+     * @return CreateAppResponse CreateAppResponse
      */
     public function createAppWithOptions($tmpReq, $runtime)
     {
@@ -383,9 +397,11 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param CreateAppRequest $request
+     * @summary 创建应用
+     *  *
+     * @param CreateAppRequest $request CreateAppRequest
      *
-     * @return CreateAppResponse
+     * @return CreateAppResponse CreateAppResponse
      */
     public function createApp($request)
     {
@@ -395,10 +411,12 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param CreateEntityRequest $tmpReq
-     * @param RuntimeOptions      $runtime
+     * @summary 创建数据表格
+     *  *
+     * @param CreateEntityRequest $tmpReq  CreateEntityRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateEntityResponse
+     * @return CreateEntityResponse CreateEntityResponse
      */
     public function createEntityWithOptions($tmpReq, $runtime)
     {
@@ -442,9 +460,11 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param CreateEntityRequest $request
+     * @summary 创建数据表格
+     *  *
+     * @param CreateEntityRequest $request CreateEntityRequest
      *
-     * @return CreateEntityResponse
+     * @return CreateEntityResponse CreateEntityResponse
      */
     public function createEntity($request)
     {
@@ -454,10 +474,12 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param CreateRunRequest $tmpReq
-     * @param RuntimeOptions   $runtime
+     * @summary 创建任务
+     *  *
+     * @param CreateRunRequest $tmpReq  CreateRunRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateRunResponse
+     * @return CreateRunResponse CreateRunResponse
      */
     public function createRunWithOptions($tmpReq, $runtime)
     {
@@ -529,9 +551,11 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param CreateRunRequest $request
+     * @summary 创建任务
+     *  *
+     * @param CreateRunRequest $request CreateRunRequest
      *
-     * @return CreateRunResponse
+     * @return CreateRunResponse CreateRunResponse
      */
     public function createRun($request)
     {
@@ -541,10 +565,12 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param CreateSubmissionRequest $tmpReq
-     * @param RuntimeOptions          $runtime
+     * @summary 创建提交
+     *  *
+     * @param CreateSubmissionRequest $tmpReq  CreateSubmissionRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateSubmissionResponse
+     * @return CreateSubmissionResponse CreateSubmissionResponse
      */
     public function createSubmissionWithOptions($tmpReq, $runtime)
     {
@@ -613,9 +639,11 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param CreateSubmissionRequest $request
+     * @summary 创建提交
+     *  *
+     * @param CreateSubmissionRequest $request CreateSubmissionRequest
      *
-     * @return CreateSubmissionResponse
+     * @return CreateSubmissionResponse CreateSubmissionResponse
      */
     public function createSubmission($request)
     {
@@ -625,10 +653,12 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param CreateTemplateRequest $tmpReq
-     * @param RuntimeOptions        $runtime
+     * @summary 创建应用模板
+     *  *
+     * @param CreateTemplateRequest $tmpReq  CreateTemplateRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateTemplateResponse
+     * @return CreateTemplateResponse CreateTemplateResponse
      */
     public function createTemplateWithOptions($tmpReq, $runtime)
     {
@@ -696,9 +726,11 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param CreateTemplateRequest $request
+     * @summary 创建应用模板
+     *  *
+     * @param CreateTemplateRequest $request CreateTemplateRequest
      *
-     * @return CreateTemplateResponse
+     * @return CreateTemplateResponse CreateTemplateResponse
      */
     public function createTemplate($request)
     {
@@ -708,10 +740,12 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param CreateWorkspaceRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary 创建工作空间
+     *  *
+     * @param CreateWorkspaceRequest $request CreateWorkspaceRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateWorkspaceResponse
+     * @return CreateWorkspaceResponse CreateWorkspaceResponse
      */
     public function createWorkspaceWithOptions($request, $runtime)
     {
@@ -757,9 +791,11 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param CreateWorkspaceRequest $request
+     * @summary 创建工作空间
+     *  *
+     * @param CreateWorkspaceRequest $request CreateWorkspaceRequest
      *
-     * @return CreateWorkspaceResponse
+     * @return CreateWorkspaceResponse CreateWorkspaceResponse
      */
     public function createWorkspace($request)
     {
@@ -769,10 +805,12 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param DeleteAppRequest $request
-     * @param RuntimeOptions   $runtime
+     * @summary 删除应用
+     *  *
+     * @param DeleteAppRequest $request DeleteAppRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteAppResponse
+     * @return DeleteAppResponse DeleteAppResponse
      */
     public function deleteAppWithOptions($request, $runtime)
     {
@@ -806,9 +844,11 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param DeleteAppRequest $request
+     * @summary 删除应用
+     *  *
+     * @param DeleteAppRequest $request DeleteAppRequest
      *
-     * @return DeleteAppResponse
+     * @return DeleteAppResponse DeleteAppResponse
      */
     public function deleteApp($request)
     {
@@ -818,10 +858,12 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param DeleteEntityRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary 删除实体表格
+     *  *
+     * @param DeleteEntityRequest $request DeleteEntityRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteEntityResponse
+     * @return DeleteEntityResponse DeleteEntityResponse
      */
     public function deleteEntityWithOptions($request, $runtime)
     {
@@ -852,9 +894,11 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param DeleteEntityRequest $request
+     * @summary 删除实体表格
+     *  *
+     * @param DeleteEntityRequest $request DeleteEntityRequest
      *
-     * @return DeleteEntityResponse
+     * @return DeleteEntityResponse DeleteEntityResponse
      */
     public function deleteEntity($request)
     {
@@ -864,10 +908,12 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param DeleteEntityItemsRequest $tmpReq
-     * @param RuntimeOptions           $runtime
+     * @summary 删除数据表格的条目
+     *  *
+     * @param DeleteEntityItemsRequest $tmpReq  DeleteEntityItemsRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteEntityItemsResponse
+     * @return DeleteEntityItemsResponse DeleteEntityItemsResponse
      */
     public function deleteEntityItemsWithOptions($tmpReq, $runtime)
     {
@@ -906,9 +952,11 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param DeleteEntityItemsRequest $request
+     * @summary 删除数据表格的条目
+     *  *
+     * @param DeleteEntityItemsRequest $request DeleteEntityItemsRequest
      *
-     * @return DeleteEntityItemsResponse
+     * @return DeleteEntityItemsResponse DeleteEntityItemsResponse
      */
     public function deleteEntityItems($request)
     {
@@ -918,10 +966,12 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param DeleteRunRequest $request
-     * @param RuntimeOptions   $runtime
+     * @summary 删除任务
+     *  *
+     * @param DeleteRunRequest $request DeleteRunRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteRunResponse
+     * @return DeleteRunResponse DeleteRunResponse
      */
     public function deleteRunWithOptions($request, $runtime)
     {
@@ -952,9 +1002,11 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param DeleteRunRequest $request
+     * @summary 删除任务
+     *  *
+     * @param DeleteRunRequest $request DeleteRunRequest
      *
-     * @return DeleteRunResponse
+     * @return DeleteRunResponse DeleteRunResponse
      */
     public function deleteRun($request)
     {
@@ -964,10 +1016,12 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param DeleteSubmissionRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary 删除投递
+     *  *
+     * @param DeleteSubmissionRequest $request DeleteSubmissionRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteSubmissionResponse
+     * @return DeleteSubmissionResponse DeleteSubmissionResponse
      */
     public function deleteSubmissionWithOptions($request, $runtime)
     {
@@ -998,9 +1052,11 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param DeleteSubmissionRequest $request
+     * @summary 删除投递
+     *  *
+     * @param DeleteSubmissionRequest $request DeleteSubmissionRequest
      *
-     * @return DeleteSubmissionResponse
+     * @return DeleteSubmissionResponse DeleteSubmissionResponse
      */
     public function deleteSubmission($request)
     {
@@ -1010,10 +1066,12 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param DeleteTemplateRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary 删除应用模板
+     *  *
+     * @param DeleteTemplateRequest $request DeleteTemplateRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteTemplateResponse
+     * @return DeleteTemplateResponse DeleteTemplateResponse
      */
     public function deleteTemplateWithOptions($request, $runtime)
     {
@@ -1044,9 +1102,11 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param DeleteTemplateRequest $request
+     * @summary 删除应用模板
+     *  *
+     * @param DeleteTemplateRequest $request DeleteTemplateRequest
      *
-     * @return DeleteTemplateResponse
+     * @return DeleteTemplateResponse DeleteTemplateResponse
      */
     public function deleteTemplate($request)
     {
@@ -1056,10 +1116,12 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param DeleteWorkspaceRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary 删除工作空间
+     *  *
+     * @param DeleteWorkspaceRequest $request DeleteWorkspaceRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteWorkspaceResponse
+     * @return DeleteWorkspaceResponse DeleteWorkspaceResponse
      */
     public function deleteWorkspaceWithOptions($request, $runtime)
     {
@@ -1087,9 +1149,11 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param DeleteWorkspaceRequest $request
+     * @summary 删除工作空间
+     *  *
+     * @param DeleteWorkspaceRequest $request DeleteWorkspaceRequest
      *
-     * @return DeleteWorkspaceResponse
+     * @return DeleteWorkspaceResponse DeleteWorkspaceResponse
      */
     public function deleteWorkspace($request)
     {
@@ -1099,10 +1163,12 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param DownloadEntityRequest $tmpReq
-     * @param RuntimeOptions        $runtime
+     * @summary 下载数据表格
+     *  *
+     * @param DownloadEntityRequest $tmpReq  DownloadEntityRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DownloadEntityResponse
+     * @return DownloadEntityResponse DownloadEntityResponse
      */
     public function downloadEntityWithOptions($tmpReq, $runtime)
     {
@@ -1141,9 +1207,11 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param DownloadEntityRequest $request
+     * @summary 下载数据表格
+     *  *
+     * @param DownloadEntityRequest $request DownloadEntityRequest
      *
-     * @return DownloadEntityResponse
+     * @return DownloadEntityResponse DownloadEntityResponse
      */
     public function downloadEntity($request)
     {
@@ -1153,10 +1221,12 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param GetAppRequest  $request
-     * @param RuntimeOptions $runtime
+     * @summary 查询应用详情
+     *  *
+     * @param GetAppRequest  $request GetAppRequest
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetAppResponse
+     * @return GetAppResponse GetAppResponse
      */
     public function getAppWithOptions($request, $runtime)
     {
@@ -1193,9 +1263,11 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param GetAppRequest $request
+     * @summary 查询应用详情
+     *  *
+     * @param GetAppRequest $request GetAppRequest
      *
-     * @return GetAppResponse
+     * @return GetAppResponse GetAppResponse
      */
     public function getApp($request)
     {
@@ -1205,10 +1277,12 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param GetEntityRequest $request
-     * @param RuntimeOptions   $runtime
+     * @summary 查询数据表格信息
+     *  *
+     * @param GetEntityRequest $request GetEntityRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetEntityResponse
+     * @return GetEntityResponse GetEntityResponse
      */
     public function getEntityWithOptions($request, $runtime)
     {
@@ -1239,9 +1313,11 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param GetEntityRequest $request
+     * @summary 查询数据表格信息
+     *  *
+     * @param GetEntityRequest $request GetEntityRequest
      *
-     * @return GetEntityResponse
+     * @return GetEntityResponse GetEntityResponse
      */
     public function getEntity($request)
     {
@@ -1251,10 +1327,12 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param GetGlobalAppRequest $tmpReq
-     * @param RuntimeOptions      $runtime
+     * @summary 查询平台公共应用详情
+     *  *
+     * @param GetGlobalAppRequest $tmpReq  GetGlobalAppRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetGlobalAppResponse
+     * @return GetGlobalAppResponse GetGlobalAppResponse
      */
     public function getGlobalAppWithOptions($tmpReq, $runtime)
     {
@@ -1284,9 +1362,11 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param GetGlobalAppRequest $request
+     * @summary 查询平台公共应用详情
+     *  *
+     * @param GetGlobalAppRequest $request GetGlobalAppRequest
      *
-     * @return GetGlobalAppResponse
+     * @return GetGlobalAppResponse GetGlobalAppResponse
      */
     public function getGlobalApp($request)
     {
@@ -1296,10 +1376,12 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param GetPublicDatasetRequest $tmpReq
-     * @param RuntimeOptions          $runtime
+     * @summary 查询平台公共数据集详情
+     *  *
+     * @param GetPublicDatasetRequest $tmpReq  GetPublicDatasetRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetPublicDatasetResponse
+     * @return GetPublicDatasetResponse GetPublicDatasetResponse
      */
     public function getPublicDatasetWithOptions($tmpReq, $runtime)
     {
@@ -1329,9 +1411,11 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param GetPublicDatasetRequest $request
+     * @summary 查询平台公共数据集详情
+     *  *
+     * @param GetPublicDatasetRequest $request GetPublicDatasetRequest
      *
-     * @return GetPublicDatasetResponse
+     * @return GetPublicDatasetResponse GetPublicDatasetResponse
      */
     public function getPublicDataset($request)
     {
@@ -1341,10 +1425,12 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param GetPublicDatasetEntityRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary 查询平台公共数据集特定的实体定义
+     *  *
+     * @param GetPublicDatasetEntityRequest $request GetPublicDatasetEntityRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetPublicDatasetEntityResponse
+     * @return GetPublicDatasetEntityResponse GetPublicDatasetEntityResponse
      */
     public function getPublicDatasetEntityWithOptions($request, $runtime)
     {
@@ -1369,9 +1455,11 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param GetPublicDatasetEntityRequest $request
+     * @summary 查询平台公共数据集特定的实体定义
+     *  *
+     * @param GetPublicDatasetEntityRequest $request GetPublicDatasetEntityRequest
      *
-     * @return GetPublicDatasetEntityResponse
+     * @return GetPublicDatasetEntityResponse GetPublicDatasetEntityResponse
      */
     public function getPublicDatasetEntity($request)
     {
@@ -1381,10 +1469,12 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param GetRunRequest  $request
-     * @param RuntimeOptions $runtime
+     * @summary 获取任务详情
+     *  *
+     * @param GetRunRequest  $request GetRunRequest
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetRunResponse
+     * @return GetRunResponse GetRunResponse
      */
     public function getRunWithOptions($request, $runtime)
     {
@@ -1409,9 +1499,11 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param GetRunRequest $request
+     * @summary 获取任务详情
+     *  *
+     * @param GetRunRequest $request GetRunRequest
      *
-     * @return GetRunResponse
+     * @return GetRunResponse GetRunResponse
      */
     public function getRun($request)
     {
@@ -1421,10 +1513,12 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param GetSubmissionRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary 获取投递详情
+     *  *
+     * @param GetSubmissionRequest $request GetSubmissionRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetSubmissionResponse
+     * @return GetSubmissionResponse GetSubmissionResponse
      */
     public function getSubmissionWithOptions($request, $runtime)
     {
@@ -1449,9 +1543,11 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param GetSubmissionRequest $request
+     * @summary 获取投递详情
+     *  *
+     * @param GetSubmissionRequest $request GetSubmissionRequest
      *
-     * @return GetSubmissionResponse
+     * @return GetSubmissionResponse GetSubmissionResponse
      */
     public function getSubmission($request)
     {
@@ -1461,10 +1557,12 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param GetTemplateRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary 查询应用模板的详情
+     *  *
+     * @param GetTemplateRequest $request GetTemplateRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetTemplateResponse
+     * @return GetTemplateResponse GetTemplateResponse
      */
     public function getTemplateWithOptions($request, $runtime)
     {
@@ -1495,9 +1593,11 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param GetTemplateRequest $request
+     * @summary 查询应用模板的详情
+     *  *
+     * @param GetTemplateRequest $request GetTemplateRequest
      *
-     * @return GetTemplateResponse
+     * @return GetTemplateResponse GetTemplateResponse
      */
     public function getTemplate($request)
     {
@@ -1507,10 +1607,12 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param GetWorkspaceRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary 查询工作空间详情
+     *  *
+     * @param GetWorkspaceRequest $request GetWorkspaceRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetWorkspaceResponse
+     * @return GetWorkspaceResponse GetWorkspaceResponse
      */
     public function getWorkspaceWithOptions($request, $runtime)
     {
@@ -1538,9 +1640,11 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param GetWorkspaceRequest $request
+     * @summary 查询工作空间详情
+     *  *
+     * @param GetWorkspaceRequest $request GetWorkspaceRequest
      *
-     * @return GetWorkspaceResponse
+     * @return GetWorkspaceResponse GetWorkspaceResponse
      */
     public function getWorkspace($request)
     {
@@ -1550,10 +1654,12 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param ImportAppRequest $request
-     * @param RuntimeOptions   $runtime
+     * @summary 导入应用。
+     *  *
+     * @param ImportAppRequest $request ImportAppRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ImportAppResponse
+     * @return ImportAppResponse ImportAppResponse
      */
     public function importAppWithOptions($request, $runtime)
     {
@@ -1587,9 +1693,11 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param ImportAppRequest $request
+     * @summary 导入应用。
+     *  *
+     * @param ImportAppRequest $request ImportAppRequest
      *
-     * @return ImportAppResponse
+     * @return ImportAppResponse ImportAppResponse
      */
     public function importApp($request)
     {
@@ -1599,10 +1707,12 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param InstallGlobalAppRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary 安装平台公共应用到工作空间中。
+     *  *
+     * @param InstallGlobalAppRequest $request InstallGlobalAppRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return InstallGlobalAppResponse
+     * @return InstallGlobalAppResponse InstallGlobalAppResponse
      */
     public function installGlobalAppWithOptions($request, $runtime)
     {
@@ -1642,9 +1752,11 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param InstallGlobalAppRequest $request
+     * @summary 安装平台公共应用到工作空间中。
+     *  *
+     * @param InstallGlobalAppRequest $request InstallGlobalAppRequest
      *
-     * @return InstallGlobalAppResponse
+     * @return InstallGlobalAppResponse InstallGlobalAppResponse
      */
     public function installGlobalApp($request)
     {
@@ -1654,10 +1766,12 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param ListAppsRequest $request
-     * @param RuntimeOptions  $runtime
+     * @summary 列出应用
+     *  *
+     * @param ListAppsRequest $request ListAppsRequest
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListAppsResponse
+     * @return ListAppsResponse ListAppsResponse
      */
     public function listAppsWithOptions($request, $runtime)
     {
@@ -1712,9 +1826,11 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param ListAppsRequest $request
+     * @summary 列出应用
+     *  *
+     * @param ListAppsRequest $request ListAppsRequest
      *
-     * @return ListAppsResponse
+     * @return ListAppsResponse ListAppsResponse
      */
     public function listApps($request)
     {
@@ -1724,10 +1840,12 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param ListAuthorizedSoftwareRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary 获取平台第三方软件列表
+     *  *
+     * @param ListAuthorizedSoftwareRequest $request ListAuthorizedSoftwareRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListAuthorizedSoftwareResponse
+     * @return ListAuthorizedSoftwareResponse ListAuthorizedSoftwareResponse
      */
     public function listAuthorizedSoftwareWithOptions($request, $runtime)
     {
@@ -1752,9 +1870,11 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param ListAuthorizedSoftwareRequest $request
+     * @summary 获取平台第三方软件列表
+     *  *
+     * @param ListAuthorizedSoftwareRequest $request ListAuthorizedSoftwareRequest
      *
-     * @return ListAuthorizedSoftwareResponse
+     * @return ListAuthorizedSoftwareResponse ListAuthorizedSoftwareResponse
      */
     public function listAuthorizedSoftware($request)
     {
@@ -1764,10 +1884,12 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param ListContainerImagesRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary 获取平台公共容器镜像列表
+     *  *
+     * @param ListContainerImagesRequest $request ListContainerImagesRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListContainerImagesResponse
+     * @return ListContainerImagesResponse ListContainerImagesResponse
      */
     public function listContainerImagesWithOptions($request, $runtime)
     {
@@ -1792,9 +1914,11 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param ListContainerImagesRequest $request
+     * @summary 获取平台公共容器镜像列表
+     *  *
+     * @param ListContainerImagesRequest $request ListContainerImagesRequest
      *
-     * @return ListContainerImagesResponse
+     * @return ListContainerImagesResponse ListContainerImagesResponse
      */
     public function listContainerImages($request)
     {
@@ -1804,10 +1928,12 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param ListEntitiesRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary 列出数据实体列表
+     *  *
+     * @param ListEntitiesRequest $request ListEntitiesRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListEntitiesResponse
+     * @return ListEntitiesResponse ListEntitiesResponse
      */
     public function listEntitiesWithOptions($request, $runtime)
     {
@@ -1832,9 +1958,11 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param ListEntitiesRequest $request
+     * @summary 列出数据实体列表
+     *  *
+     * @param ListEntitiesRequest $request ListEntitiesRequest
      *
-     * @return ListEntitiesResponse
+     * @return ListEntitiesResponse ListEntitiesResponse
      */
     public function listEntities($request)
     {
@@ -1844,10 +1972,12 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param ListEntityItemsRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary 列出数据表格的条目
+     *  *
+     * @param ListEntityItemsRequest $request ListEntityItemsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListEntityItemsResponse
+     * @return ListEntityItemsResponse ListEntityItemsResponse
      */
     public function listEntityItemsWithOptions($request, $runtime)
     {
@@ -1893,9 +2023,11 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param ListEntityItemsRequest $request
+     * @summary 列出数据表格的条目
+     *  *
+     * @param ListEntityItemsRequest $request ListEntityItemsRequest
      *
-     * @return ListEntityItemsResponse
+     * @return ListEntityItemsResponse ListEntityItemsResponse
      */
     public function listEntityItems($request)
     {
@@ -1905,10 +2037,12 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param ListGlobalAppsRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary 获取平台公共应用列表
+     *  *
+     * @param ListGlobalAppsRequest $request ListGlobalAppsRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListGlobalAppsResponse
+     * @return ListGlobalAppsResponse ListGlobalAppsResponse
      */
     public function listGlobalAppsWithOptions($request, $runtime)
     {
@@ -1933,9 +2067,11 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param ListGlobalAppsRequest $request
+     * @summary 获取平台公共应用列表
+     *  *
+     * @param ListGlobalAppsRequest $request ListGlobalAppsRequest
      *
-     * @return ListGlobalAppsResponse
+     * @return ListGlobalAppsResponse ListGlobalAppsResponse
      */
     public function listGlobalApps($request)
     {
@@ -1945,10 +2081,12 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param ListPublicDatasetRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary 获取平台公共数据集列表
+     *  *
+     * @param ListPublicDatasetRequest $request ListPublicDatasetRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListPublicDatasetResponse
+     * @return ListPublicDatasetResponse ListPublicDatasetResponse
      */
     public function listPublicDatasetWithOptions($request, $runtime)
     {
@@ -1973,9 +2111,11 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param ListPublicDatasetRequest $request
+     * @summary 获取平台公共数据集列表
+     *  *
+     * @param ListPublicDatasetRequest $request ListPublicDatasetRequest
      *
-     * @return ListPublicDatasetResponse
+     * @return ListPublicDatasetResponse ListPublicDatasetResponse
      */
     public function listPublicDataset($request)
     {
@@ -1985,10 +2125,12 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param ListPublicDatasetEntitiesRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary 查询平台公共数据集包含的实体列表
+     *  *
+     * @param ListPublicDatasetEntitiesRequest $request ListPublicDatasetEntitiesRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListPublicDatasetEntitiesResponse
+     * @return ListPublicDatasetEntitiesResponse ListPublicDatasetEntitiesResponse
      */
     public function listPublicDatasetEntitiesWithOptions($request, $runtime)
     {
@@ -2013,9 +2155,11 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param ListPublicDatasetEntitiesRequest $request
+     * @summary 查询平台公共数据集包含的实体列表
+     *  *
+     * @param ListPublicDatasetEntitiesRequest $request ListPublicDatasetEntitiesRequest
      *
-     * @return ListPublicDatasetEntitiesResponse
+     * @return ListPublicDatasetEntitiesResponse ListPublicDatasetEntitiesResponse
      */
     public function listPublicDatasetEntities($request)
     {
@@ -2025,10 +2169,12 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param ListPublicDatasetEntityItemsRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary 查询平台公共数据集特定的实体表格数据
+     *  *
+     * @param ListPublicDatasetEntityItemsRequest $request ListPublicDatasetEntityItemsRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListPublicDatasetEntityItemsResponse
+     * @return ListPublicDatasetEntityItemsResponse ListPublicDatasetEntityItemsResponse
      */
     public function listPublicDatasetEntityItemsWithOptions($request, $runtime)
     {
@@ -2053,9 +2199,11 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param ListPublicDatasetEntityItemsRequest $request
+     * @summary 查询平台公共数据集特定的实体表格数据
+     *  *
+     * @param ListPublicDatasetEntityItemsRequest $request ListPublicDatasetEntityItemsRequest
      *
-     * @return ListPublicDatasetEntityItemsResponse
+     * @return ListPublicDatasetEntityItemsResponse ListPublicDatasetEntityItemsResponse
      */
     public function listPublicDatasetEntityItems($request)
     {
@@ -2065,10 +2213,12 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param ListPublicDatasetTagsRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary 列出所有公共数据集标签
+     *  *
+     * @param ListPublicDatasetTagsRequest $request ListPublicDatasetTagsRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListPublicDatasetTagsResponse
+     * @return ListPublicDatasetTagsResponse ListPublicDatasetTagsResponse
      */
     public function listPublicDatasetTagsWithOptions($request, $runtime)
     {
@@ -2093,9 +2243,11 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param ListPublicDatasetTagsRequest $request
+     * @summary 列出所有公共数据集标签
+     *  *
+     * @param ListPublicDatasetTagsRequest $request ListPublicDatasetTagsRequest
      *
-     * @return ListPublicDatasetTagsResponse
+     * @return ListPublicDatasetTagsResponse ListPublicDatasetTagsResponse
      */
     public function listPublicDatasetTags($request)
     {
@@ -2105,9 +2257,11 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary 查询基因分析平台产品的可用地域。
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListRegionsResponse
+     * @return ListRegionsResponse ListRegionsResponse
      */
     public function listRegionsWithOptions($runtime)
     {
@@ -2128,7 +2282,9 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @return ListRegionsResponse
+     * @summary 查询基因分析平台产品的可用地域。
+     *  *
+     * @return ListRegionsResponse ListRegionsResponse
      */
     public function listRegions()
     {
@@ -2138,10 +2294,12 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param ListRunsRequest $request
-     * @param RuntimeOptions  $runtime
+     * @summary 列出任务
+     *  *
+     * @param ListRunsRequest $request ListRunsRequest
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListRunsResponse
+     * @return ListRunsResponse ListRunsResponse
      */
     public function listRunsWithOptions($request, $runtime)
     {
@@ -2166,9 +2324,11 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param ListRunsRequest $request
+     * @summary 列出任务
+     *  *
+     * @param ListRunsRequest $request ListRunsRequest
      *
-     * @return ListRunsResponse
+     * @return ListRunsResponse ListRunsResponse
      */
     public function listRuns($request)
     {
@@ -2178,10 +2338,12 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param ListSubmissionsRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary 列出投递
+     *  *
+     * @param ListSubmissionsRequest $request ListSubmissionsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListSubmissionsResponse
+     * @return ListSubmissionsResponse ListSubmissionsResponse
      */
     public function listSubmissionsWithOptions($request, $runtime)
     {
@@ -2206,9 +2368,11 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param ListSubmissionsRequest $request
+     * @summary 列出投递
+     *  *
+     * @param ListSubmissionsRequest $request ListSubmissionsRequest
      *
-     * @return ListSubmissionsResponse
+     * @return ListSubmissionsResponse ListSubmissionsResponse
      */
     public function listSubmissions($request)
     {
@@ -2218,10 +2382,12 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param ListTemplatesRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary 列出应用模板
+     *  *
+     * @param ListTemplatesRequest $request ListTemplatesRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTemplatesResponse
+     * @return ListTemplatesResponse ListTemplatesResponse
      */
     public function listTemplatesWithOptions($request, $runtime)
     {
@@ -2267,9 +2433,11 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param ListTemplatesRequest $request
+     * @summary 列出应用模板
+     *  *
+     * @param ListTemplatesRequest $request ListTemplatesRequest
      *
-     * @return ListTemplatesResponse
+     * @return ListTemplatesResponse ListTemplatesResponse
      */
     public function listTemplates($request)
     {
@@ -2279,10 +2447,12 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param ListUserActiveRunsRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary 最近任务列表
+     *  *
+     * @param ListUserActiveRunsRequest $request ListUserActiveRunsRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListUserActiveRunsResponse
+     * @return ListUserActiveRunsResponse ListUserActiveRunsResponse
      */
     public function listUserActiveRunsWithOptions($request, $runtime)
     {
@@ -2307,9 +2477,11 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param ListUserActiveRunsRequest $request
+     * @summary 最近任务列表
+     *  *
+     * @param ListUserActiveRunsRequest $request ListUserActiveRunsRequest
      *
-     * @return ListUserActiveRunsResponse
+     * @return ListUserActiveRunsResponse ListUserActiveRunsResponse
      */
     public function listUserActiveRuns($request)
     {
@@ -2319,10 +2491,12 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param ListWorkspacesRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary 列出工作空间
+     *  *
+     * @param ListWorkspacesRequest $request ListWorkspacesRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListWorkspacesResponse
+     * @return ListWorkspacesResponse ListWorkspacesResponse
      */
     public function listWorkspacesWithOptions($request, $runtime)
     {
@@ -2347,9 +2521,11 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param ListWorkspacesRequest $request
+     * @summary 列出工作空间
+     *  *
+     * @param ListWorkspacesRequest $request ListWorkspacesRequest
      *
-     * @return ListWorkspacesResponse
+     * @return ListWorkspacesResponse ListWorkspacesResponse
      */
     public function listWorkspaces($request)
     {
@@ -2359,10 +2535,12 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param ResumeSubmissionRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary 恢复投递
+     *  *
+     * @param ResumeSubmissionRequest $request ResumeSubmissionRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ResumeSubmissionResponse
+     * @return ResumeSubmissionResponse ResumeSubmissionResponse
      */
     public function resumeSubmissionWithOptions($request, $runtime)
     {
@@ -2393,9 +2571,11 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param ResumeSubmissionRequest $request
+     * @summary 恢复投递
+     *  *
+     * @param ResumeSubmissionRequest $request ResumeSubmissionRequest
      *
-     * @return ResumeSubmissionResponse
+     * @return ResumeSubmissionResponse ResumeSubmissionResponse
      */
     public function resumeSubmission($request)
     {
@@ -2405,10 +2585,12 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param TagAppRequest  $request
-     * @param RuntimeOptions $runtime
+     * @summary 应用版本打标
+     *  *
+     * @param TagAppRequest  $request TagAppRequest
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return TagAppResponse
+     * @return TagAppResponse TagAppResponse
      */
     public function tagAppWithOptions($request, $runtime)
     {
@@ -2445,9 +2627,11 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param TagAppRequest $request
+     * @summary 应用版本打标
+     *  *
+     * @param TagAppRequest $request TagAppRequest
      *
-     * @return TagAppResponse
+     * @return TagAppResponse TagAppResponse
      */
     public function tagApp($request)
     {
@@ -2457,8 +2641,10 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @deprecated : UpdateEntity is deprecated, please use EasyGene::2021-03-15::UpdateEntityItems instead.
-     *   *
+     * @deprecated openAPI UpdateEntity is deprecated, please use EasyGene::2021-03-15::UpdateEntityItems instead
+     *  *
+     * @summary 修改数据表格
+     *  *
      * Deprecated
      *
      * @param UpdateEntityRequest $tmpReq  UpdateEntityRequest
@@ -2505,8 +2691,10 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @deprecated : UpdateEntity is deprecated, please use EasyGene::2021-03-15::UpdateEntityItems instead.
-     *   *
+     * @deprecated openAPI UpdateEntity is deprecated, please use EasyGene::2021-03-15::UpdateEntityItems instead
+     *  *
+     * @summary 修改数据表格
+     *  *
      * Deprecated
      *
      * @param UpdateEntityRequest $request UpdateEntityRequest
@@ -2521,10 +2709,12 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param UpdateEntityItemsRequest $tmpReq
-     * @param RuntimeOptions           $runtime
+     * @summary 修改表格数据
+     *  *
+     * @param UpdateEntityItemsRequest $tmpReq  UpdateEntityItemsRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateEntityItemsResponse
+     * @return UpdateEntityItemsResponse UpdateEntityItemsResponse
      */
     public function updateEntityItemsWithOptions($tmpReq, $runtime)
     {
@@ -2565,9 +2755,11 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param UpdateEntityItemsRequest $request
+     * @summary 修改表格数据
+     *  *
+     * @param UpdateEntityItemsRequest $request UpdateEntityItemsRequest
      *
-     * @return UpdateEntityItemsResponse
+     * @return UpdateEntityItemsResponse UpdateEntityItemsResponse
      */
     public function updateEntityItems($request)
     {
@@ -2577,10 +2769,12 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param UpdateTemplateRequest $tmpReq
-     * @param RuntimeOptions        $runtime
+     * @summary 修改应用模板
+     *  *
+     * @param UpdateTemplateRequest $tmpReq  UpdateTemplateRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateTemplateResponse
+     * @return UpdateTemplateResponse UpdateTemplateResponse
      */
     public function updateTemplateWithOptions($tmpReq, $runtime)
     {
@@ -2636,9 +2830,11 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param UpdateTemplateRequest $request
+     * @summary 修改应用模板
+     *  *
+     * @param UpdateTemplateRequest $request UpdateTemplateRequest
      *
-     * @return UpdateTemplateResponse
+     * @return UpdateTemplateResponse UpdateTemplateResponse
      */
     public function updateTemplate($request)
     {
@@ -2648,10 +2844,12 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param UpdateWorkspaceRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary 修改工作空间
+     *  *
+     * @param UpdateWorkspaceRequest $request UpdateWorkspaceRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateWorkspaceResponse
+     * @return UpdateWorkspaceResponse UpdateWorkspaceResponse
      */
     public function updateWorkspaceWithOptions($request, $runtime)
     {
@@ -2691,9 +2889,11 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param UpdateWorkspaceRequest $request
+     * @summary 修改工作空间
+     *  *
+     * @param UpdateWorkspaceRequest $request UpdateWorkspaceRequest
      *
-     * @return UpdateWorkspaceResponse
+     * @return UpdateWorkspaceResponse UpdateWorkspaceResponse
      */
     public function updateWorkspace($request)
     {
@@ -2703,10 +2903,12 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param UploadEntityRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary 上传数据表格
+     *  *
+     * @param UploadEntityRequest $request UploadEntityRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return UploadEntityResponse
+     * @return UploadEntityResponse UploadEntityResponse
      */
     public function uploadEntityWithOptions($request, $runtime)
     {
@@ -2737,9 +2939,11 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param UploadEntityRequest $request
+     * @summary 上传数据表格
+     *  *
+     * @param UploadEntityRequest $request UploadEntityRequest
      *
-     * @return UploadEntityResponse
+     * @return UploadEntityResponse UploadEntityResponse
      */
     public function uploadEntity($request)
     {

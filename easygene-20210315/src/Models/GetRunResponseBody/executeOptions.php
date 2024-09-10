@@ -16,6 +16,11 @@ class executeOptions extends Model
     public $callCaching;
 
     /**
+     * @var string
+     */
+    public $dataLoader;
+
+    /**
      * @example false
      *
      * @var bool
@@ -37,6 +42,7 @@ class executeOptions extends Model
     public $useRelativeOutputPaths;
     protected $_name = [
         'callCaching'               => 'CallCaching',
+        'dataLoader'                => 'DataLoader',
         'deleteIntermediateResults' => 'DeleteIntermediateResults',
         'failureMode'               => 'FailureMode',
         'useRelativeOutputPaths'    => 'UseRelativeOutputPaths',
@@ -51,6 +57,9 @@ class executeOptions extends Model
         $res = [];
         if (null !== $this->callCaching) {
             $res['CallCaching'] = $this->callCaching;
+        }
+        if (null !== $this->dataLoader) {
+            $res['DataLoader'] = $this->dataLoader;
         }
         if (null !== $this->deleteIntermediateResults) {
             $res['DeleteIntermediateResults'] = $this->deleteIntermediateResults;
@@ -75,6 +84,9 @@ class executeOptions extends Model
         $model = new self();
         if (isset($map['CallCaching'])) {
             $model->callCaching = $map['CallCaching'];
+        }
+        if (isset($map['DataLoader'])) {
+            $model->dataLoader = $map['DataLoader'];
         }
         if (isset($map['DeleteIntermediateResults'])) {
             $model->deleteIntermediateResults = $map['DeleteIntermediateResults'];

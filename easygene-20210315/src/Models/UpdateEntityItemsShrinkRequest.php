@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class UpdateEntityItemsShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $entityItemsShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example sample
      *
      * @var string
@@ -21,6 +25,8 @@ class UpdateEntityItemsShrinkRequest extends Model
     public $entityType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test-workspace
      *
      * @var string

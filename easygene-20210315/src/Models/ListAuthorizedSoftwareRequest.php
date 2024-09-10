@@ -16,6 +16,8 @@ class ListAuthorizedSoftwareRequest extends Model
     public $isReversed;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-shanghai
      *
      * @var string

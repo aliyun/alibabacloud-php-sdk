@@ -51,6 +51,8 @@ class ListTemplatesRequest extends Model
     public $search;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test-workspace
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListEntityItemsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example sample
      *
      * @var string
@@ -51,6 +53,8 @@ class ListEntityItemsRequest extends Model
     public $search;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test-workspace
      *
      * @var string

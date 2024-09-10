@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class InstallGlobalAppRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example joint-calling
      *
      * @var string
@@ -16,6 +18,8 @@ class InstallGlobalAppRequest extends Model
     public $appName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example joint-calling
      *
      * @var string
@@ -23,6 +27,8 @@ class InstallGlobalAppRequest extends Model
     public $installedAppName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example sentieon
      *
      * @var string
@@ -30,6 +36,8 @@ class InstallGlobalAppRequest extends Model
     public $namespaceName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example EasyGene
      *
      * @var string
@@ -37,6 +45,8 @@ class InstallGlobalAppRequest extends Model
     public $source;
 
     /**
+     * @description This parameter is required.
+     *
      * @example default-workspace
      *
      * @var string

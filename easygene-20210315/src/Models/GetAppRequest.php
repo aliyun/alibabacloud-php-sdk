@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetAppRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example TestApp
      *
      * @var string
@@ -30,6 +32,8 @@ class GetAppRequest extends Model
     public $revisionTag;
 
     /**
+     * @description This parameter is required.
+     *
      * @example TestWorkspace
      *
      * @var string

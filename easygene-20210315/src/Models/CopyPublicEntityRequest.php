@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CopyPublicEntityRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example TestDataset
      *
      * @var string
@@ -16,6 +18,8 @@ class CopyPublicEntityRequest extends Model
     public $dataset;
 
     /**
+     * @description This parameter is required.
+     *
      * @example sample
      *
      * @var string
@@ -23,6 +27,8 @@ class CopyPublicEntityRequest extends Model
     public $entityType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test-workspace
      *
      * @var string

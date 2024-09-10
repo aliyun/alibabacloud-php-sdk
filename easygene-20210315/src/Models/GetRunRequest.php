@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetRunRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example run-12kDbbqp5O9dfsH0sEdQeRclGQb
      *
      * @var string
@@ -16,6 +18,8 @@ class GetRunRequest extends Model
     public $runId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example default-workspace
      *
      * @var string

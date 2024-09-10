@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ImportAppRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example fastp
      *
      * @var string
@@ -16,6 +18,8 @@ class ImportAppRequest extends Model
     public $appName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example easygene:opengene/fastp
      *
      * @var string
@@ -23,6 +27,8 @@ class ImportAppRequest extends Model
     public $source;
 
     /**
+     * @description This parameter is required.
+     *
      * @example TestWorkspace
      *
      * @var string

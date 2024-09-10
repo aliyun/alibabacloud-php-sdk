@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class TagAppRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example TestApp
      *
      * @var string
@@ -16,6 +18,8 @@ class TagAppRequest extends Model
     public $appName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var string
@@ -23,6 +27,8 @@ class TagAppRequest extends Model
     public $appRevision;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ProduceVersion
      *
      * @var string
@@ -30,6 +36,8 @@ class TagAppRequest extends Model
     public $revisionTag;
 
     /**
+     * @description This parameter is required.
+     *
      * @example TestWorkspace
      *
      * @var string

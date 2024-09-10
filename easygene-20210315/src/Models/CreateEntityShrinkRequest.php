@@ -16,11 +16,15 @@ class CreateEntityShrinkRequest extends Model
     public $clientToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $entityItemsShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example sample
      *
      * @var string
@@ -28,6 +32,8 @@ class CreateEntityShrinkRequest extends Model
     public $entityType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test-workspace
      *
      * @var string

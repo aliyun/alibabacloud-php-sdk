@@ -14,6 +14,8 @@ class DownloadEntityShrinkRequest extends Model
     public $entityNamesShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example sample
      *
      * @var string
@@ -21,6 +23,8 @@ class DownloadEntityShrinkRequest extends Model
     public $entityType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test-workspace
      *
      * @var string

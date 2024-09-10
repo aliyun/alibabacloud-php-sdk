@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateAppShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example TestApp
      *
      * @var string
@@ -35,6 +37,8 @@ class CreateAppShrinkRequest extends Model
     public $configsShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example import "./task/echo.wdl" as echo workflow wf_echo {   call echo.echo }
      *
      * @var string
@@ -82,6 +86,8 @@ class CreateAppShrinkRequest extends Model
     public $languageVersion;
 
     /**
+     * @description This parameter is required.
+     *
      * @example main.wdl
      *
      * @var string
@@ -103,6 +109,8 @@ class CreateAppShrinkRequest extends Model
     public $revisionTag;
 
     /**
+     * @description This parameter is required.
+     *
      * @example TestWorkspace
      *
      * @var string

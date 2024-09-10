@@ -16,6 +16,8 @@ class UpdateTemplateShrinkRequest extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $inputsExpressionShrink;
@@ -28,6 +30,8 @@ class UpdateTemplateShrinkRequest extends Model
     public $labels;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $outputsExpressionShrink;
@@ -40,6 +44,8 @@ class UpdateTemplateShrinkRequest extends Model
     public $rootEntity;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test-template
      *
      * @var string
@@ -47,6 +53,8 @@ class UpdateTemplateShrinkRequest extends Model
     public $templateName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test-workspace
      *
      * @var string

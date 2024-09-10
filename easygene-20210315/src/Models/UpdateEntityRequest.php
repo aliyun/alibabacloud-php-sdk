@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class UpdateEntityRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var entityItems[]
      */
     public $entityItems;
 
     /**
+     * @description This parameter is required.
+     *
      * @example sample
      *
      * @var string
@@ -22,6 +26,8 @@ class UpdateEntityRequest extends Model
     public $entityType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test-workspace
      *
      * @var string

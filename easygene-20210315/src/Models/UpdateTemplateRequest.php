@@ -18,6 +18,8 @@ class UpdateTemplateRequest extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @var inputsExpression[]
      */
     public $inputsExpression;
@@ -30,6 +32,8 @@ class UpdateTemplateRequest extends Model
     public $labels;
 
     /**
+     * @description This parameter is required.
+     *
      * @var outputsExpression[]
      */
     public $outputsExpression;
@@ -42,6 +46,8 @@ class UpdateTemplateRequest extends Model
     public $rootEntity;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test-template
      *
      * @var string
@@ -49,6 +55,8 @@ class UpdateTemplateRequest extends Model
     public $templateName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test-workspace
      *
      * @var string

@@ -14,6 +14,8 @@ class inputsExpression extends Model
     public $help;
 
     /**
+     * @description This parameter is required.
+     *
      * @example True
      *
      * @var bool
@@ -28,6 +30,8 @@ class inputsExpression extends Model
     public $stepOrder;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Task1
      *
      * @var string
@@ -35,6 +39,8 @@ class inputsExpression extends Model
     public $taskName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example fastq1
      *
      * @var string
@@ -42,6 +48,8 @@ class inputsExpression extends Model
     public $variableName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example String
      *
      * @var string
@@ -49,6 +57,8 @@ class inputsExpression extends Model
     public $variableType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example read_1.fastq.gz
      *
      * @var string

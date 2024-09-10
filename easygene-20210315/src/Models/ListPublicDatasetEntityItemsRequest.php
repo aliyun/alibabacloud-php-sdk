@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListPublicDatasetEntityItemsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 西蒙斯基因组多样性计划
      *
      * @var string
@@ -16,6 +18,8 @@ class ListPublicDatasetEntityItemsRequest extends Model
     public $datasetName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example sample
      *
      * @var string

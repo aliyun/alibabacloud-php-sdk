@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListContainerImagesRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example cn-shanghai
      *
      * @var string

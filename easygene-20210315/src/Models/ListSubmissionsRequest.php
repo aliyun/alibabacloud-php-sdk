@@ -53,6 +53,8 @@ class ListSubmissionsRequest extends Model
     public $status;
 
     /**
+     * @description This parameter is required.
+     *
      * @example TestWorkspace
      *
      * @var string

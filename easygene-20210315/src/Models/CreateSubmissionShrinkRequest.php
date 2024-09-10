@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateSubmissionShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example TestApp
      *
      * @var string
@@ -35,6 +37,8 @@ class CreateSubmissionShrinkRequest extends Model
     public $entityNamesShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example TestEntityType
      *
      * @var string
@@ -91,6 +95,8 @@ class CreateSubmissionShrinkRequest extends Model
     public $revisionTag;
 
     /**
+     * @description This parameter is required.
+     *
      * @example TestWorkspace
      *
      * @var string

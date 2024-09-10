@@ -44,6 +44,8 @@ class CreateWorkspaceRequest extends Model
     public $role;
 
     /**
+     * @description This parameter is required.
+     *
      * @example oss://gstor-default-workspace-cn-shanghai-bae3193d/
      *
      * @var string
@@ -51,6 +53,8 @@ class CreateWorkspaceRequest extends Model
     public $storage;
 
     /**
+     * @description This parameter is required.
+     *
      * @example TestWorkspace
      *
      * @var string

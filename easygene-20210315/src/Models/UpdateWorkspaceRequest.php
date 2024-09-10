@@ -37,6 +37,8 @@ class UpdateWorkspaceRequest extends Model
     public $role;
 
     /**
+     * @description This parameter is required.
+     *
      * @example MyTestWorkspace
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteEntityRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example sample
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteEntityRequest extends Model
     public $entityType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example default-workspace
      *
      * @var string

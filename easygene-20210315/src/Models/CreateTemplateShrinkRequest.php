@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateTemplateShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example MyApp
      *
      * @var string
@@ -37,6 +39,8 @@ class CreateTemplateShrinkRequest extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $inputsExpressionShrink;
@@ -49,6 +53,8 @@ class CreateTemplateShrinkRequest extends Model
     public $labels;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $outputsExpressionShrink;
@@ -68,6 +74,8 @@ class CreateTemplateShrinkRequest extends Model
     public $rootEntity;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test-template
      *
      * @var string
@@ -75,6 +83,8 @@ class CreateTemplateShrinkRequest extends Model
     public $templateName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test-workspace
      *
      * @var string

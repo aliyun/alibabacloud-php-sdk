@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class CreateAppRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example TestApp
      *
      * @var string
@@ -37,6 +39,8 @@ class CreateAppRequest extends Model
     public $configs;
 
     /**
+     * @description This parameter is required.
+     *
      * @example import "./task/echo.wdl" as echo workflow wf_echo {   call echo.echo }
      *
      * @var string
@@ -84,6 +88,8 @@ class CreateAppRequest extends Model
     public $languageVersion;
 
     /**
+     * @description This parameter is required.
+     *
      * @example main.wdl
      *
      * @var string
@@ -105,6 +111,8 @@ class CreateAppRequest extends Model
     public $revisionTag;
 
     /**
+     * @description This parameter is required.
+     *
      * @example TestWorkspace
      *
      * @var string

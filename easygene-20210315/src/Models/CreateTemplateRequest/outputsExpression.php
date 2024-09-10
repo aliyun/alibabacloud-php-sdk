@@ -16,6 +16,8 @@ class outputsExpression extends Model
     public $help;
 
     /**
+     * @description This parameter is required.
+     *
      * @example true
      *
      * @var bool
@@ -30,6 +32,8 @@ class outputsExpression extends Model
     public $stepOrder;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Task1
      *
      * @var string
@@ -37,6 +41,8 @@ class outputsExpression extends Model
     public $taskName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example bam
      *
      * @var string
@@ -44,6 +50,8 @@ class outputsExpression extends Model
     public $variableName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example File
      *
      * @var string
@@ -51,6 +59,8 @@ class outputsExpression extends Model
     public $variableType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example oss://bucket/file.bam
      *
      * @var string

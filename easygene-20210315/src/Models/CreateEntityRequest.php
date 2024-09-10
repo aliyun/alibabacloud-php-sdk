@@ -17,11 +17,15 @@ class CreateEntityRequest extends Model
     public $clientToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @var entityItems[]
      */
     public $entityItems;
 
     /**
+     * @description This parameter is required.
+     *
      * @example sample
      *
      * @var string
@@ -29,6 +33,8 @@ class CreateEntityRequest extends Model
     public $entityType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test-workspace
      *
      * @var string

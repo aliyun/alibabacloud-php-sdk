@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetTemplateRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example test-template
      *
      * @var string
@@ -16,6 +18,8 @@ class GetTemplateRequest extends Model
     public $templateName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test-workspace
      *
      * @var string

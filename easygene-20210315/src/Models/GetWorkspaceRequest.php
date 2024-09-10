@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetWorkspaceRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example MyTestWorkspace
      *
      * @var string

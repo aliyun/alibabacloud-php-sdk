@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetGlobalAppShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example joint-calling
      *
      * @var string
@@ -37,6 +39,8 @@ class GetGlobalAppShrinkRequest extends Model
     public $location;
 
     /**
+     * @description This parameter is required.
+     *
      * @example sentieon
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteAppRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example TestApp
      *
      * @var string
@@ -23,6 +25,8 @@ class DeleteAppRequest extends Model
     public $revision;
 
     /**
+     * @description This parameter is required.
+     *
      * @example TestWorkspace
      *
      * @var string

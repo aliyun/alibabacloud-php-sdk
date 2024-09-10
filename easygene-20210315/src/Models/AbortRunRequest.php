@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AbortRunRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example run-13BeYuxc0fxO24uA75UppTiMRoQ
      *
      * @var string
@@ -16,6 +18,8 @@ class AbortRunRequest extends Model
     public $runId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test-workspace
      *
      * @var string
