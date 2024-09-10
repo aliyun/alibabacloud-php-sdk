@@ -44,6 +44,8 @@ class policyList extends Model
     public $name;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $remark;

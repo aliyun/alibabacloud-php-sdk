@@ -27,6 +27,16 @@ class packConfig extends Model
     public $bindIpCount;
 
     /**
+     * @var int
+     */
+    public $elasticBwMbps;
+
+    /**
+     * @var string
+     */
+    public $elasticBwMode;
+
+    /**
      * @description The burstable protection bandwidth of each protected IP address. Unit: Gbit/s.
      *
      * @example 300
@@ -82,6 +92,8 @@ class packConfig extends Model
     protected $_name = [
         'bandwidth'       => 'Bandwidth',
         'bindIpCount'     => 'BindIpCount',
+        'elasticBwMbps'   => 'ElasticBwMbps',
+        'elasticBwMode'   => 'ElasticBwMode',
         'ipAdvanceThre'   => 'IpAdvanceThre',
         'ipBasicThre'     => 'IpBasicThre',
         'ipSpec'          => 'IpSpec',
@@ -102,6 +114,12 @@ class packConfig extends Model
         }
         if (null !== $this->bindIpCount) {
             $res['BindIpCount'] = $this->bindIpCount;
+        }
+        if (null !== $this->elasticBwMbps) {
+            $res['ElasticBwMbps'] = $this->elasticBwMbps;
+        }
+        if (null !== $this->elasticBwMode) {
+            $res['ElasticBwMode'] = $this->elasticBwMode;
         }
         if (null !== $this->ipAdvanceThre) {
             $res['IpAdvanceThre'] = $this->ipAdvanceThre;
@@ -138,6 +156,12 @@ class packConfig extends Model
         }
         if (isset($map['BindIpCount'])) {
             $model->bindIpCount = $map['BindIpCount'];
+        }
+        if (isset($map['ElasticBwMbps'])) {
+            $model->elasticBwMbps = $map['ElasticBwMbps'];
+        }
+        if (isset($map['ElasticBwMode'])) {
+            $model->elasticBwMode = $map['ElasticBwMode'];
         }
         if (isset($map['IpAdvanceThre'])) {
             $model->ipAdvanceThre = $map['IpAdvanceThre'];

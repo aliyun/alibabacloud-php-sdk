@@ -36,6 +36,8 @@ class ListPolicyRequest extends Model
     public $pageSize;
 
     /**
+     * @example ecs
+     *
      * @var string
      */
     public $productType;

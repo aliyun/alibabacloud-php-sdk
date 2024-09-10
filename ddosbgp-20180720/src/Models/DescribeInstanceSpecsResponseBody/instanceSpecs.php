@@ -37,6 +37,11 @@ class instanceSpecs extends Model
     public $defenseTimesPercent;
 
     /**
+     * @var int
+     */
+    public $downgradeStatus;
+
+    /**
      * @description The region ID of the Anti-DDoS Origin Enterprise instance.
      *
      * @example ddosbgp-cn-n6w1r7nz****
@@ -86,6 +91,7 @@ class instanceSpecs extends Model
         'availableDefenseTimes'         => 'AvailableDefenseTimes',
         'availableDeleteBlackholeCount' => 'AvailableDeleteBlackholeCount',
         'defenseTimesPercent'           => 'DefenseTimesPercent',
+        'downgradeStatus'               => 'DowngradeStatus',
         'instanceId'                    => 'InstanceId',
         'isFullDefenseMode'             => 'IsFullDefenseMode',
         'packConfig'                    => 'PackConfig',
@@ -108,6 +114,9 @@ class instanceSpecs extends Model
         }
         if (null !== $this->defenseTimesPercent) {
             $res['DefenseTimesPercent'] = $this->defenseTimesPercent;
+        }
+        if (null !== $this->downgradeStatus) {
+            $res['DowngradeStatus'] = $this->downgradeStatus;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -144,6 +153,9 @@ class instanceSpecs extends Model
         }
         if (isset($map['DefenseTimesPercent'])) {
             $model->defenseTimesPercent = $map['DefenseTimesPercent'];
+        }
+        if (isset($map['DowngradeStatus'])) {
+            $model->downgradeStatus = $map['DowngradeStatus'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
