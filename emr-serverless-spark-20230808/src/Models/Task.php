@@ -224,6 +224,11 @@ class Task extends Model
     public $tags;
 
     /**
+     * @var int
+     */
+    public $timeout;
+
+    /**
      * @description This parameter is required.
      *
      * @var string
@@ -267,6 +272,7 @@ class Task extends Model
         'sparkSubmitClause'      => 'sparkSubmitClause',
         'sparkVersion'           => 'sparkVersion',
         'tags'                   => 'tags',
+        'timeout'                => 'timeout',
         'type'                   => 'type',
     ];
 
@@ -393,6 +399,9 @@ class Task extends Model
         }
         if (null !== $this->tags) {
             $res['tags'] = $this->tags;
+        }
+        if (null !== $this->timeout) {
+            $res['timeout'] = $this->timeout;
         }
         if (null !== $this->type) {
             $res['type'] = $this->type;
@@ -535,6 +544,9 @@ class Task extends Model
         }
         if (isset($map['tags'])) {
             $model->tags = $map['tags'];
+        }
+        if (isset($map['timeout'])) {
+            $model->timeout = $map['timeout'];
         }
         if (isset($map['type'])) {
             $model->type = $map['type'];

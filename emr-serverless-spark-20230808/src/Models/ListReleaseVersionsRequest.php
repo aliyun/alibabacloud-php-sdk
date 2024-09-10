@@ -23,7 +23,7 @@ class ListReleaseVersionsRequest extends Model
      * Valid values:
      *
      *   stable
-     *   beta
+     *   Beta
      *
      * @example stable
      *
@@ -32,7 +32,7 @@ class ListReleaseVersionsRequest extends Model
     public $releaseType;
 
     /**
-     * @description The version of Serverless Spark.
+     * @description The version of EMR Serverless Spark.
      *
      * @example esr-2.1 (Spark 3.3.1, Scala 2.12, Java Runtime)
      *
@@ -41,7 +41,7 @@ class ListReleaseVersionsRequest extends Model
     public $releaseVersion;
 
     /**
-     * @description The status of the version. Valid values:
+     * @description The status of the version.
      *
      * Valid values:
      *
@@ -53,11 +53,17 @@ class ListReleaseVersionsRequest extends Model
      * @var string
      */
     public $releaseVersionStatus;
+
+    /**
+     * @var string
+     */
+    public $workspaceId;
     protected $_name = [
         'regionId'             => 'regionId',
         'releaseType'          => 'releaseType',
         'releaseVersion'       => 'releaseVersion',
         'releaseVersionStatus' => 'releaseVersionStatus',
+        'workspaceId'          => 'workspaceId',
     ];
 
     public function validate()
@@ -78,6 +84,9 @@ class ListReleaseVersionsRequest extends Model
         }
         if (null !== $this->releaseVersionStatus) {
             $res['releaseVersionStatus'] = $this->releaseVersionStatus;
+        }
+        if (null !== $this->workspaceId) {
+            $res['workspaceId'] = $this->workspaceId;
         }
 
         return $res;
@@ -102,6 +111,9 @@ class ListReleaseVersionsRequest extends Model
         }
         if (isset($map['releaseVersionStatus'])) {
             $model->releaseVersionStatus = $map['releaseVersionStatus'];
+        }
+        if (isset($map['workspaceId'])) {
+            $model->workspaceId = $map['workspaceId'];
         }
 
         return $model;

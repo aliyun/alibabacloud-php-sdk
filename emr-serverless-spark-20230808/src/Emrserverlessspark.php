@@ -185,7 +185,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * @summary 使用session运行SQL
+     * @summary Creates an SQL query task.
      *  *
      * @param string                    $workspaceId
      * @param CreateSqlStatementRequest $request     CreateSqlStatementRequest
@@ -238,7 +238,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * @summary 使用session运行SQL
+     * @summary Creates an SQL query task.
      *  *
      * @param string                    $workspaceId
      * @param CreateSqlStatementRequest $request     CreateSqlStatementRequest
@@ -308,7 +308,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * @summary 获取Sql Statement状态
+     * @summary Queries the status of an SQL query task.
      *  *
      * @param string                 $workspaceId
      * @param string                 $statementId
@@ -345,7 +345,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * @summary 获取Sql Statement状态
+     * @summary Queries the status of an SQL query task.
      *  *
      * @param string                 $workspaceId
      * @param string                 $statementId
@@ -519,7 +519,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * @summary 获取发布版本列表
+     * @summary Queries the list of published versions of E-MapReduce (EMR) Serverless Spark.
      *  *
      * @param ListReleaseVersionsRequest $request ListReleaseVersionsRequest
      * @param string[]                   $headers map
@@ -543,6 +543,9 @@ class Emrserverlessspark extends OpenApiClient
         if (!Utils::isUnset($request->releaseVersionStatus)) {
             $query['releaseVersionStatus'] = $request->releaseVersionStatus;
         }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['workspaceId'] = $request->workspaceId;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
@@ -563,7 +566,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * @summary 获取发布版本列表
+     * @summary Queries the list of published versions of E-MapReduce (EMR) Serverless Spark.
      *  *
      * @param ListReleaseVersionsRequest $request ListReleaseVersionsRequest
      *
@@ -852,7 +855,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * @summary 终止 session statement
+     * @summary Terminates an SQL query task.
      *  *
      * @param string                       $workspaceId
      * @param string                       $statementId
@@ -889,7 +892,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * @summary 终止 session statement
+     * @summary Terminates an SQL query task.
      *  *
      * @param string                       $workspaceId
      * @param string                       $statementId

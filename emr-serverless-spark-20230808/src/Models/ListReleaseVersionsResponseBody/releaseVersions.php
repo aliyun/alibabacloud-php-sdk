@@ -25,11 +25,19 @@ class releaseVersions extends Model
     public $cpuArchitectures;
 
     /**
+     * @description The version number.
+     *
+     * @example esr-2.1 (Spark 3.3.1, Scala 2.12)
+     *
      * @var string
      */
     public $displayReleaseVersion;
 
     /**
+     * @description Indicates whether the Fusion engine is used for acceleration.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $fusion;
@@ -53,7 +61,7 @@ class releaseVersions extends Model
     public $iaasType;
 
     /**
-     * @description The version.
+     * @description The version number.
      *
      * @example esr-2.1 (Spark 3.3.1, Scala 2.12, Java Runtime)
      *
