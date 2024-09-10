@@ -25,7 +25,7 @@ class alarm extends Model
     public $comparisonOperator;
 
     /**
-     * @description The alert group that receives alert notifications.
+     * @description The alert contact group.
      *
      * @example ECS_Group
      *
@@ -46,8 +46,9 @@ class alarm extends Model
     public $enable;
 
     /**
-     * @description The beginning of the time period during which the alert rule is effective. Unit: hours. For example, the value 23 indicates `23:59:59`.
+     * @description The end of the time period during which the alert rule is effective.
      *
+     * Unit: hours. For example, the value 23 indicates `23:59:59`.
      * @example 24
      *
      * @var string
@@ -64,7 +65,7 @@ class alarm extends Model
     public $evaluationCount;
 
     /**
-     * @description The name of the metric.
+     * @description The metric name.
      *
      * @example cpu_total
      *
@@ -73,7 +74,7 @@ class alarm extends Model
     public $metricName;
 
     /**
-     * @description The namespace of the service. For more information, see [Appendix 1: Metrics](~~163515~~).
+     * @description The namespace of the cloud service.
      *
      * @example acs_ecs_dashboard
      *
@@ -82,8 +83,9 @@ class alarm extends Model
     public $namespace;
 
     /**
-     * @description The aggregation period of the monitoring data. Unit: seconds. The default value is the minimum aggregation period, indicating that the metric is polled at the highest frequency. Typically, you do not need to specify the minimum aggregation period.
+     * @description The aggregation period of monitoring data.
      *
+     * Unit: seconds.
      * @example 60
      *
      * @var string
@@ -109,8 +111,9 @@ class alarm extends Model
     public $ruleName;
 
     /**
-     * @description The mute period during which new alerts are not sent even if the trigger conditions are met. Unit: seconds. Default value: 86400.
+     * @description The mute period during which new alerts are not sent even if the trigger conditions are met.
      *
+     * Unit: seconds.
      * @example 86400
      *
      * @var string
@@ -118,8 +121,9 @@ class alarm extends Model
     public $silenceTime;
 
     /**
-     * @description The end of the time period during which the alert rule is effective. Unit: hours. For example, the value 00 indicates `00:00:00`.
+     * @description The beginning of the time period during which the alert rule is effective.
      *
+     * Unit: hours. For example, the value 00 indicates `00:00:00`.
      * @example 00
      *
      * @var string
@@ -136,7 +140,7 @@ class alarm extends Model
     public $state;
 
     /**
-     * @description The statistical aggregation method.
+     * @description The statistical method.
      *
      * @example Average
      *
@@ -145,7 +149,7 @@ class alarm extends Model
     public $statistics;
 
     /**
-     * @description The threshold of the metric value.
+     * @description The alert threshold.
      *
      * @example 90
      *

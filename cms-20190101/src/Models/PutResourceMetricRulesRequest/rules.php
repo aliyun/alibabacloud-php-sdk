@@ -18,7 +18,7 @@ class rules extends Model
     /**
      * @description The alert contact groups. The alert notifications are sent to the alert contacts in the alert contact group.
      *
-     * >  An alert contact group can contain one or more alert contacts. For information about how to create alert contacts and alert contact groups, see [PutContact](~~114923~~) and [PutContactGroup](~~114929~~).
+     * This parameter is required.
      * @example ECS_Group
      *
      * @var string
@@ -46,7 +46,7 @@ class rules extends Model
     /**
      * @description The interval at which alerts are triggered based on the alert rule.
      *
-     * >  For information about how to query the statistical period of a metric, see [Appendix 1: Metrics](~~163515~~).
+     * >  For information about how to query the statistical period of a metric, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
      * @example 60
      *
      * @var string
@@ -63,7 +63,7 @@ class rules extends Model
     /**
      * @description The metric name.
      *
-     * For information about how to query the name of a metric, see [Appendix 1: Metrics](~~163515~~).
+     * For information about how to query the name of a metric, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
      * @example cpu_total
      *
      * @var string
@@ -73,7 +73,7 @@ class rules extends Model
     /**
      * @description The namespace of the cloud service.
      *
-     * For information about how to query the namespace of a cloud service, see [Appendix 1: Metrics](~~163515~~).
+     * This parameter is required.
      * @example acs_ecs_dashboard
      *
      * @var string
@@ -107,7 +107,7 @@ class rules extends Model
     /**
      * @description The statistical period of the metric.
      *
-     * >  For information about how to query the statistical period of a metric, see [Appendix 1: Metrics](~~163515~~).
+     * >  For information about how to query the statistical period of a metric, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
      * @example 60
      *
      * @var string
@@ -117,7 +117,7 @@ class rules extends Model
     /**
      * @description The information about the resource. Example: `[{"instanceId":"i-uf6j91r34rnwawoo****"}]` or `[{"userId":"100931896542****"}]`.
      *
-     * For more information about the supported dimensions that are used to query resources, see [Appendix 1: Metrics](~~163515~~).
+     * This parameter is required.
      * @example [{"instanceId":"i-uf6j91r34rnwawoo****"}]
      *
      * @var string
@@ -127,7 +127,7 @@ class rules extends Model
     /**
      * @description The ID of the alert rule.
      *
-     * >  If you specify a new ID, a threshold-triggered alert rule is created.
+     * This parameter is required.
      * @example a151cd6023eacee2f0978e03863cc1697c89508****
      *
      * @var string
@@ -137,7 +137,7 @@ class rules extends Model
     /**
      * @description The name of the alert rule.
      *
-     * >  If you specify a new name, a threshold-triggered alert rule is created.
+     * This parameter is required.
      * @example test123
      *
      * @var string

@@ -15,6 +15,9 @@ class BatchCreateInstantSiteMonitorRequest extends Model
     public $regionId;
 
     /**
+     * @description The site monitoring tasks.
+     *
+     * This parameter is required.
      * @var taskList[]
      */
     public $taskList;

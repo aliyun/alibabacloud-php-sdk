@@ -55,7 +55,7 @@ class DescribeMetricLastRequest extends Model
     /**
      * @description The metric that is used to monitor the cloud service.
      *
-     * For more information about metric names, see [Appendix 1: Metrics](~~163515~~).
+     * This parameter is required.
      * @example CPUUtilization
      *
      * @var string
@@ -65,7 +65,7 @@ class DescribeMetricLastRequest extends Model
     /**
      * @description The namespace of the cloud service.
      *
-     * For more information about the namespaces of cloud services, see [Appendix 1: Metrics](~~163515~~).
+     * This parameter is required.
      * @example acs_ecs_dashboard
      *
      * @var string
@@ -89,7 +89,7 @@ class DescribeMetricLastRequest extends Model
      *
      * >
      *
-     *   If this parameter is not specified, monitoring data is queried based on the period in which metric values are reported. The statistical period of metrics (`MetricName`) varies for each cloud service. The statistical period of metrics is displayed in the `MinPeriods` column on the **Metrics** page for each cloud service. For more information, see [Appendix 1: Metrics](~~163515~~).
+     *   If this parameter is not specified, monitoring data is queried based on the period in which metric values are reported. The statistical period of metrics (`MetricName`) varies for each cloud service. The statistical period of metrics is displayed in the `MinPeriods` column on the **Metrics** page for each cloud service. For more information, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
      *
      * @example 60
      *

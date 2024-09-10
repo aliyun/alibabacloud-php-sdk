@@ -12,8 +12,6 @@ class mnsParameter extends Model
      * @description The ARN of the MNS queue.
      *
      * - ResourceId: the resource ID
-     * @example acs:log:cn-hangzhou::project/cms-log-mon***\/logstore/cxxxx***
-     *
      * @var string
      */
     public $arn;

@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeHybridMonitorDataListRequest extends Model
 {
     /**
-     * @description The timestamp that specifies the end of the time range to query.
+     * @description The end of the time range to query.
      *
-     * Unit: seconds.
+     * This parameter is required.
      * @example 1653805225
      *
      * @var int
@@ -21,7 +21,7 @@ class DescribeHybridMonitorDataListRequest extends Model
     /**
      * @description The name of the namespace.
      *
-     * For information about how to obtain the name of a namespace, see [DescribeHybridMonitorNamespaceList](~~428880~~).
+     * This parameter is required.
      * @example default-aliyun
      *
      * @var string
@@ -29,7 +29,7 @@ class DescribeHybridMonitorDataListRequest extends Model
     public $namespace;
 
     /**
-     * @description The interval at which monitoring data is collected.
+     * @description The statistical period of the monitoring data.
      *
      * Unit: seconds.
      * @example 60
@@ -39,9 +39,9 @@ class DescribeHybridMonitorDataListRequest extends Model
     public $period;
 
     /**
-     * @description The name of the metric.
+     * @description The metric name.
      *
-     * >  PromQL statements are supported.
+     * This parameter is required.
      * @example AliyunEcs_cpu_total
      *
      * @var string
@@ -54,9 +54,9 @@ class DescribeHybridMonitorDataListRequest extends Model
     public $regionId;
 
     /**
-     * @description The timestamp that specifies the beginning of the time range to query.
+     * @description The start of the time range to query.
      *
-     * Unit: seconds.
+     * This parameter is required.
      * @example 1653804865
      *
      * @var int

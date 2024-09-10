@@ -22,7 +22,7 @@ class metricList extends Model
     /**
      * @description The metric name.
      *
-     * The name can contain letters, digits, and underscores (\_). The name must start with a letter.
+     * This parameter is required.
      * @example CPU_Usage
      *
      * @var string
@@ -30,9 +30,9 @@ class metricList extends Model
     public $name;
 
     /**
-     * @description The timestamp when the monitoring data is imported.
+     * @description The time when the monitoring data is imported. The value is a timestamp.
      *
-     * Unit: milliseconds. By default, the current timestamp is used.
+     * Unit: milliseconds. By default, the current time is used.
      * @example 1640776119473
      *
      * @var int
@@ -42,7 +42,7 @@ class metricList extends Model
     /**
      * @description The value of the metric.
      *
-     * The value must be an integer or a floating-point number.
+     * This parameter is required.
      * @example 90
      *
      * @var string

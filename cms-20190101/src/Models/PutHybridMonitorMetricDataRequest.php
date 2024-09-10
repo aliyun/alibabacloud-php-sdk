@@ -12,7 +12,7 @@ class PutHybridMonitorMetricDataRequest extends Model
     /**
      * @description The monitoring data.
      *
-     * Valid values of N: 1 to 100.
+     * This parameter is required.
      * @var metricList[]
      */
     public $metricList;
@@ -20,7 +20,7 @@ class PutHybridMonitorMetricDataRequest extends Model
     /**
      * @description The name of the namespace.
      *
-     * For information about how to obtain the name of a namespace, see [DescribeHybridMonitorNamespaceList](~~428880~~).
+     * This parameter is required.
      * @example default-aliyun
      *
      * @var string

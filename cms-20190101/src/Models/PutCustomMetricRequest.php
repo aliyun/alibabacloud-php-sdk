@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class PutCustomMetricRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var metricList[]
      */
     public $metricList;

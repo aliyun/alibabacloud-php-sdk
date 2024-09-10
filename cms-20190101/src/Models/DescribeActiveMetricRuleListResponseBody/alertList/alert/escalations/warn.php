@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class warn extends Model
 {
     /**
-     * @description The comparison operator of the threshold for critical-level alerts. Valid values:
+     * @description The operator that is used to compare the metric value with the threshold for Warn-level alerts. Valid values:
      *
      *   GreaterThanOrEqualToThreshold: greater than or equal to the threshold
      *   GreaterThanThreshold: greater than the threshold
@@ -30,7 +30,7 @@ class warn extends Model
     public $comparisonOperator;
 
     /**
-     * @description The statistical aggregation method for warn-level alerts.
+     * @description The statistical methods for Warn-level alerts.
      *
      * @example Average
      *
@@ -39,7 +39,7 @@ class warn extends Model
     public $statistics;
 
     /**
-     * @description The threshold of warn-level alerts.
+     * @description The threshold for Warn-level alerts.
      *
      * @example 80
      *
@@ -48,8 +48,9 @@ class warn extends Model
     public $threshold;
 
     /**
-     * @description The consecutive number of times for which the metric value meets the alert condition before a warn-level alert is triggered.
+     * @description The consecutive number of times
      *
+     * for which the metric value meets the alert condition before a Warn-level alert is triggered.
      * @example 3
      *
      * @var string

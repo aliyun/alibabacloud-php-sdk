@@ -50,6 +50,7 @@ class PutEventRuleTargetsRequest extends Model
     /**
      * @description The name of the alert rule.
      *
+     * This parameter is required.
      * @example testEventRule
      *
      * @var string

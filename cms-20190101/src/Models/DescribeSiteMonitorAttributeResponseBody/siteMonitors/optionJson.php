@@ -11,6 +11,7 @@ use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorAttributeResponseBo
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorAttributeResponseBody\siteMonitors\optionJson\browserInfo;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorAttributeResponseBody\siteMonitors\optionJson\expectExistString;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorAttributeResponseBody\siteMonitors\optionJson\expectNonExistString;
+use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorAttributeResponseBody\siteMonitors\optionJson\quicTarget;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorAttributeResponseBody\siteMonitors\optionJson\trafficHijackElementBlacklist;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorAttributeResponseBody\siteMonitors\optionJson\trafficHijackElementWhitelist;
 use AlibabaCloud\Tea\Model;
@@ -147,6 +148,11 @@ class optionJson extends Model
     public $dnsType;
 
     /**
+     * @var bool
+     */
+    public $emptyMessage;
+
+    /**
      * @var expectExistString
      */
     public $expectExistString;
@@ -197,6 +203,11 @@ class optionJson extends Model
      * @var string
      */
     public $httpMethod;
+
+    /**
+     * @var string
+     */
+    public $ipNetwork;
 
     /**
      * @example true
@@ -273,6 +284,16 @@ class optionJson extends Model
      * @var string
      */
     public $protocol;
+
+    /**
+     * @var bool
+     */
+    public $quicEnabled;
+
+    /**
+     * @var quicTarget
+     */
+    public $quicTarget;
 
     /**
      * @description The content of the HTTP request.
@@ -388,12 +409,14 @@ class optionJson extends Model
         'dnsMatchRule'                  => 'dns_match_rule',
         'dnsServer'                     => 'dns_server',
         'dnsType'                       => 'dns_type',
+        'emptyMessage'                  => 'empty_message',
         'expectExistString'             => 'expect_exist_string',
         'expectNonExistString'          => 'expect_non_exist_string',
         'expectValue'                   => 'expect_value',
         'failureRate'                   => 'failure_rate',
         'header'                        => 'header',
         'httpMethod'                    => 'http_method',
+        'ipNetwork'                     => 'ip_network',
         'isBase64Encode'                => 'isBase64Encode',
         'matchRule'                     => 'match_rule',
         'minTlsVersion'                 => 'min_tls_version',
@@ -403,6 +426,8 @@ class optionJson extends Model
         'pingType'                      => 'ping_type',
         'port'                          => 'port',
         'protocol'                      => 'protocol',
+        'quicEnabled'                   => 'quic_enabled',
+        'quicTarget'                    => 'quic_target',
         'requestContent'                => 'request_content',
         'requestFormat'                 => 'request_format',
         'responseContent'               => 'response_content',
@@ -472,6 +497,9 @@ class optionJson extends Model
         if (null !== $this->dnsType) {
             $res['dns_type'] = $this->dnsType;
         }
+        if (null !== $this->emptyMessage) {
+            $res['empty_message'] = $this->emptyMessage;
+        }
         if (null !== $this->expectExistString) {
             $res['expect_exist_string'] = null !== $this->expectExistString ? $this->expectExistString->toMap() : null;
         }
@@ -489,6 +517,9 @@ class optionJson extends Model
         }
         if (null !== $this->httpMethod) {
             $res['http_method'] = $this->httpMethod;
+        }
+        if (null !== $this->ipNetwork) {
+            $res['ip_network'] = $this->ipNetwork;
         }
         if (null !== $this->isBase64Encode) {
             $res['isBase64Encode'] = $this->isBase64Encode;
@@ -516,6 +547,12 @@ class optionJson extends Model
         }
         if (null !== $this->protocol) {
             $res['protocol'] = $this->protocol;
+        }
+        if (null !== $this->quicEnabled) {
+            $res['quic_enabled'] = $this->quicEnabled;
+        }
+        if (null !== $this->quicTarget) {
+            $res['quic_target'] = null !== $this->quicTarget ? $this->quicTarget->toMap() : null;
         }
         if (null !== $this->requestContent) {
             $res['request_content'] = $this->requestContent;
@@ -613,6 +650,9 @@ class optionJson extends Model
         if (isset($map['dns_type'])) {
             $model->dnsType = $map['dns_type'];
         }
+        if (isset($map['empty_message'])) {
+            $model->emptyMessage = $map['empty_message'];
+        }
         if (isset($map['expect_exist_string'])) {
             $model->expectExistString = expectExistString::fromMap($map['expect_exist_string']);
         }
@@ -630,6 +670,9 @@ class optionJson extends Model
         }
         if (isset($map['http_method'])) {
             $model->httpMethod = $map['http_method'];
+        }
+        if (isset($map['ip_network'])) {
+            $model->ipNetwork = $map['ip_network'];
         }
         if (isset($map['isBase64Encode'])) {
             $model->isBase64Encode = $map['isBase64Encode'];
@@ -657,6 +700,12 @@ class optionJson extends Model
         }
         if (isset($map['protocol'])) {
             $model->protocol = $map['protocol'];
+        }
+        if (isset($map['quic_enabled'])) {
+            $model->quicEnabled = $map['quic_enabled'];
+        }
+        if (isset($map['quic_target'])) {
+            $model->quicTarget = quicTarget::fromMap($map['quic_target']);
         }
         if (isset($map['request_content'])) {
             $model->requestContent = $map['request_content'];

@@ -29,7 +29,7 @@ class DescribeMonitoringAgentStatusesResponseBody extends Model
     public $message;
 
     /**
-     * @description The status information.
+     * @description The host status information.
      *
      * @var nodeStatusList
      */

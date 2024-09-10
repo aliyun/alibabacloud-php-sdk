@@ -11,6 +11,7 @@ class PutCustomEventRuleRequest extends Model
     /**
      * @description The alert contact group that receives alert notifications. Separate multiple contact groups with commas (,).
      *
+     * This parameter is required.
      * @example ECS_Group
      *
      * @var string
@@ -34,8 +35,9 @@ class PutCustomEventRuleRequest extends Model
     public $emailSubject;
 
     /**
-     * @description The name of the custom event. For more information about how to obtain the event name, see [DescribeCustomEventAttribute](~~115262~~).
+     * @description The name of the custom event. For more information about how to obtain the event name, see [DescribeCustomEventAttribute](https://help.aliyun.com/document_detail/115262.html).
      *
+     * This parameter is required.
      * @example HostDown
      *
      * @var string
@@ -43,9 +45,9 @@ class PutCustomEventRuleRequest extends Model
     public $eventName;
 
     /**
-     * @description The ID of the application group. For more information about how to obtain the group ID, see [DescribeCustomEventAttribute](~~115262~~).
+     * @description The ID of the application group. For more information about how to obtain the group ID, see [DescribeCustomEventAttribute](https://help.aliyun.com/document_detail/115262.html).
      *
-     * >  The value 0 indicates that the reported custom event does not belong to any application Group.
+     * This parameter is required.
      * @example 7378****
      *
      * @var string
@@ -59,6 +61,7 @@ class PutCustomEventRuleRequest extends Model
      *   WARN: warning
      *   INFO: information
      *
+     * This parameter is required.
      * @example CRITICAL
      *
      * @var string
@@ -77,7 +80,7 @@ class PutCustomEventRuleRequest extends Model
     /**
      * @description The ID of the alert rule.
      *
-     * >  You can specify an existing ID to modify the corresponding alert rule or specify a new ID to create an alert rule.
+     * This parameter is required.
      * @example CustomRuleId1
      *
      * @var string
@@ -87,6 +90,7 @@ class PutCustomEventRuleRequest extends Model
     /**
      * @description The name of the alert rule.
      *
+     * This parameter is required.
      * @example CustomeRule
      *
      * @var string
@@ -96,6 +100,7 @@ class PutCustomEventRuleRequest extends Model
     /**
      * @description The alert threshold.
      *
+     * This parameter is required.
      * @example 99
      *
      * @var string

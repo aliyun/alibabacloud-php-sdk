@@ -16,7 +16,7 @@ class DescribeMetricRuleTargetsRequest extends Model
     /**
      * @description The ID of the alert rule.
      *
-     * For information about how to obtain the ID of an alert rule, see [DescribeMetricRuleList](~~114941~~).
+     * This parameter is required.
      * @example ae06917_75a8c43178ab66****
      *
      * @var string

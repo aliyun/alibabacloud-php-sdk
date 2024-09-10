@@ -18,6 +18,7 @@ class PutCustomMetricRuleRequest extends Model
      *   `<`
      *   `!=`
      *
+     * This parameter is required.
      * @example >=
      *
      * @var string
@@ -27,6 +28,7 @@ class PutCustomMetricRuleRequest extends Model
     /**
      * @description The alert group that receives alert notifications. Separate multiple alert groups with commas (,).
      *
+     * This parameter is required.
      * @example ECS_Group
      *
      * @var string
@@ -52,6 +54,7 @@ class PutCustomMetricRuleRequest extends Model
     /**
      * @description The consecutive number of times for which the metric value is measured before an alert is triggered.
      *
+     * This parameter is required.
      * @example 3
      *
      * @var int
@@ -75,6 +78,7 @@ class PutCustomMetricRuleRequest extends Model
      *   WARN
      *   INFO
      *
+     * This parameter is required.
      * @example CRITICAL
      *
      * @var string
@@ -84,7 +88,7 @@ class PutCustomMetricRuleRequest extends Model
     /**
      * @description The name of the metric.
      *
-     * >  For more information about how to obtain the metric name, see [DescribeCustomMetricList](~~115005~~).
+     * This parameter is required.
      * @example cpu_total
      *
      * @var string
@@ -103,6 +107,7 @@ class PutCustomMetricRuleRequest extends Model
     /**
      * @description The custom monitoring data to which the alert rule applies. The value includes the application group ID to which the custom monitoring data belongs and the dimension to which the metric belongs.
      *
+     * This parameter is required.
      * @example [{"groupId":7378****,"dimension":"instanceId=i-hp3543t5e4sudb3s****"}]
      *
      * @var string
@@ -112,7 +117,7 @@ class PutCustomMetricRuleRequest extends Model
     /**
      * @description The ID of the alert rule.
      *
-     * >  You can specify an existing ID to modify the corresponding alert rule or specify a new ID to create an alert rule.
+     * This parameter is required.
      * @example MyRuleId1
      *
      * @var string
@@ -141,6 +146,7 @@ class PutCustomMetricRuleRequest extends Model
     /**
      * @description The method that is used to calculate the metric values that trigger alerts.
      *
+     * This parameter is required.
      * @example Average
      *
      * @var string
@@ -150,6 +156,7 @@ class PutCustomMetricRuleRequest extends Model
     /**
      * @description The threshold of the metric value.
      *
+     * This parameter is required.
      * @example 90
      *
      * @var string

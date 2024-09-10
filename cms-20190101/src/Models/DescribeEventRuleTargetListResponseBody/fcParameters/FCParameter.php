@@ -12,8 +12,6 @@ class FCParameter extends Model
      * @description The Alibaba Cloud Resource Name (ARN) of the function.
      *
      * - ResourceId: the resource ID
-     * @example acs:log:cn-hangzhou::project/cms-log-mon***\/logstore/cxxxx***
-     *
      * @var string
      */
     public $arn;

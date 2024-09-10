@@ -11,6 +11,7 @@ class DeleteLogMonitorRequest extends Model
     /**
      * @description The ID returned by Log Service.
      *
+     * This parameter is required.
      * @example 12345
      *
      * @var int

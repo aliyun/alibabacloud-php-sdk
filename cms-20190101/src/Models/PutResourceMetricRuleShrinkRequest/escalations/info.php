@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class info extends Model
 {
     /**
-     * @description The operator that is used to compare the metric value with the threshold. Valid values:
+     * @description The operator that is used to compare the metric value with the threshold for Info-level alerts. Valid value:
      *
      *   GreaterThanOrEqualToThreshold: greater than or equal to the threshold
      *   GreaterThanThreshold: greater than the threshold
@@ -23,7 +23,7 @@ class info extends Model
      *   GreaterThanLastPeriod: greater than the metric value in the last monitoring cycle
      *   LessThanLastPeriod: less than the metric value in the last monitoring cycle
      *
-     * >  You must select at least one of the Critical, Warn, and Info alert levels and specify the Statistics, ComparisonOperator, Threshold, and Times parameters for the selected alert level.
+     * >  You must select at least one of the Critical, Warn, and Info alert levels and specify the Statistics, ComparisonOperator, Threshold, and Times parameters for each alert level.
      * @example GreaterThanOrEqualToThreshold
      *
      * @var string
@@ -31,14 +31,9 @@ class info extends Model
     public $comparisonOperator;
 
     /**
-     * @description The statistical methods for Info-level alerts. Valid values:
+     * @description The statistical methods for Info-level alerts.
      *
-     *   Maximum: the maximum value
-     *   Minimum: the minimum value
-     *   Average: the average value
-     *   Availability: the availability rate
-     *
-     * >  You must select at least one of the Critical, Warn, and Info alert levels and specify the Statistics, ComparisonOperator, Threshold, and Times parameters for the selected alert level.
+     * >  You must select at least one of the Critical, Warn, and Info alert levels and specify the Statistics, ComparisonOperator, Threshold, and Times parameters for each alert level.
      * @example Average
      *
      * @var string
@@ -48,7 +43,7 @@ class info extends Model
     /**
      * @description The threshold for Info-level alerts.
      *
-     * >  You must select at least one of the Critical, Warn, and Info alert levels and specify the Statistics, ComparisonOperator, Threshold, and Times parameters for the selected alert level.
+     * >  You must select at least one of the Critical, Warn, and Info alert levels and specify the Statistics, ComparisonOperator, Threshold, and Times parameters for each alert level.
      * @example 90
      *
      * @var string
@@ -56,9 +51,9 @@ class info extends Model
     public $threshold;
 
     /**
-     * @description The consecutive number of times for which the metric value meets the trigger condition before an Info-level alert is triggered.
+     * @description The consecutive number of times for which the metric value meets the alert condition before an Info-level alert is triggered.
      *
-     * >  You must select at least one of the Critical, Warn, and Info alert levels and specify the Statistics, ComparisonOperator, Threshold, and Times parameters for the selected alert level.
+     * >  You must select at least one of the Critical, Warn, and Info alert levels and specify the Statistics, ComparisonOperator, Threshold, and Times parameters for each alert level.
      * @example 3
      *
      * @var int

@@ -11,7 +11,7 @@ class systemEvent extends Model
     /**
      * @description The details of the event.
      *
-     * @example [{"product":"CloudMonitor","content":"{\"ipGroup\":\"112.126.XX.XX,10.163.XX.XX\",\"tianjimonVersion\":\"1.2.22\"}","groupId":"176,177,178,179,180,692,120812,1663836,96,2028302","time":"1552209568000","resourceId":"acs:ecs:cn-beijing:173651113438****:instance/i-25k35****","level":"CRITICAL","status":"stopped","instanceName":"cmssiteprobebj-6","name":"Agent_Status_Stopped","regionId":"cn-beijing"}]
+     * @example [{"product":"CloudMonitor","content":"{\\"ipGroup\\":\\"112.126.XX.XX,10.163.XX.XX\\",\\"tianjimonVersion\\":\\"1.2.22\\"}","groupId":"176,177,178,179,180,692,120812,1663836,96,2028302","time":"1552209568000","resourceId":"acs:ecs:cn-beijing:173651113438****:instance/i-25k35****","level":"CRITICAL","status":"stopped","instanceName":"cmssiteprobebj-6","name":"Agent_Status_Stopped","regionId":"cn-beijing"}]
      *
      * @var string
      */
@@ -27,6 +27,10 @@ class systemEvent extends Model
     public $groupId;
 
     /**
+     * @description The event ID.
+     *
+     * @example b936efc9-f621-4e8a-a6eb-076be40e****
+     *
      * @var string
      */
     public $id;
@@ -41,7 +45,7 @@ class systemEvent extends Model
     public $instanceName;
 
     /**
-     * @description The severity level of the alert. Valid values:
+     * @description The level of the event. Valid values:
      *
      *   CRITICAL
      *   WARN

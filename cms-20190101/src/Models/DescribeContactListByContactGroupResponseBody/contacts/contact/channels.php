@@ -37,7 +37,7 @@ class channels extends Model
     public $mail;
 
     /**
-     * @description The phone number of the alert contact.
+     * @description The mobile number of the alert contact.
      *
      * >  This parameter can be returned only on the China site (aliyun.com).
      * @example 1333333****

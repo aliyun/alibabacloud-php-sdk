@@ -17,6 +17,8 @@ class PutEventRuleRequest extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @var eventPattern[]
      */
     public $eventPattern;
@@ -50,6 +52,7 @@ class PutEventRuleRequest extends Model
     /**
      * @description The name of the event-triggered alert rule.
      *
+     * This parameter is required.
      * @example myRuleName
      *
      * @var string

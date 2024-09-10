@@ -11,7 +11,7 @@ class metrics extends Model
     /**
      * @description The name of the metric.
      *
-     * Valid values of N: 1 to 10.
+     * This parameter is required.
      * @example disk_utilization
      *
      * @var string

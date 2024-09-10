@@ -18,7 +18,7 @@ class timeSeries extends Model
     public $labels;
 
     /**
-     * @description The name of the metric.
+     * @description The metric name.
      *
      * @example AliyunEcs_cpu_total
      *

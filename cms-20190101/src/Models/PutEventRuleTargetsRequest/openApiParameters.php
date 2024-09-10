@@ -26,8 +26,6 @@ class openApiParameters extends Model
      *   ResourceType: the resource type
      *   ResourceId: the resource ID
      *
-     * @example acs:log:cn-hangzhou::project/cms-log-mon***\/logstore/cxxxx***
-     *
      * @var string
      */
     public $arn;

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeHybridMonitorNamespaceListRequest extends Model
 {
     /**
-     * @description The keyword that is used to search for namespaces.
+     * @description The search keyword.
      *
      * @example aliyun
      *
@@ -20,7 +20,7 @@ class DescribeHybridMonitorNamespaceListRequest extends Model
     /**
      * @description The name of the namespace.
      *
-     * The name can contain uppercase letters, lowercase letters, digits, and hyphens (-).
+     * The name can contain letters, digits, and hyphens (-).
      * @example aliyun-test
      *
      * @var string
@@ -28,9 +28,9 @@ class DescribeHybridMonitorNamespaceListRequest extends Model
     public $namespace;
 
     /**
-     * @description The number of the page to return.
+     * @description The page number.
      *
-     * Pages start from page 1. Default value: 1.
+     * Page numbers start from 1. Default value: 1.
      * @example 1
      *
      * @var int
@@ -38,9 +38,9 @@ class DescribeHybridMonitorNamespaceListRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The number of entries per page.
      *
-     * A minimum of 1 entry can be returned on each page. Default value: 10.
+     * Page numbers start from 1. Default value: 10.
      * @example 10
      *
      * @var int
@@ -56,7 +56,7 @@ class DescribeHybridMonitorNamespaceListRequest extends Model
      * @description Specifies whether to return the configuration details of metric import tasks for Alibaba Cloud services and the number of metric import tasks for third-party services. Valid values:
      *
      *   true
-     *   false (default value)
+     *   false (default)
      *
      * @example false
      *

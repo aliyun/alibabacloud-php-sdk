@@ -25,7 +25,7 @@ class taskOption extends Model
      *   POST
      *   HEAD
      *
-     * > This parameter must be specified when TaskType is set to HTTP. For more information about how to configure the TaskType parameter, see [CreateHostAvailability](~~115317~~).
+     * > This parameter must be specified when TaskType is set to HTTP. For more information about how to configure the TaskType parameter, see [CreateHostAvailability](https://help.aliyun.com/document_detail/115317.html).
      * @example GET
      *
      * @var string
@@ -38,7 +38,7 @@ class taskOption extends Model
      *   true: If the HTTP response body includes the alert rule, an alert is triggered.
      *   false: If the HTTP response does not include the alert rule, an alert is triggered.
      *
-     * > This parameter must be specified when TaskType is set to HTTP. For more information about how to configure the TaskType parameter, see [CreateHostAvailability](~~115317~~).
+     * > This parameter must be specified when TaskType is set to HTTP. For more information about how to configure the TaskType parameter, see [CreateHostAvailability](https://help.aliyun.com/document_detail/115317.html).
      * @example true
      *
      * @var bool
@@ -95,7 +95,7 @@ class taskOption extends Model
     /**
      * @description The domain name or IP address that you want to monitor.
      *
-     * > This parameter must be specified when TaskType is set to PING or TELNET. For more information about how to configure the TaskType parameter, see [CreateHostAvailability](~~115317~~).
+     * > This parameter must be specified when TaskType is set to PING or TELNET. For more information about how to configure the TaskType parameter, see [CreateHostAvailability](https://help.aliyun.com/document_detail/115317.html).
      * @example www.aliyun.com
      *
      * @var string

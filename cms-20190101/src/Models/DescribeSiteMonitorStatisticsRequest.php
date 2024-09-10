@@ -15,6 +15,7 @@ class DescribeSiteMonitorStatisticsRequest extends Model
      *   ErrorRate
      *   ResponseTime
      *
+     * This parameter is required.
      * @example Availability
      *
      * @var string
@@ -39,7 +40,7 @@ class DescribeSiteMonitorStatisticsRequest extends Model
     /**
      * @description The ID of the site monitoring task.
      *
-     * For more information about how to obtain the ID of a site monitoring task, see [DescribeSiteMonitorList](~~115052~~).
+     * This parameter is required.
      * @example ef4cdc8b-9dc7-43e7-810e-f950e56c****
      *
      * @var string

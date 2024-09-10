@@ -11,6 +11,7 @@ class DeleteExporterOutputRequest extends Model
     /**
      * @description The name of the configuration set.
      *
+     * This parameter is required.
      * @example testName
      *
      * @var string

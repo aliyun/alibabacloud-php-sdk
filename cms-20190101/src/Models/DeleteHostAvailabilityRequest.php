@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteHostAvailabilityRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 12456
      *
      * @var int[]

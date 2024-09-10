@@ -34,7 +34,7 @@ class CursorShrinkRequest extends Model
     /**
      * @description The metric that is used to monitor the cloud service.
      *
-     * For more information about the metrics of cloud services, see [Appendix 1: Metrics](~~163515~~).
+     * This parameter is required.
      * @example cpu_idle
      *
      * @var string
@@ -44,7 +44,7 @@ class CursorShrinkRequest extends Model
     /**
      * @description The namespace of the cloud service.
      *
-     * For more information about the namespaces of cloud services, see [Appendix 1: Metrics](~~163515~~).
+     * This parameter is required.
      * @example acs_ecs_dashboard
      *
      * @var string
@@ -54,7 +54,7 @@ class CursorShrinkRequest extends Model
     /**
      * @description The time interval based on which the metric value is measured.
      *
-     * >  Generally, the time interval is 60 seconds. For more information about specific values, see the `Period` parameter in [Appendix 1: Metrics](~~163515~~).
+     * This parameter is required.
      * @example 60
      *
      * @var int
@@ -64,7 +64,7 @@ class CursorShrinkRequest extends Model
     /**
      * @description The beginning of the time range to query.
      *
-     * >  In CloudMonitor, the TTL of monitoring data varies with the time granularity. Specify a proper time interval based on the TTL corresponding to the value of the `Period` parameter.
+     * This parameter is required.
      * @example 1641627000000
      *
      * @var string

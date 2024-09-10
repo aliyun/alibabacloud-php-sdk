@@ -10,10 +10,7 @@ use AlibabaCloud\Tea\Model;
 class CreateDynamicTagGroupRequest extends Model
 {
     /**
-     * @description The relationship between the conditional expressions for the tag values of the cloud resources. Valid values:
-     *
-     *   and (default)
-     *   or
+     * @description This parameter is required.
      *
      * @example ECS_Group
      *
@@ -22,7 +19,10 @@ class CreateDynamicTagGroupRequest extends Model
     public $contactGroupList;
 
     /**
-     * @description The ID of the region to which the tags belong.
+     * @description Specifies whether the CloudMonitor agent is automatically installed for the application group. CloudMonitor determines whether to automatically install the CloudMonitor agent for the hosts in an application group based on the value of this parameter. Valid values:
+     *
+     *   true: The CloudMonitor agent is automatically installed.
+     *   false (default value): The CloudMonitor agent is not automatically installed.
      *
      * @example true
      *
@@ -31,7 +31,10 @@ class CreateDynamicTagGroupRequest extends Model
     public $enableInstallAgent;
 
     /**
-     * @description The keys of the tags that are used to create the application group. If a specified key is attached to multiple resources, the resources that have the same key-value pair are added to the same group.
+     * @description Specifies whether the application group automatically subscribes to event notifications. If events whose severity level is critical or warning occur on resources in an application group, CloudMonitor sends alert notifications. Valid values:
+     *
+     *   true: The application group automatically subscribes to event notifications.
+     *   false (default value): The application group does not automatically subscribe to event notifications.
      *
      * @example true
      *
@@ -40,20 +43,17 @@ class CreateDynamicTagGroupRequest extends Model
     public $enableSubscribeEvent;
 
     /**
-     * @description Specifies whether the CloudMonitor agent is automatically installed for the application group. CloudMonitor determines whether to automatically install the CloudMonitor agent for the hosts in an application group based on the value of this parameter. Valid values:
-     *
-     *   true: The CloudMonitor agent is automatically installed.
-     *   false (default): The CloudMonitor agent is not automatically installed.
+     * @description This parameter is required.
      *
      * @var matchExpress[]
      */
     public $matchExpress;
 
     /**
-     * @description Specifies whether the application group automatically subscribes to event notifications. If events whose severity level is critical or warning occur on resources in an application group, CloudMonitor sends alert notifications. Valid values:
+     * @description The relationship between the conditional expressions for the tag values of the cloud resources. Valid values:
      *
-     *   true: The application group automatically subscribes to event notifications.
-     *   false (default): The application group does not automatically subscribe to event notifications.
+     *   and (default value)
+     *   or
      *
      * @example and
      *
@@ -67,9 +67,9 @@ class CreateDynamicTagGroupRequest extends Model
     public $regionId;
 
     /**
-     * @description The alert contact groups. Valid values of N: 1 to 100. The alert notifications of the application group are sent to the alert contacts that belong to the specified alert contact groups.
+     * @description The tag keys of the cloud resources.
      *
-     * An alert contact group can contain one or more alert contacts. For information about how to create alert contacts and alert contact groups, see [PutContact](~~114923~~) and [PutContactGroup](~~114929~~). For information about how to obtain alert contact groups, see [DescribeContactGroupList](~~114922~~).
+     * This parameter is required.
      * @example ecs_instance
      *
      * @var string
@@ -77,9 +77,8 @@ class CreateDynamicTagGroupRequest extends Model
     public $tagKey;
 
     /**
-     * @description The tag keys of the cloud resources.
+     * @description The ID of the region to which the tags belong.
      *
-     * For more information about how to obtain tag keys, see [DescribeTagKeyList](~~145558~~).
      * @example cn-hangzhou
      *
      * @var string
@@ -87,9 +86,6 @@ class CreateDynamicTagGroupRequest extends Model
     public $tagRegionId;
 
     /**
-     * @description The IDs of the alert templates.
-     *
-     * For more information about how to query alert template IDs, see [DescribeMetricRuleTemplateList](~~114982~~).
      * @example 85****
      *
      * @var string[]

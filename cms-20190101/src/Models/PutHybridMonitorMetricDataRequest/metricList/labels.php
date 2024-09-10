@@ -11,10 +11,6 @@ class labels extends Model
     /**
      * @description The tag key of the metric.
      *
-     * Valid values of N: 1 to 100.
-     *
-     * The key can contain letters, digits, and underscores (*). The key must start with a letter or an underscore (*).
-     *
      * >  You must specify both the Key and Value parameters.
      * @example IP
      *

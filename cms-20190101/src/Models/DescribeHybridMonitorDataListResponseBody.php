@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeHybridMonitorDataListResponseBody extends Model
 {
     /**
-     * @description The HTTP status code.
+     * @description The response code.
      *
-     * >  The status code 200 indicates that the call is successful.
+     * >  The status code 200 indicates that the request was successful.
      * @example 200
      *
      * @var string
@@ -20,7 +20,7 @@ class DescribeHybridMonitorDataListResponseBody extends Model
     public $code;
 
     /**
-     * @description The error message.
+     * @description The returned message.
      *
      * @example end timestamp must not be before start time.
      *
@@ -29,7 +29,7 @@ class DescribeHybridMonitorDataListResponseBody extends Model
     public $message;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example C240412F-3F5F-50E2-ACEC-DE808EF9C4BE
      *
@@ -38,10 +38,10 @@ class DescribeHybridMonitorDataListResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the call is successful. Valid values:
+     * @description Indicates whether the request was successful. Valid values:
      *
-     *   true: The call is successful.
-     *   false: The call fails.
+     *   true
+     *   false
      *
      * @example true
      *

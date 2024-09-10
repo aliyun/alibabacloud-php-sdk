@@ -117,7 +117,7 @@ class DescribeSiteMonitorLogRequest extends Model
      *
      * >
      *
-     *   The specified time range includes the end time and excludes the start time. The start time must be earlier than the end time.\
+     *   The specified time range includes the end time and excludes the start time. The start time must be earlier than the end time.\\
      * We recommend that you use UNIX timestamps to prevent time zone-related issues.
      * @example 1638422474389
      *
@@ -128,6 +128,7 @@ class DescribeSiteMonitorLogRequest extends Model
     /**
      * @description The IDs of the instant test tasks. Separate multiple task IDs with commas (,).
      *
+     * This parameter is required.
      * @example afa5c3ce-f944-4363-9edb-ce919a29****
      *
      * @var string

@@ -30,6 +30,8 @@ class PushingTarget extends Model
     public $httpRequestTarget;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $name;

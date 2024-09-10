@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class alertResults extends Model
 {
     /**
-     * @description The response code.
+     * @description The responses code.
      *
-     * >  The HTTP status code 200 indicates that the call succeeds.
+     * >  The status code 200 indicates that the request was successful.
      * @example 200
      *
      * @var string
@@ -19,7 +19,7 @@ class alertResults extends Model
     public $code;
 
     /**
-     * @description The returned information.
+     * @description The returned message.
      *
      * @example alert rule is creating, please wait a few minutes.
      *
@@ -46,10 +46,10 @@ class alertResults extends Model
     public $ruleName;
 
     /**
-     * @description Indicates whether the call succeeds. Valid values:
+     * @description Indicates whether the request was successful. Valid values:
      *
-     *   true: The call succeeds.
-     *   false: The call fails.
+     *   true
+     *   false
      *
      * @example true
      *

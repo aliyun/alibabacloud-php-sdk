@@ -11,6 +11,7 @@ class CreateInstantSiteMonitorRequest extends Model
     /**
      * @description The URL or IP address that you want to test.
      *
+     * This parameter is required.
      * @example http://www.aliyun.com
      *
      * @var string
@@ -57,7 +58,7 @@ class CreateInstantSiteMonitorRequest extends Model
     /**
      * @description The name of the instant test task.
      *
-     * The name must be 4 to 100 characters in length, and can contain letters, digits, and underscores (\_).
+     * This parameter is required.
      * @example task1
      *
      * @var string
@@ -67,6 +68,7 @@ class CreateInstantSiteMonitorRequest extends Model
     /**
      * @description The type of the instant test task. Valid values: HTTP, PING, TCP, UDP, and DNS.
      *
+     * This parameter is required.
      * @example HTTP
      *
      * @var string

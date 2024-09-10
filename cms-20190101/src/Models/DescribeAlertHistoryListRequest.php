@@ -33,7 +33,7 @@ class DescribeAlertHistoryListRequest extends Model
     /**
      * @description The ID of the application group.
      *
-     * For information about how to obtain the ID of an application group, see [DescribeMonitorGroups](~~115032~~).
+     * For information about how to obtain the ID of an application group, see [DescribeMonitorGroups](https://help.aliyun.com/document_detail/115032.html).
      * @example 7671****
      *
      * @var string
@@ -43,7 +43,7 @@ class DescribeAlertHistoryListRequest extends Model
     /**
      * @description The metric that is used to monitor the cloud service.
      *
-     * For information about how to query the name of a metric, see [Appendix 1: Metrics](~~163515~~).
+     * For information about how to query the name of a metric, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
      * @example cpu_total
      *
      * @var string
@@ -53,7 +53,7 @@ class DescribeAlertHistoryListRequest extends Model
     /**
      * @description The namespace of the cloud service.
      *
-     * For information about how to query the namespace of a cloud service, see [Appendix 1: Metrics](~~163515~~).
+     * For information about how to query the namespace of a cloud service, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
      * @example acs_ecs_dashboard
      *
      * @var string
@@ -88,7 +88,7 @@ class DescribeAlertHistoryListRequest extends Model
     /**
      * @description The ID of the alert rule.
      *
-     * For information about how to obtain the ID of an alert rule, see [DescribeMetricRuleList](~~114941~~).
+     * For information about how to obtain the ID of an alert rule, see [DescribeMetricRuleList](https://help.aliyun.com/document_detail/114941.html).
      * @example applyTemplate61dc81b5-d357-4cf6-a9b7-9f83c1d5****
      *
      * @var string
@@ -98,7 +98,7 @@ class DescribeAlertHistoryListRequest extends Model
     /**
      * @description The name of the alert rule.
      *
-     * For information about how to query the name of an alert rule, see [DescribeMetricRuleList](~~114941~~).
+     * For information about how to query the name of an alert rule, see [DescribeMetricRuleList](https://help.aliyun.com/document_detail/114941.html).
      * @example ECS_Rule
      *
      * @var string

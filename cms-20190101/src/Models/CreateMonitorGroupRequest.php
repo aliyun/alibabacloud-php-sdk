@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateMonitorGroupRequest extends Model
 {
     /**
-     * @description The alert groups that receive alert notifications for the application group. The alarm notifications for the application group are sent to the alert contacts in the alarm groups.
+     * @description The alert contact group. The alert notifications of the application group are sent to the alert contacts that belong to the alert contact group.
      *
-     * >  An alert group is a group of one or more alert contacts. For more information about how to create alert contacts and alert groups, see [PutContact](~~114923~~) and [PutContactGroup](~~114929~~).
+     * >  An alert contact group can contain one or more alert contacts. For information about how to create alert contacts and alert contact groups, see [PutContact](~~PutContact~~) and [PutContactGroup](~~PutContactGroup~~).
      * @example ECS_Alert_Group
      *
      * @var string
@@ -21,6 +21,7 @@ class CreateMonitorGroupRequest extends Model
     /**
      * @description The name of the application group.
      *
+     * This parameter is required.
      * @example ECS_Group
      *
      * @var string

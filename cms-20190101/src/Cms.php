@@ -12,17 +12,9 @@ use AlibabaCloud\SDK\Cms\V20190101\Models\ApplyMetricRuleTemplateRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\ApplyMetricRuleTemplateResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\BatchCreateInstantSiteMonitorRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\BatchCreateInstantSiteMonitorResponse;
-use AlibabaCloud\SDK\Cms\V20190101\Models\BatchCreateIntantSiteMonitorRequest;
-use AlibabaCloud\SDK\Cms\V20190101\Models\BatchCreateIntantSiteMonitorResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\BatchExportRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\BatchExportResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\BatchExportShrinkRequest;
-use AlibabaCloud\SDK\Cms\V20190101\Models\CreateCmsCallNumOrderRequest;
-use AlibabaCloud\SDK\Cms\V20190101\Models\CreateCmsCallNumOrderResponse;
-use AlibabaCloud\SDK\Cms\V20190101\Models\CreateCmsOrderRequest;
-use AlibabaCloud\SDK\Cms\V20190101\Models\CreateCmsOrderResponse;
-use AlibabaCloud\SDK\Cms\V20190101\Models\CreateCmsSmspackageOrderRequest;
-use AlibabaCloud\SDK\Cms\V20190101\Models\CreateCmsSmspackageOrderResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\CreateDynamicTagGroupRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\CreateDynamicTagGroupResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\CreateGroupMetricRulesRequest;
@@ -378,8 +370,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to add a tag to an application group whose ID is `7301****`. In this example, the key of the tag is `key1` and the value of the tag is `value1`.
-     *   *
+     * @summary Adds tags to an application group.
+     *  *
+     * @description This topic provides an example on how to add a tag to an application group whose ID is `7301****`. In this example, the key of the tag is `key1` and the value of the tag is `value1`.
+     *  *
      * @param AddTagsRequest $request AddTagsRequest
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
@@ -414,8 +408,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to add a tag to an application group whose ID is `7301****`. In this example, the key of the tag is `key1` and the value of the tag is `value1`.
-     *   *
+     * @summary Adds tags to an application group.
+     *  *
+     * @description This topic provides an example on how to add a tag to an application group whose ID is `7301****`. In this example, the key of the tag is `key1` and the value of the tag is `value1`.
+     *  *
      * @param AddTagsRequest $request AddTagsRequest
      *
      * @return AddTagsResponse AddTagsResponse
@@ -428,8 +424,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * In this example, the `700****` alert template is applied to the `123456` application group. For the generated alert rule, the ID is `applyTemplate8ab74c6b-9f27-47ab-8841-de01dc08****`, and the name is `test123`.
-     *   *
+     * @summary Applies an alert template to an application group to generate an alert rule.
+     *  *
+     * @description In this example, the `700****` alert template is applied to the `123456` application group. For the generated alert rule, the ID is `applyTemplate8ab74c6b-9f27-47ab-8841-de01dc08****`, and the name is `test123`.
+     *  *
      * @param ApplyMetricRuleTemplateRequest $request ApplyMetricRuleTemplateRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -439,6 +437,9 @@ class Cms extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->appendMode)) {
+            $query['AppendMode'] = $request->appendMode;
+        }
         if (!Utils::isUnset($request->applyMode)) {
             $query['ApplyMode'] = $request->applyMode;
         }
@@ -482,8 +483,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * In this example, the `700****` alert template is applied to the `123456` application group. For the generated alert rule, the ID is `applyTemplate8ab74c6b-9f27-47ab-8841-de01dc08****`, and the name is `test123`.
-     *   *
+     * @summary Applies an alert template to an application group to generate an alert rule.
+     *  *
+     * @description In this example, the `700****` alert template is applied to the `123456` application group. For the generated alert rule, the ID is `applyTemplate8ab74c6b-9f27-47ab-8841-de01dc08****`, and the name is `test123`.
+     *  *
      * @param ApplyMetricRuleTemplateRequest $request ApplyMetricRuleTemplateRequest
      *
      * @return ApplyMetricRuleTemplateResponse ApplyMetricRuleTemplateResponse
@@ -496,8 +499,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to create a site monitoring task named `HangZhou_ECS1`. The URL that is monitored by the task is `https://www.aliyun.com` and the type of the task is `HTTP`. The returned result shows that the site monitoring task is created. The name of the site monitoring task is `HangZhou_ECS1` and the task ID is `679fbe4f-b80b-4706-91b2-5427b43e****`.
-     *   *
+     * @summary Creates site monitoring tasks.
+     *  *
+     * @description This topic provides an example on how to create a site monitoring task named `HangZhou_ECS1`. The URL that is monitored by the task is `https://www.aliyun.com` and the type of the task is `HTTP`. The returned result shows that the site monitoring task is created. The name of the site monitoring task is `HangZhou_ECS1` and the task ID is `679fbe4f-b80b-4706-91b2-5427b43e****`.
+     *  *
      * @param BatchCreateInstantSiteMonitorRequest $request BatchCreateInstantSiteMonitorRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
@@ -529,8 +534,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to create a site monitoring task named `HangZhou_ECS1`. The URL that is monitored by the task is `https://www.aliyun.com` and the type of the task is `HTTP`. The returned result shows that the site monitoring task is created. The name of the site monitoring task is `HangZhou_ECS1` and the task ID is `679fbe4f-b80b-4706-91b2-5427b43e****`.
-     *   *
+     * @summary Creates site monitoring tasks.
+     *  *
+     * @description This topic provides an example on how to create a site monitoring task named `HangZhou_ECS1`. The URL that is monitored by the task is `https://www.aliyun.com` and the type of the task is `HTTP`. The returned result shows that the site monitoring task is created. The name of the site monitoring task is `HangZhou_ECS1` and the task ID is `679fbe4f-b80b-4706-91b2-5427b43e****`.
+     *  *
      * @param BatchCreateInstantSiteMonitorRequest $request BatchCreateInstantSiteMonitorRequest
      *
      * @return BatchCreateInstantSiteMonitorResponse BatchCreateInstantSiteMonitorResponse
@@ -543,62 +550,13 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @deprecated : BatchCreateIntantSiteMonitor is deprecated, please use Cms::2019-01-01::BatchCreateInstantSiteMonitor instead.
-     *   *
-     * Deprecated
-     *
-     * @param BatchCreateIntantSiteMonitorRequest $request BatchCreateIntantSiteMonitorRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
-     *
-     * @return BatchCreateIntantSiteMonitorResponse BatchCreateIntantSiteMonitorResponse
-     */
-    public function batchCreateIntantSiteMonitorWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->taskList)) {
-            $query['TaskList'] = $request->taskList;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'BatchCreateIntantSiteMonitor',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return BatchCreateIntantSiteMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @deprecated : BatchCreateIntantSiteMonitor is deprecated, please use Cms::2019-01-01::BatchCreateInstantSiteMonitor instead.
-     *   *
-     * Deprecated
-     *
-     * @param BatchCreateIntantSiteMonitorRequest $request BatchCreateIntantSiteMonitorRequest
-     *
-     * @return BatchCreateIntantSiteMonitorResponse BatchCreateIntantSiteMonitorResponse
-     */
-    public function batchCreateIntantSiteMonitor($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->batchCreateIntantSiteMonitorWithOptions($request, $runtime);
-    }
-
-    /**
-     * ### [](#)Prerequisites
-     *   * The `Cursor` information is returned by calling the [Cursor](~~2330730~~) operation.
-     *   * ### [](#)Description
-     *   * This topic provides an example on how to export the monitoring data of the `cpu_idle` metric for Elastic Compute Service (ECS). The namespace of ECS is `acs_ecs_dashboard`. The `Cursor` information is specified. A maximum of 1,000 data entries can be returned in each response.
-     *   *
+     * @summary Exports the monitoring data that is defined in the Cursor operation.
+     *  *
+     * @description ### [](#)Prerequisites
+     * The `Cursor` information is returned by calling the [Cursor](https://help.aliyun.com/document_detail/2330730.html) operation.
+     * ### [](#)Description
+     * This topic provides an example on how to export the monitoring data of the `cpu_idle` metric for Elastic Compute Service (ECS). The namespace of ECS is `acs_ecs_dashboard`. The `Cursor` information is specified. A maximum of 1,000 data entries can be returned in each response.
+     *  *
      * @param BatchExportRequest $tmpReq  BatchExportRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
@@ -647,11 +605,13 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * ### [](#)Prerequisites
-     *   * The `Cursor` information is returned by calling the [Cursor](~~2330730~~) operation.
-     *   * ### [](#)Description
-     *   * This topic provides an example on how to export the monitoring data of the `cpu_idle` metric for Elastic Compute Service (ECS). The namespace of ECS is `acs_ecs_dashboard`. The `Cursor` information is specified. A maximum of 1,000 data entries can be returned in each response.
-     *   *
+     * @summary Exports the monitoring data that is defined in the Cursor operation.
+     *  *
+     * @description ### [](#)Prerequisites
+     * The `Cursor` information is returned by calling the [Cursor](https://help.aliyun.com/document_detail/2330730.html) operation.
+     * ### [](#)Description
+     * This topic provides an example on how to export the monitoring data of the `cpu_idle` metric for Elastic Compute Service (ECS). The namespace of ECS is `acs_ecs_dashboard`. The `Cursor` information is specified. A maximum of 1,000 data entries can be returned in each response.
+     *  *
      * @param BatchExportRequest $request BatchExportRequest
      *
      * @return BatchExportResponse BatchExportResponse
@@ -664,216 +624,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param CreateCmsCallNumOrderRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return CreateCmsCallNumOrderResponse
-     */
-    public function createCmsCallNumOrderWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->autoPay)) {
-            $query['AutoPay'] = $request->autoPay;
-        }
-        if (!Utils::isUnset($request->autoRenewPeriod)) {
-            $query['AutoRenewPeriod'] = $request->autoRenewPeriod;
-        }
-        if (!Utils::isUnset($request->autoUseCoupon)) {
-            $query['AutoUseCoupon'] = $request->autoUseCoupon;
-        }
-        if (!Utils::isUnset($request->period)) {
-            $query['Period'] = $request->period;
-        }
-        if (!Utils::isUnset($request->periodUnit)) {
-            $query['PeriodUnit'] = $request->periodUnit;
-        }
-        if (!Utils::isUnset($request->phoneCount)) {
-            $query['PhoneCount'] = $request->phoneCount;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateCmsCallNumOrder',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return CreateCmsCallNumOrderResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param CreateCmsCallNumOrderRequest $request
-     *
-     * @return CreateCmsCallNumOrderResponse
-     */
-    public function createCmsCallNumOrder($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createCmsCallNumOrderWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateCmsOrderRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return CreateCmsOrderResponse
-     */
-    public function createCmsOrderWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->apiCount)) {
-            $query['ApiCount'] = $request->apiCount;
-        }
-        if (!Utils::isUnset($request->autoPay)) {
-            $query['AutoPay'] = $request->autoPay;
-        }
-        if (!Utils::isUnset($request->autoRenewPeriod)) {
-            $query['AutoRenewPeriod'] = $request->autoRenewPeriod;
-        }
-        if (!Utils::isUnset($request->autoUseCoupon)) {
-            $query['AutoUseCoupon'] = $request->autoUseCoupon;
-        }
-        if (!Utils::isUnset($request->customTimeSeries)) {
-            $query['CustomTimeSeries'] = $request->customTimeSeries;
-        }
-        if (!Utils::isUnset($request->eventStoreNum)) {
-            $query['EventStoreNum'] = $request->eventStoreNum;
-        }
-        if (!Utils::isUnset($request->eventStoreTime)) {
-            $query['EventStoreTime'] = $request->eventStoreTime;
-        }
-        if (!Utils::isUnset($request->logMonitorStream)) {
-            $query['LogMonitorStream'] = $request->logMonitorStream;
-        }
-        if (!Utils::isUnset($request->payType)) {
-            $query['PayType'] = $request->payType;
-        }
-        if (!Utils::isUnset($request->period)) {
-            $query['Period'] = $request->period;
-        }
-        if (!Utils::isUnset($request->periodUnit)) {
-            $query['PeriodUnit'] = $request->periodUnit;
-        }
-        if (!Utils::isUnset($request->phoneCount)) {
-            $query['PhoneCount'] = $request->phoneCount;
-        }
-        if (!Utils::isUnset($request->siteEcsNum)) {
-            $query['SiteEcsNum'] = $request->siteEcsNum;
-        }
-        if (!Utils::isUnset($request->siteOperatorNum)) {
-            $query['SiteOperatorNum'] = $request->siteOperatorNum;
-        }
-        if (!Utils::isUnset($request->siteTaskNum)) {
-            $query['SiteTaskNum'] = $request->siteTaskNum;
-        }
-        if (!Utils::isUnset($request->smsCount)) {
-            $query['SmsCount'] = $request->smsCount;
-        }
-        if (!Utils::isUnset($request->suggestType)) {
-            $query['SuggestType'] = $request->suggestType;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateCmsOrder',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return CreateCmsOrderResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param CreateCmsOrderRequest $request
-     *
-     * @return CreateCmsOrderResponse
-     */
-    public function createCmsOrder($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createCmsOrderWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateCmsSmspackageOrderRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return CreateCmsSmspackageOrderResponse
-     */
-    public function createCmsSmspackageOrderWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->autoPay)) {
-            $query['AutoPay'] = $request->autoPay;
-        }
-        if (!Utils::isUnset($request->autoRenewPeriod)) {
-            $query['AutoRenewPeriod'] = $request->autoRenewPeriod;
-        }
-        if (!Utils::isUnset($request->autoUseCoupon)) {
-            $query['AutoUseCoupon'] = $request->autoUseCoupon;
-        }
-        if (!Utils::isUnset($request->period)) {
-            $query['Period'] = $request->period;
-        }
-        if (!Utils::isUnset($request->periodUnit)) {
-            $query['PeriodUnit'] = $request->periodUnit;
-        }
-        if (!Utils::isUnset($request->smsCount)) {
-            $query['SmsCount'] = $request->smsCount;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateCmsSmspackageOrder',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return CreateCmsSmspackageOrderResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param CreateCmsSmspackageOrderRequest $request
-     *
-     * @return CreateCmsSmspackageOrderResponse
-     */
-    public function createCmsSmspackageOrder($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createCmsSmspackageOrderWithOptions($request, $runtime);
-    }
-
-    /**
-     * This operation is available for Elastic Compute Service (ECS), ApsaraDB RDS, and Server Load Balancer (SLB).
-     *   * This topic provides an example to show how to create an application group for resources whose tag key is `ecs_instance`. In this example, the alert contact group of the application group is `ECS_Group`.
-     *   *
+     * @summary Creates an application group based on the tags of cloud resources.
+     *  *
+     * @description This operation is available for Elastic Compute Service (ECS), ApsaraDB RDS, and Server Load Balancer (SLB).
+     * This topic provides an example to show how to create an application group for resources whose tag key is `ecs_instance`. In this example, the alert contact group of the application group is `ECS_Group`.
+     *  *
      * @param CreateDynamicTagGroupRequest $request CreateDynamicTagGroupRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -926,9 +681,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * This operation is available for Elastic Compute Service (ECS), ApsaraDB RDS, and Server Load Balancer (SLB).
-     *   * This topic provides an example to show how to create an application group for resources whose tag key is `ecs_instance`. In this example, the alert contact group of the application group is `ECS_Group`.
-     *   *
+     * @summary Creates an application group based on the tags of cloud resources.
+     *  *
+     * @description This operation is available for Elastic Compute Service (ECS), ApsaraDB RDS, and Server Load Balancer (SLB).
+     * This topic provides an example to show how to create an application group for resources whose tag key is `ecs_instance`. In this example, the alert contact group of the application group is `ECS_Group`.
+     *  *
      * @param CreateDynamicTagGroupRequest $request CreateDynamicTagGroupRequest
      *
      * @return CreateDynamicTagGroupResponse CreateDynamicTagGroupResponse
@@ -941,8 +698,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * This topic provides an example to show how to create an alert rule for the `cpu_total` metric of Elastic Compute Service (ECS) in the `123456` application group. The ID of the alert rule is `456789`. The name of the alert rule is `ECS_Rule1`. The alert level is `Critical`. The statistical method is `Average`. The comparison operator is `GreaterThanOrEqualToThreshold`. The alert threshold is `90`. The number of alert retries is `3`. The response shows that the alert rule named `ECS_Rule1` is created.
-     *   *
+     * @summary Creates one or more alert rules for a specified application group.
+     *  *
+     * @description This topic provides an example to show how to create an alert rule for the `cpu_total` metric of Elastic Compute Service (ECS) in the `123456` application group. The ID of the alert rule is `456789`. The name of the alert rule is `ECS_Rule1`. The alert level is `Critical`. The statistical method is `Average`. The comparison operator is `GreaterThanOrEqualToThreshold`. The alert threshold is `90`. The number of alert retries is `3`. The response shows that the alert rule named `ECS_Rule1` is created.
+     *  *
      * @param CreateGroupMetricRulesRequest $request CreateGroupMetricRulesRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -977,8 +736,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * This topic provides an example to show how to create an alert rule for the `cpu_total` metric of Elastic Compute Service (ECS) in the `123456` application group. The ID of the alert rule is `456789`. The name of the alert rule is `ECS_Rule1`. The alert level is `Critical`. The statistical method is `Average`. The comparison operator is `GreaterThanOrEqualToThreshold`. The alert threshold is `90`. The number of alert retries is `3`. The response shows that the alert rule named `ECS_Rule1` is created.
-     *   *
+     * @summary Creates one or more alert rules for a specified application group.
+     *  *
+     * @description This topic provides an example to show how to create an alert rule for the `cpu_total` metric of Elastic Compute Service (ECS) in the `123456` application group. The ID of the alert rule is `456789`. The name of the alert rule is `ECS_Rule1`. The alert level is `Critical`. The statistical method is `Average`. The comparison operator is `GreaterThanOrEqualToThreshold`. The alert threshold is `90`. The number of alert retries is `3`. The response shows that the alert rule named `ECS_Rule1` is created.
+     *  *
      * @param CreateGroupMetricRulesRequest $request CreateGroupMetricRulesRequest
      *
      * @return CreateGroupMetricRulesResponse CreateGroupMetricRulesResponse
@@ -991,10 +752,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param CreateGroupMonitoringAgentProcessRequest $request
-     * @param RuntimeOptions                           $runtime
+     * @summary Creates a process monitoring task for an application group.
+     *  *
+     * @param CreateGroupMonitoringAgentProcessRequest $request CreateGroupMonitoringAgentProcessRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateGroupMonitoringAgentProcessResponse
+     * @return CreateGroupMonitoringAgentProcessResponse CreateGroupMonitoringAgentProcessResponse
      */
     public function createGroupMonitoringAgentProcessWithOptions($request, $runtime)
     {
@@ -1034,9 +797,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param CreateGroupMonitoringAgentProcessRequest $request
+     * @summary Creates a process monitoring task for an application group.
+     *  *
+     * @param CreateGroupMonitoringAgentProcessRequest $request CreateGroupMonitoringAgentProcessRequest
      *
-     * @return CreateGroupMonitoringAgentProcessResponse
+     * @return CreateGroupMonitoringAgentProcessResponse CreateGroupMonitoringAgentProcessResponse
      */
     public function createGroupMonitoringAgentProcess($request)
     {
@@ -1046,8 +811,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to create an availability monitoring task named `task1` in an application group named `123456`. The TaskType parameter of the task is set to `HTTP`. After you start the task, the system sends alerts by using the specified email address and DingTalk chatbot.
-     *   *
+     * @summary Creates an availability monitoring task.
+     *  *
+     * @description This topic provides an example on how to create an availability monitoring task named `task1` in an application group named `123456`. The TaskType parameter of the task is set to `HTTP`. After you start the task, the system sends alerts by using the specified email address and DingTalk chatbot.
+     *  *
      * @param CreateHostAvailabilityRequest $request CreateHostAvailabilityRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -1103,8 +870,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to create an availability monitoring task named `task1` in an application group named `123456`. The TaskType parameter of the task is set to `HTTP`. After you start the task, the system sends alerts by using the specified email address and DingTalk chatbot.
-     *   *
+     * @summary Creates an availability monitoring task.
+     *  *
+     * @description This topic provides an example on how to create an availability monitoring task named `task1` in an application group named `123456`. The TaskType parameter of the task is set to `HTTP`. After you start the task, the system sends alerts by using the specified email address and DingTalk chatbot.
+     *  *
      * @param CreateHostAvailabilityRequest $request CreateHostAvailabilityRequest
      *
      * @return CreateHostAvailabilityResponse CreateHostAvailabilityResponse
@@ -1117,11 +886,13 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * # [](#)Prerequisites
-     *   * Hybrid Cloud Monitoring is activated. For more information, see [Activate Hybrid Cloud Monitoring](~~250773~~).
-     *   * # [](#)Description
-     *   * This topic provides an example on how to create a namespace named `aliyun`. In this example, the data retention period of the namespace is set to `cms.s1.3xlarge`. The returned result indicates that the namespace is created.
-     *   *
+     * @summary Creates a namespace.
+     *  *
+     * @description # [](#)Prerequisites
+     * Hybrid Cloud Monitoring is activated. For more information, see [Activate Hybrid Cloud Monitoring](https://help.aliyun.com/document_detail/250773.html).
+     * # [](#)Description
+     * This topic provides an example on how to create a namespace named `aliyun`. In this example, the data retention period of the namespace is set to `cms.s1.3xlarge`. The returned result indicates that the namespace is created.
+     *  *
      * @param CreateHybridMonitorNamespaceRequest $request CreateHybridMonitorNamespaceRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
@@ -1165,11 +936,13 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * # [](#)Prerequisites
-     *   * Hybrid Cloud Monitoring is activated. For more information, see [Activate Hybrid Cloud Monitoring](~~250773~~).
-     *   * # [](#)Description
-     *   * This topic provides an example on how to create a namespace named `aliyun`. In this example, the data retention period of the namespace is set to `cms.s1.3xlarge`. The returned result indicates that the namespace is created.
-     *   *
+     * @summary Creates a namespace.
+     *  *
+     * @description # [](#)Prerequisites
+     * Hybrid Cloud Monitoring is activated. For more information, see [Activate Hybrid Cloud Monitoring](https://help.aliyun.com/document_detail/250773.html).
+     * # [](#)Description
+     * This topic provides an example on how to create a namespace named `aliyun`. In this example, the data retention period of the namespace is set to `cms.s1.3xlarge`. The returned result indicates that the namespace is created.
+     *  *
      * @param CreateHybridMonitorNamespaceRequest $request CreateHybridMonitorNamespaceRequest
      *
      * @return CreateHybridMonitorNamespaceResponse CreateHybridMonitorNamespaceResponse
@@ -1182,11 +955,13 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * # Prerequisites
-     *   * Simple Log Service is activated. A project and a Logstore are created in Simple Log Service. For more information, see [Getting Started](~~54604~~).
-     *   * # Description
-     *   * In this example, a Logstore group named `Logstore_test` is created. The region ID is `cn-hangzhou`. The project is `aliyun-project`. The Logstore is `Logstore-ECS`. The response shows that the Logstore group is created.
-     *   *
+     * @summary Creates a Logstore group for the metrics of Simple Log Service logs.
+     *  *
+     * @description # Prerequisites
+     * Simple Log Service is activated. A project and a Logstore are created in Simple Log Service. For more information, see [Getting Started](https://help.aliyun.com/document_detail/54604.html).
+     * # Description
+     * In this example, a Logstore group named `Logstore_test` is created. The region ID is `cn-hangzhou`. The project is `aliyun-project`. The Logstore is `Logstore-ECS`. The response shows that the Logstore group is created.
+     *  *
      * @param CreateHybridMonitorSLSGroupRequest $request CreateHybridMonitorSLSGroupRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
@@ -1224,11 +999,13 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * # Prerequisites
-     *   * Simple Log Service is activated. A project and a Logstore are created in Simple Log Service. For more information, see [Getting Started](~~54604~~).
-     *   * # Description
-     *   * In this example, a Logstore group named `Logstore_test` is created. The region ID is `cn-hangzhou`. The project is `aliyun-project`. The Logstore is `Logstore-ECS`. The response shows that the Logstore group is created.
-     *   *
+     * @summary Creates a Logstore group for the metrics of Simple Log Service logs.
+     *  *
+     * @description # Prerequisites
+     * Simple Log Service is activated. A project and a Logstore are created in Simple Log Service. For more information, see [Getting Started](https://help.aliyun.com/document_detail/54604.html).
+     * # Description
+     * In this example, a Logstore group named `Logstore_test` is created. The region ID is `cn-hangzhou`. The project is `aliyun-project`. The Logstore is `Logstore-ECS`. The response shows that the Logstore group is created.
+     *  *
      * @param CreateHybridMonitorSLSGroupRequest $request CreateHybridMonitorSLSGroupRequest
      *
      * @return CreateHybridMonitorSLSGroupResponse CreateHybridMonitorSLSGroupResponse
@@ -1241,12 +1018,14 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * # [](#)Prerequisites
-     *   * *   Hybrid Cloud Monitoring is activated. For more information, see [Activate Hybrid Cloud Monitoring](~~250773~~).
-     *   * *   If you want to create a metric for logs imported from Simple Log Service, make sure that you have activated Simple Log Service and created a project and a Logstore. For more information, see [Getting Started](~~54604~~).
-     *   * # [](#)Description
-     *   * This topic provides an example on how to create a metric import task named `aliyun_task` for Elastic Compute Service (ECS). The task imports the `cpu_total` metric to the `aliyun` namespace. The response shows that the metric import task is created.
-     *   *
+     * @summary Creates a metric import task for an Alibaba Cloud service or creates a metric for logs imported from Simple Log Service.
+     *  *
+     * @description # [](#)Prerequisites
+     * *   Hybrid Cloud Monitoring is activated. For more information, see [Activate Hybrid Cloud Monitoring](https://help.aliyun.com/document_detail/250773.html).
+     * *   If you want to create a metric for logs imported from Simple Log Service, make sure that you have activated Simple Log Service and created a project and a Logstore. For more information, see [Getting Started](https://help.aliyun.com/document_detail/54604.html).
+     * # [](#)Description
+     * This topic provides an example on how to create a metric import task named `aliyun_task` for Elastic Compute Service (ECS). The task imports the `cpu_total` metric to the `aliyun` namespace. The response shows that the metric import task is created.
+     *  *
      * @param CreateHybridMonitorTaskRequest $request CreateHybridMonitorTaskRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -1314,12 +1093,14 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * # [](#)Prerequisites
-     *   * *   Hybrid Cloud Monitoring is activated. For more information, see [Activate Hybrid Cloud Monitoring](~~250773~~).
-     *   * *   If you want to create a metric for logs imported from Simple Log Service, make sure that you have activated Simple Log Service and created a project and a Logstore. For more information, see [Getting Started](~~54604~~).
-     *   * # [](#)Description
-     *   * This topic provides an example on how to create a metric import task named `aliyun_task` for Elastic Compute Service (ECS). The task imports the `cpu_total` metric to the `aliyun` namespace. The response shows that the metric import task is created.
-     *   *
+     * @summary Creates a metric import task for an Alibaba Cloud service or creates a metric for logs imported from Simple Log Service.
+     *  *
+     * @description # [](#)Prerequisites
+     * *   Hybrid Cloud Monitoring is activated. For more information, see [Activate Hybrid Cloud Monitoring](https://help.aliyun.com/document_detail/250773.html).
+     * *   If you want to create a metric for logs imported from Simple Log Service, make sure that you have activated Simple Log Service and created a project and a Logstore. For more information, see [Getting Started](https://help.aliyun.com/document_detail/54604.html).
+     * # [](#)Description
+     * This topic provides an example on how to create a metric import task named `aliyun_task` for Elastic Compute Service (ECS). The task imports the `cpu_total` metric to the `aliyun` namespace. The response shows that the metric import task is created.
+     *  *
      * @param CreateHybridMonitorTaskRequest $request CreateHybridMonitorTaskRequest
      *
      * @return CreateHybridMonitorTaskResponse CreateHybridMonitorTaskResponse
@@ -1332,9 +1113,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * You can create an instant test task only by using the Alibaba Cloud account that you used to enable Network Analysis and Monitoring.
-     *   * This topic provides an example to show how to create an instant test task. The name of the task is `task1`. The tested address is `http://www.aliyun.com`. The test type is `HTTP`. The number of detection points is `1`.
-     *   *
+     * @summary Creates an instant test task.
+     *  *
+     * @description You can create an instant test task only by using the Alibaba Cloud account that you used to enable Network Analysis and Monitoring.
+     * This topic provides an example to show how to create an instant test task. The name of the task is `task1`. The tested address is `http://www.aliyun.com`. The test type is `HTTP`. The number of detection points is `1`.
+     *  *
      * @param CreateInstantSiteMonitorRequest $request CreateInstantSiteMonitorRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -1381,9 +1164,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * You can create an instant test task only by using the Alibaba Cloud account that you used to enable Network Analysis and Monitoring.
-     *   * This topic provides an example to show how to create an instant test task. The name of the task is `task1`. The tested address is `http://www.aliyun.com`. The test type is `HTTP`. The number of detection points is `1`.
-     *   *
+     * @summary Creates an instant test task.
+     *  *
+     * @description You can create an instant test task only by using the Alibaba Cloud account that you used to enable Network Analysis and Monitoring.
+     * This topic provides an example to show how to create an instant test task. The name of the task is `task1`. The tested address is `http://www.aliyun.com`. The test type is `HTTP`. The number of detection points is `1`.
+     *  *
      * @param CreateInstantSiteMonitorRequest $request CreateInstantSiteMonitorRequest
      *
      * @return CreateInstantSiteMonitorResponse CreateInstantSiteMonitorResponse
@@ -1396,10 +1181,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * ### Background information
-     *   * *   CloudMonitor blocks alert notifications based on the blacklist policies that take effect. To block alert notifications when the value of a metric that belongs to a cloud service reaches the threshold that you specified, add the metric to a blacklist policy.
-     *   * *   CloudMonitor allows you to create blacklist policies only based on threshold metrics. You cannot create blacklist policies based on system events. For more information about the cloud services and the thresholds of the metrics that are supported by CloudMonitor, see [Appendix 1: Metrics](~~163515~~).
-     *   *
+     * @summary Creates a blacklist policy.
+     *  *
+     * @description ### Background information
+     * *   CloudMonitor blocks alert notifications based on the blacklist policies that take effect. To block alert notifications when the value of a metric that belongs to a cloud service reaches the threshold that you specified, add the metric to a blacklist policy.
+     * *   CloudMonitor allows you to create blacklist policies only based on threshold metrics. You cannot create blacklist policies based on system events. For more information about the cloud services and the thresholds of the metrics that are supported by CloudMonitor, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
+     *  *
      * @param CreateMetricRuleBlackListRequest $request CreateMetricRuleBlackListRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -1458,10 +1245,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * ### Background information
-     *   * *   CloudMonitor blocks alert notifications based on the blacklist policies that take effect. To block alert notifications when the value of a metric that belongs to a cloud service reaches the threshold that you specified, add the metric to a blacklist policy.
-     *   * *   CloudMonitor allows you to create blacklist policies only based on threshold metrics. You cannot create blacklist policies based on system events. For more information about the cloud services and the thresholds of the metrics that are supported by CloudMonitor, see [Appendix 1: Metrics](~~163515~~).
-     *   *
+     * @summary Creates a blacklist policy.
+     *  *
+     * @description ### Background information
+     * *   CloudMonitor blocks alert notifications based on the blacklist policies that take effect. To block alert notifications when the value of a metric that belongs to a cloud service reaches the threshold that you specified, add the metric to a blacklist policy.
+     * *   CloudMonitor allows you to create blacklist policies only based on threshold metrics. You cannot create blacklist policies based on system events. For more information about the cloud services and the thresholds of the metrics that are supported by CloudMonitor, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
+     *  *
      * @param CreateMetricRuleBlackListRequest $request CreateMetricRuleBlackListRequest
      *
      * @return CreateMetricRuleBlackListResponse CreateMetricRuleBlackListResponse
@@ -1474,10 +1263,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param CreateMetricRuleResourcesRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Associates resources with an alert rule.
+     *  *
+     * @param CreateMetricRuleResourcesRequest $request CreateMetricRuleResourcesRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateMetricRuleResourcesResponse
+     * @return CreateMetricRuleResourcesResponse CreateMetricRuleResourcesResponse
      */
     public function createMetricRuleResourcesWithOptions($request, $runtime)
     {
@@ -1511,9 +1302,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param CreateMetricRuleResourcesRequest $request
+     * @summary Associates resources with an alert rule.
+     *  *
+     * @param CreateMetricRuleResourcesRequest $request CreateMetricRuleResourcesRequest
      *
-     * @return CreateMetricRuleResourcesResponse
+     * @return CreateMetricRuleResourcesResponse CreateMetricRuleResourcesResponse
      */
     public function createMetricRuleResources($request)
     {
@@ -1523,10 +1316,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param CreateMetricRuleTemplateRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Creates an alert template.
+     *  *
+     * @param CreateMetricRuleTemplateRequest $request CreateMetricRuleTemplateRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateMetricRuleTemplateResponse
+     * @return CreateMetricRuleTemplateResponse CreateMetricRuleTemplateResponse
      */
     public function createMetricRuleTemplateWithOptions($request, $runtime)
     {
@@ -1560,9 +1355,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param CreateMetricRuleTemplateRequest $request
+     * @summary Creates an alert template.
+     *  *
+     * @param CreateMetricRuleTemplateRequest $request CreateMetricRuleTemplateRequest
      *
-     * @return CreateMetricRuleTemplateResponse
+     * @return CreateMetricRuleTemplateResponse CreateMetricRuleTemplateResponse
      */
     public function createMetricRuleTemplate($request)
     {
@@ -1572,10 +1369,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param CreateMonitorAgentProcessRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Creates a task to monitor a process.
+     *  *
+     * @param CreateMonitorAgentProcessRequest $request CreateMonitorAgentProcessRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateMonitorAgentProcessResponse
+     * @return CreateMonitorAgentProcessResponse CreateMonitorAgentProcessResponse
      */
     public function createMonitorAgentProcessWithOptions($request, $runtime)
     {
@@ -1609,9 +1408,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param CreateMonitorAgentProcessRequest $request
+     * @summary Creates a task to monitor a process.
+     *  *
+     * @param CreateMonitorAgentProcessRequest $request CreateMonitorAgentProcessRequest
      *
-     * @return CreateMonitorAgentProcessResponse
+     * @return CreateMonitorAgentProcessResponse CreateMonitorAgentProcessResponse
      */
     public function createMonitorAgentProcess($request)
     {
@@ -1621,8 +1422,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * In this example, the application group named `ECS_Group` is created.
-     *   *
+     * @summary Creates an application group.
+     *  *
+     * @description In this example, an application group named `ECS_Group` is created.
+     *  *
      * @param CreateMonitorGroupRequest $request CreateMonitorGroupRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -1657,8 +1460,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * In this example, the application group named `ECS_Group` is created.
-     *   *
+     * @summary Creates an application group.
+     *  *
+     * @description In this example, an application group named `ECS_Group` is created.
+     *  *
      * @param CreateMonitorGroupRequest $request CreateMonitorGroupRequest
      *
      * @return CreateMonitorGroupResponse CreateMonitorGroupResponse
@@ -1671,8 +1476,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to create an application group by using the resource group `CloudMonitor` and the alert contact group `ECS_Group`. The region ID of the resource group is `cn-hangzhou`.
-     *   *
+     * @summary Creates an application group by using a resource group.
+     *  *
+     * @description This topic provides an example on how to create an application group by using the resource group `CloudMonitor` and the alert contact group `ECS_Group`. The region ID of the resource group is `cn-hangzhou`.
+     *  *
      * @param CreateMonitorGroupByResourceGroupIdRequest $request CreateMonitorGroupByResourceGroupIdRequest
      * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
@@ -1719,8 +1526,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to create an application group by using the resource group `CloudMonitor` and the alert contact group `ECS_Group`. The region ID of the resource group is `cn-hangzhou`.
-     *   *
+     * @summary Creates an application group by using a resource group.
+     *  *
+     * @description This topic provides an example on how to create an application group by using the resource group `CloudMonitor` and the alert contact group `ECS_Group`. The region ID of the resource group is `cn-hangzhou`.
+     *  *
      * @param CreateMonitorGroupByResourceGroupIdRequest $request CreateMonitorGroupByResourceGroupIdRequest
      *
      * @return CreateMonitorGroupByResourceGroupIdResponse CreateMonitorGroupByResourceGroupIdResponse
@@ -1733,9 +1542,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * You can add a maximum of 1,000 instances to an application group at a time. You can add a maximum of 3,000 instances of an Alibaba Cloud service to an application group. The total number of instances that you can add to an application group is unlimited.
-     *   * In this example, an Elastic Compute Service (ECS) instance in the `China (Hangzhou)` region is added to the `3607****` application group. The instance ID is `i-2ze26xj5wwy12****` and the instance name is `test-instance-ecs`.
-     *   *
+     * @summary Adds resources to an application group.
+     *  *
+     * @description You can add a maximum of 1,000 instances to an application group at a time. You can add a maximum of 3,000 instances of an Alibaba Cloud service to an application group. The total number of instances that you can add to an application group is unlimited.
+     * In this example, an Elastic Compute Service (ECS) instance in the `China (Hangzhou)` region is added to the `3607****` application group. The instance ID is `i-2ze26xj5wwy12****` and the instance name is `test-instance-ecs`.
+     *  *
      * @param CreateMonitorGroupInstancesRequest $request CreateMonitorGroupInstancesRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
@@ -1770,9 +1581,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * You can add a maximum of 1,000 instances to an application group at a time. You can add a maximum of 3,000 instances of an Alibaba Cloud service to an application group. The total number of instances that you can add to an application group is unlimited.
-     *   * In this example, an Elastic Compute Service (ECS) instance in the `China (Hangzhou)` region is added to the `3607****` application group. The instance ID is `i-2ze26xj5wwy12****` and the instance name is `test-instance-ecs`.
-     *   *
+     * @summary Adds resources to an application group.
+     *  *
+     * @description You can add a maximum of 1,000 instances to an application group at a time. You can add a maximum of 3,000 instances of an Alibaba Cloud service to an application group. The total number of instances that you can add to an application group is unlimited.
+     * In this example, an Elastic Compute Service (ECS) instance in the `China (Hangzhou)` region is added to the `3607****` application group. The instance ID is `i-2ze26xj5wwy12****` and the instance name is `test-instance-ecs`.
+     *  *
      * @param CreateMonitorGroupInstancesRequest $request CreateMonitorGroupInstancesRequest
      *
      * @return CreateMonitorGroupInstancesResponse CreateMonitorGroupInstancesResponse
@@ -1785,9 +1598,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * If the policy is valid, no alert notifications are sent for the application group.
-     *   * This topic describes how to create the `PauseNotify` policy to pause alert notifications for the `7301****` application group. The StartTime parameter is set to `1622949300000` and the EndTime parameter is set to `1623208500000`. This indicates that the policy is valid from `2021-06-06 11:15:00 UTC+8` to `2021-06-09 11:15:00 UTC+8`.
-     *   *
+     * @summary Creates a policy to pause alert notifications for an application group.
+     *  *
+     * @description If the policy is valid, no alert notifications are sent for the application group.
+     * This topic describes how to create the `PauseNotify` policy to pause alert notifications for the `7301****` application group. The StartTime parameter is set to `1622949300000` and the EndTime parameter is set to `1623208500000`. This indicates that the policy is valid from `2021-06-06 11:15:00 UTC+8` to `2021-06-09 11:15:00 UTC+8`.
+     *  *
      * @param CreateMonitorGroupNotifyPolicyRequest $request CreateMonitorGroupNotifyPolicyRequest
      * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
@@ -1828,9 +1643,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * If the policy is valid, no alert notifications are sent for the application group.
-     *   * This topic describes how to create the `PauseNotify` policy to pause alert notifications for the `7301****` application group. The StartTime parameter is set to `1622949300000` and the EndTime parameter is set to `1623208500000`. This indicates that the policy is valid from `2021-06-06 11:15:00 UTC+8` to `2021-06-09 11:15:00 UTC+8`.
-     *   *
+     * @summary Creates a policy to pause alert notifications for an application group.
+     *  *
+     * @description If the policy is valid, no alert notifications are sent for the application group.
+     * This topic describes how to create the `PauseNotify` policy to pause alert notifications for the `7301****` application group. The StartTime parameter is set to `1622949300000` and the EndTime parameter is set to `1623208500000`. This indicates that the policy is valid from `2021-06-06 11:15:00 UTC+8` to `2021-06-09 11:15:00 UTC+8`.
+     *  *
      * @param CreateMonitorGroupNotifyPolicyRequest $request CreateMonitorGroupNotifyPolicyRequest
      *
      * @return CreateMonitorGroupNotifyPolicyResponse CreateMonitorGroupNotifyPolicyResponse
@@ -1843,10 +1660,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param CreateMonitoringAgentProcessRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Creates a task to monitor a specified process.
+     *  *
+     * @param CreateMonitoringAgentProcessRequest $request CreateMonitoringAgentProcessRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateMonitoringAgentProcessResponse
+     * @return CreateMonitoringAgentProcessResponse CreateMonitoringAgentProcessResponse
      */
     public function createMonitoringAgentProcessWithOptions($request, $runtime)
     {
@@ -1880,9 +1699,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param CreateMonitoringAgentProcessRequest $request
+     * @summary Creates a task to monitor a specified process.
+     *  *
+     * @param CreateMonitoringAgentProcessRequest $request CreateMonitoringAgentProcessRequest
      *
-     * @return CreateMonitoringAgentProcessResponse
+     * @return CreateMonitoringAgentProcessResponse CreateMonitoringAgentProcessResponse
      */
     public function createMonitoringAgentProcess($request)
     {
@@ -1892,8 +1713,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to create a site monitoring task named `HanZhou_ECS1`. The URL that is monitored by the task is `https://www.aliyun.com` and the type of the task is `HTTPS`.
-     *   *
+     * @summary Creates a site monitoring task.
+     *  *
+     * @description This topic provides an example on how to create a site monitoring task named `HanZhou_ECS1`. The URL that is monitored by the task is `https://www.aliyun.com` and the type of the task is `HTTPS`.
+     *  *
      * @param CreateSiteMonitorRequest $request CreateSiteMonitorRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -1927,6 +1750,9 @@ class Cms extends OpenApiClient
         if (!Utils::isUnset($request->taskType)) {
             $query['TaskType'] = $request->taskType;
         }
+        if (!Utils::isUnset($request->vpcConfig)) {
+            $query['VpcConfig'] = $request->vpcConfig;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -1946,8 +1772,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to create a site monitoring task named `HanZhou_ECS1`. The URL that is monitored by the task is `https://www.aliyun.com` and the type of the task is `HTTPS`.
-     *   *
+     * @summary Creates a site monitoring task.
+     *  *
+     * @description This topic provides an example on how to create a site monitoring task named `HanZhou_ECS1`. The URL that is monitored by the task is `https://www.aliyun.com` and the type of the task is `HTTPS`.
+     *  *
      * @param CreateSiteMonitorRequest $request CreateSiteMonitorRequest
      *
      * @return CreateSiteMonitorResponse CreateSiteMonitorResponse
@@ -1960,13 +1788,15 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * ### [](#)Prerequisites
-     *   * Hybrid Cloud Monitoring is activated. For more information, see [Activate Hybrid Cloud Monitoring](~~250773~~).
-     *   * ### [](#)Background information
-     *   * You can call this operation to obtain the Cursor information and then call the [BatchExport](~~2329847~~) operation to export the monitoring data.
-     *   * ### [](#)Description
-     *   * This topic provides an example on how to define the monitoring data of a specified metric for a specified cloud service. In this example, the namespace of the cloud service is set to `acs_ecs_dashboard`, the metric is set to `cpu_idle`, the start time is set to `1641627000000`, and the end time is set to `1641645000000`. The number of idle CPU cores on your Elastic Compute Service (ECS) instances is measured every 60 seconds from 15:30:00, January 8, 2022 to 20:30:00, January 8, 2022. The `Cursor` information is returned.
-     *   *
+     * @summary Defines the range of monitoring data that you want to export. The Cursor information is returned. When you call the BatchExport operation for the first time, you must specify the Cursor information.
+     *  *
+     * @description ### [](#)Prerequisites
+     * Hybrid Cloud Monitoring is activated. For more information, see [Activate Hybrid Cloud Monitoring](https://help.aliyun.com/document_detail/250773.html).
+     * ### [](#)Background information
+     * You can call this operation to obtain the Cursor information and then call the [BatchExport](https://help.aliyun.com/document_detail/2329847.html) operation to export the monitoring data.
+     * ### [](#)Description
+     * This topic provides an example on how to define the monitoring data of a specified metric for a specified cloud service. In this example, the namespace of the cloud service is set to `acs_ecs_dashboard`, the metric is set to `cpu_idle`, the start time is set to `1641627000000`, and the end time is set to `1641645000000`. The number of idle CPU cores on your Elastic Compute Service (ECS) instances is measured every 60 seconds from 15:30:00, January 8, 2022 to 20:30:00, January 8, 2022. The `Cursor` information is returned.
+     *  *
      * @param CursorRequest  $tmpReq  CursorRequest
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
@@ -2018,13 +1848,15 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * ### [](#)Prerequisites
-     *   * Hybrid Cloud Monitoring is activated. For more information, see [Activate Hybrid Cloud Monitoring](~~250773~~).
-     *   * ### [](#)Background information
-     *   * You can call this operation to obtain the Cursor information and then call the [BatchExport](~~2329847~~) operation to export the monitoring data.
-     *   * ### [](#)Description
-     *   * This topic provides an example on how to define the monitoring data of a specified metric for a specified cloud service. In this example, the namespace of the cloud service is set to `acs_ecs_dashboard`, the metric is set to `cpu_idle`, the start time is set to `1641627000000`, and the end time is set to `1641645000000`. The number of idle CPU cores on your Elastic Compute Service (ECS) instances is measured every 60 seconds from 15:30:00, January 8, 2022 to 20:30:00, January 8, 2022. The `Cursor` information is returned.
-     *   *
+     * @summary Defines the range of monitoring data that you want to export. The Cursor information is returned. When you call the BatchExport operation for the first time, you must specify the Cursor information.
+     *  *
+     * @description ### [](#)Prerequisites
+     * Hybrid Cloud Monitoring is activated. For more information, see [Activate Hybrid Cloud Monitoring](https://help.aliyun.com/document_detail/250773.html).
+     * ### [](#)Background information
+     * You can call this operation to obtain the Cursor information and then call the [BatchExport](https://help.aliyun.com/document_detail/2329847.html) operation to export the monitoring data.
+     * ### [](#)Description
+     * This topic provides an example on how to define the monitoring data of a specified metric for a specified cloud service. In this example, the namespace of the cloud service is set to `acs_ecs_dashboard`, the metric is set to `cpu_idle`, the start time is set to `1641627000000`, and the end time is set to `1641645000000`. The number of idle CPU cores on your Elastic Compute Service (ECS) instances is measured every 60 seconds from 15:30:00, January 8, 2022 to 20:30:00, January 8, 2022. The `Cursor` information is returned.
+     *  *
      * @param CursorRequest $request CursorRequest
      *
      * @return CursorResponse CursorResponse
@@ -2037,10 +1869,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DeleteContactRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Deletes an alert contact.
+     *  *
+     * @param DeleteContactRequest $request DeleteContactRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteContactResponse
+     * @return DeleteContactResponse DeleteContactResponse
      */
     public function deleteContactWithOptions($request, $runtime)
     {
@@ -2068,9 +1902,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DeleteContactRequest $request
+     * @summary Deletes an alert contact.
+     *  *
+     * @param DeleteContactRequest $request DeleteContactRequest
      *
-     * @return DeleteContactResponse
+     * @return DeleteContactResponse DeleteContactResponse
      */
     public function deleteContact($request)
     {
@@ -2080,10 +1916,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DeleteContactGroupRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Deletes an alert group.
+     *  *
+     * @param DeleteContactGroupRequest $request DeleteContactGroupRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteContactGroupResponse
+     * @return DeleteContactGroupResponse DeleteContactGroupResponse
      */
     public function deleteContactGroupWithOptions($request, $runtime)
     {
@@ -2111,9 +1949,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DeleteContactGroupRequest $request
+     * @summary Deletes an alert group.
+     *  *
+     * @param DeleteContactGroupRequest $request DeleteContactGroupRequest
      *
-     * @return DeleteContactGroupResponse
+     * @return DeleteContactGroupResponse DeleteContactGroupResponse
      */
     public function deleteContactGroup($request)
     {
@@ -2123,10 +1963,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DeleteCustomMetricRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Deletes the reported monitoring data of a metric.
+     *  *
+     * @param DeleteCustomMetricRequest $request DeleteCustomMetricRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteCustomMetricResponse
+     * @return DeleteCustomMetricResponse DeleteCustomMetricResponse
      */
     public function deleteCustomMetricWithOptions($request, $runtime)
     {
@@ -2163,9 +2005,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DeleteCustomMetricRequest $request
+     * @summary Deletes the reported monitoring data of a metric.
+     *  *
+     * @param DeleteCustomMetricRequest $request DeleteCustomMetricRequest
      *
-     * @return DeleteCustomMetricResponse
+     * @return DeleteCustomMetricResponse DeleteCustomMetricResponse
      */
     public function deleteCustomMetric($request)
     {
@@ -2175,10 +2019,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DeleteDynamicTagGroupRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Deletes a tag rule.
+     *  *
+     * @param DeleteDynamicTagGroupRequest $request DeleteDynamicTagGroupRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteDynamicTagGroupResponse
+     * @return DeleteDynamicTagGroupResponse DeleteDynamicTagGroupResponse
      */
     public function deleteDynamicTagGroupWithOptions($request, $runtime)
     {
@@ -2206,9 +2052,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DeleteDynamicTagGroupRequest $request
+     * @summary Deletes a tag rule.
+     *  *
+     * @param DeleteDynamicTagGroupRequest $request DeleteDynamicTagGroupRequest
      *
-     * @return DeleteDynamicTagGroupResponse
+     * @return DeleteDynamicTagGroupResponse DeleteDynamicTagGroupResponse
      */
     public function deleteDynamicTagGroup($request)
     {
@@ -2218,10 +2066,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DeleteEventRuleTargetsRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Deletes the push channels of an event-triggered alert rule.
+     *  *
+     * @param DeleteEventRuleTargetsRequest $request DeleteEventRuleTargetsRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteEventRuleTargetsResponse
+     * @return DeleteEventRuleTargetsResponse DeleteEventRuleTargetsResponse
      */
     public function deleteEventRuleTargetsWithOptions($request, $runtime)
     {
@@ -2252,9 +2102,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DeleteEventRuleTargetsRequest $request
+     * @summary Deletes the push channels of an event-triggered alert rule.
+     *  *
+     * @param DeleteEventRuleTargetsRequest $request DeleteEventRuleTargetsRequest
      *
-     * @return DeleteEventRuleTargetsResponse
+     * @return DeleteEventRuleTargetsResponse DeleteEventRuleTargetsResponse
      */
     public function deleteEventRuleTargets($request)
     {
@@ -2264,10 +2116,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DeleteEventRulesRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Deletes one or more event-triggered alert rules.
+     *  *
+     * @param DeleteEventRulesRequest $request DeleteEventRulesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteEventRulesResponse
+     * @return DeleteEventRulesResponse DeleteEventRulesResponse
      */
     public function deleteEventRulesWithOptions($request, $runtime)
     {
@@ -2295,9 +2149,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DeleteEventRulesRequest $request
+     * @summary Deletes one or more event-triggered alert rules.
+     *  *
+     * @param DeleteEventRulesRequest $request DeleteEventRulesRequest
      *
-     * @return DeleteEventRulesResponse
+     * @return DeleteEventRulesResponse DeleteEventRulesResponse
      */
     public function deleteEventRules($request)
     {
@@ -2307,10 +2163,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DeleteExporterOutputRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Deletes a configuration set that is used to export monitoring data.
+     *  *
+     * @param DeleteExporterOutputRequest $request DeleteExporterOutputRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteExporterOutputResponse
+     * @return DeleteExporterOutputResponse DeleteExporterOutputResponse
      */
     public function deleteExporterOutputWithOptions($request, $runtime)
     {
@@ -2338,9 +2196,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DeleteExporterOutputRequest $request
+     * @summary Deletes a configuration set that is used to export monitoring data.
+     *  *
+     * @param DeleteExporterOutputRequest $request DeleteExporterOutputRequest
      *
-     * @return DeleteExporterOutputResponse
+     * @return DeleteExporterOutputResponse DeleteExporterOutputResponse
      */
     public function deleteExporterOutput($request)
     {
@@ -2350,10 +2210,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DeleteExporterRuleRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Deletes a data export rule.
+     *  *
+     * @param DeleteExporterRuleRequest $request DeleteExporterRuleRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteExporterRuleResponse
+     * @return DeleteExporterRuleResponse DeleteExporterRuleResponse
      */
     public function deleteExporterRuleWithOptions($request, $runtime)
     {
@@ -2381,9 +2243,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DeleteExporterRuleRequest $request
+     * @summary Deletes a data export rule.
+     *  *
+     * @param DeleteExporterRuleRequest $request DeleteExporterRuleRequest
      *
-     * @return DeleteExporterRuleResponse
+     * @return DeleteExporterRuleResponse DeleteExporterRuleResponse
      */
     public function deleteExporterRule($request)
     {
@@ -2393,10 +2257,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DeleteGroupMonitoringAgentProcessRequest $request
-     * @param RuntimeOptions                           $runtime
+     * @summary Deletes a process monitoring task for an application group.
+     *  *
+     * @param DeleteGroupMonitoringAgentProcessRequest $request DeleteGroupMonitoringAgentProcessRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteGroupMonitoringAgentProcessResponse
+     * @return DeleteGroupMonitoringAgentProcessResponse DeleteGroupMonitoringAgentProcessResponse
      */
     public function deleteGroupMonitoringAgentProcessWithOptions($request, $runtime)
     {
@@ -2427,9 +2293,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DeleteGroupMonitoringAgentProcessRequest $request
+     * @summary Deletes a process monitoring task for an application group.
+     *  *
+     * @param DeleteGroupMonitoringAgentProcessRequest $request DeleteGroupMonitoringAgentProcessRequest
      *
-     * @return DeleteGroupMonitoringAgentProcessResponse
+     * @return DeleteGroupMonitoringAgentProcessResponse DeleteGroupMonitoringAgentProcessResponse
      */
     public function deleteGroupMonitoringAgentProcess($request)
     {
@@ -2439,10 +2307,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DeleteHostAvailabilityRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Deletes one or more availability monitoring tasks.
+     *  *
+     * @param DeleteHostAvailabilityRequest $request DeleteHostAvailabilityRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteHostAvailabilityResponse
+     * @return DeleteHostAvailabilityResponse DeleteHostAvailabilityResponse
      */
     public function deleteHostAvailabilityWithOptions($request, $runtime)
     {
@@ -2470,9 +2340,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DeleteHostAvailabilityRequest $request
+     * @summary Deletes one or more availability monitoring tasks.
+     *  *
+     * @param DeleteHostAvailabilityRequest $request DeleteHostAvailabilityRequest
      *
-     * @return DeleteHostAvailabilityResponse
+     * @return DeleteHostAvailabilityResponse DeleteHostAvailabilityResponse
      */
     public function deleteHostAvailability($request)
     {
@@ -2482,9 +2354,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * > If a metric import task is created for metrics in a namespace, you cannot delete the namespace unless you delete the task first.
-     *   * This topic provides an example on how to delete a namespace named `aliyun`. The response shows that the namespace is deleted.
-     *   *
+     * @summary Deletes a namespace.
+     *  *
+     * @description > If a metric import task is created for metrics in a namespace, you cannot delete the namespace unless you delete the task first.
+     * This topic provides an example on how to delete a namespace named `aliyun`. The response shows that the namespace is deleted.
+     *  *
      * @param DeleteHybridMonitorNamespaceRequest $request DeleteHybridMonitorNamespaceRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
@@ -2516,9 +2390,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * > If a metric import task is created for metrics in a namespace, you cannot delete the namespace unless you delete the task first.
-     *   * This topic provides an example on how to delete a namespace named `aliyun`. The response shows that the namespace is deleted.
-     *   *
+     * @summary Deletes a namespace.
+     *  *
+     * @description > If a metric import task is created for metrics in a namespace, you cannot delete the namespace unless you delete the task first.
+     * This topic provides an example on how to delete a namespace named `aliyun`. The response shows that the namespace is deleted.
+     *  *
      * @param DeleteHybridMonitorNamespaceRequest $request DeleteHybridMonitorNamespaceRequest
      *
      * @return DeleteHybridMonitorNamespaceResponse DeleteHybridMonitorNamespaceResponse
@@ -2531,8 +2407,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to delete a Logstore group named `Logstore_test`. The response shows that the Logstore group is deleted.
-     *   *
+     * @summary Deletes a Logstore group.
+     *  *
+     * @description This topic provides an example on how to delete a Logstore group named `Logstore_test`. The response shows that the Logstore group is deleted.
+     *  *
      * @param DeleteHybridMonitorSLSGroupRequest $request DeleteHybridMonitorSLSGroupRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
@@ -2564,8 +2442,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to delete a Logstore group named `Logstore_test`. The response shows that the Logstore group is deleted.
-     *   *
+     * @summary Deletes a Logstore group.
+     *  *
+     * @description This topic provides an example on how to delete a Logstore group named `Logstore_test`. The response shows that the Logstore group is deleted.
+     *  *
      * @param DeleteHybridMonitorSLSGroupRequest $request DeleteHybridMonitorSLSGroupRequest
      *
      * @return DeleteHybridMonitorSLSGroupResponse DeleteHybridMonitorSLSGroupResponse
@@ -2578,8 +2458,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to delete a metric import task whose ID is `36****`. The returned result indicates that the metric import task is deleted.
-     *   *
+     * @summary Deletes a metric import task for Alibaba Cloud services or a metric for the logs that are imported from Log Service.
+     *  *
+     * @description This topic provides an example on how to delete a metric import task whose ID is `36****`. The returned result indicates that the metric import task is deleted.
+     *  *
      * @param DeleteHybridMonitorTaskRequest $request DeleteHybridMonitorTaskRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -2617,8 +2499,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to delete a metric import task whose ID is `36****`. The returned result indicates that the metric import task is deleted.
-     *   *
+     * @summary Deletes a metric import task for Alibaba Cloud services or a metric for the logs that are imported from Log Service.
+     *  *
+     * @description This topic provides an example on how to delete a metric import task whose ID is `36****`. The returned result indicates that the metric import task is deleted.
+     *  *
      * @param DeleteHybridMonitorTaskRequest $request DeleteHybridMonitorTaskRequest
      *
      * @return DeleteHybridMonitorTaskResponse DeleteHybridMonitorTaskResponse
@@ -2631,10 +2515,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DeleteLogMonitorRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Deletes a log monitoring metric.
+     *  *
+     * @param DeleteLogMonitorRequest $request DeleteLogMonitorRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteLogMonitorResponse
+     * @return DeleteLogMonitorResponse DeleteLogMonitorResponse
      */
     public function deleteLogMonitorWithOptions($request, $runtime)
     {
@@ -2662,9 +2548,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DeleteLogMonitorRequest $request
+     * @summary Deletes a log monitoring metric.
+     *  *
+     * @param DeleteLogMonitorRequest $request DeleteLogMonitorRequest
      *
-     * @return DeleteLogMonitorResponse
+     * @return DeleteLogMonitorResponse DeleteLogMonitorResponse
      */
     public function deleteLogMonitor($request)
     {
@@ -2674,10 +2562,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DeleteMetricRuleBlackListRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Deletes multiple blacklist policies at a time.
+     *  *
+     * @param DeleteMetricRuleBlackListRequest $request DeleteMetricRuleBlackListRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteMetricRuleBlackListResponse
+     * @return DeleteMetricRuleBlackListResponse DeleteMetricRuleBlackListResponse
      */
     public function deleteMetricRuleBlackListWithOptions($request, $runtime)
     {
@@ -2705,9 +2595,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DeleteMetricRuleBlackListRequest $request
+     * @summary Deletes multiple blacklist policies at a time.
+     *  *
+     * @param DeleteMetricRuleBlackListRequest $request DeleteMetricRuleBlackListRequest
      *
-     * @return DeleteMetricRuleBlackListResponse
+     * @return DeleteMetricRuleBlackListResponse DeleteMetricRuleBlackListResponse
      */
     public function deleteMetricRuleBlackList($request)
     {
@@ -2717,10 +2609,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DeleteMetricRuleResourcesRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Disassociates resources from an alert rule.
+     *  *
+     * @param DeleteMetricRuleResourcesRequest $request DeleteMetricRuleResourcesRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteMetricRuleResourcesResponse
+     * @return DeleteMetricRuleResourcesResponse DeleteMetricRuleResourcesResponse
      */
     public function deleteMetricRuleResourcesWithOptions($request, $runtime)
     {
@@ -2751,9 +2645,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DeleteMetricRuleResourcesRequest $request
+     * @summary Disassociates resources from an alert rule.
+     *  *
+     * @param DeleteMetricRuleResourcesRequest $request DeleteMetricRuleResourcesRequest
      *
-     * @return DeleteMetricRuleResourcesResponse
+     * @return DeleteMetricRuleResourcesResponse DeleteMetricRuleResourcesResponse
      */
     public function deleteMetricRuleResources($request)
     {
@@ -2763,10 +2659,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DeleteMetricRuleTargetsRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Delete the push channels of an alert rule.
+     *  *
+     * @param DeleteMetricRuleTargetsRequest $request DeleteMetricRuleTargetsRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteMetricRuleTargetsResponse
+     * @return DeleteMetricRuleTargetsResponse DeleteMetricRuleTargetsResponse
      */
     public function deleteMetricRuleTargetsWithOptions($request, $runtime)
     {
@@ -2797,9 +2695,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DeleteMetricRuleTargetsRequest $request
+     * @summary Delete the push channels of an alert rule.
+     *  *
+     * @param DeleteMetricRuleTargetsRequest $request DeleteMetricRuleTargetsRequest
      *
-     * @return DeleteMetricRuleTargetsResponse
+     * @return DeleteMetricRuleTargetsResponse DeleteMetricRuleTargetsResponse
      */
     public function deleteMetricRuleTargets($request)
     {
@@ -2809,10 +2709,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DeleteMetricRuleTemplateRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Deletes an alert template.
+     *  *
+     * @param DeleteMetricRuleTemplateRequest $request DeleteMetricRuleTemplateRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteMetricRuleTemplateResponse
+     * @return DeleteMetricRuleTemplateResponse DeleteMetricRuleTemplateResponse
      */
     public function deleteMetricRuleTemplateWithOptions($request, $runtime)
     {
@@ -2840,9 +2742,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DeleteMetricRuleTemplateRequest $request
+     * @summary Deletes an alert template.
+     *  *
+     * @param DeleteMetricRuleTemplateRequest $request DeleteMetricRuleTemplateRequest
      *
-     * @return DeleteMetricRuleTemplateResponse
+     * @return DeleteMetricRuleTemplateResponse DeleteMetricRuleTemplateResponse
      */
     public function deleteMetricRuleTemplate($request)
     {
@@ -2852,10 +2756,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DeleteMetricRulesRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Deletes one or more alert rules.
+     *  *
+     * @param DeleteMetricRulesRequest $request DeleteMetricRulesRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteMetricRulesResponse
+     * @return DeleteMetricRulesResponse DeleteMetricRulesResponse
      */
     public function deleteMetricRulesWithOptions($request, $runtime)
     {
@@ -2883,9 +2789,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DeleteMetricRulesRequest $request
+     * @summary Deletes one or more alert rules.
+     *  *
+     * @param DeleteMetricRulesRequest $request DeleteMetricRulesRequest
      *
-     * @return DeleteMetricRulesResponse
+     * @return DeleteMetricRulesResponse DeleteMetricRulesResponse
      */
     public function deleteMetricRules($request)
     {
@@ -2895,10 +2803,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DeleteMonitorGroupRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Deletes an application group.
+     *  *
+     * @param DeleteMonitorGroupRequest $request DeleteMonitorGroupRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteMonitorGroupResponse
+     * @return DeleteMonitorGroupResponse DeleteMonitorGroupResponse
      */
     public function deleteMonitorGroupWithOptions($request, $runtime)
     {
@@ -2926,9 +2836,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DeleteMonitorGroupRequest $request
+     * @summary Deletes an application group.
+     *  *
+     * @param DeleteMonitorGroupRequest $request DeleteMonitorGroupRequest
      *
-     * @return DeleteMonitorGroupResponse
+     * @return DeleteMonitorGroupResponse DeleteMonitorGroupResponse
      */
     public function deleteMonitorGroup($request)
     {
@@ -2938,10 +2850,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DeleteMonitorGroupDynamicRuleRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary Deletes a rule that is used to dynamically add instances of a service that meet the rule to an application group.
+     *  *
+     * @param DeleteMonitorGroupDynamicRuleRequest $request DeleteMonitorGroupDynamicRuleRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteMonitorGroupDynamicRuleResponse
+     * @return DeleteMonitorGroupDynamicRuleResponse DeleteMonitorGroupDynamicRuleResponse
      */
     public function deleteMonitorGroupDynamicRuleWithOptions($request, $runtime)
     {
@@ -2972,9 +2886,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DeleteMonitorGroupDynamicRuleRequest $request
+     * @summary Deletes a rule that is used to dynamically add instances of a service that meet the rule to an application group.
+     *  *
+     * @param DeleteMonitorGroupDynamicRuleRequest $request DeleteMonitorGroupDynamicRuleRequest
      *
-     * @return DeleteMonitorGroupDynamicRuleResponse
+     * @return DeleteMonitorGroupDynamicRuleResponse DeleteMonitorGroupDynamicRuleResponse
      */
     public function deleteMonitorGroupDynamicRule($request)
     {
@@ -2984,10 +2900,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DeleteMonitorGroupInstancesRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Removes instances from an application group.
+     *  *
+     * @param DeleteMonitorGroupInstancesRequest $request DeleteMonitorGroupInstancesRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteMonitorGroupInstancesResponse
+     * @return DeleteMonitorGroupInstancesResponse DeleteMonitorGroupInstancesResponse
      */
     public function deleteMonitorGroupInstancesWithOptions($request, $runtime)
     {
@@ -3021,9 +2939,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DeleteMonitorGroupInstancesRequest $request
+     * @summary Removes instances from an application group.
+     *  *
+     * @param DeleteMonitorGroupInstancesRequest $request DeleteMonitorGroupInstancesRequest
      *
-     * @return DeleteMonitorGroupInstancesResponse
+     * @return DeleteMonitorGroupInstancesResponse DeleteMonitorGroupInstancesResponse
      */
     public function deleteMonitorGroupInstances($request)
     {
@@ -3033,10 +2953,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DeleteMonitorGroupNotifyPolicyRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @summary Deletes a policy that is used to pause alert notifications for an application group.
+     *  *
+     * @param DeleteMonitorGroupNotifyPolicyRequest $request DeleteMonitorGroupNotifyPolicyRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteMonitorGroupNotifyPolicyResponse
+     * @return DeleteMonitorGroupNotifyPolicyResponse DeleteMonitorGroupNotifyPolicyResponse
      */
     public function deleteMonitorGroupNotifyPolicyWithOptions($request, $runtime)
     {
@@ -3067,9 +2989,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DeleteMonitorGroupNotifyPolicyRequest $request
+     * @summary Deletes a policy that is used to pause alert notifications for an application group.
+     *  *
+     * @param DeleteMonitorGroupNotifyPolicyRequest $request DeleteMonitorGroupNotifyPolicyRequest
      *
-     * @return DeleteMonitorGroupNotifyPolicyResponse
+     * @return DeleteMonitorGroupNotifyPolicyResponse DeleteMonitorGroupNotifyPolicyResponse
      */
     public function deleteMonitorGroupNotifyPolicy($request)
     {
@@ -3079,10 +3003,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DeleteMonitoringAgentProcessRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Disables monitoring on a process.
+     *  *
+     * @param DeleteMonitoringAgentProcessRequest $request DeleteMonitoringAgentProcessRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteMonitoringAgentProcessResponse
+     * @return DeleteMonitoringAgentProcessResponse DeleteMonitoringAgentProcessResponse
      */
     public function deleteMonitoringAgentProcessWithOptions($request, $runtime)
     {
@@ -3116,9 +3042,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DeleteMonitoringAgentProcessRequest $request
+     * @summary Disables monitoring on a process.
+     *  *
+     * @param DeleteMonitoringAgentProcessRequest $request DeleteMonitoringAgentProcessRequest
      *
-     * @return DeleteMonitoringAgentProcessResponse
+     * @return DeleteMonitoringAgentProcessResponse DeleteMonitoringAgentProcessResponse
      */
     public function deleteMonitoringAgentProcess($request)
     {
@@ -3128,10 +3056,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DeleteSiteMonitorsRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Deletes one or more site monitoring tasks.
+     *  *
+     * @param DeleteSiteMonitorsRequest $request DeleteSiteMonitorsRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteSiteMonitorsResponse
+     * @return DeleteSiteMonitorsResponse DeleteSiteMonitorsResponse
      */
     public function deleteSiteMonitorsWithOptions($request, $runtime)
     {
@@ -3162,9 +3092,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DeleteSiteMonitorsRequest $request
+     * @summary Deletes one or more site monitoring tasks.
+     *  *
+     * @param DeleteSiteMonitorsRequest $request DeleteSiteMonitorsRequest
      *
-     * @return DeleteSiteMonitorsResponse
+     * @return DeleteSiteMonitorsResponse DeleteSiteMonitorsResponse
      */
     public function deleteSiteMonitors($request)
     {
@@ -3174,10 +3106,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeActiveMetricRuleListRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Queries the details of initiative alert rules.
+     *  *
+     * @param DescribeActiveMetricRuleListRequest $request DescribeActiveMetricRuleListRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeActiveMetricRuleListResponse
+     * @return DescribeActiveMetricRuleListResponse DescribeActiveMetricRuleListResponse
      */
     public function describeActiveMetricRuleListWithOptions($request, $runtime)
     {
@@ -3205,9 +3139,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeActiveMetricRuleListRequest $request
+     * @summary Queries the details of initiative alert rules.
+     *  *
+     * @param DescribeActiveMetricRuleListRequest $request DescribeActiveMetricRuleListRequest
      *
-     * @return DescribeActiveMetricRuleListResponse
+     * @return DescribeActiveMetricRuleListResponse DescribeActiveMetricRuleListResponse
      */
     public function describeActiveMetricRuleList($request)
     {
@@ -3217,9 +3153,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @deprecated : DescribeAlertHistoryList is deprecated, please use Cms::2019-01-01::DescribeAlertLogList instead.
-     *   * This API operation is no longer maintained. We recommend that you call the [DescribeAlertLogList](~~201087~~) operation.
-     *   *
+     * @deprecated openAPI DescribeAlertHistoryList is deprecated, please use Cms::2019-01-01::DescribeAlertLogList instead
+     *  *
+     * @summary Queries historical alerts.
+     *  *
+     * @description This API operation is no longer maintained. We recommend that you call the [DescribeAlertLogList](https://help.aliyun.com/document_detail/201087.html) operation.
+     *  *
      * Deprecated
      *
      * @param DescribeAlertHistoryListRequest $request DescribeAlertHistoryListRequest
@@ -3286,9 +3225,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @deprecated : DescribeAlertHistoryList is deprecated, please use Cms::2019-01-01::DescribeAlertLogList instead.
-     *   * This API operation is no longer maintained. We recommend that you call the [DescribeAlertLogList](~~201087~~) operation.
-     *   *
+     * @deprecated openAPI DescribeAlertHistoryList is deprecated, please use Cms::2019-01-01::DescribeAlertLogList instead
+     *  *
+     * @summary Queries historical alerts.
+     *  *
+     * @description This API operation is no longer maintained. We recommend that you call the [DescribeAlertLogList](https://help.aliyun.com/document_detail/201087.html) operation.
+     *  *
      * Deprecated
      *
      * @param DescribeAlertHistoryListRequest $request DescribeAlertHistoryListRequest
@@ -3303,9 +3245,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Queries the statistics of alert logs.
-     *   * This topic provides an example on how to query the statistics of alert logs for Elastic Compute Service (ECS) based on the `product` dimension.
-     *   *
+     * @summary Queries the statistics of alert logs.
+     *  *
+     * @description Queries the statistics of alert logs.
+     * This topic provides an example on how to query the statistics of alert logs for Elastic Compute Service (ECS) based on the `product` dimension.
+     *  *
      * @param DescribeAlertLogCountRequest $request DescribeAlertLogCountRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -3388,9 +3332,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Queries the statistics of alert logs.
-     *   * This topic provides an example on how to query the statistics of alert logs for Elastic Compute Service (ECS) based on the `product` dimension.
-     *   *
+     * @summary Queries the statistics of alert logs.
+     *  *
+     * @description Queries the statistics of alert logs.
+     * This topic provides an example on how to query the statistics of alert logs for Elastic Compute Service (ECS) based on the `product` dimension.
+     *  *
      * @param DescribeAlertLogCountRequest $request DescribeAlertLogCountRequest
      *
      * @return DescribeAlertLogCountResponse DescribeAlertLogCountResponse
@@ -3403,8 +3349,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query the number of alert logs for Elastic Compute Service (ECS) based on the `product` dimension.
-     *   *
+     * @summary Queries the number of alert logs that are generated during each interval within a period of time.
+     *  *
+     * @description This topic provides an example on how to query the number of alert logs for Elastic Compute Service (ECS) based on the `product` dimension.
+     *  *
      * @param DescribeAlertLogHistogramRequest $request DescribeAlertLogHistogramRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -3487,8 +3435,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query the number of alert logs for Elastic Compute Service (ECS) based on the `product` dimension.
-     *   *
+     * @summary Queries the number of alert logs that are generated during each interval within a period of time.
+     *  *
+     * @description This topic provides an example on how to query the number of alert logs for Elastic Compute Service (ECS) based on the `product` dimension.
+     *  *
      * @param DescribeAlertLogHistogramRequest $request DescribeAlertLogHistogramRequest
      *
      * @return DescribeAlertLogHistogramResponse DescribeAlertLogHistogramResponse
@@ -3501,9 +3451,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * You can call the operation to query only the alert logs within the last year.
-     *   * This topic provides an example to show how to query the alert logs of Elastic Compute Service (ECS) based on the `product` dimension.
-     *   *
+     * @summary Queries alert logs.
+     *  *
+     * @description You can call the operation to query only the alert logs within the last year.
+     * This topic provides an example to show how to query the alert logs of Elastic Compute Service (ECS) based on the `product` dimension.
+     *  *
      * @param DescribeAlertLogListRequest $request DescribeAlertLogListRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -3586,9 +3538,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * You can call the operation to query only the alert logs within the last year.
-     *   * This topic provides an example to show how to query the alert logs of Elastic Compute Service (ECS) based on the `product` dimension.
-     *   *
+     * @summary Queries alert logs.
+     *  *
+     * @description You can call the operation to query only the alert logs within the last year.
+     * This topic provides an example to show how to query the alert logs of Elastic Compute Service (ECS) based on the `product` dimension.
+     *  *
      * @param DescribeAlertLogListRequest $request DescribeAlertLogListRequest
      *
      * @return DescribeAlertLogListResponse DescribeAlertLogListResponse
@@ -3601,10 +3555,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeAlertingMetricRuleResourcesRequest $request
-     * @param RuntimeOptions                             $runtime
+     * @summary Queries the resources for which active alerts are triggered based on an alert rule.
+     *  *
+     * @param DescribeAlertingMetricRuleResourcesRequest $request DescribeAlertingMetricRuleResourcesRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAlertingMetricRuleResourcesResponse
+     * @return DescribeAlertingMetricRuleResourcesResponse DescribeAlertingMetricRuleResourcesResponse
      */
     public function describeAlertingMetricRuleResourcesWithOptions($request, $runtime)
     {
@@ -3629,9 +3585,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeAlertingMetricRuleResourcesRequest $request
+     * @summary Queries the resources for which active alerts are triggered based on an alert rule.
+     *  *
+     * @param DescribeAlertingMetricRuleResourcesRequest $request DescribeAlertingMetricRuleResourcesRequest
      *
-     * @return DescribeAlertingMetricRuleResourcesResponse
+     * @return DescribeAlertingMetricRuleResourcesResponse DescribeAlertingMetricRuleResourcesResponse
      */
     public function describeAlertingMetricRuleResources($request)
     {
@@ -3641,10 +3599,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeContactGroupListRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Queries alert groups.
+     *  *
+     * @param DescribeContactGroupListRequest $request DescribeContactGroupListRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeContactGroupListResponse
+     * @return DescribeContactGroupListResponse DescribeContactGroupListResponse
      */
     public function describeContactGroupListWithOptions($request, $runtime)
     {
@@ -3675,9 +3635,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeContactGroupListRequest $request
+     * @summary Queries alert groups.
+     *  *
+     * @param DescribeContactGroupListRequest $request DescribeContactGroupListRequest
      *
-     * @return DescribeContactGroupListResponse
+     * @return DescribeContactGroupListResponse DescribeContactGroupListResponse
      */
     public function describeContactGroupList($request)
     {
@@ -3687,10 +3649,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeContactListRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries alert contacts.
+     *  *
+     * @param DescribeContactListRequest $request DescribeContactListRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeContactListResponse
+     * @return DescribeContactListResponse DescribeContactListResponse
      */
     public function describeContactListWithOptions($request, $runtime)
     {
@@ -3730,9 +3694,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeContactListRequest $request
+     * @summary Queries alert contacts.
+     *  *
+     * @param DescribeContactListRequest $request DescribeContactListRequest
      *
-     * @return DescribeContactListResponse
+     * @return DescribeContactListResponse DescribeContactListResponse
      */
     public function describeContactList($request)
     {
@@ -3742,10 +3708,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeContactListByContactGroupRequest $request
-     * @param RuntimeOptions                           $runtime
+     * @summary Queries the alert contacts in an alert contact group.
+     *  *
+     * @param DescribeContactListByContactGroupRequest $request DescribeContactListByContactGroupRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeContactListByContactGroupResponse
+     * @return DescribeContactListByContactGroupResponse DescribeContactListByContactGroupResponse
      */
     public function describeContactListByContactGroupWithOptions($request, $runtime)
     {
@@ -3773,9 +3741,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeContactListByContactGroupRequest $request
+     * @summary Queries the alert contacts in an alert contact group.
+     *  *
+     * @param DescribeContactListByContactGroupRequest $request DescribeContactListByContactGroupRequest
      *
-     * @return DescribeContactListByContactGroupResponse
+     * @return DescribeContactListByContactGroupResponse DescribeContactListByContactGroupResponse
      */
     public function describeContactListByContactGroup($request)
     {
@@ -3785,10 +3755,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeCustomEventAttributeRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Queries the details of a custom event that occurred in a specified time period.
+     *  *
+     * @param DescribeCustomEventAttributeRequest $request DescribeCustomEventAttributeRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeCustomEventAttributeResponse
+     * @return DescribeCustomEventAttributeResponse DescribeCustomEventAttributeResponse
      */
     public function describeCustomEventAttributeWithOptions($request, $runtime)
     {
@@ -3837,9 +3809,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeCustomEventAttributeRequest $request
+     * @summary Queries the details of a custom event that occurred in a specified time period.
+     *  *
+     * @param DescribeCustomEventAttributeRequest $request DescribeCustomEventAttributeRequest
      *
-     * @return DescribeCustomEventAttributeResponse
+     * @return DescribeCustomEventAttributeResponse DescribeCustomEventAttributeResponse
      */
     public function describeCustomEventAttribute($request)
     {
@@ -3849,8 +3823,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * >  This operation counts the number of times that a custom event occurred for each service.
-     *   *
+     * @summary Queries the number of times that a custom event occurred in a specified time period.
+     *  *
+     * @description >  This operation counts the number of times that a custom event occurred for each service.
+     *  *
      * @param DescribeCustomEventCountRequest $request DescribeCustomEventCountRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -3897,8 +3873,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * >  This operation counts the number of times that a custom event occurred for each service.
-     *   *
+     * @summary Queries the number of times that a custom event occurred in a specified time period.
+     *  *
+     * @description >  This operation counts the number of times that a custom event occurred for each service.
+     *  *
      * @param DescribeCustomEventCountRequest $request DescribeCustomEventCountRequest
      *
      * @return DescribeCustomEventCountResponse DescribeCustomEventCountResponse
@@ -3911,10 +3889,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeCustomEventHistogramRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Queries the number of times that a custom event occurred during each interval of a time period.
+     *  *
+     * @param DescribeCustomEventHistogramRequest $request DescribeCustomEventHistogramRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeCustomEventHistogramResponse
+     * @return DescribeCustomEventHistogramResponse DescribeCustomEventHistogramResponse
      */
     public function describeCustomEventHistogramWithOptions($request, $runtime)
     {
@@ -3960,9 +3940,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeCustomEventHistogramRequest $request
+     * @summary Queries the number of times that a custom event occurred during each interval of a time period.
+     *  *
+     * @param DescribeCustomEventHistogramRequest $request DescribeCustomEventHistogramRequest
      *
-     * @return DescribeCustomEventHistogramResponse
+     * @return DescribeCustomEventHistogramResponse DescribeCustomEventHistogramResponse
      */
     public function describeCustomEventHistogram($request)
     {
@@ -3972,8 +3954,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * >  You can call the DescribeMetricList operation to query the metrics of a cloud service. For more information, see [DescribeMetricList](~~51936~~).
-     *   *
+     * @summary Queries the reported custom metrics of a cloud service.
+     *  *
+     * @description >  You can call the DescribeMetricList operation to query the metrics of a cloud service. For more information, see [DescribeMetricList](https://help.aliyun.com/document_detail/51936.html).
+     *  *
      * @param DescribeCustomMetricListRequest $request DescribeCustomMetricListRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -4020,8 +4004,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * >  You can call the DescribeMetricList operation to query the metrics of a cloud service. For more information, see [DescribeMetricList](~~51936~~).
-     *   *
+     * @summary Queries the reported custom metrics of a cloud service.
+     *  *
+     * @description >  You can call the DescribeMetricList operation to query the metrics of a cloud service. For more information, see [DescribeMetricList](https://help.aliyun.com/document_detail/51936.html).
+     *  *
      * @param DescribeCustomMetricListRequest $request DescribeCustomMetricListRequest
      *
      * @return DescribeCustomMetricListResponse DescribeCustomMetricListResponse
@@ -4034,8 +4020,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * This topic provides an example to show how to query tag rules that are related to `tagkey1`. The sample responses indicate that two tag rules are found. The rule IDs are `1536df65-a719-429d-8813-73cc40d7****` and `56e8cebb-b3d7-4a91-9880-78a8c84f****`.
-     *   *
+     * @summary Queries tag rules.
+     *  *
+     * @description This topic provides an example to show how to query tag rules that are related to `tagkey1`. The sample responses indicate that two tag rules are found. The rule IDs are `1536df65-a719-429d-8813-73cc40d7****` and `56e8cebb-b3d7-4a91-9880-78a8c84f****`.
+     *  *
      * @param DescribeDynamicTagRuleListRequest $request DescribeDynamicTagRuleListRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
@@ -4082,8 +4070,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * This topic provides an example to show how to query tag rules that are related to `tagkey1`. The sample responses indicate that two tag rules are found. The rule IDs are `1536df65-a719-429d-8813-73cc40d7****` and `56e8cebb-b3d7-4a91-9880-78a8c84f****`.
-     *   *
+     * @summary Queries tag rules.
+     *  *
+     * @description This topic provides an example to show how to query tag rules that are related to `tagkey1`. The sample responses indicate that two tag rules are found. The rule IDs are `1536df65-a719-429d-8813-73cc40d7****` and `56e8cebb-b3d7-4a91-9880-78a8c84f****`.
+     *  *
      * @param DescribeDynamicTagRuleListRequest $request DescribeDynamicTagRuleListRequest
      *
      * @return DescribeDynamicTagRuleListResponse DescribeDynamicTagRuleListResponse
@@ -4096,8 +4086,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * This topic provides an example to show how to query the details of an event-triggered alert rule named `testRule`.
-     *   *
+     * @summary Queries the details of an event-triggered alert rule.
+     *  *
+     * @description This topic provides an example to show how to query the details of an event-triggered alert rule named `testRule`.
+     *  *
      * @param DescribeEventRuleAttributeRequest $request DescribeEventRuleAttributeRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
@@ -4132,8 +4124,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * This topic provides an example to show how to query the details of an event-triggered alert rule named `testRule`.
-     *   *
+     * @summary Queries the details of an event-triggered alert rule.
+     *  *
+     * @description This topic provides an example to show how to query the details of an event-triggered alert rule named `testRule`.
+     *  *
      * @param DescribeEventRuleAttributeRequest $request DescribeEventRuleAttributeRequest
      *
      * @return DescribeEventRuleAttributeResponse DescribeEventRuleAttributeResponse
@@ -4146,10 +4140,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeEventRuleListRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Queries event-triggered alert rules.
+     *  *
+     * @param DescribeEventRuleListRequest $request DescribeEventRuleListRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeEventRuleListResponse
+     * @return DescribeEventRuleListResponse DescribeEventRuleListResponse
      */
     public function describeEventRuleListWithOptions($request, $runtime)
     {
@@ -4189,9 +4185,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeEventRuleListRequest $request
+     * @summary Queries event-triggered alert rules.
+     *  *
+     * @param DescribeEventRuleListRequest $request DescribeEventRuleListRequest
      *
-     * @return DescribeEventRuleListResponse
+     * @return DescribeEventRuleListResponse DescribeEventRuleListResponse
      */
     public function describeEventRuleList($request)
     {
@@ -4201,8 +4199,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * This topic provides an example to show how to query the details of an event-triggered alert rule named `testRule`.
-     *   *
+     * @summary Queries the push channels of an event-triggered alert rule.
+     *  *
+     * @description This topic provides an example to show how to query the details of an event-triggered alert rule named `testRule`.
+     *  *
      * @param DescribeEventRuleTargetListRequest $request DescribeEventRuleTargetListRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
@@ -4234,8 +4234,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * This topic provides an example to show how to query the details of an event-triggered alert rule named `testRule`.
-     *   *
+     * @summary Queries the push channels of an event-triggered alert rule.
+     *  *
+     * @description This topic provides an example to show how to query the details of an event-triggered alert rule named `testRule`.
+     *  *
      * @param DescribeEventRuleTargetListRequest $request DescribeEventRuleTargetListRequest
      *
      * @return DescribeEventRuleTargetListResponse DescribeEventRuleTargetListResponse
@@ -4248,10 +4250,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeExporterOutputListRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Queries configuration sets that are used to export monitoring data.
+     *  *
+     * @param DescribeExporterOutputListRequest $request DescribeExporterOutputListRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeExporterOutputListResponse
+     * @return DescribeExporterOutputListResponse DescribeExporterOutputListResponse
      */
     public function describeExporterOutputListWithOptions($request, $runtime)
     {
@@ -4282,9 +4286,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeExporterOutputListRequest $request
+     * @summary Queries configuration sets that are used to export monitoring data.
+     *  *
+     * @param DescribeExporterOutputListRequest $request DescribeExporterOutputListRequest
      *
-     * @return DescribeExporterOutputListResponse
+     * @return DescribeExporterOutputListResponse DescribeExporterOutputListResponse
      */
     public function describeExporterOutputList($request)
     {
@@ -4294,10 +4300,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeExporterRuleListRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Queries data export rules.
+     *  *
+     * @param DescribeExporterRuleListRequest $request DescribeExporterRuleListRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeExporterRuleListResponse
+     * @return DescribeExporterRuleListResponse DescribeExporterRuleListResponse
      */
     public function describeExporterRuleListWithOptions($request, $runtime)
     {
@@ -4328,9 +4336,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeExporterRuleListRequest $request
+     * @summary Queries data export rules.
+     *  *
+     * @param DescribeExporterRuleListRequest $request DescribeExporterRuleListRequest
      *
-     * @return DescribeExporterRuleListResponse
+     * @return DescribeExporterRuleListResponse DescribeExporterRuleListResponse
      */
     public function describeExporterRuleList($request)
     {
@@ -4340,8 +4350,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * You can create a process monitoring task to monitor all or the specified Elastic Compute Service (ECS) instances in an application group and configure alert rules for the process monitoring task.
-     *   *
+     * @summary Queries the process monitoring tasks for an application group.
+     *  *
+     * @description You can create a process monitoring task to monitor all or the specified Elastic Compute Service (ECS) instances in an application group and configure alert rules for the process monitoring task.
+     *  *
      * @param DescribeGroupMonitoringAgentProcessRequest $request DescribeGroupMonitoringAgentProcessRequest
      * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
@@ -4382,8 +4394,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * You can create a process monitoring task to monitor all or the specified Elastic Compute Service (ECS) instances in an application group and configure alert rules for the process monitoring task.
-     *   *
+     * @summary Queries the process monitoring tasks for an application group.
+     *  *
+     * @description You can create a process monitoring task to monitor all or the specified Elastic Compute Service (ECS) instances in an application group and configure alert rules for the process monitoring task.
+     *  *
      * @param DescribeGroupMonitoringAgentProcessRequest $request DescribeGroupMonitoringAgentProcessRequest
      *
      * @return DescribeGroupMonitoringAgentProcessResponse DescribeGroupMonitoringAgentProcessResponse
@@ -4396,8 +4410,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * This topic provides an example to show how to query all the availability monitoring tasks of your Alibaba Cloud account. The sample responses indicate that the account has one availability monitoring task named `ecs_instance`.
-     *   *
+     * @summary Queries availability monitoring tasks.
+     *  *
+     * @description This topic provides an example to show how to query all the availability monitoring tasks of your Alibaba Cloud account. The sample responses indicate that the account has one availability monitoring task named `ecs_instance`.
+     *  *
      * @param DescribeHostAvailabilityListRequest $request DescribeHostAvailabilityListRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
@@ -4444,8 +4460,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * This topic provides an example to show how to query all the availability monitoring tasks of your Alibaba Cloud account. The sample responses indicate that the account has one availability monitoring task named `ecs_instance`.
-     *   *
+     * @summary Queries availability monitoring tasks.
+     *  *
+     * @description This topic provides an example to show how to query all the availability monitoring tasks of your Alibaba Cloud account. The sample responses indicate that the account has one availability monitoring task named `ecs_instance`.
+     *  *
      * @param DescribeHostAvailabilityListRequest $request DescribeHostAvailabilityListRequest
      *
      * @return DescribeHostAvailabilityListResponse DescribeHostAvailabilityListResponse
@@ -4458,9 +4476,15 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * ## Prerequisites
-     *   * Hybrid Cloud Monitoring is activated. For more information, see [Activate Hybrid Cloud Monitoring](~~250773~~).
-     *   *
+     * @summary Queries the monitoring data in a namespace.
+     *  *
+     * @description # [](#)Prerequisites
+     * Hybrid Cloud Monitoring is activated. For more information, see [Activate Hybrid Cloud Monitoring](https://help.aliyun.com/document_detail/250773.html).
+     * # [](#)Limits
+     * The size of monitoring data that is returned in each call cannot exceed 1.5 MB. If the returned data reaches the upper limit, the query fails. You must reset the query conditions.
+     * # [](#)Description
+     * This topic provides an example to show how to query the monitoring data of the `AliyunEcs_cpu_total` metric in the `default-aliyun` namespace from `1653804865` (14:14:25 on May 29, 2022) to `1653805225` (14:20:25 on May 29, 2022).
+     *  *
      * @param DescribeHybridMonitorDataListRequest $request DescribeHybridMonitorDataListRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
@@ -4504,9 +4528,15 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * ## Prerequisites
-     *   * Hybrid Cloud Monitoring is activated. For more information, see [Activate Hybrid Cloud Monitoring](~~250773~~).
-     *   *
+     * @summary Queries the monitoring data in a namespace.
+     *  *
+     * @description # [](#)Prerequisites
+     * Hybrid Cloud Monitoring is activated. For more information, see [Activate Hybrid Cloud Monitoring](https://help.aliyun.com/document_detail/250773.html).
+     * # [](#)Limits
+     * The size of monitoring data that is returned in each call cannot exceed 1.5 MB. If the returned data reaches the upper limit, the query fails. You must reset the query conditions.
+     * # [](#)Description
+     * This topic provides an example to show how to query the monitoring data of the `AliyunEcs_cpu_total` metric in the `default-aliyun` namespace from `1653804865` (14:14:25 on May 29, 2022) to `1653805225` (14:20:25 on May 29, 2022).
+     *  *
      * @param DescribeHybridMonitorDataListRequest $request DescribeHybridMonitorDataListRequest
      *
      * @return DescribeHybridMonitorDataListResponse DescribeHybridMonitorDataListResponse
@@ -4519,8 +4549,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * In this example, all namespaces within the current account are queried. The response shows that the current account has only one namespace named `aliyun-test`.
-     *   *
+     * @summary Queries namespaces and the details of the related metric import tasks.
+     *  *
+     * @description In this example, all namespaces within the current account are queried. The response shows that the current account has only one namespace named `aliyun-test`.
+     *  *
      * @param DescribeHybridMonitorNamespaceListRequest $request DescribeHybridMonitorNamespaceListRequest
      * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
@@ -4564,8 +4596,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * In this example, all namespaces within the current account are queried. The response shows that the current account has only one namespace named `aliyun-test`.
-     *   *
+     * @summary Queries namespaces and the details of the related metric import tasks.
+     *  *
+     * @description In this example, all namespaces within the current account are queried. The response shows that the current account has only one namespace named `aliyun-test`.
+     *  *
      * @param DescribeHybridMonitorNamespaceListRequest $request DescribeHybridMonitorNamespaceListRequest
      *
      * @return DescribeHybridMonitorNamespaceListResponse DescribeHybridMonitorNamespaceListResponse
@@ -4578,8 +4612,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * In this example, all Logstore groups within the current account are queried. The response shows that the current account has two Logstore groups: `Logstore_test` and `Logstore_aliyun`.
-     *   *
+     * @summary Queries Logstore groups.
+     *  *
+     * @description In this example, all Logstore groups within the current account are queried. The response shows that the current account has two Logstore groups: `Logstore_test` and `Logstore_aliyun`.
+     *  *
      * @param DescribeHybridMonitorSLSGroupRequest $request DescribeHybridMonitorSLSGroupRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
@@ -4620,8 +4656,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * In this example, all Logstore groups within the current account are queried. The response shows that the current account has two Logstore groups: `Logstore_test` and `Logstore_aliyun`.
-     *   *
+     * @summary Queries Logstore groups.
+     *  *
+     * @description In this example, all Logstore groups within the current account are queried. The response shows that the current account has two Logstore groups: `Logstore_test` and `Logstore_aliyun`.
+     *  *
      * @param DescribeHybridMonitorSLSGroupRequest $request DescribeHybridMonitorSLSGroupRequest
      *
      * @return DescribeHybridMonitorSLSGroupResponse DescribeHybridMonitorSLSGroupResponse
@@ -4634,8 +4672,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query all metric import tasks that belong to the current Alibaba Cloud account. The returned result indicates that the current account has only one metric import task. The metric import task is named `aliyun_task`.
-     *   *
+     * @summary Queries metric import tasks.
+     *  *
+     * @description This topic provides an example on how to query all metric import tasks that belong to the current Alibaba Cloud account. The returned result indicates that the current account has only one metric import task. The metric import task is named `aliyun_task`.
+     *  *
      * @param DescribeHybridMonitorTaskListRequest $request DescribeHybridMonitorTaskListRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
@@ -4691,8 +4731,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query all metric import tasks that belong to the current Alibaba Cloud account. The returned result indicates that the current account has only one metric import task. The metric import task is named `aliyun_task`.
-     *   *
+     * @summary Queries metric import tasks.
+     *  *
+     * @description This topic provides an example on how to query all metric import tasks that belong to the current Alibaba Cloud account. The returned result indicates that the current account has only one metric import task. The metric import task is named `aliyun_task`.
+     *  *
      * @param DescribeHybridMonitorTaskListRequest $request DescribeHybridMonitorTaskListRequest
      *
      * @return DescribeHybridMonitorTaskListResponse DescribeHybridMonitorTaskListResponse
@@ -4705,10 +4747,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeLogMonitorAttributeRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Queries the details of a log monitoring metric.
+     *  *
+     * @param DescribeLogMonitorAttributeRequest $request DescribeLogMonitorAttributeRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeLogMonitorAttributeResponse
+     * @return DescribeLogMonitorAttributeResponse DescribeLogMonitorAttributeResponse
      */
     public function describeLogMonitorAttributeWithOptions($request, $runtime)
     {
@@ -4733,9 +4777,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeLogMonitorAttributeRequest $request
+     * @summary Queries the details of a log monitoring metric.
+     *  *
+     * @param DescribeLogMonitorAttributeRequest $request DescribeLogMonitorAttributeRequest
      *
-     * @return DescribeLogMonitorAttributeResponse
+     * @return DescribeLogMonitorAttributeResponse DescribeLogMonitorAttributeResponse
      */
     public function describeLogMonitorAttribute($request)
     {
@@ -4745,10 +4791,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeLogMonitorListRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Queries log monitoring metrics.
+     *  *
+     * @param DescribeLogMonitorListRequest $request DescribeLogMonitorListRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeLogMonitorListResponse
+     * @return DescribeLogMonitorListResponse DescribeLogMonitorListResponse
      */
     public function describeLogMonitorListWithOptions($request, $runtime)
     {
@@ -4785,9 +4833,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeLogMonitorListRequest $request
+     * @summary Queries log monitoring metrics.
+     *  *
+     * @param DescribeLogMonitorListRequest $request DescribeLogMonitorListRequest
      *
-     * @return DescribeLogMonitorListResponse
+     * @return DescribeLogMonitorListResponse DescribeLogMonitorListResponse
      */
     public function describeLogMonitorList($request)
     {
@@ -4797,10 +4847,14 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * Each API operation can be called up to 10 times per second. An Alibaba Cloud account and the RAM users within the account share the quota.
-     *   * >  Different from [DescribeMetricList](~~51936~~), the DescribeMetricData operation provides statistical features. You can set the `Dimension` parameter to {"instanceId": "i-abcdefgh12****"} to aggregate all data of your Alibaba Cloud account. This topic provides an example to show how to query the monitoring data of the `cpu_idle` metric for Elastic Compute Service (ECS). The namespace of ECS is `acs_ecs_dashboard`.
-     *   *
+     * @summary Queries the monitoring data of a metric for a specified cloud service.
+     *  *
+     * @description ### [](#)Limits
+     * Each API operation can be called up to 10 times per second. An Alibaba Cloud account and the RAM users within the account share the quota.
+     * ### [](#)Description
+     * >  Different from [DescribeMetricList](https://help.aliyun.com/document_detail/51936.html), the DescribeMetricData operation provides statistical features. You can set the Dimension parameter to `{"instanceId": "i-abcdefgh12****"}` to aggregate all data of your Alibaba Cloud account.
+     * This topic provides an example to show how to query the monitoring data of the `cpu_idle` metric for Elastic Compute Service (ECS). The namespace of ECS is `acs_ecs_dashboard`.
+     *  *
      * @param DescribeMetricDataRequest $request DescribeMetricDataRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -4853,10 +4907,14 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * Each API operation can be called up to 10 times per second. An Alibaba Cloud account and the RAM users within the account share the quota.
-     *   * >  Different from [DescribeMetricList](~~51936~~), the DescribeMetricData operation provides statistical features. You can set the `Dimension` parameter to {"instanceId": "i-abcdefgh12****"} to aggregate all data of your Alibaba Cloud account. This topic provides an example to show how to query the monitoring data of the `cpu_idle` metric for Elastic Compute Service (ECS). The namespace of ECS is `acs_ecs_dashboard`.
-     *   *
+     * @summary Queries the monitoring data of a metric for a specified cloud service.
+     *  *
+     * @description ### [](#)Limits
+     * Each API operation can be called up to 10 times per second. An Alibaba Cloud account and the RAM users within the account share the quota.
+     * ### [](#)Description
+     * >  Different from [DescribeMetricList](https://help.aliyun.com/document_detail/51936.html), the DescribeMetricData operation provides statistical features. You can set the Dimension parameter to `{"instanceId": "i-abcdefgh12****"}` to aggregate all data of your Alibaba Cloud account.
+     * This topic provides an example to show how to query the monitoring data of the `cpu_idle` metric for Elastic Compute Service (ECS). The namespace of ECS is `acs_ecs_dashboard`.
+     *  *
      * @param DescribeMetricDataRequest $request DescribeMetricDataRequest
      *
      * @return DescribeMetricDataResponse DescribeMetricDataResponse
@@ -4869,16 +4927,19 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * ### [](#)Limits
-     *   * Each API operation can be called up to 50 times per second. An Alibaba Cloud account and the RAM users within the account share the quota.
-     *   * ### [](#)Precautions
-     *   * The storage duration of the monitoring data of each cloud service is related to the `Period` parameter (statistical period). A larger value of the `Period` parameter indicates that the monitoring data is distributed in a larger time range and the storage duration of the monitoring data is longer. The following list describes the specific relationships:
-     *   * *   If the value of the `Period` parameter is less than 60 seconds, the storage duration is seven days.
-     *   * *   If the value of the `Period` parameter is 60 seconds, the storage duration is 31 days.
-     *   * *   If the value of the `Period` parameter is 300 seconds, the storage duration is 91 days.
-     *   * ### [](#)Description
-     *   * This topic provides an example on how to query the latest monitoring data of the `CPUUtilization` metric for Elastic Compute Service (ECS). The namespace of ECS is `acs_ecs_dashboard`. The returned result indicates that the monitoring data for the instance `i-abcdefgh12****` of the account `123456789876****` is queried at an interval of 60 seconds. The maximum, minimum, and average values of the metric are 100, 93.1, and 99.52.
-     *   *
+     * @summary Queries the latest monitoring data of a metric.
+     *  *
+     * @description ### [](#)Limits
+     * Each API operation can be called up to 50 times per second. An Alibaba Cloud account and the RAM users within the account share the quota.
+     * >  If `Throttling.User` or `Request was denied due to user flow control` is returned when you call an API operation, the API operation is throttled. For more information about how to handle the issue, see [How do I handle the throttling of a query API?](https://help.aliyun.com/document_detail/2615031.html)
+     * ### [](#)Precautions
+     * The storage duration of the monitoring data of each cloud service is related to the `Period` parameter (statistical period). A larger value of the `Period` parameter indicates that the monitoring data is distributed in a larger time range and the storage duration of the monitoring data is longer. The following list describes the specific relationships:
+     * *   If the value of the `Period` parameter is less than 60 seconds, the storage duration is seven days.
+     * *   If the value of the `Period` parameter is 60 seconds, the storage duration is 31 days.
+     * *   If the value of the `Period` parameter is 300 seconds, the storage duration is 91 days.
+     * ### [](#)Description
+     * This topic provides an example on how to query the latest monitoring data of the `CPUUtilization` metric for Elastic Compute Service (ECS). The namespace of ECS is `acs_ecs_dashboard`. The returned result indicates that the monitoring data for the instance `i-abcdefgh12****` of the account `123456789876****` is queried at an interval of 60 seconds. The maximum, minimum, and average values of the metric are 100, 93.1, and 99.52.
+     *  *
      * @param DescribeMetricLastRequest $request DescribeMetricLastRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -4934,16 +4995,19 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * ### [](#)Limits
-     *   * Each API operation can be called up to 50 times per second. An Alibaba Cloud account and the RAM users within the account share the quota.
-     *   * ### [](#)Precautions
-     *   * The storage duration of the monitoring data of each cloud service is related to the `Period` parameter (statistical period). A larger value of the `Period` parameter indicates that the monitoring data is distributed in a larger time range and the storage duration of the monitoring data is longer. The following list describes the specific relationships:
-     *   * *   If the value of the `Period` parameter is less than 60 seconds, the storage duration is seven days.
-     *   * *   If the value of the `Period` parameter is 60 seconds, the storage duration is 31 days.
-     *   * *   If the value of the `Period` parameter is 300 seconds, the storage duration is 91 days.
-     *   * ### [](#)Description
-     *   * This topic provides an example on how to query the latest monitoring data of the `CPUUtilization` metric for Elastic Compute Service (ECS). The namespace of ECS is `acs_ecs_dashboard`. The returned result indicates that the monitoring data for the instance `i-abcdefgh12****` of the account `123456789876****` is queried at an interval of 60 seconds. The maximum, minimum, and average values of the metric are 100, 93.1, and 99.52.
-     *   *
+     * @summary Queries the latest monitoring data of a metric.
+     *  *
+     * @description ### [](#)Limits
+     * Each API operation can be called up to 50 times per second. An Alibaba Cloud account and the RAM users within the account share the quota.
+     * >  If `Throttling.User` or `Request was denied due to user flow control` is returned when you call an API operation, the API operation is throttled. For more information about how to handle the issue, see [How do I handle the throttling of a query API?](https://help.aliyun.com/document_detail/2615031.html)
+     * ### [](#)Precautions
+     * The storage duration of the monitoring data of each cloud service is related to the `Period` parameter (statistical period). A larger value of the `Period` parameter indicates that the monitoring data is distributed in a larger time range and the storage duration of the monitoring data is longer. The following list describes the specific relationships:
+     * *   If the value of the `Period` parameter is less than 60 seconds, the storage duration is seven days.
+     * *   If the value of the `Period` parameter is 60 seconds, the storage duration is 31 days.
+     * *   If the value of the `Period` parameter is 300 seconds, the storage duration is 91 days.
+     * ### [](#)Description
+     * This topic provides an example on how to query the latest monitoring data of the `CPUUtilization` metric for Elastic Compute Service (ECS). The namespace of ECS is `acs_ecs_dashboard`. The returned result indicates that the monitoring data for the instance `i-abcdefgh12****` of the account `123456789876****` is queried at an interval of 60 seconds. The maximum, minimum, and average values of the metric are 100, 93.1, and 99.52.
+     *  *
      * @param DescribeMetricLastRequest $request DescribeMetricLastRequest
      *
      * @return DescribeMetricLastResponse DescribeMetricLastResponse
@@ -4956,10 +5020,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * Each API operation can be called up to 50 times per second. An Alibaba Cloud account and the RAM users within the account share the quota.
-     *   * >This topic provides an example to show how to query the monitoring data of the `cpu_idle` metric for Elastic Compute Service (ECS). The namespace of ECS is `acs_ecs_dashboard`. The returned result indicates that the monitoring data for the instance `i-abcdefgh12****` of the account `120886317861****` is queried at an interval of 60 seconds. The maximum, minimum, and average values of the metric are 100, 93.1, and 99.52.
-     *   *
+     * @summary Queries the monitoring data of a metric for a specified cloud service.
+     *  *
+     * @description ## Limits
+     * Each API operation can be called up to 50 times per second. An Alibaba Cloud account and the RAM users within the account share the quota.
+     * >This topic provides an example to show how to query the monitoring data of the `cpu_idle` metric for Elastic Compute Service (ECS). The namespace of ECS is `acs_ecs_dashboard`. The returned result indicates that the monitoring data for the instance `i-abcdefgh12****` of the account `120886317861****` is queried at an interval of 60 seconds. The maximum, minimum, and average values of the metric are 100, 93.1, and 99.52.
+     *  *
      * @param DescribeMetricListRequest $request DescribeMetricListRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -5015,10 +5081,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * Each API operation can be called up to 50 times per second. An Alibaba Cloud account and the RAM users within the account share the quota.
-     *   * >This topic provides an example to show how to query the monitoring data of the `cpu_idle` metric for Elastic Compute Service (ECS). The namespace of ECS is `acs_ecs_dashboard`. The returned result indicates that the monitoring data for the instance `i-abcdefgh12****` of the account `120886317861****` is queried at an interval of 60 seconds. The maximum, minimum, and average values of the metric are 100, 93.1, and 99.52.
-     *   *
+     * @summary Queries the monitoring data of a metric for a specified cloud service.
+     *  *
+     * @description ## Limits
+     * Each API operation can be called up to 50 times per second. An Alibaba Cloud account and the RAM users within the account share the quota.
+     * >This topic provides an example to show how to query the monitoring data of the `cpu_idle` metric for Elastic Compute Service (ECS). The namespace of ECS is `acs_ecs_dashboard`. The returned result indicates that the monitoring data for the instance `i-abcdefgh12****` of the account `120886317861****` is queried at an interval of 60 seconds. The maximum, minimum, and average values of the metric are 100, 93.1, and 99.52.
+     *  *
      * @param DescribeMetricListRequest $request DescribeMetricListRequest
      *
      * @return DescribeMetricListResponse DescribeMetricListResponse
@@ -5031,8 +5099,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * This operation is usually used with DescribeMetricList and DescribeMetricLast. For more information, see [DescribeMetricList](~~51936~~) and [DescribeMetricLast](~~51939~~).
-     *   *
+     * @summary Queries the details of metrics that are supported in CloudMonitor.
+     *  *
+     * @description This operation is used together with DescribeMetricList and DescribeMetricLast. For more information, see [DescribeMetricList](https://help.aliyun.com/document_detail/51936.html) and [DescribeMetricLast](https://help.aliyun.com/document_detail/51939.html).
+     *  *
      * @param DescribeMetricMetaListRequest $request DescribeMetricMetaListRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -5076,8 +5146,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * This operation is usually used with DescribeMetricList and DescribeMetricLast. For more information, see [DescribeMetricList](~~51936~~) and [DescribeMetricLast](~~51939~~).
-     *   *
+     * @summary Queries the details of metrics that are supported in CloudMonitor.
+     *  *
+     * @description This operation is used together with DescribeMetricList and DescribeMetricLast. For more information, see [DescribeMetricList](https://help.aliyun.com/document_detail/51936.html) and [DescribeMetricLast](https://help.aliyun.com/document_detail/51939.html).
+     *  *
      * @param DescribeMetricMetaListRequest $request DescribeMetricMetaListRequest
      *
      * @return DescribeMetricMetaListResponse DescribeMetricMetaListResponse
@@ -5090,10 +5162,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeMetricRuleBlackListRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @param DescribeMetricRuleBlackListRequest $request DescribeMetricRuleBlackListRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeMetricRuleBlackListResponse
+     * @return DescribeMetricRuleBlackListResponse DescribeMetricRuleBlackListResponse
      */
     public function describeMetricRuleBlackListWithOptions($request, $runtime)
     {
@@ -5148,9 +5220,9 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeMetricRuleBlackListRequest $request
+     * @param DescribeMetricRuleBlackListRequest $request DescribeMetricRuleBlackListRequest
      *
-     * @return DescribeMetricRuleBlackListResponse
+     * @return DescribeMetricRuleBlackListResponse DescribeMetricRuleBlackListResponse
      */
     public function describeMetricRuleBlackList($request)
     {
@@ -5160,10 +5232,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeMetricRuleCountRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries the number of alert rules in each state.
+     *  *
+     * @param DescribeMetricRuleCountRequest $request DescribeMetricRuleCountRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeMetricRuleCountResponse
+     * @return DescribeMetricRuleCountResponse DescribeMetricRuleCountResponse
      */
     public function describeMetricRuleCountWithOptions($request, $runtime)
     {
@@ -5188,9 +5262,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeMetricRuleCountRequest $request
+     * @summary Queries the number of alert rules in each state.
+     *  *
+     * @param DescribeMetricRuleCountRequest $request DescribeMetricRuleCountRequest
      *
-     * @return DescribeMetricRuleCountResponse
+     * @return DescribeMetricRuleCountResponse DescribeMetricRuleCountResponse
      */
     public function describeMetricRuleCount($request)
     {
@@ -5200,8 +5276,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query all alert rules within your Alibaba Cloud account. The returned result shows that only one alert rule is found. The name of the alert rule is `Rule_01` and the ID is `applyTemplate344cfd42-0f32-4fd6-805a-88d7908a****`.
-     *   *
+     * @summary Queries alert rules.
+     *  *
+     * @description This topic provides an example on how to query all alert rules within your Alibaba Cloud account. The returned result shows that only one alert rule is found. The name of the alert rule is `Rule_01` and the ID is `applyTemplate344cfd42-0f32-4fd6-805a-88d7908a****`.
+     *  *
      * @param DescribeMetricRuleListRequest $request DescribeMetricRuleListRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -5260,8 +5338,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query all alert rules within your Alibaba Cloud account. The returned result shows that only one alert rule is found. The name of the alert rule is `Rule_01` and the ID is `applyTemplate344cfd42-0f32-4fd6-805a-88d7908a****`.
-     *   *
+     * @summary Queries alert rules.
+     *  *
+     * @description This topic provides an example on how to query all alert rules within your Alibaba Cloud account. The returned result shows that only one alert rule is found. The name of the alert rule is `Rule_01` and the ID is `applyTemplate344cfd42-0f32-4fd6-805a-88d7908a****`.
+     *  *
      * @param DescribeMetricRuleListRequest $request DescribeMetricRuleListRequest
      *
      * @return DescribeMetricRuleListResponse DescribeMetricRuleListResponse
@@ -5274,10 +5354,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * ## Limit
-     *   * This operation supports only Message Service (MNS) resources.
-     *   * >This topic provides an example on how to query the resources that are associated with an alert rule whose ID is `ae06917_75a8c43178ab66****`.
-     *   *
+     * @summary Queries the resources that are associated with a specified alert rule.
+     *  *
+     * @description ## Limit
+     * This operation supports only Message Service (MNS) resources.
+     * >This topic provides an example on how to query the resources that are associated with an alert rule whose ID is `ae06917_75a8c43178ab66****`.
+     *  *
      * @param DescribeMetricRuleTargetsRequest $request DescribeMetricRuleTargetsRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -5309,10 +5391,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * ## Limit
-     *   * This operation supports only Message Service (MNS) resources.
-     *   * >This topic provides an example on how to query the resources that are associated with an alert rule whose ID is `ae06917_75a8c43178ab66****`.
-     *   *
+     * @summary Queries the resources that are associated with a specified alert rule.
+     *  *
+     * @description ## Limit
+     * This operation supports only Message Service (MNS) resources.
+     * >This topic provides an example on how to query the resources that are associated with an alert rule whose ID is `ae06917_75a8c43178ab66****`.
+     *  *
      * @param DescribeMetricRuleTargetsRequest $request DescribeMetricRuleTargetsRequest
      *
      * @return DescribeMetricRuleTargetsResponse DescribeMetricRuleTargetsResponse
@@ -5325,8 +5409,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query the details of an alert template whose ID is `70****`.
-     *   *
+     * @summary Queries the details of an alert template.
+     *  *
+     * @description This topic provides an example on how to query the details of an alert template whose ID is `70****`.
+     *  *
      * @param DescribeMetricRuleTemplateAttributeRequest $request DescribeMetricRuleTemplateAttributeRequest
      * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
@@ -5361,8 +5447,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query the details of an alert template whose ID is `70****`.
-     *   *
+     * @summary Queries the details of an alert template.
+     *  *
+     * @description This topic provides an example on how to query the details of an alert template whose ID is `70****`.
+     *  *
      * @param DescribeMetricRuleTemplateAttributeRequest $request DescribeMetricRuleTemplateAttributeRequest
      *
      * @return DescribeMetricRuleTemplateAttributeResponse DescribeMetricRuleTemplateAttributeResponse
@@ -5375,8 +5463,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query alert templates. In this example, the following alert templates are returned in the response: `ECS_Template1` and `ECS_Template2`.
-     *   *
+     * @summary Queries alert templates.
+     *  *
+     * @description This topic provides an example on how to query alert templates. In this example, the following alert templates are returned in the response: `ECS_Template1` and `ECS_Template2`.
+     *  *
      * @param DescribeMetricRuleTemplateListRequest $request DescribeMetricRuleTemplateListRequest
      * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
@@ -5429,8 +5519,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query alert templates. In this example, the following alert templates are returned in the response: `ECS_Template1` and `ECS_Template2`.
-     *   *
+     * @summary Queries alert templates.
+     *  *
+     * @description This topic provides an example on how to query alert templates. In this example, the following alert templates are returned in the response: `ECS_Template1` and `ECS_Template2`.
+     *  *
      * @param DescribeMetricRuleTemplateListRequest $request DescribeMetricRuleTemplateListRequest
      *
      * @return DescribeMetricRuleTemplateListResponse DescribeMetricRuleTemplateListResponse
@@ -5443,16 +5535,18 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * ### [](#)Limits
-     *   * Each API operation can be called up to 10 times per second. An Alibaba Cloud account and the RAM users within the account share the quota.
-     *   * ### [](#)Precautions
-     *   * The storage duration of the monitoring data of each cloud service is related to the `Period` parameter (statistical period). A larger value of the `Period` parameter indicates that the monitoring data is distributed in a larger time range and the storage duration of the monitoring data is longer. The following list describes the specific relationships:
-     *   * *   If the value of the `Period` parameter is less than 60 seconds, the storage duration is seven days.
-     *   * *   If the value of the `Period` parameter is 60 seconds, the storage duration is 31 days.
-     *   * *   If the value of the `Period` parameter is 300 seconds, the storage duration is 91 days.
-     *   * ### [](#)Description
-     *   * This topic provides an example to show how to query the monitoring data of the `cpu_idle` metric in the last 60 seconds for Elastic Compute Service (ECS). The namespace of ECS is `acs_ecs_dashboard`. The monitoring data is sorted in the descending order based on the `Average` field.
-     *   *
+     * @summary Queries the latest monitoring data of a metric for a cloud service. The data can be sorted by a specified order.
+     *  *
+     * @description ### [](#)Limits
+     * Each API operation can be called up to 10 times per second. An Alibaba Cloud account and the RAM users within the account share the quota.
+     * ### [](#)Precautions
+     * The storage duration of the monitoring data of each cloud service is related to the `Period` parameter (statistical period). A larger value of the `Period` parameter indicates that the monitoring data is distributed in a larger time range and the storage duration of the monitoring data is longer. The following list describes the specific relationships:
+     * *   If the value of the `Period` parameter is less than 60 seconds, the storage duration is seven days.
+     * *   If the value of the `Period` parameter is 60 seconds, the storage duration is 31 days.
+     * *   If the value of the `Period` parameter is 300 seconds, the storage duration is 91 days.
+     * ### [](#)Description
+     * This topic provides an example to show how to query the monitoring data of the `cpu_idle` metric in the last 60 seconds for Elastic Compute Service (ECS). The namespace of ECS is `acs_ecs_dashboard`. The monitoring data is sorted in the descending order based on the `Average` field.
+     *  *
      * @param DescribeMetricTopRequest $request DescribeMetricTopRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -5511,16 +5605,18 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * ### [](#)Limits
-     *   * Each API operation can be called up to 10 times per second. An Alibaba Cloud account and the RAM users within the account share the quota.
-     *   * ### [](#)Precautions
-     *   * The storage duration of the monitoring data of each cloud service is related to the `Period` parameter (statistical period). A larger value of the `Period` parameter indicates that the monitoring data is distributed in a larger time range and the storage duration of the monitoring data is longer. The following list describes the specific relationships:
-     *   * *   If the value of the `Period` parameter is less than 60 seconds, the storage duration is seven days.
-     *   * *   If the value of the `Period` parameter is 60 seconds, the storage duration is 31 days.
-     *   * *   If the value of the `Period` parameter is 300 seconds, the storage duration is 91 days.
-     *   * ### [](#)Description
-     *   * This topic provides an example to show how to query the monitoring data of the `cpu_idle` metric in the last 60 seconds for Elastic Compute Service (ECS). The namespace of ECS is `acs_ecs_dashboard`. The monitoring data is sorted in the descending order based on the `Average` field.
-     *   *
+     * @summary Queries the latest monitoring data of a metric for a cloud service. The data can be sorted by a specified order.
+     *  *
+     * @description ### [](#)Limits
+     * Each API operation can be called up to 10 times per second. An Alibaba Cloud account and the RAM users within the account share the quota.
+     * ### [](#)Precautions
+     * The storage duration of the monitoring data of each cloud service is related to the `Period` parameter (statistical period). A larger value of the `Period` parameter indicates that the monitoring data is distributed in a larger time range and the storage duration of the monitoring data is longer. The following list describes the specific relationships:
+     * *   If the value of the `Period` parameter is less than 60 seconds, the storage duration is seven days.
+     * *   If the value of the `Period` parameter is 60 seconds, the storage duration is 31 days.
+     * *   If the value of the `Period` parameter is 300 seconds, the storage duration is 91 days.
+     * ### [](#)Description
+     * This topic provides an example to show how to query the monitoring data of the `cpu_idle` metric in the last 60 seconds for Elastic Compute Service (ECS). The namespace of ECS is `acs_ecs_dashboard`. The monitoring data is sorted in the descending order based on the `Average` field.
+     *  *
      * @param DescribeMetricTopRequest $request DescribeMetricTopRequest
      *
      * @return DescribeMetricTopResponse DescribeMetricTopResponse
@@ -5533,10 +5629,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeMonitorGroupCategoriesRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @summary Queries the cloud services to which the resources in an application group belong and the number of resources that belong to each cloud service in the application group.
+     *  *
+     * @param DescribeMonitorGroupCategoriesRequest $request DescribeMonitorGroupCategoriesRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeMonitorGroupCategoriesResponse
+     * @return DescribeMonitorGroupCategoriesResponse DescribeMonitorGroupCategoriesResponse
      */
     public function describeMonitorGroupCategoriesWithOptions($request, $runtime)
     {
@@ -5564,9 +5662,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeMonitorGroupCategoriesRequest $request
+     * @summary Queries the cloud services to which the resources in an application group belong and the number of resources that belong to each cloud service in the application group.
+     *  *
+     * @param DescribeMonitorGroupCategoriesRequest $request DescribeMonitorGroupCategoriesRequest
      *
-     * @return DescribeMonitorGroupCategoriesResponse
+     * @return DescribeMonitorGroupCategoriesResponse DescribeMonitorGroupCategoriesResponse
      */
     public function describeMonitorGroupCategories($request)
     {
@@ -5576,10 +5676,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeMonitorGroupDynamicRulesRequest $request
-     * @param RuntimeOptions                          $runtime
+     * @summary Queries the dynamic rules of an application group.
+     *  *
+     * @param DescribeMonitorGroupDynamicRulesRequest $request DescribeMonitorGroupDynamicRulesRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeMonitorGroupDynamicRulesResponse
+     * @return DescribeMonitorGroupDynamicRulesResponse DescribeMonitorGroupDynamicRulesResponse
      */
     public function describeMonitorGroupDynamicRulesWithOptions($request, $runtime)
     {
@@ -5607,9 +5709,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeMonitorGroupDynamicRulesRequest $request
+     * @summary Queries the dynamic rules of an application group.
+     *  *
+     * @param DescribeMonitorGroupDynamicRulesRequest $request DescribeMonitorGroupDynamicRulesRequest
      *
-     * @return DescribeMonitorGroupDynamicRulesResponse
+     * @return DescribeMonitorGroupDynamicRulesResponse DescribeMonitorGroupDynamicRulesResponse
      */
     public function describeMonitorGroupDynamicRules($request)
     {
@@ -5619,10 +5723,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeMonitorGroupInstanceAttributeRequest $request
-     * @param RuntimeOptions                               $runtime
+     * @summary Queries the details of the resources in an application group.
+     *  *
+     * @param DescribeMonitorGroupInstanceAttributeRequest $request DescribeMonitorGroupInstanceAttributeRequest
+     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeMonitorGroupInstanceAttributeResponse
+     * @return DescribeMonitorGroupInstanceAttributeResponse DescribeMonitorGroupInstanceAttributeResponse
      */
     public function describeMonitorGroupInstanceAttributeWithOptions($request, $runtime)
     {
@@ -5668,9 +5774,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeMonitorGroupInstanceAttributeRequest $request
+     * @summary Queries the details of the resources in an application group.
+     *  *
+     * @param DescribeMonitorGroupInstanceAttributeRequest $request DescribeMonitorGroupInstanceAttributeRequest
      *
-     * @return DescribeMonitorGroupInstanceAttributeResponse
+     * @return DescribeMonitorGroupInstanceAttributeResponse DescribeMonitorGroupInstanceAttributeResponse
      */
     public function describeMonitorGroupInstanceAttribute($request)
     {
@@ -5680,10 +5788,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeMonitorGroupInstancesRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary Queries the resources in an application group.
+     *  *
+     * @param DescribeMonitorGroupInstancesRequest $request DescribeMonitorGroupInstancesRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeMonitorGroupInstancesResponse
+     * @return DescribeMonitorGroupInstancesResponse DescribeMonitorGroupInstancesResponse
      */
     public function describeMonitorGroupInstancesWithOptions($request, $runtime)
     {
@@ -5726,9 +5836,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeMonitorGroupInstancesRequest $request
+     * @summary Queries the resources in an application group.
+     *  *
+     * @param DescribeMonitorGroupInstancesRequest $request DescribeMonitorGroupInstancesRequest
      *
-     * @return DescribeMonitorGroupInstancesResponse
+     * @return DescribeMonitorGroupInstancesResponse DescribeMonitorGroupInstancesResponse
      */
     public function describeMonitorGroupInstances($request)
     {
@@ -5738,10 +5850,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeMonitorGroupNotifyPolicyListRequest $request
-     * @param RuntimeOptions                              $runtime
+     * @summary Queries the policies that are used to pause alert notifications for an application group.
+     *  *
+     * @param DescribeMonitorGroupNotifyPolicyListRequest $request DescribeMonitorGroupNotifyPolicyListRequest
+     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeMonitorGroupNotifyPolicyListResponse
+     * @return DescribeMonitorGroupNotifyPolicyListResponse DescribeMonitorGroupNotifyPolicyListResponse
      */
     public function describeMonitorGroupNotifyPolicyListWithOptions($request, $runtime)
     {
@@ -5778,9 +5892,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeMonitorGroupNotifyPolicyListRequest $request
+     * @summary Queries the policies that are used to pause alert notifications for an application group.
+     *  *
+     * @param DescribeMonitorGroupNotifyPolicyListRequest $request DescribeMonitorGroupNotifyPolicyListRequest
      *
-     * @return DescribeMonitorGroupNotifyPolicyListResponse
+     * @return DescribeMonitorGroupNotifyPolicyListResponse DescribeMonitorGroupNotifyPolicyListResponse
      */
     public function describeMonitorGroupNotifyPolicyList($request)
     {
@@ -5790,8 +5906,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * This topic provides an example of how to query the application groups of the current account. The response shows that the current account has two application groups: `testGroup124` and `test123`.
-     *   *
+     * @summary Queries application groups.
+     *  *
+     * @description This topic provides an example of how to query the application groups of the current account. The response shows that the current account has two application groups: `testGroup124` and `test123`.
+     *  *
      * @param DescribeMonitorGroupsRequest $request DescribeMonitorGroupsRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -5862,8 +5980,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * This topic provides an example of how to query the application groups of the current account. The response shows that the current account has two application groups: `testGroup124` and `test123`.
-     *   *
+     * @summary Queries application groups.
+     *  *
+     * @description This topic provides an example of how to query the application groups of the current account. The response shows that the current account has two application groups: `testGroup124` and `test123`.
+     *  *
      * @param DescribeMonitorGroupsRequest $request DescribeMonitorGroupsRequest
      *
      * @return DescribeMonitorGroupsResponse DescribeMonitorGroupsResponse
@@ -5876,10 +5996,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeMonitorResourceQuotaAttributeRequest $request
-     * @param RuntimeOptions                               $runtime
+     * @summary Queries the resource quotas of CloudMonitor.
+     *  *
+     * @param DescribeMonitorResourceQuotaAttributeRequest $request DescribeMonitorResourceQuotaAttributeRequest
+     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeMonitorResourceQuotaAttributeResponse
+     * @return DescribeMonitorResourceQuotaAttributeResponse DescribeMonitorResourceQuotaAttributeResponse
      */
     public function describeMonitorResourceQuotaAttributeWithOptions($request, $runtime)
     {
@@ -5907,9 +6029,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeMonitorResourceQuotaAttributeRequest $request
+     * @summary Queries the resource quotas of CloudMonitor.
+     *  *
+     * @param DescribeMonitorResourceQuotaAttributeRequest $request DescribeMonitorResourceQuotaAttributeRequest
      *
-     * @return DescribeMonitorResourceQuotaAttributeResponse
+     * @return DescribeMonitorResourceQuotaAttributeResponse DescribeMonitorResourceQuotaAttributeResponse
      */
     public function describeMonitorResourceQuotaAttribute($request)
     {
@@ -5919,10 +6043,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeMonitoringAgentAccessKeyRequest $request
-     * @param RuntimeOptions                          $runtime
+     * @summary Queries the AccessKey ID and AccessKey secret that are required to install the CloudMonitor agent on a third-party host.
+     *  *
+     * @param DescribeMonitoringAgentAccessKeyRequest $request DescribeMonitoringAgentAccessKeyRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeMonitoringAgentAccessKeyResponse
+     * @return DescribeMonitoringAgentAccessKeyResponse DescribeMonitoringAgentAccessKeyResponse
      */
     public function describeMonitoringAgentAccessKeyWithOptions($request, $runtime)
     {
@@ -5944,9 +6070,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeMonitoringAgentAccessKeyRequest $request
+     * @summary Queries the AccessKey ID and AccessKey secret that are required to install the CloudMonitor agent on a third-party host.
+     *  *
+     * @param DescribeMonitoringAgentAccessKeyRequest $request DescribeMonitoringAgentAccessKeyRequest
      *
-     * @return DescribeMonitoringAgentAccessKeyResponse
+     * @return DescribeMonitoringAgentAccessKeyResponse DescribeMonitoringAgentAccessKeyResponse
      */
     public function describeMonitoringAgentAccessKey($request)
     {
@@ -5956,10 +6084,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeMonitoringAgentConfigRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @param DescribeMonitoringAgentConfigRequest $request DescribeMonitoringAgentConfigRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeMonitoringAgentConfigResponse
+     * @return DescribeMonitoringAgentConfigResponse DescribeMonitoringAgentConfigResponse
      */
     public function describeMonitoringAgentConfigWithOptions($request, $runtime)
     {
@@ -5981,9 +6109,9 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeMonitoringAgentConfigRequest $request
+     * @param DescribeMonitoringAgentConfigRequest $request DescribeMonitoringAgentConfigRequest
      *
-     * @return DescribeMonitoringAgentConfigResponse
+     * @return DescribeMonitoringAgentConfigResponse DescribeMonitoringAgentConfigResponse
      */
     public function describeMonitoringAgentConfig($request)
     {
@@ -5993,10 +6121,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeMonitoringAgentHostsRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Queries all hosts within the current Alibaba Cloud account, including hosts on which the CloudMonitor agent is installed and uninstalled.
+     *  *
+     * @param DescribeMonitoringAgentHostsRequest $request DescribeMonitoringAgentHostsRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeMonitoringAgentHostsResponse
+     * @return DescribeMonitoringAgentHostsResponse DescribeMonitoringAgentHostsResponse
      */
     public function describeMonitoringAgentHostsWithOptions($request, $runtime)
     {
@@ -6051,9 +6181,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeMonitoringAgentHostsRequest $request
+     * @summary Queries all hosts within the current Alibaba Cloud account, including hosts on which the CloudMonitor agent is installed and uninstalled.
+     *  *
+     * @param DescribeMonitoringAgentHostsRequest $request DescribeMonitoringAgentHostsRequest
      *
-     * @return DescribeMonitoringAgentHostsResponse
+     * @return DescribeMonitoringAgentHostsResponse DescribeMonitoringAgentHostsResponse
      */
     public function describeMonitoringAgentHosts($request)
     {
@@ -6063,9 +6195,9 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * >  Before you call this operation, call the CreateMonitoringAgentProcess operation to create processes. For more information, see [CreateMonitoringAgentProcess](~~114951~~~).
-     *   * This topic provides an example of how to query the processes of the `i-hp3hl3cx1pbahzy8****` instance. The response indicates the details of the `NGINX` and `HTTP` processes.
-     *   *
+     * @description >  Before you call this operation, call the CreateMonitoringAgentProcess operation to create processes. For more information, see [CreateMonitoringAgentProcess](https://help.aliyun.com/document_detail/114951.html~).
+     * This topic provides an example of how to query the processes of the `i-hp3hl3cx1pbahzy8****` instance. The response indicates the details of the `NGINX` and `HTTP` processes.
+     *  *
      * @param DescribeMonitoringAgentProcessesRequest $request DescribeMonitoringAgentProcessesRequest
      * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
@@ -6097,9 +6229,9 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * >  Before you call this operation, call the CreateMonitoringAgentProcess operation to create processes. For more information, see [CreateMonitoringAgentProcess](~~114951~~~).
-     *   * This topic provides an example of how to query the processes of the `i-hp3hl3cx1pbahzy8****` instance. The response indicates the details of the `NGINX` and `HTTP` processes.
-     *   *
+     * @description >  Before you call this operation, call the CreateMonitoringAgentProcess operation to create processes. For more information, see [CreateMonitoringAgentProcess](https://help.aliyun.com/document_detail/114951.html~).
+     * This topic provides an example of how to query the processes of the `i-hp3hl3cx1pbahzy8****` instance. The response indicates the details of the `NGINX` and `HTTP` processes.
+     *  *
      * @param DescribeMonitoringAgentProcessesRequest $request DescribeMonitoringAgentProcessesRequest
      *
      * @return DescribeMonitoringAgentProcessesResponse DescribeMonitoringAgentProcessesResponse
@@ -6112,8 +6244,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * This topic describes how to query the status of the CloudMonitor agent that is installed on the `i-hp3dunahluwajv6f****` instance. The result indicates that the CloudMonitor agent is in the `running` state.
-     *   *
+     * @summary Queries the status of the CloudMonitor agent.
+     *  *
+     * @description This topic describes how to query the status of the CloudMonitor agent that is installed on the `i-hp3dunahluwajv6f****` instance. The result indicates that the CloudMonitor agent is in the `running` state.
+     *  *
      * @param DescribeMonitoringAgentStatusesRequest $request DescribeMonitoringAgentStatusesRequest
      * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
@@ -6148,8 +6282,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * This topic describes how to query the status of the CloudMonitor agent that is installed on the `i-hp3dunahluwajv6f****` instance. The result indicates that the CloudMonitor agent is in the `running` state.
-     *   *
+     * @summary Queries the status of the CloudMonitor agent.
+     *  *
+     * @description This topic describes how to query the status of the CloudMonitor agent that is installed on the `i-hp3dunahluwajv6f****` instance. The result indicates that the CloudMonitor agent is in the `running` state.
+     *  *
      * @param DescribeMonitoringAgentStatusesRequest $request DescribeMonitoringAgentStatusesRequest
      *
      * @return DescribeMonitoringAgentStatusesResponse DescribeMonitoringAgentStatusesResponse
@@ -6162,10 +6298,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeMonitoringConfigRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @param DescribeMonitoringConfigRequest $request DescribeMonitoringConfigRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeMonitoringConfigResponse
+     * @return DescribeMonitoringConfigResponse DescribeMonitoringConfigResponse
      */
     public function describeMonitoringConfigWithOptions($request, $runtime)
     {
@@ -6187,9 +6323,9 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeMonitoringConfigRequest $request
+     * @param DescribeMonitoringConfigRequest $request DescribeMonitoringConfigRequest
      *
-     * @return DescribeMonitoringConfigResponse
+     * @return DescribeMonitoringConfigResponse DescribeMonitoringConfigResponse
      */
     public function describeMonitoringConfig($request)
     {
@@ -6199,8 +6335,8 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * >  If a tag is attached to multiple cloud resources in the region, the key of the tag is returned only once.
-     *   *
+     * @description >  If a tag is attached to multiple cloud resources in the region, the key of the tag is returned only once.
+     *  *
      * @param DescribeProductResourceTagKeyListRequest $request DescribeProductResourceTagKeyListRequest
      * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
@@ -6232,8 +6368,8 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * >  If a tag is attached to multiple cloud resources in the region, the key of the tag is returned only once.
-     *   *
+     * @description >  If a tag is attached to multiple cloud resources in the region, the key of the tag is returned only once.
+     *  *
      * @param DescribeProductResourceTagKeyListRequest $request DescribeProductResourceTagKeyListRequest
      *
      * @return DescribeProductResourceTagKeyListResponse DescribeProductResourceTagKeyListResponse
@@ -6246,10 +6382,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeProductsOfActiveMetricRuleRequest $request
-     * @param RuntimeOptions                            $runtime
+     * @summary Queries the cloud services for which the initiative alert feature is enabled.
+     *  *
+     * @param DescribeProductsOfActiveMetricRuleRequest $request DescribeProductsOfActiveMetricRuleRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeProductsOfActiveMetricRuleResponse
+     * @return DescribeProductsOfActiveMetricRuleResponse DescribeProductsOfActiveMetricRuleResponse
      */
     public function describeProductsOfActiveMetricRuleWithOptions($request, $runtime)
     {
@@ -6271,9 +6409,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeProductsOfActiveMetricRuleRequest $request
+     * @summary Queries the cloud services for which the initiative alert feature is enabled.
+     *  *
+     * @param DescribeProductsOfActiveMetricRuleRequest $request DescribeProductsOfActiveMetricRuleRequest
      *
-     * @return DescribeProductsOfActiveMetricRuleResponse
+     * @return DescribeProductsOfActiveMetricRuleResponse DescribeProductsOfActiveMetricRuleResponse
      */
     public function describeProductsOfActiveMetricRule($request)
     {
@@ -6283,8 +6423,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * The information obtained by this operation includes the service description, namespace, and tags.
-     *   *
+     * @summary Queries the information about monitored services in CloudMonitor.
+     *  *
+     * @description The information obtained by this operation includes the service description, namespace, and tags.
+     *  *
      * @param DescribeProjectMetaRequest $request DescribeProjectMetaRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -6322,8 +6464,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * The information obtained by this operation includes the service description, namespace, and tags.
-     *   *
+     * @summary Queries the information about monitored services in CloudMonitor.
+     *  *
+     * @description The information obtained by this operation includes the service description, namespace, and tags.
+     *  *
      * @param DescribeProjectMetaRequest $request DescribeProjectMetaRequest
      *
      * @return DescribeProjectMetaResponse DescribeProjectMetaResponse
@@ -6336,8 +6480,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query the details of a site monitoring task whose ID is `cc641dff-c19d-45f3-ad0a-818a0c4f****`. The returned result indicates that the task name is `test123`, the URL that is monitored by the task is `https://aliyun.com`, and the name of the carrier is `Alibaba`.
-     *   *
+     * @summary Queries the details of a site monitoring task.
+     *  *
+     * @description This topic provides an example on how to query the details of a site monitoring task whose ID is `cc641dff-c19d-45f3-ad0a-818a0c4f****`. The returned result indicates that the task name is `test123`, the URL that is monitored by the task is `https://aliyun.com`, and the name of the carrier is `Alibaba`.
+     *  *
      * @param DescribeSiteMonitorAttributeRequest $request DescribeSiteMonitorAttributeRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
@@ -6372,8 +6518,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query the details of a site monitoring task whose ID is `cc641dff-c19d-45f3-ad0a-818a0c4f****`. The returned result indicates that the task name is `test123`, the URL that is monitored by the task is `https://aliyun.com`, and the name of the carrier is `Alibaba`.
-     *   *
+     * @summary Queries the details of a site monitoring task.
+     *  *
+     * @description This topic provides an example on how to query the details of a site monitoring task whose ID is `cc641dff-c19d-45f3-ad0a-818a0c4f****`. The returned result indicates that the task name is `test123`, the URL that is monitored by the task is `https://aliyun.com`, and the name of the carrier is `Alibaba`.
+     *  *
      * @param DescribeSiteMonitorAttributeRequest $request DescribeSiteMonitorAttributeRequest
      *
      * @return DescribeSiteMonitorAttributeResponse DescribeSiteMonitorAttributeResponse
@@ -6386,10 +6534,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeSiteMonitorDataRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @param DescribeSiteMonitorDataRequest $request DescribeSiteMonitorDataRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSiteMonitorDataResponse
+     * @return DescribeSiteMonitorDataResponse DescribeSiteMonitorDataResponse
      */
     public function describeSiteMonitorDataWithOptions($request, $runtime)
     {
@@ -6438,9 +6586,9 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeSiteMonitorDataRequest $request
+     * @param DescribeSiteMonitorDataRequest $request DescribeSiteMonitorDataRequest
      *
-     * @return DescribeSiteMonitorDataResponse
+     * @return DescribeSiteMonitorDataResponse DescribeSiteMonitorDataResponse
      */
     public function describeSiteMonitorData($request)
     {
@@ -6450,8 +6598,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query the detection points that are provided by China Unicom in Guiyang.
-     *   *
+     * @summary Queries the detection points that are provided by carriers.
+     *  *
+     * @description This topic provides an example on how to query the detection points that are provided by China Unicom in Guiyang.
+     *  *
      * @param DescribeSiteMonitorISPCityListRequest $request DescribeSiteMonitorISPCityListRequest
      * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
@@ -6495,8 +6645,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query the detection points that are provided by China Unicom in Guiyang.
-     *   *
+     * @summary Queries the detection points that are provided by carriers.
+     *  *
+     * @description This topic provides an example on how to query the detection points that are provided by China Unicom in Guiyang.
+     *  *
      * @param DescribeSiteMonitorISPCityListRequest $request DescribeSiteMonitorISPCityListRequest
      *
      * @return DescribeSiteMonitorISPCityListResponse DescribeSiteMonitorISPCityListResponse
@@ -6509,8 +6661,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query all the site monitoring tasks of your Alibaba Cloud account. In this example, the returned result indicates that the Alibaba Cloud account has one site monitoring task named `HanZhou_ECS2`.
-     *   *
+     * @summary Queries site monitoring tasks.
+     *  *
+     * @description This topic provides an example on how to query all the site monitoring tasks of your Alibaba Cloud account. In this example, the returned result indicates that the Alibaba Cloud account has one site monitoring task named `HanZhou_ECS2`.
+     *  *
      * @param DescribeSiteMonitorListRequest $request DescribeSiteMonitorListRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -6557,8 +6711,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query all the site monitoring tasks of your Alibaba Cloud account. In this example, the returned result indicates that the Alibaba Cloud account has one site monitoring task named `HanZhou_ECS2`.
-     *   *
+     * @summary Queries site monitoring tasks.
+     *  *
+     * @description This topic provides an example on how to query all the site monitoring tasks of your Alibaba Cloud account. In this example, the returned result indicates that the Alibaba Cloud account has one site monitoring task named `HanZhou_ECS2`.
+     *  *
      * @param DescribeSiteMonitorListRequest $request DescribeSiteMonitorListRequest
      *
      * @return DescribeSiteMonitorListResponse DescribeSiteMonitorListResponse
@@ -6571,9 +6727,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * You can create an instant test task only by using the Alibaba Cloud account that you used to enable Network Analysis and Monitoring.
-     *   * This topic provides an example to show how to query the logs of an instant test task whose ID is `afa5c3ce-f944-4363-9edb-ce919a29****`.
-     *   *
+     * @summary Queries the logs of one or more instant test tasks.
+     *  *
+     * @description You can create an instant test task only by using the Alibaba Cloud account that you used to enable Network Analysis and Monitoring.
+     * This topic provides an example to show how to query the logs of an instant test task whose ID is `afa5c3ce-f944-4363-9edb-ce919a29****`.
+     *  *
      * @param DescribeSiteMonitorLogRequest $request DescribeSiteMonitorLogRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -6638,9 +6796,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * You can create an instant test task only by using the Alibaba Cloud account that you used to enable Network Analysis and Monitoring.
-     *   * This topic provides an example to show how to query the logs of an instant test task whose ID is `afa5c3ce-f944-4363-9edb-ce919a29****`.
-     *   *
+     * @summary Queries the logs of one or more instant test tasks.
+     *  *
+     * @description You can create an instant test task only by using the Alibaba Cloud account that you used to enable Network Analysis and Monitoring.
+     * This topic provides an example to show how to query the logs of an instant test task whose ID is `afa5c3ce-f944-4363-9edb-ce919a29****`.
+     *  *
      * @param DescribeSiteMonitorLogRequest $request DescribeSiteMonitorLogRequest
      *
      * @return DescribeSiteMonitorLogResponse DescribeSiteMonitorLogResponse
@@ -6653,10 +6813,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeSiteMonitorQuotaRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @param DescribeSiteMonitorQuotaRequest $request DescribeSiteMonitorQuotaRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSiteMonitorQuotaResponse
+     * @return DescribeSiteMonitorQuotaResponse DescribeSiteMonitorQuotaResponse
      */
     public function describeSiteMonitorQuotaWithOptions($request, $runtime)
     {
@@ -6678,9 +6838,9 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeSiteMonitorQuotaRequest $request
+     * @param DescribeSiteMonitorQuotaRequest $request DescribeSiteMonitorQuotaRequest
      *
-     * @return DescribeSiteMonitorQuotaResponse
+     * @return DescribeSiteMonitorQuotaResponse DescribeSiteMonitorQuotaResponse
      */
     public function describeSiteMonitorQuota($request)
     {
@@ -6690,8 +6850,8 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * This topic provides an example to show how to query the statistics of the `Availability` metric for a site monitoring task whose ID is `ef4cdc8b-9dc7-43e7-810e-f950e56c****`. The result indicates that the availability rate of the site is `100%`.
-     *   *
+     * @description This topic provides an example to show how to query the statistics of the `Availability` metric for a site monitoring task whose ID is `ef4cdc8b-9dc7-43e7-810e-f950e56c****`. The result indicates that the availability rate of the site is `100%`.
+     *  *
      * @param DescribeSiteMonitorStatisticsRequest $request DescribeSiteMonitorStatisticsRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
@@ -6732,8 +6892,8 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * This topic provides an example to show how to query the statistics of the `Availability` metric for a site monitoring task whose ID is `ef4cdc8b-9dc7-43e7-810e-f950e56c****`. The result indicates that the availability rate of the site is `100%`.
-     *   *
+     * @description This topic provides an example to show how to query the statistics of the `Availability` metric for a site monitoring task whose ID is `ef4cdc8b-9dc7-43e7-810e-f950e56c****`. The result indicates that the availability rate of the site is `100%`.
+     *  *
      * @param DescribeSiteMonitorStatisticsRequest $request DescribeSiteMonitorStatisticsRequest
      *
      * @return DescribeSiteMonitorStatisticsResponse DescribeSiteMonitorStatisticsResponse
@@ -6746,10 +6906,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeSystemEventAttributeRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Queries the details of a system event.
+     *  *
+     * @param DescribeSystemEventAttributeRequest $request DescribeSystemEventAttributeRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSystemEventAttributeResponse
+     * @return DescribeSystemEventAttributeResponse DescribeSystemEventAttributeResponse
      */
     public function describeSystemEventAttributeWithOptions($request, $runtime)
     {
@@ -6807,9 +6969,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeSystemEventAttributeRequest $request
+     * @summary Queries the details of a system event.
+     *  *
+     * @param DescribeSystemEventAttributeRequest $request DescribeSystemEventAttributeRequest
      *
-     * @return DescribeSystemEventAttributeResponse
+     * @return DescribeSystemEventAttributeResponse DescribeSystemEventAttributeResponse
      */
     public function describeSystemEventAttribute($request)
     {
@@ -6819,8 +6983,13 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query the number of times that a system event occurred for Elastic Compute Service (`ECS`). The returned result indicates that the number of times that the specified system event occurred is 3.
-     *   *
+     * @summary Queries the number of times that a system event of a cloud service has occurred.
+     *  *
+     * @description ### [](#)Background information
+     * You can call the [DescribeSystemEventMetaList](https://help.aliyun.com/document_detail/114972.html) operation to query the cloud services supported by CloudMonitor and their system events.
+     * ### [](#)Description
+     * This topic provides an example on how to query the number of times that a system event of `Elastic Compute Service (ECS)` has occurred. The returned result shows that the specified system event has occurred three times.
+     *  *
      * @param DescribeSystemEventCountRequest $request DescribeSystemEventCountRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -6876,8 +7045,13 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query the number of times that a system event occurred for Elastic Compute Service (`ECS`). The returned result indicates that the number of times that the specified system event occurred is 3.
-     *   *
+     * @summary Queries the number of times that a system event of a cloud service has occurred.
+     *  *
+     * @description ### [](#)Background information
+     * You can call the [DescribeSystemEventMetaList](https://help.aliyun.com/document_detail/114972.html) operation to query the cloud services supported by CloudMonitor and their system events.
+     * ### [](#)Description
+     * This topic provides an example on how to query the number of times that a system event of `Elastic Compute Service (ECS)` has occurred. The returned result shows that the specified system event has occurred three times.
+     *  *
      * @param DescribeSystemEventCountRequest $request DescribeSystemEventCountRequest
      *
      * @return DescribeSystemEventCountResponse DescribeSystemEventCountResponse
@@ -6890,10 +7064,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeSystemEventHistogramRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Queries the number of times a system event occurred during each interval within a period of time.
+     *  *
+     * @param DescribeSystemEventHistogramRequest $request DescribeSystemEventHistogramRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSystemEventHistogramResponse
+     * @return DescribeSystemEventHistogramResponse DescribeSystemEventHistogramResponse
      */
     public function describeSystemEventHistogramWithOptions($request, $runtime)
     {
@@ -6945,9 +7121,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeSystemEventHistogramRequest $request
+     * @summary Queries the number of times a system event occurred during each interval within a period of time.
+     *  *
+     * @param DescribeSystemEventHistogramRequest $request DescribeSystemEventHistogramRequest
      *
-     * @return DescribeSystemEventHistogramResponse
+     * @return DescribeSystemEventHistogramResponse DescribeSystemEventHistogramResponse
      */
     public function describeSystemEventHistogram($request)
     {
@@ -6957,10 +7135,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeSystemEventMetaListRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @param DescribeSystemEventMetaListRequest $request DescribeSystemEventMetaListRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSystemEventMetaListResponse
+     * @return DescribeSystemEventMetaListResponse DescribeSystemEventMetaListResponse
      */
     public function describeSystemEventMetaListWithOptions($request, $runtime)
     {
@@ -6982,9 +7160,9 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeSystemEventMetaListRequest $request
+     * @param DescribeSystemEventMetaListRequest $request DescribeSystemEventMetaListRequest
      *
-     * @return DescribeSystemEventMetaListResponse
+     * @return DescribeSystemEventMetaListResponse DescribeSystemEventMetaListResponse
      */
     public function describeSystemEventMetaList($request)
     {
@@ -6994,10 +7172,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeTagKeyListRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param DescribeTagKeyListRequest $request DescribeTagKeyListRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeTagKeyListResponse
+     * @return DescribeTagKeyListResponse DescribeTagKeyListResponse
      */
     public function describeTagKeyListWithOptions($request, $runtime)
     {
@@ -7028,9 +7206,9 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeTagKeyListRequest $request
+     * @param DescribeTagKeyListRequest $request DescribeTagKeyListRequest
      *
-     * @return DescribeTagKeyListResponse
+     * @return DescribeTagKeyListResponse DescribeTagKeyListResponse
      */
     public function describeTagKeyList($request)
     {
@@ -7040,8 +7218,8 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * This topic provides an example of how to query the tag values corresponding to `tagKey1`. The return results are `tagValue1` and `tagValue2`.
-     *   *
+     * @description This topic provides an example of how to query the tag values corresponding to `tagKey1`. The return results are `tagValue1` and `tagValue2`.
+     *  *
      * @param DescribeTagValueListRequest $request DescribeTagValueListRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -7079,8 +7257,8 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * This topic provides an example of how to query the tag values corresponding to `tagKey1`. The return results are `tagValue1` and `tagValue2`.
-     *   *
+     * @description This topic provides an example of how to query the tag values corresponding to `tagKey1`. The return results are `tagValue1` and `tagValue2`.
+     *  *
      * @param DescribeTagValueListRequest $request DescribeTagValueListRequest
      *
      * @return DescribeTagValueListResponse DescribeTagValueListResponse
@@ -7093,10 +7271,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeUnhealthyHostAvailabilityRequest $request
-     * @param RuntimeOptions                           $runtime
+     * @param DescribeUnhealthyHostAvailabilityRequest $request DescribeUnhealthyHostAvailabilityRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeUnhealthyHostAvailabilityResponse
+     * @return DescribeUnhealthyHostAvailabilityResponse DescribeUnhealthyHostAvailabilityResponse
      */
     public function describeUnhealthyHostAvailabilityWithOptions($request, $runtime)
     {
@@ -7124,9 +7302,9 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeUnhealthyHostAvailabilityRequest $request
+     * @param DescribeUnhealthyHostAvailabilityRequest $request DescribeUnhealthyHostAvailabilityRequest
      *
-     * @return DescribeUnhealthyHostAvailabilityResponse
+     * @return DescribeUnhealthyHostAvailabilityResponse DescribeUnhealthyHostAvailabilityResponse
      */
     public function describeUnhealthyHostAvailability($request)
     {
@@ -7136,10 +7314,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DisableActiveMetricRuleRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @param DisableActiveMetricRuleRequest $request DisableActiveMetricRuleRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DisableActiveMetricRuleResponse
+     * @return DisableActiveMetricRuleResponse DisableActiveMetricRuleResponse
      */
     public function disableActiveMetricRuleWithOptions($request, $runtime)
     {
@@ -7167,9 +7345,9 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DisableActiveMetricRuleRequest $request
+     * @param DisableActiveMetricRuleRequest $request DisableActiveMetricRuleRequest
      *
-     * @return DisableActiveMetricRuleResponse
+     * @return DisableActiveMetricRuleResponse DisableActiveMetricRuleResponse
      */
     public function disableActiveMetricRule($request)
     {
@@ -7179,10 +7357,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DisableEventRulesRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param DisableEventRulesRequest $request DisableEventRulesRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DisableEventRulesResponse
+     * @return DisableEventRulesResponse DisableEventRulesResponse
      */
     public function disableEventRulesWithOptions($request, $runtime)
     {
@@ -7210,9 +7388,9 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DisableEventRulesRequest $request
+     * @param DisableEventRulesRequest $request DisableEventRulesRequest
      *
-     * @return DisableEventRulesResponse
+     * @return DisableEventRulesResponse DisableEventRulesResponse
      */
     public function disableEventRules($request)
     {
@@ -7222,10 +7400,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DisableHostAvailabilityRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @param DisableHostAvailabilityRequest $request DisableHostAvailabilityRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DisableHostAvailabilityResponse
+     * @return DisableHostAvailabilityResponse DisableHostAvailabilityResponse
      */
     public function disableHostAvailabilityWithOptions($request, $runtime)
     {
@@ -7253,9 +7431,9 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DisableHostAvailabilityRequest $request
+     * @param DisableHostAvailabilityRequest $request DisableHostAvailabilityRequest
      *
-     * @return DisableHostAvailabilityResponse
+     * @return DisableHostAvailabilityResponse DisableHostAvailabilityResponse
      */
     public function disableHostAvailability($request)
     {
@@ -7265,10 +7443,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DisableMetricRulesRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param DisableMetricRulesRequest $request DisableMetricRulesRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DisableMetricRulesResponse
+     * @return DisableMetricRulesResponse DisableMetricRulesResponse
      */
     public function disableMetricRulesWithOptions($request, $runtime)
     {
@@ -7296,9 +7474,9 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DisableMetricRulesRequest $request
+     * @param DisableMetricRulesRequest $request DisableMetricRulesRequest
      *
-     * @return DisableMetricRulesResponse
+     * @return DisableMetricRulesResponse DisableMetricRulesResponse
      */
     public function disableMetricRules($request)
     {
@@ -7308,10 +7486,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DisableSiteMonitorsRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param DisableSiteMonitorsRequest $request DisableSiteMonitorsRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DisableSiteMonitorsResponse
+     * @return DisableSiteMonitorsResponse DisableSiteMonitorsResponse
      */
     public function disableSiteMonitorsWithOptions($request, $runtime)
     {
@@ -7339,9 +7517,9 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DisableSiteMonitorsRequest $request
+     * @param DisableSiteMonitorsRequest $request DisableSiteMonitorsRequest
      *
-     * @return DisableSiteMonitorsResponse
+     * @return DisableSiteMonitorsResponse DisableSiteMonitorsResponse
      */
     public function disableSiteMonitors($request)
     {
@@ -7351,10 +7529,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param EnableActiveMetricRuleRequest $request
-     * @param RuntimeOptions                $runtime
+     * @param EnableActiveMetricRuleRequest $request EnableActiveMetricRuleRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return EnableActiveMetricRuleResponse
+     * @return EnableActiveMetricRuleResponse EnableActiveMetricRuleResponse
      */
     public function enableActiveMetricRuleWithOptions($request, $runtime)
     {
@@ -7382,9 +7560,9 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param EnableActiveMetricRuleRequest $request
+     * @param EnableActiveMetricRuleRequest $request EnableActiveMetricRuleRequest
      *
-     * @return EnableActiveMetricRuleResponse
+     * @return EnableActiveMetricRuleResponse EnableActiveMetricRuleResponse
      */
     public function enableActiveMetricRule($request)
     {
@@ -7394,10 +7572,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param EnableEventRulesRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param EnableEventRulesRequest $request EnableEventRulesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return EnableEventRulesResponse
+     * @return EnableEventRulesResponse EnableEventRulesResponse
      */
     public function enableEventRulesWithOptions($request, $runtime)
     {
@@ -7425,9 +7603,9 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param EnableEventRulesRequest $request
+     * @param EnableEventRulesRequest $request EnableEventRulesRequest
      *
-     * @return EnableEventRulesResponse
+     * @return EnableEventRulesResponse EnableEventRulesResponse
      */
     public function enableEventRules($request)
     {
@@ -7437,10 +7615,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param EnableHostAvailabilityRequest $request
-     * @param RuntimeOptions                $runtime
+     * @param EnableHostAvailabilityRequest $request EnableHostAvailabilityRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return EnableHostAvailabilityResponse
+     * @return EnableHostAvailabilityResponse EnableHostAvailabilityResponse
      */
     public function enableHostAvailabilityWithOptions($request, $runtime)
     {
@@ -7468,9 +7646,9 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param EnableHostAvailabilityRequest $request
+     * @param EnableHostAvailabilityRequest $request EnableHostAvailabilityRequest
      *
-     * @return EnableHostAvailabilityResponse
+     * @return EnableHostAvailabilityResponse EnableHostAvailabilityResponse
      */
     public function enableHostAvailability($request)
     {
@@ -7480,10 +7658,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param EnableMetricRuleBlackListRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Enables or disables multiple blacklist policies at a time.
+     *  *
+     * @param EnableMetricRuleBlackListRequest $request EnableMetricRuleBlackListRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return EnableMetricRuleBlackListResponse
+     * @return EnableMetricRuleBlackListResponse EnableMetricRuleBlackListResponse
      */
     public function enableMetricRuleBlackListWithOptions($request, $runtime)
     {
@@ -7514,9 +7694,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param EnableMetricRuleBlackListRequest $request
+     * @summary Enables or disables multiple blacklist policies at a time.
+     *  *
+     * @param EnableMetricRuleBlackListRequest $request EnableMetricRuleBlackListRequest
      *
-     * @return EnableMetricRuleBlackListResponse
+     * @return EnableMetricRuleBlackListResponse EnableMetricRuleBlackListResponse
      */
     public function enableMetricRuleBlackList($request)
     {
@@ -7526,10 +7708,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param EnableMetricRulesRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Enables one or more alert rules.
+     *  *
+     * @param EnableMetricRulesRequest $request EnableMetricRulesRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return EnableMetricRulesResponse
+     * @return EnableMetricRulesResponse EnableMetricRulesResponse
      */
     public function enableMetricRulesWithOptions($request, $runtime)
     {
@@ -7557,9 +7741,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param EnableMetricRulesRequest $request
+     * @summary Enables one or more alert rules.
+     *  *
+     * @param EnableMetricRulesRequest $request EnableMetricRulesRequest
      *
-     * @return EnableMetricRulesResponse
+     * @return EnableMetricRulesResponse EnableMetricRulesResponse
      */
     public function enableMetricRules($request)
     {
@@ -7569,10 +7755,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param EnableSiteMonitorsRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param EnableSiteMonitorsRequest $request EnableSiteMonitorsRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return EnableSiteMonitorsResponse
+     * @return EnableSiteMonitorsResponse EnableSiteMonitorsResponse
      */
     public function enableSiteMonitorsWithOptions($request, $runtime)
     {
@@ -7600,9 +7786,9 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param EnableSiteMonitorsRequest $request
+     * @param EnableSiteMonitorsRequest $request EnableSiteMonitorsRequest
      *
-     * @return EnableSiteMonitorsResponse
+     * @return EnableSiteMonitorsResponse EnableSiteMonitorsResponse
      */
     public function enableSiteMonitors($request)
     {
@@ -7612,9 +7798,9 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * ## Prerequisites
-     *   * The Cloud Assistant client is installed on an ECS instance. For more information about how to install the Cloud Assistant client, see [Overview](~~64601~~).
-     *   *
+     * @description ## Prerequisites
+     * The Cloud Assistant client is installed on an ECS instance. For more information about how to install the Cloud Assistant client, see [Overview](https://help.aliyun.com/document_detail/64601.html).
+     *  *
      * @param InstallMonitoringAgentRequest $request InstallMonitoringAgentRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -7652,9 +7838,9 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * ## Prerequisites
-     *   * The Cloud Assistant client is installed on an ECS instance. For more information about how to install the Cloud Assistant client, see [Overview](~~64601~~).
-     *   *
+     * @description ## Prerequisites
+     * The Cloud Assistant client is installed on an ECS instance. For more information about how to install the Cloud Assistant client, see [Overview](https://help.aliyun.com/document_detail/64601.html).
+     *  *
      * @param InstallMonitoringAgentRequest $request InstallMonitoringAgentRequest
      *
      * @return InstallMonitoringAgentResponse InstallMonitoringAgentResponse
@@ -7667,10 +7853,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param ModifyGroupMonitoringAgentProcessRequest $request
-     * @param RuntimeOptions                           $runtime
+     * @param ModifyGroupMonitoringAgentProcessRequest $request ModifyGroupMonitoringAgentProcessRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyGroupMonitoringAgentProcessResponse
+     * @return ModifyGroupMonitoringAgentProcessResponse ModifyGroupMonitoringAgentProcessResponse
      */
     public function modifyGroupMonitoringAgentProcessWithOptions($request, $runtime)
     {
@@ -7707,9 +7893,9 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param ModifyGroupMonitoringAgentProcessRequest $request
+     * @param ModifyGroupMonitoringAgentProcessRequest $request ModifyGroupMonitoringAgentProcessRequest
      *
-     * @return ModifyGroupMonitoringAgentProcessResponse
+     * @return ModifyGroupMonitoringAgentProcessResponse ModifyGroupMonitoringAgentProcessResponse
      */
     public function modifyGroupMonitoringAgentProcess($request)
     {
@@ -7719,8 +7905,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to change the name of an availability monitoring task named `12345` in an application group named `123456` to `task2`.
-     *   *
+     * @summary Modifies an availability monitoring task.
+     *  *
+     * @description This topic provides an example on how to change the name of an availability monitoring task named `12345` in an application group named `123456` to `task2`.
+     *  *
      * @param ModifyHostAvailabilityRequest $request ModifyHostAvailabilityRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -7776,8 +7964,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to change the name of an availability monitoring task named `12345` in an application group named `123456` to `task2`.
-     *   *
+     * @summary Modifies an availability monitoring task.
+     *  *
+     * @description This topic provides an example on how to change the name of an availability monitoring task named `12345` in an application group named `123456` to `task2`.
+     *  *
      * @param ModifyHostAvailabilityRequest $request ModifyHostAvailabilityRequest
      *
      * @return ModifyHostAvailabilityResponse ModifyHostAvailabilityResponse
@@ -7790,8 +7980,8 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * ****
-     *   *
+     * @description ****
+     *  *
      * @param ModifyHostInfoRequest $request ModifyHostInfoRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -7826,8 +8016,8 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * ****
-     *   *
+     * @description ****
+     *  *
      * @param ModifyHostInfoRequest $request ModifyHostInfoRequest
      *
      * @return ModifyHostInfoResponse ModifyHostInfoResponse
@@ -7840,8 +8030,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to change the data retention period of the `aliyun` namespace to `cms.s1.2xlarge`. The response shows that the namespace is modified.
-     *   *
+     * @summary Modifies a namespace.
+     *  *
+     * @description This topic provides an example on how to change the data retention period of the `aliyun` namespace to `cms.s1.2xlarge`. The response shows that the namespace is modified.
+     *  *
      * @param ModifyHybridMonitorNamespaceRequest $request ModifyHybridMonitorNamespaceRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
@@ -7879,8 +8071,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to change the data retention period of the `aliyun` namespace to `cms.s1.2xlarge`. The response shows that the namespace is modified.
-     *   *
+     * @summary Modifies a namespace.
+     *  *
+     * @description This topic provides an example on how to change the data retention period of the `aliyun` namespace to `cms.s1.2xlarge`. The response shows that the namespace is modified.
+     *  *
      * @param ModifyHybridMonitorNamespaceRequest $request ModifyHybridMonitorNamespaceRequest
      *
      * @return ModifyHybridMonitorNamespaceResponse ModifyHybridMonitorNamespaceResponse
@@ -7893,8 +8087,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * In this example, a Logstore group named `Logstore_test` is modified. The Logstore of the `aliyun-project` project in the `cn-hangzhou` region is changed to `Logstore-aliyun-all`. The response shows that the Logstore group is modified.
-     *   *
+     * @summary Modifies a Logstore group.
+     *  *
+     * @description In this example, a Logstore group named `Logstore_test` is modified. The Logstore of the `aliyun-project` project in the `cn-hangzhou` region is changed to `Logstore-aliyun-all`. The response shows that the Logstore group is modified.
+     *  *
      * @param ModifyHybridMonitorSLSGroupRequest $request ModifyHybridMonitorSLSGroupRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
@@ -7932,8 +8128,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * In this example, a Logstore group named `Logstore_test` is modified. The Logstore of the `aliyun-project` project in the `cn-hangzhou` region is changed to `Logstore-aliyun-all`. The response shows that the Logstore group is modified.
-     *   *
+     * @summary Modifies a Logstore group.
+     *  *
+     * @description In this example, a Logstore group named `Logstore_test` is modified. The Logstore of the `aliyun-project` project in the `cn-hangzhou` region is changed to `Logstore-aliyun-all`. The response shows that the Logstore group is modified.
+     *  *
      * @param ModifyHybridMonitorSLSGroupRequest $request ModifyHybridMonitorSLSGroupRequest
      *
      * @return ModifyHybridMonitorSLSGroupResponse ModifyHybridMonitorSLSGroupResponse
@@ -7946,8 +8144,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to change the collection period of a metric import task whose ID is `36****` to `15` seconds. The task is used to monitor the logs that are imported from Log Service. The returned result indicates that the metric is modified.
-     *   *
+     * @summary Modifies a metric for the logs that are imported from Log Service.
+     *  *
+     * @description This topic provides an example on how to change the collection period of a metric import task whose ID is `36****` to `15` seconds. The task is used to monitor the logs that are imported from Log Service. The returned result indicates that the metric is modified.
+     *  *
      * @param ModifyHybridMonitorTaskRequest $request ModifyHybridMonitorTaskRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -7994,8 +8194,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to change the collection period of a metric import task whose ID is `36****` to `15` seconds. The task is used to monitor the logs that are imported from Log Service. The returned result indicates that the metric is modified.
-     *   *
+     * @summary Modifies a metric for the logs that are imported from Log Service.
+     *  *
+     * @description This topic provides an example on how to change the collection period of a metric import task whose ID is `36****` to `15` seconds. The task is used to monitor the logs that are imported from Log Service. The returned result indicates that the metric is modified.
+     *  *
      * @param ModifyHybridMonitorTaskRequest $request ModifyHybridMonitorTaskRequest
      *
      * @return ModifyHybridMonitorTaskResponse ModifyHybridMonitorTaskResponse
@@ -8008,10 +8210,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param ModifyMetricRuleBlackListRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Modifies a blacklist policy.
+     *  *
+     * @param ModifyMetricRuleBlackListRequest $request ModifyMetricRuleBlackListRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyMetricRuleBlackListResponse
+     * @return ModifyMetricRuleBlackListResponse ModifyMetricRuleBlackListResponse
      */
     public function modifyMetricRuleBlackListWithOptions($request, $runtime)
     {
@@ -8069,9 +8273,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param ModifyMetricRuleBlackListRequest $request
+     * @summary Modifies a blacklist policy.
+     *  *
+     * @param ModifyMetricRuleBlackListRequest $request ModifyMetricRuleBlackListRequest
      *
-     * @return ModifyMetricRuleBlackListResponse
+     * @return ModifyMetricRuleBlackListResponse ModifyMetricRuleBlackListResponse
      */
     public function modifyMetricRuleBlackList($request)
     {
@@ -8081,8 +8287,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to modify an alert template whose version is `1` and ID is `123456`. The alert level is changed to `Critical`. The statistical method is changed to `Average`. The alert threshold comparator is changed to `GreaterThanOrEqualToThreshold`. The alert threshold is changed to `90`. The number of alert retries is changed to `3`. The response shows that the alert template is modified.
-     *   *
+     * @summary Modifies an alert template.
+     *  *
+     * @description This topic provides an example on how to modify an alert template whose version is `1` and ID is `123456`. The alert level is changed to `Critical`. The statistical method is changed to `Average`. The alert threshold comparator is changed to `GreaterThanOrEqualToThreshold`. The alert threshold is changed to `90`. The number of alert retries is changed to `3`. The response shows that the alert template is modified.
+     *  *
      * @param ModifyMetricRuleTemplateRequest $request ModifyMetricRuleTemplateRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -8126,8 +8334,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to modify an alert template whose version is `1` and ID is `123456`. The alert level is changed to `Critical`. The statistical method is changed to `Average`. The alert threshold comparator is changed to `GreaterThanOrEqualToThreshold`. The alert threshold is changed to `90`. The number of alert retries is changed to `3`. The response shows that the alert template is modified.
-     *   *
+     * @summary Modifies an alert template.
+     *  *
+     * @description This topic provides an example on how to modify an alert template whose version is `1` and ID is `123456`. The alert level is changed to `Critical`. The statistical method is changed to `Average`. The alert threshold comparator is changed to `GreaterThanOrEqualToThreshold`. The alert threshold is changed to `90`. The number of alert retries is changed to `3`. The response shows that the alert template is modified.
+     *  *
      * @param ModifyMetricRuleTemplateRequest $request ModifyMetricRuleTemplateRequest
      *
      * @return ModifyMetricRuleTemplateResponse ModifyMetricRuleTemplateResponse
@@ -8140,10 +8350,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param ModifyMonitorGroupRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param ModifyMonitorGroupRequest $request ModifyMonitorGroupRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyMonitorGroupResponse
+     * @return ModifyMonitorGroupResponse ModifyMonitorGroupResponse
      */
     public function modifyMonitorGroupWithOptions($request, $runtime)
     {
@@ -8177,9 +8387,9 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param ModifyMonitorGroupRequest $request
+     * @param ModifyMonitorGroupRequest $request ModifyMonitorGroupRequest
      *
-     * @return ModifyMonitorGroupResponse
+     * @return ModifyMonitorGroupResponse ModifyMonitorGroupResponse
      */
     public function modifyMonitorGroup($request)
     {
@@ -8189,10 +8399,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param ModifyMonitorGroupInstancesRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @param ModifyMonitorGroupInstancesRequest $request ModifyMonitorGroupInstancesRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyMonitorGroupInstancesResponse
+     * @return ModifyMonitorGroupInstancesResponse ModifyMonitorGroupInstancesResponse
      */
     public function modifyMonitorGroupInstancesWithOptions($request, $runtime)
     {
@@ -8223,9 +8433,9 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param ModifyMonitorGroupInstancesRequest $request
+     * @param ModifyMonitorGroupInstancesRequest $request ModifyMonitorGroupInstancesRequest
      *
-     * @return ModifyMonitorGroupInstancesResponse
+     * @return ModifyMonitorGroupInstancesResponse ModifyMonitorGroupInstancesResponse
      */
     public function modifyMonitorGroupInstances($request)
     {
@@ -8235,8 +8445,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * The number of site monitoring tasks.
-     *   *
+     * @summary Modifies a site monitoring task.
+     *  *
+     * @description The number of site monitoring tasks.
+     *  *
      * @param ModifySiteMonitorRequest $request ModifySiteMonitorRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -8292,8 +8504,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * The number of site monitoring tasks.
-     *   *
+     * @summary Modifies a site monitoring task.
+     *  *
+     * @description The number of site monitoring tasks.
+     *  *
      * @param ModifySiteMonitorRequest $request ModifySiteMonitorRequest
      *
      * @return ModifySiteMonitorResponse ModifySiteMonitorResponse
@@ -8306,8 +8520,8 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI OpenCmsService is deprecated
+     *  *
      * Deprecated
      *
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
@@ -8333,8 +8547,8 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI OpenCmsService is deprecated
+     *  *
      * Deprecated
      *
      * @return OpenCmsServiceResponse OpenCmsServiceResponse
@@ -8347,10 +8561,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param PutContactRequest $request
-     * @param RuntimeOptions    $runtime
+     * @param PutContactRequest $request PutContactRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return PutContactResponse
+     * @return PutContactResponse PutContactResponse
      */
     public function putContactWithOptions($request, $runtime)
     {
@@ -8387,9 +8601,9 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param PutContactRequest $request
+     * @param PutContactRequest $request PutContactRequest
      *
-     * @return PutContactResponse
+     * @return PutContactResponse PutContactResponse
      */
     public function putContact($request)
     {
@@ -8399,8 +8613,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to create an alert contact group named `ECS_Group`.
-     *   *
+     * @summary 添加或者修改报警联系人组
+     *  *
+     * @description This topic provides an example on how to create an alert contact group named `ECS_Group`.
+     *  *
      * @param PutContactGroupRequest $request PutContactGroupRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -8441,8 +8657,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to create an alert contact group named `ECS_Group`.
-     *   *
+     * @summary 添加或者修改报警联系人组
+     *  *
+     * @description This topic provides an example on how to create an alert contact group named `ECS_Group`.
+     *  *
      * @param PutContactGroupRequest $request PutContactGroupRequest
      *
      * @return PutContactGroupResponse PutContactGroupResponse
@@ -8455,10 +8673,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param PutCustomEventRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Reports custom events.
+     *  *
+     * @param PutCustomEventRequest $request PutCustomEventRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return PutCustomEventResponse
+     * @return PutCustomEventResponse PutCustomEventResponse
      */
     public function putCustomEventWithOptions($request, $runtime)
     {
@@ -8486,9 +8706,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param PutCustomEventRequest $request
+     * @summary Reports custom events.
+     *  *
+     * @param PutCustomEventRequest $request PutCustomEventRequest
      *
-     * @return PutCustomEventResponse
+     * @return PutCustomEventResponse PutCustomEventResponse
      */
     public function putCustomEvent($request)
     {
@@ -8498,8 +8720,8 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, call the PutCustomEvent operation to report the monitoring data of the custom event. For more information, see [PutCustomEvent](~~115012~~).
-     *   *
+     * @description Before you call this operation, call the PutCustomEvent operation to report the monitoring data of the custom event. For more information, see [PutCustomEvent](https://help.aliyun.com/document_detail/115012.html).
+     *  *
      * @param PutCustomEventRuleRequest $request PutCustomEventRuleRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -8561,8 +8783,8 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, call the PutCustomEvent operation to report the monitoring data of the custom event. For more information, see [PutCustomEvent](~~115012~~).
-     *   *
+     * @description Before you call this operation, call the PutCustomEvent operation to report the monitoring data of the custom event. For more information, see [PutCustomEvent](https://help.aliyun.com/document_detail/115012.html).
+     *  *
      * @param PutCustomEventRuleRequest $request PutCustomEventRuleRequest
      *
      * @return PutCustomEventRuleResponse PutCustomEventRuleResponse
@@ -8575,8 +8797,8 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * >  We recommend that you call the [PutHybridMonitorMetricData](~~383455~~) operation of Hybrid Cloud Monitoring to report monitoring data.
-     *   *
+     * @description >  We recommend that you call the [PutHybridMonitorMetricData](https://help.aliyun.com/document_detail/383455.html) operation of Hybrid Cloud Monitoring to report monitoring data.
+     *  *
      * @param PutCustomMetricRequest $request PutCustomMetricRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -8608,8 +8830,8 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * >  We recommend that you call the [PutHybridMonitorMetricData](~~383455~~) operation of Hybrid Cloud Monitoring to report monitoring data.
-     *   *
+     * @description >  We recommend that you call the [PutHybridMonitorMetricData](https://help.aliyun.com/document_detail/383455.html) operation of Hybrid Cloud Monitoring to report monitoring data.
+     *  *
      * @param PutCustomMetricRequest $request PutCustomMetricRequest
      *
      * @return PutCustomMetricResponse PutCustomMetricResponse
@@ -8622,8 +8844,8 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, call the PutCustomMetric operation to report custom monitoring data. For more information, see [PutCustomMetric](~~115004~~).
-     *   *
+     * @description Before you call this operation, call the PutCustomMetric operation to report custom monitoring data. For more information, see [PutCustomMetric](https://help.aliyun.com/document_detail/115004.html).
+     *  *
      * @param PutCustomMetricRuleRequest $request PutCustomMetricRuleRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -8700,8 +8922,8 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, call the PutCustomMetric operation to report custom monitoring data. For more information, see [PutCustomMetric](~~115004~~).
-     *   *
+     * @description Before you call this operation, call the PutCustomMetric operation to report custom monitoring data. For more information, see [PutCustomMetric](https://help.aliyun.com/document_detail/115004.html).
+     *  *
      * @param PutCustomMetricRuleRequest $request PutCustomMetricRuleRequest
      *
      * @return PutCustomMetricRuleResponse PutCustomMetricRuleResponse
@@ -8714,9 +8936,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * If the specified rule name does not exist, an event-triggered alert rule is created. If the specified rule name exists, the specified event-triggered alert rule is modified.
-     *   * In this example, the `myRuleName` alert rule is created for the `ecs` cloud service.
-     *   *
+     * @summary 创建或者修改事件监控
+     *  *
+     * @description If the specified rule name does not exist, an event-triggered alert rule is created. If the specified rule name exists, the specified event-triggered alert rule is modified.
+     * In this example, the `myRuleName` alert rule is created for the `ecs` cloud service.
+     *  *
      * @param PutEventRuleRequest $request PutEventRuleRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
@@ -8766,9 +8990,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * If the specified rule name does not exist, an event-triggered alert rule is created. If the specified rule name exists, the specified event-triggered alert rule is modified.
-     *   * In this example, the `myRuleName` alert rule is created for the `ecs` cloud service.
-     *   *
+     * @summary 创建或者修改事件监控
+     *  *
+     * @description If the specified rule name does not exist, an event-triggered alert rule is created. If the specified rule name exists, the specified event-triggered alert rule is modified.
+     * In this example, the `myRuleName` alert rule is created for the `ecs` cloud service.
+     *  *
      * @param PutEventRuleRequest $request PutEventRuleRequest
      *
      * @return PutEventRuleResponse PutEventRuleResponse
@@ -8781,10 +9007,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param PutEventRuleTargetsRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Adds or modifies the push channels of an event-triggered alert rule.
+     *  *
+     * @param PutEventRuleTargetsRequest $request PutEventRuleTargetsRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return PutEventRuleTargetsResponse
+     * @return PutEventRuleTargetsResponse PutEventRuleTargetsResponse
      */
     public function putEventRuleTargetsWithOptions($request, $runtime)
     {
@@ -8830,9 +9058,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param PutEventRuleTargetsRequest $request
+     * @summary Adds or modifies the push channels of an event-triggered alert rule.
+     *  *
+     * @param PutEventRuleTargetsRequest $request PutEventRuleTargetsRequest
      *
-     * @return PutEventRuleTargetsResponse
+     * @return PutEventRuleTargetsResponse PutEventRuleTargetsResponse
      */
     public function putEventRuleTargets($request)
     {
@@ -8842,8 +9072,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * > The monitoring data can be exported only to Log Service. More services will be supported in the future.
-     *   *
+     * @summary Creates or modifies a configuration set for exporting monitoring data.
+     *  *
+     * @description > The monitoring data can be exported only to Log Service. More services will be supported in the future.
+     *  *
      * @param PutExporterOutputRequest $request PutExporterOutputRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -8884,8 +9116,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * > The monitoring data can be exported only to Log Service. More services will be supported in the future.
-     *   *
+     * @summary Creates or modifies a configuration set for exporting monitoring data.
+     *  *
+     * @description > The monitoring data can be exported only to Log Service. More services will be supported in the future.
+     *  *
      * @param PutExporterOutputRequest $request PutExporterOutputRequest
      *
      * @return PutExporterOutputResponse PutExporterOutputResponse
@@ -8898,10 +9132,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param PutExporterRuleRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Creates or modifies a data export rule.
+     *  *
+     * @param PutExporterRuleRequest $request PutExporterRuleRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return PutExporterRuleResponse
+     * @return PutExporterRuleResponse PutExporterRuleResponse
      */
     public function putExporterRuleWithOptions($request, $runtime)
     {
@@ -8944,9 +9180,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param PutExporterRuleRequest $request
+     * @summary Creates or modifies a data export rule.
+     *  *
+     * @param PutExporterRuleRequest $request PutExporterRuleRequest
      *
-     * @return PutExporterRuleResponse
+     * @return PutExporterRuleResponse PutExporterRuleResponse
      */
     public function putExporterRule($request)
     {
@@ -8956,8 +9194,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to create an alert rule for the `cpu_total` metric of Elastic Compute Service (ECS) in the `17285****` application group. The ID of the alert rule is `123456`. The name of the alert rule is `Rule_test`. The alert level is `Critical`. The statistical method is `Average`. The alert threshold comparator is `GreaterThanOrEqualToThreshold`. The alert threshold is `90`. The number of alert retries is `3`. The returned result shows that the alert rule is created and the alert rule ID is `123456`.
-     *   *
+     * @summary Creates or modifies an alert rule for an application group.
+     *  *
+     * @description This topic provides an example on how to create an alert rule for the `cpu_total` metric of Elastic Compute Service (ECS) in the `17285****` application group. The ID of the alert rule is `123456`. The name of the alert rule is `Rule_test`. The alert level is `Critical`. The statistical method is `Average`. The alert threshold comparator is `GreaterThanOrEqualToThreshold`. The alert threshold is `90`. The number of alert retries is `3`. The returned result shows that the alert rule is created and the alert rule ID is `123456`.
+     *  *
      * @param PutGroupMetricRuleRequest $request PutGroupMetricRuleRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -9046,8 +9286,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to create an alert rule for the `cpu_total` metric of Elastic Compute Service (ECS) in the `17285****` application group. The ID of the alert rule is `123456`. The name of the alert rule is `Rule_test`. The alert level is `Critical`. The statistical method is `Average`. The alert threshold comparator is `GreaterThanOrEqualToThreshold`. The alert threshold is `90`. The number of alert retries is `3`. The returned result shows that the alert rule is created and the alert rule ID is `123456`.
-     *   *
+     * @summary Creates or modifies an alert rule for an application group.
+     *  *
+     * @description This topic provides an example on how to create an alert rule for the `cpu_total` metric of Elastic Compute Service (ECS) in the `17285****` application group. The ID of the alert rule is `123456`. The name of the alert rule is `Rule_test`. The alert level is `Critical`. The statistical method is `Average`. The alert threshold comparator is `GreaterThanOrEqualToThreshold`. The alert threshold is `90`. The number of alert retries is `3`. The returned result shows that the alert rule is created and the alert rule ID is `123456`.
+     *  *
      * @param PutGroupMetricRuleRequest $request PutGroupMetricRuleRequest
      *
      * @return PutGroupMetricRuleResponse PutGroupMetricRuleResponse
@@ -9060,13 +9302,15 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * # [](#)Prerequisites
-     *   * Hybrid Cloud Monitoring is activated. For more information, see [Activate Hybrid Cloud Monitoring](~~250773~~).
-     *   * # [](#)Limits
-     *   * The size of the monitoring data that you import at a time must be less than or equal to 1 MB.
-     *   * # [](#)Description
-     *   * This topic provides an example on how to import the monitoring data of the `CPU_Usage` metric to the `default-aliyun` namespace of Hybrid Cloud Monitoring.
-     *   *
+     * @summary Imports the monitoring data of a metric to a namespace of Hybrid Cloud Monitoring.
+     *  *
+     * @description # [](#)Prerequisites
+     * Hybrid Cloud Monitoring is activated. For more information, see [Activate Hybrid Cloud Monitoring](https://help.aliyun.com/document_detail/250773.html).
+     * # [](#)Limits
+     * The size of the monitoring data that you import at a time must be less than or equal to 1 MB.
+     * # [](#)Description
+     * This topic provides an example on how to import the monitoring data of the `CPU_Usage` metric to the `default-aliyun` namespace of Hybrid Cloud Monitoring.
+     *  *
      * @param PutHybridMonitorMetricDataRequest $request PutHybridMonitorMetricDataRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
@@ -9101,13 +9345,15 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * # [](#)Prerequisites
-     *   * Hybrid Cloud Monitoring is activated. For more information, see [Activate Hybrid Cloud Monitoring](~~250773~~).
-     *   * # [](#)Limits
-     *   * The size of the monitoring data that you import at a time must be less than or equal to 1 MB.
-     *   * # [](#)Description
-     *   * This topic provides an example on how to import the monitoring data of the `CPU_Usage` metric to the `default-aliyun` namespace of Hybrid Cloud Monitoring.
-     *   *
+     * @summary Imports the monitoring data of a metric to a namespace of Hybrid Cloud Monitoring.
+     *  *
+     * @description # [](#)Prerequisites
+     * Hybrid Cloud Monitoring is activated. For more information, see [Activate Hybrid Cloud Monitoring](https://help.aliyun.com/document_detail/250773.html).
+     * # [](#)Limits
+     * The size of the monitoring data that you import at a time must be less than or equal to 1 MB.
+     * # [](#)Description
+     * This topic provides an example on how to import the monitoring data of the `CPU_Usage` metric to the `default-aliyun` namespace of Hybrid Cloud Monitoring.
+     *  *
      * @param PutHybridMonitorMetricDataRequest $request PutHybridMonitorMetricDataRequest
      *
      * @return PutHybridMonitorMetricDataResponse PutHybridMonitorMetricDataResponse
@@ -9120,8 +9366,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * In the example of this topic, the `cpu_total` log monitoring metric is created. The response shows that the log monitoring metric is created and the metric ID is `16****`.
-     *   *
+     * @summary Creates or modifies a log monitoring metric.
+     *  *
+     * @description In the example of this topic, the `cpu_total` log monitoring metric is created. The response shows that the log monitoring metric is created and the metric ID is `16****`.
+     *  *
      * @param PutLogMonitorRequest $request PutLogMonitorRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -9189,8 +9437,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * In the example of this topic, the `cpu_total` log monitoring metric is created. The response shows that the log monitoring metric is created and the metric ID is `16****`.
-     *   *
+     * @summary Creates or modifies a log monitoring metric.
+     *  *
+     * @description In the example of this topic, the `cpu_total` log monitoring metric is created. The response shows that the log monitoring metric is created and the metric ID is `16****`.
+     *  *
      * @param PutLogMonitorRequest $request PutLogMonitorRequest
      *
      * @return PutLogMonitorResponse PutLogMonitorResponse
@@ -9203,9 +9453,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * ## Limit
-     *   * This operation supports only Message Service (MNS) resources.
-     *   *
+     * @summary Adds or modifies the push channels of an alert rule.
+     *  *
+     * @description # [](#)
+     * This topic provides an example on how to associate an alert rule with a resource. In this example, the alert rule is `ae06917_75a8c43178ab66****`, the resource is `acs:mns:cn-hangzhou:120886317861****:/queues/test/message`, and the ID of the resource for which alerts are triggered is `1`. The response indicates that the resource is associated with the specified alert rule.
+     *  *
      * @param PutMetricRuleTargetsRequest $request PutMetricRuleTargetsRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -9240,9 +9492,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * ## Limit
-     *   * This operation supports only Message Service (MNS) resources.
-     *   *
+     * @summary Adds or modifies the push channels of an alert rule.
+     *  *
+     * @description # [](#)
+     * This topic provides an example on how to associate an alert rule with a resource. In this example, the alert rule is `ae06917_75a8c43178ab66****`, the resource is `acs:mns:cn-hangzhou:120886317861****:/queues/test/message`, and the ID of the resource for which alerts are triggered is `1`. The response indicates that the resource is associated with the specified alert rule.
+     *  *
      * @param PutMetricRuleTargetsRequest $request PutMetricRuleTargetsRequest
      *
      * @return PutMetricRuleTargetsResponse PutMetricRuleTargetsResponse
@@ -9255,10 +9509,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param PutMonitorGroupDynamicRuleRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Creates or modifies an alert rule to dynamically add instances that meet the rule to an application group.
+     *  *
+     * @param PutMonitorGroupDynamicRuleRequest $request PutMonitorGroupDynamicRuleRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return PutMonitorGroupDynamicRuleResponse
+     * @return PutMonitorGroupDynamicRuleResponse PutMonitorGroupDynamicRuleResponse
      */
     public function putMonitorGroupDynamicRuleWithOptions($request, $runtime)
     {
@@ -9292,9 +9548,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param PutMonitorGroupDynamicRuleRequest $request
+     * @summary Creates or modifies an alert rule to dynamically add instances that meet the rule to an application group.
+     *  *
+     * @param PutMonitorGroupDynamicRuleRequest $request PutMonitorGroupDynamicRuleRequest
      *
-     * @return PutMonitorGroupDynamicRuleResponse
+     * @return PutMonitorGroupDynamicRuleResponse PutMonitorGroupDynamicRuleResponse
      */
     public function putMonitorGroupDynamicRule($request)
     {
@@ -9304,10 +9562,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param PutMonitoringConfigRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Configures global settings for the CloudMonitor agent.
+     *  *
+     * @param PutMonitoringConfigRequest $request PutMonitoringConfigRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return PutMonitoringConfigResponse
+     * @return PutMonitoringConfigResponse PutMonitoringConfigResponse
      */
     public function putMonitoringConfigWithOptions($request, $runtime)
     {
@@ -9338,9 +9598,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param PutMonitoringConfigRequest $request
+     * @summary Configures global settings for the CloudMonitor agent.
+     *  *
+     * @param PutMonitoringConfigRequest $request PutMonitoringConfigRequest
      *
-     * @return PutMonitoringConfigResponse
+     * @return PutMonitoringConfigResponse PutMonitoringConfigResponse
      */
     public function putMonitoringConfig($request)
     {
@@ -9350,8 +9612,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * This topic provides an example to show how to create a threshold-triggered alert rule for the `cpu_total` metric of an Elastic Compute Service (ECS) instance whose ID is `i-uf6j91r34rnwawoo****`. The namespace of ECS is `acs_ecs_dashboard`. The alert contact group of the alert rule is `ECS_Group`. The name of the alert rule is `test123`. The ID of the alert rule is `a151cd6023eacee2f0978e03863cc1697c89508****`. The statistical method for Critical-level alerts is `Average`. The comparison operator for Critical-level alerts is `GreaterThanOrEqualToThreshold`. The threshold for Critical-level alerts is `90`. The consecutive number of times for which the metric value meets the trigger condition before a Critical-level alert is triggered is `3`.
-     *   *
+     * @summary Creates an alert rule for a metric of a resource.
+     *  *
+     * @description This topic provides an example on how to create a threshold-triggered alert rule for the `cpu_total` metric of an Elastic Compute Service (ECS) instance whose ID is `i-uf6j91r34rnwawoo****`. The namespace of ECS metrics is `acs_ecs_dashboard`. The alert contact group of the alert rule is `ECS_Group`. The name of the alert rule is `test123`. The ID of the alert rule is `a151cd6023eacee2f0978e03863cc1697c89508****`. The statistical method for Critical-level alerts is `Average`. The comparison operator for Critical-level alerts is `GreaterThanOrEqualToThreshold`. The threshold for Critical-level alerts is `90`. The consecutive number of times for which the metric value meets the trigger condition before a Critical-level alert is triggered is `3`.
+     *  *
      * @param PutResourceMetricRuleRequest $tmpReq  PutResourceMetricRuleRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -9442,8 +9706,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * This topic provides an example to show how to create a threshold-triggered alert rule for the `cpu_total` metric of an Elastic Compute Service (ECS) instance whose ID is `i-uf6j91r34rnwawoo****`. The namespace of ECS is `acs_ecs_dashboard`. The alert contact group of the alert rule is `ECS_Group`. The name of the alert rule is `test123`. The ID of the alert rule is `a151cd6023eacee2f0978e03863cc1697c89508****`. The statistical method for Critical-level alerts is `Average`. The comparison operator for Critical-level alerts is `GreaterThanOrEqualToThreshold`. The threshold for Critical-level alerts is `90`. The consecutive number of times for which the metric value meets the trigger condition before a Critical-level alert is triggered is `3`.
-     *   *
+     * @summary Creates an alert rule for a metric of a resource.
+     *  *
+     * @description This topic provides an example on how to create a threshold-triggered alert rule for the `cpu_total` metric of an Elastic Compute Service (ECS) instance whose ID is `i-uf6j91r34rnwawoo****`. The namespace of ECS metrics is `acs_ecs_dashboard`. The alert contact group of the alert rule is `ECS_Group`. The name of the alert rule is `test123`. The ID of the alert rule is `a151cd6023eacee2f0978e03863cc1697c89508****`. The statistical method for Critical-level alerts is `Average`. The comparison operator for Critical-level alerts is `GreaterThanOrEqualToThreshold`. The threshold for Critical-level alerts is `90`. The consecutive number of times for which the metric value meets the trigger condition before a Critical-level alert is triggered is `3`.
+     *  *
      * @param PutResourceMetricRuleRequest $request PutResourceMetricRuleRequest
      *
      * @return PutResourceMetricRuleResponse PutResourceMetricRuleResponse
@@ -9456,8 +9722,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to create a threshold-triggered alert rule for the `cpu_total` metric of an Elastic Compute Service (ECS) instance whose ID is `i-uf6j91r34rnwawoo****`. The namespace of ECS metrics is `acs_ecs_dashboard`. The alert contact group of the alert rule is `ECS_Group`. The name of the alert rule is `test123`. The ID of the alert rule is `a151cd6023eacee2f0978e03863cc1697c89508****`. The statistical method for Critical-level alerts is `Average`. The comparison operator for Critical-level alerts is `GreaterThanOrEqualToThreshold`. The threshold for Critical-level alerts is `90`. The consecutive number of times for which the metric value meets the trigger condition before a Critical-level alert is triggered is `3`.
-     *   *
+     * @summary Creates multiple alert rules for the specified metric of a specified resource.
+     *  *
+     * @description This topic provides an example on how to create a threshold-triggered alert rule for the `cpu_total` metric of an Elastic Compute Service (ECS) instance whose ID is `i-uf6j91r34rnwawoo****`. The namespace of ECS metrics is `acs_ecs_dashboard`. The alert contact group of the alert rule is `ECS_Group`. The name of the alert rule is `test123`. The ID of the alert rule is `a151cd6023eacee2f0978e03863cc1697c89508****`. The statistical method for Critical-level alerts is `Average`. The comparison operator for Critical-level alerts is `GreaterThanOrEqualToThreshold`. The threshold for Critical-level alerts is `90`. The consecutive number of times for which the metric value meets the trigger condition before a Critical-level alert is triggered is `3`.
+     *  *
      * @param PutResourceMetricRulesRequest $request PutResourceMetricRulesRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -9489,8 +9757,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to create a threshold-triggered alert rule for the `cpu_total` metric of an Elastic Compute Service (ECS) instance whose ID is `i-uf6j91r34rnwawoo****`. The namespace of ECS metrics is `acs_ecs_dashboard`. The alert contact group of the alert rule is `ECS_Group`. The name of the alert rule is `test123`. The ID of the alert rule is `a151cd6023eacee2f0978e03863cc1697c89508****`. The statistical method for Critical-level alerts is `Average`. The comparison operator for Critical-level alerts is `GreaterThanOrEqualToThreshold`. The threshold for Critical-level alerts is `90`. The consecutive number of times for which the metric value meets the trigger condition before a Critical-level alert is triggered is `3`.
-     *   *
+     * @summary Creates multiple alert rules for the specified metric of a specified resource.
+     *  *
+     * @description This topic provides an example on how to create a threshold-triggered alert rule for the `cpu_total` metric of an Elastic Compute Service (ECS) instance whose ID is `i-uf6j91r34rnwawoo****`. The namespace of ECS metrics is `acs_ecs_dashboard`. The alert contact group of the alert rule is `ECS_Group`. The name of the alert rule is `test123`. The ID of the alert rule is `a151cd6023eacee2f0978e03863cc1697c89508****`. The statistical method for Critical-level alerts is `Average`. The comparison operator for Critical-level alerts is `GreaterThanOrEqualToThreshold`. The threshold for Critical-level alerts is `90`. The consecutive number of times for which the metric value meets the trigger condition before a Critical-level alert is triggered is `3`.
+     *  *
      * @param PutResourceMetricRulesRequest $request PutResourceMetricRulesRequest
      *
      * @return PutResourceMetricRulesResponse PutResourceMetricRulesResponse
@@ -9503,10 +9773,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param RemoveTagsRequest $request
-     * @param RuntimeOptions    $runtime
+     * @summary Deletes tags.
+     *  *
+     * @param RemoveTagsRequest $request RemoveTagsRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return RemoveTagsResponse
+     * @return RemoveTagsResponse RemoveTagsResponse
      */
     public function removeTagsWithOptions($request, $runtime)
     {
@@ -9537,9 +9809,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param RemoveTagsRequest $request
+     * @summary Deletes tags.
+     *  *
+     * @param RemoveTagsRequest $request RemoveTagsRequest
      *
-     * @return RemoveTagsResponse
+     * @return RemoveTagsResponse RemoveTagsResponse
      */
     public function removeTags($request)
     {
@@ -9549,8 +9823,8 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * This operation is used to test whether a system event can be triggered as expected. You can call this operation to simulate a system event and check whether an expected response is returned after an alert is triggered by the system event.
-     *   *
+     * @description This operation is used to test whether a system event can be triggered as expected. You can call this operation to simulate a system event and check whether an expected response is returned after an alert is triggered by the system event.
+     *  *
      * @param SendDryRunSystemEventRequest $request SendDryRunSystemEventRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -9591,8 +9865,8 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * This operation is used to test whether a system event can be triggered as expected. You can call this operation to simulate a system event and check whether an expected response is returned after an alert is triggered by the system event.
-     *   *
+     * @description This operation is used to test whether a system event can be triggered as expected. You can call this operation to simulate a system event and check whether an expected response is returned after an alert is triggered by the system event.
+     *  *
      * @param SendDryRunSystemEventRequest $request SendDryRunSystemEventRequest
      *
      * @return SendDryRunSystemEventResponse SendDryRunSystemEventResponse
@@ -9605,8 +9879,8 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * >  This API operation is not applicable to ECS instances. To uninstall the agent from an ECS instance, see [Install and uninstall the Cloud Monitor agent](~~183482~~).
-     *   *
+     * @description >  This API operation is not applicable to ECS instances. To uninstall the agent from an ECS instance, see [Install and uninstall the Cloud Monitor agent](https://help.aliyun.com/document_detail/183482.html).
+     *  *
      * @param UninstallMonitoringAgentRequest $request UninstallMonitoringAgentRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -9638,8 +9912,8 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * >  This API operation is not applicable to ECS instances. To uninstall the agent from an ECS instance, see [Install and uninstall the Cloud Monitor agent](~~183482~~).
-     *   *
+     * @description >  This API operation is not applicable to ECS instances. To uninstall the agent from an ECS instance, see [Install and uninstall the Cloud Monitor agent](https://help.aliyun.com/document_detail/183482.html).
+     *  *
      * @param UninstallMonitoringAgentRequest $request UninstallMonitoringAgentRequest
      *
      * @return UninstallMonitoringAgentResponse UninstallMonitoringAgentResponse

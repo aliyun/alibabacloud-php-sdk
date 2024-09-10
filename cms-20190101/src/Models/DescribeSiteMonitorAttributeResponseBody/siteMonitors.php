@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorAttributeResp
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorAttributeResponseBody\siteMonitors\customSchedule;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorAttributeResponseBody\siteMonitors\ispCities;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorAttributeResponseBody\siteMonitors\optionJson;
+use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorAttributeResponseBody\siteMonitors\vpcConfig;
 use AlibabaCloud\Tea\Model;
 
 class siteMonitors extends Model
@@ -49,7 +50,7 @@ class siteMonitors extends Model
     public $ispCities;
 
     /**
-     * @description The extended options of the site monitoring task. The options vary based on the specified protocol. For more information, see [CreateSiteMonitor](~~115048~~).
+     * @description The extended options of the site monitoring task. The options vary based on the specified protocol. For more information, see [CreateSiteMonitor](https://help.aliyun.com/document_detail/115048.html).
      *
      * @var optionJson
      */
@@ -93,6 +94,11 @@ class siteMonitors extends Model
      * @var string
      */
     public $taskType;
+
+    /**
+     * @var vpcConfig
+     */
+    public $vpcConfig;
     protected $_name = [
         'address'        => 'Address',
         'agentGroup'     => 'AgentGroup',
@@ -104,6 +110,7 @@ class siteMonitors extends Model
         'taskName'       => 'TaskName',
         'taskState'      => 'TaskState',
         'taskType'       => 'TaskType',
+        'vpcConfig'      => 'VpcConfig',
     ];
 
     public function validate()
@@ -142,6 +149,9 @@ class siteMonitors extends Model
         }
         if (null !== $this->taskType) {
             $res['TaskType'] = $this->taskType;
+        }
+        if (null !== $this->vpcConfig) {
+            $res['VpcConfig'] = null !== $this->vpcConfig ? $this->vpcConfig->toMap() : null;
         }
 
         return $res;
@@ -184,6 +194,9 @@ class siteMonitors extends Model
         }
         if (isset($map['TaskType'])) {
             $model->taskType = $map['TaskType'];
+        }
+        if (isset($map['VpcConfig'])) {
+            $model->vpcConfig = vpcConfig::fromMap($map['VpcConfig']);
         }
 
         return $model;

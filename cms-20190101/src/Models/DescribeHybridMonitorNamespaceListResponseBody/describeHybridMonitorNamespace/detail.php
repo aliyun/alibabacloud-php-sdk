@@ -9,11 +9,21 @@ use AlibabaCloud\Tea\Model;
 class detail extends Model
 {
     /**
+     * @description The region where the metric data is stored.
+     *
+     * >  This parameter is returned if you select `m_prom_user` for `NamespaceType` when you create a namespace.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $namespaceRegion;
 
     /**
+     * @description The project where the metric data is located.
+     *
+     * >  This parameter is returned if you select `m_prom_user` for `NamespaceType` when you create a namespace.
+     * @example cms-hybrid-120886317861****-cn-hangzhou-a83d
+     *
      * @var string
      */
     public $SLSProject;
@@ -21,12 +31,12 @@ class detail extends Model
     /**
      * @description The data retention period. Valid values:
      *
-     *   cms.s1.large: Data is stored for 15 days.
-     *   cms.s1.xlarge: Data is stored for 32 days.
-     *   cms.s1.2xlarge: Data is stored for 63 days.
-     *   cms.s1.3xlarge: Data is stored for 93 days.
-     *   cms.s1.6xlarge: Data is stored for 185 days.
-     *   cms.s1.12xlarge: Data is stored for 376 days.
+     *   cms.s1.large (Retention Period 15 Days)
+     *   cms.s1.xlarge (Retention Period 32 Days)
+     *   cms.s1.2xlarge (Retention Period 63 Days)
+     *   cms.s1.3xlarge (Retention Period 93 Days)
+     *   cms.s1.6xlarge (Retention Period 185 Days)
+     *   cms.s1.12xlarge (Retention Period 367 Days)
      *
      * @example cms.s1.3xlarge
      *

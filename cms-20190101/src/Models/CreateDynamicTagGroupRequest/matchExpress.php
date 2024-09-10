@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class matchExpress extends Model
 {
     /**
-     * @description The tag values of the cloud resources. In this example, set the value of N to 1.
+     * @description The keys of the tags that are used to create the application group. If a specified key is attached to multiple resources, the resources that have the same key-value pair are added to the same group.
      *
-     * >  If you set the `MatchExpress.N.TagValueMatchFunction` parameter, you must also set the `MatchExpress.N.TagValue` parameter.
      * @example appname
      *
      * @var string
@@ -19,8 +18,9 @@ class matchExpress extends Model
     public $tagName;
 
     /**
-     * @description The ID of the region to which the tags belong.
+     * @description The tag values of the cloud resources. In this example, set the value of N to 1.
      *
+     * >  If you set the `MatchExpress.N.TagValueMatchFunction` parameter, you must also set the `MatchExpress.N.TagValue` parameter.
      * @example instance
      *
      * @var string
@@ -28,8 +28,16 @@ class matchExpress extends Model
     public $tagValue;
 
     /**
-     * @description The error message.
+     * @description The method that is used to match the tag values of the cloud resources. In this example, set the value of N to 1. Valid values:
      *
+     *   contains: contains
+     *   startWith: starts with a prefix
+     *   endWith: ends with a suffix
+     *   notContains: does not contain
+     *   equals: equals
+     *   all: matches all
+     *
+     * >  If you set the `MatchExpress.N.TagValueMatchFunction` parameter, you must also set the `MatchExpress.N.TagValue` parameter.
      * @example contains
      *
      * @var string

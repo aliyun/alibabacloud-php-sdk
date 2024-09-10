@@ -11,15 +11,16 @@ class targetList extends Model
     /**
      * @description The Alibaba Cloud Resource Name (ARN) of the resource.
      *
-     * For information about how to obtain the ARN of a resource, see [DescribeMetricRuleTargets](~~121592~~).
+     * For information about how to obtain the ARN of a resource, see [DescribeMetricRuleTargets](https://help.aliyun.com/document_detail/121592.html).
      *
      * Format: `acs:{Service name abbreviation}:{regionId}:{userId}:/{Resource type}/{Resource name}/message`. Example: `acs:mns:cn-hangzhou:120886317861****:/queues/test123/message`. Fields:
      *
-     *   {Service name abbreviation}: the abbreviation of the service name. Valid value: mns.
-     *   {userId}: the ID of the Alibaba Cloud account.
-     *   {regionId}: the region ID of the message queue or topic.
-     *   {Resource type}`: the type of the resource for which alerts are triggered. Valid values: - **queues** - **topics** {Resource name}: the name of the resource. - If the resource type is set to **queues**, the resource name is the name of the message queue. - If the resource type is set to **topics**, the resource name is the name of the topic.`
-     *
+     * - {Resource type}: the type of the resource for which alerts are triggered. Valid values:
+     * - **queues**
+     * - **topics**
+     * - {Resourcename}: the name of the resource.
+     * - If the resource type is set to **queues**, the resource name is the name of the message queue.
+     * - If the resource type is set to **topics**, the resource name is the name of the topic.`
      * @example acs:mns:cn-hangzhou:120886317861****:/queues/test/message
      *
      * @var string
@@ -29,7 +30,7 @@ class targetList extends Model
     /**
      * @description The ID of the resource for which alerts are triggered.
      *
-     * For information about how to obtain the ID of a resource for which alerts are triggered, see [DescribeMetricRuleTargets](~~121592~~).
+     * For information about how to obtain the ID of a resource for which alerts are triggered, see [DescribeMetricRuleTargets](https://help.aliyun.com/document_detail/121592.html).
      * @example 1
      *
      * @var string

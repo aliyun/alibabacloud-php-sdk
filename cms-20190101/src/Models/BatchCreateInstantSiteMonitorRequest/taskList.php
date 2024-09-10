@@ -21,7 +21,7 @@ class taskList extends Model
     /**
      * @description The detection points. If you leave this parameter empty, the system randomly selects three detection points.
      *
-     * For information about how to obtain detection points, see [DescribeSiteMonitorISPCityList](~~115045~~).
+     * For information about how to obtain detection points, see [DescribeSiteMonitorISPCityList](https://help.aliyun.com/document_detail/115045.html).
      * @example [{"city":"546","isp":"465"},{"city":"572","isp":"465"},{"city":"738","isp":"465"}]
      *
      * @var string

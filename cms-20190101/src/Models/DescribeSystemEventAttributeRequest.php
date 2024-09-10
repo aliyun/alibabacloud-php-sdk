@@ -21,7 +21,7 @@ class DescribeSystemEventAttributeRequest extends Model
     /**
      * @description The type of the system event.
      *
-     * >  You can call the [DescribeSystemEventMetaList](~~114972~~) operation to query the types of system events.
+     * >  You can call the [DescribeSystemEventMetaList](https://help.aliyun.com/document_detail/114972.html) operation to query the types of system events.
      * @example Exception
      *
      * @var string
@@ -53,7 +53,7 @@ class DescribeSystemEventAttributeRequest extends Model
     /**
      * @description The name of the system event.
      *
-     * >  You can call the [DescribeSystemEventMetaList](~~114972~~) operation to query the names of system events.
+     * >  You can call the [DescribeSystemEventMetaList](https://help.aliyun.com/document_detail/114972.html) operation to query the names of system events.
      * @example BucketIngressBandwidth
      *
      * @var string
@@ -83,7 +83,7 @@ class DescribeSystemEventAttributeRequest extends Model
     /**
      * @description The abbreviation of the service name.
      *
-     * >  You can call the [DescribeSystemEventMetaList](~~114972~~) operation to query the abbreviations of service names.
+     * >  You can call the [DescribeSystemEventMetaList](https://help.aliyun.com/document_detail/114972.html) operation to query the abbreviations of service names.
      * @example oss
      *
      * @var string
@@ -120,7 +120,7 @@ class DescribeSystemEventAttributeRequest extends Model
     /**
      * @description The status of the system event.
      *
-     * >  You can call the [DescribeSystemEventMetaList](~~114972~~) operation to query the statuses of system events.
+     * >  You can call the [DescribeSystemEventMetaList](https://help.aliyun.com/document_detail/114972.html) operation to query the statuses of system events.
      * @example normal
      *
      * @var string

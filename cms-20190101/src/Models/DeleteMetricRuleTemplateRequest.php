@@ -16,6 +16,7 @@ class DeleteMetricRuleTemplateRequest extends Model
     /**
      * @description The ID of the alert template.
      *
+     * This parameter is required.
      * @example 123****
      *
      * @var string

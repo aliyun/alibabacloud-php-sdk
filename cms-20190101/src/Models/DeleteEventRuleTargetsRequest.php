@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteEventRuleTargetsRequest extends Model
 {
     /**
+     * @description The IDs of event-triggered alert rules.
+     *
+     * This parameter is required.
      * @example 1
      *
      * @var string[]
@@ -23,6 +26,7 @@ class DeleteEventRuleTargetsRequest extends Model
     /**
      * @description The name of the event-triggered alert rule.
      *
+     * This parameter is required.
      * @example testRule
      *
      * @var string

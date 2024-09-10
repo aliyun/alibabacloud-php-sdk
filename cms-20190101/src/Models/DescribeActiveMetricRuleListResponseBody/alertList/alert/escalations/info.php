@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class info extends Model
 {
     /**
-     * @description The comparison operator of the threshold for info-level alerts. Valid values:
+     * @description The operator that is used to compare the metric value with the threshold for Info-level alerts. Valid values:
      *
      *   GreaterThanOrEqualToThreshold: greater than or equal to the threshold
      *   GreaterThanThreshold: greater than the threshold
@@ -30,7 +30,7 @@ class info extends Model
     public $comparisonOperator;
 
     /**
-     * @description The statistical aggregation method for info-level alerts.
+     * @description The statistical methods for Info-level alerts.
      *
      * @example Average
      *
@@ -39,7 +39,7 @@ class info extends Model
     public $statistics;
 
     /**
-     * @description The threshold for info-level alerts.
+     * @description The threshold for Info-level alerts.
      *
      * @example 95
      *
@@ -48,8 +48,9 @@ class info extends Model
     public $threshold;
 
     /**
-     * @description The consecutive number of times for which the metric value meets the alert condition before an info-level alert is triggered.
+     * @description The consecutive number of times
      *
+     * for which the metric value meets the alert condition before an Info-level alert is triggered.
      * @example 3
      *
      * @var string

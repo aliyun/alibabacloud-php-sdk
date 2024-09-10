@@ -20,14 +20,14 @@ class DescribeAlertingMetricRuleResourcesRequest extends Model
     /**
      * @description The dimensions that specify the resources whose monitoring data you want to query.
      *
-     * @example {\"userId\":\"120886317861****\",\"region\":\"cn-huhehaote\",\"queue\":\"test-0128\"}
+     * @example {\\"userId\\":\\"120886317861****\\",\\"region\\":\\"cn-huhehaote\\",\\"queue\\":\\"test-0128\\"}
      *
      * @var string
      */
     public $dimensions;
 
     /**
-     * @description The ID of the application group. For information about how to obtain the ID of an application group, see [DescribeMonitorGroups](~~115032~~).
+     * @description The ID of the application group. For information about how to obtain the ID of an application group, see [DescribeMonitorGroups](https://help.aliyun.com/document_detail/115032.html).
      *
      * @example 7671****
      *
@@ -38,7 +38,7 @@ class DescribeAlertingMetricRuleResourcesRequest extends Model
     /**
      * @description The namespace of the cloud service.
      *
-     * For more information about the namespaces of cloud services, see [Appendix 1: Metrics](~~163515~~).
+     * For more information about the namespaces of cloud services, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
      * @example acs_mns_new
      *
      * @var string
@@ -71,7 +71,7 @@ class DescribeAlertingMetricRuleResourcesRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the alert rule. For information about how to obtain the ID of an alert rule, see [DescribeMetricRuleList](~~114941~~).
+     * @description The ID of the alert rule. For information about how to obtain the ID of an alert rule, see [DescribeMetricRuleList](https://help.aliyun.com/document_detail/114941.html).
      *
      * @example putNewAlarm_user_7e78d765-0e3e-4671-ba6d-7ce39108****
      *

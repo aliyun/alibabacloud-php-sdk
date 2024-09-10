@@ -11,6 +11,7 @@ class DescribeGroupMonitoringAgentProcessRequest extends Model
     /**
      * @description The ID of the application group.
      *
+     * This parameter is required.
      * @example 12345
      *
      * @var string

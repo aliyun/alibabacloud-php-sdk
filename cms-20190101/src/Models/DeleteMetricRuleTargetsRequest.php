@@ -16,6 +16,7 @@ class DeleteMetricRuleTargetsRequest extends Model
     /**
      * @description The ID of the alert rule.
      *
+     * This parameter is required.
      * @example ruleId-xxxxxx
      *
      * @var string
@@ -25,6 +26,7 @@ class DeleteMetricRuleTargetsRequest extends Model
     /**
      * @description The resource IDs.
      *
+     * This parameter is required.
      * @example 12345
      *
      * @var string[]

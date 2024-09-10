@@ -11,6 +11,7 @@ class UninstallMonitoringAgentRequest extends Model
     /**
      * @description The ID of the host.
      *
+     * This parameter is required.
      * @example host-****
      *
      * @var string

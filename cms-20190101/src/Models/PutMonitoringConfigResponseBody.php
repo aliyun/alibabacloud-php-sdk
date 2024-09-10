@@ -11,7 +11,7 @@ class PutMonitoringConfigResponseBody extends Model
     /**
      * @description The HTTP status code.
      *
-     * >  The status code 200 indicates that the call was successful.
+     * >  The status code 200 indicates that the request was successful.
      * @example 200
      *
      * @var int
@@ -19,7 +19,7 @@ class PutMonitoringConfigResponseBody extends Model
     public $code;
 
     /**
-     * @description The error message.
+     * @description The returned message.
      *
      * @example Specified parameter EnableInstallAgentNewECS is not valid.
      *
@@ -28,7 +28,7 @@ class PutMonitoringConfigResponseBody extends Model
     public $message;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 109C8095-6FAD-4DBB-B013-6ED18CE4C0B1
      *
@@ -37,10 +37,10 @@ class PutMonitoringConfigResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the call was successful. Valid values:
+     * @description Indicates whether the request was successful. Valid values:
      *
-     *   true: The call was successful.
-     *   false: The call failed.
+     *   true
+     *   false
      *
      * @example true
      *

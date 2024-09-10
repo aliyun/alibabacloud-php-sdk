@@ -33,6 +33,7 @@ class alertConfigEscalationList extends Model
      *   TelnetLatency: Telnet response time
      *   PingLostRate: Ping packet loss rate
      *
+     * This parameter is required.
      * @example HttpStatus
      *
      * @var string

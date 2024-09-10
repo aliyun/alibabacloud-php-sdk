@@ -146,6 +146,7 @@ class groupMetricRules extends Model
      *   swas: Simple Application Server
      *   AvailabilityMonitoring: Availability Monitoring of CloudMonitor
      *
+     * This parameter is required.
      * @example ECS
      *
      * @var string
@@ -155,7 +156,7 @@ class groupMetricRules extends Model
     /**
      * @description The alert contact groups. Valid values of N: 1 to 200.
      *
-     * For information about how to obtain alert contact groups, see [DescribeContactGroupList](~~114922~~).
+     * For information about how to obtain alert contact groups, see [DescribeContactGroupList](https://help.aliyun.com/document_detail/114922.html).
      * @example ECS_Group
      *
      * @var string
@@ -206,7 +207,7 @@ class groupMetricRules extends Model
     /**
      * @description The name of the metric. Valid values of N: 1 to 200.
      *
-     * For information about how to obtain the name of a metric, see [DescribeMetricMetaList](~~98846~~) or [Appendix 1: Metrics](~~163515~~).
+     * This parameter is required.
      * @example cpu_total
      *
      * @var string
@@ -216,7 +217,7 @@ class groupMetricRules extends Model
     /**
      * @description The namespace of the cloud service. Valid values of N: 1 to 200.
      *
-     * For information about how to obtain the namespace of a cloud service, see [DescribeMetricMetaList](~~98846~~) or [Appendix 1: Metrics](~~163515~~).
+     * This parameter is required.
      * @example acs_ecs_dashboard
      *
      * @var string
@@ -263,6 +264,7 @@ class groupMetricRules extends Model
     /**
      * @description The ID of the alert rule. Valid values of N: 1 to 200.
      *
+     * This parameter is required.
      * @example 456789
      *
      * @var string
@@ -272,6 +274,7 @@ class groupMetricRules extends Model
     /**
      * @description The name of the alert rule. Valid values of N: 1 to 200.
      *
+     * This parameter is required.
      * @example ECS_Rule1
      *
      * @var string

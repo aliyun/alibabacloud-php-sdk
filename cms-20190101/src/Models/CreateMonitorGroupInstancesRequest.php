@@ -12,6 +12,7 @@ class CreateMonitorGroupInstancesRequest extends Model
     /**
      * @description The ID of the application group.
      *
+     * This parameter is required.
      * @example 3607****
      *
      * @var string
@@ -21,6 +22,7 @@ class CreateMonitorGroupInstancesRequest extends Model
     /**
      * @description The instances that you want to add to the application group.
      *
+     * This parameter is required.
      * @var instances[]
      */
     public $instances;

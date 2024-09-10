@@ -36,7 +36,7 @@ class DescribeHostAvailabilityListRequest extends Model
     public $ids;
 
     /**
-     * @description The number of the page to return.
+     * @description The page number.
      *
      * Pages start from page 1. Default value: 1.
      * @example 1
@@ -46,9 +46,9 @@ class DescribeHostAvailabilityListRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The number of entries per page.
      *
-     * Default value: 10.
+     * Minimum value: 1. Default value: 10
      * @example 10
      *
      * @var int

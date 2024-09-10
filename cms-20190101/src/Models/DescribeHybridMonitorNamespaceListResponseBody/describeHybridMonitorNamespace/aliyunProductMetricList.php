@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class aliyunProductMetricList extends Model
 {
     /**
-     * @description The list of namespaces.
+     * @description The namespaces.
      *
      * @var namespaceList[]
      */
@@ -26,7 +26,13 @@ class aliyunProductMetricList extends Model
     public $userId;
 
     /**
-     * @example products:- namespace: acs_ecs_dashboard metric_info: - metric_list: - cpu_total dimension: \"\"
+     * @description The configuration file of the Alibaba Cloud service that you want to monitor by using Hybrid Cloud Monitoring.
+     *
+     *   namespace: the namespace of the Alibaba Cloud service.
+     *   metric_list: the metrics of the Alibaba Cloud service.
+     *   dimension: the resources of the Alibaba Cloud service that you want to monitor by using Hybrid Cloud Monitoring. If you do not specify a dimension, all resources of the Alibaba Cloud service are monitored.
+     *
+     * @example products:- namespace: acs_ecs_dashboard metric_info: - metric_list: - cpu_total dimension: \\"\\"
      *
      * @var string
      */

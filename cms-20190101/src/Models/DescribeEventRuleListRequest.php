@@ -20,7 +20,7 @@ class DescribeEventRuleListRequest extends Model
     /**
      * @description Specifies whether to enable the event-triggered alert rule. Valid values:
      *
-     * false
+     * - false
      * @example true
      *
      * @var bool

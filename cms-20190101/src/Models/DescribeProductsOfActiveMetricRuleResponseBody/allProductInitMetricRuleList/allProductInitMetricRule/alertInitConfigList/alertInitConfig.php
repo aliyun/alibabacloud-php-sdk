@@ -73,7 +73,7 @@ class alertInitConfig extends Model
     public $level;
 
     /**
-     * @description The metric name. For more information, see [Appendix 1: Metrics](~~163515~~).
+     * @description The metric name. For more information, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
      *
      * @example cpu_total
      *
@@ -82,7 +82,7 @@ class alertInitConfig extends Model
     public $metricName;
 
     /**
-     * @description The namespace of the service. For more information, see [Appendix 1: Metrics](~~163515~~).
+     * @description The namespace of the service. For more information, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
      *
      * @example acs_rds_dashboard
      *
@@ -91,7 +91,7 @@ class alertInitConfig extends Model
     public $namespace;
 
     /**
-     * @description The aggregation period of monitoring data. Unit: minutes. For more information, see [Appendix 1: Metrics](~~163515~~).
+     * @description The aggregation period of monitoring data. Unit: minutes. For more information, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
      *
      * @example 1m
      *
@@ -100,7 +100,7 @@ class alertInitConfig extends Model
     public $period;
 
     /**
-     * @description The method used to calculate metric values that trigger alerts. For more information, see [Appendix 1: Metrics](~~163515~~).
+     * @description The method used to calculate metric values that trigger alerts. For more information, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
      *
      * @example Average
      *

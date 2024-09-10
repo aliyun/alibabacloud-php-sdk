@@ -28,6 +28,7 @@ class DescribeSiteMonitorAttributeRequest extends Model
     /**
      * @description The ID of the site monitoring task.
      *
+     * This parameter is required.
      * @example cc641dff-c19d-45f3-ad0a-818a0c4f****
      *
      * @var string

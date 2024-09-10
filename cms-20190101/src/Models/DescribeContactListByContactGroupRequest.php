@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeContactListByContactGroupRequest extends Model
 {
     /**
-     * @description The name of the alert group.
+     * @description The name of the alert contact group.
      *
+     * This parameter is required.
      * @example CloudMonitor
      *
      * @var string

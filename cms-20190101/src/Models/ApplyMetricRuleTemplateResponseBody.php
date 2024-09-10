@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class ApplyMetricRuleTemplateResponseBody extends Model
 {
     /**
-     * @description The response code.
+     * @description The responses code.
      *
-     * >  The HTTP status code 200 indicates that the call succeeds.
+     * >  The status code 200 indicates that the request was successful.
      * @example 200
      *
      * @var int
@@ -20,7 +20,7 @@ class ApplyMetricRuleTemplateResponseBody extends Model
     public $code;
 
     /**
-     * @description The error message returned.
+     * @description The returned message.
      *
      * @example The specified resource is not found.
      *
@@ -29,7 +29,7 @@ class ApplyMetricRuleTemplateResponseBody extends Model
     public $message;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 3F897F3C-020A-4993-95B4-63ABB84F83E6
      *
@@ -45,10 +45,10 @@ class ApplyMetricRuleTemplateResponseBody extends Model
     public $resource;
 
     /**
-     * @description Indicates whether the call succeeds. Valid values:
+     * @description Indicates whether the request was successful. Valid values:
      *
-     *   true: The call succeeds.
-     *   false: The call fails.
+     *   true
+     *   false
      *
      * @example true
      *

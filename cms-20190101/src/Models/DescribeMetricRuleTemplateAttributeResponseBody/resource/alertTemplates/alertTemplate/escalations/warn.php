@@ -32,7 +32,7 @@ class warn extends Model
     /**
      * @description The statistical method for Warn-level alerts.
      *
-     * The value of the `Statistics` parameter varies with the cloud service. For more information, see [Appendix 1: Metrics](~~163515~~).
+     * The value of the `Statistics` parameter varies with the cloud service. For more information, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
      * @example Average
      *
      * @var string

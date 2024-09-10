@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteEventRulesRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example rule1
      *
      * @var string[]

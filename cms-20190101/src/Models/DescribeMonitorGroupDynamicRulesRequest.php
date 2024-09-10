@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeMonitorGroupDynamicRulesRequest extends Model
 {
     /**
-     * @description The ID of application group.
+     * @description The ID of the application group.
      *
+     * This parameter is required.
      * @example 123456
      *
      * @var int

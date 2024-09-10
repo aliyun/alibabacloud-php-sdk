@@ -38,7 +38,7 @@ class DescribeAlertingMetricRuleResourcesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The resources to which the alert rule is applied.
+     * @description The resources that are associated with the alert rule.
      *
      * @var resources
      */

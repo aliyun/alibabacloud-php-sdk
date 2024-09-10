@@ -26,11 +26,11 @@ class escalationList extends Model
     /**
      * @description The name of the metric. Valid values:
      *
-     *   HttpStatus: HTTP status code
-     *   HttpLatency: HTTP response time
-     *   TelnetStatus: Telnet status code
-     *   TelnetLatency: Telnet response time
-     *   PingLostRate: Ping packet loss rate
+     *   HttpStatus
+     *   HttpLatency
+     *   TelnetStatus
+     *   TelnetLatency
+     *   PingLostRate
      *
      * @example HttpStatus
      *

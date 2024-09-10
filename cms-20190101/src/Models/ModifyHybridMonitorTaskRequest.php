@@ -52,7 +52,7 @@ class ModifyHybridMonitorTaskRequest extends Model
     /**
      * @description The ID of the metric import task.
      *
-     * For information about how to obtain the ID of a metric import task, see [DescribeHybridMonitorTaskList](~~428624~~).
+     * This parameter is required.
      * @example 36****
      *
      * @var string
@@ -62,7 +62,7 @@ class ModifyHybridMonitorTaskRequest extends Model
     /**
      * @description The name of the metric import task.
      *
-     * For information about how to obtain the ID of a metric import task, see [DescribeHybridMonitorTaskList](~~428624~~).
+     * For information about how to obtain the ID of a metric import task, see [DescribeHybridMonitorTaskList](https://help.aliyun.com/document_detail/428624.html).
      * @example SLS_task
      *
      * @var string

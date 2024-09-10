@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeMonitorGroupInstanceAttributeResponseBody extends Model
 {
     /**
-     * @description The HTTP status code.
+     * @description The responses code.
      *
-     * >  The status code 200 indicates that the call was successful.
+     * >  The status code 200 indicates that the request was successful.
      * @example 200
      *
      * @var int
@@ -20,7 +20,7 @@ class DescribeMonitorGroupInstanceAttributeResponseBody extends Model
     public $code;
 
     /**
-     * @description The error message.
+     * @description The returned message.
      *
      * @example The specified resource is not found.
      *
@@ -29,7 +29,7 @@ class DescribeMonitorGroupInstanceAttributeResponseBody extends Model
     public $message;
 
     /**
-     * @description The page number of the returned page.
+     * @description The page number.
      *
      * @example 1
      *
@@ -38,7 +38,7 @@ class DescribeMonitorGroupInstanceAttributeResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The total number of returned pages.
+     * @description The number of entries per page.
      *
      * @example 2
      *
@@ -47,7 +47,7 @@ class DescribeMonitorGroupInstanceAttributeResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 9FB8EA79-7279-4482-8D6D-3D28EEDD871A
      *
@@ -63,10 +63,10 @@ class DescribeMonitorGroupInstanceAttributeResponseBody extends Model
     public $resources;
 
     /**
-     * @description Indicates whether the call was successful. Valid values:
+     * @description Indicates whether the request was successful. Valid values:
      *
-     *   true: The call was successful.
-     *   false: The call failed.
+     *   true
+     *   false
      *
      * @example true
      *
@@ -75,7 +75,7 @@ class DescribeMonitorGroupInstanceAttributeResponseBody extends Model
     public $success;
 
     /**
-     * @description The total number of returned entries.
+     * @description The total number of entries returned.
      *
      * @example 12
      *

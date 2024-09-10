@@ -11,7 +11,7 @@ class instances extends Model
     /**
      * @description The abbreviation of the Alibaba Cloud service name.
      *
-     * To obtain the abbreviation of an Alibaba Cloud service name, call the [DescribeProjectMeta](~~114916~~) operation. The `metricCategory` tag in the `Labels` response parameter indicates the abbreviation of the Alibaba Cloud service name.
+     * This parameter is required.
      * @example ecs
      *
      * @var string
@@ -21,6 +21,7 @@ class instances extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example i-2ze26xj5wwy12****
      *
      * @var string
@@ -30,6 +31,7 @@ class instances extends Model
     /**
      * @description The instance name.
      *
+     * This parameter is required.
      * @example test-instance-ecs
      *
      * @var string
@@ -39,6 +41,7 @@ class instances extends Model
     /**
      * @description The region ID of the instance.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

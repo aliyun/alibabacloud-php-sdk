@@ -20,11 +20,15 @@ class EscalationRule extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @var escalations[]
      */
     public $escalations;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $name;

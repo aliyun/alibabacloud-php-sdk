@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class namespaceList extends Model
 {
     /**
-     * @description The list of metrics for the Alibaba Cloud service.
+     * @description The metrics for the Alibaba Cloud service.
      *
      * @var metricList[]
      */

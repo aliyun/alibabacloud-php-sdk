@@ -12,6 +12,7 @@ class CreateMetricRuleBlackListRequest extends Model
     /**
      * @description The category of the cloud service. For example, ApsaraDB for Redis includes the following categories: ApsaraDB for Redis (standard architecture), ApsaraDB for Redis (cluster architecture), and ApsaraDB for Redis (read/write splitting architecture). In this case, the valid values of this parameter for ApsaraDB for Redis include `kvstore_standard`, `kvstore_sharding`, and `kvstore_splitrw`.
      *
+     * This parameter is required.
      * @example ecs
      *
      * @var string
@@ -55,8 +56,9 @@ class CreateMetricRuleBlackListRequest extends Model
     public $enableStartTime;
 
     /**
-     * @description The IDs of instances that belong to the specified cloud service.
+     * @description The IDs of the instances that belong to the specified cloud service.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $instances;
@@ -74,6 +76,7 @@ class CreateMetricRuleBlackListRequest extends Model
     /**
      * @description The name of the blacklist policy.
      *
+     * This parameter is required.
      * @example Blacklist-01
      *
      * @var string
@@ -83,7 +86,7 @@ class CreateMetricRuleBlackListRequest extends Model
     /**
      * @description The namespace of the cloud service.
      *
-     * For more information about the namespaces of different cloud services, see [Appendix 1: Metrics](~~163515~~).
+     * This parameter is required.
      * @example acs_ecs_dashboard
      *
      * @var string
@@ -98,8 +101,8 @@ class CreateMetricRuleBlackListRequest extends Model
     /**
      * @description The effective scope of the blacklist policy. Valid values:
      *
-     *   USER: The blacklist policy takes effect only for the current Alibaba Cloud account.
-     *   GROUP (default): The blacklist policy takes effect only for the specified application group. For more information about how to obtain the ID of an application group, see [DescribeMonitorGroups](~~115032~~).
+     *   USER (default): The blacklist policy takes effect only for the current Alibaba Cloud account.
+     *   GROUP: The blacklist policy takes effect only for the specified application group. For information about how to query the IDs of application groups, see [DescribeMonitorGroups](https://help.aliyun.com/document_detail/115032.html).
      *
      * @example USER
      *

@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateDynamicTagGroupResponseBody extends Model
 {
     /**
-     * @description The status code.
+     * @description The HTTP status code.
      *
-     * > The status code 200 indicates that the request was successful.
+     * >  The status code 200 indicates that the call is successful.
      * @example 200
      *
      * @var string
@@ -37,7 +37,7 @@ class CreateDynamicTagGroupResponseBody extends Model
     public $message;
 
     /**
-     * @description The request ID.
+     * @description The ID of the request.
      *
      * @example 84AC6F0B-7945-466A-AA44-99BB5A561F86
      *
@@ -46,10 +46,10 @@ class CreateDynamicTagGroupResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request was successful. Valid values:
+     * @description Indicates whether the call is successful. Valid values:
      *
-     *   true
-     *   false
+     *   true: The call is successful.
+     *   false: The call fails.
      *
      * @example true
      *

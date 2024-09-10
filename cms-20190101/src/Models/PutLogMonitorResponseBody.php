@@ -11,7 +11,7 @@ class PutLogMonitorResponseBody extends Model
     /**
      * @description The HTTP status code.
      *
-     * >  The status code 200 indicates that the call is successful.
+     * >  The status code 200 indicates that the request was successful.
      * @example 200
      *
      * @var string
@@ -30,8 +30,8 @@ class PutLogMonitorResponseBody extends Model
     /**
      * @description The returned message.
      *
-     *   If the call is successful, the value `successful` is returned.
-     *   If the call fails, an error message is returned. Example: `alias of aggreate must be set value.`
+     *   If the request was successful, `successful` is returned.
+     *   If the request failed, an error message is returned. Example: `alias of aggreate must be set value.`
      *
      * @example successful
      *
@@ -40,7 +40,7 @@ class PutLogMonitorResponseBody extends Model
     public $message;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 91561287-0802-5F9C-9BDE-404C50D41B06
      *
@@ -49,10 +49,10 @@ class PutLogMonitorResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the call is successful. Valid values:
+     * @description Indicates whether the request was successful. Valid values:
      *
-     *   true: The call is successful.
-     *   false: The call fails.
+     *   true
+     *   false
      *
      * @example true
      *

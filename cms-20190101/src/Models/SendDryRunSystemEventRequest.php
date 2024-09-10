@@ -21,7 +21,7 @@ class SendDryRunSystemEventRequest extends Model
     /**
      * @description The name of the system event.
      *
-     * >  For more information, see [DescribeSystemEventMetaList](~~114972~~).
+     * This parameter is required.
      * @example Agent_Status_Stopped
      *
      * @var string
@@ -40,7 +40,7 @@ class SendDryRunSystemEventRequest extends Model
     /**
      * @description The name of the cloud service.
      *
-     * >  For information about the system events supported by Cloud Monitor for Alibaba Cloud services, see [System events](~~167388~~).
+     * This parameter is required.
      * @example ecs
      *
      * @var string

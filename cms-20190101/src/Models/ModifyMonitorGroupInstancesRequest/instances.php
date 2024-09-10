@@ -81,7 +81,7 @@ class instances extends Model
      *
      *   VPN: VPN Gateway
      *
-     * Valid values of N: 1 to 2000.
+     * This parameter is required.
      * @example ECS
      *
      * @var string
@@ -91,6 +91,7 @@ class instances extends Model
     /**
      * @description The ID of the instance. Valid values of N: 1 to 2000.
      *
+     * This parameter is required.
      * @example i-a2d5q7pm12****
      *
      * @var string
@@ -100,6 +101,7 @@ class instances extends Model
     /**
      * @description The name of the instance. Valid values of N: 1 to 2000.
      *
+     * This parameter is required.
      * @example HostName
      *
      * @var string
@@ -109,6 +111,7 @@ class instances extends Model
     /**
      * @description The ID of the region where the instance resides. Valid values of N: 1 to 2000.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

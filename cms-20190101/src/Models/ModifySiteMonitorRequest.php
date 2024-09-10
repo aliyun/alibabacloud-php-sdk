@@ -18,7 +18,7 @@ class ModifySiteMonitorRequest extends Model
     public $address;
 
     /**
-     * @description The ID of the alert rule. You can call the DescribeMetricRuleList operation to query the IDs of existing alert rules in CloudMonitor. For more information, see [DescribeMetricRuleList](~~114941~~).
+     * @description The ID of the alert rule. You can call the DescribeMetricRuleList operation to query the IDs of existing alert rules in CloudMonitor. For more information, see [DescribeMetricRuleList](https://help.aliyun.com/document_detail/114941.html).
      *
      * @example 49f7c317-7645-4cc9-94fd-ea42e122****
      *
@@ -57,7 +57,7 @@ class ModifySiteMonitorRequest extends Model
     /**
      * @description The information of the detection points. The value is a JSON array. Example: `[{"city":"546","isp":"465"},{"city":"572","isp":"465"},{"city":"738","isp":"465"}]`. The values of the `city` field indicate Beijing, Hangzhou, and Qingdao.
      *
-     * > You can call the DescribeSiteMonitorISPCityList operation to query the detection points. For more information, see [DescribeSiteMonitorISPCityList](~~115045~~). If you leave this parameter empty, the system randomly selects three detection points.
+     * > You can call the DescribeSiteMonitorISPCityList operation to query the detection points. For more information, see [DescribeSiteMonitorISPCityList](https://help.aliyun.com/document_detail/115045.html). If you leave this parameter empty, the system randomly selects three detection points.
      * @example [{"city":"546","isp":"465"},{"city":"572","isp":"465"},{"city":"738","isp":"465"}]
      *
      * @var string
@@ -81,6 +81,7 @@ class ModifySiteMonitorRequest extends Model
     /**
      * @description The ID of the site monitoring task.
      *
+     * This parameter is required.
      * @example 2c8dbdf9-a3ab-46a1-85a4-f094965e****
      *
      * @var string
@@ -88,7 +89,7 @@ class ModifySiteMonitorRequest extends Model
     public $taskId;
 
     /**
-     * @description The name of the site monitoring task. The name must be 4 to 100 characters in length, and can contain letters, digits, and underscores (\_).
+     * @description The name of the site monitoring task. The name must be 4 to 100 characters in length, and can contain letters, digits, and underscores (_).
      *
      * @example HanZhou_ECS2
      *

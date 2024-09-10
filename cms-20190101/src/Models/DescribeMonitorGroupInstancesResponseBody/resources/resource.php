@@ -18,7 +18,7 @@ class resource extends Model
     public $category;
 
     /**
-     * @description The ID of the resource.
+     * @description The resource ID.
      *
      * @example 12345
      *
@@ -27,7 +27,7 @@ class resource extends Model
     public $id;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example i-2ze3w55tr2r****
      *
@@ -36,7 +36,7 @@ class resource extends Model
     public $instanceId;
 
     /**
-     * @description The name of the instance.
+     * @description The instance name.
      *
      * @example hostIP
      *

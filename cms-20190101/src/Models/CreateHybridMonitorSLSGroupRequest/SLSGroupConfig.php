@@ -11,7 +11,7 @@ class SLSGroupConfig extends Model
     /**
      * @description The Logstore.
      *
-     * Valid values of N: 1 to 25.
+     * This parameter is required.
      * @example Logstore-ECS
      *
      * @var string
@@ -21,7 +21,7 @@ class SLSGroupConfig extends Model
     /**
      * @description The Simple Log Service project.
      *
-     * Valid values of N: 1 to 25.
+     * This parameter is required.
      * @example aliyun-project
      *
      * @var string
@@ -31,7 +31,7 @@ class SLSGroupConfig extends Model
     /**
      * @description The region ID.
      *
-     * Valid values of N: 1 to 25.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -41,7 +41,7 @@ class SLSGroupConfig extends Model
     /**
      * @description The member ID.
      *
-     * > If a member uses CloudMonitor for the first time, you must make sure that the service-linked role AliyunServiceRoleForCloudMonitor is attached to the member. For more information, see [Manage the service-linked role for CloudMonitor](~~170423~~).
+     * > If a member uses CloudMonitor for the first time, you must make sure that the service-linked role AliyunServiceRoleForCloudMonitor is attached to the member. For more information, see [Manage the service-linked role for CloudMonitor](https://help.aliyun.com/document_detail/170423.html).
      * @example 120886317861****
      *
      * @var string

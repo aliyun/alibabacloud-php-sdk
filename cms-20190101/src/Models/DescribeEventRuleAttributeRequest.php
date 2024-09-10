@@ -16,7 +16,7 @@ class DescribeEventRuleAttributeRequest extends Model
     /**
      * @description The name of the event-triggered alert rule.
      *
-     * For information about how to obtain the name of an event-triggered alert rule, see [DescribeEventRuleList](~~114996~~).
+     * This parameter is required.
      * @example testRule
      *
      * @var string

@@ -18,7 +18,7 @@ class ModifyHybridMonitorNamespaceRequest extends Model
     /**
      * @description The name of the namespace.
      *
-     * For information about how to obtain the name of a namespace, see [DescribeHybridMonitorNamespaceList](~~428880~~).
+     * This parameter is required.
      * @example aliyun
      *
      * @var string
@@ -40,7 +40,7 @@ class ModifyHybridMonitorNamespaceRequest extends Model
      *   cms.s1.6xlarge: Data is stored for 185 days.
      *   cms.s1.12xlarge: Data is stored for 376 days.
      *
-     * For information about the pricing for different retention periods, see the **Pricing** section in [Billing of the dashboard feature](~~223532~~).
+     * For information about the pricing for different retention periods, see the **Pricing** section in [Billing of the dashboard feature](https://help.aliyun.com/document_detail/223532.html).
      * @example cms.s1.2xlarge
      *
      * @var string

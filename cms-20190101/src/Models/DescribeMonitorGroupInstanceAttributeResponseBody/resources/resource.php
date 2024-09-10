@@ -21,7 +21,7 @@ class resource extends Model
     public $category;
 
     /**
-     * @description The description of the resource.
+     * @description The resource description.
      *
      * @example desc_test
      *
@@ -39,7 +39,7 @@ class resource extends Model
     public $dimension;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example i-m5e0k0bexac8tykr****
      *
@@ -48,7 +48,7 @@ class resource extends Model
     public $instanceId;
 
     /**
-     * @description The name of the instance.
+     * @description The instance name.
      *
      * @example hostName
      *
@@ -66,19 +66,21 @@ class resource extends Model
     public $networkType;
 
     /**
+     * @description The region.
+     *
      * @var region
      */
     public $region;
 
     /**
-     * @description The tags of the resource.
+     * @description The tag of the resource.
      *
      * @var tags
      */
     public $tags;
 
     /**
-     * @description The information about the virtual private cloud (VPC).
+     * @description The VPC description.
      *
      * @var vpc
      */

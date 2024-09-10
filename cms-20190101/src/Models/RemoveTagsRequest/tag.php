@@ -11,7 +11,7 @@ class tag extends Model
     /**
      * @description The tag key.
      *
-     * > The tag key (`Tag.N.Key`) and tag value (`Tag.N.Value`) must be specified at the same time.
+     * This parameter is required.
      * @example Key1
      *
      * @var string
@@ -21,7 +21,7 @@ class tag extends Model
     /**
      * @description The tag value.
      *
-     * > The tag key (`Tag.N.Key`) and tag value (`Tag.N.Value`) must be specified at the same time.
+     * This parameter is required.
      * @example Value1
      *
      * @var string

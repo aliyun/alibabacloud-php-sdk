@@ -12,7 +12,7 @@ class DescribeMetricMetaListResponseBody extends Model
     /**
      * @description The response code.
      *
-     * >  The HTTP 200 code indicates that the request was successful.
+     * >  The status code 200 indicates that the request was successful.
      * @example 200
      *
      * @var string
@@ -20,7 +20,7 @@ class DescribeMetricMetaListResponseBody extends Model
     public $code;
 
     /**
-     * @description The error message.
+     * @description The returned message.
      *
      * @example The Request is not authorization.
      *
@@ -29,7 +29,7 @@ class DescribeMetricMetaListResponseBody extends Model
     public $message;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 0CCE0AF0-053C-4B13-A583-DC9A85785D49
      *
@@ -38,14 +38,17 @@ class DescribeMetricMetaListResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The configuration of the metric.
+     * @description The configuration of the metrics in the resources.
      *
      * @var resources
      */
     public $resources;
 
     /**
-     * @description Indicates whether the request was successful. The value true indicates success. The value false indicates failure.
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
      *
      * @example true
      *
@@ -54,7 +57,7 @@ class DescribeMetricMetaListResponseBody extends Model
     public $success;
 
     /**
-     * @description The total number of returned records.
+     * @description The total number of entries returned.
      *
      * @example 12
      *

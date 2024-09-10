@@ -21,7 +21,7 @@ class eventPattern extends Model
     public $eventTypeList;
 
     /**
-     * @description 过滤关键词。
+     * @description The keyword for filtering.
      *
      * @var keywordFilterObj
      */
@@ -47,7 +47,7 @@ class eventPattern extends Model
     public $product;
 
     /**
-     * @description 按照SQL过滤日志。如果符合条件，则触发报警。
+     * @description Indicates that logs are filtered based on the specified SQL statement. If the specified conditions are met, an alert is triggered.
      *
      * @example ycccluster1 and (i-23ij0o82612 or Executed1) or Asimulated not 222
      *

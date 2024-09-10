@@ -36,6 +36,8 @@ class DescribeMonitoringAgentProcessesResponseBody extends Model
     public $nodeProcesses;
 
     /**
+     * @description The request ID.
+     *
      * @example C11C0E85-6862-4F25-8D66-D6A5E0882984
      *
      * @var string

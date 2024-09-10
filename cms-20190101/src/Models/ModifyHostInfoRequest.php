@@ -20,6 +20,7 @@ class ModifyHostInfoRequest extends Model
     /**
      * @description The ID of the instance. Only hosts not on Alibaba Cloud are supported.
      *
+     * This parameter is required.
      * @example host-R_NSWNV****
      *
      * @var string

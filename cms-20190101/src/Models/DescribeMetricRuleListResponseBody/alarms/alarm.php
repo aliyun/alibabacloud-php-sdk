@@ -174,7 +174,7 @@ class alarm extends Model
     /**
      * @description The resources that are associated with the alert rule.
      *
-     * @example [{\"instanceId\":\"i-2ze2d6j5uhg20x47****\"}]
+     * @example [{\\"instanceId\\":\\"i-2ze2d6j5uhg20x47****\\"}]
      *
      * @var string
      */

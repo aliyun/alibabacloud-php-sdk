@@ -55,7 +55,7 @@ class DescribeMetricListRequest extends Model
     /**
      * @description The name of the metric.
      *
-     * For more information about metric names, see [Appendix 1: Metrics](~~163515~~).
+     * This parameter is required.
      * @example cpu_idle
      *
      * @var string
@@ -65,7 +65,7 @@ class DescribeMetricListRequest extends Model
     /**
      * @description The namespace of the cloud service. Format: acs_service name.
      *
-     * For more information about the namespaces of cloud services, see [Appendix 1: Metrics](~~163515~~).
+     * This parameter is required.
      * @example acs_ecs_dashboard
      *
      * @var string

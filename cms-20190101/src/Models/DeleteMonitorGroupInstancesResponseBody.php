@@ -11,7 +11,7 @@ class DeleteMonitorGroupInstancesResponseBody extends Model
     /**
      * @description The HTTP status code.
      *
-     * >  The status code 200 indicates that the call was successful.
+     * >  The status code 200 indicates that the request was successful.
      * @example 200
      *
      * @var int
@@ -28,7 +28,7 @@ class DeleteMonitorGroupInstancesResponseBody extends Model
     public $message;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 5351B0F2-26A9-4BC9-87FF-1B74034D12C3
      *
@@ -37,7 +37,10 @@ class DeleteMonitorGroupInstancesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the call was successful. The value true indicates a success. The value false indicates a failure.
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
      *
      * @example true
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class vpc extends Model
 {
     /**
-     * @description The ID of the VPC.
+     * @description The VPC ID.
      *
      * @example vpc-2zew7etgiceg21****
      *
@@ -18,7 +18,7 @@ class vpc extends Model
     public $vpcInstanceId;
 
     /**
-     * @description The ID of the vSwitch to which the instance belongs.
+     * @description The vSwitch ID.
      *
      * @example vsw-2ze36seq79n992****
      *

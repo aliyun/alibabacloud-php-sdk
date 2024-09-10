@@ -26,6 +26,7 @@ class CreateMetricRuleTemplateRequest extends Model
     /**
      * @description The name of the alert template.
      *
+     * This parameter is required.
      * @example Template1
      *
      * @var string

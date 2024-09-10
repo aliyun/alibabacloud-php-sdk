@@ -38,7 +38,7 @@ class logMonitorList extends Model
     public $logId;
 
     /**
-     * @description The name of the log monitoring metric. For more information, see [Appendix 1: Metrics](~~163515~~).
+     * @description The name of the log monitoring metric. For more information, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
      *
      * @example cpu_total
      *

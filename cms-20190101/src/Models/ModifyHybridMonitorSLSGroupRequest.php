@@ -17,7 +17,7 @@ class ModifyHybridMonitorSLSGroupRequest extends Model
     /**
      * @description The configurations of the Logstore group.
      *
-     * Valid values of N: 1 to 25.
+     * This parameter is required.
      * @var SLSGroupConfig[]
      */
     public $SLSGroupConfig;
@@ -32,7 +32,7 @@ class ModifyHybridMonitorSLSGroupRequest extends Model
     /**
      * @description The name of the Logstore group.
      *
-     * For information about how to obtain the name of a Logstore group, see [DescribeHybridMonitorSLSGroup](~~429526~~).
+     * This parameter is required.
      * @example Logstore_test
      *
      * @var string

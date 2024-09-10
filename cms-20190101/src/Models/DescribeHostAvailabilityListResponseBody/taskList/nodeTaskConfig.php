@@ -93,7 +93,7 @@ class nodeTaskConfig extends Model
     public $taskScope;
 
     /**
-     * @description The type of the availability monitoring task. Valid values:
+     * @description The task type. Valid values:
      *
      *   PING
      *   TELNET

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class resource extends Model
 {
     /**
-     * @description The description of the metric.
+     * @description The metric description.
      *
      * @example CPUUtilization
      *
@@ -18,7 +18,7 @@ class resource extends Model
     public $description;
 
     /**
-     * @description The dimensions of the metric. Multiple dimensions are separated with commas (,).
+     * @description The monitoring dimensions of the resource. Multiple monitoring dimensions are separated with commas (,).
      *
      * @example instanceId
      *
@@ -27,25 +27,25 @@ class resource extends Model
     public $dimensions;
 
     /**
-     * @description The tags of the metric, including one or more JSON strings. Format: `[{"name":"tag name","value":"tag value"}]`. The `name` can be repeated.
+     * @description The tags of the metric, including one or more JSON strings.
      *
-     * The following tags are available:
+     * Format: `[{"name":"tag key","value":"tag value"}]`. The `name` can be repeated. The following tags are available:
      *
      *   metricCategory: the category of the metric.
-     *   alertEnable: specifies whether to report alerts for the metric.
-     *   alertUnit: the suggested unit of the metric value in alerts.
+     *   alertEnable: indicates whether to report alerts for the metric.
+     *   alertUnit: the unit of the metric in the alerts.
      *   unitFactor: the factor for metric unit conversion.
-     *   minAlertPeriod: the minimum time interval to report a new alert.
+     *   minAlertPeriod: the minimum interval at which the alert is reported.
      *   productCategory: the category of the service.
      *
-     * @example [{\"name\":\"alertUnit\",\"value\":\"Bytes\"},{\"name\":\"minAlertPeriod\",\"value\":\"60\"},{\"name\":\"metricCategory\",\"value\":\"instanceId\"},{\"name\":\"instanceType\",\"value\":\"disaster\"},{\"name\":\"is_alarm\",\"value\":\"true\"},{\"name\":\"productCategory\",\"value\":\"kvstore_old\"}]
+     * @example [{\\"name\\":\\"alertUnit\\",\\"value\\":\\"Bytes\\"},{\\"name\\":\\"minAlertPeriod\\",\\"value\\":\\"60\\"},{\\"name\\":\\"metricCategory\\",\\"value\\":\\"instanceId\\"},{\\"name\\":\\"instanceType\\",\\"value\\":\\"disaster\\"},{\\"name\\":\\"is_alarm\\",\\"value\\":\\"true\\"},{\\"name\\":\\"productCategory\\",\\"value\\":\\"kvstore_old\\"}]
      *
      * @var string
      */
     public $labels;
 
     /**
-     * @description The name of the metric.
+     * @description The metric name.
      *
      * @example CPUUtilization
      *
@@ -54,7 +54,7 @@ class resource extends Model
     public $metricName;
 
     /**
-     * @description The namespace of the service. The value is usually in the format of acs_Service.
+     * @description The namespace of the cloud service.
      *
      * @example acs_kvstore
      *
@@ -63,8 +63,9 @@ class resource extends Model
     public $namespace;
 
     /**
-     * @description The statistical period of the metric. Multiple statistical periods are separated with commas (,).
+     * @description The statistical periods of the metric. Multiple statistical periods are separated with commas (,).
      *
+     * Unit: seconds.
      * @example 60,300
      *
      * @var string
@@ -72,7 +73,7 @@ class resource extends Model
     public $periods;
 
     /**
-     * @description The statistical method. Multiple statistic methods are separated with commas (,).
+     * @description The statistical method. Multiple statistical methods are separated with commas (,).
      *
      * @example Average,Minimum,Maximum
      *

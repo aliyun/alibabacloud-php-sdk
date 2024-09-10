@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Cms\V20190101\Models\DescribeDynamicTagRuleListRespon
 
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeDynamicTagRuleListResponseBody\tagGroupList\tagGroup\contactGroupList;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeDynamicTagRuleListResponseBody\tagGroupList\tagGroup\matchExpress;
+use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeDynamicTagRuleListResponseBody\tagGroupList\tagGroup\tagValueBlacklist;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeDynamicTagRuleListResponseBody\tagGroupList\tagGroup\templateIdList;
 use AlibabaCloud\Tea\Model;
 
@@ -78,6 +79,11 @@ class tagGroup extends Model
     public $tagKey;
 
     /**
+     * @var tagValueBlacklist
+     */
+    public $tagValueBlacklist;
+
+    /**
      * @description The IDs of the alert templates.
      *
      * @var templateIdList
@@ -91,6 +97,7 @@ class tagGroup extends Model
         'regionId'                   => 'RegionId',
         'status'                     => 'Status',
         'tagKey'                     => 'TagKey',
+        'tagValueBlacklist'          => 'TagValueBlacklist',
         'templateIdList'             => 'TemplateIdList',
     ];
 
@@ -121,6 +128,9 @@ class tagGroup extends Model
         }
         if (null !== $this->tagKey) {
             $res['TagKey'] = $this->tagKey;
+        }
+        if (null !== $this->tagValueBlacklist) {
+            $res['TagValueBlacklist'] = null !== $this->tagValueBlacklist ? $this->tagValueBlacklist->toMap() : null;
         }
         if (null !== $this->templateIdList) {
             $res['TemplateIdList'] = null !== $this->templateIdList ? $this->templateIdList->toMap() : null;
@@ -157,6 +167,9 @@ class tagGroup extends Model
         }
         if (isset($map['TagKey'])) {
             $model->tagKey = $map['TagKey'];
+        }
+        if (isset($map['TagValueBlacklist'])) {
+            $model->tagValueBlacklist = tagValueBlacklist::fromMap($map['TagValueBlacklist']);
         }
         if (isset($map['TemplateIdList'])) {
             $model->templateIdList = templateIdList::fromMap($map['TemplateIdList']);

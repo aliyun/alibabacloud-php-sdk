@@ -56,7 +56,7 @@ class expressionList extends Model
      *   $Average: the average value
      *   $Availability: the availability rate (usually used for site monitoring)
      *
-     * >  `$` is the prefix of the metric. For information about the Alibaba Cloud services that are supported by CloudMonitor, see [Appendix 1: Metrics](~~163515~~).
+     * >  `$` is the prefix of the metric. For information about the Alibaba Cloud services that are supported by CloudMonitor, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
      * @example $Maximum
      *
      * @var string

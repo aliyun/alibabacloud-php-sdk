@@ -16,6 +16,7 @@ class groupRules extends Model
      *   rds: ApsaraDB RDS
      *   slb: Server Load Balancer (SLB)
      *
+     * This parameter is required.
      * @example ecs
      *
      * @var string
@@ -28,6 +29,7 @@ class groupRules extends Model
      *   and: The instances that meet all the conditional expressions are automatically added to the application group.
      *   or: The instances that meet one of the conditional expressions are automatically added to the application group.
      *
+     * This parameter is required.
      * @example and
      *
      * @var string
@@ -37,6 +39,7 @@ class groupRules extends Model
     /**
      * @description None.
      *
+     * This parameter is required.
      * @var filters[]
      */
     public $filters;

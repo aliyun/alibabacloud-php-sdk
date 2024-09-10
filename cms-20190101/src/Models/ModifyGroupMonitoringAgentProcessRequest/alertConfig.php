@@ -24,6 +24,7 @@ class alertConfig extends Model
      *   GreaterThanLastPeriod: greater than the metric value in the last monitoring cycle
      *   LessThanLastPeriod: less than the metric value in the last monitoring cycle
      *
+     * This parameter is required.
      * @example GreaterThanOrEqualToThreshold
      *
      * @var string
@@ -46,6 +47,7 @@ class alertConfig extends Model
      *   warn: warning
      *   info: information
      *
+     * This parameter is required.
      * @example warn
      *
      * @var string
@@ -82,6 +84,8 @@ class alertConfig extends Model
     public $statistics;
 
     /**
+     * @description The alert trigger.
+     *
      * @var targetList[]
      */
     public $targetList;
@@ -89,6 +93,7 @@ class alertConfig extends Model
     /**
      * @description The alert threshold. Valid values of N: 1 to 200.
      *
+     * This parameter is required.
      * @example 5
      *
      * @var string
@@ -98,7 +103,7 @@ class alertConfig extends Model
     /**
      * @description The number of times for which the threshold can be consecutively exceeded. Valid values of N: 1 to 200. Default value: 3.
      *
-     * >  A metric triggers an alert only after the metric value reaches the threshold consecutively for the specified times.
+     * This parameter is required.
      * @example 3
      *
      * @var string

@@ -11,7 +11,7 @@ class tag extends Model
     /**
      * @description The key of tag N.
      *
-     * > The tag key cannot start with `aliyun` or `acs:`. The tag key (`Tag.N.Key`) and tag value (`Tag.N.Value`) must be specified at the same time.
+     * This parameter is required.
      * @example key1
      *
      * @var string
@@ -21,7 +21,7 @@ class tag extends Model
     /**
      * @description The value of tag N.
      *
-     * > The tag value cannot start with `aliyun` or `acs:`. The tag key (`Tag.N.Key`) and tag value (`Tag.N.Value`) must be specified at the same time.
+     * This parameter is required.
      * @example value1
      *
      * @var string

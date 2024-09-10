@@ -35,6 +35,7 @@ class DescribeSiteMonitorDataRequest extends Model
      *   Availability
      *   ResponseTime
      *
+     * This parameter is required.
      * @example Availability
      *
      * @var string
@@ -80,6 +81,7 @@ class DescribeSiteMonitorDataRequest extends Model
     /**
      * @description The ID of the site monitoring task.
      *
+     * This parameter is required.
      * @example 49f7b317-7645-4cc9-94fd-ea42e522****
      *
      * @var string

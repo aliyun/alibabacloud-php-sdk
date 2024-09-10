@@ -22,12 +22,12 @@ class valueFilter extends Model
      *
      *   `contain`: contains
      *   `notContain`: does not contain
-     *   `>`: be greater than
-     *   `<`: be less than
-     *   `>=`: be greater than or equal to
-     *   `<=`: be less than or equal to
+     *   `>`: greater than
+     *   `<`: less than
+     *   `>=`: greater than or equal to
+     *   `<=`: less than or equal to
      *
-     * @example Operator
+     * @example contain
      *
      * @var string
      */

@@ -11,9 +11,9 @@ class filter extends Model
     /**
      * @description The method that is used to filter the instances. Valid values:
      *
-     *   contains: includes a specified element
-     *   startWith: specifies a prefix
-     *   endWith: specifies a suffix
+     *   contains: contains
+     *   startWith: starts with a prefix
+     *   endWith: ends with a suffix
      *
      * @example contains
      *
@@ -22,7 +22,7 @@ class filter extends Model
     public $function;
 
     /**
-     * @description The name of the instance.
+     * @description The instance name.
      *
      * @example hostName
      *

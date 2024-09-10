@@ -17,6 +17,7 @@ class PutExporterOutputRequest extends Model
      *   ak: the AccessKey ID.
      *   as: the AccessKey secret.
      *
+     * This parameter is required.
      * @example { "endpoint": "http://cn-qingdao-share.log.aliyuncs.com", "project": "exporter", "logstore": "exporter","ak": "LTAIp*******", "userId": "17754********", "as": "TxHwuJ8yAb3AU******"}
      *
      * @var string
@@ -35,6 +36,7 @@ class PutExporterOutputRequest extends Model
     /**
      * @description The name of the configuration set.
      *
+     * This parameter is required.
      * @example exporterConfig
      *
      * @var string

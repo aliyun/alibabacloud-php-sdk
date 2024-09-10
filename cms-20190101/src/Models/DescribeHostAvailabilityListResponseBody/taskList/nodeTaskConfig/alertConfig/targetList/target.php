@@ -9,21 +9,49 @@ use AlibabaCloud\Tea\Model;
 class target extends Model
 {
     /**
+     * @description The Alibaba Cloud Resource Name (ARN) of the function.
+     *
+     * Format: `arn:acs:${Service}:${Region}:${Account}:${ResourceType}/${ResourceId}`. Fields:
+     *
+     *   Service: the service code
+     *   Region: the region ID
+     *   Account: the ID of the Alibaba Cloud account
+     *   ResourceType: the resource type
+     *   ResourceId: the resource ID.
+     *
+     * @example acs:mns:cn-hangzhou:17754132319*****:/queues/test/messages
+     *
      * @var string
      */
     public $arn;
 
     /**
+     * @description The ID of the resource that triggers the alert.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description The JSON-formatted parameters of the alert callback.
+     *
+     * @example {"key1":"value1"}
+     *
      * @var string
      */
     public $jsonParams;
 
     /**
+     * @description The alert level. Valid values:
+     *
+     *   INFO
+     *   WARN
+     *   CRITICAL
+     *
+     * @example INFO
+     *
      * @var string
      */
     public $level;

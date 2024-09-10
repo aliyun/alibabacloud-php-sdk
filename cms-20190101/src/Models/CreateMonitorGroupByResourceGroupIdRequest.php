@@ -11,7 +11,7 @@ class CreateMonitorGroupByResourceGroupIdRequest extends Model
     /**
      * @description The alert contact groups. The alert notifications of the application group are sent to the alert contacts that belong to the specified alert contact groups.
      *
-     * An alert contact group can contain one or more alert contacts. For information about how to create alert contacts and alert contact groups, see [PutContact](~~114923~~) and [PutContactGroup](~~114929~~). For information about how to obtain alert contact groups, see [DescribeContactGroupList](~~114922~~).
+     * This parameter is required.
      * @example ECS_Group
      *
      * @var string[]
@@ -45,7 +45,7 @@ class CreateMonitorGroupByResourceGroupIdRequest extends Model
     /**
      * @description The ID of the region where the resource group resides.
      *
-     * For information about how to obtain the ID of the region where a resource group resides, see [GetResourceGroup](~~158866~~).
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -55,7 +55,7 @@ class CreateMonitorGroupByResourceGroupIdRequest extends Model
     /**
      * @description The ID of the resource group.
      *
-     * For information about how to obtain the ID of a resource group, see [ListResourceGroups](~~158855~~).
+     * This parameter is required.
      * @example rg-acfmw3ty5y7****
      *
      * @var string
@@ -65,7 +65,7 @@ class CreateMonitorGroupByResourceGroupIdRequest extends Model
     /**
      * @description The name of the resource group.
      *
-     * For information about how to obtain the name of a resource group, see [ListResourceGroups](~~158855~~).
+     * This parameter is required.
      * @example CloudMonitor
      *
      * @var string

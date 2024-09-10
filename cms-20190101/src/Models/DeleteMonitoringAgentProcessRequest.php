@@ -11,6 +11,7 @@ class DeleteMonitoringAgentProcessRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example i-KpVny6l****
      *
      * @var string

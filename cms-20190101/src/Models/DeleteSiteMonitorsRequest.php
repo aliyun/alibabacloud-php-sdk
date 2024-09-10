@@ -28,6 +28,7 @@ class DeleteSiteMonitorsRequest extends Model
     /**
      * @description The IDs of the site monitoring tasks that you want to delete. Separate multiple task IDs with commas (,).
      *
+     * This parameter is required.
      * @example 01adacc2-ece5-41b6-afa2-3143ab5d****,43bd1ead-514f-4524-813e-228ce091****
      *
      * @var string

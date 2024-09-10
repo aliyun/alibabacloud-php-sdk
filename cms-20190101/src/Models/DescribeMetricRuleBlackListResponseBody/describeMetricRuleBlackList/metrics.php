@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class metrics extends Model
 {
     /**
-     * @description For more information about common request parameters, see [Common parameters](~~199331~~).
+     * @description The metric name.
      *
      * @example disk_utilization
      *
@@ -18,7 +18,7 @@ class metrics extends Model
     public $metricName;
 
     /**
-     * @description The ID of the request.
+     * @description The extended dimension of the instance. For example, `{"device":"C:"}` specifies that the blacklist policy is applied to all C disks of the specified Elastic Compute Service (ECS) instance.
      *
      * @example [{"device":"C:"}]
      *

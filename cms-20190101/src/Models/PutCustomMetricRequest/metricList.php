@@ -11,7 +11,7 @@ class metricList extends Model
     /**
      * @description The dimensions that specify the resources whose monitoring data you want to query. Valid values of N: 1 to 21.
      *
-     * >  Dimensions must be formatted as a JSON string in a specified order.
+     * This parameter is required.
      * @example {"sampleName1":"value1","sampleName2":"value2"}
      *
      * @var string
@@ -21,7 +21,7 @@ class metricList extends Model
     /**
      * @description The ID of the application group. Valid values of N: 1 to 21.
      *
-     * >  If the metric does not belong to any application group, enter 0.
+     * This parameter is required.
      * @example 12345
      *
      * @var string
@@ -29,8 +29,9 @@ class metricList extends Model
     public $groupId;
 
     /**
-     * @description The name of the metric. Valid values of N: 1 to 21. For more information, see [Appendix 1: Metrics](~~163515~~).
+     * @description The name of the metric. Valid values of N: 1 to 21. For more information, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
      *
+     * This parameter is required.
      * @example cpu_total
      *
      * @var string
@@ -65,7 +66,7 @@ class metricList extends Model
      *   0: reports raw data
      *   1: reports aggregate data
      *
-     * >  We recommend that you report aggregate data in both the aggregation periods of 60s and 300s. Otherwise, you cannot query monitoring data in a time span that is more than seven days.
+     * This parameter is required.
      * @example 0
      *
      * @var string
@@ -75,7 +76,7 @@ class metricList extends Model
     /**
      * @description The collection of metric values. Valid values of N: 1 to 21.
      *
-     * >  If the MetricList.N.Type parameter is set to 0, the keys in this parameter must be set to the specified value. CloudMonitor aggregates raw data in each aggregation period to generate multiple statistical values, such as the maximum value, the count, and the total value.
+     * This parameter is required.
      * @example {"value":10.5}
      *
      * @var string

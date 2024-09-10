@@ -12,7 +12,7 @@ class DescribeHostAvailabilityListResponseBody extends Model
     /**
      * @description The HTTP status code.
      *
-     * >  The value 200 indicates that the call was successful.
+     * >  The status code 200 indicates that the request was successful.
      * @example 200
      *
      * @var string
@@ -29,7 +29,7 @@ class DescribeHostAvailabilityListResponseBody extends Model
     public $message;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 4A288E86-45C3-4858-9DB0-6D85B10BD92A
      *
@@ -38,10 +38,10 @@ class DescribeHostAvailabilityListResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the call was successful. Valid values:
+     * @description Indicates whether the request was successful. Valid values:
      *
-     *   true: The call was successful.
-     *   false: The call failed.
+     *   true
+     *   false
      *
      * @example true
      *

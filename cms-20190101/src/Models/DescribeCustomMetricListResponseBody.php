@@ -39,7 +39,7 @@ class DescribeCustomMetricListResponseBody extends Model
     /**
      * @description The reported custom metrics that are found in the query.
      *
-     * @example {\"all\":0,\"size\":10,\"param\":{\"metric\":\"{\\\"metricName\\\":\\\"cpu_total\\\",\\\"groupId\\\":7378****,\\\"project\\\":\\\"acs_customMetric_120886317861****\\\",\\\"dimension\\\":\\\"sampleName1=value1&sampleName2=value2\\\",\\\"status\\\":1}\",\"service\":\"metric-center.aliyun-inc.com\"},\"page\":1,\"list\":[]}
+     * @example {\\"all\\":0,\\"size\\":10,\\"param\\":{\\"metric\\":\\"{\\\\\\"metricName\\\\\\":\\\\\\"cpu_total\\\\\\",\\\\\\"groupId\\\\\\":7378****,\\\\\\"project\\\\\\":\\\\\\"acs_customMetric_120886317861****\\\\\\",\\\\\\"dimension\\\\\\":\\\\\\"sampleName1=value1&sampleName2=value2\\\\\\",\\\\\\"status\\\\\\":1}\\",\\"service\\":\\"metric-center.aliyun-inc.com\\"},\\"page\\":1,\\"list\\":[]}
      *
      * @var string
      */

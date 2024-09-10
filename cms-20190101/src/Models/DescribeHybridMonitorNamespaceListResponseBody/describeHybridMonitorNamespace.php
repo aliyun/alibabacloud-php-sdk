@@ -83,6 +83,13 @@ class describeHybridMonitorNamespace extends Model
     public $namespace;
 
     /**
+     * @description The storage scheme of metric data. Valid values:
+     *
+     *   m_prom_user: The metric data is stored in Simple Log Service.
+     *   m_prom_pool: The metric data is stored in the storage space provided by CloudMonitor.
+     *
+     * @example m_prom_user
+     *
      * @var string
      */
     public $namespaceType;

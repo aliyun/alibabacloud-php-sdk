@@ -11,6 +11,7 @@ class CreateMonitorAgentProcessRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example i-2ze2d6j5uhg20x47****
      *
      * @var string
@@ -20,6 +21,7 @@ class CreateMonitorAgentProcessRequest extends Model
     /**
      * @description The name of the process.
      *
+     * This parameter is required.
      * @example AliYunDun
      *
      * @var string

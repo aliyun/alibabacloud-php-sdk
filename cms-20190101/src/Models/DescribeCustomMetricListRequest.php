@@ -20,7 +20,7 @@ class DescribeCustomMetricListRequest extends Model
     /**
      * @description The ID of the application group.
      *
-     * For more information, see [DescribeMonitorGroups](~~115032~~).
+     * For more information, see [DescribeMonitorGroups](https://help.aliyun.com/document_detail/115032.html).
      * @example 7378****
      *
      * @var string

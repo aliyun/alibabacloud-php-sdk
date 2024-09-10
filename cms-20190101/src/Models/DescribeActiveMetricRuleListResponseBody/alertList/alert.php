@@ -12,9 +12,9 @@ class alert extends Model
     /**
      * @description The status of the alert rule. Valid values:
      *
-     *   OK: The alert rule has no active alert.
-     *   ALARM: The alert rule has at least one active alert.
-     *   INSUFFICIENT_DATA: The alert rule has no data.
+     *   OK: The alert rule has no active alerts.
+     *   ALARM: The alert rule has active alerts.
+     *   INSUFFICIENT_DATA: No data is found.
      *
      * @example OK
      *
@@ -23,7 +23,7 @@ class alert extends Model
     public $alertState;
 
     /**
-     * @description The alert group that receives alert notifications.
+     * @description The alert contact group.
      *
      * @example ECS_Group
      *
@@ -32,9 +32,8 @@ class alert extends Model
     public $contactGroups;
 
     /**
-     * @description The dimensions that specify the resources for which you want to query monitoring data.
+     * @description The monitoring data of the specified resource.
      *
-     * >  Dimensions must be organized in a JSON string and follow the required order.
      * @example ""
      *
      * @var string
@@ -70,6 +69,8 @@ class alert extends Model
     public $escalations;
 
     /**
+     * @description The subject of the alert notification email.
+     *
      * @example ECS_Bucket
      *
      * @var string
@@ -86,7 +87,7 @@ class alert extends Model
     public $metricName;
 
     /**
-     * @description The namespace of the service. For more information, see [Appendix 1: Metrics](~~163515~~).
+     * @description The namespace of the Alibaba Cloud service.
      *
      * @example acs_ecs_dashboard
      *
@@ -104,8 +105,9 @@ class alert extends Model
     public $noEffectiveInterval;
 
     /**
-     * @description The aggregation period of the monitoring data. Unit: seconds. The default value is the minimum aggregation period, indicating that the metric is polled at the highest frequency. Typically, you do not need to specify the minimum aggregation period.
+     * @description The aggregation period of monitoring data.
      *
+     * Unit: seconds.
      * @example 60
      *
      * @var string
@@ -113,7 +115,7 @@ class alert extends Model
     public $period;
 
     /**
-     * @description The resources that are associated with the alert rule. A one-click alert rule is associated with all resources. The return value is fixed.
+     * @description The resources that are associated with the alert rule.
      *
      * @example [{"resource":"_ALL"}]
      *
@@ -140,8 +142,9 @@ class alert extends Model
     public $ruleName;
 
     /**
-     * @description The mute period during which new alerts are not sent even if the trigger conditions are met. Unit: seconds. Default value: 86400.
+     * @description The mute period during which new alerts are not sent even if the trigger conditions are met.
      *
+     * Unit: seconds.
      * @example 86400
      *
      * @var string

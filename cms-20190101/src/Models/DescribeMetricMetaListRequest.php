@@ -11,13 +11,13 @@ class DescribeMetricMetaListRequest extends Model
     /**
      * @description The tags for filtering metrics. Specify a JSON string.
      *
-     * Format:`[{"name":"tag name","value":"tag value"},{"name":"tag name","value":"tag value"}]`. The following tags are available:
+     * Format: ` [{"name":"tag key","value":"tag value"},{"name":"tag key","value":"tag value"}]  `. The following tags are available:
      *
      *   metricCategory: the category of the metric.
      *   alertEnable: specifies whether to report alerts for the metric.
-     *   alertUnit: the suggested unit of the metric value in alerts.
+     *   alertUnit: the unit of the metric in the alerts.
      *   unitFactor: the factor for metric unit conversion.
-     *   minAlertPeriod: the minimum time interval to report a new alert.
+     *   minAlertPeriod: the minimum interval at which the alert is reported.
      *   productCategory: the category of the service.
      *
      * @example [{"name":"productCategory","value":"kvstore_old"}]
@@ -27,7 +27,7 @@ class DescribeMetricMetaListRequest extends Model
     public $labels;
 
     /**
-     * @description The name of the metric. For more information, see [Appendix 1: Metrics](~~163515~~).
+     * @description The metric name. For more information, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
      *
      * @example CPUUtilization
      *
@@ -36,9 +36,9 @@ class DescribeMetricMetaListRequest extends Model
     public $metricName;
 
     /**
-     * @description The namespace of the service.
+     * @description The namespace of the cloud service.
      *
-     * For more information, see [Appendix 1: Metrics](~~163515~~).
+     * For more information about the namespaces of cloud services, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
      * @example acs_kvstore
      *
      * @var string
@@ -46,7 +46,7 @@ class DescribeMetricMetaListRequest extends Model
     public $namespace;
 
     /**
-     * @description The page to return. Default value: 1
+     * @description The page number. Default value: 1.
      *
      * @example 1
      *
@@ -55,7 +55,7 @@ class DescribeMetricMetaListRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Default value: 30.
+     * @description The number of entries per page. Default value: 30.
      *
      * @example 30
      *

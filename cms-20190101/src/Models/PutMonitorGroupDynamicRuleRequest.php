@@ -12,6 +12,7 @@ class PutMonitorGroupDynamicRuleRequest extends Model
     /**
      * @description The ID of the application group.
      *
+     * This parameter is required.
      * @example 123456
      *
      * @var int
@@ -21,6 +22,7 @@ class PutMonitorGroupDynamicRuleRequest extends Model
     /**
      * @description None.
      *
+     * This parameter is required.
      * @var groupRules[]
      */
     public $groupRules;

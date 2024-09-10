@@ -30,8 +30,11 @@ class alertConfig extends Model
     /**
      * @description The alert notification methods. Valid values:
      *
-     * 0: Alert notifications are sent by using emails and DingTalk chatbots.
-     * @example 1
+     *   2: Alert notifications are sent by using emails and DingTalk chatbots.
+     *   1: Alert notifications are sent by using emails and DingTalk chatbots.
+     *   0: Alert notifications are sent by using emails and DingTalk chatbots.
+     *
+     * @example 0
      *
      * @var int
      */
@@ -57,6 +60,8 @@ class alertConfig extends Model
     public $startTime;
 
     /**
+     * @description The monitored resources.
+     *
      * @var targetList
      */
     public $targetList;

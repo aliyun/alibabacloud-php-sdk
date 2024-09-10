@@ -20,6 +20,7 @@ class ModifyMonitorGroupRequest extends Model
     /**
      * @description The ID of the application group.
      *
+     * This parameter is required.
      * @example 123456
      *
      * @var string

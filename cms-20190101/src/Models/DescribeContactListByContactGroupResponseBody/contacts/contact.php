@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class contact extends Model
 {
     /**
-     * @description The alert notification targets.
+     * @description The alert notification methods.
      *
      * @var channels
      */
@@ -19,6 +19,7 @@ class contact extends Model
     /**
      * @description The time when the alert contact was created.
      *
+     * Unit: milliseconds.
      * @example 1552314252000
      *
      * @var int
@@ -46,6 +47,7 @@ class contact extends Model
     /**
      * @description The time when the alert contact was modified.
      *
+     * Unit: milliseconds.
      * @example 1552314252000
      *
      * @var int

@@ -12,7 +12,7 @@ class DescribeContactListByContactGroupResponseBody extends Model
     /**
      * @description The HTTP status code.
      *
-     * >  The status code 200 indicates that the call was successful.
+     * >  The status code 200 indicates that the request was successful.
      * @example 200
      *
      * @var string
@@ -20,14 +20,14 @@ class DescribeContactListByContactGroupResponseBody extends Model
     public $code;
 
     /**
-     * @description The alert group.
+     * @description The alert contacts that receive alert notifications.
      *
      * @var contacts
      */
     public $contacts;
 
     /**
-     * @description The error message.
+     * @description The returned message.
      *
      * @example The group is not exists.
      *
@@ -36,7 +36,7 @@ class DescribeContactListByContactGroupResponseBody extends Model
     public $message;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 06D5ECC2-B9BE-42A4-8FA3-1A610FB08B83
      *
@@ -45,10 +45,10 @@ class DescribeContactListByContactGroupResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the call was successful. Valid values:
+     * @description Indicates whether the request was successful. Valid values:
      *
-     *   true: The call was successful.
-     *   false: The call failed.
+     *   true
+     *   false
      *
      * @example true
      *

@@ -11,7 +11,7 @@ class DescribeLogMonitorAttributeRequest extends Model
     /**
      * @description The name of the log monitoring metric. Exact match is supported.
      *
-     * For more information, see [Appendix 1: Metrics](~~163515~~).
+     * This parameter is required.
      * @example cpu_total
      *
      * @var string

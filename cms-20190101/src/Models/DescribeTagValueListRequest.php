@@ -36,7 +36,7 @@ class DescribeTagValueListRequest extends Model
     /**
      * @description The key of the tag whose values you want to query.
      *
-     * For more information about how to obtain a tag key, see [DescribeTagKeyList](~~145558~~).
+     * This parameter is required.
      * @example tagKey1
      *
      * @var string

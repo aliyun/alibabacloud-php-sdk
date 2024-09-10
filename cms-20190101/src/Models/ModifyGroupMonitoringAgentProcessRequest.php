@@ -10,6 +10,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyGroupMonitoringAgentProcessRequest extends Model
 {
     /**
+     * @description The alert rule configurations.
+     *
+     * This parameter is required.
      * @var alertConfig[]
      */
     public $alertConfig;
@@ -17,6 +20,7 @@ class ModifyGroupMonitoringAgentProcessRequest extends Model
     /**
      * @description The ID of the application group.
      *
+     * This parameter is required.
      * @example 6780****
      *
      * @var string
@@ -26,6 +30,7 @@ class ModifyGroupMonitoringAgentProcessRequest extends Model
     /**
      * @description The ID of the process monitoring task.
      *
+     * This parameter is required.
      * @example 92E3065F-0980-4E31-9AA0-BA6****
      *
      * @var string

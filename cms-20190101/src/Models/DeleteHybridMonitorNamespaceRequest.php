@@ -11,7 +11,7 @@ class DeleteHybridMonitorNamespaceRequest extends Model
     /**
      * @description The name of the namespace.
      *
-     * For information about how to obtain the name of a namespace, see [DescribeHybridMonitorNamespaceList](~~428880~~).
+     * This parameter is required.
      * @example aliyun
      *
      * @var string

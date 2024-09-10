@@ -9,6 +9,18 @@ use AlibabaCloud\Tea\Model;
 class ApplyMetricRuleTemplateRequest extends Model
 {
     /**
+     * @description The template application policy. Valid values:
+     *
+     *   all (default): deletes all the rules that are created by using the alert template from the selected application group, and then creates alert rules based on the template.
+     *   append: deletes the rules that are created by using the alert template from the selected application group, and then creates alert rules based on the existing template.
+     *
+     * @example all
+     *
+     * @var string
+     */
+    public $appendMode;
+
+    /**
      * @description The mode in which the alert template is applied. Valid values:
      *
      *   GROUP_INSTANCE_FIRST: The metrics in the application group take precedence. If a metric specified in the alert template does not exist in the application group, the system does not generate an alert rule for the metric based on the alert template.
@@ -41,7 +53,7 @@ class ApplyMetricRuleTemplateRequest extends Model
     /**
      * @description The ID of the application group to which the alert template is applied.
      *
-     * For more information about how to query the ID of an application group, see [DescribeMonitorGroups](~~115032~~).
+     * This parameter is required.
      * @example 123456
      *
      * @var int
@@ -71,7 +83,7 @@ class ApplyMetricRuleTemplateRequest extends Model
     /**
      * @description The ID of the alert template.
      *
-     * For more information about how to query the IDs of alert templates, see [DescribeMetricRuleTemplateList](~~114982~~).
+     * This parameter is required.
      * @example 700****
      *
      * @var string
@@ -87,6 +99,7 @@ class ApplyMetricRuleTemplateRequest extends Model
      */
     public $webhook;
     protected $_name = [
+        'appendMode'      => 'AppendMode',
         'applyMode'       => 'ApplyMode',
         'enableEndTime'   => 'EnableEndTime',
         'enableStartTime' => 'EnableStartTime',
@@ -104,6 +117,9 @@ class ApplyMetricRuleTemplateRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->appendMode) {
+            $res['AppendMode'] = $this->appendMode;
+        }
         if (null !== $this->applyMode) {
             $res['ApplyMode'] = $this->applyMode;
         }
@@ -140,6 +156,9 @@ class ApplyMetricRuleTemplateRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AppendMode'])) {
+            $model->appendMode = $map['AppendMode'];
+        }
         if (isset($map['ApplyMode'])) {
             $model->applyMode = $map['ApplyMode'];
         }

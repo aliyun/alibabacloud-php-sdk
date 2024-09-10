@@ -17,7 +17,7 @@ class resource extends Model
     public $alertResults;
 
     /**
-     * @description The ID of the application group to which the alert template is applied.
+     * @description The ID of the application group.
      *
      * @example 123456
      *

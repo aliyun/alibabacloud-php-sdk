@@ -53,7 +53,7 @@ class datapoint extends Model
     /**
      * @description The name of the metric.
      *
-     * > For more information, see [DescribeMetricMetaList](~~98846~~) or [Appendix 1: Metrics](~~28619~~).
+     * > For more information, see [DescribeMetricMetaList](https://help.aliyun.com/document_detail/98846.html) or [Appendix 1: Metrics](https://help.aliyun.com/document_detail/28619.html).
      * @example cpu_total
      *
      * @var string
@@ -63,7 +63,7 @@ class datapoint extends Model
     /**
      * @description The namespace of the service.
      *
-     * > For more information, see [DescribeMetricMetaList](~~98846~~) or [Appendix 1: Metrics](~~28619~~).
+     * > For more information, see [DescribeMetricMetaList](https://help.aliyun.com/document_detail/98846.html) or [Appendix 1: Metrics](https://help.aliyun.com/document_detail/28619.html).
      * @example acs_ecs_dashboard
      *
      * @var string
@@ -80,7 +80,7 @@ class datapoint extends Model
     public $ruleName;
 
     /**
-     * @description The time window of the exported data.\
+     * @description The time window of the exported data.\\
      * > Data in a time window of less than 60 seconds cannot be exported.
      * @example 60,300
      *

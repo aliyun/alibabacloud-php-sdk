@@ -119,7 +119,7 @@ class taskList extends Model
     public $instances;
 
     /**
-     * @example C:\UserData\log\*.Log
+     * @example C:\\UserData\\log\\*.Log
      *
      * @var string
      */
@@ -137,7 +137,7 @@ class taskList extends Model
     /**
      * @description The sample on-premises log.
      *
-     * @example {"logContent":"100.116.134.26 1119 - [13/Aug/2019:16:55:46 +0800] POST metrichub-cn-hongkong.aliyun.com /agent/metrics/putLines 200 0 \"-\" \"127.0.0.1:7001\" \"Go-http-client/1.1\" \"-\" \"-\" \"0a98a21a15656865460656276e\"","addData":{"field1":["1119","1119"],"filed2":["POSTx","POST"],"filed3":["true","200"]}}
+     * @example {"logContent":"100.116.134.26 1119 - [13/Aug/2019:16:55:46 +0800] POST metrichub-cn-hongkong.aliyun.com /agent/metrics/putLines 200 0 \\"-\\" \\"127.0.0.1:7001\\" \\"Go-http-client/1.1\\" \\"-\\" \\"-\\" \\"0a98a21a15656865460656276e\\"","addData":{"field1":["1119","1119"],"filed2":["POSTx","POST"],"filed3":["true","200"]}}
      *
      * @var string
      */
@@ -147,7 +147,7 @@ class taskList extends Model
      * @description The result that is returned after on-premises log data is split based on the specified matching mode.
      *
      * > The matching modes of on-premises log data include full regex mode, delimiter mode, and JSON mode.
-     * @example {"type": "regex","regex": "\\d+\\.\\d+\\.\\d+\\.\\d+\\s+(\\d+)\\s+\\S+\\s+\\[\\d+/\\S+/\\d+:\\d+:\\d+:\\d+\\s+\\+\\d+\\]\\s+(\\S+)\\s+\\S+\\s+/\\S+/\\S+/\\S+\\s+(\\d+)","columns": [{"name": "field1"},{"name": "filed2","translate": {"default": "-","mappings": [{"from": "(\\w+)","to": "$1x","type": "regex"}]}},{"name": "filed3","translate": {"default": "-","mappings": [{"from": "NumberRange(100,300)","to": "true","type": "function"}]}}]}
+     * @example {"type": "regex","regex": "\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\s+(\\\\d+)\\\\s+\\\\S+\\\\s+\[\\\\d+/\\\\S+/\\\\d+:\\\\d+:\\\\d+:\\\\d+\\\\s+\\\\+\\\\d+\\\\]\\\\s+(\\\\S+)\\\\s+\\\\S+\\\\s+/\\\\S+/\\\\S+/\\\\S+\\\\s+(\\\\d+)","columns": [{"name": "field1"},{"name": "filed2","translate": {"default": "-","mappings": [{"from": "(\\\\w+)","to": "$1x","type": "regex"}]}},{"name": "filed3","translate": {"default": "-","mappings": [{"from": "NumberRange(100,300)","to": "true","type": "function"}]}}]}
      *
      * @var string
      */

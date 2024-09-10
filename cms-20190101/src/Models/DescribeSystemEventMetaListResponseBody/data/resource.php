@@ -46,6 +46,8 @@ class resource extends Model
     /**
      * @description The description of the system event, in Chinese.
      *
+     * @example High query failure rate
+     *
      * @var string
      */
     public $nameDesc;

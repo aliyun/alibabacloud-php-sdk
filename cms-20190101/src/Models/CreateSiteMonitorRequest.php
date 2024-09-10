@@ -11,6 +11,7 @@ class CreateSiteMonitorRequest extends Model
     /**
      * @description The URL or IP address that is monitored by the task.
      *
+     * This parameter is required.
      * @example https://www.aliyun.com
      *
      * @var string
@@ -20,7 +21,7 @@ class CreateSiteMonitorRequest extends Model
     /**
      * @description The ID of the alert rule.
      *
-     * For more information about how to obtain the ID of an alert rule, see [DescribeMetricRuleList](~~114941~~).
+     * For more information about how to obtain the ID of an alert rule, see [DescribeMetricRuleList](https://help.aliyun.com/document_detail/114941.html).
      * @example SystemDefault_acs_ecs_dashboard_InternetOutRate_Percent
      *
      * @var string
@@ -49,7 +50,7 @@ class CreateSiteMonitorRequest extends Model
     /**
      * @description The information of the detection points. If you leave this parameter empty, the system randomly selects three detection points.
      *
-     * For information about how to obtain detection points, see [DescribeSiteMonitorISPCityList](~~115045~~).
+     * For information about how to obtain detection points, see [DescribeSiteMonitorISPCityList](https://help.aliyun.com/document_detail/115045.html).
      * @example [{"city":"546","isp":"465"},{"city":"572","isp":"465"},{"city":"738","isp":"465"}]
      *
      * @var string
@@ -73,7 +74,7 @@ class CreateSiteMonitorRequest extends Model
     /**
      * @description The name of the site monitoring task.
      *
-     * The name must be 4 to 100 characters in length, and can contain letters, digits, and underscores (\_).
+     * This parameter is required.
      * @example HanZhou_ECS1
      *
      * @var string
@@ -83,12 +84,17 @@ class CreateSiteMonitorRequest extends Model
     /**
      * @description The type of the site monitoring task.
      *
-     * Valid values: HTTP, HTTPS, PING, TCP, UDP, DNS, SMTP, POP3, and FTP.
+     * This parameter is required.
      * @example HTTPS
      *
      * @var string
      */
     public $taskType;
+
+    /**
+     * @var string
+     */
+    public $vpcConfig;
     protected $_name = [
         'address'        => 'Address',
         'alertIds'       => 'AlertIds',
@@ -99,6 +105,7 @@ class CreateSiteMonitorRequest extends Model
         'regionId'       => 'RegionId',
         'taskName'       => 'TaskName',
         'taskType'       => 'TaskType',
+        'vpcConfig'      => 'VpcConfig',
     ];
 
     public function validate()
@@ -134,6 +141,9 @@ class CreateSiteMonitorRequest extends Model
         }
         if (null !== $this->taskType) {
             $res['TaskType'] = $this->taskType;
+        }
+        if (null !== $this->vpcConfig) {
+            $res['VpcConfig'] = $this->vpcConfig;
         }
 
         return $res;
@@ -173,6 +183,9 @@ class CreateSiteMonitorRequest extends Model
         }
         if (isset($map['TaskType'])) {
             $model->taskType = $map['TaskType'];
+        }
+        if (isset($map['VpcConfig'])) {
+            $model->vpcConfig = $map['VpcConfig'];
         }
 
         return $model;

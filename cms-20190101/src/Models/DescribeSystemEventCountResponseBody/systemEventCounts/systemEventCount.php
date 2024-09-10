@@ -56,7 +56,7 @@ class systemEventCount extends Model
     public $name;
 
     /**
-     * @description The number of times that the system event occurred.
+     * @description The number of times that the system event has occurred.
      *
      * @example 3
      *
@@ -74,7 +74,7 @@ class systemEventCount extends Model
     public $product;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *
@@ -83,7 +83,7 @@ class systemEventCount extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource.
+     * @description The resource ID.
      *
      * @example i-rj99xc6cptkk64ml****
      *
@@ -101,7 +101,7 @@ class systemEventCount extends Model
     public $status;
 
     /**
-     * @description The timestamp when the system event occurred. Unit: milliseconds.
+     * @description The time when the system event occurred. The value is a timestamp. Unit: milliseconds.
      *
      * @example 1635993751000
      *

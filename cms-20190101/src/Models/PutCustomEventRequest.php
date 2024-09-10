@@ -10,6 +10,9 @@ use AlibabaCloud\Tea\Model;
 class PutCustomEventRequest extends Model
 {
     /**
+     * @description The event details.
+     *
+     * This parameter is required.
      * @var eventInfo[]
      */
     public $eventInfo;

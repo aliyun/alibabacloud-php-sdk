@@ -48,6 +48,7 @@ class DescribeAlertLogCountRequest extends Model
      *   `contactGroup`: aggregates data by alert group.
      *   `product,metricName`: aggregates data both by cloud service and by metric.
      *
+     * This parameter is required.
      * @example product
      *
      * @var string
@@ -87,7 +88,7 @@ class DescribeAlertLogCountRequest extends Model
     /**
      * @description The name of the metric.
      *
-     * >  For more information about the metrics of different cloud services, see [Appendix 1: Metrics](~~163515~~).
+     * >  For more information about the metrics of different cloud services, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
      * @example cpu_total
      *
      * @var string
@@ -97,7 +98,7 @@ class DescribeAlertLogCountRequest extends Model
     /**
      * @description The namespace of the cloud service.
      *
-     * >  For more information about the namespaces of cloud services, see [Appendix 1: Metrics](~~163515~~).
+     * >  For more information about the namespaces of cloud services, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
      * @example acs_ecs_dashboard
      *
      * @var string
@@ -145,7 +146,7 @@ class DescribeAlertLogCountRequest extends Model
     /**
      * @description The ID of the alert rule.
      *
-     * For more information about how to obtain the ID of an alert rule, see [DescribeMetricRuleList](~~114941~~).
+     * For more information about how to obtain the ID of an alert rule, see [DescribeMetricRuleList](https://help.aliyun.com/document_detail/114941.html).
      * @example bfae2ca5b4e07d2c7278772e***********
      *
      * @var string

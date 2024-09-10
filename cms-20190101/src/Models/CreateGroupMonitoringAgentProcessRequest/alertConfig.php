@@ -24,7 +24,7 @@ class alertConfig extends Model
      *   GreaterThanLastPeriod: greater than the metric value in the last monitoring cycle
      *   LessThanLastPeriod: less than the metric value in the last monitoring cycle
      *
-     * Valid values of N: 1 to 3.
+     * This parameter is required.
      * @example GreaterThanOrEqualToThreshold
      *
      * @var string
@@ -48,7 +48,7 @@ class alertConfig extends Model
      *   warn: warning
      *   info: information
      *
-     * Valid values of N: 1 to 3.
+     * This parameter is required.
      * @example warn
      *
      * @var string
@@ -77,7 +77,7 @@ class alertConfig extends Model
     /**
      * @description The statistical method for alerts.
      *
-     * >  Set the value to Average.
+     * This parameter is required.
      * @example Average
      *
      * @var string
@@ -94,7 +94,7 @@ class alertConfig extends Model
     /**
      * @description The alert threshold.
      *
-     * Unit: cores.
+     * This parameter is required.
      * @example 5
      *
      * @var string
@@ -104,7 +104,7 @@ class alertConfig extends Model
     /**
      * @description The number of times for which the threshold can be consecutively exceeded. Default value: 3.
      *
-     * >  An alert is triggered only if the number of times for which the threshold can be consecutively exceeded is reached.
+     * This parameter is required.
      * @example 3
      *
      * @var string

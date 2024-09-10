@@ -62,7 +62,7 @@ class alarmHistory extends Model
     /**
      * @description The resources that are monitored.
      *
-     * @example {\"instanceId\":\"i-bp1cqhiw1za2****\"}
+     * @example {\\"instanceId\\":\\"i-bp1cqhiw1za2****\\"}
      *
      * @var string
      */

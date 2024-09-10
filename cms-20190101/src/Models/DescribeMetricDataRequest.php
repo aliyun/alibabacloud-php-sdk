@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeMetricDataRequest extends Model
 {
     /**
-     * @description The dimensions that specify the resources whose monitoring data you want to query.
+     * @description The dimensions based on which the resources are queried.
      *
      * Set the value to a collection of key-value pairs. A typical key-value pair is `instanceId:i-2ze2d6j5uhg20x47****`.
      *
@@ -21,20 +21,20 @@ class DescribeMetricDataRequest extends Model
     public $dimensions;
 
     /**
-     * @description The end of the time range to query.
+     * @description The end of the time range to query monitoring data.
      *
      *   If the `StartTime` and `EndTime` parameters are not specified, the monitoring data of the last statistical period is queried.``
      *
      *   If the `StartTime` and `EndTime` parameters are specified, the monitoring data of the last statistical period in the specified time range is queried.```` The following examples demonstrate how to determine the period in which monitoring data is queried:
      *
      *   If you set the `Period` parameter to 15, the specified time range must be less than or equal to 20 minutes. For example, if you set the StartTime parameter to 2021-05-08 08:10:00 and the EndTime parameter to 2021-05-08 08:30:00, the monitoring data of the last 15 seconds in the time range is queried.
-     *   If you set the `Period` parameter to 60 or 900, the specified time range must be less than or equal to 2 hours. For example, if you set the Period parameter to 60, the StartTime parameter to 2021-05-08 08:00:00, and the EndTime parameter to 2021-05-08 10:00:00, the monitoring data of the last 60 seconds in the time range is queried.
-     *   If you set the `Period` parameter to 3600, the specified time range must be less than or equal to two days. For example, if you set the StartTime parameter to 2021-05-08 08:00:00 and the EndTime parameter to 2021-05-10 08:00:00, the monitoring data of the last 3,600 seconds in the time range is queried.
+     *   If you set the `Period` to 60 or 900, the specified time range must be less than or equal to 2 hours. For example, if you set the Period parameter to 60, the StartTime parameter to 2021-05-08 08:00:00, and the EndTime parameter to 2021-05-08 10:00:00, the monitoring data of the last 60 seconds in the time range is queried.
+     *   If you set the `Period` parameter to 3600, the specified time range must be less than or equal to 2 days. For example, if you set the StartTime parameter to 2021-05-08 08:00:00 and the EndTime parameter to 2021-05-10 08:00:00, the monitoring data of the last 3,600 seconds in the time range is queried.
      *
      * The following formats are supported:
      *
-     *   UNIX timestamp: the number of milliseconds that have elapsed since 00:00:00 Thursday, January 1, 1970
-     *   UTC time: the UTC time that follows the YYYY-MM-DDThh:mm:ssZ format
+     *   UNIX timestamp: the number of milliseconds that have elapsed since 00:00:00 UTC on Thursday, January 1, 1970.
+     *   UTC time: the UTC time that follows the YYYY-MM-DDThh:mm:ssZ format.
      *
      * >  We recommend that you use UNIX timestamps to prevent time zone-related issues.
      * @example 1618368960000
@@ -54,7 +54,7 @@ class DescribeMetricDataRequest extends Model
     public $express;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The number of entries per page.
      *
      * >  The maximum value of the Length parameter in a request is 1440.
      * @example 1000
@@ -66,7 +66,7 @@ class DescribeMetricDataRequest extends Model
     /**
      * @description The metric that is used to monitor the cloud service.
      *
-     * For more information about the metrics of different cloud services, see [Appendix 1: Metrics](~~163515~~).
+     * This parameter is required.
      * @example cpu_idle
      *
      * @var string
@@ -76,7 +76,7 @@ class DescribeMetricDataRequest extends Model
     /**
      * @description The namespace of the cloud service.
      *
-     * For more information about the namespaces of cloud services, see [Appendix 1: Metrics](~~163515~~).
+     * This parameter is required.
      * @example acs_ecs_dashboard
      *
      * @var string
@@ -86,7 +86,12 @@ class DescribeMetricDataRequest extends Model
     /**
      * @description The statistical period of the metric.
      *
-     * > - For more information about the statistical period of a metric that is specified by the `MetricName` parameter, see [Appendix 1: Metrics](~~163515~~).
+     * >
+     *
+     *   If this parameter is not specified, monitoring data is queried based on the period in which metric values are reported.
+     *
+     *   For more information about the statistical period of a metric that is specified by the `MetricName` parameter, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
+     *
      * @example 60
      *
      * @var string
@@ -99,23 +104,25 @@ class DescribeMetricDataRequest extends Model
     public $regionId;
 
     /**
-     * @description The beginning of the time range to query.
+     * @description The start of the time range to query monitoring data.
      *
      *   If the `StartTime` and `EndTime` parameters are not specified, the monitoring data of the last statistical period is queried.``
      *
      *   If the `StartTime` and `EndTime` parameters are specified, the monitoring data of the last statistical period in the specified time range is queried.```` The following examples demonstrate how to determine the period in which monitoring data is queried:
      *
      *   If you set the `Period` parameter to 15, the specified time range must be less than or equal to 20 minutes. For example, if you set the StartTime parameter to 2021-05-08 08:10:00 and the EndTime parameter to 2021-05-08 08:30:00, the monitoring data of the last 15 seconds in the time range is queried.
-     *   If you set the `Period` parameter to 60 or 900, the specified time range must be less than or equal to 2 hours. For example, if you set the Period parameter to 60, the StartTime parameter to 2021-05-08 08:00:00, and the EndTime parameter to 2021-05-08 10:00:00, the monitoring data of the last 60 seconds in the time range is queried.
-     *   If you set the `Period` parameter to 3600, the specified time range must be less than or equal to two days. For example, if you set the StartTime parameter to 2021-05-08 08:00:00 and the EndTime parameter to 2021-05-10 08:00:00, the monitoring data of the last 3,600 seconds in the time range is queried.
+     *   If you set the `Period` to 60 or 900, the specified time range must be less than or equal to 2 hours. For example, if you set the Period parameter to 60, the StartTime parameter to 2021-05-08 08:00:00, and the EndTime parameter to 2021-05-08 10:00:00, the monitoring data of the last 60 seconds in the time range is queried.
+     *   If you set the `Period` parameter to 3600, the specified time range must be less than or equal to 2 days. For example, if you set the StartTime parameter to 2021-05-08 08:00:00 and the EndTime parameter to 2021-05-10 08:00:00, the monitoring data of the last 3,600 seconds in the time range is queried.
      *
      * The following formats are supported:
      *
-     *   UNIX timestamp: the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
-     *   UTC time: the UTC time that follows the YYYY-MM-DDThh:mm:ssZ format
+     *   UNIX timestamp: the number of milliseconds that have elapsed since 00:00:00 UTC on Thursday, January 1, 1970.
+     *   UTC time: the UTC time that follows the YYYY-MM-DDThh:mm:ssZ format.
      *
      * >
-     *   You must set the `StartTime` parameter to a point in time that is later than 00:00:00 Thursday, January 1, 1970. Otherwise, this parameter is invalid.
+     *
+     *   You must set the `StartTime` parameter to a point in time that is later than 00:00:00 UTC on Thursday, January 1, 1970. Otherwise, this parameter is invalid.
+     *
      *   We recommend that you use UNIX timestamps to prevent time zone-related issues.
      *
      * @example 1618368900000

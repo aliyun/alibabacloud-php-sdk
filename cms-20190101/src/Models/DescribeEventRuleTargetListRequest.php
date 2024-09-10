@@ -16,6 +16,7 @@ class DescribeEventRuleTargetListRequest extends Model
     /**
      * @description The name of the event-triggered alert rule.
      *
+     * This parameter is required.
      * @example testRule
      *
      * @var string

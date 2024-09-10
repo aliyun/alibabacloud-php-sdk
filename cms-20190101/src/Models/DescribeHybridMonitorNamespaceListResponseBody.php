@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeHybridMonitorNamespaceListResponseBody extends Model
 {
     /**
-     * @description The returned message.
+     * @description The response code.
      *
      * @example Success
      *
@@ -26,7 +26,7 @@ class DescribeHybridMonitorNamespaceListResponseBody extends Model
     public $describeHybridMonitorNamespace;
 
     /**
-     * @description The error message.
+     * @description The returned message.
      *
      * @example Specified parameter PageSize is not valid.
      *
@@ -35,7 +35,7 @@ class DescribeHybridMonitorNamespaceListResponseBody extends Model
     public $message;
 
     /**
-     * @description The page number of the returned page.
+     * @description The page number.
      *
      * @example 1
      *
@@ -44,7 +44,7 @@ class DescribeHybridMonitorNamespaceListResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The number of entries per page.
      *
      * @example 10
      *
@@ -53,7 +53,7 @@ class DescribeHybridMonitorNamespaceListResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 1EC450A4-3221-5148-B77E-2827576CFE48
      *
@@ -62,10 +62,10 @@ class DescribeHybridMonitorNamespaceListResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the call was successful. Valid values:
+     * @description Indicates whether the request was successful. Valid values:
      *
-     *   true: The call was successful.
-     *   false: The call failed.
+     *   true
+     *   false
      *
      * @example true
      *
@@ -74,7 +74,7 @@ class DescribeHybridMonitorNamespaceListResponseBody extends Model
     public $success;
 
     /**
-     * @description The total number of returned entries.
+     * @description The total number of entries returned.
      *
      * @example 1
      *

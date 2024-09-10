@@ -11,6 +11,7 @@ class DeleteContactRequest extends Model
     /**
      * @description The name of the alert contact.
      *
+     * This parameter is required.
      * @example test-01
      *
      * @var string

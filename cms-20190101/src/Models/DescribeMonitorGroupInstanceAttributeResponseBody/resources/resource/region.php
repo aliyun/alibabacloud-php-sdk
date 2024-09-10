@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class region extends Model
 {
     /**
+     * @description The zone.
+     *
      * @example cn-hangzhou-f
      *
      * @var string
@@ -16,6 +18,8 @@ class region extends Model
     public $availabilityZone;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string

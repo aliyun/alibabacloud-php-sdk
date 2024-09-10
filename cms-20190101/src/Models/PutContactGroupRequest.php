@@ -11,7 +11,7 @@ class PutContactGroupRequest extends Model
     /**
      * @description The name of the alert contact group.
      *
-     * For information about how to obtain the name of an alert contact group, see [DescribeContactGroupList](~~114922~~).
+     * This parameter is required.
      * @example ECS_Group
      *
      * @var string

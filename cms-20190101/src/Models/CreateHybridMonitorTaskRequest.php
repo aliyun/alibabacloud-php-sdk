@@ -42,6 +42,7 @@ class CreateHybridMonitorTaskRequest extends Model
      *   If the `TaskType` parameter is set to `aliyun_fc`, enter `aliyun_fc`.
      *   If the `TaskType` parameter is set to `aliyun_sls`, enter the name of the Logstore group.
      *
+     * This parameter is required.
      * @example aliyun_fc
      *
      * @var string
@@ -68,7 +69,7 @@ class CreateHybridMonitorTaskRequest extends Model
     /**
      * @description The name of the namespace.
      *
-     * For information about how to obtain the name of a namespace, see [DescribeHybridMonitorNamespaceList](~~428880~~).
+     * This parameter is required.
      * @example aliyun
      *
      * @var string
@@ -126,6 +127,7 @@ class CreateHybridMonitorTaskRequest extends Model
      *   aliyun_fc: metric import tasks for Alibaba Cloud services.
      *   aliyun_sls: metrics for logs imported from Simple Log Service.
      *
+     * This parameter is required.
      * @example aliyun_fc
      *
      * @var string
@@ -135,8 +137,8 @@ class CreateHybridMonitorTaskRequest extends Model
     /**
      * @description The configuration file of the Alibaba Cloud service that you want to monitor by using Hybrid Cloud Monitoring.
      *
-     *   namespace: the namespace of the Alibaba Cloud service. For information about how to query the namespace of an Alibaba Cloud service, see [DescribeMetricMetaList](~~98846~~).
-     *   metric_list: the metrics of the Alibaba Cloud service. For information about how to query the metrics of an Alibaba Cloud service, see [DescribeMetricMetaList](~~98846~~).
+     *   namespace: the namespace of the Alibaba Cloud service. For information about how to query the namespace of an Alibaba Cloud service, see [DescribeMetricMetaList](https://help.aliyun.com/document_detail/98846.html).
+     *   metric_list: the metrics of the Alibaba Cloud service. For information about how to query the metrics of an Alibaba Cloud service, see [DescribeMetricMetaList](https://help.aliyun.com/document_detail/98846.html).
      *
      * >  This parameter is required only if the `TaskType` parameter is set to `aliyun_fc`.
      * @example products:- namespace: acs_ecs_dashboard  metric_info:  - metric_list:    - cpu_total

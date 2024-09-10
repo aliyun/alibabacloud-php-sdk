@@ -20,6 +20,7 @@ class PutExporterRuleRequest extends Model
     /**
      * @description The destination to which the data is exported. Valid values of N: 1 to 20.
      *
+     * This parameter is required.
      * @example distName1
      *
      * @var string[]
@@ -29,7 +30,7 @@ class PutExporterRuleRequest extends Model
     /**
      * @description The name of the metric.
      *
-     * For more information, see [Appendix 1: Metrics](~~163515~~).
+     * For more information, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
      * @example cpu_total
      *
      * @var string
@@ -39,7 +40,7 @@ class PutExporterRuleRequest extends Model
     /**
      * @description The namespace of the cloud service.
      *
-     * > For more information, see [Appendix 1: Metrics](~~163515~~).
+     * > For more information, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
      * @example acs_ecs_dashboard
      *
      * @var string

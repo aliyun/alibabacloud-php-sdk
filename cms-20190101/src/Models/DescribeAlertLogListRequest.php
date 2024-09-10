@@ -87,7 +87,7 @@ class DescribeAlertLogListRequest extends Model
     /**
      * @description The metric name.
      *
-     * > For more information about the metrics of different cloud services, see [Appendix 1: Metrics](~~163515~~).
+     * > For more information about the metrics of different cloud services, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
      * @example IntranetInRate
      *
      * @var string
@@ -97,7 +97,7 @@ class DescribeAlertLogListRequest extends Model
     /**
      * @description The namespace of the cloud service.
      *
-     * >  For information about how to query the namespace of a cloud service, see [Appendix 1: Metrics](~~163515~~).
+     * >  For information about how to query the namespace of a cloud service, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
      * @example acs_ecs_dashboard
      *
      * @var string
@@ -127,7 +127,7 @@ class DescribeAlertLogListRequest extends Model
     /**
      * @description The abbreviation of the service name.
      *
-     * For information about how to obtain the abbreviation of a cloud service name, see [DescribeProductsOfActiveMetricRule](~~114930~~).
+     * For information about how to obtain the abbreviation of a cloud service name, see [DescribeProductsOfActiveMetricRule](https://help.aliyun.com/document_detail/114930.html).
      * @example ECS
      *
      * @var string
@@ -142,7 +142,7 @@ class DescribeAlertLogListRequest extends Model
     /**
      * @description The ID of the alert rule.
      *
-     * For information about how to obtain the ID of an alert rule, see [DescribeMetricRuleList](~~114941~~).
+     * For information about how to obtain the ID of an alert rule, see [DescribeMetricRuleList](https://help.aliyun.com/document_detail/114941.html).
      * @example bc369e8_30f87e517ed2fc****
      *
      * @var string

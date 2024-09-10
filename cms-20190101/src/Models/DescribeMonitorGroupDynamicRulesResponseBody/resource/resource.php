@@ -23,10 +23,10 @@ class resource extends Model
     public $category;
 
     /**
-     * @description The filtering condition. Valid values:
+     * @description The filter condition. Valid values:
      *
-     *   and: queries the instances that meet all alert rules
-     *   or: queries the instances that meet any alert rule
+     *   and: queries the instances that meet all alert rules.
+     *   or: queries the instances that meet any alert rule.
      *
      * @example and
      *

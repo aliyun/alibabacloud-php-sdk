@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class whiteList extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $field;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $op;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $value;

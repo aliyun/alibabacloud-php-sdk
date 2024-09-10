@@ -16,7 +16,7 @@ class DeleteHybridMonitorSLSGroupRequest extends Model
     /**
      * @description The name of the Logstore group.
      *
-     * For information about how to obtain the name of a Logstore group, see [DescribeHybridMonitorSLSGroup](~~429526~~).
+     * This parameter is required.
      * @example Logstore_test
      *
      * @var string

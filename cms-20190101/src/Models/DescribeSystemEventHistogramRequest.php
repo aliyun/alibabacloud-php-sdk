@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeSystemEventHistogramRequest extends Model
 {
     /**
-     * @description The end of the time range to query.
+     * @description The end time.
      *
-     * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+     * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      * @example 1552220485596
      *
      * @var string
@@ -19,9 +19,9 @@ class DescribeSystemEventHistogramRequest extends Model
     public $endTime;
 
     /**
-     * @description The type of the system event.
+     * @description The event type.
      *
-     * >  You can call the [DescribeSystemEventMetaList](~~114972~~) operation to view the types of system events.
+     * >  You can call the [DescribeSystemEventMetaList](https://help.aliyun.com/document_detail/114972.html) operation to query the types of system events.
      * @example Exception
      *
      * @var string
@@ -38,7 +38,7 @@ class DescribeSystemEventHistogramRequest extends Model
     public $groupId;
 
     /**
-     * @description The level of the system event. Valid values:
+     * @description The level of the event. Valid values:
      *
      *   CRITICAL
      *   WARN
@@ -51,9 +51,9 @@ class DescribeSystemEventHistogramRequest extends Model
     public $level;
 
     /**
-     * @description The name of the system event.
+     * @description The event name.
      *
-     * >  You can call the [DescribeSystemEventMetaList](~~114972~~) operation to view the names of system events.
+     * >  You can call the [DescribeSystemEventMetaList](https://help.aliyun.com/document_detail/114972.html) operation to query the names of system events.
      * @example BucketIngressBandwidth
      *
      * @var string
@@ -63,7 +63,7 @@ class DescribeSystemEventHistogramRequest extends Model
     /**
      * @description The abbreviation of the service name.
      *
-     * >  You can call the [DescribeSystemEventMetaList](~~114972~~) operation to view the abbreviations of service names.
+     * >  You can call the [DescribeSystemEventMetaList](https://help.aliyun.com/document_detail/114972.html) operation to query the abbreviations of service names.
      * @example OSS
      *
      * @var string
@@ -76,10 +76,10 @@ class DescribeSystemEventHistogramRequest extends Model
     public $regionId;
 
     /**
-     * @description The keywords contained in the content of the system event to query. You can use a logical operator between keywords. Examples:
+     * @description The keywords that are used to search for the system event. Valid values:
      *
-     *   If you need to query the system event whose content contains a and b, set the value to `a and b`.
-     *   If you need to query the system event whose content contains a or b, set the value to `a or b`.
+     *   If you want to search for the system event whose content contains a and b, set the value to `a and b`.
+     *   If you want to search for the system event whose content contains a or b, set the value to `a or b`.
      *
      * @example cms
      *
@@ -88,9 +88,9 @@ class DescribeSystemEventHistogramRequest extends Model
     public $searchKeywords;
 
     /**
-     * @description The beginning of the time range to query.
+     * @description The start time.
      *
-     * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+     * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      * @example 1552209685596
      *
      * @var string
@@ -98,9 +98,9 @@ class DescribeSystemEventHistogramRequest extends Model
     public $startTime;
 
     /**
-     * @description The status of the system event.
+     * @description The event status.
      *
-     * >  You can call the [DescribeSystemEventMetaList](~~114972~~) operation to view the statuses of system events.
+     * >  You can call the [DescribeSystemEventMetaList](https://help.aliyun.com/document_detail/114972.html) operation to query the status of system events.
      * @example normal
      *
      * @var string

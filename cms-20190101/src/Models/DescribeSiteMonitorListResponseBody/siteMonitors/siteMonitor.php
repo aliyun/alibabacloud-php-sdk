@@ -49,7 +49,7 @@ class siteMonitor extends Model
     public $interval;
 
     /**
-     * @description The extended options of the site monitoring task. The options vary based on the specified protocol. For more information, see [CreateSiteMonitor](~~115048~~).
+     * @description The extended options of the site monitoring task. The options vary based on the specified protocol. For more information, see [CreateSiteMonitor](https://help.aliyun.com/document_detail/115048.html).
      *
      * @var optionsJson
      */

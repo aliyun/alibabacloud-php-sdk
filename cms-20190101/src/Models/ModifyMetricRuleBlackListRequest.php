@@ -10,8 +10,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyMetricRuleBlackListRequest extends Model
 {
     /**
-     * @description The category of the Alibaba Cloud service. For example, ApsaraDB for Redis includes the following categories: ApsaraDB for Redis (standard architecture), ApsaraDB for Redis (cluster architecture), and ApsaraDB for Redis (read/write splitting architecture). In this case, the valid values of this parameter for ApsaraDB for Redis include `kvstore_standard`, `kvstore_sharding`, and `kvstore_splitrw`.
+     * @description The category of the cloud service. For example, ApsaraDB for Redis supports the standard architecture, the cluster architecture, and the read/write splitting architecture. In this case, the valid values of this parameter for ApsaraDB for Redis include `kvstore_standard`, `kvstore_sharding`, and `kvstore_splitrw`.
      *
+     * This parameter is required.
      * @example ecs
      *
      * @var string
@@ -57,7 +58,7 @@ class ModifyMetricRuleBlackListRequest extends Model
     /**
      * @description The ID of the blacklist policy.
      *
-     * For information about how to obtain the ID of a blacklist policy, see [DescribeMetricRuleBlackList](~~457257~~).
+     * This parameter is required.
      * @example 93514c96-ceb8-47d8-8ee3-93b6d98b****
      *
      * @var string
@@ -67,6 +68,7 @@ class ModifyMetricRuleBlackListRequest extends Model
     /**
      * @description The IDs of the instances that belong to the specified cloud service.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $instances;
@@ -84,6 +86,7 @@ class ModifyMetricRuleBlackListRequest extends Model
     /**
      * @description The name of the blacklist policy.
      *
+     * This parameter is required.
      * @example Blacklist-02
      *
      * @var string
@@ -93,7 +96,7 @@ class ModifyMetricRuleBlackListRequest extends Model
     /**
      * @description The namespace of the cloud service.
      *
-     * For more information about the namespaces of different cloud services, see [Appendix 1: Metrics](~~163515~~).
+     * This parameter is required.
      * @example acs_ecs_dashboard
      *
      * @var string
@@ -109,7 +112,7 @@ class ModifyMetricRuleBlackListRequest extends Model
      * @description The effective scope of the blacklist policy. Valid values:
      *
      *   USER: The blacklist policy takes effect only within the current Alibaba Cloud account.
-     *   GROUP (default): The blacklist policy takes effect only within the specified application group. For information about how to obtain the ID of an application group, see [DescribeMonitorGroups](~~115032~~).
+     *   GROUP (default): The blacklist policy takes effect only within the specified application group. For information about how to obtain the ID of an application group, see [DescribeMonitorGroups](https://help.aliyun.com/document_detail/115032.html).
      *
      * @example USER
      *
@@ -118,9 +121,9 @@ class ModifyMetricRuleBlackListRequest extends Model
     public $scopeType;
 
     /**
-     * @description The IDs of the application groups. Specify a JSON array.
+     * @description The IDs of the application groups.
      *
-     * > This parameter must be specified when `ScopeType` is set to `GROUP`.
+     * >  This parameter is required only when `ScopeType` is set to `GROUP`.
      * @example ["67****","78****"]
      *
      * @var string

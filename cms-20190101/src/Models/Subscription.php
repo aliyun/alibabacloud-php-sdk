@@ -30,6 +30,8 @@ class Subscription extends Model
     public $enabled;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $name;

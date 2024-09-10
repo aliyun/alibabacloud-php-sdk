@@ -11,7 +11,7 @@ class CreateMonitorGroupNotifyPolicyRequest extends Model
     /**
      * @description The timestamp that indicates the end time of the validity period for the policy.
      *
-     * This value is a UNIX timestamp that represents the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     * This parameter is required.
      * @example 1623208500000
      *
      * @var int
@@ -21,6 +21,7 @@ class CreateMonitorGroupNotifyPolicyRequest extends Model
     /**
      * @description The ID of the application group.
      *
+     * This parameter is required.
      * @example 7301****
      *
      * @var string
@@ -30,6 +31,7 @@ class CreateMonitorGroupNotifyPolicyRequest extends Model
     /**
      * @description The type of the policy. Valid value: PauseNotify.
      *
+     * This parameter is required.
      * @example PauseNotify
      *
      * @var string
@@ -44,7 +46,7 @@ class CreateMonitorGroupNotifyPolicyRequest extends Model
     /**
      * @description The timestamp that indicates the start time of the validity period for the policy.
      *
-     * This value is a UNIX timestamp that represents the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     * This parameter is required.
      * @example 1622949300000
      *
      * @var int

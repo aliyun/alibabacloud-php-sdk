@@ -8,6 +8,7 @@ use AlibabaCloud\SDK\Cms\V20190101\Models\NotificationStrategy\escalationSetting
 use AlibabaCloud\SDK\Cms\V20190101\Models\NotificationStrategy\filterSetting;
 use AlibabaCloud\SDK\Cms\V20190101\Models\NotificationStrategy\groupingSetting;
 use AlibabaCloud\SDK\Cms\V20190101\Models\NotificationStrategy\pushingSetting;
+use AlibabaCloud\SDK\Cms\V20190101\Models\NotificationStrategy\routeSetting;
 use AlibabaCloud\Tea\Model;
 
 class NotificationStrategy extends Model
@@ -38,6 +39,8 @@ class NotificationStrategy extends Model
     public $groupingSetting;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $name;
@@ -51,6 +54,11 @@ class NotificationStrategy extends Model
      * @var pushingSetting
      */
     public $pushingSetting;
+
+    /**
+     * @var routeSetting
+     */
+    public $routeSetting;
 
     /**
      * @var string
@@ -75,6 +83,7 @@ class NotificationStrategy extends Model
         'name'              => 'Name',
         'product'           => 'Product',
         'pushingSetting'    => 'PushingSetting',
+        'routeSetting'      => 'RouteSetting',
         'updateTime'        => 'UpdateTime',
         'userId'            => 'UserId',
         'uuid'              => 'Uuid',
@@ -110,6 +119,9 @@ class NotificationStrategy extends Model
         }
         if (null !== $this->pushingSetting) {
             $res['PushingSetting'] = null !== $this->pushingSetting ? $this->pushingSetting->toMap() : null;
+        }
+        if (null !== $this->routeSetting) {
+            $res['RouteSetting'] = null !== $this->routeSetting ? $this->routeSetting->toMap() : null;
         }
         if (null !== $this->updateTime) {
             $res['UpdateTime'] = $this->updateTime;
@@ -155,6 +167,9 @@ class NotificationStrategy extends Model
         }
         if (isset($map['PushingSetting'])) {
             $model->pushingSetting = pushingSetting::fromMap($map['PushingSetting']);
+        }
+        if (isset($map['RouteSetting'])) {
+            $model->routeSetting = routeSetting::fromMap($map['RouteSetting']);
         }
         if (isset($map['UpdateTime'])) {
             $model->updateTime = $map['UpdateTime'];

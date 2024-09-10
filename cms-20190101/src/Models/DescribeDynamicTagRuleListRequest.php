@@ -40,7 +40,7 @@ class DescribeDynamicTagRuleListRequest extends Model
     /**
      * @description The tag key.
      *
-     * For more information about how to obtain a tag key, see [DescribeTagKeyList](~~145558~~).
+     * For more information about how to obtain a tag key, see [DescribeTagKeyList](https://help.aliyun.com/document_detail/145558.html).
      * @example tagkey1
      *
      * @var string
@@ -59,7 +59,7 @@ class DescribeDynamicTagRuleListRequest extends Model
     /**
      * @description The tag value.
      *
-     * For more information about how to obtain a tag value, see [DescribeTagKeyList](~~145557~~).
+     * For more information about how to obtain a tag value, see [DescribeTagKeyList](https://help.aliyun.com/document_detail/145557.html).
      * @example *
      *
      * @var string

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeSystemEventCountRequest extends Model
 {
     /**
-     * @description The timestamp that specifies the end of the time range to query. Unit: milliseconds.
+     * @description The end of the time range to query. Unit: milliseconds.
      *
      * @example 1635993921000
      *
@@ -20,7 +20,7 @@ class DescribeSystemEventCountRequest extends Model
     /**
      * @description The type of the system event.
      *
-     * You can call the DescribeSystemEventMetaList operation to obtain the value of the response parameter `EventType`. The value of the EventType parameter indicates the types of system events that occurred for all cloud services in your Alibaba Cloud account. For more information, see [DescribeSystemEventMetaList](~~114972~~).
+     * You can call the DescribeSystemEventMetaList operation to obtain the value of the response parameter `EventType`. The value of the EventType parameter indicates the types of system events that occurred for all cloud services in your Alibaba Cloud account. For more information, see [DescribeSystemEventMetaList](https://help.aliyun.com/document_detail/114972.html).
      * @example StatusNotification
      *
      * @var string
@@ -43,7 +43,7 @@ class DescribeSystemEventCountRequest extends Model
      *   Warn
      *   Info
      *
-     * You can call the DescribeSystemEventMetaList operation to obtain the value of the response parameter `Level`. The value of the Level parameter indicates the levels of system events that occurred for all cloud services in your Alibaba Cloud account. For more information, see [DescribeSystemEventMetaList](~~114972~~).
+     * You can call the DescribeSystemEventMetaList operation to obtain the value of the response parameter `Level`. The value of the Level parameter indicates the levels of system events that occurred for all cloud services in your Alibaba Cloud account. For more information, see [DescribeSystemEventMetaList](https://help.aliyun.com/document_detail/114972.html).
      * @example Info
      *
      * @var string
@@ -53,7 +53,7 @@ class DescribeSystemEventCountRequest extends Model
     /**
      * @description The name of the system event.
      *
-     * You can call the DescribeSystemEventMetaList operation to obtain the value of the response parameter `Name`. The value of the Name parameter indicates the names of system events that occurred for all cloud services in your Alibaba Cloud account. For more information, see [DescribeSystemEventMetaList](~~114972~~).
+     * You can call the DescribeSystemEventMetaList operation to obtain the value of the response parameter `Name`. The value of the Name parameter indicates the names of system events that occurred for all cloud services in your Alibaba Cloud account. For more information, see [DescribeSystemEventMetaList](https://help.aliyun.com/document_detail/114972.html).
      * @example Instance:StateChange
      *
      * @var string
@@ -61,9 +61,9 @@ class DescribeSystemEventCountRequest extends Model
     public $name;
 
     /**
-     * @description The name of the cloud service in which the system event occurred.
+     * @description The name of the cloud service.
      *
-     * You can call the DescribeSystemEventMetaList operation to obtain the value of the response parameter `Product`. The value of the Product parameter indicates the names of all cloud services in which the system events of your Alibaba Cloud account occurred. For more information, see [DescribeSystemEventMetaList](~~114972~~).
+     * You can call the DescribeSystemEventMetaList operation to obtain the value of the response parameter `Product`. The value of the Product parameter indicates the names of all cloud services in which the system events of your Alibaba Cloud account occurred. For more information, see [DescribeSystemEventMetaList](https://help.aliyun.com/document_detail/114972.html).
      * @example ECS
      *
      * @var string
@@ -76,7 +76,7 @@ class DescribeSystemEventCountRequest extends Model
     public $regionId;
 
     /**
-     * @description The keywords that are used to search for the system event. You can use a logical operator to connect keywords. Valid values:
+     * @description The keywords that are used to search for the system event. Valid values:
      *
      *   If you want to search for the system event whose content contains a and b, set the value to `a and b`.
      *   If you want to search for the system event whose content contains a or b, set the value to `a or b`.
@@ -88,7 +88,7 @@ class DescribeSystemEventCountRequest extends Model
     public $searchKeywords;
 
     /**
-     * @description The timestamp that specifies the start of the time range to query. Unit: milliseconds.
+     * @description The beginning of the time range to query. Unit: milliseconds.
      *
      * @example 1635993541000
      *
@@ -99,7 +99,7 @@ class DescribeSystemEventCountRequest extends Model
     /**
      * @description The status of the system event.
      *
-     * You can call the DescribeSystemEventMetaList operation to obtain the value of the response parameter `Status`. The value of the Status parameter indicates the status of system events that occurred for all cloud services in your Alibaba Cloud account. For more information, see [DescribeSystemEventMetaList](~~114972~~).
+     * You can call the DescribeSystemEventMetaList operation to obtain the value of the response parameter `Status`. The value of the Status parameter indicates the status of system events that occurred for all cloud services in your Alibaba Cloud account. For more information, see [DescribeSystemEventMetaList](https://help.aliyun.com/document_detail/114972.html).
      * @example Normal
      *
      * @var string

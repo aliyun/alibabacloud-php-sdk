@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class critical extends Model
 {
     /**
-     * @description The comparison operator of the threshold for critical-level alerts. Valid values:
+     * @description The operator that is used to compare the metric value with the threshold for Critical-level alerts. Valid values:
      *
      *   GreaterThanOrEqualToThreshold: greater than or equal to the threshold
      *   GreaterThanThreshold: greater than the threshold
@@ -30,7 +30,7 @@ class critical extends Model
     public $comparisonOperator;
 
     /**
-     * @description The statistical aggregation method for critical-level alerts.
+     * @description The statistical methods for Critical-level alerts.
      *
      * @example Average
      *
@@ -39,7 +39,7 @@ class critical extends Model
     public $statistics;
 
     /**
-     * @description The threshold for critical-level alerts.
+     * @description The threshold for Critical-level alerts.
      *
      * @example 99
      *

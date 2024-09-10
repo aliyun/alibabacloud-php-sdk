@@ -9,17 +9,25 @@ use AlibabaCloud\Tea\Model;
 class targets extends Model
 {
     /**
-     * @description The ARN of the resource.
+     * @description The Alibaba Cloud Resource Name (ARN) of the resource. Message Service (MNS), Auto Scaling, Simple Log Service, and Function Compute are supported.
      *
-     * For information about how to obtain the ARN of a resource, see [DescribeMetricRuleTargets](~~121592~~).
+     * `acs:mns:{regionId}:{userId}:/{Resource type}/{Resource name}/message`.
      *
-     * Format: `acs:{Service name abbreviation}:{regionId}:{userId}:/{Resource type}/{Resource name}/message`. Example: `acs:mns:cn-hangzhou:120886317861****:/queues/test123/message`. Fields:
-     *
-     *   {Service name abbreviation}: the abbreviation of the service name. Valid value: mns.
-     *   {userId}: the ID of the Alibaba Cloud account.
      *   {regionId}: the region ID of the message queue or topic.
-     *   {Resource type}`: the type of the resource for which alerts are triggered. Valid values: - **queues** - **topics** {Resource name}: the name of the resource. - If the resource type is set to **queues**, the resource name is the name of the message queue. - If the resource type is set to **topics**, the resource name is the name of the topic.`
      *
+     *   {userId}: the ID of the Alibaba Cloud account that owns the resource.
+     *
+     *   {Resource type}: the type of the resource for which alerts are triggered. Valid values:
+     *
+     *   **queues**
+     *   **topics**
+     *
+     *   {Resource name}: the resource name.
+     *
+     *   If the resource type is **queues**, the resource name is the queue name.
+     *   If the resource type is **topics**, the resource name is the topic name.
+     *
+     * This parameter is required.
      * @example acs:mns:cn-hangzhou:120886317861****:/queues/test/message
      *
      * @var string
@@ -29,7 +37,7 @@ class targets extends Model
     /**
      * @description The ID of the resource for which alerts are triggered.
      *
-     * For information about how to obtain the ID of a resource for which alerts are triggered, see [DescribeMetricRuleTargets](~~121592~~).
+     * This parameter is required.
      * @example 1
      *
      * @var string
@@ -37,7 +45,7 @@ class targets extends Model
     public $id;
 
     /**
-     * @description The parameters of the alert callback. The parameters are in the JSON format.
+     * @description The JSON-formatted parameters of the alert callback.
      *
      * @example {"customField1":"value1","customField2":"$.name"}
      *
@@ -46,11 +54,11 @@ class targets extends Model
     public $jsonParams;
 
     /**
-     * @description The level of the alert. Valid values:
+     * @description The alert level. Valid values:
      *
-     *   INFO: information
-     *   WARN: warning
-     *   CRITICAL: critical
+     *   INFO
+     *   WARN
+     *   CRITICAL
      *
      * @example ["INFO", "WARN", "CRITICAL"]
      *

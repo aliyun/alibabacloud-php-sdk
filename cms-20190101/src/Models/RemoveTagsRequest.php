@@ -12,6 +12,7 @@ class RemoveTagsRequest extends Model
     /**
      * @description The IDs of the application groups.
      *
+     * This parameter is required.
      * @example 12345
      *
      * @var string[]
@@ -26,6 +27,7 @@ class RemoveTagsRequest extends Model
     /**
      * @description The tags.
      *
+     * This parameter is required.
      * @var tag[]
      */
     public $tag;

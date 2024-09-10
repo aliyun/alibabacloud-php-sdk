@@ -12,7 +12,7 @@ class AddTagsRequest extends Model
     /**
      * @description The ID of the application group.
      *
-     * For more information about how to obtain the ID of an application group, see [DescribeMonitorGroups](~~115032~~).
+     * This parameter is required.
      * @example 7301****
      *
      * @var string[]
@@ -27,6 +27,7 @@ class AddTagsRequest extends Model
     /**
      * @description The tags.
      *
+     * This parameter is required.
      * @var tag[]
      */
     public $tag;

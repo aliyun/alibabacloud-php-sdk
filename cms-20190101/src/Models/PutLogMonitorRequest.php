@@ -12,6 +12,9 @@ use AlibabaCloud\Tea\Model;
 class PutLogMonitorRequest extends Model
 {
     /**
+     * @description The aggregation logic.
+     *
+     * This parameter is required.
      * @var aggregates[]
      */
     public $aggregates;
@@ -26,6 +29,8 @@ class PutLogMonitorRequest extends Model
     public $groupId;
 
     /**
+     * @description The dimension based on which the data is grouped. This parameter is equivalent to the GROUP BY clause in SQL statements. If no dimension is specified, all data is aggregated based on the aggregate function.
+     *
      * @var groupbys[]
      */
     public $groupbys;
@@ -42,13 +47,13 @@ class PutLogMonitorRequest extends Model
     /**
      * @description The extended field. The extended field allows you to perform basic operations on the aggregation results.
      *
-     * For example, if you have calculated TotalNumber and 5XXNumber by aggregating the data. TotalNumber indicates the total number of HTTP requests, and 5XXNumber indicates the number of HTTP requests whose status code is greater than 499. You can calculate the server error rate by adding the following formula to the extended field: 5XXNumber/TotalNumber\*100.
+     * For example, you have calculated TotalNumber and 5XXNumber by aggregating the data. TotalNumber indicates the total number of HTTP requests, and 5XXNumber indicates the number of HTTP requests whose status code is greater than 499. You can calculate the server error rate by adding the following formula to the extended field: 5XXNumber/TotalNumber\\*100.
      *
-     * JSON format: {"extend":{"errorPercent":"5XXNumber/TotalNumber\*100"}}. Description:
+     * JSON format: {"extend":{"errorPercent":"5XXNumber/TotalNumber\\*100"}}. Description:
      *
      *   extend: required.
      *   errorPercent: the alias of the field generated in the calculation result. You can specify the alias as needed.
-     *   5XXNumber/TotalNumber\*100: the calculation expression.
+     *   5XXNumber/TotalNumber\\*100: the calculation expression.
      *
      * @example {"extend":{"errorPercent":"5XXNumber/TotalNumber*100"}}
      *
@@ -57,8 +62,9 @@ class PutLogMonitorRequest extends Model
     public $metricExpress;
 
     /**
-     * @description The name of the metric. For more information about the metrics for cloud services, see [Appendix 1: Metrics](~~163515~~).
+     * @description The metric name. For more information about the metrics for cloud services, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
      *
+     * This parameter is required.
      * @example cpu_total
      *
      * @var string
@@ -71,8 +77,9 @@ class PutLogMonitorRequest extends Model
     public $regionId;
 
     /**
-     * @description The name of the Log Service Logstore.
+     * @description The name of the Simple Log Service Logstore.
      *
+     * This parameter is required.
      * @example test-logstore
      *
      * @var string
@@ -80,8 +87,9 @@ class PutLogMonitorRequest extends Model
     public $slsLogstore;
 
     /**
-     * @description The name of the Log Service project.
+     * @description The name of the Simple Log Service project.
      *
+     * This parameter is required.
      * @example test-project
      *
      * @var string
@@ -89,8 +97,9 @@ class PutLogMonitorRequest extends Model
     public $slsProject;
 
     /**
-     * @description The region in which the Log Service project resides.
+     * @description The region in which the Simple Log Service project resides.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -116,6 +125,8 @@ class PutLogMonitorRequest extends Model
     public $unit;
 
     /**
+     * @description The condition that is used to filter logs. The ValueFilter and ValueFilterRelation parameters are used in pair. The filter condition is equivalent to the WHERE clause in SQL statements. If no filter condition is specified, all logs are processed. For example, logs contain the Level and Error fields. If you need to calculate the number of times that logs of the Error level appear every minute, you can set the filter condition to Level=Error and count the number of logs that meet this condition.
+     *
      * @var valueFilter[]
      */
     public $valueFilter;
@@ -126,7 +137,7 @@ class PutLogMonitorRequest extends Model
      *   and
      *   or
      *
-     * >  The ValueFilterRelation and `ValueFilter.N.Key` parameters must be used in pair.
+     * This parameter is required.
      * @example and
      *
      * @var string

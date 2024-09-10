@@ -17,7 +17,7 @@ class alertTemplates extends Model
     /**
      * @description The abbreviation of the Alibaba Cloud service name.
      *
-     * To obtain the abbreviation of an Alibaba Cloud service name, call the [DescribeProjectMeta](~~114916~~) operation. The `metricCategory` tag in the `Labels` response parameter indicates the abbreviation of the Alibaba Cloud service name.
+     * This parameter is required.
      * @example ecs
      *
      * @var string
@@ -27,7 +27,7 @@ class alertTemplates extends Model
     /**
      * @description The name of the metric. Valid values of N: 1 to 200.
      *
-     * >  For more information, see [DescribeMetricMetaList](~~98846~~) or [Appendix 1: Metrics](~~28619~~).
+     * This parameter is required.
      * @example cpu_total
      *
      * @var string
@@ -37,7 +37,7 @@ class alertTemplates extends Model
     /**
      * @description The namespace of the cloud service. Valid values of N: 1 to 200.
      *
-     * >  For more information, see [DescribeMetricMetaList](~~98846~~) or [Appendix 1: Metrics](~~28619~~).
+     * This parameter is required.
      * @example acs_ecs_dashboard
      *
      * @var string
@@ -57,6 +57,7 @@ class alertTemplates extends Model
     /**
      * @description The name of the alert rule. Valid values of N: 1 to 200.
      *
+     * This parameter is required.
      * @var string
      */
     public $ruleName;

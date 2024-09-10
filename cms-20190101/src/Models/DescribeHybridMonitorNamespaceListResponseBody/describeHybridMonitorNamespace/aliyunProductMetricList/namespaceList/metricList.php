@@ -16,7 +16,7 @@ class metricList extends Model
     public $list;
 
     /**
-     * @description The interval at which metrics are collected.
+     * @description The collection period of the metric.
      *
      * Unit: seconds.
      * @example 60

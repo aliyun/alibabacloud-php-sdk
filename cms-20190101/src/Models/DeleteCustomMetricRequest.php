@@ -11,6 +11,7 @@ class DeleteCustomMetricRequest extends Model
     /**
      * @description The ID of the application group.
      *
+     * This parameter is required.
      * @example 3607****
      *
      * @var string
@@ -30,6 +31,7 @@ class DeleteCustomMetricRequest extends Model
     /**
      * @description The name of the metric.
      *
+     * This parameter is required.
      * @example AdvanceCredit
      *
      * @var string

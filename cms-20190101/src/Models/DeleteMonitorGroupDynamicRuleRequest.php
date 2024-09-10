@@ -11,6 +11,7 @@ class DeleteMonitorGroupDynamicRuleRequest extends Model
     /**
      * @description The service to which the rule applies. Valid values: ecs, rds, and slb.
      *
+     * This parameter is required.
      * @example ecs
      *
      * @var string
@@ -20,6 +21,7 @@ class DeleteMonitorGroupDynamicRuleRequest extends Model
     /**
      * @description The ID of the application group.
      *
+     * This parameter is required.
      * @example 123456
      *
      * @var int

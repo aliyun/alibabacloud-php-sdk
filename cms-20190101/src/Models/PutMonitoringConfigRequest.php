@@ -9,10 +9,7 @@ use AlibabaCloud\Tea\Model;
 class PutMonitoringConfigRequest extends Model
 {
     /**
-     * @description Specifies whether to automatically install the CloudMonitor agent on existing Elastic Compute Service (ECS) instances. Valid values:
-     *
-     *   true (default value)
-     *   false
+     * @description This parameter is deprecated.
      *
      * @example true
      *
@@ -23,8 +20,8 @@ class PutMonitoringConfigRequest extends Model
     /**
      * @description Specifies whether to automatically install the CloudMonitor agent on new ECS instances. Valid values:
      *
-     *   true (default value)
-     *   false
+     *   true (default): The CloudMonitor agent is automatically installed on new ECS instances.
+     *   false: The CloudMonitor agent is not automatically installed on new ECS instances.
      *
      * @example true
      *

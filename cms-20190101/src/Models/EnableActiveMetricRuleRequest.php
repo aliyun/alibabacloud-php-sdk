@@ -23,6 +23,7 @@ class EnableActiveMetricRuleRequest extends Model
      *   elasticsearch: Elasticsearch
      *   opensearch: OpenSearch
      *
+     * This parameter is required.
      * @example ecs
      *
      * @var string

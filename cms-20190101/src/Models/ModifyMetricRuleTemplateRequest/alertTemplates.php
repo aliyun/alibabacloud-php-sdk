@@ -17,7 +17,7 @@ class alertTemplates extends Model
     /**
      * @description The abbreviation of the cloud service name.
      *
-     * For more information about how to obtain the abbreviation of a cloud service name, see `metricCategory` in the response parameter `Labels` of the [DescribeProjectMeta](~~114916~~) operation.
+     * For more information about how to obtain the abbreviation of a cloud service name, see `metricCategory` in the response parameter `Labels` of the [DescribeProjectMeta](https://help.aliyun.com/document_detail/114916.html) operation.
      * @example ecs
      *
      * @var string
@@ -27,7 +27,7 @@ class alertTemplates extends Model
     /**
      * @description The metric name.
      *
-     * For information about how to obtain metrics, see [DescribeMetricMetaList](~~98846~~) or [Appendix 1: Metrics](~~163515~~).
+     * For information about how to obtain metrics, see [DescribeMetricMetaList](https://help.aliyun.com/document_detail/98846.html) or [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
      * @example cpu_total
      *
      * @var string
@@ -37,7 +37,7 @@ class alertTemplates extends Model
     /**
      * @description The namespace of the cloud service.
      *
-     * For information about how to obtain the namespace of a cloud service, see [DescribeMetricMetaList](~~98846~~) or [Appendix 1: Metrics](~~163515~~).
+     * For information about how to obtain the namespace of a cloud service, see [DescribeMetricMetaList](https://help.aliyun.com/document_detail/98846.html) or [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
      * @example acs_ecs_dashboard
      *
      * @var string
@@ -67,7 +67,7 @@ class alertTemplates extends Model
     /**
      * @description The dimension of the alert. It is an extended field.
      *
-     * > For more information about the values of extended fields, see [DescribeMetricRuleTemplateAttribute](~~114979~~).
+     * > For more information about the values of extended fields, see [DescribeMetricRuleTemplateAttribute](https://help.aliyun.com/document_detail/114979.html).
      * @example {"disk":"/"}
      *
      * @var string

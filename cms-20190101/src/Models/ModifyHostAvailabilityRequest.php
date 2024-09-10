@@ -25,6 +25,7 @@ class ModifyHostAvailabilityRequest extends Model
     /**
      * @description The alert configurations.
      *
+     * This parameter is required.
      * @var alertConfigEscalationList[]
      */
     public $alertConfigEscalationList;
@@ -39,6 +40,7 @@ class ModifyHostAvailabilityRequest extends Model
     /**
      * @description The ID of the application group.
      *
+     * This parameter is required.
      * @example 123456
      *
      * @var int
@@ -48,6 +50,7 @@ class ModifyHostAvailabilityRequest extends Model
     /**
      * @description The ID of the availability monitoring task.
      *
+     * This parameter is required.
      * @example 12345
      *
      * @var int
@@ -72,6 +75,7 @@ class ModifyHostAvailabilityRequest extends Model
     /**
      * @description The name of the availability monitoring task.
      *
+     * This parameter is required.
      * @example task2
      *
      * @var string

@@ -23,7 +23,7 @@ class CreateMetricRuleResourcesRequest extends Model
     /**
      * @description The resources to be associated with the alert rule. The value is a JSON array.
      *
-     * >  You can add up to 100 resources each time. An alert rule can be associated with up to 3,000 resources.
+     * This parameter is required.
      * @example [{"instanceId":"i-a2d5q7pm3f9yr29e****"}]
      *
      * @var string

@@ -11,6 +11,7 @@ class DeleteContactGroupRequest extends Model
     /**
      * @description The name of the alert group.
      *
+     * This parameter is required.
      * @example contact_group_2019_templatedfkXQ
      *
      * @var string

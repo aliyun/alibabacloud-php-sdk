@@ -12,7 +12,7 @@ class PutMetricRuleTargetsResponseBody extends Model
     /**
      * @description The HTTP status code.
      *
-     * >  The status code 200 indicates that the call was successful.
+     * >  The status code 200 indicates that the request was successful.
      * @example 200
      *
      * @var string
@@ -20,14 +20,14 @@ class PutMetricRuleTargetsResponseBody extends Model
     public $code;
 
     /**
-     * @description The list of resources that failed to be created or modified.
+     * @description The failed data.
      *
      * @var failData
      */
     public $failData;
 
     /**
-     * @description The error message.
+     * @description The error message returned.
      *
      * @example The request processing has failed due to some unknown error.
      *
@@ -36,7 +36,7 @@ class PutMetricRuleTargetsResponseBody extends Model
     public $message;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 6A569B0D-9055-58AF-9E82-BAEAF95C0FD5
      *
@@ -45,10 +45,10 @@ class PutMetricRuleTargetsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the call was successful. Valid values:
+     * @description Indicates whether the request was successful. Valid values:
      *
-     *   true: The call was successful.
-     *   false: The call failed.
+     *   true: The request was successful.
+     *   false: The request failed.
      *
      * @example true
      *

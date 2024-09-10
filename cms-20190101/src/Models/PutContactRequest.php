@@ -17,6 +17,7 @@ class PutContactRequest extends Model
     /**
      * @description The name of the alert contact.
      *
+     * This parameter is required.
      * @example Alice
      *
      * @var string
@@ -26,6 +27,7 @@ class PutContactRequest extends Model
     /**
      * @description The description of the alert contact.
      *
+     * This parameter is required.
      * @example ECS_Instance
      *
      * @var string

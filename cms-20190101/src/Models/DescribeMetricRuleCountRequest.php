@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeMetricRuleCountRequest extends Model
 {
     /**
-     * @description The name of the metric. For more information, see [Appendix 1: Metrics](~~163515~~).
+     * @description The name of the metric. For more information, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
      *
      * @example cpu_total
      *
@@ -18,7 +18,7 @@ class DescribeMetricRuleCountRequest extends Model
     public $metricName;
 
     /**
-     * @description The namespace of the service. For more information, see [Appendix 1: Metrics](~~163515~~).
+     * @description The namespace of the service. For more information, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
      *
      * @example acs_ecs_dashboard
      *

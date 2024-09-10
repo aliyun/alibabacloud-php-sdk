@@ -40,6 +40,8 @@ class NotificationTemplate extends Model
     public $enTitle;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $name;

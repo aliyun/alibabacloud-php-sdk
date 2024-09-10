@@ -41,7 +41,7 @@ class eventPattern extends Model
     /**
      * @description The type of the cloud service. Valid values of N: 1 to 50.
      *
-     * >  You can call the DescribeSystemEventMetaList operation to query the cloud services that support event-triggered alerts. For more information, see [DescribeSystemEventMetaList](~~114972~~).
+     * This parameter is required.
      * @example ecs
      *
      * @var string

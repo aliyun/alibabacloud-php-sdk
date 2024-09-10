@@ -16,7 +16,7 @@ class EnableMetricRulesRequest extends Model
     /**
      * @description The IDs of the alert rules.
      *
-     * For information about how to obtain the ID of an alert rule, see [DescribeMetricRuleList](~~114941~~).
+     * This parameter is required.
      * @example ab05733c97b7ce239fb1b53393dc1697c123****
      *
      * @var string[]

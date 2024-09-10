@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateMonitorGroupResponseBody extends Model
 {
     /**
-     * @description The response code.
+     * @description The HTTP status code.
      *
-     * >  The value 200 indicates that the call was successful.
+     * >  The status code 200 indicates that the request was successful.
      * @example 200
      *
      * @var int
@@ -28,7 +28,7 @@ class CreateMonitorGroupResponseBody extends Model
     public $groupId;
 
     /**
-     * @description The error message.
+     * @description The returned message.
      *
      * @example The specified resource is not found.
      *
@@ -37,7 +37,7 @@ class CreateMonitorGroupResponseBody extends Model
     public $message;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 83C89BA6-ABD4-4398-A175-83E86C47A001
      *
@@ -46,10 +46,10 @@ class CreateMonitorGroupResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the call was successful. Valid values:
+     * @description Indicates whether the request was successful. Valid values:
      *
-     *   true: The call was successful.
-     *   false: The call failed.
+     *   true
+     *   false
      *
      * @example true
      *

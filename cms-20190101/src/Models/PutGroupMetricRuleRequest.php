@@ -18,7 +18,7 @@ class PutGroupMetricRuleRequest extends Model
     /**
      * @description The abbreviation of the cloud service name.
      *
-     * For more information about how to obtain the abbreviation of a cloud service name, see `metricCategory` in the response parameter `Labels` of the [DescribeProjectMeta](~~114916~~) operation.
+     * For more information about how to obtain the abbreviation of a cloud service name, see `metricCategory` in the response parameter `Labels` of the [DescribeProjectMeta](https://help.aliyun.com/document_detail/114916.html) operation.
      * @example ECS
      *
      * @var string
@@ -75,7 +75,7 @@ class PutGroupMetricRuleRequest extends Model
     /**
      * @description The application group ID.
      *
-     * For more information about how to obtain the ID of an application group, see [DescribeMonitorGroups](~~115032~~).
+     * This parameter is required.
      * @example 17285****
      *
      * @var string
@@ -103,7 +103,7 @@ class PutGroupMetricRuleRequest extends Model
     /**
      * @description The metric name.
      *
-     * For more information about how to obtain the name of a metric, see [DescribeMetricMetaList](~~98846~~) or [Appendix 1: Metrics](~~163515~~).
+     * This parameter is required.
      * @example cpu_total
      *
      * @var string
@@ -113,7 +113,7 @@ class PutGroupMetricRuleRequest extends Model
     /**
      * @description The namespace of the cloud service.
      *
-     * For more information about how to obtain the namespace of a cloud service, see [DescribeMetricMetaList](~~98846~~) or [Appendix 1: Metrics](~~163515~~).
+     * This parameter is required.
      * @example acs_ecs_dashboard
      *
      * @var string
@@ -161,8 +161,9 @@ class PutGroupMetricRuleRequest extends Model
      * @description The ID of the alert rule.
      *
      *   When you create an alert rule for the application group, enter the ID of the alert rule.
-     *   When you modify a specified alert rule in the application group, you must obtain the ID of the alert rule. For information about how to obtain the ID of an alert rule, see [DescribeMetricRuleList](~~114941~~).
+     *   When you modify a specified alert rule in the application group, you must obtain the ID of the alert rule. For information about how to obtain the ID of an alert rule, see [DescribeMetricRuleList](https://help.aliyun.com/document_detail/114941.html).
      *
+     * This parameter is required.
      * @example 123456
      *
      * @var string
@@ -173,8 +174,9 @@ class PutGroupMetricRuleRequest extends Model
      * @description The name of the alert rule.
      *
      *   When you create an alert rule for the application group, enter the name of the alert rule.
-     *   When you modify a specified alert rule in the application group, you must obtain the name of the alert rule. For more information about how to obtain the name of an alert rule, see [DescribeMetricRuleList](~~114941~~).
+     *   When you modify a specified alert rule in the application group, you must obtain the name of the alert rule. For more information about how to obtain the name of an alert rule, see [DescribeMetricRuleList](https://help.aliyun.com/document_detail/114941.html).
      *
+     * This parameter is required.
      * @example Rule_01
      *
      * @var string

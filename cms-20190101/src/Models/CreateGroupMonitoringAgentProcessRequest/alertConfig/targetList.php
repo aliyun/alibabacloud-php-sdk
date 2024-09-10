@@ -11,7 +11,7 @@ class targetList extends Model
     /**
      * @description The Alibaba Cloud Resource Name (ARN) of the resource.
      *
-     * For information about how to obtain the ARN of a resource, see [DescribeMetricRuleTargets](~~121592~~).
+     * For information about how to obtain the ARN of a resource, see [DescribeMetricRuleTargets](https://help.aliyun.com/document_detail/121592.html).
      *
      * Format: `acs:{Service name abbreviation}:{regionId}:{userId}:/{Resource type}/{Resource name}/message`. Example: `acs:mns:cn-hangzhou:120886317861****:/queues/test123/message`. Fields:
      *
@@ -40,7 +40,7 @@ class targetList extends Model
     /**
      * @description The ID of the resource for which alerts are triggered.
      *
-     * For information about how to obtain the ID of a resource for which alerts are triggered, see [DescribeMetricRuleTargets](~~121592~~).
+     * For information about how to obtain the ID of a resource for which alerts are triggered, see [DescribeMetricRuleTargets](https://help.aliyun.com/document_detail/121592.html).
      * @example 1
      *
      * @var string

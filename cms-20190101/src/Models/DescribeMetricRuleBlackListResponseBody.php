@@ -19,9 +19,8 @@ class DescribeMetricRuleBlackListResponseBody extends Model
     public $code;
 
     /**
-     * @description The timestamp when the blacklist policy started to take effect.
+     * @description The queried blacklist policies.
      *
-     * Unit: milliseconds.
      * @var describeMetricRuleBlackList[]
      */
     public $describeMetricRuleBlackList;
@@ -47,7 +46,7 @@ class DescribeMetricRuleBlackListResponseBody extends Model
     /**
      * @description The namespace of the cloud service.
      *
-     * For more information about the namespaces of different cloud services, see [Appendix 1: Metrics](~~163515~~).
+     * For more information about the namespaces of different cloud services, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
      * @example true
      *
      * @var bool

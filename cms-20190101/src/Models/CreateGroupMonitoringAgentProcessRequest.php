@@ -13,7 +13,7 @@ class CreateGroupMonitoringAgentProcessRequest extends Model
     /**
      * @description The alert rule configurations.
      *
-     * Valid values of N: 1 to 3.
+     * This parameter is required.
      * @var alertConfig[]
      */
     public $alertConfig;
@@ -21,7 +21,7 @@ class CreateGroupMonitoringAgentProcessRequest extends Model
     /**
      * @description The ID of the application group.
      *
-     * For more information about how to obtain the ID of an application group, see [DescribeMonitorGroups](~~115032~~).
+     * This parameter is required.
      * @example 123456
      *
      * @var string
@@ -52,6 +52,7 @@ class CreateGroupMonitoringAgentProcessRequest extends Model
     /**
      * @description The process name.
      *
+     * This parameter is required.
      * @example test1
      *
      * @var string

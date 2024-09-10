@@ -12,7 +12,7 @@ class PutResourceMetricRulesRequest extends Model
     /**
      * @description The threshold-triggered alert rules.
      *
-     * Valid values of N: 1 to 500.
+     * This parameter is required.
      * @var rules[]
      */
     public $rules;

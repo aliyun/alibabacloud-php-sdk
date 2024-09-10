@@ -11,6 +11,7 @@ class DeleteGroupMonitoringAgentProcessRequest extends Model
     /**
      * @description The ID of the application group.
      *
+     * This parameter is required.
      * @example 123456
      *
      * @var string
@@ -20,6 +21,7 @@ class DeleteGroupMonitoringAgentProcessRequest extends Model
     /**
      * @description The ID of the process monitoring task.
      *
+     * This parameter is required.
      * @example 48F83746-C817-478C-9B06-7158F56B****
      *
      * @var string

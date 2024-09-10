@@ -14,6 +14,8 @@ class DisableEventRulesRequest extends Model
     public $regionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ruleName1
      *
      * @var string[]

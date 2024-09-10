@@ -9,14 +9,23 @@ use AlibabaCloud\Tea\Model;
 class target extends Model
 {
     /**
-     * @description The ARN of the resource.
+     * @description The ARN of the resource. Format: `acs:{Service name abbreviation}:{regionId}:{userId}:/{Resource type}/{Resource name}/message`. MNS, Auto Scaling, Simple Log Service, and Function Compute are supported. Example: `acs:mns:cn-hangzhou:120886317861****:/queues/test123/message`. The following part describes the ARN of MNS and the parameters in the ARN:
      *
-     * Format: `acs:{Service name abbreviation}:{regionId}:{userId}:/{Resource type}/{Resource name}/message`. Example: `acs:mns:cn-hangzhou:120886317861****:/queues/test123/message`. Fields:
+     *   {Service name abbreviation}: mns.
      *
-     *   {Service name abbreviation}: the abbreviation of the service name. Valid value: mns.
      *   {userId}: the ID of the Alibaba Cloud account.
+     *
      *   {regionId}: the region ID of the message queue or topic.
-     *   {Resource type}`: the type of the resource for which alerts are triggered. Valid values: - **queues** - **topics** {Resource name}: the name of the resource. - If the resource type is set to **queues**, the resource name is the name of the message queue. - If the resource type is set to **topics**, the resource name is the name of the topic.`
+     *
+     *   {Resource type}: the type of the resource for which alerts are triggered. Valid values:
+     *
+     *   **queues**
+     *   **topics**
+     *
+     *   {Resource name}: the resource name.
+     *
+     *   If the resource type is **queues**, the resource name is the queue name.
+     *   If the resource type is **topics**, the resource name is the topic name.
      *
      * @example acs:mns:cn-hangzhou:111:/queues/test/message
      *
@@ -34,11 +43,11 @@ class target extends Model
     public $id;
 
     /**
-     * @description The level of the alert. Valid values:
+     * @description The alert level. Valid values:
      *
-     *   INFO: information
-     *   WARN: warning
-     *   CRITICAL: critical
+     *   INFO
+     *   WARN
+     *   CRITICAL
      *
      * @example ["INFO", "WARN", "CRITICAL"]
      *

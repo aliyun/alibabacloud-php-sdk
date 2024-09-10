@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class describeMetricRuleBlackList extends Model
 {
     /**
-     * @description The name of the blacklist policy.
+     * @description The category of the cloud service. For example, ApsaraDB for Redis includes the following categories: ApsaraDB for Redis (standard architecture), ApsaraDB for Redis (cluster architecture), and ApsaraDB for Redis (read/write splitting architecture). In this case, the valid values of this parameter for ApsaraDB for Redis include `kvstore_standard`, `kvstore_sharding`, and `kvstore_splitrw`.
      *
      * @example ecs
      *
@@ -19,8 +19,9 @@ class describeMetricRuleBlackList extends Model
     public $category;
 
     /**
-     * @description The metrics of the instance.
+     * @description The timestamp when the blacklist policy was created.
      *
+     * Unit: milliseconds.
      * @example 1665714561000
      *
      * @var string
@@ -28,7 +29,7 @@ class describeMetricRuleBlackList extends Model
     public $createTime;
 
     /**
-     * @description The extended dimension of the instance. For example, `{"device":"C:"}` specifies that the blacklist policy is applied to all C disks of the specified Elastic Compute Service (ECS) instance.
+     * @description The time range within which the blacklist policy is effective.
      *
      * @example 00:00-23:59
      *
@@ -37,9 +38,9 @@ class describeMetricRuleBlackList extends Model
     public $effectiveTime;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The timestamp when the blacklist policy started to take effect.
      *
-     * Default value: 10.
+     * Unit: milliseconds.
      * @example 1640608200000
      *
      * @var int
@@ -47,9 +48,9 @@ class describeMetricRuleBlackList extends Model
     public $enableEndTime;
 
     /**
-     * @description The ID of the application group. The value of this parameter is a JSON array.
+     * @description The timestamp when the blacklist policy expired.
      *
-     * >  This parameter is returned only if the `ScopeType` parameter is set to `GROUP`.
+     * Unit: milliseconds.
      * @example 1640237400000
      *
      * @var int
@@ -57,9 +58,8 @@ class describeMetricRuleBlackList extends Model
     public $enableStartTime;
 
     /**
-     * @description The timestamp when the blacklist policy was modified.
+     * @description The ID of the blacklist policy.
      *
-     * Unit: milliseconds.
      * @example 93514c96-ceb8-47d8-8ee3-93b6d98b****
      *
      * @var string
@@ -67,12 +67,17 @@ class describeMetricRuleBlackList extends Model
     public $id;
 
     /**
+     * @description The IDs of the instances that belong to the specified cloud service.
+     *
      * @var string[]
      */
     public $instances;
 
     /**
-     * @description The total number of blacklist policies.
+     * @description The status of the blacklist policy. Valid values:
+     *
+     *   true: The blacklist policy is enabled.
+     *   false: The blacklist policy is disabled.
      *
      * @example true
      *
@@ -81,20 +86,14 @@ class describeMetricRuleBlackList extends Model
     public $isEnable;
 
     /**
-     * @description The method that is used to sort query results by time. Valid values:
-     *
-     *   DESC (default): descending order
-     *   ASC: ascending order
+     * @description The metrics of the instance.
      *
      * @var metrics[]
      */
     public $metrics;
 
     /**
-     * @description The status of the blacklist policy. Valid values:
-     *
-     *   true: The blacklist policy is enabled.
-     *   false: The blacklist policy is disabled.
+     * @description The name of the blacklist policy.
      *
      * @example Blacklist-01
      *
@@ -103,9 +102,8 @@ class describeMetricRuleBlackList extends Model
     public $name;
 
     /**
-     * @description The number of the page to return.
+     * @description The namespace of the cloud service.
      *
-     * Default value: 1.
      * @example acs_ecs_dashboard
      *
      * @var string
@@ -113,7 +111,10 @@ class describeMetricRuleBlackList extends Model
     public $namespace;
 
     /**
-     * @description The IDs of instances that belong to the specified cloud service.
+     * @description The effective scope of the blacklist policy. Valid values:
+     *
+     *   USER: The blacklist policy takes effect only within the current Alibaba Cloud account.
+     *   GROUP: The blacklist policy takes effect only within the specified application group.
      *
      * @example USER
      *
@@ -122,13 +123,16 @@ class describeMetricRuleBlackList extends Model
     public $scopeType;
 
     /**
+     * @description The IDs of the application groups.
+     *
      * @var string[]
      */
     public $scopeValue;
 
     /**
-     * @description The ID of the blacklist policy.
+     * @description The timestamp when the blacklist policy was modified.
      *
+     * Unit: milliseconds.
      * @example 1665718373000
      *
      * @var string

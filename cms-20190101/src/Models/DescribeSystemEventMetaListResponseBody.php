@@ -27,6 +27,8 @@ class DescribeSystemEventMetaListResponseBody extends Model
     public $data;
 
     /**
+     * @description The returned message.
+     *
      * @example success
      *
      * @var string

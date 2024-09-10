@@ -12,6 +12,7 @@ class ModifyMonitorGroupInstancesRequest extends Model
     /**
      * @description The ID of the application group.
      *
+     * This parameter is required.
      * @example 12345
      *
      * @var int
@@ -19,6 +20,8 @@ class ModifyMonitorGroupInstancesRequest extends Model
     public $groupId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var instances[]
      */
     public $instances;

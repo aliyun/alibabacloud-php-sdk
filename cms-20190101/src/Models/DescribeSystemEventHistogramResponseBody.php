@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeSystemEventHistogramResponseBody extends Model
 {
     /**
-     * @description The HTTP status code.
+     * @description The response code.
      *
-     * >  The status code 200 indicates that the call was successful.
+     * >  The status code 200 indicates that the request was successful.
      * @example 200
      *
      * @var string
@@ -20,6 +20,8 @@ class DescribeSystemEventHistogramResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned message.
+     *
      * @example The Request is not authorization.
      *
      * @var string
@@ -27,7 +29,7 @@ class DescribeSystemEventHistogramResponseBody extends Model
     public $message;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 486029C9-53E1-44B4-85A8-16A571A043FD
      *
@@ -36,7 +38,7 @@ class DescribeSystemEventHistogramResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the call was successful. The value true indicates a success. The value false indicates a failure.
+     * @description Indicates whether the request was successful. Valid values: true: The request was successful. false: The request failed.
      *
      * @example true
      *
@@ -45,7 +47,7 @@ class DescribeSystemEventHistogramResponseBody extends Model
     public $success;
 
     /**
-     * @description The information about the number of times that the system event occurred during each interval of a time period.
+     * @description The information about the number of times the system event occurred during each interval of a time period.
      *
      * @var systemEventHistograms
      */

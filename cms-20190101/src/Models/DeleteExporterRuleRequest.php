@@ -16,6 +16,7 @@ class DeleteExporterRuleRequest extends Model
     /**
      * @description The name of the data export rule.
      *
+     * This parameter is required.
      * @example myRuleName
      *
      * @var string

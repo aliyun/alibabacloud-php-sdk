@@ -11,6 +11,7 @@ class DeleteMetricRuleResourcesRequest extends Model
     /**
      * @description The resources to be disassociated from the alert rule.
      *
+     * This parameter is required.
      * @example [{"instanceId":"i-uf6hm9lnlzsarrc7****"}]
      *
      * @var string
@@ -20,6 +21,7 @@ class DeleteMetricRuleResourcesRequest extends Model
     /**
      * @description The ID of the alert rule.
      *
+     * This parameter is required.
      * @example rr-bp18017n6iolv****
      *
      * @var string

@@ -21,7 +21,7 @@ class alertConfig extends Model
     /**
      * @description The alert notification methods. Valid values:
      *
-     * 0: Alert notifications are sent by using emails and DingTalk chatbots.
+     * This parameter is required.
      * @example 0
      *
      * @var int

@@ -12,8 +12,6 @@ class slsParameter extends Model
      * @description The ARN of the Log Service Logstore.
      *
      * - ResourceId: the resource ID
-     * @example acs:log:cn-hangzhou::project/cms-log-mo****\/logstore/c***
-     *
      * @var string
      */
     public $arn;

@@ -25,6 +25,7 @@ class CreateHostAvailabilityRequest extends Model
     /**
      * @description None
      *
+     * This parameter is required.
      * @var alertConfigEscalationList[]
      */
     public $alertConfigEscalationList;
@@ -39,6 +40,7 @@ class CreateHostAvailabilityRequest extends Model
     /**
      * @description The ID of the application group.
      *
+     * This parameter is required.
      * @example 123456
      *
      * @var int
@@ -61,8 +63,9 @@ class CreateHostAvailabilityRequest extends Model
     public $regionId;
 
     /**
-     * @description The name of the availability monitoring task. The name must be 4 to 100 characters in length, and can contain letters, digits, and underscores (\_).
+     * @description The name of the availability monitoring task. The name must be 4 to 100 characters in length, and can contain letters, digits, and underscores (_).
      *
+     * This parameter is required.
      * @example task1
      *
      * @var string
@@ -88,6 +91,7 @@ class CreateHostAvailabilityRequest extends Model
      *   TELNET
      *   HTTP
      *
+     * This parameter is required.
      * @example HTTP
      *
      * @var string

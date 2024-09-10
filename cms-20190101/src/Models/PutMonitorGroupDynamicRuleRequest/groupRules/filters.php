@@ -16,6 +16,7 @@ class filters extends Model
      *   startWith: starts with a prefix
      *   endWith: ends with a suffix
      *
+     * This parameter is required.
      * @example contains
      *
      * @var string
@@ -25,7 +26,7 @@ class filters extends Model
     /**
      * @description The name of the field based on which instances are filtered. Valid values of N: 1 to 3.
      *
-     * Only hostnames are supported. Example: hostName.
+     * This parameter is required.
      * @example hostName
      *
      * @var string
@@ -35,6 +36,7 @@ class filters extends Model
     /**
      * @description The value to be matched with the specified field. Valid values of N: 1 to 3.
      *
+     * This parameter is required.
      * @example nginx
      *
      * @var string

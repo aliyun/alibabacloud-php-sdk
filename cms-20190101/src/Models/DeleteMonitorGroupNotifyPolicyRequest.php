@@ -20,7 +20,7 @@ class DeleteMonitorGroupNotifyPolicyRequest extends Model
     /**
      * @description The policy type.
      *
-     * Valid value: PauseNotify.
+     * This parameter is required.
      * @example PauseNotify
      *
      * @var string

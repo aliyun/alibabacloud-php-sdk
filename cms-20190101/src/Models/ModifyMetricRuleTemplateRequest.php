@@ -28,7 +28,7 @@ class ModifyMetricRuleTemplateRequest extends Model
     /**
      * @description The name of the alert template.
      *
-     * For information about how to obtain the name of an alert template, see [DescribeMetricRuleTemplateList](~~114982~~).
+     * For information about how to obtain the name of an alert template, see [DescribeMetricRuleTemplateList](https://help.aliyun.com/document_detail/114982.html).
      * @example test123
      *
      * @var string
@@ -43,7 +43,7 @@ class ModifyMetricRuleTemplateRequest extends Model
     /**
      * @description The version of the alert template. The version changes with the number of times that the alert template is modified.
      *
-     * For information about how to obtain the version of an alert template, see [DescribeMetricRuleTemplateList](~~114982~~).
+     * This parameter is required.
      * @example 0
      *
      * @var int
@@ -53,7 +53,7 @@ class ModifyMetricRuleTemplateRequest extends Model
     /**
      * @description The ID of the alert template.
      *
-     * For information about how to obtain the ID of an alert template, see [DescribeMetricRuleTemplateList](~~114982~~).
+     * This parameter is required.
      * @example 123456
      *
      * @var int

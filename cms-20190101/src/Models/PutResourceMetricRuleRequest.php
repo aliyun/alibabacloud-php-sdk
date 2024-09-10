@@ -26,9 +26,9 @@ class PutResourceMetricRuleRequest extends Model
     public $compositeExpression;
 
     /**
-     * @description The alert contact group. The alert notifications are sent to the contacts that belong to the alert contact group.
+     * @description The alert contact groups. Alert notifications are sent to the alert contacts in the alert contact group.
      *
-     * >  An alert contact group can contain one or more alert contacts. For information about how to create alert contacts and alert contact groups, see [PutContact](~~114923~~) and [PutContactGroup](~~114929~~).
+     * This parameter is required.
      * @example ECS_Group
      *
      * @var string
@@ -36,7 +36,7 @@ class PutResourceMetricRuleRequest extends Model
     public $contactGroups;
 
     /**
-     * @description The time period during which the alert rule is effective.
+     * @description The period of time during which the alert rule is effective.
      *
      * @example 00:00-23:59
      *
@@ -52,9 +52,9 @@ class PutResourceMetricRuleRequest extends Model
     public $emailSubject;
 
     /**
-     * @description The interval at which the alert is triggered. Unit: seconds.
+     * @description The interval at which alerts are triggered based on the alert rule. Unit: seconds.
      *
-     * >  For information about how to query the statistical period of a metric, see [Appendix 1: Metrics](~~163515~~).
+     * >  For more information about how to query the statistical periods of metrics, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
      * @example 60
      *
      * @var string
@@ -62,16 +62,17 @@ class PutResourceMetricRuleRequest extends Model
     public $interval;
 
     /**
-     * @description The tags.
+     * @description If the metric meets the specified condition in the alert rule and CloudMonitor sends an alert notification, the tag is also written to the metric and displayed in the alert notification.
      *
+     * >  This parameter is equivalent to the Label parameter of Prometheus alerts.
      * @var labels[]
      */
     public $labels;
 
     /**
-     * @description The name of the metric. For information about how to query the name of a metric, see [Appendix 1: Metrics](~~163515~~).
+     * @description The metric name. For more information about how to query metric names, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
      *
-     * >  If you create a Prometheus alert rule for Hybrid Cloud Monitoring, you must set this parameter to the name of the namespace. For information about how to obtain the name of a namespace, see [DescribeHybridMonitorNamespaceList](~~428880~~).
+     * This parameter is required.
      * @example cpu_total
      *
      * @var string
@@ -79,9 +80,9 @@ class PutResourceMetricRuleRequest extends Model
     public $metricName;
 
     /**
-     * @description The namespace of the cloud service. For information about how to query the namespace of a cloud service, see [Appendix 1: Metrics](~~163515~~).
+     * @description The namespace of the cloud service. For more information about how to query the namespaces of cloud services, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
      *
-     * >  If you create a Prometheus alert rule for Hybrid Cloud Monitoring, you must set this parameter to `acs_prometheus`.
+     * This parameter is required.
      * @example acs_ecs_dashboard
      *
      * @var string
@@ -89,9 +90,9 @@ class PutResourceMetricRuleRequest extends Model
     public $namespace;
 
     /**
-     * @description The processing method of alerts when no monitoring data is found. Valid values:
+     * @description The method that is used to handle alerts when no monitoring data is found. Valid value:
      *
-     *   KEEP_LAST_STATE (default value): No operation is performed.
+     *   KEEP_LAST_STATE (default): No operation is performed.
      *   INSUFFICIENT_DATA: An alert whose content is "Insufficient data" is triggered.
      *   OK: The status is considered normal.
      *
@@ -102,7 +103,7 @@ class PutResourceMetricRuleRequest extends Model
     public $noDataPolicy;
 
     /**
-     * @description The time period during which the alert rule is ineffective.
+     * @description The period of time during which the alert rule is ineffective.
      *
      * @example 00:00-06:00
      *
@@ -113,7 +114,7 @@ class PutResourceMetricRuleRequest extends Model
     /**
      * @description The statistical period of the metric. Unit: seconds. The default value is the interval at which the monitoring data of the metric is collected.
      *
-     * >  For information about how to query the statistical period of a metric, see [Appendix 1: Metrics](~~163515~~).
+     * >  For more information about how to query the statistical periods of metrics, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
      * @example 60
      *
      * @var string
@@ -121,17 +122,17 @@ class PutResourceMetricRuleRequest extends Model
     public $period;
 
     /**
-     * @description The Prometheus alert rule.
+     * @description Prometheus alerts.
      *
-     * >  This parameter is required only when you create a Prometheus alert rule for Hybrid Cloud Monitoring.
+     * >  This parameter is required only if you create a Prometheus alert rule for Hybrid Cloud Monitoring.
      * @var prometheus
      */
     public $prometheus;
 
     /**
-     * @description The information about the resource. Examples: `[{"instanceId":"i-uf6j91r34rnwawoo****"}]` and `[{"userId":"100931896542****"}]`.
+     * @description The resource information. Examples: `[{"instanceId":"i-uf6j91r34rnwawoo****"}]` and `[{"userId":"100931896542****"}]`.
      *
-     * For information about the supported dimensions that are used to query resources, see [Appendix 1: Metrics](~~163515~~).
+     * For more information about the supported dimensions that are used to query resources, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
      * @example [{"instanceId":"i-uf6j91r34rnwawoo****"}]
      *
      * @var string
@@ -141,7 +142,7 @@ class PutResourceMetricRuleRequest extends Model
     /**
      * @description The ID of the alert rule.
      *
-     * >  If you specify a new ID, a threshold-triggered alert rule is created.
+     * This parameter is required.
      * @example a151cd6023eacee2f0978e03863cc1697c89508****
      *
      * @var string
@@ -151,7 +152,7 @@ class PutResourceMetricRuleRequest extends Model
     /**
      * @description The name of the alert rule.
      *
-     * >  If you specify a new name, a threshold-triggered alert rule is created.
+     * This parameter is required.
      * @example test123
      *
      * @var string
@@ -159,9 +160,9 @@ class PutResourceMetricRuleRequest extends Model
     public $ruleName;
 
     /**
-     * @description The mute period during which new alerts are not sent even if the trigger conditions are met. Unit: seconds. Default value: 86400.
+     * @description The mute period during which new alert notifications are not sent even if the trigger conditions are met. Unit: seconds. Default value: 86400.
      *
-     * >  If an alert is not cleared within the mute period, a new alert notification is sent when the mute period ends.
+     * >  If an alert is not cleared after the mute period ends, CloudMonitor resends an alert notification.
      * @example 86400
      *
      * @var int

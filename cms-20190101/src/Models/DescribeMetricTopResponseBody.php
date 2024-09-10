@@ -21,7 +21,7 @@ class DescribeMetricTopResponseBody extends Model
     /**
      * @description The monitoring data.
      *
-     * @example [{\"order\":1,\"timestamp\":1620287520000,\"userId\":\"120886317861****\",\"instanceId\":\"i-j6ccf7d5fn335qpo****\",\"Average\":99.92,\"Minimum\":99.5,\"Maximum\":100.0,\"_count\":1.0},{\"order\":2,\"timestamp\":1620287520000,\"userId\":\"120886317861****\",\"instanceId\":\"i-0xii2bvf42iqvxbp****\",\"Average\":99.91,\"Minimum\":99.0,\"Maximum\":100.0,\"_count\":1.0}]
+     * @example [{\\"order\\":1,\\"timestamp\\":1620287520000,\\"userId\\":\\"120886317861****\\",\\"instanceId\\":\\"i-j6ccf7d5fn335qpo****\\",\\"Average\\":99.92,\\"Minimum\\":99.5,\\"Maximum\\":100.0,\\"_count\\":1.0},{\\"order\\":2,\\"timestamp\\":1620287520000,\\"userId\\":\\"120886317861****\\",\\"instanceId\\":\\"i-0xii2bvf42iqvxbp****\\",\\"Average\\":99.91,\\"Minimum\\":99.0,\\"Maximum\\":100.0,\\"_count\\":1.0}]
      *
      * @var string
      */

@@ -9,6 +9,15 @@ use AlibabaCloud\Tea\Model;
 class nodeStatus extends Model
 {
     /**
+     * @description The error code returned when the CloudMonitor agent is installed. Valid values:
+     *
+     *   Common.Timeout: The installation timed out.
+     *   Common.SLR: The service-linked role for CloudMonitor is unauthorized.
+     *   Common.OS: The operating system is not supported.
+     *   Assist.Invalid: Cloud Assistant is not running.
+     *   Assist.Invoke: An error occurred when the installation program is started.
+     *   Assist.Execute: An error occurred when the installation program is running.
+     *
      * @var string
      */
     public $agentInstallErrorCode;
@@ -35,9 +44,11 @@ class nodeStatus extends Model
     public $instanceId;
 
     /**
-     * @description SysOM插件的配置信息`sysak`是否开启监控。取值：
+     * @description Indicates whether the SysAK monitoring feature is enabled.`` Valid values:
      *
-     * - false：`sysak`未开启监控。
+     *   `true`: The SysAK monitoring feature is enabled.
+     *   `false`: the SysAK monitoring feature is disabled.
+     *
      * @example {"sysak":true}
      *
      * @var string
@@ -90,7 +101,7 @@ class nodeStatus extends Model
     public $osMonitorStatus;
 
     /**
-     * @description SysOM监控的插件版本。
+     * @description The SysOM version.
      *
      * @example 1.3.0-12
      *

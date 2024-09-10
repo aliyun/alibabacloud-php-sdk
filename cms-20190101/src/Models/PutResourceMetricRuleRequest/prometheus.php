@@ -18,7 +18,7 @@ class prometheus extends Model
     public $annotations;
 
     /**
-     * @description The level of the alert. Valid values:
+     * @description The alert level. Valid values:
      *
      *   Critical
      *   Warn
@@ -31,7 +31,7 @@ class prometheus extends Model
     public $level;
 
     /**
-     * @description The PromQL query statement.
+     * @description PromQL statements are supported.
      *
      * >  The data obtained by using the PromQL query statement is the monitoring data. You must include the alert threshold in this statement.
      * @example cpuUsage{instanceId="xxxx"}[1m]>90

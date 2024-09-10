@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class SMS extends Model
 {
     /**
-     * @description The total quota of alert text messages.
+     * @description The total quota of alert text messages. Unit: messages.
      *
      * @example 550
      *
@@ -18,7 +18,7 @@ class SMS extends Model
     public $quotaLimit;
 
     /**
-     * @description The quota of alert text messages in your resource plan.
+     * @description The quota of alert text messages in your resource plan. Unit: messages.
      *
      * @example 500
      *
@@ -27,7 +27,7 @@ class SMS extends Model
     public $quotaPackage;
 
     /**
-     * @description The used quota of alert text messages in your resource plan.
+     * @description The used quota of alert text messages in your resource plan. Unit: messages.
      *
      * @example 38
      *

@@ -12,7 +12,7 @@ class CreateGroupMetricRulesRequest extends Model
     /**
      * @description The ID of the application group.
      *
-     * For information about how to obtain the ID of an application group, see [DescribeMonitorGroups](~~115032~~).
+     * This parameter is required.
      * @example 123456
      *
      * @var int

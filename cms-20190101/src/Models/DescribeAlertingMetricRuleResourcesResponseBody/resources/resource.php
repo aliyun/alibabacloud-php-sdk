@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class resource extends Model
 {
     /**
-     * @description The dimensions that specify the resources whose monitoring data you want to query.
+     * @description The dimensions based on which the resources are queried.
      *
-     * @example {\"region\":\"cn-huhehaote\",\"queue\":\"test-0128\",\"userId\":\"120886317861****\"}
+     * @example {\\"region\\":\\"cn-huhehaote\\",\\"queue\\":\\"test-0128\\",\\"userId\\":\\"120886317861****\\"}
      *
      * @var string
      */
@@ -40,7 +40,7 @@ class resource extends Model
     /**
      * @description The ID of the application group.
      *
-     * > If the alert rule is associated with an application group, the ID of the application group is returned in this parameter.
+     * >  If the alert rule is associated with an application group, the ID of the application group is returned in this parameter.
      * @example 7671****
      *
      * @var string
@@ -48,7 +48,7 @@ class resource extends Model
     public $groupId;
 
     /**
-     * @description The timestamp when the last alert was triggered for the resource based on the alert rule.
+     * @description The time when the last alert was triggered for the resource based on the alert rule. The value is a timestamp.
      *
      * Unit: milliseconds.
      * @example 1622427900000
@@ -58,7 +58,7 @@ class resource extends Model
     public $lastAlertTime;
 
     /**
-     * @description The timestamp when the alert rule was last modified.
+     * @description The time when the alert rule was last modified. The value is a timestamp.
      *
      * Unit: milliseconds.
      * @example 1622827900000
@@ -91,7 +91,7 @@ class resource extends Model
     /**
      * @description The metric value that triggered the alert based on the alert rule. The value is a JSON string.
      *
-     * @example {\"timestamp\":1623727500000,\"Sum\":926,\"value\":463,\"Maximum\":463,\"Minimum\":463,\"Average\":463,\"SampleCount\":2,\"userId\":\"120886317861****\",\"region\":\"cn-huhehaote\",\"queue\":\"test-0128\"}
+     * @example {\\"timestamp\\":1623727500000,\\"Sum\\":926,\\"value\\":463,\\"Maximum\\":463,\\"Minimum\\":463,\\"Average\\":463,\\"SampleCount\\":2,\\"userId\\":\\"120886317861****\\",\\"region\\":\\"cn-huhehaote\\",\\"queue\\":\\"test-0128\\"}
      *
      * @var string
      */
@@ -152,7 +152,7 @@ class resource extends Model
     public $ruleName;
 
     /**
-     * @description The timestamp when the resource was associated with the alert rule.
+     * @description The time when the resource was associated with the alert rule. The value is a timestamp.
      *
      * Unit: milliseconds.
      * @example 1622427900000
@@ -162,7 +162,7 @@ class resource extends Model
     public $startTime;
 
     /**
-     * @description The method used to calculate metric values that trigger alerts.
+     * @description The method used to calculate the metric values that trigger alerts.
      *
      * @example Average
      *
