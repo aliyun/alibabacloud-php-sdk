@@ -23,6 +23,11 @@ class input extends Model
     public $format;
 
     /**
+     * @var string[]
+     */
+    public $languageHints;
+
+    /**
      * @var bool
      */
     public $multipleStreamsEnabled;
@@ -67,6 +72,7 @@ class input extends Model
     protected $_name = [
         'fileUrl'                     => 'FileUrl',
         'format'                      => 'Format',
+        'languageHints'               => 'LanguageHints',
         'multipleStreamsEnabled'      => 'MultipleStreamsEnabled',
         'outputPath'                  => 'OutputPath',
         'progressiveCallbacksEnabled' => 'ProgressiveCallbacksEnabled',
@@ -88,6 +94,9 @@ class input extends Model
         }
         if (null !== $this->format) {
             $res['Format'] = $this->format;
+        }
+        if (null !== $this->languageHints) {
+            $res['LanguageHints'] = $this->languageHints;
         }
         if (null !== $this->multipleStreamsEnabled) {
             $res['MultipleStreamsEnabled'] = $this->multipleStreamsEnabled;
@@ -127,6 +136,11 @@ class input extends Model
         }
         if (isset($map['Format'])) {
             $model->format = $map['Format'];
+        }
+        if (isset($map['LanguageHints'])) {
+            if (!empty($map['LanguageHints'])) {
+                $model->languageHints = $map['LanguageHints'];
+            }
         }
         if (isset($map['MultipleStreamsEnabled'])) {
             $model->multipleStreamsEnabled = $map['MultipleStreamsEnabled'];
