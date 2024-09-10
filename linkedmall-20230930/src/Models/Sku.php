@@ -119,29 +119,35 @@ class Sku extends Model
     public $skuStatus;
 
     /**
+     * @var int
+     */
+    public $suggestedRetailPrice;
+
+    /**
      * @example 天蓝色
      *
      * @var string
      */
     public $title;
     protected $_name = [
-        'barcode'       => 'barcode',
-        'canSell'       => 'canSell',
-        'divisionCode'  => 'divisionCode',
-        'fuzzyQuantity' => 'fuzzyQuantity',
-        'markPrice'     => 'markPrice',
-        'picUrl'        => 'picUrl',
-        'platformPrice' => 'platformPrice',
-        'price'         => 'price',
-        'productId'     => 'productId',
-        'quantity'      => 'quantity',
-        'rankValue'     => 'rankValue',
-        'shopId'        => 'shopId',
-        'skuId'         => 'skuId',
-        'skuSpecs'      => 'skuSpecs',
-        'skuSpecsCode'  => 'skuSpecsCode',
-        'skuStatus'     => 'skuStatus',
-        'title'         => 'title',
+        'barcode'              => 'barcode',
+        'canSell'              => 'canSell',
+        'divisionCode'         => 'divisionCode',
+        'fuzzyQuantity'        => 'fuzzyQuantity',
+        'markPrice'            => 'markPrice',
+        'picUrl'               => 'picUrl',
+        'platformPrice'        => 'platformPrice',
+        'price'                => 'price',
+        'productId'            => 'productId',
+        'quantity'             => 'quantity',
+        'rankValue'            => 'rankValue',
+        'shopId'               => 'shopId',
+        'skuId'                => 'skuId',
+        'skuSpecs'             => 'skuSpecs',
+        'skuSpecsCode'         => 'skuSpecsCode',
+        'skuStatus'            => 'skuStatus',
+        'suggestedRetailPrice' => 'suggestedRetailPrice',
+        'title'                => 'title',
     ];
 
     public function validate()
@@ -204,6 +210,9 @@ class Sku extends Model
         }
         if (null !== $this->skuStatus) {
             $res['skuStatus'] = $this->skuStatus;
+        }
+        if (null !== $this->suggestedRetailPrice) {
+            $res['suggestedRetailPrice'] = $this->suggestedRetailPrice;
         }
         if (null !== $this->title) {
             $res['title'] = $this->title;
@@ -273,6 +282,9 @@ class Sku extends Model
         }
         if (isset($map['skuStatus'])) {
             $model->skuStatus = $map['skuStatus'];
+        }
+        if (isset($map['suggestedRetailPrice'])) {
+            $model->suggestedRetailPrice = $map['suggestedRetailPrice'];
         }
         if (isset($map['title'])) {
             $model->title = $map['title'];
