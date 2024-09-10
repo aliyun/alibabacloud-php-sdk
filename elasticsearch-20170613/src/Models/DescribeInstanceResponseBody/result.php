@@ -207,9 +207,19 @@ class result extends Model
     public $kibanaPort;
 
     /**
+     * @var string
+     */
+    public $kibanaPrivateDomain;
+
+    /**
      * @var string[]
      */
     public $kibanaPrivateIPWhitelist;
+
+    /**
+     * @var string
+     */
+    public $kibanaPrivatePort;
 
     /**
      * @var masterConfiguration
@@ -384,7 +394,9 @@ class result extends Model
         'kibanaDomain'                 => 'kibanaDomain',
         'kibanaIPWhitelist'            => 'kibanaIPWhitelist',
         'kibanaPort'                   => 'kibanaPort',
+        'kibanaPrivateDomain'          => 'kibanaPrivateDomain',
         'kibanaPrivateIPWhitelist'     => 'kibanaPrivateIPWhitelist',
+        'kibanaPrivatePort'            => 'kibanaPrivatePort',
         'masterConfiguration'          => 'masterConfiguration',
         'networkConfig'                => 'networkConfig',
         'nodeAmount'                   => 'nodeAmount',
@@ -525,8 +537,14 @@ class result extends Model
         if (null !== $this->kibanaPort) {
             $res['kibanaPort'] = $this->kibanaPort;
         }
+        if (null !== $this->kibanaPrivateDomain) {
+            $res['kibanaPrivateDomain'] = $this->kibanaPrivateDomain;
+        }
         if (null !== $this->kibanaPrivateIPWhitelist) {
             $res['kibanaPrivateIPWhitelist'] = $this->kibanaPrivateIPWhitelist;
+        }
+        if (null !== $this->kibanaPrivatePort) {
+            $res['kibanaPrivatePort'] = $this->kibanaPrivatePort;
         }
         if (null !== $this->masterConfiguration) {
             $res['masterConfiguration'] = null !== $this->masterConfiguration ? $this->masterConfiguration->toMap() : null;
@@ -743,10 +761,16 @@ class result extends Model
         if (isset($map['kibanaPort'])) {
             $model->kibanaPort = $map['kibanaPort'];
         }
+        if (isset($map['kibanaPrivateDomain'])) {
+            $model->kibanaPrivateDomain = $map['kibanaPrivateDomain'];
+        }
         if (isset($map['kibanaPrivateIPWhitelist'])) {
             if (!empty($map['kibanaPrivateIPWhitelist'])) {
                 $model->kibanaPrivateIPWhitelist = $map['kibanaPrivateIPWhitelist'];
             }
+        }
+        if (isset($map['kibanaPrivatePort'])) {
+            $model->kibanaPrivatePort = $map['kibanaPrivatePort'];
         }
         if (isset($map['masterConfiguration'])) {
             $model->masterConfiguration = masterConfiguration::fromMap($map['masterConfiguration']);
