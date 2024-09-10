@@ -9,8 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ModifyTaskInfoRequest extends Model
 {
     /**
-     * @description The action parameter.
+     * @description The action-related parameters. You can add action-related parameters based on your business requirements. If you set the TaskAction parameter to modifySwitchTime, you must set this parameter to `{"recoverMode": "xxx", "recoverTime": "xxx"}`.
      *
+     * The recoverMode field specifies the task restoration mode. valid values:
+     *
+     *   **timePoint**: The task is executed at a specified point in time.
+     *   **Immediate**: The task is executed immediately.
+     *   **maintainTime**: The task is executed based on the O\\&M time.
+     *
+     * The recoverTime field specifies restoration time. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. If you set the recoverMode field to timePoint, you must also specify the recoverTime field.
      * @example {\\"recoverTime\\":\\"2023-04-12T18:30:00Z\\",\\"recoverMode\\":\\"timePoint\\"}
      *
      * @var string
@@ -52,12 +59,7 @@ class ModifyTaskInfoRequest extends Model
     public $stepName;
 
     /**
-     * @description The name of the operation that you can call to execute the task. Valid values:
-     *
-     *   ImportImage
-     *   ExportImage
-     *   RedeployInstance
-     *   ModifyDiskSpec
+     * @description The task action. Set the value to modifySwitchTime. The value specifies that you want to change the switching time or restoration time.
      *
      * @example ImportImage
      *
@@ -66,7 +68,7 @@ class ModifyTaskInfoRequest extends Model
     public $taskAction;
 
     /**
-     * @description The task ID.
+     * @description The task ID. You can call the DescribeTasks operation to query task IDs.
      *
      * This parameter is required.
      * @example t-83br18hloum8u3948s

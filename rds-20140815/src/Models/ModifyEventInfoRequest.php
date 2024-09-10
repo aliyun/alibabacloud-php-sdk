@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyEventInfoRequest extends Model
 {
     /**
-     * @description The action parameter. Set this value in the JSON string format.
+     * @description The action-related parameters. You can add action-related parameters based on your business requirements. The parameter value varies with the value of the TaskAction parameter.
      *
      * @example {\\"recoverTime\\":\\"2023-04-17T14:02:35Z\\",\\"recoverMode\\":\\"timePoint\\"}
      *
@@ -18,8 +18,12 @@ class ModifyEventInfoRequest extends Model
     public $actionParams;
 
     /**
-     * @description The event handling action. Set this value to archive or undo.
+     * @description The event handling action. Valid values:
      *
+     *   **archive**
+     *   **undo**
+     *
+     * >  This parameter is required.
      * @example archive
      *
      * @var string
@@ -27,7 +31,7 @@ class ModifyEventInfoRequest extends Model
     public $eventAction;
 
     /**
-     * @description The event ID. Separate multiple event IDs with commas (,). You can configure up to 20 event IDs.
+     * @description The event ID. You can call the DescribeEvents operation to obtain the IDs of the events. Separate multiple event IDs with commas (,). You can specify up to 20 event IDs.
      *
      * This parameter is required.
      * @example 5422964
@@ -37,7 +41,7 @@ class ModifyEventInfoRequest extends Model
     public $eventId;
 
     /**
-     * @description The region ID. You can call the DescribeRegions operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/610399.html) operation to query the most recent region list.
      *
      * This parameter is required.
      * @example cn-hangzhou

@@ -73,7 +73,7 @@ class CreateReplicationLinkRequest extends Model
     /**
      * @description The name of the source instance.
      *
-     * >  You must specify this parameter if **SourceCategory** is set to **aliyunRDS**.
+     * >  This parameter is required when you set the **SourceCategory** parameter to **aliyunRDS**.
      * @example testInstance
      *
      * @var string
@@ -81,9 +81,9 @@ class CreateReplicationLinkRequest extends Model
     public $sourceInstanceName;
 
     /**
-     * @description The ID of the region where the source instance is located.
+     * @description The region ID of the source instance.
      *
-     * >  You must specify this parameter if **SourceCategory** is set to **aliyunRDS**.
+     * >  This parameter is required when you set the **SourceCategory** parameter to **aliyunRDS**.
      * @example cn-hangzhou
      *
      * @var string
@@ -91,7 +91,7 @@ class CreateReplicationLinkRequest extends Model
     public $sourceInstanceRegionId;
 
     /**
-     * @description The port number of the source instance.
+     * @description The port of the source instance.
      *
      * @example 5432
      *

@@ -442,10 +442,14 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\MigrateSecurityIPModeRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\MigrateSecurityIPModeResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\MigrateToOtherZoneRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\MigrateToOtherZoneResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyAccountCheckPolicyRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyAccountCheckPolicyResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyAccountDescriptionRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyAccountDescriptionResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyAccountMaskingPrivilegeRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyAccountMaskingPrivilegeResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyAccountSecurityPolicyRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyAccountSecurityPolicyResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyActionEventPolicyRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyActionEventPolicyResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyActiveOperationTasksRequest;
@@ -2065,8 +2069,17 @@ class Rds extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->DBInstanceName)) {
+            $query['DBInstanceName'] = $request->DBInstanceName;
+        }
+        if (!Utils::isUnset($request->dstDBName)) {
+            $query['DstDBName'] = $request->dstDBName;
+        }
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->reserveAccount)) {
+            $query['ReserveAccount'] = $request->reserveAccount;
         }
         if (!Utils::isUnset($request->resourceGroupId)) {
             $query['ResourceGroupId'] = $request->resourceGroupId;
@@ -2076,6 +2089,9 @@ class Rds extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->srcDBName)) {
+            $query['SrcDBName'] = $request->srcDBName;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -11977,7 +11993,7 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary 事件中心事件列表
+     * @summary Queries historical events in the event center.
      *  *
      * @param DescribeHistoryEventsRequest $request DescribeHistoryEventsRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -12055,7 +12071,7 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary 事件中心事件列表
+     * @summary Queries historical events in the event center.
      *  *
      * @param DescribeHistoryEventsRequest $request DescribeHistoryEventsRequest
      *
@@ -12069,7 +12085,7 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary Queries event statistics in the event center.
+     * @summary Queries the statistics of historical events in the event center.
      *  *
      * @param DescribeHistoryEventsStatRequest $request DescribeHistoryEventsStatRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -12114,7 +12130,7 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary Queries event statistics in the event center.
+     * @summary Queries the statistics of historical events in the event center.
      *  *
      * @param DescribeHistoryEventsStatRequest $request DescribeHistoryEventsStatRequest
      *
@@ -15865,14 +15881,16 @@ class Rds extends OpenApiClient
      *  *
      * @description ### [](#)Supported database engines
      * *   MySQL
-     * > This operation is not supported for RDS instances that run MySQL 5.7 on RDS Basic Edition.
+     *     **
+     *     **Note** This operation is not supported for RDS instances that run MySQL 5.7 on RDS Basic Edition.
      * *   SQL Server
-     * > This operation is supported only for RDS instances that run SQL Server 2008 R2.
+     *     **
+     *     **Note** This operation is supported only for RDS instances that run SQL Server 2008 R2.
      * *   MariaDB
-     * ### [](#)Precautions
+     * ### [](#)Prerequisites
      * *   Slow query logs are not collected in real time and may show a latency of 6 to 8 hours.
      * *   If the return result is empty, check whether the StartTime and EndTime parameters are in UTC. If yes, no slow logs are generated within the specified time range.
-     * *   Starting from December 13, 2023, the optimized template algorithm is used for slow queries. As a result, different **SQLHash** values are generated for the same SQLText before and after optimization. For more information, see [[Notice\\] Optimization of the template algorithm for slow queries](~~2637024~~).
+     * *   Starting from September 01, 2024, the template algorithm for slow queries is optimized. When you call the operation, you must change the value of the **SQLHASH** parameter. For more information, see [[Notice\\] Optimization of the template algorithm for slow queries](~~2845725~~).
      *  *
      * @param DescribeSlowLogsRequest $request DescribeSlowLogsRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -15939,14 +15957,16 @@ class Rds extends OpenApiClient
      *  *
      * @description ### [](#)Supported database engines
      * *   MySQL
-     * > This operation is not supported for RDS instances that run MySQL 5.7 on RDS Basic Edition.
+     *     **
+     *     **Note** This operation is not supported for RDS instances that run MySQL 5.7 on RDS Basic Edition.
      * *   SQL Server
-     * > This operation is supported only for RDS instances that run SQL Server 2008 R2.
+     *     **
+     *     **Note** This operation is supported only for RDS instances that run SQL Server 2008 R2.
      * *   MariaDB
-     * ### [](#)Precautions
+     * ### [](#)Prerequisites
      * *   Slow query logs are not collected in real time and may show a latency of 6 to 8 hours.
      * *   If the return result is empty, check whether the StartTime and EndTime parameters are in UTC. If yes, no slow logs are generated within the specified time range.
-     * *   Starting from December 13, 2023, the optimized template algorithm is used for slow queries. As a result, different **SQLHash** values are generated for the same SQLText before and after optimization. For more information, see [[Notice\\] Optimization of the template algorithm for slow queries](~~2637024~~).
+     * *   Starting from September 01, 2024, the template algorithm for slow queries is optimized. When you call the operation, you must change the value of the **SQLHASH** parameter. For more information, see [[Notice\\] Optimization of the template algorithm for slow queries](~~2845725~~).
      *  *
      * @param DescribeSlowLogsRequest $request DescribeSlowLogsRequest
      *
@@ -17984,6 +18004,77 @@ class Rds extends OpenApiClient
     }
 
     /**
+     * @summary 修改账号检查策略
+     *  *
+     * @param ModifyAccountCheckPolicyRequest $request ModifyAccountCheckPolicyRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyAccountCheckPolicyResponse ModifyAccountCheckPolicyResponse
+     */
+    public function modifyAccountCheckPolicyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accountName)) {
+            $query['AccountName'] = $request->accountName;
+        }
+        if (!Utils::isUnset($request->checkPolicy)) {
+            $query['CheckPolicy'] = $request->checkPolicy;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyAccountCheckPolicy',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyAccountCheckPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 修改账号检查策略
+     *  *
+     * @param ModifyAccountCheckPolicyRequest $request ModifyAccountCheckPolicyRequest
+     *
+     * @return ModifyAccountCheckPolicyResponse ModifyAccountCheckPolicyResponse
+     */
+    public function modifyAccountCheckPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyAccountCheckPolicyWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Modifies the description of a database account.
      *  *
      * @description ### [](#)Supported database engines
@@ -18123,6 +18214,74 @@ class Rds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyAccountMaskingPrivilegeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 修改密码策略
+     *  *
+     * @param ModifyAccountSecurityPolicyRequest $request ModifyAccountSecurityPolicyRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyAccountSecurityPolicyResponse ModifyAccountSecurityPolicyResponse
+     */
+    public function modifyAccountSecurityPolicyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->groupPolicy)) {
+            $query['GroupPolicy'] = $request->groupPolicy;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyAccountSecurityPolicy',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyAccountSecurityPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 修改密码策略
+     *  *
+     * @param ModifyAccountSecurityPolicyRequest $request ModifyAccountSecurityPolicyRequest
+     *
+     * @return ModifyAccountSecurityPolicyResponse ModifyAccountSecurityPolicyResponse
+     */
+    public function modifyAccountSecurityPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyAccountSecurityPolicyWithOptions($request, $runtime);
     }
 
     /**
@@ -21166,7 +21325,7 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary 事件中心修改事件信息
+     * @summary Modifies information about the events in the event center.
      *  *
      * @param ModifyEventInfoRequest $request ModifyEventInfoRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -21211,7 +21370,7 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary 事件中心修改事件信息
+     * @summary Modifies information about the events in the event center.
      *  *
      * @param ModifyEventInfoRequest $request ModifyEventInfoRequest
      *
@@ -22659,7 +22818,7 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the task information in the task center.
+     * @summary Modifies information about the historical tasks in the task center.
      *  *
      * @param ModifyTaskInfoRequest $request ModifyTaskInfoRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -22713,7 +22872,7 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the task information in the task center.
+     * @summary Modifies information about the historical tasks in the task center.
      *  *
      * @param ModifyTaskInfoRequest $request ModifyTaskInfoRequest
      *
@@ -24231,12 +24390,12 @@ class Rds extends OpenApiClient
     /**
      * @summary Restores data to an existing instance across regions.
      *  *
-     * @description >  Before restoration, you can call the [CheckCreateDdrDBInstance](https://help.aliyun.com/document_detail/121721.html) operation to check whether a cross-region backup set can be used for cross-region restoration.
-     * ### [](#)Supported database engine
+     * @description >  Before restoration, you can call the CheckCreateDdrDBInstance operation to check whether a cross-region backup set can be used for cross-region restoration.
+     * ### [](#)Supported database engines
      * MySQL
      * ### [](#)References
-     * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     * *   [Back up an ApsaraDB RDS for MySQL instance across regions](https://help.aliyun.com/document_detail/120824.html)
+     * >  Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
+     * *   [Use the cross-region backup feature for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/120824.html)
      * *   [Restore the data of an ApsaraDB RDS for MySQL instance across regions](https://help.aliyun.com/document_detail/120875.html)
      *  *
      * @param RestoreDdrTableRequest $request RestoreDdrTableRequest
@@ -24308,12 +24467,12 @@ class Rds extends OpenApiClient
     /**
      * @summary Restores data to an existing instance across regions.
      *  *
-     * @description >  Before restoration, you can call the [CheckCreateDdrDBInstance](https://help.aliyun.com/document_detail/121721.html) operation to check whether a cross-region backup set can be used for cross-region restoration.
-     * ### [](#)Supported database engine
+     * @description >  Before restoration, you can call the CheckCreateDdrDBInstance operation to check whether a cross-region backup set can be used for cross-region restoration.
+     * ### [](#)Supported database engines
      * MySQL
      * ### [](#)References
-     * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     * *   [Back up an ApsaraDB RDS for MySQL instance across regions](https://help.aliyun.com/document_detail/120824.html)
+     * >  Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
+     * *   [Use the cross-region backup feature for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/120824.html)
      * *   [Restore the data of an ApsaraDB RDS for MySQL instance across regions](https://help.aliyun.com/document_detail/120875.html)
      *  *
      * @param RestoreDdrTableRequest $request RestoreDdrTableRequest

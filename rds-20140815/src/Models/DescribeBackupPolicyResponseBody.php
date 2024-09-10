@@ -321,8 +321,11 @@ class DescribeBackupPolicyResponseBody extends Model
     public $supportVolumeShadowCopy;
 
     /**
-     * @description Whether to support 5-minute log backup of SQL Server.
-     * - 1 : Support
+     * @description Indicates whether log backups for SQL Server are performed verery five minutes.
+     *
+     *   0: No
+     *   1: Yes
+     *
      * @example 0
      *
      * @var int

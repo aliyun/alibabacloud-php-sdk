@@ -6,25 +6,37 @@ namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CopyDatabaseRequest extends Model
+class ModifyAccountSecurityPolicyRequest extends Model
 {
     /**
-     * @description The instance name.
-     *
-     * @example rm-uf6wjk5******
+     * @example ETnLKlblzczshOTUbOCz****
      *
      * @var string
      */
-    public $DBInstanceName;
+    public $clientToken;
 
     /**
-     * @description Destination database name.
+     * @description This parameter is required.
      *
-     * @example db2***
+     * @example rm-bp1ibu****
      *
      * @var string
      */
-    public $dstDBName;
+    public $DBInstanceId;
+
+    /**
+     * @description This parameter is required.
+     *
+     * @example {"accountSecurityPolicy": {"MaximumPasswordAge": 30, "MinimumPasswordAge": 20}}
+     *
+     * @var string
+     */
+    public $groupPolicy;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
 
     /**
      * @var int
@@ -32,18 +44,7 @@ class CopyDatabaseRequest extends Model
     public $ownerId;
 
     /**
-     * @description Reserve account.
-     *
-     * @example 1
-     *
-     * @var int
-     */
-    public $reserveAccount;
-
-    /**
-     * @description The ID of the resource group.
-     *
-     * @example rg-acfmy*****
+     * @example rg-acfmy****
      *
      * @var string
      */
@@ -58,24 +59,15 @@ class CopyDatabaseRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
-
-    /**
-     * @description Source database name.
-     *
-     * @example db1***
-     *
-     * @var string
-     */
-    public $srcDBName;
     protected $_name = [
-        'DBInstanceName'       => 'DBInstanceName',
-        'dstDBName'            => 'DstDBName',
+        'clientToken'          => 'ClientToken',
+        'DBInstanceId'         => 'DBInstanceId',
+        'groupPolicy'          => 'GroupPolicy',
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
-        'reserveAccount'       => 'ReserveAccount',
         'resourceGroupId'      => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'srcDBName'            => 'SrcDBName',
     ];
 
     public function validate()
@@ -85,17 +77,20 @@ class CopyDatabaseRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->DBInstanceName) {
-            $res['DBInstanceName'] = $this->DBInstanceName;
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
-        if (null !== $this->dstDBName) {
-            $res['DstDBName'] = $this->dstDBName;
+        if (null !== $this->DBInstanceId) {
+            $res['DBInstanceId'] = $this->DBInstanceId;
+        }
+        if (null !== $this->groupPolicy) {
+            $res['GroupPolicy'] = $this->groupPolicy;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->reserveAccount) {
-            $res['ReserveAccount'] = $this->reserveAccount;
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
@@ -106,9 +101,6 @@ class CopyDatabaseRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->srcDBName) {
-            $res['SrcDBName'] = $this->srcDBName;
-        }
 
         return $res;
     }
@@ -116,22 +108,25 @@ class CopyDatabaseRequest extends Model
     /**
      * @param array $map
      *
-     * @return CopyDatabaseRequest
+     * @return ModifyAccountSecurityPolicyRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DBInstanceName'])) {
-            $model->DBInstanceName = $map['DBInstanceName'];
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
-        if (isset($map['DstDBName'])) {
-            $model->dstDBName = $map['DstDBName'];
+        if (isset($map['DBInstanceId'])) {
+            $model->DBInstanceId = $map['DBInstanceId'];
+        }
+        if (isset($map['GroupPolicy'])) {
+            $model->groupPolicy = $map['GroupPolicy'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ReserveAccount'])) {
-            $model->reserveAccount = $map['ReserveAccount'];
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
@@ -141,9 +136,6 @@ class CopyDatabaseRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['SrcDBName'])) {
-            $model->srcDBName = $map['SrcDBName'];
         }
 
         return $model;
