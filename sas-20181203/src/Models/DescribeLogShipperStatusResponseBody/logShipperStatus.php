@@ -33,6 +33,15 @@ class logShipperStatus extends Model
     public $buyStatus;
 
     /**
+     * @description The version of the log analysis field. Valid values:
+     * - SAS_V2
+     * @example SAS_V1
+     *
+     * @var string
+     */
+    public $etlMetaVersion;
+
+    /**
      * @description The status of the log analysis feature. Valid values:
      *
      *   **yes**: enabled
@@ -94,6 +103,7 @@ class logShipperStatus extends Model
     protected $_name = [
         'authStatus'            => 'AuthStatus',
         'buyStatus'             => 'BuyStatus',
+        'etlMetaVersion'        => 'EtlMetaVersion',
         'openStatus'            => 'OpenStatus',
         'postPaidOpenStatus'    => 'PostPaidOpenStatus',
         'postPaidSupportStatus' => 'PostPaidSupportStatus',
@@ -113,6 +123,9 @@ class logShipperStatus extends Model
         }
         if (null !== $this->buyStatus) {
             $res['BuyStatus'] = $this->buyStatus;
+        }
+        if (null !== $this->etlMetaVersion) {
+            $res['EtlMetaVersion'] = $this->etlMetaVersion;
         }
         if (null !== $this->openStatus) {
             $res['OpenStatus'] = $this->openStatus;
@@ -146,6 +159,9 @@ class logShipperStatus extends Model
         }
         if (isset($map['BuyStatus'])) {
             $model->buyStatus = $map['BuyStatus'];
+        }
+        if (isset($map['EtlMetaVersion'])) {
+            $model->etlMetaVersion = $map['EtlMetaVersion'];
         }
         if (isset($map['OpenStatus'])) {
             $model->openStatus = $map['OpenStatus'];

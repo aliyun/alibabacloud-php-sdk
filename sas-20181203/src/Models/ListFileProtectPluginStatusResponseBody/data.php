@@ -85,6 +85,18 @@ class data extends Model
     public $online;
 
     /**
+     * @description The type of the operating system. Valid values:
+     *
+     *   **windows**: Windows
+     *   **linux**: Linux
+     *
+     * @example linux
+     *
+     * @var string
+     */
+    public $platform;
+
+    /**
      * @description Indicates whether the core file monitoring file is supported.
      *
      * @example true
@@ -110,6 +122,7 @@ class data extends Model
         'internetIp'     => 'InternetIp',
         'intranetIp'     => 'IntranetIp',
         'online'         => 'Online',
+        'platform'       => 'Platform',
         'supportFile'    => 'SupportFile',
         'uuid'           => 'Uuid',
     ];
@@ -144,6 +157,9 @@ class data extends Model
         }
         if (null !== $this->online) {
             $res['Online'] = $this->online;
+        }
+        if (null !== $this->platform) {
+            $res['Platform'] = $this->platform;
         }
         if (null !== $this->supportFile) {
             $res['SupportFile'] = $this->supportFile;
@@ -186,6 +202,9 @@ class data extends Model
         }
         if (isset($map['Online'])) {
             $model->online = $map['Online'];
+        }
+        if (isset($map['Platform'])) {
+            $model->platform = $map['Platform'];
         }
         if (isset($map['SupportFile'])) {
             $model->supportFile = $map['SupportFile'];

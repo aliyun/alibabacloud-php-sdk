@@ -260,6 +260,18 @@ class vulRecords extends Model
     public $raspStatus;
 
     /**
+     * @description Indicates whether the vulnerability is easily exploited. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example true
+     *
+     * @var bool
+     */
+    public $realRisk;
+
+    /**
      * @description The region ID of the asset.
      *
      * @example cn-hangzhou
@@ -386,6 +398,7 @@ class vulRecords extends Model
         'primaryId'         => 'PrimaryId',
         'raspDefend'        => 'RaspDefend',
         'raspStatus'        => 'RaspStatus',
+        'realRisk'          => 'RealRisk',
         'regionId'          => 'RegionId',
         'related'           => 'Related',
         'repairTs'          => 'RepairTs',
@@ -478,6 +491,9 @@ class vulRecords extends Model
         }
         if (null !== $this->raspStatus) {
             $res['RaspStatus'] = $this->raspStatus;
+        }
+        if (null !== $this->realRisk) {
+            $res['RealRisk'] = $this->realRisk;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -592,6 +608,9 @@ class vulRecords extends Model
         }
         if (isset($map['RaspStatus'])) {
             $model->raspStatus = $map['RaspStatus'];
+        }
+        if (isset($map['RealRisk'])) {
+            $model->realRisk = $map['RealRisk'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

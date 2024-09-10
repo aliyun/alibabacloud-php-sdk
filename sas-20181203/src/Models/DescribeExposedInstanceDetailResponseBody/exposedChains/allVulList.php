@@ -11,7 +11,7 @@ class allVulList extends Model
     /**
      * @description The alias of the vulnerability.
      *
-     * @example RHSA-2022:0274-Important: polkit pkexec Local Privilege Escalation Vulnerability（CVE-2021-4034）
+     * @example RHSA-2022:0274-Important: polkit pkexec Local Privilege Escalation Vulnerability(CVE-2021-4034)
      *
      * @var string
      */

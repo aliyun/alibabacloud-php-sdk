@@ -30,7 +30,7 @@ class DescribeExposedStatisticsDetailRequest extends Model
     /**
      * @description The Alibaba Cloud account ID of the member in the resource directory.
      *
-     * >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain the IDs.
+     * >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain the ID.
      * @example 127608589417****
      *
      * @var int

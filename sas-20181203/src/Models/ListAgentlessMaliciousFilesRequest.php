@@ -124,6 +124,13 @@ class ListAgentlessMaliciousFilesRequest extends Model
     public $remark;
 
     /**
+     * @description The source of the malicious file.
+     *
+     * @var string[]
+     */
+    public $scanRange;
+
+    /**
      * @description The UUID of the asset.
      *
      * @example d2d94e8b-bb25-4744-8004-1e08a53c****
@@ -142,6 +149,7 @@ class ListAgentlessMaliciousFilesRequest extends Model
         'maliciousType'      => 'MaliciousType',
         'pageSize'           => 'PageSize',
         'remark'             => 'Remark',
+        'scanRange'          => 'ScanRange',
         'uuid'               => 'Uuid',
     ];
 
@@ -181,6 +189,9 @@ class ListAgentlessMaliciousFilesRequest extends Model
         }
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
+        }
+        if (null !== $this->scanRange) {
+            $res['ScanRange'] = $this->scanRange;
         }
         if (null !== $this->uuid) {
             $res['Uuid'] = $this->uuid;
@@ -226,6 +237,11 @@ class ListAgentlessMaliciousFilesRequest extends Model
         }
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];
+        }
+        if (isset($map['ScanRange'])) {
+            if (!empty($map['ScanRange'])) {
+                $model->scanRange = $map['ScanRange'];
+            }
         }
         if (isset($map['Uuid'])) {
             $model->uuid = $map['Uuid'];

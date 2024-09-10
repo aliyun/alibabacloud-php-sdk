@@ -35,6 +35,15 @@ class standards extends Model
     public $showName;
 
     /**
+     * @description The priority field indicates the level of prominence.
+     *
+     * @example 1
+     *
+     * @var int
+     */
+    public $showPriorityLevel;
+
+    /**
      * @description The type of the check item.
      *
      * @example IDENTITY_PERMISSION
@@ -43,10 +52,11 @@ class standards extends Model
      */
     public $type;
     protected $_name = [
-        'id'           => 'Id',
-        'requirements' => 'Requirements',
-        'showName'     => 'ShowName',
-        'type'         => 'Type',
+        'id'                => 'Id',
+        'requirements'      => 'Requirements',
+        'showName'          => 'ShowName',
+        'showPriorityLevel' => 'ShowPriorityLevel',
+        'type'              => 'Type',
     ];
 
     public function validate()
@@ -70,6 +80,9 @@ class standards extends Model
         }
         if (null !== $this->showName) {
             $res['ShowName'] = $this->showName;
+        }
+        if (null !== $this->showPriorityLevel) {
+            $res['ShowPriorityLevel'] = $this->showPriorityLevel;
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
@@ -100,6 +113,9 @@ class standards extends Model
         }
         if (isset($map['ShowName'])) {
             $model->showName = $map['ShowName'];
+        }
+        if (isset($map['ShowPriorityLevel'])) {
+            $model->showPriorityLevel = $map['ShowPriorityLevel'];
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];

@@ -10,6 +10,21 @@ use AlibabaCloud\Tea\Model;
 class checks extends Model
 {
     /**
+     * @var int
+     */
+    public $assetSubType;
+
+    /**
+     * @var int
+     */
+    public $assetType;
+
+    /**
+     * @var int
+     */
+    public $assetVendor;
+
+    /**
      * @description The ID of the check item.
      *
      * @example 5
@@ -195,6 +210,9 @@ class checks extends Model
      */
     public $vendorShowName;
     protected $_name = [
+        'assetSubType'    => 'AssetSubType',
+        'assetType'       => 'AssetType',
+        'assetVendor'     => 'AssetVendor',
         'checkId'         => 'CheckId',
         'checkPolicies'   => 'CheckPolicies',
         'checkSaleType'   => 'CheckSaleType',
@@ -218,6 +236,15 @@ class checks extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->assetSubType) {
+            $res['AssetSubType'] = $this->assetSubType;
+        }
+        if (null !== $this->assetType) {
+            $res['AssetType'] = $this->assetType;
+        }
+        if (null !== $this->assetVendor) {
+            $res['AssetVendor'] = $this->assetVendor;
+        }
         if (null !== $this->checkId) {
             $res['CheckId'] = $this->checkId;
         }
@@ -278,6 +305,15 @@ class checks extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AssetSubType'])) {
+            $model->assetSubType = $map['AssetSubType'];
+        }
+        if (isset($map['AssetType'])) {
+            $model->assetType = $map['AssetType'];
+        }
+        if (isset($map['AssetVendor'])) {
+            $model->assetVendor = $map['AssetVendor'];
+        }
         if (isset($map['CheckId'])) {
             $model->checkId = $map['CheckId'];
         }

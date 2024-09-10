@@ -18,7 +18,7 @@ class DescribeBackupPoliciesResponseBody extends Model
     public $pageInfo;
 
     /**
-     * @description An array that consists of the anti-ransomware policies returned.
+     * @description The details of the anti-ransomware policy.
      *
      * @var policies[]
      */

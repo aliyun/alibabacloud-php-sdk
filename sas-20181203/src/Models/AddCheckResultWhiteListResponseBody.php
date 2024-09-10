@@ -23,9 +23,15 @@ class AddCheckResultWhiteListResponseBody extends Model
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var int[]
+     */
+    public $ruleIds;
     protected $_name = [
         'data'      => 'Data',
         'requestId' => 'RequestId',
+        'ruleIds'   => 'RuleIds',
     ];
 
     public function validate()
@@ -40,6 +46,9 @@ class AddCheckResultWhiteListResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->ruleIds) {
+            $res['RuleIds'] = $this->ruleIds;
         }
 
         return $res;
@@ -58,6 +67,11 @@ class AddCheckResultWhiteListResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['RuleIds'])) {
+            if (!empty($map['RuleIds'])) {
+                $model->ruleIds = $map['RuleIds'];
+            }
         }
 
         return $model;

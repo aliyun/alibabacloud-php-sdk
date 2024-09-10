@@ -18,6 +18,15 @@ class list_ extends Model
     public $baselineCount;
 
     /**
+     * @description The instance ID of the asset.
+     *
+     * @example s-bp1g6wxdwps7s9dz****
+     *
+     * @var string
+     */
+    public $instanceId;
+
+    /**
      * @description The instance name of the asset.
      *
      * @example sql-test-0****
@@ -99,6 +108,7 @@ class list_ extends Model
     public $vulCount;
     protected $_name = [
         'baselineCount'  => 'BaselineCount',
+        'instanceId'     => 'InstanceId',
         'instanceName'   => 'InstanceName',
         'internetIp'     => 'InternetIp',
         'intranetIp'     => 'IntranetIp',
@@ -119,6 +129,9 @@ class list_ extends Model
         $res = [];
         if (null !== $this->baselineCount) {
             $res['BaselineCount'] = $this->baselineCount;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
@@ -161,6 +174,9 @@ class list_ extends Model
         $model = new self();
         if (isset($map['BaselineCount'])) {
             $model->baselineCount = $map['BaselineCount'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];

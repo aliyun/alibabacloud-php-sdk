@@ -19,11 +19,29 @@ class DescribeCheckWarningMachinesResponseBody extends Model
     public $count;
 
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
+     * @example 1
+     *
+     * @var int
+     */
+    public $currentPage;
+
+    /**
      * @description The servers on which the same risk item is detected.
      *
      * @var machines[]
      */
     public $machines;
+
+    /**
+     * @description The number of entries returned per page.
+     *
+     * @example 20
+     *
+     * @var int
+     */
+    public $pageSize;
 
     /**
      * @description The ID of the request, which is used to locate and troubleshoot issues.
@@ -34,9 +52,11 @@ class DescribeCheckWarningMachinesResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'count'     => 'Count',
-        'machines'  => 'Machines',
-        'requestId' => 'RequestId',
+        'count'       => 'Count',
+        'currentPage' => 'CurrentPage',
+        'machines'    => 'Machines',
+        'pageSize'    => 'PageSize',
+        'requestId'   => 'RequestId',
     ];
 
     public function validate()
@@ -49,6 +69,9 @@ class DescribeCheckWarningMachinesResponseBody extends Model
         if (null !== $this->count) {
             $res['Count'] = $this->count;
         }
+        if (null !== $this->currentPage) {
+            $res['CurrentPage'] = $this->currentPage;
+        }
         if (null !== $this->machines) {
             $res['Machines'] = [];
             if (null !== $this->machines && \is_array($this->machines)) {
@@ -57,6 +80,9 @@ class DescribeCheckWarningMachinesResponseBody extends Model
                     $res['Machines'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -76,6 +102,9 @@ class DescribeCheckWarningMachinesResponseBody extends Model
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
         }
+        if (isset($map['CurrentPage'])) {
+            $model->currentPage = $map['CurrentPage'];
+        }
         if (isset($map['Machines'])) {
             if (!empty($map['Machines'])) {
                 $model->machines = [];
@@ -84,6 +113,9 @@ class DescribeCheckWarningMachinesResponseBody extends Model
                     $model->machines[$n++] = null !== $item ? machines::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

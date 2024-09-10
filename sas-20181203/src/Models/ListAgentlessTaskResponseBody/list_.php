@@ -18,6 +18,15 @@ class list_ extends Model
     public $endTime;
 
     /**
+     * @description The instance ID of the asset.
+     *
+     * @example s-wz95vuqky0ada4******
+     *
+     * @var string
+     */
+    public $instanceId;
+
+    /**
      * @description The name of the asset.
      *
      * @example sql-test-0****
@@ -45,7 +54,7 @@ class list_ extends Model
     public $intranetIp;
 
     /**
-     * @description The volume of detection data, in MB.
+     * @description The amount of data detected. Unit: MB.
      *
      * @example 154.11
      *
@@ -63,7 +72,7 @@ class list_ extends Model
     public $progress;
 
     /**
-     * @description The execution progress of the inspection items.
+     * @description The execution progress of the check items.
      *
      * @example "{\\"scaVul\\":100,\\"binary\\":100,\\"baseline\\":100,\\"vul\\":100,\\"webshell\\":100,\\"script\\":100,\\"sensitiveInfo\\":100}"
      *
@@ -72,7 +81,7 @@ class list_ extends Model
     public $progressByProject;
 
     /**
-     * @description The download link for the report.
+     * @description The download URL of the report.
      *
      * @example http://newsas-oss-bucket.oss-cn-hangzhou.aliyuncs.com/agent_less_single_report****
      *
@@ -81,13 +90,13 @@ class list_ extends Model
     public $reportDownloadUrl;
 
     /**
-     * @description The status of the report. Possible values:
+     * @description The status of the report. Valid values:
      *
-     *   **PREPARED**: In preparation.
-     *   **RUNNING**: In progress.
-     *   **SUCCESS**: Successful.
-     *   **TIMEOUT**: Timeout.
-     *   **FAILED**: Failed.
+     *   **PREPARED**: preparing
+     *   **RUNNING**: running
+     *   **SUCCESS**: succeeded
+     *   **TIMEOUT**: timed out
+     *   **FAILED**: failed
      *
      * @example SUCCESS
      *
@@ -176,6 +185,7 @@ class list_ extends Model
     public $uuid;
     protected $_name = [
         'endTime'           => 'EndTime',
+        'instanceId'        => 'InstanceId',
         'instanceName'      => 'InstanceName',
         'internetIp'        => 'InternetIp',
         'intranetIp'        => 'IntranetIp',
@@ -203,6 +213,9 @@ class list_ extends Model
         $res = [];
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
@@ -266,6 +279,9 @@ class list_ extends Model
         $model = new self();
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];

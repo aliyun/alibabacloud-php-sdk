@@ -27,6 +27,16 @@ class GetCheckProcessResponseBody extends Model
     public $requestId;
 
     /**
+     * @var string
+     */
+    public $statusCode;
+
+    /**
+     * @var string
+     */
+    public $taskId;
+
+    /**
      * @description The total number of assets on which the task is performed.
      *
      * @example 113
@@ -37,6 +47,8 @@ class GetCheckProcessResponseBody extends Model
     protected $_name = [
         'finishCount' => 'FinishCount',
         'requestId'   => 'RequestId',
+        'statusCode'  => 'StatusCode',
+        'taskId'      => 'TaskId',
         'totalCount'  => 'TotalCount',
     ];
 
@@ -52,6 +64,12 @@ class GetCheckProcessResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->statusCode) {
+            $res['StatusCode'] = $this->statusCode;
+        }
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
         }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
@@ -73,6 +91,12 @@ class GetCheckProcessResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['StatusCode'])) {
+            $model->statusCode = $map['StatusCode'];
+        }
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
         }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];

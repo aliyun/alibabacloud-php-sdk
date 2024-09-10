@@ -48,6 +48,11 @@ class instances extends Model
     public $groupFlag;
 
     /**
+     * @description The number of cores of assets in the specified asset type.
+     *
+     * >  If the **MachineTypes** request parameter is not specified, the value of the InstanceCoreCount parameter indicates the total number of cores of assets within your account.
+     * @example 610
+     *
      * @var int
      */
     public $instanceCoreCount;

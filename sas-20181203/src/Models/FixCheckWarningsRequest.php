@@ -62,7 +62,6 @@ class FixCheckWarningsRequest extends Model
     /**
      * @description The UUID of the asset for which you want to fix the baseline risk item. You can call the [DescribeWarningMachines](~~DescribeWarningMachines~~) operation to query the UUIDs of assets.
      *
-     * This parameter is required.
      * @example 75a417dda5f25edb5bed8f208a9a****,c7e10fd794262a1510d5648f9e5d****
      *
      * @var string

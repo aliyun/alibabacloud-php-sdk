@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\SDK\Sas\V20181203\Models\AddCheckInstanceResultWhiteListRequest\instanceList;
 use AlibabaCloud\Tea\Model;
 
 class AddCheckInstanceResultWhiteListRequest extends Model
@@ -32,10 +33,28 @@ class AddCheckInstanceResultWhiteListRequest extends Model
      * @var string[]
      */
     public $instanceIds;
+
+    /**
+     * @var instanceList[]
+     */
+    public $instanceList;
+
+    /**
+     * @var string
+     */
+    public $remark;
+
+    /**
+     * @var string
+     */
+    public $ruleType;
     protected $_name = [
         'checkGroupId' => 'CheckGroupId',
         'checkId'      => 'CheckId',
         'instanceIds'  => 'InstanceIds',
+        'instanceList' => 'InstanceList',
+        'remark'       => 'Remark',
+        'ruleType'     => 'RuleType',
     ];
 
     public function validate()
@@ -53,6 +72,21 @@ class AddCheckInstanceResultWhiteListRequest extends Model
         }
         if (null !== $this->instanceIds) {
             $res['InstanceIds'] = $this->instanceIds;
+        }
+        if (null !== $this->instanceList) {
+            $res['InstanceList'] = [];
+            if (null !== $this->instanceList && \is_array($this->instanceList)) {
+                $n = 0;
+                foreach ($this->instanceList as $item) {
+                    $res['InstanceList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->remark) {
+            $res['Remark'] = $this->remark;
+        }
+        if (null !== $this->ruleType) {
+            $res['RuleType'] = $this->ruleType;
         }
 
         return $res;
@@ -76,6 +110,21 @@ class AddCheckInstanceResultWhiteListRequest extends Model
             if (!empty($map['InstanceIds'])) {
                 $model->instanceIds = $map['InstanceIds'];
             }
+        }
+        if (isset($map['InstanceList'])) {
+            if (!empty($map['InstanceList'])) {
+                $model->instanceList = [];
+                $n                   = 0;
+                foreach ($map['InstanceList'] as $item) {
+                    $model->instanceList[$n++] = null !== $item ? instanceList::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['Remark'])) {
+            $model->remark = $map['Remark'];
+        }
+        if (isset($map['RuleType'])) {
+            $model->ruleType = $map['RuleType'];
         }
 
         return $model;

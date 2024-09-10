@@ -85,6 +85,18 @@ class fileProtectList extends Model
     public $id;
 
     /**
+     * @description The type of the operating system. Valid values:
+     *
+     *   **windows**: Windows
+     *   **linux**: Linux
+     *
+     * @example linux
+     *
+     * @var string
+     */
+    public $platform;
+
+    /**
      * @description The paths to the monitored processes. Wildcard characters are supported.
      *
      * @var string[]
@@ -129,6 +141,7 @@ class fileProtectList extends Model
         'gmtCreate'           => 'GmtCreate',
         'gmtModified'         => 'GmtModified',
         'id'                  => 'Id',
+        'platform'            => 'Platform',
         'procPaths'           => 'ProcPaths',
         'ruleName'            => 'RuleName',
         'status'              => 'Status',
@@ -165,6 +178,9 @@ class fileProtectList extends Model
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->platform) {
+            $res['Platform'] = $this->platform;
         }
         if (null !== $this->procPaths) {
             $res['ProcPaths'] = $this->procPaths;
@@ -217,6 +233,9 @@ class fileProtectList extends Model
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['Platform'])) {
+            $model->platform = $map['Platform'];
         }
         if (isset($map['ProcPaths'])) {
             if (!empty($map['ProcPaths'])) {

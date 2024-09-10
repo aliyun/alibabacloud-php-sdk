@@ -25,7 +25,7 @@ class ListFileProtectEventRequest extends Model
     public $currentPage;
 
     /**
-     * @description The end of the time range to query.
+     * @description The end timestamp of the query.
      *
      * @example 1683195595204
      *
@@ -52,7 +52,7 @@ class ListFileProtectEventRequest extends Model
     public $instanceName;
 
     /**
-     * @description The public IP address of the asset that you want to query.
+     * @description The public IP address of the server.
      *
      * @example 120.27.XX.XX
      *
@@ -61,7 +61,7 @@ class ListFileProtectEventRequest extends Model
     public $internetIp;
 
     /**
-     * @description The private IP address of the asset that you want to query.
+     * @description The private IP address of the server.
      *
      * @example 172.26.XX.XX
      *
@@ -102,7 +102,7 @@ class ListFileProtectEventRequest extends Model
     public $ruleName;
 
     /**
-     * @description The start of the time range to query.
+     * @description The start timestamp of the query.
      *
      * @example 1683080489594
      *
@@ -116,6 +116,7 @@ class ListFileProtectEventRequest extends Model
      *   0: unhandled
      *   1: handled
      *   2: added to the whitelist
+     *   3: ignored
      *
      * @example 2
      *
@@ -124,9 +125,9 @@ class ListFileProtectEventRequest extends Model
     public $status;
 
     /**
-     * @description The server UUID.
+     * @description The UUID of the server.
      *
-     * >  You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the server UUID.
+     * >  You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUID of the server.
      * @example inet-ecs-4e876cb0-09f7-43b8-82ef-4bc7a937***
      *
      * @var string

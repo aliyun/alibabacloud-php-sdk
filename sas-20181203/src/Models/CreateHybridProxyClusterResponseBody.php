@@ -9,7 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateHybridProxyClusterResponseBody extends Model
 {
     /**
-     * @example CDCB0BBB-CFB2-5D38-BB49-500E2A212EE2
+     * @description The request ID.
+     *
+     * @example CDCB0BBB-CFB2-5D38-BB49-500E2A21xxxx
      *
      * @var string
      */

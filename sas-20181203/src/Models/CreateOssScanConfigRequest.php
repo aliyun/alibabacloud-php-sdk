@@ -43,6 +43,11 @@ class CreateOssScanConfigRequest extends Model
     public $decompressMaxLayer;
 
     /**
+     * @var string[]
+     */
+    public $decryptionList;
+
+    /**
      * @description Specifies whether to enable the policy. Valid values:
      *
      *   **1**: yes
@@ -78,6 +83,11 @@ class CreateOssScanConfigRequest extends Model
     public $keySuffixList;
 
     /**
+     * @var int
+     */
+    public $lastModifiedStartTime;
+
+    /**
      * @description The name of the policy.
      *
      * @example runtime
@@ -106,10 +116,12 @@ class CreateOssScanConfigRequest extends Model
         'bucketNameList'         => 'BucketNameList',
         'decompressMaxFileCount' => 'DecompressMaxFileCount',
         'decompressMaxLayer'     => 'DecompressMaxLayer',
+        'decryptionList'         => 'DecryptionList',
         'enable'                 => 'Enable',
         'endTime'                => 'EndTime',
         'keyPrefixList'          => 'KeyPrefixList',
         'keySuffixList'          => 'KeySuffixList',
+        'lastModifiedStartTime'  => 'LastModifiedStartTime',
         'name'                   => 'Name',
         'scanDayList'            => 'ScanDayList',
         'startTime'              => 'StartTime',
@@ -134,6 +146,9 @@ class CreateOssScanConfigRequest extends Model
         if (null !== $this->decompressMaxLayer) {
             $res['DecompressMaxLayer'] = $this->decompressMaxLayer;
         }
+        if (null !== $this->decryptionList) {
+            $res['DecryptionList'] = $this->decryptionList;
+        }
         if (null !== $this->enable) {
             $res['Enable'] = $this->enable;
         }
@@ -145,6 +160,9 @@ class CreateOssScanConfigRequest extends Model
         }
         if (null !== $this->keySuffixList) {
             $res['KeySuffixList'] = $this->keySuffixList;
+        }
+        if (null !== $this->lastModifiedStartTime) {
+            $res['LastModifiedStartTime'] = $this->lastModifiedStartTime;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -181,6 +199,11 @@ class CreateOssScanConfigRequest extends Model
         if (isset($map['DecompressMaxLayer'])) {
             $model->decompressMaxLayer = $map['DecompressMaxLayer'];
         }
+        if (isset($map['DecryptionList'])) {
+            if (!empty($map['DecryptionList'])) {
+                $model->decryptionList = $map['DecryptionList'];
+            }
+        }
         if (isset($map['Enable'])) {
             $model->enable = $map['Enable'];
         }
@@ -196,6 +219,9 @@ class CreateOssScanConfigRequest extends Model
             if (!empty($map['KeySuffixList'])) {
                 $model->keySuffixList = $map['KeySuffixList'];
             }
+        }
+        if (isset($map['LastModifiedStartTime'])) {
+            $model->lastModifiedStartTime = $map['LastModifiedStartTime'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

@@ -36,6 +36,13 @@ class DescribeVulListPageRequest extends Model
     public $pageSize;
 
     /**
+     * @description Indicates whether the application protection feature is supported. Valid values:
+     *
+     * - **0**: no.
+     *
+     * - **1**: yes.
+     * @example 0
+     *
      * @var int
      */
     public $raspDefend;
@@ -50,6 +57,14 @@ class DescribeVulListPageRequest extends Model
     public $vulNameLike;
 
     /**
+     * @description The type of the vulnerabilities. Valid values:
+     *
+     *   **cve**: Linux software vulnerability.
+     *   **sys**: Windows system vulnerability.
+     *   **app**: Application vulnerability that is detected by using web scanner.
+     *
+     * @example cve
+     *
      * @var string
      */
     public $vulType;

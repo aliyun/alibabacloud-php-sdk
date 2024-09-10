@@ -80,7 +80,7 @@ class resultList extends Model
     /**
      * @description The type of the virus. Valid values:
      *
-     *   **Trojan**: self-mutating trojan
+     *   **Trojan**: trojan horse
      *   **WebShell**: webshell
      *   **Backdoor**: backdoor program
      *   **RansomWare**: ransomware
@@ -95,7 +95,6 @@ class resultList extends Model
      *   **Worm**: worm
      *   **DDoS**: DDoS trojan
      *   **Malware**: malicious program
-     *   **Backdoor**: reverse shell
      *   **RiskWare**: software that has risks
      *   **Proxytool**: proxy
      *   **Suspicious**: suspicious program

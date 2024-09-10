@@ -56,6 +56,18 @@ class data extends Model
     public $id;
 
     /**
+     * @description The type of the operating system. Valid values:
+     *
+     *   **windows**: Windows
+     *   **linux**: Linux
+     *
+     * @example linux
+     *
+     * @var string
+     */
+    public $platform;
+
+    /**
      * @description The paths to the monitored processes.
      *
      * @var string[]
@@ -95,6 +107,7 @@ class data extends Model
         'fileOps'    => 'FileOps',
         'filePaths'  => 'FilePaths',
         'id'         => 'Id',
+        'platform'   => 'Platform',
         'procPaths'  => 'ProcPaths',
         'ruleName'   => 'RuleName',
         'status'     => 'Status',
@@ -122,6 +135,9 @@ class data extends Model
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->platform) {
+            $res['Platform'] = $this->platform;
         }
         if (null !== $this->procPaths) {
             $res['ProcPaths'] = $this->procPaths;
@@ -165,6 +181,9 @@ class data extends Model
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['Platform'])) {
+            $model->platform = $map['Platform'];
         }
         if (isset($map['ProcPaths'])) {
             if (!empty($map['ProcPaths'])) {

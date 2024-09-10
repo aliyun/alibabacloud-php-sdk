@@ -148,6 +148,11 @@ class DescribeSuspEventsRequest extends Model
     public $levels;
 
     /**
+     * @var int
+     */
+    public $multiAccountActionType;
+
+    /**
      * @description The name of the asset that is affected by the alert event.
      *
      * @example ecs-xxx
@@ -279,6 +284,11 @@ class DescribeSuspEventsRequest extends Model
     public $source;
 
     /**
+     * @var int[]
+     */
+    public $sourceAliUids;
+
+    /**
      * @description The source IP address of the request.
      *
      * @example 192.168.XX.XX
@@ -309,8 +319,11 @@ class DescribeSuspEventsRequest extends Model
     public $status;
 
     /**
-     * @description Whether it is strictly a mode flag.
-     * - Y: Yes
+     * @description Specifies whether to enable the strict alerting mode.
+     *
+     *   N: no
+     *   Y: Yes
+     *
      * @example Y
      *
      * @var string
@@ -388,6 +401,7 @@ class DescribeSuspEventsRequest extends Model
         'id'                         => 'Id',
         'lang'                       => 'Lang',
         'levels'                     => 'Levels',
+        'multiAccountActionType'     => 'MultiAccountActionType',
         'name'                       => 'Name',
         'operateErrorCodeList'       => 'OperateErrorCodeList',
         'operateTimeEnd'             => 'OperateTimeEnd',
@@ -399,6 +413,7 @@ class DescribeSuspEventsRequest extends Model
         'sortColumn'                 => 'SortColumn',
         'sortType'                   => 'SortType',
         'source'                     => 'Source',
+        'sourceAliUids'              => 'SourceAliUids',
         'sourceIp'                   => 'SourceIp',
         'status'                     => 'Status',
         'strictMode'                 => 'StrictMode',
@@ -456,6 +471,9 @@ class DescribeSuspEventsRequest extends Model
         if (null !== $this->levels) {
             $res['Levels'] = $this->levels;
         }
+        if (null !== $this->multiAccountActionType) {
+            $res['MultiAccountActionType'] = $this->multiAccountActionType;
+        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -488,6 +506,9 @@ class DescribeSuspEventsRequest extends Model
         }
         if (null !== $this->source) {
             $res['Source'] = $this->source;
+        }
+        if (null !== $this->sourceAliUids) {
+            $res['SourceAliUids'] = $this->sourceAliUids;
         }
         if (null !== $this->sourceIp) {
             $res['SourceIp'] = $this->sourceIp;
@@ -569,6 +590,9 @@ class DescribeSuspEventsRequest extends Model
         if (isset($map['Levels'])) {
             $model->levels = $map['Levels'];
         }
+        if (isset($map['MultiAccountActionType'])) {
+            $model->multiAccountActionType = $map['MultiAccountActionType'];
+        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
@@ -603,6 +627,11 @@ class DescribeSuspEventsRequest extends Model
         }
         if (isset($map['Source'])) {
             $model->source = $map['Source'];
+        }
+        if (isset($map['SourceAliUids'])) {
+            if (!empty($map['SourceAliUids'])) {
+                $model->sourceAliUids = $map['SourceAliUids'];
+            }
         }
         if (isset($map['SourceIp'])) {
             $model->sourceIp = $map['SourceIp'];

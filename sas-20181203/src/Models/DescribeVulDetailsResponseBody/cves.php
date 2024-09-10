@@ -134,8 +134,6 @@ class cves extends Model
     /**
      * @description The POC content.
      *
-     * @example NewDomain.html
-     * </html>
      * @var string
      */
     public $poc;

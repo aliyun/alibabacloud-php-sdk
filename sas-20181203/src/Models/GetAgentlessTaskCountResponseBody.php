@@ -81,6 +81,15 @@ class GetAgentlessTaskCountResponseBody extends Model
     public $scanMachine;
 
     /**
+     * @description The total number of sensitive files.
+     *
+     * @example 1
+     *
+     * @var int
+     */
+    public $sensitiveFileCount;
+
+    /**
      * @description The total number of Windows system vulnerabilities.
      *
      * @example 1
@@ -106,6 +115,7 @@ class GetAgentlessTaskCountResponseBody extends Model
         'riskMachine'        => 'RiskMachine',
         'scaVulCount'        => 'ScaVulCount',
         'scanMachine'        => 'ScanMachine',
+        'sensitiveFileCount' => 'SensitiveFileCount',
         'sysVulCount'        => 'SysVulCount',
         'vulnerability'      => 'Vulnerability',
     ];
@@ -140,6 +150,9 @@ class GetAgentlessTaskCountResponseBody extends Model
         }
         if (null !== $this->scanMachine) {
             $res['ScanMachine'] = $this->scanMachine;
+        }
+        if (null !== $this->sensitiveFileCount) {
+            $res['SensitiveFileCount'] = $this->sensitiveFileCount;
         }
         if (null !== $this->sysVulCount) {
             $res['SysVulCount'] = $this->sysVulCount;
@@ -182,6 +195,9 @@ class GetAgentlessTaskCountResponseBody extends Model
         }
         if (isset($map['ScanMachine'])) {
             $model->scanMachine = $map['ScanMachine'];
+        }
+        if (isset($map['SensitiveFileCount'])) {
+            $model->sensitiveFileCount = $map['SensitiveFileCount'];
         }
         if (isset($map['SysVulCount'])) {
             $model->sysVulCount = $map['SysVulCount'];

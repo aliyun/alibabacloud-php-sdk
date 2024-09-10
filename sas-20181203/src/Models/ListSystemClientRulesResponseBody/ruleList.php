@@ -68,10 +68,8 @@ class ruleList extends Model
     /**
      * @description The type of the system defense rule. Valid values:
      *
-     *   **1**: alihips
-     *   **2**: alinet
-     *   **3**: alidetect
-     *   **4**: alisecguard
+     *   **1**: alihips, process-specific defense
+     *   **2**: alinet, network-specific defense
      *
      * @example alihips
      *

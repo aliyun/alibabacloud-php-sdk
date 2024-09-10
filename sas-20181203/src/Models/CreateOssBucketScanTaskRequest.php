@@ -44,6 +44,11 @@ class CreateOssBucketScanTaskRequest extends Model
     public $decompressMaxLayer;
 
     /**
+     * @var string[]
+     */
+    public $decryptionList;
+
+    /**
      * @description The suffixes of the objects that you do not want to check.
      *
      * @var string[]
@@ -65,6 +70,11 @@ class CreateOssBucketScanTaskRequest extends Model
     public $keySuffixList;
 
     /**
+     * @var int
+     */
+    public $lastModifiedStartTime;
+
+    /**
      * @description The check mode. Valid values:
      *
      *   **1**: checks all objects in the bucket.
@@ -81,9 +91,11 @@ class CreateOssBucketScanTaskRequest extends Model
         'bucketNameList'         => 'BucketNameList',
         'decompressMaxFileCount' => 'DecompressMaxFileCount',
         'decompressMaxLayer'     => 'DecompressMaxLayer',
+        'decryptionList'         => 'DecryptionList',
         'excludeKeySuffixList'   => 'ExcludeKeySuffixList',
         'keyPrefixList'          => 'KeyPrefixList',
         'keySuffixList'          => 'KeySuffixList',
+        'lastModifiedStartTime'  => 'LastModifiedStartTime',
         'scanMode'               => 'ScanMode',
     ];
 
@@ -106,6 +118,9 @@ class CreateOssBucketScanTaskRequest extends Model
         if (null !== $this->decompressMaxLayer) {
             $res['DecompressMaxLayer'] = $this->decompressMaxLayer;
         }
+        if (null !== $this->decryptionList) {
+            $res['DecryptionList'] = $this->decryptionList;
+        }
         if (null !== $this->excludeKeySuffixList) {
             $res['ExcludeKeySuffixList'] = $this->excludeKeySuffixList;
         }
@@ -114,6 +129,9 @@ class CreateOssBucketScanTaskRequest extends Model
         }
         if (null !== $this->keySuffixList) {
             $res['KeySuffixList'] = $this->keySuffixList;
+        }
+        if (null !== $this->lastModifiedStartTime) {
+            $res['LastModifiedStartTime'] = $this->lastModifiedStartTime;
         }
         if (null !== $this->scanMode) {
             $res['ScanMode'] = $this->scanMode;
@@ -144,6 +162,11 @@ class CreateOssBucketScanTaskRequest extends Model
         if (isset($map['DecompressMaxLayer'])) {
             $model->decompressMaxLayer = $map['DecompressMaxLayer'];
         }
+        if (isset($map['DecryptionList'])) {
+            if (!empty($map['DecryptionList'])) {
+                $model->decryptionList = $map['DecryptionList'];
+            }
+        }
         if (isset($map['ExcludeKeySuffixList'])) {
             if (!empty($map['ExcludeKeySuffixList'])) {
                 $model->excludeKeySuffixList = $map['ExcludeKeySuffixList'];
@@ -158,6 +181,9 @@ class CreateOssBucketScanTaskRequest extends Model
             if (!empty($map['KeySuffixList'])) {
                 $model->keySuffixList = $map['KeySuffixList'];
             }
+        }
+        if (isset($map['LastModifiedStartTime'])) {
+            $model->lastModifiedStartTime = $map['LastModifiedStartTime'];
         }
         if (isset($map['ScanMode'])) {
             $model->scanMode = $map['ScanMode'];

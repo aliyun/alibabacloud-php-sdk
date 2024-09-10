@@ -39,6 +39,18 @@ class CreateFileProtectRuleRequest extends Model
     public $filePaths;
 
     /**
+     * @description The type of the operating system. Valid values:
+     *
+     *   **windows**: Windows
+     *   **linux**: Linux
+     *
+     * @example linux
+     *
+     * @var string
+     */
+    public $platform;
+
+    /**
      * @description The paths to the processes that you want to monitor. Wildcard characters are supported.
      *
      * This parameter is required.
@@ -93,6 +105,7 @@ class CreateFileProtectRuleRequest extends Model
         'alertLevel' => 'AlertLevel',
         'fileOps'    => 'FileOps',
         'filePaths'  => 'FilePaths',
+        'platform'   => 'Platform',
         'procPaths'  => 'ProcPaths',
         'ruleAction' => 'RuleAction',
         'ruleName'   => 'RuleName',
@@ -115,6 +128,9 @@ class CreateFileProtectRuleRequest extends Model
         }
         if (null !== $this->filePaths) {
             $res['FilePaths'] = $this->filePaths;
+        }
+        if (null !== $this->platform) {
+            $res['Platform'] = $this->platform;
         }
         if (null !== $this->procPaths) {
             $res['ProcPaths'] = $this->procPaths;
@@ -155,6 +171,9 @@ class CreateFileProtectRuleRequest extends Model
             if (!empty($map['FilePaths'])) {
                 $model->filePaths = $map['FilePaths'];
             }
+        }
+        if (isset($map['Platform'])) {
+            $model->platform = $map['Platform'];
         }
         if (isset($map['ProcPaths'])) {
             if (!empty($map['ProcPaths'])) {

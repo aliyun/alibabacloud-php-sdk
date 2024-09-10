@@ -41,6 +41,11 @@ class ListFileProtectRuleRequest extends Model
     public $pageSize;
 
     /**
+     * @var string
+     */
+    public $platform;
+
+    /**
      * @description The handling method of the rule. Valid values:
      *
      *   pass: allow
@@ -64,6 +69,7 @@ class ListFileProtectRuleRequest extends Model
         'alertLevel'  => 'AlertLevel',
         'currentPage' => 'CurrentPage',
         'pageSize'    => 'PageSize',
+        'platform'    => 'Platform',
         'ruleAction'  => 'RuleAction',
         'ruleName'    => 'RuleName',
     ];
@@ -83,6 +89,9 @@ class ListFileProtectRuleRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->platform) {
+            $res['Platform'] = $this->platform;
         }
         if (null !== $this->ruleAction) {
             $res['RuleAction'] = $this->ruleAction;
@@ -110,6 +119,9 @@ class ListFileProtectRuleRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['Platform'])) {
+            $model->platform = $map['Platform'];
         }
         if (isset($map['RuleAction'])) {
             $model->ruleAction = $map['RuleAction'];

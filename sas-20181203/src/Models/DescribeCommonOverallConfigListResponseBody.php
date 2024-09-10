@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeCommonOverallConfigListResponseBody extends Model
 {
     /**
-     * @description An array that consists of the configurations of features.
+     * @description The information about the configuration items.
      *
      * @var overallList[]
      */

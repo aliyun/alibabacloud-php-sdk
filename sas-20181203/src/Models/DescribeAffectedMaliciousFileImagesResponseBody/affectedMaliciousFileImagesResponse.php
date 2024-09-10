@@ -81,6 +81,10 @@ class affectedMaliciousFileImagesResponse extends Model
     public $highLight;
 
     /**
+     * @description The ID of alert event.
+     *
+     * @example 1000040
+     *
      * @var int
      */
     public $id;
@@ -278,6 +282,7 @@ class affectedMaliciousFileImagesResponse extends Model
      * @description The object type. Valid value:
      *
      *   **ECS_IMAGE**
+     *   **ECS_SNAPSHOT**
      *
      * @example ECS_IMAGE
      *

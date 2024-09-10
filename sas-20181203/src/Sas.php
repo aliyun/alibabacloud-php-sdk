@@ -8,17 +8,23 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Sas\V20181203\Models\AddAssetSelectionCriteriaRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\AddAssetSelectionCriteriaResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\AddBaselineCheckWhiteRecordRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\AddBaselineCheckWhiteRecordResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\AddCheckInstanceResultWhiteListRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\AddCheckInstanceResultWhiteListResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\AddCheckResultWhiteListRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\AddCheckResultWhiteListResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\AddClientUserDefineRuleRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\AddClientUserDefineRuleResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\AddCloudVendorAccountAKRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\AddCloudVendorAccountAKResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\AddContainerDefenseRuleRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\AddContainerDefenseRuleResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\AddContainerDefenseRuleShrinkRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\AddContainerPluginRuleRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\AddContainerPluginRuleResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\AddIdcProbeRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\AddIdcProbeResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\AddImageEventOperationRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\AddImageEventOperationResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\AddImageVulWhiteListRequest;
@@ -66,27 +72,40 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\CheckQuaraFileIdRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CheckQuaraFileIdResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CheckSecurityEventIdRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CheckSecurityEventIdResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CheckStsTokenAuthResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CheckTrialFixCountRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CheckTrialFixCountResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CheckUserHasEcsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CheckUserHasEcsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ConfirmVirusEventsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ConfirmVirusEventsResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CopyCustomizeReportConfigRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CopyCustomizeReportConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateAgentlessScanTaskRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateAgentlessScanTaskResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateAntiBruteForceRuleRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateAntiBruteForceRuleResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateAssetSelectionConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateAssetSelectionConfigResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CreateAttestorRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CreateAttestorResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateBackupPolicyRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateBackupPolicyResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateBackupPolicyShrinkRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CreateBinarySecurityPolicyRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CreateBinarySecurityPolicyResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateContainerScanTaskByAppNameRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateContainerScanTaskByAppNameResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateContainerScanTaskRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateContainerScanTaskResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateCustomBlockRecordRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateCustomBlockRecordResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CreateCustomizedDictRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CreateCustomizedDictResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateCycleTaskRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateCycleTaskResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CreateDynamicDictRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CreateDynamicDictResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateFileDetectRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateFileDetectResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateFileDetectUploadUrlRequest;
@@ -114,10 +133,14 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\CreateInterceptionTargetRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateInterceptionTargetResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateJenkinsImageRegistryRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateJenkinsImageRegistryResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CreateJenkinsImageScanTaskRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CreateJenkinsImageScanTaskResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateMaliciousFileWhitelistConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateMaliciousFileWhitelistConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateMaliciousNoteRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateMaliciousNoteResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CreateMonitorAccountRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CreateMonitorAccountResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateOpaClusterPluginRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateOpaClusterPluginResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateOpaStrategyNewRequest;
@@ -125,20 +148,29 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\CreateOpaStrategyNewResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateOpaStrategyNewShrinkRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateOrUpdateAssetGroupRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateOrUpdateAssetGroupResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CreateOrUpdateAutoTagRuleRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CreateOrUpdateAutoTagRuleResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateOrUpdateDingTalkRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateOrUpdateDingTalkResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateOssBucketScanTaskRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateOssBucketScanTaskResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateOssScanConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateOssScanConfigResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CreateRdDefaultSyncListRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CreateRdDefaultSyncListResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateRestoreJobRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateRestoreJobResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CreateSasTrialRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CreateSasTrialResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CreateSasTrialShrinkRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateServiceLinkedRoleRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateServiceLinkedRoleResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateServiceTrailRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateServiceTrailResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateSimilarSecurityEventsQueryTaskRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateSimilarSecurityEventsQueryTaskResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CreateSoarStrategyTaskRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CreateSoarStrategyTaskResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateSuspEventNoteRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateSuspEventNoteResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateUniBackupPolicyRequest;
@@ -146,28 +178,46 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\CreateUniBackupPolicyResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateUniBackupPolicyShrinkRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateUniRestorePlanRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateUniRestorePlanResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CreateUserSettingRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CreateUserSettingResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateVirusScanOnceTaskRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateVirusScanOnceTaskResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateVulAutoRepairConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateVulAutoRepairConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteAntiBruteForceRuleRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteAntiBruteForceRuleResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteAttestorRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteAttestorResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteAutoTagRulesRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteAutoTagRulesResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteBackupPolicyMachineRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteBackupPolicyMachineResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteBackupPolicyRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteBackupPolicyResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteBackupSnapshotRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteBackupSnapshotResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteBaselineCheckWhiteRecordRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteBaselineCheckWhiteRecordResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteBinarySecurityPolicyRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteBinarySecurityPolicyResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteClientUserDefineRuleRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteClientUserDefineRuleResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteCloudVendorAccountAKRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteCloudVendorAccountAKResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteContainerDefenseRuleRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteContainerDefenseRuleResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteContainerPluginRuleRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteContainerPluginRuleResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteCustomBlockRecordRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteCustomBlockRecordResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteCustomizedDictRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteCustomizedDictResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteCustomizeReportRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteCustomizeReportResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteCycleTaskRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteCycleTaskResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteDingTalkRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteDingTalkResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteFileProtectRuleRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteFileProtectRuleResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteGroupRequest;
@@ -182,6 +232,12 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteHoneypotProbeRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteHoneypotProbeResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteHoneypotRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteHoneypotResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteHybridProxyClusterRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteHybridProxyClusterResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteHybridProxyRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteHybridProxyResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteIdcProbeRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteIdcProbeResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteImageEventOperationRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteImageEventOperationResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteImageVulWhitelistRequest;
@@ -200,6 +256,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteMaliciousFileWhitelistConfigRequ
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteMaliciousFileWhitelistConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteMaliciousNoteRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteMaliciousNoteResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteMonitorAccountRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteMonitorAccountResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteOpaStrategyNewRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteOpaStrategyNewResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteOssScanConfigRequest;
@@ -208,10 +266,14 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DeletePrivateRegistryRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeletePrivateRegistryResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteSasContainerWebDefenseRuleRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteSasContainerWebDefenseRuleResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteSearchConditionRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteSearchConditionResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteSecurityEventMarkMissListRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteSecurityEventMarkMissListResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteServiceTrailRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteServiceTrailResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteSoarStrategyTaskRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteSoarStrategyTaskResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteStrategyRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteStrategyResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteSuspEventNodeRequest;
@@ -236,6 +298,9 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAffectedMaliciousFileImagesReq
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAffectedMaliciousFileImagesResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAgentInstallStatusRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAgentInstallStatusResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAgentlessSensitiveFileByKeyRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAgentlessSensitiveFileByKeyResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAgentlessSensitiveFileByKeyShrinkRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAlarmEventDetailRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAlarmEventDetailResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAlarmEventStackInfoRequest;
@@ -245,6 +310,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAllGroupsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAllGroupsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAllImageBaselineRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAllImageBaselineResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAllRegionsStatisticsRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAllRegionsStatisticsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAntiBruteForceRulesRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAntiBruteForceRulesResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAppVulScanCycleResponse;
@@ -252,6 +319,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAssetDetailByUuidRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAssetDetailByUuidResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAssetDetailByUuidsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAssetDetailByUuidsResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAssetsScaProcessNumRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAssetsScaProcessNumResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAssetsSecurityEventSummaryRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAssetsSecurityEventSummaryResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAssetSummaryResponse;
@@ -259,6 +328,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAttachRecordsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAttachRecordsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAttackAnalysisDataRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAttackAnalysisDataResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAttestorsRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAttestorsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAutoDelConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeBackupClientsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeBackupClientsResponse;
@@ -273,16 +344,26 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeBackupPoliciesResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeBackupPolicyRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeBackupPolicyResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeBackupRestoreCountResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeBinarySecurityPoliciesRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeBinarySecurityPoliciesResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeBruteForceRecordsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeBruteForceRecordsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeBruteForceSummaryRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeBruteForceSummaryResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeCanFixVulListRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeCanFixVulListResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeCanTrySasResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeChartDataRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeChartDataResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeChartListRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeChartListResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeCheckEcsWarningsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeCheckEcsWarningsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeCheckFixDetailsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeCheckFixDetailsResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeCheckResultResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeCheckWarningCountRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeCheckWarningCountResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeCheckWarningDetailRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeCheckWarningDetailResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeCheckWarningMachinesRequest;
@@ -295,11 +376,18 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeClientConfSetupRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeClientConfSetupResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeClientConfStrategyRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeClientConfStrategyResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeClientProblemTypeResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeCloudCenterInstancesRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeCloudCenterInstancesResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeCloudProductFieldStatisticsResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeCloudVendorAccountAKListRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeCloudVendorAccountAKListResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeClusterBasicInfoRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeClusterBasicInfoResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeClusterHostSecuritySummaryRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeClusterHostSecuritySummaryResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeClusterImageSecuritySummaryRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeClusterImageSecuritySummaryResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeClusterInfoListRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeClusterInfoListResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeClusterNetworkRequest;
@@ -320,10 +408,19 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeContainerAppsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeContainerAppsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeContainerCriteriaRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeContainerCriteriaResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeContainerFieldStatisticsResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeContainerGroupedFieldDetailRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeContainerGroupedFieldDetailResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeContainerInstancesRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeContainerInstancesResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeContainerScanConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeContainerScanConfigResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeContainerServiceK8sClusterKritisStatusRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeContainerServiceK8sClusterKritisStatusResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeContainerServiceK8sClusterNamespacesRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeContainerServiceK8sClusterNamespacesResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeContainerServiceK8sClustersRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeContainerServiceK8sClustersResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeContainerStatisticsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeContainerStatisticsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeContainerTagsRequest;
@@ -336,8 +433,20 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeCustomBlockInstancesRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeCustomBlockInstancesResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeCustomBlockRecordsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeCustomBlockRecordsResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeCustomizedDictUploadInfoRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeCustomizedDictUploadInfoResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeCustomizedStrategyTargetsRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeCustomizedStrategyTargetsResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeCustomizeReportConfigDetailRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeCustomizeReportConfigDetailResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeCustomizeReportListRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeCustomizeReportListResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeCycleTaskListRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeCycleTaskListResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeDataSourceRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeDataSourceResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeDefaultKeyInfoRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeDefaultKeyInfoResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeDefaultProxyInstallVersionResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeDingTalkRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeDingTalkResponse;
@@ -347,6 +456,20 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeDomainDetailRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeDomainDetailResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeDomainListRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeDomainListResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeDomainSecureAlarmListRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeDomainSecureAlarmListResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeDomainSecureRiskListRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeDomainSecureRiskListResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeDomainSecureScoreRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeDomainSecureScoreResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeDomainSecureStatisticsRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeDomainSecureStatisticsResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeDomainSecureVulListRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeDomainSecureVulListResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeDynamicDictRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeDynamicDictResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeDynamicDictUploadInfoRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeDynamicDictUploadInfoResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeEmgUserAgreementResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeEmgVulItemRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeEmgVulItemResponse;
@@ -392,6 +515,10 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeHoneyPotAuthRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeHoneyPotAuthResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeHoneyPotSuspStatisticsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeHoneyPotSuspStatisticsResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeIdcAssetCriteriaRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeIdcAssetCriteriaResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeIdcProbeScanResultListRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeIdcProbeScanResultListResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageBaselineCheckResultRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageBaselineCheckResultResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageBaselineCheckSummaryRequest;
@@ -402,6 +529,10 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageBaselineItemListRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageBaselineItemListResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageBaselineStrategyRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageBaselineStrategyResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageBuildRiskByKeyRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageBuildRiskByKeyResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageBuildRiskListRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageBuildRiskListResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageCriteriaRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageCriteriaResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageEventOperationConditionRequest;
@@ -419,6 +550,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageInstancesRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageInstancesResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageLatestScanTaskRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageLatestScanTaskResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageListByBuildRiskRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageListByBuildRiskResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageListBySensitiveFileRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageListBySensitiveFileResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageListBySensitiveFileShrinkRequest;
@@ -455,8 +588,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeInstanceRebootStatusRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeInstanceRebootStatusResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeInstanceStatisticsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeInstanceStatisticsResponse;
-use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeIpTagsRequest;
-use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeIpTagsResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeInstanceVulStatisticsRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeInstanceVulStatisticsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeLatestScanTaskResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeLoginBaseConfigsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeLoginBaseConfigsResponse;
@@ -473,6 +606,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeMatchedMaliciousNamesRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeMatchedMaliciousNamesResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeModuleConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeMonitorAccountsResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeNeedAsyncQueryRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeNeedAsyncQueryResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeNoticeConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeNoticeConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeNsasSuspEventTypeRequest;
@@ -501,6 +636,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribePropertyScaDetailRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribePropertyScaDetailResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribePropertyScaItemRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribePropertyScaItemResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribePropertyScaProcessDetailRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribePropertyScaProcessDetailResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribePropertyScheduleConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribePropertyScheduleConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribePropertySoftwareDetailRequest;
@@ -511,12 +648,18 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribePropertyTypeScaItemRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribePropertyTypeScaItemResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribePropertyUsageNewestRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribePropertyUsageNewestResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribePropertyUsageTopRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribePropertyUsageTopResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribePropertyUserDetailRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribePropertyUserDetailResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribePropertyUserItemRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribePropertyUserItemResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeQuaraFileDownloadInfoRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeQuaraFileDownloadInfoResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeReportExportRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeReportExportResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeReportRecipientStatusRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeReportRecipientStatusResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeRestoreJobsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeRestoreJobsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeRestorePlansRequest;
@@ -541,6 +684,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeScanTaskProgressRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeScanTaskProgressResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeScanTaskStatisticsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeScanTaskStatisticsResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeScreenScoreThreadRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeScreenScoreThreadResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSearchConditionRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSearchConditionResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSecureSuggestionRequest;
@@ -563,6 +708,16 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSimilarSecurityEventsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSimilarSecurityEventsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSnapshotsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSnapshotsResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSoarStrategiesRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSoarStrategiesResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSoarStrategyParamRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSoarStrategyParamResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSoarStrategyTaskDetailRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSoarStrategyTaskDetailResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSoarStrategyTasksRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSoarStrategyTasksResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSoarSubscribedStrategyRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSoarSubscribedStrategyResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeStrategyDetailRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeStrategyDetailResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeStrategyExecDetailRequest;
@@ -573,6 +728,7 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeStrategyTargetRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeStrategyTargetResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSummaryInfoRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSummaryInfoResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSupervisonInfoResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSupportRegionResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSuspEventDetailRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSuspEventDetailResponse;
@@ -582,12 +738,17 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSuspEventQuaraFilesRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSuspEventQuaraFilesResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSuspEventsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSuspEventsResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSuspEventsShrinkRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSuspEventUserSettingRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSuspEventUserSettingResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSuspiciousOverallConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSuspiciousOverallConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSuspiciousUUIDConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSuspiciousUUIDConfigResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSyncAssetTaskListRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSyncAssetTaskListResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSyncAssetTaskLogDetailRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSyncAssetTaskLogDetailResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeTargetRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeTargetResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeTaskErrorLogRequest;
@@ -604,6 +765,7 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUniBackupPoliciesRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUniBackupPoliciesResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUniBackupPolicyDetailRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUniBackupPolicyDetailResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUniBackupStatisticsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUniRecoverableListRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUniRecoverableListResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUniSupportRegionResponse;
@@ -612,11 +774,15 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUserBaselineAuthorizationReque
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUserBaselineAuthorizationResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUserLayoutAuthorizationRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUserLayoutAuthorizationResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUserSettingRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUserSettingResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUuidsByVulNamesRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUuidsByVulNamesResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVendorListResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVersionConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVersionConfigResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVolDingdingMessageRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVolDingdingMessageResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVpcHoneyPotCriteriaRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVpcHoneyPotCriteriaResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVpcHoneyPotListRequest;
@@ -670,6 +836,22 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeWebLockStatusResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeWebLockTotalFileChangeCountResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeWebPathRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeWebPathResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeWhiteListAssetRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeWhiteListAssetResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeWhiteListAuthorizeRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeWhiteListAuthorizeResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeWhiteListEffectiveAssetsRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeWhiteListEffectiveAssetsResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeWhiteListProcessRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeWhiteListProcessResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeWhiteListStrategyListRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeWhiteListStrategyListResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeWhiteListStrategyStatisticsRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeWhiteListStrategyStatisticsResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeWhiteListStrategyUuidCountRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeWhiteListStrategyUuidCountResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DingTalkOnlineTestRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DingTalkOnlineTestResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DisableBruteForceRecordRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DisableBruteForceRecordResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DisableCustomBlockRecordRequest;
@@ -680,8 +862,11 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\EnableCustomBlockRecordRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\EnableCustomBlockRecordResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\EnableCustomInstanceBlockRecordRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\EnableCustomInstanceBlockRecordResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\EnableServiceAccessResourceDirectoryResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ExecStrategyRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ExecStrategyResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ExportCustomizeReportRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ExportCustomizeReportResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ExportRecordRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ExportRecordResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ExportSuspEventsRequest;
@@ -693,14 +878,23 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\ExportWarningResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\FindContainerNetworkConnectRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\FindContainerNetworkConnectResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\FindContainerNetworkConnectShrinkRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\FinishGuidTaskRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\FinishGuidTaskResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\FixCheckWarningsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\FixCheckWarningsResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GenerateDynamicDictRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GenerateDynamicDictResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GenerateK8sAccessInfoRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GenerateK8sAccessInfoResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GenerateOnceTaskRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GenerateOnceTaskResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetAccountLabelRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetAccountLabelResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetAegisContainerPluginRuleCriteriaRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetAegisContainerPluginRuleCriteriaResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetAegisContainerPluginRuleRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetAegisContainerPluginRuleResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetAgentlessTaskCountRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetAgentlessTaskCountResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetAlarmMachineCountRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetAlarmMachineCountResponse;
@@ -714,8 +908,13 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\GetAssetsPropertyDetailRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetAssetsPropertyDetailResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetAssetsPropertyItemRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetAssetsPropertyItemResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetAttackTypeListResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetAuthSummaryResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetAuthVersionStatisticResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetBackupAutoConfigStatusResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetBackupStorageCountResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetCanTrySasRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetCanTrySasResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetCheckConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetCheckDetailRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetCheckDetailResponse;
@@ -725,6 +924,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\GetCheckRiskStatisticsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetCheckRiskStatisticsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetCheckSaleRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetCheckSaleResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetCheckStructureRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetCheckStructureResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetCheckSummaryRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetCheckSummaryResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetClientInstallationStatisticRequest;
@@ -750,6 +951,9 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\GetCommonSwitchConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetCommonSwitchConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetContainerDefenseRuleDetailRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetContainerDefenseRuleDetailResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetDataTrendRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetDataTrendResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetDefenceCountResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetFileDetectApiInvokeInfoResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetFileDetectReportRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetFileDetectReportResponse;
@@ -791,12 +995,17 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\GetInterceptionTargetDetailRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetInterceptionTargetDetailResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetLastOnceTaskInfoRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetLastOnceTaskInfoResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetLocalDefaultRegionRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetLocalDefaultRegionResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetLogMetaRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetLogMetaResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetMaliciousFileWhitelistConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetMaliciousFileWhitelistConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetModuleConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetModuleConfigResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetModuleConfigStatusRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetModuleConfigStatusResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetModuleConfigStatusShrinkRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetModuleTrialAuthInfoRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetModuleTrialAuthInfoResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetObjectScanEventRequest;
@@ -821,6 +1030,7 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\GetOssScanConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetOssScanConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetPropertyScheduleConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetPropertyScheduleConfigResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetRdTreeResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetRulesCountResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetSasContainerWebDefenseRuleApplicationRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetSasContainerWebDefenseRuleApplicationResponse;
@@ -834,6 +1044,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\GetServiceTrailRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetServiceTrailResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetStrategyTemplateDetailRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetStrategyTemplateDetailResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetSupportedModulesRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetSupportedModulesResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetSuspiciousStatisticsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetSuspiciousStatisticsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetSwitchRegionDetailRequest;
@@ -854,6 +1066,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\IgnoreCheckItemsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\IgnoreCheckItemsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\IgnoreHcCheckWarningsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\IgnoreHcCheckWarningsResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\IgnoreIdcProbeScanResultRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\IgnoreIdcProbeScanResultResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\InstallBackupClientRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\InstallBackupClientResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\InstallCloudMonitorRequest;
@@ -868,6 +1082,7 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\InstallUniBackupAgentRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\InstallUniBackupAgentResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\JoinWebLockProcessWhiteListRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\JoinWebLockProcessWhiteListResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListAccountsInResourceDirectoryResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListAegisContainerPluginRuleRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListAegisContainerPluginRuleResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListAgentlessMaliciousFilesRequest;
@@ -886,10 +1101,15 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\ListAssetSelectionSelectedTargetReques
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListAssetSelectionSelectedTargetResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListAssetSelectionTargetRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListAssetSelectionTargetResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListAutoTagRulesRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListAutoTagRulesResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListAvailableHoneypotRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListAvailableHoneypotResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListBackupRecordRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListBackupRecordResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListBaselineCheckWhiteRecordRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListBaselineCheckWhiteRecordResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListBaselineCheckWhiteRecordShrinkRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListCheckInstanceResultRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListCheckInstanceResultResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListCheckItemRequest;
@@ -973,6 +1193,7 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\ListInterceptionTargetPageRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListInterceptionTargetPageResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListK8sAccessInfoRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListK8sAccessInfoResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListLogShipperRegionsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListMaliciousFileWhitelistConfigsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListMaliciousFileWhitelistConfigsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListObjectScanEventRequest;
@@ -996,6 +1217,7 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\ListPrivateRegistryTypeRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListPrivateRegistryTypeResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListQueryRaspAppInfoRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListQueryRaspAppInfoResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListRdDefaultSyncListResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListRuleTargetAllRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListRuleTargetAllResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListSasContainerWebDefenseRuleRequest;
@@ -1053,6 +1275,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyClientConfStrategyRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyClientConfStrategyResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyClientUserDefineRuleRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyClientUserDefineRuleResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyCloudVendorAccountAKRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyCloudVendorAccountAKResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyClusterCnnfStatusUserConfirmRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyClusterCnnfStatusUserConfirmResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyConcernNecessityRequest;
@@ -1072,10 +1296,14 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyCustomBlockRecordRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyCustomBlockRecordResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyCycleTaskRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyCycleTaskResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyDingTalkStatusRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyDingTalkStatusResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyEmgVulSubmitRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyEmgVulSubmitResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyGroupPropertyRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyGroupPropertyResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyIdcProbeRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyIdcProbeResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyImageFixCycleConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyImageFixCycleConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyImageRegistryRequest;
@@ -1101,22 +1329,26 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyOpenLogShipperRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyOpenLogShipperResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyOperateVulRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyOperateVulResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyPostPayModuleSwitchRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyPostPayModuleSwitchResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyProcessWhiteListRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyProcessWhiteListResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyPropertyScheduleConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyPropertyScheduleConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyPushAllTaskRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyPushAllTaskResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyRefreshProcessInfoRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyRefreshProcessInfoResponse;
-use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyRiskCheckStatusRequest;
-use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyRiskCheckStatusResponse;
-use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyRiskSingleResultStatusRequest;
-use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyRiskSingleResultStatusResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifySasContainerWebDefenseRuleRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifySasContainerWebDefenseRuleResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ModifySearchConditionRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ModifySearchConditionResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifySecurityCheckScheduleConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifySecurityCheckScheduleConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifySecurityEventMarkMissIndividuallyRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifySecurityEventMarkMissIndividuallyResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ModifySoarStrategySubscribeRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ModifySoarStrategySubscribeResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyStartVulScanRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyStartVulScanResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyStrategyRequest;
@@ -1144,6 +1376,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyWebLockDeleteConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyWebLockDeleteConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyWebLockProcessStatusRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyWebLockProcessStatusResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyWebLockRefreshRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyWebLockRefreshResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyWebLockStartRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyWebLockStartResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyWebLockStatusRequest;
@@ -1154,6 +1388,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyWebLockUpdateConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyWebLockUpdateConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyWebPathRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyWebPathResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\OpenBackupAutoConfigRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\OpenBackupAutoConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\OpenPartialBuyRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\OpenPartialBuyResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\OpenSensitiveFileScanRequest;
@@ -1186,6 +1422,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\OperateWebLockFileEventsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\OperateWebLockFileEventsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\OperationCancelIgnoreSuspEventRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\OperationCancelIgnoreSuspEventResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\OperationCustomizeReportChartRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\OperationCustomizeReportChartResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\OperationSuspEventsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\OperationSuspEventsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\PageImageRegistryRequest;
@@ -1198,6 +1436,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\PublicPreCheckImageScanTaskRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\PublicPreCheckImageScanTaskResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\PublicSyncAndCreateImageScanTaskRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\PublicSyncAndCreateImageScanTaskResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\QueryAssetDetailByUUIDRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\QueryAssetDetailByUUIDResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\QueryAttackCountRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\QueryAttackCountResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\QueryDiscoverDatabaseRequest;
@@ -1206,6 +1446,7 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\QueryGroupedSecurityEventMarkMissListR
 use AlibabaCloud\SDK\Sas\V20181203\Models\QueryGroupedSecurityEventMarkMissListResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\QueryGroupIdByGroupNameRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\QueryGroupIdByGroupNameResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\QueryGuidTaskListResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\QueryIncidentIconListResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\QueryIncidentSubNodesCountRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\QueryIncidentSubNodesCountResponse;
@@ -1224,11 +1465,15 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\QueryPreCheckDatabaseRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\QueryPreCheckDatabaseResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\RebootMachineRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\RebootMachineResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ReceiveFunctionTrialRewardByAliUidRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ReceiveFunctionTrialRewardByAliUidResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\RefreshAssetsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\RefreshAssetsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\RefreshContainerAssetsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\RefreshContainerAssetsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\RefreshOssBucketScanInfoResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\RefreshRegistryTokenRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\RefreshRegistryTokenResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ReleaseSasInstanceRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ReleaseSasInstanceResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\RemoveCheckInstanceResultWhiteListRequest;
@@ -1237,6 +1482,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\RemoveCheckResultWhiteListRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\RemoveCheckResultWhiteListResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ResetHoneypotRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ResetHoneypotResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ResetLogShipperRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ResetLogShipperResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\RetryAgentlessTaskRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\RetryAgentlessTaskResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\RetryInstallProbeRequest;
@@ -1245,10 +1492,18 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\RollbackSuspEventQuaraFileRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\RollbackSuspEventQuaraFileResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\SasInstallCodeRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\SasInstallCodeResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\SaveCustomizeReportConfigRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\SaveCustomizeReportConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\SaveImageBaselineStrategyRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\SaveImageBaselineStrategyResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\SaveSuspEventUserSettingRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\SaveSuspEventUserSettingResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\SaveWhiteListStrategyAssetsRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\SaveWhiteListStrategyAssetsResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\SaveWhiteListStrategyRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\SaveWhiteListStrategyResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\SendCustomizeReportRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\SendCustomizeReportResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\SetClusterInterceptionConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\SetClusterInterceptionConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\SetImageSensitiveFileStatusRequest;
@@ -1257,11 +1512,14 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\SetRegistryScanDayNumRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\SetRegistryScanDayNumResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\SetSensitiveDefineRuleConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\SetSensitiveDefineRuleConfigResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\SetSyncRefreshRegionRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\SetSyncRefreshRegionResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\StartBaselineSecurityCheckRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\StartBaselineSecurityCheckResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\StartDiscoverDatabaseTaskResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\StartHoneypotRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\StartHoneypotResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\StartIdcProbeScanResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\StartPreCheckDatabaseRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\StartPreCheckDatabaseResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\StartVirusScanTaskRequest;
@@ -1270,6 +1528,9 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\StopHoneypotRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\StopHoneypotResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\SubmitCheckRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\SubmitCheckResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\SubmitOperationTaskRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\SubmitOperationTaskResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\TriggerCheckResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UnbindAegisRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UnbindAegisResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UninstallBackupClientRequest;
@@ -1282,10 +1543,14 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\UnMarkMonitorAccountsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UnMarkMonitorAccountsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateAlarmEventRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateAlarmEventResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateBaselineCheckWhiteRecordRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateBaselineCheckWhiteRecordResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateClientAlertModeRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateClientAlertModeResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateCommonSwitchConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateCommonSwitchConfigResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateCustomizeReportStatusRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateCustomizeReportStatusResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateFileProtectEventStatusRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateFileProtectEventStatusResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateFileProtectRemarkRequest;
@@ -1319,10 +1584,26 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateOpaStrategyNewResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateOpaStrategyNewShrinkRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateOssScanConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateOssScanConfigResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\UpdatePublishAutoUpgradeRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\UpdatePublishAutoUpgradeResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\UpdatePublishBatchRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\UpdatePublishBatchResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\UpdatePublishCronRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\UpdatePublishCronResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\UpdatePublishGraySwitchRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\UpdatePublishGraySwitchResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateSelectionKeyByTypeRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateSelectionKeyByTypeResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateTargetListByBatchRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateTargetListByBatchResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateWhiteListStrategyStatusRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateWhiteListStrategyStatusResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UpgradeBackupPolicyVersionRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UpgradeBackupPolicyVersionResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\UpgradeHoneypotNodeRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\UpgradeHoneypotNodeResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\UpgradeVersionByUuidsRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\UpgradeVersionByUuidsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UploadedHoneyPotFileRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UploadedHoneyPotFileResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ValidateHcWarningsRequest;
@@ -1468,6 +1749,65 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @summary Creates a whitelist rule for a baseline check item.
+     *  *
+     * @param AddBaselineCheckWhiteRecordRequest $request AddBaselineCheckWhiteRecordRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return AddBaselineCheckWhiteRecordResponse AddBaselineCheckWhiteRecordResponse
+     */
+    public function addBaselineCheckWhiteRecordWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->checkId)) {
+            $query['CheckId'] = $request->checkId;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->reason)) {
+            $query['Reason'] = $request->reason;
+        }
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
+        }
+        if (!Utils::isUnset($request->targetType)) {
+            $query['TargetType'] = $request->targetType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddBaselineCheckWhiteRecord',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddBaselineCheckWhiteRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Creates a whitelist rule for a baseline check item.
+     *  *
+     * @param AddBaselineCheckWhiteRecordRequest $request AddBaselineCheckWhiteRecordRequest
+     *
+     * @return AddBaselineCheckWhiteRecordResponse AddBaselineCheckWhiteRecordResponse
+     */
+    public function addBaselineCheckWhiteRecord($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addBaselineCheckWhiteRecordWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Adds check items to the whitelist for instances.
      *  *
      * @param AddCheckInstanceResultWhiteListRequest $request AddCheckInstanceResultWhiteListRequest
@@ -1487,6 +1827,15 @@ class Sas extends OpenApiClient
         }
         if (!Utils::isUnset($request->instanceIds)) {
             $query['InstanceIds'] = $request->instanceIds;
+        }
+        if (!Utils::isUnset($request->instanceList)) {
+            $query['InstanceList'] = $request->instanceList;
+        }
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
+        }
+        if (!Utils::isUnset($request->ruleType)) {
+            $query['RuleType'] = $request->ruleType;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -1534,6 +1883,12 @@ class Sas extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->checkIds)) {
             $query['CheckIds'] = $request->checkIds;
+        }
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
+        }
+        if (!Utils::isUnset($request->ruleType)) {
+            $query['RuleType'] = $request->ruleType;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -1660,6 +2015,77 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addClientUserDefineRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Adds the configuration information of multi-cloud assets.
+     *  *
+     * @param AddCloudVendorAccountAKRequest $request AddCloudVendorAccountAKRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return AddCloudVendorAccountAKResponse AddCloudVendorAccountAKResponse
+     */
+    public function addCloudVendorAccountAKWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->akType)) {
+            $query['AkType'] = $request->akType;
+        }
+        if (!Utils::isUnset($request->authModules)) {
+            $query['AuthModules'] = $request->authModules;
+        }
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->regions)) {
+            $query['Regions'] = $request->regions;
+        }
+        if (!Utils::isUnset($request->secretId)) {
+            $query['SecretId'] = $request->secretId;
+        }
+        if (!Utils::isUnset($request->secretKey)) {
+            $query['SecretKey'] = $request->secretKey;
+        }
+        if (!Utils::isUnset($request->subscriptionIds)) {
+            $query['SubscriptionIds'] = $request->subscriptionIds;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $query['TenantId'] = $request->tenantId;
+        }
+        if (!Utils::isUnset($request->vendor)) {
+            $query['Vendor'] = $request->vendor;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddCloudVendorAccountAK',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddCloudVendorAccountAKResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Adds the configuration information of multi-cloud assets.
+     *  *
+     * @param AddCloudVendorAccountAKRequest $request AddCloudVendorAccountAKRequest
+     *
+     * @return AddCloudVendorAccountAKResponse AddCloudVendorAccountAKResponse
+     */
+    public function addCloudVendorAccountAK($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addCloudVendorAccountAKWithOptions($request, $runtime);
     }
 
     /**
@@ -1798,6 +2224,78 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addContainerPluginRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Creates an IDC probe to add assets in a data center to Security Center and manage the assets by using the Security Center console.
+     *  *
+     * @description Security Center allows you to create an IDC probe only on servers on which the Security Center agent is installed.
+     *  *
+     * @param AddIdcProbeRequest $request AddIdcProbeRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return AddIdcProbeResponse AddIdcProbeResponse
+     */
+    public function addIdcProbeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->idcName)) {
+            $query['IdcName'] = $request->idcName;
+        }
+        if (!Utils::isUnset($request->idcRegion)) {
+            $query['IdcRegion'] = $request->idcRegion;
+        }
+        if (!Utils::isUnset($request->intervalPeriod)) {
+            $query['IntervalPeriod'] = $request->intervalPeriod;
+        }
+        if (!Utils::isUnset($request->ipSegments)) {
+            $query['IpSegments'] = $request->ipSegments;
+        }
+        if (!Utils::isUnset($request->linuxPort)) {
+            $query['LinuxPort'] = $request->linuxPort;
+        }
+        if (!Utils::isUnset($request->periodUnit)) {
+            $query['PeriodUnit'] = $request->periodUnit;
+        }
+        if (!Utils::isUnset($request->uuids)) {
+            $query['Uuids'] = $request->uuids;
+        }
+        if (!Utils::isUnset($request->winPort)) {
+            $query['WinPort'] = $request->winPort;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddIdcProbe',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddIdcProbeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Creates an IDC probe to add assets in a data center to Security Center and manage the assets by using the Security Center console.
+     *  *
+     * @description Security Center allows you to create an IDC probe only on servers on which the Security Center agent is installed.
+     *  *
+     * @param AddIdcProbeRequest $request AddIdcProbeRequest
+     *
+     * @return AddIdcProbeResponse AddIdcProbeResponse
+     */
+    public function addIdcProbe($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addIdcProbeWithOptions($request, $runtime);
     }
 
     /**
@@ -2806,6 +3304,9 @@ class Sas extends OpenApiClient
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
         }
+        if (!Utils::isUnset($request->systemConfig)) {
+            $query['SystemConfig'] = $request->systemConfig;
+        }
         if (!Utils::isUnset($request->vendors)) {
             $query['Vendors'] = $request->vendors;
         }
@@ -2995,8 +3496,12 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @deprecated OpenAPI CheckQuaraFileId is deprecated
+     *  *
      * @summary Checks whether the IDs of quarantined files are valid.
      *  *
+     * Deprecated
+     *
      * @param CheckQuaraFileIdRequest $request CheckQuaraFileIdRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -3031,8 +3536,12 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @deprecated OpenAPI CheckQuaraFileId is deprecated
+     *  *
      * @summary Checks whether the IDs of quarantined files are valid.
      *  *
+     * Deprecated
+     *
      * @param CheckQuaraFileIdRequest $request CheckQuaraFileIdRequest
      *
      * @return CheckQuaraFileIdResponse CheckQuaraFileIdResponse
@@ -3092,6 +3601,99 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->checkSecurityEventIdWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Checks a Security Token Service (STS) token and returns the ID of the Alibaba Cloud account.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CheckStsTokenAuthResponse CheckStsTokenAuthResponse
+     */
+    public function checkStsTokenAuthWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'CheckStsTokenAuth',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CheckStsTokenAuthResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Checks a Security Token Service (STS) token and returns the ID of the Alibaba Cloud account.
+     *  *
+     * @return CheckStsTokenAuthResponse CheckStsTokenAuthResponse
+     */
+    public function checkStsTokenAuth()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->checkStsTokenAuthWithOptions($runtime);
+    }
+
+    /**
+     * @summary 检查试用修复数量
+     *  *
+     * @param CheckTrialFixCountRequest $request CheckTrialFixCountRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CheckTrialFixCountResponse CheckTrialFixCountResponse
+     */
+    public function checkTrialFixCountWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->info)) {
+            $query['Info'] = $request->info;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        if (!Utils::isUnset($request->uuids)) {
+            $query['Uuids'] = $request->uuids;
+        }
+        if (!Utils::isUnset($request->vulNames)) {
+            $query['VulNames'] = $request->vulNames;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CheckTrialFixCount',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CheckTrialFixCountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 检查试用修复数量
+     *  *
+     * @param CheckTrialFixCountRequest $request CheckTrialFixCountRequest
+     *
+     * @return CheckTrialFixCountResponse CheckTrialFixCountResponse
+     */
+    public function checkTrialFixCount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->checkTrialFixCountWithOptions($request, $runtime);
     }
 
     /**
@@ -3195,6 +3797,59 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @summary Clones an existing security report. The new security report has the same configuration as the existing security report.
+     *  *
+     * @param CopyCustomizeReportConfigRequest $request CopyCustomizeReportConfigRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CopyCustomizeReportConfigResponse CopyCustomizeReportConfigResponse
+     */
+    public function copyCustomizeReportConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->reportId)) {
+            $query['ReportId'] = $request->reportId;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CopyCustomizeReportConfig',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CopyCustomizeReportConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Clones an existing security report. The new security report has the same configuration as the existing security report.
+     *  *
+     * @param CopyCustomizeReportConfigRequest $request CopyCustomizeReportConfigRequest
+     *
+     * @return CopyCustomizeReportConfigResponse CopyCustomizeReportConfigResponse
+     */
+    public function copyCustomizeReportConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->copyCustomizeReportConfigWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Creates an agentless detection task.
      *  *
      * @param CreateAgentlessScanTaskRequest $request CreateAgentlessScanTaskRequest
@@ -3206,6 +3861,9 @@ class Sas extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->assetSelectionType)) {
+            $query['AssetSelectionType'] = $request->assetSelectionType;
+        }
         if (!Utils::isUnset($request->autoDeleteDays)) {
             $query['AutoDeleteDays'] = $request->autoDeleteDays;
         }
@@ -3372,6 +4030,71 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @summary Creates a witness.
+     *  *
+     * @param CreateAttestorRequest $request CreateAttestorRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateAttestorResponse CreateAttestorResponse
+     */
+    public function createAttestorWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->keyId)) {
+            $query['KeyId'] = $request->keyId;
+        }
+        if (!Utils::isUnset($request->keyRegionId)) {
+            $query['KeyRegionId'] = $request->keyRegionId;
+        }
+        if (!Utils::isUnset($request->keyVersionId)) {
+            $query['KeyVersionId'] = $request->keyVersionId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateAttestor',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateAttestorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Creates a witness.
+     *  *
+     * @param CreateAttestorRequest $request CreateAttestorRequest
+     *
+     * @return CreateAttestorResponse CreateAttestorResponse
+     */
+    public function createAttestor($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAttestorWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Creates an anti-ransomware policy for servers.
      *  *
      * @param CreateBackupPolicyRequest $tmpReq  CreateBackupPolicyRequest
@@ -3433,6 +4156,71 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createBackupPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Creates a binary security policy.
+     *  *
+     * @param CreateBinarySecurityPolicyRequest $request CreateBinarySecurityPolicyRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateBinarySecurityPolicyResponse CreateBinarySecurityPolicyResponse
+     */
+    public function createBinarySecurityPolicyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusters)) {
+            $query['Clusters'] = $request->clusters;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->policy)) {
+            $query['Policy'] = $request->policy;
+        }
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateBinarySecurityPolicy',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateBinarySecurityPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Creates a binary security policy.
+     *  *
+     * @param CreateBinarySecurityPolicyRequest $request CreateBinarySecurityPolicyRequest
+     *
+     * @return CreateBinarySecurityPolicyResponse CreateBinarySecurityPolicyResponse
+     */
+    public function createBinarySecurityPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createBinarySecurityPolicyWithOptions($request, $runtime);
     }
 
     /**
@@ -3601,6 +4389,56 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @summary Creates custom weak password rules.
+     *  *
+     * @param CreateCustomizedDictRequest $request CreateCustomizedDictRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateCustomizedDictResponse CreateCustomizedDictResponse
+     */
+    public function createCustomizedDictWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateCustomizedDict',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateCustomizedDictResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Creates custom weak password rules.
+     *  *
+     * @param CreateCustomizedDictRequest $request CreateCustomizedDictRequest
+     *
+     * @return CreateCustomizedDictResponse CreateCustomizedDictResponse
+     */
+    public function createCustomizedDict($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createCustomizedDictWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Creates a periodic scan task. The task can be an image scan task, urgent vulnerability scan task, or virus scan task.
      *  *
      * @param CreateCycleTaskRequest $request CreateCycleTaskRequest
@@ -3672,6 +4510,56 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createCycleTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Creates a dynamic dictionary of weak passwords.
+     *  *
+     * @param CreateDynamicDictRequest $request CreateDynamicDictRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateDynamicDictResponse CreateDynamicDictResponse
+     */
+    public function createDynamicDictWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->override)) {
+            $query['Override'] = $request->override;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDynamicDict',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateDynamicDictResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Creates a dynamic dictionary of weak passwords.
+     *  *
+     * @param CreateDynamicDictRequest $request CreateDynamicDictRequest
+     *
+     * @return CreateDynamicDictResponse CreateDynamicDictResponse
+     */
+    public function createDynamicDict($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDynamicDictWithOptions($request, $runtime);
     }
 
     /**
@@ -3829,6 +4717,9 @@ class Sas extends OpenApiClient
         }
         if (!Utils::isUnset($request->filePaths)) {
             $query['FilePaths'] = $request->filePaths;
+        }
+        if (!Utils::isUnset($request->platform)) {
+            $query['Platform'] = $request->platform;
         }
         if (!Utils::isUnset($request->procPaths)) {
             $query['ProcPaths'] = $request->procPaths;
@@ -4235,7 +5126,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 创建代理集群
+     * @summary Creates a hybrid-cloud proxy cluster.
      *  *
      * @param CreateHybridProxyClusterRequest $request CreateHybridProxyClusterRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -4274,7 +5165,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 创建代理集群
+     * @summary Creates a hybrid-cloud proxy cluster.
      *  *
      * @param CreateHybridProxyClusterRequest $request CreateHybridProxyClusterRequest
      *
@@ -4529,6 +5420,88 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @summary Creates a Jenkins scan task.
+     *  *
+     * @param CreateJenkinsImageScanTaskRequest $request CreateJenkinsImageScanTaskRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateJenkinsImageScanTaskResponse CreateJenkinsImageScanTaskResponse
+     */
+    public function createJenkinsImageScanTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->jenkinsEnv)) {
+            $query['JenkinsEnv'] = $request->jenkinsEnv;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->digest)) {
+            $body['Digest'] = $request->digest;
+        }
+        if (!Utils::isUnset($request->imageCreate)) {
+            $body['ImageCreate'] = $request->imageCreate;
+        }
+        if (!Utils::isUnset($request->imageId)) {
+            $body['ImageId'] = $request->imageId;
+        }
+        if (!Utils::isUnset($request->imageSize)) {
+            $body['ImageSize'] = $request->imageSize;
+        }
+        if (!Utils::isUnset($request->imageUpdate)) {
+            $body['ImageUpdate'] = $request->imageUpdate;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $body['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->repoName)) {
+            $body['RepoName'] = $request->repoName;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $body['Tag'] = $request->tag;
+        }
+        if (!Utils::isUnset($request->token)) {
+            $body['Token'] = $request->token;
+        }
+        if (!Utils::isUnset($request->uuid)) {
+            $body['Uuid'] = $request->uuid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateJenkinsImageScanTask',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateJenkinsImageScanTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Creates a Jenkins scan task.
+     *  *
+     * @param CreateJenkinsImageScanTaskRequest $request CreateJenkinsImageScanTaskRequest
+     *
+     * @return CreateJenkinsImageScanTaskResponse CreateJenkinsImageScanTaskResponse
+     */
+    public function createJenkinsImageScanTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createJenkinsImageScanTaskWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Creates an alert whitelist rule of sensitive files that are detected by using the agentless detection feature.
      *  *
      * @param CreateMaliciousFileWhitelistConfigRequest $request CreateMaliciousFileWhitelistConfigRequest
@@ -4641,6 +5614,53 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createMaliciousNoteWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 创建监视器帐户
+     *  *
+     * @param CreateMonitorAccountRequest $request CreateMonitorAccountRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateMonitorAccountResponse CreateMonitorAccountResponse
+     */
+    public function createMonitorAccountWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accountIds)) {
+            $query['AccountIds'] = $request->accountIds;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateMonitorAccount',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateMonitorAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建监视器帐户
+     *  *
+     * @param CreateMonitorAccountRequest $request CreateMonitorAccountRequest
+     *
+     * @return CreateMonitorAccountResponse CreateMonitorAccountResponse
+     */
+    public function createMonitorAccount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createMonitorAccountWithOptions($request, $runtime);
     }
 
     /**
@@ -4839,6 +5859,71 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @summary Creates an asset auto-tagging rule or modifies an asset auto-tagging rule that is created on the Asset Management Rule tab.
+     *  *
+     * @param CreateOrUpdateAutoTagRuleRequest $request CreateOrUpdateAutoTagRuleRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateOrUpdateAutoTagRuleResponse CreateOrUpdateAutoTagRuleResponse
+     */
+    public function createOrUpdateAutoTagRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->checkAll)) {
+            $query['CheckAll'] = $request->checkAll;
+        }
+        if (!Utils::isUnset($request->expression)) {
+            $query['Expression'] = $request->expression;
+        }
+        if (!Utils::isUnset($request->ruleDesc)) {
+            $query['RuleDesc'] = $request->ruleDesc;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
+        if (!Utils::isUnset($request->ruleName)) {
+            $query['RuleName'] = $request->ruleName;
+        }
+        if (!Utils::isUnset($request->tagContext)) {
+            $query['TagContext'] = $request->tagContext;
+        }
+        if (!Utils::isUnset($request->tagType)) {
+            $query['TagType'] = $request->tagType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateOrUpdateAutoTagRule',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateOrUpdateAutoTagRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Creates an asset auto-tagging rule or modifies an asset auto-tagging rule that is created on the Asset Management Rule tab.
+     *  *
+     * @param CreateOrUpdateAutoTagRuleRequest $request CreateOrUpdateAutoTagRuleRequest
+     *
+     * @return CreateOrUpdateAutoTagRuleResponse CreateOrUpdateAutoTagRuleResponse
+     */
+    public function createOrUpdateAutoTagRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createOrUpdateAutoTagRuleWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Creates or modifies a DingTalk chatbot that sends notifications.
      *  *
      * @param CreateOrUpdateDingTalkRequest $request CreateOrUpdateDingTalkRequest
@@ -4927,6 +6012,9 @@ class Sas extends OpenApiClient
         if (!Utils::isUnset($request->decompressMaxLayer)) {
             $query['DecompressMaxLayer'] = $request->decompressMaxLayer;
         }
+        if (!Utils::isUnset($request->decryptionList)) {
+            $query['DecryptionList'] = $request->decryptionList;
+        }
         if (!Utils::isUnset($request->excludeKeySuffixList)) {
             $query['ExcludeKeySuffixList'] = $request->excludeKeySuffixList;
         }
@@ -4935,6 +6023,9 @@ class Sas extends OpenApiClient
         }
         if (!Utils::isUnset($request->keySuffixList)) {
             $query['KeySuffixList'] = $request->keySuffixList;
+        }
+        if (!Utils::isUnset($request->lastModifiedStartTime)) {
+            $query['LastModifiedStartTime'] = $request->lastModifiedStartTime;
         }
         if (!Utils::isUnset($request->scanMode)) {
             $query['ScanMode'] = $request->scanMode;
@@ -4995,6 +6086,9 @@ class Sas extends OpenApiClient
         if (!Utils::isUnset($request->decompressMaxLayer)) {
             $query['DecompressMaxLayer'] = $request->decompressMaxLayer;
         }
+        if (!Utils::isUnset($request->decryptionList)) {
+            $query['DecryptionList'] = $request->decryptionList;
+        }
         if (!Utils::isUnset($request->enable)) {
             $query['Enable'] = $request->enable;
         }
@@ -5006,6 +6100,9 @@ class Sas extends OpenApiClient
         }
         if (!Utils::isUnset($request->keySuffixList)) {
             $query['KeySuffixList'] = $request->keySuffixList;
+        }
+        if (!Utils::isUnset($request->lastModifiedStartTime)) {
+            $query['LastModifiedStartTime'] = $request->lastModifiedStartTime;
         }
         if (!Utils::isUnset($request->name)) {
             $query['Name'] = $request->name;
@@ -5046,6 +6143,53 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createOssScanConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 新增修改目录节点同步开关
+     *  *
+     * @param CreateRdDefaultSyncListRequest $request CreateRdDefaultSyncListRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateRdDefaultSyncListResponse CreateRdDefaultSyncListResponse
+     */
+    public function createRdDefaultSyncListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->folderIds)) {
+            $query['FolderIds'] = $request->folderIds;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateRdDefaultSyncList',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateRdDefaultSyncListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 新增修改目录节点同步开关
+     *  *
+     * @param CreateRdDefaultSyncListRequest $request CreateRdDefaultSyncListRequest
+     *
+     * @return CreateRdDefaultSyncListResponse CreateRdDefaultSyncListResponse
+     */
+    public function createRdDefaultSyncList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createRdDefaultSyncListWithOptions($request, $runtime);
     }
 
     /**
@@ -5114,6 +6258,70 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createRestoreJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Applies for a trial of Security Center.
+     *  *
+     * @param CreateSasTrialRequest $tmpReq  CreateSasTrialRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateSasTrialResponse CreateSasTrialResponse
+     */
+    public function createSasTrialWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateSasTrialShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->requestForm)) {
+            $request->requestFormShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->requestForm, 'RequestForm', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->fromEcs)) {
+            $body['FromEcs'] = $request->fromEcs;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $body['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->requestFormShrink)) {
+            $body['RequestForm'] = $request->requestFormShrink;
+        }
+        if (!Utils::isUnset($request->tryType)) {
+            $body['TryType'] = $request->tryType;
+        }
+        if (!Utils::isUnset($request->tryVersion)) {
+            $body['TryVersion'] = $request->tryVersion;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateSasTrial',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateSasTrialResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Applies for a trial of Security Center.
+     *  *
+     * @param CreateSasTrialRequest $request CreateSasTrialRequest
+     *
+     * @return CreateSasTrialResponse CreateSasTrialResponse
+     */
+    public function createSasTrial($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createSasTrialWithOptions($request, $runtime);
     }
 
     /**
@@ -5268,6 +6476,69 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createSimilarSecurityEventsQueryTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Creates a task on the My Policies tab of the Playbook page.
+     *  *
+     * @description Only the Enterprise and Ultimate editions of Security Center support this API operation.
+     *  *
+     * @param CreateSoarStrategyTaskRequest $request CreateSoarStrategyTaskRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateSoarStrategyTaskResponse CreateSoarStrategyTaskResponse
+     */
+    public function createSoarStrategyTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->strategyId)) {
+            $query['StrategyId'] = $request->strategyId;
+        }
+        if (!Utils::isUnset($request->strategyName)) {
+            $query['StrategyName'] = $request->strategyName;
+        }
+        if (!Utils::isUnset($request->strategyTaskName)) {
+            $query['StrategyTaskName'] = $request->strategyTaskName;
+        }
+        if (!Utils::isUnset($request->strategyTaskParams)) {
+            $query['StrategyTaskParams'] = $request->strategyTaskParams;
+        }
+        if (!Utils::isUnset($request->strategyTaskPlanExeTime)) {
+            $query['StrategyTaskPlanExeTime'] = $request->strategyTaskPlanExeTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateSoarStrategyTask',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateSoarStrategyTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Creates a task on the My Policies tab of the Playbook page.
+     *  *
+     * @description Only the Enterprise and Ultimate editions of Security Center support this API operation.
+     *  *
+     * @param CreateSoarStrategyTaskRequest $request CreateSoarStrategyTaskRequest
+     *
+     * @return CreateSoarStrategyTaskResponse CreateSoarStrategyTaskResponse
+     */
+    public function createSoarStrategyTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createSoarStrategyTaskWithOptions($request, $runtime);
     }
 
     /**
@@ -5474,6 +6745,59 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @summary Creates the risk level settings for baseline check items.
+     *  *
+     * @param CreateUserSettingRequest $request CreateUserSettingRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateUserSettingResponse CreateUserSettingResponse
+     */
+    public function createUserSettingWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->alertLevels)) {
+            $query['AlertLevels'] = $request->alertLevels;
+        }
+        if (!Utils::isUnset($request->invalidWarningKeepDays)) {
+            $query['InvalidWarningKeepDays'] = $request->invalidWarningKeepDays;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateUserSetting',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateUserSettingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Creates the risk level settings for baseline check items.
+     *  *
+     * @param CreateUserSettingRequest $request CreateUserSettingRequest
+     *
+     * @return CreateUserSettingResponse CreateUserSettingResponse
+     */
+    public function createUserSetting($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createUserSettingWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Creates a one-time virus scan task that is immediately executed.
      *  *
      * @param CreateVirusScanOnceTaskRequest $request CreateVirusScanOnceTaskRequest
@@ -5627,6 +6951,106 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @summary Deletes a witness.
+     *  *
+     * @param DeleteAttestorRequest $request DeleteAttestorRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteAttestorResponse DeleteAttestorResponse
+     */
+    public function deleteAttestorWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteAttestor',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteAttestorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Deletes a witness.
+     *  *
+     * @param DeleteAttestorRequest $request DeleteAttestorRequest
+     *
+     * @return DeleteAttestorResponse DeleteAttestorResponse
+     */
+    public function deleteAttestor($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAttestorWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Deletes asset auto-tagging rules that are created by using the feature of asset management rules. You can create rules on the System Configuration > Feature Settings > Multi-cloud Configuration Management > Asset Management Rule page in the Security Center console.
+     *  *
+     * @param DeleteAutoTagRulesRequest $request DeleteAutoTagRulesRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteAutoTagRulesResponse DeleteAutoTagRulesResponse
+     */
+    public function deleteAutoTagRulesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ruleIdList)) {
+            $query['RuleIdList'] = $request->ruleIdList;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteAutoTagRules',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteAutoTagRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Deletes asset auto-tagging rules that are created by using the feature of asset management rules. You can create rules on the System Configuration > Feature Settings > Multi-cloud Configuration Management > Asset Management Rule page in the Security Center console.
+     *  *
+     * @param DeleteAutoTagRulesRequest $request DeleteAutoTagRulesRequest
+     *
+     * @return DeleteAutoTagRulesResponse DeleteAutoTagRulesResponse
+     */
+    public function deleteAutoTagRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAutoTagRulesWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Deletes an anti-ransomware policy.
      *  *
      * @param DeleteBackupPolicyRequest $request DeleteBackupPolicyRequest
@@ -5733,6 +7157,115 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @summary Deletes a backup snapshot that is created for anti-ransomware.
+     *  *
+     * @param DeleteBackupSnapshotRequest $request DeleteBackupSnapshotRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteBackupSnapshotResponse DeleteBackupSnapshotResponse
+     */
+    public function deleteBackupSnapshotWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->backupRegionIdList)) {
+            $query['BackupRegionIdList'] = $request->backupRegionIdList;
+        }
+        if (!Utils::isUnset($request->backupSnapshotList)) {
+            $query['BackupSnapshotList'] = $request->backupSnapshotList;
+        }
+        if (!Utils::isUnset($request->retainLatestSnapshot)) {
+            $query['RetainLatestSnapshot'] = $request->retainLatestSnapshot;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteBackupSnapshot',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteBackupSnapshotResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Deletes a backup snapshot that is created for anti-ransomware.
+     *  *
+     * @param DeleteBackupSnapshotRequest $request DeleteBackupSnapshotRequest
+     *
+     * @return DeleteBackupSnapshotResponse DeleteBackupSnapshotResponse
+     */
+    public function deleteBackupSnapshot($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteBackupSnapshotWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Deletes the whitelist record for a baseline check item.
+     *  *
+     * @param DeleteBaselineCheckWhiteRecordRequest $request DeleteBaselineCheckWhiteRecordRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteBaselineCheckWhiteRecordResponse DeleteBaselineCheckWhiteRecordResponse
+     */
+    public function deleteBaselineCheckWhiteRecordWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->checkIds)) {
+            $query['CheckIds'] = $request->checkIds;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->recordIds)) {
+            $query['RecordIds'] = $request->recordIds;
+        }
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteBaselineCheckWhiteRecord',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteBaselineCheckWhiteRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Deletes the whitelist record for a baseline check item.
+     *  *
+     * @param DeleteBaselineCheckWhiteRecordRequest $request DeleteBaselineCheckWhiteRecordRequest
+     *
+     * @return DeleteBaselineCheckWhiteRecordResponse DeleteBaselineCheckWhiteRecordResponse
+     */
+    public function deleteBaselineCheckWhiteRecord($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteBaselineCheckWhiteRecordWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Deletes a binary security policy from the container signature feature.
      *  *
      * @param DeleteBinarySecurityPolicyRequest $request DeleteBinarySecurityPolicyRequest
@@ -5830,6 +7363,56 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteClientUserDefineRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 删除多云资产同步配置
+     *  *
+     * @param DeleteCloudVendorAccountAKRequest $request DeleteCloudVendorAccountAKRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteCloudVendorAccountAKResponse DeleteCloudVendorAccountAKResponse
+     */
+    public function deleteCloudVendorAccountAKWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->authId)) {
+            $query['AuthId'] = $request->authId;
+        }
+        if (!Utils::isUnset($request->authModules)) {
+            $query['AuthModules'] = $request->authModules;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteCloudVendorAccountAK',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteCloudVendorAccountAKResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除多云资产同步配置
+     *  *
+     * @param DeleteCloudVendorAccountAKRequest $request DeleteCloudVendorAccountAKRequest
+     *
+     * @return DeleteCloudVendorAccountAKResponse DeleteCloudVendorAccountAKResponse
+     */
+    public function deleteCloudVendorAccountAK($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteCloudVendorAccountAKWithOptions($request, $runtime);
     }
 
     /**
@@ -5980,6 +7563,100 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @summary Deletes a custom security report.
+     *  *
+     * @param DeleteCustomizeReportRequest $request DeleteCustomizeReportRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteCustomizeReportResponse DeleteCustomizeReportResponse
+     */
+    public function deleteCustomizeReportWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->reportId)) {
+            $query['ReportId'] = $request->reportId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteCustomizeReport',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteCustomizeReportResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Deletes a custom security report.
+     *  *
+     * @param DeleteCustomizeReportRequest $request DeleteCustomizeReportRequest
+     *
+     * @return DeleteCustomizeReportResponse DeleteCustomizeReportResponse
+     */
+    public function deleteCustomizeReport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteCustomizeReportWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Deletes the file that is uploaded to create custom weak password rules.
+     *  *
+     * @param DeleteCustomizedDictRequest $request DeleteCustomizedDictRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteCustomizedDictResponse DeleteCustomizedDictResponse
+     */
+    public function deleteCustomizedDictWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteCustomizedDict',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteCustomizedDictResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Deletes the file that is uploaded to create custom weak password rules.
+     *  *
+     * @param DeleteCustomizedDictRequest $request DeleteCustomizedDictRequest
+     *
+     * @return DeleteCustomizedDictResponse DeleteCustomizedDictResponse
+     */
+    public function deleteCustomizedDict($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteCustomizedDictWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Deletes a periodic scan task. The task can be an image scan task, urgent vulnerability scan task, or virus scan task.
      *  *
      * @param DeleteCycleTaskRequest $request DeleteCycleTaskRequest
@@ -6024,6 +7701,53 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteCycleTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Deletes a DingTalk chatbot on the DingTalk Chatbot tab of the Notification Settings page.
+     *  *
+     * @param DeleteDingTalkRequest $request DeleteDingTalkRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteDingTalkResponse DeleteDingTalkResponse
+     */
+    public function deleteDingTalkWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ids)) {
+            $query['Ids'] = $request->ids;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDingTalk',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteDingTalkResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Deletes a DingTalk chatbot on the DingTalk Chatbot tab of the Notification Settings page.
+     *  *
+     * @param DeleteDingTalkRequest $request DeleteDingTalkRequest
+     *
+     * @return DeleteDingTalkResponse DeleteDingTalkResponse
+     */
+    public function deleteDingTalk($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDingTalkWithOptions($request, $runtime);
     }
 
     /**
@@ -6378,6 +8102,150 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteHoneypotProbeBindWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 删除代理
+     *  *
+     * @param DeleteHybridProxyRequest $request DeleteHybridProxyRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteHybridProxyResponse DeleteHybridProxyResponse
+     */
+    public function deleteHybridProxyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterName)) {
+            $query['ClusterName'] = $request->clusterName;
+        }
+        if (!Utils::isUnset($request->uuid)) {
+            $query['Uuid'] = $request->uuid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteHybridProxy',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteHybridProxyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除代理
+     *  *
+     * @param DeleteHybridProxyRequest $request DeleteHybridProxyRequest
+     *
+     * @return DeleteHybridProxyResponse DeleteHybridProxyResponse
+     */
+    public function deleteHybridProxy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteHybridProxyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 删除代理集群
+     *  *
+     * @param DeleteHybridProxyClusterRequest $request DeleteHybridProxyClusterRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteHybridProxyClusterResponse DeleteHybridProxyClusterResponse
+     */
+    public function deleteHybridProxyClusterWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterName)) {
+            $query['ClusterName'] = $request->clusterName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteHybridProxyCluster',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteHybridProxyClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除代理集群
+     *  *
+     * @param DeleteHybridProxyClusterRequest $request DeleteHybridProxyClusterRequest
+     *
+     * @return DeleteHybridProxyClusterResponse DeleteHybridProxyClusterResponse
+     */
+    public function deleteHybridProxyCluster($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteHybridProxyClusterWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Deletes an IDC probe that is created in Security Center.
+     *  *
+     * @param DeleteIdcProbeRequest $request DeleteIdcProbeRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteIdcProbeResponse DeleteIdcProbeResponse
+     */
+    public function deleteIdcProbeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->uuid)) {
+            $query['Uuid'] = $request->uuid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteIdcProbe',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteIdcProbeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Deletes an IDC probe that is created in Security Center.
+     *  *
+     * @param DeleteIdcProbeRequest $request DeleteIdcProbeRequest
+     *
+     * @return DeleteIdcProbeResponse DeleteIdcProbeResponse
+     */
+    public function deleteIdcProbe($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteIdcProbeWithOptions($request, $runtime);
     }
 
     /**
@@ -6825,6 +8693,57 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @summary Deletes a member of the account managed by Security Center type of the multi-account management feature.
+     *  *
+     * @description You must use the management account of your resource directory or a delegated administrator account of Security Center to call this operation.
+     *  *
+     * @param DeleteMonitorAccountRequest $request DeleteMonitorAccountRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteMonitorAccountResponse DeleteMonitorAccountResponse
+     */
+    public function deleteMonitorAccountWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteMonitorAccount',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteMonitorAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Deletes a member of the account managed by Security Center type of the multi-account management feature.
+     *  *
+     * @description You must use the management account of your resource directory or a delegated administrator account of Security Center to call this operation.
+     *  *
+     * @param DeleteMonitorAccountRequest $request DeleteMonitorAccountRequest
+     *
+     * @return DeleteMonitorAccountResponse DeleteMonitorAccountResponse
+     */
+    public function deleteMonitorAccount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteMonitorAccountWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Deletes rules of the at-risk image blocking type.
      *  *
      * @param DeleteOpaStrategyNewRequest $request DeleteOpaStrategyNewRequest
@@ -7013,8 +8932,65 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @summary Deletes a frequently used search condition by using the asset management feature of the Assets module in the Security Center console.
+     *  *
+     * @param DeleteSearchConditionRequest $request DeleteSearchConditionRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteSearchConditionResponse DeleteSearchConditionResponse
+     */
+    public function deleteSearchConditionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteSearchCondition',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteSearchConditionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Deletes a frequently used search condition by using the asset management feature of the Assets module in the Security Center console.
+     *  *
+     * @param DeleteSearchConditionRequest $request DeleteSearchConditionRequest
+     *
+     * @return DeleteSearchConditionResponse DeleteSearchConditionResponse
+     */
+    public function deleteSearchCondition($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteSearchConditionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @deprecated openAPI DeleteSecurityEventMarkMissList is deprecated, please use Sas::2018-12-03::ModifySecurityEventMarkMissIndividually instead
+     *  *
      * @summary Deletes multiple custom defense rules at a time. The custom defense rules are used to add false positive alerts to the whitelist.
      *  *
+     * Deprecated
+     *
      * @param DeleteSecurityEventMarkMissListRequest $request DeleteSecurityEventMarkMissListRequest
      * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
@@ -7049,8 +9025,12 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @deprecated openAPI DeleteSecurityEventMarkMissList is deprecated, please use Sas::2018-12-03::ModifySecurityEventMarkMissIndividually instead
+     *  *
      * @summary Deletes multiple custom defense rules at a time. The custom defense rules are used to add false positive alerts to the whitelist.
      *  *
+     * Deprecated
+     *
      * @param DeleteSecurityEventMarkMissListRequest $request DeleteSecurityEventMarkMissListRequest
      *
      * @return DeleteSecurityEventMarkMissListResponse DeleteSecurityEventMarkMissListResponse
@@ -7107,6 +9087,57 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteServiceTrailWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Deletes a policy task that is in the waiting state on the Playbook page.
+     *  *
+     * @description Only the Enterprise and Ultimate editions of Security Center support this API operation.
+     *  *
+     * @param DeleteSoarStrategyTaskRequest $request DeleteSoarStrategyTaskRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteSoarStrategyTaskResponse DeleteSoarStrategyTaskResponse
+     */
+    public function deleteSoarStrategyTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->strategyTaskId)) {
+            $query['StrategyTaskId'] = $request->strategyTaskId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteSoarStrategyTask',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteSoarStrategyTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Deletes a policy task that is in the waiting state on the Playbook page.
+     *  *
+     * @description Only the Enterprise and Ultimate editions of Security Center support this API operation.
+     *  *
+     * @param DeleteSoarStrategyTaskRequest $request DeleteSoarStrategyTaskRequest
+     *
+     * @return DeleteSoarStrategyTaskResponse DeleteSoarStrategyTaskResponse
+     */
+    public function deleteSoarStrategyTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteSoarStrategyTaskWithOptions($request, $runtime);
     }
 
     /**
@@ -7789,6 +9820,59 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @summary Queries the list of assets on which a specific type of sensitive files are detected by using the agentless detection feature.
+     *  *
+     * @description You can call this operation only when the agentless detection feature is purchased by using the pay-as-you-go billing method within your Alibaba Cloud account.
+     *  *
+     * @param DescribeAgentlessSensitiveFileByKeyRequest $tmpReq  DescribeAgentlessSensitiveFileByKeyRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeAgentlessSensitiveFileByKeyResponse DescribeAgentlessSensitiveFileByKeyResponse
+     */
+    public function describeAgentlessSensitiveFileByKeyWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DescribeAgentlessSensitiveFileByKeyShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->scanRange)) {
+            $request->scanRangeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->scanRange, 'ScanRange', 'json');
+        }
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAgentlessSensitiveFileByKey',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeAgentlessSensitiveFileByKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries the list of assets on which a specific type of sensitive files are detected by using the agentless detection feature.
+     *  *
+     * @description You can call this operation only when the agentless detection feature is purchased by using the pay-as-you-go billing method within your Alibaba Cloud account.
+     *  *
+     * @param DescribeAgentlessSensitiveFileByKeyRequest $request DescribeAgentlessSensitiveFileByKeyRequest
+     *
+     * @return DescribeAgentlessSensitiveFileByKeyResponse DescribeAgentlessSensitiveFileByKeyResponse
+     */
+    public function describeAgentlessSensitiveFileByKey($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAgentlessSensitiveFileByKeyWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries the details of an alert event. An alert event consists of alerts and exceptions. Each alert event is associated with multiple exceptions.
      *  *
      * @param DescribeAlarmEventDetailRequest $request DescribeAlarmEventDetailRequest
@@ -8038,6 +10122,62 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @summary Queries the statistics on global security events, including the numbers of unfixed vulnerabilities, baseline risks, and alerts.
+     *  *
+     * @param DescribeAllRegionsStatisticsRequest $request DescribeAllRegionsStatisticsRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeAllRegionsStatisticsResponse DescribeAllRegionsStatisticsResponse
+     */
+    public function describeAllRegionsStatisticsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->from)) {
+            $query['From'] = $request->from;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAllRegionsStatistics',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeAllRegionsStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries the statistics on global security events, including the numbers of unfixed vulnerabilities, baseline risks, and alerts.
+     *  *
+     * @param DescribeAllRegionsStatisticsRequest $request DescribeAllRegionsStatisticsRequest
+     *
+     * @return DescribeAllRegionsStatisticsResponse DescribeAllRegionsStatisticsResponse
+     */
+    public function describeAllRegionsStatistics($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAllRegionsStatisticsWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries created defense rules against brute-force attacks.
      *  *
      * @param DescribeAntiBruteForceRulesRequest $request DescribeAntiBruteForceRulesRequest
@@ -8137,8 +10277,12 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @deprecated openAPI DescribeAssetDetailByUuid is deprecated, please use Sas::2018-12-03::GetAssetDetailByUuid instead
+     *  *
      * @summary Queries the details of a server and the extended information about the server by using the UUID of the server.
      *  *
+     * Deprecated
+     *
      * @param DescribeAssetDetailByUuidRequest $request DescribeAssetDetailByUuidRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -8176,8 +10320,12 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @deprecated openAPI DescribeAssetDetailByUuid is deprecated, please use Sas::2018-12-03::GetAssetDetailByUuid instead
+     *  *
      * @summary Queries the details of a server and the extended information about the server by using the UUID of the server.
      *  *
+     * Deprecated
+     *
      * @param DescribeAssetDetailByUuidRequest $request DescribeAssetDetailByUuidRequest
      *
      * @return DescribeAssetDetailByUuidResponse DescribeAssetDetailByUuidResponse
@@ -8277,6 +10425,53 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeAssetSummaryWithOptions($runtime);
+    }
+
+    /**
+     * @summary Queries the number of Java processes in an asset by using the asset fingerprints feature of Security Center.
+     *  *
+     * @param DescribeAssetsScaProcessNumRequest $request DescribeAssetsScaProcessNumRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeAssetsScaProcessNumResponse DescribeAssetsScaProcessNumResponse
+     */
+    public function describeAssetsScaProcessNumWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->uuidList)) {
+            $query['UuidList'] = $request->uuidList;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAssetsScaProcessNum',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeAssetsScaProcessNumResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries the number of Java processes in an asset by using the asset fingerprints feature of Security Center.
+     *  *
+     * @param DescribeAssetsScaProcessNumRequest $request DescribeAssetsScaProcessNumRequest
+     *
+     * @return DescribeAssetsScaProcessNumResponse DescribeAssetsScaProcessNumResponse
+     */
+    public function describeAssetsScaProcessNum($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAssetsScaProcessNumWithOptions($request, $runtime);
     }
 
     /**
@@ -8454,6 +10649,65 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeAttackAnalysisDataWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries a list of witnesses.
+     *  *
+     * @param DescribeAttestorsRequest $request DescribeAttestorsRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeAttestorsResponse DescribeAttestorsResponse
+     */
+    public function describeAttestorsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAttestors',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeAttestorsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries a list of witnesses.
+     *  *
+     * @param DescribeAttestorsRequest $request DescribeAttestorsRequest
+     *
+     * @return DescribeAttestorsResponse DescribeAttestorsResponse
+     */
+    public function describeAttestors($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAttestorsWithOptions($request, $runtime);
     }
 
     /**
@@ -8860,6 +11114,68 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @summary Queries binary security policies.
+     *  *
+     * @param DescribeBinarySecurityPoliciesRequest $request DescribeBinarySecurityPoliciesRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeBinarySecurityPoliciesResponse DescribeBinarySecurityPoliciesResponse
+     */
+    public function describeBinarySecurityPoliciesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeBinarySecurityPolicies',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeBinarySecurityPoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries binary security policies.
+     *  *
+     * @param DescribeBinarySecurityPoliciesRequest $request DescribeBinarySecurityPoliciesRequest
+     *
+     * @return DescribeBinarySecurityPoliciesResponse DescribeBinarySecurityPoliciesResponse
+     */
+    public function describeBinarySecurityPolicies($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeBinarySecurityPoliciesWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries the IP addresses that are blocked by a defense rule against brute-force attacks.
      *  *
      * @param DescribeBruteForceRecordsRequest $request DescribeBruteForceRecordsRequest
@@ -9100,6 +11416,158 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @summary 查询是否允许试用云安全中心
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeCanTrySasResponse DescribeCanTrySasResponse
+     */
+    public function describeCanTrySasWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'DescribeCanTrySas',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeCanTrySasResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询是否允许试用云安全中心
+     *  *
+     * @return DescribeCanTrySasResponse DescribeCanTrySasResponse
+     */
+    public function describeCanTrySas()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCanTrySasWithOptions($runtime);
+    }
+
+    /**
+     * @summary Queries the chart data of a security report.
+     *  *
+     * @param DescribeChartDataRequest $request DescribeChartDataRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeChartDataResponse DescribeChartDataResponse
+     */
+    public function describeChartDataWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->charId)) {
+            $query['CharId'] = $request->charId;
+        }
+        if (!Utils::isUnset($request->chartId)) {
+            $query['ChartId'] = $request->chartId;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->reportId)) {
+            $query['ReportId'] = $request->reportId;
+        }
+        if (!Utils::isUnset($request->timeEnd)) {
+            $query['TimeEnd'] = $request->timeEnd;
+        }
+        if (!Utils::isUnset($request->timeStart)) {
+            $query['TimeStart'] = $request->timeStart;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeChartData',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeChartDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries the chart data of a security report.
+     *  *
+     * @param DescribeChartDataRequest $request DescribeChartDataRequest
+     *
+     * @return DescribeChartDataResponse DescribeChartDataResponse
+     */
+    public function describeChartData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeChartDataWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries the charts that are supported by using the security report feature of Security Center.
+     *  *
+     * @param DescribeChartListRequest $request DescribeChartListRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeChartListResponse DescribeChartListResponse
+     */
+    public function describeChartListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->projectCode)) {
+            $query['ProjectCode'] = $request->projectCode;
+        }
+        if (!Utils::isUnset($request->reportId)) {
+            $query['ReportId'] = $request->reportId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeChartList',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeChartListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries the charts that are supported by using the security report feature of Security Center.
+     *  *
+     * @param DescribeChartListRequest $request DescribeChartListRequest
+     *
+     * @return DescribeChartListResponse DescribeChartListResponse
+     */
+    public function describeChartList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeChartListWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 查询分类并附带每个分类的未处理异常数量
      *  *
      * @param DescribeCheckEcsWarningsRequest $request DescribeCheckEcsWarningsRequest
@@ -9200,6 +11668,99 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @summary Queries the result of the ISO 27001 compliance check.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeCheckResultResponse DescribeCheckResultResponse
+     */
+    public function describeCheckResultWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'DescribeCheckResult',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeCheckResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries the result of the ISO 27001 compliance check.
+     *  *
+     * @return DescribeCheckResultResponse DescribeCheckResultResponse
+     */
+    public function describeCheckResult()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCheckResultWithOptions($runtime);
+    }
+
+    /**
+     * @summary 获取基线问题条数
+     *  *
+     * @param DescribeCheckWarningCountRequest $request DescribeCheckWarningCountRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeCheckWarningCountResponse DescribeCheckWarningCountResponse
+     */
+    public function describeCheckWarningCountWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aliUid)) {
+            $query['AliUid'] = $request->aliUid;
+        }
+        if (!Utils::isUnset($request->checkId)) {
+            $query['CheckId'] = $request->checkId;
+        }
+        if (!Utils::isUnset($request->riskId)) {
+            $query['RiskId'] = $request->riskId;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCheckWarningCount',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeCheckWarningCountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取基线问题条数
+     *  *
+     * @param DescribeCheckWarningCountRequest $request DescribeCheckWarningCountRequest
+     *
+     * @return DescribeCheckWarningCountResponse DescribeCheckWarningCountResponse
+     */
+    public function describeCheckWarningCount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCheckWarningCountWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries the details about a specified check item.
      *  *
      * @param DescribeCheckWarningDetailRequest $request DescribeCheckWarningDetailRequest
@@ -9276,8 +11837,23 @@ class Sas extends OpenApiClient
         if (!Utils::isUnset($request->checkId)) {
             $query['CheckId'] = $request->checkId;
         }
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->filterUuid)) {
+            $query['FilterUuid'] = $request->filterUuid;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
         if (!Utils::isUnset($request->lang)) {
             $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
         }
         if (!Utils::isUnset($request->resourceDirectoryAccountId)) {
             $query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
@@ -9587,6 +12163,43 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @summary 查询客户端问题列表
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeClientProblemTypeResponse DescribeClientProblemTypeResponse
+     */
+    public function describeClientProblemTypeWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'DescribeClientProblemType',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeClientProblemTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询客户端问题列表
+     *  *
+     * @return DescribeClientProblemTypeResponse DescribeClientProblemTypeResponse
+     */
+    public function describeClientProblemType()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeClientProblemTypeWithOptions($runtime);
+    }
+
+    /**
      * @summary Queries the information about assets that meet specific search conditions. For example, you can search for assets by the instance name or region of the asset.
      *  *
      * @description You can search for an asset by using search conditions, such as the instance ID, instance name, virtual private cloud (VPC) ID, region, and public IP address. You can also configure a logical relationship between multiple search conditions to search for the assets that meet the search conditions.
@@ -9605,6 +12218,9 @@ class Sas extends OpenApiClient
         }
         if (!Utils::isUnset($request->currentPage)) {
             $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->flags)) {
+            $query['Flags'] = $request->flags;
         }
         if (!Utils::isUnset($request->importance)) {
             $query['Importance'] = $request->importance;
@@ -9716,6 +12332,68 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @summary 查询多云资产配置列表
+     *  *
+     * @param DescribeCloudVendorAccountAKListRequest $request DescribeCloudVendorAccountAKListRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeCloudVendorAccountAKListResponse DescribeCloudVendorAccountAKListResponse
+     */
+    public function describeCloudVendorAccountAKListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->authIds)) {
+            $query['AuthIds'] = $request->authIds;
+        }
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->subAccountName)) {
+            $query['SubAccountName'] = $request->subAccountName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCloudVendorAccountAKList',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeCloudVendorAccountAKListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询多云资产配置列表
+     *  *
+     * @param DescribeCloudVendorAccountAKListRequest $request DescribeCloudVendorAccountAKListRequest
+     *
+     * @return DescribeCloudVendorAccountAKListResponse DescribeCloudVendorAccountAKListResponse
+     */
+    public function describeCloudVendorAccountAKList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCloudVendorAccountAKListWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries the information about an cluster based on the cluster ID.
      *  *
      * @param DescribeClusterBasicInfoRequest $request DescribeClusterBasicInfoRequest
@@ -9766,6 +12444,139 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeClusterBasicInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries the statistical information about host security.
+     *  *
+     * @param DescribeClusterHostSecuritySummaryRequest $request DescribeClusterHostSecuritySummaryRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeClusterHostSecuritySummaryResponse DescribeClusterHostSecuritySummaryResponse
+     */
+    public function describeClusterHostSecuritySummaryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->containerFieldName)) {
+            $query['ContainerFieldName'] = $request->containerFieldName;
+        }
+        if (!Utils::isUnset($request->containerFieldValue)) {
+            $query['ContainerFieldValue'] = $request->containerFieldValue;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->targetType)) {
+            $query['TargetType'] = $request->targetType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeClusterHostSecuritySummary',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeClusterHostSecuritySummaryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries the statistical information about host security.
+     *  *
+     * @param DescribeClusterHostSecuritySummaryRequest $request DescribeClusterHostSecuritySummaryRequest
+     *
+     * @return DescribeClusterHostSecuritySummaryResponse DescribeClusterHostSecuritySummaryResponse
+     */
+    public function describeClusterHostSecuritySummary($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeClusterHostSecuritySummaryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries the statistical information about image security.
+     *  *
+     * @param DescribeClusterImageSecuritySummaryRequest $request DescribeClusterImageSecuritySummaryRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeClusterImageSecuritySummaryResponse DescribeClusterImageSecuritySummaryResponse
+     */
+    public function describeClusterImageSecuritySummaryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->containerFieldName)) {
+            $query['ContainerFieldName'] = $request->containerFieldName;
+        }
+        if (!Utils::isUnset($request->containerFieldValue)) {
+            $query['ContainerFieldValue'] = $request->containerFieldValue;
+        }
+        if (!Utils::isUnset($request->imageDigest)) {
+            $query['ImageDigest'] = $request->imageDigest;
+        }
+        if (!Utils::isUnset($request->imageRepoName)) {
+            $query['ImageRepoName'] = $request->imageRepoName;
+        }
+        if (!Utils::isUnset($request->imageRepoNamespace)) {
+            $query['ImageRepoNamespace'] = $request->imageRepoNamespace;
+        }
+        if (!Utils::isUnset($request->imageTag)) {
+            $query['ImageTag'] = $request->imageTag;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeClusterImageSecuritySummary',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeClusterImageSecuritySummaryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries the statistical information about image security.
+     *  *
+     * @param DescribeClusterImageSecuritySummaryRequest $request DescribeClusterImageSecuritySummaryRequest
+     *
+     * @return DescribeClusterImageSecuritySummaryResponse DescribeClusterImageSecuritySummaryResponse
+     */
+    public function describeClusterImageSecuritySummary($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeClusterImageSecuritySummaryWithOptions($request, $runtime);
     }
 
     /**
@@ -10272,6 +13083,93 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @summary Queries the statistical information about containers.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeContainerFieldStatisticsResponse DescribeContainerFieldStatisticsResponse
+     */
+    public function describeContainerFieldStatisticsWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'DescribeContainerFieldStatistics',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeContainerFieldStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries the statistical information about containers.
+     *  *
+     * @return DescribeContainerFieldStatisticsResponse DescribeContainerFieldStatisticsResponse
+     */
+    public function describeContainerFieldStatistics()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeContainerFieldStatisticsWithOptions($runtime);
+    }
+
+    /**
+     * @summary Queries the attribute details of containers.
+     *  *
+     * @param DescribeContainerGroupedFieldDetailRequest $request DescribeContainerGroupedFieldDetailRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeContainerGroupedFieldDetailResponse DescribeContainerGroupedFieldDetailResponse
+     */
+    public function describeContainerGroupedFieldDetailWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->criteria)) {
+            $query['Criteria'] = $request->criteria;
+        }
+        if (!Utils::isUnset($request->groupField)) {
+            $query['GroupField'] = $request->groupField;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeContainerGroupedFieldDetail',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeContainerGroupedFieldDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries the attribute details of containers.
+     *  *
+     * @param DescribeContainerGroupedFieldDetailRequest $request DescribeContainerGroupedFieldDetailRequest
+     *
+     * @return DescribeContainerGroupedFieldDetailResponse DescribeContainerGroupedFieldDetailResponse
+     */
+    public function describeContainerGroupedFieldDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeContainerGroupedFieldDetailWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries the information about containers.
      *  *
      * @param DescribeContainerInstancesRequest $request DescribeContainerInstancesRequest
@@ -10372,6 +13270,162 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeContainerScanConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries the Kritis status of a Container Service for Kubernetes (ACK) cluster.
+     *  *
+     * @param DescribeContainerServiceK8sClusterKritisStatusRequest $request DescribeContainerServiceK8sClusterKritisStatusRequest
+     * @param RuntimeOptions                                        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeContainerServiceK8sClusterKritisStatusResponse DescribeContainerServiceK8sClusterKritisStatusResponse
+     */
+    public function describeContainerServiceK8sClusterKritisStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeContainerServiceK8sClusterKritisStatus',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeContainerServiceK8sClusterKritisStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries the Kritis status of a Container Service for Kubernetes (ACK) cluster.
+     *  *
+     * @param DescribeContainerServiceK8sClusterKritisStatusRequest $request DescribeContainerServiceK8sClusterKritisStatusRequest
+     *
+     * @return DescribeContainerServiceK8sClusterKritisStatusResponse DescribeContainerServiceK8sClusterKritisStatusResponse
+     */
+    public function describeContainerServiceK8sClusterKritisStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeContainerServiceK8sClusterKritisStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries the namespace of a Container Service for Kubernetes (ACK) cluster.
+     *  *
+     * @param DescribeContainerServiceK8sClusterNamespacesRequest $request DescribeContainerServiceK8sClusterNamespacesRequest
+     * @param RuntimeOptions                                      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeContainerServiceK8sClusterNamespacesResponse DescribeContainerServiceK8sClusterNamespacesResponse
+     */
+    public function describeContainerServiceK8sClusterNamespacesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeContainerServiceK8sClusterNamespaces',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeContainerServiceK8sClusterNamespacesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries the namespace of a Container Service for Kubernetes (ACK) cluster.
+     *  *
+     * @param DescribeContainerServiceK8sClusterNamespacesRequest $request DescribeContainerServiceK8sClusterNamespacesRequest
+     *
+     * @return DescribeContainerServiceK8sClusterNamespacesResponse DescribeContainerServiceK8sClusterNamespacesResponse
+     */
+    public function describeContainerServiceK8sClusterNamespaces($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeContainerServiceK8sClusterNamespacesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries a list of Container Service for Kubernetes (ACK) clusters.
+     *  *
+     * @param DescribeContainerServiceK8sClustersRequest $request DescribeContainerServiceK8sClustersRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeContainerServiceK8sClustersResponse DescribeContainerServiceK8sClustersResponse
+     */
+    public function describeContainerServiceK8sClustersWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeContainerServiceK8sClusters',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeContainerServiceK8sClustersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries a list of Container Service for Kubernetes (ACK) clusters.
+     *  *
+     * @param DescribeContainerServiceK8sClustersRequest $request DescribeContainerServiceK8sClustersRequest
+     *
+     * @return DescribeContainerServiceK8sClustersResponse DescribeContainerServiceK8sClustersResponse
+     */
+    public function describeContainerServiceK8sClusters($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeContainerServiceK8sClustersWithOptions($request, $runtime);
     }
 
     /**
@@ -10739,6 +13793,218 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @summary Obtains the configurations of a security report.
+     *  *
+     * @param DescribeCustomizeReportConfigDetailRequest $request DescribeCustomizeReportConfigDetailRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeCustomizeReportConfigDetailResponse DescribeCustomizeReportConfigDetailResponse
+     */
+    public function describeCustomizeReportConfigDetailWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->reportId)) {
+            $query['ReportId'] = $request->reportId;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCustomizeReportConfigDetail',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeCustomizeReportConfigDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Obtains the configurations of a security report.
+     *  *
+     * @param DescribeCustomizeReportConfigDetailRequest $request DescribeCustomizeReportConfigDetailRequest
+     *
+     * @return DescribeCustomizeReportConfigDetailResponse DescribeCustomizeReportConfigDetailResponse
+     */
+    public function describeCustomizeReportConfigDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCustomizeReportConfigDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries security reports.
+     *  *
+     * @param DescribeCustomizeReportListRequest $request DescribeCustomizeReportListRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeCustomizeReportListResponse DescribeCustomizeReportListResponse
+     */
+    public function describeCustomizeReportListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->pinned)) {
+            $query['Pinned'] = $request->pinned;
+        }
+        if (!Utils::isUnset($request->reportStatus)) {
+            $query['ReportStatus'] = $request->reportStatus;
+        }
+        if (!Utils::isUnset($request->reportType)) {
+            $query['ReportType'] = $request->reportType;
+        }
+        if (!Utils::isUnset($request->reportVersion)) {
+            $query['ReportVersion'] = $request->reportVersion;
+        }
+        if (!Utils::isUnset($request->title)) {
+            $query['Title'] = $request->title;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCustomizeReportList',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeCustomizeReportListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries security reports.
+     *  *
+     * @param DescribeCustomizeReportListRequest $request DescribeCustomizeReportListRequest
+     *
+     * @return DescribeCustomizeReportListResponse DescribeCustomizeReportListResponse
+     */
+    public function describeCustomizeReportList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCustomizeReportListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries the Object Storage Service (OSS) information of the file that is uploaded to create custom weak password rules.
+     *  *
+     * @param DescribeCustomizedDictUploadInfoRequest $request DescribeCustomizedDictUploadInfoRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeCustomizedDictUploadInfoResponse DescribeCustomizedDictUploadInfoResponse
+     */
+    public function describeCustomizedDictUploadInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCustomizedDictUploadInfo',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeCustomizedDictUploadInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries the Object Storage Service (OSS) information of the file that is uploaded to create custom weak password rules.
+     *  *
+     * @param DescribeCustomizedDictUploadInfoRequest $request DescribeCustomizedDictUploadInfoRequest
+     *
+     * @return DescribeCustomizedDictUploadInfoResponse DescribeCustomizedDictUploadInfoResponse
+     */
+    public function describeCustomizedDictUploadInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCustomizedDictUploadInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries the servers to which custom policies are applied.
+     *  *
+     * @param DescribeCustomizedStrategyTargetsRequest $request DescribeCustomizedStrategyTargetsRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeCustomizedStrategyTargetsResponse DescribeCustomizedStrategyTargetsResponse
+     */
+    public function describeCustomizedStrategyTargetsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCustomizedStrategyTargets',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeCustomizedStrategyTargetsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries the servers to which custom policies are applied.
+     *  *
+     * @param DescribeCustomizedStrategyTargetsRequest $request DescribeCustomizedStrategyTargetsRequest
+     *
+     * @return DescribeCustomizedStrategyTargetsResponse DescribeCustomizedStrategyTargetsResponse
+     */
+    public function describeCustomizedStrategyTargets($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCustomizedStrategyTargetsWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries periodic scan tasks. The tasks include image scan tasks, urgent vulnerability scan tasks, and virus scan tasks.
      *  *
      * @param DescribeCycleTaskListRequest $request DescribeCycleTaskListRequest
@@ -10792,6 +14058,106 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeCycleTaskListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询操作审计数据源
+     *  *
+     * @param DescribeDataSourceRequest $request DescribeDataSourceRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeDataSourceResponse DescribeDataSourceResponse
+     */
+    public function describeDataSourceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->configType)) {
+            $query['ConfigType'] = $request->configType;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDataSource',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询操作审计数据源
+     *  *
+     * @param DescribeDataSourceRequest $request DescribeDataSourceRequest
+     *
+     * @return DescribeDataSourceResponse DescribeDataSourceResponse
+     */
+    public function describeDataSource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDataSourceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries the keywords of a custom dictionary that is generated by using weak passwords.
+     *  *
+     * @param DescribeDefaultKeyInfoRequest $request DescribeDefaultKeyInfoRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeDefaultKeyInfoResponse DescribeDefaultKeyInfoResponse
+     */
+    public function describeDefaultKeyInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDefaultKeyInfo',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDefaultKeyInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries the keywords of a custom dictionary that is generated by using weak passwords.
+     *  *
+     * @param DescribeDefaultKeyInfoRequest $request DescribeDefaultKeyInfoRequest
+     *
+     * @return DescribeDefaultKeyInfoResponse DescribeDefaultKeyInfoResponse
+     */
+    public function describeDefaultKeyInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDefaultKeyInfoWithOptions($request, $runtime);
     }
 
     /**
@@ -11041,6 +14407,362 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @summary 查询网络安全报告-安全告警
+     *  *
+     * @param DescribeDomainSecureAlarmListRequest $request DescribeDomainSecureAlarmListRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeDomainSecureAlarmListResponse DescribeDomainSecureAlarmListResponse
+     */
+    public function describeDomainSecureAlarmListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->from)) {
+            $query['From'] = $request->from;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainSecureAlarmList',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDomainSecureAlarmListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询网络安全报告-安全告警
+     *  *
+     * @param DescribeDomainSecureAlarmListRequest $request DescribeDomainSecureAlarmListRequest
+     *
+     * @return DescribeDomainSecureAlarmListResponse DescribeDomainSecureAlarmListResponse
+     */
+    public function describeDomainSecureAlarmList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDomainSecureAlarmListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询网络安全报告-存在风险的网站
+     *  *
+     * @param DescribeDomainSecureRiskListRequest $request DescribeDomainSecureRiskListRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeDomainSecureRiskListResponse DescribeDomainSecureRiskListResponse
+     */
+    public function describeDomainSecureRiskListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->from)) {
+            $query['From'] = $request->from;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainSecureRiskList',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDomainSecureRiskListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询网络安全报告-存在风险的网站
+     *  *
+     * @param DescribeDomainSecureRiskListRequest $request DescribeDomainSecureRiskListRequest
+     *
+     * @return DescribeDomainSecureRiskListResponse DescribeDomainSecureRiskListResponse
+     */
+    public function describeDomainSecureRiskList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDomainSecureRiskListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询网络安全报告的安全分
+     *  *
+     * @param DescribeDomainSecureScoreRequest $request DescribeDomainSecureScoreRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeDomainSecureScoreResponse DescribeDomainSecureScoreResponse
+     */
+    public function describeDomainSecureScoreWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainSecureScore',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDomainSecureScoreResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询网络安全报告的安全分
+     *  *
+     * @param DescribeDomainSecureScoreRequest $request DescribeDomainSecureScoreRequest
+     *
+     * @return DescribeDomainSecureScoreResponse DescribeDomainSecureScoreResponse
+     */
+    public function describeDomainSecureScore($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDomainSecureScoreWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询网络安全报告- 统计值
+     *  *
+     * @param DescribeDomainSecureStatisticsRequest $request DescribeDomainSecureStatisticsRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeDomainSecureStatisticsResponse DescribeDomainSecureStatisticsResponse
+     */
+    public function describeDomainSecureStatisticsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainSecureStatistics',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDomainSecureStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询网络安全报告- 统计值
+     *  *
+     * @param DescribeDomainSecureStatisticsRequest $request DescribeDomainSecureStatisticsRequest
+     *
+     * @return DescribeDomainSecureStatisticsResponse DescribeDomainSecureStatisticsResponse
+     */
+    public function describeDomainSecureStatistics($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDomainSecureStatisticsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询网络安全报告-漏洞
+     *  *
+     * @param DescribeDomainSecureVulListRequest $request DescribeDomainSecureVulListRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeDomainSecureVulListResponse DescribeDomainSecureVulListResponse
+     */
+    public function describeDomainSecureVulListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->from)) {
+            $query['From'] = $request->from;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainSecureVulList',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDomainSecureVulListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询网络安全报告-漏洞
+     *  *
+     * @param DescribeDomainSecureVulListRequest $request DescribeDomainSecureVulListRequest
+     *
+     * @return DescribeDomainSecureVulListResponse DescribeDomainSecureVulListResponse
+     */
+    public function describeDomainSecureVulList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDomainSecureVulListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries custom weak password rules for the baseline check feature.
+     *  *
+     * @param DescribeDynamicDictRequest $request DescribeDynamicDictRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeDynamicDictResponse DescribeDynamicDictResponse
+     */
+    public function describeDynamicDictWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDynamicDict',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDynamicDictResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries custom weak password rules for the baseline check feature.
+     *  *
+     * @param DescribeDynamicDictRequest $request DescribeDynamicDictRequest
+     *
+     * @return DescribeDynamicDictResponse DescribeDynamicDictResponse
+     */
+    public function describeDynamicDict($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDynamicDictWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries the information about an uploaded Object Storage Service (OSS) object that contains custom weak passwords and is used for baseline checks.
+     *  *
+     * @param DescribeDynamicDictUploadInfoRequest $request DescribeDynamicDictUploadInfoRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeDynamicDictUploadInfoResponse DescribeDynamicDictUploadInfoResponse
+     */
+    public function describeDynamicDictUploadInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDynamicDictUploadInfo',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDynamicDictUploadInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries the information about an uploaded Object Storage Service (OSS) object that contains custom weak passwords and is used for baseline checks.
+     *  *
+     * @param DescribeDynamicDictUploadInfoRequest $request DescribeDynamicDictUploadInfoRequest
+     *
+     * @return DescribeDynamicDictUploadInfoResponse DescribeDynamicDictUploadInfoResponse
+     */
+    public function describeDynamicDictUploadInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDynamicDictUploadInfoWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries whether Security Center is authorized to scan for urgent vulnerabilities.
      *  *
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
@@ -11168,6 +14890,9 @@ class Sas extends OpenApiClient
         }
         if (!Utils::isUnset($request->from)) {
             $query['From'] = $request->from;
+        }
+        if (!Utils::isUnset($request->multiAccountActionType)) {
+            $query['MultiAccountActionType'] = $request->multiAccountActionType;
         }
         if (!Utils::isUnset($request->targetType)) {
             $query['TargetType'] = $request->targetType;
@@ -12385,6 +16110,121 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @summary Queries the search conditions that can be used to query data center assets found after scanning in fuzzy match mode.
+     *  *
+     * @param DescribeIdcAssetCriteriaRequest $request DescribeIdcAssetCriteriaRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeIdcAssetCriteriaResponse DescribeIdcAssetCriteriaResponse
+     */
+    public function describeIdcAssetCriteriaWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->value)) {
+            $query['Value'] = $request->value;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeIdcAssetCriteria',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeIdcAssetCriteriaResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries the search conditions that can be used to query data center assets found after scanning in fuzzy match mode.
+     *  *
+     * @param DescribeIdcAssetCriteriaRequest $request DescribeIdcAssetCriteriaRequest
+     *
+     * @return DescribeIdcAssetCriteriaResponse DescribeIdcAssetCriteriaResponse
+     */
+    public function describeIdcAssetCriteria($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeIdcAssetCriteriaWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries assets that are identified by Internet Data Center (IDC) probes.
+     *  *
+     * @param DescribeIdcProbeScanResultListRequest $request DescribeIdcProbeScanResultListRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeIdcProbeScanResultListResponse DescribeIdcProbeScanResultListResponse
+     */
+    public function describeIdcProbeScanResultListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->criteria)) {
+            $query['Criteria'] = $request->criteria;
+        }
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->foundEndTime)) {
+            $query['FoundEndTime'] = $request->foundEndTime;
+        }
+        if (!Utils::isUnset($request->foundStartTime)) {
+            $query['FoundStartTime'] = $request->foundStartTime;
+        }
+        if (!Utils::isUnset($request->logicalExp)) {
+            $query['LogicalExp'] = $request->logicalExp;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeIdcProbeScanResultList',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeIdcProbeScanResultListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries assets that are identified by Internet Data Center (IDC) probes.
+     *  *
+     * @param DescribeIdcProbeScanResultListRequest $request DescribeIdcProbeScanResultListRequest
+     *
+     * @return DescribeIdcProbeScanResultListResponse DescribeIdcProbeScanResultListResponse
+     */
+    public function describeIdcProbeScanResultList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeIdcProbeScanResultListWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries an image digest.
      *  *
      * @param DescribeImageRequest $request DescribeImageRequest
@@ -12751,6 +16591,130 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeImageBaselineStrategyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 通过风险项关键字查询镜像的构建风险。
+     *  *
+     * @param DescribeImageBuildRiskByKeyRequest $request DescribeImageBuildRiskByKeyRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeImageBuildRiskByKeyResponse DescribeImageBuildRiskByKeyResponse
+     */
+    public function describeImageBuildRiskByKeyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->imageUuid)) {
+            $query['ImageUuid'] = $request->imageUuid;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->riskKey)) {
+            $query['RiskKey'] = $request->riskKey;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeImageBuildRiskByKey',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeImageBuildRiskByKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 通过风险项关键字查询镜像的构建风险。
+     *  *
+     * @param DescribeImageBuildRiskByKeyRequest $request DescribeImageBuildRiskByKeyRequest
+     *
+     * @return DescribeImageBuildRiskByKeyResponse DescribeImageBuildRiskByKeyResponse
+     */
+    public function describeImageBuildRiskByKey($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeImageBuildRiskByKeyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries a list of image build command risks by page.
+     *  *
+     * @param DescribeImageBuildRiskListRequest $request DescribeImageBuildRiskListRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeImageBuildRiskListResponse DescribeImageBuildRiskListResponse
+     */
+    public function describeImageBuildRiskListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->criteria)) {
+            $query['Criteria'] = $request->criteria;
+        }
+        if (!Utils::isUnset($request->criteriaType)) {
+            $query['CriteriaType'] = $request->criteriaType;
+        }
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->riskLevel)) {
+            $query['RiskLevel'] = $request->riskLevel;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeImageBuildRiskList',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeImageBuildRiskListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries a list of image build command risks by page.
+     *  *
+     * @param DescribeImageBuildRiskListRequest $request DescribeImageBuildRiskListRequest
+     *
+     * @return DescribeImageBuildRiskListResponse DescribeImageBuildRiskListResponse
+     */
+    public function describeImageBuildRiskList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeImageBuildRiskListWithOptions($request, $runtime);
     }
 
     /**
@@ -13272,6 +17236,68 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeImageLatestScanTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries a list of images that are affected by image build command risks by page.
+     *  *
+     * @param DescribeImageListByBuildRiskRequest $request DescribeImageListByBuildRiskRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeImageListByBuildRiskResponse DescribeImageListByBuildRiskResponse
+     */
+    public function describeImageListByBuildRiskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->riskKey)) {
+            $query['RiskKey'] = $request->riskKey;
+        }
+        if (!Utils::isUnset($request->riskLevel)) {
+            $query['RiskLevel'] = $request->riskLevel;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeImageListByBuildRisk',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeImageListByBuildRiskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries a list of images that are affected by image build command risks by page.
+     *  *
+     * @param DescribeImageListByBuildRiskRequest $request DescribeImageListByBuildRiskRequest
+     *
+     * @return DescribeImageListByBuildRiskResponse DescribeImageListByBuildRiskResponse
+     */
+    public function describeImageListByBuildRisk($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeImageListByBuildRiskWithOptions($request, $runtime);
     }
 
     /**
@@ -14371,28 +18397,28 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary Checks whether an IP address is related to an alert event.
+     * @summary 查询集群漏洞统计
      *  *
-     * @param DescribeIpTagsRequest $request DescribeIpTagsRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * @param DescribeInstanceVulStatisticsRequest $request DescribeInstanceVulStatisticsRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeIpTagsResponse DescribeIpTagsResponse
+     * @return DescribeInstanceVulStatisticsResponse DescribeInstanceVulStatisticsResponse
      */
-    public function describeIpTagsWithOptions($request, $runtime)
+    public function describeInstanceVulStatisticsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->ip)) {
-            $query['Ip'] = $request->ip;
+        if (!Utils::isUnset($request->types)) {
+            $query['Types'] = $request->types;
         }
-        if (!Utils::isUnset($request->securityEventId)) {
-            $query['SecurityEventId'] = $request->securityEventId;
+        if (!Utils::isUnset($request->uuid)) {
+            $query['Uuid'] = $request->uuid;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeIpTags',
+            'action'      => 'DescribeInstanceVulStatistics',
             'version'     => '2018-12-03',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
@@ -14403,21 +18429,21 @@ class Sas extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return DescribeIpTagsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeInstanceVulStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Checks whether an IP address is related to an alert event.
+     * @summary 查询集群漏洞统计
      *  *
-     * @param DescribeIpTagsRequest $request DescribeIpTagsRequest
+     * @param DescribeInstanceVulStatisticsRequest $request DescribeInstanceVulStatisticsRequest
      *
-     * @return DescribeIpTagsResponse DescribeIpTagsResponse
+     * @return DescribeInstanceVulStatisticsResponse DescribeInstanceVulStatisticsResponse
      */
-    public function describeIpTags($request)
+    public function describeInstanceVulStatistics($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeIpTagsWithOptions($request, $runtime);
+        return $this->describeInstanceVulStatisticsWithOptions($request, $runtime);
     }
 
     /**
@@ -14878,6 +18904,53 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @summary 查询是否需要慢查询优化
+     *  *
+     * @param DescribeNeedAsyncQueryRequest $request DescribeNeedAsyncQueryRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeNeedAsyncQueryResponse DescribeNeedAsyncQueryResponse
+     */
+    public function describeNeedAsyncQueryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeNeedAsyncQuery',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeNeedAsyncQueryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询是否需要慢查询优化
+     *  *
+     * @param DescribeNeedAsyncQueryRequest $request DescribeNeedAsyncQueryRequest
+     *
+     * @return DescribeNeedAsyncQueryResponse DescribeNeedAsyncQueryResponse
+     */
+    public function describeNeedAsyncQuery($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeNeedAsyncQueryWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries notification settings.
      *  *
      * @param DescribeNoticeConfigRequest $request DescribeNoticeConfigRequest
@@ -14947,6 +19020,9 @@ class Sas extends OpenApiClient
         }
         if (!Utils::isUnset($request->lang)) {
             $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->multiAccountActionType)) {
+            $query['MultiAccountActionType'] = $request->multiAccountActionType;
         }
         if (!Utils::isUnset($request->name)) {
             $query['Name'] = $request->name;
@@ -15797,6 +19873,65 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @summary Queries the Java processes that are collected by the asset fingerprints feature of Security Center in your assets.
+     *  *
+     * @param DescribePropertyScaProcessDetailRequest $request DescribePropertyScaProcessDetailRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribePropertyScaProcessDetailResponse DescribePropertyScaProcessDetailResponse
+     */
+    public function describePropertyScaProcessDetailWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->pid)) {
+            $query['Pid'] = $request->pid;
+        }
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
+        }
+        if (!Utils::isUnset($request->uuid)) {
+            $query['Uuid'] = $request->uuid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePropertyScaProcessDetail',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribePropertyScaProcessDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries the Java processes that are collected by the asset fingerprints feature of Security Center in your assets.
+     *  *
+     * @param DescribePropertyScaProcessDetailRequest $request DescribePropertyScaProcessDetailRequest
+     *
+     * @return DescribePropertyScaProcessDetailResponse DescribePropertyScaProcessDetailResponse
+     */
+    public function describePropertyScaProcessDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePropertyScaProcessDetailWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries the configurations of scheduled tasks of asset fingerprint collection.
      *  *
      * @param DescribePropertyScheduleConfigRequest $request DescribePropertyScheduleConfigRequest
@@ -16027,8 +20162,12 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @deprecated openAPI DescribePropertyUsageNewest is deprecated, please use Sas::2018-12-03::DescribeOnceTask instead
+     *  *
      * @summary 查询资产指纹用户创建时间统计
      *  *
+     * Deprecated
+     *
      * @param DescribePropertyUsageNewestRequest $request DescribePropertyUsageNewestRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
@@ -16060,8 +20199,12 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @deprecated openAPI DescribePropertyUsageNewest is deprecated, please use Sas::2018-12-03::DescribeOnceTask instead
+     *  *
      * @summary 查询资产指纹用户创建时间统计
      *  *
+     * Deprecated
+     *
      * @param DescribePropertyUsageNewestRequest $request DescribePropertyUsageNewestRequest
      *
      * @return DescribePropertyUsageNewestResponse DescribePropertyUsageNewestResponse
@@ -16071,6 +20214,57 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describePropertyUsageNewestWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Uses the asset fingerprints feature to obtain the statistics on top five most frequently detected ports, processes, software, accounts, or middleware.
+     *  *
+     * @description Only users who purchase the Enterprise or Ultimate edition of Security Center can call this operation.
+     *  *
+     * @param DescribePropertyUsageTopRequest $request DescribePropertyUsageTopRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribePropertyUsageTopResponse DescribePropertyUsageTopResponse
+     */
+    public function describePropertyUsageTopWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePropertyUsageTop',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribePropertyUsageTopResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Uses the asset fingerprints feature to obtain the statistics on top five most frequently detected ports, processes, software, accounts, or middleware.
+     *  *
+     * @description Only users who purchase the Enterprise or Ultimate edition of Security Center can call this operation.
+     *  *
+     * @param DescribePropertyUsageTopRequest $request DescribePropertyUsageTopRequest
+     *
+     * @return DescribePropertyUsageTopResponse DescribePropertyUsageTopResponse
+     */
+    public function describePropertyUsageTop($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePropertyUsageTopWithOptions($request, $runtime);
     }
 
     /**
@@ -16248,6 +20442,109 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeQuaraFileDownloadInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries the information about a report export task.
+     *  *
+     * @param DescribeReportExportRequest $request DescribeReportExportRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeReportExportResponse DescribeReportExportResponse
+     */
+    public function describeReportExportWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->exportId)) {
+            $query['ExportId'] = $request->exportId;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeReportExport',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeReportExportResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries the information about a report export task.
+     *  *
+     * @param DescribeReportExportRequest $request DescribeReportExportRequest
+     *
+     * @return DescribeReportExportResponse DescribeReportExportResponse
+     */
+    public function describeReportExport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeReportExportWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries the status of a report recipient by using the security report feature of the System Configuration module in the Security Center console.
+     *  *
+     * @param DescribeReportRecipientStatusRequest $request DescribeReportRecipientStatusRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeReportRecipientStatusResponse DescribeReportRecipientStatusResponse
+     */
+    public function describeReportRecipientStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->recipients)) {
+            $query['Recipients'] = $request->recipients;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeReportRecipientStatus',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeReportRecipientStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries the status of a report recipient by using the security report feature of the System Configuration module in the Security Center console.
+     *  *
+     * @param DescribeReportRecipientStatusRequest $request DescribeReportRecipientStatusRequest
+     *
+     * @return DescribeReportRecipientStatusResponse DescribeReportRecipientStatusResponse
+     */
+    public function describeReportRecipientStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeReportRecipientStatusWithOptions($request, $runtime);
     }
 
     /**
@@ -16998,6 +21295,56 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @summary Queries the trends of the scores on the security dashboard.
+     *  *
+     * @param DescribeScreenScoreThreadRequest $request DescribeScreenScoreThreadRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeScreenScoreThreadResponse DescribeScreenScoreThreadResponse
+     */
+    public function describeScreenScoreThreadWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeScreenScoreThread',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeScreenScoreThreadResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries the trends of the scores on the security dashboard.
+     *  *
+     * @param DescribeScreenScoreThreadRequest $request DescribeScreenScoreThreadRequest
+     *
+     * @return DescribeScreenScoreThreadResponse DescribeScreenScoreThreadResponse
+     */
+    public function describeScreenScoreThread($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeScreenScoreThreadWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 查询资产的筛选条件
      *  *
      * @param DescribeSearchConditionRequest $request DescribeSearchConditionRequest
@@ -17626,6 +21973,273 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @summary Queries the policy templates on the Playbook page.
+     *  *
+     * @description Only the Enterprise and Ultimate editions of Security Center support this API operation.
+     *  *
+     * @param DescribeSoarStrategiesRequest $request DescribeSoarStrategiesRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeSoarStrategiesResponse DescribeSoarStrategiesResponse
+     */
+    public function describeSoarStrategiesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSoarStrategies',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeSoarStrategiesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries the policy templates on the Playbook page.
+     *  *
+     * @description Only the Enterprise and Ultimate editions of Security Center support this API operation.
+     *  *
+     * @param DescribeSoarStrategiesRequest $request DescribeSoarStrategiesRequest
+     *
+     * @return DescribeSoarStrategiesResponse DescribeSoarStrategiesResponse
+     */
+    public function describeSoarStrategies($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSoarStrategiesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries the parameters of a policy on the Playbook page.
+     *  *
+     * @description Only the Enterprise and Ultimate editions of Security Center support this API operation.
+     *  *
+     * @param DescribeSoarStrategyParamRequest $request DescribeSoarStrategyParamRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeSoarStrategyParamResponse DescribeSoarStrategyParamResponse
+     */
+    public function describeSoarStrategyParamWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->strategyId)) {
+            $query['StrategyId'] = $request->strategyId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSoarStrategyParam',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeSoarStrategyParamResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries the parameters of a policy on the Playbook page.
+     *  *
+     * @description Only the Enterprise and Ultimate editions of Security Center support this API operation.
+     *  *
+     * @param DescribeSoarStrategyParamRequest $request DescribeSoarStrategyParamRequest
+     *
+     * @return DescribeSoarStrategyParamResponse DescribeSoarStrategyParamResponse
+     */
+    public function describeSoarStrategyParam($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSoarStrategyParamWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries the details of a policy task on the Playbook page, including the execution status of the task and the process information of the task.
+     *  *
+     * @description Only the Enterprise and Ultimate editions of Security Center support this API operation.
+     *  *
+     * @param DescribeSoarStrategyTaskDetailRequest $request DescribeSoarStrategyTaskDetailRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeSoarStrategyTaskDetailResponse DescribeSoarStrategyTaskDetailResponse
+     */
+    public function describeSoarStrategyTaskDetailWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->strategyTaskId)) {
+            $query['StrategyTaskId'] = $request->strategyTaskId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSoarStrategyTaskDetail',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeSoarStrategyTaskDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries the details of a policy task on the Playbook page, including the execution status of the task and the process information of the task.
+     *  *
+     * @description Only the Enterprise and Ultimate editions of Security Center support this API operation.
+     *  *
+     * @param DescribeSoarStrategyTaskDetailRequest $request DescribeSoarStrategyTaskDetailRequest
+     *
+     * @return DescribeSoarStrategyTaskDetailResponse DescribeSoarStrategyTaskDetailResponse
+     */
+    public function describeSoarStrategyTaskDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSoarStrategyTaskDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries a list of policy tasks on the Playbook page.
+     *  *
+     * @description Only the Enterprise and Ultimate editions of Security Center support this API operation.
+     *  *
+     * @param DescribeSoarStrategyTasksRequest $request DescribeSoarStrategyTasksRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeSoarStrategyTasksResponse DescribeSoarStrategyTasksResponse
+     */
+    public function describeSoarStrategyTasksWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSoarStrategyTasks',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeSoarStrategyTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries a list of policy tasks on the Playbook page.
+     *  *
+     * @description Only the Enterprise and Ultimate editions of Security Center support this API operation.
+     *  *
+     * @param DescribeSoarStrategyTasksRequest $request DescribeSoarStrategyTasksRequest
+     *
+     * @return DescribeSoarStrategyTasksResponse DescribeSoarStrategyTasksResponse
+     */
+    public function describeSoarStrategyTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSoarStrategyTasksWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries a list of policies created on the Playbook page of Security Center.
+     *  *
+     * @description Only the Enterprise and Ultimate editions of Security Center support this API operation.
+     *  *
+     * @param DescribeSoarSubscribedStrategyRequest $request DescribeSoarSubscribedStrategyRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeSoarSubscribedStrategyResponse DescribeSoarSubscribedStrategyResponse
+     */
+    public function describeSoarSubscribedStrategyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSoarSubscribedStrategy',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeSoarSubscribedStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries a list of policies created on the Playbook page of Security Center.
+     *  *
+     * @description Only the Enterprise and Ultimate editions of Security Center support this API operation.
+     *  *
+     * @param DescribeSoarSubscribedStrategyRequest $request DescribeSoarSubscribedStrategyRequest
+     *
+     * @return DescribeSoarSubscribedStrategyResponse DescribeSoarSubscribedStrategyResponse
+     */
+    public function describeSoarSubscribedStrategy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSoarSubscribedStrategyWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries the details about baseline check policies.
      *  *
      * @param DescribeStrategyRequest $request DescribeStrategyRequest
@@ -17894,7 +22508,44 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 查询防勒索支持地域
+     * @summary Queries the time when a system vulnerability was last detected.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeSupervisonInfoResponse DescribeSupervisonInfoResponse
+     */
+    public function describeSupervisonInfoWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'DescribeSupervisonInfo',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeSupervisonInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries the time when a system vulnerability was last detected.
+     *  *
+     * @return DescribeSupervisonInfoResponse DescribeSupervisonInfoResponse
+     */
+    public function describeSupervisonInfo()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSupervisonInfoWithOptions($runtime);
+    }
+
+    /**
+     * @summary Queries the regions in which the anti-ransomware feature is supported.
      *  *
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
@@ -17919,7 +22570,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 查询防勒索支持地域
+     * @summary Queries the regions in which the anti-ransomware feature is supported.
      *  *
      * @return DescribeSupportRegionResponse DescribeSupportRegionResponse
      */
@@ -18160,14 +22811,19 @@ class Sas extends OpenApiClient
     /**
      * @summary Queries a list of alert events that are generated without aggregation.
      *  *
-     * @param DescribeSuspEventsRequest $request DescribeSuspEventsRequest
+     * @param DescribeSuspEventsRequest $tmpReq  DescribeSuspEventsRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
      * @return DescribeSuspEventsResponse DescribeSuspEventsResponse
      */
-    public function describeSuspEventsWithOptions($request, $runtime)
+    public function describeSuspEventsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new DescribeSuspEventsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->sourceAliUids)) {
+            $request->sourceAliUidsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sourceAliUids, 'SourceAliUids', 'simple');
+        }
         $query = [];
         if (!Utils::isUnset($request->alarmUniqueInfo)) {
             $query['AlarmUniqueInfo'] = $request->alarmUniqueInfo;
@@ -18208,6 +22864,9 @@ class Sas extends OpenApiClient
         if (!Utils::isUnset($request->levels)) {
             $query['Levels'] = $request->levels;
         }
+        if (!Utils::isUnset($request->multiAccountActionType)) {
+            $query['MultiAccountActionType'] = $request->multiAccountActionType;
+        }
         if (!Utils::isUnset($request->name)) {
             $query['Name'] = $request->name;
         }
@@ -18240,6 +22899,9 @@ class Sas extends OpenApiClient
         }
         if (!Utils::isUnset($request->source)) {
             $query['Source'] = $request->source;
+        }
+        if (!Utils::isUnset($request->sourceAliUidsShrink)) {
+            $query['SourceAliUids'] = $request->sourceAliUidsShrink;
         }
         if (!Utils::isUnset($request->sourceIp)) {
             $query['SourceIp'] = $request->sourceIp;
@@ -18397,6 +23059,127 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeSuspiciousUUIDConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries a list of IDC scan tasks.
+     *  *
+     * @param DescribeSyncAssetTaskListRequest $request DescribeSyncAssetTaskListRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeSyncAssetTaskListResponse DescribeSyncAssetTaskListResponse
+     */
+    public function describeSyncAssetTaskListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->taskName)) {
+            $query['TaskName'] = $request->taskName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSyncAssetTaskList',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeSyncAssetTaskListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries a list of IDC scan tasks.
+     *  *
+     * @param DescribeSyncAssetTaskListRequest $request DescribeSyncAssetTaskListRequest
+     *
+     * @return DescribeSyncAssetTaskListResponse DescribeSyncAssetTaskListResponse
+     */
+    public function describeSyncAssetTaskList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSyncAssetTaskListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries the details of an IDC scan task.
+     *  *
+     * @param DescribeSyncAssetTaskLogDetailRequest $request DescribeSyncAssetTaskLogDetailRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeSyncAssetTaskLogDetailResponse DescribeSyncAssetTaskLogDetailResponse
+     */
+    public function describeSyncAssetTaskLogDetailWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->rootTaskId)) {
+            $query['RootTaskId'] = $request->rootTaskId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->taskName)) {
+            $query['TaskName'] = $request->taskName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSyncAssetTaskLogDetail',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeSyncAssetTaskLogDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries the details of an IDC scan task.
+     *  *
+     * @param DescribeSyncAssetTaskLogDetailRequest $request DescribeSyncAssetTaskLogDetailRequest
+     *
+     * @return DescribeSyncAssetTaskLogDetailResponse DescribeSyncAssetTaskLogDetailResponse
+     */
+    public function describeSyncAssetTaskLogDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSyncAssetTaskLogDetailWithOptions($request, $runtime);
     }
 
     /**
@@ -18845,6 +23628,43 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @summary Queries the statistics on backups based on anti-ransomware policies.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeUniBackupStatisticsResponse DescribeUniBackupStatisticsResponse
+     */
+    public function describeUniBackupStatisticsWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'DescribeUniBackupStatistics',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeUniBackupStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries the statistics on backups based on anti-ransomware policies.
+     *  *
+     * @return DescribeUniBackupStatisticsResponse DescribeUniBackupStatisticsResponse
+     */
+    public function describeUniBackupStatistics()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeUniBackupStatisticsWithOptions($runtime);
+    }
+
+    /**
      * @summary Queries the backup snapshots from which the data of a database can be restored.
      *  *
      * @param DescribeUniRecoverableListRequest $request DescribeUniRecoverableListRequest
@@ -19081,6 +23901,53 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @summary Queries the settings of a custom baseline check policy.
+     *  *
+     * @param DescribeUserSettingRequest $request DescribeUserSettingRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeUserSettingResponse DescribeUserSettingResponse
+     */
+    public function describeUserSettingWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeUserSetting',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeUserSettingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries the settings of a custom baseline check policy.
+     *  *
+     * @param DescribeUserSettingRequest $request DescribeUserSettingRequest
+     *
+     * @return DescribeUserSettingResponse DescribeUserSettingResponse
+     */
+    public function describeUserSetting($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeUserSettingWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries a list of assets that support fixing based on vulnerability names.
      *  *
      * @param DescribeUuidsByVulNamesRequest $request DescribeUuidsByVulNamesRequest
@@ -19254,6 +24121,56 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeVersionConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询钉钉群二维码地址
+     *  *
+     * @param DescribeVolDingdingMessageRequest $request DescribeVolDingdingMessageRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeVolDingdingMessageResponse DescribeVolDingdingMessageResponse
+     */
+    public function describeVolDingdingMessageWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVolDingdingMessage',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeVolDingdingMessageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询钉钉群二维码地址
+     *  *
+     * @param DescribeVolDingdingMessageRequest $request DescribeVolDingdingMessageRequest
+     *
+     * @return DescribeVolDingdingMessageResponse DescribeVolDingdingMessageResponse
+     */
+    public function describeVolDingdingMessage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVolDingdingMessageWithOptions($request, $runtime);
     }
 
     /**
@@ -20818,6 +25735,497 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @summary Queries the information about servers that can be added or are added to application whitelist policies.
+     *  *
+     * @description The application whitelist feature is in public preview. You cannot apply for a trial of the feature. If you applied for a trial of the feature or the feature is in use, you can call this operation.
+     *  *
+     * @param DescribeWhiteListAssetRequest $request DescribeWhiteListAssetRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeWhiteListAssetResponse DescribeWhiteListAssetResponse
+     */
+    public function describeWhiteListAssetWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->lastMaxId)) {
+            $query['LastMaxId'] = $request->lastMaxId;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->strategyId)) {
+            $query['StrategyId'] = $request->strategyId;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeWhiteListAsset',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeWhiteListAssetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries the information about servers that can be added or are added to application whitelist policies.
+     *  *
+     * @description The application whitelist feature is in public preview. You cannot apply for a trial of the feature. If you applied for a trial of the feature or the feature is in use, you can call this operation.
+     *  *
+     * @param DescribeWhiteListAssetRequest $request DescribeWhiteListAssetRequest
+     *
+     * @return DescribeWhiteListAssetResponse DescribeWhiteListAssetResponse
+     */
+    public function describeWhiteListAsset($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeWhiteListAssetWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries the available quota for the application whitelist feature.
+     *  *
+     * @description The application whitelist feature is in public preview. You cannot apply for a trial of the feature. If you applied for a trial of the feature or the feature is in use, you can call this operation.
+     *  *
+     * @param DescribeWhiteListAuthorizeRequest $request DescribeWhiteListAuthorizeRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeWhiteListAuthorizeResponse DescribeWhiteListAuthorizeResponse
+     */
+    public function describeWhiteListAuthorizeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeWhiteListAuthorize',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeWhiteListAuthorizeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries the available quota for the application whitelist feature.
+     *  *
+     * @description The application whitelist feature is in public preview. You cannot apply for a trial of the feature. If you applied for a trial of the feature or the feature is in use, you can call this operation.
+     *  *
+     * @param DescribeWhiteListAuthorizeRequest $request DescribeWhiteListAuthorizeRequest
+     *
+     * @return DescribeWhiteListAuthorizeResponse DescribeWhiteListAuthorizeResponse
+     */
+    public function describeWhiteListAuthorize($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeWhiteListAuthorizeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries the servers on which an application whitelist policy takes effect.
+     *  *
+     * @description The application whitelist feature is in public preview. You cannot apply for a trial of the feature. If you applied for a trial of the feature or the feature is in-use, you can call this operation.
+     *  *
+     * @param DescribeWhiteListEffectiveAssetsRequest $request DescribeWhiteListEffectiveAssetsRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeWhiteListEffectiveAssetsResponse DescribeWhiteListEffectiveAssetsResponse
+     */
+    public function describeWhiteListEffectiveAssetsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->needStatistics)) {
+            $query['NeedStatistics'] = $request->needStatistics;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->strategyId)) {
+            $query['StrategyId'] = $request->strategyId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeWhiteListEffectiveAssets',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeWhiteListEffectiveAssetsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries the servers on which an application whitelist policy takes effect.
+     *  *
+     * @description The application whitelist feature is in public preview. You cannot apply for a trial of the feature. If you applied for a trial of the feature or the feature is in-use, you can call this operation.
+     *  *
+     * @param DescribeWhiteListEffectiveAssetsRequest $request DescribeWhiteListEffectiveAssetsRequest
+     *
+     * @return DescribeWhiteListEffectiveAssetsResponse DescribeWhiteListEffectiveAssetsResponse
+     */
+    public function describeWhiteListEffectiveAssets($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeWhiteListEffectiveAssetsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries the information about the processes that are detected in an application whitelist policy.
+     *  *
+     * @description The application whitelist feature is in public preview. You cannot apply for a trial of the feature. If you applied for a trial of the feature or the feature is in use, you can call this operation.
+     *  *
+     * @param DescribeWhiteListProcessRequest $request DescribeWhiteListProcessRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeWhiteListProcessResponse DescribeWhiteListProcessResponse
+     */
+    public function describeWhiteListProcessWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->desc)) {
+            $query['Desc'] = $request->desc;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->orderBy)) {
+            $query['OrderBy'] = $request->orderBy;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->processName)) {
+            $query['ProcessName'] = $request->processName;
+        }
+        if (!Utils::isUnset($request->processType)) {
+            $query['ProcessType'] = $request->processType;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->strategyId)) {
+            $query['StrategyId'] = $request->strategyId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeWhiteListProcess',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeWhiteListProcessResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries the information about the processes that are detected in an application whitelist policy.
+     *  *
+     * @description The application whitelist feature is in public preview. You cannot apply for a trial of the feature. If you applied for a trial of the feature or the feature is in use, you can call this operation.
+     *  *
+     * @param DescribeWhiteListProcessRequest $request DescribeWhiteListProcessRequest
+     *
+     * @return DescribeWhiteListProcessResponse DescribeWhiteListProcessResponse
+     */
+    public function describeWhiteListProcess($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeWhiteListProcessWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries a list of application whitelist policies.
+     *  *
+     * @description The application whitelist feature is in public preview. You cannot apply for a trial of the feature. If you applied for a trial of the feature or the feature is in use, you can call this operation.
+     *  *
+     * @param DescribeWhiteListStrategyListRequest $request DescribeWhiteListStrategyListRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeWhiteListStrategyListResponse DescribeWhiteListStrategyListResponse
+     */
+    public function describeWhiteListStrategyListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->strategyIds)) {
+            $query['StrategyIds'] = $request->strategyIds;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeWhiteListStrategyList',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeWhiteListStrategyListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries a list of application whitelist policies.
+     *  *
+     * @description The application whitelist feature is in public preview. You cannot apply for a trial of the feature. If you applied for a trial of the feature or the feature is in use, you can call this operation.
+     *  *
+     * @param DescribeWhiteListStrategyListRequest $request DescribeWhiteListStrategyListRequest
+     *
+     * @return DescribeWhiteListStrategyListResponse DescribeWhiteListStrategyListResponse
+     */
+    public function describeWhiteListStrategyList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeWhiteListStrategyListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries the statistics of application whitelist policies.
+     *  *
+     * @description The application whitelist feature is in public preview. You cannot apply for a trial of the feature. If you applied for a trial of the feature or the feature is in use, you can call this operation.
+     *  *
+     * @param DescribeWhiteListStrategyStatisticsRequest $request DescribeWhiteListStrategyStatisticsRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeWhiteListStrategyStatisticsResponse DescribeWhiteListStrategyStatisticsResponse
+     */
+    public function describeWhiteListStrategyStatisticsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->strategyIds)) {
+            $query['StrategyIds'] = $request->strategyIds;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeWhiteListStrategyStatistics',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeWhiteListStrategyStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries the statistics of application whitelist policies.
+     *  *
+     * @description The application whitelist feature is in public preview. You cannot apply for a trial of the feature. If you applied for a trial of the feature or the feature is in use, you can call this operation.
+     *  *
+     * @param DescribeWhiteListStrategyStatisticsRequest $request DescribeWhiteListStrategyStatisticsRequest
+     *
+     * @return DescribeWhiteListStrategyStatisticsResponse DescribeWhiteListStrategyStatisticsResponse
+     */
+    public function describeWhiteListStrategyStatistics($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeWhiteListStrategyStatisticsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries the number of the servers on which an application whitelist policy takes effect.
+     *  *
+     * @description The application whitelist feature is in public preview. You cannot apply for a trial of the feature. If you applied for a trial of the feature or the feature is in-use, you can call this operation.
+     *  *
+     * @param DescribeWhiteListStrategyUuidCountRequest $request DescribeWhiteListStrategyUuidCountRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeWhiteListStrategyUuidCountResponse DescribeWhiteListStrategyUuidCountResponse
+     */
+    public function describeWhiteListStrategyUuidCountWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->strategyId)) {
+            $query['StrategyId'] = $request->strategyId;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeWhiteListStrategyUuidCount',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeWhiteListStrategyUuidCountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries the number of the servers on which an application whitelist policy takes effect.
+     *  *
+     * @description The application whitelist feature is in public preview. You cannot apply for a trial of the feature. If you applied for a trial of the feature or the feature is in-use, you can call this operation.
+     *  *
+     * @param DescribeWhiteListStrategyUuidCountRequest $request DescribeWhiteListStrategyUuidCountRequest
+     *
+     * @return DescribeWhiteListStrategyUuidCountResponse DescribeWhiteListStrategyUuidCountResponse
+     */
+    public function describeWhiteListStrategyUuidCount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeWhiteListStrategyUuidCountWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 钉钉通知测试
+     *  *
+     * @param DingTalkOnlineTestRequest $request DingTalkOnlineTestRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DingTalkOnlineTestResponse DingTalkOnlineTestResponse
+     */
+    public function dingTalkOnlineTestWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DingTalkOnlineTest',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DingTalkOnlineTestResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 钉钉通知测试
+     *  *
+     * @param DingTalkOnlineTestRequest $request DingTalkOnlineTestRequest
+     *
+     * @return DingTalkOnlineTestResponse DingTalkOnlineTestResponse
+     */
+    public function dingTalkOnlineTest($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->dingTalkOnlineTestWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Disables an IP address blocking policy that is in effect.
      *  *
      * @param DisableBruteForceRecordRequest $request DisableBruteForceRecordRequest
@@ -21104,6 +26512,47 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @summary Enable the multi-account management feature of Security Center.
+     *  *
+     * @description You must use the management account of your resource directory or a delegated administrator account of Security Center to call this operation.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     *
+     * @return EnableServiceAccessResourceDirectoryResponse EnableServiceAccessResourceDirectoryResponse
+     */
+    public function enableServiceAccessResourceDirectoryWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'EnableServiceAccessResourceDirectory',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return EnableServiceAccessResourceDirectoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Enable the multi-account management feature of Security Center.
+     *  *
+     * @description You must use the management account of your resource directory or a delegated administrator account of Security Center to call this operation.
+     *  *
+     * @return EnableServiceAccessResourceDirectoryResponse EnableServiceAccessResourceDirectoryResponse
+     */
+    public function enableServiceAccessResourceDirectory()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->enableServiceAccessResourceDirectoryWithOptions($runtime);
+    }
+
+    /**
      * @summary Performs a baseline check on servers to which a specified baseline check policy is applied.
      *  *
      * @param ExecStrategyRequest $request ExecStrategyRequest
@@ -21151,6 +26600,56 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->execStrategyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Exports a security report.
+     *  *
+     * @param ExportCustomizeReportRequest $request ExportCustomizeReportRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ExportCustomizeReportResponse ExportCustomizeReportResponse
+     */
+    public function exportCustomizeReportWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->exportType)) {
+            $query['ExportType'] = $request->exportType;
+        }
+        if (!Utils::isUnset($request->reportId)) {
+            $query['ReportId'] = $request->reportId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ExportCustomizeReport',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ExportCustomizeReportResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Exports a security report.
+     *  *
+     * @param ExportCustomizeReportRequest $request ExportCustomizeReportRequest
+     *
+     * @return ExportCustomizeReportResponse ExportCustomizeReportResponse
+     */
+    public function exportCustomizeReport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->exportCustomizeReportWithOptions($request, $runtime);
     }
 
     /**
@@ -21602,6 +27101,53 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @summary 完成任务自动领取奖励
+     *  *
+     * @param FinishGuidTaskRequest $request FinishGuidTaskRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return FinishGuidTaskResponse FinishGuidTaskResponse
+     */
+    public function finishGuidTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->taskTypeName)) {
+            $query['TaskTypeName'] = $request->taskTypeName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'FinishGuidTask',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return FinishGuidTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 完成任务自动领取奖励
+     *  *
+     * @param FinishGuidTaskRequest $request FinishGuidTaskRequest
+     *
+     * @return FinishGuidTaskResponse FinishGuidTaskResponse
+     */
+    public function finishGuidTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->finishGuidTaskWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Fixes a baseline risk item.
      *  *
      * @param FixCheckWarningsRequest $request FixCheckWarningsRequest
@@ -21658,6 +27204,62 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->fixCheckWarningsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Generates a custom dictionary of weak passwords for the baseline check feature.
+     *  *
+     * @param GenerateDynamicDictRequest $request GenerateDynamicDictRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GenerateDynamicDictResponse GenerateDynamicDictResponse
+     */
+    public function generateDynamicDictWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->argKeywords)) {
+            $query['ArgKeywords'] = $request->argKeywords;
+        }
+        if (!Utils::isUnset($request->domains)) {
+            $query['Domains'] = $request->domains;
+        }
+        if (!Utils::isUnset($request->names)) {
+            $query['Names'] = $request->names;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GenerateDynamicDict',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GenerateDynamicDictResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Generates a custom dictionary of weak passwords for the baseline check feature.
+     *  *
+     * @param GenerateDynamicDictRequest $request GenerateDynamicDictRequest
+     *
+     * @return GenerateDynamicDictResponse GenerateDynamicDictResponse
+     */
+    public function generateDynamicDict($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->generateDynamicDictWithOptions($request, $runtime);
     }
 
     /**
@@ -21791,6 +27393,113 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @summary 获取账户标签
+     *  *
+     * @param GetAccountLabelRequest $request GetAccountLabelRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetAccountLabelResponse GetAccountLabelResponse
+     */
+    public function getAccountLabelWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->labelList)) {
+            $query['LabelList'] = $request->labelList;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAccountLabel',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetAccountLabelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取账户标签
+     *  *
+     * @param GetAccountLabelRequest $request GetAccountLabelRequest
+     *
+     * @return GetAccountLabelResponse GetAccountLabelResponse
+     */
+    public function getAccountLabel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAccountLabelWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries the details of a defense rule against container escapes.
+     *  *
+     * @description Only the Ultimate edition of Security Center supports this operation.
+     *  *
+     * @param GetAegisContainerPluginRuleRequest $request GetAegisContainerPluginRuleRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetAegisContainerPluginRuleResponse GetAegisContainerPluginRuleResponse
+     */
+    public function getAegisContainerPluginRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->ruleType)) {
+            $query['RuleType'] = $request->ruleType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAegisContainerPluginRule',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetAegisContainerPluginRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries the details of a defense rule against container escapes.
+     *  *
+     * @description Only the Ultimate edition of Security Center supports this operation.
+     *  *
+     * @param GetAegisContainerPluginRuleRequest $request GetAegisContainerPluginRuleRequest
+     *
+     * @return GetAegisContainerPluginRuleResponse GetAegisContainerPluginRuleResponse
+     */
+    public function getAegisContainerPluginRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAegisContainerPluginRuleWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries search conditions that can be used to search for container file protection rules.
      *  *
      * @param GetAegisContainerPluginRuleCriteriaRequest $request GetAegisContainerPluginRuleCriteriaRequest
@@ -21843,13 +27552,24 @@ class Sas extends OpenApiClient
     /**
      * @summary Queries the number of agentless detection tasks.
      *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * @param GetAgentlessTaskCountRequest $request GetAgentlessTaskCountRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
      * @return GetAgentlessTaskCountResponse GetAgentlessTaskCountResponse
      */
-    public function getAgentlessTaskCountWithOptions($runtime)
+    public function getAgentlessTaskCountWithOptions($request, $runtime)
     {
-        $req    = new OpenApiRequest([]);
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->target)) {
+            $query['Target'] = $request->target;
+        }
+        if (!Utils::isUnset($request->targetType)) {
+            $query['TargetType'] = $request->targetType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
         $params = new Params([
             'action'      => 'GetAgentlessTaskCount',
             'version'     => '2018-12-03',
@@ -21868,13 +27588,15 @@ class Sas extends OpenApiClient
     /**
      * @summary Queries the number of agentless detection tasks.
      *  *
+     * @param GetAgentlessTaskCountRequest $request GetAgentlessTaskCountRequest
+     *
      * @return GetAgentlessTaskCountResponse GetAgentlessTaskCountResponse
      */
-    public function getAgentlessTaskCount()
+    public function getAgentlessTaskCount($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->getAgentlessTaskCountWithOptions($runtime);
+        return $this->getAgentlessTaskCountWithOptions($request, $runtime);
     }
 
     /**
@@ -22202,6 +27924,80 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @summary 查询攻击类型
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetAttackTypeListResponse GetAttackTypeListResponse
+     */
+    public function getAttackTypeListWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'GetAttackTypeList',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetAttackTypeListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询攻击类型
+     *  *
+     * @return GetAttackTypeListResponse GetAttackTypeListResponse
+     */
+    public function getAttackTypeList()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAttackTypeListWithOptions($runtime);
+    }
+
+    /**
+     * @summary Queries the statistics of asset protection quota.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetAuthSummaryResponse GetAuthSummaryResponse
+     */
+    public function getAuthSummaryWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'GetAuthSummary',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetAuthSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries the statistics of asset protection quota.
+     *  *
+     * @return GetAuthSummaryResponse GetAuthSummaryResponse
+     */
+    public function getAuthSummary()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAuthSummaryWithOptions($runtime);
+    }
+
+    /**
      * @summary Queries the statistics about the numbers of assets protected by each edition of Security Center.
      *  *
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
@@ -22239,6 +28035,43 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @summary Checks whether the managed anti-ransomware feature can automatically configure an anti-ransomware policy for servers.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetBackupAutoConfigStatusResponse GetBackupAutoConfigStatusResponse
+     */
+    public function getBackupAutoConfigStatusWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'GetBackupAutoConfigStatus',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetBackupAutoConfigStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Checks whether the managed anti-ransomware feature can automatically configure an anti-ransomware policy for servers.
+     *  *
+     * @return GetBackupAutoConfigStatusResponse GetBackupAutoConfigStatusResponse
+     */
+    public function getBackupAutoConfigStatus()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getBackupAutoConfigStatusWithOptions($runtime);
+    }
+
+    /**
      * @summary 查询防勒索存储统计
      *  *
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
@@ -22273,6 +28106,56 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getBackupStorageCountWithOptions($runtime);
+    }
+
+    /**
+     * @summary Checks whether the current user is qualified for the trial use of Security Center.
+     *  *
+     * @param GetCanTrySasRequest $request GetCanTrySasRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetCanTrySasResponse GetCanTrySasResponse
+     */
+    public function getCanTrySasWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->fromEcs)) {
+            $body['FromEcs'] = $request->fromEcs;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $body['Lang'] = $request->lang;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetCanTrySas',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetCanTrySasResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Checks whether the current user is qualified for the trial use of Security Center.
+     *  *
+     * @param GetCanTrySasRequest $request GetCanTrySasRequest
+     *
+     * @return GetCanTrySasResponse GetCanTrySasResponse
+     */
+    public function getCanTrySas($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getCanTrySasWithOptions($request, $runtime);
     }
 
     /**
@@ -22510,6 +28393,66 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getCheckSaleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Obtains the structure information about check items provided by the configuration assessment feature.
+     *  *
+     * @description You must purchase the configuration assessment feature before you can use the feature.
+     *  *
+     * @param GetCheckStructureRequest $request GetCheckStructureRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetCheckStructureResponse GetCheckStructureResponse
+     */
+    public function getCheckStructureWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetCheckStructure',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetCheckStructureResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Obtains the structure information about check items provided by the configuration assessment feature.
+     *  *
+     * @description You must purchase the configuration assessment feature before you can use the feature.
+     *  *
+     * @param GetCheckStructureRequest $request GetCheckStructureRequest
+     *
+     * @return GetCheckStructureResponse GetCheckStructureResponse
+     */
+    public function getCheckStructure($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getCheckStructureWithOptions($request, $runtime);
     }
 
     /**
@@ -23158,6 +29101,99 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getContainerDefenseRuleDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries the security operations trends of the vulnerabilities, alerts, and baseline risks.
+     *  *
+     * @param GetDataTrendRequest $request GetDataTrendRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetDataTrendResponse GetDataTrendResponse
+     */
+    public function getDataTrendWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bizTypes)) {
+            $query['BizTypes'] = $request->bizTypes;
+        }
+        if (!Utils::isUnset($request->endTimestamp)) {
+            $query['EndTimestamp'] = $request->endTimestamp;
+        }
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
+        }
+        if (!Utils::isUnset($request->startTimestamp)) {
+            $query['StartTimestamp'] = $request->startTimestamp;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDataTrend',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetDataTrendResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries the security operations trends of the vulnerabilities, alerts, and baseline risks.
+     *  *
+     * @param GetDataTrendRequest $request GetDataTrendRequest
+     *
+     * @return GetDataTrendResponse GetDataTrendResponse
+     */
+    public function getDataTrend($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDataTrendWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries the numbers of handled alerts of the precision defense type and the web tamper proofing type.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetDefenceCountResponse GetDefenceCountResponse
+     */
+    public function getDefenceCountWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'GetDefenceCount',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetDefenceCountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries the numbers of handled alerts of the precision defense type and the web tamper proofing type.
+     *  *
+     * @return GetDefenceCountResponse GetDefenceCountResponse
+     */
+    public function getDefenceCount()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDefenceCountWithOptions($runtime);
     }
 
     /**
@@ -24258,6 +30294,53 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @summary Obtains the default region for synchronizing assets outside Alibaba Cloud.
+     *  *
+     * @param GetLocalDefaultRegionRequest $request GetLocalDefaultRegionRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetLocalDefaultRegionResponse GetLocalDefaultRegionResponse
+     */
+    public function getLocalDefaultRegionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->vendor)) {
+            $query['Vendor'] = $request->vendor;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetLocalDefaultRegion',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetLocalDefaultRegionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Obtains the default region for synchronizing assets outside Alibaba Cloud.
+     *  *
+     * @param GetLocalDefaultRegionRequest $request GetLocalDefaultRegionRequest
+     *
+     * @return GetLocalDefaultRegionResponse GetLocalDefaultRegionResponse
+     */
+    public function getLocalDefaultRegion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getLocalDefaultRegionWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries the status of a data shipping task of a log.
      *  *
      * @param GetLogMetaRequest $request GetLogMetaRequest
@@ -24402,6 +30485,58 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getModuleConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取配置合规信息接口
+     *  *
+     * @param GetModuleConfigStatusRequest $tmpReq  GetModuleConfigStatusRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetModuleConfigStatusResponse GetModuleConfigStatusResponse
+     */
+    public function getModuleConfigStatusWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new GetModuleConfigStatusShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->moduleNames)) {
+            $request->moduleNamesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->moduleNames, 'ModuleNames', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->moduleNamesShrink)) {
+            $query['ModuleNames'] = $request->moduleNamesShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetModuleConfigStatus',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetModuleConfigStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取配置合规信息接口
+     *  *
+     * @param GetModuleConfigStatusRequest $request GetModuleConfigStatusRequest
+     *
+     * @return GetModuleConfigStatusResponse GetModuleConfigStatusResponse
+     */
+    public function getModuleConfigStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getModuleConfigStatusWithOptions($request, $runtime);
     }
 
     /**
@@ -25041,6 +31176,43 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @summary 列举RD树
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetRdTreeResponse GetRdTreeResponse
+     */
+    public function getRdTreeWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'GetRdTree',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetRdTreeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 列举RD树
+     *  *
+     * @return GetRdTreeResponse GetRdTreeResponse
+     */
+    public function getRdTree()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getRdTreeWithOptions($runtime);
+    }
+
+    /**
      * @summary Queries the numbers of system defense rules and custom defense rules.
      *  *
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
@@ -25360,6 +31532,53 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @summary 获取授权支持的模块列表
+     *  *
+     * @param GetSupportedModulesRequest $request GetSupportedModulesRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetSupportedModulesResponse GetSupportedModulesResponse
+     */
+    public function getSupportedModulesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetSupportedModules',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetSupportedModulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取授权支持的模块列表
+     *  *
+     * @param GetSupportedModulesRequest $request GetSupportedModulesRequest
+     *
+     * @return GetSupportedModulesResponse GetSupportedModulesResponse
+     */
+    public function getSupportedModules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSupportedModulesWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries the statistics on alerts in one or more asset groups.
      *  *
      * @param GetSuspiciousStatisticsRequest $request GetSuspiciousStatisticsRequest
@@ -25410,7 +31629,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary Queries the status and progress of the task that is run to migrate a server from a region inside the Chinese mainland to the Singapore region.
+     * @summary Queries the details of a migration operation. For example, you can query the progress and status of a migration operation after you migrate a server from a region in the Chinese mainland to the Singapore region.
      *  *
      * @param GetSwitchRegionDetailRequest $request GetSwitchRegionDetailRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -25423,6 +31642,9 @@ class Sas extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->lang)) {
             $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -25443,7 +31665,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary Queries the status and progress of the task that is run to migrate a server from a region inside the Chinese mainland to the Singapore region.
+     * @summary Queries the details of a migration operation. For example, you can query the progress and status of a migration operation after you migrate a server from a region in the Chinese mainland to the Singapore region.
      *  *
      * @param GetSwitchRegionDetailRequest $request GetSwitchRegionDetailRequest
      *
@@ -25941,6 +32163,56 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @summary Adds the result scanned by an IDC probe to the whitelist or ignores the scan result.
+     *  *
+     * @param IgnoreIdcProbeScanResultRequest $request IgnoreIdcProbeScanResultRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return IgnoreIdcProbeScanResultResponse IgnoreIdcProbeScanResultResponse
+     */
+    public function ignoreIdcProbeScanResultWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ignoreAction)) {
+            $query['IgnoreAction'] = $request->ignoreAction;
+        }
+        if (!Utils::isUnset($request->scanResultIds)) {
+            $query['ScanResultIds'] = $request->scanResultIds;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'IgnoreIdcProbeScanResult',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return IgnoreIdcProbeScanResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Adds the result scanned by an IDC probe to the whitelist or ignores the scan result.
+     *  *
+     * @param IgnoreIdcProbeScanResultRequest $request IgnoreIdcProbeScanResultRequest
+     *
+     * @return IgnoreIdcProbeScanResultResponse IgnoreIdcProbeScanResultResponse
+     */
+    public function ignoreIdcProbeScanResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->ignoreIdcProbeScanResultWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary The UUID of the server on which you want to install the anti-ransomware agent. You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
      * >  You must specify at least one of the UuidList and Uuid parameters.
      *  *
@@ -26315,6 +32587,47 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @summary Queries members in the resource directory that is involved when the multi-account management feature is enabled.
+     *  *
+     * @description You must use the management account of your resource directory or a delegated administrator account of Security Center to call this operation.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListAccountsInResourceDirectoryResponse ListAccountsInResourceDirectoryResponse
+     */
+    public function listAccountsInResourceDirectoryWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'ListAccountsInResourceDirectory',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListAccountsInResourceDirectoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries members in the resource directory that is involved when the multi-account management feature is enabled.
+     *  *
+     * @description You must use the management account of your resource directory or a delegated administrator account of Security Center to call this operation.
+     *  *
+     * @return ListAccountsInResourceDirectoryResponse ListAccountsInResourceDirectoryResponse
+     */
+    public function listAccountsInResourceDirectory()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAccountsInResourceDirectoryWithOptions($runtime);
+    }
+
+    /**
      * @summary Queries defense rules against container escapes.
      *  *
      * @param ListAegisContainerPluginRuleRequest $request ListAegisContainerPluginRuleRequest
@@ -26414,6 +32727,9 @@ class Sas extends OpenApiClient
         }
         if (!Utils::isUnset($request->remark)) {
             $query['Remark'] = $request->remark;
+        }
+        if (!Utils::isUnset($request->scanRange)) {
+            $query['ScanRange'] = $request->scanRange;
         }
         if (!Utils::isUnset($request->uuid)) {
             $query['Uuid'] = $request->uuid;
@@ -26555,6 +32871,12 @@ class Sas extends OpenApiClient
         if (!Utils::isUnset($request->currentPage)) {
             $query['CurrentPage'] = $request->currentPage;
         }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->instanceName)) {
+            $query['InstanceName'] = $request->instanceName;
+        }
         if (!Utils::isUnset($request->internetIp)) {
             $query['InternetIp'] = $request->internetIp;
         }
@@ -26572,6 +32894,9 @@ class Sas extends OpenApiClient
         }
         if (!Utils::isUnset($request->targetName)) {
             $query['TargetName'] = $request->targetName;
+        }
+        if (!Utils::isUnset($request->targetType)) {
+            $query['TargetType'] = $request->targetType;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -26888,6 +33213,59 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @summary Queries asset auto-tagging rules that are created by using the feature of asset management rules. You can create rules on the System Configuration > Feature Settings > Multi-cloud Configuration Management > Asset Management Rule page in the Security Center console.
+     *  *
+     * @param ListAutoTagRulesRequest $request ListAutoTagRulesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListAutoTagRulesResponse ListAutoTagRulesResponse
+     */
+    public function listAutoTagRulesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->ruleName)) {
+            $query['RuleName'] = $request->ruleName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAutoTagRules',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListAutoTagRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries asset auto-tagging rules that are created by using the feature of asset management rules. You can create rules on the System Configuration > Feature Settings > Multi-cloud Configuration Management > Asset Management Rule page in the Security Center console.
+     *  *
+     * @param ListAutoTagRulesRequest $request ListAutoTagRulesRequest
+     *
+     * @return ListAutoTagRulesResponse ListAutoTagRulesResponse
+     */
+    public function listAutoTagRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAutoTagRulesWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries the information about available honeypot templates.
      *  *
      * @param ListAvailableHoneypotRequest $request ListAvailableHoneypotRequest
@@ -26994,6 +33372,79 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listBackupRecordWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries the whitelist rules for a baseline check item.
+     *  *
+     * @param ListBaselineCheckWhiteRecordRequest $tmpReq  ListBaselineCheckWhiteRecordRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListBaselineCheckWhiteRecordResponse ListBaselineCheckWhiteRecordResponse
+     */
+    public function listBaselineCheckWhiteRecordWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ListBaselineCheckWhiteRecordShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->checkIds)) {
+            $request->checkIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->checkIds, 'CheckIds', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->recordIds)) {
+            $request->recordIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->recordIds, 'RecordIds', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->checkIdsShrink)) {
+            $query['CheckIds'] = $request->checkIdsShrink;
+        }
+        if (!Utils::isUnset($request->checkItemFuzzy)) {
+            $query['CheckItemFuzzy'] = $request->checkItemFuzzy;
+        }
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->recordIdsShrink)) {
+            $query['RecordIds'] = $request->recordIdsShrink;
+        }
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListBaselineCheckWhiteRecord',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListBaselineCheckWhiteRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries the whitelist rules for a baseline check item.
+     *  *
+     * @param ListBaselineCheckWhiteRecordRequest $request ListBaselineCheckWhiteRecordRequest
+     *
+     * @return ListBaselineCheckWhiteRecordResponse ListBaselineCheckWhiteRecordResponse
+     */
+    public function listBaselineCheckWhiteRecord($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listBaselineCheckWhiteRecordWithOptions($request, $runtime);
     }
 
     /**
@@ -27298,6 +33749,9 @@ class Sas extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->checkIds)) {
+            $query['CheckIds'] = $request->checkIds;
+        }
         if (!Utils::isUnset($request->checkKey)) {
             $query['CheckKey'] = $request->checkKey;
         }
@@ -28277,6 +34731,9 @@ class Sas extends OpenApiClient
         }
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->platform)) {
+            $query['Platform'] = $request->platform;
         }
         if (!Utils::isUnset($request->ruleAction)) {
             $query['RuleAction'] = $request->ruleAction;
@@ -29505,6 +35962,43 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @summary Queries the regions supported by the log delivery feature that uses the pay-as-you-go billing method.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListLogShipperRegionsResponse ListLogShipperRegionsResponse
+     */
+    public function listLogShipperRegionsWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'ListLogShipperRegions',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListLogShipperRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries the regions supported by the log delivery feature that uses the pay-as-you-go billing method.
+     *  *
+     * @return ListLogShipperRegionsResponse ListLogShipperRegionsResponse
+     */
+    public function listLogShipperRegions()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listLogShipperRegionsWithOptions($runtime);
+    }
+
+    /**
      * @summary Queries the alert whitelist rules of sensitive files that are detected by using the agentless detection feature.
      *  *
      * @param ListMaliciousFileWhitelistConfigsRequest $request ListMaliciousFileWhitelistConfigsRequest
@@ -30120,6 +36614,47 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listQueryRaspAppInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries the automatic management policies of members that are added to Security Center for multi-account management. The members in the automatic control management directory are automatically added to the member list of Security Center.
+     *  *
+     * @description You must use the management account of your resource directory or a delegated administrator account of Security Center to call this operation.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListRdDefaultSyncListResponse ListRdDefaultSyncListResponse
+     */
+    public function listRdDefaultSyncListWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'ListRdDefaultSyncList',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListRdDefaultSyncListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries the automatic management policies of members that are added to Security Center for multi-account management. The members in the automatic control management directory are automatically added to the member list of Security Center.
+     *  *
+     * @description You must use the management account of your resource directory or a delegated administrator account of Security Center to call this operation.
+     *  *
+     * @return ListRdDefaultSyncListResponse ListRdDefaultSyncListResponse
+     */
+    public function listRdDefaultSyncList()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listRdDefaultSyncListWithOptions($runtime);
     }
 
     /**
@@ -31746,6 +38281,77 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @summary 多云资产配置修改ak信息
+     *  *
+     * @param ModifyCloudVendorAccountAKRequest $request ModifyCloudVendorAccountAKRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyCloudVendorAccountAKResponse ModifyCloudVendorAccountAKResponse
+     */
+    public function modifyCloudVendorAccountAKWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->authIds)) {
+            $query['AuthIds'] = $request->authIds;
+        }
+        if (!Utils::isUnset($request->authModules)) {
+            $query['AuthModules'] = $request->authModules;
+        }
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->regions)) {
+            $query['Regions'] = $request->regions;
+        }
+        if (!Utils::isUnset($request->secretId)) {
+            $query['SecretId'] = $request->secretId;
+        }
+        if (!Utils::isUnset($request->secretKey)) {
+            $query['SecretKey'] = $request->secretKey;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->subscriptionIds)) {
+            $query['SubscriptionIds'] = $request->subscriptionIds;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $query['TenantId'] = $request->tenantId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyCloudVendorAccountAK',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyCloudVendorAccountAKResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 多云资产配置修改ak信息
+     *  *
+     * @param ModifyCloudVendorAccountAKRequest $request ModifyCloudVendorAccountAKRequest
+     *
+     * @return ModifyCloudVendorAccountAKResponse ModifyCloudVendorAccountAKResponse
+     */
+    public function modifyCloudVendorAccountAK($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyCloudVendorAccountAKWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Fixes the blocking status of clusters whose status is Normal to be confirmed.
      *  *
      * @param ModifyClusterCnnfStatusUserConfirmRequest $request ModifyClusterCnnfStatusUserConfirmRequest
@@ -32270,6 +38876,60 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @summary Changes the notification status of a DingTalk chatbot.
+     *  *
+     * @description You can call this operation only if you use Security Center Enterprise.
+     *  *
+     * @param ModifyDingTalkStatusRequest $request ModifyDingTalkStatusRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyDingTalkStatusResponse ModifyDingTalkStatusResponse
+     */
+    public function modifyDingTalkStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ids)) {
+            $query['Ids'] = $request->ids;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyDingTalkStatus',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyDingTalkStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Changes the notification status of a DingTalk chatbot.
+     *  *
+     * @description You can call this operation only if you use Security Center Enterprise.
+     *  *
+     * @param ModifyDingTalkStatusRequest $request ModifyDingTalkStatusRequest
+     *
+     * @return ModifyDingTalkStatusResponse ModifyDingTalkStatusResponse
+     */
+    public function modifyDingTalkStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDingTalkStatusWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Runs a scan task for urgent vulnerabilities.
      *  *
      * @param ModifyEmgVulSubmitRequest $request ModifyEmgVulSubmitRequest
@@ -32367,6 +39027,77 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyGroupPropertyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Modifies the configurations of an IDC probe.
+     *  *
+     * @param ModifyIdcProbeRequest $request ModifyIdcProbeRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyIdcProbeResponse ModifyIdcProbeResponse
+     */
+    public function modifyIdcProbeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->idcName)) {
+            $query['IdcName'] = $request->idcName;
+        }
+        if (!Utils::isUnset($request->idcRegion)) {
+            $query['IdcRegion'] = $request->idcRegion;
+        }
+        if (!Utils::isUnset($request->intervalPeriod)) {
+            $query['IntervalPeriod'] = $request->intervalPeriod;
+        }
+        if (!Utils::isUnset($request->ipSegments)) {
+            $query['IpSegments'] = $request->ipSegments;
+        }
+        if (!Utils::isUnset($request->linuxPort)) {
+            $query['LinuxPort'] = $request->linuxPort;
+        }
+        if (!Utils::isUnset($request->periodUnit)) {
+            $query['PeriodUnit'] = $request->periodUnit;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->uuids)) {
+            $query['Uuids'] = $request->uuids;
+        }
+        if (!Utils::isUnset($request->winPort)) {
+            $query['WinPort'] = $request->winPort;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyIdcProbe',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyIdcProbeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Modifies the configurations of an IDC probe.
+     *  *
+     * @param ModifyIdcProbeRequest $request ModifyIdcProbeRequest
+     *
+     * @return ModifyIdcProbeResponse ModifyIdcProbeResponse
+     */
+    public function modifyIdcProbe($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyIdcProbeWithOptions($request, $runtime);
     }
 
     /**
@@ -33063,6 +39794,119 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @summary Modifies the switch settings of pay-as-you-go modules.
+     *  *
+     * @param ModifyPostPayModuleSwitchRequest $request ModifyPostPayModuleSwitchRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyPostPayModuleSwitchResponse ModifyPostPayModuleSwitchResponse
+     */
+    public function modifyPostPayModuleSwitchWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->postPayInstanceId)) {
+            $query['PostPayInstanceId'] = $request->postPayInstanceId;
+        }
+        if (!Utils::isUnset($request->postPayModuleSwitch)) {
+            $query['PostPayModuleSwitch'] = $request->postPayModuleSwitch;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyPostPayModuleSwitch',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyPostPayModuleSwitchResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Modifies the switch settings of pay-as-you-go modules.
+     *  *
+     * @param ModifyPostPayModuleSwitchRequest $request ModifyPostPayModuleSwitchRequest
+     *
+     * @return ModifyPostPayModuleSwitchResponse ModifyPostPayModuleSwitchResponse
+     */
+    public function modifyPostPayModuleSwitch($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyPostPayModuleSwitchWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Adds a process to or removes a process from the whitelist by using the application whitelist feature.
+     *  *
+     * @description The application whitelist feature is in public preview. You cannot apply for a trial of the feature. If you applied for a trial of the feature or the feature is in use, you can call this operation.
+     *  *
+     * @param ModifyProcessWhiteListRequest $request ModifyProcessWhiteListRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyProcessWhiteListResponse ModifyProcessWhiteListResponse
+     */
+    public function modifyProcessWhiteListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->md5s)) {
+            $query['Md5s'] = $request->md5s;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->strategyId)) {
+            $query['StrategyId'] = $request->strategyId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyProcessWhiteList',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyProcessWhiteListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Adds a process to or removes a process from the whitelist by using the application whitelist feature.
+     *  *
+     * @description The application whitelist feature is in public preview. You cannot apply for a trial of the feature. If you applied for a trial of the feature or the feature is in use, you can call this operation.
+     *  *
+     * @param ModifyProcessWhiteListRequest $request ModifyProcessWhiteListRequest
+     *
+     * @return ModifyProcessWhiteListResponse ModifyProcessWhiteListResponse
+     */
+    public function modifyProcessWhiteList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyProcessWhiteListWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary The new collection frequency of asset fingerprints. Valid values:
      * *   **0**: disabled, which indicates that the asset fingerprints are not automatically or periodically collected.
      * *   **1**: collects asset fingerprints once an hour.
@@ -33225,162 +40069,6 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI ModifyRiskCheckStatus is deprecated
-     *  *
-     * @summary Changes the status of a check item in the results of a check task. You can ignore or cancel ignoring a check item.
-     *  *
-     * @description This operation is phased out. You can use the following operations:
-     * \\-To **ignore a check item**, use the AddCheckResultWhiteList operation.
-     * \\-To **cancel ignoring a check item**, use the RemoveCheckResultWhiteList operation.
-     *  *
-     * Deprecated
-     *
-     * @param ModifyRiskCheckStatusRequest $request ModifyRiskCheckStatusRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
-     *
-     * @return ModifyRiskCheckStatusResponse ModifyRiskCheckStatusResponse
-     */
-    public function modifyRiskCheckStatusWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->itemId)) {
-            $query['ItemId'] = $request->itemId;
-        }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
-        }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
-        }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ModifyRiskCheckStatus',
-            'version'     => '2018-12-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ModifyRiskCheckStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @deprecated OpenAPI ModifyRiskCheckStatus is deprecated
-     *  *
-     * @summary Changes the status of a check item in the results of a check task. You can ignore or cancel ignoring a check item.
-     *  *
-     * @description This operation is phased out. You can use the following operations:
-     * \\-To **ignore a check item**, use the AddCheckResultWhiteList operation.
-     * \\-To **cancel ignoring a check item**, use the RemoveCheckResultWhiteList operation.
-     *  *
-     * Deprecated
-     *
-     * @param ModifyRiskCheckStatusRequest $request ModifyRiskCheckStatusRequest
-     *
-     * @return ModifyRiskCheckStatusResponse ModifyRiskCheckStatusResponse
-     */
-    public function modifyRiskCheckStatus($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifyRiskCheckStatusWithOptions($request, $runtime);
-    }
-
-    /**
-     * @deprecated OpenAPI ModifyRiskSingleResultStatus is deprecated
-     *  *
-     * @summary Modifies the status of a risk item that affects your assets. You can ignore the risk item or cancel ignoring the risk item.
-     *  *
-     * @description This operation is phased out. You can use the following operations:
-     * \\-To **ignore a risk item**, use the AddCheckInstanceResultWhiteList operation.
-     * \\-To **cancel ignoring a risk item**, use the RemoveCheckInstanceResultWhiteList operation.
-     *  *
-     * Deprecated
-     *
-     * @param ModifyRiskSingleResultStatusRequest $request ModifyRiskSingleResultStatusRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
-     *
-     * @return ModifyRiskSingleResultStatusResponse ModifyRiskSingleResultStatusResponse
-     */
-    public function modifyRiskSingleResultStatusWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->ids)) {
-            $query['Ids'] = $request->ids;
-        }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
-        }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
-        }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ModifyRiskSingleResultStatus',
-            'version'     => '2018-12-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ModifyRiskSingleResultStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @deprecated OpenAPI ModifyRiskSingleResultStatus is deprecated
-     *  *
-     * @summary Modifies the status of a risk item that affects your assets. You can ignore the risk item or cancel ignoring the risk item.
-     *  *
-     * @description This operation is phased out. You can use the following operations:
-     * \\-To **ignore a risk item**, use the AddCheckInstanceResultWhiteList operation.
-     * \\-To **cancel ignoring a risk item**, use the RemoveCheckInstanceResultWhiteList operation.
-     *  *
-     * Deprecated
-     *
-     * @param ModifyRiskSingleResultStatusRequest $request ModifyRiskSingleResultStatusRequest
-     *
-     * @return ModifyRiskSingleResultStatusResponse ModifyRiskSingleResultStatusResponse
-     */
-    public function modifyRiskSingleResultStatus($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifyRiskSingleResultStatusWithOptions($request, $runtime);
-    }
-
-    /**
      * @summary Modifies a rule for container tamper-proofing.
      *  *
      * @param ModifySasContainerWebDefenseRuleRequest $request ModifySasContainerWebDefenseRuleRequest
@@ -33431,6 +40119,62 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifySasContainerWebDefenseRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Modifies common filter conditions to search for assets.
+     *  *
+     * @param ModifySearchConditionRequest $request ModifySearchConditionRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifySearchConditionResponse ModifySearchConditionResponse
+     */
+    public function modifySearchConditionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->filterConditions)) {
+            $query['FilterConditions'] = $request->filterConditions;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifySearchCondition',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifySearchConditionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Modifies common filter conditions to search for assets.
+     *  *
+     * @param ModifySearchConditionRequest $request ModifySearchConditionRequest
+     *
+     * @return ModifySearchConditionResponse ModifySearchConditionResponse
+     */
+    public function modifySearchCondition($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifySearchConditionWithOptions($request, $runtime);
     }
 
     /**
@@ -33566,6 +40310,60 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifySecurityEventMarkMissIndividuallyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Creates or deletes a policy template on the My Policies tab of the Playbook page.
+     *  *
+     * @description Only the Enterprise and Ultimate editions of Security Center support this API operation.
+     *  *
+     * @param ModifySoarStrategySubscribeRequest $request ModifySoarStrategySubscribeRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifySoarStrategySubscribeResponse ModifySoarStrategySubscribeResponse
+     */
+    public function modifySoarStrategySubscribeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->strategyId)) {
+            $query['StrategyId'] = $request->strategyId;
+        }
+        if (!Utils::isUnset($request->subscribeStatus)) {
+            $query['SubscribeStatus'] = $request->subscribeStatus;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifySoarStrategySubscribe',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifySoarStrategySubscribeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Creates or deletes a policy template on the My Policies tab of the Playbook page.
+     *  *
+     * @description Only the Enterprise and Ultimate editions of Security Center support this API operation.
+     *  *
+     * @param ModifySoarStrategySubscribeRequest $request ModifySoarStrategySubscribeRequest
+     *
+     * @return ModifySoarStrategySubscribeResponse ModifySoarStrategySubscribeResponse
+     */
+    public function modifySoarStrategySubscribe($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifySoarStrategySubscribeWithOptions($request, $runtime);
     }
 
     /**
@@ -33890,8 +40688,12 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @deprecated OpenAPI ModifyVpcHoneyPot is deprecated
+     *  *
      * @summary Enables or disables a honeypot.
      *  *
+     * Deprecated
+     *
      * @param ModifyVpcHoneyPotRequest $request ModifyVpcHoneyPotRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -33926,8 +40728,12 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @deprecated OpenAPI ModifyVpcHoneyPot is deprecated
+     *  *
      * @summary Enables or disables a honeypot.
      *  *
+     * Deprecated
+     *
      * @param ModifyVpcHoneyPotRequest $request ModifyVpcHoneyPotRequest
      *
      * @return ModifyVpcHoneyPotResponse ModifyVpcHoneyPotResponse
@@ -34351,6 +41157,57 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @summary Refreshes the status of the web tamper proofing feature for a server.
+     *  *
+     * @description If an exception occurs when you enable or disable the web tamper proofing feature for a server, you can call this operation to refresh the status of the web tamper proofing feature.
+     *  *
+     * @param ModifyWebLockRefreshRequest $request ModifyWebLockRefreshRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyWebLockRefreshResponse ModifyWebLockRefreshResponse
+     */
+    public function modifyWebLockRefreshWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->uuid)) {
+            $query['Uuid'] = $request->uuid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyWebLockRefresh',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyWebLockRefreshResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Refreshes the status of the web tamper proofing feature for a server.
+     *  *
+     * @description If an exception occurs when you enable or disable the web tamper proofing feature for a server, you can call this operation to refresh the status of the web tamper proofing feature.
+     *  *
+     * @param ModifyWebLockRefreshRequest $request ModifyWebLockRefreshRequest
+     *
+     * @return ModifyWebLockRefreshResponse ModifyWebLockRefreshResponse
+     */
+    public function modifyWebLockRefresh($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyWebLockRefreshWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Enables web tamper proofing for a specified server.
      *  *
      * @param ModifyWebLockStartRequest $request ModifyWebLockStartRequest
@@ -34661,7 +41518,54 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 开启按量购买。
+     * @summary Enables the automatic configuration of anti-ransomware policies for servers in the managed anti-ransomware feature. You can call this operation only after you purchase the managed anti-ransomware feature.
+     *  *
+     * @param OpenBackupAutoConfigRequest $request OpenBackupAutoConfigRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return OpenBackupAutoConfigResponse OpenBackupAutoConfigResponse
+     */
+    public function openBackupAutoConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->maxBatchSize)) {
+            $query['MaxBatchSize'] = $request->maxBatchSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'OpenBackupAutoConfig',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return OpenBackupAutoConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Enables the automatic configuration of anti-ransomware policies for servers in the managed anti-ransomware feature. You can call this operation only after you purchase the managed anti-ransomware feature.
+     *  *
+     * @param OpenBackupAutoConfigRequest $request OpenBackupAutoConfigRequest
+     *
+     * @return OpenBackupAutoConfigResponse OpenBackupAutoConfigResponse
+     */
+    public function openBackupAutoConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->openBackupAutoConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 开启按量购买
      *  *
      * @param OpenPartialBuyRequest $request OpenPartialBuyRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -34694,7 +41598,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 开启按量购买。
+     * @summary 开启按量购买
      *  *
      * @param OpenPartialBuyRequest $request OpenPartialBuyRequest
      *
@@ -35524,6 +42428,56 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @summary Modifies the chart of a security report.
+     *  *
+     * @param OperationCustomizeReportChartRequest $request OperationCustomizeReportChartRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return OperationCustomizeReportChartResponse OperationCustomizeReportChartResponse
+     */
+    public function operationCustomizeReportChartWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->chartIds)) {
+            $query['ChartIds'] = $request->chartIds;
+        }
+        if (!Utils::isUnset($request->reportId)) {
+            $query['ReportId'] = $request->reportId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'OperationCustomizeReportChart',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return OperationCustomizeReportChartResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Modifies the chart of a security report.
+     *  *
+     * @param OperationCustomizeReportChartRequest $request OperationCustomizeReportChartRequest
+     *
+     * @return OperationCustomizeReportChartResponse OperationCustomizeReportChartResponse
+     */
+    public function operationCustomizeReportChart($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->operationCustomizeReportChartWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Handles multiple exceptions at a time.
      *  *
      * @param OperationSuspEventsRequest $request OperationSuspEventsRequest
@@ -35896,6 +42850,53 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @summary 通过UUID获取资产详情，可跨账号
+     *  *
+     * @param QueryAssetDetailByUUIDRequest $request QueryAssetDetailByUUIDRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return QueryAssetDetailByUUIDResponse QueryAssetDetailByUUIDResponse
+     */
+    public function queryAssetDetailByUUIDWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->requests)) {
+            $body['Requests'] = $request->requests;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryAssetDetailByUUID',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryAssetDetailByUUIDResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 通过UUID获取资产详情，可跨账号
+     *  *
+     * @param QueryAssetDetailByUUIDRequest $request QueryAssetDetailByUUIDRequest
+     *
+     * @return QueryAssetDetailByUUIDResponse QueryAssetDetailByUUIDResponse
+     */
+    public function queryAssetDetailByUUID($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryAssetDetailByUUIDWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries the number of alert events in each attack phase.
      *  *
      * @param QueryAttackCountRequest $request QueryAttackCountRequest
@@ -36126,6 +43127,43 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryGroupedSecurityEventMarkMissListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries the list of beginner tasks. Security Center provides rewards for users who complete tasks. The rewards include the quota for a value-added feature and log storage capacity.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     *
+     * @return QueryGuidTaskListResponse QueryGuidTaskListResponse
+     */
+    public function queryGuidTaskListWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'QueryGuidTaskList',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryGuidTaskListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries the list of beginner tasks. Security Center provides rewards for users who complete tasks. The rewards include the quota for a value-added feature and log storage capacity.
+     *  *
+     * @return QueryGuidTaskListResponse QueryGuidTaskListResponse
+     */
+    public function queryGuidTaskList()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryGuidTaskListWithOptions($runtime);
     }
 
     /**
@@ -36577,6 +43615,56 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @summary Receives a reward that allows you to enable a free trial of the cloud honeypot feature or the feature of SDK for malicious file detection. You can receive a reward after you complete the required task.
+     *  *
+     * @param ReceiveFunctionTrialRewardByAliUidRequest $request ReceiveFunctionTrialRewardByAliUidRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ReceiveFunctionTrialRewardByAliUidResponse ReceiveFunctionTrialRewardByAliUidResponse
+     */
+    public function receiveFunctionTrialRewardByAliUidWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->functionName)) {
+            $query['FunctionName'] = $request->functionName;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ReceiveFunctionTrialRewardByAliUid',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ReceiveFunctionTrialRewardByAliUidResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Receives a reward that allows you to enable a free trial of the cloud honeypot feature or the feature of SDK for malicious file detection. You can receive a reward after you complete the required task.
+     *  *
+     * @param ReceiveFunctionTrialRewardByAliUidRequest $request ReceiveFunctionTrialRewardByAliUidRequest
+     *
+     * @return ReceiveFunctionTrialRewardByAliUidResponse ReceiveFunctionTrialRewardByAliUidResponse
+     */
+    public function receiveFunctionTrialRewardByAliUid($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->receiveFunctionTrialRewardByAliUidWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Synchronizes assets.
      *  *
      * @param RefreshAssetsRequest $request RefreshAssetsRequest
@@ -36717,6 +43805,53 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @summary 刷新仓库token
+     *  *
+     * @param RefreshRegistryTokenRequest $request RefreshRegistryTokenRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return RefreshRegistryTokenResponse RefreshRegistryTokenResponse
+     */
+    public function refreshRegistryTokenWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->registryId)) {
+            $query['RegistryId'] = $request->registryId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RefreshRegistryToken',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RefreshRegistryTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 刷新仓库token
+     *  *
+     * @param RefreshRegistryTokenRequest $request RefreshRegistryTokenRequest
+     *
+     * @return RefreshRegistryTokenResponse RefreshRegistryTokenResponse
+     */
+    public function refreshRegistryToken($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->refreshRegistryTokenWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 释放云安全中心实例
      *  *
      * @param ReleaseSasInstanceRequest $request ReleaseSasInstanceRequest
@@ -36834,6 +43969,9 @@ class Sas extends OpenApiClient
         if (!Utils::isUnset($request->checkIds)) {
             $query['CheckIds'] = $request->checkIds;
         }
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
         if (!Utils::isUnset($request->type)) {
             $query['Type'] = $request->type;
         }
@@ -36917,6 +44055,59 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->resetHoneypotWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Resets and upgrades the log analysis feature. You can call this operation only when the log analysis feature uses the pay-as-you-go billing method.
+     *  *
+     * @param ResetLogShipperRequest $request ResetLogShipperRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ResetLogShipperResponse ResetLogShipperResponse
+     */
+    public function resetLogShipperWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->hotTtl)) {
+            $query['HotTtl'] = $request->hotTtl;
+        }
+        if (!Utils::isUnset($request->logMetaList)) {
+            $query['LogMetaList'] = $request->logMetaList;
+        }
+        if (!Utils::isUnset($request->ttl)) {
+            $query['Ttl'] = $request->ttl;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ResetLogShipper',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ResetLogShipperResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Resets and upgrades the log analysis feature. You can call this operation only when the log analysis feature uses the pay-as-you-go billing method.
+     *  *
+     * @param ResetLogShipperRequest $request ResetLogShipperRequest
+     *
+     * @return ResetLogShipperResponse ResetLogShipperResponse
+     */
+    public function resetLogShipper($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->resetLogShipperWithOptions($request, $runtime);
     }
 
     /**
@@ -37114,6 +44305,107 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @summary Saves the configurations of a custom security report.
+     *  *
+     * @param SaveCustomizeReportConfigRequest $request SaveCustomizeReportConfigRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return SaveCustomizeReportConfigResponse SaveCustomizeReportConfigResponse
+     */
+    public function saveCustomizeReportConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupType)) {
+            $query['GroupType'] = $request->groupType;
+        }
+        if (!Utils::isUnset($request->pinnedTime)) {
+            $query['PinnedTime'] = $request->pinnedTime;
+        }
+        if (!Utils::isUnset($request->recipients)) {
+            $query['Recipients'] = $request->recipients;
+        }
+        if (!Utils::isUnset($request->reportDays)) {
+            $query['ReportDays'] = $request->reportDays;
+        }
+        if (!Utils::isUnset($request->reportEndDate)) {
+            $query['ReportEndDate'] = $request->reportEndDate;
+        }
+        if (!Utils::isUnset($request->reportId)) {
+            $query['ReportId'] = $request->reportId;
+        }
+        if (!Utils::isUnset($request->reportLang)) {
+            $query['ReportLang'] = $request->reportLang;
+        }
+        if (!Utils::isUnset($request->reportSendType)) {
+            $query['ReportSendType'] = $request->reportSendType;
+        }
+        if (!Utils::isUnset($request->reportStartDate)) {
+            $query['ReportStartDate'] = $request->reportStartDate;
+        }
+        if (!Utils::isUnset($request->reportStatus)) {
+            $query['ReportStatus'] = $request->reportStatus;
+        }
+        if (!Utils::isUnset($request->reportType)) {
+            $query['ReportType'] = $request->reportType;
+        }
+        if (!Utils::isUnset($request->reportVersion)) {
+            $query['ReportVersion'] = $request->reportVersion;
+        }
+        if (!Utils::isUnset($request->sendEndTime)) {
+            $query['SendEndTime'] = $request->sendEndTime;
+        }
+        if (!Utils::isUnset($request->sendPeriodDays)) {
+            $query['SendPeriodDays'] = $request->sendPeriodDays;
+        }
+        if (!Utils::isUnset($request->sendPeriodType)) {
+            $query['SendPeriodType'] = $request->sendPeriodType;
+        }
+        if (!Utils::isUnset($request->sendStartTime)) {
+            $query['SendStartTime'] = $request->sendStartTime;
+        }
+        if (!Utils::isUnset($request->targetGroups)) {
+            $query['TargetGroups'] = $request->targetGroups;
+        }
+        if (!Utils::isUnset($request->targetUids)) {
+            $query['TargetUids'] = $request->targetUids;
+        }
+        if (!Utils::isUnset($request->title)) {
+            $query['Title'] = $request->title;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SaveCustomizeReportConfig',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SaveCustomizeReportConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Saves the configurations of a custom security report.
+     *  *
+     * @param SaveCustomizeReportConfigRequest $request SaveCustomizeReportConfigRequest
+     *
+     * @return SaveCustomizeReportConfigResponse SaveCustomizeReportConfigResponse
+     */
+    public function saveCustomizeReportConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->saveCustomizeReportConfigWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Saves a baseline check policy for images.
      *  *
      * @param SaveImageBaselineStrategyRequest $request SaveImageBaselineStrategyRequest
@@ -37220,6 +44512,175 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->saveSuspEventUserSettingWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Creates an application whitelist policy.
+     *  *
+     * @description The application whitelist feature is in public preview. You cannot apply for a trial of the feature. If you applied for a trial of the feature or enabled the feature, you can call this operation.
+     *  *
+     * @param SaveWhiteListStrategyRequest $request SaveWhiteListStrategyRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return SaveWhiteListStrategyResponse SaveWhiteListStrategyResponse
+     */
+    public function saveWhiteListStrategyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->strategyId)) {
+            $query['StrategyId'] = $request->strategyId;
+        }
+        if (!Utils::isUnset($request->strategyName)) {
+            $query['StrategyName'] = $request->strategyName;
+        }
+        if (!Utils::isUnset($request->studyTime)) {
+            $query['StudyTime'] = $request->studyTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SaveWhiteListStrategy',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SaveWhiteListStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Creates an application whitelist policy.
+     *  *
+     * @description The application whitelist feature is in public preview. You cannot apply for a trial of the feature. If you applied for a trial of the feature or enabled the feature, you can call this operation.
+     *  *
+     * @param SaveWhiteListStrategyRequest $request SaveWhiteListStrategyRequest
+     *
+     * @return SaveWhiteListStrategyResponse SaveWhiteListStrategyResponse
+     */
+    public function saveWhiteListStrategy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->saveWhiteListStrategyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 编辑应用白名单策略配置的服务器
+     *  *
+     * @param SaveWhiteListStrategyAssetsRequest $request SaveWhiteListStrategyAssetsRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return SaveWhiteListStrategyAssetsResponse SaveWhiteListStrategyAssetsResponse
+     */
+    public function saveWhiteListStrategyAssetsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->operations)) {
+            $query['Operations'] = $request->operations;
+        }
+        if (!Utils::isUnset($request->relationType)) {
+            $query['RelationType'] = $request->relationType;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->strategyId)) {
+            $query['StrategyId'] = $request->strategyId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SaveWhiteListStrategyAssets',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SaveWhiteListStrategyAssetsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 编辑应用白名单策略配置的服务器
+     *  *
+     * @param SaveWhiteListStrategyAssetsRequest $request SaveWhiteListStrategyAssetsRequest
+     *
+     * @return SaveWhiteListStrategyAssetsResponse SaveWhiteListStrategyAssetsResponse
+     */
+    public function saveWhiteListStrategyAssets($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->saveWhiteListStrategyAssetsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Sends a security report to an email address that you specify. You can send only a security report whose statistics are collected in a custom time range.
+     *  *
+     * @param SendCustomizeReportRequest $request SendCustomizeReportRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return SendCustomizeReportResponse SendCustomizeReportResponse
+     */
+    public function sendCustomizeReportWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->reportId)) {
+            $query['ReportId'] = $request->reportId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SendCustomizeReport',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SendCustomizeReportResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Sends a security report to an email address that you specify. You can send only a security report whose statistics are collected in a custom time range.
+     *  *
+     * @param SendCustomizeReportRequest $request SendCustomizeReportRequest
+     *
+     * @return SendCustomizeReportResponse SendCustomizeReportResponse
+     */
+    public function sendCustomizeReport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->sendCustomizeReportWithOptions($request, $runtime);
     }
 
     /**
@@ -37423,6 +44884,59 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @summary Configures the regions from which you want to synchronize assets.
+     *  *
+     * @param SetSyncRefreshRegionRequest $request SetSyncRefreshRegionRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return SetSyncRefreshRegionResponse SetSyncRefreshRegionResponse
+     */
+    public function setSyncRefreshRegionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->defaultRegion)) {
+            $query['DefaultRegion'] = $request->defaultRegion;
+        }
+        if (!Utils::isUnset($request->regionIds)) {
+            $query['RegionIds'] = $request->regionIds;
+        }
+        if (!Utils::isUnset($request->vendor)) {
+            $query['Vendor'] = $request->vendor;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetSyncRefreshRegion',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SetSyncRefreshRegionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Configures the regions from which you want to synchronize assets.
+     *  *
+     * @param SetSyncRefreshRegionRequest $request SetSyncRefreshRegionRequest
+     *
+     * @return SetSyncRefreshRegionResponse SetSyncRefreshRegionResponse
+     */
+    public function setSyncRefreshRegion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setSyncRefreshRegionWithOptions($request, $runtime);
+    }
+
+    /**
      * @deprecated OpenAPI StartBaselineSecurityCheck is deprecated
      *  *
      * @summary Checks cloud service configurations. You can check all items or a single item and verify whether an item is checked.
@@ -37574,6 +45088,43 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->startHoneypotWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Starts an IDC scan task.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     *
+     * @return StartIdcProbeScanResponse StartIdcProbeScanResponse
+     */
+    public function startIdcProbeScanWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'StartIdcProbeScan',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return StartIdcProbeScanResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Starts an IDC scan task.
+     *  *
+     * @return StartIdcProbeScanResponse StartIdcProbeScanResponse
+     */
+    public function startIdcProbeScan()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->startIdcProbeScanWithOptions($runtime);
     }
 
     /**
@@ -37771,6 +45322,102 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->submitCheckWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 修复回滚任务下发
+     *  *
+     * @param SubmitOperationTaskRequest $request SubmitOperationTaskRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return SubmitOperationTaskResponse SubmitOperationTaskResponse
+     */
+    public function submitOperationTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->checkId)) {
+            $query['CheckId'] = $request->checkId;
+        }
+        if (!Utils::isUnset($request->dimensionType)) {
+            $query['DimensionType'] = $request->dimensionType;
+        }
+        if (!Utils::isUnset($request->operationTaskInstances)) {
+            $query['OperationTaskInstances'] = $request->operationTaskInstances;
+        }
+        if (!Utils::isUnset($request->repairTempParam)) {
+            $query['RepairTempParam'] = $request->repairTempParam;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitOperationTask',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SubmitOperationTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 修复回滚任务下发
+     *  *
+     * @param SubmitOperationTaskRequest $request SubmitOperationTaskRequest
+     *
+     * @return SubmitOperationTaskResponse SubmitOperationTaskResponse
+     */
+    public function submitOperationTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitOperationTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Triggers ISO 27001 compliance checks of Security Center.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     *
+     * @return TriggerCheckResponse TriggerCheckResponse
+     */
+    public function triggerCheckWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'TriggerCheck',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return TriggerCheckResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Triggers ISO 27001 compliance checks of Security Center.
+     *  *
+     * @return TriggerCheckResponse TriggerCheckResponse
+     */
+    public function triggerCheck()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->triggerCheckWithOptions($runtime);
     }
 
     /**
@@ -38083,6 +45730,68 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @summary Updates the whitelist rule for a baseline check item.
+     *  *
+     * @param UpdateBaselineCheckWhiteRecordRequest $request UpdateBaselineCheckWhiteRecordRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateBaselineCheckWhiteRecordResponse UpdateBaselineCheckWhiteRecordResponse
+     */
+    public function updateBaselineCheckWhiteRecordWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->checkId)) {
+            $query['CheckId'] = $request->checkId;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->reason)) {
+            $query['Reason'] = $request->reason;
+        }
+        if (!Utils::isUnset($request->recordId)) {
+            $query['RecordId'] = $request->recordId;
+        }
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
+        }
+        if (!Utils::isUnset($request->targetType)) {
+            $query['TargetType'] = $request->targetType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateBaselineCheckWhiteRecord',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateBaselineCheckWhiteRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Updates the whitelist rule for a baseline check item.
+     *  *
+     * @param UpdateBaselineCheckWhiteRecordRequest $request UpdateBaselineCheckWhiteRecordRequest
+     *
+     * @return UpdateBaselineCheckWhiteRecordResponse UpdateBaselineCheckWhiteRecordResponse
+     */
+    public function updateBaselineCheckWhiteRecord($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateBaselineCheckWhiteRecordWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Modifies alerting settings for servers.
      *  *
      * @param UpdateClientAlertModeRequest $request UpdateClientAlertModeRequest
@@ -38180,6 +45889,59 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateCommonSwitchConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Changes the status of a security report.
+     *  *
+     * @param UpdateCustomizeReportStatusRequest $request UpdateCustomizeReportStatusRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateCustomizeReportStatusResponse UpdateCustomizeReportStatusResponse
+     */
+    public function updateCustomizeReportStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->pinnedTime)) {
+            $query['PinnedTime'] = $request->pinnedTime;
+        }
+        if (!Utils::isUnset($request->reportId)) {
+            $query['ReportId'] = $request->reportId;
+        }
+        if (!Utils::isUnset($request->reportStatus)) {
+            $query['ReportStatus'] = $request->reportStatus;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateCustomizeReportStatus',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateCustomizeReportStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Changes the status of a security report.
+     *  *
+     * @param UpdateCustomizeReportStatusRequest $request UpdateCustomizeReportStatusRequest
+     *
+     * @return UpdateCustomizeReportStatusResponse UpdateCustomizeReportStatusResponse
+     */
+    public function updateCustomizeReportStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateCustomizeReportStatusWithOptions($request, $runtime);
     }
 
     /**
@@ -39112,6 +46874,9 @@ class Sas extends OpenApiClient
         if (!Utils::isUnset($request->decompressMaxLayer)) {
             $query['DecompressMaxLayer'] = $request->decompressMaxLayer;
         }
+        if (!Utils::isUnset($request->decryptionList)) {
+            $query['DecryptionList'] = $request->decryptionList;
+        }
         if (!Utils::isUnset($request->enable)) {
             $query['Enable'] = $request->enable;
         }
@@ -39126,6 +46891,9 @@ class Sas extends OpenApiClient
         }
         if (!Utils::isUnset($request->keySuffixList)) {
             $query['KeySuffixList'] = $request->keySuffixList;
+        }
+        if (!Utils::isUnset($request->lastModifiedStartTime)) {
+            $query['LastModifiedStartTime'] = $request->lastModifiedStartTime;
         }
         if (!Utils::isUnset($request->name)) {
             $query['Name'] = $request->name;
@@ -39166,6 +46934,215 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateOssScanConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 修改自动升级开关
+     *  *
+     * @param UpdatePublishAutoUpgradeRequest $request UpdatePublishAutoUpgradeRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdatePublishAutoUpgradeResponse UpdatePublishAutoUpgradeResponse
+     */
+    public function updatePublishAutoUpgradeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->autoUpgrade)) {
+            $query['AutoUpgrade'] = $request->autoUpgrade;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdatePublishAutoUpgrade',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdatePublishAutoUpgradeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 修改自动升级开关
+     *  *
+     * @param UpdatePublishAutoUpgradeRequest $request UpdatePublishAutoUpgradeRequest
+     *
+     * @return UpdatePublishAutoUpgradeResponse UpdatePublishAutoUpgradeResponse
+     */
+    public function updatePublishAutoUpgrade($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updatePublishAutoUpgradeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 更新发布批次
+     *  *
+     * @param UpdatePublishBatchRequest $request UpdatePublishBatchRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdatePublishBatchResponse UpdatePublishBatchResponse
+     */
+    public function updatePublishBatchWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->batchId)) {
+            $query['BatchId'] = $request->batchId;
+        }
+        if (!Utils::isUnset($request->batchName)) {
+            $query['BatchName'] = $request->batchName;
+        }
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
+        }
+        if (!Utils::isUnset($request->operationBase)) {
+            $query['OperationBase'] = $request->operationBase;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdatePublishBatch',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdatePublishBatchResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 更新发布批次
+     *  *
+     * @param UpdatePublishBatchRequest $request UpdatePublishBatchRequest
+     *
+     * @return UpdatePublishBatchResponse UpdatePublishBatchResponse
+     */
+    public function updatePublishBatch($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updatePublishBatchWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary  修改升级时间
+     *  *
+     * @param UpdatePublishCronRequest $request UpdatePublishCronRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdatePublishCronResponse UpdatePublishCronResponse
+     */
+    public function updatePublishCronWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->cron)) {
+            $query['Cron'] = $request->cron;
+        }
+        if (!Utils::isUnset($request->cronDay)) {
+            $query['CronDay'] = $request->cronDay;
+        }
+        if (!Utils::isUnset($request->cronTime)) {
+            $query['CronTime'] = $request->cronTime;
+        }
+        if (!Utils::isUnset($request->cronType)) {
+            $query['CronType'] = $request->cronType;
+        }
+        if (!Utils::isUnset($request->duration)) {
+            $query['Duration'] = $request->duration;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdatePublishCron',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdatePublishCronResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary  修改升级时间
+     *  *
+     * @param UpdatePublishCronRequest $request UpdatePublishCronRequest
+     *
+     * @return UpdatePublishCronResponse UpdatePublishCronResponse
+     */
+    public function updatePublishCron($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updatePublishCronWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary  修改灰度开关
+     *  *
+     * @param UpdatePublishGraySwitchRequest $request UpdatePublishGraySwitchRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdatePublishGraySwitchResponse UpdatePublishGraySwitchResponse
+     */
+    public function updatePublishGraySwitchWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->graySwitchStatus)) {
+            $query['GraySwitchStatus'] = $request->graySwitchStatus;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdatePublishGraySwitch',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdatePublishGraySwitchResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary  修改灰度开关
+     *  *
+     * @param UpdatePublishGraySwitchRequest $request UpdatePublishGraySwitchRequest
+     *
+     * @return UpdatePublishGraySwitchResponse UpdatePublishGraySwitchResponse
+     */
+    public function updatePublishGraySwitch($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updatePublishGraySwitchWithOptions($request, $runtime);
     }
 
     /**
@@ -39219,6 +47196,116 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @summary 修改目标批次
+     *  *
+     * @param UpdateTargetListByBatchRequest $request UpdateTargetListByBatchRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateTargetListByBatchResponse UpdateTargetListByBatchResponse
+     */
+    public function updateTargetListByBatchWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->batchId)) {
+            $query['BatchId'] = $request->batchId;
+        }
+        if (!Utils::isUnset($request->operationList)) {
+            $query['OperationList'] = $request->operationList;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateTargetListByBatch',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateTargetListByBatchResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 修改目标批次
+     *  *
+     * @param UpdateTargetListByBatchRequest $request UpdateTargetListByBatchRequest
+     *
+     * @return UpdateTargetListByBatchResponse UpdateTargetListByBatchResponse
+     */
+    public function updateTargetListByBatch($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateTargetListByBatchWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Updates the status of an application whitelist policy.
+     *  *
+     * @description The application whitelist feature is in public preview. You cannot apply for a trial of the feature. If you applied for a trial of the feature or the feature is in use, you can call this operation.
+     *  *
+     * @param UpdateWhiteListStrategyStatusRequest $request UpdateWhiteListStrategyStatusRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateWhiteListStrategyStatusResponse UpdateWhiteListStrategyStatusResponse
+     */
+    public function updateWhiteListStrategyStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->strategyIds)) {
+            $query['StrategyIds'] = $request->strategyIds;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateWhiteListStrategyStatus',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateWhiteListStrategyStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Updates the status of an application whitelist policy.
+     *  *
+     * @description The application whitelist feature is in public preview. You cannot apply for a trial of the feature. If you applied for a trial of the feature or the feature is in use, you can call this operation.
+     *  *
+     * @param UpdateWhiteListStrategyStatusRequest $request UpdateWhiteListStrategyStatusRequest
+     *
+     * @return UpdateWhiteListStrategyStatusResponse UpdateWhiteListStrategyStatusResponse
+     */
+    public function updateWhiteListStrategyStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateWhiteListStrategyStatusWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Upgrades the version of an anti-ransomware policy.
      *  *
      * @param UpgradeBackupPolicyVersionRequest $request UpgradeBackupPolicyVersionRequest
@@ -39263,6 +47350,109 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->upgradeBackupPolicyVersionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Upgrades the version of the management node to which a honeypot belongs.
+     *  *
+     * @param UpgradeHoneypotNodeRequest $request UpgradeHoneypotNodeRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpgradeHoneypotNodeResponse UpgradeHoneypotNodeResponse
+     */
+    public function upgradeHoneypotNodeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->allowHoneypotAccessInternet)) {
+            $query['AllowHoneypotAccessInternet'] = $request->allowHoneypotAccessInternet;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpgradeHoneypotNode',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpgradeHoneypotNodeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Upgrades the version of the management node to which a honeypot belongs.
+     *  *
+     * @param UpgradeHoneypotNodeRequest $request UpgradeHoneypotNodeRequest
+     *
+     * @return UpgradeHoneypotNodeResponse UpgradeHoneypotNodeResponse
+     */
+    public function upgradeHoneypotNode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->upgradeHoneypotNodeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 升级客户端
+     *  *
+     * @param UpgradeVersionByUuidsRequest $request UpgradeVersionByUuidsRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpgradeVersionByUuidsResponse UpgradeVersionByUuidsResponse
+     */
+    public function upgradeVersionByUuidsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->upgradeVersion)) {
+            $query['UpgradeVersion'] = $request->upgradeVersion;
+        }
+        if (!Utils::isUnset($request->uuidList)) {
+            $query['UuidList'] = $request->uuidList;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpgradeVersionByUuids',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpgradeVersionByUuidsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 升级客户端
+     *  *
+     * @param UpgradeVersionByUuidsRequest $request UpgradeVersionByUuidsRequest
+     *
+     * @return UpgradeVersionByUuidsResponse UpgradeVersionByUuidsResponse
+     */
+    public function upgradeVersionByUuids($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->upgradeVersionByUuidsWithOptions($request, $runtime);
     }
 
     /**
@@ -39347,6 +47537,9 @@ class Sas extends OpenApiClient
         }
         if (!Utils::isUnset($request->riskIds)) {
             $query['RiskIds'] = $request->riskIds;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
         }
         if (!Utils::isUnset($request->uuids)) {
             $query['Uuids'] = $request->uuids;

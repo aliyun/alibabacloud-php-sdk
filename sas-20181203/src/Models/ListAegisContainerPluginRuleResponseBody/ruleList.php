@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\ListAegisContainerPluginRuleResponseBody;
 
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListAegisContainerPluginRuleResponseBody\ruleList\policies;
 use AlibabaCloud\Tea\Model;
 
 class ruleList extends Model
@@ -37,6 +38,13 @@ class ruleList extends Model
      * @var int
      */
     public $mode;
+
+    /**
+     * @description An array that consists of policies.
+     *
+     * @var policies[]
+     */
+    public $policies;
 
     /**
      * @description The description of the rule.
@@ -109,6 +117,7 @@ class ruleList extends Model
         'gmtCreate'        => 'GmtCreate',
         'gmtModified'      => 'GmtModified',
         'mode'             => 'Mode',
+        'policies'         => 'Policies',
         'ruleDescription'  => 'RuleDescription',
         'ruleId'           => 'RuleId',
         'ruleName'         => 'RuleName',
@@ -134,6 +143,15 @@ class ruleList extends Model
         }
         if (null !== $this->mode) {
             $res['Mode'] = $this->mode;
+        }
+        if (null !== $this->policies) {
+            $res['Policies'] = [];
+            if (null !== $this->policies && \is_array($this->policies)) {
+                $n = 0;
+                foreach ($this->policies as $item) {
+                    $res['Policies'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->ruleDescription) {
             $res['RuleDescription'] = $this->ruleDescription;
@@ -179,6 +197,15 @@ class ruleList extends Model
         }
         if (isset($map['Mode'])) {
             $model->mode = $map['Mode'];
+        }
+        if (isset($map['Policies'])) {
+            if (!empty($map['Policies'])) {
+                $model->policies = [];
+                $n               = 0;
+                foreach ($map['Policies'] as $item) {
+                    $model->policies[$n++] = null !== $item ? policies::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['RuleDescription'])) {
             $model->ruleDescription = $map['RuleDescription'];

@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeImageInstancesResponseBody extends Model
 {
     /**
-     * @description An array that consists of the information about the image.
+     * @description The information about the images.
      *
      * @var imageInstanceList[]
      */

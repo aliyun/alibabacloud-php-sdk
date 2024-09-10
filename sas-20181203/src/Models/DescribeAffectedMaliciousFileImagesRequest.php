@@ -200,7 +200,6 @@ class DescribeAffectedMaliciousFileImagesRequest extends Model
      *   **us-west-1**: US (Silicon Valley)
      *   **eu-central-1**: Germany (Frankfurt)
      *   **eu-west-1**: UK (London)
-     *   **ap-south-1**: India (Mumbai)
      *
      * @example cn-hangzhou
      *

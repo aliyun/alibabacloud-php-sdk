@@ -69,7 +69,7 @@ class imageInstanceList extends Model
     public $hcCount;
 
     /**
-     * @description Indicates whether the baseline risks exist. Valid values:
+     * @description Indicates whether baseline risks exist. Valid values:
      *
      *   **NO**
      *   **YES**
@@ -90,7 +90,7 @@ class imageInstanceList extends Model
     public $imageCreate;
 
     /**
-     * @description The image ID.
+     * @description The ID of the image.
      *
      * @example c20987f18b130f9d144c9828df630417e2a9523148930dc3963e9d0dab30****
      *
@@ -117,7 +117,7 @@ class imageInstanceList extends Model
     public $imageUpdate;
 
     /**
-     * @description The ID of the image.
+     * @description The instance ID of the image.
      *
      * @example 39010****
      *
@@ -126,7 +126,16 @@ class imageInstanceList extends Model
     public $instanceId;
 
     /**
-     * @description The ID of the region in which the image resides.
+     * @description The timestamp when the last scan was performed. Unit: milliseconds.
+     *
+     * @example 1721363159000
+     *
+     * @var int
+     */
+    public $lastScanTime;
+
+    /**
+     * @description The region ID of the image.
      *
      * @example cn-hangzhou
      *
@@ -230,8 +239,8 @@ class imageInstanceList extends Model
      *   **START_RUN**: The image analysis task is started.
      *   **DOWNLOAD**: The image scan result is downloaded.
      *   **PRE_ANALYZER**: The image pre-analysis is started.
-     *   **WEB_SHELL_ANALYZER**: The WebShell analysis is complete.
-     *   **CVE_ANALYZER**: The Common Vulnerabilities and Exposures (CVE) analysis is complete.
+     *   **WEB_SHELL_ANALYZER**: The WebShell analysis of the image is complete.
+     *   **CVE_ANALYZER**: The Common Vulnerabilities and Exposures (CVE) analysis of the image is complete.
      *   **BIN_ANALYZER**: The binary analysis of the image is complete.
      *   **OTHER_ANALYZER**: The extended analysis of the image is complete.
      *   **SUCCESS**: The image scan task is complete.
@@ -246,7 +255,7 @@ class imageInstanceList extends Model
     public $scaStatus;
 
     /**
-     * @description The status of the image. Valid value:
+     * @description The status of the image. Valid values:
      *
      *   **NORMAL**
      *
@@ -294,11 +303,6 @@ class imageInstanceList extends Model
      * @var string
      */
     public $vulStatus;
-
-    /**
-     * @var int
-     */
-    public $lastScanTime;
     protected $_name = [
         'alarmCount'    => 'AlarmCount',
         'alarmStatus'   => 'AlarmStatus',
@@ -312,6 +316,7 @@ class imageInstanceList extends Model
         'imageSize'     => 'ImageSize',
         'imageUpdate'   => 'ImageUpdate',
         'instanceId'    => 'InstanceId',
+        'lastScanTime'  => 'LastScanTime',
         'regionId'      => 'RegionId',
         'registryType'  => 'RegistryType',
         'repoId'        => 'RepoId',
@@ -327,7 +332,6 @@ class imageInstanceList extends Model
         'uuid'          => 'Uuid',
         'vulCount'      => 'VulCount',
         'vulStatus'     => 'VulStatus',
-        'lastScanTime'  => 'lastScanTime',
     ];
 
     public function validate()
@@ -373,6 +377,9 @@ class imageInstanceList extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+        if (null !== $this->lastScanTime) {
+            $res['LastScanTime'] = $this->lastScanTime;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -417,9 +424,6 @@ class imageInstanceList extends Model
         }
         if (null !== $this->vulStatus) {
             $res['VulStatus'] = $this->vulStatus;
-        }
-        if (null !== $this->lastScanTime) {
-            $res['lastScanTime'] = $this->lastScanTime;
         }
 
         return $res;
@@ -469,6 +473,9 @@ class imageInstanceList extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+        if (isset($map['LastScanTime'])) {
+            $model->lastScanTime = $map['LastScanTime'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
@@ -513,9 +520,6 @@ class imageInstanceList extends Model
         }
         if (isset($map['VulStatus'])) {
             $model->vulStatus = $map['VulStatus'];
-        }
-        if (isset($map['lastScanTime'])) {
-            $model->lastScanTime = $map['lastScanTime'];
         }
 
         return $model;

@@ -68,6 +68,11 @@ class DescribeEventLevelCountRequest extends Model
     public $from;
 
     /**
+     * @var int
+     */
+    public $multiAccountActionType;
+
+    /**
      * @description The type of the query condition. Valid values:
      *
      *   **containerId**: the ID of the container
@@ -79,12 +84,13 @@ class DescribeEventLevelCountRequest extends Model
      */
     public $targetType;
     protected $_name = [
-        'clusterId'           => 'ClusterId',
-        'containerFieldName'  => 'ContainerFieldName',
-        'containerFieldValue' => 'ContainerFieldValue',
-        'containerIds'        => 'ContainerIds',
-        'from'                => 'From',
-        'targetType'          => 'TargetType',
+        'clusterId'              => 'ClusterId',
+        'containerFieldName'     => 'ContainerFieldName',
+        'containerFieldValue'    => 'ContainerFieldValue',
+        'containerIds'           => 'ContainerIds',
+        'from'                   => 'From',
+        'multiAccountActionType' => 'MultiAccountActionType',
+        'targetType'             => 'TargetType',
     ];
 
     public function validate()
@@ -108,6 +114,9 @@ class DescribeEventLevelCountRequest extends Model
         }
         if (null !== $this->from) {
             $res['From'] = $this->from;
+        }
+        if (null !== $this->multiAccountActionType) {
+            $res['MultiAccountActionType'] = $this->multiAccountActionType;
         }
         if (null !== $this->targetType) {
             $res['TargetType'] = $this->targetType;
@@ -138,6 +147,9 @@ class DescribeEventLevelCountRequest extends Model
         }
         if (isset($map['From'])) {
             $model->from = $map['From'];
+        }
+        if (isset($map['MultiAccountActionType'])) {
+            $model->multiAccountActionType = $map['MultiAccountActionType'];
         }
         if (isset($map['TargetType'])) {
             $model->targetType = $map['TargetType'];

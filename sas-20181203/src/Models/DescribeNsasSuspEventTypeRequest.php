@@ -50,6 +50,11 @@ class DescribeNsasSuspEventTypeRequest extends Model
     public $lang;
 
     /**
+     * @var int
+     */
+    public $multiAccountActionType;
+
+    /**
      * @description The name of the alert type.
      *
      * @example Unusual Logon
@@ -86,14 +91,15 @@ class DescribeNsasSuspEventTypeRequest extends Model
      */
     public $uuids;
     protected $_name = [
-        'containerFieldName'  => 'ContainerFieldName',
-        'containerFieldValue' => 'ContainerFieldValue',
-        'from'                => 'From',
-        'lang'                => 'Lang',
-        'name'                => 'Name',
-        'remark'              => 'Remark',
-        'sourceIp'            => 'SourceIp',
-        'uuids'               => 'Uuids',
+        'containerFieldName'     => 'ContainerFieldName',
+        'containerFieldValue'    => 'ContainerFieldValue',
+        'from'                   => 'From',
+        'lang'                   => 'Lang',
+        'multiAccountActionType' => 'MultiAccountActionType',
+        'name'                   => 'Name',
+        'remark'                 => 'Remark',
+        'sourceIp'               => 'SourceIp',
+        'uuids'                  => 'Uuids',
     ];
 
     public function validate()
@@ -114,6 +120,9 @@ class DescribeNsasSuspEventTypeRequest extends Model
         }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
+        }
+        if (null !== $this->multiAccountActionType) {
+            $res['MultiAccountActionType'] = $this->multiAccountActionType;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -150,6 +159,9 @@ class DescribeNsasSuspEventTypeRequest extends Model
         }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
+        }
+        if (isset($map['MultiAccountActionType'])) {
+            $model->multiAccountActionType = $map['MultiAccountActionType'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

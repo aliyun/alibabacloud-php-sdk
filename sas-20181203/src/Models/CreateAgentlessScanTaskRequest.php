@@ -9,6 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateAgentlessScanTaskRequest extends Model
 {
     /**
+     * @description Identification of asset selection.
+     *
+     * @example AGENTLESS_SCAN_ONCE_TASK_1720145******
+     *
+     * @var string
+     */
+    public $assetSelectionType;
+
+    /**
      * @description The retention period of images. Unit: days.
      *
      * @example 1
@@ -46,6 +55,7 @@ class CreateAgentlessScanTaskRequest extends Model
      *
      *   **2**: image
      *
+     * This parameter is required.
      * @example 2
      *
      * @var int
@@ -55,16 +65,17 @@ class CreateAgentlessScanTaskRequest extends Model
     /**
      * @description The UUIDs of the assets on which you want to run the detection task.
      *
-     * This parameter is required.
+     * >  You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
      * @var string[]
      */
     public $uuidList;
     protected $_name = [
-        'autoDeleteDays'   => 'AutoDeleteDays',
-        'releaseAfterScan' => 'ReleaseAfterScan',
-        'scanDataDisk'     => 'ScanDataDisk',
-        'targetType'       => 'TargetType',
-        'uuidList'         => 'UuidList',
+        'assetSelectionType' => 'AssetSelectionType',
+        'autoDeleteDays'     => 'AutoDeleteDays',
+        'releaseAfterScan'   => 'ReleaseAfterScan',
+        'scanDataDisk'       => 'ScanDataDisk',
+        'targetType'         => 'TargetType',
+        'uuidList'           => 'UuidList',
     ];
 
     public function validate()
@@ -74,6 +85,9 @@ class CreateAgentlessScanTaskRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->assetSelectionType) {
+            $res['AssetSelectionType'] = $this->assetSelectionType;
+        }
         if (null !== $this->autoDeleteDays) {
             $res['AutoDeleteDays'] = $this->autoDeleteDays;
         }
@@ -101,6 +115,9 @@ class CreateAgentlessScanTaskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AssetSelectionType'])) {
+            $model->assetSelectionType = $map['AssetSelectionType'];
+        }
         if (isset($map['AutoDeleteDays'])) {
             $model->autoDeleteDays = $map['AutoDeleteDays'];
         }

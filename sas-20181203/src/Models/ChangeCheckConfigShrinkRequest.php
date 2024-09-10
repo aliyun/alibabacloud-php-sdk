@@ -120,6 +120,11 @@ class ChangeCheckConfigShrinkRequest extends Model
     public $startTime;
 
     /**
+     * @var bool
+     */
+    public $systemConfig;
+
+    /**
      * @description The service provider (SP) of the cloud asset.
      *
      * @var string[]
@@ -138,6 +143,7 @@ class ChangeCheckConfigShrinkRequest extends Model
         'removedCheck'               => 'RemovedCheck',
         'standardIds'                => 'StandardIds',
         'startTime'                  => 'StartTime',
+        'systemConfig'               => 'SystemConfig',
         'vendors'                    => 'Vendors',
     ];
 
@@ -195,6 +201,9 @@ class ChangeCheckConfigShrinkRequest extends Model
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
+        }
+        if (null !== $this->systemConfig) {
+            $res['SystemConfig'] = $this->systemConfig;
         }
         if (null !== $this->vendors) {
             $res['Vendors'] = $this->vendors;
@@ -262,6 +271,9 @@ class ChangeCheckConfigShrinkRequest extends Model
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['SystemConfig'])) {
+            $model->systemConfig = $map['SystemConfig'];
         }
         if (isset($map['Vendors'])) {
             if (!empty($map['Vendors'])) {

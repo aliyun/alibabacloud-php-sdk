@@ -36,6 +36,10 @@ class groupedFields extends Model
     public $azureInstanceCount;
 
     /**
+     * @description The number of cores of exposed assets.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $exposedInstanceCoreCount;
@@ -95,6 +99,10 @@ class groupedFields extends Model
     public $importantAssetCount;
 
     /**
+     * @description The number of cores of assets in the specified asset type. If the asset type is not specified, the value of this parameter indicates the total number of cores of servers and Alibaba Cloud services within your account.
+     *
+     * @example 301
+     *
      * @var int
      */
     public $instanceCoreCount;
@@ -118,6 +126,10 @@ class groupedFields extends Model
     public $instanceSyncTaskCount;
 
     /**
+     * @description The number of cores of new servers.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $newInstanceCoreCount;
@@ -141,6 +153,15 @@ class groupedFields extends Model
     public $noRiskInstanceCount;
 
     /**
+     * @var int
+     */
+    public $notBindMachineInstanceCount;
+
+    /**
+     * @description The number of cores of servers that are not started.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $notRunningStatusCoreCount;
@@ -191,6 +212,10 @@ class groupedFields extends Model
     public $regionCount;
 
     /**
+     * @description The number of cores of vulnerable assets.
+     *
+     * @example 201
+     *
      * @var int
      */
     public $riskInstanceCoreCount;
@@ -241,6 +266,10 @@ class groupedFields extends Model
     public $unKnowStatusInstanceCount;
 
     /**
+     * @description The number of cores of unprotected assets.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $unprotectedInstanceCoreCount;
@@ -279,6 +308,7 @@ class groupedFields extends Model
         'newInstanceCoreCount'         => 'NewInstanceCoreCount',
         'newInstanceCount'             => 'NewInstanceCount',
         'noRiskInstanceCount'          => 'NoRiskInstanceCount',
+        'notBindMachineInstanceCount'  => 'NotBindMachineInstanceCount',
         'notRunningStatusCoreCount'    => 'NotRunningStatusCoreCount',
         'notRunningStatusCount'        => 'NotRunningStatusCount',
         'offlineInstanceCount'         => 'OfflineInstanceCount',
@@ -350,6 +380,9 @@ class groupedFields extends Model
         }
         if (null !== $this->noRiskInstanceCount) {
             $res['NoRiskInstanceCount'] = $this->noRiskInstanceCount;
+        }
+        if (null !== $this->notBindMachineInstanceCount) {
+            $res['NotBindMachineInstanceCount'] = $this->notBindMachineInstanceCount;
         }
         if (null !== $this->notRunningStatusCoreCount) {
             $res['NotRunningStatusCoreCount'] = $this->notRunningStatusCoreCount;
@@ -455,6 +488,9 @@ class groupedFields extends Model
         }
         if (isset($map['NoRiskInstanceCount'])) {
             $model->noRiskInstanceCount = $map['NoRiskInstanceCount'];
+        }
+        if (isset($map['NotBindMachineInstanceCount'])) {
+            $model->notBindMachineInstanceCount = $map['NotBindMachineInstanceCount'];
         }
         if (isset($map['NotRunningStatusCoreCount'])) {
             $model->notRunningStatusCoreCount = $map['NotRunningStatusCoreCount'];

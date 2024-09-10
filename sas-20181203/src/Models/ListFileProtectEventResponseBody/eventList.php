@@ -11,8 +11,8 @@ class eventList extends Model
     /**
      * @description The severity of the alert. Valid values:
      *
-     *   0: does not generate alerts
-     *   1: sends notifications
+     *   0: no alerts
+     *   1: reminder
      *   2: suspicious
      *   3: high-risk
      *
@@ -32,7 +32,7 @@ class eventList extends Model
     public $cmdLine;
 
     /**
-     * @description The path to the file.
+     * @description The path to the file that is managed by the process.
      *
      * @example /etc/pam.d/su
      *
@@ -59,7 +59,7 @@ class eventList extends Model
     public $id;
 
     /**
-     * @description The name of the server.
+     * @description The instance name of the server.
      *
      * @example kyy-admin-01
      *
@@ -77,7 +77,7 @@ class eventList extends Model
     public $internetIp;
 
     /**
-     * @description The private IP address of the asset.
+     * @description The private IP address of the server.
      *
      * @example 172.22.5.36
      *
@@ -104,6 +104,18 @@ class eventList extends Model
     public $operation;
 
     /**
+     * @description The type of the operating system. Valid values:
+     *
+     *   **windows**: Windows
+     *   **linux**: Linux
+     *
+     * @example linux
+     *
+     * @var string
+     */
+    public $platform;
+
+    /**
      * @description The path to the process.
      *
      * @example /usr/bin/sshpass
@@ -122,7 +134,7 @@ class eventList extends Model
     public $procPermission;
 
     /**
-     * @description The process ID (PID) of the event process.
+     * @description The ID of the process.
      *
      * @example 52636
      *
@@ -131,7 +143,7 @@ class eventList extends Model
     public $processId;
 
     /**
-     * @description The remarks.
+     * @description The description.
      *
      * @example test
      *
@@ -154,6 +166,7 @@ class eventList extends Model
      *   0: unhandled
      *   1: handled
      *   2: added to the whitelist
+     *   3: ignored
      *
      * @example 1
      *
@@ -180,6 +193,7 @@ class eventList extends Model
         'intranetIp'     => 'IntranetIp',
         'latestTime'     => 'LatestTime',
         'operation'      => 'Operation',
+        'platform'       => 'Platform',
         'procPath'       => 'ProcPath',
         'procPermission' => 'ProcPermission',
         'processId'      => 'ProcessId',
@@ -225,6 +239,9 @@ class eventList extends Model
         }
         if (null !== $this->operation) {
             $res['Operation'] = $this->operation;
+        }
+        if (null !== $this->platform) {
+            $res['Platform'] = $this->platform;
         }
         if (null !== $this->procPath) {
             $res['ProcPath'] = $this->procPath;
@@ -288,6 +305,9 @@ class eventList extends Model
         }
         if (isset($map['Operation'])) {
             $model->operation = $map['Operation'];
+        }
+        if (isset($map['Platform'])) {
+            $model->platform = $map['Platform'];
         }
         if (isset($map['ProcPath'])) {
             $model->procPath = $map['ProcPath'];

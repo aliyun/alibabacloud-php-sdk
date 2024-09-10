@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class overallList extends Model
 {
     /**
+     * @description The editions of Security Center.
+     *
      * @var string[]
      */
     public $authVersionList;

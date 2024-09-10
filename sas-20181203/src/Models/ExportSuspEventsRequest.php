@@ -87,9 +87,8 @@ class ExportSuspEventsRequest extends Model
     public $from;
 
     /**
-     * @description The ID of the new server group to which the servers belong.
+     * @description The ID of the asset group.
      *
-     * > You can call the [DescribeAllGroups](~~DescribeAllGroups~~) operation to query the IDs of server groups.
      * @example 8076980
      *
      * @var int

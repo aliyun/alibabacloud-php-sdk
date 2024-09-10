@@ -24,8 +24,8 @@ class OperateCommonOverallConfigRequest extends Model
     /**
      * @description Specifies whether to configure assets for the feature. Default value: **false**. Valid values:
      *
-     *   **true**: yes
-     *   **false**: no
+     *   **true**
+     *   **false**
      *
      * >  This parameter takes effect only when you set **Config** to **on**.
      * @example true

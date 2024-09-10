@@ -180,6 +180,7 @@ class DescribeVulListRequest extends Model
     /**
      * @description The UUIDs of the servers on which you want to query the vulnerabilities. Separate multiple UUIDs with commas (,).
      *
+     * >  You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to obtain the UUIDs.
      * @example 1587bedb-fdb4-48c4-9330-****
      *
      * @var string

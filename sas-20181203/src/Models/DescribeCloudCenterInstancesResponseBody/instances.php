@@ -21,6 +21,16 @@ class instances extends Model
     public $alarmStatus;
 
     /**
+     * @var string
+     */
+    public $appId;
+
+    /**
+     * @var string
+     */
+    public $appName;
+
+    /**
      * @description The type of the asset. Valid values:
      *
      *   **0**: an ECS instance
@@ -37,6 +47,11 @@ class instances extends Model
      * @var string
      */
     public $assetType;
+
+    /**
+     * @var string
+     */
+    public $assetTypeName;
 
     /**
      * @description The timestamp when Security Center is authorized to scan the asset.
@@ -172,6 +187,11 @@ class instances extends Model
      * @var int
      */
     public $flag;
+
+    /**
+     * @var string
+     */
+    public $flagName;
 
     /**
      * @description The ID of the asset group to which the asset belongs.
@@ -538,7 +558,10 @@ class instances extends Model
     public $vulStatus;
     protected $_name = [
         'alarmStatus'        => 'AlarmStatus',
+        'appId'              => 'AppId',
+        'appName'            => 'AppName',
         'assetType'          => 'AssetType',
+        'assetTypeName'      => 'AssetTypeName',
         'authModifyTime'     => 'AuthModifyTime',
         'authVersion'        => 'AuthVersion',
         'authVersionName'    => 'AuthVersionName',
@@ -551,6 +574,7 @@ class instances extends Model
         'createdTime'        => 'CreatedTime',
         'exposedStatus'      => 'ExposedStatus',
         'flag'               => 'Flag',
+        'flagName'           => 'FlagName',
         'groupId'            => 'GroupId',
         'groupTrace'         => 'GroupTrace',
         'hcStatus'           => 'HcStatus',
@@ -596,8 +620,17 @@ class instances extends Model
         if (null !== $this->alarmStatus) {
             $res['AlarmStatus'] = $this->alarmStatus;
         }
+        if (null !== $this->appId) {
+            $res['AppId'] = $this->appId;
+        }
+        if (null !== $this->appName) {
+            $res['AppName'] = $this->appName;
+        }
         if (null !== $this->assetType) {
             $res['AssetType'] = $this->assetType;
+        }
+        if (null !== $this->assetTypeName) {
+            $res['AssetTypeName'] = $this->assetTypeName;
         }
         if (null !== $this->authModifyTime) {
             $res['AuthModifyTime'] = $this->authModifyTime;
@@ -634,6 +667,9 @@ class instances extends Model
         }
         if (null !== $this->flag) {
             $res['Flag'] = $this->flag;
+        }
+        if (null !== $this->flagName) {
+            $res['FlagName'] = $this->flagName;
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
@@ -749,8 +785,17 @@ class instances extends Model
         if (isset($map['AlarmStatus'])) {
             $model->alarmStatus = $map['AlarmStatus'];
         }
+        if (isset($map['AppId'])) {
+            $model->appId = $map['AppId'];
+        }
+        if (isset($map['AppName'])) {
+            $model->appName = $map['AppName'];
+        }
         if (isset($map['AssetType'])) {
             $model->assetType = $map['AssetType'];
+        }
+        if (isset($map['AssetTypeName'])) {
+            $model->assetTypeName = $map['AssetTypeName'];
         }
         if (isset($map['AuthModifyTime'])) {
             $model->authModifyTime = $map['AuthModifyTime'];
@@ -787,6 +832,9 @@ class instances extends Model
         }
         if (isset($map['Flag'])) {
             $model->flag = $map['Flag'];
+        }
+        if (isset($map['FlagName'])) {
+            $model->flagName = $map['FlagName'];
         }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];

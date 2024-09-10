@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ValidateHcWarningsResponseBody extends Model
 {
     /**
-     * @description The request ID.
+     * @description The ID of the request.
      *
      * @example 722C4F88-7867-4E7B-8ADE-7451053
      *

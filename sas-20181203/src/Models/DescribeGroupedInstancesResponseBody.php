@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeGroupedInstancesResponseBody extends Model
 {
     /**
-     * @description An array that consists of the information about the assets.
+     * @description The information about the assets.
      *
      * @var instances[]
      */

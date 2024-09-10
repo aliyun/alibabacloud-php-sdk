@@ -155,7 +155,7 @@ class DescribeVersionConfigResponseBody extends Model
      *
      *   **false**: no
      *   **true**: yes
-     *
+     * >Notice: This parameter is deprecated. You can ignore it.
      * @example false
      *
      * @var bool

@@ -18,6 +18,24 @@ class ListAgentlessRiskUuidRequest extends Model
     public $currentPage;
 
     /**
+     * @description The instance ID of the asset.
+     *
+     * @example s-bp1g6wxdwps7s9dz****
+     *
+     * @var string
+     */
+    public $instanceId;
+
+    /**
+     * @description The instance name of the asset.
+     *
+     * @example ca_cpm_****
+     *
+     * @var string
+     */
+    public $instanceName;
+
+    /**
      * @description The public IP address of the asset that you want to query.
      *
      * @example 1.1.XX.XX
@@ -73,14 +91,31 @@ class ListAgentlessRiskUuidRequest extends Model
      * @var string
      */
     public $targetName;
+
+    /**
+     * @description Specifies the type of the object being inspected. Valid values:
+     *
+     *   **1**: Host Snapshot.
+     *   **2**: Host Image.
+     *   **3**: User Snapshot.
+     *   **4**: User Image.
+     *
+     * @example 3
+     *
+     * @var int
+     */
+    public $targetType;
     protected $_name = [
-        'currentPage' => 'CurrentPage',
-        'internetIp'  => 'InternetIp',
-        'intranetIp'  => 'IntranetIp',
-        'machineName' => 'MachineName',
-        'pageSize'    => 'PageSize',
-        'risk'        => 'Risk',
-        'targetName'  => 'TargetName',
+        'currentPage'  => 'CurrentPage',
+        'instanceId'   => 'InstanceId',
+        'instanceName' => 'InstanceName',
+        'internetIp'   => 'InternetIp',
+        'intranetIp'   => 'IntranetIp',
+        'machineName'  => 'MachineName',
+        'pageSize'     => 'PageSize',
+        'risk'         => 'Risk',
+        'targetName'   => 'TargetName',
+        'targetType'   => 'TargetType',
     ];
 
     public function validate()
@@ -92,6 +127,12 @@ class ListAgentlessRiskUuidRequest extends Model
         $res = [];
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->instanceName) {
+            $res['InstanceName'] = $this->instanceName;
         }
         if (null !== $this->internetIp) {
             $res['InternetIp'] = $this->internetIp;
@@ -111,6 +152,9 @@ class ListAgentlessRiskUuidRequest extends Model
         if (null !== $this->targetName) {
             $res['TargetName'] = $this->targetName;
         }
+        if (null !== $this->targetType) {
+            $res['TargetType'] = $this->targetType;
+        }
 
         return $res;
     }
@@ -125,6 +169,12 @@ class ListAgentlessRiskUuidRequest extends Model
         $model = new self();
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['InstanceName'])) {
+            $model->instanceName = $map['InstanceName'];
         }
         if (isset($map['InternetIp'])) {
             $model->internetIp = $map['InternetIp'];
@@ -143,6 +193,9 @@ class ListAgentlessRiskUuidRequest extends Model
         }
         if (isset($map['TargetName'])) {
             $model->targetName = $map['TargetName'];
+        }
+        if (isset($map['TargetType'])) {
+            $model->targetType = $map['TargetType'];
         }
 
         return $model;

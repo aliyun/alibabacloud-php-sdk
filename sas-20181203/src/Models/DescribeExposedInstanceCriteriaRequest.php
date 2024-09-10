@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeExposedInstanceCriteriaRequest extends Model
 {
     /**
-     * @description The Alibaba Cloud account ID of the member in the resource directory.
+     * @description The ID of the member in the resource directory.
      *
-     * >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain the IDs.
+     * >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to query the account ID.
      * @example 1232428423234****
      *
      * @var string
@@ -21,6 +21,7 @@ class DescribeExposedInstanceCriteriaRequest extends Model
     /**
      * @description The value of the search condition. Fuzzy match is supported.
      *
+     * >  You can specify the name, ID, public IP address, private IP address, component, port, or IP address of an exposed asset.
      * @example id
      *
      * @var string

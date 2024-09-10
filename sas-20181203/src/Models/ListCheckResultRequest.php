@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListCheckResultRequest extends Model
 {
     /**
+     * @var int[]
+     */
+    public $checkIds;
+
+    /**
      * @description The key that you want to use to search for check items in fuzzy match mode.
      *
      * @example OSS
@@ -172,6 +177,7 @@ class ListCheckResultRequest extends Model
      */
     public $vendors;
     protected $_name = [
+        'checkIds'       => 'CheckIds',
         'checkKey'       => 'CheckKey',
         'currentPage'    => 'CurrentPage',
         'customParam'    => 'CustomParam',
@@ -196,6 +202,9 @@ class ListCheckResultRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->checkIds) {
+            $res['CheckIds'] = $this->checkIds;
+        }
         if (null !== $this->checkKey) {
             $res['CheckKey'] = $this->checkKey;
         }
@@ -253,6 +262,11 @@ class ListCheckResultRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CheckIds'])) {
+            if (!empty($map['CheckIds'])) {
+                $model->checkIds = $map['CheckIds'];
+            }
+        }
         if (isset($map['CheckKey'])) {
             $model->checkKey = $map['CheckKey'];
         }

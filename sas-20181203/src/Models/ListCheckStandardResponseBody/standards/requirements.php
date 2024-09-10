@@ -34,10 +34,20 @@ class requirements extends Model
      * @var string
      */
     public $showName;
+
+    /**
+     * @description The priority field indicates the level of prominence.
+     *
+     * @example 1
+     *
+     * @var int
+     */
+    public $showPriorityLevel;
     protected $_name = [
-        'id'             => 'Id',
-        'riskCheckCount' => 'RiskCheckCount',
-        'showName'       => 'ShowName',
+        'id'                => 'Id',
+        'riskCheckCount'    => 'RiskCheckCount',
+        'showName'          => 'ShowName',
+        'showPriorityLevel' => 'ShowPriorityLevel',
     ];
 
     public function validate()
@@ -55,6 +65,9 @@ class requirements extends Model
         }
         if (null !== $this->showName) {
             $res['ShowName'] = $this->showName;
+        }
+        if (null !== $this->showPriorityLevel) {
+            $res['ShowPriorityLevel'] = $this->showPriorityLevel;
         }
 
         return $res;
@@ -76,6 +89,9 @@ class requirements extends Model
         }
         if (isset($map['ShowName'])) {
             $model->showName = $map['ShowName'];
+        }
+        if (isset($map['ShowPriorityLevel'])) {
+            $model->showPriorityLevel = $map['ShowPriorityLevel'];
         }
 
         return $model;

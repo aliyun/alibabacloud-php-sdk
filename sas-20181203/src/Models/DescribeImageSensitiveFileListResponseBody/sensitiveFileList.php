@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class sensitiveFileList extends Model
 {
     /**
+     * @description The suggestion.
+     *
+     * @example Assess risks based on business conditions, remove risky content.
+     *
      * @var string
      */
     public $advice;
@@ -41,6 +45,10 @@ class sensitiveFileList extends Model
     public $count;
 
     /**
+     * @description The description of the sensitive file.
+     *
+     * @example Verify the validity of the leaked AK.
+     *
      * @var string
      */
     public $description;

@@ -129,7 +129,7 @@ class suspEvents extends Model
     public $containerId;
 
     /**
-     * @description The ID of the image to which the container belongs.
+     * @description The ID of the container image.
      *
      * @example sha256:2e5a3b0ae5f452b3cb458789a9a7542ef40035a84318469a8528c5e444db1****
      *
@@ -138,7 +138,7 @@ class suspEvents extends Model
     public $containerImageId;
 
     /**
-     * @description The name of the image to which the container belongs.
+     * @description The name of the container image.
      *
      * @example centos7_apache:v1.0.1
      *
@@ -247,7 +247,7 @@ class suspEvents extends Model
     public $imageUuid;
 
     /**
-     * @description The ID of the affected asset.
+     * @description The instance ID of the affected asset.
      *
      * @example i-9dp6dwsxdl9z5u1e2f****
      *
@@ -265,7 +265,7 @@ class suspEvents extends Model
     public $instanceName;
 
     /**
-     * @description The public IP address that is associated with instance.
+     * @description The public IP address of the associated instance.
      *
      * @example 1.2.XX.XX
      *
@@ -392,6 +392,8 @@ class suspEvents extends Model
     public $maliciousRuleStatus;
 
     /**
+     * @description The labels of alarm event.
+     *
      * @var string[]
      */
     public $markList;
@@ -479,6 +481,11 @@ class suspEvents extends Model
      * @var string
      */
     public $securityEventIds;
+
+    /**
+     * @var int
+     */
+    public $sourceAliUid;
 
     /**
      * @description The stage at which the attack is detected.
@@ -572,6 +579,7 @@ class suspEvents extends Model
         'operateTime'           => 'OperateTime',
         'saleVersion'           => 'SaleVersion',
         'securityEventIds'      => 'SecurityEventIds',
+        'sourceAliUid'          => 'SourceAliUid',
         'stages'                => 'Stages',
         'tacticItems'           => 'TacticItems',
         'uniqueInfo'            => 'UniqueInfo',
@@ -744,6 +752,9 @@ class suspEvents extends Model
         }
         if (null !== $this->securityEventIds) {
             $res['SecurityEventIds'] = $this->securityEventIds;
+        }
+        if (null !== $this->sourceAliUid) {
+            $res['SourceAliUid'] = $this->sourceAliUid;
         }
         if (null !== $this->stages) {
             $res['Stages'] = $this->stages;
@@ -938,6 +949,9 @@ class suspEvents extends Model
         }
         if (isset($map['SecurityEventIds'])) {
             $model->securityEventIds = $map['SecurityEventIds'];
+        }
+        if (isset($map['SourceAliUid'])) {
+            $model->sourceAliUid = $map['SourceAliUid'];
         }
         if (isset($map['Stages'])) {
             $model->stages = $map['Stages'];

@@ -122,6 +122,18 @@ class data extends Model
     public $operation;
 
     /**
+     * @description The type of the operating system. Valid values:
+     *
+     *   **windows**: Windows
+     *   **linux**: Linux
+     *
+     * @example linux
+     *
+     * @var string
+     */
+    public $platform;
+
+    /**
      * @description The path to the process.
      *
      * @example /bin/bash33
@@ -191,6 +203,7 @@ class data extends Model
         'intranetIp'     => 'IntranetIp',
         'latestTime'     => 'LatestTime',
         'operation'      => 'Operation',
+        'platform'       => 'Platform',
         'procPath'       => 'ProcPath',
         'processId'      => 'ProcessId',
         'remark'         => 'Remark',
@@ -241,6 +254,9 @@ class data extends Model
         }
         if (null !== $this->operation) {
             $res['Operation'] = $this->operation;
+        }
+        if (null !== $this->platform) {
+            $res['Platform'] = $this->platform;
         }
         if (null !== $this->procPath) {
             $res['ProcPath'] = $this->procPath;
@@ -307,6 +323,9 @@ class data extends Model
         }
         if (isset($map['Operation'])) {
             $model->operation = $map['Operation'];
+        }
+        if (isset($map['Platform'])) {
+            $model->platform = $map['Platform'];
         }
         if (isset($map['ProcPath'])) {
             $model->procPath = $map['ProcPath'];

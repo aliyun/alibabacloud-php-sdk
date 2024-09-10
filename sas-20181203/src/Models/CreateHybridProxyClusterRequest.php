@@ -9,20 +9,29 @@ use AlibabaCloud\Tea\Model;
 class CreateHybridProxyClusterRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The name of the cluster.
+     *
+     * This parameter is required.
+     * @example Chester-Test
      *
      * @var string
      */
     public $clusterName;
 
     /**
-     * @example 117.71.34.128
+     * @description The endpoint of the cluster.
+     * >  You can specify an IP address or a domain name
+     * @example 192.168.xx.xx
      *
      * @var string
      */
     public $ip;
 
     /**
+     * @description The description of the cluster.
+     *
+     * @example remark test
+     *
      * @var string
      */
     public $remark;

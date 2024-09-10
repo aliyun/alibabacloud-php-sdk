@@ -28,6 +28,11 @@ class DescribeCloudCenterInstancesRequest extends Model
     public $currentPage;
 
     /**
+     * @var string
+     */
+    public $flags;
+
+    /**
      * @description The importance of the asset. Valid values:
      *
      *   **2**: an important asset
@@ -140,6 +145,7 @@ class DescribeCloudCenterInstancesRequest extends Model
     protected $_name = [
         'criteria'                   => 'Criteria',
         'currentPage'                => 'CurrentPage',
+        'flags'                      => 'Flags',
         'importance'                 => 'Importance',
         'lang'                       => 'Lang',
         'logicalExp'                 => 'LogicalExp',
@@ -164,6 +170,9 @@ class DescribeCloudCenterInstancesRequest extends Model
         }
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
+        }
+        if (null !== $this->flags) {
+            $res['Flags'] = $this->flags;
         }
         if (null !== $this->importance) {
             $res['Importance'] = $this->importance;
@@ -212,6 +221,9 @@ class DescribeCloudCenterInstancesRequest extends Model
         }
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
+        }
+        if (isset($map['Flags'])) {
+            $model->flags = $map['Flags'];
         }
         if (isset($map['Importance'])) {
             $model->importance = $map['Importance'];

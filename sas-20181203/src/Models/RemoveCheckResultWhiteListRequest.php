@@ -25,6 +25,11 @@ class RemoveCheckResultWhiteListRequest extends Model
     public $checkIds;
 
     /**
+     * @var int
+     */
+    public $ruleId;
+
+    /**
      * @description This parameter is deprecated.
      *
      * @example Deprecated
@@ -35,6 +40,7 @@ class RemoveCheckResultWhiteListRequest extends Model
     protected $_name = [
         'checkGroupId' => 'CheckGroupId',
         'checkIds'     => 'CheckIds',
+        'ruleId'       => 'RuleId',
         'type'         => 'Type',
     ];
 
@@ -50,6 +56,9 @@ class RemoveCheckResultWhiteListRequest extends Model
         }
         if (null !== $this->checkIds) {
             $res['CheckIds'] = $this->checkIds;
+        }
+        if (null !== $this->ruleId) {
+            $res['RuleId'] = $this->ruleId;
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
@@ -73,6 +82,9 @@ class RemoveCheckResultWhiteListRequest extends Model
             if (!empty($map['CheckIds'])) {
                 $model->checkIds = $map['CheckIds'];
             }
+        }
+        if (isset($map['RuleId'])) {
+            $model->ruleId = $map['RuleId'];
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
